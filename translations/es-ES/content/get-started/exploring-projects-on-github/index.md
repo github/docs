@@ -1,5 +1,5 @@
 ---
-title: Explorar proyectos en GitHub
+title: Exploración de proyectos en GitHub
 intro: 'Descubre proyectos interesantes en {% data variables.product.product_name %} y contribuye con el código abierto colaborando con otras personas.'
 redirect_from:
   - /categories/stars
@@ -19,6 +19,12 @@ children:
   - /saving-repositories-with-stars
   - /following-people
   - /following-organizations
-shortTitle: Explorar proyectos
+shortTitle: Explore projects
+ms.openlocfilehash: f2f835e68e6146d34691bb21b7ea2b8ff08673ba
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145112074'
 ---
 

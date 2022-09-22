@@ -1,5 +1,5 @@
 ---
-title: 触发工作流程的事件
+title: 触发工作流的事件
 intro: '您可以配置工作流程在 {% data variables.product.product_name %} 上发生特定活动时运行、在预定的时间运行，或者在 {% data variables.product.product_name %} 外部的事件发生时运行。'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -13,35 +13,40 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: 触发工作流程的事件
+shortTitle: Events that trigger workflows
+ms.openlocfilehash: bef348caaccfdad85782811d4addd78cd7ad7460
+ms.sourcegitcommit: 8476dc3d513740e7cb84a91c45768cf44db5df4f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2022
+ms.locfileid: '147496562'
 ---
+## <a name="about-events-that-trigger-workflows"></a>关于触发工作流程的事件
 
-## 关于触发工作流程的事件
+工作流程触发器是导致工作流程运行的事件。 有关如何使用工作流触发器的详细信息，请参阅“[触发工作流](/actions/using-workflows/triggering-a-workflow)”。
 
-工作流程触发器是导致工作流程运行的事件。 有关如何使用工作流程触发器的详细信息，请参阅“[触发工作流程](/actions/using-workflows/triggering-a-workflow)”。
+## <a name="available-events"></a>可用事件
 
-## 可用事件
-
-某些事件具有多种活动类型。 对于这些事件，您可以指定将触发工作流程运行的活动类型。 有关每个活动类型的含义的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。 请注意，并非所有 web 挂钩事件都会触发工作流程。
+某些事件具有多种活动类型。 对于这些事件，您可以指定将触发工作流程运行的活动类型。 有关每个活动类型的含义的详细信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。 请注意，并非所有 web 挂钩事件都会触发工作流程。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
-| Web 挂钩事件有效负载                                                                                                            | 活动类型                                                   | `GITHUB_SHA` | `GITHUB_REF` |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------ | ------------ |
-| [`branch_protection_rule`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`branch_protection_rule`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-在工作流程存储库中的分支保护规则发生更改时运行工作流程。 有关分支保护规则的更多信息，请参阅“[关于受保护分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)”。 有关分支保护规则 API 的信息，请参阅 GraphQL API 文档中的“[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)”或 REST API 文档中的“[分支](/rest/reference/branches)”。
+在工作流程存储库中的分支保护规则发生更改时运行工作流程。 有关分支保护规则的详细信息，请参阅“[关于受保护的分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)”。 有关分支保护规则 API 的信息，请参阅 GraphQL API 文档中的“[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)”或 REST API 文档中的“[分支](/rest/reference/branches)”。
 
-例如，您可以在分支保护规则为 `created` 或 `deleted` 时运行工作流程。
+例如，可以在分支保护规则状态为 `created` 或 `deleted` 时运行工作流：
 
 ```yaml
 on:
@@ -53,21 +58,21 @@ on:
 
 ### `check_run`
 
-| Web 挂钩事件有效负载                                                                                   | 活动类型                                                                                        | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------ | ------------ |
-| [`check_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>-`requested_action` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`check_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>-`requested_action` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-在发生与检查运行相关的活动时运行工作流程。 检查运行是检查套件中的单个测试。 有关信息，请参阅“[检查 API 入门](/rest/guides/getting-started-with-the-checks-api)”。 有关检查运行 API 的信息，请参阅 GraphQL API 文档中的“[CheckRun](/graphql/reference/objects#checkrun)”或 REST API 文档中的“[检查](/rest/reference/checks#runs)”。
+在发生与检查运行相关的活动时运行工作流程。 检查运行是检查套件中的单个测试。 有关详细信息，请参阅“[检查 API 入门](/rest/guides/getting-started-with-the-checks-api)”。 有关检查运行 API 的信息，请参阅 GraphQL API 文档中的“[CheckRun](/graphql/reference/objects#checkrun)”或 REST API 文档中的“[检查](/rest/reference/checks#runs)”。
 
-例如，您可以在检查运行为 `rerequested` 或 `completed` 时运行工作流程。
+例如，可以在检查运行状态为 `rerequested` 或 `completed` 时运行工作流。
 
 ```yaml
 on:
@@ -77,13 +82,13 @@ on:
 
 ### `check_suite`
 
-| Web 挂钩事件有效负载                                                                                       | 活动类型          | `GITHUB_SHA` | `GITHUB_REF` |
-| -------------------------------------------------------------------------------------------------- | ------------- | ------------ | ------------ |
-| [`check_suite`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_suite) | - `completed` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`check_suite`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#check_suite) | - `completed` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)”。 尽管仅支持 `started` 活动类型，但如果将来添加更多活动类型，则指定活动类型将使您的工作流程保持特定。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)”。 尽管仅支持 `started` 活动类型，但如果将来添加更多活动类型，则指定活动类型将确保工作流保持特定。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -91,13 +96,13 @@ on:
 
 {% note %}
 
-**注意：**为防止递归工作流程，如果检查套件是由 {% data variables.product.prodname_actions %} 创建的，则此事件不会触发工作流程。
+注意：为防止递归工作流，如果检查套件是由 {% data variables.product.prodname_actions %} 创建，则此事件不会触发工作流。
 
 {% endnote %}
 
-在发生检查套件活动时运行工作流程。 检查套件是为特定提交创建的检查运行的集合。 检查套件汇总了套件中检查运行的状态和结论。 有关信息，请参阅“[检查 API 入门](/rest/guides/getting-started-with-the-checks-api)”。 有关检查套件 API 的信息，请参阅 GraphQL API 文档中的“[CheckSuite](/graphql/reference/objects#checksuite)”或 REST API 文档中的“[检查](/rest/reference/checks#suites)”。
+在发生检查套件活动时运行工作流程。 检查套件是为特定提交创建的检查运行的集合。 检查套件汇总了套件中检查运行的状态和结论。 有关详细信息，请参阅“[检查 API 入门](/rest/guides/getting-started-with-the-checks-api)”。 有关检查套件 API 的信息，请参阅 GraphQL API 文档中的“[CheckSuite](/graphql/reference/objects#checksuite)”或 REST API 文档中的“[检查](/rest/reference/checks#suites)”。
 
-例如，您可以在检查套件为 `completed` 时运行工作流程。
+例如，可以在检查运行状态为 `completed` 时运行工作流。
 
 ```yaml
 on:
@@ -107,19 +112,19 @@ on:
 
 ### `create`
 
-| Web 挂钩事件有效负载                                                                             | 活动类型 | `GITHUB_SHA`   | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------- | ---- | -------------- | ------------ |
-| [`create`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#create) | n/a  | 创建的分支或标记上的最新提交 | 创建的分支或标记     |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`create`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#create) | 不适用 | 创建的分支或标记上的最新提交 | 创建的分支或标记 |
 
 {% note %}
 
-**注意**：一次创建三个以上的标记时，不会创建事件。
+注意：一次创建三个以上的标记时，不会创建事件。
 
 {% endnote %}
 
-当有人在工作流程的存储库中创建 Git 引用（Git 分支或标记）时运行工作流程。 有关用于创建 Git 引用的 API 的信息，请参阅 GraphQL API 文档中的“[createRef](/graphql/reference/mutations#createref)”或 REST API 文档中的“[创建引用](/rest/reference/git#create-a-reference)”。
+当有人在工作流程的存储库中创建 Git 引用（Git 分支或标记）时运行工作流程。 有关使用 API 创建 Git 引用的信息，请参阅 GraphQL API 文档中的“[createRef](/graphql/reference/mutations#createref)”或 REST API 文档中的“[创建引用](/rest/reference/git#create-a-reference)”。
 
-例如，您可以在发生 `create` 事件时运行工作流程。
+例如，可以在发生 `create` 事件时运行工作流。
 
 ```yaml
 on:
@@ -128,21 +133,21 @@ on:
 
 ### `delete`
 
-| Web 挂钩事件有效负载                                                                             | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
-| [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | n/a  | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | 不适用 | 默认分支上的最新提交 | 默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
 {% note %}
 
-**注意**：一次删除三个以上的标记时，不会创建事件。
+注意：一次删除三个以上的标记时，不会创建事件。
 
 {% endnote %}
 
-当有人删除工作流程存储库中的 Git 引用（Git 分支或标记）时运行工作流程。 有关删除 Git 引用的 API 的信息，请参阅 GraphQL API 文档中的“[deleteRef](/graphql/reference/mutations#deleteref)”或 REST API 文档中的“[删除引用](/rest/reference/git#delete-a-reference)”。
+当有人删除工作流程存储库中的 Git 引用（Git 分支或标记）时运行工作流程。 有关使用 API 删除 Git 引用的信息，请参阅 GraphQL API 文档中的“[deleteRef](/graphql/reference/mutations#deleteref)”或 REST API 文档中的“[删除引用](/rest/reference/git#delete-a-reference)”。
 
-例如，您可以在发生 `delete` 事件时运行工作流程。
+例如，可以在发生 `delete` 事件时运行工作流。
 
 ```yaml
 on:
@@ -151,13 +156,13 @@ on:
 
 ### `deployment`
 
-| Web 挂钩事件有效负载                                                                                     | 活动类型 | `GITHUB_SHA` | `GITHUB_REF`                 |
-| ------------------------------------------------------------------------------------------------ | ---- | ------------ | ---------------------------- |
-| [`deployment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment) | n/a  | 要部署的提交       | 要部署的分支或标记（如果使用提交 SHA 创建，则为空） |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`deployment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment) | 不适用 | 要部署的提交 | 要部署的分支或标记（如果使用提交 SHA 创建，则为空）|
 
-当有人在工作流程的存储库中创建部署时运行工作流程。 使用提交 SHA 创建的部署可能没有 Git 引用。 有关用于创建部署的 API 的信息，请参阅 GraphQL API 文档中的“[创建部署](/graphql/reference/mutations#createdeployment)”或 REST API 文档中的“[部署](/rest/reference/repos#deployments)”。
+当有人在工作流程的存储库中创建部署时运行工作流程。 使用提交 SHA 创建的部署可能没有 Git 引用。有关用于创建部署的 API 的信息，请参阅 GraphQL API 文档中的“[createDeployment](/graphql/reference/mutations#createdeployment)”或 REST API 文档中的“[部署](/rest/reference/repos#deployments)”。
 
-例如，您可以在发生 `deployment` 事件时运行工作流程。
+例如，可以在发生 `deployment` 事件时运行工作流。
 
 ```yaml
 on:
@@ -166,19 +171,19 @@ on:
 
 ### `deployment_status`
 
-| Web 挂钩事件有效负载                                                                                                   | 活动类型 | `GITHUB_SHA` | `GITHUB_REF`     |
-| -------------------------------------------------------------------------------------------------------------- | ---- | ------------ | ---------------- |
-| [`deployment_status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment_status) | n/a  | 要部署的提交       | 要部署的分支或标记（提交时为空） |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`deployment_status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#deployment_status) | 不适用 | 要部署的提交 | 要部署的分支或标记（提交时为空）|
 
 {% note %}
 
-**注意：**当部署状态的状态设置为 `inactive` 时，不会触发工作流程运行。
+注意：将部署状态设置为 `inactive` 时，不会触发工作流运行。
 
 {% endnote %}
 
-在第三方提供部署状态时运行工作流程。 使用提交 SHA 创建的部署可能没有 Git 引用。 有关用于创建部署状态的 API 的信息，请参阅 GraphQL API 文档中的“[createDeploymentStatus](/graphql/reference/mutations#createdeploymentstatus)”或 REST API 文档中的“[创建部署状态](/rest/reference/deployments#create-a-deployment-status)”。
+在第三方提供部署状态时运行工作流程。 使用提交 SHA 创建的部署可能没有 Git 引用。有关用于创建部署状态的 API 的信息，请参阅 GraphQL API 文档中的“[createDeploymentStatus](/graphql/reference/mutations#createdeploymentstatus)”或 REST API 文档中的“[创建部署状态](/rest/reference/deployments#create-a-deployment-status)”。
 
-例如，您可以在发生 `deployment_status` 事件时运行工作流程。
+例如，可以在发生 `deployment_status` 事件时运行工作流。
 
 ```yaml
 on:
@@ -186,15 +191,15 @@ on:
 ```
 
 {% ifversion discussions %}
-### `讨论`
+### `discussion`
 
-| Web 挂钩事件有效负载                                                                             | 活动类型                                                                                                                                                                                                                                                                                                    | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------ |
-| [`讨论`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`discussion`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -202,9 +207,9 @@ on:
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-在创建或修改工作流程存储库中的讨论时运行工作流程。 对于与讨论评论相关的活动，请使用 [`discussion_comment`](#discussion_comment) 事件。 有关讨论的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。 有关 GraphQL API 的信息，请参阅“[讨论](/graphql/reference/objects#discussion)”。
+在创建或修改工作流程存储库中的讨论时运行工作流程。 对于与讨论评论相关的活动，请使用 [`discussion_comment`](#discussion_comment) 事件。 有关讨论的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。 有关 GraphQL API 的信息，请参阅“[讨论](/graphql/reference/objects#discussion)”。
 
-例如，您可以在讨论为 `created`、`edited` 或 `answered` 时运行工作流程。
+例如，可以在讨论状态为 `created`、`edited` 或 `answered` 时运行工作流。
 
 ```yaml
 on:
@@ -214,13 +219,13 @@ on:
 
 ### `discussion_comment`
 
-| Web 挂钩事件有效负载                                                                                           | 活动类型                                                              | `GITHUB_SHA` | `GITHUB_REF` |
-| ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- | ------------ | ------------ |
-| [`discussion_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`discussion_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -228,9 +233,9 @@ on:
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-在创建或修改工作流程存储库中讨论的评论时运行工作流程。 对于与讨论相关的活动，而不是对讨论的评论，请使用 [`discussion`](#discussion) 事件。 有关讨论的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。 有关 GraphQL API 的信息，请参阅“[讨论](/graphql/reference/objects#discussion)”。
+在创建或修改工作流程存储库中讨论的评论时运行工作流程。 对于与讨论（而非讨论的评论）相关的活动，请使用 [`discussion`](#discussion) 事件。 有关讨论的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。 有关 GraphQL API 的信息，请参阅“[讨论](/graphql/reference/objects#discussion)”。
 
-例如，您可以在讨论评论为 `created` 或 `deleted` 时运行工作流程。
+例如，可以在讨论评论的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -240,17 +245,17 @@ on:
 
 {% endif %}
 
-### `复刻`
+### `fork`
 
-| Web 挂钩事件有效负载                                                                       | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
-| [`复刻`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | n/a  | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`fork`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | 不适用 | 默认分支上的最新提交 |  默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
-当有人复刻存储库时运行工作流程。 有关 REST API 的信息，请参阅“[创建复刻](/rest/reference/repos#create-a-fork)”。
+当有人复刻存储库时运行工作流程。 有关 REST API 的信息，请参阅“[创建分支](/rest/reference/repos#create-a-fork)”。
 
-例如，您可以在发生 `fork` 事件时运行工作流程。
+例如，可以在发生 `fork` 事件时运行工作流。
 
 ```yaml
 on:
@@ -259,15 +264,15 @@ on:
 
 ### `gollum`
 
-| Web 挂钩事件有效负载                                                                             | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
-| [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | n/a  | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | 不适用 | 默认分支上的最新提交 |  默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
-在有人创建或更新 Wiki 页面时运行工作流程。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。
+在有人创建或更新 Wiki 页面时运行工作流程。 有关详细信息，请参阅“[关于 Wikis](/communities/documenting-your-project-with-wikis/about-wikis)”。
 
-例如，您可以在发生 `gollum` 事件时运行工作流程。
+例如，可以在发生 `gollum` 事件时运行工作流。
 
 ```yaml
 on:
@@ -276,21 +281,21 @@ on:
 
 ### `issue_comment`
 
-| Web 挂钩事件有效负载                                                                                 | 活动类型                                                              | `GITHUB_SHA` | `GITHUB_REF` |
-| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------ | ------------ |
-| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-在创建、编辑或删除议题或拉取请求评论时运行工作流程。 有关议题评论 API 的信息，请参阅 GraphQL API 文档中的“[IssueComment](/graphql/reference/objects#issuecomment)”或 REST API 文档中的“[议题评论](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)”。
+在创建、编辑或删除议题或拉取请求评论时运行工作流程。 有关问题注释 API 的信息，请参阅 GraphQL API 文档中的“[IssueComment](/graphql/reference/objects#issuecomment)”或 REST API 文档中的“[问题注释](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)”。
 
-例如，您可以在议题或拉取请求评论为 `created` 或 `deleted` 时运行工作流程。
+例如，可以在问题或拉取请求注释的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -298,11 +303,11 @@ on:
     types: [created, deleted]
 ```
 
-#### `issue_comment` 仅用于议题或拉取请求
+#### <a name="issue_comment-on-issues-only-or-pull-requests-only"></a>仅问题或仅拉取请求的 `issue_comment`
 
-`issue_comment` 事件在评论问题和拉取请求时发生。 您可以在条件中使用 `github.event.issue.pull_request` 属性，根据触发对象是议题还是拉取请求，执行不同的操作。
+对于问题和拉取请求的注释，都会发生 `issue_comment` 事件。 可以在条件中使用 `github.event.issue.pull_request` 属性，根据触发对象是问题还是拉取请求来执行不同的操作。
 
-例如，仅当 `issue_comment` 事件源自拉取请求时，此工作流程才会运行 `pr_commented` 作业。 仅当 `issue_comment` 事件源自某个议题时，它才会运行 `issue_commented` 作业。
+例如，仅当 `issue_comment` 事件源自拉取请求时，此工作流才会运行 `pr_commented` 作业。 仅当 `issue_comment` 事件源自问题时，才会运行 `issue_commented` 作业。
 
 ```yaml
 on: issue_comment
@@ -331,23 +336,23 @@ jobs:
           NUMBER: {% raw %}${{ github.event.issue.number }}{% endraw %}
 ```
 
-### `议题`
+### `issues`
 
-| Web 挂钩事件有效负载                                                                         | 活动类型                                                                                                                                                                                                                                                                                                                                                                   | `GITHUB_SHA` | `GITHUB_REF` |
-| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------ |
-| [`议题`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`issues`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-在创建或修改工作流程存储库中的议题时运行工作流程。 对于与议题中的评论相关的活动，请使用 [`issue_comment`](#issue_comment) 事件。 有关议题的更多信息，请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。 有关议题 API 的信息，请参阅 GraphQL API 文档中的“[Issue](/graphql/reference/objects#issue)”或 REST API 文档中的“[议题](/rest/reference/issues)”。
+在创建或修改工作流程存储库中的议题时运行工作流程。 对于与问题中的注释相关的活动，请使用 [`issue_comment`](#issue_comment) 事件。 有关问题的详细信息，请参阅“[关于问题](/issues/tracking-your-work-with-issues/about-issues)”。 有关问题 API 的信息，请参阅 GraphQL API 文档中的“[问题](/graphql/reference/objects#issue)”或 REST API 文档中的“[问题](/rest/reference/issues)”。
 
-例如，您可以在议题为 `opened`、`edited` 或 `milestoned` 时运行工作流程。
+例如，可以在问题状态为 `opened`、`edited` 或 `milestoned` 时运行工作流。
 
 ```yaml
 on:
@@ -355,25 +360,25 @@ on:
     types: [opened, edited, milestoned]
 ```
 
-### `标签`
+### `label`
 
-| Web 挂钩事件有效负载                                                                        | 活动类型                                                              | `GITHUB_SHA` | `GITHUB_REF` |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------ | ------------ |
-| [`标签`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`label`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#label)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#label)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-在创建或修改工作流程存储库中的标签时运行工作流程。 有关标签的更多信息，请参阅“[管理标签](/issues/using-labels-and-milestones-to-track-work/managing-labels)”。 有关标签 API 的信息，请参阅 GraphQL API 文档中的“[标签](/graphql/reference/objects#label)”或 REST API 文档中的“[标签](/rest/reference/issues#labels)”。
+在创建或修改工作流程存储库中的标签时运行工作流程。 有关标签的详细信息，请参阅[管理标签](/issues/using-labels-and-milestones-to-track-work/managing-labels)。 有关标签 API 的信息，请参阅 GraphQL API 文档中的“[标签](/graphql/reference/objects#label)”或 REST API 文档中的“[标签](/rest/reference/issues#labels)”。
 
-如果要在议题、拉取请求或讨论中添加或删除标签时运行工作流程，请对 [`issues`](#issues)、[`pull_request`](#pull_request)、[`pull_request_target`](#pull_request_target) 或 [`discussion`](#discussion) 事件使用 `labeled` 或 `unlabeled` 活动类型。
+如果要在问题、拉取请求或讨论中添加或删除标签时运行工作流，请针对 [`issues`](#issues)、[`pull_request`](#pull_request)、[`pull_request_target`](#pull_request_target) 或 [`discussion`](#discussion) 事件改用 `labeled` 或 `unlabeled` 活动类型。
 
-例如，您可以在标签为 `created` 或 `deleted` 时运行工作流程。
+例如，可以在标签状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -385,21 +390,21 @@ on:
 
 ### `merge_group`
 
-| Web 挂钩事件有效负载                                                                                       | 活动类型               | `GITHUB_SHA`           | `GITHUB_REF`           |
-| -------------------------------------------------------------------------------------------------- | ------------------ | ---------------------- | ---------------------- |
-| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | 合并组的 SHA | 合并组的引用 |
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 尽管仅支持 `checks_requested` 活动类型，但如果将来添加更多活动类型，则指定活动类型将使工作流保持特定。 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+将拉取请求添加到合并队列时运行工作流，将拉取请求添加到合并组。 有关详细信息，请参阅“[将拉取请求与合并队列合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)”。
 
-For example, you can run a workflow when the `checks_requested` activity has occurred.
+例如，可以在发生 `checks_requested` 活动时运行工作流。
 
 ```yaml
 on:
@@ -409,25 +414,25 @@ on:
 ```
 
 {% endif %}
-### `里程碑`
+### `milestone`
 
-| Web 挂钩事件有效负载                                                                             | 活动类型                                                                                                        | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------ | ------------ |
-| [`里程碑`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`milestone`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-在创建或修改工作流程存储库中的里程碑时运行工作流程。 有关里程碑的更多信息，请参阅“[关于里程碑](/issues/using-labels-and-milestones-to-track-work/about-milestones)”。 有关里程碑 API 的信息，请参阅 GraphQL API 文档中的“[里程碑](/graphql/reference/objects#milestone)”或 REST API 文档中的“[里程碑](/rest/reference/issues#milestones)”。
+在创建或修改工作流程存储库中的里程碑时运行工作流程。 有关里程碑的详细信息，请参阅“[关于里程碑](/issues/using-labels-and-milestones-to-track-work/about-milestones)”。 有关里程碑 API 的信息，请参阅 GraphQL API 文档中的“[里程碑](/graphql/reference/objects#milestone)”或 REST API 文档中的“[里程碑](/rest/reference/issues#milestones)”。
 
-如果要在里程碑中添加或删除议题时运行工作流程，请改为对 [`issues`](#issues) 事件使用 `milestoned` 或 `demilestoned` 活动类型。
+若想要在将问题添加到里程碑或从里程碑中删除问题时运行工作流，请针对 [`issues`](#issues) 事件改用 `milestoned` 或 `demilestoned` 活动类型。
 
-例如，您可以在里程碑为 `opened` 或 `deleted` 时运行工作流程。
+例如，可以在里程碑状态为 `opened` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -437,15 +442,15 @@ on:
 
 ### `page_build`
 
-| Web 挂钩事件有效负载                                                                                     | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
-| ------------------------------------------------------------------------------------------------ | ---- | ------------ | ------------ |
-| [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | n/a  | 默认分支上的最新提交   | n/a          |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | 不适用 | 默认分支上的最新提交 | 不适用 |
 
 {% data reusables.actions.branch-requirement %}
 
-当有人推送到作为 {% data variables.product.prodname_pages %} 的发布源的分支时，如果为存储库启用了 {% data variables.product.prodname_pages %} ，则运行工作流程。 For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." 有关 REST API 的信息，请参阅“[页面](/rest/reference/repos#pages)”。
+当有人推送到作为 {% data variables.product.prodname_pages %} 的发布源的分支时，如果为存储库启用了 {% data variables.product.prodname_pages %} ，则运行工作流程。 有关 {% data variables.product.prodname_pages %} 发布源的详细信息，请参阅“[为 GitHub Pages 站点配置发布源](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)”。 有关 REST API 的信息，请参阅“[Pages](/rest/reference/repos#pages)”。
 
-例如，您可以在发生 `page_build` 事件时运行工作流程。
+例如，可以在发生 `page_build` 事件时运行工作流。
 
 ```yaml
 on:
@@ -454,13 +459,13 @@ on:
 
 ### `project`
 
-| Web 挂钩事件有效负载                                                                               | 活动类型                                                                                                          | `GITHUB_SHA` | `GITHUB_REF` |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------ | ------------ |
-| [`project`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`project`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} `edited` 活动类型是指编辑项目板（而不是项目板上的列或卡片）的时间。 有关每种活动类型的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} `edited` 活动类型是指编辑项目板（而不是项目板上的列或卡片）。 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -468,21 +473,19 @@ on:
 
 {% note %}
 
-**注意**：此事件仅对工作流存储库拥有的项目发生，对于组织拥有或用户拥有的项目，或者对于其他存储库拥有的项目，不会发生此事件。
+注意：此事件仅对工作流存储库拥有的项目发生，对于组织拥有或用户拥有的项目，或者对于其他存储库拥有的项目，不会发生此事件。
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+注意：此事件仅适用于 {% data variables.product.prodname_projects_v1 %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-在创建或修改项目板时运行工作流程。 对于与项目板中的卡片或列相关的活动，请改用 [`project_card`](#project_card) 或 [`project_column`](#project_column) 事件。 有关项目板的更多信息，请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。 有关项目板 API 的信息，请参阅 GraphQL API 文档中的“[项目](/graphql/reference/objects#project)”或 REST API 文档中的“[项目](/rest/reference/projects)”。
+在创建或修改项目板时运行工作流程。 对于与项目板中的卡片或列相关的活动，请改用 [`project_card`](#project_card) 或 [`project_column`](#project_column) 事件。 有关项目板的详细信息，请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。 有关项目板 API 的信息，请参阅 GraphQL API 文档中的“[项目](/graphql/reference/objects#project)”或 REST API 文档中的“[项目](/rest/reference/projects)”。
 
-例如，您可以在项目为 `created` 或 `deleted` 时运行工作流程。
+例如，可以在项目状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -492,13 +495,13 @@ on:
 
 ### `project_card`
 
-| Web 挂钩事件有效负载                                                                                         | 活动类型                                                                                                           | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------ | ------------ |
-| [`project_card`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_card) | - `created`<br/>- `moved`<br/>- `converted` to an issue<br/>- `edited`<br/>- `deleted` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`project_card`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_card) | - `created`<br/>- `moved`<br/>- `converted` 到问题<br/>- `edited`<br/>- `deleted` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -506,21 +509,19 @@ on:
 
 {% note %}
 
-**注意**：此事件仅对工作流存储库拥有的项目发生，对于组织拥有或用户拥有的项目，或者对于其他存储库拥有的项目，不会发生此事件。
+注意：此事件仅对工作流存储库拥有的项目发生，对于组织拥有或用户拥有的项目，或者对于其他存储库拥有的项目，不会发生此事件。
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+注意：此事件仅适用于 {% data variables.product.prodname_projects_v1 %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-在创建或修改项目板上的卡片时运行工作流程。 对于与项目板或项目板中的列相关的活动，请改用 [`project`](#project) 或 [`project_column`](#project_column) 事件。 有关项目板的更多信息，请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。 有关项目卡 API 的信息，请参阅 GraphQL API 文档中的“[ProjectCard](/graphql/reference/objects#projectcard)”或 REST API 文档中的“[项目卡](/rest/reference/projects#cards)”。
+在创建或修改项目板上的卡片时运行工作流程。 对于与项目板或项目板中的列相关的活动，请改用 [`project`](#project) 或 [`project_column`](#project_column) 事件。 有关项目板的详细信息，请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。 有关项目卡片 API 的信息，请参阅 GraphQL API 文档中的“[ProjectCard](/graphql/reference/objects#projectcard)”或 REST API 文档中的“[项目卡片](/rest/reference/projects#cards)”。
 
-例如，您可以在项目卡为 `created` 或 `deleted` 时运行工作流程。
+例如，可以在项目卡片的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -530,13 +531,13 @@ on:
 
 ### `project_column`
 
-| Web 挂钩事件有效负载                                                                                             | 活动类型                                                                        | `GITHUB_SHA` | `GITHUB_REF` |
-| -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------ | ------------ |
-| [`project_column`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`project_column`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -544,21 +545,19 @@ on:
 
 {% note %}
 
-**注意**：此事件仅对工作流存储库拥有的项目发生，对于组织拥有或用户拥有的项目，或者对于其他存储库拥有的项目，不会发生此事件。
+注意：此事件仅对工作流存储库拥有的项目发生，对于组织拥有或用户拥有的项目，或者对于其他存储库拥有的项目，不会发生此事件。
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+注意：此事件仅适用于 {% data variables.product.prodname_projects_v1 %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-在创建或修改项目板上的列时运行工作流程。 对于与项目板或项目板中的卡相关的活动，请改用 [`project`](#project) 或 [`project_card`](#project_card) 事件。 有关项目板的更多信息，请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。 有关项目列 API 的信息，请参阅 GraphQL API 文档中的“[项目列](/graphql/reference/objects#projectcolumn)”或 REST API 文档中的“[项目列](/rest/reference/projects#columns)”。
+在创建或修改项目板上的列时运行工作流程。 对于与项目板或项目板中的卡片相关的活动，请改用 [`project`](#project) 或 [`project_card`](#project_card) 事件。 有关项目板的详细信息，请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。 有关项目列 API 的信息，请参阅 GraphQL API 文档中的“[项目列](/graphql/reference/objects#projectcolumn)”或 REST API 文档中的“[项目列](/rest/reference/projects#columns)”。
 
-例如，您可以在项目列为 `created` 或 `deleted` 时运行工作流程。
+例如，可以在项目列的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -568,15 +567,15 @@ on:
 
 ### `public`
 
-| Web 挂钩事件有效负载                                                                             | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
-| [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | n/a  | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | 不适用 | 默认分支上的最新提交 |  默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
-当工作流程的存储库从私有变为公共时运行工作流程。 有关 REST API 的信息，请参阅“[编辑仓库](/rest/reference/repos#edit)”。
+当工作流程的存储库从私有变为公共时运行工作流程。 有关 REST API 的信息，请参阅“[编辑存储库](/rest/reference/repos#edit)”。
 
-例如，您可以在发生 `public` 事件时运行工作流程。
+例如，可以在发生 `public` 事件时运行工作流。
 
 ```yaml
 on:
@@ -585,27 +584,27 @@ on:
 
 ### `pull_request`
 
-| Web 挂钩事件有效负载                                                                                         | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `GITHUB_SHA`            | `GITHUB_REF`                        |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------- |
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | `GITHUB_REF` 分支上的最新合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | `GITHUB_REF` 分支上的最后一次合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)”。 默认情况下，工作流程仅在 `pull_request` 事件的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要按不同的活动类型触发工作流，请使用 `types` 关键字。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)”。 默认情况下，工作流仅在 `pull_request` 事件的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要按不同的活动类型触发工作流，请使用 `types` 关键字。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
 
 {% endnote %}
 
 {% note %}
 
-**注意：**如果拉取请求具有合并冲突，工作流程将不会在 `pull_request` 活动上运行。 必须先解决合并冲突。
+注意：如果拉取请求存在合并冲突，工作流将不会在 `pull_request` 活动上运行。 必须先解决合并冲突。
 
-相反，具有 `pull_request_target` 事件的工作流程将运行，即使拉取请求存在合并冲突也是如此。 在使用 `pull_request_target` 触发器之前，您应该了解安全风险。 更多信息请参阅 [`pull_request_target`](#pull_request_target)。
+相反，具有 `pull_request_target` 事件的工作流将运行，即使拉取请求存在合并冲突也是如此。 在使用 `pull_request_target` 触发器之前，应注意安全风险。 有关详细信息，请参阅 [`pull_request_target`](#pull_request_target)。
 
 {% endnote %}
 
-在工作流程存储库中发生有关拉取请求的活动时运行工作流程。 例如，如果未指定任何活动类型，则工作流程将在打开或重新打开拉取请求时运行，或者在更新拉取请求的头部分支时运行。 对于与拉取请求审阅、拉取请求审阅评论或拉取请求评论相关的活动，请改用 [`pull_request_review`](#pull_request_review)、[`pull_request_review_comment`](#pull_request_review_comment)或 [`issue_comment`](#issue_comment) 事件。 有关拉取请求 API 的信息，请参阅 GraphQL API 文档中的“[PullRequest](/graphql/reference/objects#pullrequest)”或 REST API 文档中的“[拉取请求](/rest/reference/pulls)”。
+在工作流程存储库中发生有关拉取请求的活动时运行工作流程。 例如，如果未指定任何活动类型，则工作流程将在打开或重新打开拉取请求时运行，或者在更新拉取请求的头部分支时运行。 对于与拉取请求审查、拉取请求审查注释或拉取请求注释相关的活动，请改用 [`pull_request_review`](#pull_request_review)、[`pull_request_review_comment`](#pull_request_review_comment) 或 [`issue_comment`](#issue_comment) 事件。 有关拉取请求 API 的信息，请参阅 GraphQL API 文档中的“[PullRequest](/graphql/reference/objects#pullrequest)”或 REST API 文档中的“[拉取请求](/rest/reference/pulls)”。
 
-请注意，此事件 `GITHUB_SHA` 是拉取请求合并分支的最后一个合并提交。 如果要获取最后一次提交到拉取请求的头部分支的提交 ID，请改用 `github.event.pull_request.head.sha`。
+请注意，此事件的 `GITHUB_SHA` 是拉取请求合并分支的最后一个合并提交。 如果要获取最后一次提交到拉取请求的头部分支的提交 ID，请改用 `github.event.pull_request.head.sha`。
 
 例如，您可以在打开或重新打开拉取请求时运行工作流程。
 
@@ -615,7 +614,7 @@ on:
     types: [opened, reopened]
 ```
 
-您可以使用事件上下文进一步控制工作流程中作业的运行时间。 例如，此工作流程将在对请求审查拉取请求时运行，但 `specific_review_requested` 作业仅在请求 `octo-team` 审查时运行。
+您可以使用事件上下文进一步控制工作流程中作业的运行时间。 例如，当请求对拉取请求进行审查时，将运行此工作流，但 `specific_review_requested` 作业仅在请求 `octo-team` 审查时运行。
 
 ```yaml
 on:
@@ -629,11 +628,11 @@ jobs:
       - run: echo 'A review from octo-team was requested'
 ```
 
-#### 基于拉取请求的头部分支或基本分支运行工作流程
+#### <a name="running-your-workflow-based-on-the-head-or-base-branch-of-a-pull-request"></a>基于拉取请求的头部分支或基本分支运行工作流程
 
-您可以使用 `branches` 或 `branches-ignore` 筛选器，将工作流配置为仅针对特定分支的拉取请求运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)”。
+可以使用 `branches` 或 `branches-ignore` 筛选器配置工作流，使其仅在面向特定分支的拉取请求上运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)”。
 
-例如，当有人打开面向名称以 `releases/` 开头的分支的拉取请求时，此工作流程将运行：
+例如，当有人打开面向名称以 `releases/` 开头的分支的拉取请求时，此工作流将运行：
 
 ```yaml
 on:
@@ -646,7 +645,7 @@ on:
 
 {% note %}
 
-**注意：**{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/`开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流程：
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/` 开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流：
 
 ```yaml
 on:
@@ -661,7 +660,7 @@ on:
 
 {% endnote %}
 
-要基于拉取请求的头部分支名称（而不是拉取请求的基本分支名称）运行作业，请在条件中使用 `github.head_ref` 上下文。 例如，每当打开拉取请求时，此工作流程都会运行，但仅当拉取请求的头部是名称以 `releases/` 开头的分支时，才会执行 `run_if` 作业：
+要基于拉取请求的头部分支名称（而不是拉取请求的基本分支名称）运行作业，请在条件中使用 `github.head_ref` 上下文。 例如，每当打开拉取请求时，此工作流都会运行，但仅当拉取请求的头部是名称以 `releases/` 开头的分支时，才会执行 `run_if` 作业：
 
 ```yaml
 on:
@@ -676,11 +675,11 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### 根据拉取请求中更改的文件运行工作流程
+#### <a name="running-your-workflow-based-on-files-changed-in-a-pull-request"></a>根据拉取请求中更改的文件运行工作流程
 
-您还可以将工作流程配置为在拉取请求更改特定文件时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
+您还可以将工作流程配置为在拉取请求更改特定文件时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
 
-例如，当拉取请求包含对 JavaScript 文件 (`.js`) 的更改时，此工作流程将运行：
+例如，当拉取请求包含对 JavaScript 文件 (`.js`) 的更改时，此工作流将运行：
 
 ```yaml
 on:
@@ -691,7 +690,7 @@ on:
 
 {% note %}
 
-**注意：**{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/`开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流程：
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/` 开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流：
 
 ```yaml
 on:
@@ -706,9 +705,9 @@ on:
 
 {% endnote %}
 
-#### 在拉取请求合并时运行工作流程
+#### <a name="running-your-workflow-when-a-pull-request-merges"></a>在拉取请求合并时运行工作流程
 
-当拉取请求合并时，拉取请求将自动关闭。 要在拉取请求合并时运行工作流程，请使用 `pull_request` `closed` 事件类型以及检查事件的 `merged` 值的条件。 例如，每当拉取请求关闭时，将运行以下工作流程。 仅当拉取请求也合并时， `if_merged` 作业才会运行。
+当拉取请求合并时，拉取请求将自动关闭。 要在拉取请求合并时运行工作流，请使用 `pull_request` `closed` 事件类型以及检查事件 `merged` 值的条件。 例如，每当拉取请求关闭时，将运行以下工作流程。 仅当拉取请求也合并时，`if_merged` 作业才会运行。
 
 ```yaml
 on:
@@ -727,25 +726,25 @@ jobs:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-### `pull_request_comment`（使用 `issue_comment`）
+### <a name="pull_request_comment-use-issue_comment"></a>`pull_request_comment`（使用 `issue_comment`）
 
-要在创建、编辑或删除对拉取请求（而不是拉取请求的差异）的评论时运行工作流程，请使用 [`issue_comment`](#issue_comment) 事件。 对于与拉取请求审核或拉取请求审核评论相关的活动，请使用 [`pull_request_review`](#pull_request_review) 或 [`pull_request_review_comment`](#pull_request_review_comment) 事件。
+要在创建、编辑或删除对拉取请求（而不是拉取请求的差异）的注释时运行工作流，请使用 [`issue_comment`](#issue_comment) 事件。 对于与拉取请求审查或拉取请求审查注释相关的活动，请使用 [`pull_request_review`](#pull_request_review) 或 [`pull_request_review_comment`](#pull_request_review_comment) 事件。
 
 ### `pull_request_review`
 
-| Web 挂钩事件有效负载                                                                                                       | 活动类型                                                       | `GITHUB_SHA`            | `GITHUB_REF`                        |
-| ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- | ----------------------- | ----------------------------------- |
-| [`pull_request_review`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | `GITHUB_REF` 分支上的最新合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`pull_request_review`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | `GITHUB_REF` 分支上的最后一次合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-在提交、编辑或关闭拉取请求审阅时运行工作流程。 拉取请求审查是除正文评论和状态之外的一组拉取请求审查评论。 对于与拉取请求审查评论或拉取请求评论相关的活动，请改用 [`pull_request_review_comment`](#pull_request_review_comment) 或 [`issue_comment`](#issue_comment) 事件。 有关拉取请求审查 API 的信息，请参阅 GraphQL API 文档中的“[PullRequestReview](/graphql/reference/objects#pullrequest)”或 REST API 文档中的“[拉取请求审查](/rest/reference/pulls#reviews)”。
+在提交、编辑或关闭拉取请求审阅时运行工作流程。 拉取请求审查是除正文评论和状态之外的一组拉取请求审查评论。 对于与拉取请求审查注释或拉取请求注释相关的活动，请改用 [`pull_request_review_comment`](#pull_request_review_comment) 或 [`issue_comment`](#issue_comment) 事件。 有关拉取请求审查 API 的信息，请参阅 GraphQL API 文档中的“[PullRequestReview](/graphql/reference/objects#pullrequest)”或 REST API 文档中的“[拉取请求审查](/rest/reference/pulls#reviews)”。
 
-例如，您可以在拉取请求审查为 `edited` 或 `dismissed` 时运行工作流程。
+例如，可以在拉取请求审查的状态为 `edited` 或 `dismissed` 时运行工作流。
 
 ```yaml
 on:
@@ -753,9 +752,9 @@ on:
     types: [edited, dismissed]
 ```
 
-#### 在批准拉取请求时运行工作流程
+#### <a name="running-a-workflow-when-a-pull-request-is-approved"></a>在批准拉取请求时运行工作流程
 
-要在拉取请求获得批准时运行工作流程，可以使用 `submitted` 类型的 `pull_request_review` 事件触发工作流程，然后使用 `github.event.review.state` 属性检查审查状态。 例如，每当提交拉取请求审查时，此工作流程都将运行，但`approved` 作业仅当提交的审查是批准审查时才会运行：
+若要在拉取请求获得批准后运行工作流，可以使用 `submitted` 类型的 `pull_request_review` 事件触发工作流，然后使用 `github.event.review.state` 属性检查审查状态。 例如，每当提交拉取请求审查时，此工作流都将运行，但仅当提交的审查是批准审查时，`approved` 作业才会运行：
 
 ```yaml
 on:
@@ -774,19 +773,19 @@ jobs:
 
 ### `pull_request_review_comment`
 
-| Web 挂钩事件有效负载                                                                                                                       | 活动类型                                                   | `GITHUB_SHA`            | `GITHUB_REF`                        |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------------------- | ----------------------------------- |
-| [`pull_request_review_comment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted` | `GITHUB_REF` 分支上的最新合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`pull_request_review_comment`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| `GITHUB_REF` 分支上的最后一次合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-在修改拉取请求审查评论时运行工作流程。 拉取请求审查评论是对拉取请求差异的评论。 对于与拉取请求评论或拉取请求评论相关的活动，请改用 [`pull_request_review`](#pull_request_review) 或 [`issue_comment`](#issue_comment) 事件。 有关拉取请求审查评论 API 的信息，请参阅 GraphQL API 文档中的“[PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment)”或 REST API 文档中的“[审查评论](/rest/reference/pulls#comments)”。
+在修改拉取请求审查评论时运行工作流程。 拉取请求审查评论是对拉取请求差异的评论。 对于与拉取请求审查或拉取请求注释相关的活动，请改用 [`pull_request_review`](#pull_request_review) 或 [`issue_comment`](#issue_comment) 事件。 有关拉取请求审查注释 API 的信息，请参阅 GraphQL API 文档中的“[PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment)”或 REST API 文档中的“[审查注释](/rest/reference/pulls#comments)”。
 
-例如，您可以在拉取请求审查评论为 `created` 或 `deleted` 时运行工作流程。
+例如，可以在拉取请求审查注释的状态为 `created` 或 `deleted` 时运行工作流。
 
 ```yaml
 on:
@@ -798,29 +797,27 @@ on:
 
 ### `pull_request_target`
 
-| Web 挂钩事件有效负载                                                                                         | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `GITHUB_SHA`   | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | PR 基分支上的最后一次提交 | PR 基础分支      |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | PR 基分支上的最后一次提交 | PR 基础分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)”。 默认情况下，工作流程仅在 `pull_request_target` 活动的类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要按不同的活动类型触发工作流，请使用 `types` 关键字。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)”。 默认情况下，工作流仅在 `pull_request_target` 事件的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要按不同的活动类型触发工作流，请使用 `types` 关键字。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
 
 {% endnote %}
 
 在工作流程存储库中发生有关拉取请求的活动时运行工作流程。 例如，如果未指定任何活动类型，则工作流程将在打开或重新打开拉取请求时运行，或者在更新拉取请求的头部分支时运行。
 
-此事件在拉取请求基础的上下文中运行，而不是像 `pull_request` 事件一样在合并提交的上下文中运行。 这样可以防止从拉取请求的头部执行不安全的代码，以免更改您的仓库或窃取您在工作流程中使用的任何机密。 此事件允许您的工作流程对来自复刻的拉取请求执行标记或评论等操作。 如果需要从拉取请求构建或运行代码，请避免使用此事件。
-
-To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
+此事件在拉取请求基础的上下文中运行，而不是像 `pull_request` 事件一样在合并提交上下文中运行。 这样可以防止从拉取请求的头部执行不安全的代码，以免更改您的仓库或窃取您在工作流程中使用的任何机密。 此事件允许您的工作流程对来自复刻的拉取请求执行标记或评论等操作。 如果需要从拉取请求构建或运行代码，请避免使用此事件。
 
 {% warning %}
 
-**警告：** 对于由 `pull_request_target` 事件触发的工作流程，除非指定了 `permissions` 密钥并且工作流程可以访问机密，否则将向 `GITHUB_TOKEN` 授予读/写存储库权限， 即使它是从复刻触发的。 虽然工作流程在拉取请求的基础上下文中运行，但您应该确保不在此事件中检出、生成或运行来自拉取请求的不受信任代码。 此外，任何缓存都与基本分支共享相同的作用域。 为帮助防止缓存中毒，如果缓存内容可能已更改，则不应保存缓存。 更多信息请参阅 GitHub 安全实验室网站上的“[保持 GitHub Actions 和工作流程安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)”。
+警告：对于由 `pull_request_target` 事件触发的工作流，将授予 `GITHUB_TOKEN` 读/写存储库权限，除非指定了 `permissions` 密钥并且工作流可以访问机密，即使从分支触发也是如此。 虽然工作流程在拉取请求的基础上下文中运行，但您应该确保不在此事件中检出、生成或运行来自拉取请求的不受信任代码。 此外，任何缓存都与基本分支共享相同的作用域。 为帮助防止缓存中毒，如果缓存内容可能已更改，则不应保存缓存。 有关详细信息，请参阅 GitHub Security Lab 网站上的“[确保 GitHub Actions 和工作流安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)”。
 
 {% endwarning %}
 
-例如，您可以在拉取请求为 `assigned`、`opened`、`synchronize` 或 `reopened` 时运行工作流程。
+例如，可以在拉取请求的状态为 `assigned`、`opened`、`synchronize` 或 `reopened` 时运行工作流。
 
 ```yaml
 on:
@@ -828,11 +825,11 @@ on:
     types: [assigned, opened, synchronize, reopened]
 ```
 
-#### 基于拉取请求的头部分支或基本分支运行工作流程
+#### <a name="running-your-workflow-based-on-the-head-or-base-branch-of-a-pull-request"></a>基于拉取请求的头部分支或基本分支运行工作流程
 
-您可以使用 `branches` 或 `branches-ignore` 筛选器，将工作流配置为仅针对特定分支的拉取请求运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)”。
+可以使用 `branches` 或 `branches-ignore` 筛选器配置工作流，使其仅在面向特定分支的拉取请求上运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)”。
 
-例如，当有人打开面向名称以 `releases/` 开头的分支的拉取请求时，此工作流程将运行：
+例如，当有人打开面向名称以 `releases/` 开头的分支的拉取请求时，此工作流将运行：
 
 ```yaml
 on:
@@ -845,7 +842,7 @@ on:
 
 {% note %}
 
-**注意：**{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/`开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流程：
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/` 开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流：
 
 ```yaml
 on:
@@ -860,7 +857,7 @@ on:
 
 {% endnote %}
 
-要基于拉取请求的头部分支名称（而不是拉取请求的基本分支名称）运行作业，请在条件中使用 `github.head_ref` 上下文。 例如，每当打开拉取请求时，此工作流程都会运行，但仅当拉取请求的头部是名称以 `releases/` 开头的分支时，才会执行 `run_if` 作业：
+要基于拉取请求的头部分支名称（而不是拉取请求的基本分支名称）运行作业，请在条件中使用 `github.head_ref` 上下文。 例如，每当打开拉取请求时，此工作流都会运行，但仅当拉取请求的头部是名称以 `releases/` 开头的分支时，才会执行 `run_if` 作业：
 
 ```yaml
 on:
@@ -875,11 +872,11 @@ jobs:
       - run: echo "The head of this PR starts with 'releases/'"
 ```
 
-#### 根据拉取请求中更改的文件运行工作流程
+#### <a name="running-your-workflow-based-on-files-changed-in-a-pull-request"></a>根据拉取请求中更改的文件运行工作流程
 
-您可以使用 `paths` 或 `paths-ignore` 筛选器来配置工作流程，以便在拉取请求更改特定文件时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
+可以使用 `paths` 或 `paths-ignore` 筛选器配置工作流，使其在拉取请求更改特定文件时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
 
-例如，当拉取请求包含对 JavaScript 文件 (`.js`) 的更改时，此工作流程将运行：
+例如，当拉取请求包含对 JavaScript 文件 (`.js`) 的更改时，此工作流将运行：
 
 ```yaml
 on:
@@ -890,7 +887,7 @@ on:
 
 {% note %}
 
-**注意：**{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/`开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流程：
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅当在名称以 `releases/` 开头的分支上打开包含 JavaScript (`.js`) 文件更改的拉取请求时，才会运行以下工作流：
 
 ```yaml
 on:
@@ -905,9 +902,9 @@ on:
 
 {% endnote %}
 
-#### 在拉取请求合并时运行工作流程
+#### <a name="running-your-workflow-when-a-pull-request-merges"></a>在拉取请求合并时运行工作流程
 
-当拉取请求合并时，拉取请求将自动关闭。 要在拉取请求合并时运行工作流程，请使用 `pull_request_target` `closed` 事件类型以及检查事件的 `merged` 值的条件。 例如，每当拉取请求关闭时，将运行以下工作流程。 仅当拉取请求也合并时， `if_merged` 作业才会运行。
+当拉取请求合并时，拉取请求将自动关闭。 要在拉取请求合并时运行工作流，请使用 `pull_request_target` `closed` 事件类型以及检查事件 `merged` 值的条件。 例如，每当拉取请求关闭时，将运行以下工作流程。 仅当拉取请求也合并时，`if_merged` 作业才会运行。
 
 ```yaml
 on:
@@ -924,27 +921,27 @@ jobs:
         echo The PR was merged
 ```
 
-### `推送`
+### `push`
 
-| Web 挂钩事件有效负载                                                                       | 活动类型 | `GITHUB_SHA`                                                                                                                     | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [`推送`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a  | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | 更新的引用        |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | 不适用 | 删除分支时，工作流运行中的 SHA（及其关联的 refs）将恢复为存储库的默认分支。 | 更新的引用 |
 
 {% note %}
 
-**注：**适用于 GitHub Actions 的 web 挂钩有效负载在 `commit` 对象中不包括 `added`、`removed` 和 `modified` 属性。 您可以使用 API 检索完整的提交对象。 有关信息，请参阅 GraphQL API 文档中的“[提交](/graphql/reference/objects#commit)”或 REST API 文档中的“[获取提交](/rest/reference/commits#get-a-commit)”。
+注意：可用于 GitHub Actions 的 Webhook 有效负载不包括 `commit` 对象中的 `added`、`removed` 和 `modified` 属性。 您可以使用 API 检索完整的提交对象。 有关信息，请参阅 GraphQL API 文档中的“[提交](/graphql/reference/objects#commit)”或 REST API 文档中的“[获取提交](/rest/reference/commits#get-a-commit)”。
 
 {% endnote %}
 
 {% note %}
 
-**注意**：一次推送三个以上的标记时，不会创建事件。
+注意：一次推送三个以上的标记时，不会创建事件。
 
 {% endnote %}
 
 在推送提交或标记时运行工作流程。
 
-例如，您可以在发生 `push` 事件时运行工作流程。
+例如，可以在发生 `push` 事件时运行工作流。
 
 ```yaml
 on:
@@ -953,15 +950,15 @@ on:
 
 {% note %}
 
-**注意**：当 `push` web 挂钩事件触发工作流程运行时，操作 UI 的“推送者”字段显示推送者的帐户，而不是作者或提交者的帐户。 但是，如果使用带有部署密钥的 SSH 身份验证将更改推送到存储库，则“推送者”字段将是存储库管理员，他在将部署密钥添加到存储库时对其进行了验证。
+注意：当 `push` Webhook 事件触发工作流运行时，操作 UI 的“推送者”字段会显示推送者的帐户，而不是作者或提交者的帐户。 但是，如果使用带有部署密钥的 SSH 身份验证将更改推送到存储库，则“推送者”字段将是在将部署密钥添加到存储库时验证部署密钥的存储库管理员。
 
 {% endnote %}
 
-#### 仅在推送到特定分支时运行工作流程
+#### <a name="running-your-workflow-only-when-a-push-to-specific-branches-occurs"></a>仅在推送到特定分支时运行工作流程
 
-您可以使用 `branches` 或 `branches-ignore` 筛选器，将工作流程配置为仅在推送特定分支时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
+可以使用 `branches` 或 `branches-ignore` 筛选器配置工作流，使其仅在推送特定分支时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
-例如，当有人推送到 `main` 分支或以 `releases/` 开头的分支时，此工作流程将运行。
+例如，当有人推送到 `main` 或推送到以 `releases/` 开头的分支时，此工作流将运行。
 
 ```yaml
 on:
@@ -973,7 +970,7 @@ on:
 
 {% note %}
 
-**注意：**{% data reusables.actions.branch-paths-filter %} 例如，仅当向名称以 `releases/`开头的分支发出包含 JavaScript (`.js`) 文件更改的推送时，才会运行以下工作流程：
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅在将包含 JavaScript (`.js`) 文件更改的推送发送到名称以 `releases/` 开头的分支时，以下工作流才会运行：
 
 ```yaml
 on:
@@ -986,11 +983,11 @@ on:
 
 {% endnote %}
 
-#### 仅在发生特定标记的推送时运行工作流程
+#### <a name="running-your-workflow-only-when-a-push-of-specific-tags-occurs"></a>仅在发生特定标记的推送时运行工作流程
 
-您可以使用 `tags` 或 `tags-ignore` 筛选器，将工作流程配置为仅在特定标记推送时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
+可以使用 `tags` 或 `tags-ignore` 筛选器配置工作流，使其仅在推送特定标记时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
-例如，当有人推送以 `v1.` 开头的标记时，此工作流程将运行。
+例如，当有人推送以 `v1.` 开头的标记时，此工作流将运行。
 
 ```yaml
 on:
@@ -999,11 +996,11 @@ on:
       - v1.**
 ```
 
-#### 仅当推送影响特定文件时才运行工作流程
+#### <a name="running-your-workflow-only-when-a-push-affects-specific-files"></a>仅当推送影响特定文件时才运行工作流程
 
-可以使用 `paths` 或 `paths-ignore` 筛选器配置工作流程在推送到特定文件时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
+可以使用 `paths` 或 `paths-ignore` 筛选器配置工作流，使其在推送到特定文件时运行。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
 
-例如，当有人将更改推送到 JavaScript 文件 (`.js`)时，此工作流程将运行：
+例如，当有人将更改推送到 JavaScript 文件 (`.js`) 时，此工作流将运行：
 
 ```yaml
 on:
@@ -1014,7 +1011,7 @@ on:
 
 {% note %}
 
-**注意：**{% data reusables.actions.branch-paths-filter %} 例如，仅当向名称以 `releases/`开头的分支发出包含 JavaScript (`.js`) 文件更改的推送时，才会运行以下工作流程：
+注意：{% data reusables.actions.branch-paths-filter %} 例如，仅在将包含 JavaScript (`.js`) 文件更改的推送发送到名称以 `releases/` 开头的分支时，以下工作流才会运行：
 
 ```yaml
 on:
@@ -1029,21 +1026,21 @@ on:
 
 ### `registry_package`
 
-| Web 挂钩事件有效负载                                                                                        | 活动类型                                | `GITHUB_SHA`                    | `GITHUB_REF` |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------------------------- | ------------ |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
 | [`registry_package`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#package) | - `published`<br/>- `updated` | Commit of the published package | 已发布软件包的分支或标签 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% data reusables.actions.branch-requirement %}
 
-当存储库中发生与 {% data variables.product.prodname_registry %} 相关的活动时运行工作流程。 更多信息请参阅“[{% data variables.product.prodname_registry %} 文档](/packages)”。
+当存储库中发生与 {% data variables.product.prodname_registry %} 相关的活动时运行工作流程。 有关详细信息，请参阅“[{% data variables.product.prodname_registry %} 文档](/packages)”。
 
-例如，您可以在新软件包版本`发布`时运行工作流程。
+例如，可以在新包版本状态为 `published` 时运行工作流。
 
 ```yaml
 on:
@@ -1051,33 +1048,33 @@ on:
     types: [published]
 ```
 
-### `发行版`
+### `release`
 
-| Web 挂钩事件有效负载                                                                           | 活动类型                                                                                                                                                            | `GITHUB_SHA` | `GITHUB_REF`                           |
-| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------------- |
-| [`发行版`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | 标记的发行版中的最新提交 | 发行版 `refs/tags/<tag_name>` 的标记引用 |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`release`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | 标记的发行版中的最新提交 | 版本的标记参考 `refs/tags/<tag_name>` |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#release)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#release)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
 {% note %}
 
-**注意**：对于草稿发行版的 `created`、`edited` 或 `deleted` 活动类型，不会触发工作流程。 当您通过 {% data variables.product.product_name %} 浏览器 UI 创建版本时，您的版本可能会自动另存为草稿。
+注意：草稿版本的 `created`、`edited` 或 `deleted` 活动类型不会触发工作流。 当您通过 {% data variables.product.product_name %} 浏览器 UI 创建版本时，您的版本可能会自动另存为草稿。
 
 {% endnote %}
 
 {% note %}
 
-**注意：**`prereleased` 类型不会触发从草稿版本预发布，但 `published` 类型会触发。 如果您希望工作流程在稳定*和*预发布时运行，请订阅 `published` 而不是 `released` 和 `prereleased`。
+注意：对于从草稿版本发布的预发行版本，`prereleased` 类型不会触发工作流，但 `published` 类型会触发。 如果想要在稳定版和预发行版发布时运行工作流，请订阅 `published` 而不是 `released` 和 `prereleased`。
 
 {% endnote %}
 
-在存储库中发生发布活动时运行工作流程。 有关发行版 API 的信息，请参阅 GraphQL API 文档中的“[发行版](/graphql/reference/objects#release)”或 REST API 文档中的“[发行版](/rest/reference/releases)”。
+在存储库中发生发布活动时运行工作流程。 有关版本 API 的信息，请参阅 GraphQL API 文档中的“[版本](/graphql/reference/objects#release)”或 REST API 文档中的“[版本](/rest/reference/releases)”。
 
-例如，您可以在版本发布为 `published` 时运行工作流程。
+例如，可以在版本状态为 `published` 时运行工作流。
 
 ```yaml
 on:
@@ -1087,15 +1084,15 @@ on:
 
 ### `repository_dispatch`
 
-| Web 挂钩事件有效负载                                                                                                     | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
-| [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | 自定义  | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| ------------------ | ------------ | ------------ | ------------------|
+| [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | 自定义 | 默认分支上的最新提交 | 默认分支 |
 
 {% data reusables.actions.branch-requirement %}
 
-当您想要触发在 {% data variables.product.product_name %} 外发生的活动的工作流程时，可以使用 {% data variables.product.product_name %} API 触发名为 [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) 的 web 挂钩事件。 更多信息请参阅“[创建仓库调度事件](/rest/reference/repos#create-a-repository-dispatch-event)”。
+若想要触发 {% data variables.product.product_name %} 外部发生的活动的工作流，可以使用 {% data variables.product.product_name %} API 触发名为 [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) 的 Webhook 事件。 有关详细信息，请参阅“[创建存储库调度事件](/rest/reference/repos#create-a-repository-dispatch-event)”。
 
-当您请求创建 `repository_dispatch` 事件时，必须指定 `event_type` 以描述活动类型。 默认情况下，所有 `repository_dispatch`  活动类型都会触发工作流程运行。 您可以使用 `types` 关键字来限制工作流程在 `repository_dispatch` web 挂钩负载中发送特定 `event_type` 值时运行。
+发出创建 `repository_dispatch` 事件的请求时，必须指定 `event_type` 来描述活动类型。 默认情况下，所有 `repository_dispatch` 活动类型都会触发一个工作流运行。 可以使用 `types` 关键字限制工作流，使其在 `repository_dispatch` Webhook 有效负载中发送特定 `event_type` 值时运行。
 
 ```yaml
 on:
@@ -1105,11 +1102,11 @@ on:
 
 {% note %}
 
-**注意：** `event_type` 值限制为 100 个字符。
+注意：`event_type` 值仅限 100 个字符。
 
 {% endnote %}
 
-通过 `client_payload` 参数发送的任何数据都将在工作流程中的 `github.event` 上下文中提供。 例如，如果在创建存储库调度事件时发送此请求正文：
+通过 `client_payload` 参数发送的任何数据都将在工作流的 `github.event` 上下文中可用。 例如，如果在创建存储库调度事件时发送此请求正文：
 
 ```json
 {
@@ -1138,15 +1135,15 @@ jobs:
         run: echo $MESSAGE
 ```
 
-### `计划`
+### `schedule`
 
-| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF`                                                                                                                                                                                                                     |
-| ------------ | ---- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| n/a          | n/a  | 默认分支上的最新提交   | 默认分支 | 安排的工作流程设置为运行。 预定的工作流程使用 [POSIX 计划任务语法](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)。 更多信息请参阅“[通过事件触发工作流程](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)”。 |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| 不适用 | 不适用 | 默认分支上的最新提交 | 默认分支 | 当预定的工作流程设置为运行时。 计划工作流使用 [POSIX cron 语法](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)。 有关详细信息，请参阅“[使用事件触发工作流](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)”。 |
 
 {% data reusables.actions.schedule-delay %}
 
-`schedule` 事件允许您在计划的时间触发工作流程。
+通过 `schedule` 事件，可以在计划的时间触发工作流。
 
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
@@ -1166,41 +1163,41 @@ jobs:
 
 您可在这五个字段中使用以下运算符：
 
-| 运算符 | 描述     | 示例                                                           |
-| --- | ------ | ------------------------------------------------------------ |
-| *   | 任意值    | `15 * * *` 每天每小时的每个第 15 分钟运行。                                |
-| ,   | 值列表分隔符 | `2,10 4,5 * * *` 在每天第 4 和第 5 小时的第 2 和第 10 分钟运行。              |
-| -   | 值的范围   | `30 4-6 * * *` 在第 4、5 和 6 小时的第 30 分钟运行。                      |
-| /   | 步骤值    | `20/15 * * * *` 从第 20 分钟到第 59 分钟每隔 15 分钟运行（第 20、35 和 50 分钟）。 |
+| 运算符 | 说明 | 示例 |
+| -------- | ----------- | ------- |
+| * | 任何值 | `15 * * * *` 在每天每小时的每个第 15 分钟运行。 |
+| , | 值列表分隔符 | `2,10 4,5 * * *` 在每天第 4 和第 5 小时的第 2 和第 10 分钟运行。 |
+| - | 值的范围 | `30 4-6 * * *` 在第 4、5 和 6 小时的第 30 分钟运行。 |
+| / | 步骤值 | `20/15 * * * *` 在第 20 分钟到第 59 分钟每隔 15 分钟运行一次（第 20、35 和 50 分钟）。 |
 
 {% note %}
 
-**注：** {% data variables.product.prodname_actions %} 不支持非标准语法 `@yearly`、`@monthly`、`@weekly`、`@daily`、`@hourly` 和 `@reboot`。
+注意：{% data variables.product.prodname_actions %} 不支持非标准语法 `@yearly`、`@monthly`、`@weekly`、`@daily`、`@hourly` 和 `@reboot`。
 
 {% endnote %}
 
-您可以使用 [crontab guru](https://crontab.guru/) 帮助生成计划任务语法并确认它在何时运行。 为帮助您开始，我们还提供了一系列 [crontab guru 示例](https://crontab.guru/examples.html)。
+可以使用 [crontab guru](https://crontab.guru/) 帮助生成 cron 语法并确认其运行时间。 为了帮助入门，我们还提供了 [crontab guru 示例](https://crontab.guru/examples.html)列表。
 
-计划工作流程的通知将发送给最后修改工作流程文件中的 cron 语法的用户。 更多信息请参阅“[工作流程运行通知](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)”。
+计划工作流程的通知将发送给最后修改工作流程文件中的 cron 语法的用户。 有关详细信息，请参阅“[工作流运行通知](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)”。
 
-### `状态`
+### `status`
 
-| Web 挂钩事件有效负载                                                                         | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
-| ------------------------------------------------------------------------------------ | ---- | ------------ | ------------ |
-| [`状态`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | n/a  | 默认分支上的最新提交   | n/a          |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`status`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | 不适用 | 默认分支上的最新提交 | 不适用 |
 
 {% data reusables.actions.branch-requirement %}
 
-在 Git 提交状态更改时运行工作流程。 例如，提交可标记为 `error`、`failure`、`pending` 或 `success`。 如果要提供有关状态更改的更多详细信息，则可能需要使用 [`check_run`](#check_run) 事件。 有关提交状态 API 的信息，请参阅 GraphQL API 文档中的“[状态](/graphql/reference/objects#statue)”或 REST API 文档中的“[状态](/rest/reference/commits#commit-statuses)”。
+在 Git 提交状态更改时运行工作流程。 例如，可以将提交标记为 `error`、`failure`、`pending` 或 `success`。 如果要提供有关状态更改的更多详细信息，可能需要使用 [`check_run`](#check_run) 事件。 有关提交状态 API 的信息，请参阅 GraphQL API 文档中的“[状态](/graphql/reference/objects#statue)”或 REST API 文档中的“[状态](/rest/reference/commits#commit-statuses)”。
 
-例如，您可以在发生 `status` 事件时运行工作流程。
+例如，可以在发生 `status` 事件时运行工作流。
 
 ```yaml
 on:
   status
 ```
 
-如果要基于新的提交状态在工作流程中运行作业，可以使用 `github.event.state` 上下文。 例如，以下工作流程在提交状态更改时触发，但仅当新的提交状态为 `error` 或 `failure` 时， `if_error_or_failure` 作业才会运行。
+如果要基于新的提交状态在工作流中运行作业，可以使用 `github.event.state` 上下文。 例如，以下工作流在提交状态发生更改时触发，但 `if_error_or_failure` 作业仅在新的提交状态为 `error` 或 `failure` 时才运行。
 
 ```yaml
 on:
@@ -1218,15 +1215,15 @@ jobs:
           echo The status is error or failed: $DESCRIPTION
 ```
 
-### `查看`
+### `watch`
 
-| Web 挂钩事件有效负载                                                                        | 活动类型        | `GITHUB_SHA` | `GITHUB_REF` |
-| ----------------------------------------------------------------------------------- | ----------- | ------------ | ------------ |
-| [`查看`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#watch) | - `started` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`watch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#watch) | - `started` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %}尽管仅支持 `started` 活动类型，但如果将来添加更多活动类型，则指定活动类型将使您的工作流程保持特定。 有关每种活动类型的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 尽管仅支持 `started` 活动类型，但如果将来添加更多活动类型，则指定活动类型将使工作流保持特定。 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1234,7 +1231,7 @@ jobs:
 
 在工作流程的存储库加星标时运行工作流程。 有关拉取请求 API 的信息，请参阅 GraphQL API 文档中的“[addStar](/graphql/reference/mutations#addstar)”或 REST API 文档中的“[标星](/rest/reference/activity#starring)”。
 
-例如，您可以在某人为仓库加星标时（即关注事件的 `started` 活动类型）运行工作流程。
+例如，可以在某人为存储库加星标时（即监视事件的 `started` 活动类型）运行工作流。
 
 ```yaml
 on:
@@ -1247,10 +1244,10 @@ on:
 ### `workflow_call`
 
 | Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
-| ------------ | ---- | ------------ | ------------ |
-| 与调用方工作流程相同   | n/a  | 与调用方工作流程相同   | 与调用方工作流程相同   |
+| ------------------ | ------------ | ------------ | ------------------|
+| 与调用方工作流程相同 | 不适用 | 与调用方工作流程相同 | 与调用方工作流程相同 |
 
-`workflow_call` 用于指示一个工作流程可以由另一个工作流程调用。 当使用 `workflow_call` 事件触发工作流程时，被调用工作流程中的事件负载与调用工作流程中的事件负载相同。 更多信息请参阅“[重用工作流程](/actions/learn-github-actions/reusing-workflows)”。
+`workflow_call` 用于指示一个工作流可以由另一个工作流调用。 当使用 `workflow_call` 事件触发工作流时，被调用工作流中的事件负载与调用工作流中的事件负载相同。 有关详细信息，请参阅“[重用工作流](/actions/learn-github-actions/reusing-workflows)”。
 
 以下示例仅在从另一个工作流程调用时运行工作流程：
 
@@ -1262,24 +1259,23 @@ on: workflow_call
 
 ### `workflow_dispatch`
 
-| Web 挂钩事件有效负载                                                                                                 | 活动类型 | `GITHUB_SHA`          | `GITHUB_REF` |
-| ------------------------------------------------------------------------------------------------------------ | ---- | --------------------- | ------------ |
-| [workflow_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_dispatch) | n/a  | `GITHUB_REF` 分支上的最新提交 | 收到了分发的分支     |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| ------------------ | ------------ | ------------ | ------------------|
+| [workflow_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_dispatch) | 不适用 | `GITHUB_REF` 分支上的最后一次提交 | 收到了分发的分支 |
 
-要手动触发工作流程，请使用 `workflow_dispatch` 事件。 您可以使用 {% data variables.product.product_name %} API、{% data variables.product.prodname_cli %}或 {% data variables.product.product_name %} 浏览器界面手动触发工作流程运行。 更多信息请参阅“[手动配置工作流程](/actions/managing-workflow-runs/manually-running-a-workflow)。
+若要手动触发工作流，请使用 `workflow_dispatch` 事件。 您可以使用 {% data variables.product.product_name %} API、{% data variables.product.prodname_cli %}或 {% data variables.product.product_name %} 浏览器界面手动触发工作流程运行。 有关详细信息，请参阅“[手动运行工作流](/actions/managing-workflow-runs/manually-running-a-workflow)”。
 
 ```yaml
 on: workflow_dispatch
 ```
 
-#### 提供输入
+#### <a name="providing-inputs"></a>提供输入
 
-您可以直接在工作流程中配置事件的自定义输入属性、默认输入值和必要输入。 触发事件时，可以提供 `ref` 和任何 `inputs`。 在工作流程运行时，您可以访问 {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} 上下文中的输入值。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
+您可以直接在工作流程中配置事件的自定义输入属性、默认输入值和必要输入。 触发事件时，可以提供 `ref` 和任何 `inputs`。 当工作流运行时，可以访问 {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} 上下文中的输入值。 有关详细信息，请参阅“[上下文](/actions/learn-github-actions/contexts)。”
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-此示例定义了称为 `logLevel`、`tags` 和 `environment` 的输入。 在运行工作流程时，可以将这些输入的值传递给工作流程。 然后，此工作流程使用 {% ifversion actions-unified-inputs %}`inputs.logLevel`、`inputs.tags` 和 `inputs.environment`{% else %}`github.event.inputs.logLevel`、`github.event.inputs.tags`）和 `github.event.inputs.environment`{% endif %} 上下文属性，将值打印到日志中。
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %} 此示例定义名为 `logLevel`、`tags` 和 `environment` 的输入。 在运行工作流程时，可以将这些输入的值传递给工作流程。 然后，此工作流使用 {% ifversion actions-unified-inputs %}`inputs.logLevel`、`inputs.tags` 和 `inputs.environment`{% else %}`github.event.inputs.logLevel`、`github.event.inputs.tags` 和 `github.event.inputs.environment`{% endif %} 上下文属性。
 
 ```yaml
 on:
@@ -1327,10 +1323,9 @@ jobs:
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 
-更多信息请参阅“[手动运行工作流程](/actions/managing-workflow-runs/manually-running-a-workflow)”中的 {% data variables.product.prodname_cli %} 信息。
+有关详细信息，请参阅“[手动运行工作流](/actions/managing-workflow-runs/manually-running-a-workflow)”中的 {% data variables.product.prodname_cli %} 信息。
 
-{% else %}
-此示例定义 `name` 和 `home` 输入，并使用 {% ifversion actions-unified-inputs %}`inputs.name` 和 `inputs.home`{% else %}`github.event.inputs.name` 和 `github.event.inputs.home`{% endif %} 上下文打印它们。 如果未提供 `home` ，则打印默认值“The Octoverse”。
+{% else %} 此示例定义 `name` 和 `home` 输入并使用 {% ifversion actions-unified-inputs %}`inputs.name` 和 `inputs.home`{% else %}`github.event.inputs.name` 和 `github.event.inputs.home`{% endif %} 上下文。 如果未提供 `home`，则显示默认值“The Octoverse”。
 
 ```yaml
 name: Manually triggered workflow
@@ -1361,13 +1356,13 @@ jobs:
 
 ### `workflow_run`
 
-| Web 挂钩事件有效负载                                                                                         | 活动类型                                  | `GITHUB_SHA` | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------------------- | ------------------------------------- | ------------ | ------------ |
-| [`workflow_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_run) | - `completed`<br/>- `requested` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载 | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`workflow_run`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#workflow_run) | - `completed`<br/>- `requested` | 默认分支上的最新提交 | 默认分支 |
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 重新运行工作流程时，不会发生 `requested` 活动类型。 有关每种活动类型的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+注意：{% data reusables.developer-site.multiple_activity_types %} 重新运行工作流时不会出现 `requested` 活动类型。 有关每个活动类型的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1375,11 +1370,11 @@ jobs:
 
 {% note %}
 
-**注意：** 不能使用 `workflow_run` 将超过三级的工作流程链接在一起。 例如，如果尝试触发五个工作流程（名称为 `B` 至 `F`）在初始工作流程 `A` 运行后按顺序运行（即：`A` → `B` → `C` → `D` → `E` → `F`），则工作流程 `E` 和 `F` 不会运行。
+注意：不能使用 `workflow_run` 将超过三个工作流级别链接在一起。 例如，如果尝试触发五个工作流（名为 `B` 至 `F`）在初始工作流 `A` 运行后依次运行（即：`A` → `B` → `C` → `D` → `E` → `F`），工作流 `E` 和 `F` 将不会运行。
 
 {% endnote %}
 
-此事件在请求或完成工作流程运行时发生。 它允许您基于另一个工作流程的执行或完成来执行工作流程。 由 `workflow_run` 事件启动的工作流程能够访问密钥和写入令牌，即使以前的工作流程不能访问也一样。 这在以前的工作流程有意未获权限的情况下很有用，但您需要在以后的工作流程中采取特权行动。
+此事件在请求或完成工作流程运行时发生。 它允许您基于另一个工作流程的执行或完成来执行工作流程。 由 `workflow_run` 事件启动的工作流能够访问机密和写入令牌，即使以前的工作流不能访问也是如此。 这在以前的工作流程有意未获权限的情况下很有用，但您需要在以后的工作流程中采取特权行动。
 
 在此示例中，工作流程配置为在单独的“运行测试”工作流程完成后运行。
 
@@ -1391,7 +1386,7 @@ on:
       - completed
 ```
 
-如果为 `workflow_run` 事件指定了多个 `workflows` ，则只需运行其中一个工作流程。 例如，具有以下触发器的工作流程将在 "Staging" 工作流程或 "Lab" 工作流程完成时运行。
+如果为 `workflow_run` 事件指定多个 `workflows`，则只需要运行其中一个工作流。 例如，具有以下触发器的工作流程将在 "Staging" 工作流程或 "Lab" 工作流程完成时运行。
 
 ```yaml
 on:
@@ -1401,9 +1396,9 @@ on:
       - completed
 ```
 
-#### 基于另一个工作流程的结果运行工作流程
+#### <a name="running-a-workflow-based-on-the-conclusion-of-another-workflow"></a>基于另一个工作流程的结果运行工作流程
 
-无论上一个工作流程的结果如何，工作流程运行都会被触发。 如果要基于触发工作流程的结果运行作业或步骤，则可以使用带有 `github.event.workflow_run.conclusion` 属性的条件。 例如，每当名为 "Build" 的工作流程完成时，此工作流程就会运行，但 `on-success` 作业仅在 "Build" 工作流程成功时才会运行，而 `on-failure` 作业仅在 "Build" 工作流程失败时才会运行：
+无论上一个工作流程的结果如何，工作流程运行都会被触发。 如果要基于触发工作流的结果运行作业或步骤，则可以使用带有 `github.event.workflow_run.conclusion` 属性的条件。 例如，每当名为“Build”的工作流完成时，此工作流就会运行，但 `on-success` 作业仅在“Build”工作流成功时才会运行，而 `on-failure` 作业仅在“Build”工作流失败时才会运行：
 
 ```yaml
 on:
@@ -1424,9 +1419,9 @@ jobs:
       - run: echo 'The triggering workflow failed'
 ```
 
-#### 将工作流限于基于分支的运行
+#### <a name="limiting-your-workflow-to-run-based-on-branches"></a>将工作流限于基于分支的运行
 
-您可以使用 `branches` 或 `branches-ignore` 筛选器来指定触发工作流程必须在哪些分支上运行才能触发您的工作流程。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)”。 例如，仅当名为 `Build` 的工作流程在名为 ` <0>Canary` 的分支上运行时，具有以下触发器的工作流程才会运行。
+可以使用 `branches` 或 `branches-ignore` 筛选器，指定触发工作流必须在哪些分支上运行才能触发工作流。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)”。 例如，仅当名为 `Build` 的工作流在名为 `canary` 的分支上运行时，具有以下触发器的工作流才会运行。
 
 ```yaml
 on:
@@ -1436,9 +1431,9 @@ on:
     branches: [canary]
 ```
 
-#### 使用触发工作流程中的数据
+#### <a name="using-data-from-the-triggering-workflow"></a>使用触发工作流程中的数据
 
-您可以访问与触发工作流程的工作流程对应的 [`workflow_run` 事件有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)。 例如，如果触发工作流程生成构件，则使用 `workflow_run` 事件触发的工作流程可以访问这些构件。
+可以访问与触发工作流的工作流对应的 [`workflow_run` 事件负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)。 例如，如果触发工作流生成工件，则使用 `workflow_run` 事件触发的工作流可以访问这些工件。
 
 以下工作流程将数据作为构件上传。 （在此简化的示例中，数据是拉取请求编号。）
 
@@ -1465,7 +1460,7 @@ jobs:
           path: pr/
 ```
 
-当上述工作流程的运行完成时，它将触发以下工作流程的运行。 以下工作流程使用 `github.event.workflow_run` 上下文和 {% data variables.product.product_name %} REST API 下载由上述工作流程上传的构件，解压缩下载的构件，并对其编号作为构件上传的拉取请求进行评论。
+当上述工作流程的运行完成时，它将触发以下工作流程的运行。 以下工作流使用 `github.event.workflow_run` 上下文和 {% data variables.product.product_name %} REST API 下载由上述工作流上传的工件，解压缩下载的工件，并对其编号作为工件上传的拉取请求进行注释。
 
 ```yaml
 name: Use the data

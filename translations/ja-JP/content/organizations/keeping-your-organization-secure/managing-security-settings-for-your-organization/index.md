@@ -1,6 +1,6 @@
 ---
 title: Organizationのセキュリティ設定の管理
-shortTitle: セキュリティ設定の管理
+shortTitle: Manage security settings
 intro: 'セキュリティ設定を管理し、監査ログ{% ifversion ghec %}やコンプライアンスレポート{% endif %}、Organizationのインテグレーションをレビューできます。'
 versions:
   fpt: '*'
@@ -17,5 +17,11 @@ children:
   - /reviewing-the-audit-log-for-your-organization
   - /accessing-compliance-reports-for-your-organization
   - /reviewing-your-organizations-installed-integrations
+ms.openlocfilehash: f3170c9636a6d298ba1faad74018a7f8798215d3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145130816'
 ---
 

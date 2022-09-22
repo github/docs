@@ -1,35 +1,38 @@
 ---
-title: Expressions
+title: 表达式
 shortTitle: Expressions
-intro: 您可以评估工作流程和操作中的表达式。
+intro: 你可以对工作流和操作中的表达式求值。
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 94bd9f7a43d4325e497a776357711adf64c0d7ba
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614221'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 关于表达式
 
-您可以使用表达式程序化设置工作流程文件中的环境变量和访问上下文。 表达式可以是文字值、上下文引用或函数的任意组合。 您可以使用运算符组合文字、上下文引用和函数。 有关上下文的更多信息，请参阅“[上下文](/actions/learn-github-actions/contexts)”。
+您可以使用表达式程序化设置工作流程文件中的环境变量和访问上下文。 表达式可以是文字值、上下文引用或函数的任意组合。 您可以使用运算符组合文字、上下文引用和函数。 有关上下文的详细信息，请参阅“[上下文](/actions/learn-github-actions/contexts)”。
 
-表达式通常在工作流程文件中与条件性 `if` 关键词一起用来确定步骤是否应该运行。 当 `if` 条件为 `true` 时，步骤将会运行。
+表达式通常与工作流文件中的条件 `if` 关键字一起使用，以确定是否应运行步骤。 如果 `if` 条件为 `true`，该步骤将运行。
 
 您需要使用特定语法指示 {% data variables.product.prodname_dotcom %} 对表达式求值，而不是将其视为字符串。
 
-{% raw %}
-`${{ <expression> }}`
+{% raw %} `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.actions.expression-syntax-if %}有关 `if` 条件的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
+{% data reusables.actions.expression-syntax-if %} 有关 `if` 条件的详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
 
 {% data reusables.actions.context-injection-warning %}
 
-#### `if` 条件的示例表达式
+#### `if` 条件中的示例表达式
 
 ```yaml
 steps:
@@ -46,16 +49,16 @@ env:
 ```
 {% endraw %}
 
-## 文字
+## 文本
 
-作为表达式的一部分，您可以使用 `boolean`、`null`、`number` 或 `string` 数据类型。
+作为表达式的一部分，可使用 `boolean`、`null`、`number` 或 `string` 数据类型。
 
-| 数据类型     | 文字值                                                                                                                                                        |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `布尔值`    | `true` 或 `false`                                                                                                                                           |
-| `null`   | `null`                                                                                                                                                     |
-| `number` | JSON 支持的任何数字格式。                                                                                                                                            |
-| `字符串`    | 您不需要将字符串括在 `{% raw %}${{{% endraw %}` 和 `{% raw %}}}{% endraw %}` 中。 但是，如果这样做，则必须在字符串两边使用单引号 (`'`)。 要使用文字单引号，请使用额外的单引号转义文字单引号 (`''`)。 用双引号 (`"`) 括起来会引发错误。 |
+| 数据类型 | 文本值 |
+|-----------|---------------|
+| `boolean` | `true` 或 `false` |
+| `null`    | `null` |
+| `number`  | JSON 支持的任何数字格式。 |
+| `string`  | 无需将字符串括在 `{% raw %}${{{% endraw %}` 和 `{% raw %}}}{% endraw %}` 中。 但是，如果这样做，则必须在字符串两边使用单引号 (`'`)。 若要使用文本单引号，请使用额外的单引号 (`''`) 转义文本单引号。 用双引号 (`"`) 括起来会引发错误。 |
 
 #### 示例
 
@@ -77,33 +80,33 @@ env:
 
 ## 运算符
 
-| 运算符                       | 描述     |
-| ------------------------- | ------ |
-| `( )`                     | 逻辑分组   |
-| `[ ]`                     | 索引     |
-| `.`                       | 属性取消引用 |
-| `!`                       | 非      |
-| `<`                    | 小于     |
-| `<=`                   | 小于或等于  |
-| `>`                    | 大于     |
-| `>=`                   | 大于或等于  |
-| `==`                      | 等于     |
-| `!=`                      | 不等于    |
-| `&&`              | 和      |
-| <code>\|\|</code> | 或      |
+| 运算符    | 说明 |
+| ---         | ---         |
+| `( )`       | 逻辑分组 |
+| `[ ]`       | 索引
+| `.`         | 属性取消引用 |
+| `!`         | Not |
+| `<`         | 小于 |
+| `<=`        | 小于或等于 |
+| `>`         | 大于 |
+| `>=`        | 大于或等于 |
+| `==`        | 等于 |
+| `!=`        | 不等于 |
+| `&&`        | 且 |
+|  <code>\|\|</code> | 或 |
 
 {% data variables.product.prodname_dotcom %} 进行宽松的等式比较。
 
 * 如果类型不匹配，{% data variables.product.prodname_dotcom %} 强制转换类型为数字。 {% data variables.product.prodname_dotcom %} 使用这些转换将数据类型转换为数字：
 
-  | 类型   | 结果                                                      |
-  | ---- | ------------------------------------------------------- |
-  | Null | `0`                                                     |
-  | 布尔值  | `true` 返回 `1` <br /> `false` 返回 `0`               |
-  | 字符串  | 从任何合法 JSON 数字格式剖析，否则为 `NaN`。 <br /> 注：空字符串返回 `0`。 |
-  | 数组   | `NaN`                                                   |
-  | 对象   | `NaN`                                                   |
-* 一个 `NaN` 与另一个 `NaN` 的比较不会产生 `true`。 更多信息请参阅“[NaN Mozilla 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)”。
+  | 类型    | 结果 |
+  | ---     | ---    |
+  | Null    | `0` |
+  | 布尔 | `true` 返回 `1` <br /> `false` 返回 `0` |
+  | String  | 从任何合法的 JSON 数字格式进行分析，否则为 `NaN`。 <br /> 注意：空字符串返回 `0`。 |
+  | 数组   | `NaN` |
+  | 对象  | `NaN` |
+* 一个 `NaN` 与另一个 `NaN` 的比较不会生成 `true`。 有关详细信息，请参阅“[NaN Mozilla 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)”。
 * {% data variables.product.prodname_dotcom %} 在比较字符串时忽略大小写。
 * 对象和数组仅在为同一实例时才视为相等。
 
@@ -111,67 +114,67 @@ env:
 
 {% data variables.product.prodname_dotcom %} 提供一组内置的函数，可用于表达式。 有些函数抛出值到字符串以进行比较。 {% data variables.product.prodname_dotcom %} 使用这些转换将数据类型转换为字符串：
 
-| 类型   | 结果                   |
-| ---- | -------------------- |
-| Null | `''`                 |
-| 布尔值  | `'true'` 或 `'false'` |
-| 数字   | 十进制格式，对大数字使用指数       |
-| 数组   | 数组不转换为字符串            |
-| 对象   | 对象不转换为字符串            |
+| 类型    | 结果 |
+| ---     | ---    |
+| Null    | `''` |
+| 布尔 | `'true'` 或 `'false'` |
+| 数字  | 十进制格式，对大数字使用指数 |
+| 数组   | 数组不转换为字符串 |
+| 对象  | 对象不转换为字符串 |
 
 ### contains
 
 `contains( search, item )`
 
-如果 `search` 包含 `item`，则返回 `true`。 如果 `search` 为数组，此函数在 `item` 为数组中的元素时返回 `true`。 如果 `search` 为字符串，此函数在 `item` 为 `search` 的子字符串时返回 `true`。 此函数不区分大小写。 抛出值到字符串。
+如果 `search` 包含 `item`，则返回 `true`。 如果 `search` 是一个数组，`item` 是数组中的一个元素，此函数将返回 `true`。 如果 `search` 是一个字符串，`item` 是 `search` 的 substring，此函数将返回 `true`。 此函数不区分大小写。 抛出值到字符串。
 
 #### 使用字符串的示例
 
-`contains('Hello world', 'llo')` 返回 `true`.
+`contains('Hello world', 'llo')` 返回 `true`。
 
-#### Example using an object filter
+#### 使用对象筛选器的示例
 
-`contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
+如果与事件相关的问题具有标签“bug”，`contains(github.event.issue.labels.*.name, 'bug')` 便会返回 `true`。
 
-For more information, see "[Object filters](#object-filters)."
+有关详细信息，请参阅“[对象筛选器](#object-filters)”。
 
-#### Example matching an array of strings
+#### 匹配字符串数组的示例
 
-Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+可以将 `contains()` 与 `fromJson()` 配合使用来检查字符串数组是否包含 `item`，而不是编写 `github.event_name == "push" || github.event_name == "pull_request"`。
 
-For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
+例如，如果 `github.event_name` 是“push”或“pull_request”，`contains(fromJson('["push", "pull_request"]'), github.event_name)` 便会返回 `true`。
 
 ### startsWith
 
 `startsWith( searchString, searchValue )`
 
-当 `searchString` 以 `searchValue` 开头时返回 `true`。 此函数不区分大小写。 抛出值到字符串。
+如果 `searchString` 以 `searchValue` 开头，将返回 `true`。 此函数不区分大小写。 抛出值到字符串。
 
 #### 示例
 
-`startsWith('Hello world', 'He')` 返回 `true`.
+`startsWith('Hello world', 'He')` 返回 `true`。
 
 ### endsWith
 
 `endsWith( searchString, searchValue )`
 
-当 `searchString` 以 `searchValue` 结尾时返回 `true`。 此函数不区分大小写。 抛出值到字符串。
+如果 `true` 以 `searchString` 结尾，则返回 `searchValue`。 此函数不区分大小写。 抛出值到字符串。
 
 #### 示例
 
-`endsWith('Hello world', 'ld')` 返回 `true`.
+`endsWith('Hello world', 'ld')` 返回 `true`。
 
 ### format
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-将 `string` 中的值替换为变量 `replaceValueN`。 `string` 中的变量使用 `{N}` 语法指定，其中 `N` 为整数。 必须指定至少一个 `replaceValue` 和 `string`。 可以使用变量 (`replaceValueN`) 数没有上限。 使用双小括号逸出大括号。
+将 `string` 中的值替换为变量 `replaceValueN`。 `string` 中的变量是使用 `{N}` 语法指定的，其中 `N` 是一个整数。 必须至少指定一个 `replaceValue` 和 `string`。 可使用的变量 (`replaceValueN`) 的数量没有上限。 使用双小括号逸出大括号。
 
 #### 示例
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-返回 'Hello Mona the Octocat'.
+返回“Hello Mona the Octocat”。
 
 #### 逸出括号示例
 
@@ -181,17 +184,17 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
 
-返回 '{Hello Mona the Octocat!}'.
+返回“{Hello Mona the Octocat!}”。
 
 ### join
 
 `join( array, optionalSeparator )`
 
-`array` 的值可以是数组或字符串。 `array` 中的所有值强制转换为字符串。 如果您提供 `optionalSeparator`，它将被插入到串联的值之间。 否则使用默认分隔符 `,`。 抛出值到字符串。
+`array` 的值可以是数组，也可以是字符串。 `array` 中的所有值都连接成一个字符串。 如果提供 `optionalSeparator`，则它将插入到连接的值之间， 否则使用默认分隔符 `,`。 抛出值到字符串。
 
 #### 示例
 
-`join(github.event.issue.labels.*.name, ', ')` 可能返回 'bug, help wanted'
+`join(github.event.issue.labels.*.name, ', ')` 可能会返回“出现 bug，需要帮助”
 
 ### toJSON
 
@@ -201,7 +204,7 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 
 #### 示例
 
-`toJSON(job)` 可能返回 `{ "status": "Success" }`
+`toJSON(job)` 可能会返回 `{ "status": "Success" }`
 
 ### fromJSON
 
@@ -211,7 +214,7 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 
 #### 返回 JSON 对象的示例
 
-此工作流程在一个作业中设置 JSON矩阵，并使用输出和 `fromJSON` 将其传递到下一个作业。
+此工作流在一个作业中设置 JSON 矩阵，并使用输出和 `fromJSON` 将其传递给下一个作业。
 
 {% raw %}
 ```yaml
@@ -237,7 +240,7 @@ jobs:
 
 #### 返回 JSON 数据类型的示例
 
-此工作流程使用 `fromJSON` 将环境变量从字符串转换为布尔值或整数。
+此工作流使用 `fromJSON` 将环境变量从字符串转换为布尔值或整数。
 
 {% raw %}
 ```yaml
@@ -260,19 +263,19 @@ jobs:
 
 `hashFiles(path)`
 
-返回匹配 `path` 模式的文件集的单个哈希值。 您可以提供单一 `path` 模式，或以逗号分隔的多个 `path` 模式。 `path` 相对于 `GITHUB_WORKSPACE` 目录，只能包括 `GITHUB_WORKSPACE` 中的文件。 此函数为每个匹配的文件计算单独的 SHA-256 哈希， 然后使用这些哈希来计算文件集的最终 SHA-256 哈希。 如果 `path` 模式与任何文件都不匹配，则返回空字符串。 有关 SHA-256 的更多信息，请参阅“[SHA-2](https://en.wikipedia.org/wiki/SHA-2)”。
+返回与 `path` 模式匹配的文件集的单个哈希。 可以提供用逗号分隔的单个 `path` 模式或多个 `path` 模式。 `path` 与 `GITHUB_WORKSPACE` 目录相关，且仅包含 `GITHUB_WORKSPACE` 内的文件。 此函数为每个匹配的文件计算单独的 SHA-256 哈希， 然后使用这些哈希来计算文件集的最终 SHA-256 哈希。 如果 `path` 模式与任何文件都不匹配，则返回空字符串。 有关 SHA-256 的详细信息，请参阅“[SHA-2](https://en.wikipedia.org/wiki/SHA-2)”。
 
-您可以使用模式匹配字符来匹配文件名。 模式匹配在 Windows 上不区分大小写。 有关支持的模式匹配字符的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)”。
+您可以使用模式匹配字符来匹配文件名。 模式匹配在 Windows 上不区分大小写。 有关受支持的模式匹配字符的详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)”。
 
 #### 单一模式示例
 
-匹配仓库中的任何 `package-lock.json` 文件。
+匹配存储库中的任何 `package-lock.json` 文件。
 
 `hashFiles('**/package-lock.json')`
 
 #### 多个模式示例
 
-为仓库中的任何 `package-lock.json` 和 `Gemfile.lock` 文件创建哈希。
+为存储库中的任何 `package-lock.json` 和 `Gemfile.lock` 文件创建哈希。
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
@@ -280,15 +283,15 @@ jobs:
 {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ## 状态检查函数
 
-您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 有关 `if` 条件的更多信息，请参阅“[GitHub 操作的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”和“[GitHub 复合操作的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)”。
+可以将以下状态检查函数用作 `if` 条件中的表达式。 除非包含这些函数之一，否则将应用 `success()` 的默认状态检查。 有关 `if` 条件的详细信息，请参阅“[GitHub Actions 的工作流语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”和“[GitHub Composite Actions 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)”。
 {% else %}
 ## 检查函数
-您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 有关 `if` 条件的更多信息，请参阅“[GitHub 操作的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
+可以将以下状态检查函数用作 `if` 条件中的表达式。 除非包含这些函数之一，否则将应用 `success()` 的默认状态检查。 有关 `if` 条件的详细信息，请参阅“[GitHub Actions 的工作流语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
 {% endif %}
 
 ### success
 
-当前面的步骤没有失败或取消时返回 `true`。
+如果前面的步骤都没有失败或被取消，则返回 `true`。
 
 #### 示例
 
@@ -299,9 +302,9 @@ steps:
     if: {% raw %}${{ success() }}{% endraw %}
 ```
 
-### always
+### 通用
 
-导致该步骤总是执行，并返回 `true`，即使取消也一样。 作业或步骤在重大故障阻止任务运行时不会运行。 例如，如果获取来源失败。
+导致步骤始终执行，并返回 `true`，即使取消也一样。 作业或步骤在重大故障阻止任务运行时不会运行。 例如，如果获取来源失败。
 
 #### 示例
 
@@ -311,7 +314,7 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 ### cancelled
 
-在工作流程取消时返回 `true`。
+如果工作流被取消，则返回 `true`。
 
 #### 示例
 
@@ -319,9 +322,9 @@ if: {% raw %}${{ always() }}{% endraw %}
 if: {% raw %}${{ cancelled() }}{% endraw %}
 ```
 
-### failure
+### 失败
 
-在作业的任何之前一步失败时返回 `true`。 如果您有相依作业链，`failure()` 在任何上层节点作业失败时返回 `true`。
+如果作业的任何先前步骤失败，将返回 `true`。 如果有一系列依赖项作业，则 `failure()` 在任何上级作业失败时返回 `true`。
 
 #### 示例
 
@@ -334,7 +337,7 @@ steps:
 
 #### 有条件的失败
 
-您可以为失败后运行的步骤添加额外的条件，但仍必须包含 `failure()` 以覆盖自动应用到不含状态检查功能的 `if` 条件的 `success()` 默认状态检查。
+可以包含一个在失败后运行的步骤的额外条件，但仍必须包含 `failure()` 以覆盖自动应用于不包含状态检查函数的 `if` 条件的默认 `success()` 状态检查。
 
 ##### 示例
 
@@ -350,7 +353,7 @@ steps:
 
 ## 对象过滤器
 
-可以使用 `*` 语法应用过滤条件并从集合中选择匹配的项目。
+可使用 `*` 语法来应用筛选器并选择集合中的匹配项。
 
 例如，考虑名为 `fruits` 的对象数组。
 
@@ -362,9 +365,9 @@ steps:
 ]
 ```
 
-过滤条件 `fruits.*.name` 返回数组 `[ "apple", "orange", "pear" ]`.
+筛选器 `fruits.*.name` 返回数组 `[ "apple", "orange", "pear" ]`。
 
-您也可以在对象上使用 `*` 语法。 例如，假设您有一个名为 `vegetables` 的对象。
+还可以对某个对象使用 `*` 语法。 例如，假设有一个名为 `vegetables` 的对象。
 
 ```json
 
@@ -387,7 +390,7 @@ steps:
 }
 ```
 
-筛选器 `vegetables.*.ediblePortions` 可求值为：
+筛选器 `vegetables.*.ediblePortions` 的计算结果如下：
 
 ```json
 
@@ -398,4 +401,4 @@ steps:
 ]
 ```
 
-由于对象不保持顺序，因此无法保证输出的顺序。
+由于对象不保留顺序，因此无法保证输出的顺序。

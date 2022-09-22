@@ -2,6 +2,7 @@
 title: Understanding GitHub Actions
 shortTitle: Understanding GitHub Actions
 intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -52,7 +53,7 @@ You can configure a {% data variables.product.prodname_actions %} _workflow_ to 
 
 {% data reusables.actions.about-workflows-long %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
 
 For more information about workflows, see "[Using workflows](/actions/using-workflows)."
 
@@ -82,7 +83,7 @@ For more information, see "[Creating actions](/actions/creating-actions)."
 
 ### Runners
 
-{% data reusables.actions.about-runners %} Each runner can run a single job at a time. {% ifversion ghes or ghae %} You must host your own runners for {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. If you need a different operating system or require a specific hardware configuration, you can host your own runners.{% endif %} For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+{% data reusables.actions.about-runners %} Each runner can run a single job at a time. {% ifversion ghes or ghae %} You must host your own runners for {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. {% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)." {% endif %}If you need a different operating system or require a specific hardware configuration, you can host your own runners.{% endif %} For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 

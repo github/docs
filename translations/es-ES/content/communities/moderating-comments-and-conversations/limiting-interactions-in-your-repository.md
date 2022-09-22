@@ -1,5 +1,5 @@
 ---
-title: Limitar las interacciones en tu repositorio
+title: Limitar las interacciones en tu organización
 intro: Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en un repositorio público.
 redirect_from:
   - /articles/limiting-interactions-with-your-repository
@@ -11,9 +11,14 @@ versions:
 permissions: 'People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository.'
 topics:
   - Community
-shortTitle: Limitar las interacciones en un repositorio
+shortTitle: Limit interactions in repo
+ms.openlocfilehash: 0b49e1bfdf29be5dc270a453512701c9369c5933
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147067254'
 ---
-
 ## Acerca de los límites de interacción temporales
 
 {% data reusables.community.interaction-limits-restrictions %}
@@ -22,19 +27,17 @@ shortTitle: Limitar las interacciones en un repositorio
 
 {% data reusables.community.types-of-interaction-limits %}
 
-También puedes habilitar las limitaciones de las actividades en todos los repositorios que le pertenezcan a tu cuenta personal o a una organización. Si se habilita un límite a lo largo de la organización o del usuario, no podrás limitar la actividad para los repositorios individuales que pertenezcan a la cuenta. Para obtener más información, consulta las secciones "[Limitar las interacciones para tu cuenta personal](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-personal-account)" y "[Limitar las interacciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
+También puedes habilitar las limitaciones de actividad en todos los repositorios que pertenecen a tu cuenta personal o a una organización. Si se habilita un límite a lo largo de la organización o del usuario, no podrás limitar la actividad para los repositorios individuales que pertenezcan a la cuenta. Para obtener más información, consulta "[Limitación de las interacciones para la cuenta de usuario](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-personal-account)" y "[Limitación de las interacciones en la organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
 
-## Limitar las interacciones en tu repositorio
+## Limitar las interacciones en tu organización
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. En la barra lateral, selecciona **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Opciones de moderación** y luego haz clic en **Límites de interacción**.
-{% data reusables.community.set-interaction-limit %}
-  ![Opciones de límites de interacción temporarios](/assets/images/help/repository/temporary-interaction-limits-options.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. En la barra lateral, seleccione **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options** (Opciones de moderación) y haga clic en **Interaction limits** (Límites de interacción).
+{% data reusables.community.set-interaction-limit %} ![Opciones de límite de interacción temporales](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
-## Leer más
-- "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[Administrar el acceso de un individuo al repositorio de una organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Niveles de permiso para un repositorio de una cuenta personal](/articles/permission-levels-for-a-user-account-repository)"
+## Información adicional
+- "[Notificación de abusos o correos no deseados](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[Administración del acceso de un individuo a un repositorio de la organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
+- "[Niveles de permisos para un repositorio de una cuenta personal](/articles/permission-levels-for-a-user-account-repository)"
 - "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
-- "[Administrar a los moderadores en tu organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
+- "[Administración de moderadores en la organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

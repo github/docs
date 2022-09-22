@@ -79,7 +79,7 @@ For more information about {% data variables.product.prodname_actions %}, see "[
 
 When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest starter workflows for common publishing scenarios. The general flow of a workflow is to:
 
-1. Trigger whenever there is a push to the default branch of the repository or whenever a pull request that targets the default branch is opened, reopened, or updated.
+1. Trigger whenever there is a push to the default branch of the repository or whenever the workflow is run manually from the Actions tab.
 1. Use the [`actions/checkout`](https://github.com/actions/checkout) action to check out the repository contents.
 1. If required by your site, build any static site files.
 1. Use the [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) action to upload the static files as an artifact.

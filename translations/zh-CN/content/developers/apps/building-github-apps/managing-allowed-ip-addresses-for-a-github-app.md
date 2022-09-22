@@ -23,6 +23,8 @@ When an organization has an allow list, third-party applications that connect vi
 
 ## Adding an IP address allow list to a {% data variables.product.prodname_github_app %}
 
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}

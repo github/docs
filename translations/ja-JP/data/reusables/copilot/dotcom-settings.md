@@ -1,27 +1,31 @@
-## Configuring {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
+---
+ms.openlocfilehash: e1df21c0657c55fb934b9c1d837a0ee19df7e37b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147419746"
+---
+## {% data variables.product.prodname_copilot %} の設定を {% data variables.product.prodname_dotcom_the_website %} で構成する
 
-Once you have an active {% data variables.product.prodname_copilot %} trial or subscription, you can adjust {% data variables.product.prodname_copilot %} settings for your personal account on {% data variables.product.prodname_dotcom %} in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot). The settings apply anywhere that you use {% data variables.product.prodname_copilot %}. You can configure the suggestions that {% data variables.product.prodname_copilot %} offers and how {% data variables.product.company_short %} uses your telemetry data.
+アクティブな {% data variables.product.prodname_copilot %}試用版またはサブスクリプションがある場合、[{% data variables.product.prodname_copilot %} 設定](https://github.com/settings/copilot)で {% data variables.product.prodname_dotcom %} 上の個人用アカウントの {% data variables.product.prodname_copilot %} 設定を調整できます。 この設定は、{% data variables.product.prodname_copilot %} を使うすべての場所に適用されます。 {% data variables.product.prodname_copilot %} が提示する候補と、{% data variables.product.company_short %} がテレメトリ データを使う方法を構成できます。
 
-## Enabling or disabling duplication detection
+## 重複検出の有効化または無効化
 
-{% data variables.product.prodname_copilot %} includes a filter which detects code suggestions matching public code on {% data variables.product.prodname_dotcom %}. You can choose to enable or disable the filter. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown to you.
+{% data variables.product.prodname_copilot %} には、{% data variables.product.prodname_dotcom %} のパブリック コードと一致するコード候補を検出するフィルターが含まれています。 フィルターを有効または無効にすることを選択できます。 フィルターが有効になっていると、{% data variables.product.prodname_copilot %} によって、周囲の約 150 文字のコードに関するコード候補が、{% data variables.product.prodname_dotcom %} でのパブリック コードに対してチェックされます。 一致または近い一致がある場合、候補は表示されません。
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.copilot-settings %}
-1. Under **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
-  ![Screenshot of duplication detection option](/assets/images/help/copilot/duplication-detection.png)
-{% data reusables.copilot.save-settings %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.copilot-settings %}
+1. **[Suggestions matching public code]\(公開コードに一致する候補\)** でドロップダウン メニューを選択し、 **[Allow]\(許可\)** をクリックして公開コードに一致する候補を許可するか、 **[Block]\(ブロック\)** をクリックして公開コードに一致する候補をブロックします。
+  ![重複検出オプションのスクリーンショット](/assets/images/help/copilot/duplication-detection.png) {% data reusables.copilot.save-settings %}
 
-## Enabling or disabling telemetry
+## テレメトリの有効化または無効化
 
-You can choose whether your code snippets are collected and retained by GitHub and further processed and shared with Microsoft and OpenAI by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your telemetry settings, see "[{% data variables.product.company_short %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy).
+ユーザー設定を調整することで、GitHub によってコード スニペットを収集して保持し、さらに処理して Microsoft や OpenAI と共有するかどうかを選択できます。 テレメトリの設定に応じて {% data variables.product.prodname_copilot %} で収集できるデータについて詳しくは、「[{% data variables.product.company_short %} 追加製品および機能の利用規約](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)」と [{% data variables.product.prodname_copilot %} のプライバシーの FAQ](https://github.com/features/copilot/#faq-privacy) に関するページをご覧ください。
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.copilot-settings %}
-1. To allow or prevent {% data variables.product.prodname_dotcom %} using your telemetry data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets for product improvements**.
-  ![Screenshot of telemetry option](/assets/images/help/copilot/telemetry-option.png)
-{% data reusables.copilot.save-settings %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.copilot-settings %}
+1. {% data variables.product.prodname_dotcom %} でテレメトリデータの使用を許可または禁止するには、 **[{% data variables.product.prodname_dotcom %} で製品向上のためにコード スニペットを使用することを許可する\]** をオンまたはオフにします。
+  ![テレメトリ オプションのスクリーンショット](/assets/images/help/copilot/telemetry-option.png) {% data reusables.copilot.save-settings %}
 
-## Further reading
+## 参考資料
 
 - [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)

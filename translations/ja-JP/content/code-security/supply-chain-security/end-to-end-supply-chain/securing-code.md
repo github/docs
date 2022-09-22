@@ -1,8 +1,8 @@
 ---
-title: サプライチェーン中のコードの保護のベストプラクティス
-shortTitle: コードの保護
+title: Best practices for securing code in your supply chain
+shortTitle: Securing code
 allowTitleToDifferFromFilename: true
-intro: サプライチェーンの中心である、あなたが書くコードと依存するコードの保護の方法に関するガイダンス。
+intro: Guidance on how to protect the center of your supply chain—the code you write and the code you depend on.
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,104 +17,104 @@ topics:
   - Secret scanning
 ---
 
-## このガイドについて
+## About this guide
 
-このガイドは、コードのセキュリティを高めることができる、もっと影響の大きい変更について説明します。 各セクションは、セキュリティを改善するためにプロセスに加えることができる変更の概要を説明します。 影響の大きい変更から最初にリストされています。
+This guide describes the highest impact changes you can make to improve the security of your code. Each section outlines a change you can make to your processes to improve security. The highest impact changes are listed first.
 
-## リスクとは何か？
+## What's the risk?
 
-開発プロセス中のキーとなるリスクは以下を含みます。
+Key risks in the development process include:
 
-- 攻撃者が悪用できるセキュリティ脆弱性を持つ依存関係の利用。
-- 攻撃者がリソースへのアクセスに利用できる認証情報やトークンの漏洩。
-- 攻撃者が悪用できる脆弱性のコードへの導入。
+- Using dependencies with security vulnerabilities that an attacker could exploit.
+- Leaking authentication credentials or a token that an attacker could use to access your resources.
+- Introducing a vulnerability to your own code that an attacker could exploit.
 
-これらのリスクによって、リソースやプロジェクトが攻撃に対してオープンになり、それらのリスクはあなたが作成するパッケージを使う人に直接渡ります。 以下のセクションは、あなた自身とあなたのユーザをこれらのリスクから保護する方法を説明します。
+These risks open your resources and projects to attack and those risks are passed directly on to anyone who uses a package that you create. The following sections explain how you can protect yourself and your users from these risks.
 
-## 依存関係に対する脆弱性管理プログラムの作成
+## Create a vulnerability management program for dependencies
 
-依存関係に対する脆弱性管理プログラムを作成することによって、依存するコードを保護できます。 高いレベルでは、これには以下を保証するプロセスが含まれていなければなりません。
+You can secure the code you depend on by creating a vulnerability management program for dependencies. At a high level this should include processes to ensure that you:
 
-1. 依存関係のインベントリの作成。
+1. Create an inventory of your dependencies.
 
-2. 依存関係にセキュリティ脆弱性がある場合に把握すること。
+2. Know when there is a security vulnerability in a dependency.
 
-3. 自分のコードに対するその脆弱性のインパクトを評価し、行うべきアクションを判断すること。
+3. Assess the impact of that vulnerability on your code and decide what action to take.
 
-### 自動的なインベントリの生成
+### Automatic inventory generation
 
-最初のステップとして、依存関係の完全なインベントリを作成します。 リポジトリの依存関係グラフは、サポートされているエコシステムの依存関係が表示されます。 依存関係をチェックインするか、他のエコシステムを使うと、これをサードパーティのツールからのデータで補足するか、手動で依存関係をリストする必要があります。 詳しい情報については、「[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。
+As a first step, you want to make a complete inventory of your dependencies. The dependency graph for a repository shows you dependencies for supported ecosystems. If you check in your dependencies, or use other ecosystems, you will need to supplement this with data from 3rd party tools or by listing dependencies manually. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
-### 依存関係内の脆弱性の自動検出
+### Automatic detection of vulnerabilities in dependencies
 
-{% data variables.product.prodname_dependabot %}は、依存関係をモニタリングし、既知の脆弱性が含まれている場合に通知することによって助けてくれます。 {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot %}が依存関係をセキュアなバージョンに更新するのに必要なPull Requestを自動的に起こせるようにすることができます。{% endif %}詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」{% ifversion fpt or ghec or ghes > 3.2 %}及び「[Dependabotセキュリティアップデートについて](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」{% endif %}を参照してください。
+{% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. {% ifversion fpt or ghec or ghes > 3.2 %}You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version.{% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes > 3.2 %} and "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
 
-### 脆弱性のある依存関係からのリスクへの暴露の評価
+### Assessment of exposure to risk from a vulnerable dependency
 
-たとえばライブラリやフレームワークなど、脆弱性のある依存関係を使っていることが判明した場合、プロジェクトの露出レベルを評価し、取るべきアクションを決定しなければなりません。 脆弱性は通常、その影響がどの程度重要になるかを示す重要度スコアとともに報告されます。 この重要度スコアは有益なガイドですが、コードに対する脆弱性の完全な影響を示しはしません。
+When you discover you are using a vulnerable dependency, for example, a library or a framework, you must assess your project's level of exposure and determine what action to take. Vulnerabilities are usually reported with a severity score to show how severe their impact could be. The severity score is a useful guide but cannot tell you the full impact of the vulnerability on your code.
 
-コードに対する脆弱性の影響を評価するには、そのライブラリをどのように使っているかを考慮し、実際にどの程度のリスクがシステムにもたらされるかを判断する必要もあります。 その脆弱性はあなたが使用していない機能の一部かもしれず、影響されるライブラリをアップデートして通常のリリースサイクルを継続できるかもしれません。 あるいはあなたのコードはひどくリスクにさらされており、影響されているライブラリをアップデートしてすぐに更新されたビルドを出荷する必要があるかもしれません。 この判断は、そのライブラリをシステム中でどのように使っているかに依存するものであり、判断するための知識を持っているのはあなただけです。
+To assess the impact of a vulnerability on your code, you also need to consider how you use the library and determine how much risk that actually poses to your system. Maybe the vulnerability is part of a feature that you don't use, and you can update the affected library and continue with your normal release cycle. Or maybe your code is badly exposed to risk, and you need to update the affected library and ship an updated build right away. This decision depends on how you're using the library in your system, and is a decision that only you have the knowledge to make.
 
-## 通信トークンの保護
+## Secure your communication tokens
 
-コードはしばしば、ネットワークを介して他のシステムと通信しなければならず、認証のためのシークレット（パスワードやAPIキーなど）を必要とします。 システムが実行されるためにはそれらのシークレットにアクセスできなければなりませんが、それらをソースコードには含めないのがベストプラクティスです。 これは特に、多くの人がアクセスするかもしれないリポジトリで重要で{% ifversion not ghae %}あり、パブリックリポジトリではきわめて重要で{% endif %}す。
+Code often needs to communicate with other systems over a network, and requires secrets (like a password, or an API key) to authenticate. Your system needs access to those secrets to run, but it's best practice to not include them in your source code. This is especially important for repositories to which many people might have access{% ifversion not ghae %} and critical for public repositories{% endif %}.
 
-### リポジトリのコミットされたシークレットの自動検出
+### Automatic detection of secrets committed to a repository
 
 {% note %}
 
-**ノート:** {% data reusables.gated-features.secret-scanning-partner %}
+**Note:** {% data reusables.gated-features.secret-scanning-partner %}
 
 {% endnote %}
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
-{% data variables.product.prodname_dotcom %}は多くのプロバイダとパートナーになり、パブリックリポジトリにシークレットがコミットあるいは保存されたときに自動的に検出し、アカウントがセキュアな状態を保たれるように適切なアクションをプロバイダが取れるよう、プロバイダに通知します。 詳しい情報については「[パートナーパターンのための{% data variables.product.prodname_secret_scanning %}について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)」を参照してください。
+{% data variables.product.prodname_dotcom %} partners with many providers to automatically detect when secrets are committed to or stored in your public repositories, and will notify the provider so they can take appropriate actions to ensure your account remains secure. For more information, see "[About {% data variables.product.prodname_secret_scanning %} for partner patterns](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
 {% endif %}
 
 {% ifversion fpt %}
 {% data reusables.secret-scanning.fpt-GHAS-scans %}
 {% elsif ghec %}
-Organizationが{% data variables.product.prodname_GH_advanced_security %}を使っているなら、Organizationが所有するいずれのリポジトリでも{% data variables.product.prodname_secret_scanning_GHAS %}を有効化できます。 リポジトリ、Organization、Entepriseのレベルで、追加のシークレットを検出するためのカスタムパターンを定義することもできます。 詳しい情報については「[{% data variables.product.prodname_secret_scanning_GHAS %}について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)」を参照してください。
+If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.product.prodname_secret_scanning_GHAS %} on any repository owned by the organization. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)."
 {% else %}
-多くのサービスプロバイダが発行したシークレットをチェックし、検出されたときには通知してくれるよう{% data variables.product.prodname_secret_scanning %}を設定できます。 リポジトリ、Organization、Entepriseのレベルで、追加のシークレットを検出するためのカスタムパターンを定義することもできます。 詳しい情報については「[Secret scanningについて](/code-security/secret-scanning/about-secret-scanning)」及び「[Secret scanningのパターン](/code-security/secret-scanning/secret-scanning-patterns)」を参照してください。
+You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)" and "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)."
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.2 or ghae %}
-### {% data variables.product.product_name %}で使用するシークレットの安全なストレージ
+### Secure storage of secrets you use in {% data variables.product.product_name %}
 {% endif %}
 
 {% ifversion fpt or ghec %}
-コードに加えて、他の場所にあるシークレットを使う必要もあるでしょう。 たとえば、{% data variables.product.prodname_actions %}や{% data variables.product.prodname_dependabot %}や自分の{% data variables.product.prodname_codespaces %}開発環境を他のシステムと通信できるようにするためです。 シークレットの安全な保存と利用方法に関する詳しい情報については「[Actionsの暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」、「[Dependabotのための暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」、「[codespacesのための暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。
+Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows, {% data variables.product.prodname_dependabot %}, or your {% data variables.product.prodname_github_codespaces %} development environment to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets)," "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)," and "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
 {% endif %}
 
 {% ifversion ghes > 3.2 or ghae %}
-コードに加えて、他の場所にあるシークレットを使う必要もあるでしょう。 たとえば{% data variables.product.prodname_actions %}ワークフロー{% ifversion ghes %}あるいは{% data variables.product.prodname_dependabot %}{% endif %}が他のシステムと通信できるようにするためです。 シークレットの安全な保存と利用方法に関する詳しい情報については「[Actionsの暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」{% ifversion ghes %}及び「[Dependabotのための暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」{% else %}{% endif %}を参照してください。
+Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" and "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."{% else %}."{% endif %}
 {% endif %}
 
-## リポジトリからの脆弱性のあるコーディングパターンの排除
+## Keep vulnerable coding patterns out of your repository
 
 {% note %}
 
-**ノート:** {% data reusables.gated-features.code-scanning %}
+**Note:** {% data reusables.gated-features.code-scanning %}
 
 {% endnote %}
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Pull Requestレビュープロセスの作成
+### Create a pull request review process
 
-コードの品質とセキュリティを、すべてのPull Requestがマージ前にレビューされ、テストされていることを保証することによって改善できます。 {% data variables.product.prodname_dotcom %}には、レビューとマージのプロセスの制御に使える多くの機能があります。 「[保護されたブランチ](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)」を見て始めていってください。
+You can improve the quality and security of your code by ensuring that all pull requests are reviewed and tested before they are merged. {% data variables.product.prodname_dotcom %} has many features you can use to control the review and merge process. To get started, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
 
-### 脆弱性のあるパターンを探してコードをスキャン
+### Scan your code for vulnerable patterns
 
-安全でないコードパターンは、支援なしではレビューアが特定するのが難しいことがよくあります。 シークレットを探してコードをスキャンするのに加えて、セキュリティ脆弱性に関連するパターンを探してコードをチェックできます。 たとえばメモリセーフではない関数や、インジェクション脆弱性につながるかもしれないユーザの入力のエスケーピングの失敗などです。 {% data variables.product.prodname_dotcom %}は、コードをスキャンする方法とタイミングの両方にアプローチする様々な方法を提供します。 「[Code scanningについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)」を見て始めていってください。
+Insecure code patterns are often difficult for reviewers to spot unaided. In addition to scanning your code for secrets, you can check it for patterns that are associated with security vulnerabilities. For example, a function that isn't memory-safe, or failing to escaping user input that could lead to an injection vulnerability. {% data variables.product.prodname_dotcom %} offers several different ways to approach both how and when you scan your code. To get started, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
 
-## 次のステップ
+## Next steps
 
-- 「[エンドツーエンドのサプライチェーンの保護](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)」
+- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 
-- 「[アカウントの保護のベストプラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)」
+- "[Best practices for securing accounts](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- 「[ビルドシステムの保護のベストプラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)」
+- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"

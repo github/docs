@@ -11,22 +11,27 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/licenses
+ms.openlocfilehash: f6d229eb27764441ae040abaaca211b5a894e7ef
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064867'
 ---
+## ライセンス API について
 
-## Licenses APIについて
+Licenses API では、[オープンソースの Ruby Gem Licensee](https://github.com/benbalter/licensee) を使用し、プロジェクトのライセンスを識別します。 ライセンシーは、プロジェクトの `LICENSE` ファイル (存在する場合) を既知のライセンスの短いリストと照合します。 そのためライセンス API では、プロジェクト依存関係のライセンス、あるいはプロジェクトのライセンスをドキュメント化するその他の方法、たとえばドキュメントにおけるライセンス名の参照などは考慮されません。
 
-ライセンス API は[オープンソースの Ruby Gem ライセンス](https://github.com/benbalter/licensee)を使用して、プロセスのライセンスを特定しようとします。 ライセンシーは、プロジェクトの `LICENSE` ファイル (存在する場合) を既知のライセンスの短いリストと照合します。 そのためライセンス API では、プロジェクト依存関係のライセンス、あるいはプロジェクトのライセンスをドキュメント化するその他の方法、たとえばドキュメントにおけるライセンス名の参照などは考慮されません。
-
-ライセンスが一致した場合、返されるライセンスキーおよび名前は[SPDX 仕様](https://spdx.org/)に適合します。
+ライセンスが一致した場合、返されたライセンスキーと名前は [SPDX 仕様](https://spdx.org/)に準拠します。
 
 **注釈:** 以下のエンドポイントも、リポジトリのライセンス情報を返します。
 
 - [リポジトリの取得](/rest/reference/repos#get-a-repository)
-- [ユーザのリポジトリの一覧表示](/rest/reference/repos#list-repositories-for-a-user)
-- [Organization リポジトリの一覧表示](/rest/reference/repos#list-organization-repositories)
+- [ユーザーのリポジトリの一覧表示](/rest/reference/repos#list-repositories-for-a-user)
+- [組織リポジトリの一覧表示](/rest/reference/repos#list-organization-repositories)
 - [フォークの一覧表示](/rest/reference/repos#list-forks)
-- [ユーザが Watch しているリポジトリの一覧表示](/rest/reference/activity#list-repositories-watched-by-a-user)
-- [Team リポジトリの一覧表示](/rest/reference/teams#list-team-repositories)
+- [ユーザーがウォッチしているリポジトリの一覧表示](/rest/reference/activity#list-repositories-watched-by-a-user)
+- [チーム リポジトリの一覧表示](/rest/reference/teams#list-team-repositories)
 
 {% warning %}
 

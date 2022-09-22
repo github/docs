@@ -1,33 +1,45 @@
 ---
 title: 単一選択フィールドについて
-shortTitle: 単一選択フィールドについて
-intro: ドロップダウンメニューから選択できる定義済みの選択肢で単一選択フィールドを作成できます。
+shortTitle: About single select fields
+intro: ドロップダウン メニューから選べる定義済みのオプションを指定して、単一選択フィールドを作成できます。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
   - Projects
+ms.openlocfilehash: 50251608201f6a5e199c235cb0c715449bc99882
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424113'
 ---
+オプション (`fieldname:option` など) を指定して、単一選択フィールドでフィルター処理することができます。 オプションのコンマ区切りリスト (`fieldname:option,option` など) を指定して、複数の値をフィルター処理できます。 詳細については、[プロジェクトのフィルター処理](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)に関するページを参照してください。
 
-単一選択フィールドは、たとえば`fieldname:option`のようにオプションを指定してフィルタリングできます。 たとえば`fieldname:option,option`というように、カンマ区切りのリストのオプションを渡すことで、複数の値に対してフィルタリングできます。 詳しい情報については「[プロジェクトのフィルタリング](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)」を参照してください。
-
-単一選択フィールドは、最大で50個の選択肢を含むことができます。
+単一選択フィールドには、最大 50 個のオプションを含めることができます。 
 
 ## 単一選択フィールドの追加
 
 {% data reusables.projects.new-field %}
-1. **Single select（単一選択）**を選択してください。 ![単一選択の選択肢を表示しているスクリーンショット](/assets/images/help/projects-v2/new-field-single-select.png)
-1. "Options（選択肢）"の下で、最初の選択肢を入力してください。 ![単一選択の選択肢を表示しているスクリーンショット](/assets/images/help/projects-v2/single-select-create-with-options.png)
-   - 選択肢を追加するには**Add option（選択肢の追加）**をクリックしてください。
-1. [**Save**] をクリックします。 ![保存ボタンを表示しているスクリーンショット](/assets/images/help/projects-v2/new-field-save.png)
+1. **[単一選択]** を選びます
+   ![[単一選択] オプションを示すスクリーンショット](/assets/images/help/projects-v2/new-field-single-select.png)
+1. [オプション] の下に、最初のオプションを入力します。
+   ![単一選択オプションを示すスクリーンショット](/assets/images/help/projects-v2/single-select-create-with-options.png)
+   - オプションをさらに追加するには、 **[オプションの追加]** をクリックします。
+1. **[保存]** をクリックします。
+   ![[保存] ボタンを示すスクリーンショット](/assets/images/help/projects-v2/new-field-save.png)
 
-または、{% data variables.projects.command-palette-shortcut %}を押してプロジェクトのコマンドパレットをオープンし、"Create new field"と入力していってください。
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Create new field」と入力し始めます。
 
 ## 単一選択フィールドの編集
 
 {% data reusables.projects.project-settings %}
-1. 調整したい単一選択フィールドの名前をクリックしてください。 ![単一選択フィールドを表示しているスクリーンショット](/assets/images/help/projects-v2/select-single-select.png)
-1. 既存の選択肢を編集するか、**Add option（選択肢の追加）**をクリックしてください。 ![単一選択の選択肢を表示しているスクリーンショット](/assets/images/help/projects-v2/single-select-edit-options.png)
-1. あるいは、選択肢を削除したい場合は{% octicon "x" aria-label="The x icon" %}をクリックしてください。 ![削除ボタンを表示しているスクリーンショット](/assets/images/help/projects-v2/single-select-delete.png)
-1. **Save options（選択肢の保存）**をクリックしてください。 ![保存ボタンを表示しているスクリーンショット](/assets/images/help/projects-v2/save-options.png)
+1. 調整する単一選択フィールドの名前をクリックします。
+   ![単一選択フィールドを示すスクリーンショット](/assets/images/help/projects-v2/select-single-select.png)
+1. 既存のオプションを編集するか、 **[オプションの追加]** をクリックします。
+   ![単一選択オプションを示すスクリーンショット](/assets/images/help/projects-v2/single-select-edit-options.png)
+1. 必要に応じて、オプションを削除するには、{% octicon "x" aria-label="The x icon" %} をクリックします。
+   ![削除ボタンを示すスクリーンショット](/assets/images/help/projects-v2/single-select-delete.png)
+1. **[オプションの保存]** をクリックします。
+   ![保存ボタンを示すスクリーンショット](/assets/images/help/projects-v2/save-options.png)

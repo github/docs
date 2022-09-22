@@ -70,7 +70,7 @@ The recommended formats explicitly define which versions are used for all direct
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|
 {%- ifversion dependency-graph-rust-support %}
-| Cargo{% ifversion ghes = 3.6 or ghae-issue-7563 %}<sup>[*]</sup>{% endif %} | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
+| Cargo | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
 {%- endif %}
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
@@ -90,10 +90,6 @@ The recommended formats explicitly define which versions are used for all direct
 {%- endif %}
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
-
-{% ifversion ghes = 3.6 or ghae-issue-7563 %}
-[*] For the initial release of Rust support, dependency graph does not have the metadata and mappings required to detect transitive dependencies. Dependency graph displays transitive dependencies, one level deep, when they are defined in a `Cargo.lock` file. {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are available for vulnerable dependencies defined in the `Cargo.lock` file.
-{% endif %}
 
 {% ifversion github-actions-in-dependency-graph %}
 [†] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."

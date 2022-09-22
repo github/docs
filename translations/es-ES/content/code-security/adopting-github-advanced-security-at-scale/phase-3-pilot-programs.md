@@ -1,6 +1,6 @@
 ---
-title: 'Phase 3: Pilot programs'
-intro: 'You may benefit from beginning with a few high-impact projects and teams with which to pilot an initial rollout. Esto permitirá que un grupo inicial dentro de tu compañía se familiarice con la GHAS, aprenda cómo habilitarla y configurarla y cree bases sólidas en ella antes de implementarla con el resto de tu compañía.'
+title: 'Fase 3: Programas piloto'
+intro: 'Puedes beneficiarte de empezar con algunos proyectos y equipos de alto impacto con los que probar un lanzamiento inicial. Esto permitirá que un grupo inicial dentro de tu compañía se familiarice con la GHAS, aprenda cómo habilitarla y configurarla y cree bases sólidas en ella antes de implementarla con el resto de tu compañía.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,78 +9,83 @@ topics:
   - Advanced Security
 shortTitle: 3. Pilot programs
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 3df893158c402b9180260ddd1c82c96f62b84717
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147145397'
 ---
-
 {% note %}
 
-Este artículo es parte de una serie de cómo adoptar la {% data variables.product.prodname_GH_advanced_security %} a escala. For the previous article in this series, see "[Phase 2: Preparing to enable at scale](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)."
+Este artículo forma parte de una serie sobre la adopción de {% data variables.product.prodname_GH_advanced_security %} a escala. Para ver el artículo anterior de esta serie, consulta "[Fase 2: Preparación para la habilitación a escala](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)".
 
 {% endnote %}
 
-## About pilot programs
+## Acerca de los programas piloto
 
-We recommend you identify a few high-impact projects or teams to use in a pilot rollout of GHAS. This allows an initial group within your company to get familiar with GHAS and builds a solid foundation for GHAS before you roll it out to the remainder of your company.
+Te recomendamos que identifiques algunos proyectos o equipos de alto impacto para usarlos en un lanzamiento piloto de la GHAS. Esto permitirá que un grupo inicial dentro de la empresa se familiarice con la GHAS y cree bases sólidas para la GHAS antes de lanzarla en el resto de la empresa.
 
-The steps in this phase will help you enable GHAS on your enterprise, begin using its features, and review your results. Si estás trabajando con los {% data variables.product.prodname_professional_services %}, estos pueden proporcionarte ayuda adicional en este proceso mediante sesiones de integración, talleres de GHAS y solución de problemas, conforme lo requieras.
+Los pasos de esta fase te ayudarán a habilitar la GHAS en tu empresa, comenzar a utilizar sus características y revisar tus resultados. Si estás trabajando con los {% data variables.product.prodname_professional_services %}, estos pueden proporcionarte ayuda adicional en este proceso mediante sesiones de integración, talleres de GHAS y solución de problemas, conforme lo requieras.
 
-Before you start your pilot projects, we recommend that you schedule some meetings for your teams, such as an initial meeting, midpoint review, and a wrap-up session when the pilot is complete. These meetings will help you all make adjustments as needed and ensure your teams are prepared and supported to complete the pilot successfully.
+Antes de que comiences tus proyectos piloto, te recomendamos que programes algunas reuniones para tus equipos, como una reunión inicial, una revisión de punto medio y una sesión de conclusión cuando se complete el piloto. Estas reuniones te ayudarán a realizar los ajustes conforme sean necesarios y garantizar así que tus equipos están listos y cuentan con el apoyo para completar el piloto con éxito.
 
 {% ifversion ghes %}
 
-Si aún no has habilitado la GHAS para tu instancia de {% data variables.product.prodname_ghe_server %}, consulta la sección "[Habilitar la Seguridad Avanzada de GitHub para tu empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)".
+Si aún no ha habilitado GHAS para la instancia de {% data variables.product.prodname_ghe_server %}, vea "[Habilitación de seguridad avanzada de GitHub para su empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)".
 
 {% endif %}
 
-You need to enable GHAS for each pilot project, either by enabling the GHAS features for each repository or for all repositories in any organizations taking part in the pilot. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y de análisis para tu repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" o "[Administrar la configuración de seguridad y de análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+Necesitas habilitar la GHAS para cada proyecto piloto, ya sea habilitando la característica de la GHAS en cada repositorio o en todos ellos en todas las organizaciones que participen en el piloto. Para más información, vea "[Administración de la configuración de seguridad y análisis del repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" o "[Administración de la configuración de seguridad y análisis para la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
-## Piloting {% data variables.product.prodname_code_scanning %}
+## Prueba piloto de {% data variables.product.prodname_code_scanning %}
 
 {% ifversion ghes %}
 
-Para habilitar el {% data variables.product.prodname_code_scanning %} en tu instancia de {% data variables.product.prodname_ghe_server %}, consulta la sección "[Configurar el escaneo de código para tu aplicativo](/admin/advanced-security/configuring-code-scanning-for-your-appliance)".
+Para habilitar {% data variables.product.prodname_code_scanning %} en la instancia de {% data variables.product.prodname_ghe_server %}, vea "[Configuración del examen de código para el dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance)".
 
 {% elsif ghae %}
 
-Para habilitar el {% data variables.product.prodname_code_scanning %} utilizando {% data variables.product.prodname_actions %}, debes hacer que los ejecutores estén disponibles para ejecutar flujos de trabajo en {% data variables.product.prodname_ghe_managed %}, consulta la sección "[Iniciar con {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)".
+Para habilitar {% data variables.product.prodname_code_scanning %} mediante {% data variables.product.prodname_actions %}, debes hacer que los ejecutores estén disponibles para ejecutar flujos de trabajo en {% data variables.product.prodname_ghe_managed %}; consulta "[Introducción a {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)".
 
 {% endif %}
 
-You can run code scanning on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [CodeQL action](https://github.com/github/codeql-action/). {% ifversion ghec %}{% data variables.product.prodname_code_scanning_capc %} uses [GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners) by default, but this can be customized if you plan to host your own runner with your own hardware specifications. Para obtener más información, consulta la sección "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners)".{% endif %}
+Puedes ejecutar el análisis de código en un repositorio creando un flujo de trabajo de {% data variables.product.prodname_actions %} para ejecutar la [acción CodeQL](https://github.com/github/codeql-action/). {% ifversion ghec %}{% data variables.product.prodname_code_scanning_capc %} usa [ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners) de manera predeterminada, pero esto se puede personalizar si planeas hospedar tu propio ejecutor con tus propias especificaciones de hardware. Para obtener más información, consulte "[Acerca de los ejecutores autohospedados](/actions/hosting-your-own-runners)."{% endif %}
 
 Para obtener más información sobre las {% data variables.product.prodname_actions %}, consulta las siguientes secciones:
-  - "[Aprender a utilizar las GitHub Actions](/actions/learn-github-actions)"
-  - "[Entender las GitHub Actions](/actions/learn-github-actions/understanding-github-actions)"
+  - "[Más información sobre las Acciones de GitHub](/actions/learn-github-actions)"
+  - "[Descripción de las Acciones de GitHub](/actions/learn-github-actions/understanding-github-actions)"
   - "[Eventos que desencadenan flujos de trabajo](/actions/learn-github-actions/events-that-trigger-workflows)"
-  - "[Directorio de patrones de filtrado](/actions/learn-github-actions/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
+  - "[Hoja de datos de patrones de filtro](/actions/learn-github-actions/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
 
-We recommend enabling {% data variables.product.prodname_code_scanning %} on a repository-by-repository basis as part of your pilot program. Para obtener más información, consulta la sección "[Configurar el escaneo de código para un repositorio](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository)".
+Se recomienda habilitar {% data variables.product.prodname_code_scanning %} repositorio por repositorio como parte del programa piloto. Para obtener más información, vea "[Configuración del examen de código para un repositorio](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository)".
 
-If you want to enable code scanning for many repositories, you may want to script the process.
+Si quieres habilitar el análisis de código para muchos repositorios, puede que quieras hacer un script del proceso.
 
-Para encontrar un ejemplo de un script que abre solicitudes de cambio para agregar un flujo de trabajo de {% data variables.product.prodname_actions %} a repositorios múltiples, consulta el repositorio [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para ver cómo se hace con PowerShell o el de [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para los equipos que no tengan PowerShell y les gustaría trabajar con NodeJS en su lugar.
+Para obtener un ejemplo de script que abre solicitudes de incorporación de cambios para agregar un flujo de trabajo de {% data variables.product.prodname_actions %} a varios repositorios, vea el repositorio [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para obtener un ejemplo mediante PowerShell, o bien [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para equipos que no tienen PowerShell y, en su lugar, quieren usar NodeJS.
 
-Cuando ejecutas los escaneos de código iniciales, podrías no encontrar resultados o que se te devuelva una cantidad inusual de ellos. Es posible que quieras ajustar qué se debe resaltar en los escaneos futuros. Para obtener más información, consulta la sección "[Configurar el escaneo de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)".
+Cuando ejecutas los escaneos de código iniciales, podrías no encontrar resultados o que se te devuelva una cantidad inusual de ellos. Es posible que quieras ajustar qué se debe resaltar en los escaneos futuros. Para más información, vea "[Configuración del análisis de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)".
 
-Si tu compañía quiere utilizar otras herramientas de análisis de código de terceros con el escaneo de código de GitHub, puedes utilizar acciones para que ejecuten esas herramientas dentro de GitHub. Alternatively, you can upload results, which are generated by third-party tools as SARIF files, to code scanning. Para obtener más información, consulta la sección "[Integrarse con el escaneo de código](/code-security/code-scanning/integrating-with-code-scanning)".
+Si tu compañía quiere utilizar otras herramientas de análisis de código de terceros con el escaneo de código de GitHub, puedes utilizar acciones para que ejecuten esas herramientas dentro de GitHub. Como alternativa, puedes cargar al análisis de código los resultados que se generen con las herramientas de terceros como archivos SARIF. Para obtener más información, vea "[Integración con el examen de código](/code-security/code-scanning/integrating-with-code-scanning)".
 
-## Piloting {% data variables.product.prodname_secret_scanning %}
+## Prueba piloto de {% data variables.product.prodname_secret_scanning %}
 
 GitHub escanea los repositorios para los tipos de secreto conocidos, para prevenir el uso fraudulento de secretos que se confirmaron por accidente.
 
 {% ifversion ghes %}
 
-Para habilitar el escaneo de secretos para tu instancia de {% data variables.product.prodname_ghe_server %}, consulta la sección "[Configurar el escaneo de secretos para tu aplicativo](/admin/advanced-security/configuring-secret-scanning-for-your-appliance)".
+A fin de habilitar el examen de secretos para la instancia de {% data variables.product.prodname_ghe_server %}, vea "[Configuración del examen de secretos para el dispositivo](/admin/advanced-security/configuring-secret-scanning-for-your-appliance)".
 
 {% endif %}
 
-Necesitas habilitar el escaneo de secretos para cada proyecto piloto, ya sea habilitando la característica para cada repositorio o para todos los repositorios en cualquier organización que participe en el proyecto. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y de análisis para tu repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" o "[Administrar la configuración de seguridad y de análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+Necesitas habilitar el escaneo de secretos para cada proyecto piloto, ya sea habilitando la característica para cada repositorio o para todos los repositorios en cualquier organización que participe en el proyecto. Para obtener más información, consulta "[Administración de la configuración de seguridad y análisis del repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" o "[Administración de la configuración de seguridad y análisis para la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
-If you have collated any custom patterns specific to your enterprise, especially any related to the projects piloting {% data variables.product.prodname_secret_scanning %}, you can configure those. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)".
+Si has intercalado patrones personalizados específicos de tu empresa, especialmente en relación con los proyectos de la prueba piloto de {% data variables.product.prodname_secret_scanning %}, puedes configurarlos. Para más información, vea "[Definición de patrones personalizados para el análisis de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)".
 
-Para aprender cómo ver y cerrar las alertas para los secretos que se registraron en tu repositorio, consulta la sección "[Administrar las alertas del escaneo de secretos](/code-security/secret-scanning/managing-alerts-from-secret-scanning)".
+Para obtener información sobre cómo ver y cerrar alertas de secretos insertados en el repositorio, vea "[Administración de alertas del examen de secretos](/code-security/secret-scanning/managing-alerts-from-secret-scanning)".
 
 {% note %}
 
-For the next article in this series, see "[Phase 4: Create internal documentation](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
+Para ver el artículo siguiente de esta serie, consulta "[Fase 4: Creación de documentación interna](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)".
 
 {% endnote %}

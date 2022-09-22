@@ -1,48 +1,57 @@
 ---
-title: Submitting your repository to GitHub Community Exchange
+title: 将存储库提交到 GitHub Community Exchange
 shortTitle: Submit your repository
-intro: 'You can submit your repository to {% data variables.product.prodname_community_exchange %} for others to view or contribute to.'
+intro: '可将存储库提交到 {% data variables.product.prodname_community_exchange %}，以供其他人查看或参与。'
 versions:
   fpt: '*'
+ms.openlocfilehash: d520f303bf368c9230f26580ba2de9bd744b21e7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409734'
 ---
+## 关于存储库提交
 
-## About repository submissions
+只有个人帐户拥有的公共存储库才能提交到 {% data variables.product.prodname_community_exchange %}。
 
-Only public repositories owned by personal accounts can be submitted to {% data variables.product.prodname_community_exchange %}.
+有三种类型的存储库提交：
 
-There are three types of repository submissions:
+- 了解。 用于共享构建项目的分步说明的存储库。
+- 协作。 寻求协作者处理项目的存储库。
+- 了解和协作。 由 `Learn` 和 `Collaborate` 组合而成的存储库。
 
-- **Learn.** A repository to share step-by-step instructions to build a project.
-- **Collaborate.** A repository seeking collaborators to work on a project.
-- **Learn and Collaborate.** A repository which is a combination of `Learn` and `Collaborate`.
+在为存储库选择提交类型时，请考虑存储库的主要用途是什么。
 
-Consider what the main purpose of your repository is when choosing the type of submission for your repository.
+若要提升项目并使其更容易被其他学生发现，你应将一个或多个主题和 {% data variables.product.prodname_student_pack %} 产品/服务分配给存储库。 有关详细信息，请参阅“[按主题对存储库进行分类](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)”。
 
-To promote your project and make it more discoverable to other students, you should assign one or more topics and {% data variables.product.prodname_student_pack %} offers to your repository. 更多信息请参阅“[使用主题对仓库分类](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)”。
+将存储库提交给 {% data variables.product.prodname_community_exchange %} 后，它将立即发布，其中包含你所选择的用途、主题和产品/服务。 {% data variables.product.prodname_community_exchange %} 社区审查所有存储库提交。
 
-Once a repository has been submitted to {% data variables.product.prodname_community_exchange %}, it will be published immediately with the purpose, topics, and offers you've chosen. The {% data variables.product.prodname_community_exchange %} community moderates all repository submissions.
+### 提交要求
 
-### Submission requirements
+存储库必须满足提交被接受的最低要求。 在提交过程中，如果选择的存储库未满足提交条件，你将收到缺少项的通知。
 
-Your repository must meet a minimum set of requirements for a submission to be accepted. During the submission process, if the submission criteria hasn't been met for your selected repository, you will be notified of the missing items.
+对于以 `Learn` 为用途的提交，存储库必须具有：
+- 说明。
+- 一个 LEARN.md 文件，用于通过文本和/或媒体提供有关如何构建项目的分步说明。 理想情况下，LEARN.md 文件会将项目分解为小组件，并提供每个步骤的详细信息，以便其他学生可以按照说明编写其项目。
+- 一个 README.md 文件，用于提供项目的详细说明。
 
-For a submission with a purpose of `Learn`, your repository must have:
-- A description.
-- A LEARN.md file to provide step-by-step instructions, with text and/or media, on how you built your project. Ideally, your LEARN.md file will deconstruct your project into small components and provide thorough details of each step, so that other students can code their project by following your instructions.
-- A README.md file to provide a detailed description of your project.
+对于以 `Collaborate` 为用途的提交，存储库必须具有：
+- 说明。
+- 一个 README.md 文件，用于提供项目的详细说明。
+- 供协作组处理的一个或多个问题。
 
-For a submission with a purpose of `Collaborate`, your repository must have:
-- A description.
-- A README.md file to provide a detailed description of your project.
-- One or more issues for collaborators to work on.
+用于 `Learn` 和 `Collaborate` 用途的良好存储库提交是遵循社区标准的存储库。 有关详细信息，请参阅“[关于公共存储库的社区配置文件](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)”。
 
-A good repository submission for both `Learn` and `Collaborate` purposes, is a repository that follows community standards. For more information, see "[About community profiles for public repositories](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
+## 提交存储库
 
-## Submitting your repository
-
-1. From your {% data variables.product.prodname_global_campus %} dashboard, navigate to the {% data variables.product.prodname_community_exchange %} home page.
-1. Above the list of repositories, to the right of the search and dropdown filters, click **Add repository**. ![Screenshot of the Add repository button](/assets/images/help/education/community-exchange-submission-add-repo.png)
-1. Use the **What is the purpose of your submission?** drop-down menu and select one or more entries matching your submission. ![Screenshot of the purpose dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-purpose.png)
-1. Use the **Which repository would you like to use?** drop-down menu and select the repository for your submission. If the submission criteria hasn't been met, you will be notified of the missing items. ![Screenshot of the repository dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-repo.png)
-1. Use the **Which offers did you use for your project?** drop-down menu and select one or more entries matching your submission. ![Screenshot of the offers dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-offers.png)
-1. Click **Submit the project**.
+1. 从 {% data variables.product.prodname_global_campus %} 仪表板，导航到 {% data variables.product.prodname_community_exchange %} 主页。
+1. 在存储库列表上方的搜索和下拉筛选器右侧，单击“添加存储库”。
+  ![“添加存储库”按钮的屏幕截图](/assets/images/help/education/community-exchange-submission-add-repo.png)
+1. 使用“提交的用途是什么?”下拉菜单并选择一个或多个与提交匹配的条目。
+  ![存储库提交的用途下拉菜单屏幕截图](/assets/images/help/education/community-exchange-repo-submission-purpose.png)
+1. 使用“要使用哪个存储库?”下拉菜单并选择要提交的存储库。 如果未满足提交条件，你将收到有关缺少项的通知。
+  ![存储库提交的存储库下拉菜单屏幕截图](/assets/images/help/education/community-exchange-repo-submission-repo.png)
+1. 使用“项目使用了哪些产品/服务”下拉菜单并选择一个或多个与提交的内容匹配的条目。
+  ![存储库提交的产品/服务下拉菜单屏幕截图](/assets/images/help/education/community-exchange-repo-submission-offers.png)
+1. 单击“提交项目”。

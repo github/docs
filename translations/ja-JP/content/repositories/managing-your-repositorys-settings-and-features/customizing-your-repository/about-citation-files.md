@@ -1,6 +1,6 @@
 ---
-title: About CITATION files
-intro: You can add a CITATION file to your repository to help users correctly cite your software.
+title: CITATION ファイルについて
+intro: ユーザーがソフトウェアを正しく引用できるように、CITATION ファイルをリポジトリに追加できます。
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files
 versions:
@@ -10,13 +10,18 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 2f7869e9218679c3c18c3182b15835bcd24e134d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145193803'
 ---
+## CITATION ファイルについて
 
-## About CITATION files
+リポジトリのルートに `CITATION.cff` ファイルを追加して、作業を引用する方法を他のユーザーに知らせることができます。 引用ファイル形式は、人間と機械で読み取り可能な引用情報を含むプレーンテキストです。
 
-You can add a `CITATION.cff` file to the root of a repository to let others know how you would like them to cite your work. The citation file format is plain text with human- and machine-readable citation information.
-
-Example `CITATION.cff` file:
+`CITATION.cff` ファイルの例:
 
 ```
 cff-version: 1.2.0
@@ -35,7 +40,7 @@ date-released: 2017-12-18
 url: "https://github.com/github/linguist"
 ```
 
-The GitHub citation prompt on your repository will show the example `CITATION.cff` content in these formats:
+リポジトリの GitHub 引用プロンプトには、次の形式のサンプルの `CITATION.cff` コンテンツが表示されます。
 
 **APA**
 
@@ -59,35 +64,35 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 ```
 {% endraw %}
 
-Note the example above produces a _software_ citation (i.e., `@software` type in BibTeX rather than `@article`).
+上記の例では、_ソフトウェア_ 引用 (つまり、`@article` ではなく BibTeX の`@software` 型) が生成されることにご注意ください。
 
-For more information, see the [Citation File Format](https://citation-file-format.github.io/) website.
+詳しくは、「[引用ファイル形式](https://citation-file-format.github.io/)」 の Web サイトをご覧ください。
 
-When you add a `CITATION.cff` file to the default branch of your repository, it is automatically linked from the repository landing page. This makes it easy for other users to cite your software project, using the information you've provided.
+リポジトリの既定のブランチに `CITATION.cff` ファイルを追加すると、リポジトリのランディング ページから自動的にリンクされます。 これにより、他のユーザーがあなたのソフトウェア プロジェクトを、あなたが提供した情報を使って簡単に引用できるようになります。
 
-![Citation link on repository landing page](/assets/images/help/repository/citation-link.png)
+![リポジトリのランディング ページ上の引用リンク](/assets/images/help/repository/citation-link.png)
 
-## Citing something other than software
+## ソフトウェア以外のものを引用する
 
-If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
+{% data variables.product.prodname_dotcom %} 引用情報を研究記事などの別のリソースにリンクする場合は、CFF の `preferred-citation` オーバーライドを次の種類で使うことができます。
 
-| Resource                          | CFF type                                                                                             | BibTeX type      | APA annotation      |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------- | ------------------- |
-| Journal article/paper             | `article`                                                                                            | `@article`       |                     |
-| Book                              | `book`                                                                                               | `@book`          |                     |
-| Booklet (bound but not published) | `pamphlet`                                                                                           | `@booklet`       |                     |
-| Conference article/paper          | `conference-paper`                                                                                   | `@inproceedings` | [Conference paper]  |
-| Conference proceedings            | `conference`, `proceedings`                                                                          | `@proceedings`   |                     |
-| Data set                          | `data`, `database`                                                                                   | `@misc`          | [Data set]          |
-| Magazine article                  | `magazine-article`                                                                                   | `@article`       |                     |
-| Manual                            | `manual`                                                                                             | `@manual`        |                     |
-| Misc/generic/other                | `generic`, any other CFF type                                                                        | `@misc`          |                     |
-| Newspaper article                 | `newspaper-article`                                                                                  | `@article`       |                     |
-| Software                          | `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software`      | [Computer software] |
-| Report/technical report           | `report`                                                                                             | `@techreport`    |                     |
-| Unpublished                       | `unpublished`                                                                                        | `@unpublished`   |                     |
+| リソース | CFF 型 | BibTeX 型 | APA 注釈 |
+|----------|----------|-------------|----------------|
+| ジャーナルの記事、または論文 | `article` | `@article` | |
+| Book | `book` | `@book` | |
+| 小冊子 (バインドされているが発行されていないもの) | `pamphlet` | `@booklet` | |
+| 会議の記事または論文 | `conference-paper` | `@inproceedings` | [会議論文] |
+| 会議の議事録 | `conference`, `proceedings` | `@proceedings` | |
+| データ セット | `data`, `database` | `@misc` | [データセット] |
+| 雑誌の記事 | `magazine-article` | `@article` | |
+| マニュアル | `manual` | `@manual` | |
+| 混合/汎用/その他 | `generic`、その他の CFF 型 | `@misc` | |
+| 新聞記事 | `newspaper-article` | `@article` | |
+| ソフトウェア |  `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software` | [コンピューター ソフトウェア] |
+| レポート/技術レポート | `report` | `@techreport` | |
+| 未発行 | `unpublished` | `@unpublished` | |
 
-Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
+ソフトウェアを記述する拡張 CITATION.cff ファイルですが、優先される引用として研究記事にリンクしています。
 
 ```
 cff-version: 1.2.0
@@ -124,7 +129,7 @@ preferred-citation:
   year: 2021
 ```
 
-The example `CITATION.cff` file above will produce the following outputs in the GitHub citation prompt:
+上記の例の `CITATION.cff` ファイルは、GitHub 引用プロンプトで次の出力を生成します。
 
 **APA**
 
@@ -150,15 +155,15 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 ```
 {% endraw %}
 
-## Citing a dataset
+## データセットの引用
 
-If your repository contains a dataset, you can set `type: dataset` at the top level of your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
+リポジトリにデータセットが含まれている場合は、`CITATION.cff` ファイルの最上位レベルで、{% data variables.product.prodname_dotcom %} 引用プロンプトでデータ引用文字列の出力を生成するように `type: dataset` を設定できます。
 
-## Other citation files
+## その他の CITATION ファイル
 
-The GitHub citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited.
+GitHub 引用機能により、コミュニティやプロジェクトで、作業の引用方法を説明するために頻繁に使われる少数の追加ファイルを検出することもできます。
 
-GitHub will link to these files in the _Cite this repository_ prompt, but will not attempt to parse them into other citation formats.
+GitHub は、_このリポジトリを引用_ プロンプトでこれらのファイルにリンクしますが、他の引用形式への解析は試みません。
 
 ```
 # Note these are case-insensitive and must be in the root of the repository
@@ -173,8 +178,8 @@ CITATIONS.md
 inst/CITATION
 ```
 
-## Citation formats
+## 引用形式
 
-We currently support APA and BibTex file formats.
+現在、APA ファイル形式と BibTex ファイル形式がサポートされています。
 
-Are you looking for additional citation formats? GitHub uses a Ruby library, to parse the `CITATION.cff` files. You can request additional formats in the [ruby-cff](https://github.com/citation-file-format/ruby-cff) repository, or contribute them yourself.
+その他の引用形式をお探しですか? GitHub では、Ruby ライブラリを使って `CITATION.cff` ファイルを解析します。 [ruby-cff](https://github.com/citation-file-format/ruby-cff) リポジトリで追加の形式を要求することも、ご自分で投稿することもできます。

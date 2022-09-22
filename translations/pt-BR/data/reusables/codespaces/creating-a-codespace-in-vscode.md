@@ -2,33 +2,33 @@ After you connect your account on {% data variables.product.product_location %} 
 
 {% note %}
 
-**Observação**: Atualmente, {% data variables.product.prodname_vscode_shortname %} não permite que você escolha uma configuração de contêiner de desenvolvimento ao cria um codespace. Se você quiser escolher uma configuração de contêiner de desenvolvimento específica, use a interface web do {% data variables.product.prodname_dotcom %} para criar o seu codespace. For more information, click the **Web browser** tab at the top of this page.
+**Note**: Currently, {% data variables.product.prodname_vscode_shortname %} doesn't allow you to choose a dev container configuration when you create a codespace. If you want to choose a specific dev container configuration, use the {% data variables.product.prodname_dotcom %} web interface to create your codespace. For more information, click the **Web browser** tab at the top of this page.
 
 {% endnote %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 2. Click the Add icon: {% octicon "plus" aria-label="The plus icon" %}.
 
-   ![A opção "Criar novo codespace" em {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/create-codespace-vscode.png)
+   ![The Create new Codespace option in {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/create-codespace-vscode.png)
 
 3. Type the name of the repository you want to develop in, then select it.
 
-   ![Pesquisar um repositório para criar um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-repository-vscode.png)
+   ![Searching for repository to create a new codespace](/assets/images/help/codespaces/choose-repository-vscode.png)
 
-4. Clique no branch que você deseja desenvolver.
+4. Click the branch you want to develop on.
 
-   ![Pesquisar um branch para criar um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-branch-vscode.png)
+   ![Searching for a branch to create a new codespace](/assets/images/help/codespaces/choose-branch-vscode.png)
 
 5. If prompted to choose a dev container configuration file, choose a file from the list.
 
-   ![Choosing a dev container configuration file for {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
+   ![Choosing a dev container configuration file for {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
 
 6. Click the machine type you want to use.
 
-   ![Tipos de instância para um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-sku-vscode.png)
+   ![Instance types for a new codespace](/assets/images/help/codespaces/choose-sku-vscode.png)
 
    {% note %}
 
-   **Observação**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+   **Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
 
    {% endnote %}

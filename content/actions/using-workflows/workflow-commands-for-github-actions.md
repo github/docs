@@ -334,6 +334,12 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
+{% warning %}
+
+**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
+
+{% endwarning %}
+
 ### Example: Masking an environment variable
 
 When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.

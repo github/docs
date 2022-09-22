@@ -1,7 +1,15 @@
-You can either create a repository or choose an existing repository for your site.
+---
+ms.openlocfilehash: bae5803eba7e297fdf2c915f1e08f1e124ed7011
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147428304"
+---
+Você pode criar um repositório ou escolher um repositório existente para seu site.
 
-If you want to create a {% data variables.product.prodname_pages %} site for a repository where not all of the files in the repository are related to the site, you will be able to configure a publishing source for your site. For example, you can have a dedicated branch and folder to hold your site source files{% ifversion pages-custom-workflow %}, or you can use a custom {% data variables.product.prodname_actions %} workflow to build and deploy your site source files{% endif %}.
+Se você quiser criar um site do {% data variables.product.prodname_pages %} para um repositório em que nem todos os arquivos do repositório estejam relacionados ao site, você poderá configurar uma fonte de publicação para seu site. Por exemplo, você pode ter um branch e uma pasta dedicados para armazenar os arquivos de origem do seu site{% ifversion pages-custom-workflow %} ou usar um fluxo de trabalho personalizado de {% data variables.product.prodname_actions %} para criar e implantar os arquivos de origem do seu site{% endif %}.
 
-{% ifversion fpt or ghec %}If the account that owns the repository uses {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_free_team %} for organizations, the repository must be public.{% endif %}
+{% ifversion fpt or ghec %}Se a conta que é o proprietário do repositório usar o {% data variables.product.prodname_free_user %} ou o {% data variables.product.prodname_free_team %} para organizações, o repositório precisará ser público.{% endif %}
 
-Se você deseja criar um site em um repositório existente, pule para a seção "[Criar o seu site](#creating-your-site).
+Caso deseje criar um site em um repositório existente, vá para a seção "[Como criar seu site](#creating-your-site)".

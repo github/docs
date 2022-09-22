@@ -1,4 +1,3 @@
-import React from 'react'
 import { Heading, NavList } from '@primer/react'
 import cx from 'classnames'
 

@@ -1,5 +1,5 @@
 ---
-title: Organizaciones
+title: Las organizaciones
 intro: 'La API de Organizaciones te da acceso para controlar y administrar todas tus organizaciones de {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -21,5 +21,11 @@ children:
   - /outside-collaborators
   - /security-managers
   - /webhooks
+ms.openlocfilehash: d5b09781c9eca57244dd0051491d2611b0971686
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147444552'
 ---
 

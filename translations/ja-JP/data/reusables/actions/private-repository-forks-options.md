@@ -1,3 +1,11 @@
-- **Run workflows from fork pull requests（フォークのPull Requestからワークフローを実行）** - 読み取りのみの権限を持ち、シークレットにはアクセスできない`GITHUB_TOKEN`を使って、フォークのPull Requestからワークフローを実行することをユーザに許可します。
-- **Send write tokens to workflows from pull requests（Pull Requestから書き込みトークンをワークフローに送信）** - 書き込み権限を持つ`GITHUB_TOKEN`の利用をフォークからのPull Requestに許可します。
-- **Send secrets to workflows from pull requests（Pull Requestからワークフローにシークレットを送信）** - すべてのシークレットをPull Requestから利用可能にします。
+---
+ms.openlocfilehash: 6c1dd36680cbcbf04fda2d18f14a828249715ff7
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145068146"
+---
+- **フォーク pull request からワークフローを実行する** - 読み取り専用権限を持ち、シークレットへのアクセス権を持たない `GITHUB_TOKEN` を使用して、フォーク pull request からワークフローを実行できます。
+- **pull request からワークフローに書き込みトークンを送信する** - フォークからの pull request で書き込み権限を持つ `GITHUB_TOKEN` を使用できます。
+- **pull request からワークフローにシークレットを送信する** - すべてのシークレットを pull request で利用できるようにします。
