@@ -1,5 +1,5 @@
 ---
-title: Políticas Empresariales de GitHub
+title: Directivas de Empresa de GitHub
 versions:
   fpt: '*'
 topics:

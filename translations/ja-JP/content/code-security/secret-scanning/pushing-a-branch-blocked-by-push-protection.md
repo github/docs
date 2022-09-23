@@ -1,6 +1,6 @@
 ---
-title: 　プッシュ保護によってブロックされたブランチのプッシュ
-intro: '{% data variables.product.prodname_secret_scanning %}のプッシュ保護の機能は、リポジトリで漏洩したシークレットに対して積極的に保護を行います。 ブロックされたプッシュを解決し、検出されたシークレットが取り除かれれば、コマンドラインもしくはWeb UIから作業ブランチへ変更をプッシュできます。'
+title: プッシュ保護によってブロックされたブランチをプッシュする
+intro: '{% data variables.product.prodname_secret_scanning %}のプッシュ保護機能を使用すると、リポジトリでのシークレットの漏洩を予防することができます。 ブロックされたプッシュを解決でき、検出されたシークレットが削除されたら、コマンド ラインまたは Web UI から作業ブランチに変更をプッシュできます。'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -11,46 +11,59 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: ブロックされたブランチのプッシュ
+shortTitle: Push a blocked branch
+ms.openlocfilehash: 743cdc094acfd2465d4bb97f1ae7ec0a7f8b86f0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147683789'
 ---
-
 ## {% data variables.product.prodname_secret_scanning %}のプッシュ保護について
 
-{% data variables.product.prodname_secret_scanning %}のプッシュ保護の機能は、リポジトリに変更をプッシュする前にシークレットをスキャンすることによって、セキュリティ漏洩を防ぐのに役立ちます。 {% data reusables.secret-scanning.push-protection-overview %} プッシュ保護でサポートされているシークレットとサービスプロバイダに関する情報については「[{% data variables.product.prodname_secret_scanning_caps %}パターン](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)」を参照してください。
+{% data variables.product.prodname_secret_scanning %} のプッシュ保護機能を使用すると、リポジトリに変更をプッシュする前にシークレットをスキャンすることで、セキュリティ リークを防ぐことができます。 {% data reusables.secret-scanning.push-protection-overview %} プッシュ保護に対応しているシークレットとサービス プロバイダーの詳細については、「[{% data variables.product.prodname_secret_scanning_caps %} パターン](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)」を参照してください。
 
 {% data reusables.secret-scanning.push-protection-remove-secret %}
 
 {% tip %}
 
-**ヒント** プッシュしても安全だと信じているシークレットを{% data variables.product.prodname_dotcom %}がブロックした場合、そのシークレットを許可してその理由を指定できます。 シークレットに対するプッシュ保護のバイパスに関する情報については、コマンドラインとWeb UIについてそれぞれ「[ブロックされたシークレットのプッシュの許可](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#allowing-a-blocked-secret-to-be-pushed)」及び「[シークレットのプッシュ保護のバイパス](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)を参照してください。
+**ヒント** {% data variables.product.prodname_dotcom %} が、プッシュしても安全であると思われるシークレットをブロックする場合は、シークレットを許可し、許可する必要がある理由を指定できます。 シークレットのプッシュ保護をバイパスする方法の詳細については、コマンド ラインと Web UI についてそれぞれ「[ブロックされたシークレットのプッシュを許可する](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#allowing-a-blocked-secret-to-be-pushed)」と「[シークレットのプッシュ保護をバイパスする](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)」を参照してください。 
 
 {% endtip %}
 
-## ブロックされたプッシュのコマンドラインでの解決
+{% ifversion push-protection-custom-link-orgs %} 
+
+Organization の管理者は、push がブロックされると {% data variables.product.product_name %} からのメッセージに含まれるカスタム リンクを指定できます。 このカスタム リンクには、Organization およびそのポリシーに固有のリソースとアドバイスを含めることができます。
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
+
+## コマンド ラインでのブロックされたプッシュの解決
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-ブロックされたシークレットが最新のコミットでブランチに導入されたなら、以下のガイダンスに従うことができます。
+ブロックされたシークレットがブランチ上で最新のコミットによって導入された場合は、次のガイダンスに従うことができます。
 
-1. シークレットをコードから削除します。
-1. `git commit --amend`を使って変更をコミットします。
-1. `git push`で変更をプッシュします。
+1. コードからシークレットを削除します。
+1. `git commit --amend` を使用して変更をコミットします。
+1. `git push` を使用して変更をプッシュします。
 
-シークレットがGit履歴の以前のコミットに現れている場合でも、シークレットを削除できます。
+シークレットが Git 履歴の以前のコミットに表示される場合は、シークレットを削除することもできます。
 
-1. `git log`を使ってプッシュのエラーに現れたどのコミットが履歴中の最初に来ているかを判断します。
-1. `git rebase -i <commit-id>~1`でインタラクティブなリベースを開始します。 <commit-id> commit-idはステップ1のコミットのidです。
-1. エディタに表示されたテキストの先頭行の`pick`を`edit`に変更して、編集するコミットを特定します。
-1. シークレットをコードから削除します。
-1. `git commit --amend`で変更をコミットします。
-1. `git rebase --continue`を実行してリベースを完了します。
+1. `git log` を使用して、プッシュ エラーで表面化したどのコミットが履歴で最初に発生したかを判断します。
+1. `git rebase -i <commit-id>~1` を使用して、インタラクティブなリベースを開始します。 <commit-id> は、手順 1 のコミットの ID です。
+1. エディターに表示されるテキストの最初の行の `pick` を `edit` に変更して、編集するコミットを特定します。
+1. コードからシークレットを削除します。
+1. `git commit --amend` を使用して、変更をコミットします。
+1. `git rebase --continue` を実行して、リベースを完了します。
 
-## Web UIでのブロックされたコミットの解決
+## Web UI でのブロックされたコミットの解決
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
-ブロックされたコミットをWeb UIで解決するには、シークレットをファイルから削除するか、**Bypass protection（保護のバイパス）**ドロップダウンを使ってシークレットを許可しなければなりません。 Web UIからのプッシュ保護のバイパスに関する詳しい情報については「[Secret scanningでのプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)」を参照してください。
+Web UI でブロックされたコミットを解決するには、ファイルからシークレットを削除するか、 **[保護のバイパス]** ドロップダウンを使用してシークレットを許可します。 プッシュ保護のバイパスについて詳しくは、「[シークレット スキャンによるプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)」を参照してください。
 
-シークレットが本物であることを確認した場合、そのシークレットをファイルから削除しなければなりません。 シークレットを削除すると、ページ上部のバナーは変化し、変更をコミットできるようになったことを知らせてくれます。
+シークレットが本物であることを確認したら、ファイルからシークレットを削除する必要があります。 シークレットを削除すると、ページ上部のバナーが変更され、変更をコミットできるようになったことが通知されます。

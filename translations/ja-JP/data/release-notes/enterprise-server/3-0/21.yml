@@ -1,23 +1,22 @@
----
 date: '2021-12-07'
 sections:
   security_fixes:
-    - 特定の条件群が満たされる場合に、Support Bundleにセンシティブなファイルが含まれることがあります。
-    - 承認の際にユーザに表示される以上の権限が、GitHub Appのユーザ認証Webフローの間に付与されてしまうUIの表示ミスの脆弱性がGitHub Enterprise Serverで特定されました。この脆弱性は3.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、バージョン3.2.5、3.1.13、3.0.21で修正されました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告され、[CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598)が割り当てられました。
-    - GitHub Pagesのサイトをビルドする際に悪用されることがあるリモートコード実行の脆弱性が、GitHub Enterprise Serverで特定されました。この脆弱性は3.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、3.0.21、3.1.13、3.2.5で修正されました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告され、[CVE-2021-41599]（https://www.cve.org/CVERecord?id=CVE-2021-41599）が割り当てられました。2022年2月17日更新。
+    - 特定の条件のセットを満たす場合、サポート バンドルに機密ファイルが含まれることがありました。 
+    - "GitHub Enterprise Server において、GitHub App のユーザー認証 Web フローの間に、承認時にユーザーに表示されるものより多くのアクセス許可の付与を許可する UI の不正表示の脆弱性が見つかりました。この脆弱性は、3.3 より前のすべてのバージョンの GitHub Enterprise Server に影響を与え、バージョン 3.2.5、3.1.13、3.0.21 で修正されました。この脆弱性は、GitHub Bug Bounty プログラムを通じて報告され、[CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598) を割り当てられました。"
+    - "GitHub Pages のサイトをビルドする際に悪用される可能性があるリモート コード実行の脆弱性が、GitHub Enterprise Server で見つかりました。この脆弱性は、3.3 より前のすべてのバージョンの GitHub Enterprise Server に影響を与え、バージョン 3.0.21、3.1.13、3.2.5 で修正されました。この脆弱性は、GitHub Bug Bounty プログラムを通じて報告され、[CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599) を割り当てられました。2022 年 2 月 17 日に更新されました。"
   bugs:
-    - '`ghe-config-apply`を実行すると、`/data/user/tmp/pages`における権限の問題のために失敗することがあります。'
-    - Management Consoleの設定ミスにより、スケジューリングのエラーが生じました。
-    - Dockerが、ログのローテーション後にログファイルをオープンしたまま保持します。
-    - pre-receiveフック環境において、GraphQLのリクエストがGITHUB_USER_IP変数を設定しませんでした。
+    - "\"ghe-config-apply\" の実行は、\"/data/user/tmp/pages\" でのアクセス許可の問題のために失敗することがありました。" 
+    - 管理コンソールでの構成ミスにより、スケジュール エラーが発生しました。 
+    - ログのローテーションの後、Docker がログ ファイルを開いたままにしていました。 
+    - GraphQL の要求で、pre-receive フック環境の GITHUB_USER_IP 変数が設定されていませんでした。 
   changes:
-    - ドキュメンテーションでActionsのパススタイルの説明を明確化します。
-    - サポートの連絡先URLが現在のサポートサイトであるsupport.github.comを使うよう更新。
+    - ドキュメントでの Actions パス スタイルの説明をわかりやすくします。 
+    - 現在のサポート サイト support.github.com を使うように、サポート連絡先の URL を更新します。 
   known_issues:
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

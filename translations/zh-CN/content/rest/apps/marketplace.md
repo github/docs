@@ -1,5 +1,5 @@
 ---
-title: GitHub Marketplace
+title: GitHub 市场
 allowTitleToDifferFromFilename: true
 shortTitle: Marketplace
 intro: ''
@@ -9,18 +9,23 @@ miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
+ms.openlocfilehash: acbdb60fc93898dd7c56c21f60e12fb9dbadb31d
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145129186'
 ---
+## 关于 {% data variables.product.prodname_marketplace %} API
 
-## About the {% data variables.product.prodname_marketplace %} API
+有关 {% data variables.product.prodname_marketplace %} 的详细信息，请参阅“[GitHub Marketplace](/marketplace/)”。
 
-For more information about {% data variables.product.prodname_marketplace %}, see "[GitHub Marketplace](/marketplace/)."
+{% data variables.product.prodname_marketplace %} API 允许您查看哪些客户正在使用定价计划，查看客户的购买情况，以及查看帐户是否具有有效订阅。
 
-The {% data variables.product.prodname_marketplace %} API allows you to see which customers are using a pricing plan, see a customer's purchases, and see if an account has an active subscription.
+### 使用存根端点进行测试
 
-### Testing with stubbed endpoints
+此 API 包含的终结点允许使用“存根数据”[测试 {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/)。 存根数据是硬编码的假数据，不会根据实际订阅而更改。
 
-This API includes endpoints that allow you to [test your {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) with **stubbed data**. Stubbed data is hard-coded, fake data that will not change based on actual subscriptions.
+要使用存根数据进行测试，请使用存根端点代替其对应的生产端点。 这允许您在 {% data variables.product.prodname_marketplace %} 上列出 {% data variables.product.prodname_github_apps %} 之前测试 API 逻辑是否成功。
 
-To test with stubbed data, use a stubbed endpoint in place of its production counterpart. This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
-
-Be sure to replace stubbed endpoints with production endpoints before deploying your {% data variables.product.prodname_github_app %}.
+在部署您的 {% data variables.product.prodname_github_app %} 之前，请务必将存根端点替换为生产端点。

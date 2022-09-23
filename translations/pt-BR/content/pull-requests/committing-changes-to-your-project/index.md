@@ -1,5 +1,5 @@
 ---
-title: Commit de alterações no projeto
+title: Confirmação de alterações em seu projeto
 intro: 'Você pode gerenciar as alterações de código em um repositório, agrupando os trabalhos em commits.'
 redirect_from:
   - /categories/21/articles
@@ -15,6 +15,12 @@ children:
   - /creating-and-editing-commits
   - /viewing-and-comparing-commits
   - /troubleshooting-commits
-shortTitle: Fazer commit das alterações no seu projeto
+shortTitle: Commit changes to your project
+ms.openlocfilehash: e8bf1eb80d3a391e098b1c7aa5c4834af4144c4c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145127160'
 ---
 

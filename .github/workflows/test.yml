@@ -23,6 +23,9 @@ env:
   # Setting this will activate the jest tests that depend on actually
   # sending real search queries to Elasticsearch
   ELASTICSEARCH_URL: http://localhost:9200/
+  # Hopefully the name is clear enough. By enabling this, we're testing
+  # the future code.
+  ENABLE_SEARCH_RESULTS_PAGE: true
 
 jobs:
   test:
@@ -33,7 +36,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # The same array lives in test-windows.yml, so make any updates there too.
         test-group:
           [
             content,
@@ -52,7 +54,8 @@ jobs:
         if: ${{ matrix.test-group == 'content' }}
         uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
         with:
-          elasticsearch version: '7.17.5'
+          # Make sure this matches production and `sync-search-pr.yml`
+          elasticsearch version: '7.11.1'
           host port: 9200
           container port: 9200
           host node port: 9300
@@ -69,7 +72,9 @@ jobs:
           # only for the test groups that we know need the files.
           lfs: ${{ matrix.test-group == 'content' }}
           # Enables cloning the Early Access repo later with the relevant PAT
-          persist-credentials: 'false'
+          # persist-credentials: 'false'
+          # ->> Do we really need this? actions/checkout doesn't use it for the nested example:
+          # https://github.com/actions/checkout#checkout-multiple-repos-nested
 
       - name: Figure out which docs-early-access branch to checkout, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
@@ -124,19 +129,37 @@ jobs:
         run: git lfs checkout
 
       - name: Gather files changed
-        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        id: get_diff_files
-        with:
-          # So that `steps.get_diff_files.outputs.files` becomes
-          # a string like `foo.js path/bar.md`
-          output: ' '
-
-      - name: Insight into changed files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
         run: |
+          # Find the file diff in the pull request or merge group
+          # If its a pull request, use the faster call to the GitHub API
+          # For push, workflow_dispatch, and merge_group, use git diff
+          if [ -n "$PR" ]
+          then
+            echo __ running gh pr diff __
+            DIFF=`gh pr diff $PR --name-only`
+          elif [ -n "$HEAD" ]
+          then
+            echo __ running git fetch main __
+            git fetch origin main --depth 1
+            echo __ running git diff __
+            DIFF=`git diff --name-only origin/main`
+          else
+            echo __ no head, empty diff __
+            DIFF=''
+          fi
+          # So we can inspect the output
+          echo __ DIFF found __
+          echo $DIFF
 
+          # So that becomes a string like `foo.js path/bar.md`
           # Must to do this because the list of files can be HUGE. Especially
           # in a repo-sync when there are lots of translation files involved.
-          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
+          echo __ format, write to get_diff_files.txt __
+          echo $DIFF | tr '\n' ' ' > get_diff_files.txt
 
       - name: Setup node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048

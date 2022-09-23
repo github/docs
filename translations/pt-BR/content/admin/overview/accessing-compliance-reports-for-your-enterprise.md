@@ -9,9 +9,14 @@ topics:
   - Enterprise
   - Fundamentals
 permissions: Enterprise owners can access compliance reports for the enterprise.
-shortTitle: Acessar relatórios de conformidade
+shortTitle: Access compliance reports
+ms.openlocfilehash: 87ecd673b2b1a8877e9d30eba9b6f778394e21c0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147875691'
 ---
-
 ## Sobre os relatórios de conformidade de {% data variables.product.company_short %}
 
 Você pode acessar os relatórios de conformidade de {% data variables.product.company_short %} nas configurações da empresa.
@@ -20,12 +25,11 @@ Você pode acessar os relatórios de conformidade de {% data variables.product.c
 
 ## Acessando relatórios de conformidade para a sua empresa
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. Em "Resources", à direita do relatório que você deseja acessar, clique em {% octicon "download" aria-label="The Download icon" %} **Download** ou {% octicon "link-external" aria-label="The external link icon" %} **Visualizar**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
+1. Em "Recursos", à direita do relatório que você deseja acessar, clique em {% octicon "download" aria-label="The Download icon" %} **Baixar** ou em {% octicon "link-external" aria-label="The external link icon" %} **Exibir**.
 
    {% data reusables.security.compliance-report-screenshot %}
 
-## Leia mais
+## Leitura adicional
 
-- "[Acessando os relatórios de conformidade para a sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"
+- "[Como acessar relatórios de conformidade da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"

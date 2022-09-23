@@ -13,20 +13,26 @@ versions:
 topics:
   - Accounts
   - Notifications
-shortTitle: Dirección principal de correo electrónico
+shortTitle: Primary email address
+ms.openlocfilehash: 5624a44c888b20350497fd2a4ec5a0d07186cdfe
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145165285'
 ---
-
 {% note %}
 
-**Nota:** No puedes cambiar tu dirección de correo electrónico primaria a una que ya se haya configurado como tu dirección de respaldo.
+**Nota:** No puede cambiar la dirección de correo electrónico principal por una que ya se haya configurado como dirección de correo electrónico de respaldo.
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-3. Si deseas agregar una nueva dirección de correo electrónico para que sea tu dirección principal de correo electrónico, en "Add email address" (Agregar dirección de correo electrónico), escribe una nueva dirección de correo electrónico y haz clic en **Add** (Agregar). ![Botón Add another email address (Agregar otra dirección de correo electrónico)](/assets/images/help/settings/add_another_email_address.png)
-4. En "Primary email address" (dirección principal de correo electrónico), usa el menú desplegable para hacer clic en la dirección de correo electrónico que deseas establecer como tu dirección principal de correo electrónico, y haz clic en **Save** (Guardar). ![Botón Set as primary (Establecer como principal)](/assets/images/help/settings/set_as_primary_email.png)
-5. Para eliminar la dirección de correo electrónico antigua de tu cuenta, junto al correo electrónico antiguo, haz clic en {% octicon "trash" aria-label="The trash symbol" %}.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+3. Si quiere agregar una dirección de correo electrónico nueva para que sea la principal, en "Agregar dirección de correo electrónico", escriba una dirección nueva y haga clic en **Agregar**.
+   ![Botón para agregar otra dirección de correo electrónico](/assets/images/help/settings/add_another_email_address.png)
+4. En "Dirección de correo electrónico principal", use el menú desplegable para hacer clic en la dirección que quiera establecer como principal y haga clic en **Guardar**.
+   ![Botón Establecer como principal](/assets/images/help/settings/set_as_primary_email.png)
+5. Para quitar la dirección de correo electrónico antigua de la cuenta, haga clic en {% octicon "trash" aria-label="The trash symbol" %} junto al correo electrónico antiguo.
 {% ifversion fpt or ghec %}
-6. Verifica tu nueva dirección principal de correo electrónico. Sin una dirección de correo electrónico verificada, no podrás usar todas las características de {% data variables.product.product_name %}. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".
+6. Verifica tu nueva dirección principal de correo electrónico. Sin una dirección de correo electrónico verificada, no podrás usar todas las características de {% data variables.product.product_name %}. Para más información, vea "[Comprobación de la dirección de correo electrónico](/articles/verifying-your-email-address)".
 {% endif %}

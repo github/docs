@@ -31,15 +31,6 @@ describe('Page class', () => {
     expect(page.fullPath.includes(page.relativePath)).toBe(true)
   })
 
-  test('does not error out on translated TOC with no links', async () => {
-    const page = await Page.init({
-      relativePath: 'translated-toc-with-no-links-index.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'ja',
-    })
-    expect(typeof page.title).toBe('string')
-  })
-
   describe('showMiniToc page property', () => {
     let article, articleWithFM, tocPage
 
@@ -612,17 +603,6 @@ describe('Page class', () => {
     it('works for the homepage', () => {
       const variants = Page.getLanguageVariants('/en')
       expect(variants.find(({ code }) => code === 'en').href).toBe('/en')
-      // expect(variants.find(({ code }) => code === 'ja').href).toBe('/ja')
-    })
-
-    it('works for enterprise URLs', () => {
-      const variants = Page.getLanguageVariants(
-        `/ja/enterprise/${enterpriseServerReleases.oldestSupported}/user/articles/github-glossary`
-      )
-      expect(variants.find(({ code }) => code === 'en').href).toBe(
-        `/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/articles/github-glossary`
-      )
-      // expect(variants.find(({ code }) => code === 'ja').href).toBe('/ja/enterprise/2.14/user/articles/github-glossary')
     })
   })
 
@@ -762,7 +742,8 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError('versions')
   })
 
-  test('invalid versions frontmatter', async () => {
+  // TODO - UNSKIP WHEN GHAE IS UPDATED WITH SEMVER VERSIONING
+  test.skip('invalid versions frontmatter', async () => {
     async function getPage() {
       return await Page.init({
         relativePath: 'page-with-invalid-product-version.md',

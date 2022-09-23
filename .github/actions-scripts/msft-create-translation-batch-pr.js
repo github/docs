@@ -107,14 +107,14 @@ async function findOrCreatePullRequest(config) {
  * @param {object} config Configuration options for labeling the PR
  * @returns {Promise<undefined>}
  */
-// async function labelPullRequest(config) {
-//   await octokit.rest.issues.update({
-//     owner: config.owner,
-//     repo: config.repo,
-//     issue_number: config.issue_number,
-//     labels: config.labels,
-//   })
-// }
+async function labelPullRequest(config) {
+  await octokit.rest.issues.update({
+    owner: config.owner,
+    repo: config.repo,
+    issue_number: config.issue_number,
+    labels: config.labels,
+  })
+}
 
 async function main() {
   const options = {
@@ -135,8 +135,8 @@ async function main() {
 
   // metadata parameters aren't currently available in `github.rest.pulls.create`,
   // but they are in `github.rest.issues.update`.
-  // await labelPullRequest(options)
-  // console.log(`Updated ${pr} with these labels: ${options.labels.join(', ')}`)
+  await labelPullRequest(options)
+  console.log(`Updated ${pr} with these labels: ${options.labels.join(', ')}`)
 }
 
 main()

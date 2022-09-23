@@ -1,30 +1,40 @@
 ---
-title: Organizationでのプロジェクトの可視性の変更の許可
-intro: 'Organizationのオーナーは、管理権限を持つメンバーに、Organization内の{% data variables.projects.projects_v2_and_v1 %}の可視性の調整を許可できます。'
+title: Organization のプロジェクトの可視性の変更を許可する
+intro: 'Organization 所有者は、管理者権限を持つメンバーがその Organization の{% data variables.projects.projects_v2_and_v1 %}の可視性を調整することを許可できます。'
 versions:
   feature: classic-project-visibility-permissions-or-projects-v2
 topics:
   - Organizations
   - Projects
-shortTitle: プロジェクトの可視性の権限
+shortTitle: Project visibility permissions
 allowTitleToDifferFromFilename: true
 permissions: 'Organization owners can allow {% data variables.projects.project_v2_and_v1 %} visibility changes for an organization.'
+ms.openlocfilehash: 784b0f35ff86a1a2620a0c96d4e951a8ca28e136
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147854085'
 ---
+## プロジェクトの可視性の変更について
 
-{% data variables.projects.projects_v2_and_v1 %}をプライベートからパブリックに変更できるメンバーを制限するといったように、Organizationにおいて{% data variables.projects.projects_v2_and_v1 %}の可視性を変更できる人を制限できます。
+Organization の{% data variables.projects.projects_v2_and_v1 %}の可視性を変更できるユーザーを制限できます。たとえば、{% data variables.projects.projects_v2_and_v1 %}をプライベートからパブリックに変更することをメンバーに制限できます。 
 
-{% data variables.projects.project_v2_and_v1 %}の可視性を変更できるのをOrganizationオーナーだけに制限したり、あるいは管理権限を付与されている人なら誰でもこの可視性を変更できるように許可したりすることができます。
+Organization 所有者だけに{% data variables.projects.project_v2_and_v1 %}の可視性を変更できるように制限したり、プロジェクトの管理者権限を持つすべてのユーザーに可視性の変更を許可することができます。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. サイドバーの「Code planning, and automation（コードの計画と自動化）」セクションで、**{% octicon "table" aria-label="The table icon" %} Projects（プロジェクト）**をクリックしてください。
-1. プロジェクトの可視性の調整をメンバーに許可するには、**Allow members to change project visibilities for this organization（このOrganizationのプロジェクトの可視性の変更をメンバーに許可）**を選択してください。 ![可視性の変更を設定するチェックボックスを表示しているスクリーンショット](/assets/images/help/projects-v2/visibility-change-checkbox.png)
-1. [**Save**] をクリックします。
+{% ifversion project-visibility-policy %} このオプションは、エンタープライズ所有者がエンタープライズ レベルで{% data variables.projects.projects_v2_and_v1 %}の可視性の変更を制限している場合、使用できない場合があります。 詳しくは、[エンタープライズ内でプロジェクトにポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise)ことに関する説明を参照してください。
+{% endif %}
 
-## 参考リンク
+## メンバーがプロジェクトの可視性を変更できるようにする
+
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. サイドバーの [コード、計画、自動化] セクションで、 **[{% octicon "table" aria-label="The table icon" %} プロジェクト]** をクリックします。
+1. メンバーがプロジェクトの可視性を調整できるようにするには、 **[この Organizaton のプロジェクトの可視性の変更をメンバーに許可する]** を選びます。
+  ![可視性の変更を設定するチェック ボックスを示すスクリーンショット](/assets/images/help/projects-v2/visibility-change-checkbox.png)
+1. **[保存]** をクリックします。
+
+## 参考資料
 
 {% ifversion projects-v2 %}
-- 「[{% data variables.projects.projects_v2 %}の可視性の管理](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)」
-{%- endif %}{%- ifversion projects-v1 %}
-- 「[{% data variables.product.prodname_project_v1 %}の可視性の変更](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)」
-{% endif %}
+- [{% data variables.projects.projects_v2 %}の可視性を管理する](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects) {%- endif %}{%- ifversion projects-v1 %}
+- [{% data variables.product.prodname_project_v1 %}の可視性を変更する](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility){% endif %}

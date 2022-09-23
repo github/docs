@@ -1,5 +1,5 @@
 ---
-title: サイトポリシー
+title: サイト ポリシー
 redirect_from:
   - /categories/61/articles
   - /categories/site-policy

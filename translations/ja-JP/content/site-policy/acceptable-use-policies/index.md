@@ -1,5 +1,5 @@
 ---
-title: 利用規定
+title: 利用規約
 versions:
   fpt: '*'
 topics:

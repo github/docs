@@ -1,31 +1,30 @@
----
 date: '2021-06-10'
 sections:
   security_fixes:
-    - Os pacotes foram atualizados para as últimas versões de segurança.
+    - Packages have been updated to the latest security versions.
   bugs:
-    - Os clientes SVN 1.7 e os mais antigos mostraram um erro ao usar os comandos `svn co` e `svn export`.
-    - Acessar um repositório por meio do shell administrativo usando `ghe-repo <owner>/<reponame>` geraria atraso.
-    - Após a atualização, usuários experimentaram uma redução de disponibilidade durante o uso intensivo, porque os serviços reiniciaram com muita frequência. Isto ocorreria devido a incompatibilidade de tempo entre a configuração nómada e a dos serviços internos.
-    - Em algumas instâncias, executar o `ghe-repl-status` após configurar o GitHub Actions produziria um erro e o `ghe-actions-teardown` falharia.
-    - 'O arquivo `ghe-dbconsole` retornaria erros em algumas circunstâncias.'
-    - Importar falhas de organizações ou repositórios de fontes que não são do GitHub podem produzir um erro `undefined method '[]' for nil:NilClass`.
-    - Nomes de perfis do GitHub podem ter mudado involuntariamente ao usar a autenticação SAML, se o nome de perfil do GitHub não corresponder ao valor do atributo mapeado para o campo `Full name` no Console de Gerenciamento.
-    - A atualização de uma instância que havia executado anteriormente uma versão de 2.13, e não uma versão 2.14, gerou um erro de migração do banco de dados relacionado à transição de dados `AddRepositoryIdToCheckRuns`.
+    - SVN 1.7 and older clients showed an error when using the `svn co` and `svn export` commands.
+    - Accessing a repository through the administrative shell using `ghe-repo <owner>/<reponame>` would hang.
+    - After upgrading, users experienced reduced availability during heavy usage, because services restarted too frequently. This would occur due to timeout mismatches between the nomad configuration and that of the internal services.
+    - In some instances, running `ghe-repl-status` after setting up GitHub Actions would produce an error and `ghe-actions-teardown` would fail.
+    - '`ghe-dbconsole` would return errors under some circumstances.'
+    - Import failures of organizations or repositories from non-GitHub sources could produce an `undefined method '[]' for nil:NilClass` error.
+    - GitHub profile names might have changed unintentionally when using SAML authentication, if the GitHub profile name did not match the value of the attribute mapped to the `Full name` field in the Management Console.
+    - Upgrading an instance that had previously ran a 2.13 release, but not a 2.14 release, resulted in a database migration error relating to the `AddRepositoryIdToCheckRuns` data transition.
   changes:
-    - Os usuários da API do GraphQL podem consultar o campo público 'closingIssuesReferences' no objeto 'PullRequest'. Este campo recupera problemas que serão automaticamente fechados quando o pull request relacionado for mesclado. Esta abordagem permitirá também que estes dados sejam migrados no futuro, como parte de um processo de migração de fidelidade mais elevado.
+    - Users of the GraphQL API can query the public field `closingIssuesReferences` on the `PullRequest` object. This field retrieves issues that will be automatically closed when the related pull request is merged. This approach will also allow this data to be migrated in future, as part of a higher fidelity migration process.
   known_issues:
-    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
-    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
-    - As regras de firewall personalizadas são removidas durante o processo de atualização.
-    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
-    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
-    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - |
-      Após a atualização de 3.0.x para 3.1.x, em alguns casos, o GitHub Actions pode falhar com um erro: `Um erro inesperado ocorreu ao executar este fluxo de trabalho. Para contornar esse problema, conecte ao shell administrativo (ssh) e execute:
+      After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
       ```
-      ghe-actions-console -s ações -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
       ```
-    - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
-    - Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`.
-    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
+    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

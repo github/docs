@@ -1,7 +1,7 @@
 ---
 title: GitHub 上的帐单和付款
-shortTitle: 计费和付款
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} 为每个帐户提供免费和付费产品。 您可以随时升级或降级帐户的订阅和管理结算设置。{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} 对企业成员{% ifversion ghec or ghae %}使用 {% data variables.product.product_name %}{% elsif ghes %} {% data variables.product.product_name %}的许可席位{% ifversion ghes %} 以及您购买的任何其他服务{% endif %}{% endif %}计费。 {% endif %}{% ifversion ghec %} 您可以随时查看订阅和管理结算设置。 {% endif %}{% ifversion fpt or ghec %} 您还可以查看使用情况和管理 {% data variables.product.product_name %} 功能（如 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_github_codespaces %}）的支出限制。{% endif %}'
+shortTitle: Billing and payments
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} 为每个帐户提供免费和付费产品。 你可以随时升级或降级帐户的订阅并管理计费设置。{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} 会针对你企业成员的{% ifversion ghec or ghae %} {% data variables.product.product_name %} 使用情况{% elsif ghes %} {% data variables.product.product_name %} 的许可席位{% ifversion ghes %}以及所购买的任何其他服务向你收取费用{% endif %}{% endif %}。 {% endif %}{% ifversion ghec %} 你可以随时查看订阅并管理计费设置。 {% endif %}{% ifversion fpt or ghec %} 你还可以查看 {% data variables.product.product_name %} 功能的使用情况并管理支出限制，例如 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_github_codespaces %}。{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
@@ -54,5 +54,11 @@ children:
   - /managing-billing-for-github-marketplace-apps
   - /managing-billing-for-git-large-file-storage
   - /setting-up-paid-organizations-for-procurement-companies
+ms.openlocfilehash: 816bfb699135974a180ccf350aa04bc36dfbf25a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147110896'
 ---
 

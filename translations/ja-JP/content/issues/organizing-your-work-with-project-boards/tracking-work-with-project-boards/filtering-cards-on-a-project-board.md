@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.product.prodname_project_v1 %}上のカードのフィルタリング'
-intro: '{% data variables.projects.projects_v1_board %}上のカードをフィルタリングして、特定のカードを検索したり、一部のカードを表示させることができます。'
+title: '{% data variables.product.prodname_project_v1 %}でのカードのフィルタリング'
+intro: '{% data variables.projects.projects_v1_board %}上のカードをフィルタリングして、特定のカードを検索したりカードのサブセットを表示したりできます。'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/filtering-cards-on-a-project-board
   - /articles/filtering-cards-on-a-project-board
@@ -9,39 +9,45 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: '{% data variables.product.prodname_project_v1 %}上のカードのフィルタリング'
+shortTitle: 'Filter cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 337c84415fefad0c542c6b46706de716e71c29b9
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882312'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-カードでは、アサインされた人、マイルストーン、ラベルをクリックしてその修飾子で{% data variables.projects.projects_v1_board %}をフィルタリングできます。 検索をクリアするには、同じアサインされた人、マイルストーン、またはラベルを再度クリックします。
+カードでは、任意の担当者、マイルストーン、またはラベルをクリックして、その修飾子で{% data variables.projects.projects_v1_board %}をフィルター処理できます。 検索をクリアするには、同じアサインされた人、マイルストーン、またはラベルを再度クリックします。
 
-各{% data variables.projects.projects_v1_board %}の上部にある"Filter cards（カードをフィルタ）"検索バーを使ってカードを検索することもできます。 以下の検索修飾子をさまざまに組み合わせて使用したり、検索したいテキストを入力したりすることで、カードをフィルタリングできます。
+また、各{% data variables.projects.projects_v1_board %}の上部にある [カードをフィルタリングします] 検索バーを使用して、カードを検索することも可能です。 以下の検索修飾子をさまざまに組み合わせて使用したり、検索したいテキストを入力したりすることで、カードをフィルタリングできます。
 
-- `author:USERNAME` を使用してカードを作者でフィルタする
-- `assignee:USERNAME` または `no:assignee` を使用して、カードをアサインされた人でフィルタリングする
-- `label:LABEL`、`label:"MULTI-WORD LABEL NAME"`、または `no:label` を使用して、カードをラベルでフィルタリングする
-- `milestone:MY-MILESTONE` を使用して、カードをマイルストーンでフィルタリングする
-- `state:open`、`state:closed`、または `state:merged` を使用して、カードを状態でフィルタリングする
-- `review:none`、`review:required`、`review:approved`、または `review:changes_requested` を使用して、カードをレビューステータスでフィルタリングする
-- `status:pending`、`status:success`、または `status:failure` を使用して、カードをチェックステータスでフィルタリングする
-- `type:issue`、`type:pr`、または `type:note` を使用して、カードをタイプでフィルタリングする
-- `is:open`、`is:closed`、または `is:merged`と、`is:issue`、`is:pr`、または `is:note` とを使用して、カードをステータスとタイプでフィルタリングする
-- `linked:pr`を使用したクローズしているリファレンスによってプルリクエストにリンクされているIssueのフィルタリング
-- Organization内の{% data variables.projects.projects_v1_board %}内のカードを`repo:ORGANIZATION/REPOSITORY`を使ってリポジトリでフィルタリング
+- `author:USERNAME` を使用して、作成者でカードをフィルター処理する
+- `assignee:USERNAME` または `no:assignee` を使用して、アサインされた人でカードをフィルター処理する
+- `label:LABEL`、`label:"MULTI-WORD LABEL NAME"`、または `no:label` を使用して、ラベルでカードをフィルター処理する
+- `milestone:MY-MILESTONE` を使用して、マイルストーンでフィルター処理する
+- `state:open`、`state:closed`、または `state:merged` を使用して、状態でカードをフィルター処理する
+- `review:none`、`review:required`、`review:approved`、または `review:changes_requested` を使用して、レビューの状態でフィルター処理する
+- `status:pending`、`status:success`、または `status:failure` を使用して、検査の状態でフィルター処理する
+- `type:issue`、`type:pr`、または `type:note` を使用して、種類でカードをフィルター処理する
+- `is:open`、`is:closed`、または `is:merged`、および `is:issue`、`is:pr`、または `is:note` を使用して、状態と種類でカードをフィルター処理する
+- `linked:pr` を使用して、クローズしている参照で、pull request にリンクされている issue をフィルター処理する
+- `repo:ORGANIZATION/REPOSITORY` を使用して、組織全体の{% data variables.projects.projects_v1_board %}のリポジトリでカードをフィルタリングする
 
-1. フィルタリングしたいカードを含む{% data variables.projects.projects_v1_board %}にアクセスしてください。
-2. プロジェクトのカード列の上で、[Filter cards] 検索バーをクリックして検索クエリを入力し、カードをフィルタリングします。 ![カードのフィルタリング検索バー](/assets/images/help/projects/filter-card-search-bar.png)
+1. フィルタリングするカードを含む{% data variables.projects.projects_v1_board %}に移動します。
+2. プロジェクトのカード列の上で、[Filter cards] 検索バーをクリックして検索クエリを入力し、カードをフィルタリングします。
+![カードのフィルタリング検索バー](/assets/images/help/projects/filter-card-search-bar.png)
 
 {% tip %}
 
-**ヒント:** フィルタリングされたカードをドラッグアンドドロップしたり、キーボードのショートカットを使用して列間で移動させたりできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
+**ヒント:** フィルター処理されたカードをドラッグ アンド ドロップしたり、キーボードのショートカットを使用して列間で移動させたりすることができます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
 {% endtip %}
 
-## 参考リンク
+## 参考資料
 
-- [{% data variables.product.prodname_projects_v1 %}について](/articles/about-project-boards)
-- 「[{% data variables.product.prodname_project_v1 %}へのIssueやPull Requestの追加](/articles/adding-issues-and-pull-requests-to-a-project-board)」
+- 「[{% data variables.product.prodname_projects_v1 %} について](/articles/about-project-boards)」
+- 「[{% data variables.product.prodname_project_v1 %}への issue と pull request の追加](/articles/adding-issues-and-pull-requests-to-a-project-board)」
 - 「[{% data variables.product.prodname_project_v1 %}へのノートの追加](/articles/adding-notes-to-a-project-board)」

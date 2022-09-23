@@ -12,7 +12,12 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Pontos de extremidade habilitados pelo aplicativo GitHub
+shortTitle: GitHub App-enabled endpoints
+ms.openlocfilehash: ab79abe1df9a14f7fdcc73f863e7bce5aa4abd4c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410360'
 ---
-
 <!-- The content of this page is rendered as a NextJS page component. -->

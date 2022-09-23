@@ -29,9 +29,14 @@ topics:
   - Troubleshooting
   - Upgrades
   - User account
-shortTitle: Atualizar a sua assinatura
+shortTitle: Upgrade your subscription
+ms.openlocfilehash: 47426fa211521a166738c5a9bb00edddfc2556f2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145083453'
 ---
-
 ## Sobre atualizações da assinatura
 
 {% data reusables.accounts.accounts-billed-separately %}
@@ -42,15 +47,11 @@ Ao atualizar a assinatura de uma conta, a atualização altera as funcionalidade
 
 Você pode atualizar sua conta pessoal de {% data variables.product.prodname_free_user %} para {% data variables.product.prodname_pro %} para ter ferramentas avançadas de revisão de código em repositórios privados pertencentes à sua conta pessoal. A atualização de sua conta pessoal não afeta nenhuma organização que você possa gerenciar ou repositórios pertencentes a essas organizações. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. Ao lado de "Plano atual", clique em **Atualizar**. ![Botão Upgrade (Atualizar)](/assets/images/help/billing/settings_billing_user_upgrade.png)
-2. Em "Pro" na página "Comparar planos", clique em **Fazer atualização para Pro**.
-{% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.enter-billing-info %}
-{% data reusables.dotcom_billing.enter-payment-info %}
-{% data reusables.dotcom_billing.finish_upgrade %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. Ao lado de "Plano atual", clique em **Fazer upgrade**.
+  ![Botão Fazer upgrade](/assets/images/help/billing/settings_billing_user_upgrade.png)
+2. Em "Pro" na página "Comparar planos", clique em **Fazer upgrade para o Pro**.
+{% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %} {% data reusables.dotcom_billing.show-plan-details %} {% data reusables.dotcom_billing.enter-billing-info %} {% data reusables.dotcom_billing.enter-payment-info %} {% data reusables.dotcom_billing.finish_upgrade %}
 
 ## Gerenciando a assinatura da organização
 
@@ -62,48 +63,36 @@ Você pode atualizar sua organização de {% data variables.product.prodname_fre
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.upgrade_org %}
-{% data reusables.dotcom_billing.choose_org_plan %}
-{% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.enter-payment-info %}
-{% data reusables.dotcom_billing.owned_by_business %}
-{% data reusables.dotcom_billing.finish_upgrade %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.upgrade_org %} {% data reusables.dotcom_billing.choose_org_plan %} {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %} {% data reusables.dotcom_billing.show-plan-details %} {% data reusables.dotcom_billing.enter-payment-info %} {% data reusables.dotcom_billing.owned_by_business %} {% data reusables.dotcom_billing.finish_upgrade %}
 
 ### Próximas etapas para organizações que usam o {% data variables.product.prodname_ghe_cloud %}
 
-Se você tiver atualizado sua organização para o {% data variables.product.prodname_ghe_cloud %}, você poderá configurar a identidade e a gestão de acesso para a sua organização. Para obter mais informações, consulte "[Gerenciar logon único SAML para a sua organização](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}"{% endif %}
+Se você tiver atualizado sua organização para o {% data variables.product.prodname_ghe_cloud %}, você poderá configurar a identidade e a gestão de acesso para a sua organização. Para obter mais informações, confira "[Como gerenciar o logon único do SAML para sua organização](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" na documentação do {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
-Caso queira usar uma conta corporativa com o {% data variables.product.prodname_ghe_cloud %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
+Caso queira usar uma conta corporativa com o {% data variables.product.prodname_ghe_cloud %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}. Para obter mais informações, confira "[Sobre as contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" na documentação do {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
 ### Adicionar estações à organização
 
 Se você quiser que outros usuários tenham acesso aos repositórios privados da organização {% data variables.product.prodname_team %}, você poderá comprar mais estações a qualquer momento.
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.add-seats %}
-{% data reusables.dotcom_billing.number-of-seats %}
-{% data reusables.dotcom_billing.confirm-add-seats %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.add-seats %} {% data reusables.dotcom_billing.number-of-seats %} {% data reusables.dotcom_billing.confirm-add-seats %}
 
 ### Trocar o plano de cobrança da organização de preços por repositório para por usuário
 
-{% data reusables.dotcom_billing.switch-legacy-billing %} Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)".
+{% data reusables.dotcom_billing.switch-legacy-billing %} Para obter mais informações, confira "[Sobre os preços por usuário](/articles/about-per-user-pricing)".
 
 {% data reusables.organizations.billing-settings %}
-5. À direita do nome do seu plano, use o menu suspenso **Editar** e selecione **Editar plano**. ![Menu suspenso de editar](/assets/images/help/billing/per-user-upgrade-button.png)
-6. À direita das "Ferramentas avançadas para equipes", clique em **Atualizar agora**. ![Botão Atualizar agora](/assets/images/help/billing/per-user-upgrade-now-button.png)
-{% data reusables.dotcom_billing.choose_org_plan %}
-{% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
-{% data reusables.dotcom_billing.owned_by_business %}
-{% data reusables.dotcom_billing.finish_upgrade %}
+5. À direita do nome do plano, use o menu suspenso **Editar** e selecione **Editar plano**.
+  ![Menu suspenso Editar](/assets/images/help/billing/per-user-upgrade-button.png)
+6. À direita de "Ferramentas avançadas para equipes", clique em **Fazer upgrade agora**.
+  ![Botão Fazer upgrade agora](/assets/images/help/billing/per-user-upgrade-now-button.png) {% data reusables.dotcom_billing.choose_org_plan %} {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %} {% data reusables.dotcom_billing.owned_by_business %} {% data reusables.dotcom_billing.finish_upgrade %}
 
 ## Solucionar problemas de erro 500 ao atualizar
 
 {% data reusables.dotcom_billing.500-error %}
 
-## Leia mais
+## Leitura adicional
 
 - "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
-- "[Como a atualização ou o downgrade afetam o processo de cobrança?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
-- "[Sobre a cobrança no {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)"
+- "[Como o upgrade ou o downgrade afetam o processo de cobrança?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
+- "[Sobre a cobrança do {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".

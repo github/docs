@@ -39,11 +39,11 @@ export default function handleRedirects(req, res, next) {
   let redirect = req.path
   let queryParams = req._parsedUrl.query
 
-  // If process.env.ELASTICSEARCH_URL isn't set, you can't go to the
+  // If process.env.ENABLE_SEARCH_RESULTS_PAGE isn't set, you can't go to the
   // dedicated search results page.
   // If that's the case, use the "old redirect" where all it does is
   // "correcting" the old query string 'q' to 'query'.
-  if (!process.env.ELASTICSEARCH_URL && 'q' in req.query && !('query' in req.query)) {
+  if (!process.env.ENABLE_SEARCH_RESULTS_PAGE && 'q' in req.query && !('query' in req.query)) {
     // update old-style query params (#9467)
     const newQueryParams = new URLSearchParams(queryParams)
     newQueryParams.set('query', newQueryParams.get('q'))
@@ -51,19 +51,19 @@ export default function handleRedirects(req, res, next) {
     return res.redirect(301, `${req.path}?${newQueryParams.toString()}`)
   }
 
-  // If process.env.ELASTICSEARCH_URL is set, the dedicated search
+  // If process.env.ENABLE_SEARCH_RESULTS_PAGE is set, the dedicated search
   // result page is ready. If that's the case, we can redirect to
   // `/$locale/search?query=...` from `/foo/bar?query=...` or from
   // (the old style) `/foo/bar/?q=...`
   if (
-    process.env.ELASTICSEARCH_URL &&
+    process.env.ENABLE_SEARCH_RESULTS_PAGE &&
     ('q' in req.query ||
       ('query' in req.query &&
         !(req.path.endsWith('/search') || req.path.startsWith('/api/search'))))
   ) {
     // If you had the old legacy format of /some/uri?q=stuff
     // it needs to redirect to /en/search?query=stuff or
-    // /some/uri?query=stuff depending on if ELASTICSEARCH_URL has been
+    // /some/uri?query=stuff depending on if ENABLE_SEARCH_RESULTS_PAGE has been
     // set up.
     // If you have the new format of /some/uri?query=stuff it too needs
     // to redirect to /en/search?query=stuff

@@ -1,6 +1,6 @@
 ---
 title: GitHub Desktop
-intro: '{% data variables.product.prodname_desktop %} は、ビジュアルインターフェースを使用して、Git および {% data variables.product.prodname_dotcom %} のワークフローを拡張し簡略化します。'
+intro: '{% data variables.product.prodname_desktop %} extends and simplifies your Git and {% data variables.product.prodname_dotcom %} workflow using a visual interface.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,13 +12,12 @@ redirect_from:
   - /github/getting-started-with-github/github-desktop
   - /github/getting-started-with-github/using-github/github-desktop
 ---
-
-## {% data variables.product.prodname_desktop %} について
+## About {% data variables.product.prodname_desktop %}
 
 {% data reusables.desktop.about-github-desktop %}
 
-{% data variables.product.prodname_desktop %} の詳細については、{% data variables.product.prodname_desktop %} ドキュメントの「[{% data variables.product.prodname_desktop %} のインストールと設定](/desktop/installing-and-configuring-github-desktop)」を参照してください。
+For more information about {% data variables.product.prodname_desktop %}, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation.
 
-## フィードバックを送る
+## Sharing feedback
 
-フィードバックまたは機能のリクエストがある場合は、[`desktop/desktop` リポジトリ](https://github.com/desktop/desktop)で Issue をオープンすることができます。
+If you have feedback or feature requests, you can open an issue in the [`desktop/desktop` repository](https://github.com/desktop/desktop).

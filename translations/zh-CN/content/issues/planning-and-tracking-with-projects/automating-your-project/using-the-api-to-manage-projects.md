@@ -1,10 +1,10 @@
 ---
 title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %}'
-shortTitle: Automating with the API
-intro: You can use the GraphQL API to automate your projects.
+shortTitle: 'Automating with the API'
+intro: 'You can use the GraphQL API to automate your projects.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: projects-v2
+  feature: "projects-v2"
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
 type: tutorial
@@ -13,15 +13,15 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-本文演示如何使用 GraphQL API 来管理项目。 For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." 有关可用数据类型的完整列表，请参阅“[参考](/graphql/reference)”。
+This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." For a full list of the available data types, see "[Reference](/graphql/reference)."
 
 {% data reusables.projects.graphql-deprecation %}
 
-## 身份验证
+## Authentication
 
 {% curl %}
 
-在所有下面的 cURL 示例中， 将 `TOKENN` 替换为具有 `read:project` 范围（对于查询）或 `project` 范围（对于查询和突变）的令牌。 令牌可以是用户的个人访问令牌，也可以是 {% data variables.product.prodname_github_app %} 的安装访问令牌。 有关创建个人访问令牌的更多信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。 有关为 {% data variables.product.prodname_github_app %} 创建安装访问令牌的详细信息，请参阅“[使用 {% data variables.product.prodname_github_apps %} 进行身份验证](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)”。
+In all of the following cURL examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a personal access token for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a personal access token, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)."
 
 {% endcurl %}
 
@@ -29,15 +29,15 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.cli.cli-learn-more %}
 
-在运行 {% data variables.product.prodname_cli %} 命令之前，必须通过运行 `gh auth login --scopes "project"` 进行身份验证。 如果只需要读取项目，而不需要编辑项目，则可以提供 `read:project` 范围，而不是 `project`。 有关命令行身份验证的更多信息，请参阅 "[gh auth login](https://cli.github.com/manual/gh_auth_login)"。
+Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login --scopes "project"`. If you only need to read, but not edit, projects, you can provide the `read:project` scope instead of `project`. For more information on command line authentication, see "[gh auth login](https://cli.github.com/manual/gh_auth_login)."
 
 {% endcli %}
 
 {% cli %}
 
-## 使用变量
+## Using variables
 
-在以下所有示例中，您可以使用变量来简化脚本。 使用 `-F` 传递是数字、布尔值或空值的变量。 对其他变量使用 `-f`。 例如，
+In all of the following examples, you can use variables to simplify your scripts. Use `-F` to pass a variable that is a number, Boolean, or null. Use `-f` for other variables. For example,
 
 ```shell
 my_org="octo-org"
@@ -52,25 +52,25 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-更多信息请参阅“[使用 GraphQL 创建调用](/graphql/guides/forming-calls-with-graphql#working-with-variables)”。
+For more information, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql#working-with-variables)."
 
 {% endcli %}
 
-## 查找项目信息
+## Finding information about projects
 
-使用查询获取项目数据。 更多信息请参阅“[关于查询](/graphql/guides/forming-calls-with-graphql#about-queries)。”
+Use queries to get data about projects. For more information, see "[About queries](/graphql/guides/forming-calls-with-graphql#about-queries)."
 
-### 查找组织项目的节点 ID
+### Finding the node ID of an organization project
 
-要通过 API 更新您的项目，您需要知道项目的节点 ID。
+To update your project through the API, you will need to know the node ID of the project.
 
-如果您知道组织名称和项目编号，则可以找到组织项目的节点 ID。 将 `ORGANIZATION` 替换为您的组织名称。 例如 `octo-org`。 将 `NUMBER` 替换为项目编号。 要查找项目编号，请查看项目 URL。 例如，`https://github.com/orgs/octo-org/projects/5` 有一个编号为 5 的项目。
+You can find the node ID of an organization project if you know the organization name and project number. Replace `ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `NUMBER` with the project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{organization(login: \"<em>ORGANIZATION</em>\") {projectV2(number: <em>NUMBER</em>){id}}}"}'
 ```
 {% endcurl %}
@@ -88,13 +88,13 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-您也可以在组织中找到所有项目的节点 ID。 下面的示例将返回组织中前 20 个项目的节点 ID 和标题。 将 `ORGANIZATION` 替换为您的组织名称。 例如 `octo-org`。
+You can also find the node ID of all projects in your organization. The following example will return the node ID and title of the first 20 projects in an organization. Replace `ORGANIZATION` with the name of your organization. For example, `octo-org`.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"{organization(login: \"<em>ORGANIZATION</em>\") {projectsV2(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
@@ -115,17 +115,17 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### 查找用户项目的节点 ID
+### Finding the node ID of a user project 
 
-要通过 API 更新您的项目，您需要知道项目的节点 ID。
+To update your project through the API, you will need to know the node ID of the project.
 
-如果您知道项目编号，则可以找到用户项目的节点 ID。 将 `USER` 替换为您的用户名。 例如 `octocat`。 将 `NUMBER` 替换为项目编号。 要查找项目编号，请查看项目 URL。 例如，`https://github.com/users/octocat/projects/5` 有一个编号为 5 的项目。
+You can find the node ID of a user project if you know the project number. Replace `USER` with your user name. For example, `octocat`. Replace `NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/users/octocat/projects/5` has a project number of 5.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{user(login: \"<em>USER</em>\") {projectV2(number: <em>NUMBER</em>){id}}}"}'
 ```
 {% endcurl %}
@@ -143,13 +143,13 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-您还可以找到所有项目的节点 ID。 以下示例将返回前 20 个项目的节点 ID 和标题。 将 `USER` 替换为您的用户名。 例如 `octocat`。
+You can also find the node ID for all of your projects. The following example will return the node ID and title of your first 20 projects. Replace `USER` with your username. For example, `octocat`.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"{user(login: \"<em>USER</em>\") {projectsV2(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
@@ -170,17 +170,17 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### 查找字段的节点 ID
+### Finding the node ID of a field
 
-要更新字段的值，您需要知道字段的节点 ID。 此外，您还需要知道单个选择字段的选项 ID 和迭代字段的迭代 ID。
+To update the value of a field, you will need to know the node ID of the field. Additionally, you will need to know the ID of the options for single select fields and the ID of the iterations for iteration fields.
 
-下面的示例将返回项目中前 20 个字段的 ID、名称、设置和配置。 将 `PROJECT_ID` 替换为项目的节点 ID。
+The following example will return the ID, name, settings, and configuration for the first 20 fields in a project. Replace `PROJECT_ID` with the node ID of your project.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{ node(id: \"<em>PROJECT_ID</em>\") { ... on ProjectV2 { fields(first: 20) { nodes { ... on ProjectV2Field { id name } ... on ProjectV2IterationField { id name configuration { iterations { startDate id }}} ... on ProjectV2SingleSelectField { id name options { id name }}}}}}}"}'
 ```
 {% endcurl %}
@@ -223,7 +223,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-响应将类似于以下示例：
+The response will look similar to the following example:
 
 ```json
 {
@@ -276,15 +276,15 @@ gh api graphql -f query='
 }
 ```
 
-每个字段都有 ID 和名称。 单选字段作为 `ProjectV2SingleSelectField` 对象返回，并具有 `options` 字段，您可以在其中找到每个单选选项的 ID。 迭代字段作为 `ProjectV2IterationField` 对象返回，并具有`配置` 字段，其中包括一个包含 ID 和有关每次迭代信息的`迭代`字段。
+Each field has an ID and name. Single select fields are returned as a `ProjectV2SingleSelectField` object and have an `options` field where you can find the ID of each option for the single select. Iteration fields are returned as a `ProjectV2IterationField` object and have a `configuration` field which includes an `iterations` field containing the ID and information about each iteration. 
 
-如果只需要字段的名称和 ID，而不需要有关迭代或单个选择字段选项的信息，则可以使用 `ProjectV2FieldCommon` 对象。
+If you just need the name and ID of a field, and do not need information about iterations or a single select field's options, you can make use of the `ProjectV2FieldCommon` object. 
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{ node(id: \"<em>PROJECT_ID</em>\") { ... on ProjectV2 { fields(first: 20) { nodes { ... on ProjectV2FieldCommon { id name }}}}}}"}'
 ```
 {% endcurl %}
@@ -309,7 +309,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-使用 `ProjectV2FieldCommon` 对象时的响应将类似于以下示例：
+The response when using the `ProjectV2FieldCommon` object will look similar to the following example:
 
 ```json
 {
@@ -344,17 +344,17 @@ gh api graphql -f query='
 }
 ```
 
-### 查找项目中各项的信息
+### Finding information about items in a project 
 
-您可以查询 API 来查找项目中各项的信息。
+You can query the API to find information about items in your project.
 
-下面的示例将返回项目中的前 20 个议题、拉取请求和草稿议题。 对于议题和拉取请求，它还将返回标题和前 10 个受理人。 对于草稿议题，它将返回标题和正文。 该示例还将返回项目前 8 个字段中任何文本、日期或单选字段的字段名称和值。 将 `PROJECT_ID` 替换为项目的节点 ID。
+The following example will return the first 20 issues, pull requests, and draft issues in a project. For issues and pull requests, it will also return title and the first 10 assignees. For draft issue, it will return the title and body. The example will also return the field name and value for any text, date, or single select fields in the first 8 fields of the project. Replace `PROJECT_ID` with the node ID of your project.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"query{ node(id: \"<em>PROJECT_ID</em>\") { ... on ProjectV2 { items(first: 20) { nodes{ id fieldValues(first: 8) { nodes{ ... on ProjectV2ItemFieldTextValue { text field { ... on ProjectV2FieldCommon {  name }}} ... on ProjectV2ItemFieldDateValue { date field { ... on ProjectV2FieldCommon { name } } } ... on ProjectV2ItemFieldSingleSelectValue { name field { ... on ProjectV2FieldCommon { name }}}}} content{ ... on DraftIssue { title body } ...on Issue { title assignees(first: 10) { nodes{ login }}} ...on PullRequest { title assignees(first: 10) { nodes{ login }}}}}}}}}"}'
 ```
 {% endcurl %}
@@ -426,27 +426,27 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-项目可能包含用户无权查看的项。 在这种情况下，项目类型将作为 `REDACTED` 返回。
+A project may contain items that a user does not have permission to view. In this case, the item type will be returned as `REDACTED`.
 
-## 更新项目
+## Updating projects 
 
-使用突变来更新项目。 更多信息请参阅“[关于突变](/graphql/guides/forming-calls-with-graphql#about-mutations)。”
+Use mutations to update projects. For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
 {% note %}
 
-**注意：** 您不能在同一调用中添加和更新项。 您必须使用 `addProjectV2ItemById` 来添加项目，然后使用 `updateProjectV2ItemFieldValue` 来更新该项目。
+**Note:** You cannot add and update an item in the same call. You must use `addProjectV2ItemById` to add the item and then use `updateProjectV2ItemFieldValue` to update the item.
 
 {% endnote %}
 
-### 添加项到项目
+### Adding an item to a project
 
-以下示例将向您的项目添加议题或拉取请求。 将 `PROJECT_ID` 替换为项目的节点 ID。 将 `CONT_ID` 替换为议题的节点 ID 或您想要添加的拉取请求。
+The following example will add an issue or pull request to your project. Replace `PROJECT_ID` with the node ID of your project. Replace `CONTENT_ID` with the node ID of the issue or pull request that you want to add.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {addProjectV2ItemById(input: {projectId: \"<em>PROJECT_ID</em>\" contentId: \"<em>CONTENT_ID</em>\"}) {item {id}}}"}'
 ```
 {% endcurl %}
@@ -464,7 +464,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-响应将包含新建项目的节点 ID。
+The response will contain the node ID of the newly created item.
 
 ```json
 {
@@ -478,18 +478,18 @@ gh api graphql -f query='
 }
 ```
 
-如果您尝试添加已经存在的项，则返回现有项 ID。
+If you try to add an item that already exists, the existing item ID is returned instead.
 
-### 向项目添加草稿议题
+### Adding a draft issue to a project
 
-下面的示例将向项目添加草稿议题。 将 `PROJECT_ID` 替换为项目的节点 ID。 将 `TITLE` 和 `BODY` 替换为新草稿议题所需的内容。
+The following example will add a draft issue to your project. Replace `PROJECT_ID` with the node ID of your project. Replace `TITLE` and `BODY` with the content you want for the new draft issue.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: "<em>PROJECT_ID</em>" title: "<em>TITLE</em>" body: "<em>BODY</em>"}) {item {id}}}"}'
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
+  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: "<em>PROJECT_ID</em>" title: "<em>TITLE</em>" body: "<em>BODY</em>"}) {projectItem {id}}}"}'
 ```
 {% endcurl %}
 
@@ -498,7 +498,7 @@ curl --request POST \
 gh api graphql -f query='
   mutation {
     addProjectV2DraftIssue(input: {projectId: "<em>PROJECT_ID</em>" title: "<em>TITLE</em>" body: "<em>BODY</em>"}) {
-      item {
+      projectItem {
         id
       }
     }
@@ -506,13 +506,13 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-响应将包含新建草稿议题的节点 ID。
+The response will contain the node ID of the newly created draft issue.
 
 ```json
 {
   "data": {
     "addProjectV2ItemById": {
-      "item": {
+      "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }
     }
@@ -520,15 +520,15 @@ gh api graphql -f query='
 }
 ```
 
-### 更新项目的设置
+### Updating a project's settings 
 
-以下示例将更新项目的设置。 将 `PROJECT_ID` 替换为项目的节点 ID。 将 `public` 设置为 `true` ，以便在 {% data variables.product.product_name %} 上公开您的项目。 修改 `readme` 以对项目的 README 进行更改。
+The following example will update your project's settings. Replace `PROJECT_ID` with the node ID of your project. Set `public` to `true` to make your project public on {% data variables.product.product_name %}. Modify `readme` to make changes to your project's README.
 
 {% curl %}
 ```shell
 curl --request POST \
 --url https://api.github.com/graphql \
---header 'Authorization: token <em>TOKEN</em>' \
+--header 'Authorization: Bearer <em>TOKEN</em>' \
 --data '{"query":"mutation { updateProjectV2(input: { projectId: \"<em>PROJECT_ID</em>\", title: \"Project title\", public: false, readme: \"# Project README\n\nA long description\", shortDescription: \"A short description\"}) { projectV2 { id, title, readme, shortDescription }}}"}'
 ```
 {% endcurl %}
@@ -557,15 +557,15 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### 更新自定义文本、数字或日期字段
+### Updating a custom text, number, or date field 
 
-下面的示例将更新项目的文本字段值。 将 `PROJECT_ID` 替换为项目的节点 ID。 将 `ITEM_ID` 替换为您想要更新的项的节点 ID。 将 `FIELD_ID` 替换为您想要更新的字段的 ID。
+The following example will update the value of a text field for an item. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to update. Replace `FIELD_ID` with the ID of the field that you want to update.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "<em>PROJECT_ID</em>" itemId: "<em>ITEM_ID</em>" fieldId: "<em>FIELD_ID</em>" value: { text: "Updated text" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
@@ -594,7 +594,7 @@ gh api graphql -f query='
 
 {% note %}
 
-**注意：** 您不能使用 `updateProjectV2ItemFieldValue` 更改 `Assignees`、`Labels`、`Milestone` 或 `Repository`，因为这些字段是拉取请求和议题，而不是项目项的属性。 相反，您可以使用以下突变：
+**Note:** You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
 
 - [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
 - [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
@@ -606,20 +606,20 @@ gh api graphql -f query='
 
 {% endnote %}
 
-### 更新单选字段
+### Updating a single select field
 
-下面的示例将更新项的单选字段值。
+The following example will update the value of a single select field for an item.
 
-- `PROJECT_ID` - 用项目节点 ID 替换。
-- `ITEM_ID` - 替换为您想要更新的项的节点 ID。
-- `FIELD_ID` -  替换为您想要更新的单选字段的 ID。
-- `OPTION_ID` - 替换为所需单选选项的 ID。
+- `PROJECT_ID` - Replace this with the node ID of your project.
+- `ITEM_ID` - Replace this with the node ID of the item you want to update.
+- `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
+- `OPTION_ID` - Replace this with the ID of the desired single select option.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "<em>PROJECT_ID</em>" itemId: "<em>ITEM_ID</em>" fieldId: "<em>FIELD_ID</em>" value: { singleSelectOptionId: "<em>OPTION_ID</em>" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
@@ -646,20 +646,20 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### 更新迭代字段
+### Updating an iteration field
 
-下面的示例将更新项的迭代字段值。
+The following example will update the value of an iteration field for an item.
 
-- `PROJECT_ID` - 用项目节点 ID 替换。
-- `ITEM_ID` - 替换为您想要更新的项的节点 ID。
-- `FIELD_ID` -  替换为您想要更新的迭代字段的 ID。
-- `ITERATION_ID` - 替换为所需迭代的 ID。 这可以是活动的迭代，也可以是已完成的迭代。
+- `PROJECT_ID` - Replace this with the node ID of your project.
+- `ITEM_ID` - Replace this with the node ID of the item you want to update.
+- `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
+- `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active or completed iteration.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "<em>PROJECT_ID</em>" itemId: "<em>ITEM_ID</em>" fieldId: "<em>FIELD_ID</em>" value: { singleSelectOptionId: "<em>OPTION_ID</em>" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
@@ -686,15 +686,15 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### 从项目中删除项
+### Deleting an item from a project
 
-下面的示例将从项目中删除一个项。 将 `PROJECT_ID` 替换为项目的节点 ID。 将 `ITEM_ID` 替换为您想要删除的项的节点 ID。
+The following example will delete an item from a project. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to delete.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Authorization: Bearer <em>TOKEN</em>' \
   --data '{"query":"mutation {deleteProjectV2Item(input: {projectId: \"<em>PROJECT_ID</em>\" itemId: \"<em>ITEM_ID</em>\"}) {deletedItemId}}"}'
 ```
 {% endcurl %}
@@ -714,6 +714,61 @@ gh api graphql -f query='
   }'
 ```
 {% endcli %}
+
+## Managing projects 
+
+### Creating projects
+
+You can use a mutation to create a new project. For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
+
+To create a new project using the API, you'll need to provide a name for the project and the node ID of a {% data variables.product.product_name %} user or organization who will become the project's owner.
+
+You can find the node ID of a {% data variables.product.product_name %} user or organization if you know the username. Replace <code>GITHUB_OWNER</code> with the {% data variables.product.product_name %} username of the new project owner.
+
+{% curl %}
+```shell
+curl --request GET \
+  --url https://api.github.com/users/<em>GITHUB_OWNER</em> \
+  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Accept: application/vnd.github+json'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api -H "Accept: application/vnd.github+json" /users/<em>GITHUB_OWNER</em>
+```
+{% endcli %}
+
+To create the project, replace `OWNER_ID` with the node ID of the new project owner and replace `PROJECT_NAME` with a name for the project.
+
+{% curl %}
+```shell
+curl --request POST \
+  --url https://api.github.com/graphql \
+  --header 'Authorization: token <em>TOKEN</em>' \
+  --data '{"query":"mutation {createProjectV2(input: {ownerId: \"<em>OWNER_ID</em>\" title: \"<em>PROJECT_NAME</em>\"}) {projectV2 {id}}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  mutation{
+    createProjectV2(
+      input: {
+        ownerId: "<em>OWNER_ID</em>",
+        title: "<em>PROJECT_NAME</em>"
+      }
+    ){
+      projectV2 {
+        id
+      }
+     }
+  }'
+```
+{% endcli %}
+
 
 ## Using webhooks
 

@@ -17,14 +17,18 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Lenguajes del repositorio
+shortTitle: Repository languages
+ms.openlocfilehash: 3796ec1828bb8f64072f62255d76ca79c4467457
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145136818'
 ---
+En {% data variables.product.product_name %} se usa la [biblioteca Linguist](https://github.com/github/linguist) de código abierto a fin determinar los lenguajes de archivo para el resaltado de sintaxis y las estadísticas del repositorio. Las estadísticas de lenguaje se actualizarán después de que subas los cambios a tu rama predeterminada.
 
-{% data variables.product.product_name %} utiliza la [biblioteca de Linguist](https://github.com/github/linguist) de código abierto para
-determinar los lenguajes de un archivo para resaltar la sintaxis y obtener la estadística del repositorio. Las estadísticas de lenguaje se actualizarán después de que subas los cambios a tu rama predeterminada.
-
-Algunos archivos son difíciles de identificar y, a veces, los proyectos contienen más archivos de biblioteca y de proveedor que su código primario. Si estás recibiendo resultados incorrectos, consulta la [Guía de solución de problemas](https://github.com/github/linguist/blob/master/docs/troubleshooting.md) del Lingüista para obtener ayuda.
+Algunos archivos son difíciles de identificar y, a veces, los proyectos contienen más archivos de biblioteca y de proveedor que su código primario. Si recibe resultados incorrectos, consulte la [guía de solución de problemas](https://github.com/github/linguist/blob/master/docs/troubleshooting.md) de Linguist para obtener ayuda.
 
 ## Lenguaje Markup
 
-Los lenguajes Markup están representados para HTML y mostrados en línea usando nuestra [Biblioteca Markup](https://github.com/github/markup) de código abierto. En este momento, no estamos aceptando nuevos lenguajes para mostrar dentro de {% data variables.product.product_name %}. Sin embargo, mantenemos activamente nuestros lengujes Markup actuales. Si encuentras un problema, [crea una propuesta](https://github.com/github/markup/issues/new).
+Los lenguajes de marcado se representan en HTML mediante nuestra [biblioteca de marcado](https://github.com/github/markup) de código abierto. En este momento, no estamos aceptando nuevos lenguajes para mostrar dentro de {% data variables.product.product_name %}. Sin embargo, mantenemos activamente nuestros lengujes Markup actuales. Si ve un problema, [cree una incidencia](https://github.com/github/markup/issues/new).

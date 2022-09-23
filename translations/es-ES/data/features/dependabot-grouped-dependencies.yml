@@ -1,6 +1,5 @@
----
-#Reference: #6913
-#Dependabot support for TypeScript @types/*
+# Reference: #6913
+# Dependabot support for TypeScript @types/*
 versions:
   fpt: '*'
   ghec: '*'

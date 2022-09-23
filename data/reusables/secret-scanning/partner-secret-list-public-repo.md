@@ -11,6 +11,7 @@ Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
 Azure | Azure Active Directory Application Secret
 Azure | Azure DevOps Personal Access Token
+Azure | Azure ML Studio (classic) Web Service Key
 Azure | Azure SAS Token
 Azure | Azure Service Management Certificate
 Azure | Azure SQL Connection String

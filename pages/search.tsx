@@ -26,7 +26,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // So if that's the case, which might be true in production (Aug 2022)
   // or on an engineers local development, we basically pretend the
   // page doesn't exist.
-  if (!process.env.ELASTICSEARCH_URL) {
+  // By depending conditionally on these two environment variables we're
+  // able to carefully launch the dedicated search results page
+  // separately from the JSON API endpoint.
+  if (!process.env.ELASTICSEARCH_URL || !process.env.ENABLE_SEARCH_RESULTS_PAGE) {
     return { notFound: true }
   }
 

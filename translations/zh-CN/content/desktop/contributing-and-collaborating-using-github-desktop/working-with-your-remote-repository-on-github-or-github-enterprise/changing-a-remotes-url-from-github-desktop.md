@@ -7,21 +7,26 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop
 versions:
   fpt: '*'
-shortTitle: 更改远程的 URL
+shortTitle: Change a remote's URL
+ms.openlocfilehash: e06ea68ead9ab79c44d7aaf96f48d6645232b496
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146058474'
 ---
-
 {% mac %}
 
 {% data reusables.desktop.mac-repository-settings-menu %}
-2. 单击 **Remote（远程）**，然后在 **Primary remote repository（主远程存储库）**下键入所需的 URL。 ![主要远程仓库字段](/assets/images/help/desktop/repository-settings-remote.png)
-{% data reusables.desktop.repository-settings-save %}
+2. 单击“远程”，然后在“主要远程存储库”下，键入所需的 URL 。
+![主要远程存储库字段](/assets/images/help/desktop/repository-settings-remote.png) {% data reusables.desktop.repository-settings-save %}
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.windows-repository-settings-menu %}
-2. 单击 **Remote（远程）**，然后在 **Primary remote repository（主远程存储库）**下键入所需的 URL。 ![主要远程仓库字段](/assets/images/help/desktop/repository-settings-remote.png)
-{% data reusables.desktop.repository-settings-save %}
+2. 单击“远程”，然后在“主要远程存储库”下，键入所需的 URL 。
+![主要远程存储库字段](/assets/images/help/desktop/repository-settings-remote.png) {% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}

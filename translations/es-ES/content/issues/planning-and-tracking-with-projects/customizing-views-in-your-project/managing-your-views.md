@@ -1,18 +1,22 @@
 ---
-title: Managing your views
-intro: 'Learn how to create, save, and manage your project views.'
+title: Administración de las vistas
+intro: 'Aprende a crear, guardar y administrar las vistas del proyecto.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
   - Projects
+ms.openlocfilehash: d434b4b086c1ec8526c3214161ac00d58dced4fd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424404'
 ---
-
-
 ## Crear una vista de proyecto
 
-Las vistas de proyecto te permiten ver los aspectos específicos de tu proyecto rápidamente. Cada vista se muestra en una pestaña por separado en tu proyecto.
+Las vistas de proyecto te permiten ver los aspectos específicos de tu proyecto rápidamente. Cada vista se muestra en una pestaña por separado en tu proyecto. 
 
 Por ejemplo, puedes tener:
 - Una vista que muestre todos los elementos que aún no han iniciado (filtrar en "Estado").
@@ -23,21 +27,22 @@ Para agregar una vista nueva:
 
 {% data reusables.projects.new-view %}
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "New view."
+Como alternativa, presiona {% data variables.projects.command-palette-shortcut %} para abrir la paleta de comandos del proyecto y empieza a escribir "Nueva vista".
 
 La vista nueva se guarda automáticamente.
 
-## Duplicating a view
+## Duplicación de una vista
 
-You can duplicate an existing view and use it as a base to make further changes.
+Puedes duplicar una vista existente y usarla como base para realizar más cambios.
 
-1. Switch to the view you want to duplicate.
+1. Cambia a la vista que quieras duplicar.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "versions" aria-label="the versions icon" %} **Duplicate view**. ![Screenshot showing the duplicate menu item](/assets/images/help/projects-v2/duplicate-view.png)
+1. Haz clic en {% octicon "versions" aria-label="the versions icon" %} **Duplicar vista**.
+   ![Captura de pantalla en la que se muestra el elemento de menú Duplicar](/assets/images/help/projects-v2/duplicate-view.png)
 
 ## Guardar los cambios en una vista
 
-Cuando haces cambios en una vista, por ejemplo: clasificar, reordenar, filtrar o agrupar los datos en una vista, se muestra un punto junto al nombre de la vista para indicar que hay cambios sin guardar.
+Cuando haces cambios en una vista, por ejemplo: clasificar, reordenar, filtrar o agrupar los datos en una vista, se muestra un punto junto al nombre de la vista para indicar que hay cambios sin guardar. 
 
 ![Indicador de cambios sin guardar](/assets/images/help/projects/unsaved-changes.png)
 
@@ -45,7 +50,7 @@ Si no quieres guardar los cambios, puedes ignorar este indicador. Nadie verá tu
 
 {% data reusables.projects.save-view %}
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Save view."
+Como alternativa, presiona {% data variables.projects.command-palette-shortcut %} para abrir la paleta de comandos del proyecto y empieza a escribir "Guardar vista".
 
 ## Reordenar las vistas guardadas
 
@@ -53,18 +58,20 @@ Para cambiar el orden de las pestañas que contienen tus vistas guardadas, haz c
 
 ## Renombrar una vista guardada
 
-You can rename your saved views. El cambio de nombre se guarda automáticamente.
+Puedes cambiar el nombre de las vistas guardadas. El cambio de nombre se guarda automáticamente.
 
-1. Switch to the view you want to rename.
+1. Cambia a la vista que quieras cambiar de nombre.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-label="the pencil icon" %} **Rename view**. ![Screenshot showing the rename menu item](/assets/images/help/projects-v2/rename-view.png)
-1. Type the new name for your view.
-1. To save your changes, press <kbd>Return</kbd>.
+1. Haz clic en {% octicon "pencil" aria-label="the pencil icon" %} **Cambiar nombre de vista**.
+   ![Captura de pantalla en la que se muestra el elemento de menú Cambiar de nombre](/assets/images/help/projects-v2/rename-view.png)
+1. Escribe el nuevo nombre de la vista.
+1. Para guardar los cambios, presiona <kbd>Intro</kbd>.
 
 ## Borrar una vista guardada
 
-1. Switch to the view you want to delete.
+1. Cambia a la vista que quieras eliminar.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "trash" aria-label="the trasj icon" %} **Delete view**. ![Screenshot showing the rename delete item](/assets/images/help/projects-v2/delete-view.png)
+1. Haz clic en {% octicon "trash" aria-label="the trasj icon" %} **Eliminar vista**.
+   ![Captura de pantalla en la que se muestra el elemento de menú Eliminar](/assets/images/help/projects-v2/delete-view.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Delete view."
+Como alternativa, presiona {% data variables.projects.command-palette-shortcut %} para abrir la paleta de comandos del proyecto y empieza a escribir "Eliminar vista".
