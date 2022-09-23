@@ -15,6 +15,7 @@
 - [Tool tags](#tool-tags)
   - [Usage](#usage-5)
 - [Reusable and variable strings of text](#reusable-and-variable-strings-of-text)
+- [Tables with codeblocks](#tables-with-codeblocks)
 
 ## Writing in Markdown
 
@@ -129,6 +130,8 @@ You can define a default platform in the frontmatter. For more information, see 
 ## Tool tags
 
 We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool. To modify the list of possible tools, edit [`lib/all-tools.js`](../lib/all-tools.js).
+
+To add a new tool, add an entry to the `allTools` object in `lib/all-tools.js` as a key-value pair. The key is the tag you'll use to refer to the tool in the article, the value is how the tool will be identified on the tool picker at the top of the article.
 
 ### Usage
 
