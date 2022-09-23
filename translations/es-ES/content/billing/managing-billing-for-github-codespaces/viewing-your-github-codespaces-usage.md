@@ -17,7 +17,7 @@ redirect_from:
 
 ## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization
 
-Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an organization. For organizations managed by an enterprise account, the organization owners can view {% data variables.product.prodname_codespaces %} usage in the organization billing page, and enterprise admins can view the usage for the entire enterprise.
+Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an organization. For organizations managed by an enterprise account, the organization owners can view {% data variables.product.prodname_github_codespaces %} usage in the organization billing page, and enterprise admins can view the usage for the entire enterprise.
 
 {% data reusables.organizations.billing-settings %}
 1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
@@ -30,11 +30,11 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% ifversion ghec %}
 ## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
 
-Enterprise owners and billing managers can view {% data variables.product.prodname_codespaces %} usage for an enterprise account.
+Enterprise owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an enterprise account.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_codespaces %}", view the usage details of each organization in your enterprise account.
+1. Under "{% data variables.product.prodname_codespaces %} monthly usage", view the usage details of each organization in your enterprise account.
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
 {% endif %}

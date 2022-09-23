@@ -1,0 +1,30 @@
+date: '2022-02-01'
+sections:
+  security_fixes:
+    - '**中**：机密扫描 API 可能会为请求范围外的存储库返回警报。'
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 在 MySQL 机密轮换后，页面将不可用，直到手动重启 `nginx`。
+    - "如果启用 {% data variables.product.prodname_actions %}，迁移可能会失败。"
+    - 使用 ISO 8601 日期设置维护计划时，由于时区未转换为 UTC，因此实际计划时间将不匹配。
+    - 有关 `cloud-config.service` 的虚假错误消息将输出到控制台。
+    - 使用 `ghe-cluster-each` 安装热补丁后，版本号将无法正确更新。
+    - Webhook 表清理作业可能同时运行，从而导致资源争用且作业运行时间增加。
+    - 从主节点运行时，副本节点上的 `ghe-repl-teardown` 不会将副本节点从 MSSQL 可用性组中删除。
+    - 以下功能无法正常使用：仅限对在经过验证或批准的域上具有电子邮件的用户发送基于电子邮件的通知。
+    - 使用 CAS 身份验证并启用“重新激活暂停的用户”选项时，暂停的用户不会自动重新激活。
+    - 与“安全警报”设置相关的长期数据库迁移可能会延迟升级完成。
+  changes:
+    - GitHub Connect 数据连接记录现在包括活动和休眠用户数量计数以及配置的休眠期。
+  known_issues:
+    - "升级到 {% data variables.product.prodname_ghe_server %} 3.3 后，{% data variables.product.prodname_actions %} 可能无法自动启动。若要解决此问题，请通过 SSH 连接到设备并运行 `ghe-actions-start` 命令。"
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表在元数据响应中不再返回时间值。这样可以大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '选择“强制路径样式”时，无法验证 {% data variables.product.prodname_actions %} 存储设置并将其保存在 {% data variables.enterprise.management_console %} 中，而必须使用 `ghe-actions-precheck` 命令行实用程序进行配置。'
+    - '由于当前 Linux 内核中存在 bug，安装在 Azure 上并预配了 32 个以上 CPU 内核的 {% data variables.product.prodname_ghe_server %} 3.3 实例将无法启动。[更新时间：2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

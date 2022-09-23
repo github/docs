@@ -1,6 +1,6 @@
 ---
-title: 键盘快捷方式
-intro: '几乎 {% data variables.product.prodname_dotcom %} 上的每一页都有键盘快捷方式，可以更快地执行操作。'
+title: Keyboard shortcuts
+intro: 'Nearly every page on {% data variables.product.prodname_dotcom %} has a keyboard shortcut to perform actions faster.'
 redirect_from:
   - /articles/using-keyboard-shortcuts
   - /categories/75/articles
@@ -13,217 +13,232 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: 857c4129e2e156025c8ee8f37a0c834242c0b216
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423538'
 ---
-## 关于键盘快捷键
+## About keyboard shortcuts
 
-键入 <kbd>?</kbd> （{% data variables.product.prodname_dotcom %} 上）会显示一个对话框，其中列出了可用于该页面的键盘快捷方式。 您可以使用这些键盘快捷键对站点执行操作，而无需使用鼠标导航。
+Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
-{% ifversion keyboard-shortcut-accessibility-setting %} 可以在辅助功能设置中禁用字符键快捷方式，同时仍允许使用用于修改键的快捷方式。 有关详细信息，请参阅“[管理辅助功能设置](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)”。{% endif %}
+{% ifversion keyboard-shortcut-accessibility-setting %}
+You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see "[Managing accessibility settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)."{% endif %}
 
-下面是一些可用键盘快捷键的列表。
-{% ifversion command-palette %} {% data variables.product.prodname_command_palette %} 还可用于快速访问各种操作，而无需记住键盘快捷方式。 有关详细信息，请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。{% endif %}
+Below is a list of some of the available keyboard shortcuts.
+{% ifversion command-palette %}
+The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
-## 站点快捷键
+## Site wide shortcuts
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>S</kbd> 或 <kbd>/</kbd> | 聚焦于搜索栏。 有关详细信息，请参阅“[关于搜索 {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
-|<kbd>G</kbd> <kbd>N</kbd> | 转到您的通知。 有关详细信息，请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。
-|Esc  | 当聚焦于用户、议题或拉取请求悬停卡时，关闭悬停卡并重新聚焦于悬停卡所在的元素
-{% ifversion command-palette %}|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | 打开 {% data variables.product.prodname_command_palette %}。 如果要编辑 Markdown 文本，请使用 <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> 或 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> 打开命令面板。 有关详细信息，请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。{% endif %}
+|<kbd>S</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+|<kbd>G</kbd> <kbd>N</kbd> | Go to your notifications. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
+|<kbd>Esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
+{% ifversion command-palette %}|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
-## 存储库
+## Repositories
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>G</kbd> <kbd>C</kbd> | 转到“代码”选项卡
-|<kbd>G</kbd> <kbd>I</kbd> | 转到“问题”选项卡。有关详细信息，请参阅“[关于问题](/articles/about-issues)”。
-|<kbd>G</kbd> <kbd>P</kbd> | 转到“拉取请求”选项卡。有关详细信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。{% ifversion fpt or ghes or ghec %}
-|<kbd>G</kbd> <kbd>A</kbd> | 转到“操作”选项卡。有关详细信息，请参阅“[关于操作](/actions/getting-started-with-github-actions/about-github-actions)”。{% endif %}
-|<kbd>G</kbd> <kbd>B</kbd> | 转到“项目”选项卡。有关详细信息，请参阅“[关于项目板](/articles/about-project-boards)”。
-|<kbd>G</kbd> <kbd>W</kbd> | 转到“Wiki”选项卡。有关详细信息，请参阅“[关于 Wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。{% ifversion discussions %}
-|<kbd>G</kbd> <kbd>G</kbd> | 转到“讨论”选项卡。有关详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。{% endif %}
+|<kbd>G</kbd> <kbd>C</kbd> | Go to the **Code** tab
+|<kbd>G</kbd> <kbd>I</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
+|<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
+|<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
+|<kbd>G</kbd> <kbd>B</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
+|<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
+|<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
-## 源代码编辑
+## Source code editing
 
-| 键盘快捷方式 | 说明 |-----------|------------{% ifversion fpt or ghec %} |<kbd>.</kbd> | 在基于 Web 的编辑器中打开存储库或拉取请求。 有关详细信息，请参阅“[基于 Web 的编辑器](/codespaces/developing-in-codespaces/web-based-editor)”。{% endif %} |<kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | 插入 Markdown 格式将文本设为粗体 | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | 插入 Markdown 格式将文本设为斜体 | <kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | 插入 Markdown 格式创建链接{% ifversion fpt or ghec or ghae or ghes > 3.3 %} |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | 插入 Markdown 格式创建有序列表 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | 插入 Markdown 格式创建无序列表 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | 插入 Markdown 格式创建引用{% endif %} |<kbd>E</kbd> | 在“编辑文件”选项卡中打开源代码文件 |<kbd>Command</kbd>+<kbd>F</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>F</kbd> (Windows/Linux) | 开始在文件编辑器中搜索 |<kbd>Command</kbd>+<kbd>G</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | 查找下一个 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> (Windows/Linux) | 查找上一个 |<kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> (Windows/Linux) | 替换 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (Windows/Linux) | 全部替换 |<kbd>Alt</kbd>+<kbd>G</kbd> | 跳转到行 |<kbd>Command</kbd>+<kbd>Z</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Z</kbd> (Windows/Linux) | 撤消 |<kbd>Command</kbd>+<kbd>Y</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Y</kbd> (Windows/Linux) | 恢复 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> | 在“编辑文件”和“预览更改”选项卡之间切换 |<kbd>Command</kbd>+<kbd>S</kbd> (Mac) 或  </br> <kbd>Ctrl</kbd>+<kbd>S</kbd> (Windows/Linux) | 编写提交消息
+| Keyboard shortcut | Description
+|-----------|------------{% ifversion fpt or ghec %}
+|<kbd>.</kbd> | Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
+|<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text
+|<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text
+|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserts Markdown formatting for an ordered list
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserts Markdown formatting for an unordered list
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserts Markdown formatting for a quote{% endif %}
+|<kbd>E</kbd> | Open source code file in the **Edit file** tab
+|<kbd>Command</kbd>+<kbd>F</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>F</kbd> (Windows/Linux) | Start searching in file editor
+|<kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Find next
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> (Windows/Linux) | Find previous
+|<kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> (Windows/Linux) | Replace
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (Windows/Linux) | Replace all
+|<kbd>Alt</kbd>+<kbd>G</kbd> | Jump to line
+|<kbd>Command</kbd>+<kbd>Z</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Z</kbd> (Windows/Linux) | Undo
+|<kbd>Command</kbd>+<kbd>Y</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Y</kbd> (Windows/Linux) | Redo
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
+|<kbd>Command</kbd>+<kbd>S</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>S</kbd> (Windows/Linux) | Write a commit message
 
-有关更多键盘快捷方式的详细信息，请参阅 [CodeMirror 文档](https://codemirror.net/doc/manual.html#commands)。
+For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
 
-## 源代码浏览
+## Source code browsing
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>T</kbd> | 激活文件查找器
-|<kbd>L</kbd> | 跳至代码中的某一行
-|<kbd>W</kbd> | 切换到新分支或标记
-|<kbd>是</kbd> | 将 URL 展开为其规范形式。 有关详细信息，请参阅“[获取文件的永久链接](/articles/getting-permanent-links-to-files)”。
-|<kbd>I</kbd> | 显示或隐藏有关差异的评论。 有关详细信息，请参阅“[评论拉取请求的差异](/articles/commenting-on-the-diff-of-a-pull-request)”。
-|<kbd>A</kbd> | 在差异上显示或隐藏注释
-|<kbd>B</kbd> | 打开追溯视图。 有关详细信息，请参阅“[跟踪文件中的更改](/articles/tracing-changes-in-a-file)”。
+|<kbd>T</kbd> | Activates the file finder
+|<kbd>L</kbd> | Jump to a line in your code
+|<kbd>W</kbd> | Switch to a new branch or tag
+|<kbd>Y</kbd> | Expand a URL to its canonical form. For more information, see "[Getting permanent links to files](/articles/getting-permanent-links-to-files)."
+|<kbd>I</kbd> | Show or hide comments on diffs. For more information, see "[Commenting on the diff of a pull request](/articles/commenting-on-the-diff-of-a-pull-request)."
+|<kbd>A</kbd> | Show or hide annotations on diffs
+|<kbd>B</kbd> | Open blame view. For more information, see "[Tracing changes in a file](/articles/tracing-changes-in-a-file)."
 
-## 注释
+## Comments
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | 插入 Markdown 格式用于粗体文本
-|<kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | 插入 Markdown 格式用于斜体文本
-|<kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | 在行 {% ifversion fpt or ghae-issue-5434 or ghes or ghec %} 中插入代码或命令的 Markdown 格式
-|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | 插入 Markdown 格式以创建链接{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
-|<kbd>Command</kbd>+<kbd>V</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux) | 应用于突出显示的文本时创建 Markdown 链接{% endif %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | 在“撰写”和“预览”评论选项卡之间切换{% ifversion fpt or ghae or ghes > 3.4 or ghec %} 
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | 将 HTML 链接粘贴为纯文本{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>V</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | 将 HTML 链接粘贴为纯文本{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | 为有序列表插入 Markdown 格式
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | 为无序列表插入 Markdown 格式{% endif %}
-|<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows/Linux) | 提交评论
-|Ctrl+. 然后按 <kbd>Ctrl</kbd>+<kbd>[保存的回复编号]</kbd> | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 有关详细信息，请参阅“[关于已保存的回复](/articles/about-saved-replies)”。{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | 为报价插入 Markdown 格式{% endif %}{% ifversion fpt or ghec %}
-|<kbd>Command</kbd>+<kbd>G</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | 插入建议。 有关详细信息，请参阅“[审查拉取请求中的建议更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。 |{% endif %}
-|<kbd>R</kbd> | 在您的回复中引用所选的文本。 有关详细信息，请参阅“[基本撰写和格式设置语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。 |
+|<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text
+|<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text
+|<kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserts Markdown formatting for code or a command within a line{% ifversion fpt or ghae > 3.3 or ghes or ghec %}
+|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %}
+|<kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux) | Creates a Markdown link when applied over highlighted text{% endif %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserts Markdown formatting for an ordered list
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserts Markdown formatting for an unordered list{% endif %}
+|<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Submits a comment
+|<kbd>Ctrl</kbd>+<kbd>.</kbd> and then <kbd>Ctrl</kbd>+<kbd>[saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
+|<kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
+|<kbd>R</kbd> | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)." |
 
-## 议题和拉取请求列表
+## Issue and pull request lists
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>C</kbd> | 创建问题
-|<kbd>Command</kbd>+<kbd>/</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>/</kbd> (Windows/Linux) | 将光标聚焦于议题或拉取请求搜索栏。 有关详细信息，请参阅“[筛选和搜索问题与拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)”。||
-|<kbd>U</kbd> | 按作者过滤
-|<kbd>L</kbd> | 按标签过滤或编辑标签。 有关详细信息，请参阅[按标签筛选问题和拉取请求](/articles/filtering-issues-and-pull-requests-by-labels)。
-|<kbd>Alt</kbd> 并单击 | 按标签过滤时，排除标签。 有关详细信息，请参阅[按标签筛选问题和拉取请求](/articles/filtering-issues-and-pull-requests-by-labels)。
-|<kbd>M</kbd> | 按里程碑过滤或编辑里程碑。 有关详细信息，请参阅“[按里程碑筛选问题和拉取请求](/articles/filtering-issues-and-pull-requests-by-milestone)”。
-|<kbd>A</kbd> | 按受理人过滤或编辑受理人。 有关详细信息，请参阅“[按被分派人筛选问题和拉取请求](/articles/filtering-issues-and-pull-requests-by-assignees)”。
-|<kbd>O</kbd> 或 <kbd>Enter</kbd> | 激活议题
+|<kbd>C</kbd> | Create an issue
+|<kbd>Command</kbd>+<kbd>/</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>/</kbd> (Windows/Linux) | Focus your cursor on the issues or pull requests search bar. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."||
+|<kbd>U</kbd> | Filter by author
+|<kbd>L</kbd> | Filter by or edit labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
+|<kbd>Alt</kbd> and click | While filtering by labels, exclude labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
+|<kbd>M</kbd> | Filter by or edit milestones. For more information, see "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)."
+|<kbd>A</kbd> | Filter by or edit assignee. For more information, see "[Filtering issues and pull requests by assignees](/articles/filtering-issues-and-pull-requests-by-assignees)."
+|<kbd>O</kbd> or <kbd>Enter</kbd> | Open issue
 
-## 议题和拉取请求
-| 键盘快捷方式 | 说明
+## Issues and pull requests
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Q</kbd> | 请求审查者。 有关详细信息，请参阅“[请求拉取请求审查](/articles/requesting-a-pull-request-review/)”。
-|<kbd>M</kbd> | 设置里程碑。 有关详细信息，请参阅“[将里程碑与问题和拉取请求相关联](/articles/associating-milestones-with-issues-and-pull-requests/)”。
-|<kbd>L</kbd> | 应用标签。 有关详细信息，请参阅“[将标签应用于问题和拉取请求](/articles/applying-labels-to-issues-and-pull-requests/)”。
-|<kbd>A</kbd> | 设置受理人。 有关详细信息，请参阅“[向其他 {% data variables.product.company_short %} 用户分配问题和拉取请求](/articles/assigning-issues-and-pull-requests-to-other-github-users/)”。
-|<kbd>X</kbd> | 链接来自同一存储库的议题或拉取请求。 有关详细信息，请参阅“[将拉取请求链接到问题](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue/)”。
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | 在“写入”和“预览”选项卡之间切换{% ifversion fpt or ghec %} 
-|<kbd>Alt</kbd> 并单击 | 从任务列表创建问题时，按住 <kbd>Alt</kbd> 并单击任务右上角的 {% octicon "issue-opened" aria-label="The issue opened icon" %}，以在当前选项卡中打开新问题表单。 有关详细信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
-|<kbd>Shift</kbd> 并单击 | 从任务列表创建问题时，按住 <kbd>Alt</kbd> 并单击任务右上角的 {% octicon "issue-opened" aria-label="The issue opened icon" %}，以在新的选项卡中打开新问题表单。 有关详细信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
-|<kbd>Command</kbd> 并单击 (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd> 并单击 (Windows/Linux) | 从任务列表创建问题时，按住 <kbd>Command</kbd> 或 <kbd>Ctrl</kbd>+<kbd>Shift</kbd> 并单击任务右上角的 {% octicon "issue-opened" aria-label="The issue opened icon" %}，以在新窗口中打开新问题表单。 有关详细信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。{% endif %}
+|<kbd>Q</kbd> | Request a reviewer. For more information, see "[Requesting a pull request review](/articles/requesting-a-pull-request-review/)."
+|<kbd>M</kbd> | Set a milestone. For more information, see "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests/)."
+|<kbd>L</kbd> | Apply a label. For more information, see "[Applying labels to issues and pull requests](/articles/applying-labels-to-issues-and-pull-requests/)."
+|<kbd>A</kbd> | Set an assignee. For more information, see "[Assigning issues and pull requests to other {% data variables.product.company_short %} users](/articles/assigning-issues-and-pull-requests-to-other-github-users/)."
+|<kbd>X</kbd> | Link an issue or pull request from the same repository. For more information, see "[Linking a pull request to an issue](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue/)."
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** tabs{% ifversion fpt or ghec %}
+|<kbd>Alt</kbd> and click | When creating an issue from a task list, open the new issue form in the current tab by holding <kbd>Alt</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+|<kbd>Shift</kbd> and click | When creating an issue from a task list, open the new issue form in a new tab by holding <kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+|<kbd>Command</kbd> and click (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and click (Windows/Linux) | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>Command</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."{% endif %}
 
-## 拉取请求中的更改
+## Changes in pull requests
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>C</kbd> | 在拉取请求中打开提交列表
-|<kbd>T</kbd> | 在拉取请求中打开已更改文件列表
-|<kbd>J</kbd> | 将所选内容在列表中向下移动
-|<kbd>K</kbd> | 将所选内容在列表中向上移动
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | 添加一条有关拉取请求差异的评论 |
-|<kbd>Alt</kbd> 并单击 | 按住 <kbd>Alt</kbd> 并单击“显示已过期内容”或“隐藏已过期内容”，在折叠和展开拉取请求中所有过期的审查评论之间切换 。|
-|单击，然后按住 <kbd>Shift</kbd> 并单击 | 单击一个行号，按住 <kbd>Shift</kbd>，然后单击另一行号，对拉取请求的多行进行评论。 有关详细信息，请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)”。|
+|<kbd>C</kbd> | Open the list of commits in the pull request
+|<kbd>T</kbd> | Open the list of changed files in the pull request
+|<kbd>J</kbd> | Move selection down in the list
+|<kbd>K</kbd> | Move selection up in the list
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Add a single comment on a pull request diff |
+|<kbd>Alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.|
+|Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|
 
 {% ifversion projects-v2 %}
 
 ## {% data variables.projects.projects_v2_caps %}
 
-### 导航项目
+### Navigating a project
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>⌘</kbd>+<kbd>f</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | 焦点筛选器字段
-|<kbd>←</kbd> | 将单元格焦点移到左侧
-|<kbd>→</kbd> | 将单元格焦点移到右侧
-|<kbd>↑</kbd> | 向上移动单元格焦点
-|<kbd>↓</kbd> | 向下移动单元格焦点
+|<kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
+|<kbd>←</kbd> | Move cell focus to the left
+|<kbd>→</kbd> | Move cell focus to the right
+|<kbd>↑</kbd> | Move cell focus up
+|<kbd>↓</kbd> | Move cell focus down
 
-### 操作项目
+### Manipulating a project
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|Enter | 切换聚焦单元格的编辑模式
-|<kbd>Esc 键</kbd> | 取消对聚焦单元格的编辑
-|<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | 打开行操作菜单
-|<kbd>Shift</kbd>+<kbd>Space</kbd> | 选择项
-|<kbd>Space</kbd> | 打开选定项
-|<kbd>e</kbd> | 存档选定项
+|<kbd>Enter</kbd> | Toggle edit mode for the focused cell
+|<kbd>Escape</kbd> | Cancel editing for the focused cell
+|<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
+|<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item
+|<kbd>Space</kbd> | Open selected item
+|<kbd>e</kbd> | Archive selected items
 
 {% endif %}
 
 ## {% data variables.product.prodname_projects_v1_caps %}
 
-### 移动列
+### Moving a column
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Enter</kbd> 或<kbd>空格</kbd> | 开始移动聚焦的列
-|Esc  | 取消正在进行的移动
-|Enter | 完成正在进行的移动
-|<kbd>←</kbd> 或 <kbd>H</kbd> | 向左移动列
-|<kbd>Command</kbd>+<kbd>←</kbd> 或 <kbd>Command</kbd>+<kbd>H</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> 或 <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | 将列移动到最左侧的位置
-|<kbd>→</kbd> 或 <kbd>L</kbd> | 向右移动列
-|<kbd>Command</kbd>+<kbd>→</kbd> 或 <kbd>Command</kbd>+<kbd>L</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> 或 <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | 将列移动到最右侧的位置
+|<kbd>Enter</kbd> or <kbd>Space</kbd> | Start moving the focused column
+|<kbd>Esc</kbd> | Cancel the move in progress
+|<kbd>Enter</kbd> | Complete the move in progress
+|<kbd>←</kbd> or <kbd>H</kbd> | Move column to the left
+|<kbd>Command</kbd>+<kbd>←</kbd> or <kbd>Command</kbd>+<kbd>H</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | Move column to the leftmost position
+|<kbd>→</kbd> or <kbd>L</kbd> | Move column to the right
+|<kbd>Command</kbd>+<kbd>→</kbd> or <kbd>Command</kbd>+<kbd>L</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | Move column to the rightmost position
 
-### 移动卡片
+### Moving a card
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Enter</kbd> 或<kbd>空格</kbd> | 开始移动聚焦的卡片
-|Esc  | 取消正在进行的移动
-|Enter | 完成正在进行的移动
-|<kbd>↓</kbd> 或 <kbd>J</kbd> | 向下移动卡片
-|<kbd>Command</kbd>+<kbd>↓</kbd> 或 <kbd>Command</kbd>+<kbd>J</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>↓</kbd> 或 <kbd>Ctrl</kbd>+<kbd>J</kbd> (Windows/Linux) | 将卡片移动到该列的底部
-|<kbd>↑</kbd> 或 <kbd>K</kbd> | 向上移动卡片
-|<kbd>Command</kbd>+<kbd>↑</kbd> 或 <kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>↑</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | 将卡片移动到该列的顶部
-|<kbd>←</kbd> 或 <kbd>H</kbd> | 将卡片移动到左侧列的底部
-|<kbd>Shift</kbd>+<kbd>←</kbd> 或 <kbd>Shift</kbd>+<kbd>H</kbd> | 将卡片移动到左侧列的顶部
-|<kbd>Command</kbd>+<kbd>←</kbd> 或 <kbd>Command</kbd>+<kbd>H</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> 或 <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | 将卡片移动到最左侧列的底部
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>←</kbd> 或 <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>←</kbd> 或 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> (Windows/Linux) | 将卡片移动到最左侧列的顶部
-|<kbd>→</kbd> | 将卡片移动到右侧列的底部
-|<kbd>Shift</kbd>+<kbd>→</kbd> 或 <kbd>Shift</kbd>+<kbd>L</kbd> | 将卡片移动到右侧列的顶部
-|<kbd>Command</kbd>+<kbd>→</kbd> 或 <kbd>Command</kbd>+<kbd>L</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> 或 <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | 将卡片移动到最右侧列的底部
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>→</kbd> 或 <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>→</kbd> 或 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> (Windows/Linux) | 将卡片移动到最右侧列的底部
+|<kbd>Enter</kbd> or <kbd>Space</kbd> | Start moving the focused card
+|<kbd>Esc</kbd> | Cancel the move in progress
+|<kbd>Enter</kbd> | Complete the move in progress
+|<kbd>↓</kbd> or <kbd>J</kbd> | Move card down
+|<kbd>Command</kbd>+<kbd>↓</kbd> or <kbd>Command</kbd>+<kbd>J</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>↓</kbd> or <kbd>Ctrl</kbd>+<kbd>J</kbd> (Windows/Linux) | Move card to the bottom of the column
+|<kbd>↑</kbd> or <kbd>K</kbd> | Move card up
+|<kbd>Command</kbd>+<kbd>↑</kbd> or <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>↑</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Move card to the top of the column
+|<kbd>←</kbd> or <kbd>H</kbd> | Move card to the bottom of the column on the left
+|<kbd>Shift</kbd>+<kbd>←</kbd> or <kbd>Shift</kbd>+<kbd>H</kbd> | Move card to the top of the column on the left
+|<kbd>Command</kbd>+<kbd>←</kbd> or <kbd>Command</kbd>+<kbd>H</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | Move card to the bottom of the leftmost column
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>←</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> (Windows/Linux) | Move card to the top of the leftmost column
+|<kbd>→</kbd> | Move card to the bottom of the column on the right
+|<kbd>Shift</kbd>+<kbd>→</kbd> or <kbd>Shift</kbd>+<kbd>L</kbd> | Move card to the top of the column on the right
+|<kbd>Command</kbd>+<kbd>→</kbd> or <kbd>Command</kbd>+<kbd>L</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | Move card to the bottom of the rightmost column
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>→</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> (Windows/Linux) | Move card to the bottom of the rightmost column
 
-### 预览卡片
+### Previewing a card
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|Esc  | 关闭卡片预览窗格
+|<kbd>Esc</kbd> | Close the card preview pane
 
 {% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_actions %}
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Command</kbd>+<kbd>空格</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>空格</kbd> (Windows/Linux) | 在工作流程编辑器中，获取对工作流程文件的建议。
-|<kbd>G</kbd> <kbd>F</kbd> | 转到工作流程文件
-|<kbd>Shift</kbd>+<kbd>T</kbd> 或 <kbd>T</kbd> | 切换日志中的时间戳
-|<kbd>Shift</kbd>+<kbd>F</kbd> 或 <kbd>F</kbd> | 切换全屏日志
-|Esc  | 退出全屏日志
+|<kbd>Command</kbd>+<kbd>Space </kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Space</kbd> (Windows/Linux) | In the workflow editor, get suggestions for your workflow file.
+|<kbd>G</kbd> <kbd>F</kbd> | Go to the workflow file
+|<kbd>Shift</kbd>+<kbd>T</kbd> or <kbd>T</kbd> | Toggle timestamps in logs
+|<kbd>Shift</kbd>+<kbd>F</kbd> or <kbd>F</kbd> | Toggle full-screen logs
+|<kbd>Esc</kbd> | Exit full-screen logs
 
 {% endif %}
 
-## 通知
+## Notifications
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>E</kbd> | 标记为完成
-|<kbd>Shift</kbd>+<kbd>U</kbd>| 标记为“未读”
-|<kbd>Shift</kbd>+<kbd>I</kbd>| 标记为已读
-|<kbd>Shift</kbd>+<kbd>M</kbd> | 取消订阅
+|<kbd>E</kbd> | Mark as done
+|<kbd>Shift</kbd>+<kbd>U</kbd>| Mark as unread
+|<kbd>Shift</kbd>+<kbd>I</kbd>| Mark as read
+|<kbd>Shift</kbd>+<kbd>M</kbd> | Unsubscribe
 
-## 网络图
+## Network graph
 
-| 键盘快捷方式 | 说明
+| Keyboard shortcut | Description
 |-----------|------------
-|<kbd>←</kbd> 或 <kbd>H</kbd> | 向左滚动
-|<kbd>→</kbd> 或 <kbd>L</kbd> | 向右滚动
-|<kbd>↑</kbd> 或 <kbd>K</kbd> | 向上滚动
-|<kbd>↓</kbd> 或 <kbd>J</kbd> | 向下滚动
-|<kbd>Shift</kbd>+<kbd>←</kbd> </br> <kbd>Shift</kbd>+<kbd>H</kbd> (Windows/Linux) | 一直向左滚动
-|<kbd>Shift</kbd>+<kbd>→</kbd> (Mac) 或 </br> <kbd>Shift</kbd>+<kbd>L</kbd> (Windows/Linux) | 一直向右滚动
-|<kbd>Shift</kbd>+<kbd>↑</kbd> (Mac) 或 </br> <kbd>Shift</kbd>+<kbd>K</kbd> (Windows/Linux) | 一直向上滚动
-|<kbd>Shift</kbd>+<kbd>↓</kbd> (Mac) 或 </br> <kbd>Shift</kbd>+<kbd>J</kbd> (Windows/Linux) | 一直向下滚动
+|<kbd>←</kbd> or <kbd>H</kbd> | Scroll left
+|<kbd>→</kbd> or <kbd>L</kbd> | Scroll right
+|<kbd>↑</kbd> or <kbd>K</kbd> | Scroll up
+|<kbd>↓</kbd> or <kbd>J</kbd> | Scroll down
+|<kbd>Shift</kbd>+<kbd>←</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>H</kbd> (Windows/Linux) | Scroll all the way left
+|<kbd>Shift</kbd>+<kbd>→</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>L</kbd> (Windows/Linux) | Scroll all the way right
+|<kbd>Shift</kbd>+<kbd>↑</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>K</kbd> (Windows/Linux) | Scroll all the way up
+|<kbd>Shift</kbd>+<kbd>↓</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>J</kbd> (Windows/Linux) | Scroll all the way down

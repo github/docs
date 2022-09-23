@@ -3,7 +3,7 @@ title: Administrar tu preferencia de representación de tamaño de pestaña
 intro: Puedes administrar la cantidad de espacios que representa una pestaña en tu cuenta personal.
 versions:
   fpt: '*'
-  ghae: issue-5083
+  ghae: '>= 3.4'
   ghes: '>=3.4'
   ghec: '*'
 topics:

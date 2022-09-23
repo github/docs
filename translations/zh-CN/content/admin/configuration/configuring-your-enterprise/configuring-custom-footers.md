@@ -4,7 +4,7 @@ intro: '通过向 {% data variables.product.product_name %} 添加自定义页�
 versions:
   ghec: '*'
   ghes: '>=3.4'
-  ghae: issue-5487
+  ghae: '>= 3.4'
 type: how_to
 topics:
   - Enterprise

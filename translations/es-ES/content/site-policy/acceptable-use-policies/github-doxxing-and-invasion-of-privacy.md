@@ -9,13 +9,8 @@ topics:
 redirect_from:
   - /github/site-policy/github-doxxing-and-invasion-of-privacy
   - /github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy
-ms.openlocfilehash: 70a5087ea0a80e8fea9cfed402b16037ac9efe62
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556680'
 ---
+
 No publique información personal de otras personas. Esto incluye:
 
 - Direcciones de correo electrónico personales y privadas
