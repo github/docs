@@ -283,7 +283,7 @@ updates:
 If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
-   
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -776,11 +776,15 @@ registries:
 
 ### `docker-registry`
 
-{% note %}
+{% data variables.product.prodname_dependabot %} works with container registries that implement the OCI container registry. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central service. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation.
 
-**Note:** We don't support the Azure Container Registry (ACR).
+We currently support the container registries listed here:
 
-{% endnote %}
+* Docker Hub
+* {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}
+* GCR (Google Cloud)
+* Private ECR (AWS) - public ECR support is tracked in [https://github.com/dependabot/dependabot-core/issues/4212](https://github.com/dependabot/dependabot-core/issues/4212).
+
 
 The `docker-registry` type supports username and password.
 
@@ -795,7 +799,7 @@ registries:
 ```
 {% endraw %}
 
-The `docker-registry` type can also be used to pull from Amazon ECR using static AWS credentials.
+The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
 
 {% raw %}
 ```yaml
@@ -972,7 +976,7 @@ registries:
 ```
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %} 
+{% ifversion fpt or ghec or ghes > 3.4 %}
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`

@@ -1,0 +1,34 @@
+date: '2022-05-17'
+sections:
+  security_fixes:
+    - '**中：**发现了 nginx 解析器中的一个安全问题，可以从 DNS 服务器伪造 UDP 数据包的攻击者可能导致 1 字节内存覆盖，从而导致工作进程崩溃或其他潜在的破坏性影响。该漏洞的编号为 [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017)。'
+    - "更新了 `actions/checkout@v2` 和 `actions/checkout@v3` 操作以解决 [Git 安全措施实施博客文章](https://github.blog/2022-04-12-git-security-vulnerability-announced/)中公布的新漏洞。"
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 在某些群集拓扑中，`ghe-cluster-status` 命令会在 `/tmp` 中留下空目录。
+    - SNMP 错误地将大量 `Cannot statfs` 错误消息记录到 syslog
+    - 对于配置了 SAML 身份验证和启用内置回退的实例，内置用户在尝试从退出登录后生成的页面登录时会陷入“登录”循环。
+    - "尝试从 `/stafftools/repositories/:owner/:repo/disk` 页面查看 `git fsck` 输出将失败并显示“500 内部服务器错误”。"
+    - 使用 SAML 加密断言时，某些断言未正确将 SSH 密钥标记为已验证。
+    - 上传到问题评论的视频将无法正确呈现。
+    - 在存储库页面上使用文件查找器时，在搜索字段中键入退格键会多次列出搜索结果并导致呈现问题。
+    - 使用 GitHub Enterprise Importer 导入存储库时，由于项目时间线事件配置不正确，某些问题将无法导入。
+    - 使用 `ghe-migrator` 时，迁移将无法在问题和拉取请求中导入视频文件附件。
+    - '当存储库具有包含非 ASCII 字符的标记时，发布页面将返回 500 错误。[更新时间：2022-06-10]'
+  changes:
+    - 在高可用性配置中，阐明管理控制台中的复制概述页面仅显示当前复制配置，而不是当前复制状态。
+    - "启用 {% data variables.product.prodname_registry %} 时，阐明当前不支持使用共享访问签名 (SAS) 令牌作为连接字符串。"
+    - 支持包现在包括存储在 MySQL 中的表的行数。
+    - 在确定要在哪些存储库网络上计划维护时，我们不再计入无法访问对象的大小。
+    - "`run_started_at` 响应字段现在包含在[工作流运行 API](/rest/actions/workflow-runs) 和 `workflow_run` 事件 Webhook 有效负载中。"
+  known_issues:
+    - "升级到 {% data variables.product.prodname_ghe_server %} 3.3 后，{% data variables.product.prodname_actions %} 可能无法自动启动。若要解决此问题，请通过 SSH 连接到设备并运行 `ghe-actions-start` 命令。"
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "Git LFS 跟踪的[通过 Web 界面上传的](https://github.com/blog/2105-upload-files-to-your-repositories) 文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - "对 {% data variables.product.prodname_github_connect %} 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。"
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '选择“强制路径样式”时，无法验证 {% data variables.product.prodname_actions %} 存储设置并将其保存在 {% data variables.enterprise.management_console %} 中，而必须使用 `ghe-actions-precheck` 命令行实用程序进行配置。'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

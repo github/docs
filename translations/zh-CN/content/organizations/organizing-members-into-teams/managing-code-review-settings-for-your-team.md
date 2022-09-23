@@ -1,6 +1,6 @@
 ---
-title: 管理团队的代码审查设置
-intro: 您可以通过在请求团队审阅拉取请求时限制通知来减少团队的干扰。
+title: Managing code review settings for your team
+intro: You can decrease noise for your team by limiting notifications when your team is requested to review a pull request.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team
   - /organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team
@@ -15,78 +15,89 @@ topics:
   - Teams
 shortTitle: Code review settings
 permissions: Team maintainers and organization owners can configure code review settings.
-ms.openlocfilehash: 701ebf6a2306a8c8a734905d752c4b44c225ace6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146180165'
 ---
-## 关于代码审查设置
 
-{% ifversion only-notify-requested-members %} 为减少团队的干扰并阐明拉取请求审查的个人责任，可配置代码审查设置。
-
-- 团队通知
-- 自动分配
-
-## 关于团队通知
-
-如果选择仅通知请求的团队成员，则在请求团队审阅拉取请求时，如果还请求审阅整个团队的特定成员，则可以禁用向整个团队发送通知。 当存储库将团队配置为代码所有者时，这尤其有用，但存储库的参与者通常知道作为其拉取请求的正确审查者的特定个人。 有关详细信息，请参阅“[关于代码所有者](/github/creating-cloning-and-archiving-repositories/about-code-owners)”。
-
-## 关于自动分配
-{% endif %}
-
-启用自动分配后，每当请求您的团队审阅拉取请求时，该团队都会被删除为审阅者，并且会在团队的位置分配指定的团队成员子集。 代码审查分配允许您决定在请求团队审查时是通知整个团队，还是只通知一部分团队成员。
-
-当自动请求代码所有者进行审阅时，除非将分支保护规则配置为要求代码所有者进行审阅，否则仍将删除团队并将其替换为个人。 如果存在此类分支保护规则，则无法删除团队请求，因此还会显示单个请求。
-
-### 路由算法
-
-代码审查分配根据两种可能的算法之一自动选择和分配审查者。 
-
-循环算法根据最近收到最少审查请求的人员选择审查者，侧重于在团队所有成员之间的轮替，而不管他们目前拥有多少未完成的审查。 
-
-负载平衡算法根据每个成员最近的审查请求总数选择审查者，并考虑每个成员未完成的审查数。 负载平衡算法努力确保每个团队成员在任意 30 天内审查相同数量的拉取请求。
-
-任何将状态设置为“忙碌”的团队成员将不会被选中进行审核。 如果所有团队成员都忙碌，拉取请求仍将分配给团队本身。 有关用户状态的详细信息，请参阅“[设置状态](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)”。
+## About code review settings
 
 {% ifversion only-notify-requested-members %}
-## 配置团队通知
+To reduce noise for your team and clarify individual responsibility for pull request reviews, you can configure code review settings.
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team_settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. 在左侧边栏中，单击“{% octicon "code-review" aria-label="The code-review icon" %} 代码审查”。
-{% else %}
-1. 在左侧边栏中，单击“代码审查”
-![代码审查按钮](/assets/images/help/teams/review-button.png) {% endif %}
-1. 选择“仅通知请求的团队成员。”
-![代码审查团队通知](/assets/images/help/teams/review-assignment-notifications.png)
-1. 单击“保存更改”。 
+- Team notifications
+- Auto assignment
+
+## About team notifications
+
+When you choose to only notify requested team members, you disable sending notifications to the entire team when the team is requested to review a pull request if a specific member of that team is also requested for review. This is especially useful when a repository is configured with teams as code owners, but contributors to the repository often know a specific individual that would be the correct reviewer for their pull request. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
+
+## About auto assignment
 {% endif %}
 
-## 配置自动分配
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team_settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. 在左侧边栏中，单击“{% octicon "code-review" aria-label="The code-review icon" %} 代码审查”。
-{% else %}
-1. 在左侧边栏中，单击“代码审查”
-![代码审查按钮](/assets/images/help/teams/review-button.png) {% endif %}
-1. 选择“启用自动分配”。
-![自动分配按钮](/assets/images/help/teams/review-assignment-enable.png)
-1. 在“How many team members should be assigned to review?（应分配多少团队成员进行审查？）”下，使用下拉菜单选择多个要分配给每个拉取请求的审查者。
-![审查者人数下拉列表](/assets/images/help/teams/review-assignment-number.png)
-1. 在“Routing algorithm（路由算法）”下，使用下拉菜单选择要使用的算法。 有关详细信息，请参阅“[路由算法](#routing-algorithms)”。
-![路由算法下拉列表](/assets/images/help/teams/review-assignment-algorithm.png)
-1. （可选）要始终跳过某些团队成员，请选择“永不分配某些团队成员”。 然后，选择要始终跳过的一个或多个团队成员。
-![永不分配某些团队成员复选框和下拉菜单](/assets/images/help/teams/review-assignment-skip-members.png) {% ifversion ghes < 3.4 %}
-1. （可选）要对每个拉取请求审查只通知代码审查分配所选择的团队成员，在“通知”下选择“分配团队成员时不通知整个团队”。
-{%- endif %} {% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
-1. （可选）在分配请求时，要将子团队成员作为潜在审查者，请选择“子团队成员”。
-1. （可选）要根据可分配的成员总数计算已请求审查的成员，选择“计算现有请求”。
-1. （可选）在分配团队成员时，要从团队中删除审查请求，请选择“团队审查请求”。
-{%- endif %}
-1. 单击“保存更改”。 
+When you enable auto assignment, any time your team has been requested to review a pull request, the team is removed as a reviewer and a specified subset of team members are assigned in the team's place. Code review assignments allow you to decide whether the whole team or just a subset of team members are notified when a team is requested for review.
 
-## 禁用自动分配
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team_settings %}
-1. 选择“启用自动分配”以删除复选标记。
-![代码审查分配按钮](/assets/images/help/teams/review-assignment-enable.png)
-1. 单击“保存更改”。 
+When code owners are automatically requested for review, the team is still removed and replaced with individuals unless a branch protection rule is configured to require review from code owners. If such a branch protection rule is in place, the team request cannot be removed and so the individual request will appear in addition.
+
+### Routing algorithms
+
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms. 
+
+The round robin algorithm chooses reviewers based on who's received the least recent review request, focusing on alternating between all members of the team regardless of the number of outstanding reviews they currently have. 
+
+The load balance algorithm chooses reviewers based on each member's total number of recent review requests and considers the number of outstanding reviews for each member. The load balance algorithm tries to ensure that each team member reviews an equal number of pull requests in any 30 day period.
+
+Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
+
+{% ifversion only-notify-requested-members %}
+## Configuring team notifications
+
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
+1. In the left sidebar, click **Code review**
+![Code review button](/assets/images/help/teams/review-button.png)
+{% endif %}
+1. Select **Only notify requested team members.**
+![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
+1. Click **Save changes**.
+{% endif %}
+
+## Configuring auto assignment
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
+1. In the left sidebar, click **Code review**
+![Code review button](/assets/images/help/teams/review-button.png)
+{% endif %}
+1. Select **Enable auto assignment**.
+![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
+1. Under "How many team members should be assigned to review?", use the drop-down menu and choose a number of reviewers to be assigned to each pull request.
+![Number of reviewers dropdown](/assets/images/help/teams/review-assignment-number.png)
+1. Under "Routing algorithm", use the drop-down menu and choose which algorithm you'd like to use. For more information, see "[Routing algorithms](#routing-algorithms)."
+![Routing algorithm dropdown](/assets/images/help/teams/review-assignment-algorithm.png)
+1. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
+![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
+{% ifversion ghes < 3.4 %}
+1. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.**
+{%- endif %}
+{% ifversion fpt or ghec or ghae > 3.3 or ghes > 3.2 %}
+1. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
+1. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
+1. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.
+{%- endif %}
+1. Click **Save changes**.
+
+## Disabling auto assignment
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
+1. Select **Enable auto assignment** to remove the checkmark.
+![Code review assignment button](/assets/images/help/teams/review-assignment-enable.png)
+1. Click **Save changes**.
