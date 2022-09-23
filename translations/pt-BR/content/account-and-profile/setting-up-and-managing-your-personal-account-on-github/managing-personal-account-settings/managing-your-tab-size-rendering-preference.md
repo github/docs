@@ -3,7 +3,7 @@ title: Gerenciar a preferência de interpretação do tamanho da aba
 intro: Você pode gerenciar o número de espaços que equivalem a uma guia da sua conta pessoal.
 versions:
   fpt: '*'
-  ghae: issue-5083
+  ghae: '>= 3.4'
   ghes: '>=3.4'
   ghec: '*'
 topics:
