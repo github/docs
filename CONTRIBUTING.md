@@ -83,7 +83,7 @@ Once you submit your PR, a Docs team member will review your proposal. We may as
 
 Congratulations :tada::tada: The GitHub team thanks you :sparkles:. 
 
-Once your PR is merged, your contributions will be publicly visible on the [GitHubs docs](https://docs.github.com/en). 
+Once your PR is merged, your contributions will be publicly visible on the [GitHub docs](https://docs.github.com/en). 
 
 Now that you are part of the GitHub docs community, see how else you can [contribute to the docs](/contributing/types-of-contributions.md).
 

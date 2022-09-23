@@ -2,7 +2,6 @@
 title: 团队同步
 intro: '团队同步 API 允许你管理 {% data variables.product.product_name %} 团队与外部标识提供者 (IdP) 组之间的连接。'
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API

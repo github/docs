@@ -9,13 +9,8 @@ topics:
 redirect_from:
   - /github/site-policy/github-impersonation
   - /github/site-policy/github-community-guidelines#impersonation
-ms.openlocfilehash: ffcac80a077693728b475150093c298420d9ba6f
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556467'
 ---
+
 您不得歪曲您的身份或者您与他人或组织的关系。 这包括以误导或欺骗他人的方式执行以下任何操作：
 
 - 复制其他用户的头像或其他个人资料信息

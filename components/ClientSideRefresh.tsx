@@ -11,7 +11,7 @@ export default function ClientSideRefresh() {
   useSWR(
     router.asPath,
     () => {
-      router.replace(router.asPath)
+      router.replace(router.asPath, undefined, { scroll: false })
     },
     {
       // Implied here is that `revalidateOnFocus: true` which the default

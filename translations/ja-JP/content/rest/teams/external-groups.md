@@ -2,9 +2,9 @@
 title: 外部グループ
 intro: 外部グループ API を使うと、Organization で利用できる外部 ID プロバイダー グループを表示し、外部グループと Organization 内のチームの間の接続を管理できます。
 versions:
-  fpt: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '>=3.6'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

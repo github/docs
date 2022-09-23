@@ -1,6 +1,6 @@
 ---
-title: Sobre o perfil da sua organização
-intro: A página de perfil da sua organização mostra informações básicas sobre a sua organização.
+title: About your organization's profile
+intro: Your organization's profile page shows basic information about your organization.
 redirect_from:
   - /articles/about-your-organization-s-profile
   - /articles/about-your-organizations-profile
@@ -14,21 +14,22 @@ versions:
 topics:
   - Profiles
 shortTitle: Organization's profile
-ms.openlocfilehash: d5500e34a9996f8d5cae216972ef0289569d53f2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066511'
 ---
-Você pode optar por adicionar uma descrição, um local, um site e um endereço de email para sua organização e fixar repositórios importantes.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4749 %} Você pode personalizar o perfil público da sua organização adicionando um arquivo README.md. Para obter mais informações, confira "[Como personalizar o perfil da sua organização](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".{% endif %}
 
-{% ifversion fpt %} As organizações que usam o {% data variables.product.prodname_ghe_cloud %} podem confirmar a identidade de sua organização e exibir um selo "Verificado" na página de perfil de sua organização verificando os domínios da organização com o {% data variables.product.product_name %}. Para obter mais informações, confira "[Verificar ou aprovar um domínio para sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" na documentação do {% data variables.product.prodname_ghe_cloud %}.
-{% elsif ghec or ghes %} Para confirmar a identidade da organização e exibir um selo "Verificado" na página de perfil da organização, você pode verificar os domínios da organização com o {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira "[Como verificar ou aprovar um domínio para sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
+You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories.{% ifversion fpt or ghec or ghes > 3.3 %} You can customize your organization's public profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."{% endif %}
+
+{% ifversion fpt %}
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can confirm their organization's identity and display a "Verified" badge on their organization's profile page by verifying the organization's domains with {% data variables.product.product_name %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" in the {% data variables.product.prodname_ghe_cloud %} documenatation.
+{% elsif ghec or ghes %}
+To confirm your organization's identity and display a "Verified" badge on your organization profile page, you can verify your organization's domains with {% data variables.product.prodname_dotcom %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec %} ![Página do perfil de exemplo da organização](/assets/images/help/organizations/org_profile_with_overview.png) {% else %} ![Página do perfil de exemplo da organização](/assets/images/help/profile/org_profile.png) {% endif %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
+![Sample organization profile page](/assets/images/help/organizations/org_profile_with_overview.png)
+{% else %}
+![Sample organization profile page](/assets/images/help/profile/org_profile.png)
+{% endif %}
 
-## Leitura adicional
+## Further reading
 
-- "[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+- "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)"

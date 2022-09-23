@@ -1,0 +1,16 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 管理コンソールと `/home/admin/.ssh/authorized_keys` ファイルの両方に、重複する管理 SSH キーが表示されることがありました。
+    - 場合によっては、スレッドセーフではないにも関わらず同時に使われたライブラリのため、バックグラウンド タスクが停止することがありました。
+  changes:
+    - "並列化されたログ サニタイズの結果、サポート バンドルの生成が速くなっています。サポート バンドルについて詳しくは、「[GitHub Support へのデータの提供](/support/contacting-github-support/providing-data-to-github-support)」をご覧ください。"
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

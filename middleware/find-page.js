@@ -39,7 +39,7 @@ export default async function findPage(
 async function rereadByPath(uri, contentRoot, currentVersion) {
   const languageCode = uri.match(languagePrefixRegex)[1]
   const withoutLanguage = uri.replace(languagePrefixRegex, '/')
-  const withoutVersion = withoutLanguage.replace(`/${currentVersion}/`, '/')
+  const withoutVersion = withoutLanguage.replace(`/${currentVersion}`, '')
   // TODO: Support loading translations the same way.
   // NOTE: No one is going to test translations like this in development
   // but perhaps one day we can always and only do these kinds of lookups

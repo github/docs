@@ -30,7 +30,7 @@ sections:
         - |
           You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#enforcing-tls-for-smtp-connections)."
           
-          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0. The feature will be available in an upcoming release. [Updated: 2022-08-26]
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0 and 3.6.1. The feature is available in the 3.6.2 release. [Updated: 2022-09-22]
 
     - heading: Audit logs
       notes:
@@ -202,11 +202,6 @@ sections:
         # https://github.com/github/releases/issues/2214
         - |
           While creating a fork, users can customize the fork's name. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
-
-        # https://github.com/github/releases/issues/1973
-        - |
-          Users can block creation of branches that match a configured name pattern with the **Restrict pushes that create matching branches** branch protection rule. For example, if a repository's default branch changes from `master` to `main`, a repository administrator can prevent any subsequent creation or push of the `master` branch. For more information, see 
-          "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
 
         # https://github.com/github/releases/issues/2220
         - |
