@@ -22,25 +22,25 @@ ms.locfileid: '147540824'
 ---
 ## 关于 sudo 模式
 
-为了在你对 {% data variables.product.product_location %} 执行可能敏感的操作时维护帐户的安全，即使你已登录，也必须进行身份验证。 例如，{% data variables.product.company_short %} 认为以下操作是敏感操作，因为每个操作都可能允许新用户或系统访问你的帐户。
+为了在你对 {% data variables.product.product_location %} 执行可能敏感的操作时维护帐户的安全，即使你已登录，也必须进行身份验证。例如，{% data variables.product.company_short %} 认为以下操作是敏感操作，因为每个操作都可能允许新用户或系统访问你的帐户。
 
 - 修改关联的电子邮件地址
 - 授权第三方应用程序
 - 添加新的 SSH 密钥
 
-当你经过身份验证来执行敏感操作后，会话暂时处于“sudo 模式”。 在 sudo 模式下，无需身份验证即可执行敏感操作。 {% data variables.product.product_name %} 将等待几小时，然后再次提示你进行身份验证。 在此期间，你执行的任何敏感操作都将重置计时器。
+当你经过身份验证来执行敏感操作后，会话暂时处于“sudo 模式”。在 sudo 模式下，无需身份验证即可执行敏感操作。 {% data variables.product.product_name %} 将等待几小时，然后再次提示你进行身份验证。在此期间，你执行的任何敏感操作都将重置计时器。
 
 {% ifversion ghes %}
 
 {% note %}
 
-注意：如果 {% data variables.product.product_location %} 使用 CAS 或 SAML SSO 等外部身份验证方法，你不会收到进入 sudo 模式的提示。 更多信息请联系站点管理员。
+注意：如果 {% data variables.product.product_location %} 使用 CAS 或 SAML SSO 等外部身份验证方法，你不会收到进入 sudo 模式的提示。更多信息请联系站点管理员。
 
 {% endnote %}
 
 {% endif %}
 
-“sudo”是指 Unix 系统上的一个程序，该名称是“superuser do”的缩写 。 有关详细信息，请参阅维基百科上的 [sudo](https://wikipedia.org/wiki/Sudo)。
+“sudo”是指 Unix 系统上的一个程序，该名称是“superuser do”的缩写。有关详细信息，请参阅维基百科上的 [sudo](https://wikipedia.org/wiki/Sudo)。
 
 ## 确认对 sudo 模式的访问权限
 
@@ -56,7 +56,7 @@ ms.locfileid: '147540824'
 
 ### 使用安全密钥确认访问权限
 
-必须使用安全密钥为帐户配置双因素身份验证 (2FA)，才能使用安全密钥确认帐户是否拥有对 sudo 模式的访问权限。 有关详细信息，请参阅“[配置双因素身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)”。
+必须使用安全密钥为帐户配置双因素身份验证 (2FA)，才能使用安全密钥确认帐户是否拥有对 sudo 模式的访问权限。有关详细信息，请参阅“[配置双因素身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)”。
 
 当系统提示对 sudo 模式进行身份验证时，请单击“使用安全密钥”，然后按照提示进行操作。
 
@@ -66,7 +66,7 @@ ms.locfileid: '147540824'
 
 ### 使用 {% data variables.product.prodname_mobile %} 确认访问权限
 
-必须安装并登录 {% data variables.product.prodname_mobile %}，才能使用该应用确认帐户是否拥有对 sudo 模式的访问权限。 有关详细信息，请参阅“[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)”。
+必须安装并登录 {% data variables.product.prodname_mobile %}，才能使用该应用确认帐户是否拥有对 sudo 模式的访问权限。有关详细信息，请参阅“[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)”。
 
 1. 当系统提示对 sudo 模式进行身份验证时，请单击“使用 GitHub Mobile”。
 
@@ -80,7 +80,7 @@ ms.locfileid: '147540824'
 
 ### 使用 2FA 代码确认访问权限
 
-必须使用 TOTP 移动应用{% ifversion fpt or ghec %}或短信{% endif %}配置 2FA，才能使用 2FA 代码确认帐户是否拥有对 sudo 模式的访问权限。 有关详细信息，请参阅“[配置双因素身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)”。
+必须使用 TOTP 移动应用{% ifversion fpt or ghec %}或短信{% endif %}配置 2FA，才能使用 2FA 代码确认帐户是否拥有对 sudo 模式的访问权限。有关详细信息，请参阅“[配置双因素身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)”。
 
 当系统提示对 sudo 模式进行身份验证时，请键入 TOTP 移动应用{% ifversion fpt or ghec %}或短信{% endif %}中的验证码，然后单击“验证”。
 

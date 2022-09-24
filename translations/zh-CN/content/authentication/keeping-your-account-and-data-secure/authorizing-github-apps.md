@@ -26,9 +26,9 @@ ms.locfileid: '145098656'
 * **验证 {% data variables.product.prodname_dotcom %} 标识**<br/>
   获得授权后，{% data variables.product.prodname_github_app %} 将能够以编程方式检索你的公共 GitHub 个人资料以及一些私人详细信息（例如你的电子邮件地址），具体取决于请求的访问级别。
 * **了解可以访问的资源**<br/>
-  获得授权后，{% data variables.product.prodname_github_app %} 将能够以编程方式读取你可以访问的私有 {% data variables.product.prodname_dotcom %} 资源（例如私有 {% data variables.product.prodname_dotcom %} 存储库），其中还安装有 {% data variables.product.prodname_github_app %} 。 例如，应用程序可以使用它，以便它可以向您显示适当的存储库列表。
+  获得授权后，{% data variables.product.prodname_github_app %} 将能够以编程方式读取你可以访问的私有 {% data variables.product.prodname_dotcom %} 资源（例如私有 {% data variables.product.prodname_dotcom %} 存储库），其中还安装有 {% data variables.product.prodname_github_app %} 。例如，应用程序可以使用它，以便它可以向您显示适当的存储库列表。
 * **代表你执行操作**<br/>
-  应用程序可能需要像你一样在 {% data variables.product.prodname_dotcom %} 上执行任务。 这可能包括创建议题或评论拉取请求。 这种代表你行事的能力仅限于你和 {% data variables.product.prodname_github_app %} 都可以访问的 {% data variables.product.prodname_dotcom %} 资源。 但是，在某些情况下，应用程序可能永远不会代表您进行任何更改。
+  应用程序可能需要像你一样在 {% data variables.product.prodname_dotcom %} 上执行任务。这可能包括创建议题或评论拉取请求。这种代表你行事的能力仅限于你和 {% data variables.product.prodname_github_app %} 都可以访问的 {% data variables.product.prodname_dotcom %} 资源。但是，在某些情况下，应用程序可能永远不会代表您进行任何更改。
   
 ## {% data variables.product.prodname_github_app %} 何时代表您行事？
 
@@ -50,7 +50,7 @@ ms.locfileid: '145098656'
 
 我们用一个例子来解释这一点。
 
-{% data variables.product.prodname_dotcom %} 用户 Alice 使用其 {% data variables.product.prodname_dotcom %} 身份登录到第三方 Web 应用程序 ExampleApp。 在此过程中，Alice 授权 ExampleApp 代表他们执行操作。
+{% data variables.product.prodname_dotcom %} 用户 Alice 使用其 {% data variables.product.prodname_dotcom %} 身份登录到第三方 Web 应用程序 ExampleApp。在此过程中，Alice 授权 ExampleApp 代表他们执行操作。
 
 但是，ExampleApp 能够代表 Alice 在 {% data variables.product.prodname_dotcom %} 中执行的活动受到以下因素的限制：安装 ExampleApp 的存储库、ExampleApp 请求的权限以及 Alice 对 {% data variables.product.prodname_dotcom %} 资源的访问权限。 
 

@@ -33,5 +33,5 @@ fatal: could not read from remote repository
 ```
 ## 解决问题
 
-若要解决此问题，需要[查看 SSH 密钥](/articles/reviewing-your-ssh-keys)，并拒绝或批准未验证的密钥。 单击错误消息中的 URL 链接将转到 SSH 设置页面，会在
+若要解决此问题，需要[查看 SSH 密钥](/articles/reviewing-your-ssh-keys)，并拒绝或批准未验证的密钥。单击错误消息中的 URL 链接将转到 SSH 设置页面，会在
  SSH 密钥列表中突出显示未验证的 SSH 密钥。

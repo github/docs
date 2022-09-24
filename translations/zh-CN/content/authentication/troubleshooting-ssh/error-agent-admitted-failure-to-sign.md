@@ -1,6 +1,6 @@
 ---
 title: 错误：代理承认没有签署
-intro: '在极少数情况下，通过 Linux 上的 SSH 连接到 {% data variables.product.product_name %} 会产生错误 `"Agent admitted failure to sign using the key"`。 请遵循以下步骤解决此问题。'
+intro: '在极少数情况下，通过 Linux 上的 SSH 连接到 {% data variables.product.product_name %} 会产生错误 `"Agent admitted failure to sign using the key"`。请遵循以下步骤解决此问题。'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign

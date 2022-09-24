@@ -29,7 +29,7 @@ ms.locfileid: '145084643'
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %}
 3. 单击“授权的 {% data variables.product.prodname_github_apps %}”选项卡。![“授权的 {% data variables.product.prodname_github_apps %}”选项卡](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
-3. 审查有您帐户访问权限的 {% data variables.product.prodname_github_apps %}。 对于无法识别或已过期的密钥，请单击“撤销”。 要撤销所有 {% data variables.product.prodname_github_apps %}，请单击“全部撤销”。
+3. 审查有您帐户访问权限的 {% data variables.product.prodname_github_apps %}。对于无法识别或已过期的密钥，请单击“撤销”。要撤销所有 {% data variables.product.prodname_github_apps %}，请单击“全部撤销”。
    ![授权的 {% data variables.product.prodname_github_app %}列表](/assets/images/help/settings/revoke-github-app.png)
 
 ## 延伸阅读

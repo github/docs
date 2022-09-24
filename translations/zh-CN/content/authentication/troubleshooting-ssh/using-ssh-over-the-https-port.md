@@ -1,6 +1,6 @@
 ---
 title: 在 HTTPS 端口使用 SSH
-intro: '有时，防火墙会完全拒绝允许 SSH 连接。  如果无法选择使用[具有凭据缓存的 HTTPS 克隆](/github/getting-started-with-github/caching-your-github-credentials-in-git)，可以尝试使用通过 HTTPS 端口建立的 SSH 连接克隆。  大多数防火墙规则应允许此操作，但代理服务器可能会干扰。'
+intro: '有时，防火墙会完全拒绝允许 SSH 连接。如果无法选择使用[具有凭据缓存的 HTTPS 克隆](/github/getting-started-with-github/caching-your-github-credentials-in-git)，可以尝试使用通过 HTTPS 端口建立的 SSH 连接克隆。大多数防火墙规则应允许此操作，但代理服务器可能会干扰。'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
   - /github/authenticating-to-github/using-ssh-over-the-https-port
@@ -32,7 +32,7 @@ $ ssh -T -p 443 git@ssh.github.com
 > provide shell access.
 ```
 
-如果这样有效，万事大吉！ 否则，可能需要[遵循我们的故障排除指南](/articles/error-permission-denied-publickey)。
+如果这样有效，万事大吉！否则，可能需要[遵循我们的故障排除指南](/articles/error-permission-denied-publickey)。
 
 ## 启用通过 HTTPS 的 SSH 连接
 

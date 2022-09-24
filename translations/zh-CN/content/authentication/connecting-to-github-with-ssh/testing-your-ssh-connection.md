@@ -25,7 +25,7 @@ ms.locfileid: '146338971'
 - [生成新 SSH 密钥](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [为 GitHub 帐户添加新的 SSH 密钥](/articles/adding-a-new-ssh-key-to-your-github-account)
 
-测试连接时，您将需要使用密码（即您之前创建的 SSH 密钥密码）验证此操作。 有关使用 SSH 密钥密码的详细信息，请参阅“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”。
+测试连接时，您将需要使用密码（即您之前创建的 SSH 密钥密码）验证此操作。有关使用 SSH 密钥密码的详细信息，请参阅“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 输入以下内容：
@@ -42,7 +42,7 @@ ms.locfileid: '146338971'
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. 验证所看到消息中的指纹是否与 {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} 的公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}企业的公钥指纹{% endif %}匹配。 如果是，则键入 `yes`：
+3. 验证所看到消息中的指纹是否与 {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} 的公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}企业的公钥指纹{% endif %}匹配。如果是，则键入 `yes`：
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
@@ -58,7 +58,7 @@ ms.locfileid: '146338971'
   Permission denied (publickey).
   ```
 
-  这是某些 Linux 发行版的已知问题。 有关详细信息，请参阅“[错误：代理承认没有签名](/articles/error-agent-admitted-failure-to-sign)”。
+  这是某些 Linux 发行版的已知问题。有关详细信息，请参阅“[错误：代理承认没有签名](/articles/error-agent-admitted-failure-to-sign)”。
 
   {% endlinux %}
 
@@ -68,4 +68,4 @@ ms.locfileid: '146338971'
 
    {% endnote %}
 
-4. 验证生成的消息包含您的用户名。 如果收到“权限被拒绝”消息，请参阅“[错误：权限被拒绝（公钥）](/articles/error-permission-denied-publickey)”。
+4. 验证生成的消息包含您的用户名。如果收到“权限被拒绝”消息，请参阅“[错误：权限被拒绝（公钥）](/articles/error-permission-denied-publickey)”。

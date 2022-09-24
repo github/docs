@@ -27,7 +27,7 @@ ms.locfileid: '145099900'
 
   {% note %}
 
-  **注意：** 撤销会话时，将删除对该组织的 SAML 身份验证。 要再次访问该组织，您需要通过身份提供程序单点登录。 有关详细信息，请参阅“[关于通过 SAML SSO 进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”。
+  **注意：** 撤销会话时，将删除对该组织的 SAML 身份验证。要再次访问该组织，您需要通过身份提供程序单点登录。有关详细信息，请参阅“[关于通过 SAML SSO 进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”。
 
   {% endnote %}
 

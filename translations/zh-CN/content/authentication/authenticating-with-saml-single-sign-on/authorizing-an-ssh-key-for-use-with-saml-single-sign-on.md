@@ -18,7 +18,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '145099902'
 ---
-您可以授权现有 SSH 密钥，或者创建新 SSH 密钥后再授权。 有关创建新的 SSH 密钥的详细信息，请参阅“[生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+您可以授权现有 SSH 密钥，或者创建新 SSH 密钥后再授权。有关创建新的 SSH 密钥的详细信息，请参阅“[生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -26,7 +26,7 @@ ms.locfileid: '145099902'
 
 {% note %}
 
-注意：如果你的 SSH 密钥授权被组织撤销，你将无法再授权该密钥。 此时您需要创建新 SSH 密钥并授权。 有关创建新的 SSH 密钥的详细信息，请参阅“[生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+注意：如果你的 SSH 密钥授权被组织撤销，你将无法再授权该密钥。此时您需要创建新 SSH 密钥并授权。有关创建新的 SSH 密钥的详细信息，请参阅“[生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
 {% endnote %}
 

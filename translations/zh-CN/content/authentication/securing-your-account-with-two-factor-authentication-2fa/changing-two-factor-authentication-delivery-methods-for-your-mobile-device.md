@@ -21,7 +21,7 @@ ms.locfileid: '145084607'
 ---
 {% note %}
 
-注意：更改双因素身份验证的主要方法会使你当前的双因素身份验证设置（包括恢复代码）失效。 确保新恢复代码集的安全。 更改双重身份验证的主要方法不会影响回退 SMS 配置（如果已配置）。 有关详细信息，请参阅“[配置双因素身份验证的恢复方法](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)”。
+注意：更改双因素身份验证的主要方法会使你当前的双因素身份验证设置（包括恢复代码）失效。确保新恢复代码集的安全。更改双重身份验证的主要方法不会影响回退 SMS 配置（如果已配置）。有关详细信息，请参阅“[配置双因素身份验证的恢复方法](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)”。
 
 {% endnote %}
 
@@ -30,7 +30,7 @@ ms.locfileid: '145084607'
   ![编辑主要传递选项](/assets/images/help/2fa/edit-primary-delivery-option.png)
 4. 在“传递选项”下，单击“重新配置双因素身份验证”。
     ![切换 2FA 传递选项](/assets/images/help/2fa/2fa-switching-methods.png)
-5. 决定是使用 TOTP 移动应用程序还是使用短信设置双重身份验证。 有关详细信息，请参阅“[配置双因素身份验证](/articles/configuring-two-factor-authentication)”。
+5. 决定是使用 TOTP 移动应用程序还是使用短信设置双重身份验证。有关详细信息，请参阅“[配置双因素身份验证](/articles/configuring-two-factor-authentication)”。
     - 要使用 TOTP 移动应用设置双因素身份验证，请单击“使用应用设置”。
     - 要使用短信 (SMS) 设置双因素身份验证，请单击“使用短信设置”。
 

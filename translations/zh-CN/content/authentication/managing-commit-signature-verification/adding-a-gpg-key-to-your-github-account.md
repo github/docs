@@ -28,17 +28,17 @@ ms.locfileid: '147369336'
 ---
 ## 关于向帐户添加 GPG 密钥
 
-若要在 {% data variables.product.product_name %} 上对与你的帐户关联的提交进行签名，可以将公共 GPG 密钥添加到你的个人帐户。 在添加密钥之前，应检查现有密钥。 如果未找到任何现有密钥，可以生成并复制新的密钥。 有关详细信息，请参阅“[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)”和“[生成新的 GPG 密钥](/articles/generating-a-new-gpg-key)”。
+若要在 {% data variables.product.product_name %} 上对与你的帐户关联的提交进行签名，可以将公共 GPG 密钥添加到你的个人帐户。在添加密钥之前，应检查现有密钥。如果未找到任何现有密钥，可以生成并复制新的密钥。有关详细信息，请参阅“[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)”和“[生成新的 GPG 密钥](/articles/generating-a-new-gpg-key)”。
 
-可以向你在 {% data variables.product.product_name %} 上的帐户添加多个公钥。 由任何相应的私钥签名的提交将显示为已验证。 如果删除公钥，则由相应私钥签名的任何提交将不再显示为已验证。
+可以向你在 {% data variables.product.product_name %} 上的帐户添加多个公钥。由任何相应的私钥签名的提交将显示为已验证。如果删除公钥，则由相应私钥签名的任何提交将不再显示为已验证。
 
-{% ifversion upload-expired-or-revoked-gpg-key %} 若要验证尽可能多的提交，可以添加已过期和已撤销的密钥。 如果密钥满足所有其他验证要求，则之前由任何相应私钥签名的提交将显示为已验证状态，并指出它们的签名密钥已过期或已撤销。
+{% ifversion upload-expired-or-revoked-gpg-key %} 若要验证尽可能多的提交，可以添加已过期和已撤销的密钥。如果密钥满足所有其他验证要求，则之前由任何相应私钥签名的提交将显示为已验证状态，并指出它们的签名密钥已过期或已撤销。
 
 ![一个已验证的提交，它的密钥已过期](/assets/images/help/settings/gpg-verified-with-expired-key.png) {% endif %}
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-验证签名时，{% data variables.product.product_name %} 将提取签名，并尝试分析它的密钥 ID。 随后，将此密钥 ID 与添加到 {% data variables.product.product_name %} 的密钥进行匹配。 在匹配的 GPG 密钥被添加到 {% data variables.product.product_name %} 之前，它将无法验证你的签名。
+验证签名时，{% data variables.product.product_name %} 将提取签名，并尝试分析它的密钥 ID。随后，将此密钥 ID 与添加到 {% data variables.product.product_name %} 的密钥进行匹配。在匹配的 GPG 密钥被添加到 {% data variables.product.product_name %} 之前，它将无法验证你的签名。
 
 ## 添加 GPG 密钥
 
@@ -54,13 +54,13 @@ ms.locfileid: '147369336'
 {% ifversion upload-expired-or-revoked-gpg-key %} {% else %}
 ## 更新过期的 GPG 密钥
 
-验证签名时，{% data variables.product.product_name %} 会检查密钥是否已撤销或过期。 如果您的签名密钥已撤销或过期，则 {% data variables.product.product_name %} 无法验证您的签名。
+验证签名时，{% data variables.product.product_name %} 会检查密钥是否已撤销或过期。如果您的签名密钥已撤销或过期，则 {% data variables.product.product_name %} 无法验证您的签名。
 
-如果你的密钥已过期，必须[更新它的过期时间](https://www.gnupg.org/gph/en/manual.html#AEN329)、导出新密钥、删除 {% data variables.product.product_name %} 上帐户中的过期密钥，然后按上述步骤向帐户添加新的密钥。 只要密钥满足所有其他验证要求，您以前的提交和标记就会显示为已验证。
+如果你的密钥已过期，必须[更新它的过期时间](https://www.gnupg.org/gph/en/manual.html#AEN329)、导出新密钥、删除 {% data variables.product.product_name %} 上帐户中的过期密钥，然后按上述步骤向帐户添加新的密钥。只要密钥满足所有其他验证要求，您以前的提交和标记就会显示为已验证。
 
 如果您的密钥已撤销，请使用主密钥或未撤销的其他密钥为提交签名。
 
-如果您的密钥无效且您没有在密钥集中使用其他有效的密钥，而是使用一组新凭据生成新的 GPG 密钥，则使用已撤销或过期的密钥进行的提交将仍显示为未验证。 此外，你的新凭据将无法对你的旧提交和标记进行重新签名或验证。
+如果您的密钥无效且您没有在密钥集中使用其他有效的密钥，而是使用一组新凭据生成新的 GPG 密钥，则使用已撤销或过期的密钥进行的提交将仍显示为未验证。此外，你的新凭据将无法对你的旧提交和标记进行重新签名或验证。
 {% endif %}
 
 ## 延伸阅读

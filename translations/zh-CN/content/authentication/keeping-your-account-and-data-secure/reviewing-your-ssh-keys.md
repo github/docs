@@ -22,12 +22,12 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: '147875994'
 ---
-您可以删除未经授权（或可能已泄密）的 SSH 密钥，以确保攻击者无法再访问您的仓库。 您还可以批准有效的现有 SSH 密钥。
+您可以删除未经授权（或可能已泄密）的 SSH 密钥，以确保攻击者无法再访问您的仓库。您还可以批准有效的现有 SSH 密钥。
 
 {% mac %}
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于无法识别或已过期的密钥，单击“删除”。 如果有要保留的有效 SSH 密钥，单击“审批”。
+3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。对于无法识别或已过期的密钥，单击“删除”。如果有要保留的有效 SSH 密钥，单击“审批”。
     ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -53,7 +53,7 @@ ms.locfileid: '147875994'
 {% windows %}
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于无法识别或已过期的密钥，单击“删除”。 如果有要保留的有效 SSH 密钥，单击“审批”。
+3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。对于无法识别或已过期的密钥，单击“删除”。如果有要保留的有效 SSH 密钥，单击“审批”。
     ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -81,7 +81,7 @@ ms.locfileid: '147875994'
 {% linux %}
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于无法识别或已过期的密钥，单击“删除”。 如果有要保留的有效 SSH 密钥，单击“审批”。
+3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。对于无法识别或已过期的密钥，单击“删除”。如果有要保留的有效 SSH 密钥，单击“审批”。
     ![SSH 密钥列表](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -106,6 +106,6 @@ ms.locfileid: '147875994'
 
 {% warning %}
 
-警告：如果在 {% data variables.product.product_name %} 上看到不熟悉的 SSH 密钥，请立即删除并联系 {% data variables.contact.contact_support %} 寻求进一步的帮助。 无法识别的公钥可能表示安全问题。
+警告：如果在 {% data variables.product.product_name %} 上看到不熟悉的 SSH 密钥，请立即删除并联系 {% data variables.contact.contact_support %} 寻求进一步的帮助。无法识别的公钥可能表示安全问题。
 
 {% endwarning %}

@@ -20,15 +20,15 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099894'
 ---
-为托管图像，{% data variables.product.product_name %} 使用[开源项目 Camo](https://github.com/atmos/camo)。 Camo 为每个文件生成匿名 URL 代理，以隐藏您的浏览器详细信息和来自其他用户的相关信息。 URL 以 `https://<subdomain>.githubusercontent.com/` 开头，子域不同，具体取决于图像的上传方式。 
+为托管图像，{% data variables.product.product_name %} 使用[开源项目 Camo](https://github.com/atmos/camo)。Camo 为每个文件生成匿名 URL 代理，以隐藏您的浏览器详细信息和来自其他用户的相关信息。URL 以 `https://<subdomain>.githubusercontent.com/` 开头，子域不同，具体取决于图像的上传方式。 
 
-视频还可以使用与图像 URL 相同的格式获得匿名化 URL，但不会通过 Camo 进行处理。 这是因为 {% data variables.product.prodname_dotcom %} 不支持外部托管的视频，所以匿名 URL 是由 {% data variables.product.prodname_dotcom %} 托管的已上传视频的链接。
+视频还可以使用与图像 URL 相同的格式获得匿名化 URL，但不会通过 Camo 进行处理。这是因为 {% data variables.product.prodname_dotcom %} 不支持外部托管的视频，所以匿名 URL 是由 {% data variables.product.prodname_dotcom %} 托管的已上传视频的链接。
 
-直接或间接收到您的匿名化 URL 的任何人都可查看您的图像或视频。 为对敏感图像文件保密，将它们限于私人网络或需要身份验证的服务器，而不使用 Camo。
+直接或间接收到您的匿名化 URL 的任何人都可查看您的图像或视频。为对敏感图像文件保密，将它们限于私人网络或需要身份验证的服务器，而不使用 Camo。
 
 ## Camo 问题故障排除
 
-在偶尔的情况下，通过 Camo 处理的图像可能不会出现在 {% data variables.product.prodname_dotcom %} 上。 下面是可用于确定问题位置的一些步骤。
+在偶尔的情况下，通过 Camo 处理的图像可能不会出现在 {% data variables.product.prodname_dotcom %} 上。下面是可用于确定问题位置的一些步骤。
 
 {% windows %}
 
@@ -55,7 +55,7 @@ Windows 用户需要使用 Git PowerShell（随 [{% data variables.product.prodn
   > Server: Google Frontend
   > Content-Length: 6507
   ```
-3. 检查 `Content-Type` 的值。 在本例中，该值为 `image/x-png`。
+3. 检查 `Content-Type` 的值。在本例中，该值为 `image/x-png`。
 4. 根据 [Camo 支持的类型列表](https://github.com/atmos/camo/blob/master/mime-types.json)检查内容类型。
 
 如果您的内容类型不受 Camo 支持，可尝试以下几项操作：
@@ -78,7 +78,7 @@ Windows 用户需要使用 Git PowerShell（随 [{% data variables.product.prodn
   > Server: Jetty(8.y.z-SNAPSHOT)
   ```
 
-检查 `Cache-Control` 的值。 在本例中，没有 `Cache-Control`。 在这种情况下：
+检查 `Cache-Control` 的值。在本例中，没有 `Cache-Control`。在这种情况下：
   * 如果拥有承载该图像的服务器，请修改它以让其返回图像的 `no-cache` 的 `Cache-Control`。
   * 如果使用外部服务托管图像，请联系该服务的支持。
 
@@ -97,7 +97,7 @@ Windows 用户需要使用 Git PowerShell（随 [{% data variables.product.prodn
 
 ### 在私人网络上查看图像
 
-如果图像从私人网络或需要身份验证的服务器提供，则无法通过 {% data variables.product.prodname_dotcom %} 查看。 事实上，未登录服务器的任何用户都无法查看。
+如果图像从私人网络或需要身份验证的服务器提供，则无法通过 {% data variables.product.prodname_dotcom %} 查看。事实上，未登录服务器的任何用户都无法查看。
 
 要解决此问题，请将图像移至公共的服务。
 

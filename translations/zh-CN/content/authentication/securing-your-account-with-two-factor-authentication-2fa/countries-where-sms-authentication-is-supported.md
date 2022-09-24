@@ -18,11 +18,11 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084597'
 ---
-如果我们不支持在您所在的国家/地区通过短信进行双重身份验证，您可以设置通过 TOTP 移动应用程序进行身份验证。 有关详细信息，请参阅“[配置双因素身份验证](/articles/configuring-two-factor-authentication)”。
+如果我们不支持在您所在的国家/地区通过短信进行双重身份验证，您可以设置通过 TOTP 移动应用程序进行身份验证。有关详细信息，请参阅“[配置双因素身份验证](/articles/configuring-two-factor-authentication)”。
 
 ## 支持 SMS 身份验证的国家/地区
 
-如果您的国家/地区不在此列表中，说明我们目前无法可靠地向您所在的国家/地区传送短信。 我们会定期更新此列表。
+如果您的国家/地区不在此列表中，说明我们目前无法可靠地向您所在的国家/地区传送短信。我们会定期更新此列表。
 
 <ul style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
 <li>奥兰群岛</li>

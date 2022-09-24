@@ -21,7 +21,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084572'
 ---
-`-K` 选项位于 Apple 的 `ssh-add` 标准版本中，当你将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在你的密钥链中。 如果安装了其他版本的 `ssh-add`，则该版本可能缺少对 `-K` 的支持。
+`-K` 选项位于 Apple 的 `ssh-add` 标准版本中，当你将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在你的密钥链中。如果安装了其他版本的 `ssh-add`，则该版本可能缺少对 `-K` 的支持。
 
 ## 解决问题
 

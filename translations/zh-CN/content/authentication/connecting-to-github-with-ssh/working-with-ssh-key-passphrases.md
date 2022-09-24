@@ -24,7 +24,7 @@ ms.locfileid: '147409113'
 ---
 ## 关于 SSH 密钥的通行短语
 
-使用 SSH 密钥时，如果攻击者获得你计算机的访问权限，便可以访问使用该密钥的每个系统。 要添加额外的安全层，可以向 SSH 密钥添加密码。 为避免每次连接时都输入通行短语，可以将通行短语安全地保存在 SSH 代理中。
+使用 SSH 密钥时，如果攻击者获得你计算机的访问权限，便可以访问使用该密钥的每个系统。要添加额外的安全层，可以向 SSH 密钥添加密码。为避免每次连接时都输入通行短语，可以将通行短语安全地保存在 SSH 代理中。
 
 ## 添加或更改密码
 
@@ -45,7 +45,7 @@ $ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
 
 ## 在 Git for Windows 上自动启动 `ssh-agent`
 
-可以在打开 bash 或 Git shell 时自动运行 `ssh-agent`。 复制以下行并将其粘贴到 Git shell 中的 `~/.profile` 或 `~/.bashrc` 文件中：
+可以在打开 bash 或 Git shell 时自动运行 `ssh-agent`。复制以下行并将其粘贴到 Git shell 中的 `~/.profile` 或 `~/.bashrc` 文件中：
 
 ``` bash
 env=~/.ssh/agent.env
@@ -71,7 +71,7 @@ fi
 unset env
 ```
 
-如果私钥没有存储在默认位置之一（如 `~/.ssh/id_rsa`），需要告知 SSH 身份验证代理其所在位置。 要将密钥添加到 ssh-agent，请输入 `ssh-add ~/path/to/my_key`。 有关详细信息，请参阅“[生成新的 SSH 密钥并将其添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)”
+如果私钥没有存储在默认位置之一（如 `~/.ssh/id_rsa`），需要告知 SSH 身份验证代理其所在位置。要将密钥添加到 ssh-agent，请输入 `ssh-add ~/path/to/my_key`。有关详细信息，请参阅“[生成新的 SSH 密钥并将其添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)”
 
 {% tip %}
 
@@ -105,8 +105,8 @@ unset env
 - .ssh/id_rsa
 - .ssh/identity
 
-初次使用密钥时，系统将提示您输入密码。 如果选择使用密钥链保存密码，则无需再次输入密码。
+初次使用密钥时，系统将提示您输入密码。如果选择使用密钥链保存密码，则无需再次输入密码。
 
-否则，您可在将密钥添加到 ssh-agent 时在密钥链中存储密码。 有关详细信息，请参阅“[将 SSH 密钥添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”。
+否则，您可在将密钥添加到 ssh-agent 时在密钥链中存储密码。有关详细信息，请参阅“[将 SSH 密钥添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”。
 
 {% endmac %}

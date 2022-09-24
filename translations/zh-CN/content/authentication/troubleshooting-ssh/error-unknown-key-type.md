@@ -24,21 +24,21 @@ ms.locfileid: '147065896'
 
 ## 先决条件
 
-您必须安装 Homebrew。 有关详细信息，请参阅 Homebrew 文档中的[安装指南](https://docs.brew.sh/Installation)。
+您必须安装 Homebrew。有关详细信息，请参阅 Homebrew 文档中的[安装指南](https://docs.brew.sh/Installation)。
 
 ## 解决问题
 
 {% warning %}
 
-**警告：** 如果安装 OpenSSH，你的计算机将无法检索存储在 Apple 密钥链中的密码。 每次使用 SSH 向 {% data variables.product.prodname_dotcom %} 或其他 Web 服务验证时，您都需要输入密码或与硬件安全密钥进行交互。
+**警告：** 如果安装 OpenSSH，你的计算机将无法检索存储在 Apple 密钥链中的密码。每次使用 SSH 向 {% data variables.product.prodname_dotcom %} 或其他 Web 服务验证时，您都需要输入密码或与硬件安全密钥进行交互。
 
-如果删除 OpenSSH，则存储在密钥链中的密码将再次可检索。 可以通过在终端中输入命令 `brew uninstall openssh` 来删除 OpenSSH。
+如果删除 OpenSSH，则存储在密钥链中的密码将再次可检索。可以通过在终端中输入命令 `brew uninstall openssh` 来删除 OpenSSH。
 
 {% endwarning %}
 
 1. 打开终端。
 2. 输入命令 `brew install openssh`。
 3. 退出并重新启动终端。
-4. 再次尝试生成新 SSH 密钥的过程。 有关详细信息，请参阅“[生成新的 SSH 密钥并将其添加到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)”。
+4. 再次尝试生成新 SSH 密钥的过程。有关详细信息，请参阅“[生成新的 SSH 密钥并将其添加到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)”。
 
-{% endmac %}{% linux %}要在 Linux 上解决此问题，请使用 Linux 发行版的包管理器来安装 OpenSSH 的新版本，或从源代码编译新版本。 如果您安装不同版本的 OpenSSH，则其他应用程序通过 SSH 进行身份验证的能力可能会受到影响。 有关更多信息，请查看发行版的文档。{% endlinux %}
+{% endmac %}{% linux %}要在 Linux 上解决此问题，请使用 Linux 发行版的包管理器来安装 OpenSSH 的新版本，或从源代码编译新版本。如果您安装不同版本的 OpenSSH，则其他应用程序通过 SSH 进行身份验证的能力可能会受到影响。有关更多信息，请查看发行版的文档。{% endlinux %}

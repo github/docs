@@ -32,19 +32,19 @@ ms.locfileid: '145084559'
 3. 双击 SSH 密钥的条目以打开一个新对话框。
 4. 在左下角选择“显示密码”。
    ![“Keychain Access”对话框](/assets/images/help/setup/keychain_show_password_dialog.png)
-5. 系统将提示您输入管理密码。 在 "Keychain Access" 对话框中输入该密码。
+5. 系统将提示您输入管理密码。在 "Keychain Access" 对话框中输入该密码。
 6. 此时将显示您的密码。
 
 {% endmac %}
 
 {% windows %}
 
-如果您丢失 SSH 密钥密码，则无法进行恢复。 需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/github/getting-started-with-github/managing-remote-repositories)，以便能够改用 GitHub 密码。
+如果您丢失 SSH 密钥密码，则无法进行恢复。需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/github/getting-started-with-github/managing-remote-repositories)，以便能够改用 GitHub 密码。
 
 {% endwindows %}
 
 {% linux %}
 
-如果您丢失 SSH 密钥密码，则无法进行恢复。 需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)，以便能够改用 GitHub 密码。
+如果您丢失 SSH 密钥密码，则无法进行恢复。需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)，以便能够改用 GitHub 密码。
 
 {% endlinux %}

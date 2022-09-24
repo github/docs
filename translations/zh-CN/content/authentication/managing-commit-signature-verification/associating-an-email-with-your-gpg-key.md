@@ -28,7 +28,7 @@ ms.locfileid: '147369279'
 {% endnote %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %}
-4. 输入 `gpg --edit-key GPG key ID`，替换为你想要使用的 GPG 密钥 ID。 在以下示例中，GPG 密钥 ID 为 `3AA5C34371567BD2`：
+4. 输入 `gpg --edit-key GPG key ID`，替换为你想要使用的 GPG 密钥 ID。在以下示例中，GPG 密钥 ID 为 `3AA5C34371567BD2`：
   ```shell
   $ gpg --edit-key <em>3AA5C34371567BD2</em>
   ```
@@ -36,7 +36,7 @@ ms.locfileid: '147369279'
   ```shell
   $ gpg> adduid
   ```
-6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 可以通过选择 `N`、`C` 或 `E` 来修改条目。 {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} 有关详细信息，请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
+6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。可以通过选择 `N`、`C` 或 `E` 来修改条目。 {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} 有关详细信息，请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>
@@ -49,7 +49,7 @@ ms.locfileid: '147369279'
   ```shell
   $ gpg> save
   ```
-10. 输入 `gpg --armor --export GPG key ID`，替换为你想要使用的 GPG 密钥 ID。 在以下示例中，GPG 密钥 ID 为 `3AA5C34371567BD2`：
+10. 输入 `gpg --armor --export GPG key ID`，替换为你想要使用的 GPG 密钥 ID。在以下示例中，GPG 密钥 ID 为 `3AA5C34371567BD2`：
   ```shell
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format

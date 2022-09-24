@@ -1,6 +1,6 @@
 ---
 title: 错误：文件编号错误
-intro: 此错误通常表示您无法连接到服务器。 这通常由防火墙和代理服务器造成。
+intro: 此错误通常表示您无法连接到服务器。这通常由防火墙和代理服务器造成。
 redirect_from:
   - /articles/error-bad-file-number
   - /github/authenticating-to-github/error-bad-file-number
@@ -34,7 +34,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 ### 使用 HTTPS
 
-通常，最简单的解决方案是完全避免使用 SSH。 大多数防火墙和代理都允许无问题的 HTTPS 流量。 若要利用这一点，请更改你正在使用的[远程 URL](/github/getting-started-with-github/about-remote-repositories)：
+通常，最简单的解决方案是完全避免使用 SSH。大多数防火墙和代理都允许无问题的 HTTPS 流量。若要利用这一点，请更改你正在使用的[远程 URL](/github/getting-started-with-github/about-remote-repositories)：
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git
@@ -47,7 +47,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em
 
 ### 从不同的网络测试
 
-如果您将计算机连接至五防火墙的其他网络，可尝试测试到 {% data variables.product.product_name %} 的 SSH 连接。 如果一切正常，请与网络管理员联系，获取有关更改防火墙设置的帮助，以使到 {% data variables.product.product_name %} 的 SSH 连接成功。
+如果您将计算机连接至五防火墙的其他网络，可尝试测试到 {% data variables.product.product_name %} 的 SSH 连接。如果一切正常，请与网络管理员联系，获取有关更改防火墙设置的帮助，以使到 {% data variables.product.product_name %} 的 SSH 连接成功。
 
 {% ifversion fpt or ghec %}
 
