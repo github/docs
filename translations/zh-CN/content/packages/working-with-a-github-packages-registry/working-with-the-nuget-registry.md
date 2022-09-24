@@ -115,14 +115,14 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 ### 使用 nuget.config 文件发布包
 
-发布时，需要将 csproj 文件中的 `OWNER` 值用于 nuget.config 身份验证文件 。 在 .csproj 文件中指定或递增版本号，然后使用 `dotnet pack` 命令创建该版本的 .nuspec 文件 。 有关创建包的详细信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
+发布时，需要将 csproj 文件中的 `OWNER` 值用于 nuget.config 身份验证文件。在 .csproj 文件中指定或递增版本号，然后使用 `dotnet pack` 命令创建该版本的 .nuspec 文件。有关创建包的详细信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
 
 {% data reusables.package_registry.authenticate-step %}
 2. 创建新项目。
   ```shell
   dotnet new console --name OctocatApp
   ```
-3. 将项目的特定信息添加到以 .csproj 结尾的项目文件中。  必须：
+3. 将项目的特定信息添加到以 .csproj 结尾的项目文件中。必须：
     - 将 `OWNER` 替换为拥有项目所在存储库的用户或组织帐户的名称。
     - 将 `REPOSITORY` 替换为要发布的包所在存储库的名称。                      
     - 将 `1.0.0` 替换为包的版本号。{% ifversion ghes or ghae %}
@@ -159,7 +159,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 要将多个包发布到同一个存储库，可以在所有 .csproj 项目文件的 `RepositoryURL` 字段中包含相同的 {% data variables.product.prodname_dotcom %} 存储库 URL。 {% data variables.product.prodname_dotcom %} 根据该字段匹配仓库。
 
-例如，OctodogApp 和 OctocatApp 项目将发布到同一个存储库 ：
+例如，OctodogApp 和 OctocatApp 项目将发布到同一个存储库：
 
 ``` xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -197,11 +197,11 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 ## 安装包
 
-在项目中使用来自 {% data variables.product.prodname_dotcom %} 的包类似于使用来自 nuget.org 的包。将包依赖项添加到 .csproj 文件，并指定包名称和版本 。 有关在项目中使用 .csproj 文件的详细信息，请参阅 Microsoft 文档中的“[使用 NuGet 包](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)”。
+在项目中使用来自 {% data variables.product.prodname_dotcom %} 的包类似于使用来自 nuget.org 的包。将包依赖项添加到 .csproj 文件，并指定包名称和版本。有关在项目中使用 .csproj 文件的详细信息，请参阅 Microsoft 文档中的“[使用 NuGet 包](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)”。
 
 {% data reusables.package_registry.authenticate-step %}
 
-2. 要使用包，请在 .csproj 项目文件中添加 `ItemGroup` 并配置 `PackageReference` 字段。 将 `Include="OctokittenApp"` 中的 `OctokittenApp` 值替换为包依赖项，并将 `Version="12.0.2"` 中的 `12.0.2` 值替换为要使用的版本：
+2. 要使用包，请在 .csproj 项目文件中添加 `ItemGroup` 并配置 `PackageReference` 字段。将 `Include="OctokittenApp"` 中的 `OctokittenApp` 值替换为包依赖项，并将 `Version="12.0.2"` 中的 `12.0.2` 值替换为要使用的版本：
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -234,7 +234,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 如果使用的是 nuspec 文件，请确保它具有包含必要的 `type` 和 `url` 属性的 `repository` 元素。
 
-如果使用 `GITHUB_TOKEN` 对 {% data variables.product.prodname_actions %} 工作流内的 {% data variables.product.prodname_registry %} 注册表进行身份验证，则令牌无法在工作流运行范围以外的其他存储库中访问基于专用存储库的包。 若要访问与其他存储库关联的包，请改为生成具有 `read:packages` 范围的 PAT，并将此令牌作为机密传入。
+如果使用 `GITHUB_TOKEN` 对 {% data variables.product.prodname_actions %} 工作流内的 {% data variables.product.prodname_registry %} 注册表进行身份验证，则令牌无法在工作流运行范围以外的其他存储库中访问基于专用存储库的包。若要访问与其他存储库关联的包，请改为生成具有 `read:packages` 范围的 PAT，并将此令牌作为机密传入。
  
 ## 延伸阅读
 

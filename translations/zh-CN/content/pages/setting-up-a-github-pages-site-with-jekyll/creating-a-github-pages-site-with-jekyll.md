@@ -25,7 +25,7 @@ ms.locfileid: '145129667'
 
 ## 先决条件
 
-必须安装 Jekyll 和 Git 后才可使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点。 有关详细信息，请参阅 Jekyll 文档中的[安装](https://jekyllrb.com/docs/installation/)和“[设置 Git](/articles/set-up-git)”。
+必须安装 Jekyll 和 Git 后才可使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点。有关详细信息，请参阅 Jekyll 文档中的[安装](https://jekyllrb.com/docs/installation/)和“[设置 Git](/articles/set-up-git)”。
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -79,30 +79,30 @@ ms.locfileid: '145129667'
    ```
 1. 打开 Jekyll 创建的 Gemfile 文件。
 1. 将“#”添加到以 `gem "jekyll"` 开头的行首，以注释禁止此行。
-1. 编辑以 `# gem "github-pages"` 开头的行，以添加 `github-pages` gem。 将此行更改为：
+1. 编辑以 `# gem "github-pages"` 开头的行，以添加 `github-pages` gem。将此行更改为：
 
    ```shell
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
-   将 GITHUB-PAGES-VERSION 替换为 `github-pages` gem 的最新支持版本。 可以在以下位置找到这个版本：“[依赖项版本](https://pages.github.com/versions/)”。
+   将 GITHUB-PAGES-VERSION 替换为 `github-pages` gem 的最新支持版本。可以在以下位置找到这个版本：“[依赖项版本](https://pages.github.com/versions/)”。
 
    正确版本的 Jekyll 将安装为 `github-pages` gem 的依赖项。
 1. 保存并关闭 Gemfile。
 1. 从命令行中，运行 `bundle install`。
-1. （可选）对 `_config.yml` 文件进行任何必要的编辑。 当仓库托管在子目录时相对路径需要此设置。  有关详细信息，请参阅“[将子文件夹拆分到新存储库中](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)”。
+1. （可选）对 `_config.yml` 文件进行任何必要的编辑。当仓库托管在子目录时相对路径需要此设置。有关详细信息，请参阅“[将子文件夹拆分到新存储库中](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)”。
    ```yml
    domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
    url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
    baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder
   ```
-1. （可选）在本地测试您的站点。 有关详细信息，请参阅“[使用 Jekyll 在本地测试 {% data variables.product.prodname_pages %} 站点](/articles/testing-your-github-pages-site-locally-with-jekyll)”。
+1. （可选）在本地测试您的站点。有关详细信息，请参阅“[使用 Jekyll 在本地测试 {% data variables.product.prodname_pages %} 站点](/articles/testing-your-github-pages-site-locally-with-jekyll)”。
 1. 添加并提交您的工作。
 ```shell
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
 ```
-1. 将 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库添加为远程存储库，将 {% ifversion ghes or ghae %}HOSTNAME 替换为企业的主机名，{% endif %} 将 USER 替换为拥有该存储库的帐户{% ifversion ghes or ghae %}，{% endif %}并将 REPOSITORY 替换为存储库名称  。
+1. 将 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库添加为远程存储库，将 {% ifversion ghes or ghae %}HOSTNAME 替换为企业的主机名，{% endif %} 将 USER 替换为拥有该存储库的帐户{% ifversion ghes or ghae %}，{% endif %}并将 REPOSITORY 替换为存储库名称。
 ```shell
 {% ifversion fpt or ghec %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

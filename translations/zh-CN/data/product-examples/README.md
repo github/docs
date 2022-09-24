@@ -8,7 +8,7 @@ ms.locfileid: "145065955"
 ---
 # 产品登陆示例
 
-使用 `product-landing` 布局的页面可以选择包含 `Examples` 部分。 目前，我们支持三种类型的示例：
+使用 `product-landing` 布局的页面可以选择包含 `Examples` 部分。目前，我们支持三种类型的示例：
 
 1. 有关代码示例，请参阅 https://docs.github.com/en/codespaces#code-examples 。
 
@@ -18,11 +18,11 @@ ms.locfileid: "145065955"
 
 ## 工作原理
 
-每个产品的示例数据在 `data/product-landing-examples` 中定义，位于以 product 命名的子目录和以示例类型（例如 `data/product-examples/sponsors/user-examples.yml` 或 `data/product-examples/codespaces/code-examples.yml`）命名的 YML 文件 。 我们目前只支持每个产品一种示例。
+每个产品的示例数据在 `data/product-landing-examples` 中定义，位于以 product 命名的子目录和以示例类型（例如 `data/product-examples/sponsors/user-examples.yml` 或 `data/product-examples/codespaces/code-examples.yml`）命名的 YML 文件。我们目前只支持每个产品一种示例。
 
 ### 版本控制
 
-目前，版本控制仅在代码示例中受支持。 如果示例块应该在“所有”版本中可用，你不需要做任何特殊的事情。 但如果一个示例块只能在某些版本可用，你可以添加如下 `versions` 代码块：
+目前，版本控制仅在代码示例中受支持。如果示例块应该在“所有”版本中可用，你不需要做任何特殊的事情。但如果一个示例块只能在某些版本可用，你可以添加如下 `versions` 代码块：
 
 ```
 - title: Dependabot version update PR

@@ -33,7 +33,7 @@ ms.locfileid: '147644793'
 2. 导航到“_config.yml”。
 {% data reusables.repositories.edit-file %}
 4. 为主题名称添加新行。
-   - 若要使用支持的主题，请键入 `theme: THEME-NAME`，将 THEME-NAME 替换为主题存储库的 README 中显示的主题名称。 有关支持主题的列表，请参阅 {% data variables.product.prodname_pages %} 站点上的“[支持主题](https://pages.github.com/themes/)”。
+   - 若要使用支持的主题，请键入 `theme: THEME-NAME`，将 THEME-NAME 替换为主题存储库的 README 中显示的主题名称。有关支持主题的列表，请参阅 {% data variables.product.prodname_pages %} 站点上的“[支持主题](https://pages.github.com/themes/)”。
    ![配置文件中支持的主题](/assets/images/help/pages/add-theme-to-config-file.png)
    - 若要使用在 {% data variables.product.prodname_dotcom %} 上托管的任何其他 Jekyll 主题，请键入 `remote_theme: THEME-NAME`，将 THEME-NAME 替换为主题存储库的 README 中显示的主题名称。
    ![配置文件中不支持的主题](/assets/images/help/pages/add-remote-theme-to-config-file.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %}
@@ -61,7 +61,7 @@ ms.locfileid: '147644793'
 
 {% data reusables.pages.theme-customization-help %}
 
-1. 在 {% data variables.product.prodname_dotcom %} 上，导航到主题的源仓库。 例如，Minima 的源存储库为 https://github.com/jekyll/minima 。
+1. 在 {% data variables.product.prodname_dotcom %} 上，导航到主题的源仓库。例如，Minima 的源存储库为 https://github.com/jekyll/minima。
 2. 在 _layouts 文件夹中，导航到主题的 default.html 文件。
 3. 复制该文件的内容。
 {% data reusables.pages.navigate-site-repo %} {% data reusables.pages.navigate-publishing-source %}

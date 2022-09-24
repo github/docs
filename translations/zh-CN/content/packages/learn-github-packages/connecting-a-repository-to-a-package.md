@@ -47,7 +47,7 @@ ms.locfileid: '147882333'
  ```
  有关详细信息，请参阅 Docker 官方文档中的“[标签](https://docs.docker.com/engine/reference/builder/#label)”和 `opencontainers/image-spec` 存储库中的“[预定义的注释键](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys)”。
 
-2. 构建容器映像。 此示例从当前目录中的 Dockerfile 生成映像，并分配映像名称 `hello_docker`。
+2. 构建容器映像。此示例从当前目录中的 Dockerfile 生成映像，并分配映像名称 `hello_docker`。
 
   ```shell
   $ docker build -t hello_docker .
@@ -70,7 +70,7 @@ ms.locfileid: '147882333'
   $ docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-example-hostname %}/monalisa/hello_docker:latest
   ```
 
-5. 如果尚未向 {% data variables.product.prodname_container_registry %} 验证，请验证。 有关详细信息，请参阅“[对 {% data variables.product.prodname_container_registry %} 进行身份验证](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-the-container-registry)”。
+5. 如果尚未向 {% data variables.product.prodname_container_registry %} 验证，请验证。有关详细信息，请参阅“[对 {% data variables.product.prodname_container_registry %} 进行身份验证](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-the-container-registry)”。
     {% raw %}
     ```shell
     $ echo $CR_PAT | docker login {% endraw %}{% data reusables.package_registry.container-registry-hostname %}{% raw %} -u USERNAME --password-stdin

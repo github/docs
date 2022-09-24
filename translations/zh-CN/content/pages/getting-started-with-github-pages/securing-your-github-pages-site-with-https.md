@@ -1,6 +1,6 @@
 ---
 title: 使用 HTTPS 保护 GitHub Pages 站点
-intro: 'HTTPS 增加一层加密，用于防止其他人窥探或篡改您的站点的流量。 您可对 {% data variables.product.prodname_pages %} 站点强制实施 HTTPS，从而将所有 HTTP 请求透明地重定向到 HTTPS。'
+intro: 'HTTPS 增加一层加密，用于防止其他人窥探或篡改您的站点的流量。您可对 {% data variables.product.prodname_pages %} 站点强制实施 HTTPS，从而将所有 HTTP 请求透明地重定向到 HTTPS。'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/securing-your-github-pages-site-with-https
@@ -22,7 +22,7 @@ ms.locfileid: '146273064'
 
 ## 关于 HTTPS 和 {% data variables.product.prodname_pages %}
 
-所有 {% data variables.product.prodname_pages %} 站点（包括使用自定义域正确配置的站点）均支持 HTTPS 和 HTTPS 强制实施。 有关自定义域的详细信息，请参阅“[关于自定义域和 {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)”和“[自定义域和 {% data variables.product.prodname_pages %} 故障排除](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)”。
+所有 {% data variables.product.prodname_pages %} 站点（包括使用自定义域正确配置的站点）均支持 HTTPS 和 HTTPS 强制实施。有关自定义域的详细信息，请参阅“[关于自定义域和 {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)”和“[自定义域和 {% data variables.product.prodname_pages %} 故障排除](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)”。
 
 {% data reusables.pages.no_sensitive_data_pages %}
 
@@ -30,7 +30,7 @@ ms.locfileid: '146273064'
 
 {% note %}
 
-**注意：** RFC3280 表示通用名称的最大长度应为 64 个字符。 因此，{% data variables.product.prodname_pages %} 网站的整个域名必须小于 64 个字符，才能成功创建证书。
+**注意：** RFC3280 表示通用名称的最大长度应为 64 个字符。因此，{% data variables.product.prodname_pages %} 网站的整个域名必须小于 64 个字符，才能成功创建证书。
 
 {% endnote %}
 
@@ -42,13 +42,13 @@ ms.locfileid: '146273064'
 
 ## 证书预配疑难解答（”证书尚未创建“错误）
 
-当您在 Pages 设置中设置或更改自定义域名时，系统会开始自动进行 DNS 检查。 此检查确定您的 DNS 设置是否配置为允许 {% data variables.product.prodname_dotcom %} 自动获取证书。 如果检查成功，{% data variables.product.prodname_dotcom %} 会将作业排队以从 [Let's Encrypt](https://letsencrypt.org/) 请求 TLS 证书。 收到有效证书后，{% data variables.product.prodname_dotcom %} 会自动将其上传到处理 Pages 的 TLS 终止的服务器。 成功完成此过程后，您的自定义域名旁边将显示一个复选标记。
+当您在 Pages 设置中设置或更改自定义域名时，系统会开始自动进行 DNS 检查。此检查确定您的 DNS 设置是否配置为允许 {% data variables.product.prodname_dotcom %} 自动获取证书。如果检查成功，{% data variables.product.prodname_dotcom %} 会将作业排队以从 [Let's Encrypt](https://letsencrypt.org/) 请求 TLS 证书。收到有效证书后，{% data variables.product.prodname_dotcom %} 会自动将其上传到处理 Pages 的 TLS 终止的服务器。成功完成此过程后，您的自定义域名旁边将显示一个复选标记。
 
-该过程可能需要一些时间。 如果在单击“保存”后几分钟未完成此过程，请尝试单击自定义域名旁边的“删除” 。 重新键入域名，然后单击“保存”。 这将取消并重新启动预配过程。
+该过程可能需要一些时间。如果在单击“保存”后几分钟未完成此过程，请尝试单击自定义域名旁边的“删除” 。重新键入域名，然后单击“保存”。这将取消并重新启动预配过程。
 
 ## 解决具有混合内容的问题
 
-如果对 {% data variables.product.prodname_pages %} 站点启用了 HTTPS，但站点的 HTML 仍通过 HTTP 引用图像、CSS 或 JavaScript，则站点将提供“混合内容”。 提供混合内容可能会降低站点的安全性，并导致在加载资产时出现问题。
+如果对 {% data variables.product.prodname_pages %} 站点启用了 HTTPS，但站点的 HTML 仍通过 HTTP 引用图像、CSS 或 JavaScript，则站点将提供“混合内容”。提供混合内容可能会降低站点的安全性，并导致在加载资产时出现问题。
 
 要删除站点的混合内容，请在站点的 HTML 中将 `http://` 更改为 `https://`，确保所有资产都通过 HTTPS 提供。
 

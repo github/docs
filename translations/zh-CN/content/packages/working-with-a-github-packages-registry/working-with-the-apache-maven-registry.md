@@ -35,11 +35,11 @@ ms.locfileid: '147061704'
 
 {% data reusables.package_registry.required-scopes %}
 
-通过编辑 ~/.m2/settings.xml 文件以包含个人访问令牌，可以使用 Apache Maven 向 {% data variables.product.prodname_registry %} 进行身份验证。 如果 ~/.m2/settings.xml 文件不存在，请新建该文件。
+通过编辑 ~/.m2/settings.xml 文件以包含个人访问令牌，可以使用 Apache Maven 向 {% data variables.product.prodname_registry %} 进行身份验证。如果 ~/.m2/settings.xml 文件不存在，请新建该文件。
 
 在 `servers` 标记中，添加一个带有 `id` 的子 `server` 标记，将“USERNAME”替换为 {% data variables.product.prodname_dotcom %} 用户名，并将“TOKEN”替换为个人访问令牌。
 
-在 `repositories` 标记中，通过将存储库的 `id` 映射到在包含凭据的 `server` 标记中添加的 `id` 来对该存储库进行配置。 将 {% ifversion ghes or ghae %}HOSTNAME 替换为 {% data variables.product.product_location %} 的主机名，并将{% endif %} OWNER 替换为拥有该存储库的用户或组织帐户的名称。 由于不支持大写字母，因此，即使您的 {% data variables.product.prodname_dotcom %} 用户或组织名称中包含大写字母，也必须对仓库所有者使用小写字母。
+在 `repositories` 标记中，通过将存储库的 `id` 映射到在包含凭据的 `server` 标记中添加的 `id` 来对该存储库进行配置。将 {% ifversion ghes or ghae %}HOSTNAME 替换为 {% data variables.product.product_location %} 的主机名，并将{% endif %} OWNER 替换为拥有该存储库的用户或组织帐户的名称。由于不支持大写字母，因此，即使您的 {% data variables.product.prodname_dotcom %} 用户或组织名称中包含大写字母，也必须对仓库所有者使用小写字母。
 
 如果要与多个存储库交互，可以将每个存储库添加到 `repositories` 标记中独立的子 `repository`，将每个存储库的
 `id` 映射到 `servers` 标记中的凭据。
@@ -135,7 +135,7 @@ ms.locfileid: '147061704'
 `com.example:test` 的包发布到名为
 `OWNER/test` 的存储库中。
 
-如果要将多个包发布到同一存储库，可以在 pom.xml 文件的 `<distributionManagement>` 元素中包含该存储库的 URL。 {% data variables.product.prodname_dotcom %} 将根据该字段匹配仓库。 由于存储库名称也是 `distributionManagement` 元素的一部分，因此将多个包发布到同一存储库无需额外步骤。
+如果要将多个包发布到同一存储库，可以在 pom.xml 文件的 `<distributionManagement>` 元素中包含该存储库的 URL。 {% data variables.product.prodname_dotcom %} 将根据该字段匹配仓库。由于存储库名称也是 `distributionManagement` 元素的一部分，因此将多个包发布到同一存储库无需额外步骤。
 
 有关创建包的详细信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 
@@ -171,7 +171,7 @@ ms.locfileid: '147061704'
 
 ## 安装包
 
-要从 {% data variables.product.prodname_registry %} 安装 Apache Maven 包，请编辑 pom.xml 文件以包含该包作为依赖项。 如果要从多个存储库安装包，请为每个存储库添加 `repository` 标记。 有关在项目中使用 pom.xml 文件的详细信息，请参阅 Apache Maven 文档中的“[POM 简介](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)”。
+要从 {% data variables.product.prodname_registry %} 安装 Apache Maven 包，请编辑 pom.xml 文件以包含该包作为依赖项。如果要从多个存储库安装包，请为每个存储库添加 `repository` 标记。有关在项目中使用 pom.xml 文件的详细信息，请参阅 Apache Maven 文档中的“[POM 简介](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)”。
 
 {% data reusables.package_registry.authenticate-step %}
 2. 将包依赖项添加到项目 pom.xml 文件的 `dependencies` 元素，将 `com.example:test` 替换为包。

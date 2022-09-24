@@ -30,7 +30,7 @@ ms.locfileid: '147409489'
 
 ## 关于从 Docker 注册表迁移
 
-{% data reusables.package_registry.container-registry-replaces-docker-registry %}如果已将 Docker 映像存储在 Docker 注册表中，则{% ifversion docker-ghcr-enterprise-migration %}企业所有者{% else %}{% data variables.product.company_short %}{% endif %}会逐步将映像迁移到 {% data variables.product.prodname_container_registry %}。 你无需执行任何操作。
+{% data reusables.package_registry.container-registry-replaces-docker-registry %}如果已将 Docker 映像存储在 Docker 注册表中，则{% ifversion docker-ghcr-enterprise-migration %}企业所有者{% else %}{% data variables.product.company_short %}{% endif %}会逐步将映像迁移到 {% data variables.product.prodname_container_registry %}。你无需执行任何操作。
 
 {% ifversion docker-ghcr-enterprise-migration %}
 
@@ -57,7 +57,7 @@ ms.locfileid: '147409489'
 
 {% ifversion fpt or ghec %}
 
-迁移后，便无法再使用 GraphQL API 来查询 `PackageType` 为“DOCKER”的包。 可以改为使用 REST API 查询 `package_type` 为“容器”的包。 有关详细信息，请参阅 REST API 文档中的“[包](/rest/reference/packages)”。
+迁移后，便无法再使用 GraphQL API 来查询 `PackageType` 为“DOCKER”的包。可以改为使用 REST API 查询 `package_type` 为“容器”的包。有关详细信息，请参阅 REST API 文档中的“[包](/rest/reference/packages)”。
 
 ## 关于 {% data variables.product.prodname_container_registry %} 的计费
 

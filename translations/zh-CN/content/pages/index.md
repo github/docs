@@ -1,7 +1,7 @@
 ---
 title: GitHub Pages 文档
 shortTitle: GitHub Pages
-intro: '了解如何直接从 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库创建网站。 浏览 Jekyll 等网站生成工具并解决 {% data variables.product.prodname_pages %} 站点的问题。'
+intro: '了解如何直接从 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库创建网站。浏览 Jekyll 等网站生成工具并解决 {% data variables.product.prodname_pages %} 站点的问题。'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages

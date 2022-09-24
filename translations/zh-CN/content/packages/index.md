@@ -1,7 +1,7 @@
 ---
 title: GitHub 包文档
 shortTitle: GitHub Packages
-intro: '了解如何安全地发布和使用包，将包与代码存储在一起，以及与您的团队私下分享或与开源社区公开分享您的包。 还可以使用 {% data variables.product.prodname_actions %} 自动执行您的包。'
+intro: '了解如何安全地发布和使用包，将包与代码存储在一起，以及与您的团队私下分享或与开源社区公开分享您的包。还可以使用 {% data variables.product.prodname_actions %} 自动执行您的包。'
 introLinks:
   quickstart: /packages/quickstart
   reference: /packages/manage-packages

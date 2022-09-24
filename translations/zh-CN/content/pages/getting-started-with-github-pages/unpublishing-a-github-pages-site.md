@@ -27,7 +27,7 @@ ms.locfileid: '147428346'
 ---
 {% ifversion pages-custom-workflow %}
 
-取消发布站点时，该站点将不再可用。 所有现有存储库设置或内容都不受影响。
+取消发布站点时，该站点将不再可用。所有现有存储库设置或内容都不受影响。
 
 {% data reusables.repositories.navigate-to-repo %}
 1. 在 {% data variables.product.prodname_pages %} 下的“站点所在位置”消息旁，单击 {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %} 。
@@ -40,7 +40,7 @@ ms.locfileid: '147428346'
 ## 取消发布项目站点
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 如果存储库中存在 `gh-pages` 分支，请删除 `gh-pages` 分支。 有关详细信息，请参阅“[创建和删除存储库中的分支](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”。
+2. 如果存储库中存在 `gh-pages` 分支，请删除 `gh-pages` 分支。有关详细信息，请参阅“[创建和删除存储库中的分支](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”。
 3. 如果 `gh-pages` 分支是发布源，{% ifversion fpt or ghec %}请跳到步骤 6{% else %}你的网站现在已取消发布，你可以跳过其余步骤{% endif %}。
 {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
 5. 在“{% data variables.product.prodname_pages %}”下，使用“源”下拉菜单，然后选择“无”。
@@ -49,7 +49,7 @@ ms.locfileid: '147428346'
 ## 取消发布用户或组织站点
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 删除用作发布源的分支，或删除整个仓库。 有关详细信息，请参阅“[创建和删除存储库中的分支](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”和“[删除存储库](/articles/deleting-a-repository)”。
+2. 删除用作发布源的分支，或删除整个仓库。有关详细信息，请参阅“[创建和删除存储库中的分支](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”和“[删除存储库](/articles/deleting-a-repository)”。
 {% data reusables.pages.update_your_dns_settings %}
 
 {% endif %}

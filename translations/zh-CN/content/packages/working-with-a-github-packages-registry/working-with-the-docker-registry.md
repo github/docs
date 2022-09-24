@@ -27,7 +27,7 @@ ms.locfileid: '147888450'
 
 {% data variables.product.prodname_dotcom %} 的 Docker 注册表（使用命名空间 `docker.pkg.github.com`）已被 {% data variables.product.prodname_container_registry %} 替换（使用命名空间 `https://ghcr.io`）。 {% data variables.product.prodname_container_registry %} 为 Docker 映像提供粒度权限和存储优化等优点。
 
-先前存储在 Docker 注册表中的 Docker 映像将自动迁移到 {% data variables.product.prodname_container_registry %}。 有关详细信息，请参阅“[从 Docker 注册表迁移到 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)”和“[使用 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)。”
+先前存储在 Docker 注册表中的 Docker 映像将自动迁移到 {% data variables.product.prodname_container_registry %}。有关详细信息，请参阅“[从 Docker 注册表迁移到 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)”和“[使用 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)。”
 
 {% else %}
 <!-- The remainder of this article is displayed for releases that don't support the Container registry -->
@@ -88,7 +88,7 @@ ms.locfileid: '147888450'
 
 {% endnote %}
 
-{% data variables.product.prodname_registry %} 支持每个仓库的多个顶层 Docker 镜像。 仓库可以拥有任意数量的映像标记。 在发布或安装大于 10GB 的 Docker 映像（每个图层上限为 5GB）时，可能会遇到服务降级的情况。 有关详细信息，请参阅 Docker 文档中的“[Docker 标记](https://docs.docker.com/engine/reference/commandline/tag/)”。
+{% data variables.product.prodname_registry %} 支持每个仓库的多个顶层 Docker 镜像。仓库可以拥有任意数量的映像标记。在发布或安装大于 10GB 的 Docker 映像（每个图层上限为 5GB）时，可能会遇到服务降级的情况。有关详细信息，请参阅 Docker 文档中的“[Docker 标记](https://docs.docker.com/engine/reference/commandline/tag/)”。
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -99,7 +99,7 @@ ms.locfileid: '147888450'
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
-2. 使用 Docker 映像 ID、标记和 Docker 映像，将 OWNER 替换为拥有存储库的用户或组织帐户的名称，将 REPOSITORY 替换为包含项目的存储库的名称，将 IMAGE_NAME 替换为包或映像的名称，{% ifversion ghes or ghae %}将 HOSTNAME 替换为 {% data variables.product.product_location %} 的主机名，{% endif %}并将 VERSION 替换为生成时的包版本    。
+2. 使用 Docker 映像 ID、标记和 Docker 映像，将 OWNER 替换为拥有存储库的用户或组织帐户的名称，将 REPOSITORY 替换为包含项目的存储库的名称，将 IMAGE_NAME 替换为包或映像的名称，{% ifversion ghes or ghae %}将 HOSTNAME 替换为 {% data variables.product.product_location %} 的主机名，{% endif %}并将 VERSION 替换为生成时的包版本。
   {% ifversion fpt or ghec %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -211,7 +211,7 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-可以使用 `docker pull` 命令从 {% data variables.product.prodname_registry %} 安装 Docker 映像，将 OWNER 替换为拥有存储库的用户或组织帐户的名称，将 REPOSITORY 替换为包含项目的存储库的名称，将 IMAGE_NAME 替换为包或映像的名称，{% ifversion ghes or ghae %}将 HOSTNAME 替换为 {% data variables.product.product_location %} 的主机名，{% endif %} 并将 TAG_NAME 替换为要安装的映像的标记    。
+可以使用 `docker pull` 命令从 {% data variables.product.prodname_registry %} 安装 Docker 映像，将 OWNER 替换为拥有存储库的用户或组织帐户的名称，将 REPOSITORY 替换为包含项目的存储库的名称，将 IMAGE_NAME 替换为包或映像的名称，{% ifversion ghes or ghae %}将 HOSTNAME 替换为 {% data variables.product.product_location %} 的主机名，{% endif %} 并将 TAG_NAME 替换为要安装的映像的标记。
 
 {% ifversion fpt or ghec %}
 ```shell

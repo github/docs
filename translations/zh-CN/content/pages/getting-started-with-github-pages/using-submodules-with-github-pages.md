@@ -23,7 +23,7 @@ ms.locfileid: '147880796'
 
 只能使用指向公共仓库的子模块，因为 {% data variables.product.prodname_pages %} 服务器无法访问私有仓库。
 
-对子模块（包括嵌套子模块）使用 `https://` 只读 URL。 你可以在 .gitmodules 文件中进行此更改。
+对子模块（包括嵌套子模块）使用 `https://` 只读 URL。你可以在 .gitmodules 文件中进行此更改。
 
 ## 延伸阅读
 

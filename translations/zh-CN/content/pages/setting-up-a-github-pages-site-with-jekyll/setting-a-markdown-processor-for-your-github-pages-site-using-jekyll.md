@@ -24,7 +24,7 @@ ms.locfileid: '145129656'
 ---
 拥有仓库写入权限的人可为 {% data variables.product.prodname_pages %} 站点设置 Markdown 处理器。
 
-{% data variables.product.prodname_pages %} 支持两种 Markdown 处理器：[kramdown](http://kramdown.gettalong.org/) 和 {% data variables.product.prodname_dotcom %} 自己的 Markdown 处理器，后者用于在整个 {% data variables.product.product_name %} 中呈现 [{% data variables.product.prodname_dotcom %} 风格的 Markdown (GFM)](https://github.github.com/gfm/)。 有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github)”。
+{% data variables.product.prodname_pages %} 支持两种 Markdown 处理器：[kramdown](http://kramdown.gettalong.org/) 和 {% data variables.product.prodname_dotcom %} 自己的 Markdown 处理器，后者用于在整个 {% data variables.product.product_name %} 中呈现 [{% data variables.product.prodname_dotcom %} 风格的 Markdown (GFM)](https://github.github.com/gfm/)。有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github)”。
 
 您可以在任一处理器上使用 {% data variables.product.prodname_dotcom %} 风格的 Markdown，但只有我们的 GFM 处理器始终与您在 {% data variables.product.product_name %} 上看到的结果相匹配。
 

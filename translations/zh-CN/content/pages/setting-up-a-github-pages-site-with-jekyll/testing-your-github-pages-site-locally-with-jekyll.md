@@ -28,7 +28,7 @@ ms.locfileid: '147876038'
 
 在使用 Jekyll 测试站点之前，您必须：
   - 安装 [Jekyll](https://jekyllrb.com/docs/installation/)
-  - 创建一个 Jekyll 站点。 有关详细信息，请参阅“[使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点](/articles/creating-a-github-pages-site-with-jekyll)”。
+  - 创建一个 Jekyll 站点。有关详细信息，请参阅“[使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点](/articles/creating-a-github-pages-site-with-jekyll)”。
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -62,7 +62,7 @@ ms.locfileid: '147876038'
 
 ## 更新 {% data variables.product.prodname_pages %} gem
 
-Jekyll 是一个活跃的开源项目，经常更新。 如果计算机上的 `github-pages` gem 与 {% data variables.product.prodname_pages %} 服务器上的 `github-pages` gem 已过期，则站点外观在本地构建时可能与在 {% data variables.product.product_name %} 上发布时不同。 为避免这种情况，请定期更新计算机上的 `github-pages` gem。
+Jekyll 是一个活跃的开源项目，经常更新。如果计算机上的 `github-pages` gem 与 {% data variables.product.prodname_pages %} 服务器上的 `github-pages` gem 已过期，则站点外观在本地构建时可能与在 {% data variables.product.product_name %} 上发布时不同。为避免这种情况，请定期更新计算机上的 `github-pages` gem。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 更新 `github-pages` gem。

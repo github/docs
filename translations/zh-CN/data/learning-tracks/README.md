@@ -8,7 +8,7 @@ ms.locfileid: "147887324"
 ---
 # 学习轨迹（又名学习路径）
 
-学习轨迹是一系列帮助您掌握特定主题的文章。 学习轨迹按每个产品定义。 有关示例，请参阅 https://docs.github.com/en/actions/guides。
+学习轨迹是一系列帮助您掌握特定主题的文章。学习轨迹按每个产品定义。有关示例，请参阅 https://docs.github.com/en/actions/guides。
 
 ## 工作原理
 
@@ -31,17 +31,17 @@ ms.locfileid: "147887324"
 
     例如，在 `data/learning-tracks/actions.yml` 中，内容文件的 `learningTracks` 数组中的每个项目都用其他数据（如 `title`、`description` 和 `guides` 链接数组）表示。
 
-    每个版本的 YAML 中必须有一个学习轨道通过 `featured_track: true` 指定为“特色”学习轨道，这会使其显示在产品指南页面的顶部。 如果缺少此属性，测试将失败。
+    每个版本的 YAML 中必须有一个学习轨道通过 `featured_track: true` 指定为“特色”学习轨道，这会使其显示在产品指南页面的顶部。如果缺少此属性，测试将失败。
 
-    `featured_track` 属性可以是简单的布尔值（即 `featured_track: true`），也可以是包含版本控制语句（例如 `featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`）的字符串。 如果你使用版本控制，每个 YML 文件将有多个 `featured_track`，但请确保每个当前支持的版本中只有一个版本会呈现。 如果每个版本的特色链接多于或少于一个，测试将失败。
+    `featured_track` 属性可以是简单的布尔值（即 `featured_track: true`），也可以是包含版本控制语句（例如 `featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`）的字符串。如果你使用版本控制，每个 YML 文件将有多个 `featured_track`，但请确保每个当前支持的版本中只有一个版本会呈现。如果每个版本的特色链接多于或少于一个，测试将失败。
 
 ## 版本控制
 
-学习轨迹的版本控制在页面渲染时进行处理。 代码位于 [`lib/learning-tracks.js`](lib/learning-tracks.js) 中，由 `page.render()` 调用。 然后，由 `components/guides` 呈现处理学习轨迹。
+学习轨迹的版本控制在页面渲染时进行处理。代码位于 [`lib/learning-tracks.js`](lib/learning-tracks.js) 中，由 `page.render()` 调用。然后，由 `components/guides` 呈现处理学习轨迹。
 
-液体条件不必用于指南的 YAML 文件中的版本控制。 只有适用于当前版本的学习跟踪指南才会自动呈现。 如果没有任何属于当前版本的指南的跟踪，学习跟踪部分将不会呈现。
+液体条件不必用于指南的 YAML 文件中的版本控制。只有适用于当前版本的学习跟踪指南才会自动呈现。如果没有任何属于当前版本的指南的跟踪，学习跟踪部分将不会呈现。
 
-还支持在产品的学习跟踪 YML 数据中的明确版本。 格式和允许的值与 [frontmatter 版本属性](/content#versions)相同。
+还支持在产品的学习跟踪 YML 数据中的明确版本。格式和允许的值与 [frontmatter 版本属性](/content#versions)相同。
 
 例如：
 
