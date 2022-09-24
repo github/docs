@@ -1,6 +1,6 @@
 ---
 title: 自定义代码空间
-intro: '{% data variables.product.prodname_github_codespaces %} 是你的专用环境。 可以使用开发容器配置存储库以定义其默认 {% data variables.product.prodname_github_codespaces %} 环境，并使用 dotfile 和“设置同步”在所有 codespace 中个性化开发体验。'
+intro: '{% data variables.product.prodname_github_codespaces %} 是你的专用环境。可以使用开发容器配置存储库以定义其默认 {% data variables.product.prodname_github_codespaces %} 环境，并使用 dotfile 和“设置同步”在所有 codespace 中个性化开发体验。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

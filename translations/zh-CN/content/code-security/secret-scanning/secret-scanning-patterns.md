@@ -27,16 +27,16 @@ ms.locfileid: '147578640'
 
 {% data variables.product.product_name %} 维护这些不同的 {% data variables.product.prodname_secret_scanning %} 模式：
 
-1. 合作伙伴模式。 用于检测所有公共存储库中的潜在机密。 有关详细信息，请参阅“[合作伙伴模式支持的机密](#supported-secrets-for-partner-patterns)”。
-2. 高级安全模式。 用于检测启用了 {% data variables.product.prodname_secret_scanning %} 的存储库中的潜在机密。 {% ifversion ghec %} 有关详细信息，请参阅“[高级安全性支持的机密](#supported-secrets-for-advanced-security)”。{% endif %}{% ifversion secret-scanning-push-protection %}
-3. 推送保护模式。 用于检测启用了作为推送保护的 {% data variables.product.prodname_secret_scanning %} 的存储库中的潜在机密。 有关详细信息，请参阅“[推送保护支持的机密](#supported-secrets-for-push-protection)”。{% endif %}
+1. 合作伙伴模式。用于检测所有公共存储库中的潜在机密。有关详细信息，请参阅“[合作伙伴模式支持的机密](#supported-secrets-for-partner-patterns)”。
+2. 高级安全模式。用于检测启用了 {% data variables.product.prodname_secret_scanning %} 的存储库中的潜在机密。 {% ifversion ghec %} 有关详细信息，请参阅“[高级安全性支持的机密](#supported-secrets-for-advanced-security)”。{% endif %}{% ifversion secret-scanning-push-protection %}
+3. 推送保护模式。用于检测启用了作为推送保护的 {% data variables.product.prodname_secret_scanning %} 的存储库中的潜在机密。有关详细信息，请参阅“[推送保护支持的机密](#supported-secrets-for-push-protection)”。{% endif %}
 
-{% ifversion fpt %} 同时使用 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_GH_advanced_security %} 的组织可以在其存储库上启用 {% data variables.product.prodname_secret_scanning_GHAS %}。 有关这些模式的详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security)。
+{% ifversion fpt %} 同时使用 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_GH_advanced_security %} 的组织可以在其存储库上启用 {% data variables.product.prodname_secret_scanning_GHAS %}。有关这些模式的详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security)。
 {% endif %}
 
 ## 合作伙伴模式支持的机密
 
-{% data variables.product.product_name %} 当前会扫描公共仓库，查找以下服务提供商发布的密码。 有关 {% data variables.product.prodname_secret_scanning_partner %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)”。
+{% data variables.product.product_name %} 当前会扫描公共仓库，查找以下服务提供商发布的密码。有关 {% data variables.product.prodname_secret_scanning_partner %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)”。
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
@@ -49,11 +49,11 @@ ms.locfileid: '147578640'
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
-如果使用 REST API 进行机密扫描，可以使用 `Secret type` 报告来自特定颁发者的机密。 有关详细信息，请参阅“[机密扫描](/enterprise-cloud@latest/rest/secret-scanning)”。
+如果使用 REST API 进行机密扫描，可以使用 `Secret type` 报告来自特定颁发者的机密。有关详细信息，请参阅“[机密扫描](/enterprise-cloud@latest/rest/secret-scanning)”。
  
 {% ifversion ghes or ghae or ghec %} {% note %}
 
-**注意：** 还可以为存储库、组织或企业定义自定义 {% data variables.product.prodname_secret_scanning %} 模式。 有关详细信息，请参阅“[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)”。
+**注意：** 还可以为存储库、组织或企业定义自定义 {% data variables.product.prodname_secret_scanning %} 模式。有关详细信息，请参阅“[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)”。
 
 {% endnote %} {% endif %}
 

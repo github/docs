@@ -43,14 +43,14 @@ ms.locfileid: '146178677'
 
 在许多情况下，在 CI 系统中直接使用 {% data variables.product.prodname_codeql_cli %} 设置 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 更简单。 
 
-您也可以使用 {% data variables.product.prodname_actions %} 在 {% data variables.product.product_name %} 中运行 {% data variables.product.prodname_code_scanning %}。 有关信息，请参阅“[为存储库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。
+您也可以使用 {% data variables.product.prodname_actions %} 在 {% data variables.product.product_name %} 中运行 {% data variables.product.prodname_code_scanning %}。有关信息，请参阅“[为存储库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。
 
-{% data variables.product.prodname_codeql_runner %} 是在 {% data variables.product.prodname_dotcom %} 仓库的检出上运行 {% data variables.product.prodname_codeql %} 分析的命令行工具。 你可以将运行器添加到第三方系统，然后调用运行器以分析代码并将结果上传到 {% data variables.product.product_name %}。 这些结果在仓库中显示为 {% data variables.product.prodname_code_scanning %} 警报。
+{% data variables.product.prodname_codeql_runner %} 是在 {% data variables.product.prodname_dotcom %} 仓库的检出上运行 {% data variables.product.prodname_codeql %} 分析的命令行工具。你可以将运行器添加到第三方系统，然后调用运行器以分析代码并将结果上传到 {% data variables.product.product_name %}。这些结果在仓库中显示为 {% data variables.product.prodname_code_scanning %} 警报。
 
 {% note %}
 
 注意：{% ifversion fpt or ghec %}
-* {% data variables.product.prodname_codeql_runner %} 使用 {% data variables.product.prodname_codeql %} CLI 来分析代码，因此具有相同的许可条件。 它可自由用于 {% data variables.product.prodname_dotcom_the_website %} 上维护的公共仓库，并且可用于具有 {% data variables.product.prodname_advanced_security %} 许可证的客户所拥有的私有仓库。 有关信息，请参阅“[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %} 条款和条件](https://securitylab.github.com/tools/codeql/license)”以及“[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)”。
+* {% data variables.product.prodname_codeql_runner %} 使用 {% data variables.product.prodname_codeql %} CLI 来分析代码，因此具有相同的许可条件。它可自由用于 {% data variables.product.prodname_dotcom_the_website %} 上维护的公共仓库，并且可用于具有 {% data variables.product.prodname_advanced_security %} 许可证的客户所拥有的私有仓库。有关信息，请参阅“[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %} 条款和条件](https://securitylab.github.com/tools/codeql/license)”以及“[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)”。
 {% else %}
 * {% data variables.product.prodname_codeql_runner %} 可用于拥有 {% data variables.product.prodname_advanced_security %} 许可证的客户。
 {% endif %} {% ifversion ghae %}
@@ -60,7 +60,7 @@ ms.locfileid: '146178677'
 
 ## 下载 {% data variables.product.prodname_codeql_runner %}
 
-可以从 https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/github/codeql-action/releases 下载 {% data variables.product.prodname_codeql_runner %}。 在某些操作系统上，您可能需要更改下载文件的权限才能运行它。
+可以从 https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/github/codeql-action/releases 下载 {% data variables.product.prodname_codeql_runner %}。在某些操作系统上，您可能需要更改下载文件的权限才能运行它。
 
 在 Linux 上：
 
@@ -79,7 +79,7 @@ sudo xattr -d com.apple.quarantine codeql-runner-macos
 
 ## 将 {% data variables.product.prodname_codeql_runner %} 添加到 CI 系统
 
-下载 {% data variables.product.prodname_codeql_runner %} 并确认它可执行后，应将运行器提供给您打算用于 {% data variables.product.prodname_code_scanning %} 的每个 CI 服务器。 例如，您可以配置每台服务器从中央内部位置复制运行器。 或者，您也可以使用 REST API 直接从 {% data variables.product.prodname_dotcom %} 获取运行器，例如： 
+下载 {% data variables.product.prodname_codeql_runner %} 并确认它可执行后，应将运行器提供给您打算用于 {% data variables.product.prodname_code_scanning %} 的每个 CI 服务器。例如，您可以配置每台服务器从中央内部位置复制运行器。或者，您也可以使用 REST API 直接从 {% data variables.product.prodname_dotcom %} 获取运行器，例如： 
 
 ```shell
 wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
@@ -88,8 +88,8 @@ chmod +x codeql-runner-linux
 
 除此之外，每个 CI 服务器还需要：
 
-- 一个供 {% data variables.product.prodname_codeql_runner %} 使用的 {% data variables.product.prodname_github_app %} 或个人访问令牌。 必须使用具有 `repo` 范围的访问令牌，或具有 `security_events` 写入权限和 `metadata` 与 `contents` 读取权限的 {% data variables.product.prodname_github_app %}。 有关信息，请参阅“[生成 {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)”和“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
-- 访问与此 {% data variables.product.prodname_codeql_runner %} 发行版相关联的 {% data variables.product.prodname_codeql %} 包。 此包包含 {% data variables.product.prodname_codeql %} 分析所需的查询和库，以及供运行器内部使用的 {% data variables.product.prodname_codeql %} CLI。 有关信息，请参阅“[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)”。
+- 一个供 {% data variables.product.prodname_codeql_runner %} 使用的 {% data variables.product.prodname_github_app %} 或个人访问令牌。必须使用具有 `repo` 范围的访问令牌，或具有 `security_events` 写入权限和 `metadata` 与 `contents` 读取权限的 {% data variables.product.prodname_github_app %}。有关信息，请参阅“[生成 {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)”和“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+- 访问与此 {% data variables.product.prodname_codeql_runner %} 发行版相关联的 {% data variables.product.prodname_codeql %} 包。此包包含 {% data variables.product.prodname_codeql %} 分析所需的查询和库，以及供运行器内部使用的 {% data variables.product.prodname_codeql %} CLI。有关信息，请参阅“[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)”。
 
 提供 {% data variables.product.prodname_codeql %} 包访问权限的选项：
 
@@ -98,22 +98,22 @@ chmod +x codeql-runner-linux
 
 ## 调用 {% data variables.product.prodname_codeql_runner %}
 
-您应该从要分析的仓库的检出位置调用 {% data variables.product.prodname_codeql_runner %}。 两个主要命令是：
+您应该从要分析的仓库的检出位置调用 {% data variables.product.prodname_codeql_runner %}。两个主要命令是：
 
-1. `init` 需要初始化运行器并为需要分析的每种语言创建一个 {% data variables.product.prodname_codeql %} 数据库。 这些数据库由后续命令填充和分析。
+1. `init` 需要初始化运行器并为需要分析的每种语言创建一个 {% data variables.product.prodname_codeql %} 数据库。这些数据库由后续命令填充和分析。
 1. `analyze` 需要填充 {% data variables.product.prodname_codeql %} 数据库、分析它们并将结果上传到 {% data variables.product.product_name %}。
 
-对于这两个命令，都必须指定 {% data variables.product.product_name %} 的 URL、存储库 OWNER/NAME 以及 {% data variables.product.prodname_github_apps %} 或用于身份验证的个人访问令牌。 还需要指定 CodeQL 包的位置，除非 CI 服务器有权直接从 `github/codeql-action` 存储库下载它。
+对于这两个命令，都必须指定 {% data variables.product.product_name %} 的 URL、存储库 OWNER/NAME 以及 {% data variables.product.prodname_github_apps %} 或用于身份验证的个人访问令牌。还需要指定 CodeQL 包的位置，除非 CI 服务器有权直接从 `github/codeql-action` 存储库下载它。
 
 可以配置 {% data variables.product.prodname_codeql_runner %} 存储 CodeQL 包的位置，以便将来使用 <nobr>`--tools-dir`</nobr> 标志在服务器上进行分析，还可配置在使用 <nobr>`--temp-dir`</nobr> 进行分析的过程中储存临时文件的位置。
 
-要查看运行器的命令行引用，请使用 `-h` 标志。 例如，要列出所有命令，请运行：`codeql-runner-OS -h`，或者要列出可用于 `init` 命令的所有标志，请运行：`codeql-runner-OS init -h`（其中 `OS` 因你使用的可执行文件而异）。 有关详细信息，请参阅“[在 CI 系统中配置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-codeql-runner-in-your-ci-system#codeql-runner-command-reference)”。
+要查看运行器的命令行引用，请使用 `-h` 标志。例如，要列出所有命令，请运行：`codeql-runner-OS -h`，或者要列出可用于 `init` 命令的所有标志，请运行：`codeql-runner-OS init -h`（其中 `OS` 因你使用的可执行文件而异）。有关详细信息，请参阅“[在 CI 系统中配置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-codeql-runner-in-your-ci-system#codeql-runner-command-reference)”。
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 ### 基本示例
 
-此示例在 Linux CI 服务器上为托管在 `{% data variables.command_line.git_url_example %}` 上的 `octo-org/example-repo` 存储库运行 {% data variables.product.prodname_codeql %} 分析。 这个过程非常简单，因为仓库只包含可通过 {% data variables.product.prodname_codeql %} 直接分析的语言，而无需构建（例如 Go、JavaScript、Python 和 TypeScript）。
+此示例在 Linux CI 服务器上为托管在 `{% data variables.command_line.git_url_example %}` 上的 `octo-org/example-repo` 存储库运行 {% data variables.product.prodname_codeql %} 分析。这个过程非常简单，因为仓库只包含可通过 {% data variables.product.prodname_codeql %} 直接分析的语言，而无需构建（例如 Go、JavaScript、Python 和 TypeScript）。
 
 在此示例中，服务器有权直接从 `github/codeql-action` 存储库下载 {% data variables.product.prodname_codeql %} 包，因此无需使用 `--codeql-path` 标志。
 
@@ -133,7 +133,7 @@ chmod +x codeql-runner-linux
 
 ### 编译语言示例
 
-此示例与前面的示例相似，但此例中的仓库含有用 C/C++、C# 或 Java 编写的代码。 要为这些语言创建 {% data variables.product.prodname_codeql %} 数据库，CLI 需要监控构建。 在初始化过程结束时，运行器会报告您需要在构建代码之前设置环境的命令。 你需要在调用正常的 CI 构建进程之前运行此命令，然后运行 `analyze` 命令。
+此示例与前面的示例相似，但此例中的仓库含有用 C/C++、C# 或 Java 编写的代码。要为这些语言创建 {% data variables.product.prodname_codeql %} 数据库，CLI 需要监控构建。在初始化过程结束时，运行器会报告您需要在构建代码之前设置环境的命令。你需要在调用正常的 CI 构建进程之前运行此命令，然后运行 `analyze` 命令。
 
 1. 检出要分析的仓库。
 1. 移至检出仓库的目录。
@@ -148,13 +148,13 @@ chmod +x codeql-runner-linux
       Please export these variables to future processes so that CodeQL can monitor the build, for example by running 
       ". /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
     ```
-1. 获取由 `init` 操作生成的脚本以设置环境，从而监视生成。 请注意以下代码片段中的先导点和空间。
+1. 获取由 `init` 操作生成的脚本以设置环境，从而监视生成。请注意以下代码片段中的先导点和空间。
 
     ```shell
     $ . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh
     ```
 
-1. 构建代码。 在 macOS 上，需要使用环境变量 `$CODEQL_RUNNER` 为构建命令添加前缀。 有关详细信息，请参阅“[对 CI 系统中的 {% data variables.product.prodname_codeql_runner %} 进行故障排除](/code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system#no-code-found-during-the-build)”。
+1. 构建代码。在 macOS 上，需要使用环境变量 `$CODEQL_RUNNER` 为构建命令添加前缀。有关详细信息，请参阅“[对 CI 系统中的 {% data variables.product.prodname_codeql_runner %} 进行故障排除](/code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system#no-code-found-during-the-build)”。
 
 {% data reusables.code-scanning.codeql-runner-analyze-example %}
 

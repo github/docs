@@ -22,7 +22,7 @@ ms.locfileid: '147880812'
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-依赖项以快照的形式提交到依赖项提交 API。 快照是一组与提交 SHA 和其他元数据关联的依赖项，反映了提交时存储库的当前状态。 有关依赖项提交 API 的详细信息，请参阅[依赖项提交 REST API 文档](/rest/dependency-graph/dependency-submission)。
+依赖项以快照的形式提交到依赖项提交 API。快照是一组与提交 SHA 和其他元数据关联的依赖项，反映了提交时存储库的当前状态。有关依赖项提交 API 的详细信息，请参阅[依赖项提交 REST API 文档](/rest/dependency-graph/dependency-submission)。
 
 ## 在生成时提交依赖项
 
@@ -30,7 +30,7 @@ ms.locfileid: '147880812'
 
 ### 使用预创建的操作
 
-使用依赖项提交 API 最简单的方法是向存储库添加预创建的操作，该操作将收集依赖项列表并将它转换为所需的快照格式，然后将此列表提交到 API。 {% data variables.product.prodname_marketplace %} 上提供了针对各种生态系统完成这些步骤的操作，在 beta 版本以及更高版本中将创建更多的操作。 可以在下表中找到当前可用操作的链接：
+使用依赖项提交 API 最简单的方法是向存储库添加预创建的操作，该操作将收集依赖项列表并将它转换为所需的快照格式，然后将此列表提交到 API。 {% data variables.product.prodname_marketplace %} 上提供了针对各种生态系统完成这些步骤的操作，在 beta 版本以及更高版本中将创建更多的操作。可以在下表中找到当前可用操作的链接：
 
 生态系统 | 操作 |
 --- | --- |
@@ -82,10 +82,10 @@ jobs:
 ```
 ### 创建自己的操作
 
-你还可以编写你自己操作，以便在生成时提交项目的依赖项。 你的工作流应：
+你还可以编写你自己操作，以便在生成时提交项目的依赖项。你的工作流应：
 
   1. 生成项目的依赖项列表。
-  2. 将依赖项列表转换为依赖项提交 API 接受的快照格式。 有关格式的详细信息，请参阅[依赖项提交 REST API 文档](/rest/dependency-graph/dependency-submission)中“创建存储库快照”API 操作的正文参数。
+  2. 将依赖项列表转换为依赖项提交 API 接受的快照格式。有关格式的详细信息，请参阅[依赖项提交 REST API 文档](/rest/dependency-graph/dependency-submission)中“创建存储库快照”API 操作的正文参数。
   3. 将格式化的依赖项列表提交到依赖项提交 API。
 
-{% data variables.product.product_name %} 将维护[依赖项提交工具包](https://github.com/github/dependency-submission-toolkit)，这是一个 TypeScript 库，可帮助你生成自己的 GitHub 操作，用于将依赖项提交到依赖项提交 API。 有关编写操作的详细信息，请参阅“[创建操作](/actions/creating-actions)”。
+{% data variables.product.product_name %} 将维护[依赖项提交工具包](https://github.com/github/dependency-submission-toolkit)，这是一个 TypeScript 库，可帮助你生成自己的 GitHub 操作，用于将依赖项提交到依赖项提交 API。有关编写操作的详细信息，请参阅“[创建操作](/actions/creating-actions)”。

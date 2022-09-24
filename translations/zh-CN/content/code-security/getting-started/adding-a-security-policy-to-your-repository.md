@@ -30,16 +30,16 @@ ms.locfileid: '145084382'
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
-你可以为组织或个人帐户创建默认的安全政策。 有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
+你可以为组织或个人帐户创建默认的安全政策。有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
 {% endif %}
 
 {% tip %}
 
-提示：为帮助人们查找安全策略，可以从存储库中的其他位置（如 README 文件）链接到 SECURITY.md 文件。 有关详细信息，请参阅“[关于 README](/articles/about-readmes)”。
+提示：为帮助人们查找安全策略，可以从存储库中的其他位置（如 README 文件）链接到 SECURITY.md 文件。有关详细信息，请参阅“[关于 README](/articles/about-readmes)”。
 
 {% endtip %}
 
-{% ifversion fpt or ghec %} 当有人报告项目中的安全漏洞后，可以使用 {% data variables.product.prodname_security_advisories %} 披露、修复和发布关于该漏洞的信息。 有关 {% data variables.product.prodname_dotcom %} 中报告和披露漏洞的过程的详细信息，请参阅“[关于安全漏洞的协调披露](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)”。 有关 {% data variables.product.prodname_security_advisories %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+{% ifversion fpt or ghec %} 当有人报告项目中的安全漏洞后，可以使用 {% data variables.product.prodname_security_advisories %} 披露、修复和发布关于该漏洞的信息。有关 {% data variables.product.prodname_dotcom %} 中报告和披露漏洞的过程的详细信息，请参阅“[关于安全漏洞的协调披露](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)”。有关 {% data variables.product.prodname_security_advisories %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
 {% data reusables.repositories.github-security-lab %} {% endif %} {% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->

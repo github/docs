@@ -38,7 +38,7 @@ ms.locfileid: '145099741'
 ## 后续步骤
 
 - 评论安全通告草稿，与团队讨论漏洞。
-- 添加协作者到安全通告。 有关详细信息，请参阅“[将协作者添加到存储库安全公告](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)”。
-- 在临时私有复刻中私下协作以修复漏洞。 有关详细信息，请参阅“[在临时专用分支中协作以解决存储库安全漏洞](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)”。
-- 添加因对安全通告做出贡献而应获得积分的个人。 有关详细信息，请参阅“[编辑存储库安全公告](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)”。
-- 发布安全通告以向社区提醒安全漏洞。 有关详细信息，请参阅“[发布存储库安全公告](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)”。
+- 添加协作者到安全通告。有关详细信息，请参阅“[将协作者添加到存储库安全公告](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)”。
+- 在临时私有复刻中私下协作以修复漏洞。有关详细信息，请参阅“[在临时专用分支中协作以解决存储库安全漏洞](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)”。
+- 添加因对安全通告做出贡献而应获得积分的个人。有关详细信息，请参阅“[编辑存储库安全公告](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)”。
+- 发布安全通告以向社区提醒安全漏洞。有关详细信息，请参阅“[发布存储库安全公告](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)”。

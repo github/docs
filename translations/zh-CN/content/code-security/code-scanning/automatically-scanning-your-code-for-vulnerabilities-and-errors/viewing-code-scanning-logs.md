@@ -25,19 +25,19 @@ ms.locfileid: '147444627'
 
 ## 关于第三方 {% data variables.product.prodname_code_scanning %} 设置 
 
-您可以使用各种工具在仓库中设置 {% data variables.product.prodname_code_scanning %} 。 有关详细信息，请参阅“[为存储库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)”。
+您可以使用各种工具在仓库中设置 {% data variables.product.prodname_code_scanning %} 。有关详细信息，请参阅“[为存储库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)”。
 
-您可用的日志和诊断信息取决于您在 {% data variables.product.prodname_code_scanning %} 中使用的方法。 你可以使用警报列表中的“工具”下拉菜单，检查存储库的“安全性”选项卡中使用的 {% data variables.product.prodname_code_scanning %} 类型。 有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
+您可用的日志和诊断信息取决于您在 {% data variables.product.prodname_code_scanning %} 中使用的方法。你可以使用警报列表中的“工具”下拉菜单，检查存储库的“安全性”选项卡中使用的 {% data variables.product.prodname_code_scanning %} 类型。有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
 ## 关于分析和诊断信息
 
 您可以使用 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_codeql %} 分析查看 {% data variables.product.prodname_code_scanning %} 运行的分析和诊断信息。 
 
-在警报列表顶部的标题中显示最近分析的“分析”信息。 有关详细信息，请参阅“[管理存储库的代码扫描警报](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
+在警报列表顶部的标题中显示最近分析的“分析”信息。有关详细信息，请参阅“[管理存储库的代码扫描警报](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
-“诊断”信息显示在行动工作流日志中，包含摘要指标和提取器诊断。 有关访问 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_code_scanning %} 日志的信息，请参阅下面的“[查看 {% data variables.product.prodname_code_scanning %} 的日志记录输出](#viewing-the-logging-output-from-code-scanning)”。
+“诊断”信息显示在行动工作流日志中，包含摘要指标和提取器诊断。有关访问 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_code_scanning %} 日志的信息，请参阅下面的“[查看 {% data variables.product.prodname_code_scanning %} 的日志记录输出](#viewing-the-logging-output-from-code-scanning)”。
 
-如果您在 {% data variables.product.prodname_dotcom %} 外部使用 {% data variables.product.prodname_codeql_cli %} ，您将在数据库分析期间生成的输出中看到诊断信息。 此信息也包含在您随 {% data variables.product.prodname_code_scanning %} 结果上传到 {% data variables.product.prodname_dotcom %} 的 SARIF 结果文件中。
+如果您在 {% data variables.product.prodname_dotcom %} 外部使用 {% data variables.product.prodname_codeql_cli %} ，您将在数据库分析期间生成的输出中看到诊断信息。此信息也包含在您随 {% data variables.product.prodname_code_scanning %} 结果上传到 {% data variables.product.prodname_dotcom %} 的 SARIF 结果文件中。
 
 有关 {% data variables.product.prodname_codeql_cli %} 的信息，请参阅“[在 CI 系统中配置 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)”。
 
@@ -51,7 +51,7 @@ ms.locfileid: '147444627'
 
 {% ifversion codeql-action-debug-logging %}
 
-通过启用调试日志记录，可以查看有关在创建数据库期间发生的 {% data variables.product.prodname_codeql %} 提取器错误和警告的更多详细信息。 有关详细信息，请参阅“[对 CodeQL 工作流进行故障排除](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)”。
+通过启用调试日志记录，可以查看有关在创建数据库期间发生的 {% data variables.product.prodname_codeql %} 提取器错误和警告的更多详细信息。有关详细信息，请参阅“[对 CodeQL 工作流进行故障排除](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)”。
 
 {% endif %}
 
@@ -69,17 +69,17 @@ ms.locfileid: '147444627'
 
 1. 单击 {% data variables.product.prodname_code_scanning %} 工作流程的项目。
 
-2. 单击左侧的作业名称。 例如，“分析(语言)”。
+2. 单击左侧的作业名称。例如，“分析 (语言)”。
 
   ![{% data variables.product.prodname_code_scanning %} 工作流程的日志输出](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
 
 1. 查看此工作流运行时操作的日志记录输出。
 
-1. 在所有作业完成后，您可以查看已识别的任何 {% data variables.product.prodname_code_scanning %} 警报的详细信息。 有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
+1. 在所有作业完成后，您可以查看已识别的任何 {% data variables.product.prodname_code_scanning %} 警报的详细信息。有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
 {% note %}
 
-注意：如果发起将 {% data variables.product.prodname_code_scanning %} 工作流添加到存储库的拉取请求，则在合并拉取请求之前，来自该拉取请求的警报不会直接显示在 {% data variables.product.prodname_code_scanning_capc %} 页面上。 如果发现任何警报，你可以在合并拉取请求之前查看这些警报，方法是在 {% data variables.product.prodname_code_scanning_capc %} 页面的横幅中单击“发现 n 条警报”的链接。
+注意：如果发起将 {% data variables.product.prodname_code_scanning %} 工作流添加到存储库的拉取请求，则在合并拉取请求之前，来自该拉取请求的警报不会直接显示在 {% data variables.product.prodname_code_scanning_capc %} 页面上。如果发现任何警报，你可以在合并拉取请求之前查看这些警报，方法是在 {% data variables.product.prodname_code_scanning_capc %} 页面的横幅中单击“发现 n 条警报”的链接。
 
 ![单击“发现的 n 条警报”链接](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 

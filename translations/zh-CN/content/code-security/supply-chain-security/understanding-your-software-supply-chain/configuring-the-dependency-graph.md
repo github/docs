@@ -29,7 +29,7 @@ ms.locfileid: '146684075'
 
 {% ifversion fpt or ghec %}
 ## 关于配置依赖项关系图 
-要生成依赖项关系图，{% data variables.product.product_name %} 需要对存储库的依赖项清单和锁定文件具有只读访问权限。 依赖关系图自动为所有公共仓库生成，您可以选择为私有仓库启用它。 若要详细了解如何查看依赖项关系图，请参阅“[探索存储库的依赖项](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)”。
+要生成依赖项关系图，{% data variables.product.product_name %} 需要对存储库的依赖项清单和锁定文件具有只读访问权限。依赖关系图自动为所有公共仓库生成，您可以选择为私有仓库启用它。若要详细了解如何查看依赖项关系图，请参阅“[探索存储库的依赖项](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)”。
 
 {% data reusables.dependency-submission.dependency-submission-link %} {% endif %}
 
@@ -39,7 +39,7 @@ ms.locfileid: '146684075'
 
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %} {% endif %}
 
-首次启用依赖关系图时，将立即剖析受支持的生态系统的任何清单和锁定文件。 依赖关系图通常在几分钟之内填充，但对于依赖项很多的仓库，可能需要更长时间。 启用后，该关系图将在每次推送到存储库{% ifversion fpt or ghec %}以及每次推送到该关系图中的其他存储库时自动更新{% endif %}。
+首次启用依赖关系图时，将立即剖析受支持的生态系统的任何清单和锁定文件。依赖关系图通常在几分钟之内填充，但对于依赖项很多的仓库，可能需要更长时间。启用后，该关系图将在每次推送到存储库{% ifversion fpt or ghec %}以及每次推送到该关系图中的其他存储库时自动更新{% endif %}。
 
 {% ifversion ghes %} {% ifversion dependency-submission-api %}{% data reusables.dependency-submission.dependency-submission-link %}{% endif %} {% endif %}
 

@@ -22,15 +22,15 @@ ms.locfileid: '147111408'
 ---
 ## 关于机密
 
-密钥是您在组织或仓库中创建的加密环境变量。 你创建的机密可用于 {% data variables.product.prodname_github_codespaces %}。 GitHub 在机密提交到 GitHub 之前使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对其加密，并且仅当需要在 codespace 中使用它们时才对其解密。
+密钥是您在组织或仓库中创建的加密环境变量。你创建的机密可用于 {% data variables.product.prodname_github_codespaces %}。GitHub 在机密提交到 GitHub 之前使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对其加密，并且仅当需要在 codespace 中使用它们时才对其解密。
 
-组织级密钥允许在多个仓库之间共享密钥，从而减少创建重复密钥的需要。 您可以使用访问策略来控制哪些仓库可以使用组织密钥。 
+组织级密钥允许在多个仓库之间共享密钥，从而减少创建重复密钥的需要。您可以使用访问策略来控制哪些仓库可以使用组织密钥。 
 
 {% data reusables.codespaces.secrets-on-start %}
 
 ### 命名密钥
 
-{% data reusables.codespaces.secrets-naming %} 例如，在仓库级别创建的密钥必须在该仓库中具有唯一的名称， 而在组织级创建的密钥必须在该级别有独特的名称。
+{% data reusables.codespaces.secrets-naming %} 例如，在仓库级别创建的密钥必须在该仓库中具有唯一的名称，而在组织级创建的密钥必须在该级别有独特的名称。
 
   {% data reusables.codespaces.secret-precedence %}
 
@@ -53,7 +53,7 @@ ms.locfileid: '147111408'
 
 ## 为组织添加密钥
 
-在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
+在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
@@ -71,7 +71,7 @@ ms.locfileid: '147111408'
 您可以检查哪些访问策略应用于组织中的密钥。
 
 {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.actions.sidebar-secret %}
-1. 密码列表包括任何已配置的权限和策略。 例如：![机密列表](/assets/images/help/settings/actions-org-secrets-list.png)
+1. 密码列表包括任何已配置的权限和策略。例如：![机密列表](/assets/images/help/settings/actions-org-secrets-list.png)
 1. 若要详细了解已为每个机密配置的权限，请单击“更新”。
 
 ## 延伸阅读

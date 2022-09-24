@@ -24,14 +24,14 @@ ms.locfileid: '147419791'
 ---
 ## 关于 {% data variables.product.prodname_github_codespaces %} 的加密机密
 
-你可以将要在 codespace 中使用的加密密码添加到你的个人帐户。 例如，您可能想要存储和访问以下敏感信息作为加密密码。
+你可以将要在 codespace 中使用的加密密码添加到你的个人帐户。例如，您可能想要存储和访问以下敏感信息作为加密密码。
 
 - 对云服务的个人访问令牌
 - 服务主体
 - 订阅标识符
 - [专用映像注册表的凭据](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
 
-您可以选择哪些仓库应有权访问每个密码。 然后，您可以在为有权访问密码的仓库创建的任何代码空间中使用该密码。
+您可以选择哪些仓库应有权访问每个密码。然后，您可以在为有权访问密码的仓库创建的任何代码空间中使用该密码。
 
 {% data reusables.codespaces.secrets-on-start %}
 
@@ -83,15 +83,15 @@ ms.locfileid: '147419791'
 
   ![在终端显示导出机密的值](/assets/images/help/codespaces/exported-codespace-secret.png)
 
-Codespace 生成并运行后，可以在 Codespace 中使用机密。 例如，机密可用于：
+Codespace 生成并运行后，可以在 Codespace 中使用机密。例如，机密可用于：
 
 * 从集成终端或 ssh 会话启动应用程序时。
-* 在 Codespace 开始运行后运行的开发容器生命周期脚本中。 有关开发容器生命周期脚本的详细信息，请参阅 containers.dev 的相关文档：[规范](https://containers.dev/implementors/json_reference/#lifecycle-scripts)。
+* 在 Codespace 开始运行后运行的开发容器生命周期脚本中。有关开发容器生命周期脚本的详细信息，请参阅 containers.dev 的相关文档：[规范](https://containers.dev/implementors/json_reference/#lifecycle-scripts)。
 
 Codespace 机密不可用于：
 
 * Codespace 生成时（即，在 Dockerfile 或自定义入口点内）。
-* 在开发容器功能内。 有关详细信息，请参阅 containers.dev 相关文档中的 `features` 属性：[规范](https://containers.dev/implementors/json_reference/#general-properties)。
+* 在开发容器功能内。有关详细信息，请参阅 containers.dev 相关文档中的 `features` 属性：[规范](https://containers.dev/implementors/json_reference/#general-properties)。
 
 ## 延伸阅读
 

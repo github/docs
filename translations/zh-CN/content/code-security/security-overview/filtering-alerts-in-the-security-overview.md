@@ -26,7 +26,7 @@ ms.locfileid: '147880764'
 
 ## 关于筛选安全概述
 
-可以使用安全概述中的筛选器来根据一系列因素缩小关注范围，例如警报风险级别、警报类型和功能启用。 根据特定视图以及是在组织、团队还是存储库级别进行分析，可以使用不同的筛选器。
+可以使用安全概述中的筛选器来根据一系列因素缩小关注范围，例如警报风险级别、警报类型和功能启用。根据特定视图以及是在组织、团队还是存储库级别进行分析，可以使用不同的筛选器。
 
 {% note %} {% data reusables.security-overview.information-varies-GHAS %} {% endnote %}
 
@@ -62,7 +62,7 @@ ms.locfileid: '147880764'
 
 ## 按仓库的风险级别筛选
 
-存储库的风险级别取决于安全功能警报的数量和严重程度。 如果存储库未启用一个或多个安全功能，则存储库的风险级别未知。 如果存储库没有安全功能检测到的风险，则存储库具有明显的风险级别。 适用于组织级别的概述。
+存储库的风险级别取决于安全功能警报的数量和严重程度。如果存储库未启用一个或多个安全功能，则存储库的风险级别未知。如果存储库没有安全功能检测到的风险，则存储库具有明显的风险级别。适用于组织级别的概述。
 
 | 限定符 | 说明 |
 | -------- | -------- |
@@ -78,9 +78,9 @@ ms.locfileid: '147880764'
 
 | 限定符 | 说明 |
 | -------- | -------- |
-| <code>code-scanning:<em>n</em></code> | 显示具有 n 个 {% data variables.product.prodname_code_scanning %} 警报的存储库。 此限定符可以使用 `=`、`>` 和 `<` 比较运算符。 |
-| <code>secret-scanning:<em>n</em></code> | 显示具有 n 个 {% data variables.product.prodname_secret_scanning %} 警报的存储库。 此限定符可以使用 `=`、`>` 和 `<` 比较运算符。 |
-| <code>dependabot:<em>n</em></code> | 显示具有 n 个 {% data variables.product.prodname_dependabot_alerts %} 警报的存储库。 此限定符可以使用 `=`、`>` 和 `<` 比较运算符。 |
+| <code>code-scanning:<em>n</em></code> | 显示具有 n 个 {% data variables.product.prodname_code_scanning %} 警报的存储库。此限定符可以使用 `=`、`>` 和 `<` 比较运算符。 |
+| <code>secret-scanning:<em>n</em></code> | 显示具有 n 个 {% data variables.product.prodname_secret_scanning %} 警报的存储库。此限定符可以使用 `=`、`>` 和 `<` 比较运算符。 |
+| <code>dependabot:<em>n</em></code> | 显示具有 n 个 {% data variables.product.prodname_dependabot_alerts %} 警报的存储库。此限定符可以使用 `=`、`>` 和 `<` 比较运算符。 |
 
 
 ## 按团队筛选
@@ -103,7 +103,7 @@ ms.locfileid: '147880764'
 
 ## 按严重性筛选
 
-适用于代码扫描警报视图。 所有代码扫描警报都具有如下所示的类别之一。 可以单击任何结果以查看相关规则的完整详细信息以及触发警报的代码行。
+适用于代码扫描警报视图。所有代码扫描警报都具有如下所示的类别之一。可以单击任何结果以查看相关规则的完整详细信息以及触发警报的代码行。
 
 | 限定符 | 说明 |
 | -------- | -------- |
@@ -118,12 +118,12 @@ ms.locfileid: '147880764'
 {% ifversion dependabot-alerts-vulnerable-calls %}
 ## 按 {% data variables.product.prodname_dependabot %} 警报类型筛选
 
-在 {% data variables.product.prodname_dependabot %} 警报视图中可用。 你可以筛选视图来显示随时可修复的 {% data variables.product.prodname_dependabot_alerts %}，或哪些位置的有关暴露的其他信息可用。 可以单击任何结果以查看警报的完整详细信息。
+在 {% data variables.product.prodname_dependabot %} 警报视图中可用。你可以筛选视图来显示随时可修复的 {% data variables.product.prodname_dependabot_alerts %}，或哪些位置的有关暴露的其他信息可用。可以单击任何结果以查看警报的完整详细信息。
 
 | 限定符 | 说明 |
 | -------- | -------- |
 |`has:patch`|显示针对安全版本已经可用的 {% data variables.product.prodname_dependabot %} 漏洞警报。|
-|`has:vulnerable-calls`|显示 {% data variables.product.prodname_dependabot %} 警报，其中至少检测到一次从存储库到易受攻击的功能的调用。 有关详细信息，请参阅“[查看和更新 Dependabot 警报](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)”。|
+|`has:vulnerable-calls`|显示 {% data variables.product.prodname_dependabot %} 警报，其中至少检测到一次从存储库到易受攻击的功能的调用。有关详细信息，请参阅“[查看和更新 Dependabot 警报](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)”。|
 {% endif %}
 
 {% endif %}
@@ -134,8 +134,8 @@ ms.locfileid: '147880764'
 
 | 限定符 | 说明 |
 | -------- | -------- |
-| `secret-type:SERVICE_PROVIDER` | 显示指定机密和提供程序的警报。 有关详细信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。 |
-| `secret-type:CUSTOM-PATTERN` | 显示与指定自定义模式匹配的机密的警报。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。 |
+| `secret-type:SERVICE_PROVIDER` | 显示指定机密和提供程序的警报。有关详细信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。 |
+| `secret-type:CUSTOM-PATTERN` | 显示与指定自定义模式匹配的机密的警报。有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。 |
 
 ## 按提供程序筛选
 
@@ -143,4 +143,4 @@ ms.locfileid: '147880764'
 
 | 限定符 | 说明 |
 | -------- | -------- |
-|`provider:PROVIDER_NAME` | 显示指定提供程序的所有机密问题的警报。 有关详细信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。 |
+|`provider:PROVIDER_NAME` | 显示指定提供程序的所有机密问题的警报。有关详细信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。 |

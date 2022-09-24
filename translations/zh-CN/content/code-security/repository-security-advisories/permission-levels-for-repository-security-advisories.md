@@ -22,7 +22,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099740'
 ---
-本文仅适用于存储库级别的安全公告。 任何人都可以在 [github.com/advisories](https://github.com/advisories) 上的 {% data variables.product.prodname_advisory_database %} 中提供全局安全公告内容。 对全局公告的编辑不会改变或影响公告在存储库中的显示方式。  有关详细信息，请参阅“[在 {% data variables.product.prodname_advisory_database %} 中编辑安全公告](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)”。
+本文仅适用于存储库级别的安全公告。任何人都可以在 [github.com/advisories](https://github.com/advisories) 上的 {% data variables.product.prodname_advisory_database %} 中提供全局安全公告内容。对全局公告的编辑不会改变或影响公告在存储库中的显示方式。有关详细信息，请参阅“[在 {% data variables.product.prodname_advisory_database %} 中编辑安全公告](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)”。
 
 ## 权限概述
 

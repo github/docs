@@ -28,7 +28,7 @@ ms.locfileid: '147877165'
 
 ## 添加协作者到安全通告
 
-协作者对安全通告具有写入权限。 有关详细信息，请参阅[存储库安全通告的权限级别](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)。
+协作者对安全通告具有写入权限。有关详细信息，请参阅[存储库安全通告的权限级别](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)。
 
 {% note %}
 

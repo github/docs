@@ -31,27 +31,27 @@ ms.locfileid: '145099737'
 
 ## 先决条件
 
-在发布安全通告或申请 CVE 标识号之前，必须创建安全通告草稿，并提供受安全漏洞影响的项目版本的相关信息。 有关详细信息，请参阅“[创建存储库安全公告](/code-security/repository-security-advisories/creating-a-repository-security-advisory)”。
+在发布安全通告或申请 CVE 标识号之前，必须创建安全通告草稿，并提供受安全漏洞影响的项目版本的相关信息。有关详细信息，请参阅“[创建存储库安全公告](/code-security/repository-security-advisories/creating-a-repository-security-advisory)”。
 
-如果您已创建安全通告，但尚未提供有关安全漏洞影响的项目版本的详细信息，则可以编辑安全通告。 有关详细信息，请参阅“[编辑存储库安全公告](/code-security/repository-security-advisories/editing-a-repository-security-advisory)”。
+如果您已创建安全通告，但尚未提供有关安全漏洞影响的项目版本的详细信息，则可以编辑安全通告。有关详细信息，请参阅“[编辑存储库安全公告](/code-security/repository-security-advisories/editing-a-repository-security-advisory)”。
 
 ## 关于发布安全通告
 
-发布安全通告时，会通知您的社区关于该安全通告解决的安全漏洞。 发布安全通告使您的社区能够更轻松地更新包依赖项和研究安全漏洞的影响。
+发布安全通告时，会通知您的社区关于该安全通告解决的安全漏洞。发布安全通告使您的社区能够更轻松地更新包依赖项和研究安全漏洞的影响。
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-在发布安全通告之前，您可以私下协作在临时私有复刻中修复漏洞。 有关详细信息，请参阅“[在临时专用分支中协作以解决存储库安全漏洞问题](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)”。
+在发布安全通告之前，您可以私下协作在临时私有复刻中修复漏洞。有关详细信息，请参阅“[在临时专用分支中协作以解决存储库安全漏洞问题](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)”。
 
 {% warning %}
 
-警告：只要可能，你都应该始终在发布安全公告之前向该公告添加修复版本。 否则，通告将在没有修复版本的情况下发布，并且 {% data variables.product.prodname_dependabot %} 将向您的用户提醒有关问题，而不需提供任何安全版本来更新。
+警告：只要可能，你都应该始终在发布安全公告之前向该公告添加修复版本。否则，通告将在没有修复版本的情况下发布，并且 {% data variables.product.prodname_dependabot %} 将向您的用户提醒有关问题，而不需提供任何安全版本来更新。
 
 我们建议您在以下不同情况下采取以下步骤：
 
 - 如果修复版本即将可用，请尽可能等到修复版本准备好后再发布。
 - 如果修复版本正在开发中，但尚不可用，请在通告中提及，等发布后再编辑通告。
-- 如果您不打算修复问题，请在通告中明确说明，以免用户联系您询问何时进行修复。 在这种情况下，列入用户可用于缓解这一问题的步骤会有帮助。
+- 如果您不打算修复问题，请在通告中明确说明，以免用户联系您询问何时进行修复。在这种情况下，列入用户可用于缓解这一问题的步骤会有帮助。
 
 {% endwarning %}
 
@@ -66,9 +66,9 @@ ms.locfileid: '145099737'
 
 {% endnote %}
 
-发布安全通告后，安全通告的 URL 将与发布安全通告之前保持相同。 对仓库具有读取权限的任何人都能看到安全通告。 安全通告的协作者可以继续查看安全通告中过去的对话，包括完整的评论流，除非有管理员权限的人从安全通告删除该协作者。 
+发布安全通告后，安全通告的 URL 将与发布安全通告之前保持相同。对仓库具有读取权限的任何人都能看到安全通告。安全通告的协作者可以继续查看安全通告中过去的对话，包括完整的评论流，除非有管理员权限的人从安全通告删除该协作者。 
 
-如果需要更新或更正已发布的安全通告中的信息，可以编辑安全通告。 有关详细信息，请参阅“[编辑存储库安全公告](/code-security/repository-security-advisories/editing-a-repository-security-advisory)”。
+如果需要更新或更正已发布的安全通告中的信息，可以编辑安全通告。有关详细信息，请参阅“[编辑存储库安全公告](/code-security/repository-security-advisories/editing-a-repository-security-advisory)”。
 
 ## 发布安全通告
 
