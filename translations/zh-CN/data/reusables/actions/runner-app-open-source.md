@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145065890"
 ---
-{% data variables.product.prodname_actions %} 运行器应用程序是开源的。 可以参与 [runner](https://github.com/actions/runner) 存储库并在其中提交问题。
+{% data variables.product.prodname_actions %} 运行器应用程序是开源的。可以参与 [runner](https://github.com/actions/runner) 存储库并在其中提交问题。

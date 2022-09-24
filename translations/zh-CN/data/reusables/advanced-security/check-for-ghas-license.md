@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145087219"
 ---
-可通过查看企业设置来识别企业是否具有 {% data variables.product.prodname_GH_advanced_security %} 许可证。 有关详细信息，请参阅“[为企业启用 GitHub 高级安全性](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise#checking-whether-your-license-includes-github-advanced-security)”。
+可通过查看企业设置来识别企业是否具有 {% data variables.product.prodname_GH_advanced_security %} 许可证。有关详细信息，请参阅“[为企业启用 GitHub 高级安全性](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise#checking-whether-your-license-includes-github-advanced-security)”。

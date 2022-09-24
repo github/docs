@@ -10,7 +10,7 @@ ms.locfileid: "145098515"
 
 {% note %}
 
-注意：{% data variables.product.product_location %} 上的 {% data variables.product.prodname_actions %} 对 {% data variables.product.prodname_dotcom_the_website %} 或 {% data variables.product.prodname_marketplace %} 上的操作具有有限的访问权限。 有关详细信息，请参阅“[管理对 {% data variables.product.prodname_dotcom_the_website %} 上操作的访问](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)”并联系 {% data variables.product.prodname_enterprise %} 站点管理员。
+注意：{% data variables.product.product_location %} 上的 {% data variables.product.prodname_actions %} 对 {% data variables.product.prodname_dotcom_the_website %} 或 {% data variables.product.prodname_marketplace %} 上的操作具有有限的访问权限。有关详细信息，请参阅“[管理对 {% data variables.product.prodname_dotcom_the_website %} 上操作的访问](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)”并联系 {% data variables.product.prodname_enterprise %} 站点管理员。
 
 {% endnote %}
 

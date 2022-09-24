@@ -8,6 +8,6 @@ ms.locfileid: "145084806"
 ---
 {% note %}
 
-**注意**：{% data variables.product.prodname_advanced_security %} 的初始工作流已合并到存储库的“操作”选项卡中的“安全”类别中。 这种新配置目前处于 beta 版本，可能会有变动。
+**注意**：{% data variables.product.prodname_advanced_security %} 的初始工作流已合并到存储库的“操作”选项卡中的“安全”类别中。这种新配置目前处于 beta 版本，可能会有变动。
 
 {% endnote %}

@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145098383"
 ---
-{% data variables.product.product_name %} 为 {% data variables.product.prodname_code_scanning %} 等安全功能提供起始工作流。 您可以使用这些建议的工作流程来构建 {% data variables.product.prodname_code_scanning %} 工作流程，而不是从头开始。
+{% data variables.product.product_name %} 为 {% data variables.product.prodname_code_scanning %} 等安全功能提供起始工作流。您可以使用这些建议的工作流程来构建 {% data variables.product.prodname_code_scanning %} 工作流程，而不是从头开始。

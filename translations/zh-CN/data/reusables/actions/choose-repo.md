@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: "147875996"
 ---
-选择要应用此项目管理工作流程的仓库。 您可以使用您有写入权限的现有仓库，或者创建一个新的仓库。 有关创建存储库的详细信息，请参阅“[新建存储库](/articles/creating-a-new-repository)”。
+选择要应用此项目管理工作流程的仓库。您可以使用您有写入权限的现有仓库，或者创建一个新的仓库。有关创建存储库的详细信息，请参阅“[新建存储库](/articles/creating-a-new-repository)”。

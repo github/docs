@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "146682507"
 ---
-如果为企业启用了 {% data variables.product.prodname_actions %}，则仅支持 HTTP 代理。 不支持 SOCKS5 和 HTTPS 代理。
+如果为企业启用了 {% data variables.product.prodname_actions %}，则仅支持 HTTP 代理。不支持 SOCKS5 和 HTTPS 代理。

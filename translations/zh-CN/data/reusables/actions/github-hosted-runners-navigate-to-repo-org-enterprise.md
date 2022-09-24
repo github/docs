@@ -13,7 +13,7 @@ ms.locfileid: "145098478"
 {% elsif ghec %}
 1. 导航到运行器设置：
    * 在组织或存储库中：导航到主页，然后单击 {% octicon "gear" aria-label="The Settings gear" %}“设置” 。
-   * 如果使用企业帐户：单击 {% data variables.product.prodname_dotcom_the_website %} 右上角的个人资料照片，然后单击“你的企业”，再单击企业，导航到企业账户 。
+   * 如果使用企业帐户：单击 {% data variables.product.prodname_dotcom_the_website %} 右上角的个人资料照片，然后单击“你的企业”，再单击企业，导航到企业账户。
 1. 导航到 {% data variables.product.prodname_actions %} 设置：
    * 在组织或存储库中：单击左侧边栏中的“操作”，然后单击“运行器”  。
-   * 如果使用企业帐户：在左侧边栏中，单击“{% octicon "law" aria-label="The law icon" %} 策略”，然后单击“操作”，再单击“运行器”选项卡   。{% endif %}
+   * 如果使用企业帐户：在左侧边栏中，单击“{% octicon "law" aria-label="The law icon" %} 策略”，然后单击“操作”，再单击“运行器”选项卡。{% endif %}

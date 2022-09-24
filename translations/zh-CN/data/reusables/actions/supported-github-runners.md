@@ -62,7 +62,7 @@ Ubuntu 18.04 <sup>[已弃用]</sup>
 <code>ubuntu-18.04</code>
 </td>
 <td>
-迁移到 <code>ubuntu-20.04</code> 或 <code>ubuntu-22.04</code>。 有关详细信息，请参阅<A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">此 GitHub 博客文章</A>。
+迁移到 <code>ubuntu-20.04</code> 或 <code>ubuntu-22.04</code>。有关详细信息，请参阅<A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">此 GitHub 博客文章</A>。
 </td>
 </tr>
 <tr>
@@ -92,7 +92,7 @@ macOS Catalina 10.15 <sup>[已弃用]</sup>
 <code>macos-10.15</code>
 </td>
 <td>
-迁移到 <code>macOS-11</code> 或 <code>macOS-12</code>。 有关详细信息，请参阅<A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">此 GitHub 博客文章</A>。
+迁移到 <code>macOS-11</code> 或 <code>macOS-12</code>。有关详细信息，请参阅<A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">此 GitHub 博客文章</A>。
 </td>
 </tr>
 </tbody>
@@ -106,6 +106,6 @@ macOS Catalina 10.15 <sup>[已弃用]</sup>
 
 {% warning %}
 
-注意：Beta 版映像和已弃用的映像“按原样提供”、“包含全部错误”且“视可用性情况”提供，不包含在服务级别协议和保证之内<b></b>。 客户支持可能不会涵盖 Beta 版映像。
+注意：Beta 版映像和已弃用的映像“按原样提供”、“包含全部错误”且“视可用性情况”提供，不包含在服务级别协议和保证之内<b></b>。客户支持可能不会涵盖 Beta 版映像。
 
 {% endwarning %}

@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: "147876062"
 ---
-{% ifversion fpt or ghec %}如果将 OAuth 应用程序与 GitHub Actions 一起使用并且想要修改工作流文件，则 OAuth 标记必须具有 `workflow` 作用域，并且用户必须对包含工作流文件的存储库具有所有者或写入权限。 有关详细信息，请参阅“[了解 OAuth 应用的作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)。{% endif %}
+{% ifversion fpt or ghec %}如果将 OAuth 应用程序与 GitHub Actions 一起使用并且想要修改工作流文件，则 OAuth 标记必须具有 `workflow` 作用域，并且用户必须对包含工作流文件的存储库具有所有者或写入权限。有关详细信息，请参阅“[了解 OAuth 应用的作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)。{% endif %}

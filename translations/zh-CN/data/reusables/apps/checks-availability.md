@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098376"
 ---
-检查 API 的写入权限仅适用于 GitHub 应用程序。 OAuth 应用程序和经过身份验证的用户可以查看检查运行和检查套件，但无法创建它们。 如果没有构建 GitHub 应用，你可能会对[状态 API](/rest/reference/commits#commit-statuses) 感兴趣。
+检查 API 的写入权限仅适用于 GitHub 应用程序。OAuth 应用程序和经过身份验证的用户可以查看检查运行和检查套件，但无法创建它们。如果没有构建 GitHub 应用，你可能会对[状态 API](/rest/reference/commits#commit-statuses) 感兴趣。

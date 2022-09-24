@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145099150"
 ---
-将工作流程文件提交到仓库的默认分支。 有关详细信息，请参阅“[新建文件](/github/managing-files-in-a-repository/creating-new-files)”。
+将工作流程文件提交到仓库的默认分支。有关详细信息，请参阅“[新建文件](/github/managing-files-in-a-repository/creating-new-files)”。

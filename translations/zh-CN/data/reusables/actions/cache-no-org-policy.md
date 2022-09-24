@@ -8,6 +8,6 @@ ms.locfileid: "145098548"
 ---
 {% note %}
 
-注意：与其他 {% data variables.product.prodname_actions %} 策略设置不同，没有用于设置 {% data variables.product.prodname_actions %} 缓存大小的组织级策略。 企业策略直接应用于存储库。
+注意：与其他 {% data variables.product.prodname_actions %} 策略设置不同，没有用于设置 {% data variables.product.prodname_actions %} 缓存大小的组织级策略。企业策略直接应用于存储库。
 
 {% endnote %}

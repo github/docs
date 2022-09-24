@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145098535"
 ---
-如果配置了部署环境，请将 `environment` 的值更改为环境的名称。 如果未配置环境 {% ifversion fpt or ghec %}，或者如果工作流位于专用存储库中并且你未使用 {% data variables.product.prodname_ghe_cloud %}{% endif %}，请删除 `environment` 密钥。
+如果配置了部署环境，请将 `environment` 的值更改为环境的名称。如果未配置环境 {% ifversion fpt or ghec %}，或者如果工作流位于专用存储库中并且你未使用 {% data variables.product.prodname_ghe_cloud %}{% endif %}，请删除 `environment` 密钥。

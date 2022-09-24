@@ -8,6 +8,6 @@ ms.locfileid: "147884993"
 ---
 {% ifversion ghec %} {% note %}
 
-注意：导出 Git 事件时，通过 Web 浏览器或 REST 或 GraphQL API 启动的事件不包括在内。 例如，当用户在 Web 浏览器中合并拉取请求时，更改会推送到基础分支，但导出中不包含该推送的 Git 事件。 
+注意：导出 Git 事件时，通过 Web 浏览器或 REST 或 GraphQL API 启动的事件不包括在内。例如，当用户在 Web 浏览器中合并拉取请求时，更改会推送到基础分支，但导出中不包含该推送的 Git 事件。 
 
 {% endnote %} {% endif %}

@@ -6,14 +6,14 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147529334"
 ---
-可以指定多个变量来创建多维矩阵。 将针对变量的每个可能组合运行作业。
+可以指定多个变量来创建多维矩阵。将针对变量的每个可能组合运行作业。
 
 例如，以下工作流指定两个变量：
 
 - `os` 变量中指定的两个操作系统
 - `version` 变量中指定的三个 Node.js 版本
 
-工作流将运行六个作业，其中针对每个 `os` 和 `version` 变量组合提供一个作业。 每个作业都会将 `runs-on` 值设置为当前的 `os` 值，并将当前的 `version` 值传递给 `actions/setup-node` 操作。
+工作流将运行六个作业，其中针对每个 `os` 和 `version` 变量组合提供一个作业。每个作业都会将 `runs-on` 值设置为当前的 `os` 值，并将当前的 `version` 值传递给 `actions/setup-node` 操作。
 
 ```yaml
 jobs:

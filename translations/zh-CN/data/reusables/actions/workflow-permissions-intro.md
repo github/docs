@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145098403"
 ---
-可以设置授予 `GITHUB_TOKEN` 的默认权限。 有关 `GITHUB_TOKEN` 的详细信息，请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。 你可以选择一组有限的权限作为默认项或应用权限设置。
+可以设置授予 `GITHUB_TOKEN` 的默认权限。有关 `GITHUB_TOKEN` 的详细信息，请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。你可以选择一组有限的权限作为默认项或应用权限设置。

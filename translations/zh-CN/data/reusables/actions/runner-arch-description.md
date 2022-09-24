@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145084860"
 ---
-执行作业的运行器的体系结构。 可能的值为 `X86`、`X64`、`ARM` 或 `ARM64`。
+执行作业的运行器的体系结构。可能的值为 `X86`、`X64`、`ARM` 或 `ARM64`。

@@ -8,7 +8,7 @@ ms.locfileid: "145098328"
 ---
 ### 基于仓库搜索
 
-使用 `repo` 限定符将操作限制到特定存储库。 例如：
+使用 `repo` 限定符将操作限制到特定存储库。例如：
 
   * `repo:my-org/our-repo` 查找 `my-org` 组织中 `our-repo` 存储库发生的所有事件。
   * `repo:my-org/our-repo repo:my-org/another-repo` 查找 `my-org` 组织中 `our-repo` 和 `another-repo` 存储库发生的所有事件。

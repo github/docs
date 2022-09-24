@@ -8,7 +8,7 @@ ms.locfileid: "145098330"
 ---
 ### 基于操作搜索
 
-使用 `operation` 限定符将操作限制为特定类型的操作。 例如：
+使用 `operation` 限定符将操作限制为特定类型的操作。例如：
 
   * `operation:access` 查找访问过资源的所有事件。
   * `operation:authentication` 查找执行过身份验证事件的所有事件。

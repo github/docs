@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/12/2022
 ms.locfileid: "147888184"
 ---
-触发工作流的提交 SHA。 此提交 SHA 的值取决于触发工作流程的事件。 有关详细信息，请参阅“[触发工作流的事件](/actions/using-workflows/events-that-trigger-workflows)”。 例如，`ffac537e6cbbf934b08745a378932722df287a53`。
+触发工作流的提交 SHA。此提交 SHA 的值取决于触发工作流程的事件。有关详细信息，请参阅“[触发工作流的事件](/actions/using-workflows/events-that-trigger-workflows)”。例如，`ffac537e6cbbf934b08745a378932722df287a53`。

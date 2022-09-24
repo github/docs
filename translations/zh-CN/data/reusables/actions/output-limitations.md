@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145186091"
 ---
-输出是 Unicode 字符串，最大为 1 MB。 工作流运行中所有输出的总和最大为 50 MB。
+输出是 Unicode 字符串，最大为 1 MB。工作流运行中所有输出的总和最大为 50 MB。

@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147064840"
 ---
-{% data variables.product.prodname_actions %} 缓存仅适用于托管在 {% data variables.product.prodname_dotcom_the_website %} 或 {% data variables.product.prodname_ghe_server %} 3.5 及更高版本上的存储库。 有关详细信息，请参阅“[缓存依赖项以加快工作流]({% ifversion actions-caching %}{% else %}/free-pro-team@latest{% endif %}/actions/guides/caching-dependencies-to-speed-up-workflows)”。
+{% data variables.product.prodname_actions %} 缓存仅适用于托管在 {% data variables.product.prodname_dotcom_the_website %} 或 {% data variables.product.prodname_ghe_server %} 3.5 及更高版本上的存储库。有关详细信息，请参阅“[缓存依赖项以加快工作流]({% ifversion actions-caching %}{% else %}/free-pro-team@latest{% endif %}/actions/guides/caching-dependencies-to-speed-up-workflows)”。

@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147521528"
 ---
-使用 `jobs.<job_id>.runs-on` 定义要运行作业的计算机类型。 {% ifversion fpt or ghec %}计算机可以是 {% data variables.product.prodname_dotcom %} 托管的运行器，也可以是自托管运行器。{% endif %}可以将 `runs-on` 作为单个字符串或字符串数组提供。 如果指定字符串数组，则工作流将在自托管运行器上运行，其标签与所有指定的 `runs-on` 值匹配（如果可用）。 如果要在多台计算机上运行工作流，请使用 [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)。
+使用 `jobs.<job_id>.runs-on` 定义要运行作业的计算机类型。 {% ifversion fpt or ghec %}计算机可以是 {% data variables.product.prodname_dotcom %} 托管的运行器，也可以是自托管运行器。{% endif %}可以将 `runs-on` 作为单个字符串或字符串数组提供。如果指定字符串数组，则工作流将在自托管运行器上运行，其标签与所有指定的 `runs-on` 值匹配（如果可用）。如果要在多台计算机上运行工作流，请使用 [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)。
 
 
 {% ifversion fpt or ghec or ghes %} {% data reusables.actions.enterprise-github-hosted-runners %}

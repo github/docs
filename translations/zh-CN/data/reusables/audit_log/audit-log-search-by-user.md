@@ -8,7 +8,7 @@ ms.locfileid: "145098327"
 ---
 ### 基于用户搜索
 
-`actor` 限定符可将事件范围限于执行操作的人员。 例如：
+`actor` 限定符可将事件范围限于执行操作的人员。例如：
 
   * `actor:octocat` 查找 `octocat` 执行的所有事件。
   * `actor:octocat actor:hubot` 查找 `octocat` 和 `hubot` 执行的所有事件。

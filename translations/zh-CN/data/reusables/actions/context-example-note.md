@@ -8,6 +8,6 @@ ms.locfileid: "145099140"
 ---
 {% note %}
 
-注意：此上下文只是一个示例。 上下文的内容取决于正在运行的工作流。 {% data reusables.actions.context-contents %}
+注意：此上下文只是一个示例。上下文的内容取决于正在运行的工作流。 {% data reusables.actions.context-contents %}
 
 {% endnote %}

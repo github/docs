@@ -7,7 +7,7 @@ ms.lasthandoff: 09/11/2022
 ms.locfileid: "145087259"
 ---
 {%- ifversion ghes %}
-- 必须为 {% data variables.product.product_name %} 启用 {% data variables.product.prodname_actions %}。 站点管理员可以为实例启用和配置 {% data variables.product.prodname_actions %}。 有关更多信息，请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 入门](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)”。
+- 必须为 {% data variables.product.product_name %} 启用 {% data variables.product.prodname_actions %}。站点管理员可以为实例启用和配置 {% data variables.product.prodname_actions %}。有关更多信息，请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 入门](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)”。
 {%- endif %}
 
 - 必须有权访问将在环境中用作自承载运行器的计算机。

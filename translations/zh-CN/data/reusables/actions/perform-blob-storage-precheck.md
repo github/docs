@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065921"
 ---
-1. 运行 `ghe-actions-precheck` 命令以测试 Blob 存储配置。 有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-precheck)”。
+1. 运行 `ghe-actions-precheck` 命令以测试 Blob 存储配置。有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-precheck)”。

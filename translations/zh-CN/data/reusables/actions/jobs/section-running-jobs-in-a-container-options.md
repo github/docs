@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065931"
 ---
-使用 `jobs.<job_id>.container.options` 配置其他 Docker 容器资源选项。 有关选项列表，请参阅“[`docker create` 选项](https://docs.docker.com/engine/reference/commandline/create/#options)”。
+使用 `jobs.<job_id>.container.options` 配置其他 Docker 容器资源选项。有关选项列表，请参阅“[`docker create` 选项](https://docs.docker.com/engine/reference/commandline/create/#options)”。
 
 {% warning %}
 

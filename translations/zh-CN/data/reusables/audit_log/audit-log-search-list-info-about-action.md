@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "146180781"
 ---
-每个审核日志条目的名称由 `action` 对象或类别限定符组成，后跟操作类型。 例如，`repo.create` 条目是指对 `repo` 类别的 `create` 操作。
+每个审核日志条目的名称由 `action` 对象或类别限定符组成，后跟操作类型。例如，`repo.create` 条目是指对 `repo` 类别的 `create` 操作。
 
 每个审核日志条目都显示有关事件的适用信息，例如：
 

@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145098614"
 ---
-工作流程触发器是导致工作流程运行的事件。 这些事件可以是：
+工作流程触发器是导致工作流程运行的事件。这些事件可以是：
 
 - 工作流程存储库中发生的事件
 - 在 {% data variables.product.product_name %} 之外发生并在 {% data variables.product.product_name %} 上触发 `repository_dispatch` 事件的事件

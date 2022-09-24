@@ -8,6 +8,6 @@ ms.locfileid: "145098510"
 ---
 {% warning %}
 
-**警告：** 唯一支持的 S3 存储提供商是 Amazon S3 和适用于 NAS 的 MinIO 网关。 不支持其他 S3 API 兼容的存储提供商。 有关支持的存储提供商的详细信息，请参阅“[适用于 GitHub Enterprise 服务器的 GitHub Actions 入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)”。
+**警告：** 唯一支持的 S3 存储提供商是 Amazon S3 和适用于 NAS 的 MinIO 网关。不支持其他 S3 API 兼容的存储提供商。有关支持的存储提供商的详细信息，请参阅“[适用于 GitHub Enterprise 服务器的 GitHub Actions 入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)”。
 
 {% endwarning %}

@@ -6,6 +6,6 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145084903"
 ---
-使用 `jobs.<job_id>.defaults` 创建将应用于作业中所有步骤的默认设置的 `map`。 您也可以设置整个工作流程的默认设置。 有关详细信息，请参阅 [`defaults`](/actions/using-workflows/workflow-syntax-for-github-actions#defaults)。
+使用 `jobs.<job_id>.defaults` 创建将应用于作业中所有步骤的默认设置的 `map`。您也可以设置整个工作流程的默认设置。有关详细信息，请参阅 [`defaults`](/actions/using-workflows/workflow-syntax-for-github-actions#defaults)。
 
 {% data reusables.actions.defaults-override %}

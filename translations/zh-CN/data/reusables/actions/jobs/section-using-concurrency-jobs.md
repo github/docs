@@ -12,8 +12,8 @@ ms.locfileid: "147888000"
 
 {% endnote %}
 
-可以使用 `jobs.<job_id>.concurrency` 确保只有使用相同并发组的单一作业或工作流才会同时运行。 并发组可以是任何字符串或表达式。 表达式可以使用除 `secrets` 上下文以外的任何上下文。 有关表达式的更多信息，请参阅“[表达式](/actions/learn-github-actions/expressions)”。
+可以使用 `jobs.<job_id>.concurrency` 确保只有使用相同并发组的单一作业或工作流才会同时运行。并发组可以是任何字符串或表达式。表达式可以使用除 `secrets` 上下文以外的任何上下文。有关表达式的更多信息，请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
-还可以在工作流级别指定 `concurrency`。 有关详细信息，请参阅 [`concurrency`](/actions/using-workflows/workflow-syntax-for-github-actions#concurrency)。
+还可以在工作流级别指定 `concurrency`。有关详细信息，请参阅 [`concurrency`](/actions/using-workflows/workflow-syntax-for-github-actions#concurrency)。
 
 {% data reusables.actions.actions-group-concurrency %}

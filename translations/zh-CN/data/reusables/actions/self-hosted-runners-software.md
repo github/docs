@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145065846"
 ---
-必须在自托管运行程序上安装所需的软件。 有关自托管运行程序的详细信息，请参阅“[托管自己的运行程序](/actions/hosting-your-own-runners)”。
+必须在自托管运行程序上安装所需的软件。有关自托管运行程序的详细信息，请参阅“[托管自己的运行程序](/actions/hosting-your-own-runners)”。

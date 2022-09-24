@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145098349"
 ---
-不可猜测的随机字符串。 它用于防止跨站请求伪造攻击。
+不可猜测的随机字符串。它用于防止跨站请求伪造攻击。
