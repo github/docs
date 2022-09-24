@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145164751"
 ---
-用户复刻仓库。 有关详细信息，请参阅“[复刻](/rest/reference/repos#forks)”REST API。
+用户复刻仓库。有关详细信息，请参阅“[复刻](/rest/reference/repos#forks)”REST API。

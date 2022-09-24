@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145067078"
 ---
-当 Git 提交的状态发生更改时。 有关详细信息，请参阅“[状态](/rest/reference/commits#commit-statuses)”REST API。
+当 Git 提交的状态发生更改时。有关详细信息，请参阅“[状态](/rest/reference/commits#commit-statuses)”REST API。

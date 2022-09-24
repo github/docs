@@ -8,5 +8,5 @@ ms.locfileid: "145067110"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | 执行的操作内容. 可以是 `created`、`resolved` 或 `reopened`。
+`action` |`string` | 执行的操作内容。可以是 `created`、`resolved` 或 `reopened`。
 `alert` |`object` | 事件中涉及的密码扫描警报。

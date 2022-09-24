@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065663"
 ---
-`installation` | `object` | {% data variables.product.prodname_github_app %} 安装。 当为 {% data variables.product.prodname_github_app %} 配置事件并将其发送到时，Webhook 有效负载包含 `installation` 属性。
+`installation` | `object` | {% data variables.product.prodname_github_app %} 安装。当为 {% data variables.product.prodname_github_app %} 配置事件并将其发送到时，Webhook 有效负载包含 `installation` 属性。

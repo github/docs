@@ -8,4 +8,4 @@ ms.locfileid: "147876011"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action`|`string` | 执行的操作内容. 目前只能是 `started`。
+`action`|`string` | 执行的操作内容。目前只能是 `started`。

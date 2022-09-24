@@ -9,4 +9,4 @@ ms.locfileid: "147881962"
 密钥 | 类型 | 说明
 ----|------|-------------
 `ref`|`string` | [`git ref`](/rest/reference/git#get-a-reference) 资源。
-`ref_type`|`string` | 在存储库中删除的 Git 引用对象的类型。 可以为 `branch` 或 `tag`。
+`ref_type`|`string` | 在存储库中删除的 Git 引用对象的类型。可以为 `branch` 或 `tag`。

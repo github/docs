@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: "147875980"
 ---
-`pusher_type`|`string`| 事件的推送器类型。 可以是 `user` 或部署密钥。
+`pusher_type`|`string`| 事件的推送器类型。可以是 `user` 或部署密钥。

@@ -8,4 +8,4 @@ ms.locfileid: "145067086"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | 执行的操作内容. 它可以是 `created`。
+`action` |`string` | 执行的操作内容。它可以是 `created`。

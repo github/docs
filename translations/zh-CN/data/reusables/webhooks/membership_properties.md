@@ -8,7 +8,7 @@ ms.locfileid: "145084794"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | 执行的操作内容. 可以是 `added` 或 `removed`。
-`scope`  |`string` | 成员的作用域。 目前只能是 `team`。
+`action` |`string` | 执行的操作内容。可以是 `added` 或 `removed`。
+`scope`  |`string` | 成员的作用域。目前只能是 `team`。
 `member` |`object` | 已添加或删除的[用户](/rest/reference/users)。
 `team`   |`object` | 成员身份的[团队](/rest/reference/teams)。

@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: "147875986"
 ---
-Git 分支或标签已删除。 有关详细信息，请参阅“[Git 数据库](/rest/reference/git#delete-a-reference)”REST API。
+Git 分支或标签已删除。有关详细信息，请参阅“[Git 数据库](/rest/reference/git#delete-a-reference)”REST API。

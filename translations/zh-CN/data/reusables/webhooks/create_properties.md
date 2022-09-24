@@ -9,6 +9,6 @@ ms.locfileid: "147066760"
 密钥 | 类型 | 说明
 ----|------|-------------
 `ref`|`string` | [`git ref`](/rest/reference/git#get-a-reference) 资源。
-`ref_type`|`string` | 在仓库中创建的 Git ref 对象的类型。 可以为 `branch` 或 `tag`。
+`ref_type`|`string` | 在仓库中创建的 Git ref 对象的类型。可以为 `branch` 或 `tag`。
 `master_branch`|`string` | 存储库默认分支的名称（通常为 `main`）。
 `description`|`string` | 仓库的当前描述。

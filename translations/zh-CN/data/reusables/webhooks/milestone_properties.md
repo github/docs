@@ -8,7 +8,7 @@ ms.locfileid: "145084793"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | 执行的操作内容. 可以是以下项之一：`created`、`closed`、`opened`（关闭的里程碑重新打开）、`edited` 或 `deleted`。
+`action` |`string` | 执行的操作内容。可以是以下项之一：`created`、`closed`、`opened`（关闭的里程碑重新打开）、`edited` 或 `deleted`。
 `milestone`  |`object` | 里程碑本身。
 `changes`|`object`| 对里程碑的更改（如果操作为 `edited`）。
 `changes[description][from]`|`string` | 先前版本的说明（如果操作为 `edited`）。

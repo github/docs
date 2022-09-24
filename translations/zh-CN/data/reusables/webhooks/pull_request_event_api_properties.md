@@ -8,4 +8,4 @@ ms.locfileid: "147876109"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action`|`string` | 执行的操作内容. 可以是 `opened`、`edited`、`closed`、`reopened`、`assigned`、`unassigned`、`review_requested`、`review_request_removed`、`labeled`、`unlabeled` 和 `synchronize` 其中之一。
+`action`|`string` | 执行的操作内容。可以是 `opened`、`edited`、`closed`、`reopened`、`assigned`、`unassigned`、`review_requested`、`review_request_removed`、`labeled`、`unlabeled` 和 `synchronize` 其中之一。

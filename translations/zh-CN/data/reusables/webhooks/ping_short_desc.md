@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/12/2022
 ms.locfileid: "145065637"
 ---
-当你创建新的 Webhook 时，我们将向你发送一个简单的 `ping` 事件，让你知道你已正确设置 Webhook。 此事件不会存储，因此无法通过[事件 API](/rest/reference/activity#ping-a-repository-webhook) 终结点进行检索。
+当你创建新的 Webhook 时，我们将向你发送一个简单的 `ping` 事件，让你知道你已正确设置 Webhook。此事件不会存储，因此无法通过[事件 API](/rest/reference/activity#ping-a-repository-webhook) 终结点进行检索。

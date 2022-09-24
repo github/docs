@@ -8,4 +8,4 @@ ms.locfileid: "145164698"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action`|`string` | 执行的操作内容. 可以是 `opened`、`edited`、`closed`、`reopened`、`assigned`、`unassigned`、`labeled` 或 `unlabeled` 之一。
+`action`|`string` | 执行的操作内容。可以是 `opened`、`edited`、`closed`、`reopened`、`assigned`、`unassigned`、`labeled` 或 `unlabeled` 之一。

@@ -8,4 +8,4 @@ ms.locfileid: "145067118"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`status` |`string` | 导入的最终状态。 这可以是 `success`、`cancelled` 或 `failure` 之一。
+`status` |`string` | 导入的最终状态。这可以是 `success`、`cancelled` 或 `failure` 之一。

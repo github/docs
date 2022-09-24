@@ -8,5 +8,5 @@ ms.locfileid: "145084347"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action`|`string` | 已执行的操作。 可以为 `created`。
+`action`|`string` | 已执行的操作。可以为 `created`。
 `comment`|`object` | [提交注释](/rest/reference/commits#get-a-commit-comment)资源。

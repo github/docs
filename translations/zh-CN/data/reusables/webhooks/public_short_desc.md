@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145084781"
 ---
-当私有仓库公开时。  毫无疑问：最好的 {% data variables.product.product_name %} 事件。 
+当私有仓库公开时。毫无疑问：最好的 {% data variables.product.product_name %} 事件。 

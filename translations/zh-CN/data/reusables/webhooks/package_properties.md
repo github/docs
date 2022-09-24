@@ -8,5 +8,5 @@ ms.locfileid: "145084790"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action`|`string` | 执行的操作内容. 可以是 `published` 或 `updated`。
+`action`|`string` | 执行的操作内容。可以是 `published` 或 `updated`。
 `package` |`object` | 关于包的信息。

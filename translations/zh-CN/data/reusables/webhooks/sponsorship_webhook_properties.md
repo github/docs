@@ -8,4 +8,4 @@ ms.locfileid: "145067082"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | 执行的操作内容. 可以是以下选项之一：`created`、`cancelled`、`edited`、`tier_changed`、`pending_cancellation` 或 `pending_tier_change`。 注意：`created` 操作仅在付款处理完成后触发。
+`action` |`string` | 执行的操作内容。可以是以下选项之一：`created`、`cancelled`、`edited`、`tier_changed`、`pending_cancellation` 或 `pending_tier_change`。注意：`created` 操作仅在付款处理完成后触发。

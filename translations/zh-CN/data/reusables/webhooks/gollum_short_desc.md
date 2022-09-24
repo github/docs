@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145084310"
 ---
-创建或更新 wiki 页面。 有关详细信息，请参阅“[关于 Wikis](/communities/documenting-your-project-with-wikis/about-wikis)”。
+创建或更新 wiki 页面。有关详细信息，请参阅“[关于 Wikis](/communities/documenting-your-project-with-wikis/about-wikis)”。

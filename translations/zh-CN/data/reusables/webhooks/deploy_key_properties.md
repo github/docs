@@ -8,5 +8,5 @@ ms.locfileid: "145084331"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | 已执行的操作。 可以为 `created` 或 `deleted`。
+`action` |`string` | 已执行的操作。可以为 `created` 或 `deleted`。
 `key` |`object` | [`deploy key`](/rest/reference/deployments#get-a-deploy-key) 资源。

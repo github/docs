@@ -8,4 +8,4 @@ ms.locfileid: "147876173"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action`|`string` | 在评论上执行的操作。 可以为 `created`。
+`action`|`string` | 在评论上执行的操作。可以为 `created`。

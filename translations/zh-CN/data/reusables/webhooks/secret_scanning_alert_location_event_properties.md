@@ -8,6 +8,6 @@ ms.locfileid: "145067106"
 ---
 密钥 | 类型 | 说明
 ----|------|-------------
-`action` |`string` | 执行的操作内容. 目前只能是 `created`。
+`action` |`string` | 执行的操作内容。目前只能是 `created`。
 `location` |`object` | 参与事件的位置。
 `alert` |`object` | 参与事件的 [`secret scanning alert`](/rest/reference/secret-scanning#get-a-secret-scanning-alert)。

@@ -11,6 +11,6 @@ ms.locfileid: "145084318"
 `pages`|`array` | 已更新的页面。
 `pages[][page_name]`|`string` | 页的名称。
 `pages[][title]`|`string` |  - 当前页标题。
-`pages[][action]`|`string` |  - 在该页上执行的操作。 可以是 `created` 或 `edited`。
+`pages[][action]`|`string` |  - 在该页上执行的操作。可以是 `created` 或 `edited`。
 `pages[][sha]`|`string` | 页面的最新提交 SHA。
 `pages[][html_url]`|`string` | 指向 HTML wiki 页面。
