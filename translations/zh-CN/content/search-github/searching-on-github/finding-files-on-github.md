@@ -1,6 +1,6 @@
 ---
 title: 在 GitHub 上查找文件
-intro: '您可以使用文件查找器在仓库中搜索文件。 若要在 {% data variables.product.product_name %} 上搜索多个存储库中的文件，请使用 [`filename` 代码搜索限定符](/search-github/searching-on-github/searching-code#search-by-filename)。'
+intro: '您可以使用文件查找器在仓库中搜索文件。若要在 {% data variables.product.product_name %} 上搜索多个存储库中的文件，请使用 [`filename` 代码搜索限定符](/search-github/searching-on-github/searching-code#search-by-filename)。'
 redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
@@ -23,8 +23,8 @@ ms.locfileid: '147880194'
 
 **提示：**
 
-- 默认情况下，文件查找器结果将排除某些目录，例如 `build`、`log`、`tmp` 和 `vendor`。 若要搜索这些目录中的文件，请使用 [`filename` 代码搜索限定符](/search-github/searching-on-github/searching-code#search-by-filename)。{% ifversion file-finder-exclusion-controls %}或者，可以[使用 `.gitattributes` 文件](#customizing-excluded-files)自定义默认排除的目录。{% endif %}
-- 按键盘上的 `t` 键也可以打开文件查找器。 有关详细信息，请参阅“[键盘快捷方式](/articles/keyboard-shortcuts)”。
+- 默认情况下，文件查找器结果将排除某些目录，例如 `build`、`log`、`tmp` 和 `vendor`。若要搜索这些目录中的文件，请使用 [`filename` 代码搜索限定符](/search-github/searching-on-github/searching-code#search-by-filename)。{% ifversion file-finder-exclusion-controls %}或者，可以[使用 `.gitattributes` 文件](#customizing-excluded-files)自定义默认排除的目录。{% endif %}
+- 按键盘上的 `t` 键也可以打开文件查找器。有关详细信息，请参阅“[键盘快捷方式](/articles/keyboard-shortcuts)”。
 
 {% endtip %}
 
@@ -35,7 +35,7 @@ ms.locfileid: '147880194'
 ![查找文件按钮](/assets/images/help/search/find-file-button.png)
 3. 在搜索字段中，键入要查找文件的名称。
 ![查找文件搜索字段](/assets/images/help/search/find-file-search-field.png)
-4. 在结果列表中 ，单击要查找的文件。
+4. 在结果列表中，单击要查找的文件。
 
 {% ifversion file-finder-exclusion-controls %}
 
@@ -63,7 +63,7 @@ ms.locfileid: '147880194'
 build/** linguist-generated=false
 ```
 
-请注意，此替代需要使用递归 glob 模式 (`**`)。 有关详细信息，请参阅 Git 文档中的“[模式格式](https://git-scm.com/docs/gitignore#_pattern_format)”。 不支持对默认排除目录中的子目录进行更复杂的替代。
+请注意，此替代需要使用递归 glob 模式 (`**`)。有关详细信息，请参阅 Git 文档中的“[模式格式](https://git-scm.com/docs/gitignore#_pattern_format)”。不支持对默认排除目录中的子目录进行更复杂的替代。
 
 {% endif %}
 

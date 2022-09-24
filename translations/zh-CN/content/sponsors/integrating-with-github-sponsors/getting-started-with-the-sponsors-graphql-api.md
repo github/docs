@@ -18,4 +18,4 @@ ms.locfileid: '147081070'
 ---
 若要开始使用 GraphQL API，请参阅 [GraphQL 简介](/graphql/guides/introduction-to-graphql)。
 
-可以在参考文档中找到有关 Sponsors GraphQL API 的详细信息。有关详细信息，请参阅 [GraphQL 参考](/graphql/reference)。 我们建议使用 GraphQL 浏览器来构建您的 GraphQL 调用。 有关详细信息，请参阅[使用资源管理器](/graphql/guides/using-the-explorer)。
+可以在参考文档中找到有关 Sponsors GraphQL API 的详细信息。有关详细信息，请参阅 [GraphQL 参考](/graphql/reference)。我们建议使用 GraphQL 浏览器来构建您的 GraphQL 调用。有关详细信息，请参阅[使用资源管理器](/graphql/guides/using-the-explorer)。

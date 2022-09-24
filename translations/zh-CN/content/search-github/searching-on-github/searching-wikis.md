@@ -19,13 +19,13 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099606'
 ---
-您可以在所有 {% data variables.product.product_name %} 内全局搜索 wiki，也可以在特定仓库或组织内搜索 wiki。 有关详细信息，请参阅“[关于搜索 {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 内全局搜索 wiki，也可以在特定仓库或组织内搜索 wiki。有关详细信息，请参阅“[关于搜索 {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 
 {% data reusables.search.syntax_tips %}
 
 ## 在用户或组织的仓库内搜索
 
-要从特定用户或组织拥有的所有存储库中查找 Wiki 页面，请使用 `user` 或 `org` 限定符。 要从特定存储库中查找 wiki 页面，请使用 `repo` 限定符。
+要从特定用户或组织拥有的所有存储库中查找 Wiki 页面，请使用 `user` 或 `org` 限定符。要从特定存储库中查找 wiki 页面，请使用 `repo` 限定符。
 
 | 限定符        | 示例
 | ------------- | -------------
@@ -35,7 +35,7 @@ ms.locfileid: '145099606'
 
 ## 在 wiki 页面标题或正文文本中搜索
 
-`in` 限定符将搜索限制为 wiki 页面标题或正文文本。 如果未使用该限定符，将同时搜索标题和正文文本。
+`in` 限定符将搜索限制为 wiki 页面标题或正文文本。如果未使用该限定符，将同时搜索标题和正文文本。
 
 | 限定符        | 示例
 | ------------- | -------------

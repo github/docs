@@ -17,13 +17,13 @@ ms.locfileid: '147410449'
 ---
 ## 关于搜索讨论
 
-您可以在所有 {% data variables.product.product_name %} 中全局搜索讨论，也可以在特定组织或仓库内搜索讨论。 有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 中搜索](/github/searching-for-information-on-github/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 中全局搜索讨论，也可以在特定组织或仓库内搜索讨论。有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 中搜索](/github/searching-for-information-on-github/about-searching-on-github)”。
 
 {% data reusables.search.syntax_tips %}
 
 ## 按标题、正文或评论搜索
 
-使用 `in` 限定符可将讨论搜索范围限制在标题、正文或评论中。 您还可以组合限定符来搜索标题、正文或注释的组合。 省略 `in` 限定符时，{% data variables.product.product_name %} 将搜索标题、正文和评论。
+使用 `in` 限定符可将讨论搜索范围限制在标题、正文或评论中。您还可以组合限定符来搜索标题、正文或注释的组合。省略 `in` 限定符时，{% data variables.product.product_name %} 将搜索标题、正文和评论。
 
 | 限定符 | 示例 |
 | :- | :- |
@@ -33,7 +33,7 @@ ms.locfileid: '147410449'
 
 ## 在用户或组织的仓库内搜索
 
-要在特定用户或组织拥有的所有存储库中搜索讨论，可使用 `user` 或 `org` 限定符。 要在特定存储库中搜索讨论，可使用 `repo` 限定符。
+要在特定用户或组织拥有的所有存储库中搜索讨论，可使用 `user` 或 `org` 限定符。要在特定存储库中搜索讨论，可使用 `repo` 限定符。
 
 | 限定符 | 示例 |
 | :- | :- |
@@ -43,7 +43,7 @@ ms.locfileid: '147410449'
 
 ## 按仓库可见性过滤
 
-可使用 `is` 限定符，按包含讨论的存储库的可见性进行筛选。 有关详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
+可使用 `is` 限定符，按包含讨论的存储库的可见性进行筛选。有关详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
 | 限定符  | 示例 | :- | :- |{% ifversion fpt or ghes or ghec %} | `is:public` | [is:public](https://github.com/search?q=is%3Apublic&type=Discussions) 匹配公共存储库中的讨论。{% endif %}{% ifversion ghec %} | `is:internal` | [is:internal](https://github.com/search?q=is%3Ainternal&type=Discussions) 匹配内部存储库中的讨论。{% endif %} | `is:private` | [is:private tiramisu](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) 匹配你可访问的专用存储库中含有“tiramisu”一词的讨论。  
 
@@ -66,7 +66,7 @@ ms.locfileid: '147410449'
 
 ## 按涉及讨论的用户搜索
 
-可使用 `involves` 限定符查找涉及特定用户的讨论。 该限定符返回由特定用户创建、提及该用户或包含该用户评论的讨论。 `involves` 限定符是单一用户 `author`、`mentions` 和 `commenter` 限定符之间的逻辑 OR。
+可使用 `involves` 限定符查找涉及特定用户的讨论。该限定符返回由特定用户创建、提及该用户或包含该用户评论的讨论。 `involves` 限定符是单一用户 `author`、`mentions` 和 `commenter` 限定符之间的逻辑 OR。
 
 | 限定符 | 示例 |
 | :- | :- |
@@ -75,7 +75,7 @@ ms.locfileid: '147410449'
 
 ## 按评论数量搜索
 
-可使用 `comments` 限定符以及大于、小于和范围限定符以按评论数量搜索。 有关详细信息，请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
+可使用 `comments` 限定符以及大于、小于和范围限定符以按评论数量搜索。有关详细信息，请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符 | 示例 |
 | :- | :- |
@@ -84,7 +84,7 @@ ms.locfileid: '147410449'
 
 ## 按讨论创建或上次更新时间搜索
 
-您可以基于创建时间或上次更新时间过滤讨论。 对于讨论创建，可使用 `created` 限定符；要了解讨论上次更新的时间，请使用 `updated` 限定符。
+您可以基于创建时间或上次更新时间过滤讨论。对于讨论创建，可使用 `created` 限定符；要了解讨论上次更新的时间，请使用 `updated` 限定符。
 
 两个限定符都使用日期作为参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 

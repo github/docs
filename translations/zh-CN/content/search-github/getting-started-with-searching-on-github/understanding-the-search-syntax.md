@@ -65,18 +65,18 @@ ms.locfileid: '145099624'
 
 查询  | 示例
 ------------- | -------------
-<code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[cats created:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** 匹配 2017 年 1 月 1 日凌晨 1 点 （UTC 时差为 `07:00`）和 2017 年 3 月 1 日下午 3 点 （UTC 时差为 `07:00`）之间创建的问题。
+<code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[cats created:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** 匹配 2017 年 1 月 1 日凌晨 1 点（UTC 时差为 `07:00`）和 2017 年 3 月 1 日下午 3 点（UTC 时差为 `07:00`）之间创建的问题。
 <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code>  | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** 匹配 2016 年 3 月 21 日下午 2:11 和 2016 年 4 月 7 日晚上 8:45 之间创建的问题。
 
 ## 排除特定结果
 
-可以使用 `NOT` 语法排除包含特定字词的结果。 `NOT` 运算符只能用于字符串关键字。 不适用于数字或日期。
+可以使用 `NOT` 语法排除包含特定字词的结果。 `NOT` 运算符只能用于字符串关键字。不适用于数字或日期。
 
 查询  | 示例
 ------------- | -------------
 `NOT`  | **[hello NOT world](https://github.com/search?q=hello+NOT+world&type=Repositories)** 与包含字词“hello”但不包含字词“world”的存储库匹配。
 
-缩小搜索结果范围的另一种途径是排除特定的子集。 可以为任何搜索限定符添加 `-` 前缀，以排除该限定符匹配的所有结果。
+缩小搜索结果范围的另一种途径是排除特定的子集。可以为任何搜索限定符添加 `-` 前缀，以排除该限定符匹配的所有结果。
 
 查询  | 示例
 ------------- | -------------
@@ -85,7 +85,7 @@ ms.locfileid: '145099624'
 
 ## 对带有空格的查询使用引号
 
-如果搜索含有空格的查询，您需要用引号将其括起来。 例如：
+如果搜索含有空格的查询，您需要用引号将其括起来。例如：
 
 * [cats NOT "hello world"](https://github.com/search?utf8=✓&q=cats+NOT+"hello+world"&type=Repositories) 匹配具有“cats”一词但没有“hello world”一词的存储库。
 * [build label:"bug fix"](https://github.com/search?utf8=%E2%9C%93&q=build+label%3A%22bug+fix%22&type=Issues) 匹配具有标签“bug fix”的包含“build”一词的问题。

@@ -25,9 +25,9 @@ ms.locfileid: '145149706'
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} 有关详细信息，请参阅“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
 
-加入 {% data variables.product.prodname_sponsors %} 之后，您可以为您参与的开源项目添加赞助按钮，以提高您的 {% data variables.product.prodname_sponsors %} 个人资料及其他资助平台的可见性。 有关详细信息，请参阅“[在存储库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”。
+加入 {% data variables.product.prodname_sponsors %} 之后，您可以为您参与的开源项目添加赞助按钮，以提高您的 {% data variables.product.prodname_sponsors %} 个人资料及其他资助平台的可见性。有关详细信息，请参阅“[在存储库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”。
 
-您可以为赞助设定目标。 有关详细信息，请参阅“[管理赞助目标](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-goal)”。
+您可以为赞助设定目标。有关详细信息，请参阅“[管理赞助目标](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-goal)”。
 
 {% data reusables.sponsors.github-contact-applicants %}
 
@@ -35,7 +35,7 @@ ms.locfileid: '145149706'
 
 {% data reusables.sponsors.tier-details %} 有关详细信息，请参阅“[为个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”、“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”和“[管理赞助层](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)”。
 
-最好设置一系列不同的赞助选项，包括每月和一次性等级，使任何人都能轻松地支持您的工作。 特别是，一次性付款使人们能够在不担心他们的财务是否会支持定期付款时间表的情况下奖励您的努力。
+最好设置一系列不同的赞助选项，包括每月和一次性等级，使任何人都能轻松地支持您的工作。特别是，一次性付款使人们能够在不担心他们的财务是否会支持定期付款时间表的情况下奖励您的努力。
 
 ## 赞助付款
 

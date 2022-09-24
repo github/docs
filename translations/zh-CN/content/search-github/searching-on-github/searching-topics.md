@@ -33,11 +33,11 @@ ms.locfileid: '145099607'
 
 如果要探索关于特定主题的存储库、查找要贡献内容的项目或了解哪些主题在 {% data variables.product.product_name %} 上最受欢迎，可以使用搜索限定符 `is:featured`、`is:curated`、`repositories:n` 和 `created:YYYY-MM-DD` 搜索主题。
 
-`is:featured` 搜索限定符可将搜索结果范围缩小到 {% data variables.product.product_name %} 上具有最多存储库的主题。 这些主题还在 https://github.com/topics/ 中提供。
+`is:featured` 搜索限定符可将搜索结果范围缩小到 {% data variables.product.product_name %} 上具有最多存储库的主题。这些主题还在 https://github.com/topics/ 中提供。
 
-`is:curated` 搜索限定符可将搜索结果范围缩小到社区成员已添加额外信息的主题。 有关详细信息，请参阅[探索存储库](https://github.com/github/explore)。
+`is:curated` 搜索限定符可将搜索结果范围缩小到社区成员已添加额外信息的主题。有关详细信息，请参阅[探索存储库](https://github.com/github/explore)。
 
-可以使用日期参数和 `created:` 根据创建时间筛选主题，也可以使用 `repositories:n` 根据与此主题关联的存储库数量筛选主题。 这两个限定符都可以使用[大于和小于范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)。
+可以使用日期参数和 `created:` 根据创建时间筛选主题，也可以使用 `repositories:n` 根据与此主题关联的存储库数量筛选主题。这两个限定符都可以使用[大于和小于范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)。
 
 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
@@ -54,7 +54,7 @@ ms.locfileid: '145099607'
 
 ## 按主题搜索仓库
 
-可以使用 `topic:` 限定符查找连接到特定主题的每个存储库。 有关详细信息，请参阅“[搜索存储库](/search-github/searching-on-github/searching-for-repositories/#search-by-topic)”。
+可以使用 `topic:` 限定符查找连接到特定主题的每个存储库。有关详细信息，请参阅“[搜索存储库](/search-github/searching-on-github/searching-for-repositories/#search-by-topic)”。
 
 ## 延伸阅读
 - [使用主题对存储库分类](/articles/classifying-your-repository-with-topics)

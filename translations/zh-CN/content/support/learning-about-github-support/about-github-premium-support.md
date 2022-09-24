@@ -61,7 +61,7 @@ ms.locfileid: '147052302'
   {% note %}
 
   **注意：**
-  - 企业所有人和帐单管理员自动拥有支持权利。 企业所有者可以向企业帐户拥有的组织成员添加支持权利。 有关详细信息，请参阅[管理企业的支持权利](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)。
+  - 企业所有人和帐单管理员自动拥有支持权利。企业所有者可以向企业帐户拥有的组织成员添加支持权利。有关详细信息，请参阅[管理企业的支持权利](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)。
   - 对于 {% data variables.product.premium_plus_support_plan %}，50% 的未使用管理服务时间滚动到下个月，在季度结束时到期。
 
   {% endnote %}
@@ -81,11 +81,11 @@ ms.locfileid: '147052302'
 
 ## 营业时间
 
-{% data variables.contact.premium_support %} 全天候提供。 如果您在 2018 年 9 月 17 日之前购买了 {% data variables.contact.premium_support %}，则节假日期间的支持有限。 有关 {% data variables.contact.premium_support %} 庆祝节假日的详细信息，请参阅“[关于 {% data variables.contact.github_support %}](/enterprise-server@latest/admin/enterprise-support/overview/about-github-enterprise-support)”中的节假日安排。
+{% data variables.contact.premium_support %} 全天候提供。如果您在 2018 年 9 月 17 日之前购买了 {% data variables.contact.premium_support %}，则节假日期间的支持有限。有关 {% data variables.contact.premium_support %} 庆祝节假日的详细信息，请参阅“[关于 {% data variables.contact.github_support %}](/enterprise-server@latest/admin/enterprise-support/overview/about-github-enterprise-support)”中的节假日安排。
 
 ## 服务等级协议响应时间
 
-对于您提交的事件单，我们提供全天候支持。 SLA 保证的初始响应时间取决于事件单的优先级。 响应时间从 {% data variables.contact.premium_support %} 确定事件单的优先级开始计算。 响应并不意味着问题已经得到解决。
+对于您提交的事件单，我们提供全天候支持。SLA 保证的初始响应时间取决于事件单的优先级。响应时间从 {% data variables.contact.premium_support %} 确定事件单的优先级开始计算。响应并不意味着问题已经得到解决。
 
 | 事件单优先级 | 初始响应时间 |
 | --- | ---|
@@ -121,23 +121,23 @@ ms.locfileid: '147052302'
 
 {% data variables.contact.premium_support %} 在提供解释、建议、使用说明、变通方法或向您推荐可解决问题的 {% data variables.product.prodname_ghe_server %} 版本后，可能认为事件单已解决。
 
-如果您使用自定义或不支持的插件、模块或自定义代码，{% data variables.contact.premium_support %} 可能要求您在尝试解决问题时删除不支持的插件、模块或代码。 如果在不受支持的插件、模块或自定义代码删除后问题得以解决，{% data variables.contact.premium_support %} 可能认为事件单已解决。
+如果您使用自定义或不支持的插件、模块或自定义代码，{% data variables.contact.premium_support %} 可能要求您在尝试解决问题时删除不支持的插件、模块或代码。如果在不受支持的插件、模块或自定义代码删除后问题得以解决，{% data variables.contact.premium_support %} 可能认为事件单已解决。
 
-如果事件单超出支持范围，或者多次联系您但未获回复，{% data variables.contact.premium_support %} 可能会关闭事件单。 如果 {% data variables.contact.premium_support %} 因为未获回复而关闭事件单，您可以请求 {% data variables.contact.premium_support %} 重新开启事件单。
+如果事件单超出支持范围，或者多次联系您但未获回复，{% data variables.contact.premium_support %} 可能会关闭事件单。如果 {% data variables.contact.premium_support %} 因为未获回复而关闭事件单，您可以请求 {% data variables.contact.premium_support %} 重新开启事件单。
 
 ## 支持事件单未响应时获取积分
 
-如果您在 {% data variables.product.company_short %} 财年的特定季度中，有超过四个事件单没有在保证的响应时间内收到初始响应，您将有资格获得积分。 为遵守 SLA，{% data variables.product.company_short %} 将以现金退还 20% 的季度 {% data variables.contact.premium_support %}费用。 为收到退款，您必须提交信用请求。
+如果您在 {% data variables.product.company_short %} 财年的特定季度中，有超过四个事件单没有在保证的响应时间内收到初始响应，您将有资格获得积分。为遵守 SLA，{% data variables.product.company_short %} 将以现金退还 20% 的季度 {% data variables.contact.premium_support %}费用。为收到退款，您必须提交信用请求。
 
-积分申请必须在 {% data variables.contact.premium_support %} 未在指定响应时间内响应事件单的季度结束后的 30 天内提出。 如果过了相应的最后期限，则不受理信用申请。 在相应的最后期限过后，即表示您已放弃为合格的信用要求退款。
+积分申请必须在 {% data variables.contact.premium_support %} 未在指定响应时间内响应事件单的季度结束后的 30 天内提出。如果过了相应的最后期限，则不受理信用申请。在相应的最后期限过后，即表示您已放弃为合格的信用要求退款。
 
-为收到退款，必须向 <supportcredits@github.com> 提交完成的信用申请。 要获得资格，信用申请必须：
+为收到退款，必须向 <supportcredits@github.com> 提交完成的信用申请。要获得资格，信用申请必须：
 - 从与在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户关联的电子邮件地址发送
 - 在四个合格信用发生的季度结束后 30 天内由 {% data variables.product.company_short %} 接收
 - 在主题行中包含“积分申请”
 
 以下信息必须包含在信用申请中：
-- 日期（日期必须基于 {% data variables.product.company_short %} 的财政年度的季度结束 [1 月 31 日、4 月 30 日、7 月 31 日或 10月 31 日] 后 30 天内。)
+- 日期（日期必须基于 {% data variables.product.company_short %} 的财政年度的季度结束 [1 月 31 日、4 月 30 日、7 月 31 日或 10 月 31 日] 后 30 天内。)
 - 客户联系（必须同时指定姓名和电子邮件地址。）
 - 客户地址
 - 合格信用（必须提供每个合格信用的日期和关联的工单编号。）{% ifversion fpt or ghec %}

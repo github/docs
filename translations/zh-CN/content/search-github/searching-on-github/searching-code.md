@@ -23,7 +23,7 @@ ms.locfileid: '145099620'
 ---
 {% data reusables.search.you-can-search-globally %} 有关详细信息，请参阅“[关于在 GitHub 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 
-您只能使用这些代码搜索限定符搜索代码。 搜索代码时，专用于仓库、用户或提交的搜索限定符将不起作用。
+您只能使用这些代码搜索限定符搜索代码。搜索代码时，专用于仓库、用户或提交的搜索限定符将不起作用。
 
 {% data reusables.search.syntax_tips %}
 
@@ -33,20 +33,20 @@ ms.locfileid: '145099620'
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- [分叉](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)中的代码仅当分叉有多于父级存储库的星时可搜索。 如果分叉的星少于父级存储库，则分叉没有针对代码搜索编制索引。 若要在搜索结果中包含星数多于其父级的分叉，需要将 `fork:true` 或 `fork:only` 添加到查询中。 有关详细信息，请参阅“[在分支中搜索](/search-github/searching-on-github/searching-in-forks)”。
+- [分叉](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)中的代码仅当分叉有多于父级存储库的星时可搜索。如果分叉的星少于父级存储库，则分叉没有针对代码搜索编制索引。若要在搜索结果中包含星数多于其父级的分叉，需要将 `fork:true` 或 `fork:only` 添加到查询中。有关详细信息，请参阅“[在分支中搜索](/search-github/searching-on-github/searching-in-forks)”。
 - 仅默认分支针对代码搜索编制了索引。{% ifversion fpt or ghec %}
 - 只有小于 384 KB 的文件可搜索。{% else %}* 只有小于 5 MB 的文件可搜索。
 - 只有每个文件的前 500 KB 可搜索。{% endif %}
-- 可搜索多达 4000 个专用 {% ifversion ghec or ghes or ghae %} 和内部{% endif %} 存储库。 这 4000 个存储库将是你有权访问的前 10000 个专用{% ifversion ghec or ghes or ghae %} 和内部{% endif %} 存储库中最近更新的存储库。
+- 可搜索多达 4000 个专用 {% ifversion ghec or ghes or ghae %} 和内部{% endif %} 存储库。这 4000 个存储库将是你有权访问的前 10000 个专用{% ifversion ghec or ghes or ghae %} 和内部{% endif %} 存储库中最近更新的存储库。
 - 只有文件少于 500,000 个的存储库可搜索。{% ifversion fpt or ghec %}
 - 只能搜索去年有活动或已在搜索结果中返回的仓库。{% endif %}
-- 除 [`filename`](#search-by-filename) 搜索外，在搜索源代码时，必须始终至少包含一个搜索词。 例如，搜索 [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) 是无效的，而搜索 [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) 是有效的。
+- 除 [`filename`](#search-by-filename) 搜索外，在搜索源代码时，必须始终至少包含一个搜索词。例如，搜索 [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) 是无效的，而搜索 [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) 是有效的。
 - 搜索结果最多可显示同一文件的两个分段，但文件内可能有更多结果。
-- 无法使用以下通配符作为搜索查询的一部分：<code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>。 搜索只会忽略这些符号。
+- 无法使用以下通配符作为搜索查询的一部分：<code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>。搜索只会忽略这些符号。
 
 ## 按文件内容或文件路径搜索
 
-通过使用 `in` 限定符，可以将搜索限制为源代码文件的内容和/或文件路径。 如果省略此限定符，则只搜索文件内容。
+通过使用 `in` 限定符，可以将搜索限制为源代码文件的内容和/或文件路径。如果省略此限定符，则只搜索文件内容。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -56,7 +56,7 @@ ms.locfileid: '145099620'
 
 ## 在用户或组织的仓库内搜索
 
-若要在特定用户或组织拥有的所有存储库中搜索代码，可使用 `user` 或 `org` 限定符。 要在特定存储库中搜索代码，可使用 `repo` 限定符。
+若要在特定用户或组织拥有的所有存储库中搜索代码，可使用 `user` 或 `org` 限定符。要在特定存储库中搜索代码，可使用 `repo` 限定符。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -66,7 +66,7 @@ ms.locfileid: '145099620'
 
 ## 按文件位置搜索
 
-可使用 `path` 限定符搜索存储库中特定位置显示的源代码。 使用 `path:/` 可搜索位于存储库根目录级别的文件。 或者，指定目录名称或目录路径以搜索位于该命令或其任何子目录中的文件。
+可使用 `path` 限定符搜索存储库中特定位置显示的源代码。使用 `path:/` 可搜索位于存储库根目录级别的文件。或者，指定目录名称或目录路径以搜索位于该命令或其任何子目录中的文件。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -76,7 +76,7 @@ ms.locfileid: '145099620'
 
 ## 按语言搜索
 
-您可以基于所编写的语言搜索代码。 `language` 限定符可以是语言名称或别名。 有关支持的语言及其名称和别名的完整列表，请参阅 [github/linguist 存储库](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)。
+您可以基于所编写的语言搜索代码。 `language` 限定符可以是语言名称或别名。有关支持的语言及其名称和别名的完整列表，请参阅 [github/linguist 存储库](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -94,13 +94,13 @@ ms.locfileid: '145099620'
 
 ## 按文件名搜索
 
-`filename` 限定符匹配具有特定文件名的代码文件。 您还可以使用文件查找器在仓库中查找文件。 有关详细信息，请参阅“[在 GitHub 上查找文件](/search-github/searching-on-github/finding-files-on-github)”。
+`filename` 限定符匹配具有特定文件名的代码文件。您还可以使用文件查找器在仓库中查找文件。有关详细信息，请参阅“[在 GitHub 上查找文件](/search-github/searching-on-github/finding-files-on-github)”。
 
 | 限定符  | 示例
 | ------------- | -------------
 | <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) 匹配名为“linguist”的文件。
 | | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) 匹配具有“commands”一词的 .vimrc 文件。
-| | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) 匹配 test 目录中名为 test_helper 的 Ruby 文件 。
+| | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) 匹配 test 目录中名为 test_helper 的 Ruby 文件。
 
 ## 按文件扩展名搜索
 

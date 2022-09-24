@@ -20,9 +20,9 @@ ms.locfileid: '145130135'
 ---
 ## 关于赞助升级
 
-您的赞助者可选择是否接收有关您工作更新的电子邮件。 有关详细信息，请参阅“[管理赞助](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)”。
+您的赞助者可选择是否接收有关您工作更新的电子邮件。有关详细信息，请参阅“[管理赞助](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)”。
 
-对于被赞助开发者帐户，更新将来自你个人帐户的主电子邮件地址。 如果已在个人帐户上启用了电子邮件地址隐私，则更新将改为来自 `noreply@github.com`。 对于赞助的组织，更新将来自组织的 `noreply@github.com` 电子邮件地址。 有关详细信息，请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。
+对于被赞助开发者帐户，更新将来自你个人帐户的主电子邮件地址。如果已在个人帐户上启用了电子邮件地址隐私，则更新将改为来自 `noreply@github.com`。对于赞助的组织，更新将来自组织的 `noreply@github.com` 电子邮件地址。有关详细信息，请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。
 
 ## 联系赞助者
 

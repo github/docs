@@ -51,7 +51,7 @@ ms.locfileid: '145099601'
 
 ## 搜索特定项目或贡献者
 
-在 https://github.com/sponsors/community 上，你可以按生态系统、最常用、最近更新等搜索。 你可以筛选个人帐户或你是其成员的组织的搜索结果。
+在 https://github.com/sponsors/community 上，你可以按生态系统、最常用、最近更新等搜索。你可以筛选个人帐户或你是其成员的组织的搜索结果。
 
 ## 后续步骤
 

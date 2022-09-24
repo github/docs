@@ -1,6 +1,6 @@
 ---
 title: 在复刻中搜索
-intro: '默认情况下，[分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)不会显示在搜索结果中。 如果复刻满足特定条件，您可以选择在仓库搜索以及在代码搜索中包括它们。'
+intro: '默认情况下，[分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)不会显示在搜索结果中。如果复刻满足特定条件，您可以选择在仓库搜索以及在代码搜索中包括它们。'
 redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
@@ -21,7 +21,7 @@ ms.locfileid: '147785788'
 ---
 若要在[存储库搜索](/search-github/searching-on-github/searching-for-repositories)结果中显示分支，请将 `fork:true` 或 `fork:only` 添加到查询。
 
-仅当分支的星级高于父存储库时，才会为[代码搜索](/search-github/searching-on-github/searching-code)编制索引。 您无法在比父项具有更少星号的复刻中搜索代码。 若要在代码搜索结果中显示星级高于父存储库的分支，请将 `fork:true` 或 `fork:only` 添加到查询。
+仅当分支的星级高于父存储库时，才会为[代码搜索](/search-github/searching-on-github/searching-code)编制索引。您无法在比父项具有更少星号的复刻中搜索代码。若要在代码搜索结果中显示星级高于父存储库的分支，请将 `fork:true` 或 `fork:only` 添加到查询。
 
 `fork:true` 限定符查找与搜索查询匹配的所有结果，包括分支。 `fork:only` 限定符仅查找与搜索查询匹配的分支。
 

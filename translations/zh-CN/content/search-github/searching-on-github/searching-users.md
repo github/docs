@@ -19,13 +19,13 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145130064'
 ---
-您可以在所有 {% data variables.product.product_name %} 内全局搜索用户。 有关详细信息，请参阅“[关于在 {% data variables.product.company_short %} 上进行搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 内全局搜索用户。有关详细信息，请参阅“[关于在 {% data variables.product.company_short %} 上进行搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 
 {% data reusables.search.syntax_tips %}
 
 ## 仅搜索用户或组织
 
-默认情况下，搜索用户将同时返回个人和组织。 不过，你可以使用 `type` 限定符将搜索结果限制为仅个人帐户或组织。
+默认情况下，搜索用户将同时返回个人和组织。不过，你可以使用 `type` 限定符将搜索结果限制为仅个人帐户或组织。
 
 | 限定符        | 示例
 | ------------- | -------------
@@ -36,7 +36,7 @@ ms.locfileid: '145130064'
 
 可以使用 `user` 或 `org` 限定符将搜索范围筛选为个人用户或组织帐户名称。
 
-通过 `in` 限定符，可以将搜索限制为用户名 (`login`)、全名、公共电子邮件或这些项的任意组合。 如果省略此限定符，则只搜索用户名和电子邮件地址。 出于隐私原因，您无法按电子邮件域名搜索。
+通过 `in` 限定符，可以将搜索限制为用户名 (`login`)、全名、公共电子邮件或这些项的任意组合。如果省略此限定符，则只搜索用户名和电子邮件地址。出于隐私原因，您无法按电子邮件域名搜索。
 
 | 限定符        | 示例
 | ------------- | -------------
@@ -44,7 +44,7 @@ ms.locfileid: '145130064'
 | `org:name` | [org:electron type:users](https://github.com/search?q=org%3Aelectron+type%3Ausers&type=Users) 匹配 Electron 组织的帐户名。
 | `in:login` | [kenya in:login](https://github.com/search?q=kenya+in%3Alogin&type=Users) 匹配其用户名中含有“kenya”一词的用户。
 | `in:name` | [bolton in:name](https://github.com/search?q=bolton+in%3Afullname&type=Users) 匹配其真实姓名中含有“bolton”一词的用户。
-| `fullname:firstname lastname` | [fullname:nat friedman](https://github.com/search?q=fullname%3Anat+friedman&type=Users) 匹配全名为“Nat Friedman”的用户。 注：此搜索限定符区分空格。
+| `fullname:firstname lastname` | [fullname:nat friedman](https://github.com/search?q=fullname%3Anat+friedman&type=Users) 匹配全名为“Nat Friedman”的用户。注：此搜索限定符区分空格。
 | `in:email` | [data in:email](https://github.com/search?q=data+in%3Aemail&type=Users&utf8=%E2%9C%93) 匹配其电子邮件中含有“data”一词的用户。
 
 ## 按用户拥有的仓库数量搜索
@@ -75,7 +75,7 @@ ms.locfileid: '145130064'
 
 ## 按个人帐户创建时间搜索
 
-可以使用 `created` 限定符根据用户加入 {% data variables.product.product_name %} 的时间来筛选用户。 这将采用日期作为其参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
+可以使用 `created` 限定符根据用户加入 {% data variables.product.product_name %} 的时间来筛选用户。这将采用日期作为其参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
@@ -99,7 +99,7 @@ ms.locfileid: '145130064'
 
 ## 基于赞助能力的搜索
 
-可以使用 `is:sponsorable` 限定符搜索可以在 {% data variables.product.prodname_sponsors %} 上获得赞助的用户和组织。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
+可以使用 `is:sponsorable` 限定符搜索可以在 {% data variables.product.prodname_sponsors %} 上获得赞助的用户和组织。有关详细信息，请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
 
 | 限定符  | 示例
 | ------------- | -------------

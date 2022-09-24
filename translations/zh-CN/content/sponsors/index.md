@@ -1,7 +1,7 @@
 ---
 title: GitHub Sponsors 文档
 shortTitle: GitHub Sponsors
-intro: '投资于您依赖的开源项目，支持数字基础设施，并通过赞助开放源码贡献者及其项目实现开放源码事业。 创建 {% data variables.product.prodname_sponsors %} 个人资料并为您的开源工作获得补偿。'
+intro: '投资于您依赖的开源项目，支持数字基础设施，并通过赞助开放源码贡献者及其项目实现开放源码事业。创建 {% data variables.product.prodname_sponsors %} 个人资料并为您的开源工作获得补偿。'
 introLinks:
   quickstart: /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
 redirect_from:

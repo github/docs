@@ -13,7 +13,7 @@ redirect_from:
 
 成为社区的一部分包括认识到您的行为如何影响他人，并与他人及其依赖的平台进行有意义和富有成效的互动。 
 
-我们不允许严重或持续破坏其他用户之体验的行为。 其中包括： 
+我们不允许严重或持续破坏其他用户之体验的行为。其中包括： 
 
 - 发布偏离主题的评论 
 - 提交空的或无意义的议题或拉取请求 
@@ -24,4 +24,4 @@ redirect_from:
 
 虽然我们鼓励维护人员根据个别情况调整自己的项目，但 GitHub 员工可能会对从事此类行为的帐户采取进一步的限制措施。
 
-请注意，上述行为也可能违反我们[可接受使用政策](/github/site-policy/github-acceptable-use-policies)中的其他限制。 例如，根据活动的性质和严重程度，它可能会上升到[欺凌和骚扰](/github/site-policy/github-bullying-and-harassment)的程度。
+请注意，上述行为也可能违反我们[可接受使用政策](/github/site-policy/github-acceptable-use-policies)中的其他限制。例如，根据活动的性质和严重程度，它可能会上升到[欺凌和骚扰](/github/site-policy/github-bullying-and-harassment)的程度。

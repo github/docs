@@ -19,7 +19,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099618'
 ---
-您可以在所有 {% data variables.product.product_name %} 内全局搜索提交，也可以在特定仓库或组织内搜索提交。 有关详细信息，请参阅“[关于搜索 {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 内全局搜索提交，也可以在特定仓库或组织内搜索提交。有关详细信息，请参阅“[关于搜索 {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 
 搜索提交时，仅搜索存储库的[默认分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)。
 
@@ -27,7 +27,7 @@ ms.locfileid: '145099618'
 
 ## 在提交消息内搜索
 
-您可以在消息中查找包含特定字词的提交。 例如，[修复拼写错误](https://github.com/search?q=fix+typo&type=Commits)匹配包含单词“fix”和“typo”的提交。
+您可以在消息中查找包含特定字词的提交。例如，[修复拼写错误](https://github.com/search?q=fix+typo&type=Commits)匹配包含单词“fix”和“typo”的提交。
 
 ## 按作者或提交者搜索
 
@@ -98,7 +98,7 @@ ms.locfileid: '145099618'
 
 ## 在用户或组织的仓库内搜索
 
-要从特定用户或组织拥有的所有存储库中搜索提交，请使用 `user` 或 `org` 限定符。 若要在特定存储库中搜索提交，请使用 `repo` 限定符。
+要从特定用户或组织拥有的所有存储库中搜索提交，请使用 `user` 或 `org` 限定符。若要在特定存储库中搜索提交，请使用 `repo` 限定符。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -108,7 +108,7 @@ ms.locfileid: '145099618'
 
 ## 按仓库可见性过滤
 
-`is` 限定符匹配具有指定可见性的存储库中的提交。 有关详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
+`is` 限定符匹配具有指定可见性的存储库中的提交。有关详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
 | 限定符  | 示例
 | ------------- | ------------- |

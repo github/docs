@@ -20,7 +20,7 @@ ms.locfileid: '145130233'
 ---
 {% data reusables.sponsors.beta-note-sponsors-for-companies %}
 
-公司可以使用发票方法参与 {% data variables.product.prodname_sponsors %} 计划。 如果您的公司与 {% data variables.product.company_short %} 存在发票计费关系，这可能特别方便。 按发票付款的公司可以访问 {% data variables.product.product_name %} 仪表板，该仪表板根据他们感兴趣的 {% data variables.product.prodname_dotcom_the_website %} 衡量公共项目中的开源贡献和活动。
+公司可以使用发票方法参与 {% data variables.product.prodname_sponsors %} 计划。如果您的公司与 {% data variables.product.company_short %} 存在发票计费关系，这可能特别方便。按发票付款的公司可以访问 {% data variables.product.product_name %} 仪表板，该仪表板根据他们感兴趣的 {% data variables.product.prodname_dotcom_the_website %} 衡量公共项目中的开源贡献和活动。
 
 可以联系销售代表或[联系我们](https://support.github.com/contact/org-sponsors-waitlist)来加入这项 beta 版本计划。
 

@@ -22,7 +22,7 @@ ms.locfileid: '146331910'
 ---
 ## 关于诊断文件和支持包
 
-{% data variables.contact.github_support %} 可能会要求以清理日志文件的形式提供其他数据。 可能需要提供三种类型的日志文件。
+{% data variables.contact.github_support %} 可能会要求以清理日志文件的形式提供其他数据。可能需要提供三种类型的日志文件。
 
 诊断文件包含有关 {% data variables.product.prodname_ghe_server %} 实例的设置和环境的信息，支持包包含过去两天的诊断和日志，而扩展支持包还包含诊断和日志，但仅限于过去七天。
 
@@ -78,7 +78,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 ## 创建和共享支持包
 
-您提交支持请求后，我们可能会要求您与我们团队共享支持包。 支持包是一个 gzip 压缩的 tar 存档，其中包含来自您的实例的诊断和重要日志，例如：
+您提交支持请求后，我们可能会要求您与我们团队共享支持包。支持包是一个 gzip 压缩的 tar 存档，其中包含来自您的实例的诊断和重要日志，例如：
 
 - 在对身份验证错误进行故障排查或者配置 LDAP、CAS 或 SAML 时，与身份验证相关的日志可能会十分有用
 - {% data variables.enterprise.management_console %} 日志
@@ -93,11 +93,11 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 有关详细信息，请参阅“[关于你企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)”。
 
-支持包包含过去两天的日志。 要获取过去七天的日志，您可以下载扩展支持包。 有关详细信息，请参阅“[创建和共享扩展支持包](#creating-and-sharing-extended-support-bundles)”。
+支持包包含过去两天的日志。要获取过去七天的日志，您可以下载扩展支持包。有关详细信息，请参阅“[创建和共享扩展支持包](#creating-and-sharing-extended-support-bundles)”。
 
 {% tip %}
 
-**提示：** 联系 {% data variables.contact.github_support %} 时，你将收到一封确认电子邮件，其中包含票证参考链接。 如果 {% data variables.contact.github_support %} 要求您上传支持包，则可以使用事件单参考链接来上传支持包。
+**提示：** 联系 {% data variables.contact.github_support %} 时，你将收到一封确认电子邮件，其中包含票证参考链接。如果 {% data variables.contact.github_support %} 要求您上传支持包，则可以使用事件单参考链接来上传支持包。
 
 {% endtip %}
 
@@ -148,9 +148,9 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 ## 创建和共享扩展支持包
 
-支持包包括过去两天的日志，而扩展支持包包括过去七天的日志。 如果 {% data variables.contact.github_support %} 调查的事件发生在两天之前，我们可能会要求您分享扩展支持包。 需要 SSH 权限才能下载扩展包 - 不能从 {% data variables.enterprise.management_console %} 下载扩展包。
+支持包包括过去两天的日志，而扩展支持包包括过去七天的日志。如果 {% data variables.contact.github_support %} 调查的事件发生在两天之前，我们可能会要求您分享扩展支持包。需要 SSH 权限才能下载扩展包 - 不能从 {% data variables.enterprise.management_console %} 下载扩展包。
 
-为避免体积变得太大，支持包只包含尚未轮换和压缩的日志。 关于 {% data variables.product.prodname_ghe_server %} 上的日志轮换，可针对不同的日志文件设置不同的频率（每日或每周），具体取决于我们期望的日志大小。
+为避免体积变得太大，支持包只包含尚未轮换和压缩的日志。关于 {% data variables.product.prodname_ghe_server %} 上的日志轮换，可针对不同的日志文件设置不同的频率（每日或每周），具体取决于我们期望的日志大小。
 
 ### 使用 SSH 创建扩展支持包
 

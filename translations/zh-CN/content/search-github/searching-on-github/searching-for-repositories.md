@@ -21,15 +21,15 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147527932'
 ---
-可以在所有 {% data variables.product.product_location %} 内全局搜索存储库，也可以在特定组织内搜索存储库。 有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 中搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
+可以在所有 {% data variables.product.product_location %} 内全局搜索存储库，也可以在特定组织内搜索存储库。有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 中搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 
-若要在搜索结果中包含分支，需要在查询中添加 `fork:true` 或 `fork:only`。 有关详细信息，请参阅“[在分支中搜索](/search-github/searching-on-github/searching-in-forks)”。
+若要在搜索结果中包含分支，需要在查询中添加 `fork:true` 或 `fork:only`。有关详细信息，请参阅“[在分支中搜索](/search-github/searching-on-github/searching-in-forks)”。
 
 {% data reusables.search.syntax_tips %}
 
 ## 按仓库名称、说明或自述文件内容搜索
 
-通过 `in` 限定符，可将搜索范围限制到存储库名称、存储库说明、存储库主题、自述文件内容或这些项的任意组合。 如果省略此限定符，则仅搜索存储库名称、说明和主题。
+通过 `in` 限定符，可将搜索范围限制到存储库名称、存储库说明、存储库主题、自述文件内容或这些项的任意组合。如果省略此限定符，则仅搜索存储库名称、说明和主题。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -41,9 +41,9 @@ ms.locfileid: '147527932'
 
 ## 基于仓库的内容搜索
 
-可以使用 `in:readme` 限定符，通过搜索存储库自述文件中的内容来查找存储库。 有关详细信息，请参阅“[关于自述文件](/github/creating-cloning-and-archiving-repositories/about-readmes)”。
+可以使用 `in:readme` 限定符，通过搜索存储库自述文件中的内容来查找存储库。有关详细信息，请参阅“[关于自述文件](/github/creating-cloning-and-archiving-repositories/about-readmes)”。
 
-除了使用 `in:readme`，还可以通过搜索存储库中的特定内容来查找存储库。 要搜索仓库内的特定文件或内容，您可以使用查找器或代码特定的搜索限定符。 有关详细信息，请参阅“[在 {% data variables.product.prodname_dotcom %} 上查找文件](/search-github/searching-on-github/finding-files-on-github)”和“[搜索代码](/search-github/searching-on-github/searching-code)”。
+除了使用 `in:readme`，还可以通过搜索存储库中的特定内容来查找存储库。要搜索仓库内的特定文件或内容，您可以使用查找器或代码特定的搜索限定符。有关详细信息，请参阅“[在 {% data variables.product.prodname_dotcom %} 上查找文件](/search-github/searching-on-github/finding-files-on-github)”和“[搜索代码](/search-github/searching-on-github/searching-code)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -60,7 +60,7 @@ ms.locfileid: '147527932'
 
 ## 按仓库大小搜索
 
-`size` 限定符使用大于、小于和范围限定符查找与特定大小（以千字节为单位）匹配的存储库。 有关详细信息，请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
+`size` 限定符使用大于、小于和范围限定符查找与特定大小（以千字节为单位）匹配的存储库。有关详细信息，请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -71,7 +71,7 @@ ms.locfileid: '147527932'
 
 ## 按关注者数量搜索
 
-可以使用 `followers` 限定符以及大于、小于和范围限定符，根据关注存储库的用户数量筛选存储库。 有关详细信息，请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
+可以使用 `followers` 限定符以及大于、小于和范围限定符，根据关注存储库的用户数量筛选存储库。有关详细信息，请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符        | 示例
 | ------------- | -------------
@@ -80,7 +80,7 @@ ms.locfileid: '147527932'
 
 ## 按复刻数量搜索
 
-`forks` 限定符使用大于、小于和范围限定符指定存储库应具有的分支数量。 有关详细信息，请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
+`forks` 限定符使用大于、小于和范围限定符指定存储库应具有的分支数量。有关详细信息，请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -91,7 +91,7 @@ ms.locfileid: '147527932'
 
 ## 按星号数量搜索
 
-您可以使用大于、小于和范围限定符，基于仓库的星标数量来搜索仓库。 有关详细信息，请参阅“[使用星标保存存储库](/github/getting-started-with-github/saving-repositories-with-stars)”和“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
+您可以使用大于、小于和范围限定符，基于仓库的星标数量来搜索仓库。有关详细信息，请参阅“[使用星标保存存储库](/github/getting-started-with-github/saving-repositories-with-stars)”和“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -101,7 +101,7 @@ ms.locfileid: '147527932'
 
 ## 按仓库创建或上次更新时间搜索
 
-您可以基于创建时间或上次更新时间过滤仓库。 对于存储库创建，可以使用 `created` 限定符；要了解存储库的最后更新时间，需要使用 `pushed` 限定符。 `pushed` 限定符将返回存储库列表，按存储库中任意分支上最近进行的提交排序。
+您可以基于创建时间或上次更新时间过滤仓库。对于存储库创建，可以使用 `created` 限定符；要了解存储库的最后更新时间，需要使用 `pushed` 限定符。 `pushed` 限定符将返回存储库列表，按存储库中任意分支上最近进行的提交排序。
 
 两者均采用日期作为参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
@@ -123,7 +123,7 @@ ms.locfileid: '147527932'
 
 ## 按主题搜索
 
-您可以找到按特定主题分类的所有仓库。 有关详细信息，请参阅“[按主题对存储库进行分类](/github/administering-a-repository/classifying-your-repository-with-topics)”。
+您可以找到按特定主题分类的所有仓库。有关详细信息，请参阅“[按主题对存储库进行分类](/github/administering-a-repository/classifying-your-repository-with-topics)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -131,7 +131,7 @@ ms.locfileid: '147527932'
 
 ## 按主题数量搜索
 
-可以使用 `topics` 限定符以及大于、小于和范围限定符，根据应用于存储库的主题数量来搜索存储库。 有关详细信息，请参阅“[按主题对存储库进行分类](/github/administering-a-repository/classifying-your-repository-with-topics)”和“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
+可以使用 `topics` 限定符以及大于、小于和范围限定符，根据应用于存储库的主题数量来搜索存储库。有关详细信息，请参阅“[按主题对存储库进行分类](/github/administering-a-repository/classifying-your-repository-with-topics)”和“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -142,7 +142,7 @@ ms.locfileid: '147527932'
 
 ## 按许可搜索
 
-您可以根据仓库中许可的类型搜索仓库。 您必须使用许可关键字，按特定许可或许可系列来过滤仓库。 有关详细信息，请参阅“[许可存储库](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)”。
+您可以根据仓库中许可的类型搜索仓库。您必须使用许可关键字，按特定许可或许可系列来过滤仓库。有关详细信息，请参阅“[许可存储库](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -152,7 +152,7 @@ ms.locfileid: '147527932'
 
 ## 按仓库可见性搜索
 
-您可以根据仓库的可见性过滤搜索。 有关详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
+您可以根据仓库的可见性过滤搜索。有关详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
 | 限定符  | 示例 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) 匹配由 {% data variables.product.company_short %} 所有的公共存储库。{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) 匹配你可以访问且包含“test”一词的内部存储库。{% endif %} | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) 匹配你可以访问且包含“pages”一词的专用存储库。
 
@@ -160,7 +160,7 @@ ms.locfileid: '147527932'
 
 ## 基于仓库是否为镜像搜索
 
-您可以根据仓库是否为镜像以及托管于其他位置托管来搜索仓库。 有关详细信息，请参阅“[查找为 {% data variables.product.prodname_dotcom %} 上的开放源代码做贡献的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
+您可以根据仓库是否为镜像以及托管于其他位置托管来搜索仓库。有关详细信息，请参阅“[查找为 {% data variables.product.prodname_dotcom %} 上的开放源代码做贡献的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -171,7 +171,7 @@ ms.locfileid: '147527932'
 
 ## 基于仓库是否已存档搜索
 
-您可以基于仓库是否已存档来搜索仓库。 有关详细信息，请参阅“[归档存储库](/repositories/archiving-a-github-repository/archiving-repositories)”。
+您可以基于仓库是否已存档来搜索仓库。有关详细信息，请参阅“[归档存储库](/repositories/archiving-a-github-repository/archiving-repositories)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -182,7 +182,7 @@ ms.locfileid: '147527932'
 
 ## 根据带有 `good first issue` 或 `help wanted` 标签的议题数进行搜索
 
-可以使用限定符 `help-wanted-issues:>n` 和 `good-first-issues:>n` 搜索具有最少标有 `help-wanted` 或 `good-first-issue` 的议题的存储库。 有关详细信息，请参阅“[使用标签鼓励对项目做出有益的贡献](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)”。
+可以使用限定符 `help-wanted-issues:>n` 和 `good-first-issues:>n` 搜索具有最少标有 `help-wanted` 或 `good-first-issue` 的议题的存储库。有关详细信息，请参阅“[使用标签鼓励对项目做出有益的贡献](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)”。
 
 | 限定符  | 示例
 | ------------- | -------------
@@ -191,9 +191,9 @@ ms.locfileid: '147527932'
 
 ## 基于赞助能力的搜索
 
-可以使用 `is:sponsorable` 限定符搜索其所有者可以在 {% data variables.product.prodname_sponsors %} 上获得赞助的存储库。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
+可以使用 `is:sponsorable` 限定符搜索其所有者可以在 {% data variables.product.prodname_sponsors %} 上获得赞助的存储库。有关详细信息，请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
 
-可以使用 `has:funding-file` 限定符搜索具有融资文件的存储库。 有关详细信息，请参阅“[关于融资文件](/github/administering-a-repository/managing-repository-settings/displaying-a-sponsor-button-in-your-repository#about-funding-files)”。
+可以使用 `has:funding-file` 限定符搜索具有融资文件的存储库。有关详细信息，请参阅“[关于融资文件](/github/administering-a-repository/managing-repository-settings/displaying-a-sponsor-button-in-your-repository#about-funding-files)”。
 
 | 限定符  | 示例
 | ------------- | -------------

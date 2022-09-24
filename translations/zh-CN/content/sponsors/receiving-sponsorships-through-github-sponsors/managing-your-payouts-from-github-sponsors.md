@@ -21,7 +21,7 @@ ms.locfileid: '147876080'
 ---
 ## 关于 {% data variables.product.prodname_sponsors %} 中的付款
 
-如果是通过 Stripe Connect 付款，只能从 {% data variables.product.prodname_sponsors %} 管理您的支出。 如果是赞助个人帐户通过 ACH 转账或电汇付款，则在赞助的开放源代码参与者仪表板上看不到“付款”选项卡。 赞助的组织只能使用 Stripe Connect 进行付款。 有关详细信息，请参阅“[关于开放源代码参与者的 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)”。
+如果是通过 Stripe Connect 付款，只能从 {% data variables.product.prodname_sponsors %} 管理您的支出。如果是赞助个人帐户通过 ACH 转账或电汇付款，则在赞助的开放源代码参与者仪表板上看不到“付款”选项卡。赞助的组织只能使用 Stripe Connect 进行付款。有关详细信息，请参阅“[关于开放源代码参与者的 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)”。
 
 {% data reusables.sponsors.payout-info %}
 

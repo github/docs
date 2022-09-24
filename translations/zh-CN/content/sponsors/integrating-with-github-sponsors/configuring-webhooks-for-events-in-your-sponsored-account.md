@@ -21,7 +21,7 @@ ms.locfileid: '145099600'
 ---
 ## 关于被赞助帐户中事件的 web 挂钩
 
-要监视赞助变更，例如在付款期结束时取消，您可以为被赞助的用户或组织帐户创建 web 挂钩。 为被赞助帐户创建 web 挂钩后，在创建、编辑或删除赞助时您将会收到更新消息。 有关详细信息，请参阅 [`sponsorship` Webhook 事件](/webhooks/event-payloads/#sponsorship)。
+要监视赞助变更，例如在付款期结束时取消，您可以为被赞助的用户或组织帐户创建 web 挂钩。为被赞助帐户创建 web 挂钩后，在创建、编辑或删除赞助时您将会收到更新消息。有关详细信息，请参阅 [`sponsorship` Webhook 事件](/webhooks/event-payloads/#sponsorship)。
 
 ## 管理被赞助帐户中事件的 web 挂钩
 

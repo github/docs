@@ -24,7 +24,7 @@ ms.locfileid: '145099616'
 
 ## 关于搜索包
 
-您可以在所有 {% data variables.product.product_name %} 中全局搜索包，也可以在特定组织内搜索包。 有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 中搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 中全局搜索包，也可以在特定组织内搜索包。有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 中搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 
 {% ifversion ghes %} 你只能在 {% data variables.product.product_name %} 中搜索包，而不能在 {% data variables.product.prodname_dotcom_the_website %} 上搜索，即使启用了 {% data variables.product.prodname_github_connect %} 也一样。
 {% endif %}

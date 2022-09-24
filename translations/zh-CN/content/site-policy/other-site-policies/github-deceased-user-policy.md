@@ -12,7 +12,7 @@ redirect_from:
 
 如果 GitHub 用户亡故，我们可以与授权的个人合作确定如何处理相关帐户的内容。 
 
-如果您是已故用户的近亲、[预先指定的继承人](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)或其他授权个人（可能包括合作者或业务合作伙伴），并想提出关于其帐户的申请，可以通过 https://support.github.com/contact 联系我们。 请在申请中提供以下信息：
+如果您是已故用户的近亲、[预先指定的继承人](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)或其他授权个人（可能包括合作者或业务合作伙伴），并想提出关于其帐户的申请，可以通过 https://support.github.com/contact 联系我们。请在申请中提供以下信息：
 
 - 姓名
 - 联系信息

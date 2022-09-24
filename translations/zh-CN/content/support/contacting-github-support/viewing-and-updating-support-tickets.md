@@ -19,14 +19,14 @@ ms.locfileid: '147051978'
 
 {% data reusables.support.zendesk-old-tickets %}
 
-可以使用 [GitHub 支持门户](https://support.github.com/)查看当前和过去的支持工单并回复 {% data variables.contact.github_support %}。 120 天后，已解决的票证将会存档{% ifversion ghec or ghes or ghae %}，并且只能查看企业帐户的已存档票证{% endif %}。
+可以使用 [GitHub 支持门户](https://support.github.com/)查看当前和过去的支持工单并回复 {% data variables.contact.github_support %}。120 天后，已解决的票证将会存档{% ifversion ghec or ghes or ghae %}，并且只能查看企业帐户的已存档票证{% endif %}。
 
 {% ifversion ghes or ghec %} {% data reusables.enterprise-accounts.support-entitlements %} {% endif %}
 
 ## 查看最近的支持票证
 
 {% data reusables.support.view-open-tickets %}
-1. 在文本框下，可以阅读评论历史记录。 最近的回复位于顶部。
+1. 在文本框下，可以阅读评论历史记录。最近的回复位于顶部。
 ![支持工单评论历史记录的屏幕截图，最近的回复位于顶部。](/assets/images/help/support/support-recent-response.png)
 
 {% ifversion ghec or ghes or ghae %}
@@ -58,9 +58,9 @@ ms.locfileid: '147051978'
 {% ifversion ghec or ghes %}
 ## 协作处理支持工单
 
-你可以使用支持门户与你的同事协作处理支持工单。 拥有支持权利的所有者、计费管理员和其他企业成员可以查看与企业帐户或由企业帐户管理的组织关联的工单。 有关详细信息，请参阅“[管理企业的支持权利](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)”。
+你可以使用支持门户与你的同事协作处理支持工单。拥有支持权利的所有者、计费管理员和其他企业成员可以查看与企业帐户或由企业帐户管理的组织关联的工单。有关详细信息，请参阅“[管理企业的支持权利](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)”。
 
-除了查看票据外，如果电子邮件地址复制到了工单上，或者工单创建者使用的电子邮件地址的域名被验证为企业帐户或企业帐户管理的组织，则还可以向支持工单添加评论。 有关验证域的详细信息，请参阅“[为企业验证或批准域](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”和“[为组织验证或批准域](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”。
+除了查看票据外，如果电子邮件地址复制到了工单上，或者工单创建者使用的电子邮件地址的域名被验证为企业帐户或企业帐户管理的组织，则还可以向支持工单添加评论。有关验证域的详细信息，请参阅“[为企业验证或批准域](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”和“[为组织验证或批准域](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”。
 
 {% endif %}
 
