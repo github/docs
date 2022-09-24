@@ -21,7 +21,7 @@ ms.locfileid: '147507996'
 ---
 ## 关于继承者
 
-如果您无法管理您的用户拥有的仓库，建议邀请其他 {% data variables.product.company_short %} 用户作为继承者管理。 作为继承者，他们拥有以下权限：
+如果您无法管理您的用户拥有的仓库，建议邀请其他 {% data variables.product.company_short %} 用户作为继承者管理。作为继承者，他们拥有以下权限：
 
 - 存档您的公共仓库。
 - 将公共仓库转移到他们自己的用户拥有的帐户。
@@ -29,7 +29,7 @@ ms.locfileid: '147507996'
 
 继承者不能登录到您的帐户。
 
-指定的继承者在提交死亡证明并等待 7 天或者提交讣告并等待 21 天后，便可管理您的公共仓库。 有关详细信息，请参阅“[{% data variables.product.company_short %} 已故用户政策](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)”。
+指定的继承者在提交死亡证明并等待 7 天或者提交讣告并等待 21 天后，便可管理您的公共仓库。有关详细信息，请参阅“[{% data variables.product.company_short %} 已故用户政策](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)”。
 
 要请求作为继承者管理存储库，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-accounts)。
 

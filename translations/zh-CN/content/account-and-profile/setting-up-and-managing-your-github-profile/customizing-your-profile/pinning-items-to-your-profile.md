@@ -20,13 +20,13 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145066999'
 ---
-您可以嵌入您拥有的或者对其做出了贡献的公共仓库。 对复刻的提交不计为贡献，因此不能嵌入非自己所有的复刻。 有关详细信息，请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
+您可以嵌入您拥有的或者对其做出了贡献的公共仓库。对复刻的提交不计为贡献，因此不能嵌入非自己所有的复刻。有关详细信息，请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
 
 您可以置顶自己的任何公开 Gist。
 
-固定项包括有关项目的重要信息，例如仓库收到的星标数或 Gist 的前几行。 在将项目嵌入到个人资料后，个人资料中的“Pinned（已嵌入）”部分将替换“Popular repositories（常用仓库）”部分。
+固定项包括有关项目的重要信息，例如仓库收到的星标数或 Gist 的前几行。在将项目嵌入到个人资料后，个人资料中的“Pinned（已嵌入）”部分将替换“Popular repositories（常用仓库）”部分。
 
-您可以重新排序“Pinned（已嵌入）”部分的项目。 在固定的右上角，单击 {% octicon "grabber" aria-label="The grabber symbol" %} 并将固定拖动到新位置。
+您可以重新排序“Pinned（已嵌入）”部分的项目。在固定的右上角，单击 {% octicon "grabber" aria-label="The grabber symbol" %} 并将固定拖动到新位置。
 
 {% data reusables.profile.access_profile %}
 2. 在“常用存储库”或“已固定”部分，单击“自定义固定”。

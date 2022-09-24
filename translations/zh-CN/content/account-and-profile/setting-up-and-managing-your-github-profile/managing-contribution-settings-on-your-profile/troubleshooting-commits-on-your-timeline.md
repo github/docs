@@ -1,6 +1,6 @@
 ---
 title: 对时间表上的提交进行故障排除
-intro: 您可以从个人资料的时间表查看提交的详细信息。 如果没有在个人资料中看到预期的提交，或者无法从个人资料页面找到提交详细信息，则提交日期和提交创作日期可能不同。
+intro: 您可以从个人资料的时间表查看提交的详细信息。如果没有在个人资料中看到预期的提交，或者无法从个人资料页面找到提交详细信息，则提交日期和提交创作日期可能不同。
 redirect_from:
   - /articles/troubleshooting-commits-on-your-timeline
   - /github/setting-up-and-managing-your-github-profile/troubleshooting-commits-on-your-timeline
@@ -37,11 +37,11 @@ ms.locfileid: '147079522'
 
 ## GitHub 如何使用 Git 创作日期和提交日期
 
-在 Git 中，创作日期是有人首次使用 `git commit` 创建提交的时间。 除非有人使用 `git commit --amend`、强制推送、变基或其他 Git 命令更改提交日期，否则提交日期与创作日期相同。
+在 Git 中，创作日期是有人首次使用 `git commit` 创建提交的时间。除非有人使用 `git commit --amend`、强制推送、变基或其他 Git 命令更改提交日期，否则提交日期与创作日期相同。
 
-在个人资料页面上，创作日期用于计算进行提交的时间。 而在仓库中，提交日期用于计算在仓库中进行提交的时间。
+在个人资料页面上，创作日期用于计算进行提交的时间。而在仓库中，提交日期用于计算在仓库中进行提交的时间。
 
-通常，创作日期和提交日期是相同的，但如果提交历史记录发生变化，您可能会注意到提交顺序将被打乱。 有关详细信息，请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
+通常，创作日期和提交日期是相同的，但如果提交历史记录发生变化，您可能会注意到提交顺序将被打乱。有关详细信息，请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
 
 ## 查看时间表中提交缺少的提交详细信息
 
@@ -72,4 +72,4 @@ CommitDate: Tue Apr 10 06:25:08 2018 +0900
 
 ## 时间表中缺少预期的提交
 
-如果没有在时间表中看到预期的提交，则可能 Git 中的提交历史记录已重写，并且提交创作日期与提交日期不同。 有关其他可能性，请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
+如果没有在时间表中看到预期的提交，则可能 Git 中的提交历史记录已重写，并且提交创作日期与提交日期不同。有关其他可能性，请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”

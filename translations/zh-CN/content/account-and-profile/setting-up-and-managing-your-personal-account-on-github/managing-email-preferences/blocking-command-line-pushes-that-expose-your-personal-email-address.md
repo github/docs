@@ -20,7 +20,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145164807'
 ---
-从命令行推送提交时，[在 Git 中设置](/articles/setting-your-commit-email-address)的电子邮件地址与提交相关联。 如果您启用此设置，则每当您推送到 GitHub 时，我们将检查最近的提交。 如果提交的作者电子邮件地址是您的 GitHub 帐户上的私人电子邮件地址，我们将阻止推送并警告这样会暴露您的私人电子邮件地址。
+从命令行推送提交时，[在 Git 中设置](/articles/setting-your-commit-email-address)的电子邮件地址与提交相关联。如果您启用此设置，则每当您推送到 GitHub 时，我们将检查最近的提交。如果提交的作者电子邮件地址是您的 GitHub 帐户上的私人电子邮件地址，我们将阻止推送并警告这样会暴露您的私人电子邮件地址。
 
 {% data reusables.user-settings.about-commit-email-addresses %}
 

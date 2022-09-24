@@ -31,7 +31,7 @@ ms.locfileid: '146179149'
 
 ## 查找近期活动
 
-在消息馈送的“Recent activity（最近活动）”部分，您可以快速找到并跟进最近更新的议题和您正在处理的拉取请求。 在“最近活动”下，最多可以预览过去两周内的 4 次最近更新。
+在消息馈送的“Recent activity（最近活动）”部分，您可以快速找到并跟进最近更新的议题和您正在处理的拉取请求。在“最近活动”下，最多可以预览过去两周内的 4 次最近更新。
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
@@ -41,7 +41,7 @@ ms.locfileid: '146179149'
 
 ![不同组织中的仓库和团队列表](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
-常用仓库列表自动生成，可以包括您与之交互的任何仓库，无论它是否由您的帐户直接拥有。 交互包括提交和打开或评论议题和拉取请求。 常用仓库列表无法编辑，但其中的仓库将在您最后一次与之交互 4 个月后从列表中删除。
+常用仓库列表自动生成，可以包括您与之交互的任何仓库，无论它是否由您的帐户直接拥有。交互包括提交和打开或评论议题和拉取请求。常用仓库列表无法编辑，但其中的仓库将在您最后一次与之交互 4 个月后从列表中删除。
 
 您也可以点击 {% data variables.product.product_name %} 上任何页面顶部的搜索栏，查找近期访问过的仓库、团队及项目板列表。
 
@@ -54,7 +54,7 @@ ms.locfileid: '146179149'
 
 ### 关注订阅源
 
-此订阅源通过关注用户或存储库，显示来自您表现出直接兴趣的存储库和用户的活动。 例如，当您关注的用户执行以下操作时，您会看到更新：
+此订阅源通过关注用户或存储库，显示来自您表现出直接兴趣的存储库和用户的活动。例如，当您关注的用户执行以下操作时，您会看到更新：
 
 {% else %} 在新闻源的“所有活动”部分，可查看所监视的存储库和关注的用户的更新。
 
@@ -80,7 +80,7 @@ ms.locfileid: '146179149'
 
 {% endnote %}
 
-此订阅源根据您在 {% data variables.product.product_name %} 上的网络显示活动和建议。 它旨在提供更新，以激励您，让您保持最新状态，并帮助您找到想要参与的新社区。 您的网络包括：
+此订阅源根据您在 {% data variables.product.product_name %} 上的网络显示活动和建议。它旨在提供更新，以激励您，让您保持最新状态，并帮助您找到想要参与的新社区。您的网络包括：
 
 - 您已加星标的存储库
 - 您参与的存储库
@@ -92,7 +92,7 @@ ms.locfileid: '146179149'
 
 ## 探索推荐的仓库
 
-在仪表板右侧的“Explore repositories（浏览仓库）”部分，您可以浏览社区中推荐的仓库。 推荐内容基于你已加注星标或访问过的存储库、所关注的人员以及有权访问的存储库中的活动。{% ifversion fpt or ghec %}有关详细信息，请参阅“[查找在 {% data variables.product.prodname_dotcom %} 上参与开放源代码的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
+在仪表板右侧的“Explore repositories（浏览仓库）”部分，您可以浏览社区中推荐的仓库。推荐内容基于你已加注星标或访问过的存储库、所关注的人员以及有权访问的存储库中的活动。{% ifversion fpt or ghec %}有关详细信息，请参阅“[查找在 {% data variables.product.prodname_dotcom %} 上参与开放源代码的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
 
 ## 延伸阅读
 

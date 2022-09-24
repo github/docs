@@ -26,7 +26,7 @@ ms.locfileid: '145164730'
 
 {% warning %}
 
-警告：如果你目前在组织中负责为 {% data variables.product.product_name %} 付款，从组织中删除自己不会更新组织的存档帐单信息 。 如果你目前负责计费，则必须让组织的其他所有者或帐单管理员[更新组织的付款方式](/articles/adding-or-editing-a-payment-method)。
+警告：如果你目前在组织中负责为 {% data variables.product.product_name %} 付款，从组织中删除自己不会更新组织的存档帐单信息。如果你目前负责计费，则必须让组织的其他所有者或帐单管理员[更新组织的付款方式](/articles/adding-or-editing-a-payment-method)。
 
 有关详细信息，请参阅“[转让组织所有权](/articles/transferring-organization-ownership)”。
 

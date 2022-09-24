@@ -21,11 +21,11 @@ ms.locfileid: '145164780'
 ---
 ## 关于安全性和分析设置的管理
 
-{% data variables.product.prodname_dotcom %} 可保护您的仓库。 本主题介绍如何管理所有现有或新仓库的安全和分析功能。
+{% data variables.product.prodname_dotcom %} 可保护您的仓库。本主题介绍如何管理所有现有或新仓库的安全和分析功能。
 
-您仍然可以管理单个仓库的安全和分析功能。 有关详细信息，请参阅“[管理存储库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。
+您仍然可以管理单个仓库的安全和分析功能。有关详细信息，请参阅“[管理存储库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。
 
-你还可以查看个人帐户上所有活动的安全日志。 有关详细信息，请参阅“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
+你还可以查看个人帐户上所有活动的安全日志。有关详细信息，请参阅“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
@@ -40,7 +40,7 @@ ms.locfileid: '145164780'
   {% ifversion ghes > 3.2 %}![用于“配置安全和分析”功能的“全部启用”或“全部禁用”按钮](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}![用于“配置安全和分析”功能的“全部启用”或“全部禁用”按钮](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
 6. （可选）默认情况下为您拥有的新存储库启用该功能。
   {% ifversion ghes > 3.2 %}![用于新建存储库的“默认启用”选项](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}![用于新建存储库的“默认启用”选项](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
-7. 单击“禁用功能”或“启用功能”，以为所拥有的所有存储库禁用或启用该功能 。
+7. 单击“禁用功能”或“启用功能”，以为所拥有的所有存储库禁用或启用该功能。
   {% ifversion ghes > 3.2 %}![用于禁用或启用功能的按钮](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![用于禁用或启用功能的按钮](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
 
 {% data reusables.security.displayed-information %}

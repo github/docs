@@ -21,11 +21,11 @@ ms.locfileid: '145164752'
 ---
 {% warning %}
 
-弃用说明：GitHub Jobs 现已弃用。 最后一次发布工作日期是 2021 年 5 月 19 日。 GitHub Jobs 网站已于 2021 年 8 月 19 日完全关闭，现在重定向到 [GitHub 博客文章](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/)通知，其中包含有关 GitHub Jobs 现已完成的弃用的详细信息。
+弃用说明：GitHub Jobs 现已弃用。最后一次发布工作日期是 2021 年 5 月 19 日。GitHub Jobs 网站已于 2021 年 8 月 19 日完全关闭，现在重定向到 [GitHub 博客文章](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/)通知，其中包含有关 GitHub Jobs 现已完成的弃用的详细信息。
 
 {% endwarning %}
 
-[GitHub Jobs](https://jobs.github.com/) 板是找到技术方面的工作的不错方法。 您可选择查看在 GitHub 仪表板上发布的职位。
+[GitHub Jobs](https://jobs.github.com/) 板是找到技术方面的工作的不错方法。您可选择查看在 GitHub 仪表板上发布的职位。
 
 ![仪表板上的 GitHub Jobs 广告](/assets/images/help/settings/jobs-ads-on-dashboard.png)
 

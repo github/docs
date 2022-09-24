@@ -27,8 +27,8 @@ ms.locfileid: '147881177'
 ## 更改组织成员关系的可见性
 
 {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
-4. 在成员列表中找到您的用户名。 如果列表很长，可在搜索框中搜索您的用户名。
-![组织成员搜索框x](/assets/images/help/organizations/member-search-box.png)
+4. 在成员列表中找到您的用户名。如果列表很长，可在搜索框中搜索您的用户名。
+![组织成员搜索框 x](/assets/images/help/organizations/member-search-box.png)
 5. 在用户名右边的菜单中，选择新的可见性选项：
     - 若要公开成员身份，请选择“公开”。
     - 若要隐藏成员身份，请选择“隐藏”。

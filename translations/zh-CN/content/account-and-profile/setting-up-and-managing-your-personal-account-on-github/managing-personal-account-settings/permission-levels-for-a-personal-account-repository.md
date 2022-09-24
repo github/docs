@@ -1,6 +1,6 @@
 ---
 title: 个人帐户存储库的权限级别
-intro: 个人帐户拥有的存储库有两种权限级别：存储库所有者和协作者 。
+intro: 个人帐户拥有的存储库有两种权限级别：存储库所有者和协作者。
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository
@@ -23,19 +23,19 @@ ms.locfileid: '147066304'
 ---
 ## 关于个人帐户存储库的权限级别
 
-个人帐户拥有的存储库有一个所有者。 所有权权限无法与其他个人帐户共享。
+个人帐户拥有的存储库有一个所有者。所有权权限无法与其他个人帐户共享。
 
-还可以{% ifversion fpt or ghec %}邀请{% else %}添加{% endif %} {% data variables.product.product_name %} 上的用户成为存储库的协作者。 有关详细信息，请参阅“[邀请协作者访问个人存储库](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)”。
+还可以{% ifversion fpt or ghec %}邀请{% else %}添加{% endif %} {% data variables.product.product_name %} 上的用户成为存储库的协作者。有关详细信息，请参阅“[邀请协作者访问个人存储库](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)”。
 
 {% tip %}
 
-提示：如果需要对个人帐户拥有的存储库实施更精细的访问控制，请考虑将存储库转让给组织。 有关详细信息，请参阅“[转让存储库](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account)”。
+提示：如果需要对个人帐户拥有的存储库实施更精细的访问控制，请考虑将存储库转让给组织。有关详细信息，请参阅“[转让存储库](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account)”。
 
 {% endtip %}
 
 ## 所有者对个人帐户拥有的存储库的权限
 
-仓库所有者对仓库具有完全控制权。 除了任何协作者可以执行的操作外，仓库所有者还可以执行以下操作。
+仓库所有者对仓库具有完全控制权。除了任何协作者可以执行的操作外，仓库所有者还可以执行以下操作。
 
 | 操作 | 详细信息 |
 | :- | :- |
@@ -66,7 +66,7 @@ ms.locfileid: '147066304'
 
 {% note %}
 
-注意：在专用存储库中，存储库所有者只能为协作者授予写入权限。 协作者不能对个人帐户拥有的存储库具有只读权限。
+注意：在专用存储库中，存储库所有者只能为协作者授予写入权限。协作者不能对个人帐户拥有的存储库具有只读权限。
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
 title: 管理来自 GitHub 的营销电子邮件
-intro: '除了通知和帐户电子邮件之外，{% data variables.product.prodname_dotcom %} 偶尔会发送营销电子邮件，介绍产品的新闻和信息。 如果取消订阅现有的营销电子邮件，则除非您更改 {% data variables.product.prodname_dotcom %} 电子邮件设置，否则不会将您纳入未来的广告活动中。'
+intro: '除了通知和帐户电子邮件之外，{% data variables.product.prodname_dotcom %} 偶尔会发送营销电子邮件，介绍产品的新闻和信息。如果取消订阅现有的营销电子邮件，则除非您更改 {% data variables.product.prodname_dotcom %} 电子邮件设置，否则不会将您纳入未来的广告活动中。'
 redirect_from:
   - /articles/managing-marketing-emails-from-github
   - /github/setting-up-and-managing-your-github-user-account/managing-marketing-emails-from-github

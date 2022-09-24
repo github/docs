@@ -22,7 +22,7 @@ ms.locfileid: '145164718'
 ---
 ## 通知电子邮件
 
-您可以选择通过电子邮件接收部分或全部活动通知。 有关详细信息，请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。 通知电子邮件可包括：
+您可以选择通过电子邮件接收部分或全部活动通知。有关详细信息，请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。通知电子邮件可包括：
 
 - 您具有管理员访问权限的仓库的安全相关活动
 - 您正在查看的仓库的活动
@@ -32,22 +32,22 @@ ms.locfileid: '145164718'
 - 要在组织或仓库中协作的邀请
 - 您自己的活动，例如打开、评论或关闭议题和拉取请求
 
-您还可以在您正在参与或观看的对话中选择希望接收哪种类型的电子邮件更新。 有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)”。
+您还可以在您正在参与或观看的对话中选择希望接收哪种类型的电子邮件更新。有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)”。
 
 ## 帐户电子邮件
 
-如果您已升级为付费产品或功能，则将在帐户的主电子邮件地址收到帐单收据。 有关详细信息，请参阅“[设置计费电子邮件](/articles/setting-your-billing-email)”。
+如果您已升级为付费产品或功能，则将在帐户的主电子邮件地址收到帐单收据。有关详细信息，请参阅“[设置计费电子邮件](/articles/setting-your-billing-email)”。
 
 ## 客户研究电子邮件
 
-{% data variables.product.product_name %} 有时会寻求客户参加研究会议，以帮助我们构建更好的 GitHub。 这些会议是远程进行的，对世界各地的客户开放，可能包括：
+{% data variables.product.product_name %} 有时会寻求客户参加研究会议，以帮助我们构建更好的 GitHub。这些会议是远程进行的，对世界各地的客户开放，可能包括：
 
 - 反馈调查
 - 研究访谈
 - 可用性测试会议
 - 预览早期原型或概念
 
-这些电子邮件并不常见，您可以选择是否参与。 如果您对参加研究会议的机会感兴趣，您可以加入 GitHub 客户研究小组。 有关详细信息，请参阅“[GitHub 客户体验研究](https://cxr.github.com)”。
+这些电子邮件并不常见，您可以选择是否参与。如果您对参加研究会议的机会感兴趣，您可以加入 GitHub 客户研究小组。有关详细信息，请参阅“[GitHub 客户体验研究](https://cxr.github.com)”。
 
 ## 营销电子邮件
 

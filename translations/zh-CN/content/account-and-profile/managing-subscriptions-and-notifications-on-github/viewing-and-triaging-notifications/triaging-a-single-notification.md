@@ -21,15 +21,15 @@ ms.locfileid: '145098871'
 ---
 ## 保存单个通知
 
-要保存单一通知供以后查看，请在通知右侧单击 {% octicon "bookmark" aria-label="The bookmark icon" %}。 一次只能保存一个通知。
+要保存单一通知供以后查看，请在通知右侧单击 {% octicon "bookmark" aria-label="The bookmark icon" %}。一次只能保存一个通知。
 
-已保存的通知将无限期保存，可单击边栏中的“已保存”或通过 `is:saved` 查询进行查看。 如果您保存的通知超过5个月并且变成未保存，通知将在一天内从收件箱消失。
+已保存的通知将无限期保存，可单击边栏中的“已保存”或通过 `is:saved` 查询进行查看。如果您保存的通知超过 5 个月并且变成未保存，通知将在一天内从收件箱消失。
 
   ![保存分类选项](/assets/images/help/notifications-v2/save-triaging-option.png)
 
 ## 调查通知
 
-从收件箱中单击单个通知时，系统会引导您访问提示该通知的对话。 从页面顶部，您可以：
+从收件箱中单击单个通知时，系统会引导您访问提示该通知的对话。从页面顶部，您可以：
 - 将单个通知标记为完成
 - 取消订阅未来的通知
 - 将通知标记为已读
@@ -46,7 +46,7 @@ ms.locfileid: '145098871'
 
   ![“通知”下的自定义选项](/assets/images/help/notifications-v2/customize-notifications-for-specific-thread.png)
 
-2. 选择“自定义”，然后选择你希望在什么情况下接收有关此会话的更新通知。 例如，您可以选择在拉取请求被合并、关闭或重新打开时接收更新。 如果你参与会话、你的用户名处于 @mentioned 状态或你所属的团队处于 @mentioned 状态，那么你将会重新订阅。
+2. 选择“自定义”，然后选择你希望在什么情况下接收有关此会话的更新通知。例如，您可以选择在拉取请求被合并、关闭或重新打开时接收更新。如果你参与会话、你的用户名处于 @mentioned 状态或你所属的团队处于 @mentioned 状态，那么你将会重新订阅。
 
   ![自定义通知的选项](/assets/images/help/notifications-v2/custom-options-for-customizing-notification-thread-updates.png)
 

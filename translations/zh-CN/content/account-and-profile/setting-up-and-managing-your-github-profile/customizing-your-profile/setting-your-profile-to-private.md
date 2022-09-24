@@ -21,11 +21,11 @@ ms.locfileid: '147062912'
 
 {% endnote %}
 
-若要隐藏配置文件页的某些部分，可以将配置文件设置为私密。 这还会隐藏你在 {% data variables.product.prodname_dotcom_the_website %} 上的各种社交功能中的活动。 私密配置文件对所有用户隐藏信息，目前没有允许指定用户查看你的活动的选项。
+若要隐藏配置文件页的某些部分，可以将配置文件设置为私密。这还会隐藏你在 {% data variables.product.prodname_dotcom_the_website %} 上的各种社交功能中的活动。私密配置文件对所有用户隐藏信息，目前没有允许指定用户查看你的活动的选项。
 
 将配置文件设置为私密后，你仍可在访问自己的配置文件时查看所有信息。
 
-私密配置文件收不到 [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors) 的赞助。 要想获得 {% data variables.product.prodname_sponsors %} 赞助资格，配置文件不能设置为私密。
+私密配置文件收不到 [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors) 的赞助。要想获得 {% data variables.product.prodname_sponsors %} 赞助资格，配置文件不能设置为私密。
 
 ## 私密配置文件和公共配置文件之间的差异
 

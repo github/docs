@@ -18,13 +18,13 @@ ms.locfileid: '147760918'
 ---
 ## 关于企业营销页面的 Cookie 首选项
 
-{% data variables.product.company_short %} 可能会在某些企业营销页面上使用非基本 Cookie。 可以自定义这些 Cookie 的行为方式。 有关 {% data variables.product.company_short %} 如何使用 Cookie 的详细信息，请参阅“[{% data variables.product.company_short %} 隐私声明](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)”。
+{% data variables.product.company_short %} 可能会在某些企业营销页面上使用非基本 Cookie。可以自定义这些 Cookie 的行为方式。有关 {% data variables.product.company_short %} 如何使用 Cookie 的详细信息，请参阅“[{% data variables.product.company_short %} 隐私声明](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)”。
 
 ## 更改 Cookie 首选项
 
 可以自定义任何 {% data variables.product.company_short %} 企业营销页面上的非基本 Cookie 的行为方式。
 
-1. 导航到要更改 Cookie 首选项的 {% data variables.product.company_short %} 企业营销页面。 例如，导航到 [{% data variables.product.company_short %} 资源](https://resources.github.com/)。
+1. 导航到要更改 Cookie 首选项的 {% data variables.product.company_short %} 企业营销页面。例如，导航到 [{% data variables.product.company_short %} 资源](https://resources.github.com/)。
 1. 滚动到页面底部，然后单击“管理 Cookie”。
 
    ![用于管理 Cookie 设置的按钮的屏幕截图。](/assets/images/help/settings/cookie-settings-manage.png)

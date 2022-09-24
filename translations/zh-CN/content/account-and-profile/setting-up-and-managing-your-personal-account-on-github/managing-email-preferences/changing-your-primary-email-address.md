@@ -34,5 +34,5 @@ ms.locfileid: '145164763'
    ![设为主电子邮件地址按钮](/assets/images/help/settings/set_as_primary_email.png)
 5. 要从帐户删除旧电子邮件地址，请在旧电子邮件地址旁边，单击 {% octicon "trash" aria-label="The trash symbol" %}。
 {% ifversion fpt or ghec %}
-6. 验证新的主电子邮件地址。 如果没有经验证的电子邮件地址，您将无法使用 {% data variables.product.product_name %} 的所有功能。 有关详细信息，请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
+6. 验证新的主电子邮件地址。如果没有经验证的电子邮件地址，您将无法使用 {% data variables.product.product_name %} 的所有功能。有关详细信息，请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
 {% endif %}

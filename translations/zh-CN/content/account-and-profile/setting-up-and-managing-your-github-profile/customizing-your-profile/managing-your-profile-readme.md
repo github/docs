@@ -22,7 +22,7 @@ ms.locfileid: '147578898'
 
 你可以通过创建个人资料自述文件，在 {% data variables.product.product_location %} 上与社区分享有关你自己的信息。 {% data variables.product.prodname_dotcom %} 在个人资料页面的顶部显示您的个人资料自述文件。
 
-您决定在个人资料自述文件中包含哪些信息，因此您可以完全控制如何在 {% data variables.product.prodname_dotcom %} 上展示自己。 以下是访客可能在您的个人资料自述文件中找到感兴趣、有趣或有用信息的一些示例。
+您决定在个人资料自述文件中包含哪些信息，因此您可以完全控制如何在 {% data variables.product.prodname_dotcom %} 上展示自己。以下是访客可能在您的个人资料自述文件中找到感兴趣、有趣或有用信息的一些示例。
 
 - “About me（关于我）”部分介绍您的工作和兴趣。
 - 您引以为豪的贡献以及这些贡献的背景信息
@@ -30,7 +30,7 @@ ms.locfileid: '147578898'
 
 ![个人资料上显示的个人资料自述文件](/assets/images/help/repository/profile-with-readme.png)
 
-您可以使用 {% data variables.product.company_short %} Flavored Markdown 在个人资料自述文件中设置文本格式和包含表情符号、图像及 GIF。 有关详细信息，请参阅“[在 {% data variables.product.prodname_dotcom %} 上编写和设置格式入门](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)”。
+您可以使用 {% data variables.product.company_short %} Flavored Markdown 在个人资料自述文件中设置文本格式和包含表情符号、图像及 GIF。有关详细信息，请参阅“[在 {% data variables.product.prodname_dotcom %} 上编写和设置格式入门](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)”。
 
 ## 先决条件
 
@@ -43,7 +43,7 @@ ms.locfileid: '147578898'
 
 {% note %}
 
-注意：如果你在 2020 年 7 月之前创建了一个与你的用户名同名的公共存储库，{% data variables.product.prodname_dotcom %} 将不会自动在你的个人资料中显示该存储库的自述文件。 可以通过转到 {% data variables.product.prodname_dotcom_the_website %} 上的存储库并单击“共享到配置文件”，手动将存储库的自述文件共享到配置文件。
+注意：如果你在 2020 年 7 月之前创建了一个与你的用户名同名的公共存储库，{% data variables.product.prodname_dotcom %} 将不会自动在你的个人资料中显示该存储库的自述文件。可以通过转到 {% data variables.product.prodname_dotcom_the_website %} 上的存储库并单击“共享到配置文件”，手动将存储库的自述文件共享到配置文件。
 
 ![将自述文件分享到个人资料的按钮](/assets/images/help/repository/share-to-profile.png)
 
@@ -52,9 +52,9 @@ ms.locfileid: '147578898'
 ## 添加个人资料自述文件
 
 {% data reusables.repositories.create_new %}
-2. 在“Repository name（仓库名称）”下，输入与您的 {% data variables.product.prodname_dotcom %} 用户名匹配的仓库名称。 例如，如果您的用户名是 "octocat"，则仓库名称必须为 "octocat"。
+2. 在“Repository name（仓库名称）”下，输入与您的 {% data variables.product.prodname_dotcom %} 用户名匹配的仓库名称。例如，如果您的用户名是 "octocat"，则仓库名称必须为 "octocat"。
   ![与用户名匹配的存储库名称字段](/assets/images/help/repository/repo-username-match.png)
-3. 可以选择性地添加存储库的说明。 例如，“My personal repository（我的个人仓库）”。
+3. 可以选择性地添加存储库的说明。例如，“My personal repository（我的个人仓库）”。
   ![用于输入存储库说明的字段](/assets/images/help/repository/create-personal-repository-desc.png)
 4. 选择“公共”。
  ![用于选择可见性的单选按钮，已选择“公共”](/assets/images/help/repository/create-personal-repository-visibility.png) {% data reusables.repositories.initialize-with-readme %} {% data reusables.repositories.create-repo %}
@@ -74,7 +74,7 @@ ms.locfileid: '147578898'
 - 该仓库为私有仓库。
 - 仓库名称不再与您的用户名匹配。
 
-您选择的方法取决于您的需求，但如果您不确定，我们建议您将仓库设为私有。 有关如何将存储库设为专用的步骤，请参阅“[更改存储库的可见性](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)”。
+您选择的方法取决于您的需求，但如果您不确定，我们建议您将仓库设为私有。有关如何将存储库设为专用的步骤，请参阅“[更改存储库的可见性](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)”。
 
 ## 延伸阅读
 

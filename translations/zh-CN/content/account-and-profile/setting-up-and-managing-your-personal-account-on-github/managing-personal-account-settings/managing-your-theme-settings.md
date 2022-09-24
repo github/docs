@@ -20,7 +20,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147580445'
 ---
-为了选择和灵活地使用 {% data variables.product.product_name %}，您可以配置主题设置来更改 {% data variables.product.product_name %} 的外观。 您可以在浅色和深色两个主题中进行选择，也可以配置 {% data variables.product.product_name %} 遵循系统设置。
+为了选择和灵活地使用 {% data variables.product.product_name %}，您可以配置主题设置来更改 {% data variables.product.product_name %} 的外观。您可以在浅色和深色两个主题中进行选择，也可以配置 {% data variables.product.product_name %} 遵循系统设置。
 
 您可能需要使用深色主题来减少某些设备的功耗，以在低光条件下减小眼睛的压力，或者因为您更喜欢主题的外观。
 
@@ -38,7 +38,7 @@ ms.locfileid: '147580445'
 
       {%- ifversion ghes = 3.5 %} {% note %}
 
-      **注意**：在 {% data variables.product.product_name %} 3.5.0、3.5.1、3.5.2 和 3.5.3 中，浅色高对比度主题不可用。 此主题在 3.5.4 及更高版本中可用。 有关升级的详细信息，请联系站点管理员。
+      **注意**：在 {% data variables.product.product_name %} 3.5.0、3.5.1、3.5.2 和 3.5.3 中，浅色高对比度主题不可用。此主题在 3.5.4 及更高版本中可用。有关升级的详细信息，请联系站点管理员。
 
       有关确定所使用的 {% data variables.product.product_name %} 版本的详细信息，请参阅“[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)”。
       {% endnote %} {%- endif %}
@@ -47,13 +47,13 @@ ms.locfileid: '147580445'
     - 如果您选择遵循系统设置，请单击白天主题和夜间主题。
 
       {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![用于选择要与系统设置同步的主题的按钮](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![用于选择与系统设置同步的主题的按钮](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %} {% ifversion fpt or ghec %}
-    - 如果您想选择当前处于公开测试阶段的主题，则首先需要通过功能预览启用它。 有关详细信息，请参阅“[使用功能预览探索抢先体验版](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。{% endif %}
+    - 如果您想选择当前处于公开测试阶段的主题，则首先需要通过功能预览启用它。有关详细信息，请参阅“[使用功能预览探索抢先体验版](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。{% endif %}
 
 {% ifversion command-palette %}
 
 {% note %}
 
-注意：你还可以使用命令面板更改主题设置。 有关详细信息，请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。
+注意：你还可以使用命令面板更改主题设置。有关详细信息，请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。
 
 {% endnote %}
 

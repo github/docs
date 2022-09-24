@@ -29,13 +29,13 @@ ms.locfileid: '146681051'
 
 您的头像可帮助在 {% data variables.product.product_name %} 的拉取请求、评论、参与页面及图形中识别您。
 
-在注册帐户时，{% data variables.product.product_name %} 会提供一个随机生成的“默认肖像”。 [哈希头像](https://github.com/blog/1586-identicons)根据用户 ID 的哈希生成，因此无法控制其颜色或模式。 您可以将默认肖像替换为能代表您的图片。
+在注册帐户时，{% data variables.product.product_name %} 会提供一个随机生成的“默认肖像”。 [哈希头像](https://github.com/blog/1586-identicons)根据用户 ID 的哈希生成，因此无法控制其颜色或模式。您可以将默认肖像替换为能代表您的图片。
 
 {% note %}
 
 注意{% ifversion ghec %}s{% endif %}：{% ifversion ghec %}
 
-* {% endif %}个人资料图片应为 PNG、JPG 或 GIF 文件，其大小必须小于 1 MB，且小于 3000 x 3000 像素。 为获取质量最佳的渲染，建议图像的像素保持在大约 500 x 500 像素。
+* {% endif %}个人资料图片应为 PNG、JPG 或 GIF 文件，其大小必须小于 1 MB，且小于 3000 x 3000 像素。为获取质量最佳的渲染，建议图像的像素保持在大约 500 x 500 像素。
 {% ifversion ghec %}* {% data variables.product.prodname_emus %} 不支持 Gravatar 头像。{% endif %}
 
 {% endnote %}
@@ -46,7 +46,7 @@ ms.locfileid: '146681051'
 2. 在“个人资料图片”下，单击 {% octicon "pencil" aria-label="The edit icon" %}“编辑” 。
 ![编辑个人资料图片](/assets/images/help/profile/edit-profile-photo.png)
 3. 单击“上传照片...”。{% ifversion not ghae %}![更新个人资料图片](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
-3. 裁剪图片。 完成后，单击“设置新的个人资料图片”。
+3. 裁剪图片。完成后，单击“设置新的个人资料图片”。
     ![裁剪上传的照片](/assets/images/help/profile/avatar_crop_and_save.png)
 
 ### 将头像重置为默认肖像
@@ -54,12 +54,12 @@ ms.locfileid: '146681051'
 {% data reusables.user-settings.access_settings %}
 2. 在“个人资料图片”下，单击 {% octicon "pencil" aria-label="The edit icon" %}“编辑” 。
 ![编辑个人资料图片](/assets/images/help/profile/edit-profile-photo.png)
-3. 要还原为哈希头像，请单击“删除照片”。 {% ifversion not ghae %}如果电子邮件地址与 [Gravatar](https://en.gravatar.com/) 相关联，则无法还原为默认肖像。 此时请单击“还原为 Gravatar”。
+3. 要还原为哈希头像，请单击“删除照片”。 {% ifversion not ghae %}如果电子邮件地址与 [Gravatar](https://en.gravatar.com/) 相关联，则无法还原为默认肖像。此时请单击“还原为 Gravatar”。
 ![更新个人资料图片](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 
 ## 更改个人资料名称
 
-您可以更改显示在个人资料中的名称。 此名称也可能显示在您对于组织拥有的私有仓库所做的注释旁边。 有关详细信息，请参阅“[管理组织中成员名称的显示](/articles/managing-the-display-of-member-names-in-your-organization)”。
+您可以更改显示在个人资料中的名称。此名称也可能显示在您对于组织拥有的私有仓库所做的注释旁边。有关详细信息，请参阅“[管理组织中成员名称的显示](/articles/managing-the-display-of-member-names-in-your-organization)”。
 
 {% ifversion fpt or ghec %} {% note %}
 
@@ -73,27 +73,27 @@ ms.locfileid: '146681051'
 
 ## 在个人资料中添加个人简历
 
-在个人资料中添加个人简历，与其他 {% data variables.product.product_name %} 用户共享您自己的信息。 借助 [@mentions](/articles/basic-writing-and-formatting-syntax) 和表情符号，你可以在简历中包括以下信息：目前或以前工作的工作地点、从事的工作类型，甚至是喜欢的咖啡种类。
+在个人资料中添加个人简历，与其他 {% data variables.product.product_name %} 用户共享您自己的信息。借助 [@mentions](/articles/basic-writing-and-formatting-syntax) 和表情符号，你可以在简历中包括以下信息：目前或以前工作的工作地点、从事的工作类型，甚至是喜欢的咖啡种类。
 
 {% ifversion fpt or ghes or ghec %}
 
-要以更长和更突出的方式显示有关自己的自定义信息，您还可以使用个人资料自述文件。 有关详细信息，请参阅“[管理个人资料 README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)”。
+要以更长和更突出的方式显示有关自己的自定义信息，您还可以使用个人资料自述文件。有关详细信息，请参阅“[管理个人资料 README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)”。
 
 {% endif %}
 
 {% note %}
 
-注意：如果你为个人资料启用了活动概述部分，并且在个人资料的个人简历中 @mention 你所属的组织，那么该组织将首先出现在你的活动概述中。 有关详细信息，请参阅“[在个人资料中显示活动概述](/articles/showing-an-overview-of-your-activity-on-your-profile)”。
+注意：如果你为个人资料启用了活动概述部分，并且在个人资料的个人简历中 @mention 你所属的组织，那么该组织将首先出现在你的活动概述中。有关详细信息，请参阅“[在个人资料中显示活动概述](/articles/showing-an-overview-of-your-activity-on-your-profile)”。
 
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
-2. 在“个人简历”下，添加要在个人资料中显示的内容。 个人资料字段限于 160 个字符。
+2. 在“个人简历”下，添加要在个人资料中显示的内容。个人资料字段限于 160 个字符。
     ![更新个人资料中的个人简历](/assets/images/help/profile/bio-field.png)
 
   {% tip %}
 
-  提示：当你 @mention 组织时，只有你所属的组织才会自动填写。 你也可 @mention 不是其成员的组织（例如前雇主），但该组织名称不会自动填写。
+  提示：当你 @mention 组织时，只有你所属的组织才会自动填写。你也可 @mention 不是其成员的组织（例如前雇主），但该组织名称不会自动填写。
 
   {% endtip %}
 
@@ -102,11 +102,11 @@ ms.locfileid: '146681051'
 
 ## 设置状态
 
-您可以设置状态以显示您当前在 {% data variables.product.product_name %} 上的可用性。 您的状态将会显示：
+您可以设置状态以显示您当前在 {% data variables.product.product_name %} 上的可用性。您的状态将会显示：
 - 在您的 {% data variables.product.product_name %} 个人资料页面上。
 - 当有人在 {% data variables.product.product_name %} 上将鼠标放在您的用户名或头像上时。
-- 在您属于其成员的团队页面上时。 有关详细信息，请参阅“[关于团队](/articles/about-teams/#team-pages)”。
-- 在您属于其成员的组织的组织仪表板上。 有关详细信息，请参阅“[关于组织仪表板](/articles/about-your-organization-dashboard/)”。
+- 在您属于其成员的团队页面上时。有关详细信息，请参阅“[关于团队](/articles/about-teams/#team-pages)”。
+- 在您属于其成员的组织的组织仪表板上。有关详细信息，请参阅“[关于组织仪表板](/articles/about-your-organization-dashboard/)”。
 
 在设置状态时，您也可以让人们知道您在 {% data variables.product.product_name %} 上的可用性有限。
 
@@ -114,7 +114,7 @@ ms.locfileid: '146681051'
 
 ![请求的审阅者在用户名旁边显示“忙碌”注释](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-如果选择“忙碌”选项，当人们 @mention 你的用户名、分配给你问题或拉取请求或者请求你对拉取请求进行评审时，你的用户名旁边将会出现一条表示你在忙碌的注释。 您还将被排除在分配给您所属的任何团队的拉取请求的自动审核任务之外。 有关详细信息，请参阅“[管理团队的代码评审设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”。
+如果选择“忙碌”选项，当人们 @mention 你的用户名、分配给你问题或拉取请求或者请求你对拉取请求进行评审时，你的用户名旁边将会出现一条表示你在忙碌的注释。您还将被排除在分配给您所属的任何团队的拉取请求的自动审核任务之外。有关详细信息，请参阅“[管理团队的代码评审设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”。
 
 1. 在 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %} 的右上角，单击你的个人资料照片，然后单击“设置状态”，或者，如果已设置状态，则单击当前状态。
   ![个人资料中用于设置状态的按钮](/assets/images/help/profile/set-status-on-profile.png)
@@ -124,9 +124,9 @@ ms.locfileid: '146681051'
   ![选择表情符号状态的按钮](/assets/images/help/profile/select-emoji-status.png)
 4. （可选）如果想表示您的可用性受限，请选择“Busy（忙碌）”。
   ![在“编辑状态”选项中选择的“忙碌”选项](/assets/images/help/profile/limited-availability-status.png)
-5. 使用“清除状态”下拉菜单，选择状态的到期时间。 如果不选择状态到期时间，您的状态将保持到您清除或编辑状态为止。
+5. 使用“清除状态”下拉菜单，选择状态的到期时间。如果不选择状态到期时间，您的状态将保持到您清除或编辑状态为止。
   ![用于选择状态到期时间的下拉菜单](/assets/images/help/profile/status-expiration.png)
-6. 使用下拉菜单，单击您要向其显示状态的组织。 如果不选择组织，您的状态将是公共的。
+6. 使用下拉菜单，单击您要向其显示状态的组织。如果不选择组织，您的状态将是公共的。
   ![用于选择状态可见者的下拉菜单](/assets/images/help/profile/status-visibility.png)
 7. 单击“设置状态”。
   ![设置状态的按钮](/assets/images/help/profile/set-status-button.png)
@@ -138,12 +138,12 @@ ms.locfileid: '146681051'
 
 | 徽章 | 节目 | 说明 |
 | --- | --- | --- |
-| {% octicon "cpu" aria-label="The Developer Program icon" %} | **开发人员计划成员** | 如果您是 {% data variables.product.prodname_dotcom %} 开发者计划的注册成员，使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 构建应用程序，您的个人资料上将获得开发者计划成员徽章。 有关 {% data variables.product.prodname_dotcom %} 开发人员计划的更多信息，请参阅 [GitHub 开发人员](/program/)。 |
-| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | 如果您使用 {% data variables.product.prodname_pro %}，您的个人资料中将获得一个 PRO 徽章。 有关 {% data variables.product.prodname_pro %} 的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products#github-pro)”。 |
-| {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | 如果你帮助寻找安全漏洞，您的个人资料上将获得 Security Bug Bounty Hunter 徽章。 有关 {% data variables.product.prodname_dotcom %} 安全计划的详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 安全性](https://bounty.github.com/)。 |
-| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} 校园专家** | 如果您参加 {% data variables.product.prodname_campus_program %}，您的个人资料上将获得 {% data variables.product.prodname_dotcom %} 校园专家徽章。 有关校园专家计划的详细信息，请参阅[校园专家](https://education.github.com/experts)。 |
-| {% octicon "shield" aria-label="The shield icon" %} | 安全公告信用 | 如果你提交到 [{% data variables.product.prodname_dotcom %} 公告数据库](https://github.com/advisories)的安全公告被接受，你的个人资料上将获得一个安全公告信用徽章。 有关 {% data variables.product.prodname_dotcom %} 安全公告的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 安全公告](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)”。 |
-| {% octicon "check" aria-label="The check icon" %} | 已回答的讨论 | 如果对讨论的答复标记为答案，你将在个人资料上获得“已回答的讨论”徽章。 有关 {% data variables.product.prodname_dotcom %} 的详细信息，请参阅[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)。 |
+| {% octicon "cpu" aria-label="The Developer Program icon" %} | **开发人员计划成员** | 如果您是 {% data variables.product.prodname_dotcom %} 开发者计划的注册成员，使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 构建应用程序，您的个人资料上将获得开发者计划成员徽章。有关 {% data variables.product.prodname_dotcom %} 开发人员计划的更多信息，请参阅 [GitHub 开发人员](/program/)。 |
+| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | 如果您使用 {% data variables.product.prodname_pro %}，您的个人资料中将获得一个 PRO 徽章。有关 {% data variables.product.prodname_pro %} 的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products#github-pro)”。 |
+| {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | 如果你帮助寻找安全漏洞，您的个人资料上将获得 Security Bug Bounty Hunter 徽章。有关 {% data variables.product.prodname_dotcom %} 安全计划的详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 安全性](https://bounty.github.com/)。 |
+| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} 校园专家** | 如果您参加 {% data variables.product.prodname_campus_program %}，您的个人资料上将获得 {% data variables.product.prodname_dotcom %} 校园专家徽章。有关校园专家计划的详细信息，请参阅[校园专家](https://education.github.com/experts)。 |
+| {% octicon "shield" aria-label="The shield icon" %} | 安全公告信用 | 如果你提交到 [{% data variables.product.prodname_dotcom %} 公告数据库](https://github.com/advisories)的安全公告被接受，你的个人资料上将获得一个安全公告信用徽章。有关 {% data variables.product.prodname_dotcom %} 安全公告的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 安全公告](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)”。 |
+| {% octicon "check" aria-label="The check icon" %} | 已回答的讨论 | 如果对讨论的答复标记为答案，你将在个人资料上获得“已回答的讨论”徽章。有关 {% data variables.product.prodname_dotcom %} 的详细信息，请参阅[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)。 |
 
 {% endif %}
 
@@ -151,7 +151,7 @@ ms.locfileid: '146681051'
 
 ## 获得成就
 
-成就庆祝 {% data variables.product.prodname_dotcom %} 上发生的特定事件和操作。 它们将显示为你的个人资料边栏中列出的小徽章。 单击或悬停在成就上将显示一个详细视图，该视图提示如何获得成就，并提供简短说明和参与事件的链接。 事件链接将仅对有权访问发生事件的存储库或组织的用户可见。 对于没有访问权限的所有用户，事件链接将不可访问。
+成就庆祝 {% data variables.product.prodname_dotcom %} 上发生的特定事件和操作。它们将显示为你的个人资料边栏中列出的小徽章。单击或悬停在成就上将显示一个详细视图，该视图提示如何获得成就，并提供简短说明和参与事件的链接。事件链接将仅对有权访问发生事件的存储库或组织的用户可见。对于没有访问权限的所有用户，事件链接将不可访问。
 
 若要阻止私人贡献计入成就，或完全关闭成就，请参阅“[在个人资料上显示你的私人贡献和成就](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
 
@@ -165,7 +165,7 @@ ms.locfileid: '146681051'
 
 ## Mars 2020 Helicopter 贡献者成就的合格仓库列表
 
-如果你为下面一个或多个仓库列出的标记撰写了提交历史记录中的任何提交，你的个人资料中将获得 Mars 2020 Helicopter 贡献者成就。 撰写的提交必须有验证过的电子邮件地址，该电子邮件地址在 {% data variables.product.prodname_dotcom %} 确定符合条件的贡献时与您帐户关联，表示该贡献归属于您。 你可以是提交的原始作者或[共同作者之一](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)。 将来对经过验证的电子邮件的更改不会对徽章产生影响。 我们根据从美国航天局喷气推进实验室获得的资料编制了清单。
+如果你为下面一个或多个仓库列出的标记撰写了提交历史记录中的任何提交，你的个人资料中将获得 Mars 2020 Helicopter 贡献者成就。撰写的提交必须有验证过的电子邮件地址，该电子邮件地址在 {% data variables.product.prodname_dotcom %} 确定符合条件的贡献时与您帐户关联，表示该贡献归属于您。你可以是提交的原始作者或[共同作者之一](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)。将来对经过验证的电子邮件的更改不会对徽章产生影响。我们根据从美国航天局喷气推进实验室获得的资料编制了清单。
 
 | {% data variables.product.prodname_dotcom %} 仓库 | 版本 | 标记 |
 |---|---|---|

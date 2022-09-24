@@ -23,9 +23,9 @@ ms.locfileid: '147079520'
 ---
 ## 关于您的贡献图
 
-您的个人资料贡献图是您参与{% data variables.product.product_location %}{% ifversion ghae %}拥有{% else %}上{% endif %} 的存储库的记录。 贡献按照协调世界时 (UTC) 而不是您当地的时区加时间戳。 只有在满足特定标准时才会计算贡献。 在某些情况下，我们可能需要重建您的图表才能显示贡献。
+您的个人资料贡献图是您参与{% data variables.product.product_location %}{% ifversion ghae %}拥有{% else %}上{% endif %} 的存储库的记录。贡献按照协调世界时 (UTC) 而不是您当地的时区加时间戳。只有在满足特定标准时才会计算贡献。在某些情况下，我们可能需要重建您的图表才能显示贡献。
 
-如果您是使用 SAML 单点登录 (SSO) 的组织的成员，则在没有活动的 SSO 会话时，您将无法在配置文件上看到来自该组织的贡献活动。 从组织外部查看您个人资料的用户将看到您组织的贡献活动的匿名贡献活动。
+如果您是使用 SAML 单点登录 (SSO) 的组织的成员，则在没有活动的 SSO 会话时，您将无法在配置文件上看到来自该组织的贡献活动。从组织外部查看您个人资料的用户将看到您组织的贡献活动的匿名贡献活动。
 
 ## 计算的贡献
 
@@ -70,19 +70,19 @@ Date: Sun, 27 Apr 2014 15:36:39 +0530
 Subject: [PATCH] updated index for better welcome message
 ```
 
-`From:` 字段中的电子邮件地址是在[本地 git 配置设置](/articles/set-up-git)中设置的地址。 在此示例中，用于提交的电子邮件地址为 `octocat@nowhere.com`。
+`From:` 字段中的电子邮件地址是在[本地 git 配置设置](/articles/set-up-git)中设置的地址。在此示例中，用于提交的电子邮件地址为 `octocat@nowhere.com`。
 
-如果用于提交的电子邮件地址未连接到您的 {% data variables.product.product_location %} 帐户，{% ifversion ghae %}请更改用于在 Git 中创作提交的电子邮件地址。 有关详细信息，请参阅“[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)”。{% else %}必须[将电子邮件地址添加](/articles/adding-an-email-address-to-your-github-account)到 {% data variables.product.product_location %} 上的帐户。 您的贡献图将在添加新地址后自动重建。{% endif %}
+如果用于提交的电子邮件地址未连接到您的 {% data variables.product.product_location %} 帐户，{% ifversion ghae %}请更改用于在 Git 中创作提交的电子邮件地址。有关详细信息，请参阅“[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)”。{% else %}必须[将电子邮件地址添加](/articles/adding-an-email-address-to-your-github-account)到 {% data variables.product.product_location %} 上的帐户。您的贡献图将在添加新地址后自动重建。{% endif %}
 
 {% warning %}
 
-警告：通用电子邮件地址（如 `jane@computer.local`）无法添加到 {% data variables.product.prodname_dotcom %} 帐户。 如果为您的提交使用这类电子邮件，则提交不会链接到您的 {% data variables.product.prodname_dotcom %} 个人资料，并且不会在您的贡献图中显示。
+警告：通用电子邮件地址（如 `jane@computer.local`）无法添加到 {% data variables.product.prodname_dotcom %} 帐户。如果为您的提交使用这类电子邮件，则提交不会链接到您的 {% data variables.product.prodname_dotcom %} 个人资料，并且不会在您的贡献图中显示。
 
 {% endwarning %}
 
 ### 未在默认分支或 `gh-pages` 分支中执行提交
 
-仅发生在默认分支或 `gh-pages` 分支（对于包含项目网站的存储库）中的提交才会计入。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
+仅发生在默认分支或 `gh-pages` 分支（对于包含项目网站的存储库）中的提交才会计入。有关详细信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 
 如果提交位于非默认或非 `gh-pages` 分支中，并且你希望将其计入你的贡献，则需要执行以下操作之一：
 - [打开拉取请求](/articles/creating-a-pull-request)，将更改合并到默认分支或 `gh-pages` 分支中。
@@ -90,15 +90,15 @@ Subject: [PATCH] updated index for better welcome message
 
 {% warning %}
 
-警告：更改存储库的默认分支将会更改所有存储库协作者的默认分支。 仅当您希望新分支成为进行所有未来拉取请求和提交的基础时才执行此操作。
+警告：更改存储库的默认分支将会更改所有存储库协作者的默认分支。仅当您希望新分支成为进行所有未来拉取请求和提交的基础时才执行此操作。
 
 {% endwarning %}
 
 ### 提交在复刻中进行
 
-在复刻中进行的提交不会计入您的贡献。 要将其计入，您必须执行以下操作之一：
+在复刻中进行的提交不会计入您的贡献。要将其计入，您必须执行以下操作之一：
 - [打开拉取请求](/articles/creating-a-pull-request)，将更改合并到父存储库中。
-- 要分离复刻并将其变为 {% data variables.product.product_location %} 上独立的仓库，请联系 {% data variables.contact.contact_support %}。 如果该复刻有自己的复刻，让 {% data variables.contact.contact_support %} 了解这些复刻是随您的仓库移入新网络还是留在当前网络中。 有关详细信息，请参阅“[关于分支](/articles/about-forks/)”。
+- 要分离复刻并将其变为 {% data variables.product.product_location %} 上独立的仓库，请联系 {% data variables.contact.contact_support %}。如果该复刻有自己的复刻，让 {% data variables.contact.contact_support %} 了解这些复刻是随您的仓库移入新网络还是留在当前网络中。有关详细信息，请参阅“[关于分支](/articles/about-forks/)”。
 
 ## 延伸阅读
 

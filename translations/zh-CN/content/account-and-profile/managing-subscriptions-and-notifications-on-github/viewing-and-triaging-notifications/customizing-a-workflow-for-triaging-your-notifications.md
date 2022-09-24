@@ -31,7 +31,7 @@ ms.locfileid: '145098874'
 
 ## 检查您的最高通知优先级
 
-选择最迫切需要查看的通知类型，并选择最适合查看的时间。 您可能会考虑“我在阻止谁？”
+选择最迫切需要查看的通知类型，并选择最适合查看的时间。您可能会考虑“我在阻止谁？”
 
 例如，您可以决定在每日计划时间的早上按此顺序检查通知：
   - 已请求您审查的拉取请求。 （按 `reason:review-requested` 进行筛选）
@@ -41,7 +41,7 @@ ms.locfileid: '145098874'
 
   {% tip %}
 
-  提示：要快速查看你的最高优先级，请按其查看优先级顺序设置自定义筛选器。 有关详细信息，请参阅“[管理收件箱中的通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#customizing-your-inbox-with-custom-filters)”。
+  提示：要快速查看你的最高优先级，请按其查看优先级顺序设置自定义筛选器。有关详细信息，请参阅“[管理收件箱中的通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#customizing-your-inbox-with-custom-filters)”。
 
   {% endtip %}
 
@@ -50,20 +50,20 @@ ms.locfileid: '145098874'
 To follow-up on notifications, you might consider the question "What was I blocked on that I'm no longer blocked on?" Choose your follow-up notification priorities. 选择后续通知优先级。
 
 例如，您可以决定按照以下顺序采取后续行动：
-  - 分配给您的议题和拉取请求。 立即关闭您可以关闭的任何议题或拉取请求，并添加更新。 需要时，保存通知供以后查看。
-  - 查看已保存的收件箱中的通知，尤其是未读更新。 如果话题不再相关，请取消选择 {% octicon "bookmark" aria-label="The bookmark icon" %} 以从保存的收件箱中删除通知并取消保存。
+  - 分配给您的议题和拉取请求。立即关闭您可以关闭的任何议题或拉取请求，并添加更新。需要时，保存通知供以后查看。
+  - 查看已保存的收件箱中的通知，尤其是未读更新。如果话题不再相关，请取消选择 {% octicon "bookmark" aria-label="The bookmark icon" %} 以从保存的收件箱中删除通知并取消保存。
 
 ## 管理低优先级通知
 
-对较高优先级的通知进行分类之后，查看其余的通知，例如参与通知。 请考虑以下问题：
-  - 您可以取消订阅此通知吗？ 此通知是否已完成且可标记为“完成”？
+对较高优先级的通知进行分类之后，查看其余的通知，例如参与通知。请考虑以下问题：
+  - 您可以取消订阅此通知吗？此通知是否已完成且可标记为“完成”？
   {% tip %}
 
-  提示：取消订阅通知后，你不再收到新的更新，除非你开始参与会话、你是 @mentioned，或者你所属的团队是 @mentioned。 将通知标记为“完成”时，该通知会从收件箱主视图中删除，但可通过查询 `is:read` 进行查看。 有关详细信息，请参阅“[管理收件箱中的通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options)”。
+  提示：取消订阅通知后，你不再收到新的更新，除非你开始参与会话、你是 @mentioned，或者你所属的团队是 @mentioned。将通知标记为“完成”时，该通知会从收件箱主视图中删除，但可通过查询 `is:read` 进行查看。有关详细信息，请参阅“[管理收件箱中的通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options)”。
 
   {% endtip %}
-  - 是否希望在此议题或拉取请求关闭或重新打开时或者拉取请求合并时接收未来的更新？ 有关这些选项的详细信息，请参阅“[对单个通知进行分类](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)”。
-  - 是否希望以后不再收到这样的通知？ 如果是，请考虑取消订阅。 有关详细信息，请参阅“[在 GitHub 上管理活动的订阅](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
+  - 是否希望在此议题或拉取请求关闭或重新打开时或者拉取请求合并时接收未来的更新？有关这些选项的详细信息，请参阅“[对单个通知进行分类](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)”。
+  - 是否希望以后不再收到这样的通知？如果是，请考虑取消订阅。有关详细信息，请参阅“[在 GitHub 上管理活动的订阅](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
 
 ## 清除最不重要的通知
 
@@ -75,4 +75,4 @@ To follow-up on notifications, you might consider the question "What was I block
 
 若要详细了解如何同时管理收件箱中的多个通知，请参阅“[管理收件箱中的通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)”。
 
-如果可能，您还可以考虑更改通知设置或取消订阅这些更新。 有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)”或“[在 GitHub 上管理活动的订阅](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
+如果可能，您还可以考虑更改通知设置或取消订阅这些更新。有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)”或“[在 GitHub 上管理活动的订阅](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。

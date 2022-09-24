@@ -20,11 +20,11 @@ ms.locfileid: '145164733'
 ---
 ## 关于用户的预定提醒
 
-预定提醒用于确保用户将重点放在需要他们关注的最重要审查请求上。 拉取请求的预定提醒将会在指定的时间在 Slack 中向您发送一条消息，提醒已经打开、需要您审查的拉取请求。 例如，您可以设置预定提醒，以便每天早上 10 点在 Slack 中向您发送消息，提醒需要由您或您的一个团队审查的拉取请求。
+预定提醒用于确保用户将重点放在需要他们关注的最重要审查请求上。拉取请求的预定提醒将会在指定的时间在 Slack 中向您发送一条消息，提醒已经打开、需要您审查的拉取请求。例如，您可以设置预定提醒，以便每天早上 10 点在 Slack 中向您发送消息，提醒需要由您或您的一个团队审查的拉取请求。
 
-对于某些事件，您还可以为预定提醒启用实时警报。 实时警报会在重要事件（例如分配审查时）发生时立即发送到您的 Slack 通道。
+对于某些事件，您还可以为预定提醒启用实时警报。实时警报会在重要事件（例如分配审查时）发生时立即发送到您的 Slack 通道。
 
-对于您所在组织的拉取请求，您可以为个人或团队级审查请求设置预定提醒。 组织所有者必须先授权您的 Slack 工作区，然后您才可为自己创建预定提醒。 有关详细信息，请参阅“[管理组织的预定提醒](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)”。
+对于您所在组织的拉取请求，您可以为个人或团队级审查请求设置预定提醒。组织所有者必须先授权您的 Slack 工作区，然后您才可为自己创建预定提醒。有关详细信息，请参阅“[管理组织的预定提醒](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)”。
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 

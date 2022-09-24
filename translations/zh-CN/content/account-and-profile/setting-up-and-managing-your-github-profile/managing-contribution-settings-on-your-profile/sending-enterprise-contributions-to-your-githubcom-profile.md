@@ -25,9 +25,9 @@ ms.locfileid: '147079532'
 ---
 ## 关于 {% data variables.product.prodname_dotcom_the_website %} 个人资料上的企业贡献
 
-您的 {% data variables.product.prodname_dotcom_the_website %} 个人资料显示过去 90 天内 {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} 贡献计数。 {% data reusables.github-connect.sync-frequency %} {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} 的贡献计数被视为私人贡献。 提交详细信息将仅显示贡献计数，这些贡献是在 {% data variables.product.prodname_dotcom_the_website %} 以外的 {% data variables.product.prodname_enterprise %} 环境中进行的。
+您的 {% data variables.product.prodname_dotcom_the_website %} 个人资料显示过去 90 天内 {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} 贡献计数。 {% data reusables.github-connect.sync-frequency %} {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} 的贡献计数被视为私人贡献。提交详细信息将仅显示贡献计数，这些贡献是在 {% data variables.product.prodname_dotcom_the_website %} 以外的 {% data variables.product.prodname_enterprise %} 环境中进行的。
 
-您可以决定是否在个人资料中显示私人贡献的计数。 有关详细信息，请参阅“[在个人资料中公开或隐藏你的私人贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile/)”。
+您可以决定是否在个人资料中显示私人贡献的计数。有关详细信息，请参阅“[在个人资料中公开或隐藏你的私人贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile/)”。
 
 有关如何计算贡献的详细信息，请参阅“[管理个人资料中的贡献图](/articles/managing-contribution-graphs-on-your-profile/)”。
 
@@ -36,7 +36,7 @@ ms.locfileid: '147079532'
 **注意：**
 - 帐户之间的连接受 [GitHub 的隐私声明](/free-pro-team@latest/github/site-policy/github-privacy-statement/)约束，启用连接即表示用户同意 [GitHub 的服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service)。
 
-- 在将 {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} 配置文件连接到 {% data variables.product.prodname_dotcom_the_website %} 配置文件之前，企业所有者必须启用 {% data variables.product.prodname_github_connect %} 并启用环境之间的贡献共享。 有关详细信息，请与企业所有者联系。
+- 在将 {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} 配置文件连接到 {% data variables.product.prodname_dotcom_the_website %} 配置文件之前，企业所有者必须启用 {% data variables.product.prodname_github_connect %} 并启用环境之间的贡献共享。有关详细信息，请与企业所有者联系。
 
 {% endnote %}
 
