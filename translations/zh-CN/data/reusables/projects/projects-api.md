@@ -10,7 +10,7 @@ ms.locfileid: "147423594"
 
 **注意：** 
 
-* 此 API 仅适用于 {% data variables.product.prodname_projects_v1 %}。 可使用 GraphQL API 管理 {% data variables.product.prodname_projects_v2 %}。 有关详细信息，请参阅“[使用 API 管理项目](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)”。
+* 此 API 仅适用于 {% data variables.product.prodname_projects_v1 %}。可使用 GraphQL API 管理 {% data variables.product.prodname_projects_v2 %}。有关详细信息，请参阅“[使用 API 管理项目](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)”。
 * 只能为至少已有一个 {% data variables.projects.projects_v1_board %} 的组织、用户或存储库创建新的 {% data variables.projects.projects_v1_board %}。
 
 {% endnote %} {% endif %}

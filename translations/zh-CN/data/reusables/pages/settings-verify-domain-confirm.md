@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145100276"
 ---
-1. 确认 DNS 配置已更新后，可以验证域。 如果更改不是立即进行的，并且你已离开上一页，请按照最初的几个步骤返回“页面”设置，在域右侧单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击“继续验证”。
+1. 确认 DNS 配置已更新后，可以验证域。如果更改不是立即进行的，并且你已离开上一页，请按照最初的几个步骤返回“页面”设置，在域右侧单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击“继续验证”。
   ![“页面”设置上的“继续验证”选项](/assets/images/help/pages/verify-continue.png)
 1. 若要验证该域，请单击“验证”。
   ![“页面”设置上的“验证”按钮](/assets/images/help/pages/verify-button.png)

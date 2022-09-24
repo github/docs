@@ -8,6 +8,6 @@ ms.locfileid: "147876077"
 ---
 {% ifversion ghes or ghae %} {% tip %}
 
-  只有在 {% data variables.product.product_location %} 上启用出站电子邮件支持时，才会收到电子邮件。 更多信息请联系站点管理员。
+  只有在 {% data variables.product.product_location %} 上启用出站电子邮件支持时，才会收到电子邮件。更多信息请联系站点管理员。
 
   {% endtip %} {% endif %}

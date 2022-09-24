@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145100396"
 ---
-1. 向 {% data variables.product.prodname_registry %} 验证。 有关详细信息，请参阅“[向 {% data variables.product.prodname_registry %}](#authenticating-to-github-packages) 进行身份验证”。
+1. 向 {% data variables.product.prodname_registry %} 验证。有关详细信息，请参阅“[向 {% data variables.product.prodname_registry %}](#authenticating-to-github-packages) 进行身份验证”。

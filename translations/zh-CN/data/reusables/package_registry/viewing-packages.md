@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145100338"
 ---
-在发布包后，您可以在 {% data variables.product.prodname_dotcom %} 上查看该包。 有关详细信息，请参阅“[查看包](/packages/manage-packages/viewing-packages)”。
+在发布包后，您可以在 {% data variables.product.prodname_dotcom %} 上查看该包。有关详细信息，请参阅“[查看包](/packages/manage-packages/viewing-packages)”。

@@ -8,6 +8,6 @@ ms.locfileid: "145100250"
 ---
 {% note %}
 
-**注意：** {% data variables.product.prodname_unfurls %} API 目前处于公共 beta 版，仅用于 GitHub 应用。 在此期间，功能和要求可能会随时更改。
+**注意：** {% data variables.product.prodname_unfurls %} API 目前处于公共 beta 版，仅用于 GitHub 应用。在此期间，功能和要求可能会随时更改。
 
 {% endnote %}

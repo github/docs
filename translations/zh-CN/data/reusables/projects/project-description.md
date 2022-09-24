@@ -12,7 +12,7 @@ ms.locfileid: "147423698"
 1. 若要为项目添加简短说明，请在“添加说明”下的文本框中输入说明，然后单击“保存”。
   ![显示“添加说明”设置的屏幕截图](/assets/images/help/projects-v2/edit-description.png)
 1. 若要更新项目的自述文件，请在“自述文件”下的文本框中输入你的内容。
-   - 可以使用 Markdown 设置自述文件的格式。 有关详细信息，请参阅“[基本编写和格式设置语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)”。
+   - 可以使用 Markdown 设置自述文件的格式。有关详细信息，请参阅“[基本编写和格式设置语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)”。
    - 若要在文本框和更改预览之间切换，请单击 {% octicon "eye" aria-label="The preview icon" %} 或 {% octicon "pencil" aria-label="The edit icon" %}。
   ![显示编辑项目自述文件的屏幕截图](/assets/images/help/projects-v2/edit-readme.png)
 1. 若要保存对自述文件所做的更改，请单击“保存”。

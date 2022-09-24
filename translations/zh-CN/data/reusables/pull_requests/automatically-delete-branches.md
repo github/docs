@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145099548"
 ---
-您可让头部分支在仓库中的拉取请求合并后自动删除。 有关详细信息，请参阅“[管理分支的自动删除](/articles/managing-the-automatic-deletion-of-branches)”。
+您可让头部分支在仓库中的拉取请求合并后自动删除。有关详细信息，请参阅“[管理分支的自动删除](/articles/managing-the-automatic-deletion-of-branches)”。

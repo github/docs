@@ -12,7 +12,7 @@ ms.locfileid: "145100390"
 
 注意：{% data variables.product.product_name %} 的 {% data variables.product.prodname_container_registry %} 当前为 beta 版本，可能会有变化。 
 
-必须启用 {% data variables.product.prodname_registry %} 和子域隔离才能使用 {% data variables.product.prodname_container_registry %}。 有关详细信息，请参阅“[使用容器注册表](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”。
+必须启用 {% data variables.product.prodname_registry %} 和子域隔离才能使用 {% data variables.product.prodname_container_registry %}。有关详细信息，请参阅“[使用容器注册表](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”。
 
 {% endnote %}
 

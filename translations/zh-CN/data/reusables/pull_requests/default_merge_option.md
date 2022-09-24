@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "147872778"
 ---
-在 {% data variables.product.product_location %} 上的拉取请求上单击默认的“合并拉取请求”选项时，来自功能分支的所有提交都会在合并提交中添加到基础分支。 使用[ `--no-ff` 选项](https://git-scm.com/docs/git-merge#_fast_forward_merge)合并拉取请求。
+在 {% data variables.product.product_location %} 上的拉取请求上单击默认的“合并拉取请求”选项时，来自功能分支的所有提交都会在合并提交中添加到基础分支。使用[ `--no-ff` 选项](https://git-scm.com/docs/git-merge#_fast_forward_merge)合并拉取请求。
 
 若要合并拉取请求，必须在存储库中拥有[写入权限](/articles/repository-permission-levels-for-an-organization/)。
 

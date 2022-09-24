@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "147884969"
 ---
-要排除故障，请先决定您是否真的想要使用子模块，它是 Git 项目内的 Git 项目； 子模块有时是意外创建的。
+要排除故障，请先决定您是否真的想要使用子模块，它是 Git 项目内的 Git 项目；子模块有时是意外创建的。
 
 如果不想使用子模块，请删除子模块，将 PATH-TO-SUBMODULE 替换为子模块的路径：
 ```shell

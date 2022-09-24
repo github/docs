@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145100330"
 ---
-1. 如果你使用静态站点生成器在本地构建站点并将生成的文件推送到 {% data variables.product.product_name %}，请将添加 _CNAME_ 文件的提交拉取到本地存储库。 有关详细信息，请参阅“[排查自定义域和 {% data variables.product.prodname_pages %} 的问题](/articles/troubleshooting-custom-domains-and-github-pages#cname-errors)”。
+1. 如果你使用静态站点生成器在本地构建站点并将生成的文件推送到 {% data variables.product.product_name %}，请将添加 _CNAME_ 文件的提交拉取到本地存储库。有关详细信息，请参阅“[排查自定义域和 {% data variables.product.prodname_pages %} 的问题](/articles/troubleshooting-custom-domains-and-github-pages#cname-errors)”。

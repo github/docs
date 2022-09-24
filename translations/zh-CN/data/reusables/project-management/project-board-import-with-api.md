@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147080998"
 ---
-可以使用 {% data variables.product.prodname_dotcom %} 的 API 导入项目看板。 有关详细信息，请参阅“[importProject](/graphql/reference/mutations#importproject/)”。
+可以使用 {% data variables.product.prodname_dotcom %} 的 API 导入项目看板。有关详细信息，请参阅“[importProject](/graphql/reference/mutations#importproject/)”。

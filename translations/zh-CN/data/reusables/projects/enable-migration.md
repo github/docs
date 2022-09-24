@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147079881"
 ---
-1. 在功能预览中启用“项目迁移”。 有关详细信息，请参阅“[使用功能预览探索抢先体验版](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。
+1. 在功能预览中启用“项目迁移”。有关详细信息，请参阅“[使用功能预览探索抢先体验版](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。

@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "147410696"
 ---
-{% data variables.product.product_name %} 3.6 支持迁移存储在组织中的 Docker 映像。 未来的版本将支持迁移用户拥有的映像。
+{% data variables.product.product_name %} 3.6 支持迁移存储在组织中的 Docker 映像。未来的版本将支持迁移用户拥有的映像。

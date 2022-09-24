@@ -6,10 +6,10 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145100394"
 ---
-1. 针对要完成的任务，新创具有适当作用域的个人访问令牌 (PAT)。 如果您的组织需要 SSO，则必须为新令牌启用 SSO。
+1. 针对要完成的任务，新创具有适当作用域的个人访问令牌 (PAT)。如果您的组织需要 SSO，则必须为新令牌启用 SSO。
   {% warning %}
 
-  注意：默认情况下，在用户界面中为个人访问令牌 (PAT) 选择 `write:packages` 范围时，`repo` 范围也将被选中。 `repo` 范围提供了不必要和广泛的访问权限，我们建议你尤其避免使用 GitHub Actions 工作流。 有关详细信息，请参阅“[GitHub Actions 的安全强化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”。 解决方法是在以下 URL 的用户界面中为 PAT 选择 `write:packages` 范围：`https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`。 
+  注意：默认情况下，在用户界面中为个人访问令牌 (PAT) 选择 `write:packages` 范围时，`repo` 范围也将被选中。 `repo` 范围提供了不必要和广泛的访问权限，我们建议你尤其避免使用 GitHub Actions 工作流。有关详细信息，请参阅“[GitHub Actions 的安全强化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”。解决方法是在以下 URL 的用户界面中为 PAT 选择 `write:packages` 范围：`https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`。 
 
   {% endwarning %}
 
@@ -19,7 +19,7 @@ ms.locfileid: "145100394"
 
   有关详细信息，请参阅“[为命令行创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)”。
 
-2. 保存您的 PAT。 我们建议将 PAT 保存为环境变量。
+2. 保存您的 PAT。我们建议将 PAT 保存为环境变量。
   ```shell
   $ export CR_PAT=YOUR_TOKEN
   ```
