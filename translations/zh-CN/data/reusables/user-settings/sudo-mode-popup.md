@@ -7,5 +7,5 @@ ms.lasthandoff: 09/05/2022
 ms.locfileid: "147508036"
 ---
 {%- ifversion fpt or ghec or ghes %}
-1. 如果出现提示，请确认你的帐户是否拥有 {% data variables.product.product_name %} 访问权限。 有关详细信息，请参阅“[Sudo 模式](/authentication/keeping-your-account-and-data-secure/sudo-mode)”。
+1. 如果出现提示，请确认你的帐户是否拥有 {% data variables.product.product_name %} 访问权限。有关详细信息，请参阅“[Sudo 模式](/authentication/keeping-your-account-and-data-secure/sudo-mode)”。
 {%- endif %}

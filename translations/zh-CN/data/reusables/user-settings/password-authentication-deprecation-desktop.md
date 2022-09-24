@@ -8,6 +8,6 @@ ms.locfileid: "145065718"
 ---
   {% warning %}
 
-  警告：不支持使用用户名和密码对 {% data variables.product.prodname_dotcom %} 进行身份验证。 我们要求使用浏览器进行身份验证。
+  警告：不支持使用用户名和密码对 {% data variables.product.prodname_dotcom %} 进行身份验证。我们要求使用浏览器进行身份验证。
 
   {% endwarning %}

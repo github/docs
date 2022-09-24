@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "147877198"
 ---
-1. 将应用程序分配给您在 Okta 中的用户。 有关详细信息，请参阅 Okta 文档中的[向用户分配应用程序](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)。
+1. 将应用程序分配给您在 Okta 中的用户。有关详细信息，请参阅 Okta 文档中的[向用户分配应用程序](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)。

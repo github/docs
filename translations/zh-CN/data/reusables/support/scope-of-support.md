@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145130369"
 ---
-如果您的支持申请超出了我们团队可以帮助您的范围， 我们可能会提出后续措施建议，以便在 {% data variables.contact.github_support %} 之外解决您的问题。 您的支持申请如果主要是关于以下方面，可能超出了 {% data variables.contact.github_support %} 的范围：
+如果您的支持申请超出了我们团队可以帮助您的范围，我们可能会提出后续措施建议，以便在 {% data variables.contact.github_support %} 之外解决您的问题。您的支持申请如果主要是关于以下方面，可能超出了 {% data variables.contact.github_support %} 的范围：
 - 第三方集成，例如 Jira{% ifversion ghes %}
 - 硬件设置{% endif %}
 - CI/CD，例如 Jenkins

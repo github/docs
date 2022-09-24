@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065765"
 ---
-1. 在“你的目标基于什么?”下，选择“赞助者数量”或“每月的赞助额” 。
+1. 在“你的目标基于什么？”下，选择“赞助者数量”或“每月的赞助额” 。
 ![可用目标类型](/assets/images/help/sponsors/select-goal-type.png)
 2. 输入您想要的赞助者数量，或每月的目标金额。
 3. 在“Describe your goal（描述您的目标）”下，输入目标的描述。

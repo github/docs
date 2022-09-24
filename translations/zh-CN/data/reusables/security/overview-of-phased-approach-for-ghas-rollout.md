@@ -6,9 +6,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145130034"
 ---
-我们根据行业和 GitHub 最佳实践创建了一种分阶段推出 {% data variables.product.prodname_GH_advanced_security %} (GHAS) 的方法。 你可以与 {% data variables.product.prodname_professional_services %} 合作或独立使用此方法进行部署。
+我们根据行业和 GitHub 最佳实践创建了一种分阶段推出 {% data variables.product.prodname_GH_advanced_security %} (GHAS) 的方法。你可以与 {% data variables.product.prodname_professional_services %} 合作或独立使用此方法进行部署。
 
-虽然建议采用分阶段方法，但可以根据组织的需求进行调整。 我们还建议创建并遵守推出和实施的时间表。 在你开始规划时，我们可以共同确定最适合你的组织的理想方法和时间表。
+虽然建议采用分阶段方法，但可以根据组织的需求进行调整。我们还建议创建并遵守推出和实施的时间表。在你开始规划时，我们可以共同确定最适合你的组织的理想方法和时间表。
 
 根据我们帮助客户成功部署 GHAS 的经验，我们预计大多数客户都希望在我们建议的阶段跟进他们的部署。
 

@@ -8,6 +8,6 @@ ms.locfileid: "147876177"
 ---
 {% tip %}
 
-提示：可使用搜索限定符 `review-requested:[USERNAME]` 或 `team-review-requested:[TEAMNAME]` 查找请求你或你所属团队审查的拉取请求。 有关详细信息，请参阅“[搜索问题和拉取请求](/articles/searching-issues-and-pull-requests)”。
+提示：可使用搜索限定符 `review-requested:[USERNAME]` 或 `team-review-requested:[TEAMNAME]` 查找请求你或你所属团队审查的拉取请求。有关详细信息，请参阅“[搜索问题和拉取请求](/articles/searching-issues-and-pull-requests)”。
 
 {% endtip %}

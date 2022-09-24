@@ -18,4 +18,4 @@ ms.locfileid: "145127336"
 
    ![用于验证恢复代码的按钮的屏幕截图](/assets/images/help/saml/saml_verify_recovery_codes.png)
 
-请务必注意，恢复代码在使用后便不再有效。 恢复代码不能重复使用。
+请务必注意，恢复代码在使用后便不再有效。恢复代码不能重复使用。

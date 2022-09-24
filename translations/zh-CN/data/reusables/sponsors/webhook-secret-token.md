@@ -6,5 +6,5 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145065731"
 ---
-5. 输入密钥令牌。 有关详细信息，请参阅“[保护 Webhook](/webhooks/securing/#securing-your-secret-token)”。
+5. 输入密钥令牌。有关详细信息，请参阅“[保护 Webhook](/webhooks/securing/#securing-your-secret-token)”。
   ![密钥令牌和其他自定义选项的字段](/assets/images/help/sponsors/webhook-secret-token.png)

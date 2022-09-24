@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: "147876019"
 ---
-{% data variables.product.prodname_dotcom %} 有一个强大的支持社区，你可以在那里寻求帮助并与来自世界各地的人交谈。 加入 [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions) 上的对话。
+{% data variables.product.prodname_dotcom %} 有一个强大的支持社区，你可以在那里寻求帮助并与来自世界各地的人交谈。加入 [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions) 上的对话。

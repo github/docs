@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "147065992"
 ---
-作为安全预防措施，{% data variables.product.company_short %} 会自动删除一年内未使用过的个人访问令牌。 为了提供进一步的安全性，强烈建议将过期时间添加到个人访问令牌。
+作为安全预防措施，{% data variables.product.company_short %} 会自动删除一年内未使用过的个人访问令牌。为了提供进一步的安全性，强烈建议将过期时间添加到个人访问令牌。

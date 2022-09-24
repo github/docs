@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145129546"
 ---
-申请 Stripe Connect 帐户时，请确保您的所有信息正确无误，然后提交申请。 提交申请后，很难更新姓名和出生日期等身份信息。
+申请 Stripe Connect 帐户时，请确保您的所有信息正确无误，然后提交申请。提交申请后，很难更新姓名和出生日期等身份信息。

@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145097313"
 ---
-1. 在 “Automatic watching（自动关注）”下，
+1. 在“Automatic watching（自动关注）”下，

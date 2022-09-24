@@ -8,6 +8,6 @@ ms.locfileid: "146180645"
 ---
 {% ifversion fixed-width-font-gfm-fields %}
 
-如果经常编辑代码片段和表，则可能受益于在 {% data variables.product.product_name %} 上启用对所有注释字段采用固定宽度字体。 有关详细信息，请参阅“[在编辑器中启用固定宽度字体](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github#enabling-fixed-width-fonts-in-the-editor)”。
+如果经常编辑代码片段和表，则可能受益于在 {% data variables.product.product_name %} 上启用对所有注释字段采用固定宽度字体。有关详细信息，请参阅“[在编辑器中启用固定宽度字体](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github#enabling-fixed-width-fonts-in-the-editor)”。
 
 {% endif %}

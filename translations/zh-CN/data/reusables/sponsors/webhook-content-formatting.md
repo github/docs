@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145065732"
 ---
-4. 在“Content type（内容类型）”下，选择您想要接收的数据格式。 有关详细信息，请参阅“[创建 Webhook](/webhooks/creating/#content-type)”和“![Webhook 格式化菜单](/assets/images/help/sponsors/webhook-content-menu.png)”
+4. 在“Content type（内容类型）”下，选择您想要接收的数据格式。有关详细信息，请参阅“[创建 Webhook](/webhooks/creating/#content-type)”和“![Webhook 格式化菜单](/assets/images/help/sponsors/webhook-content-menu.png)”

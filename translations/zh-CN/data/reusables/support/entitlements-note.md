@@ -8,6 +8,6 @@ ms.locfileid: "147079584"
 ---
 {% note %}
 
-注意：必须拥有企业支持权利才能查看与组织或企业帐户关联的票证。 有关详细信息，请参阅[管理企业的支持权利](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)。
+注意：必须拥有企业支持权利才能查看与组织或企业帐户关联的票证。有关详细信息，请参阅[管理企业的支持权利](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)。
 
 {% endnote %}  

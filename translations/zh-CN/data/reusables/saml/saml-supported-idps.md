@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145127437"
 ---
-{% data variables.product.product_name %} 支持 SAML SSO 与采用 SAML 2.0 标准的 IdP 一起使用。 有关详细信息，请参阅 OASIS 网站上的 [SAML Wiki](https://wiki.oasis-open.org/security)。
+{% data variables.product.product_name %} 支持 SAML SSO 与采用 SAML 2.0 标准的 IdP 一起使用。有关详细信息，请参阅 OASIS 网站上的 [SAML Wiki](https://wiki.oasis-open.org/security)。
 
 {% data variables.product.company_short %} 官方支持和内部测试以下 IdP。
 
@@ -17,5 +17,5 @@ ms.locfileid: "145127437"
 - OneLogin
 - PingOne
 - Shibboleth {% elsif ghae %}
-- Azure Active Directory (Azure AD)租户
+- Azure Active Directory (Azure AD) 租户
 - Okta (beta) {% endif %}

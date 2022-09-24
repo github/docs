@@ -8,6 +8,6 @@ ms.locfileid: "147067376"
 ---
 {% ifversion ghes %}
 
-如果将某个用户从 IdP 中移除，还必须手动挂起他们。 否则，帐户的所有者可以继续使用访问令牌或 SSH 密钥进行身份验证。 有关详细信息，请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
+如果将某个用户从 IdP 中移除，还必须手动挂起他们。否则，帐户的所有者可以继续使用访问令牌或 SSH 密钥进行身份验证。有关详细信息，请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
 
 {% endif %}

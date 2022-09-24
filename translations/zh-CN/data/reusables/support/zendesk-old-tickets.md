@@ -8,6 +8,6 @@ ms.locfileid: "147051962"
 ---
 {% ifversion ghes %} {% note %}
 
-如果之前通过 GitHub Enterprise 支持门户（现已弃用）联系了 {% data variables.contact.enterprise_support %}，则应使用 {% data variables.contact.contact_support_portal %} 打开新票证。 仍可在 [https://enterprise.githubsupport.com](https://enterprise.githubsupport.com) 查看历史票证。
+如果之前通过 GitHub Enterprise 支持门户（现已弃用）联系了 {% data variables.contact.enterprise_support %}，则应使用 {% data variables.contact.contact_support_portal %} 打开新票证。仍可在 [https://enterprise.githubsupport.com](https://enterprise.githubsupport.com) 查看历史票证。
 
 {% endnote %} {% endif %}

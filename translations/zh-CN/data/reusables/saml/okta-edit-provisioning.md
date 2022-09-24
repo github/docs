@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147093044"
 ---
-1. 为避免同步错误并确认用户已启用 SAML 且拥有 SCIM 关联标识，建议你审核组织的用户。 有关详细信息，请参阅“[排除组织的标识和访问管理故障](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)”。
+1. 为避免同步错误并确认用户已启用 SAML 且拥有 SCIM 关联标识，建议你审核组织的用户。有关详细信息，请参阅“[排除组织的标识和访问管理故障](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)”。
 
 1. 在“预配到应用”右侧，单击“编辑”。
 

@@ -6,5 +6,5 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145130157"
 ---
-1. 在所需层级的右侧，单击“选择”。 如果要选择自定义金额，请在单击“Select（选择）”之前输入赞助金额。 
+1. 在所需层级的右侧，单击“选择”。如果要选择自定义金额，请在单击“Select（选择）”之前输入赞助金额。 
   ![选择层级框](/assets/images/help/sponsors/select-a-tier-box.png)
