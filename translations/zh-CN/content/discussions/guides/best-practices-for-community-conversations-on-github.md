@@ -13,7 +13,7 @@ ms.locfileid: '147410225'
 ---
 ## {% data variables.product.prodname_discussions %} 中的社区对话
 
-由于 {% data variables.product.prodname_discussions %} 是一个开放的论坛，因此有机会将非代码协作引入项目的存储库或组织，并更快地收集各种反馈和想法。 你可以通过多种方式帮助推动富有成果的对话。
+由于 {% data variables.product.prodname_discussions %} 是一个开放的论坛，因此有机会将非代码协作引入项目的存储库或组织，并更快地收集各种反馈和想法。你可以通过多种方式帮助推动富有成果的对话。
 
 - 提出针对性的问题和后续问题，以收集具体反馈
 - 获取不同的体验并提炼到要点
@@ -31,13 +31,13 @@ ms.locfileid: '147410225'
 - 您希望将漏洞修复、功能请求和常规对话分开
 - 你希望使用投票衡量对新想法的兴趣和社区意见
 
-你可以使用存储库讨论来讨论特定于存储库的主题。 如果项目跨越多个存储库，则可以使用组织讨论来讨论不特定于组织中单个存储库的主题。
+你可以使用存储库讨论来讨论特定于存储库的主题。如果项目跨越多个存储库，则可以使用组织讨论来讨论不特定于组织中单个存储库的主题。
 
-议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。 有关详细信息，请参阅“[关于问题](/articles/about-issues)”。 拉取请求允许您直接评论提议的更改。 有关详细信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”和“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”。
+议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。有关详细信息，请参阅“[关于问题](/articles/about-issues)”。拉取请求允许您直接评论提议的更改。有关详细信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”和“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”。
 
 ## 遵守参与指南
 
-在存储库中开设讨论之前，请检查存储库是否有参与指南。 CONTRIBUTING 文件包含仓库维护员希望您如何向项目贡献想法的信息。
+在存储库中开设讨论之前，请检查存储库是否有参与指南。CONTRIBUTING 文件包含仓库维护员希望您如何向项目贡献想法的信息。
 
 有关详细信息，请参阅“[为运行状况参与设置项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 

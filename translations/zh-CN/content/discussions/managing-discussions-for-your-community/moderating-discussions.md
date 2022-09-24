@@ -13,7 +13,7 @@ ms.locfileid: '147410113'
 ---
 ## 关于主持讨论
 
-{% data reusables.discussions.about-discussions %}如果你对存储库具有会审权限，便可通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发早期阶段时将问题转换为讨论，从而帮助主持存储库的讨论。 同样，对于组织讨论，如果你对源存储库具有会审权限，则可以为该组织主持讨论。
+{% data reusables.discussions.about-discussions %}如果你对存储库具有会审权限，便可通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发早期阶段时将问题转换为讨论，从而帮助主持存储库的讨论。同样，对于组织讨论，如果你对源存储库具有会审权限，则可以为该组织主持讨论。
 
 ## 将评论标记为答案
 
@@ -21,7 +21,7 @@ ms.locfileid: '147410113'
 
 ## 锁定讨论
 
-如果整个对话没有建设性或者违反了社区的行为准则或 {% data variables.product.prodname_dotcom %} 的[社区准则](/free-pro-team@latest/github/site-policy/github-community-guidelines)，锁定对话是明智之举。 您还可以锁定对话，以防止对要用作社区公告的讨论发表评论。 锁定对话后，对存储库或组织讨论的源存储库具有写入访问权限的人员仍能够对讨论发表评论。
+如果整个对话没有建设性或者违反了社区的行为准则或 {% data variables.product.prodname_dotcom %} 的[社区准则](/free-pro-team@latest/github/site-policy/github-community-guidelines)，锁定对话是明智之举。您还可以锁定对话，以防止对要用作社区公告的讨论发表评论。锁定对话后，对存储库或组织讨论的源存储库具有写入访问权限的人员仍能够对讨论发表评论。
 
 {% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %}
 1. 在讨论列表中，单击要锁定的讨论。
@@ -32,7 +32,7 @@ ms.locfileid: '147410113'
 
 ## 将议题转换为讨论
 
-在将议题转换为讨论时，会使用议题中的内容自动创建讨论。 对存储库或组织讨论的源存储库具有写入访问权限的人员可以根据标签批量转换问题。 有关详细信息，请参阅“[管理讨论](/discussions/managing-discussions-for-your-community/managing-discussions)”。
+在将议题转换为讨论时，会使用议题中的内容自动创建讨论。对存储库或组织讨论的源存储库具有写入访问权限的人员可以根据标签批量转换问题。有关详细信息，请参阅“[管理讨论](/discussions/managing-discussions-for-your-community/managing-discussions)”。
 
 {% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.repositories.sidebar-issues %}
 1. 在议题列表中，单击您想要转换的议题。

@@ -36,5 +36,5 @@ ms.locfileid: '147410137'
 {% data reusables.repositories.accessing-repository-graphs %}
 3. 在左侧边栏中，单击“社区”。
 ![左侧栏中“社区”选项卡的屏幕截图](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
-1. （可选）在页面右上角，选择“时间段”下拉菜单，然后单击要查看数据的时间段：30 天、3 个月或 1 年   。
+1. （可选）在页面右上角，选择“时间段”下拉菜单，然后单击要查看数据的时间段：30 天、3 个月或 1 年。
 ![讨论见解的日期范围选择器的屏幕截图](/assets/images/help/discussions/discussions-dashboard-date-selctor.png)

@@ -16,13 +16,13 @@ ms.locfileid: '147410233'
 
 {% data reusables.discussions.about-discussions %} 有关详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
-除了开始或查看讨论和投票之外，还可以对讨论作者的原始评论做出响应。 您还可以通过回复其他社区成员在讨论中进行的个人评论，以及使用表情符号对评论做出反应来创建评论线程。
+除了开始或查看讨论和投票之外，还可以对讨论作者的原始评论做出响应。您还可以通过回复其他社区成员在讨论中进行的个人评论，以及使用表情符号对评论做出反应来创建评论线程。
 
-{% ifversion fpt or ghec %}你可以阻止用户并报告破坏性内容，以便自己在 {% data variables.product.product_name %} 上保持一个安全愉快的环境。 有关详细信息，请参阅“[维护 {% data variables.product.prodname_dotcom %} 上的安全](/communities/maintaining-your-safety-on-github)”。{% endif %}
+{% ifversion fpt or ghec %}你可以阻止用户并报告破坏性内容，以便自己在 {% data variables.product.product_name %} 上保持一个安全愉快的环境。有关详细信息，请参阅“[维护 {% data variables.product.prodname_dotcom %} 上的安全](/communities/maintaining-your-safety-on-github)”。{% endif %}
 
 ## 先决条件
 
-必须对存储库或组织启用 {% data variables.product.prodname_discussions %}，才可以参与存储库或组织中的讨论。 有关更多信息，请参阅“[为存储库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”或“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
+必须对存储库或组织启用 {% data variables.product.prodname_discussions %}，才可以参与存储库或组织中的讨论。有关更多信息，请参阅“[为存储库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”或“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 
 ## 创建讨论
 

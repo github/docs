@@ -17,7 +17,7 @@ ms.locfileid: '147883269'
 
 1. 在 {% data variables.product.product_location %} 的右上角，单击你的个人资料照片，然后单击“你的讨论”。
   ![{% data variables.product.product_name %} 上个人资料照片下拉菜单中的“你的讨论”](/assets/images/help/discussions/your-discussions.png)
-1. 在“已创建”和“已批注”之间切换，以查看已创建或参与的讨论 。
+1. 在“已创建”和“已批注”之间切换，以查看已创建或参与的讨论。
 
 ## 延伸阅读
 
