@@ -26,7 +26,7 @@ ms.locfileid: '145129281'
 
 {% endnote %}
 
-如果存储库的部署工作流通过部署 API 或来自 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment) 的应用与 {% data variables.product.product_name %} 集成，则具有存储库读取权限的人员可以查看当前所有部署的概述以及过去部署活动的日志。 有关详细信息，请参阅“[部署](/rest/reference/repos#deployments)”。
+如果存储库的部署工作流通过部署 API 或来自 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment) 的应用与 {% data variables.product.product_name %} 集成，则具有存储库读取权限的人员可以查看当前所有部署的概述以及过去部署活动的日志。有关详细信息，请参阅“[部署](/rest/reference/repos#deployments)”。
 
 您还可以在拉取请求的“Conversation（对话）”选项卡中查看部署信息。
 

@@ -27,9 +27,9 @@ ms.locfileid: '145129266'
 
 可以删除存储库{% ifversion fpt or ghes or ghec %} 中的单个文件或整个目录，包括目录{% endif %} 中的所有文件。
 
-如果尝试在没有写入权限的存储库中删除文件{% ifversion fpt or ghes or ghec %}或目录{% endif %}，我们会在你的个人帐户中创建项目的分支，并在你提交更改后帮助你向原始存储库发送拉取请求。 有关详细信息，请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
+如果尝试在没有写入权限的存储库中删除文件{% ifversion fpt or ghes or ghec %}或目录{% endif %}，我们会在你的个人帐户中创建项目的分支，并在你提交更改后帮助你向原始存储库发送拉取请求。有关详细信息，请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
 
-如果删除的文件{% ifversion fpt or ghes or ghec %} 或目录{% endif %} 包含敏感数据，则该数据仍将在存储库的 Git 历史记录中提供。 要从 {% data variables.product.product_name %} 中彻底删除文件，您必须从仓库的历史记录中删除该文件。 有关详细信息，请参阅“[从存储库中删除敏感数据](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)”。
+如果删除的文件{% ifversion fpt or ghes or ghec %} 或目录{% endif %} 包含敏感数据，则该数据仍将在存储库的 Git 历史记录中提供。要从 {% data variables.product.product_name %} 中彻底删除文件，您必须从仓库的历史记录中删除该文件。有关详细信息，请参阅“[从存储库中删除敏感数据](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)”。
 
 ## 删除文件
 

@@ -24,13 +24,13 @@ ms.locfileid: '145129370'
 
 {% note %}
 
-注意：如果你在其他版本控制系统上托管了项目，则可以使用 {% data variables.product.prodname_dotcom %} 导入程序工具自动将项目导入到 {% data variables.product.prodname_dotcom %}。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 导入程序](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)”。
+注意：如果你在其他版本控制系统上托管了项目，则可以使用 {% data variables.product.prodname_dotcom %} 导入程序工具自动将项目导入到 {% data variables.product.prodname_dotcom %}。有关详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 导入程序](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)”。
 
 {% endnote %}
 
 {% endif %}
 
-在将原始存储库推送到存储库的新副本或镜像之前，必须在 {% data variables.product.product_location %} 上[创建新的存储库](/articles/creating-a-new-repository)。 在这些示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 为镜像。
+在将原始存储库推送到存储库的新副本或镜像之前，必须在 {% data variables.product.product_location %} 上[创建新的存储库](/articles/creating-a-new-repository)。在这些示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 为镜像。
 
 ## 镜像仓库
 
@@ -53,7 +53,7 @@ ms.locfileid: '145129370'
 ## 镜像包含 {% data variables.large_files.product_name_long %} 对象的仓库。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 创建仓库的裸克隆。 将示例用户名替换为拥有仓库的个人或组织的名称，并将示例仓库名称替换为要复制的仓库的名称。
+2. 创建仓库的裸克隆。将示例用户名替换为拥有仓库的个人或组织的名称，并将示例仓库名称替换为要复制的仓库的名称。
   ```shell
   $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
   ```
@@ -93,7 +93,7 @@ ms.locfileid: '145129370'
   $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
-与裸克隆一样，镜像的克隆包括所有远程分支和标记，但每次获取时都会覆盖所有本地引用，因此它始终与原始仓库相同。 设置推送 URL 可简化至镜像的推送。
+与裸克隆一样，镜像的克隆包括所有远程分支和标记，但每次获取时都会覆盖所有本地引用，因此它始终与原始仓库相同。设置推送 URL 可简化至镜像的推送。
 
 4. 如需更新镜像，请获取更新和推送。
   ```shell

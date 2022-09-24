@@ -22,7 +22,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129310'
 ---
-组织所有者必须允许组织级别上的专用{% ifversion ghae or ghes or ghec %}和内部{% endif %}存储库的分支，然后你才能允许或禁止特定存储库的分支。 有关详细信息，请参阅“[管理组织的分支策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)”。
+组织所有者必须允许组织级别上的专用{% ifversion ghae or ghes or ghec %}和内部{% endif %}存储库的分支，然后你才能允许或禁止特定存储库的分支。有关详细信息，请参阅“[管理组织的分支策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)”。
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
 3. 在“功能”下，选择“允许创建分支”。

@@ -35,7 +35,7 @@ ms.locfileid: '146680987'
 
 ## 查看文件的逐行修订历史记录
 
-使用追溯视图时，可以查看整个文件的逐行修订历史记录，也可以单击 {% octicon "versions" aria-label="The prior blame icon" %} 查看文件中某一行的修订历史记录。 每次单击 {% octicon "versions" aria-label="The prior blame icon" %} 后，将看到该行以前的修订信息，包括提交更改的人员和时间。
+使用追溯视图时，可以查看整个文件的逐行修订历史记录，也可以单击 {% octicon "versions" aria-label="The prior blame icon" %} 查看文件中某一行的修订历史记录。每次单击 {% octicon "versions" aria-label="The prior blame icon" %} 后，将看到该行以前的修订信息，包括提交更改的人员和时间。
 
 ![Git 追溯视图](/assets/images/help/repository/git_blame.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: '146680987'
 
 {% tip %}
 
-提示：在命令行上，还可以使用 `git blame` 查看文件内各行的修订历史记录。 有关详细信息，请参阅 [Git 的 `git blame` 文档](https://git-scm.com/docs/git-blame)。
+提示：在命令行上，还可以使用 `git blame` 查看文件内各行的修订历史记录。有关详细信息，请参阅 [Git 的 `git blame` 文档](https://git-scm.com/docs/git-blame)。
 
 {% endtip %}
 
@@ -60,10 +60,10 @@ ms.locfileid: '146680987'
 
 ## 忽略追溯视图中的提交
 
-`.git-blame-ignore-revs` 文件中指定的所有修订（必须位于存储库的根目录中）利用 Git 的 `git blame --ignore-revs-file` 配置设置从追溯视图中隐藏。 有关详细信息，请参阅 Git 文档中的 [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt)。
+`.git-blame-ignore-revs` 文件中指定的所有修订（必须位于存储库的根目录中）利用 Git 的 `git blame --ignore-revs-file` 配置设置从追溯视图中隐藏。有关详细信息，请参阅 Git 文档中的 [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt)。
 
 1. 在存储库的根目录中，创建一个名为 `.git-blame-ignore-revs` 的文件。
-2. 在该文件中添加要从追溯视图中排除的提交哈希。 建议按如下所示构建文件（包括评论）：
+2. 在该文件中添加要从追溯视图中排除的提交哈希。建议按如下所示构建文件（包括评论）：
 
     ```ini
     # .git-blame-ignore-revs
@@ -75,11 +75,11 @@ ms.locfileid: '146680987'
 
 3. 提交并推送更改。
 
-现在，访问追溯视图时，追溯中将不会包含列出的修订。 你会看到“忽略 .git-blame-ignore-revs 中的修订”横幅，表明某些提交可能已隐藏：
+现在，访问追溯视图时，追溯中将不会包含列出的修订。你会看到“忽略 .git-blame-ignore-revs 中的修订”横幅，表明某些提交可能已隐藏：
 
 ![链接到 .git-blame-ignore-revs 文件的追溯视图上横幅的屏幕截图](/assets/images/help/repository/blame-ignore-revs-file.png)
 
-当一些提交对代码进行大量更改时，这非常有用。 也可以在本地运行 `git blame` 时使用该文件：
+当一些提交对代码进行大量更改时，这非常有用。也可以在本地运行 `git blame` 时使用该文件：
 
 ```shell
 git blame --ignore-revs-file .git-blame-ignore-revs

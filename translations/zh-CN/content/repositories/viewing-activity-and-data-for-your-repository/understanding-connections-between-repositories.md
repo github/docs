@@ -51,7 +51,7 @@ ms.locfileid: '147060064'
 
 成员图显示仓库的所有复刻。
 
-复刻按仓库复刻者用户名的字母顺序列出。 您可以单击要重定向到用户 {% data variables.product.product_name %} 个人资料页面的用户名，或者单击要重定向到仓库特定复刻的复刻名称。
+复刻按仓库复刻者用户名的字母顺序列出。您可以单击要重定向到用户 {% data variables.product.product_name %} 个人资料页面的用户名，或者单击要重定向到仓库特定复刻的复刻名称。
 
 {% ifversion fpt or ghec %}
 
@@ -73,8 +73,8 @@ ms.locfileid: '147060064'
 
 您可以使用依赖关系图来浏览仓库所依赖的代码。
 
-几乎所有软件都依赖于其他开发者开发和维护的代码，常常被称为供应链。 例如，实用程序、库和框架。 这些依赖项是代码不可分割的一部分，其中的任何错误或漏洞都可能影响您的代码。 审查和维护这些依赖项非常重要。
+几乎所有软件都依赖于其他开发者开发和维护的代码，常常被称为供应链。例如，实用程序、库和框架。这些依赖项是代码不可分割的一部分，其中的任何错误或漏洞都可能影响您的代码。审查和维护这些依赖项非常重要。
 
-依赖关系图提供了可视化和探索仓库依赖关系的好方法。 有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/about-the-dependency-graph)”和“[探索存储库的依赖项](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)”。
+依赖关系图提供了可视化和探索仓库依赖关系的好方法。有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/about-the-dependency-graph)”和“[探索存储库的依赖项](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)”。
 
-您也可以设置仓库，以便在您的一个依赖项中发现安全漏洞时，{% data variables.product.company_short %} 会自动提醒您。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+您也可以设置仓库，以便在您的一个依赖项中发现安全漏洞时，{% data variables.product.company_short %} 会自动提醒您。有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。

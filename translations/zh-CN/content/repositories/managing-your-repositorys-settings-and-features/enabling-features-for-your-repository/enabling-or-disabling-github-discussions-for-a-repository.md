@@ -22,7 +22,7 @@ ms.locfileid: '147410513'
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
 1. 若要禁用讨论，请在“功能”下取消选择“讨论”。
 
-还可以使用组织讨论来促进跨组织中的多个存储库的对话。 有关详细信息，请参阅“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
+还可以使用组织讨论来促进跨组织中的多个存储库的对话。有关详细信息，请参阅“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 
 ## 延伸阅读
 

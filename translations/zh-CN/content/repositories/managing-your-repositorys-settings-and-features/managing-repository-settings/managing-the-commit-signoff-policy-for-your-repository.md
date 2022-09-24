@@ -16,9 +16,9 @@ ms.locfileid: '147410719'
 ---
 ## 关于提交签字
 
-提交签字使用户能够确认提交符合有关管理存储库的规则和许可。 可通过 {% data variables.product.product_location %} 的 Web 界面为用户提交在各个存储库上启用强制提交签字，从而使签字提交在提交过程中顺利执行。 为存储库启用强制提交签字后，通过 {% data variables.product.product_location %} 的 Web 界面对该存储库进行的每个提交都将由提交作者自动签字。
+提交签字使用户能够确认提交符合有关管理存储库的规则和许可。可通过 {% data variables.product.product_location %} 的 Web 界面为用户提交在各个存储库上启用强制提交签字，从而使签字提交在提交过程中顺利执行。为存储库启用强制提交签字后，通过 {% data variables.product.product_location %} 的 Web 界面对该存储库进行的每个提交都将由提交作者自动签字。
 
-组织所有者还可以在组织级别启用强制提交签字。 有关详细信息，请参阅“[管理组织的提交签字策略](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)”。
+组织所有者还可以在组织级别启用强制提交签字。有关详细信息，请参阅“[管理组织的提交签字策略](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)”。
 
 {% data reusables.repositories.commit-signoffs %}
 

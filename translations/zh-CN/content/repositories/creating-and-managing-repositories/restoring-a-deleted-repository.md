@@ -23,19 +23,19 @@ ms.locfileid: '146200096'
 ---
 {% ifversion ghes or ghae %}
 
-通常，企业所有者{% ifversion ghes %}可在 {% data variables.product.product_location %}{% endif %} 上在删除后的 90 天内还原已删除的存储库。 有关详细信息，请参阅“[还原已删除的存储库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。 
+通常，企业所有者{% ifversion ghes %}可在 {% data variables.product.product_location %}{% endif %} 上在删除后的 90 天内还原已删除的存储库。有关详细信息，请参阅“[还原已删除的存储库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。 
 
 {% else %}
 
 ## 关于仓库恢复
 
-删除的仓库可在 90 天内恢复，除非仓库是目前非空白的复刻网络的一部分。 复刻网络由父仓库、仓库的复刻以及该仓库复刻的复刻组成。 如果仓库是复刻网络的一部分，则在网络中的每个其他仓库被删除或者从网络中脱离之前，无法恢复它。 有关分支的详细信息，请参阅“[关于分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)”。
+删除的仓库可在 90 天内恢复，除非仓库是目前非空白的复刻网络的一部分。复刻网络由父仓库、仓库的复刻以及该仓库复刻的复刻组成。如果仓库是复刻网络的一部分，则在网络中的每个其他仓库被删除或者从网络中脱离之前，无法恢复它。有关分支的详细信息，请参阅“[关于分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)”。
 
 如果要恢复属于当前非空白的复刻网络一部分的仓库，可以联系 {% data variables.contact.contact_support %}。
 
 仓库被删除后，可能需要一个小时才能恢复。
 
-恢复仓库不会恢复发行版附件或团队权限。 已恢复的议题不会被标记。
+恢复仓库不会恢复发行版附件或团队权限。已恢复的议题不会被标记。
 
 ## 还原个人帐户所拥有的已删除存储库
 

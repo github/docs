@@ -21,9 +21,9 @@ ms.locfileid: '147558340'
 ---
 ## 关于 FUNDING 文件
 
-可通过编辑默认分支上存储库的 `.github` 文件夹中的 FUNDING.yml 文件来配置赞助者按钮。 您也可以配置此按钮，以通过 {% data variables.product.prodname_sponsors %}、外部资助平台或自定义资助 URL 来包括被赞助的开发者。 有关 {% data variables.product.prodname_sponsors %} 的详细信息，请参阅“[关于 GitHub 赞助者](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
+可通过编辑默认分支上存储库的 `.github` 文件夹中的 FUNDING.yml 文件来配置赞助者按钮。您也可以配置此按钮，以通过 {% data variables.product.prodname_sponsors %}、外部资助平台或自定义资助 URL 来包括被赞助的开发者。有关 {% data variables.product.prodname_sponsors %} 的详细信息，请参阅“[关于 GitHub 赞助者](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
 
-您也可以每个赞助平台添加一个用户名、包名称或项目名，以及最多四个自定义 URL。 可在 {% data variables.product.prodname_sponsors %} 中添加一个组织和最多四位被赞助的开发者。 在新行上添加每个平台，使用以下语法：
+您也可以每个赞助平台添加一个用户名、包名称或项目名，以及最多四个自定义 URL。可在 {% data variables.product.prodname_sponsors %} 中添加一个组织和最多四位被赞助的开发者。在新行上添加每个平台，使用以下语法：
 
 平台 | 语法
 -------- | -----
@@ -59,15 +59,15 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% note %}
 
-注意：如果数组中的自定义 URL 包含 `:`，则必须将 URL 用引号括起来。 例如 `"https://www.paypal.me/octocat"`。
+注意：如果数组中的自定义 URL 包含 `:`，则必须将 URL 用引号括起来。例如 `"https://www.paypal.me/octocat"`。
 
 {% endnote %}
 
-你可以为组织或个人帐户创建一个默认赞助者按钮。 有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
+你可以为组织或个人帐户创建一个默认赞助者按钮。有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
 
 {% note %}
 
-资助链接为开源项目提供了一个获得其社区直接资金支持的方式。 我们不支持出于其他目的使用资助链接，例如出于做广告或支持政治、社区或慈善团体的目的。 如果您对您的预期用途是否受支持存有疑问，请联系 {% data variables.contact.contact_support %}。
+资助链接为开源项目提供了一个获得其社区直接资金支持的方式。我们不支持出于其他目的使用资助链接，例如出于做广告或支持政治、社区或慈善团体的目的。如果您对您的预期用途是否受支持存有疑问，请联系 {% data variables.contact.contact_support %}。
 
 {% endnote %}
 

@@ -24,7 +24,7 @@ ms.locfileid: '145129289'
 ---
 {% tip %}
 
-提示：还可以使用 {% data variables.product.prodname_cli %} 查看发行版。 有关详细信息，请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh release view`](https://cli.github.com/manual/gh_release_view)”。
+提示：还可以使用 {% data variables.product.prodname_cli %} 查看发行版。有关详细信息，请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh release view`](https://cli.github.com/manual/gh_release_view)”。
 
 {% endtip %}
 

@@ -23,7 +23,7 @@ ms.locfileid: '145129349'
 ---
 ## 关于主题
 
-使用主题可以探索特定主题领域的仓库，查找要参与的项目，以及发现特定问题的新解决方案。 主题显示在仓库的主页面上。 可以单击主题名称以{% ifversion fpt or ghec %}查看相关主题和按该主题分类的其他存储库列表{% else %}搜索具有该主题的其他存储库{% endif %}。
+使用主题可以探索特定主题领域的仓库，查找要参与的项目，以及发现特定问题的新解决方案。主题显示在仓库的主页面上。可以单击主题名称以{% ifversion fpt or ghec %}查看相关主题和按该主题分类的其他存储库列表{% else %}搜索具有该主题的其他存储库{% endif %}。
 
 ![显示主题的测试仓库主页面](/assets/images/help/repository/os-repo-with-topics.png)
 
@@ -31,11 +31,11 @@ ms.locfileid: '145129349'
 
 {% ifversion fpt or ghec %}可以在 [github/explore](https://github.com/github/explore) 存储库中参与 {% data variables.product.product_name %} 的一组精选主题。 {% endif %}
 
-仓库管理员可以添加他们喜欢的任何主题到仓库。 用于对存储库进行分类的有用主题包括存储库的预期用途、主题领域、社区或语言。{% ifversion fpt or ghec %}此外，{% data variables.product.product_name %} 分析公共存储库内容，并生成存储库管理员可接受或拒绝的建议主题。 私有仓库内容不可分析，也不会收到主题建议。{% endif %}
+仓库管理员可以添加他们喜欢的任何主题到仓库。用于对存储库进行分类的有用主题包括存储库的预期用途、主题领域、社区或语言。{% ifversion fpt or ghec %}此外，{% data variables.product.product_name %} 分析公共存储库内容，并生成存储库管理员可接受或拒绝的建议主题。私有仓库内容不可分析，也不会收到主题建议。{% endif %}
 
 {% ifversion fpt %}公共和私有{% elsif ghec or ghes %}公共、私有和内部{% elsif ghae %}私有和内部{% endif %} 存储库可以包含主题，但您只会在主题搜索结果中看到您有权访问的私有存储库。
 
-您可以搜索与公共仓库关联的仓库。 有关详细信息，请参阅“[搜索存储库](/search-github/searching-on-github/searching-for-repositories#search-by-topic)”。 您也可以搜索 {% data variables.product.product_name %} 中的主题列表。 有关详细信息，请参阅“[搜索主题](/search-github/searching-on-github/searching-topics)”。
+您可以搜索与公共仓库关联的仓库。有关详细信息，请参阅“[搜索存储库](/search-github/searching-on-github/searching-for-repositories#search-by-topic)”。您也可以搜索 {% data variables.product.product_name %} 中的主题列表。有关详细信息，请参阅“[搜索主题](/search-github/searching-on-github/searching-topics)”。
 
 ## 添加主题到仓库
 

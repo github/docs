@@ -27,7 +27,7 @@ ms.locfileid: '147578906'
 ---
 ## 将文件添加到 {% data variables.product.product_name %} 上的存储库
 
-通过浏览器添加到仓库的文件大小限于每个文件 {% data variables.large_files.max_github_browser_size %}。 较大的文件可通过命令行添加，最大每个 {% data variables.large_files.max_github_size %}。 有关详细信息，请参阅“[使用命令行将文件添加到存储库](#adding-a-file-to-a-repository-using-the-command-line)”。 要添加大于 {% data variables.large_files.max_github_size %} 的文件，则必须使用 {% data variables.large_files.product_name_long %}。 有关详细信息，请参阅“[关于 {% data variables.product.product_name %} 的大文件](/repositories/working-with-files/managing-large-files/about-large-files-on-github)”。
+通过浏览器添加到仓库的文件大小限于每个文件 {% data variables.large_files.max_github_browser_size %}。较大的文件可通过命令行添加，最大每个 {% data variables.large_files.max_github_size %}。有关详细信息，请参阅“[使用命令行将文件添加到存储库](#adding-a-file-to-a-repository-using-the-command-line)”。要添加大于 {% data variables.large_files.max_github_size %} 的文件，则必须使用 {% data variables.large_files.product_name_long %}。有关详细信息，请参阅“[关于 {% data variables.product.product_name %} 的大文件](/repositories/working-with-files/managing-large-files/about-large-files-on-github)”。
 
 {% tip %}
 

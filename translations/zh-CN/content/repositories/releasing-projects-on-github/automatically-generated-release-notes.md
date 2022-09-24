@@ -22,7 +22,7 @@ ms.locfileid: '147432014'
 ---
 ## 关于自动生成的发行说明
 
-自动生成的发行说明为 {% data variables.product.prodname_dotcom %} 发行版手动编写发行说明提供了一种自动替代方法。 使用自动生成的发行说明，您可以快速生成发行版内容的概览。 自动生成的发行说明包括合并的拉取请求列表、发布参与者列表和完整更改日志的链接。
+自动生成的发行说明为 {% data variables.product.prodname_dotcom %} 发行版手动编写发行说明提供了一种自动替代方法。使用自动生成的发行说明，您可以快速生成发行版内容的概览。自动生成的发行说明包括合并的拉取请求列表、发布参与者列表和完整更改日志的链接。
 
 您还可以自定义自动发行说明，使用标签创建自定义类别来组织要包含的拉取请求，并排除某些标签和用户不出现在输出中。
 
@@ -31,7 +31,7 @@ ms.locfileid: '147432014'
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
 3. 单击“草拟新发行版”。
    ![发行版草稿按钮](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt or ghec %}单击“选择标记”，然后键入{% else %}键入{% endif %}发行版的版本号。 或者，选择现有标记。
+4. {% ifversion fpt or ghec %}单击“选择标记”，然后键入{% else %}键入{% endif %}发行版的版本号。或者，选择现有标记。
   {% ifversion fpt or ghec %} ![输入标记](/assets/images/help/releases/releases-tag-create.png)
 5. 如果要创建新标记，请单击“创建新标记”。
 ![确认要创建新标记](/assets/images/help/releases/releases-tag-create-confirm.png) {% else %} ![发行版标记的版本](/assets/images/enterprise/releases/releases-tag-version.png) {% endif %}
@@ -43,9 +43,9 @@ ms.locfileid: '147432014'
    ![通过发行版提供 DMG](/assets/images/help/releases/releases_adding_binary.gif)
 10. 若要通知用户发行版尚未准备投入生产，并且可能不稳定，请选择“这是预发行版”。
    ![用于将发行版标记为预发行版的复选框](/assets/images/help/releases/prerelease_checkbox.png) {%- ifversion fpt or ghec %}
-11. （可选）选择“为此版本创建讨论”，然后选择“类别”下拉菜单，然后单击类别进行版本讨论 。
+11. （可选）选择“为此版本创建讨论”，然后选择“类别”下拉菜单，然后单击类别进行版本讨论。
   ![用于创建发行版讨论和下拉菜单以选择类别的复选框](/assets/images/help/releases/create-release-discussion.png) {%- endif %}
-12. 如果已准备好公开发行版，请单击“发布发行版”。 若要稍后处理发行版，请单击“保存草稿”。
+12. 如果已准备好公开发行版，请单击“发布发行版”。若要稍后处理发行版，请单击“保存草稿”。
    ![“发布发行版”和“草拟发行版”按钮](/assets/images/help/releases/release_buttons.png)
 
 
@@ -54,7 +54,7 @@ ms.locfileid: '147432014'
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
 3. 在文件名字段中，键入 `.github/release.yml` 以在 `.github` 目录中创建 `release.yml` 文件。
   ![新建文件](/assets/images/help/releases/release-yml.png)
-4. 在文件中，使用下面的配置选项，在 YAML 中指定要从此版本中排除的拉取请求标签和作者。 您还可以创建新类别并列出要包含在每个类别中的拉取请求标签。
+4. 在文件中，使用下面的配置选项，在 YAML 中指定要从此版本中排除的拉取请求标签和作者。您还可以创建新类别并列出要包含在每个类别中的拉取请求标签。
 
 ### 配置选项
 
@@ -63,7 +63,7 @@ ms.locfileid: '147432014'
 | `changelog.exclude.labels` | 不在发行说明中显示拉取请求的标签列表。 |
 | `changelog.exclude.authors` | 要从发行说明中排除其拉取请求的用户或自动程序登录句柄的列表。 |
 | `changelog.categories[*].title` | **必填。** 发行说明中更改类别的标题。 |
-| `changelog.categories[*].labels`| **必填。** 符合此类别的拉取请求条件的标签。 使用 `*` 作为与上述任何类别都不匹配的拉取请求的统称。 |
+| `changelog.categories[*].labels`| **必填。** 符合此类别的拉取请求条件的标签。使用 `*` 作为与上述任何类别都不匹配的拉取请求的统称。 |
 | `changelog.categories[*].exclude.labels` | 不在此类别中显示拉取请求的标签列表。 |
 | `changelog.categories[*].exclude.authors` | 要从此类别中排除其拉取请求的用户或自动程序登录句柄的列表。 |
 

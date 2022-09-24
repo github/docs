@@ -24,21 +24,21 @@ ms.locfileid: '145129401'
 ---
 ## 关于更改默认分支
 
-您可以选择仓库的默认分支。 默认分支是拉取请求和代码提交的基础分支。 有关默认分支的详细信息，请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”。
+您可以选择仓库的默认分支。默认分支是拉取请求和代码提交的基础分支。有关默认分支的详细信息，请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”。
 
 {% ifversion not ghae %} {% note %}
 
-注意：如果使用 Git-Subversion 桥，则更改默认分支将影响 `trunk` 分支内容和列出远程存储库的引用时看到的 `HEAD`。 有关详细信息，请参阅“[Subversion 客户端支持](/github/importing-your-projects-to-github/support-for-subversion-clients)”和 Git 文档中的 [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html)。
+注意：如果使用 Git-Subversion 桥，则更改默认分支将影响 `trunk` 分支内容和列出远程存储库的引用时看到的 `HEAD`。有关详细信息，请参阅“[Subversion 客户端支持](/github/importing-your-projects-to-github/support-for-subversion-clients)”和 Git 文档中的 [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html)。
 
 {% endnote %} {% endif %}
 
-您也可以重命名默认分支。 有关详细信息，请参阅“[重命名分支](/github/administering-a-repository/renaming-a-branch)”。
+您也可以重命名默认分支。有关详细信息，请参阅“[重命名分支](/github/administering-a-repository/renaming-a-branch)”。
 
 {% data reusables.branches.set-default-branch %}
 
 ## 先决条件
 
-要更改默认分支，您的仓库必须有多个分支。 有关详细信息，请参阅“[在存储库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)”。
+要更改默认分支，您的仓库必须有多个分支。有关详细信息，请参阅“[在存储库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)”。
 
 ## 更改默认分支
 
@@ -50,5 +50,5 @@ ms.locfileid: '145129401'
 1. 单击“更新”。
    ![选择新默认分支后的“更新”按钮](/assets/images/help/repository/repository-options-defaultbranch-update.png)
 1. 阅读警告，然后单击“我了解，请更新默认分支。”
-   ![“我了解，请更新默认分支。” 用于执行更新的按钮](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
+   ![“我了解，请更新默认分支。”用于执行更新的按钮](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 

@@ -28,7 +28,7 @@ ms.locfileid: '147093140'
 ---
 ## HTTPS 克隆错误
 
-对 Git 使用 HTTPS 时有几种常见错误。 这些错误通常表示您有旧版 Git，或无法访问仓库。
+对 Git 使用 HTTPS 时有几种常见错误。这些错误通常表示您有旧版 Git，或无法访问仓库。
 
 下面是您可能收到的 HTTPS 错误示例：
 
@@ -51,7 +51,7 @@ ms.locfileid: '147093140'
 
 ### 检查 Git 版本
 
-与 {% data variables.product.product_name %} 交互没有最低 Git 版本要求，但我们发现 1.7.10 版是一个方便、稳定的版本，适用于许多平台。 你可以始终在 [Git 网站上下载最新版本](https://git-scm.com/downloads)。
+与 {% data variables.product.product_name %} 交互没有最低 Git 版本要求，但我们发现 1.7.10 版是一个方便、稳定的版本，适用于许多平台。你可以始终在 [Git 网站上下载最新版本](https://git-scm.com/downloads)。
 
 ### 确保远程正确
 
@@ -78,7 +78,7 @@ $ git remote -v
 
 ### 提供访问令牌
 
-要访问 {% data variables.product.prodname_dotcom %}，您必须使用个人访问令牌而不是密码进行身份验证。 有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+要访问 {% data variables.product.prodname_dotcom %}，您必须使用个人访问令牌而不是密码进行身份验证。有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
 {% data reusables.command_line.provide-an-access-token %}
 
@@ -88,13 +88,13 @@ $ git remote -v
 
 {% tip %}
 
-提示：如果不想在每次与远程存储库交互时都输入用户名和密码，可以打开[凭据缓存](/github/getting-started-with-github/caching-your-github-credentials-in-git)。 如果已在使用凭据缓存，请确保您的计算机缓存了正确的凭据。 不正确或过期的凭据将导致身份验证失败。
+提示：如果不想在每次与远程存储库交互时都输入用户名和密码，可以打开[凭据缓存](/github/getting-started-with-github/caching-your-github-credentials-in-git)。如果已在使用凭据缓存，请确保您的计算机缓存了正确的凭据。不正确或过期的凭据将导致身份验证失败。
 
 {% endtip %}
 
 ### 改用 SSH
 
-如果您以前设置了 SSH 密钥，便可使用 SSH 克隆 URL，而不使用 HTTPS。  有关详细信息，请参阅“[关于远程存储库](/github/getting-started-with-github/about-remote-repositories)”。
+如果您以前设置了 SSH 密钥，便可使用 SSH 克隆 URL，而不使用 HTTPS。有关详细信息，请参阅“[关于远程存储库](/github/getting-started-with-github/about-remote-repositories)”。
 
 ## 错误：未找到仓库
 
@@ -102,9 +102,9 @@ $ git remote -v
 
 ### 检查拼写
 
-拼写错误可能发生，并且仓库名称区分大小写。  如果尝试克隆 `git@{% data variables.command_line.codeblock %}:user/repo.git`，但存储库已实际命名为 `User/Repo`，则会收到此错误。
+拼写错误可能发生，并且仓库名称区分大小写。如果尝试克隆 `git@{% data variables.command_line.codeblock %}:user/repo.git`，但存储库已实际命名为 `User/Repo`，则会收到此错误。
 
-要避免此错误，克隆时，始终从仓库页面复制和粘贴克隆 URL。 有关详细信息，请参阅“[克隆存储库](/articles/cloning-a-repository)”。
+要避免此错误，克隆时，始终从仓库页面复制和粘贴克隆 URL。有关详细信息，请参阅“[克隆存储库](/articles/cloning-a-repository)”。
 
 若要更新现有存储库上的的远程存储，请参阅“[管理远程存储库](/github/getting-started-with-github/managing-remote-repositories)”。
 
@@ -122,7 +122,7 @@ $ git remote -v
 
 在极少数情况下，您可能没有仓库的适当 SSH 访问权限。
 
-应确保正在使用的 SSH 密钥已连接到你在 {% data variables.product.product_name %} 上的个人帐户。 可以通过在命令行中键入以下内容检查此项：
+应确保正在使用的 SSH 密钥已连接到你在 {% data variables.product.product_name %} 上的个人帐户。可以通过在命令行中键入以下内容检查此项：
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -130,7 +130,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-{% ifversion fpt or ghec %} 如果存储库属于某一组织并且你使用的是 OAuth 应用生成的 SSH 密钥，则 OAuth 应用访问权限可能已被组织所有者所限制。 有关详细信息，请参阅“[关于 OAuth 应用访问限制](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)”。
+{% ifversion fpt or ghec %} 如果存储库属于某一组织并且你使用的是 OAuth 应用生成的 SSH 密钥，则 OAuth 应用访问权限可能已被组织所有者所限制。有关详细信息，请参阅“[关于 OAuth 应用访问限制](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)”。
 {% endif %}
 
 有关详细信息，请参阅“[将新的 SSH 密钥添加到 GitHub 帐户](/articles/adding-a-new-ssh-key-to-your-github-account)”。
@@ -138,7 +138,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% ifversion ghes %}
 ### 检查实例是否处于私有模式
 
-如果站点管理员已对你的 GitHub Enterprise 实例启用专用模式，将禁用通过 `git://` 进行的匿名克隆。 如果您无法克隆仓库，请联系您的站点管理员。
+如果站点管理员已对你的 GitHub Enterprise 实例启用专用模式，将禁用通过 `git://` 进行的匿名克隆。如果您无法克隆仓库，请联系您的站点管理员。
 {% endif %}
 
 ### 检查仓库是否确实存在

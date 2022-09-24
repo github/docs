@@ -20,9 +20,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '145129267'
 ---
-使用“.gitattributes”文件来通过指定的属性标记与给定“模式”匹配的文件。 “.gitattributes”文件使用与“.gitignore”文件匹配的同一规则。 有关详细信息，请参阅 Git 文档中的 [PATTERN FORMAT](https://www.git-scm.com/docs/gitignore#_pattern_format)。
+使用“.gitattributes”文件来通过指定的属性标记与给定“模式”匹配的文件。 “.gitattributes”文件使用与“.gitignore”文件匹配的同一规则。有关详细信息，请参阅 Git 文档中的 [PATTERN FORMAT](https://www.git-scm.com/docs/gitignore#_pattern_format)。
 
-1. 除非“.gitattributes”文件已存在，否则请在存储库的根目录中创建一个“.gitattributes”文件 。
+1. 除非“.gitattributes”文件已存在，否则请在存储库的根目录中创建一个“.gitattributes”文件。
 2. 使用 `linguist-generated` 属性标记或取消标记要根据存储库的语言统计数据而忽略或默认隐藏差异的路径。
 
   例如，若要将 `search/index.json` 标记为生成的文件，请将此行添加到“.gitattributes”：

@@ -19,7 +19,7 @@ ms.locfileid: '145193800'
 ---
 ## 关于 CITION 文件
 
-可以将 `CITATION.cff` 文件添加到存储库的根目录，让其他人知道你希望他们如何引用你的工作。 引文文件格式为纯文本，具有人类和机器可读的引文信息。
+可以将 `CITATION.cff` 文件添加到存储库的根目录，让其他人知道你希望他们如何引用你的工作。引文文件格式为纯文本，具有人类和机器可读的引文信息。
 
 示例 `CITATION.cff` 文件：
 
@@ -68,7 +68,7 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 
 有关详细信息，请参阅[引文文件格式](https://citation-file-format.github.io/)网站。
 
-当你将 `CITATION.cff` 文件添加到存储库的默认分支时，该文件会自动从存储库登录页面链接。 这使得其他用户可以使用您提供的信息轻松引用您的软件项目。
+当你将 `CITATION.cff` 文件添加到存储库的默认分支时，该文件会自动从存储库登录页面链接。这使得其他用户可以使用您提供的信息轻松引用您的软件项目。
 
 ![存储库登录页上的引文链接](/assets/images/help/repository/citation-link.png)
 
@@ -182,4 +182,4 @@ inst/CITATION
 
 我们目前支持 APA 和 BibTex 文件格式。
 
-您是否正在寻找其他引文格式？ GitHub 使用 Ruby 库来分析 `CITATION.cff` 文件。 可以在 [ruby-cff](https://github.com/citation-file-format/ruby-cff) 存储库中请求其他格式，或自行提供这些格式。
+您是否正在寻找其他引文格式？GitHub 使用 Ruby 库来分析 `CITATION.cff` 文件。可以在 [ruby-cff](https://github.com/citation-file-format/ruby-cff) 存储库中请求其他格式，或自行提供这些格式。

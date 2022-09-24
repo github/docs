@@ -47,8 +47,8 @@ ms.locfileid: '145129265'
 
 当你编辑其他用户的存储库中的文件时，我们会为你自动[复刻存储库](/articles/fork-a-repo)并[打开拉取请求](/articles/creating-a-pull-request)。
 
-1. 才其他用户的仓库中，浏览到包含要编辑文件的文件夹。 单击要编辑文件的名称。
-2. 在文件内容上方，单击 {% octicon "pencil" aria-label="The edit icon" %}。 此时，GitHub 会为您复刻仓库。
+1. 才其他用户的仓库中，浏览到包含要编辑文件的文件夹。单击要编辑文件的名称。
+2. 在文件内容上方，单击 {% octicon "pencil" aria-label="The edit icon" %}。此时，GitHub 会为您复刻仓库。
 3. 对文件做任何需要的更改。
 ![文件中的新内容](/assets/images/help/repository/edit-readme-light.png) {% data reusables.files.preview_change %} {% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %}
 6. 单击“提议文件更改”。

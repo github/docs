@@ -19,7 +19,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '146331758'
 ---
-如果仓库中存在要用于 {% data variables.product.product_name %} 的现有文件，则需要先从仓库中删除它们，然后在本地将其添加到 {% data variables.large_files.product_name_short %}。 有关详细信息，请参阅“[将存储库中的文件移动到 {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)”。
+如果仓库中存在要用于 {% data variables.product.product_name %} 的现有文件，则需要先从仓库中删除它们，然后在本地将其添加到 {% data variables.large_files.product_name_short %}。有关详细信息，请参阅“[将存储库中的文件移动到 {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)”。
 
 {% data reusables.large_files.resolving-upload-failures %}
 
@@ -27,7 +27,7 @@ ms.locfileid: '146331758'
 
 {% tip %}
 
-注意：尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在你的设备上已启用 {% data variables.large_files.product_name_short %}。 有关详细信息，请参阅“[在 GitHub Enterprise 服务器上配置 Git 大型文件存储](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
+注意：尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在你的设备上已启用 {% data variables.large_files.product_name_short %}。有关详细信息，请参阅“[在 GitHub Enterprise 服务器上配置 Git 大型文件存储](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
 
 {% endtip %}
 
@@ -42,7 +42,7 @@ ms.locfileid: '146331758'
   $ git {% data variables.large_files.command_name %} track "*.psd"
   > Adding path *.psd
   ```
-  需要将每种要与 {% data variables.large_files.product_name_short %} 关联的文件类型和 `git {% data variables.large_files.command_name %} track` 一起添加。 此命令将修改存储库的 .gitattributes 文件，并将大文件与 {% data variables.large_files.product_name_short %} 相关联。
+  需要将每种要与 {% data variables.large_files.product_name_short %} 关联的文件类型和 `git {% data variables.large_files.command_name %} track` 一起添加。此命令将修改存储库的 .gitattributes 文件，并将大文件与 {% data variables.large_files.product_name_short %} 相关联。
 
   {% note %}
 

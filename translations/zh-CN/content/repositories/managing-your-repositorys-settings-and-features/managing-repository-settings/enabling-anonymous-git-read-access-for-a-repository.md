@@ -25,4 +25,4 @@ ms.locfileid: '145129323'
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
 3. 在“启用匿名 Git 读取权限”旁边，单击“启用”。
 ![“匿名 Git 读取权限”下的“启用”按钮](/assets/images/help/repository/enable-git-read-access-for-a-repo.png)
-4. 查看更改。 如需确认，请键入存储库名称，然后单击“我理解，启用匿名 Git 读取权限”。
+4. 查看更改。如需确认，请键入存储库名称，然后单击“我理解，启用匿名 Git 读取权限”。

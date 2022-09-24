@@ -1,6 +1,6 @@
 ---
 title: 管理仓库中的分支
-intro: '每当你在 Git 中提出更改时，都会[创建一个新分支](/articles/creating-and-deleting-branches-within-your-repository/)。 分支管理是 Git 工作流程的重要部分。 在一些时间后，分支列表将会扩大，建议删除合并的分支或旧分支。'
+intro: '每当你在 Git 中提出更改时，都会[创建一个新分支](/articles/creating-and-deleting-branches-within-your-repository/)。分支管理是 Git 工作流程的重要部分。在一些时间后，分支列表将会扩大，建议删除合并的分支或旧分支。'
 redirect_from:
   - /articles/managing-branches-in-your-repository
   - /github/administering-a-repository/managing-branches-in-your-repository

@@ -22,15 +22,15 @@ ms.locfileid: '145129384'
 ---
 ## 关于仓库模板
 
-任何对模板仓库具有读取权限的人都可以从该模板创建仓库。 有关详细信息，请参阅“[创建模板存储库](/articles/creating-a-template-repository)”。
+任何对模板仓库具有读取权限的人都可以从该模板创建仓库。有关详细信息，请参阅“[创建模板存储库](/articles/creating-a-template-repository)”。
 
 {% tip %}
 
-提示：你也可以使用 {% data variables.product.prodname_cli %} 从模板创建存储库。 有关详细信息，请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh repo create`](https://cli.github.com/manual/gh_repo_create)”。
+提示：你也可以使用 {% data variables.product.prodname_cli %} 从模板创建存储库。有关详细信息，请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh repo create`](https://cli.github.com/manual/gh_repo_create)”。
 
 {% endtip %}
 
-您可以选择仅包括模板仓库的默认分支中的目录结构和文件，或者包括所有分支。 从模板创建的分支具有不相关的历史记录，这意味着您无法创建拉取请求或在分支之间合并。
+您可以选择仅包括模板仓库的默认分支中的目录结构和文件，或者包括所有分支。从模板创建的分支具有不相关的历史记录，这意味着您无法创建拉取请求或在分支之间合并。
 
 从模板创建仓库类似于创建仓库的复刻，但存在一些重要差异：
 - 新的复刻包含父仓库的整个提交历史记录，而从模板创建的仓库从一个提交开始记录。

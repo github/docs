@@ -32,7 +32,7 @@ ms.locfileid: '145129263'
 **提示**：
 
 - 如果尝试移动存储库中你无权访问的文件，我们将创建到个人帐户的项目分支，并在你提交更改后帮助你向原始存储库发送[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)。
-- 有些文件（如图像）需要您从命令行移动它们。 有关详细信息，请参阅“[使用命令行将文件移动到一个新位置](/articles/moving-a-file-to-a-new-location-using-the-command-line)”。
+- 有些文件（如图像）需要您从命令行移动它们。有关详细信息，请参阅“[使用命令行将文件移动到一个新位置](/articles/moving-a-file-to-a-new-location-using-the-command-line)”。
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 {% endtip %}
@@ -41,7 +41,7 @@ ms.locfileid: '145129263'
 2. 在文件视图的右上角，单击 {% octicon "pencil" aria-label="The edit icon" %} 以打开文件编辑器。
 ![编辑文件图标](/assets/images/help/repository/move-file-edit-file-icon.png)
 3. 在文件名字段中，使用以下准则更改文件的名称：![编辑文件名](/assets/images/help/repository/moving_files.gif)
-    - 若要将文件移动到子文件夹中，请键入所需的文件夹的名称，后跟 `/`。 新文件夹名称将变成导航层次结构中的新项目。
+    - 若要将文件移动到子文件夹中，请键入所需的文件夹的名称，后跟 `/`。新文件夹名称将变成导航层次结构中的新项目。
     - 若要将文件移动到文件当前位置上方的目录中，请将光标置于文件名字段的开头，然后键入 `../` 以跳转到一个完整的目录级别，或者键入 `backspace` 键以编辑父文件夹的名称。
 {% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %}
 

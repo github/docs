@@ -20,7 +20,7 @@ ms.locfileid: '145129426'
 ---
 ## 使用 Zenodo 发出仓库的持久标识符
 
-为了使您的仓库在学术文献中更易于参考，您可以创建持久标识符，也称为数字对象标识符 (DOI)。 可以使用数据存档工具 [Zenodo](https://zenodo.org/about) 对 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库进行存档，并为存档发出 DOI。
+为了使您的仓库在学术文献中更易于参考，您可以创建持久标识符，也称为数字对象标识符 (DOI)。可以使用数据存档工具 [Zenodo](https://zenodo.org/about) 对 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库进行存档，并为存档发出 DOI。
 
 {% tip %}
 
@@ -38,8 +38,8 @@ ms.locfileid: '145129426'
 5. 导航到 [Zenodo GitHub 页面](https://zenodo.org/account/settings/github/)。 ![Zenodo GitHub 页面](/assets/images/help/repository/zenodo_github_page.png)
 6. 在要存档的存储库的名称右侧，将按钮从“关”切换为“开”，使它能够进行存档。 ![在存储库上启用 Zenodo 存档](/assets/images/help/repository/zenodo_toggle_on.png)
 
-Zenodo 会在你每次创建新 {% data variables.product.product_name %} [版本](/articles/about-releases/)时存档存储库和发出新的 DOI。 按照“[创建版本](/articles/creating-releases/)”中的步骤创建新的版本。
+Zenodo 会在你每次创建新 {% data variables.product.product_name %} [版本](/articles/about-releases/)时存档存储库和发出新的 DOI。按照“[创建版本](/articles/creating-releases/)”中的步骤创建新的版本。
 
 ## 使用 Figshare 宣传和引用研究资料
 
-学者可以使用数据管理服务 [Figshare](http://figshare.com) 来宣传和引用研究材料。 有关详细信息，请参阅“[Figshare 的支持站点](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account)”。
+学者可以使用数据管理服务 [Figshare](http://figshare.com) 来宣传和引用研究材料。有关详细信息，请参阅“[Figshare 的支持站点](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account)”。

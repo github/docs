@@ -21,15 +21,15 @@ ms.locfileid: '147883447'
 ---
 {% ifversion fpt or ghec %}
 
-要下载仓库的存档，您可以使用 API 进行用户或组织迁移。 有关详细信息，请参阅“[迁移](/rest/reference/migrations)”。
+要下载仓库的存档，您可以使用 API 进行用户或组织迁移。有关详细信息，请参阅“[迁移](/rest/reference/migrations)”。
 {% else %}
 
 您可以手动下载和备份仓库：
 
-- 要将仓库的 Git 数据下载到本地计算机，您需要克隆该仓库。 有关详细信息，请参阅“[克隆存储库](/articles/cloning-a-repository)”。
-- 还可以下载仓库的 wiki。 有关详细信息，请参阅“[添加或编辑 Wiki 页面](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)”。
+- 要将仓库的 Git 数据下载到本地计算机，您需要克隆该仓库。有关详细信息，请参阅“[克隆存储库](/articles/cloning-a-repository)”。
+- 还可以下载仓库的 wiki。有关详细信息，请参阅“[添加或编辑 Wiki 页面](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)”。
 
-克隆仓库或 wiki 时，仅下载 Git 数据，例如项目文件和提交历史记录。 您可以使用我们的 API 将 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上存储库的其他元素导出到本地计算机：
+克隆仓库或 wiki 时，仅下载 Git 数据，例如项目文件和提交历史记录。您可以使用我们的 API 将 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上存储库的其他元素导出到本地计算机：
 
 - [问题](/rest/reference/issues#list-issues-for-a-repository)
 - [拉取请求](/rest/reference/pulls#list-pull-requests)
@@ -46,5 +46,5 @@ ms.locfileid: '147883447'
 {% ifversion fpt or ghec %}
 ## 第三方备份工具
 
-有许多自助服务工具可自动备份仓库。 存档项目将所有公共存储库存档在未选择退出的 {% data variables.product.product_name %} 上，并让任何人都可以访问数据，而备份工具则不同，它将从特定存储库下载数据并组织在新分支或目录中 。 有关存档项目的详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上存档内容和数据](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。 有关自助备份工具的详细信息，请参阅 [{% data variables.product.prodname_marketplace %} 上的备份实用程序类别](https://github.com/marketplace?category=backup-utilities)。
+有许多自助服务工具可自动备份仓库。存档项目将所有公共存储库存档在未选择退出的 {% data variables.product.product_name %} 上，并让任何人都可以访问数据，而备份工具则不同，它将从特定存储库下载数据并组织在新分支或目录中。有关存档项目的详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上存档内容和数据](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。有关自助备份工具的详细信息，请参阅 [{% data variables.product.prodname_marketplace %} 上的备份实用程序类别](https://github.com/marketplace?category=backup-utilities)。
 {% endif %}
