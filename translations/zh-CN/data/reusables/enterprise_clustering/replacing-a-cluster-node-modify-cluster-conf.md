@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145100846"
 ---
-1. 若要添加新预配的替换节点，可在任何节点上修改 `cluster.conf` 文件以删除失败的节点并添加替换节点。 例如，修改后的 `cluster.conf` 文件会将 `ghe-data-node-3` 替换为新预配的节点 `ghe-replacement-data-node-3`：
+1. 若要添加新预配的替换节点，可在任何节点上修改 `cluster.conf` 文件以删除失败的节点并添加替换节点。例如，修改后的 `cluster.conf` 文件会将 `ghe-data-node-3` 替换为新预配的节点 `ghe-replacement-data-node-3`：
 
   <pre>
   [cluster "<em>ghe-replacement-data-node-3</em>"]

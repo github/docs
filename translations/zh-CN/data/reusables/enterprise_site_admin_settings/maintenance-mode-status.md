@@ -8,6 +8,6 @@ ms.locfileid: "146332150"
 ---
 {% note %}
 
-**注意：** 当设备处于维护模式时，`https://HOSTNAME/status` URL 将返回状态代码 `503`（服务不可用）。 有关详细信息，请参阅“[启用和安排维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+**注意：** 当设备处于维护模式时，`https://HOSTNAME/status` URL 将返回状态代码 `503`（服务不可用）。有关详细信息，请参阅“[启用和安排维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
 {% endnote %}

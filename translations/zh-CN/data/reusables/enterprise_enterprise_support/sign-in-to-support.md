@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145100835"
 ---
-1. 如果支持工程师为你提供了支持包的上传链接，请使用此链接。 否则，请访问 https://support.github.com/ 并登录有权获得支持的企业帐户（如果出现提示）。
+1. 如果支持工程师为你提供了支持包的上传链接，请使用此链接。否则，请访问 https://support.github.com/ 并登录有权获得支持的企业帐户（如果出现提示）。

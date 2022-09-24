@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145100783"
 ---
-要指定迁移文件的暂存位置，请在命令后附加 `--staging-path=/full/staging/path`。 默认为 `/data/user/tmp`。
+要指定迁移文件的暂存位置，请在命令后附加 `--staging-path=/full/staging/path`。默认为 `/data/user/tmp`。

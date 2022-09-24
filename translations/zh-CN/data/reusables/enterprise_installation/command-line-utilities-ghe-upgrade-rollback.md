@@ -6,10 +6,10 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145097819"
 ---
-回滚升级时，必须使用一个带 .pkg 扩展的升级包文件。 不支持带 .hpkg 扩展的热补丁包文件。
+回滚升级时，必须使用一个带 .pkg 扩展的升级包文件。不支持带 .hpkg 扩展的热补丁包文件。
 
 ```shell
 ghe-upgrade --allow-patch-rollback <em>EARLIER-RELEASE-UPGRADE-PACKAGE</em>.pkg
 ```
 
-运行命令后需要重启。 回滚不会影响数据分区，因为迁移不是在补丁版本上运行的。
+运行命令后需要重启。回滚不会影响数据分区，因为迁移不是在补丁版本上运行的。

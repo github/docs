@@ -10,4 +10,4 @@ ms.locfileid: "145097622"
 
 | 密钥 | 说明 | 必需 | 类型 | 默认 | 选项 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | 选项的标识符，显示在表单中。 支持 Markdown 用于粗体或斜体文本格式化和超文本链接。 | 必须 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} | 
+| `label` | 选项的标识符，显示在表单中。支持 Markdown 用于粗体或斜体文本格式化和超文本链接。 | 必须 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} | 

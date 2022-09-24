@@ -12,6 +12,6 @@ ms.locfileid: "147876168"
   ```
     {% warning %}
 
-    警告：`ghe-repl-start` 会导致主服务器短暂中断，在此期间用户可能会看到内部服务器错误。 要提供更简便的消息，请先在主节点上运行 `ghe-maintenance -s`，然后再在副本节点上运行 `ghe-repl-start`，以将设备置于维护模式。 复制开始后，使用 `ghe-maintenance -u` 禁用维护模式。 当主节点处于维护模式时，Git 复制将无法进行。
+    警告：`ghe-repl-start` 会导致主服务器短暂中断，在此期间用户可能会看到内部服务器错误。要提供更简便的消息，请先在主节点上运行 `ghe-maintenance -s`，然后再在副本节点上运行 `ghe-repl-start`，以将设备置于维护模式。复制开始后，使用 `ghe-maintenance -u` 禁用维护模式。当主节点处于维护模式时，Git 复制将无法进行。
 
     {% endwarning %}

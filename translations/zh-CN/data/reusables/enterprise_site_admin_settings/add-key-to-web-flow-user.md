@@ -13,10 +13,10 @@ ms.locfileid: "147369247"
    ```
 1. 复制以 `-----BEGIN PGP PUBLIC KEY BLOCK-----` 开头并以 `-----END PGP PUBLIC KEY BLOCK-----` 结尾的 PGP 密钥。
 1. 以 `web-flow` 用户身份登录 {% data variables.product.prodname_ghe_server %}。
-1. 将公共 PGP 密钥添加到用户配置文件。 有关详细信息，请参阅“[将 GPG 密钥添加到 {% data variables.product.prodname_dotcom %} 帐户](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)”。
+1. 将公共 PGP 密钥添加到用户配置文件。有关详细信息，请参阅“[将 GPG 密钥添加到 {% data variables.product.prodname_dotcom %} 帐户](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)”。
 
    {% note %}
 
-   注意：不要从 GPG 密钥列表中删除其他公钥。 如果删除公钥，则使用相应私钥签名的任何提交都将不再标记为已验证。
+   注意：不要从 GPG 密钥列表中删除其他公钥。如果删除公钥，则使用相应私钥签名的任何提交都将不再标记为已验证。
 
    {% endnote %}

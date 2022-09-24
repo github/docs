@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "146682499"
 ---
-您可以申请试用版来评估 {% data variables.product.prodname_ghe_server %}。 有关详细信息，请参阅“[设置试用版 {% data variables.product.prodname_ghe_server %}]({% ifversion ghae %}/enterprise-server@latest{% endif %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)”。
+您可以申请试用版来评估 {% data variables.product.prodname_ghe_server %}。有关详细信息，请参阅“[设置试用版 {% data variables.product.prodname_ghe_server %}]({% ifversion ghae %}/enterprise-server@latest{% endif %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)”。

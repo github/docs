@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145097720"
 ---
-1. 查看 `/PATH/REPO-NAME.git/git-import/raw-authors.csv` 中的逗号分隔 (CSV) 文件。 它应包含以下三列：
+1. 查看 `/PATH/REPO-NAME.git/git-import/raw-authors.csv` 中的逗号分隔 (CSV) 文件。它应包含以下三列：
     - `ID`：存储在原始存储库中的作者，后接唯一识别符。
     - `NAME`：原始存储库中存储的作者
 

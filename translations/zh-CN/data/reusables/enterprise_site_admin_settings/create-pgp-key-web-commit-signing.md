@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147062704"
 ---
-1. 在管理 shell 中，创建 PGP 密钥。 记下电子邮件地址和密钥 ID。
+1. 在管理 shell 中，创建 PGP 密钥。记下电子邮件地址和密钥 ID。
 
     ```bash{:copy}
     gpg --full-generate-key --pinentry-mode=loopback

@@ -8,6 +8,6 @@ ms.locfileid: "146332166"
 ---
 {% note %}
 
-**注意**：如果你启用了自动更新检查，则无需下载升级包，可以使用自动下载的文件。 有关详细信息，请参阅“[启用自动更新检查](/enterprise/admin/guides/installation/enabling-automatic-update-checks/)”。
+**注意**：如果你启用了自动更新检查，则无需下载升级包，可以使用自动下载的文件。有关详细信息，请参阅“[启用自动更新检查](/enterprise/admin/guides/installation/enabling-automatic-update-checks/)”。
 
 {% endnote %}

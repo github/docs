@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145100802"
 ---
-[已同步到 LDAP 组](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)的团队带有特殊的 LDAP 徽章。 LDAP 同步团队的成员列表只能从它映射的 LDAP 组进行管理。
+[已同步到 LDAP 组](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)的团队带有特殊的 LDAP 徽章。LDAP 同步团队的成员列表只能从它映射的 LDAP 组进行管理。

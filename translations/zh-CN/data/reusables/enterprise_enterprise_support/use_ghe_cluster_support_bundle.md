@@ -8,6 +8,6 @@ ms.locfileid: "146332206"
 ---
 {% note %}
 
-注意：如果使用的是异地复制配置，或 {% data variables.product.prodname_enterprise %} 群集，则应使用 `ghe-cluster-support-bundle` 命令检索支持包。 有关详细信息，请参阅“[命令行实用工具](/enterprise/admin/guides/installation/command-line-utilities/#ghe-cluster-support-bundle)”。
+注意：如果使用的是异地复制配置，或 {% data variables.product.prodname_enterprise %} 群集，则应使用 `ghe-cluster-support-bundle` 命令检索支持包。有关详细信息，请参阅“[命令行实用工具](/enterprise/admin/guides/installation/command-line-utilities/#ghe-cluster-support-bundle)”。
 
 {% endnote %}
