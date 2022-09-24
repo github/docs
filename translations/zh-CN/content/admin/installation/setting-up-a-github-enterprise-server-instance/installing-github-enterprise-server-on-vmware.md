@@ -27,8 +27,8 @@ ms.locfileid: '147859408'
 ## 先决条件
 
 - {% data reusables.enterprise_installation.software-license %}
-- 必须有一个 VMware vSphere ESXi 虚拟机监控程序，将其应用于将运行 {% data variables.product.product_location %}s 的裸机计算机。 我们支持适用于 {% data variables.product.prodname_ghe_server %} 3.4 及更早版本的版本 5.5 - 6.7。 {% data variables.product.prodname_ghe_server %} 3.5 及更高版本支持 ESX 版本 7.0。 ESXi Hypervisor 免费提供，不包含（可选）vCenter Server。 有关详细信息，请参阅 [VMware ESXi 文档](https://www.vmware.com/products/esxi-and-esx.html)。
-- 您将需要访问 vSphere Client。 如果您有 vCenter Server，可以使用 vSphere Web Client。 有关详细信息，请参阅 VMware 指南“[使用 vSphere Web Client 登录到 vCenter Server](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)”。
+- 必须有一个 VMware vSphere ESXi 虚拟机监控程序，将其应用于将运行 {% data variables.product.product_location %}s 的裸机计算机。我们支持适用于 {% data variables.product.prodname_ghe_server %} 3.4 及更早版本的版本 5.5 - 6.7。 {% data variables.product.prodname_ghe_server %} 3.5 及更高版本支持 ESX 版本 7.0。ESXi Hypervisor 免费提供，不包含（可选）vCenter Server。有关详细信息，请参阅 [VMware ESXi 文档](https://www.vmware.com/products/esxi-and-esx.html)。
+- 您将需要访问 vSphere Client。如果您有 vCenter Server，可以使用 vSphere Web Client。有关详细信息，请参阅 VMware 指南“[使用 vSphere Web Client 登录到 vCenter Server](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)”。
 
 ## 硬件注意事项
 
@@ -44,8 +44,8 @@ ms.locfileid: '147859408'
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 使用 vSphere Windows Client 或 vCenter Web Client 导入您下载的 {% data variables.product.prodname_ghe_server %} 映像。 有关说明，请参阅 VMware 指南“[部署 OVF 或 OVA 模板](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)”。
-    - 选择数据存储时，请选择空间足以容纳 VM 磁盘的数据存储。 有关针对实例大小建议的最小硬件规格，请参阅“[硬件注意事项](#hardware-considerations)”。 建议采用支持延迟归零的密集预配。
+1. 使用 vSphere Windows Client 或 vCenter Web Client 导入您下载的 {% data variables.product.prodname_ghe_server %} 映像。有关说明，请参阅 VMware 指南“[部署 OVF 或 OVA 模板](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)”。
+    - 选择数据存储时，请选择空间足以容纳 VM 磁盘的数据存储。有关针对实例大小建议的最小硬件规格，请参阅“[硬件注意事项](#hardware-considerations)”。建议采用支持延迟归零的密集预配。
     - 取消选中“部署后启用”复选框，因为需要在预配 VM 后为存储库数据添加一个附加的存储卷。
 {% data reusables.enterprise_installation.create-attached-storage-volume %} 有关说明，请参阅 VMware 指南“[将新硬盘添加到虚拟机](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-F4917C61-3D24-4DB9-B347-B5722A84368C.html)”。
 

@@ -21,14 +21,14 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '145179150'
 ---
-SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启用 SNMP，以便监视 {% data variables.product.product_location %} 的运行状况，并了解何时向主机增加更多内存、存储空间或处理器能力。
+SNMP 是一种用于通过网络监视设备的公共标准。强烈建议启用 SNMP，以便监视 {% data variables.product.product_location %} 的运行状况，并了解何时向主机增加更多内存、存储空间或处理器能力。
 
 {% data variables.product.prodname_enterprise %} 具有标准 SNMP 安装，因此你可以利用可用于 Nagios 或任何其他监视系统的[多种插件](https://www.monitoring-plugins.org/doc/man/check_snmp.html)。
 
 ## 配置 SNMP v2c
 
 {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.access-monitoring %} {% data reusables.enterprise_management_console.enable-snmp %}
-4. 在“社区字符串”字段中，输入新的社区字符串。 如果留空，则默认为 `public`。
+4. 在“社区字符串”字段中，输入新的社区字符串。如果留空，则默认为 `public`。
 ![用于添加社区字符串的字段](/assets/images/enterprise/management-console/community-string.png) {% data reusables.enterprise_management_console.save-settings %}
 5. 要测试 SNMP 配置，请在网络中支持 SNMP 的单独工作站上运行以下命令：
   ```shell
@@ -41,10 +41,10 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
 
 ## 基于用户的安全性
 
-如果您启用 SNMP v3，则可以通过用户安全模型 (USM) 充分利用提升的基于用户的安全性。 对于每个唯一的用户，您可以指定一个安全等级：
+如果您启用 SNMP v3，则可以通过用户安全模型 (USM) 充分利用提升的基于用户的安全性。对于每个唯一的用户，您可以指定一个安全等级：
 - `noAuthNoPriv`：此安全等级不提供任何身份验证和隐私保护。
-- `authNoPriv`：此安全级别提供身份验证，但不提供隐私保护。 要查询设备，您需要用户名和密码（长度必须至少为八个字符）。 与 SNMPv2 相似，发送的信息不会进行加密。 身份验证协议可以是 MD5 或 SHA，默认为 SHA。
-- `authPriv`：此安全级别提供身份验证和隐私保护。 要求进行身份验证（包含一个长度至少为八个字符的身份验证密码），并且会对响应进行加密。 不需要隐私密码，但如果提供隐私密码，其长度必须至少为八个字符。 如果不提供隐私密码，将使用身份验证密码。 隐私协议可以是 DES 或 AES，默认为 AES。
+- `authNoPriv`：此安全级别提供身份验证，但不提供隐私保护。要查询设备，您需要用户名和密码（长度必须至少为八个字符）。与 SNMPv2 相似，发送的信息不会进行加密。身份验证协议可以是 MD5 或 SHA，默认为 SHA。
+- `authPriv`：此安全级别提供身份验证和隐私保护。要求进行身份验证（包含一个长度至少为八个字符的身份验证密码），并且会对响应进行加密。不需要隐私密码，但如果提供隐私密码，其长度必须至少为八个字符。如果不提供隐私密码，将使用身份验证密码。隐私协议可以是 DES 或 AES，默认为 AES。
 
 ## 配置 SNMP v3 的用户
 
@@ -68,9 +68,9 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
 
 #### 查询 SNMP 数据
 
-关于您的设备的硬件和软件级信息都适用于 SNMP v3。 由于 `noAuthNoPriv` 和 `authNoPriv` 安全级别缺少加密和隐私，我们会将 `hrSWRun` 表 (1.3.6.1.2.1.25.4) 从生成的 SNMP 报告中排除。 如果你使用 `authPriv` 安全级别，则会包含此表。 有关详细信息，请参阅“[OID 参考文档](https://oidref.com/1.3.6.1.2.1.25.4)”。 
+关于您的设备的硬件和软件级信息都适用于 SNMP v3。由于 `noAuthNoPriv` 和 `authNoPriv` 安全级别缺少加密和隐私，我们会将 `hrSWRun` 表 (1.3.6.1.2.1.25.4) 从生成的 SNMP 报告中排除。如果你使用 `authPriv` 安全级别，则会包含此表。有关详细信息，请参阅“[OID 参考文档](https://oidref.com/1.3.6.1.2.1.25.4)”。 
 
-如果使用 SNMP v2c，则仅会提供关于您的设备的硬件级信息。 {% data variables.product.prodname_enterprise %} 中的应用程序和服务未配置 OID 来报告指标。 有多个 MIB 可用，可以通过在网络中支持 SNMP 的单独工作站上运行 `snmpwalk` 来查看它们：
+如果使用 SNMP v2c，则仅会提供关于您的设备的硬件级信息。 {% data variables.product.prodname_enterprise %} 中的应用程序和服务未配置 OID 来报告指标。有多个 MIB 可用，可以通过在网络中支持 SNMP 的单独工作站上运行 `snmpwalk` 来查看它们：
 
 ```shell
 # community-string is your community string
@@ -78,7 +78,7 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
 $ snmpwalk -v 2c -c <em>community-string</em> -O e <em>hostname</em>
 ```
 
-在 SNMP 的可用 MIB 中，最有用的是 `HOST-RESOURCES-MIB` (1.3.6.1.2.1.25)。 请参见下表，了解此 MIB 中的一些重要对象：
+在 SNMP 的可用 MIB 中，最有用的是 `HOST-RESOURCES-MIB` (1.3.6.1.2.1.25)。请参见下表，了解此 MIB 中的一些重要对象：
 
 | 名称 | OID | 说明 |
 | ---- | --- | ----------- |
@@ -110,7 +110,7 @@ snmpget -v 2c -c <em>community-string</em> <em>hostname</em> HOST-RESOURCES-MIB:
 
 {% tip %}
 
-**注意：** 为防止泄露有关设备上运行的服务的信息，我们会将 `hrSWRun` 表 (1.3.6.1.2.1.25.4) 从生成的 SNMP 报告中排除，除非你对 SNMP v3 使用 `authPriv` 安全级别。 如果你使用 `authPriv` 安全级别，则会包含 `hrSWRun` 表。
+**注意：** 为防止泄露有关设备上运行的服务的信息，我们会将 `hrSWRun` 表 (1.3.6.1.2.1.25.4) 从生成的 SNMP 报告中排除，除非你对 SNMP v3 使用 `authPriv` 安全级别。如果你使用 `authPriv` 安全级别，则会包含 `hrSWRun` 表。
 
 {% endtip %}
 

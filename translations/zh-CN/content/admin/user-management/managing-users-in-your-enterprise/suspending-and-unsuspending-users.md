@@ -25,9 +25,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '146331902'
 ---
-如果员工从公司离职，您可以暂停他们的 {% data variables.product.prodname_ghe_server %} 帐户，打开您的 {% data variables.product.prodname_enterprise %} 许可中的用户许可，同时保存他们创建的议题、评论、仓库、Gist 及其他数据。 被挂起的用户既无法登录您的实例，也无法推送或拉取代码。
+如果员工从公司离职，您可以暂停他们的 {% data variables.product.prodname_ghe_server %} 帐户，打开您的 {% data variables.product.prodname_enterprise %} 许可中的用户许可，同时保存他们创建的议题、评论、仓库、Gist 及其他数据。被挂起的用户既无法登录您的实例，也无法推送或拉取代码。
 
-在您挂起用户时，变更将立即生效，并且不会通知用户。 如果用户尝试拉取仓库或推送到仓库，他们将收到此错误消息：
+在您挂起用户时，变更将立即生效，并且不会通知用户。如果用户尝试拉取仓库或推送到仓库，他们将收到此错误消息：
 
 ```shell
 $ git clone git@[hostname]:john-doe/test-repo.git
@@ -36,11 +36,11 @@ ERROR: Your account is suspended. Please check with your installation administra
 fatal: The remote end hung up unexpectedly
 ```
 
-在挂起站点管理员之前，您必须将其降级为普通用户。 有关详细信息，请参阅“[推广或降级网站管理员](/enterprise/admin/user-management/promoting-or-demoting-a-site-administrator)”。
+在挂起站点管理员之前，您必须将其降级为普通用户。有关详细信息，请参阅“[推广或降级网站管理员](/enterprise/admin/user-management/promoting-or-demoting-a-site-administrator)”。
 
 {% tip %}
 
-注意：如果为 {% data variables.product.product_location %} [启用了 LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)，则从 LDAP 目录服务器中删除用户时会将其自动挂起。 为您的实例启用 LDAP 同步后，将禁用普通用户挂起方法。
+注意：如果为 {% data variables.product.product_location %} [启用了 LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)，则从 LDAP 目录服务器中删除用户时会将其自动挂起。为您的实例启用 LDAP 同步后，将禁用普通用户挂起方法。
 
 {% endtip %}
 
@@ -54,7 +54,7 @@ fatal: The remote end hung up unexpectedly
 
 ## 从用户管理员仪表板取消挂起用户
 
-挂起用户后，取消挂起用户的操作将立即可用。 用户将不会收到通知。
+挂起用户后，取消挂起用户的操作将立即可用。用户将不会收到通知。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. 在左侧边栏中，单击“挂起用户”。
@@ -81,7 +81,7 @@ fatal: The remote end hung up unexpectedly
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.messages-tab %}
 5. 单击“添加消息”。
 ![添加消息](/assets/images/enterprise/site-admin-settings/add-message.png)
-6. 在“挂起的用户消息”框中键入消息。 您可以输入 Markdown，或者使用 Markdown 工具栏设置消息的样式。
+6. 在“挂起的用户消息”框中键入消息。您可以输入 Markdown，或者使用 Markdown 工具栏设置消息的样式。
 ![已挂起用户消息](/assets/images/enterprise/site-admin-settings/suspended-user-message.png)
 7. 在“已挂起用户消息”字段下，单击“预览”按钮，以查看呈现的消息。
 ![预览按钮](/assets/images/enterprise/site-admin-settings/suspended-user-message-preview-button.png)

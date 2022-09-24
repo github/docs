@@ -1,6 +1,6 @@
 ---
 title: 将数据迁移到企业
-intro: '生成迁移存档后，您可以将数据导入目标 {% data variables.product.prodname_ghe_server %} 实例。 在将变更永久应用到目标实例之前，您需要检查变更，查看有无潜在的冲突。'
+intro: '生成迁移存档后，您可以将数据导入目标 {% data variables.product.prodname_ghe_server %} 实例。在将变更永久应用到目标实例之前，您需要检查变更，查看有无潜在的冲突。'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -28,15 +28,15 @@ ms.locfileid: '147717667'
 ---
 ## 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据
 
-在将数据迁移到企业之前，您必须准备数据并解决任何冲突。 有关详细信息，请参阅“[准备将数据迁移到企业](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)”。
+在将数据迁移到企业之前，您必须准备数据并解决任何冲突。有关详细信息，请参阅“[准备将数据迁移到企业](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)”。
 
 在准备数据并解决冲突后，您可以将导入的数据应用于 {% data variables.product.product_name %}。
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-2. 使用 `ghe-migrator import` 命令启动导入过程。 需要：
-    * 迁移 GUID。 有关详细信息，请参阅“[准备将数据迁移到企业](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)”。
-    * 用于身份验证的个人访问令牌。 您使用的个人访问令牌仅用于站点管理员身份验证，不需要任何特定范围。 有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+2. 使用 `ghe-migrator import` 命令启动导入过程。需要：
+    * 迁移 GUID。有关详细信息，请参阅“[准备将数据迁移到企业](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)”。
+    * 用于身份验证的个人访问令牌。您使用的个人访问令牌仅用于站点管理员身份验证，不需要任何特定范围。有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
     ```shell
     $ ghe-migrator import /home/admin/<em>MIGRATION_GUID</em>.tar.gz -g <em>MIGRATION_GUID</em> -u <em>username</em> -p <em>TOKEN</em>
@@ -49,7 +49,7 @@ ms.locfileid: '147717667'
 
 ## 检查迁移数据
 
-默认情况下，`ghe-migrator audit` 返回每条记录。 它还可以让您按以下方式筛选记录：
+默认情况下，`ghe-migrator audit` 返回每条记录。它还可以让您按以下方式筛选记录：
 
   * 记录的类型。
   * 记录的状态。
@@ -98,7 +98,7 @@ ms.locfileid: '147717667'
 
 ## 筛选审核的记录
 
-通过 `ghe-migrator audit` 命令，可以使用 `-m` 标志根据记录类型进行筛选。 同样，可以使用 `-s` 标志筛选导入状态。 命令如下所示：
+通过 `ghe-migrator audit` 命令，可以使用 `-m` 标志根据记录类型进行筛选。同样，可以使用 `-s` 标志筛选导入状态。命令如下所示：
 
 ```shell
 $ ghe-migrator audit -m <em>RECORD_TYPE</em> -s <em>STATE</em> -g <em>MIGRATION_GUID</em>
@@ -123,7 +123,7 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 ## 在 {% data variables.product.prodname_ghe_server %} 上完成导入
 
-在迁移应用到目标实例并且您已审查迁移后，您需要解锁仓库并将其从源中删除。 我们建议等待两周再删除您的源数据，以便确保所有数据都能按预期运行。
+在迁移应用到目标实例并且您已审查迁移后，您需要解锁仓库并将其从源中删除。我们建议等待两周再删除您的源数据，以便确保所有数据都能按预期运行。
 
 ## 在目标实例上解锁仓库
 
@@ -133,7 +133,7 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 ### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织解锁仓库
 
-若要解锁 {% data variables.product.prodname_dotcom_the_website %} 组织上的存储库，你需要向[迁移解锁终结点](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository)发送 `DELETE` 请求。 需要：
+若要解锁 {% data variables.product.prodname_dotcom_the_website %} 组织上的存储库，你需要向[迁移解锁终结点](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository)发送 `DELETE` 请求。需要：
   * 身份验证的访问令牌
   * 迁移的唯一 `id`
   * 要解锁的仓库的名称
@@ -145,7 +145,7 @@ curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 ### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织中删除仓库
 
-解锁 {% data variables.product.prodname_dotcom_the_website %} 组织的存储库后，应该删除之前使用[存储库删除终结点](/rest/repos/#delete-a-repository)迁移的每个存储库。 您需要身份验证的访问令牌：
+解锁 {% data variables.product.prodname_dotcom_the_website %} 组织的存储库后，应该删除之前使用[存储库删除终结点](/rest/repos/#delete-a-repository)迁移的每个存储库。您需要身份验证的访问令牌：
 ```shell
 curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

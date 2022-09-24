@@ -23,11 +23,11 @@ ms.locfileid: '147062264'
 
 在身份验证成功后，借助 {% data variables.product.prodname_mobile %} 可从移动设备会审、协作和管理 {% data variables.product.product_location %} 上的工作。 {% data reusables.mobile.about-mobile %}有关详细信息，请参阅“[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)”。
 
-可允许或禁止用户使用 {% data variables.product.prodname_mobile %} 向 {% data variables.product.product_location %} 进行身份验证并访问实例的数据。 默认情况下，{% data variables.product.prodname_mobile %} {% ifversion ghes > 3.3 %}为使用 {% data variables.product.product_location %} 的用户启用。{% else %}不为使用 {% data variables.product.product_location %} 的用户启用。 若要允许使用 {% data variables.product.prodname_mobile %} 连接到实例，必须为实例启用该功能。{% endif %}
+可允许或禁止用户使用 {% data variables.product.prodname_mobile %} 向 {% data variables.product.product_location %} 进行身份验证并访问实例的数据。默认情况下，{% data variables.product.prodname_mobile %} {% ifversion ghes > 3.3 %}为使用 {% data variables.product.product_location %} 的用户启用。{% else %}不为使用 {% data variables.product.product_location %} 的用户启用。若要允许使用 {% data variables.product.prodname_mobile %} 连接到实例，必须为实例启用该功能。{% endif %}
 
 {% ifversion ghes < 3.6 %} {% note %}
 
-注意：如果升级到 {% data variables.product.prodname_ghe_server %} 3.4.0 或更高版本，并且以前未禁用或启用 {% data variables.product.prodname_mobile %}，则默认情况下将启用 {% data variables.product.prodname_mobile %}。 如果以前为实例禁用或启用了 {% data variables.product.prodname_mobile %}，则升级后将保留首选项。 有关升级实例的详细信息，请参阅“[升级 {% data variables.product.product_name %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”。
+注意：如果升级到 {% data variables.product.prodname_ghe_server %} 3.4.0 或更高版本，并且以前未禁用或启用 {% data variables.product.prodname_mobile %}，则默认情况下将启用 {% data variables.product.prodname_mobile %}。如果以前为实例禁用或启用了 {% data variables.product.prodname_mobile %}，则升级后将保留首选项。有关升级实例的详细信息，请参阅“[升级 {% data variables.product.product_name %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”。
 
 {% endnote %} {% endif %}
 

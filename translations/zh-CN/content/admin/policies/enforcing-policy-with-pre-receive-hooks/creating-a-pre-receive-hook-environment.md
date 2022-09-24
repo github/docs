@@ -20,7 +20,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '145098984'
 ---
-{% data variables.product.prodname_ghe_server %} 的预接收环境是 Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) 环境。 由于预接收挂钩会在每个推送事件上执行，因此它们应该快速且轻量化。 这类检查需要的环境通常极少。
+{% data variables.product.prodname_ghe_server %} 的预接收环境是 Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) 环境。由于预接收挂钩会在每个推送事件上执行，因此它们应该快速且轻量化。这类检查需要的环境通常极少。
 
 {% data variables.product.prodname_ghe_server %} 提供了一个默认环境，其中包括以下包：`awk`、`bash`、`coreutils`、`curl`、`find`、`gnupg`、`grep`、`jq` 和 `sed`。
 
@@ -28,7 +28,7 @@ ms.locfileid: '145098984'
 
 ## 使用 Docker 创建预接收挂钩环境
 
-您可以使用 Linux 容器管理工具来构建预接收挂钩环境。 此示例使用 [Alpine Linux](http://www.alpinelinux.org/) 和 [Docker](https://www.docker.com/)。
+您可以使用 Linux 容器管理工具来构建预接收挂钩环境。此示例使用 [Alpine Linux](http://www.alpinelinux.org/) 和 [Docker](https://www.docker.com/)。
 
 {% data reusables.linux.ensure-docker %}
 2. 创建包含此信息的文件 `Dockerfile.alpine-3.3`：
@@ -97,7 +97,7 @@ ms.locfileid: '145098984'
 ![添加环境按钮](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
 
 ## 通过管理 shell 上传预接收挂钩环境
-1. 将包含环境的可读 `*.tar.gz` 文件上传到 Web 主机并复制 URL 或通过 `scp` 将文件传输到 {% data variables.product.prodname_ghe_server %} 设备。 使用 `scp` 时，可能需要调整 `*.tar.gz` 文件权限，以使文件全局可读。
+1. 将包含环境的可读 `*.tar.gz` 文件上传到 Web 主机并复制 URL 或通过 `scp` 将文件传输到 {% data variables.product.prodname_ghe_server %} 设备。使用 `scp` 时，可能需要调整 `*.tar.gz` 文件权限，以使文件全局可读。
 1.  连接到管理 shell。
 2.  使用 `ghe-hook-env-create` 命令并键入环境所需的名称作为第一个参数，并键入包含环境的 `*.tar.gz` 文件的完整本地路径或 URL 作为第二个参数。
 

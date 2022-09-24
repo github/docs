@@ -32,7 +32,7 @@ ms.locfileid: '146332366'
 
 {% note %}
 
-注意：由于通过持续集成 (CI) 或构建服务器定期轮询 {% data variables.product.product_location %} 会引发拒绝服务攻击，从而导致问题的出现，因此，建议使用 Webhook 推送更新。 有关详细信息，请参阅“[关于 Webhook](/enterprise/user/articles/about-webhooks/)”。
+注意：由于通过持续集成 (CI) 或构建服务器定期轮询 {% data variables.product.product_location %} 会引发拒绝服务攻击，从而导致问题的出现，因此，建议使用 Webhook 推送更新。有关详细信息，请参阅“[关于 Webhook](/enterprise/user/articles/about-webhooks/)”。
 
 {% endnote %}
 
@@ -40,8 +40,8 @@ ms.locfileid: '146332366'
 
 | 问题 | 可能原因 | 建议 |
 | -------- | ----------------- | --------------- |
-| 高 CPU 使用率 | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少的 CPU 资源。 要增加 VM 的总 CPU 资源，请参阅“[增加 CPU 或内存资源](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)”。 |
-| 内存使用率较高 | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少内存。 要增加 VM 上可用的总内存，请参阅“[增加 CPU 或内存资源](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)”。 |
-| 可用磁盘空间小 | 较大的二进制或日志文件占用磁盘空间 | 如有可能，请在独立服务器上托管较大的二进制文件，并压缩或存档日志文件。 如有必要，请按照“[增加存储容量](/enterprise/admin/guides/installation/increasing-storage-capacity/)”中的步骤操作，为你的平台增加 VM 的磁盘空间。 |
-| 响应时间较正常时间长 | 通常是上述问题之一造成的 | 确定并解决根本问题。 如果响应时间仍较长，请联系 {% data variables.contact.contact_ent_support %}。 |
-| 错误率提高 | 软件问题  | 联系 {% data variables.contact.contact_ent_support %} 并附上支持包。 有关详细信息，请参阅“[将数据提供给 {% data variables.product.prodname_enterprise %} 支持](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)”。 |
+| 高 CPU 使用率 | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少的 CPU 资源。要增加 VM 的总 CPU 资源，请参阅“[增加 CPU 或内存资源](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)”。 |
+| 内存使用率较高 | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少内存。要增加 VM 上可用的总内存，请参阅“[增加 CPU 或内存资源](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)”。 |
+| 可用磁盘空间小 | 较大的二进制或日志文件占用磁盘空间 | 如有可能，请在独立服务器上托管较大的二进制文件，并压缩或存档日志文件。如有必要，请按照“[增加存储容量](/enterprise/admin/guides/installation/increasing-storage-capacity/)”中的步骤操作，为你的平台增加 VM 的磁盘空间。 |
+| 响应时间较正常时间长 | 通常是上述问题之一造成的 | 确定并解决根本问题。如果响应时间仍较长，请联系 {% data variables.contact.contact_ent_support %}。 |
+| 错误率提高 | 软件问题  | 联系 {% data variables.contact.contact_ent_support %} 并附上支持包。有关详细信息，请参阅“[将数据提供给 {% data variables.product.prodname_enterprise %} 支持](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)”。 |

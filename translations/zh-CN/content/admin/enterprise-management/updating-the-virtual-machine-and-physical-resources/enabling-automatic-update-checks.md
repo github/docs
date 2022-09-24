@@ -19,9 +19,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '146331886'
 ---
-在 {% data variables.product.product_location %} 的升级包自动下载后，你会收到一条消息，通知你可以升级 {% data variables.product.prodname_ghe_server %}。 包会下载到 {% data variables.product.product_location %} 上的 `/var/lib/ghe-updates` 目录中。 有关详细信息，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server)”。
+在 {% data variables.product.product_location %} 的升级包自动下载后，你会收到一条消息，通知你可以升级 {% data variables.product.prodname_ghe_server %}。包会下载到 {% data variables.product.product_location %} 上的 `/var/lib/ghe-updates` 目录中。有关详细信息，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server)”。
 
-如果升级有可用的热补丁，将自动下载 `.hpkg`。 在 Management Console 中，您可以选择立即安装热补丁或排定稍后安装。 有关详细信息，请参阅“[使用热补丁进行升级](/enterprise/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)”。
+如果升级有可用的热补丁，将自动下载 `.hpkg`。在 Management Console 中，您可以选择立即安装热补丁或排定稍后安装。有关详细信息，请参阅“[使用热补丁进行升级](/enterprise/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)”。
 
 {% tip %}
 

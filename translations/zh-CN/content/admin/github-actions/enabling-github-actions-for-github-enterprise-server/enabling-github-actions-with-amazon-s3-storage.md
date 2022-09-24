@@ -35,11 +35,11 @@ ms.locfileid: '145099079'
 {% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.actions.perform-blob-storage-precheck %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
 1. 在“工件和日志存储”下，选择“Amazon S3”，然后输入存储桶的详细信息：
 
-   * AWS 服务 URL：存储桶的服务 URL。 例如，如果你的 S3 存储桶是在 `us-west-2` 区域中创建的，则此值应为 `https://s3.us-west-2.amazonaws.com`。
+   * AWS 服务 URL：存储桶的服务 URL。例如，如果你的 S3 存储桶是在 `us-west-2` 区域中创建的，则此值应为 `https://s3.us-west-2.amazonaws.com`。
 
      有关详细信息，请参阅 AWS 文档中的“[AWS 服务终结点](https://docs.aws.amazon.com/general/latest/gr/rande.html)”。
    * AWS S3 存储桶：S3 存储桶的名称。
-   * AWS S3 访问密钥和 AWS S3 密钥：存储桶的 AWS 访问密钥 ID 和密钥 。 有关管理 AWS 访问密钥的详细信息，请参阅“[AWS 标识和访问管理文档](https://docs.aws.amazon.com/iam/index.html)”。
+   * AWS S3 访问密钥和 AWS S3 密钥：存储桶的 AWS 访问密钥 ID 和密钥。有关管理 AWS 访问密钥的详细信息，请参阅“[AWS 标识和访问管理文档](https://docs.aws.amazon.com/iam/index.html)”。
 
    ![用于选择 Amazon S3 存储的单选按钮和用于 S3 配置的字段](/assets/images/enterprise/management-console/actions-aws-s3-storage.png) {% data reusables.enterprise_management_console.save-settings %}
 

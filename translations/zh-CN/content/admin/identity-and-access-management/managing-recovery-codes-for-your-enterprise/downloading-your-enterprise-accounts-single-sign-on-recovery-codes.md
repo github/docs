@@ -20,7 +20,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '147063592'
 ---
-如果 IdP 不可用，可以使用恢复代码在 {% data variables.product.product_location %} 上登录和访问企业。 有关详细信息，请参阅“[在标识提供者不可用时访问企业帐户](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)”。
+如果 IdP 不可用，可以使用恢复代码在 {% data variables.product.product_location %} 上登录和访问企业。有关详细信息，请参阅“[在标识提供者不可用时访问企业帐户](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)”。
 
 如果在配置 SSO 时未保存恢复代码，你仍可从企业的设置中访问代码。
 
@@ -30,7 +30,7 @@ ms.locfileid: '147063592'
 
 1. 在{% ifversion oidc-for-emu %}{% endif %}“需要 SAML 身份验证”{% ifversion oidc-for-emu %}或“需要 OIDC 身份验证”{% endif %}下，单击“保存恢复代码”。{% ifversion oidc-for-emu %} {% note %}
   
-  注意：OIDC SSO 仅适用于 {% data variables.product.prodname_emus %}。 有关详细信息，请参阅“[关于企业托管用户](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)”。
+  注意：OIDC SSO 仅适用于 {% data variables.product.prodname_emus %}。有关详细信息，请参阅“[关于企业托管用户](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)”。
   
   {% endnote %}{% endif %}
   

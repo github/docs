@@ -21,7 +21,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '147508430'
 ---
-发起后，审计会禁用所有现有的 SSH 密钥并强制用户批准或拒绝它们，然后他们才能克隆、拉取任意仓库或推送至仓库。 审核在员工或合同工离开公司时十分有用，您需要确保所有密钥均已验证。
+发起后，审计会禁用所有现有的 SSH 密钥并强制用户批准或拒绝它们，然后他们才能克隆、拉取任意仓库或推送至仓库。审核在员工或合同工离开公司时十分有用，您需要确保所有密钥均已验证。
 
 ## 发起审核
 
@@ -33,7 +33,7 @@ ms.locfileid: '147508430'
 
 ![确认审核](/assets/images/enterprise/security/Enterprise-Begin-Audit.png)
 
-单击“Begin audit”按钮后，所有 SSH 密钥将失效，并需要批准。 您会看到一个指示审核已开始的通知。
+单击“Begin audit”按钮后，所有 SSH 密钥将失效，并需要批准。您会看到一个指示审核已开始的通知。
 
 ## 用户看到的内容
 
@@ -57,7 +57,7 @@ fatal: The remote end hung up unexpectedly
 
 {% ifversion ghes %}
 
-当新用户向帐户添加 SSH 密钥时，为确认该用户的访问权限，{% data variables.product.product_name %} 将提示进行身份验证。 有关详细信息，请参阅“[Sudo 模式](/authentication/keeping-your-account-and-data-secure/sudo-mode)”。
+当新用户向帐户添加 SSH 密钥时，为确认该用户的访问权限，{% data variables.product.product_name %} 将提示进行身份验证。有关详细信息，请参阅“[Sudo 模式](/authentication/keeping-your-account-and-data-secure/sudo-mode)”。
 
 {% endif %}
 

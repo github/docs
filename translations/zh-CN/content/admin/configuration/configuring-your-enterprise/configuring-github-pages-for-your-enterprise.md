@@ -42,7 +42,7 @@ ms.locfileid: '145098112'
 
 ## 为企业禁用 {% data variables.product.prodname_pages %}
 
-如果为企业禁用了子域隔离，则还应禁用 {% data variables.product.prodname_pages %}，以免遭受潜在安全漏洞的攻击。 有关详细信息，请参阅“[启用子域隔离](/admin/configuration/enabling-subdomain-isolation)”。
+如果为企业禁用了子域隔离，则还应禁用 {% data variables.product.prodname_pages %}，以免遭受潜在安全漏洞的攻击。有关详细信息，请参阅“[启用子域隔离](/admin/configuration/enabling-subdomain-isolation)”。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.pages-tab %}
 1. 取消选择“启用页面”。
@@ -66,14 +66,14 @@ ms.locfileid: '145098112'
 
 {% warning %}
 
-**警告：** 确保在保存前正确配置响应头。 配置错误可能会对 {% data variables.product.product_location %} 的安全性产生负面影响。
+**警告：** 确保在保存前正确配置响应头。配置错误可能会对 {% data variables.product.product_location %} 的安全性产生负面影响。
 
 {% endwarning %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.pages-tab %}
 1. 键入标头设置，然后单击“添加标头”。
-   - 在“Http 标头名称”字段中，输入标头名称。 标头名称的长度应小于 128 个字符。
-   - 在“Http 标头值”字段中，键入标头值。 标头值的长度应小于 300 个字符。
+   - 在“Http 标头名称”字段中，输入标头名称。标头名称的长度应小于 128 个字符。
+   - 在“Http 标头值”字段中，键入标头值。标头值的长度应小于 300 个字符。
 ![{% data variables.enterprise.management_console %} 中的 {% data variables.product.prodname_pages %} 响应头名称和值字段](/assets/images/enterprise/management-console/pages-override-header-section.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}

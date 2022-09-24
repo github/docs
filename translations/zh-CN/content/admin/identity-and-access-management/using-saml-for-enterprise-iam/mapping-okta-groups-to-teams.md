@@ -26,15 +26,15 @@ ms.locfileid: '145099027'
 
 ## 关于团队映射
 
-如果使用 Okta 作为 IdP，则可以将 Okta 组映射到 {% data variables.product.prodname_ghe_managed %} 中的团队。 然后，Okta 组的成员将自动成为映射的 {% data variables.product.prodname_ghe_managed %} 团队的成员。 要配置此映射，可以将 Okta“GitHub AE”应用设置为将组及其成员推送到 {% data variables.product.prodname_ghe_managed %}。 然后，可以选择 {% data variables.product.prodname_ghe_managed %} 中的哪个团队将被映射到 Okta 组。
+如果使用 Okta 作为 IdP，则可以将 Okta 组映射到 {% data variables.product.prodname_ghe_managed %} 中的团队。然后，Okta 组的成员将自动成为映射的 {% data variables.product.prodname_ghe_managed %} 团队的成员。要配置此映射，可以将 Okta“GitHub AE”应用设置为将组及其成员推送到 {% data variables.product.prodname_ghe_managed %}。然后，可以选择 {% data variables.product.prodname_ghe_managed %} 中的哪个团队将被映射到 Okta 组。
 
 ## 先决条件
 
 你或你的 Okta 管理员必须是 Okta 中的全局管理员或特权角色管理员。
  
-必须使用 Okta 启用 SAML 单一登录。 有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
+必须使用 Okta 启用 SAML 单一登录。有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
 
-你需要使用 SAML SSO 和 Okta 向企业帐户进行身份验证。 有关详细信息，请参阅“[通过 SAML 单一登录进行身份验证](/github/authenticating-to-github/authenticating-with-saml-single-sign-on)”。
+你需要使用 SAML SSO 和 Okta 向企业帐户进行身份验证。有关详细信息，请参阅“[通过 SAML 单一登录进行身份验证](/github/authenticating-to-github/authenticating-with-saml-single-sign-on)”。
 
 ## 将 Okta 组分配到“GitHub AE”应用
 
@@ -68,7 +68,7 @@ ms.locfileid: '145099027'
 
 ## 将团队映射到 Okta 组
 
-可以将企业中的团队映射到以前推送到 {% data variables.product.prodname_ghe_managed %} 的 Okta 组。 然后，Okta 组的成员将自动成为 {% data variables.product.prodname_ghe_managed %} 团队的成员。 对 Okta 组成员身份的任何后续更改都会自动与 {% data variables.product.prodname_ghe_managed %} 团队同步。
+可以将企业中的团队映射到以前推送到 {% data variables.product.prodname_ghe_managed %} 的 Okta 组。然后，Okta 组的成员将自动成为 {% data variables.product.prodname_ghe_managed %} 团队的成员。对 Okta 组成员身份的任何后续更改都会自动与 {% data variables.product.prodname_ghe_managed %} 团队同步。
 
 {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team_settings %}
 6. 在“标识提供者组”下，选择下拉菜单并单击标识提供者组。

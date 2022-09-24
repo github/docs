@@ -31,7 +31,7 @@ ms.locfileid: '145098990'
 
 {% data reusables.advanced-security.ghas-helps-developers %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)”。
 
-{% ifversion ghes or ghec %}如果您购买了 {% data variables.product.prodname_GH_advanced_security %} 许可证，任何{% else %}任何 {% data variables.product.product_location %} {% endif %} 组织都可以使用 {% data variables.product.prodname_advanced_security %} 功能。 您可以执行策略来控制 {% data variables.product.product_name %} 上的企业成员如何使用 {% data variables.product.prodname_advanced_security %}。
+{% ifversion ghes or ghec %}如果您购买了 {% data variables.product.prodname_GH_advanced_security %} 许可证，任何{% else %}任何 {% data variables.product.product_location %} {% endif %} 组织都可以使用 {% data variables.product.prodname_advanced_security %} 功能。您可以执行策略来控制 {% data variables.product.product_name %} 上的企业成员如何使用 {% data variables.product.prodname_advanced_security %}。
 
 ## 在企业中执行使用 {% data variables.product.prodname_GH_advanced_security %} 的策略
 

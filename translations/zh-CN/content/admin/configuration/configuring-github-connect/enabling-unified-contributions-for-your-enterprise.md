@@ -32,17 +32,17 @@ ms.locfileid: '147875978'
 
 作为企业所有者，你可以允许最终用户将进行过匿名处理的工作贡献计数从 {% data variables.product.product_location %} 发送到其 {% data variables.product.prodname_dotcom_the_website %} 贡献图。
 
-启用 {% data variables.product.prodname_unified_contributions %} 后，每个用户还必须将自己在 {% data variables.product.product_name %} 上的用户帐户与 {% data variables.product.prodname_dotcom_the_website %} 上的个人帐户连接起来，个人用户才能将贡献计数从 {% data variables.product.product_location %} 发送到 {% data variables.product.prodname_dotcom_the_website %}。 有关详细信息，请参阅“[将企业贡献发送到自己的 {% data variables.product.prodname_dotcom_the_website %} 配置文件](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)”。
+启用 {% data variables.product.prodname_unified_contributions %} 后，每个用户还必须将自己在 {% data variables.product.product_name %} 上的用户帐户与 {% data variables.product.prodname_dotcom_the_website %} 上的个人帐户连接起来，个人用户才能将贡献计数从 {% data variables.product.product_location %} 发送到 {% data variables.product.prodname_dotcom_the_website %}。有关详细信息，请参阅“[将企业贡献发送到自己的 {% data variables.product.prodname_dotcom_the_website %} 配置文件](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)”。
 
 {% data reusables.github-connect.sync-frequency %}
 
-如果企业所有者禁用了该功能或个人用户选择退出连接，则系统将删除 {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.product_name %} 贡献计数。 如果用户在禁用该功能后重新连接自己的配置文件，则系统将恢复过去 90 天的贡献计数。
+如果企业所有者禁用了该功能或个人用户选择退出连接，则系统将删除 {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.product_name %} 贡献计数。如果用户在禁用该功能后重新连接自己的配置文件，则系统将恢复过去 90 天的贡献计数。
 
-{% data variables.product.product_name %} 仅为已连接的用户发送贡献计数和来源 ({% data variables.product.product_name %})。 它不会发送有关贡献或做出该贡献的方式的任何信息。
+{% data variables.product.product_name %} 仅为已连接的用户发送贡献计数和来源 ({% data variables.product.product_name %})。它不会发送有关贡献或做出该贡献的方式的任何信息。
 
 ## 启用统一贡献
 
-在 {% data variables.product.product_location %} 上启用 {% data variables.product.prodname_unified_contributions %} 之前，必须先启用 {% data variables.product.prodname_github_connect %}。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)”。
+在 {% data variables.product.product_location %} 上启用 {% data variables.product.prodname_unified_contributions %} 之前，必须先启用 {% data variables.product.prodname_github_connect %}。有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)”。
 
 {% ifversion ghes %} {% data reusables.github-connect.access-dotcom-and-enterprise %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.business %} {% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
 1. 登录到 {% data variables.product.product_location %} 和 {% data variables.product.prodname_dotcom_the_website %}。

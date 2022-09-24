@@ -29,10 +29,10 @@ ms.locfileid: '145100005'
 
     {% warning %}
 
-    **警告：** 不支持将“高级”性能层用于常规用途存储帐户。 在创建存储帐户时必须选择“标准”性能层，并且以后不能更改。
+    **警告：** 不支持将“高级”性能层用于常规用途存储帐户。在创建存储帐户时必须选择“标准”性能层，并且以后不能更改。
 
     {% endwarning %}
-  * BlockBlobStorage 存储帐户，使用“高级”性能层 。
+  * BlockBlobStorage 存储帐户，使用“高级”性能层。
 
   有关 Azure 存储帐户类型和性能层的详细信息，请参阅 [Azure 文档](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts)。
 {% data reusables.actions.enterprise-common-prereqs %}
@@ -40,7 +40,7 @@ ms.locfileid: '145100005'
 ## 使用 Azure Blob 存储启用 {% data variables.product.prodname_actions %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.actions.perform-blob-storage-precheck %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
-1. 在“项目和日志存储”下，选择“Azure Blob 存储”，然后输入 Azure 存储帐户的连接字符串。 有关获取存储帐户连接字符串的详细信息，请参阅 [Azure 文档](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys)。
+1. 在“项目和日志存储”下，选择“Azure Blob 存储”，然后输入 Azure 存储帐户的连接字符串。有关获取存储帐户连接字符串的详细信息，请参阅 [Azure 文档](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys)。
   ![用于选择 Azure Blob 存储和连接字符串字段的单选按钮](/assets/images/enterprise/management-console/actions-azure-storage.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.actions.enterprise-postinstall-nextsteps %}

@@ -36,9 +36,9 @@ ms.locfileid: '147877169'
 
 {% data reusables.audit_log.git-events-not-in-search-results %}
 
-也可以使用 API 检索审核日志事件。 有关详细信息，请参阅“[使用你企业的审核日志 API](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)”。
+也可以使用 API 检索审核日志事件。有关详细信息，请参阅“[使用你企业的审核日志 API](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)”。
 
-无法使用文本搜索条目。 但是，您可以使用各种过滤器构建搜索查询。 查询日志时使用的许多运算符，如 `-`、`>` 或 `<`，与在 {% data variables.product.product_name %} 上搜索时的格式相同。 有关详细信息，请参阅“[在 {% data variables.product.prodname_dotcom %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
+无法使用文本搜索条目。但是，您可以使用各种过滤器构建搜索查询。查询日志时使用的许多运算符，如 `-`、`>` 或 `<`，与在 {% data variables.product.product_name %} 上搜索时的格式相同。有关详细信息，请参阅“[在 {% data variables.product.prodname_dotcom %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 
 {% note %}
 
@@ -61,7 +61,7 @@ ms.locfileid: '147877169'
 
 ## 搜索查询语法
 
-你可以用一个或多个 `key:value` 对（以 AND/OR 逻辑运算符分隔）构成一个搜索查询。 例如，要查看自 2017 年初开始影响存储库 `octocat/Spoon-Knife` 的所有操作：
+你可以用一个或多个 `key:value` 对（以 AND/OR 逻辑运算符分隔）构成一个搜索查询。例如，要查看自 2017 年初开始影响存储库 `octocat/Spoon-Knife` 的所有操作：
 
   `repo:"octocat/Spoon-Knife" AND created:>=2017-01-01`
 
@@ -78,7 +78,7 @@ ms.locfileid: '147877169'
 `repo_id`      | 受操作影响的仓库的 ID（若适用）
 `repo`         | 受操作影响的仓库的名称（若适用）
 `actor_ip`     | 发起操作的 IP 地址
-`created`      | 发生操作的时间 {% ifversion ghes %}。 如果从站点管理员仪表板查询审核日志，请改用 `created_at`{% endif %}
+`created`      | 发生操作的时间 {% ifversion ghes %}。如果从站点管理员仪表板查询审核日志，请改用 `created_at`{% endif %}
 `from`         | 发起操作的视图
 `note`         | 事件特定的其他信息（采用纯文本或 JSON 格式）
 `org`          | 受操作影响的组织的名称（若适用）
@@ -86,7 +86,7 @@ ms.locfileid: '147877169'
 `business` | 受操作影响的企业名（若适用）
 `business_id` | 受操作影响的企业 ID（若适用）
 
-要查看按类别分组的操作，还可以将操作限定符用作 `key:value` 对。 有关详细信息，请参阅“[基于执行的操作进行搜索](#search-based-on-the-action-performed)”。
+要查看按类别分组的操作，还可以将操作限定符用作 `key:value` 对。有关详细信息，请参阅“[基于执行的操作进行搜索](#search-based-on-the-action-performed)”。
 
 有关企业审核日志中的操作的完整列表，请参阅“[企业的审核日志操作](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
 
@@ -100,12 +100,12 @@ ms.locfileid: '147877169'
 
 ### 基于执行的操作搜索
 
-要搜索特定事件，请在查询中使用 `action` 限定符。 例如：
+要搜索特定事件，请在查询中使用 `action` 限定符。例如：
 
   * `action:team` 查找分组在团队类别中的所有事件。
   * `-action:hook` 排除 Webhook 类别中的所有事件。
 
-每个类别都有一组可进行过滤的关联操作。 例如：
+每个类别都有一组可进行过滤的关联操作。例如：
 
   * `action:team.create` 查找创建团队的所有事件。
   * `-action:hook.events_changed` 排除已更改 Webhook 上事件的所有事件。
@@ -130,7 +130,7 @@ ms.locfileid: '147877169'
 
 ### 基于位置搜索
 
-使用限定符 `country`，可以根据原始国家/地区筛选审核日志中的事件。 你可以使用国家/地区的两字母短代码或完整名称。 名称中包含空格的国家/地区需要加引号。 例如：
+使用限定符 `country`，可以根据原始国家/地区筛选审核日志中的事件。你可以使用国家/地区的两字母短代码或完整名称。名称中包含空格的国家/地区需要加引号。例如：
 
   * `country:de` 查找在德国发生的所有事件。
   * `country:Mexico` 查找在墨西哥发生的所有事件。

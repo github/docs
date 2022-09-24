@@ -21,7 +21,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '146331638'
 ---
-使用 LDAP 或内置身份验证时，{% data variables.product.product_location %} 将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
+使用 LDAP 或内置身份验证时，{% data variables.product.product_location %} 将支持双重身份验证。组织管理员可以要求成员启用双重身份验证。
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
@@ -35,13 +35,13 @@ ms.locfileid: '146331638'
 
 警告：
 
-- 如果您要求双重身份验证，则不使用双重身份验证的成员和外部协作者（包括自动程序帐户）将从组织中移除，并失去对仓库的访问权限，包括他们的私有仓库分叉。 如果用户在被从组织中移除的三个月内为自己的个人帐户启用 2FA，你可以[恢复他们的访问权限和设置](/enterprise/user/articles/reinstating-a-former-member-of-your-organization)。
+- 如果您要求双重身份验证，则不使用双重身份验证的成员和外部协作者（包括自动程序帐户）将从组织中移除，并失去对仓库的访问权限，包括他们的私有仓库分叉。如果用户在被从组织中移除的三个月内为自己的个人帐户启用 2FA，你可以[恢复他们的访问权限和设置](/enterprise/user/articles/reinstating-a-former-member-of-your-organization)。
 - 如果需要双重身份验证，则禁用双重身份验证的组织成员或外部协作者将被自动从组织中移除。
 - 如果您是某个要求双重身份验证的组织的唯一所有者，则在不为组织禁用双重身份验证要求的情况下，您将无法为个人帐户禁用双重身份验证。
 
 {% endwarning %}
 
-在您要求使用双重身份验证之前，我们建议通知组织成员和外部协作者，并要求他们为帐户设置双重身份验证。 可以在组织的“人员”选项卡上[查看成员和外部协作者是否已使用 2FA](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)。
+在您要求使用双重身份验证之前，我们建议通知组织成员和外部协作者，并要求他们为帐户设置双重身份验证。可以在组织的“人员”选项卡上[查看成员和外部协作者是否已使用 2FA](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)。
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.organizations.require_two_factor_authentication %} {% data reusables.organizations.removed_outside_collaborators %}
 
@@ -61,7 +61,7 @@ ms.locfileid: '146331638'
 
 ## 帮助被删除的成员和外部协作者重新加入您的组织
 
-如果在您启用双重身份验证使用要求时有任何成员或外部协作者被从组织中删除，他们将收到通知他们已被删除的电子邮件。 他们应当为个人帐户启用双重身份验证，并联系组织所有者来请求您的组织的访问权限。
+如果在您启用双重身份验证使用要求时有任何成员或外部协作者被从组织中删除，他们将收到通知他们已被删除的电子邮件。他们应当为个人帐户启用双重身份验证，并联系组织所有者来请求您的组织的访问权限。
 
 ## 延伸阅读
 

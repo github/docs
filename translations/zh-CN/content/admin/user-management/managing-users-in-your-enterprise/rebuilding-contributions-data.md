@@ -20,7 +20,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145098947'
 ---
-将提交推送到 {% data variables.product.prodname_enterprise %} 时，如果新提交和现有提交关联到同一个电子邮件地址，此提交会链接到用户帐户。 不过，在用户注册新电子邮件地址或创建新帐户时，不会追溯性地链接现有提交。
+将提交推送到 {% data variables.product.prodname_enterprise %} 时，如果新提交和现有提交关联到同一个电子邮件地址，此提交会链接到用户帐户。不过，在用户注册新电子邮件地址或创建新帐户时，不会追溯性地链接现有提交。
 
 1. 访问用户的个人资料页面。
 {% data reusables.enterprise_site_admin_settings.access-settings %}

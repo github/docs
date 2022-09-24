@@ -21,13 +21,13 @@ ms.locfileid: '147062280'
 
 {% data reusables.dependabot.about-the-dependency-graph %} 有关详细信息，请参阅“[关于依赖项关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
 
-为企业启用依赖项关系图后，可以启用 {% data variables.product.prodname_dependabot %} 来检测存储库中不安全的依赖项{% ifversion ghes > 3.2 %}并自动修复漏洞{% endif %}。 有关详细信息，请参阅“[对企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
+为企业启用依赖项关系图后，可以启用 {% data variables.product.prodname_dependabot %} 来检测存储库中不安全的依赖项{% ifversion ghes > 3.2 %}并自动修复漏洞{% endif %}。有关详细信息，请参阅“[对企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 
-{% ifversion ghes %} 你可以通过 {% data variables.enterprise.management_console %} 或管理 shell 启用依赖项关系图。 建议使用 {% data variables.enterprise.management_console %}，除非 {% data variables.product.product_location %} 使用聚类分析。
+{% ifversion ghes %} 你可以通过 {% data variables.enterprise.management_console %} 或管理 shell 启用依赖项关系图。建议使用 {% data variables.enterprise.management_console %}，除非 {% data variables.product.product_location %} 使用聚类分析。
 
 ## <a name="enabling-the-dependency-graph-via-the--data-variablesenterprisemanagement_console-"></a>通过 {% data variables.enterprise.management_console %} 启用依赖关系图
 
-如果 {% data variables.product.product_location %} 使用聚类分析，则无法使用 {% data variables.enterprise.management_console %} 启用依赖项关系图，而必须使用管理 shell。 有关详细信息，请参阅“[通过管理 shell 启用依赖项关系图](#enabling-the-dependency-graph-via-the-administrative-shell)”。
+如果 {% data variables.product.product_location %} 使用聚类分析，则无法使用 {% data variables.enterprise.management_console %} 启用依赖项关系图，而必须使用管理 shell。有关详细信息，请参阅“[通过管理 shell 启用依赖项关系图](#enabling-the-dependency-graph-via-the-administrative-shell)”。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
 1. 在“安全性”下，单击“依赖项关系图”。

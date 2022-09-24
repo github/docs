@@ -21,13 +21,13 @@ ms.locfileid: '147066488'
 
 引荐来源网址策略控制当有人访问从 {% data variables.product.product_location %} 到外部站点的链接时，{% data variables.product.product_name %} 在 HTTP 标头中传输的信息。
 
-默认情况下，当 {% data variables.product.product_location %} 上的用户从你的实例上的文件或注释中访问指向另一个站点的链接时，请求会在 `Referer` 标头中以纯文本形式包含你的实例的主机名。 如果链接指向外部网站，则网站的所有者可以在请求或日志文件中读取您的实例的主机名。
+默认情况下，当 {% data variables.product.product_location %} 上的用户从你的实例上的文件或注释中访问指向另一个站点的链接时，请求会在 `Referer` 标头中以纯文本形式包含你的实例的主机名。如果链接指向外部网站，则网站的所有者可以在请求或日志文件中读取您的实例的主机名。
 
 您可以控制当用户从您的实例访问链接时 {% data variables.product.product_name %} 发送的信息。
 
 ## 启用 `same-origin` 引荐者策略
 
-可以启用 `same-origin` 引荐者策略，以指示新式浏览器将 {% data variables.product.product_location %} 的主机名排除在对外部网站的请求之外。 该设置适用于实例上 Web 界面中的所有链接。 默认情况下，{% data variables.product.product_name %} 使用 `origin-when-cross-origin` 和 `strict-origin-when-cross-origin` 引荐者策略，这意味着实例的主机名将显示在对外部网站的 HTTP 和 HTTPS 请求中。
+可以启用 `same-origin` 引荐者策略，以指示新式浏览器将 {% data variables.product.product_location %} 的主机名排除在对外部网站的请求之外。该设置适用于实例上 Web 界面中的所有链接。默认情况下，{% data variables.product.product_name %} 使用 `origin-when-cross-origin` 和 `strict-origin-when-cross-origin` 引荐者策略，这意味着实例的主机名将显示在对外部网站的 HTTP 和 HTTPS 请求中。
 
 {% note %}
 

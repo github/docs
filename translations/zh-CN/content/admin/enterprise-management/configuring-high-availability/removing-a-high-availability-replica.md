@@ -47,6 +47,6 @@ ms.locfileid: '145099086'
 
   {% ifversion ghes %} {% note %}
   
-  注意：如果已启用 {% data variables.product.prodname_actions %}，则应停用前一个副本服务器，或更新其 {% data variables.product.prodname_actions %} 配置来使用其他外部存储。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的高可用性](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)”。
+  注意：如果已启用 {% data variables.product.prodname_actions %}，则应停用前一个副本服务器，或更新其 {% data variables.product.prodname_actions %} 配置来使用其他外部存储。有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的高可用性](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)”。
   
   {% endnote %} {% endif %}

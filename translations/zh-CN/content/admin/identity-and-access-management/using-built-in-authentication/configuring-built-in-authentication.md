@@ -26,9 +26,9 @@ ms.locfileid: '147717811'
 ---
 ## 关于内置身份验证
 
-默认情况下，{% data variables.product.product_name %} 使用内置身份验证。 每个人都可以通过邀请或注册在 {% data variables.product.product_location %} 上创建用户帐户，然后使用帐户的凭据进行身份验证以访问你的实例。 你的 {% data variables.product.product_name %} 实例中存储有帐户的身份验证信息。
+默认情况下，{% data variables.product.product_name %} 使用内置身份验证。每个人都可以通过邀请或注册在 {% data variables.product.product_location %} 上创建用户帐户，然后使用帐户的凭据进行身份验证以访问你的实例。你的 {% data variables.product.product_name %} 实例中存储有帐户的身份验证信息。
 
-你可以阻止未经身份验证的人员在你的实例上创建新用户帐户。 有关详细信息，请参阅“[禁用未经身份验证的注册](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)”。
+你可以阻止未经身份验证的人员在你的实例上创建新用户帐户。有关详细信息，请参阅“[禁用未经身份验证的注册](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)”。
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 
@@ -51,7 +51,7 @@ ms.locfileid: '147717811'
 
 <a name="inviting-users"></a>
 
-配置内置身份验证并创建管理帐户后，可以邀请用户创建帐户并使用你的实例。 有关详细信息，请参阅“[邀请他人使用你的实例](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)”。
+配置内置身份验证并创建管理帐户后，可以邀请用户创建帐户并使用你的实例。有关详细信息，请参阅“[邀请他人使用你的实例](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)”。
 
 ## 延伸阅读
 

@@ -29,19 +29,19 @@ ms.locfileid: '145910557'
 
 {% data reusables.enterprise-licensing.about-license-sync %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect#data-transmission-for-github-connect)”。
 
-如果为企业启用自动用户许可证同步，{% data variables.product.prodname_github_connect %} 将每周自动同步一次 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_ghe_cloud %} 之间的许可证使用情况。{% ifversion ghes > 3.4 %}还可以通过手动触发许可证同步作业，在自动每周同步之外随时同步许可证数据。 有关详细信息，请参阅“[触发许可证同步作业](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#triggering-a-license-sync-job)”。{% endif %}
+如果为企业启用自动用户许可证同步，{% data variables.product.prodname_github_connect %} 将每周自动同步一次 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_ghe_cloud %} 之间的许可证使用情况。{% ifversion ghes > 3.4 %}还可以通过手动触发许可证同步作业，在自动每周同步之外随时同步许可证数据。有关详细信息，请参阅“[触发许可证同步作业](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#triggering-a-license-sync-job)”。{% endif %}
 
 如果使用多个 {% data variables.product.prodname_ghe_server %} 实例，则可以在 {% data variables.product.prodname_ghe_cloud %} 上启用每个实例与同一组织或企业帐户之间的自动触发许可证同步。
 
 {% data reusables.enterprise-licensing.view-consumed-licenses %}
 
-您还可以手动将 {% data variables.product.prodname_ghe_server %} 用户许可信息上传到 {% data variables.product.prodname_ghe_cloud %}。 有关详细信息，请参阅“[同步 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 之间的许可证使用情况](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)”。
+您还可以手动将 {% data variables.product.prodname_ghe_server %} 用户许可信息上传到 {% data variables.product.prodname_ghe_cloud %}。有关详细信息，请参阅“[同步 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 之间的许可证使用情况](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)”。
 
 {% data reusables.enterprise-licensing.verified-domains-license-sync %}
 
 ## 启用许可同步
 
-在 {% data variables.product.product_location %} 上启用许可证同步之前，必须启用 {% data variables.product.prodname_github_connect %}。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)”。
+在 {% data variables.product.product_location %} 上启用许可证同步之前，必须启用 {% data variables.product.prodname_github_connect %}。有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.github-connect-tab %}
 1. 在“服务器可同步用户许可证计数和使用情况”下，使用下拉菜单，然后选择“启用”。

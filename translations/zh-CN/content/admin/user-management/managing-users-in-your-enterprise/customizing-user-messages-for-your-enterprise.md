@@ -34,7 +34,7 @@ ms.locfileid: '147052054'
 
 {% endnote %}
 
-您可以使用 Markdown 格式化消息。 有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github/)”。
+您可以使用 Markdown 格式化消息。有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github/)”。
 
 ## 创建自定义登录消息
 
@@ -59,7 +59,7 @@ ms.locfileid: '147052054'
 {% ifversion ghes or ghae %}
 ## 创建必读消息
 
-您可以创建必读消息，保存后，{% data variables.product.product_name %} 将在所有用户首次登录时显示该消息。 该消息出现在弹出窗口中，用户必须忽略后才能使用 {% data variables.product.product_location %}。
+您可以创建必读消息，保存后，{% data variables.product.product_name %} 将在所有用户首次登录时显示该消息。该消息出现在弹出窗口中，用户必须忽略后才能使用 {% data variables.product.product_location %}。
 
 必读消息有多种用途。
 
@@ -67,9 +67,9 @@ ms.locfileid: '147052054'
 - 告诉用户如何获得 {% data variables.product.product_location %} 帮助
 - 确保所有用户阅读有关使用 {% data variables.product.product_location %} 的服务条款
 
-如果消息中包含 Markdown 复选框，则用户必须选中所有复选框才能忽略消息。 例如，如果您在必读消息中包含服务条款，您可以要求每个用户选中复选框以确认他们阅读了这些条款。
+如果消息中包含 Markdown 复选框，则用户必须选中所有复选框才能忽略消息。例如，如果您在必读消息中包含服务条款，您可以要求每个用户选中复选框以确认他们阅读了这些条款。
 
-每次用户看到必读消息时，都会创建审核日志事件。 该事件包括用户看到的消息的版本。 有关详细信息，请参阅“[企业的审核日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
+每次用户看到必读消息时，都会创建审核日志事件。该事件包括用户看到的消息的版本。有关详细信息，请参阅“[企业的审核日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
 
 {% note %}
 
@@ -90,10 +90,10 @@ ms.locfileid: '147052054'
 
 您可以设置全局公告横幅，以便在每个页面顶部向所有用户显示。
 
-{% ifversion ghae or ghes %} 你也可以使用命令行实用工具或{% ifversion ghes %}使用 API 在管理 shell 中{% endif %}设置公告横幅。 有关详细信息，请参阅{% ifversion ghes %}“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”和{% endif %}“[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)”。
+{% ifversion ghae or ghes %} 你也可以使用命令行实用工具或{% ifversion ghes %}使用 API 在管理 shell 中{% endif %}设置公告横幅。有关详细信息，请参阅{% ifversion ghes %}“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”和{% endif %}“[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)”。
 {% else %}
 
-您还可以使用命令行工具在管理 shell 中设置公告横幅。 有关详细信息，请参阅“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”。
+您还可以使用命令行工具在管理 shell 中设置公告横幅。有关详细信息，请参阅“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”。
 
 {% endif %}
 

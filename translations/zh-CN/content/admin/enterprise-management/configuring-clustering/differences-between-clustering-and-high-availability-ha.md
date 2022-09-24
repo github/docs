@@ -23,7 +23,7 @@ ms.locfileid: '146332486'
 ---
 ## 故障场景
 
-高可用性 (HA) 和集群都通过消除作为故障点的单个节点来提供冗余。 它们能够在这些场景中提供可用性：
+高可用性 (HA) 和集群都通过消除作为故障点的单个节点来提供冗余。它们能够在这些场景中提供可用性：
 
 {% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
@@ -40,11 +40,11 @@ ms.locfileid: '146332486'
 
 ## 备份和灾难恢复
 
-HA 或集群都不应被视为常规备份的替代品。 有关详细信息，请参阅“[在设备上配置备份](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)”。
+HA 或集群都不应被视为常规备份的替代品。有关详细信息，请参阅“[在设备上配置备份](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)”。
 
 ## 监视
 
-可用性功能，尤其是具有自动故障切换的功能（如集群）可以屏蔽故障，因为在发生故障时通常不会中断服务。 无论您使用的是 HA 还是集群，监视每个实例的状态都十分重要，这样您就可以了解何时发生了故障。 有关监视的详细信息，请参阅“[建议的警报阈值](/enterprise/admin/guides/installation/recommended-alert-thresholds/)”和“[监视群集节点](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)”。
+可用性功能，尤其是具有自动故障切换的功能（如集群）可以屏蔽故障，因为在发生故障时通常不会中断服务。无论您使用的是 HA 还是集群，监视每个实例的状态都十分重要，这样您就可以了解何时发生了故障。有关监视的详细信息，请参阅“[建议的警报阈值](/enterprise/admin/guides/installation/recommended-alert-thresholds/)”和“[监视群集节点](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)”。
 
 ## 延伸阅读
 - 有关 {% data variables.product.prodname_ghe_server %} 群集的详细信息，请参阅“[关于群集](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)”。

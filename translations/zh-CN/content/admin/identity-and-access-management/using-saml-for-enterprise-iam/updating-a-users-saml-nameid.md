@@ -20,7 +20,7 @@ ms.locfileid: '147717899'
 ---
 ## 关于用户的 SAML `NameID` 更新
 
-在某些情况下，可能需要更新与 SAML IdP 上的某个用户帐户关联的值。 如果该标识符也是你用于对 {% data variables.product.product_name %} 进行身份验证的 `NameID`，则必须更新实例上的 `NameID` 映射，以便此人可以继续成功进行身份验证。 有关详细信息，请参阅“[外部身份验证的用户名注意事项](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)”。
+在某些情况下，可能需要更新与 SAML IdP 上的某个用户帐户关联的值。如果该标识符也是你用于对 {% data variables.product.product_name %} 进行身份验证的 `NameID`，则必须更新实例上的 `NameID` 映射，以便此人可以继续成功进行身份验证。有关详细信息，请参阅“[外部身份验证的用户名注意事项](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)”。
 
 ## 更新用户的 SAML `NameID`
 

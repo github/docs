@@ -24,16 +24,16 @@ ms.locfileid: '145100090'
 ---
 ## 关于 {% data variables.product.product_location %} 的防火墙
 
-{% data variables.product.prodname_ghe_server %} 在虚拟设备上使用 Ubuntu 的简单防火墙 (UFW)。 有关详细信息，请参阅 Ubuntu 文档中的 [UFW](https://help.ubuntu.com/community/UFW)。 {% data variables.product.prodname_ghe_server %} 在每次发布时都会自动更新允许服务的防火墙允许名单。
+{% data variables.product.prodname_ghe_server %} 在虚拟设备上使用 Ubuntu 的简单防火墙 (UFW)。有关详细信息，请参阅 Ubuntu 文档中的 [UFW](https://help.ubuntu.com/community/UFW)。 {% data variables.product.prodname_ghe_server %} 在每次发布时都会自动更新允许服务的防火墙允许名单。
 
-安装 {% data variables.product.prodname_ghe_server %} 之后，所有必要的网络端口都会自动打开，以接受连接。 每个非必要的端口都会自动配置为 `deny`，默认传出策略会配置为 `allow`。 会为任何新连接启用状态跟踪；这些连接通常是设置了 `SYN` 位的网络数据包。 有关详细信息，请参阅“[网络端口](/enterprise/admin/guides/installation/network-ports)”。
+安装 {% data variables.product.prodname_ghe_server %} 之后，所有必要的网络端口都会自动打开，以接受连接。每个非必要的端口都会自动配置为 `deny`，默认传出策略会配置为 `allow`。会为任何新连接启用状态跟踪；这些连接通常是设置了 `SYN` 位的网络数据包。有关详细信息，请参阅“[网络端口](/enterprise/admin/guides/installation/network-ports)”。
 
-UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所需的其他多个端口才能正常运行。 有关 UFW 规则集的详细信息，请参阅 [UFW 自述文件](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)。
+UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所需的其他多个端口才能正常运行。有关 UFW 规则集的详细信息，请参阅 [UFW 自述文件](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)。
 
 ## 查看默认防火墙规则
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. 若要查看默认防火墙规则，请使用 `sudo ufw status` 命令。 此时会看到与下面类似的输出：
+2. 若要查看默认防火墙规则，请使用 `sudo ufw status` 命令。此时会看到与下面类似的输出：
   ```shell
   $ sudo ufw status
   > Status: active
@@ -65,7 +65,7 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
 
 {% warning %}
 
-警告：在添加自定义防火墙规则之前，请备份当前规则，以便在需要时可以重置为已知的工作状态。 如果您被锁定在服务器之外，请与 {% data variables.contact.contact_ent_support %} 联系，以重新配置原始防火墙规则。 恢复原始防火墙规则会导致服务器停机。
+警告：在添加自定义防火墙规则之前，请备份当前规则，以便在需要时可以重置为已知的工作状态。如果您被锁定在服务器之外，请与 {% data variables.contact.contact_ent_support %} 联系，以重新配置原始防火墙规则。恢复原始防火墙规则会导致服务器停机。
 
 {% endwarning %}
 
@@ -79,7 +79,7 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
   $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
-升级 {% data variables.product.product_location %} 后，必须重新应用自定义防火墙规则。 我们建议您创建脚本来重新应用防火墙自定义规则。
+升级 {% data variables.product.product_location %} 后，必须重新应用自定义防火墙规则。我们建议您创建脚本来重新应用防火墙自定义规则。
 
 ## 恢复默认防火墙规则
 

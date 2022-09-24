@@ -19,21 +19,21 @@ ms.locfileid: '147409321'
 
 {% data variables.product.prodname_server_statistics %} 可以帮助你预测组织的需求，了解团队的工作方式，并显示从 {% data variables.product.prodname_ghe_server %} 获取的值。
 
-启用后，{% data variables.product.prodname_server_statistics %} 会收集有关随时间推移在实例上使用多少特定功能的聚合数据。 与其他仅返回前一天的数据的[管理员统计信息 API](/rest/reference/enterprise-admin#admin-stats) 终结点不同，{% data variables.product.prodname_server_statistics %} 可提供自启用该功能以来收集的所有 {% data variables.product.prodname_server_statistics %} 指标的历史数据。 有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_server_statistics %}](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)”。
+启用后，{% data variables.product.prodname_server_statistics %} 会收集有关随时间推移在实例上使用多少特定功能的聚合数据。与其他仅返回前一天的数据的[管理员统计信息 API](/rest/reference/enterprise-admin#admin-stats) 终结点不同，{% data variables.product.prodname_server_statistics %} 可提供自启用该功能以来收集的所有 {% data variables.product.prodname_server_statistics %} 指标的历史数据。有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_server_statistics %}](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)”。
 
-启用 {% data variables.product.prodname_server_statistics %} 时，你将帮助构建更好的 {% data variables.product.prodname_dotcom %}。 你将提供的聚合数据让我们能够深入了解 {% data variables.product.prodname_dotcom %} 如何为我们的客户增加价值。 此信息使 {% data variables.product.company_short %} 能够做出更好、更明智的产品决策，最终使你受益。
+启用 {% data variables.product.prodname_server_statistics %} 时，你将帮助构建更好的 {% data variables.product.prodname_dotcom %}。你将提供的聚合数据让我们能够深入了解 {% data variables.product.prodname_dotcom %} 如何为我们的客户增加价值。此信息使 {% data variables.product.company_short %} 能够做出更好、更明智的产品决策，最终使你受益。
 
 ## 关于数据安全性
 
-我们尊重你的数据。 除非你先授予我们权限，否则我们永远不会从 {% data variables.product.product_location %} 传输数据。
+我们尊重你的数据。除非你先授予我们权限，否则我们永远不会从 {% data variables.product.product_location %} 传输数据。
 
-我们不会收集任何个人数据。 我们也不会收集任何 {% data variables.product.company_short %} 内容，例如代码、问题、评论或拉取请求内容。
+我们不会收集任何个人数据。我们也不会收集任何 {% data variables.product.company_short %} 内容，例如代码、问题、评论或拉取请求内容。
 
 只有 {% data variables.product.prodname_ghe_cloud %} 上连接的企业帐户或组织的所有者才能访问数据。
 
-我们仅在存储库、问题、拉取请求和其他功能上收集某些聚合指标。 有关收集的聚合指标列表，请参阅“[收集的 {% data variables.product.prodname_server_statistics %} 数据](#server-statistics-data-collected)”。 
+我们仅在存储库、问题、拉取请求和其他功能上收集某些聚合指标。有关收集的聚合指标列表，请参阅“[收集的 {% data variables.product.prodname_server_statistics %} 数据](#server-statistics-data-collected)”。 
 
-我们可能会在 {% data variables.product.prodname_ghe_server %} 的未来功能版本中更新收集的指标，届时将在 [{% data variables.product.prodname_ghe_server %} 发行说明](/admin/release-notes)中进行介绍。 此外，我们会将所有指标更新都更新到本文中。
+我们可能会在 {% data variables.product.prodname_ghe_server %} 的未来功能版本中更新收集的指标，届时将在 [{% data variables.product.prodname_ghe_server %} 发行说明](/admin/release-notes)中进行介绍。此外，我们会将所有指标更新都更新到本文中。
 
 若要更好地了解如何存储和保护 {% data variables.product.prodname_server_statistics %} 数据，请参阅“[GitHub 安全性](https://github.com/security)”。
 
@@ -41,19 +41,19 @@ ms.locfileid: '147409321'
 
 只要 {% data variables.product.prodname_ghe_server %} 许可证处于活动状态，并且启用了 {% data variables.product.prodname_server_statistics %} 功能，{% data variables.product.company_short %} 就会收集 {% data variables.product.prodname_server_statistics %} 数据。
 
-如果要删除数据，可以联系 GitHub 支持、{% data variables.product.prodname_dotcom %} 客户代表或客户成功经理。  通常，我们在隐私声明中指定的时间范围内删除数据。 有关详细信息，请参阅 {% data variables.product.prodname_dotcom_the_website %} 文档中的 [{% data variables.product.company_short %} 隐私声明](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#data-retention-and-deletion-of-data)。
+如果要删除数据，可以联系 GitHub 支持、{% data variables.product.prodname_dotcom %} 客户代表或客户成功经理。通常，我们在隐私声明中指定的时间范围内删除数据。有关详细信息，请参阅 {% data variables.product.prodname_dotcom_the_website %} 文档中的 [{% data variables.product.company_short %} 隐私声明](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#data-retention-and-deletion-of-data)。
 
 ### 关于数据可移植性
 
-作为 {% data variables.product.prodname_ghe_cloud %} 上的组织所有者或企业所有者，你可以通过导出 CSV 或 JSON 文件中的数据或通过 {% data variables.product.prodname_server_statistics %} REST API 来访问 {% data variables.product.prodname_server_statistics %} 数据。 有关详细信息，请参阅“[使用 REST API 请求 {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)”或“[导出 {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics)”。
+作为 {% data variables.product.prodname_ghe_cloud %} 上的组织所有者或企业所有者，你可以通过导出 CSV 或 JSON 文件中的数据或通过 {% data variables.product.prodname_server_statistics %} REST API 来访问 {% data variables.product.prodname_server_statistics %} 数据。有关详细信息，请参阅“[使用 REST API 请求 {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)”或“[导出 {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics)”。
 
 ## 关于禁用数据收集
 
-可以随时禁用 {% data variables.product.prodname_server_statistics %} 功能。 有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_server_statistics %}](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)”。
+可以随时禁用 {% data variables.product.prodname_server_statistics %} 功能。有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_server_statistics %}](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)”。
 
 ## 收集的 {% data variables.product.prodname_server_statistics %} 数据
 
-启用 {% data variables.product.prodname_server_statistics %} 后，将通过在 {% data variables.product.product_location %} 上运行的每日作业收集指标。 聚合指标存储在 {% data variables.product.prodname_ghe_cloud %} 上的组织或企业帐户上，不会存储在 {% data variables.product.product_location %} 上。
+启用 {% data variables.product.prodname_server_statistics %} 后，将通过在 {% data variables.product.product_location %} 上运行的每日作业收集指标。聚合指标存储在 {% data variables.product.prodname_ghe_cloud %} 上的组织或企业帐户上，不会存储在 {% data variables.product.product_location %} 上。
 
 将每天收集和传输以下聚合指标，并显示当天的总计数：
   - `active_hooks`

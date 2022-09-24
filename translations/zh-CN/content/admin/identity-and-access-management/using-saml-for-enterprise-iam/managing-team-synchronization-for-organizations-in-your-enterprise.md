@@ -35,7 +35,7 @@ ms.locfileid: '147076933'
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-您也可以配置和管理单个组织的团队同步。 有关详细信息，请参阅[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)。
+您也可以配置和管理单个组织的团队同步。有关详细信息，请参阅[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)。
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 
@@ -43,9 +43,9 @@ ms.locfileid: '147076933'
 
 您或您的 Azure AD 管理员必须是 Azure AD 中的全局管理员或特权角色管理员。
  
-需要使用受支持的 IdP 为企业帐户中的组织实施 SAML 单一登录。 有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
+需要使用受支持的 IdP 为企业帐户中的组织实施 SAML 单一登录。有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
 
-您必须使用 SAML SSO 和支持的 IdP 向企业帐户进行身份验证。 有关详细信息，请参阅“[通过 SAML 单一登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
+您必须使用 SAML SSO 和支持的 IdP 向企业帐户进行身份验证。有关详细信息，请参阅“[通过 SAML 单一登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
 
 ## 管理 Azure AD 的团队同步
 

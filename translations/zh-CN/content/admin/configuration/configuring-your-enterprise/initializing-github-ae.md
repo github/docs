@@ -18,9 +18,9 @@ ms.locfileid: '147400352'
 ---
 ## 关于初始化
 
-在初始化企业之前，必须购买 {% data variables.product.product_name %}。 更多信息请联系 {% data variables.contact.contact_enterprise_sales %}。
+在初始化企业之前，必须购买 {% data variables.product.product_name %}。更多信息请联系 {% data variables.contact.contact_enterprise_sales %}。
 
-{% data reusables.github-ae.initialize-enterprise %} 确保您提供的信息与 IdP 中的预期企业所有者信息相匹配。 有关企业所有者的详细信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
+{% data reusables.github-ae.initialize-enterprise %} 确保您提供的信息与 IdP 中的预期企业所有者信息相匹配。有关企业所有者的详细信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
 
 {% note %}
 
@@ -36,10 +36,10 @@ ms.locfileid: '147400352'
 
 ## 先决条件
 
-要开始初始化，您将收到来自 {% data variables.product.company_short %} 的邀请电子邮件。 在配置 {% data variables.product.prodname_ghe_managed %} 之前，要查看以下先决条件。
+要开始初始化，您将收到来自 {% data variables.product.company_short %} 的邀请电子邮件。在配置 {% data variables.product.prodname_ghe_managed %} 之前，要查看以下先决条件。
 
 
-1. 要初始化 {% data variables.product.product_location %}，您必须具有 SAML 身份提供程序 (Idp)。 {% data reusables.saml.ae-uses-saml-sso %} 在初始化过程中将您的 IdP 连接到企业，您应该具有您的 IdP 实体 ID (SSO) URL、发行者 ID URL 和公共签名证书（Base64 编码）。 有关详细信息，请参阅“[关于企业标识和访问管理](/admin/authentication/about-identity-and-access-management-for-your-enterprise)”。
+1. 要初始化 {% data variables.product.product_location %}，您必须具有 SAML 身份提供程序 (Idp)。 {% data reusables.saml.ae-uses-saml-sso %} 在初始化过程中将您的 IdP 连接到企业，您应该具有您的 IdP 实体 ID (SSO) URL、发行者 ID URL 和公共签名证书（Base64 编码）。有关详细信息，请参阅“[关于企业标识和访问管理](/admin/authentication/about-identity-and-access-management-for-your-enterprise)”。
 
     {% note %}
 
@@ -53,12 +53,12 @@ ms.locfileid: '147400352'
 
 1. 按照欢迎电子邮件中的说明联系您的企业。
 2. 在“更改密码”下键入你的凭据，然后单击“更改密码”。
-3. 在“你希望将企业帐户命名为什么?”下，键入企业的名称，然后单击“保存并继续”。
+3. 在“你希望将企业帐户命名为什么？”下，键入企业的名称，然后单击“保存并继续”。
   ![“保存并继续”按钮，用于命名企业](/assets/images/enterprise/configuration/ae-enterprise-configuration.png)
 
 ## 将 IdP 连接到企业
 
-要配置 {% data variables.product.product_name %} 的身份验证，您必须提供包含 SAML IdP 详细信息的 {% data variables.product.product_name %}。 {% data variables.product.company_short %} 建议使用 Azure AD 作为您的 IdP。 有关详细信息，请参阅“[使用标识提供者配置身份验证和预配](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)”。
+要配置 {% data variables.product.product_name %} 的身份验证，您必须提供包含 SAML IdP 详细信息的 {% data variables.product.product_name %}。 {% data variables.product.company_short %} 建议使用 Azure AD 作为您的 IdP。有关详细信息，请参阅“[使用标识提供者配置身份验证和预配](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)”。
 
 1. 在“设置标识提供者”右侧，单击“配置”。
   ![IdP 配置的“配置”按钮](/assets/images/enterprise/configuration/ae-idp-configure.png)
@@ -75,13 +75,13 @@ ms.locfileid: '147400352'
 
 ## 设置企业策略
 
-配置策略将为企业的仓库和组织管理设置限制。 这些可以在初始化过程后重新配置。
+配置策略将为企业的仓库和组织管理设置限制。这些可以在初始化过程后重新配置。
 
 1. 在“设置企业策略”右侧，单击“配置”。
   ![用于策略配置的“配置”按钮](/assets/images/enterprise/configuration/ae-policies-configure.png)
-2. 在“Default Repository Permissions（默认仓库权限）”下，使用下拉菜单，并单击企业中仓库的默认权限级别。 如果某人可通过多种途径访问组织（个人访问、通过团队访问或作为组织成员访问），则最高的项目板权限级别将覆盖任何较低的权限级别。 （可选）若要允许企业内的组织设置其默认仓库权限，请单击“无策略”
+2. 在“Default Repository Permissions（默认仓库权限）”下，使用下拉菜单，并单击企业中仓库的默认权限级别。如果某人可通过多种途径访问组织（个人访问、通过团队访问或作为组织成员访问），则最高的项目板权限级别将覆盖任何较低的权限级别。 （可选）若要允许企业内的组织设置其默认仓库权限，请单击“无策略”
   ![默认仓库权限选项的下拉菜单](/assets/images/enterprise/configuration/ae-repository-permissions-menu.png)
-3. 在“Repository creation（仓库创建）”下，选择是否允许会员创建仓库. （可选）若要允许企业内的组织设置权限，请单击“无策略”。
+3. 在“Repository creation（仓库创建）”下，选择是否允许会员创建仓库。（可选）若要允许企业内的组织设置权限，请单击“无策略”。
   ![用于企业策略配置的“成员可创建存储库”按钮](/assets/images/enterprise/configuration/ae-repository-creation-permissions.png)
 4. 在“Repository forking（仓库复刻）”下，选择是否允许私有和内部仓库复刻。 （可选）若要允许企业内的组织设置权限，请单击“无策略”
   ![存储库分支创建权限选项的下拉菜单](/assets/images/enterprise/configuration/ae-repository-forking-menu.png)
@@ -102,22 +102,22 @@ ms.locfileid: '147400352'
 
 ## 设置内部支持联系人
 
-您可以配置用户联系内部支持团队的方法。 这可以在初始化过程后重新配置。
+您可以配置用户联系内部支持团队的方法。这可以在初始化过程后重新配置。
 
 1. 在“内部支持联系人”右侧，单击“配置”。
   ![用于内部支持联系人配置的“配置”按钮](/assets/images/enterprise/configuration/ae-support-configure.png)
-2. 在“Internal support contact（内部支持联系人）”下，选择您企业的用户通过网址或电子邮件地址联系支持的方法。 然后，键入支持联系信息。
+2. 在“Internal support contact（内部支持联系人）”下，选择您企业的用户通过网址或电子邮件地址联系支持的方法。然后，键入支持联系信息。
   ![内部支持联系人 URL 的文本字段](/assets/images/enterprise/configuration/ae-support-link-url.png)
 3. 单击“ **保存**”。
   ![用于企业支持联系人配置的“保存”按钮](/assets/images/enterprise/configuration/ae-save.png)
 
 ## 设置电子邮件设置
 
-一旦初始化，您便可在初始化过程后重新配置任何设置。 有关详细信息，请参阅“[配置邮件通知](/admin/configuration/configuring-email-for-notifications)”。
+一旦初始化，您便可在初始化过程后重新配置任何设置。有关详细信息，请参阅“[配置邮件通知](/admin/configuration/configuring-email-for-notifications)”。
 
 1. 在“配置电子邮件设置”右侧，单击“配置”。
   ![用于电子邮件设置配置的“配置”按钮](/assets/images/enterprise/configuration/ae-email-configure.png)
-2. 选择“启用电子邮件”。 这将启用出站和入站电子邮件，但是，为使入站电子邮件运行，您还需要配置 DNS 设置。 有关详细信息，请参阅“[配置 DNS 和防火墙设置，以允许传入电子邮件](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”。
+2. 选择“启用电子邮件”。这将启用出站和入站电子邮件，但是，为使入站电子邮件运行，您还需要配置 DNS 设置。有关详细信息，请参阅“[配置 DNS 和防火墙设置，以允许传入电子邮件](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”。
  ![用于电子邮件设置配置的“启用”复选框](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. 完成电子邮件服务器设置：
     - 在“服务器地址”字段中，输入 SMTP 服务器的地址。

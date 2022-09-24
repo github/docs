@@ -35,13 +35,13 @@ ms.locfileid: '147400336'
 
 ## 关于企业中 {% data variables.product.prodname_actions %} 的策略
 
-{% data variables.product.prodname_actions %} 可帮助您的企业成员在 {% data variables.product.product_name %} 上自动执行软件开发工作流程。 有关详细信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)”。
+{% data variables.product.prodname_actions %} 可帮助您的企业成员在 {% data variables.product.product_name %} 上自动执行软件开发工作流程。有关详细信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)”。
 
-{% ifversion ghes %}如果启用 {% data variables.product.prodname_actions %}，则 {% data variables.product.product_location %} 上的任何{% else %}任何{% endif %} 组织都可以使用 {% data variables.product.prodname_actions %}。 你可以强制实施策略来控制 {% data variables.product.product_name %} 上的企业成员如何使用 {% data variables.product.prodname_actions %}。 默认情况下，组织所有者可以管理成员使用 {% data variables.product.prodname_actions %} 的方式。 有关详细信息，请参阅“[为组织禁用或限制 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)”。
+{% ifversion ghes %}如果启用 {% data variables.product.prodname_actions %}，则 {% data variables.product.product_location %} 上的任何{% else %}任何{% endif %} 组织都可以使用 {% data variables.product.prodname_actions %}。你可以强制实施策略来控制 {% data variables.product.product_name %} 上的企业成员如何使用 {% data variables.product.prodname_actions %}。默认情况下，组织所有者可以管理成员使用 {% data variables.product.prodname_actions %} 的方式。有关详细信息，请参阅“[为组织禁用或限制 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)”。
 
 ## 强制实施策略以限制企业中 {% data variables.product.prodname_actions %} 的使用
 
-您可以选择对企业中的所有组织禁用 {% data variables.product.prodname_actions %}，或只允许特定的组织。 还可以限制公共操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}的使用，让用户只能使用企业中现有的本地操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}。
+您可以选择对企业中的所有组织禁用 {% data variables.product.prodname_actions %}，或只允许特定的组织。还可以限制公共操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}的使用，让用户只能使用企业中现有的本地操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
 1. 在“Policies（策略）”下选择选项。
@@ -50,7 +50,7 @@ ms.locfileid: '147400336'
 
    {%- ifversion ghes or ghae %} {% note %}
 
-   注意：若要启用对公共操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}的访问，首先必须配置 {% data variables.product.product_location %}，以连接到 {% data variables.product.prodname_dotcom_the_website %}。 有关详细信息，请参阅“[使用 GitHub Connect 启用对 GitHub.com 操作的自动访问](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)”。
+   注意：若要启用对公共操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}的访问，首先必须配置 {% data variables.product.product_location %}，以连接到 {% data variables.product.prodname_dotcom_the_website %}。有关详细信息，请参阅“[使用 GitHub Connect 启用对 GitHub.com 操作的自动访问](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)”。
 
    {% endnote %} {%- endif %} {% ifversion actions-workflow-policy %}![启用、禁用或限制该企业帐户的操作](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png){%- else %}![启用、禁用或限制该企业帐户的操作](/assets/images/help/organizations/enterprise-actions-policy.png){%- endif %}
 1. 单击“ **保存**”。
@@ -63,7 +63,7 @@ ms.locfileid: '147400336'
 
 ## 在企业中实施构件和日志保留策略
 
-{% data variables.product.prodname_actions %} 可以存储构件和日志文件。 有关详细信息，请参阅“[下载工作流工件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”。
+{% data variables.product.prodname_actions %} 可以存储构件和日志文件。有关详细信息，请参阅“[下载工作流工件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”。
 
 {% data reusables.actions.about-artifact-log-retention %}
 
@@ -89,7 +89,7 @@ ms.locfileid: '147400336'
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-如果为企业启用了某个策略，可以在单个组织或存储库中选择性禁用该策略。 如果为企业禁用了某个策略，则单个组织或存储库无法启用该策略。
+如果为企业启用了某个策略，可以在单个组织或存储库中选择性禁用该策略。如果为企业禁用了某个策略，则单个组织或存储库无法启用该策略。
 
 {% data reusables.actions.private-repository-forks-options %}
 
@@ -101,7 +101,7 @@ ms.locfileid: '147400336'
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-可以在企业、组织或存储库的设置中为 `GITHUB_TOKEN` 设置默认权限。 如果你在企业设置中选择受限制的选项作为默认值，这将防止在组织或存储库设置中选择更宽松的设置。
+可以在企业、组织或存储库的设置中为 `GITHUB_TOKEN` 设置默认权限。如果你在企业设置中选择受限制的选项作为默认值，这将防止在组织或存储库设置中选择更宽松的设置。
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
@@ -137,7 +137,7 @@ ms.locfileid: '147400336'
 
 {% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}
 
-但是，可以设置企业策略来自定义每个存储库的默认总缓存大小，以及存储库允许的最大总缓存大小。 例如，你可能希望每个存储库的默认总缓存大小为 5 GB，但也允许存储库管理员根据需要配置最大 15 GB 的总缓存大小。
+但是，可以设置企业策略来自定义每个存储库的默认总缓存大小，以及存储库允许的最大总缓存大小。例如，你可能希望每个存储库的默认总缓存大小为 5 GB，但也允许存储库管理员根据需要配置最大 15 GB 的总缓存大小。
 
 对存储库具有管理员访问权限的人员可以将其存储库的总缓存大小设置为企业策略设置允许的最大缓存大小。
 

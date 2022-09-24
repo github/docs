@@ -1,6 +1,6 @@
 ---
 title: 关于集群节点
-intro: '节点是在群集中运行的 {% data variables.product.prodname_ghe_server %} 实例。 每个节点都运行一组服务，这些服务将提供给集群，最终提供给用户。'
+intro: '节点是在群集中运行的 {% data variables.product.prodname_ghe_server %} 实例。每个节点都运行一组服务，这些服务将提供给集群，最终提供给用户。'
 redirect_from:
   - /enterprise/admin/clustering/about-cluster-nodes
   - /enterprise/admin/enterprise-management/about-cluster-nodes
@@ -21,7 +21,7 @@ ms.locfileid: '145098088'
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ## 最低硬件建议
-每个节点都必须具有根卷以及单独的数据卷。 这些是最低限度的建议。 根据您的使用情况（例如用户活动和选定的集成），可能需要更多资源。
+每个节点都必须具有根卷以及单独的数据卷。这些是最低限度的建议。根据您的使用情况（例如用户活动和选定的集成），可能需要更多资源。
 
 | 服务 | 需要的最小内存    | 需要的最小数据卷可用空间 |
 | :-: | :-: | :-: |
@@ -49,11 +49,11 @@ ms.locfileid: '145098088'
 
 ## 集群设计建议
 
-集群允许组成 {% data variables.product.prodname_ghe_server %} 的服务彼此独立地进行扩展。 这种灵活性可用于设计和实现适合具有不同可扩展性要求的组织的集群。 例如，某些组织可能需要更多的存储吞吐量来进行大量或频繁的获取，但 Web 服务器的利用率可能相对较低。 其他组织可能由于使用较少的存储资源而具有较高的性能，但需要许多运行 `pages-server` 或 `elasticsearch-server` 的节点。 可以实现许多不同的组合。 与您的客户代表合作，确定满足您特定需求的最佳集群配置。
+集群允许组成 {% data variables.product.prodname_ghe_server %} 的服务彼此独立地进行扩展。这种灵活性可用于设计和实现适合具有不同可扩展性要求的组织的集群。例如，某些组织可能需要更多的存储吞吐量来进行大量或频繁的获取，但 Web 服务器的利用率可能相对较低。其他组织可能由于使用较少的存储资源而具有较高的性能，但需要许多运行 `pages-server` 或 `elasticsearch-server` 的节点。可以实现许多不同的组合。与您的客户代表合作，确定满足您特定需求的最佳集群配置。
 
-- 在独立硬件上扩展冗余节点。 如果共享 CPU、内存或存储设备，则会降低性能并引发单点故障。 此外，共享网络组件还会降低吞吐量并增加在发生中断时丢失连接的风险。
-- 使用快速存储。 通常经过优化存储区域网络 (SAN)，可实现最大的空间利用率、可用性和容错能力，而不是绝对的吞吐量。 {% data variables.product.prodname_ghe_server %} 集群提供冗余和可用性，可在最快的可用存储上发挥最佳性能。 建议使用本地 SSD 存储。
-- 建立对您的组织有意义的节点层。 配置示例：
+- 在独立硬件上扩展冗余节点。如果共享 CPU、内存或存储设备，则会降低性能并引发单点故障。此外，共享网络组件还会降低吞吐量并增加在发生中断时丢失连接的风险。
+- 使用快速存储。通常经过优化存储区域网络 (SAN)，可实现最大的空间利用率、可用性和容错能力，而不是绝对的吞吐量。 {% data variables.product.prodname_ghe_server %} 集群提供冗余和可用性，可在最快的可用存储上发挥最佳性能。建议使用本地 SSD 存储。
+- 建立对您的组织有意义的节点层。配置示例：
   - 具有两个节点和以下服务的前端层：
     - `web-server`
     - `jobs-server`
@@ -73,7 +73,7 @@ ms.locfileid: '145098088'
 ### 示例集群图
 {% note %}
 
-注意：这只是一个示例。 你的组织的最佳群集设计将取决于独特需求。 与您的专业代表或 {% data variables.contact.contact_enterprise_sales %} 探讨，以便我们能帮您确定最佳集群配置。
+注意：这只是一个示例。你的组织的最佳群集设计将取决于独特需求。与您的专业代表或 {% data variables.contact.contact_enterprise_sales %} 探讨，以便我们能帮您确定最佳集群配置。
 
 {% endnote %}
 

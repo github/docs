@@ -23,13 +23,13 @@ ms.locfileid: '145098945'
 
 当您为企业帐户启用 SAML 单点登录时，每个企业成员都可以将其身份提供商 (IdP) 上的外部身份链接到 {% data variables.product.product_location %} 上的现有帐户。 {% data reusables.saml.about-saml-access-enterprise-account %}
 
-如果您的企业使用 {% data variables.product.prodname_emus %}，成员将使用通过您的 IdP 预配的帐户。 {% data variables.product.prodname_managed_users_caps %} 将不会在 {% data variables.product.product_name %} 上使用他们现有的用户帐户。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+如果您的企业使用 {% data variables.product.prodname_emus %}，成员将使用通过您的 IdP 预配的帐户。 {% data variables.product.prodname_managed_users_caps %} 将不会在 {% data variables.product.product_name %} 上使用他们现有的用户帐户。有关详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 
 ## 查看和撤销链接的身份
 
 {% data reusables.saml.about-linked-identities %}
 
-如果您的企业使用 {% data variables.product.prodname_emus %}，您将无法从 {% data variables.product.product_name %} 上的企业中取消或删除用户帐户。 您需要对企业的 {% data variables.product.prodname_managed_users %} 进行的任何更改都应该通过您的 IdP 进行。
+如果您的企业使用 {% data variables.product.prodname_emus %}，您将无法从 {% data variables.product.product_name %} 上的企业中取消或删除用户帐户。您需要对企业的 {% data variables.product.prodname_managed_users %} 进行的任何更改都应该通过您的 IdP 进行。
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 

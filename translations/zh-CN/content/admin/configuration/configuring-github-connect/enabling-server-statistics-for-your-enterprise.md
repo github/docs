@@ -19,13 +19,13 @@ ms.locfileid: '147409001'
 
 {% data variables.product.prodname_server_statistics %} 从 {% data variables.product.product_location %} 中收集聚合使用情况数据，你可以使用这些数据更好地预测组织的需求、了解团队的工作方式并显示你从 {% data variables.product.prodname_ghe_server %} 获取的值。 
 
-{% data variables.product.prodname_server_statistics %} 仅收集有关存储库、问题、拉取请求和其他功能的某些聚合指标。不收集 {% data variables.product.prodname_dotcom %} 内容，例如代码、问题、评论或拉取请求内容。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)”。
+{% data variables.product.prodname_server_statistics %} 仅收集有关存储库、问题、拉取请求和其他功能的某些聚合指标。不收集 {% data variables.product.prodname_dotcom %} 内容，例如代码、问题、评论或拉取请求内容。有关详细信息，请参阅“[关于 {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)”。
 
-通过启用 {% data variables.product.prodname_server_statistics %}，还可帮助提高 {% data variables.product.company_short %}。 你将提供的聚合数据有助于我们了解我们的客户使用 {% data variables.product.prodname_dotcom %} 的方式，并做出更好、更明智的产品决策，最终使你受益。
+通过启用 {% data variables.product.prodname_server_statistics %}，还可帮助提高 {% data variables.product.company_short %}。你将提供的聚合数据有助于我们了解我们的客户使用 {% data variables.product.prodname_dotcom %} 的方式，并做出更好、更明智的产品决策，最终使你受益。
 
 ## 启用 {% data variables.product.prodname_server_statistics %}
 
-启用 {% data variables.product.prodname_server_statistics %} 之前，必须首先通过 {% data variables.product.prodname_github_connect %} 将 {% data variables.product.prodname_ghe_server %} 实例连接到 {% data variables.product.prodname_dotcom_the_website %}。 有关详细信息，请参阅“[将 {% data variables.product.prodname_ghe_server %} 连接到 {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@3.1/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)”。
+启用 {% data variables.product.prodname_server_statistics %} 之前，必须首先通过 {% data variables.product.prodname_github_connect %} 将 {% data variables.product.prodname_ghe_server %} 实例连接到 {% data variables.product.prodname_dotcom_the_website %}。有关详细信息，请参阅“[将 {% data variables.product.prodname_ghe_server %} 连接到 {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@3.1/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)”。
 
 可随时从 {% data variables.product.prodname_ghe_server %} 禁用 {% data variables.product.prodname_server_statistics %}。
 

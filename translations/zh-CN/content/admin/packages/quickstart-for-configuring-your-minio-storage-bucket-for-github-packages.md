@@ -22,7 +22,7 @@ ms.locfileid: '146688971'
 
 MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.product.prodname_registry %}。
 
-此快速入门将演示如何使用 Docker 设置 MinIO 以与 {% data variables.product.prodname_registry %} 使用，但除了 Docker 之外，您还有其他用于管理 MinIO 的选项。 有关 MinIO 的详细信息，请参阅官方 [MinIO 文档](https://docs.min.io/)。
+此快速入门将演示如何使用 Docker 设置 MinIO 以与 {% data variables.product.prodname_registry %} 使用，但除了 Docker 之外，您还有其他用于管理 MinIO 的选项。有关 MinIO 的详细信息，请参阅官方 [MinIO 文档](https://docs.min.io/)。
 
 ## 1. 根据需求选择 MinIO 模式
 
@@ -36,7 +36,7 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
 
 {% warning %}
 
-警告：MinIO 已宣布删除 MinIO 网关。 从 2022 年 6 月 1 日起，当前 MinIO NAS 网关实施的支持和 Bug 修复将仅通过其 LTS 支持合同提供给付费客户。 如果要继续使用 MinIO 网关与 {% data variables.product.prodname_registry %}，我们建议转向 MinIO LTS 支持。 有关详细信息，请参阅[计划删除 minio/minio 存储库中的适用于 GCS、Azure 和 HDFS 的 MinIO 网格](https://github.com/minio/minio/issues/14331)。
+警告：MinIO 已宣布删除 MinIO 网关。从 2022 年 6 月 1 日起，当前 MinIO NAS 网关实施的支持和 Bug 修复将仅通过其 LTS 支持合同提供给付费客户。如果要继续使用 MinIO 网关与 {% data variables.product.prodname_registry %}，我们建议转向 MinIO LTS 支持。有关详细信息，请参阅[计划删除 minio/minio 存储库中的适用于 GCS、Azure 和 HDFS 的 MinIO 网格](https://github.com/minio/minio/issues/14331)。
 
 其他 MinIO 模式在标准支持下仍然可用。
 
@@ -110,7 +110,7 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
              minio/minio gateway nas /data
      ```
 
-   * 使用 Docker 作为集群运行 MinIO： 此 MinIO 部署使用多个主机和 MinIO 的擦除编码来提供最强的数据保护。 若要在群集模式下运行 MinIO，请参阅“[分布式 MinIO 快速入门指南](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)”。
+   * 使用 Docker 作为集群运行 MinIO：此 MinIO 部署使用多个主机和 MinIO 的擦除编码来提供最强的数据保护。若要在群集模式下运行 MinIO，请参阅“[分布式 MinIO 快速入门指南](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)”。
 
 ## 3. 为 {% data variables.product.prodname_registry %} 创建 MinIO 存储桶
 

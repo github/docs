@@ -43,11 +43,11 @@ ms.locfileid: '145098963'
 ## 禁止对用户或组织拥有的所有仓库进行 Git SSH 访问
 
 {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.search-user-or-org %} {% data reusables.enterprise_site_admin_settings.click-user-or-org %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.admin-top-tab %} {% data reusables.enterprise_site_admin_settings.admin-tab %}
-7. 在“Git SSH 访问”下，使用下拉菜单，然后单击“已禁用”。 然后，选择“在所有存储库上强制实施”。
+7. 在“Git SSH 访问”下，使用下拉菜单，然后单击“已禁用”。然后，选择“在所有存储库上强制实施”。
  ![选择了“已禁用”选项的 Git SSH 访问下拉菜单](/assets/images/enterprise/site-admin-settings/git-ssh-access-organization-setting.png)
 
 ## 禁止对企业中的所有仓库进行 Git SSH 访问
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% ifversion ghes or ghae %} {% data reusables.enterprise-accounts.policies-tab %} {% else %} {% data reusables.enterprise-accounts.settings-tab %} {% endif %} {% data reusables.enterprise-accounts.options-tab %}
-7. 在“Git SSH 访问”下，使用下拉菜单，然后单击“已禁用”。 然后，选择“在所有存储库上强制实施”。
+7. 在“Git SSH 访问”下，使用下拉菜单，然后单击“已禁用”。然后，选择“在所有存储库上强制实施”。
  ![选择了“已禁用”选项的 Git SSH 访问下拉菜单](/assets/images/enterprise/site-admin-settings/git-ssh-access-appliance-setting.png)

@@ -1,6 +1,6 @@
 ---
 title: 配置 DNS 域名服务器
-intro: '在 DHCP 租约提供域名服务器时，{% data variables.product.prodname_ghe_server %} 将为 DNS 设置使用动态主机配置协议 (DHCP)。 如果域名服务器不是由动态主机配置协议 (DHCP) 租约提供，或者您需要使用特定的 DNS 设置，可以手动指定域名服务器。'
+intro: '在 DHCP 租约提供域名服务器时，{% data variables.product.prodname_ghe_server %} 将为 DNS 设置使用动态主机配置协议 (DHCP)。如果域名服务器不是由动态主机配置协议 (DHCP) 租约提供，或者您需要使用特定的 DNS 设置，可以手动指定域名服务器。'
 redirect_from:
   - /enterprise/admin/guides/installation/about-dns-nameservers
   - /enterprise/admin/installation/configuring-dns-nameservers
@@ -36,7 +36,7 @@ ms.locfileid: '147419711'
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. 要编辑名称服务器，请在可视模式下使用 `ghe-setup-network` 命令。 有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)”。
+2. 要编辑名称服务器，请在可视模式下使用 `ghe-setup-network` 命令。有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)”。
 
   ```shell
   ghe-setup-network -v

@@ -23,7 +23,7 @@ ms.locfileid: '147093161'
 ---
 ## 用户名冲突
 
-{% ifversion ghec %}如果企业使用 {% data variables.product.prodname_emus %}，{% endif %}{% data variables.product.product_name %} 会规范化标识提供者 (IdP) 提供的标识符，以在 {% data variables.product.prodname_dotcom %} 上创建每个人员的用户名。 如果多个帐户被规范化为同一个 {% data variables.product.prodname_dotcom %} 用户名，则会发生用户名冲突，并且只会创建第一个用户帐户。 有关详细信息，请参阅“[外部身份验证的用户名注意事项](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)”。
+{% ifversion ghec %}如果企业使用 {% data variables.product.prodname_emus %}，{% endif %}{% data variables.product.product_name %} 会规范化标识提供者 (IdP) 提供的标识符，以在 {% data variables.product.prodname_dotcom %} 上创建每个人员的用户名。如果多个帐户被规范化为同一个 {% data variables.product.prodname_dotcom %} 用户名，则会发生用户名冲突，并且只会创建第一个用户帐户。有关详细信息，请参阅“[外部身份验证的用户名注意事项](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)”。
 
 {% ifversion ghec %}
 ## 切换身份验证配置时出错
@@ -35,7 +35,7 @@ ms.locfileid: '147093161'
 
 ## 当 SSO 不可用时访问企业
 
-当标识提供者 IdP 的配置错误或问题阻止你使用 SSO 时，可以使用恢复代码访问你的企业。 有关详细信息，请参阅“[在标识提供者不可用时访问企业帐户](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)”。
+当标识提供者 IdP 的配置错误或问题阻止你使用 SSO 时，可以使用恢复代码访问你的企业。有关详细信息，请参阅“[在标识提供者不可用时访问企业帐户](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)”。
 {% endif %}
 
 ## SAML 身份验证错误

@@ -25,15 +25,15 @@ ms.locfileid: '147064432'
 ---
 ## 关于对提供程序覆盖范围之外的用户进行内置身份验证
 
-默认情况下，如果为 {% data variables.product.product_name %} 启用外部身份验证，将为实例禁用内置身份验证。 有关详细信息，请参阅“[关于企业身份验证](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)”。
+默认情况下，如果为 {% data variables.product.product_name %} 启用外部身份验证，将为实例禁用内置身份验证。有关详细信息，请参阅“[关于企业身份验证](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)”。
 
-如果无法将特定帐户（例如承包商或计算机用户的帐户）添加到外部验证提供程序，则可以配置回退身份验证。 回退身份验证允许对外部用户进行内置身份验证，并在验证提供程序不可用时访问备用帐户。
+如果无法将特定帐户（例如承包商或计算机用户的帐户）添加到外部验证提供程序，则可以配置回退身份验证。回退身份验证允许对外部用户进行内置身份验证，并在验证提供程序不可用时访问备用帐户。
 
-如果配置了内置身份验证并且某位用户使用 SAML 或 CAS 成功进行了身份验证，则该用户将无法使用用户名和密码进行身份验证。 如果用户使用 LDAP 成功地完成身份验证，凭据将不再被视为内部凭据。
+如果配置了内置身份验证并且某位用户使用 SAML 或 CAS 成功进行了身份验证，则该用户将无法使用用户名和密码进行身份验证。如果用户使用 LDAP 成功地完成身份验证，凭据将不再被视为内部凭据。
 
 {% warning %}
 
-警告：如果你禁用内置身份验证，则必须单独挂起不应具有实例访问权限的任何用户。 有关详细信息，请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
+警告：如果你禁用内置身份验证，则必须单独挂起不应具有实例访问权限的任何用户。有关详细信息，请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
 
 {% endwarning %}
 

@@ -21,7 +21,7 @@ ms.locfileid: '145099068'
 ---
 ## 关于 {% data variables.product.prodname_ghe_managed %} 上的 {% data variables.product.prodname_actions %}
 
-默认情况下，{% data variables.product.prodname_actions %} 为 {% data variables.product.product_name %} 启用。 若要开始在企业内使用 {% data variables.product.prodname_actions %} ，需要管理 {% data variables.product.prodname_actions %} 的访问权限，并添加运行器以运行工作流程。
+默认情况下，{% data variables.product.prodname_actions %} 为 {% data variables.product.product_name %} 启用。若要开始在企业内使用 {% data variables.product.prodname_actions %} ，需要管理 {% data variables.product.prodname_actions %} 的访问权限，并添加运行器以运行工作流程。
 
 {% data reusables.actions.introducing-enterprise %}
 
@@ -29,7 +29,7 @@ ms.locfileid: '145099068'
 
 ## 管理企业中 {% data variables.product.prodname_actions %} 的访问权限
 
-您可以使用策略来管理 {% data variables.product.prodname_actions %} 的访问。 有关详细信息，请参阅“[为企业强制实施 GitHub Actions 策略](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)”。
+您可以使用策略来管理 {% data variables.product.prodname_actions %} 的访问。有关详细信息，请参阅“[为企业强制实施 GitHub Actions 策略](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)”。
 
 ## 添加运行器
 

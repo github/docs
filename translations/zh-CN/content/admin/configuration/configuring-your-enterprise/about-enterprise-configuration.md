@@ -26,9 +26,9 @@ ms.locfileid: '145098115'
 {% data reusables.enterprise_site_admin_settings.about-ssh-access %} 有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”。
 {% endif %}
 
-{% ifversion ghae %} 要开始使用 {% data variables.product.product_name %}，首先需要部署 {% data variables.product.product_name %}。 有关详细信息，请参阅“[部署 {% data variables.product.product_name %}](/admin/configuration/configuring-your-enterprise/deploying-github-ae)”。
+{% ifversion ghae %} 要开始使用 {% data variables.product.product_name %}，首先需要部署 {% data variables.product.product_name %}。有关详细信息，请参阅“[部署 {% data variables.product.product_name %}](/admin/configuration/configuring-your-enterprise/deploying-github-ae)”。
 
-第一次访问您的企业时，您将完成初始配置，以便 {% data variables.product.product_name %} 可供使用。 初始配置包括连接您的企业与身份提供程序 (IdP) 连接、通过 SAML SSO 进行身份验证、配置企业中仓库和组织的策略，以及为出站电子邮件配置 SMTP。 有关详细信息，请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)”。
+第一次访问您的企业时，您将完成初始配置，以便 {% data variables.product.product_name %} 可供使用。初始配置包括连接您的企业与身份提供程序 (IdP) 连接、通过 SAML SSO 进行身份验证、配置企业中仓库和组织的策略，以及为出站电子邮件配置 SMTP。有关详细信息，请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)”。
 
 稍后，您可以使用站点管理员仪表板和企业设置进一步配置企业、管理用户、组织和仓库，并设置可降低风险和提高质量的策略。 
 

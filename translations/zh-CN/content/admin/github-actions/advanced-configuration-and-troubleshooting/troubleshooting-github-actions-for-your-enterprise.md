@@ -21,7 +21,7 @@ ms.locfileid: '145099081'
 ---
 ## 检查 {% data variables.product.prodname_actions %} 的运行状况
 
-可以使用 `ghe-actions-check` 命令行实用工具检查 {% data variables.product.product_location %} 上 {% data variables.product.prodname_actions %} 的运行状况。 有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)”和“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)”。
+可以使用 `ghe-actions-check` 命令行实用工具检查 {% data variables.product.product_location %} 上 {% data variables.product.prodname_actions %} 的运行状况。有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)”和“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)”。
 
 ## 使用 {% data variables.product.prodname_ghe_server %} 自签名证书时配置自托管的运行器
 
@@ -35,7 +35,7 @@ ms.locfileid: '145099081'
 
 ### 配置 Node.JS 使用证书
 
-大多数操作都以 JavaScript 编写并使用 Node.js，这不会使用操作系统证书存储。 要使自托管运行器使用证书，你必须在运行器计算机上设置 `NODE_EXTRA_CA_CERTS` 环境变量。
+大多数操作都以 JavaScript 编写并使用 Node.js，这不会使用操作系统证书存储。要使自托管运行器使用证书，你必须在运行器计算机上设置 `NODE_EXTRA_CA_CERTS` 环境变量。
 
 可以将此环境变量设置为系统环境变量，也可以在自托管运行器应用程序目录中名为 .env 的文件中声明此环境变量。
 
@@ -45,7 +45,7 @@ ms.locfileid: '145099081'
 NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 ```
 
-当自托管的运行器应用程序启动时，环境变量将被读取，因此您必须在配置或启动自托管的运行器应用程序之前设置环境变量。 如果您的证书配置更改，您必须重新启动自托管的运行器应用程序。
+当自托管的运行器应用程序启动时，环境变量将被读取，因此您必须在配置或启动自托管的运行器应用程序之前设置环境变量。如果您的证书配置更改，您必须重新启动自托管的运行器应用程序。
 
 ### 配置 Docker 容器使用证书
 
@@ -63,28 +63,28 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 
 如果您在环境中使用新主机名部署 {% data variables.product.prodname_ghe_server %}，并且旧主机名不再解析到您的实例，则自托管运行器将无法连接到旧主机名，并且不会执行任何作业。
 
-您将需要更新自托管运行器的配置，以对 {% data variables.product.product_location %} 使用新的主机名。 每个自托管运行器将需要以下程序之一：
+您将需要更新自托管运行器的配置，以对 {% data variables.product.product_location %} 使用新的主机名。每个自托管运行器将需要以下程序之一：
 
 * 在自托管运行器应用程序目录中，编辑 `.runner` 和 `.credentials` 文件以将所有提及的旧主机名均替换为新主机名，然后重启自托管运行器应用程序。
-* 使用 UI 从 {% data variables.product.prodname_ghe_server %} 移除运行器，并重新添加。 有关详细信息，请参阅“[删除自托管运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners)”和“[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
+* 使用 UI 从 {% data variables.product.prodname_ghe_server %} 移除运行器，并重新添加。有关详细信息，请参阅“[删除自托管运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners)”和“[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
 
 ## 作业卡住以及 {% data variables.product.prodname_actions %} 内存和 CPU 限制
 
-{% data variables.product.prodname_actions %} 由运行在 {% data variables.product.product_location %} 上的多项服务组成。 默认情况下，这些服务使用默认的 CPU 和内存限制设置，大多数情况下都适用。 但是，当 {% data variables.product.prodname_actions %} 用户多时，可能需要调整这些设置。
+{% data variables.product.prodname_actions %} 由运行在 {% data variables.product.product_location %} 上的多项服务组成。默认情况下，这些服务使用默认的 CPU 和内存限制设置，大多数情况下都适用。但是，当 {% data variables.product.prodname_actions %} 用户多时，可能需要调整这些设置。
 
 如果您注意到作业未开始，或者任务进度在 UI 中不更新或改变，可能是达到了 CPU 或内存限制（即使有空闲的运行器）。
 
 ### 1. 在管理控制台中检查整体 CPU 和内存使用情况
 
-访问管理控制台并使用监控仪表板来检查“System Health（系统健康）”下的整体 CPU 和内存图。 有关详细信息，请参阅“[访问监视仪表板](/admin/enterprise-management/accessing-the-monitor-dashboard)”。
+访问管理控制台并使用监控仪表板来检查“System Health（系统健康）”下的整体 CPU 和内存图。有关详细信息，请参阅“[访问监视仪表板](/admin/enterprise-management/accessing-the-monitor-dashboard)”。
 
-如果总体“系统健康”CPU 使用接近 100%，或者没有可用的内存，则表示 {% data variables.product.product_location %} 在满负荷运行，需要扩展。 有关详细信息，请参阅“[增加 CPU 或内存资源](/admin/enterprise-management/increasing-cpu-or-memory-resources)”。
+如果总体“系统健康”CPU 使用接近 100%，或者没有可用的内存，则表示 {% data variables.product.product_location %} 在满负荷运行，需要扩展。有关详细信息，请参阅“[增加 CPU 或内存资源](/admin/enterprise-management/increasing-cpu-or-memory-resources)”。
 
 ### 2. 在管理控制台中检查 Nomad Jobs CPU 和内存使用情况
 
 如果总体“系统健康”CPU 和内存使用情况正常，请向下滚动监控仪表板页面到“Nomad Jobs”部分，并查看“CPU 百分比值”和“内存使用情况”图。
 
-这些图表中的每幅图都对应于一项服务。 对于 {% data variables.product.prodname_actions %} 服务，请查询：
+这些图表中的每幅图都对应于一项服务。对于 {% data variables.product.prodname_actions %} 服务，请查询：
 
 * `mps_frontend`
 * `mps_backend`
@@ -93,18 +93,18 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 * `actions_frontend`
 * `actions_backend`
 
-如果其中任何一项服务达到或接近 100% CPU 利用率，或者内存接近其限制（默认情况下为 2 GB），则这些服务的资源配置可能需要增加。 请注意上述服务中哪些已经达到或接近极限。
+如果其中任何一项服务达到或接近 100% CPU 利用率，或者内存接近其限制（默认情况下为 2 GB），则这些服务的资源配置可能需要增加。请注意上述服务中哪些已经达到或接近极限。
 
 ### 3. 对达到限制的服务增加资源分配
 
-1. 使用 SSH 登录到管理 shell。 有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”。
+1. 使用 SSH 登录到管理 shell。有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”。
 1. 运行以下命令，查看可用于分配的资源：
 
    ```shell
    nomad node status -self
    ```
 
-   在输出中找到“Allocated Resources（分配的资源）”部分。 这类似于以下示例：
+   在输出中找到“Allocated Resources（分配的资源）”部分。这类似于以下示例：
 
    ```
    Allocated Resources
@@ -112,7 +112,7 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
    7740/49600 MHZ   23 GiB/32 GiB   4.4 GiB/7.9 GiB
    ```
 
-   对于 CPU 和内存，这显示了分配给所有服务的量（左侧值）以及可用量（右侧值） 。 在上面的示例中，总共有 32 GiB 内存，分配 23 GiB。 这意味着有 9 GiB 内存可供分配。
+   对于 CPU 和内存，这显示了分配给所有服务的量（左侧值）以及可用量（右侧值） 。在上面的示例中，总共有 32 GiB 内存，分配 23 GiB。这意味着有 9 GiB 内存可供分配。
 
    {% warning %}
 
@@ -158,7 +158,7 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 1. 保存并退出该文件。
 1. 运行 `ghe-config-apply` 来应用更改。
 
-    运行 `ghe-config-apply` 时，如果输出类似于 `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`，则说明在更改时可能过度了分配 CPU 或内存资源。 如果发生这种情况，请再次编辑配置文件，并降低分配的 CPU 或内存，然后重新运行 `ghe-config-apply`。
+    运行 `ghe-config-apply` 时，如果输出类似于 `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`，则说明在更改时可能过度了分配 CPU 或内存资源。如果发生这种情况，请再次编辑配置文件，并降低分配的 CPU 或内存，然后重新运行 `ghe-config-apply`。
 1. 应用配置后，运行 `ghe-actions-check` 以验证 {% data variables.product.prodname_actions %} 服务是否正常运行。
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -168,17 +168,17 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 
 为 {% data variables.product.product_location %} 设置 {% data variables.product.prodname_dependabot %} 更新后，当现有工作流程由 {% data variables.product.prodname_dependabot %} 事件触发时，您可能会看到失败。
 
-默认情况下，由 {% data variables.product.prodname_dependabot %} 从 `push`、`pull_request`、`pull_request_review` 或 `pull_request_review_comment` 事件中触发的 {% data variables.product.prodname_actions %} 工作流运行被视为从存储库分支中打开。 与其他参与者触发的工作流不同，这意味着它们会接收一个只读 `GITHUB_TOKEN`，并且无权访问任何通常可用的机密。 这将导致尝试写入仓库的任何工作流程在由 {% data variables.product.prodname_dependabot %} 触发时失败。
+默认情况下，由 {% data variables.product.prodname_dependabot %} 从 `push`、`pull_request`、`pull_request_review` 或 `pull_request_review_comment` 事件中触发的 {% data variables.product.prodname_actions %} 工作流运行被视为从存储库分支中打开。与其他参与者触发的工作流不同，这意味着它们会接收一个只读 `GITHUB_TOKEN`，并且无权访问任何通常可用的机密。这将导致尝试写入仓库的任何工作流程在由 {% data variables.product.prodname_dependabot %} 触发时失败。
 
 有三种方法可以解决此问题：
 
-1. 可以更新工作流，使其不再由 {% data variables.product.prodname_dependabot %} 使用如下表达式触发：`if: github.actor != 'dependabot[bot]'`。 有关详细信息，请参阅“[表达式](/actions/learn-github-actions/expressions)”。
-2. 可以修改工作流以使用包含 `pull_request_target` 的两步过程，该过程没有这些限制。 有关详细信息，请参阅“[使用 {% data variables.product.prodname_actions %} 自动化 {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#responding-to-events)”。
-3. 可为由 {% data variables.product.prodname_dependabot %} 触发的工作流提供对机密的访问权限，并允许 `permissions` 术语增加 `GITHUB_TOKEN` 的默认范围。 有关详细信息，请参阅下面的“[为由 {% data variables.product.prodname_dependabot %} 触发的工作流提供对机密的访问权限和增加的权限](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)”。
+1. 可以更新工作流，使其不再由 {% data variables.product.prodname_dependabot %} 使用如下表达式触发：`if: github.actor != 'dependabot[bot]'`。有关详细信息，请参阅“[表达式](/actions/learn-github-actions/expressions)”。
+2. 可以修改工作流以使用包含 `pull_request_target` 的两步过程，该过程没有这些限制。有关详细信息，请参阅“[使用 {% data variables.product.prodname_actions %} 自动化 {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#responding-to-events)”。
+3. 可为由 {% data variables.product.prodname_dependabot %} 触发的工作流提供对机密的访问权限，并允许 `permissions` 术语增加 `GITHUB_TOKEN` 的默认范围。有关详细信息，请参阅下面的“[为由 {% data variables.product.prodname_dependabot %} 触发的工作流提供对机密的访问权限和增加的权限](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)”。
 
 ### 提供由 {% data variables.product.prodname_dependabot %} 机密访问权限和增加权限触发的工作流程
 
-1. 使用 SSH 登录到管理 shell。 有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”。
+1. 使用 SSH 登录到管理 shell。有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”。
 1. 要消除 {% data variables.product.product_location %} 上由 {% data variables.product.prodname_dependabot %} 触发的工作流程限制，请使用以下命令。
     ``` shell
     $ ghe-config app.actions.disable-dependabot-enforcement true
@@ -205,11 +205,11 @@ A part of the Actions setup had problems and needs an administrator to resolve.
 
 要在 {% data variables.product.prodname_ghe_server %} 的指定组织内安装官方捆绑操作和启动工作流程，请按照以下步骤操作。
 
-1. 确定将要存储官方捆绑操作和入门工作流程的组织。 您可以创建新组织或重新使用现有组织。 
+1. 确定将要存储官方捆绑操作和入门工作流程的组织。您可以创建新组织或重新使用现有组织。 
     - 要创建新组织，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。 
     - 若在为此组织选择名称时需要帮助，请参阅“[保留名称](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)”。 
 
-1. 使用 SSH 登录到管理 shell。 有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”。
+1. 使用 SSH 登录到管理 shell。有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”。
 1. 要将组织指定为存储捆绑操作的位置，请使用 `ghe-config` 命令，将 `ORGANIZATION` 替换为组织的名称。
     ```shell
     $ ghe-config app.actions.actions-org ORGANIZATION

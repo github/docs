@@ -24,7 +24,7 @@ ms.locfileid: '145955501'
 ---
 ## 关于 {% data variables.product.prodname_emus %} 的 SAML 单一登录
 
-通过 {% data variables.product.prodname_emus %}，企业使用 SAML SSO 对所有成员进行身份验证。 你的企业成员将通过 IdP 登录，而不是使用 {% data variables.product.prodname_dotcom %} 用户名和密码登录到 {% data variables.product.prodname_dotcom %}。
+通过 {% data variables.product.prodname_emus %}，企业使用 SAML SSO 对所有成员进行身份验证。你的企业成员将通过 IdP 登录，而不是使用 {% data variables.product.prodname_dotcom %} 用户名和密码登录到 {% data variables.product.prodname_dotcom %}。
 
 {% data variables.product.prodname_emus %} 支持以下 IdP：
 
@@ -34,13 +34,13 @@ ms.locfileid: '145955501'
 
 {% note %}
 
-注意：启用 SAML SSO 后，可在 {% data variables.product.prodname_dotcom %} 上为现有的 SAML 配置所更新的唯一设置是 SAML 证书。 如果需要更新登录 URL 或颁发者，必须首先禁用 SAML SSO，然后使用新设置重新配置 SAML SSO。
+注意：启用 SAML SSO 后，可在 {% data variables.product.prodname_dotcom %} 上为现有的 SAML 配置所更新的唯一设置是 SAML 证书。如果需要更新登录 URL 或颁发者，必须首先禁用 SAML SSO，然后使用新设置重新配置 SAML SSO。
 
 {% endnote %}
 
 ## 配置 {% data variables.product.prodname_emus %} 的 SAML 单一登录
 
-要为 {% data variables.product.prodname_emu_enterprise %} 配置 SAML SSO，需要在 IdP 上配置应用程序，然后在 GitHub.com 上配置企业。 配置 SAML SSO 后，可以配置用户预配。 
+要为 {% data variables.product.prodname_emu_enterprise %} 配置 SAML SSO，需要在 IdP 上配置应用程序，然后在 GitHub.com 上配置企业。配置 SAML SSO 后，可以配置用户预配。 
 
 要在 IdP 上安装和配置 {% data variables.product.prodname_emu_idp_application %} 应用程序，必须在受支持的 IdP 上拥有租户和管理访问权限。
 
@@ -98,7 +98,7 @@ ms.locfileid: '145955501'
 1. 在“公共证书”下，粘贴在配置 IdP 时记下的证书以验证 SAML 响应。
 ![标识提供程序的公共证书字段](/assets/images/help/saml/saml_public_certificate.png)
 
-1. 要验证来自 SAML 签发者的请求的完整性，请单击 {% octicon "pencil" aria-label="The edit icon" %}。 然后，在“签名方法”和“摘要方法”下拉菜单中，选择 SAML 签发者使用的哈希算法。
+1. 要验证来自 SAML 签发者的请求的完整性，请单击 {% octicon "pencil" aria-label="The edit icon" %}。然后，在“签名方法”和“摘要方法”下拉菜单中，选择 SAML 签发者使用的哈希算法。
 ![SAML 颁发者使用的签名方法和摘要方法哈希算法下拉列表](/assets/images/help/saml/saml_hashing_method.png)
 
 1. 在为企业启用 SAML SSO 之前，单击“测试 SMAL 配置”，以确保已输入的信息正确。 ![实施前测试 SAML 配置的按钮](/assets/images/help/saml/saml_test.png)
@@ -107,7 +107,7 @@ ms.locfileid: '145955501'
 
     {% note %}
 
-    注意：当企业需要 SAML SSO 时，安装用户将不再有权访问企业，但将保持登录到 GitHub。 只有 IdP 预配的 {% data variables.product.prodname_managed_users %} 才能访问企业。
+    注意：当企业需要 SAML SSO 时，安装用户将不再有权访问企业，但将保持登录到 GitHub。只有 IdP 预配的 {% data variables.product.prodname_managed_users %} 才能访问企业。
 
     {% endnote %}
 
@@ -116,5 +116,5 @@ ms.locfileid: '145955501'
 
 ### 启用设置
 
-启用 SAML SSO 后，启用预配。 有关详细信息，请参阅“[为企业托管用户配置 SCIM 预配](//admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)”。
+启用 SAML SSO 后，启用预配。有关详细信息，请参阅“[为企业托管用户配置 SCIM 预配](//admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)”。
 

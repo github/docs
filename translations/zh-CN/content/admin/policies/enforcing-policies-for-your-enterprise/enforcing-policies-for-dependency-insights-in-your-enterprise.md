@@ -26,11 +26,11 @@ ms.locfileid: '145098033'
 ---
 ## 关于企业中的依赖性见解策略
 
-依赖性见解显示企业组织内的存储库所依赖的所有包。 依赖性见解包括有关安全公告和许可的汇总信息。 有关详细信息，请参阅“[查看组织的见解](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)”。
+依赖性见解显示企业组织内的存储库所依赖的所有包。依赖性见解包括有关安全公告和许可的汇总信息。有关详细信息，请参阅“[查看组织的见解](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)”。
 
 ## 实施依赖性见解的可见性策略
 
-在企业拥有的所有组织中，您可以控制组织成员是否可以查看依赖性见解。 您还可以允许所有者在组织级别管理设置。 有关详细信息，请参阅[更改组织依赖项洞察的可见性](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)。
+在企业拥有的所有组织中，您可以控制组织成员是否可以查看依赖性见解。您还可以允许所有者在组织级别管理设置。有关详细信息，请参阅[更改组织依赖项洞察的可见性](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}
 3. 在左侧边栏中，单击“组织”。

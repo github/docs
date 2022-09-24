@@ -22,11 +22,11 @@ ms.locfileid: '147881495'
 ---
 ## 关于 {% data variables.product.prodname_emus %} 的预配
 
-必须为 {% data variables.product.prodname_emus %} 配置预配才能为企业成员创建、管理和停用用户帐户。 为 {% data variables.product.prodname_emus %} 配置预配时，在标识提供者中分配给 {% data variables.product.prodname_emu_idp_application %} 应用程序的用户将通过 SCIM 预配为 {% data variables.product.prodname_dotcom %} 上的新用户帐户，并且这些用户将添加到你的企业中。 
+必须为 {% data variables.product.prodname_emus %} 配置预配才能为企业成员创建、管理和停用用户帐户。为 {% data variables.product.prodname_emus %} 配置预配时，在标识提供者中分配给 {% data variables.product.prodname_emu_idp_application %} 应用程序的用户将通过 SCIM 预配为 {% data variables.product.prodname_dotcom %} 上的新用户帐户，并且这些用户将添加到你的企业中。 
 
-在 IdP 上更新与用户标识关联的信息时，IdP 将在 GitHub.com 上更新用户的帐户。 从 {% data variables.product.prodname_emu_idp_application %} 应用程序取消分配用户或停用 IdP 上的用户帐户时，IdP 将与 {% data variables.product.prodname_dotcom %} 进行通信，以使任何会话失效并禁用该成员的帐户。 已禁用帐户的信息会保留，其用户名将更改为原始用户名的哈希，并追加短代码。 如果将用户重新分配到 {% data variables.product.prodname_emu_idp_application %} 应用程序或在 IdP 上重新激活其帐户，则会重新激活 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_managed_user %} 帐户，并还原用户名。
+在 IdP 上更新与用户标识关联的信息时，IdP 将在 GitHub.com 上更新用户的帐户。从 {% data variables.product.prodname_emu_idp_application %} 应用程序取消分配用户或停用 IdP 上的用户帐户时，IdP 将与 {% data variables.product.prodname_dotcom %} 进行通信，以使任何会话失效并禁用该成员的帐户。已禁用帐户的信息会保留，其用户名将更改为原始用户名的哈希，并追加短代码。如果将用户重新分配到 {% data variables.product.prodname_emu_idp_application %} 应用程序或在 IdP 上重新激活其帐户，则会重新激活 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_managed_user %} 帐户，并还原用户名。
 
-IdP 中的组可用于管理企业组织中的团队成员身份，使你可通过 IdP 配置存储库访问权限和权限。 有关详细信息，请参阅“[使用标识提供者组管理团队成员身份](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)”。
+IdP 中的组可用于管理企业组织中的团队成员身份，使你可通过 IdP 配置存储库访问权限和权限。有关详细信息，请参阅“[使用标识提供者组管理团队成员身份](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)”。
 
 ## 先决条件
 
@@ -41,7 +41,7 @@ IdP 中的组可用于管理企业组织中的团队成员身份，使你可通�
 
 {% warning %}
 
-**警告：** 如果令牌过期或预配的用户创建了令牌，SCIM 预配可能会意外停止工作。 请确保在以安装用户身份登录时创建令牌，并将令牌过期设置为“不过期”。
+**警告：** 如果令牌过期或预配的用户创建了令牌，SCIM 预配可能会意外停止工作。请确保在以安装用户身份登录时创建令牌，并将令牌过期设置为“不过期”。
 
 {% endwarning %}
 

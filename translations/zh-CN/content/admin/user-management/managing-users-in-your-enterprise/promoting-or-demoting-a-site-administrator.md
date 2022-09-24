@@ -24,7 +24,7 @@ ms.locfileid: '146331694'
 ---
 {% tip %}
 
-注意：如果[启用了 LDAP 同步](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)，并在[为用户配置 LDAP 访问](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)时设置了 `Administrators group` 属性，这些用户将自动获得你的实例的站点管理员访问权限。 在这种情况下，您无法按照下面的步骤手动升级用户；您必须将其添加到 LDAP 管理员组中。
+注意：如果[启用了 LDAP 同步](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)，并在[为用户配置 LDAP 访问](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)时设置了 `Administrators group` 属性，这些用户将自动获得你的实例的站点管理员访问权限。在这种情况下，您无法按照下面的步骤手动升级用户；您必须将其添加到 LDAP 管理员组中。
 
 {% endtip %}
 

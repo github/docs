@@ -13,9 +13,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: '147718163'
 ---
-最多可以在 CSV 或 JSON 文件中下载过去 365 天的 {% data variables.product.prodname_server_statistics %} 数据。 此数据包括存储库、问题和拉取请求的聚合指标，可帮助你预测组织的需求、了解团队的工作方式，以及显示从 {% data variables.product.prodname_ghe_server %} 获取的值。 
+最多可以在 CSV 或 JSON 文件中下载过去 365 天的 {% data variables.product.prodname_server_statistics %} 数据。此数据包括存储库、问题和拉取请求的聚合指标，可帮助你预测组织的需求、了解团队的工作方式，以及显示从 {% data variables.product.prodname_ghe_server %} 获取的值。 
 
-必须先启用 {% data variables.product.prodname_server_statistics %} 才能下载此数据。 有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_server_statistics %}](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)”。 
+必须先启用 {% data variables.product.prodname_server_statistics %} 才能下载此数据。有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_server_statistics %}](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)”。 
 
 若要预览可供下载的指标，请参阅“[关于 {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)”。
 

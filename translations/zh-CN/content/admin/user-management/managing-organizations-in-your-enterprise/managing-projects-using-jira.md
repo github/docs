@@ -25,7 +25,7 @@ ms.locfileid: '145098678'
 ---
 ## 将 Jira 连接到 {% data variables.product.prodname_enterprise %} 组织
 
-1. 在 http[s]://[hostname]/login 上登录您的 {% data variables.product.prodname_enterprise %} 帐户。 如果已登录，请单击左上角的 {% data variables.product.prodname_dotcom %} 徽标。
+1. 在 http[s]://[hostname]/login 上登录您的 {% data variables.product.prodname_enterprise %} 帐户。如果已登录，请单击左上角的 {% data variables.product.prodname_dotcom %} 徽标。
 2. 单击 {% data variables.product.prodname_dotcom %} 徽标下的个人资料图标，然后选择您希望使用 Jira 连接的组织。
 
   ![选择组织](/assets/images/enterprise/orgs-and-teams/profile-select-organization.png)
@@ -47,7 +47,7 @@ ms.locfileid: '145098678'
     - 在“主页 URL”字段中，键入你的 Jira 实例的完整 URL。
     - 在“授权回调 URL”字段中，键入 Jira 实例的完整 URL。
 7. 单击“注册应用程序”。
-8. 在页面顶部，记下客户端 ID 和客户端密码 。 您将需要这些信息来配置 Jira 实例。
+8. 在页面顶部，记下客户端 ID 和客户端密码。您将需要这些信息来配置 Jira 实例。
 
 ## Jira 实例配置
 

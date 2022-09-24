@@ -23,6 +23,6 @@ ms.locfileid: '145100057'
 ---
 {% ifversion ghes %} {% note %}
 
-注意：若要为企业配置 {% data variables.product.prodname_actions %} 或 {% data variables.product.prodname_registry %}，请参阅“[为企业管理GitHub Actions](/admin/github-actions)”或“[为企业管理 GitHub 包](/admin/packages)”。
+注意：若要为企业配置 {% data variables.product.prodname_actions %} 或 {% data variables.product.prodname_registry %}，请参阅“[为企业管理 GitHub Actions](/admin/github-actions)”或“[为企业管理 GitHub 包](/admin/packages)”。
 
 {% endnote %} {% endif %}

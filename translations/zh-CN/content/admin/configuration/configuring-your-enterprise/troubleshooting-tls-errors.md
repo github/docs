@@ -45,23 +45,23 @@ ms.locfileid: '147881249'
 
 ## 将 TLS 证书或密钥转换为 PEM 格式
 
-如果安装了 OpenSSL，可以使用 `openssl` 命令将密钥转换为 PEM 格式。 例如，您可以将密钥从 DER 格式转换为 PEM 格式。
+如果安装了 OpenSSL，可以使用 `openssl` 命令将密钥转换为 PEM 格式。例如，您可以将密钥从 DER 格式转换为 PEM 格式。
 
 ```shell
 $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 ```
 
-否则，可以使用 SSL Converter 工具将证书转换为 PEM 格式。 有关详细信息，请参阅 [SSL 转换器工具的文档](https://www.sslshopper.com/ssl-converter.html)。
+否则，可以使用 SSL Converter 工具将证书转换为 PEM 格式。有关详细信息，请参阅 [SSL 转换器工具的文档](https://www.sslshopper.com/ssl-converter.html)。
 
 ## 上传密钥后安装无响应
 
-如果上传 TLS 密钥后 {% data variables.product.product_location %}无响应，请[联系 {% data variables.product.prodname_enterprise %} 支持部门](https://enterprise.github.com/support)，并提供具体详细信息，包括 TLS 证书的副本。 请确保未包含私钥。 
+如果上传 TLS 密钥后 {% data variables.product.product_location %}无响应，请[联系 {% data variables.product.prodname_enterprise %} 支持部门](https://enterprise.github.com/support)，并提供具体详细信息，包括 TLS 证书的副本。请确保未包含私钥。 
 
 ## 证书有效性错误
 
-如果 Web 浏览器和命令行 Git 等客户端无法验证 TLS 证书的有效性，则会显示错误消息。 这种情况通常发生在自签名证书以及由不被客户端承认的中间根证书颁发的“链式根”证书上。
+如果 Web 浏览器和命令行 Git 等客户端无法验证 TLS 证书的有效性，则会显示错误消息。这种情况通常发生在自签名证书以及由不被客户端承认的中间根证书颁发的“链式根”证书上。
 
-如果您要使用由证书颁发机构 (CA) 签名的证书，那么您上传到 {% data variables.product.prodname_ghe_server %} 的证书文件必须包含具有该 CA 的根证书的证书链。 要创建此类文件，请将整个证书链（“或证书包”）连接到证书末端，确保包含主机名的主要证书在前。 在大多数系统中，您可以使用与下列命令相似的命令来执行此操作：
+如果您要使用由证书颁发机构 (CA) 签名的证书，那么您上传到 {% data variables.product.prodname_ghe_server %} 的证书文件必须包含具有该 CA 的根证书的证书链。要创建此类文件，请将整个证书链（“或证书包”）连接到证书末端，确保包含主机名的主要证书在前。在大多数系统中，您可以使用与下列命令相似的命令来执行此操作：
 
 ```shell
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
@@ -89,4 +89,4 @@ $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 
 ## 更新 TLS 证书
 
-你可以生成新的自签名证书，或者使用 `ghe-ssl-certificate-setup` 命令行实用工具更新 {% data variables.product.product_location %}的现有 TLS 证书。 有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)”。
+你可以生成新的自签名证书，或者使用 `ghe-ssl-certificate-setup` 命令行实用工具更新 {% data variables.product.product_location %}的现有 TLS 证书。有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)”。

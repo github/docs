@@ -18,7 +18,7 @@ ms.locfileid: '147389849'
 
 {% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} 是完全托管的、可靠且可缩放的，通过它可加快交付，同时改善风险和合规性状况。
 
-{% data variables.product.prodname_ghe_managed %} 提供一个从想法到生产的开发者平台。 可使用团队了解和喜爱的工具提高开发速度，同时通过安全和访问控制、工作流自动化及政策执行来维护行业和监管合规性。 
+{% data variables.product.prodname_ghe_managed %} 提供一个从想法到生产的开发者平台。可使用团队了解和喜爱的工具提高开发速度，同时通过安全和访问控制、工作流自动化及政策执行来维护行业和监管合规性。 
 
 {% data reusables.enterprise.about-github-for-enterprises %}
 
@@ -28,17 +28,17 @@ ms.locfileid: '147389849'
 
 ## 数据驻留
 
-您的所有数据都存储在您选择的地理区域内。 可遵守 GDPR 数据驻留要求和全球数据保护标准，将你的所有数据保存在选定的区域。
+您的所有数据都存储在您选择的地理区域内。可遵守 GDPR 数据驻留要求和全球数据保护标准，将你的所有数据保存在选定的区域。
 
 ## 隔离的帐户
 
-默认情况下，{% data variables.product.product_name %} 上的所有开发人员帐户都与其他服务（包括 {% data variables.product.company_short %} 的产品）完全隔离。 可在强制要求 SAML 单一登录的情况下，通过标识提供者控制帐户。 SCIM 可让您确保员工只能访问他们应该访问的资源，如您的中央身份管理系统中所定义。 有关详细信息，请参阅“[管理企业的标识和访问权限](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。
+默认情况下，{% data variables.product.product_name %} 上的所有开发人员帐户都与其他服务（包括 {% data variables.product.company_short %} 的产品）完全隔离。可在强制要求 SAML 单一登录的情况下，通过标识提供者控制帐户。SCIM 可让您确保员工只能访问他们应该访问的资源，如您的中央身份管理系统中所定义。有关详细信息，请参阅“[管理企业的标识和访问权限](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。
 
-（可选）企业所有者可在 {% data variables.product.product_name %} 与 {% data variables.product.prodname_dotcom_the_website %} 之间启用受限集成。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)”。
+（可选）企业所有者可在 {% data variables.product.product_name %} 与 {% data variables.product.prodname_dotcom_the_website %} 之间启用受限集成。有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)”。
 
 ## 受限制的网络访问
 
-以受限的网络访问权限保护对您在 {% data variables.product.prodname_ghe_managed %} 上的企业的访问，以便只能从您的网络内访问您的数据。 有关详细信息，请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”。
+以受限的网络访问权限保护对您在 {% data variables.product.prodname_ghe_managed %} 上的企业的访问，以便只能从您的网络内访问您的数据。有关详细信息，请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”。
 
 ## 商业和政府环境
 
@@ -46,7 +46,7 @@ ms.locfileid: '147389849'
 
 ## 合规性认证
 
-{% data variables.product.company_short %} 在安全最佳做法方面持续投入，以确保你的数据安全无忧、开发人员高效工作且你的团队可专注于问题解决。 作为安全承诺的一部分，{% data variables.product.prodname_ghe_managed %} 确保始终符合以下认证。
+{% data variables.product.company_short %} 在安全最佳做法方面持续投入，以确保你的数据安全无忧、开发人员高效工作且你的团队可专注于问题解决。作为安全承诺的一部分，{% data variables.product.prodname_ghe_managed %} 确保始终符合以下认证。
 
 - FedRAMP High 运营授权 (ATO)
 - SOC 1、SOC 2 类型 II 和 SOC 3

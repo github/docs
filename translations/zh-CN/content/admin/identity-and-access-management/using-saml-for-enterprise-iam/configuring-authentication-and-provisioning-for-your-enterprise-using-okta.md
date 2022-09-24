@@ -63,7 +63,7 @@ ms.locfileid: '145098053'
 
 ## 为 {% data variables.product.prodname_ghe_managed %} 启用 SAML SSO
 
-要为 {% data variables.product.prodname_ghe_managed %} 启用单一登录 (SSO)，必须将 {% data variables.product.prodname_ghe_managed %} 配置为使用 Okta 提供的登录 URL、证书颁发者 URL 和公共证书。 可以在“GitHub AE”应用中找到这些详细信息。
+要为 {% data variables.product.prodname_ghe_managed %} 启用单一登录 (SSO)，必须将 {% data variables.product.prodname_ghe_managed %} 配置为使用 Okta 提供的登录 URL、证书颁发者 URL 和公共证书。可以在“GitHub AE”应用中找到这些详细信息。
 
 {% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-ae-configure-app %}
 1. 单击“登录”。
@@ -75,7 +75,7 @@ ms.locfileid: '145098053'
   ![“登录”选项卡](/assets/images/help/saml/okta-ae-view-setup-instructions.png)
 
 1. 记下“登录 URL”、“证书颁发者”和“公共证书”详细信息。 
-1. 使用这些详细信息在 {% data variables.product.prodname_ghe_managed %} 上为企业启用 SAML SSO。 有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
+1. 使用这些详细信息在 {% data variables.product.prodname_ghe_managed %} 上为企业启用 SAML SSO。有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
 
 {% note %}
 
@@ -85,9 +85,9 @@ ms.locfileid: '145098053'
 
 ## 启用 API 集成
 
-Okta 中的 GitHub AE 应用使用 {% data variables.product.product_name %} API 与企业进行交互，以实现 SCIM 和 SSO。 此过程说明如何通过为 Okta 配置 {% data variables.product.prodname_ghe_managed %} 的个人访问令牌来启用和测试对 API 的访问。
+Okta 中的 GitHub AE 应用使用 {% data variables.product.product_name %} API 与企业进行交互，以实现 SCIM 和 SSO。此过程说明如何通过为 Okta 配置 {% data variables.product.prodname_ghe_managed %} 的个人访问令牌来启用和测试对 API 的访问。
 
-1. 在 {% data variables.product.prodname_ghe_managed %} 中，生成具有 `admin:enterprise` 作用域的个人访问令牌。 有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
+1. 在 {% data variables.product.prodname_ghe_managed %} 中，生成具有 `admin:enterprise` 作用域的个人访问令牌。有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
 {% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-ae-configure-app %} {% data reusables.saml.okta-ae-provisioning-tab %}
 1. 单击“配置 API 集成”。
 
@@ -101,13 +101,13 @@ Okta 中的 GitHub AE 应用使用 {% data variables.product.product_name %} API
 
 {% note %}
 
-**注意**：如果看到 `Error authenticating: No results for users returned`，请确认已为{% data variables.product.prodname_ghe_managed %} 启用 SSO。 有关详细信息，请参阅“[为 {% data variables.product.prodname_ghe_managed %} 启用 SAML SSO](#enabling-saml-sso-for-github-ae)”。
+**注意**：如果看到 `Error authenticating: No results for users returned`，请确认已为{% data variables.product.prodname_ghe_managed %} 启用 SSO。有关详细信息，请参阅“[为 {% data variables.product.prodname_ghe_managed %} 启用 SAML SSO](#enabling-saml-sso-for-github-ae)”。
 
 {% endnote %}
 
 ## 配置 SCIM 预配设置
 
-此过程演示如何为 Okta 预配配置 SCIM 设置。 这些设置定义自动将 Okta 用户帐户预配到 {% data variables.product.prodname_ghe_managed %} 时将使用哪些功能。
+此过程演示如何为 Okta 预配配置 SCIM 设置。这些设置定义自动将 Okta 用户帐户预配到 {% data variables.product.prodname_ghe_managed %} 时将使用哪些功能。
 
 {% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-ae-configure-app %} {% data reusables.saml.okta-ae-provisioning-tab %}
 1. 在“设置”下，单击“到应用”。
@@ -150,7 +150,7 @@ Okta 中的 GitHub AE 应用使用 {% data variables.product.product_name %} API
 
 ### 为 Okta 组预配访问权限
 
-可以将 Okta 组映射到 {% data variables.product.prodname_ghe_managed %} 中的团队。 然后，Okta 组的成员将自动成为映射的 {% data variables.product.prodname_ghe_managed %} 团队的成员。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
+可以将 Okta 组映射到 {% data variables.product.prodname_ghe_managed %} 中的团队。然后，Okta 组的成员将自动成为映射的 {% data variables.product.prodname_ghe_managed %} 团队的成员。有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
 
 ## 延伸阅读
 

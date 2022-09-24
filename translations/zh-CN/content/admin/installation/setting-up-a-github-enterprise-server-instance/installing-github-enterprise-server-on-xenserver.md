@@ -23,15 +23,15 @@ ms.locfileid: '145099023'
 ---
 {% note %}
 
-  注意：XenServer 上对 {% data variables.product.prodname_ghe_server %} 的支持将在 {% data variables.product.prodname_ghe_server %} 3.3 中终止。 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_server %} 3.1 发行说明](/admin/release-notes#3.1.0)
+  注意：XenServer 上对 {% data variables.product.prodname_ghe_server %} 的支持将在 {% data variables.product.prodname_ghe_server %} 3.3 中终止。有关详细信息，请参阅 [{% data variables.product.prodname_ghe_server %} 3.1 发行说明](/admin/release-notes#3.1.0)
 
 {% endnote %}
 
 ## 先决条件
 
 - {% data reusables.enterprise_installation.software-license %}
-- 您必须在将要运行 {% data variables.product.prodname_ghe_server %} 虚拟机 (VM) 的机器上安装 XenServer Hypervisor 。 我们支持版本 6.0 到 7.0。
-- 我们建议使用 XenCenter Windows Management Console 进行初始设置。 下文介绍了使用 XenCenter Windows Management Console 的说明。 有关详细信息，请参阅 Citrix 指南“[如何下载和安装 XenCenter 的新版本](https://support.citrix.com/article/CTX118531)”。
+- 您必须在将要运行 {% data variables.product.prodname_ghe_server %} 虚拟机 (VM) 的机器上安装 XenServer Hypervisor。我们支持版本 6.0 到 7.0。
+- 我们建议使用 XenCenter Windows Management Console 进行初始设置。下文介绍了使用 XenCenter Windows Management Console 的说明。有关详细信息，请参阅 Citrix 指南“[如何下载和安装 XenCenter 的新版本](https://support.citrix.com/article/CTX118531)”。
 
 ## 硬件注意事项
 
@@ -47,7 +47,7 @@ ms.locfileid: '145099023'
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 在 XenCenter 中，导入您下载的 {% data variables.product.prodname_ghe_server %} 映像。 有关说明，请参阅 XenCenter 指南“[导入磁盘映像](https://docs.citrix.com/en-us/xencenter/current-release/vms-importdiskimage.html)”。
+1. 在 XenCenter 中，导入您下载的 {% data variables.product.prodname_ghe_server %} 映像。有关说明，请参阅 XenCenter 指南“[导入磁盘映像](https://docs.citrix.com/en-us/xencenter/current-release/vms-importdiskimage.html)”。
     - 对于“启用操作系统修复”步骤，请选择“不使用操作系统修复”。
     - 完成后使 VM 保持关机状态。
 {% data reusables.enterprise_installation.create-attached-storage-volume %} 有关说明，请参阅 XenCenter 指南“[添加虚拟磁盘](https://docs.citrix.com/en-us/xencenter/current-release/vms-storage-addnewdisk.html)”。

@@ -24,10 +24,10 @@ ms.locfileid: '146332350'
 可以在 [`github/platform-samples` 存储库](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)中查看 {% data variables.product.prodname_ghe_server %} 的预接收挂钩示例。
 
 ## 编写预接收挂钩脚本
-预接收挂钩脚本在 {% data variables.product.product_location %} 上的预接收挂钩环境中执行。 创建预接收挂钩脚本时，请考虑可用的输入、输出、退出状态和环境变量。
+预接收挂钩脚本在 {% data variables.product.product_location %} 上的预接收挂钩环境中执行。创建预接收挂钩脚本时，请考虑可用的输入、输出、退出状态和环境变量。
 
 ### 输入 (`stdin`)
-推送发生后，在为远程存储库更新任何引用之前，在 {% data variables.product.product_location %} 上的 `git-receive-pack` 进程将调用预接收挂钩脚本。 脚本的标准输入 `stdin` 是一个字符串，对每个要更新的 ref 包含一行。 每行都包含 ref 的旧对象名称、引用的新对象名称和 ref 的全名。
+推送发生后，在为远程存储库更新任何引用之前，在 {% data variables.product.product_location %} 上的 `git-receive-pack` 进程将调用预接收挂钩脚本。脚本的标准输入 `stdin` 是一个字符串，对每个要更新的 ref 包含一行。每行都包含 ref 的旧对象名称、引用的新对象名称和 ref 的全名。
 
 ```
 <old-value> SP <new-value> SP <ref-name> LF
@@ -41,11 +41,11 @@ ms.locfileid: '146332350'
 | `<new-value>` | 要存储在 ref 中的新对象名称。<br> 删除 ref 时，该值为 40 个零。 |
 | `<ref-name>`  | ref 的全名。 |
 
-有关 `git-receive-pack` 的详细信息，请参阅 Git 文档中的“[git-receive-pack](https://git-scm.com/docs/git-receive-pack)”。 有关 ref 的详细信息，请参阅“Pro Git”中的“[Git 引用](https://git-scm.com/book/en/v2/Git-Internals-Git-References)”。
+有关 `git-receive-pack` 的详细信息，请参阅 Git 文档中的“[git-receive-pack](https://git-scm.com/docs/git-receive-pack)”。有关 ref 的详细信息，请参阅“Pro Git”中的“[Git 引用](https://git-scm.com/book/en/v2/Git-Internals-Git-References)”。
 
 ### 输出 (`stdout`)
 
-脚本的标准输出 `stdout` 将传回客户端。 任何 `echo` 语句将在命令行或用户界面上对用户均可见。
+脚本的标准输出 `stdout` 将传回客户端。任何 `echo` 语句将在命令行或用户界面上对用户均可见。
 
 ### 退出状态
 
@@ -58,7 +58,7 @@ ms.locfileid: '146332350'
 
 ### 环境变量
 
-除了预接收挂钩脚本 `stdin` 的标准输入，{% data variables.product.prodname_ghe_server %} 在 Bash 环境中还为脚本执行提供以下变量。 有关预接收挂钩脚本的 `stdin` 的详细信息，请参阅“[输入 (`stdin`)](#input-stdin)”。
+除了预接收挂钩脚本 `stdin` 的标准输入，{% data variables.product.prodname_ghe_server %} 在 Bash 环境中还为脚本执行提供以下变量。有关预接收挂钩脚本的 `stdin` 的详细信息，请参阅“[输入 (`stdin`)](#input-stdin)”。
 
 预接收挂钩脚本可使用不同的环境变量，具体取决于触发脚本运行的因素。
 
@@ -74,8 +74,8 @@ ms.locfileid: '146332350'
 | 变量 | 说明 | 示例值 |
 | :- | :- | :- |
 |  <pre>$GIT_DIR</pre> | 实例上远程仓库的路径 | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
-|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | 客户端使用 `--push-option` 发送的推送选项数。 有关详细信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)”。 | 1 |
-| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | 其中 N 是一个从 0 开始的整数，此变量包含客户端发送的推送选项字符串。 发送的第一个选项存储在 `GIT_PUSH_OPTION_0` 中，发送的第二个选项存储在 `GIT_PUSH_OPTION_1` 中，依此类推。 有关推送选项的详细信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。 | abcd |{% ifversion ghes %}
+|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | 客户端使用 `--push-option` 发送的推送选项数。有关详细信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)”。 | 1 |
+| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | 其中 N 是一个从 0 开始的整数，此变量包含客户端发送的推送选项字符串。发送的第一个选项存储在 `GIT_PUSH_OPTION_0` 中，发送的第二个选项存储在 `GIT_PUSH_OPTION_1` 中，依此类推。有关推送选项的详细信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。 | abcd |{% ifversion ghes %}
 |  <pre>$GIT_USER_AGENT</pre> | 推送更改的 Git 客户端发送的 user-agent 字符串。 | git/2.0.0{% endif %}
 |  <pre>$GITHUB_REPO_NAME</pre> | 以 NAME/OWNER 格式更新的存储库名称  | octo-org/hello-enterprise |
 |  <pre>$GITHUB_REPO_PUBLIC</pre> | 表示更新的仓库是否公开的布尔值 | <ul><li>true：仓库的可见性是公开的</li><li>false：仓库的可见性是私密或内部的</li></ul>
@@ -84,7 +84,7 @@ ms.locfileid: '146332350'
 
 #### 可用于从 Web 界面或 API 推送
 
-当触发挂钩的 ref 更新通过 {% data variables.product.prodname_ghe_server %} 的 Web 界面或 API 进行时，`$GITHUB_VIA` 变量可用于预接收挂钩环境。 该值描述了更新 ref 的操作。
+当触发挂钩的 ref 更新通过 {% data variables.product.prodname_ghe_server %} 的 Web 界面或 API 进行时，`$GITHUB_VIA` 变量可用于预接收挂钩环境。该值描述了更新 ref 的操作。
 
 | 值 | 操作 | 详细信息 |
 | :- | :- | :- |
@@ -96,7 +96,7 @@ ms.locfileid: '146332350'
 | <pre>git refs delete api</pre> | 通过 API 删除 ref | REST API 文档中的“[Git 数据库](/rest/reference/git#delete-a-reference)” |
 | <pre>git refs update api</pre> | 通过 API 更新 ref | REST API 文档中的“[Git 数据库](/rest/reference/git#update-a-reference)” |
 | <pre>git repo contents api</pre> | 通过 API 更改文件的内容 | REST API 文档中的“[创建或更新文件内容](/rest/reference/repos#create-or-update-file-contents)” |
-{%- ifversion ghes %} | `merge ` | 使用自动合并合并拉取请求 |“[自动合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)”| {%- endif %} | <pre>merge base into head</pre> | 当基础分支需要严格的状态检查时从基础分支更新主题分支（例如，通过拉取请求中的“更新分支”）|“[关于受保护的分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”| | <pre>pull request branch delete button</pre> | 从 Web 界面中的拉取请求中删除主题分支 |“[在拉取请求中删除和还原分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)”| | <pre>pull request branch undo button</pre> | 从 Web 界面中的拉取请求还原主题分支 |“[在拉取请求中删除和还原分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)”| | <pre>pull request merge api</pre> | 通过 API 合并拉取请求 | REST API 文档中的“[拉取](/rest/reference/pulls#merge-a-pull-request)”| | <pre>pull request merge button</pre> | 在 Web 界面中合并拉取请求 |“[合并拉取请求](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)”| | <pre>pull request revert button</pre> | 拉取请求的还原 |“[还原拉取请求](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)”| | <pre>releases delete button</pre> | 版本删除 |“[管理存储库中的版本](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)”| | <pre>stafftools branch restore</pre> | 从站点管理仪表板还原分支 |“[站点管理仪表板](/admin/configuration/site-admin-dashboard#repositories)”| | <pre>tag create api</pre> | 通过 API 创建标记 | REST API 文档中的“[Git 数据库](/rest/reference/git#create-a-tag-object)”| | <pre>slumlord (#<em>SHA</em>)</pre> | 通过 Subversion 提交 |“[对 Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)”| | <pre>web branch create</pre> | 通过 Web 界面创建分支 |“[在存储库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)”|
+{%- ifversion ghes %} | `merge ` | 使用自动合并合并拉取请求 |“[自动合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)”| {%- endif %} | <pre>merge base into head</pre> | 当基础分支需要严格的状态检查时从基础分支更新主题分支（例如，通过拉取请求中的“更新分支”）| “[关于受保护的分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”| | <pre>pull request branch delete button</pre> | 从 Web 界面中的拉取请求中删除主题分支 |“[在拉取请求中删除和还原分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)”| | <pre>pull request branch undo button</pre> | 从 Web 界面中的拉取请求还原主题分支 |“[在拉取请求中删除和还原分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)”| | <pre>pull request merge api</pre> | 通过 API 合并拉取请求 | REST API 文档中的“[拉取](/rest/reference/pulls#merge-a-pull-request)”| | <pre>pull request merge button</pre> | 在 Web 界面中合并拉取请求 |“[合并拉取请求](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)”| | <pre>pull request revert button</pre> | 拉取请求的还原 |“[还原拉取请求](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)”| | <pre>releases delete button</pre> | 版本删除 |“[管理存储库中的版本](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)”| | <pre>stafftools branch restore</pre> | 从站点管理仪表板还原分支 |“[站点管理仪表板](/admin/configuration/site-admin-dashboard#repositories)”| | <pre>tag create api</pre> | 通过 API 创建标记 | REST API 文档中的“[Git 数据库](/rest/reference/git#create-a-tag-object)”| | <pre>slumlord (#<em>SHA</em>)</pre> | 通过 Subversion 提交 |“[对 Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)”| | <pre>web branch create</pre> | 通过 Web 界面创建分支 |“[在存储库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)”|
 
 #### 可用于拉取请求合并
 
@@ -116,9 +116,9 @@ ms.locfileid: '146332350'
 
 ## 设置权限并将预接收挂钩推送到 {% data variables.product.prodname_ghe_server %}
 
-{% data variables.product.product_location %} 上的仓库中包含预接收挂钩脚本。 站点管理员必须考虑仓库权限，确保只有适当的用户才能访问。
+{% data variables.product.product_location %} 上的仓库中包含预接收挂钩脚本。站点管理员必须考虑仓库权限，确保只有适当的用户才能访问。
 
-我们建议将挂钩合并到单个仓库。 如果统一的挂钩存储库是公共的，则可以使用 `README.md` 来解释策略强制实施。 此外，也可以通过拉取请求接受贡献。 但是，只能从默认分支添加预接收挂钩。 对于测试工作流程，应使用具有配置的仓库的分支。
+我们建议将挂钩合并到单个仓库。如果统一的挂钩存储库是公共的，则可以使用 `README.md` 来解释策略强制实施。此外，也可以通过拉取请求接受贡献。但是，只能从默认分支添加预接收挂钩。对于测试工作流程，应使用具有配置的仓库的分支。
 
 1. 对于 Mac 用户，确保脚本具有执行权限：
 
@@ -141,7 +141,7 @@ ms.locfileid: '146332350'
 3. 在 {% data variables.product.prodname_ghe_server %} 实例上[创建预接收挂钩](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks)。
 
 ## 在本地测试预接收脚本
-在 {% data variables.product.product_location %} 上创建或更新预接收挂钩脚本之前，您可以在本地对其进行测试。 一种方法是创建本地 Docker 环境以充当可以执行预接收挂钩的远程仓库。
+在 {% data variables.product.product_location %} 上创建或更新预接收挂钩脚本之前，您可以在本地对其进行测试。一种方法是创建本地 Docker 环境以充当可以执行预接收挂钩的远程仓库。
 
 {% data reusables.linux.ensure-docker %}
 
@@ -167,7 +167,7 @@ ms.locfileid: '146332350'
    CMD ["/usr/sbin/sshd", "-D"]
    ```
 
-3. 创建一个名为 `always_reject.sh` 的测试预接收脚本。 此示例脚本将拒绝所有推送，这对于锁定仓库非常有用：
+3. 创建一个名为 `always_reject.sh` 的测试预接收脚本。此示例脚本将拒绝所有推送，这对于锁定仓库非常有用：
 
    ```
    #!/usr/bin/env bash
@@ -217,7 +217,7 @@ ms.locfileid: '146332350'
    $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
    ```
 
-8. 运行运行 `sshd` 并执行挂钩的应用程序容器。 记下返回的容器 ID：
+8. 运行运行 `sshd` 并执行挂钩的应用程序容器。记下返回的容器 ID：
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
@@ -230,7 +230,7 @@ ms.locfileid: '146332350'
    $ docker cp data:/home/git/.ssh/id_ed25519 .
    ```
 
-10. 修改测试存储库的远程并推送到 Docker 容器内的 `test.git` 存储库。 此示例使用 `git@github.com:octocat/Hello-World.git`，但你可以使用任何想要的存储库。 此示例假定您的本地计算机 (127.0.0.1) 绑定了端口 52311，但如果 docker 在远程计算机上运行，则可以使用不同的 IP 地址。
+10. 修改测试存储库的远程并推送到 Docker 容器内的 `test.git` 存储库。此示例使用 `git@github.com:octocat/Hello-World.git`，但你可以使用任何想要的存储库。此示例假定您的本地计算机 (127.0.0.1) 绑定了端口 52311，但如果 docker 在远程计算机上运行，则可以使用不同的 IP 地址。
 
    ```shell
    $ git clone git@github.com:octocat/Hello-World.git

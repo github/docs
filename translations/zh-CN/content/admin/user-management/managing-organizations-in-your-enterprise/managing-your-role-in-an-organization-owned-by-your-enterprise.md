@@ -23,7 +23,7 @@ ms.locfileid: '147884235'
 
 {% ifversion ghec %} {% warning %}
 
-警告：如果组织使用 SCIM 预配用户，则以这种方式加入组织可能会产生意外的后果。 有关详细信息，请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
+警告：如果组织使用 SCIM 预配用户，则以这种方式加入组织可能会产生意外的后果。有关详细信息，请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
 
 {% endwarning %} {% endif %}
 
@@ -35,7 +35,7 @@ ms.locfileid: '147884235'
 
 {% ifversion ghec %}
 
-如果组织强制执行 SAML 单一登录 (SSO)，你将无法使用企业设置加入组织。 相反，必须使用该组织的标识提供者 (IdP) 加入组织。 然后，可以在企业设置中管理角色。 有关详细信息，请参阅“[加入强制实施 SAML SSO 的组织](#joining-an-organization-that-enforces-saml-sso)”。
+如果组织强制执行 SAML 单一登录 (SSO)，你将无法使用企业设置加入组织。相反，必须使用该组织的标识提供者 (IdP) 加入组织。然后，可以在企业设置中管理角色。有关详细信息，请参阅“[加入强制实施 SAML SSO 的组织](#joining-an-organization-that-enforces-saml-sso)”。
 
 {% endif %}
 
@@ -48,9 +48,9 @@ ms.locfileid: '147884235'
 
 ## 加入强制实施 SAML SSO 的组织
 
-如果组织强制执行 SAML SSO，你将无法使用企业设置加入组织。 相反，必须使用该组织的标识提供者 (IdP) 加入组织。
+如果组织强制执行 SAML SSO，你将无法使用企业设置加入组织。相反，必须使用该组织的标识提供者 (IdP) 加入组织。
 
-1. 必须在 IdP 中为组织使用的 {% data variables.product.prodname_ghe_cloud %} 应用程序分配访问权限。 如果无法自行配置 IdP，请联系 IdP 管理员。
+1. 必须在 IdP 中为组织使用的 {% data variables.product.prodname_ghe_cloud %} 应用程序分配访问权限。如果无法自行配置 IdP，请联系 IdP 管理员。
 1. 使用 SAML SSO 向组织进行身份验证。
 
    - 如果组织使用 SCIM，请接受由 SCIM 集成生成的组织邀请。
@@ -58,6 +58,6 @@ ms.locfileid: '147884235'
 
     `https://github.com/orgs/ORGANIZATION/sso`
 
-加入组织后，可以使用企业设置来管理组织中的角色，例如成为组织所有者。 有关详细信息，请参阅“[使用企业设置管理角色](#managing-your-role-with-the-enterprise-settings)”。
+加入组织后，可以使用企业设置来管理组织中的角色，例如成为组织所有者。有关详细信息，请参阅“[使用企业设置管理角色](#managing-your-role-with-the-enterprise-settings)”。
 
 {% endif %}

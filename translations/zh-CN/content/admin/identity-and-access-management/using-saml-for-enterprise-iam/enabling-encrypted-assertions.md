@@ -38,7 +38,7 @@ ms.locfileid: '147063776'
 
 {% endnote %}
 
-1. （可选）启用 SAML 调试。 SAML 调试在 {% data variables.product.product_name %} 的身份验证日志中记录详细条目，并且可以帮助你排查身份验证尝试失败的问题。 有关详细信息，请参阅“[对 SAML 身份验证进行故障排除](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)”。
+1. （可选）启用 SAML 调试。SAML 调试在 {% data variables.product.product_name %} 的身份验证日志中记录详细条目，并且可以帮助你排查身份验证尝试失败的问题。有关详细信息，请参阅“[对 SAML 身份验证进行故障排除](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)”。
 {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.authentication %}
 1. 选择“需要加密断言”。
 
@@ -60,4 +60,4 @@ ms.locfileid: '147063776'
 1. 单击“保存设置”。 
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
-如果启用了 SAML 调试以使用加密断言测试身份验证，请在完成测试后禁用 SAML 调试。 有关详细信息，请参阅“[对 SAML 身份验证进行故障排除](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)”。
+如果启用了 SAML 调试以使用加密断言测试身份验证，请在完成测试后禁用 SAML 调试。有关详细信息，请参阅“[对 SAML 身份验证进行故障排除](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)”。

@@ -23,23 +23,23 @@ ms.locfileid: '145100050'
 ---
 ## 关于集群的高可用性复制
 
-您可以配置 {% data variables.product.prodname_ghe_server %} 的群集部署以实现高可用性，其中一组相同的被动节点与活动群集中的节点同步。 如果硬件或软件故障影响具有活动群集的数据中心，您可以手动故障转移到副本节点，继续处理用户请求，以尽可能减少中断的影响。
+您可以配置 {% data variables.product.prodname_ghe_server %} 的群集部署以实现高可用性，其中一组相同的被动节点与活动群集中的节点同步。如果硬件或软件故障影响具有活动群集的数据中心，您可以手动故障转移到副本节点，继续处理用户请求，以尽可能减少中断的影响。
 
-在高可用性模式下，每个活动节点定期与相应的被动节点同步。 被动节点在待机状态下运行，不服务于应用程序或处理用户请求。
+在高可用性模式下，每个活动节点定期与相应的被动节点同步。被动节点在待机状态下运行，不服务于应用程序或处理用户请求。
 
-我们建议配置高可用性，作为 {% data variables.product.prodname_ghe_server %} 全面灾难恢复计划的一部分。 我们还建议进行定期备份。 有关详细信息，请参阅“[在设备上配置备份](/enterprise/admin/configuration/configuring-backups-on-your-appliance)”。
+我们建议配置高可用性，作为 {% data variables.product.prodname_ghe_server %} 全面灾难恢复计划的一部分。我们还建议进行定期备份。有关详细信息，请参阅“[在设备上配置备份](/enterprise/admin/configuration/configuring-backups-on-your-appliance)”。
 
 ## 先决条件
 
 ### 硬件和软件
 
-对于活动群集中的每个现有节点，都需要预配第二个具有相同硬件资源的虚拟机。 例如，如果你的群集有 11 个节点，并且每个节点有 12 个 vCP、96 GB 的 RAM 和 750 GB 的附加存储，则必须预配 11 个新虚拟机，每个虚拟机具有 12 个 vCPU、96 GB 的 RAM 和 750 GB 的附加存储。
+对于活动群集中的每个现有节点，都需要预配第二个具有相同硬件资源的虚拟机。例如，如果你的群集有 11 个节点，并且每个节点有 12 个 vCP、96 GB 的 RAM 和 750 GB 的附加存储，则必须预配 11 个新虚拟机，每个虚拟机具有 12 个 vCPU、96 GB 的 RAM 和 750 GB 的附加存储。
 
-在每个新虚拟机上，安装活动群集的节点上运行的相同版本 {% data variables.product.prodname_ghe_server %}。 您不需要上传许可证或执行任何其他配置。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)”。
+在每个新虚拟机上，安装活动群集的节点上运行的相同版本 {% data variables.product.prodname_ghe_server %}。您不需要上传许可证或执行任何其他配置。有关详细信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)”。
 
 {% note %}
 
-**注意：** 你打算用于高可用性副本的节点应该是独立的 {% data variables.product.prodname_ghe_server %} 实例。 不要将被动节点初始化为第二个群集。
+**注意：** 你打算用于高可用性副本的节点应该是独立的 {% data variables.product.prodname_ghe_server %} 实例。不要将被动节点初始化为第二个群集。
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ ms.locfileid: '145100050'
 
 您必须为预配的每个新节点分配一个静态 IP 地址，并且必须配置负载均衡器以接受连接，并将其引导到群集前端层中的节点。
 
-我们不建议在具有主动群集的网络和具有被动群集的网络之间配置防火墙。 具有主动节点的网络与具有被动节点的网络之间的延迟必须小于 70 毫秒。 有关被动群集中节点之间网络连接的详细信息，请参阅“[网络配置](/enterprise/admin/enterprise-management/cluster-network-configuration)”。
+我们不建议在具有主动群集的网络和具有被动群集的网络之间配置防火墙。具有主动节点的网络与具有被动节点的网络之间的延迟必须小于 70 毫秒。有关被动群集中节点之间网络连接的详细信息，请参阅“[网络配置](/enterprise/admin/enterprise-management/cluster-network-configuration)”。
 
 ## 为群集创建高可用性副本
 
@@ -63,7 +63,7 @@ ms.locfileid: '145100050'
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. 记下群集主数据中心的名称。 群集配置文件顶部的 `[cluster]` 部分使用 `primary-datacenter` 键值对定义主数据中心的名称。 默认情况下，群集的主数据中心名为 `default`。
+3. 记下群集主数据中心的名称。群集配置文件顶部的 `[cluster]` 部分使用 `primary-datacenter` 键值对定义主数据中心的名称。默认情况下，群集的主数据中心名为 `default`。
 
     ```shell
     [cluster]
@@ -74,7 +74,7 @@ ms.locfileid: '145100050'
 
     - （可选）通过编辑 `primary-datacenter` 的值，将主数据中心的名称更改为更具描述性或更准确的值。
 
-4. {% data reusables.enterprise_clustering.configuration-file-heading %} 在每个节点标题下，添加新的键值对，以将节点分配给数据中心。 使用上述第 3 步中 `primary-datacenter` 所用的值。 例如，如果要使用默认名称 (`default`)，请将以下键值对添加到每个节点的部分。
+4. {% data reusables.enterprise_clustering.configuration-file-heading %} 在每个节点标题下，添加新的键值对，以将节点分配给数据中心。使用上述第 3 步中 `primary-datacenter` 所用的值。例如，如果要使用默认名称 (`default`)，请将以下键值对添加到每个节点的部分。
 
     ```
     datacenter = default
@@ -93,7 +93,7 @@ ms.locfileid: '145100050'
 
     {% note %}
 
-    **注意：** 如果在步骤 3 中更改了主数据中心的名称，请在每个节点的部分找到 `consul-datacenter` 键值对，然后将值更改为重命名的主数据中心。 例如，如果已将主数据中心命名为 `primary`，请为每个节点使用以下键值对。
+    **注意：** 如果在步骤 3 中更改了主数据中心的名称，请在每个节点的部分找到 `consul-datacenter` 键值对，然后将值更改为重命名的主数据中心。例如，如果已将主数据中心命名为 `primary`，请为每个节点使用以下键值对。
 
     ```
     consul-datacenter = primary
@@ -109,7 +109,7 @@ ms.locfileid: '145100050'
 
 ### 将被动节点添加到群集配置文件
 
-要配置高可用性，必须为群集中的每个主动节点定义相应的被动节点。 以下说明创建用于定义主动节点和被动节点的新群集配置。 你将：
+要配置高可用性，必须为群集中的每个主动节点定义相应的被动节点。以下说明创建用于定义主动节点和被动节点的新群集配置。你将：
 
 - 创建主动群集配置文件的副本。
 - 编辑副本以定义与主动节点对应的被动节点，添加预配的新虚拟机的 IP 地址。
@@ -118,7 +118,7 @@ ms.locfileid: '145100050'
 
 有关示例配置，请参阅“[示例配置](#example-configuration)”。
 
-1. 对于群集中的每个节点，预配规范相同的匹配虚拟机，运行相同版本的 {% data variables.product.prodname_ghe_server %}。 记下每个新群集节点的 IPv4 地址和主机名。 有关详细信息，请参阅“[先决条件](#prerequisites)”。
+1. 对于群集中的每个节点，预配规范相同的匹配虚拟机，运行相同版本的 {% data variables.product.prodname_ghe_server %}。记下每个新群集节点的 IPv4 地址和主机名。有关详细信息，请参阅“[先决条件](#prerequisites)”。
 
     {% note %}
 
@@ -134,7 +134,7 @@ ms.locfileid: '145100050'
     cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
     ```
 
-4. 在临时位置创建现有群集配置文件的副本，例如 /home/admin/cluster-passive.conf。 删除 IP 地址的唯一键值对 (`ipv*`)、UUID (`uuid`) 和 WireGuard 的公钥 (`wireguard-pubkey`)。
+4. 在临时位置创建现有群集配置文件的副本，例如 /home/admin/cluster-passive.conf。删除 IP 地址的唯一键值对 (`ipv*`)、UUID (`uuid`) 和 WireGuard 的公钥 (`wireguard-pubkey`)。
 
     ```
     grep -Ev "(?:|ipv|uuid|vpn|wireguard\-pubkey)" /data/user/common/cluster.conf > ~/cluster-passive.conf
@@ -146,7 +146,7 @@ ms.locfileid: '145100050'
     git config -f ~/cluster-passive.conf --remove-section cluster
     ```
 
-6. 确定在其中预配了被动节点的辅助数据中心的名称，然后使用新的数据中心名称更新临时群集配置文件。 将 `SECONDARY` 替换为所选名称。
+6. 确定在其中预配了被动节点的辅助数据中心的名称，然后使用新的数据中心名称更新临时群集配置文件。将 `SECONDARY` 替换为所选名称。
 
     ```shell
     sed -i 's/datacenter = default/datacenter = <em>SECONDARY</em>/g' ~/cluster-passive.conf
@@ -160,7 +160,7 @@ ms.locfileid: '145100050'
 
     {% endwarning %}
 
-8. 在文本编辑器中打开步骤 3 中的临时群集配置文件。 例如，您可以使用 Vim。
+8. 在文本编辑器中打开步骤 3 中的临时群集配置文件。例如，您可以使用 Vim。
 
     ```shell
     sudo vim ~/cluster-passive.conf
@@ -188,7 +188,7 @@ ms.locfileid: '145100050'
     cat ~/cluster-passive.conf >> /data/user/common/cluster.conf
     ```
 
-11. 在辅助数据中心中指定主 MySQL 和 Redis 节点。 将 `REPLICA MYSQL PRIMARY HOSTNAME` 和 `REPLICA REDIS PRIMARY HOSTNAME` 替换为预配的被动节点的主机名，以匹配现有的 MySQL 和 Redis 主节点。
+11. 在辅助数据中心中指定主 MySQL 和 Redis 节点。将 `REPLICA MYSQL PRIMARY HOSTNAME` 和 `REPLICA REDIS PRIMARY HOSTNAME` 替换为预配的被动节点的主机名，以匹配现有的 MySQL 和 Redis 主节点。
 
     ```shell
     git config -f /data/user/common/cluster.conf cluster.mysql-master-replica <em>REPLICA MYSQL PRIMARY HOSTNAME</em>
@@ -203,7 +203,7 @@ ms.locfileid: '145100050'
     - 在名为 <code>[cluster "<em>ACTIVE NODE HOSTNAME</em>"]</code> 的主动节点的每个部分中，仔细检查以下键值对。
       - `datacenter` 应与顶级 `[cluster]` 部分中 `primary-datacenter` 的值匹配。
       - `consul-datacenter` 应与 `datacenter` 的值匹配，该值应与顶级 `[cluster]` 部分中 `primary-datacenter` 的值相同。
-    - 确保每个主动节点的配置与包含相同角色的被动节点的配置具有相对应的部分 。 在被动节点的每个部分中，仔细检查每个键值对。
+    - 确保每个主动节点的配置与包含相同角色的被动节点的配置具有相对应的部分。在被动节点的每个部分中，仔细检查每个键值对。
       - `datacenter` 应与其他所有被动节点匹配。
       - `consul-datacenter` 应与其他所有被动节点匹配。
       - `hostname` 应与部分标题中的主机名匹配。
@@ -231,9 +231,9 @@ ms.locfileid: '145100050'
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-17. 配置负载均衡器，如果故障转移到被动节点，该均衡器将接受来自用户的连接。 有关详细信息，请参阅“[群集网络配置](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer)”。
+17. 配置负载均衡器，如果故障转移到被动节点，该均衡器将接受来自用户的连接。有关详细信息，请参阅“[群集网络配置](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer)”。
 
-您已完成为群集中的节点配置高可用性副本。 每个主动节点开始将配置和数据复制到其对应的被动节点，并且您可以在发生故障时将流量直接引导至辅助数据中心的负载均衡器。 有关故障转移的详细信息，请参阅“[发起到副本群集的故障转移](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)”。
+您已完成为群集中的节点配置高可用性副本。每个主动节点开始将配置和数据复制到其对应的被动节点，并且您可以在发生故障时将流量直接引导至辅助数据中心的负载均衡器。有关故障转移的详细信息，请参阅“[发起到副本群集的故障转移](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)”。
 
 ### 配置示例
 
@@ -305,9 +305,9 @@ ms.locfileid: '145100050'
 
 ## 监控主动与被动群集节点之间的复制
 
-群集中主动节点与被动节点之间的初始复制需要时间。 时间量取决于要复制的数据量和 {% data variables.product.prodname_ghe_server %} 的活动水平。
+群集中主动节点与被动节点之间的初始复制需要时间。时间量取决于要复制的数据量和 {% data variables.product.prodname_ghe_server %} 的活动水平。
 
-您可以通过 {% data variables.product.prodname_ghe_server %} 系统管理 shell 使用命令行工具监控群集中任何节点的进度。 有关管理 shell 的详细信息，请参阅“[访问管理 shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)”。
+您可以通过 {% data variables.product.prodname_ghe_server %} 系统管理 shell 使用命令行工具监控群集中任何节点的进度。有关管理 shell 的详细信息，请参阅“[访问管理 shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)”。
 
 - 监控数据库的复制：
 
@@ -333,7 +333,7 @@ ms.locfileid: '145100050'
   ghe-dpages replication-status
   ```
 
-你可以使用 `ghe-cluster-status` 查看群集的整体运行状况。 有关详细信息，请参阅“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)”。
+你可以使用 `ghe-cluster-status` 查看群集的整体运行状况。有关详细信息，请参阅“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)”。
 
 ## 故障转移后重新配置高可用性复制
 
@@ -341,13 +341,13 @@ ms.locfileid: '145100050'
 
 ### 预配和配置新的被动节点
 
-故障转移后，您可以通过两种方式重新配置高可用性。 选择的方法将取决于故障转移的原因以及原始主动节点的状态。
+故障转移后，您可以通过两种方式重新配置高可用性。选择的方法将取决于故障转移的原因以及原始主动节点的状态。
 
 1. 为辅助数据中心中的每个新主动节点预配和配置一组新的被动节点。
 
 2. 将旧的主动节点用作新的被动节点。
 
-重新配置高可用性的过程与高可用性的初始配置相同。 有关详细信息，请参阅“[为群集创建高可用性副本](#creating-a-high-availability-replica-for-a-cluster)”。
+重新配置高可用性的过程与高可用性的初始配置相同。有关详细信息，请参阅“[为群集创建高可用性副本](#creating-a-high-availability-replica-for-a-cluster)”。
 
 
 ## 禁用群集的高可用性复制
@@ -360,7 +360,7 @@ ms.locfileid: '145100050'
 
 3. 在顶级 `[cluster]` 部分中，删除 `redis-master-replica` 和 `mysql-master-replica` 键值对。
 
-4. 删除被动节点的每个部分。 对于被动节点，`replica` 配置为 `enabled`。
+4. 删除被动节点的每个部分。对于被动节点，`replica` 配置为 `enabled`。
 
 {% data reusables.enterprise_clustering.apply-configuration %}
 

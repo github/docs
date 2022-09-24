@@ -25,7 +25,7 @@ ms.locfileid: '147578648'
 
 若要审核对企业资源的访问并管理许可证使用情况，可以查看有权访问企业的所有人员的列表。 
 
-可以查看所有当前企业成员和企业管理员{% ifversion ghec %}，以及要成为成员和管理员{% endif %}的待定邀请。 若要更轻松地使用此信息，可以搜索和筛选列表。
+可以查看所有当前企业成员和企业管理员{% ifversion ghec %}，以及要成为成员和管理员{% endif %}的待定邀请。若要更轻松地使用此信息，可以搜索和筛选列表。
 
 {% ifversion ghec %}
 
@@ -45,21 +45,21 @@ ms.locfileid: '147578648'
 
 可以查看企业的所有当前企业所有者{% ifversion ghec %}和账单管理员{% endif %}。{% ifversion enterprise-membership-view-improvements %} 可以查看有关每个管理员{% ifversion ghec %}的有用信息，并按角色{% endif %} 筛选列表。{% endif %}可以通过搜索其用户名或显示名称来查找特定人员。
 
-{% ifversion ghes > 3.5 %}账户被暂停的企业所有者被列入企业管理员列表中，并被标识为暂停。 你应考虑将所看到的任何已暂停的所有者降级。 有关详细信息，请参阅“[推广或降级网站管理员](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)”。
+{% ifversion ghes > 3.5 %}账户被暂停的企业所有者被列入企业管理员列表中，并被标识为暂停。你应考虑将所看到的任何已暂停的所有者降级。有关详细信息，请参阅“[推广或降级网站管理员](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)”。
 {% endif %}
 
-{% ifversion not ghae %} 还可以删除管理员。 有关详细信息， 请参阅“[邀请人员管理企业](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)”。
+{% ifversion not ghae %} 还可以删除管理员。有关详细信息，请参阅“[邀请人员管理企业](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)”。
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %} {% data reusables.enterprise-accounts.administrators-tab %}
 
 ## 查看成员 {% ifversion enterprise-membership-view-improvements %}{% else %} 和外部协作者{% endif %}
 
-可以查看企业的所有当前成员 {% ifversion enterprise-membership-view-improvements %}{% else %}或外部协作者{% endif %}。 可以查看有关每个帐户的有用信息，并通过有用的方式（如按角色）筛选列表。 您可以通过搜索其用户名或显示名称查找特定人员。
+可以查看企业的所有当前成员 {% ifversion enterprise-membership-view-improvements %}{% else %}或外部协作者{% endif %}。可以查看有关每个帐户的有用信息，并通过有用的方式（如按角色）筛选列表。您可以通过搜索其用户名或显示名称查找特定人员。
 
 可以通过单击人员名称查看有关该人员访问企业的详细信息，例如人员所属的组织。
 
-{% ifversion remove-enterprise-members %} 还可从企业拥有的所有组织中删除任何企业成员。 有关详细信息，请参阅“[从企业中删除成员](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)”。
+{% ifversion remove-enterprise-members %} 还可从企业拥有的所有组织中删除任何企业成员。有关详细信息，请参阅“[从企业中删除成员](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)”。
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}{% ifversion enterprise-membership-view-improvements %}{% else %}
@@ -70,7 +70,7 @@ ms.locfileid: '147578648'
 {% ifversion enterprise-membership-view-improvements %}
 ## 查看外部协作者
 
-可以查看企业的所有当前外部协作者。 可以查看有关每个协作者的有用信息，并通过有用的方式（如按组织）筛选列表。 可以通过搜索其用户名或显示名称查找特定协作者。
+可以查看企业的所有当前外部协作者。可以查看有关每个协作者的有用信息，并通过有用的方式（如按组织）筛选列表。可以通过搜索其用户名或显示名称查找特定协作者。
 
 可以通过单击人员名称查看有关该人员访问企业的详细信息，例如协作者有权访问的所有存储库的列表。
 
@@ -84,9 +84,9 @@ ms.locfileid: '147578648'
 {% ifversion ghec %}
 ## 查看待定邀请
 
-可以查看要成为企业中的成员、管理员或外部协作者的所有待定邀请。 可以通过有用的方式（如按组织）筛选列表。 您可以通过搜索其用户名或显示名称查找特定人员。
+可以查看要成为企业中的成员、管理员或外部协作者的所有待定邀请。可以通过有用的方式（如按组织）筛选列表。您可以通过搜索其用户名或显示名称查找特定人员。
 
-在待定成员列表中，对于任何个人帐户，可以取消所有邀请以加入企业拥有的组织。 这不会取消该人员成为企业管理员或外部协作者的任何邀请。 
+在待定成员列表中，对于任何个人帐户，可以取消所有邀请以加入企业拥有的组织。这不会取消该人员成为企业管理员或外部协作者的任何邀请。 
 
 {% note %}
 
@@ -94,7 +94,7 @@ ms.locfileid: '147578648'
 
 {% endnote %}
 
-如果使用 {% data variables.product.prodname_vss_ghe %}，则待定邀请列表包括未加入 {% data variables.product.prodname_dotcom %} 上的任何组织的所有 {% data variables.product.prodname_vs %} 订阅者，即使订阅者没有加入组织的待定邀请也是如此。 有关如何使 {% data variables.product.prodname_vs %} 订阅者访问 {% data variables.product.prodname_enterprise %} 的详细信息，请参阅“[设置 {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)”。
+如果使用 {% data variables.product.prodname_vss_ghe %}，则待定邀请列表包括未加入 {% data variables.product.prodname_dotcom %} 上的任何组织的所有 {% data variables.product.prodname_vs %} 订阅者，即使订阅者没有加入组织的待定邀请也是如此。有关如何使 {% data variables.product.prodname_vs %} 订阅者访问 {% data variables.product.prodname_enterprise %} 的详细信息，请参阅“[设置 {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}
 1. 在“人员”下，单击“待定邀请”。
@@ -109,7 +109,7 @@ ms.locfileid: '147578648'
 
 ## 在 {% data variables.product.prodname_emu_enterprise %} 中查看暂停的成员
 
-如果您的企业使用 {% data variables.product.prodname_emus %}，您还可以查看已暂停的用户。 暂停的用户是在从 {% data variables.product.prodname_emu_idp_application %} 应用程序取消分配或从身份提供商中删除后已取消预配的成员。 有关详细信息，请参阅“[关于企业托管用户](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”。
+如果您的企业使用 {% data variables.product.prodname_emus %}，您还可以查看已暂停的用户。暂停的用户是在从 {% data variables.product.prodname_emu_idp_application %} 应用程序取消分配或从身份提供商中删除后已取消预配的成员。有关详细信息，请参阅“[关于企业托管用户](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}
 1. 若要查看已挂起成员的列表，请在活动成员列表上方单击“已挂起”。

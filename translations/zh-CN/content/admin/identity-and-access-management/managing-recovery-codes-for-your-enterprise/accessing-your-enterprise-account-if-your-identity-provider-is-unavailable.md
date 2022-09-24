@@ -20,7 +20,7 @@ ms.locfileid: '147578802'
 ---
 身份验证配置错误或标识提供者 (IdP) 问题阻止你使用 SSO 时，你可以使用恢复代码访问你的企业帐户。 
 
-要以这种方式访问企业帐户，必须先下载并存储企业的恢复代码。 有关详细信息，请参阅“[下载企业帐户的单一登录恢复代码](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)”。
+要以这种方式访问企业帐户，必须先下载并存储企业的恢复代码。有关详细信息，请参阅“[下载企业帐户的单一登录恢复代码](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)”。
 
 {% data reusables.saml.recovery-code-caveats %}
 

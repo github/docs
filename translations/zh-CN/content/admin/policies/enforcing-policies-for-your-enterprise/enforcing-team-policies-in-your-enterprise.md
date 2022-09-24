@@ -28,11 +28,11 @@ ms.locfileid: '145098986'
 ---
 ## 关于企业中团队的策略
 
-您可以执行策略来控制企业在 {% data variables.product.product_name %} 上的企业成员如何管理团队。 您也可以允许组织所有者管理团队策略。 有关详细信息，请参阅[关于团队](/organizations/organizing-members-into-teams/about-teams)
+您可以执行策略来控制企业在 {% data variables.product.product_name %} 上的企业成员如何管理团队。您也可以允许组织所有者管理团队策略。有关详细信息，请参阅[关于团队](/organizations/organizing-members-into-teams/about-teams)
 
 ## 执行团队讨论策略
 
-在企业拥有的所有组织中，可以启用或禁用团队讨论，或允许所有者在组织级别管理设置。 有关详细信息，请参阅[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions/)。
+在企业拥有的所有组织中，可以启用或禁用团队讨论，或允许所有者在组织级别管理设置。有关详细信息，请参阅[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions/)。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}
 3. 在左侧边栏中，单击“团队”。

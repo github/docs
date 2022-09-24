@@ -1,6 +1,6 @@
 ---
 title: 邀请人员管理企业
-intro: '你可以{% ifversion ghec %}邀请用户成为企业所有者或帐单管理员，以{% elsif ghes %}将企业所有者添加到{% endif %}企业帐户。 也可以删除不再需要访问企业帐户的企业所有者{% ifversion ghec %}或帐单管理员{% endif %}。'
+intro: '你可以{% ifversion ghec %}邀请用户成为企业所有者或帐单管理员，以{% elsif ghes %}将企业所有者添加到{% endif %}企业帐户。也可以删除不再需要访问企业帐户的企业所有者{% ifversion ghec %}或帐单管理员{% endif %}。'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
@@ -36,7 +36,7 @@ ms.locfileid: '146180445'
 
 {% ifversion ghec %}
 
-如果您的企业使用 {% data variables.product.prodname_emus %}，企业所有者只能通过您的身份提供商添加或删除。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+如果您的企业使用 {% data variables.product.prodname_emus %}，企业所有者只能通过您的身份提供商添加或删除。有关详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 
 {% endif %}
 
@@ -48,9 +48,9 @@ ms.locfileid: '146180445'
 
 ## {% ifversion ghec %}邀请{% elsif ghes %}添加{% endif %}企业管理员到企业帐户
 
-{% ifversion ghec %}在邀请用户加入企业帐户后，他们必须接受电子邮件邀请，然后才可访问企业帐户。 待处理的邀请将在 7 天后过期。{% endif %}
+{% ifversion ghec %}在邀请用户加入企业帐户后，他们必须接受电子邮件邀请，然后才可访问企业帐户。待处理的邀请将在 7 天后过期。{% endif %}
 
-{% ifversion enterprise-membership-view-improvements %} 可以查看成为企业帐户管理员的所有待处理邀请。 有关详细信息，请参阅[查看企业中的人员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)。
+{% ifversion enterprise-membership-view-improvements %} 可以查看成为企业帐户管理员的所有待处理邀请。有关详细信息，请参阅[查看企业中的人员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)。
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %} {% data reusables.enterprise-accounts.administrators-tab %}

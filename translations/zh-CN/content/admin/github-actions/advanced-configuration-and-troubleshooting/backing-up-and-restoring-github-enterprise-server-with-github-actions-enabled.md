@@ -26,7 +26,7 @@ ms.locfileid: '145100008'
 以下是将带有 {% data variables.product.prodname_actions %} 的 {% data variables.product.product_location %} 恢复到新设备所需步骤的概述：
 
 1. 确认原始设备处于脱机状态。
-1. 在替换 {% data variables.product.prodname_ghe_server %} 设备上手动配置网络设置。 网络设置被排除在备份快照之外，不会被 `ghe-restore` 覆盖。
+1. 在替换 {% data variables.product.prodname_ghe_server %} 设备上手动配置网络设置。网络设置被排除在备份快照之外，不会被 `ghe-restore` 覆盖。
 1. 若要将替换设备配置为使用与原始设备相同的 {% data variables.product.prodname_actions %} 外部存储配置，请从新设备使用 `ghe-config` 命令设置所需的参数。
     
     - Azure Blob 存储
@@ -48,14 +48,14 @@ ms.locfileid: '145100008'
     ```
       
 
-1. 在替换设备上启用 {% data variables.product.prodname_actions %}。 这将把替换设备连接到 {% data variables.product.prodname_actions %} 的相同外部存储。
+1. 在替换设备上启用 {% data variables.product.prodname_actions %}。这将把替换设备连接到 {% data variables.product.prodname_actions %} 的相同外部存储。
 
     ```shell
     ghe-config app.actions.enabled true
     ghe-config-apply
     ```
 
-1. 配置并启用 {% data variables.product.prodname_actions %} 后，使用 `ghe-restore` 命令从备份中还原其余数据。 有关详细信息，请参阅“[还原备份](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)”。
-1. 在替换设备上重新注册自托管运行器。 有关详细信息，请参阅[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)。
+1. 配置并启用 {% data variables.product.prodname_actions %} 后，使用 `ghe-restore` 命令从备份中还原其余数据。有关详细信息，请参阅“[还原备份](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)”。
+1. 在替换设备上重新注册自托管运行器。有关详细信息，请参阅[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)。
 
 有关备份和还原 {% data variables.product.prodname_ghe_server %} 的详细信息，请参阅“[在设备上配置备份](/admin/configuration/configuring-backups-on-your-appliance)”。

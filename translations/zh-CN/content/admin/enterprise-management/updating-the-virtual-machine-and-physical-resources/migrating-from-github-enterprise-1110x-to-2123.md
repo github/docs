@@ -26,33 +26,33 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '146332598'
 ---
-支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。 不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 有关详细信息，请参阅 11.10.348 升级过程“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。
+支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。您必须先通过多次升级过程升级到 11.10.348。有关详细信息，请参阅 11.10.348 升级过程“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。
 
-要升级到最新版 {% data variables.product.prodname_enterprise %}，您必须先迁移到 {% data variables.product.prodname_ghe_server %} 2.1，然后才能执行正常升级过程。 有关详细信息，请参阅“[升级 {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。
+要升级到最新版 {% data variables.product.prodname_enterprise %}，您必须先迁移到 {% data variables.product.prodname_ghe_server %} 2.1，然后才能执行正常升级过程。有关详细信息，请参阅“[升级 {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。
 
 ## 准备迁移
 
-1. 查看配置和安装指南，并检查在您的环境中配置 {% data variables.product.prodname_enterprise %} 2.1.23 的所有基本要求是否已得到满足。 有关详细信息，请参阅“[预配和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”。
+1. 查看配置和安装指南，并检查在您的环境中配置 {% data variables.product.prodname_enterprise %} 2.1.23 的所有基本要求是否已得到满足。有关详细信息，请参阅“[预配和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”。
 2. 验证当前实例正在运行受支持的升级版本。
-3. 设置最新版本的 {% data variables.product.prodname_enterprise_backup_utilities %}。 有关详细信息，请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils)。
+3. 设置最新版本的 {% data variables.product.prodname_enterprise_backup_utilities %}。有关详细信息，请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils)。
     - 如果已使用 {% data variables.product.prodname_enterprise_backup_utilities %} 配置排定的备份，请确保您已更新为最新版本。
     - 如果您当前未运行排定的备份，请设置 {% data variables.product.prodname_enterprise_backup_utilities %}。
-4. 使用 `ghe-backup` 命令生成当前实例的初始完整备份快照。 如果您已为当前实例配置排定的备份，则不需要生成实例快照。
+4. 使用 `ghe-backup` 命令生成当前实例的初始完整备份快照。如果您已为当前实例配置排定的备份，则不需要生成实例快照。
 
    {% tip %}
 
-   **提示：** 在快照生成期间，可以使实例保持在线激活状态。 您将在迁移的维护过程中生成另一个快照。 由于备份的递增，此初始快照会减少在最终快照中传输的数据量，从而可能缩短维护窗口。
+   **提示：** 在快照生成期间，可以使实例保持在线激活状态。您将在迁移的维护过程中生成另一个快照。由于备份的递增，此初始快照会减少在最终快照中传输的数据量，从而可能缩短维护窗口。
 
    {% endtip %}
 
-5. 确定用于将用户网络流量切换到新实例的方法。 迁移完毕后，所有 HTTP 和 Git 网络流量都将定向到新实例。
-    - **DNS** - 建议为所有环境使用此方法，因为此方法简单易用，即使在从一个数据中心迁移到另一个数据中心的情况下也能正常使用。 开始迁移之前，请将现有 DNS 记录的 TTL 缩减为 5 分钟或更短时间，并允许更改传播。 迁移完成后，将 DNS 记录更新为指向新实例的 IP 地址。
-    - **IP 地址分配** - 此方法仅适用于 VMware 到 VMware 的迁移，除非 DNS 方法不可用，否则不建议使用此方法。 开始迁移之前，您需要关闭旧实例并将其 IP 地址分配给新实例。
-6. 排定维护窗口。 维护窗口的时间应足够长，以便将数据从备份主机传输到新实例，并根据备份快照的大小和可用网络带宽而变化。 在此期间，如果要迁移到新实例，当前实例将不可用，且处于维护模式。
+5. 确定用于将用户网络流量切换到新实例的方法。迁移完毕后，所有 HTTP 和 Git 网络流量都将定向到新实例。
+    - **DNS** - 建议为所有环境使用此方法，因为此方法简单易用，即使在从一个数据中心迁移到另一个数据中心的情况下也能正常使用。开始迁移之前，请将现有 DNS 记录的 TTL 缩减为 5 分钟或更短时间，并允许更改传播。迁移完成后，将 DNS 记录更新为指向新实例的 IP 地址。
+    - **IP 地址分配** - 此方法仅适用于 VMware 到 VMware 的迁移，除非 DNS 方法不可用，否则不建议使用此方法。开始迁移之前，您需要关闭旧实例并将其 IP 地址分配给新实例。
+6. 排定维护窗口。维护窗口的时间应足够长，以便将数据从备份主机传输到新实例，并根据备份快照的大小和可用网络带宽而变化。在此期间，如果要迁移到新实例，当前实例将不可用，且处于维护模式。
 
 ## 执行迁移
 
-1. 配置新的 {% data variables.product.prodname_enterprise %} 2.1 实例。 有关详细信息，请参阅适用于你的目标平台的“[预配和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”指南。
+1. 配置新的 {% data variables.product.prodname_enterprise %} 2.1 实例。有关详细信息，请参阅适用于你的目标平台的“[预配和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”指南。
 2. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。
 3. 设置管理员密码。
 5. 单击“迁移”。
@@ -62,7 +62,7 @@ ms.locfileid: '146332598'
 7. 单击“添加密钥”，然后单击“继续” 。
 8. 复制你将在备份主机上运行的 `ghe-restore` 命令，将数据迁移到新实例。
 ![开始迁移](/assets/images/enterprise/migration/migration-restore-start.png)
-9. 在旧实例上启用维护模式，并等待所有活动进程完成。 有关详细信息，请参阅“[启用和安排维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+9. 在旧实例上启用维护模式，并等待所有活动进程完成。有关详细信息，请参阅“[启用和安排维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
   {% note %}
 
@@ -70,7 +70,7 @@ ms.locfileid: '146332598'
 
   {% endnote %}
 
-10. 在备份主机上，运行 `ghe-backup` 命令以生成最终的备份快照。 这样可以确保捕获来自旧实例的所有数据。
+10. 在备份主机上，运行 `ghe-backup` 命令以生成最终的备份快照。这样可以确保捕获来自旧实例的所有数据。
 11. 在备份主机上，运行你在新实例的恢复状态屏幕上复制的 `ghe-restore` 命令以恢复最新快照。
   ```shell
   $ ghe-restore 169.254.1.1
@@ -105,4 +105,4 @@ ms.locfileid: '146332598'
   {% endnote %}
 
 15. 使用 DNS 或 IP 地址分配将用户网络流量从旧实例切换到新实例。
-16. 升级到 {% data variables.product.prodname_ghe_server %} 的最新补丁版本。 有关详细信息，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。
+16. 升级到 {% data variables.product.prodname_ghe_server %} 的最新补丁版本。有关详细信息，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。

@@ -31,9 +31,9 @@ ms.locfileid: '145099948'
 ---
 ## 关于全局 web 挂钩
 
-当企业内部发生事件时，您可以使用全局 web 挂钩通知外部 Web 服务器。 您可以将服务器配置为接收 web 挂钩的有效负载，然后运行监控、响应或实施企业用户和组织管理规则的应用程序或代码。 有关详细信息，请参阅“[Webhook](/developers/webhooks-and-events/webhooks)”。
+当企业内部发生事件时，您可以使用全局 web 挂钩通知外部 Web 服务器。您可以将服务器配置为接收 web 挂钩的有效负载，然后运行监控、响应或实施企业用户和组织管理规则的应用程序或代码。有关详细信息，请参阅“[Webhook](/developers/webhooks-and-events/webhooks)”。
 
-例如，您可以将 {% data variables.product.product_location %} 配置为在有人创建、删除或修改企业内的存储库或组织时发送 web 挂钩。 您可以将服务器配置为在收到 web 挂钩后自动执行任务。
+例如，您可以将 {% data variables.product.product_location %} 配置为在有人创建、删除或修改企业内的存储库或组织时发送 web 挂钩。您可以将服务器配置为在收到 web 挂钩后自动执行任务。
 
 ![全局 web 挂钩列表](/assets/images/enterprise/site-admin-settings/list-of-global-webhooks.png)
 
@@ -50,12 +50,12 @@ ms.locfileid: '145099948'
   ![列出内容类型选项的下拉菜单](/assets/images/enterprise/site-admin-settings/add-global-webhook-content-type-dropdown.png)
 8. （可选）在“机密”字段中，键入用作 `secret` 密钥的字符串。
   ![用于键入用作密钥的字符串的字段](/assets/images/enterprise/site-admin-settings/add-global-webhook-secret.png)
-9. （可选）如果有效负载 URL 为 HTTPS，并且你不希望 {% data variables.product.prodname_ghe_server %} 在传递有效负载时验证 SSL 证书，请选择“禁用 SSL 验证”。 阅读 SSL 验证的信息，然后单击“我已了解我的 Webhook 可能不安全”。
+9. （可选）如果有效负载 URL 为 HTTPS，并且你不希望 {% data variables.product.prodname_ghe_server %} 在传递有效负载时验证 SSL 证书，请选择“禁用 SSL 验证”。阅读 SSL 验证的信息，然后单击“我已了解我的 Webhook 可能不安全”。
   ![用于禁用 SSL 验证的复选框](/assets/images/enterprise/site-admin-settings/add-global-webhook-disable-ssl-button.png)
 
   {% warning %}
 
-  警告：SSL 验证有助于确保安全传递挂钩有效负载。 我们不建议禁用 SSL 验证。
+  警告：SSL 验证有助于确保安全传递挂钩有效负载。我们不建议禁用 SSL 验证。
 
   {% endwarning %}
 10. 确定您希望此 web 挂钩对每个事件还是选定事件触发。

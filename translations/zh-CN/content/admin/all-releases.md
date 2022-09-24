@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise Server 发行版
-intro: '{% data variables.product.company_short %} 定期发布 {% data variables.product.product_name %} 的新版本。 可以查看受支持的版本、查看弃用日期并浏览已部署版本的文档。'
+intro: '{% data variables.product.company_short %} 定期发布 {% data variables.product.product_name %} 的新版本。可以查看受支持的版本、查看弃用日期并浏览已部署版本的文档。'
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
@@ -17,13 +17,13 @@ ms.locfileid: '147062904'
 ---
 ## 关于 {% data variables.product.product_name %} 的版本
 
-{% data reusables.enterprise.constantly-improving %} {% data variables.product.company_short %} 支持四个最新功能版。 有关详细信息，请参阅[“关于升级到新版本”](/admin/overview/about-upgrades-to-new-releases)。
+{% data reusables.enterprise.constantly-improving %} {% data variables.product.company_short %} 支持四个最新功能版。有关详细信息，请参阅[“关于升级到新版本”](/admin/overview/about-upgrades-to-new-releases)。
 
-可以查看[发行说明](/admin/release-notes)中每个版本的新增功能，并且可以在这里的 {% data variables.product.prodname_docs %} 上查看所有版本的管理员和用户文档。 阅读文档时，请确保选择反映你的产品的版本。 有关详细信息，请参阅[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs)。
+可以查看[发行说明](/admin/release-notes)中每个版本的新增功能，并且可以在这里的 {% data variables.product.prodname_docs %} 上查看所有版本的管理员和用户文档。阅读文档时，请确保选择反映你的产品的版本。有关详细信息，请参阅[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs)。
 
 ## 当前支持的版本
 
-{% data variables.product.company_short %} 支持以下 {% data variables.product.product_name %} 版本。 有关最新版本的详细信息，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) 网站。
+{% data variables.product.company_short %} 支持以下 {% data variables.product.product_name %} 版本。有关最新版本的详细信息，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) 网站。
 
 | 版本 | 发布 | 弃用 | 发行说明 | 文档 |
 | :- | :- | :- | :- | :- |

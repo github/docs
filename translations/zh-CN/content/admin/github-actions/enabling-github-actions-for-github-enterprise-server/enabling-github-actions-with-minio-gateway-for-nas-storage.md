@@ -36,7 +36,7 @@ ms.locfileid: '146682307'
 {% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.actions.perform-blob-storage-precheck %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
 1. 在“项目和日志存储”下，选择“Amazon S3”，然后输入存储桶的详细信息：
 
-   * AWS 服务 URL：MinIO 服务的 URL。 例如 `https://my-minio.example:9000`。
+   * AWS 服务 URL：MinIO 服务的 URL。例如 `https://my-minio.example:9000`。
    * AWS S3 存储桶：S3 存储桶的名称。
    * AWS S3 访问密钥和 AWS S3 密钥：用于 MinIO 实例的 `MINIO_ACCESS_KEY` 和 `MINIO_SECRET_KEY` 。
 

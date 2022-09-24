@@ -27,7 +27,7 @@ ms.locfileid: '145098943'
 ---
 ## 准备 {% data variables.product.prodname_ghe_server %} 源实例
 
-1. 验证您在 {% data variables.product.prodname_ghe_server %} 源上是站点管理员。 执行此操作的最佳方法是验证是否可以[通过 SSH 连接到实例](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)。
+1. 验证您在 {% data variables.product.prodname_ghe_server %} 源上是站点管理员。执行此操作的最佳方法是验证是否可以[通过 SSH 连接到实例](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)。
 
 2. 在 {% data variables.product.prodname_ghe_server %} 源实例上{% data reusables.enterprise_migrations.token-generation %}。
 
@@ -39,7 +39,7 @@ ms.locfileid: '145098943'
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 要准备需要导出的存储库，请使用 `ghe-migrator add` 命令和存储库的 URL：
-    * 如果要锁定存储库，请在命令后附加 `--lock`。 如果要执行试用运行，则不需要 `--lock`。
+    * 如果要锁定存储库，请在命令后附加 `--lock`。如果要执行试用运行，则不需要 `--lock`。
       ```shell
       $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>reponame</em> --lock
       ```
@@ -57,7 +57,7 @@ ms.locfileid: '145098943'
   ```shell
   Enter personal access token:  **************
   ```
-5. 在 `ghe-migrator add` 完成后，它将打印自身生成并用于标识此导出的唯一的“迁移 GUID”以及添加到导出中的资源列表。 你将使用它在后续 `ghe-migrator add` 和 `ghe-migrator export` 步骤中生成的迁移 GUID，来指示 `ghe-migrator` 继续对同一导出进行操作。
+5. 在 `ghe-migrator add` 完成后，它将打印自身生成并用于标识此导出的唯一的“迁移 GUID”以及添加到导出中的资源列表。你将使用它在后续 `ghe-migrator add` 和 `ghe-migrator export` 步骤中生成的迁移 GUID，来指示 `ghe-migrator` 继续对同一导出进行操作。
   ```shell
   > 101 models added to export
   > Migration GUID: <em>example-migration-guid</em>
@@ -79,15 +79,15 @@ ms.locfileid: '145098943'
   > attachments                  |  4
   > projects                     |  2
   ```
-  每次您添加包含现有迁移 GUID 的新仓库时，它都会更新现有导出。 如果在没有迁移 GUID的情况下再次运行 `ghe-migrator add`，将会启动新的导出并生成新的迁移 GUID。 开始准备要导入的迁移时，不要再次使用在导出过程中生成的迁移 GUID。
+  每次您添加包含现有迁移 GUID 的新仓库时，它都会更新现有导出。如果在没有迁移 GUID 的情况下再次运行 `ghe-migrator add`，将会启动新的导出并生成新的迁移 GUID。开始准备要导入的迁移时，不要再次使用在导出过程中生成的迁移 GUID。
 
-3. 如果锁定了源存储库，则可以使用 `ghe-migrator target_url` 命令，在链接到存储库新位置的存储库页面上设置自定义锁定消息。 传递源仓库 URL、目标仓库 URL 和第 5 步中的迁移 GUID：
+3. 如果锁定了源存储库，则可以使用 `ghe-migrator target_url` 命令，在链接到存储库新位置的存储库页面上设置自定义锁定消息。传递源仓库 URL、目标仓库 URL 和第 5 步中的迁移 GUID：
 
   ```shell
   $ ghe-migrator target_url https://<em>hostname</em>/<em>username</em>/<em>reponame</em> https://<em>target_hostname</em>/<em>target_username</em>/<em>target_reponame</em> -g <em>MIGRATION_GUID</em>
   ```
 
-6. 若要将更多存储库添加到同一导出，请使用带有 `-g` 标志的 `ghe-migrator add` 命令。 您需要传入新仓库 URL 和第 5 步中的迁移 GUID：
+6. 若要将更多存储库添加到同一导出，请使用带有 `-g` 标志的 `ghe-migrator add` 命令。您需要传入新仓库 URL 和第 5 步中的迁移 GUID：
   ```shell
   $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>other_reponame</em> -g <em>MIGRATION_GUID</em> --lock
   ```
@@ -104,7 +104,7 @@ ms.locfileid: '145098943'
   > logout
   > Connection to <em>hostname</em> closed.
   ```
-9. 使用 [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) 命令将迁移存档复制到计算机。 存档文件将使用迁移 GUID 命名：
+9. 使用 [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) 命令将迁移存档复制到计算机。存档文件将使用迁移 GUID 命名：
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
   ```
