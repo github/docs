@@ -20,7 +20,7 @@ ms.locfileid: '147877233'
 ---
 ## 付费功能和产品
 
-您可以随时将个人帐户或组织升级到付费订阅。 也可以选择从 {% data variables.product.prodname_marketplace %} 购买应用程序，或者升级 {% data variables.large_files.product_name_long %} 的存储空间和带宽。 有关详细信息，请参阅：
+您可以随时将个人帐户或组织升级到付费订阅。也可以选择从 {% data variables.product.prodname_marketplace %} 购买应用程序，或者升级 {% data variables.large_files.product_name_long %} 的存储空间和带宽。有关详细信息，请参阅：
 - “[关于 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/about-billing-for-github-accounts)”
 - “[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”
 - “[关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)”
@@ -28,7 +28,7 @@ ms.locfileid: '147877233'
 
 ## 管理计费设置
 
-您必须单独管理每个帐户的计费设置、付款方式以及付款功能和产品。 您可以为每个帐户的付费产品和功能选择每月或每年付款。 与帐户相关的每个付费功能或产品共用计费日期、付款方式和收据。
+您必须单独管理每个帐户的计费设置、付款方式以及付款功能和产品。您可以为每个帐户的付费产品和功能选择每月或每年付款。与帐户相关的每个付费功能或产品共用计费日期、付款方式和收据。
 
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 

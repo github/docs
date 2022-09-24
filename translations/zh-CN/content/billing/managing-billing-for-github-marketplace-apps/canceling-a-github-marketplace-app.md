@@ -25,9 +25,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084518'
 ---
-取消订阅后，您的订阅在当前结算周期结束之前将保持有效。 取消在下一个结算日期生效。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
+取消订阅后，您的订阅在当前结算周期结束之前将保持有效。取消在下一个结算日期生效。有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
-当您取消付费计划中的免费试用时，您的订阅将立即被取消，您将失去对该应用程序的访问权限。 如果您在试用期内未取消免费试用，则您将在试用期结束时，通过您的帐户中备案的付款方式为您选择的计划付费。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
+当您取消付费计划中的免费试用时，您的订阅将立即被取消，您将失去对该应用程序的访问权限。如果您在试用期内未取消免费试用，则您将在试用期结束时，通过您的帐户中备案的付款方式为您选择的计划付费。有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 

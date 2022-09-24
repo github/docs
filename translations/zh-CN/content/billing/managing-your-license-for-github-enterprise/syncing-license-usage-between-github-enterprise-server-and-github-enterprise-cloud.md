@@ -23,7 +23,7 @@ ms.locfileid: '147572590'
 
 {% data reusables.enterprise-licensing.about-license-sync %}
 
-为确保在 {% data variables.product.prodname_dotcom_the_website %} 上看到最新的许可证详细信息，可以使用 {% data variables.product.prodname_github_connect %} 在环境之间自动同步许可证使用情况。 有关 {% data variables.product.prodname_github_connect %} 的详细信息，请参阅 {% data variables.product.prodname_ghe_server %} 文档中的“[关于 {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghec %}”。{% elsif ghes %}。{% endif %}
+为确保在 {% data variables.product.prodname_dotcom_the_website %} 上看到最新的许可证详细信息，可以使用 {% data variables.product.prodname_github_connect %} 在环境之间自动同步许可证使用情况。有关 {% data variables.product.prodname_github_connect %} 的详细信息，请参阅 {% data variables.product.prodname_ghe_server %} 文档中的“[关于 {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghec %}”。{% elsif ghes %}。{% endif %}
 
 如果不想启用 {% data variables.product.prodname_github_connect %}，可以通过将文件从 {% data variables.product.prodname_ghe_server %} 上传到 {% data variables.product.prodname_dotcom_the_website %} 来手动同步许可证使用情况。
 
@@ -35,9 +35,9 @@ ms.locfileid: '147572590'
 
 ## 自动同步许可证使用情况
 
-可以使用 {% data variables.product.prodname_github_connect %} 在 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 之间每周自动同步用户许可证计数和使用情况。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_server %} 文档中的“[为企业启用自动用户许可证同步]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %}”。{% elsif ghes %}。{% endif %}
+可以使用 {% data variables.product.prodname_github_connect %} 在 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 之间每周自动同步用户许可证计数和使用情况。有关详细信息，请参阅 {% data variables.product.prodname_ghe_server %} 文档中的“[为企业启用自动用户许可证同步]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %}”。{% elsif ghes %}。{% endif %}
 
-{% ifversion ghec or ghes > 3.4 %} 启用 {% data variables.product.prodname_github_connect %} 后，许可证数据将每周自动同步。 还可以通过触发许可证同步作业来随时手动同步许可证数据。
+{% ifversion ghec or ghes > 3.4 %} 启用 {% data variables.product.prodname_github_connect %} 后，许可证数据将每周自动同步。还可以通过触发许可证同步作业来随时手动同步许可证数据。
 
 ### 触发许可证同步作业
 

@@ -32,7 +32,7 @@ ms.locfileid: '145084432'
 
 ## 第 1 步：创建您的个人 {% data variables.product.prodname_dotcom %} 帐户。
 
-您将使用您的个人帐户来设置组织。 以后续订或更改客户的订阅时也需要登录此帐户。
+您将使用您的个人帐户来设置组织。以后续订或更改客户的订阅时也需要登录此帐户。
 
 如果你在 {% data variables.product.prodname_dotcom %} 上已有个人帐户，请跳到[步骤 2](#step-2-create-the-organization)。
 
@@ -45,7 +45,7 @@ ms.locfileid: '145084432'
 ## 第 2 步：创建组织。
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %} {% data reusables.organizations.new-organization %}
-3. 在“选择计划”下，单击“选择 {% data variables.product.prodname_free_team %}”。 您将在下一步升级组织。
+3. 在“选择计划”下，单击“选择 {% data variables.product.prodname_free_team %}”。您将在下一步升级组织。
 {% data reusables.organizations.organization-name %}
 5. 在“Contact email（联系电子邮件）”下，键入客户的联系电子邮件地址。
   ![联系电子邮件字段](/assets/images/help/organizations/contact-email-field.png) {% data reusables.dotcom_billing.owned_by_business %}
@@ -69,7 +69,7 @@ ms.locfileid: '145084432'
 ![键入客户用户名的字段](/assets/images/help/organizations/org-invite-modal.png)
 6. 选择客户端的“所有者”角色，然后单击“发送邀请”。
 ![所有者单选按钮和发送邀请按钮](/assets/images/help/organizations/add-owner-send-invite-reseller.png)
-7. 客户将收到邀请其加入组织的电子邮件。 他们接受邀请后，您才能进入下一步骤。
+7. 客户将收到邀请其加入组织的电子邮件。他们接受邀请后，您才能进入下一步骤。
 
 ## 第 6 步：将组织所有权转让给客户
 
@@ -84,7 +84,7 @@ ms.locfileid: '145084432'
 
 ## 后续步骤
 
-1. 请联系你的客户，要求他们[将你添加到组织中担任帐单管理员](/articles/adding-a-billing-manager-to-your-organization)。 您需要成为组织的帐单管理员以便将来续订或更改客户的订阅。
+1. 请联系你的客户，要求他们[将你添加到组织中担任帐单管理员](/articles/adding-a-billing-manager-to-your-organization)。您需要成为组织的帐单管理员以便将来续订或更改客户的订阅。
 2. 如果要从组织中删除您组织的信用卡以便不再从该卡付费，请联系 {% data variables.contact.contact_support %}。
 3. 需要续订客户的付费订阅时，请参阅“[续订客户的付费组织](/articles/renewing-your-client-s-paid-organization)”。
 

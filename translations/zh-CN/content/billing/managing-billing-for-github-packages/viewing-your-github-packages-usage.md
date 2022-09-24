@@ -30,7 +30,7 @@ ms.locfileid: '147060440'
 
 ## 查看组织的 {% data variables.product.prodname_registry %} 使用情况
 
-组织所有者和帐单管理员可查看组织的 {% data variables.product.prodname_registry %} 使用情况。 对于由企业帐户管理的组织，只有组织所有者可以在组织的帐单页面中查看 {% data variables.product.prodname_registry %} 使用情况。
+组织所有者和帐单管理员可查看组织的 {% data variables.product.prodname_registry %} 使用情况。对于由企业帐户管理的组织，只有组织所有者可以在组织的帐单页面中查看 {% data variables.product.prodname_registry %} 使用情况。
 
 {% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.packages-data %} {% data reusables.dotcom_billing.actions-packages-storage %} {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 

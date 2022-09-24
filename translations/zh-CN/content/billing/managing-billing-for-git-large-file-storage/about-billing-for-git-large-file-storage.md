@@ -30,7 +30,7 @@ ms.locfileid: '145084554'
 
 ## 购买附加存储空间和带宽
 
-附加存储空间和带宽以单一数据包提供。 一个数据包的费用为 {% data variables.large_files.pack_monthly_price %}，提供每月 {% data variables.large_files.pack_monthly_bandwidth %} 的带宽和 {% data variables.large_files.pack_monthly_storage %} 的存储空间。 您可以根据需要购买多个数据包。 例如，如果您需要 150 GB 的存储空间，则需要购买三个数据包。
+附加存储空间和带宽以单一数据包提供。一个数据包的费用为 {% data variables.large_files.pack_monthly_price %}，提供每月 {% data variables.large_files.pack_monthly_bandwidth %} 的带宽和 {% data variables.large_files.pack_monthly_storage %} 的存储空间。您可以根据需要购买多个数据包。例如，如果您需要 150 GB 的存储空间，则需要购买三个数据包。
 
 购买 {% data variables.large_files.product_name_short %} 的数据包独立于 {% data variables.product.product_name %} 上的任何其他已付费功能或产品。
 

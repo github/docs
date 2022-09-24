@@ -17,7 +17,7 @@ ms.locfileid: '145084436'
 ---
 ## 关于 {% data variables.product.prodname_enterprise %} 的许可证文件
 
-从 {% data variables.contact.contact_enterprise_sales %} 购买或升级 {% data variables.product.prodname_enterprise %} 许可证后，必须将新许可证文件上传到 {% data variables.product.product_location_enterprise %} 才能解锁新用户许可证。 有关 {% data variables.product.product_name %} 许可证的详细信息，请参阅“[关于 {% data variables.product.prodname_enterprise %} 的许可证](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)”和“[下载 {% data variables.product.prodname_enterprise %} 的许可证](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)”。
+从 {% data variables.contact.contact_enterprise_sales %} 购买或升级 {% data variables.product.prodname_enterprise %} 许可证后，必须将新许可证文件上传到 {% data variables.product.product_location_enterprise %} 才能解锁新用户许可证。有关 {% data variables.product.product_name %} 许可证的详细信息，请参阅“[关于 {% data variables.product.prodname_enterprise %} 的许可证](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)”和“[下载 {% data variables.product.prodname_enterprise %} 的许可证](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)”。
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 

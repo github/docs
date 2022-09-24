@@ -1,7 +1,7 @@
 ---
 title: GitHub 上的帐单和付款
 shortTitle: Billing and payments
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} 为每个帐户提供免费和付费产品。 你可以随时升级或降级帐户的订阅并管理计费设置。{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} 会针对你企业成员的{% ifversion ghec or ghae %} {% data variables.product.product_name %} 使用情况{% elsif ghes %} {% data variables.product.product_name %} 的许可席位{% ifversion ghes %}以及所购买的任何其他服务向你收取费用{% endif %}{% endif %}。 {% endif %}{% ifversion ghec %} 你可以随时查看订阅并管理计费设置。 {% endif %}{% ifversion fpt or ghec %} 你还可以查看 {% data variables.product.product_name %} 功能的使用情况并管理支出限制，例如 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_github_codespaces %}。{% endif %}'
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} 为每个帐户提供免费和付费产品。你可以随时升级或降级帐户的订阅并管理计费设置。{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} 会针对你企业成员的{% ifversion ghec or ghae %} {% data variables.product.product_name %} 使用情况{% elsif ghes %} {% data variables.product.product_name %} 的许可席位{% ifversion ghes %}以及所购买的任何其他服务向你收取费用{% endif %}{% endif %}。 {% endif %}{% ifversion ghec %} 你可以随时查看订阅并管理计费设置。 {% endif %}{% ifversion fpt or ghec %} 你还可以查看 {% data variables.product.product_name %} 功能的使用情况并管理支出限制，例如 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_github_codespaces %}。{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github

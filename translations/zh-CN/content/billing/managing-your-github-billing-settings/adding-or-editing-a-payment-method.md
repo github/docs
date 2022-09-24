@@ -34,7 +34,7 @@ ms.locfileid: '145084461'
 ---
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
-我们不为个人帐户提供开发票或支持采购单。 在您的帐户的结算日期，我们将以电子邮件发送每月或每年收据。 如果你的公司、国家/地区或会计师要求收据提供更多详细信息，你还可为收据[添加额外的信息](/articles/adding-information-to-your-personal-account-s-receipts)。
+我们不为个人帐户提供开发票或支持采购单。在您的帐户的结算日期，我们将以电子邮件发送每月或每年收据。如果你的公司、国家/地区或会计师要求收据提供更多详细信息，你还可为收据[添加额外的信息](/articles/adding-information-to-your-personal-account-s-receipts)。
 
 ## 更新个人帐户的付款方式
 

@@ -36,7 +36,7 @@ ms.locfileid: '145084489'
 ---
 ## 降级您的 {% data variables.product.product_name %} 订阅
 
-降级个人帐户或组织的订阅时，定价和帐户功能更改将在下一个帐单日期生效。 对付费个人帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款。 有关详细信息，请参阅“[升级或降级如何影响计费流程？](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)”。
+降级个人帐户或组织的订阅时，定价和帐户功能更改将在下一个帐单日期生效。对付费个人帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款。有关详细信息，请参阅“[升级或降级如何影响计费流程？](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)”。
 
 ## 降级个人帐户的订阅
 
@@ -48,7 +48,7 @@ ms.locfileid: '145084489'
 5. 阅读有关个人帐户在下一个计费日期将无法再使用的功能的信息，然后单击“我了解，继续降级”。
   ![“继续降级”按钮](/assets/images/help/billing/continue-with-downgrade.png)
 
-如果您在私有仓库中发布了 {% data variables.product.prodname_pages %} 站点，并添加了自定义域，在从 {% data variables.product.prodname_pro %} 降级至 {% data variables.product.prodname_free_user %} 前，请删除或更新您的 DNS 记录，以避免域接管的风险。 有关详细信息，请参阅“[为你的 {% data variables.product.prodname_pages %} 站点管理自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。
+如果您在私有仓库中发布了 {% data variables.product.prodname_pages %} 站点，并添加了自定义域，在从 {% data variables.product.prodname_pro %} 降级至 {% data variables.product.prodname_free_user %} 前，请删除或更新您的 DNS 记录，以避免域接管的风险。有关详细信息，请参阅“[为你的 {% data variables.product.prodname_pages %} 站点管理自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。
 
 ## 降级组织的订阅
 
@@ -61,7 +61,7 @@ ms.locfileid: '145084489'
 
 {% note %}
 
-注意：如果你目前正在试用 {% data variables.product.prodname_ghe_cloud %}，并且在试用结束前没有购买 {% data variables.product.prodname_enterprise %}，你的组织将自动降级为 {% data variables.product.prodname_free_team %} 或 {% data variables.product.prodname_team %}。 有关详细信息，请参阅“[设置试用版 {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)”。
+注意：如果你目前正在试用 {% data variables.product.prodname_ghe_cloud %}，并且在试用结束前没有购买 {% data variables.product.prodname_enterprise %}，你的组织将自动降级为 {% data variables.product.prodname_free_team %} 或 {% data variables.product.prodname_team %}。有关详细信息，请参阅“[设置试用版 {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)”。
 
 {% endnote %}
 
@@ -85,7 +85,7 @@ ms.locfileid: '145084489'
 
 ## 从组织删除付费席位
 
-要减少组织使用的付费席位数，您可以从组织中删除成员，或将成员转换为外部协作者并仅给予他们公共仓库的访问权限。 有关详细信息，请参阅：
+要减少组织使用的付费席位数，您可以从组织中删除成员，或将成员转换为外部协作者并仅给予他们公共仓库的访问权限。有关详细信息，请参阅：
 - [从组织中删除成员](/articles/removing-a-member-from-your-organization)
 - [将组织成员转换为外部协作者](/articles/converting-an-organization-member-to-an-outside-collaborator)
 - [管理个人对组织存储库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)

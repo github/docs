@@ -32,13 +32,13 @@ ms.locfileid: '145910509'
 
 ## 关于 {% data variables.product.prodname_enterprise %} 的许可证文件
 
-购买或续订 {% data variables.product.prodname_enterprise %} 时，{% data variables.product.company_short %} 会为 {% ifversion ghec %}{% data variables.product.prodname_ghe_server %}的部署{% elsif ghes %}{% data variables.product.product_location_enterprise %}{% endif %}提供许可证文件。 许可证文件有到期日期，控制可以使用 {% data variables.product.product_location_enterprise %} 的人数。 下载并安装 {% data variables.product.prodname_ghe_server %} 后，必须上传许可证文件以解锁应用程序以供使用。
+购买或续订 {% data variables.product.prodname_enterprise %} 时，{% data variables.product.company_short %} 会为 {% ifversion ghec %}{% data variables.product.prodname_ghe_server %}的部署{% elsif ghes %}{% data variables.product.product_location_enterprise %}{% endif %}提供许可证文件。许可证文件有到期日期，控制可以使用 {% data variables.product.product_location_enterprise %} 的人数。下载并安装 {% data variables.product.prodname_ghe_server %} 后，必须上传许可证文件以解锁应用程序以供使用。
 
 有关下载许可证文件的详细信息，请参阅“[下载 {% data variables.product.prodname_enterprise %} 的许可证文件](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)”。 
 
 有关上传许可证文件的详细信息，请参阅 {% ifversion ghec %} {% data variables.product.prodname_ghe_server %} 文档中的[将新的许可证上传到 {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)。{% elsif ghes %} [将新的许可证上传到 {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)。{% endif %}
 
-如果您的许可证过期，将无法通过 Web 浏览器或 Git 访问 {% data variables.product.prodname_ghe_server %}。 需要时，您可以使用命令行实用程序备份所有数据。 有关详细信息，请参阅{% ifversion ghec %}"[Configuring backups on your appliance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/guides/installation/configuring-backups-on-your-appliance)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}“[在设备上配置备份](/admin/guides/installation/configuring-backups-on-your-appliance)”。 {% endif %}
+如果您的许可证过期，将无法通过 Web 浏览器或 Git 访问 {% data variables.product.prodname_ghe_server %}。需要时，您可以使用命令行实用程序备份所有数据。有关详细信息，请参阅{% ifversion ghec %}"[Configuring backups on your appliance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/guides/installation/configuring-backups-on-your-appliance)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}“[在设备上配置备份](/admin/guides/installation/configuring-backups-on-your-appliance)”。 {% endif %}
 
 如对续订许可有任何疑问，请联系 {% data variables.contact.contact_enterprise_sales %}。
 

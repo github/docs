@@ -24,7 +24,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084553'
 ---
-降级数据包数量后，更改将在下一个结算日期生效。 有关详细信息，请参阅“[关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)”。
+降级数据包数量后，更改将在下一个结算日期生效。有关详细信息，请参阅“[关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)”。
 
 ## 降级个人帐户的存储和带宽
 

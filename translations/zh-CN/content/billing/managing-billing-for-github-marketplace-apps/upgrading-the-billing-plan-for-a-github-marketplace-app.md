@@ -24,7 +24,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084514'
 ---
-升级应用程序时，您的付款方式会基于到下一结算日期之前剩余的时间按比例收费。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
+升级应用程序时，您的付款方式会基于到下一结算日期之前剩余的时间按比例收费。有关详细信息，请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
 ## 升级个人帐户的应用程序
 

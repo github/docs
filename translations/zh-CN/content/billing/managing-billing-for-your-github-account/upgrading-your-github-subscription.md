@@ -45,7 +45,7 @@ ms.locfileid: '145084475'
 
 ## 升级个人帐户的订阅
 
-你可以将个人帐户从 {% data variables.product.prodname_free_user %} 升级到 {% data variables.product.prodname_pro %}，以便在个人帐户拥有的私有存储库上获取高级代码评审工具。 升级您的个人帐户不会影响您可能管理的任何组织或这些组织拥有的存储库。 {% data reusables.gated-features.more-info %}
+你可以将个人帐户从 {% data variables.product.prodname_free_user %} 升级到 {% data variables.product.prodname_pro %}，以便在个人帐户拥有的私有存储库上获取高级代码评审工具。升级您的个人帐户不会影响您可能管理的任何组织或这些组织拥有的存储库。 {% data reusables.gated-features.more-info %}
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
 1. 在“当前计划”旁边，单击“升级”。
@@ -59,7 +59,7 @@ ms.locfileid: '145084475'
 
 ### 升级组织的订阅
 
-您可以将组织从 {% data variables.product.prodname_free_team %} 升级到 {% data variables.product.prodname_team %}，以访问团队的高级协作和管理工具，也可以将组织升级到 {% data variables.product.prodname_ghe_cloud %} 以使用更多的安全性、合规性和部署控件。 升级组织不会影响您的个人帐户或您的个人帐户拥有的存储库。 {% data reusables.gated-features.more-info-org-products %}
+您可以将组织从 {% data variables.product.prodname_free_team %} 升级到 {% data variables.product.prodname_team %}，以访问团队的高级协作和管理工具，也可以将组织升级到 {% data variables.product.prodname_ghe_cloud %} 以使用更多的安全性、合规性和部署控件。升级组织不会影响您的个人帐户或您的个人帐户拥有的存储库。 {% data reusables.gated-features.more-info-org-products %}
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -67,9 +67,9 @@ ms.locfileid: '145084475'
 
 ### 使用 {% data variables.product.prodname_ghe_cloud %} 的组织的后续步骤
 
-如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[管理组织的 SAML 单一登录](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}”。{% else %}."{% endif %}
+如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[管理组织的 SAML 单一登录](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}”。{% else %}."{% endif %}
 
-如果想要将企业帐户与 {% data variables.product.prodname_ghe_cloud %} 一起使用，请联系 {% data variables.contact.contact_enterprise_sales %}。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[关于企业帐户](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}”。{% else %}."{% endif %}
+如果想要将企业帐户与 {% data variables.product.prodname_ghe_cloud %} 一起使用，请联系 {% data variables.contact.contact_enterprise_sales %}。有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[关于企业帐户](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}”。{% else %}."{% endif %}
 
 ### 将席位添加到您的组织
 

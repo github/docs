@@ -35,7 +35,7 @@ ms.locfileid: '145084454'
 
 ## 设置组织的帐单邮箱
 
-您组织的帐单邮箱是 {% data variables.product.product_name %} 发送收据及其他计费相关通信的地方。 该电子邮件地址不需要是组织帐户唯一的。
+您组织的帐单邮箱是 {% data variables.product.product_name %} 发送收据及其他计费相关通信的地方。该电子邮件地址不需要是组织帐户唯一的。
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -47,7 +47,7 @@ ms.locfileid: '145084454'
 
 ## 管理组织帐单邮箱的其他收件人
 
-如果您有用户希望接收帐单报告，您可以将他们的电子邮件地址添加为帐单邮箱收件人。 此功能仅适用于非企业管理的组织。
+如果您有用户希望接收帐单报告，您可以将他们的电子邮件地址添加为帐单邮箱收件人。此功能仅适用于非企业管理的组织。
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -61,7 +61,7 @@ ms.locfileid: '145084454'
 
 ### 更改帐单通知的主要收件人
 
-必须始终将一个地址指定为主要收件人。 在选择新的主要收件人之前，无法删除带有此指定地址。
+必须始终将一个地址指定为主要收件人。在选择新的主要收件人之前，无法删除带有此指定地址。
 
 {% data reusables.organizations.billing-settings %}
 1. 在“Billing management（帐单管理）”下，找到要设置为主要收件人的电子邮件地址。
@@ -81,9 +81,9 @@ ms.locfileid: '145084454'
 {% ifversion ghec %}
 ## 设置企业的帐单电子邮件
 
-您企业的帐单邮箱是 {% data variables.product.product_name %} 发送收据及其他计费相关通信的地方。 该电子邮件地址不需要是企业帐户唯一的。
+您企业的帐单邮箱是 {% data variables.product.product_name %} 发送收据及其他计费相关通信的地方。该电子邮件地址不需要是企业帐户唯一的。
 
-只有具有所有者或帐单管理员角色的企业成员才能访问或更改企业的帐单设置。 有关详细信息，请参阅“[管理企业中的用户](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)”。
+只有具有所有者或帐单管理员角色的企业成员才能访问或更改企业的帐单设置。有关详细信息，请参阅“[管理企业中的用户](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
 1. 单击“账单电子邮件”。 
@@ -96,7 +96,7 @@ ms.locfileid: '145084454'
 
 如果您有用户希望接收帐单报告，您可以将他们的电子邮件地址添加为帐单邮箱收件人。 
 
-只有具有所有者或帐单管理员角色的企业成员才能访问或更改企业的帐单设置。 有关详细信息，请参阅“[管理企业中的用户](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)”。
+只有具有所有者或帐单管理员角色的企业成员才能访问或更改企业的帐单设置。有关详细信息，请参阅“[管理企业中的用户](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)”。
 
 ### 添加帐单通知的收件人
 
