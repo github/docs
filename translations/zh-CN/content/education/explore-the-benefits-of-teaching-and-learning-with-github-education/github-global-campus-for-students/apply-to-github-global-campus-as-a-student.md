@@ -33,7 +33,7 @@ ms.locfileid: '147574168'
 
 {% note %}
 
-注意：不能将学术折扣从一个帐户转移到另一个帐户。 如果有多个想要应用折扣的帐户，请考虑[合并](/articles/merging-multiple-user-accounts)个人帐户，并根据需要[重命名](/articles/changing-your-github-username)保留的帐户。
+注意：不能将学术折扣从一个帐户转移到另一个帐户。如果有多个想要应用折扣的帐户，请考虑[合并](/articles/merging-multiple-user-accounts)个人帐户，并根据需要[重命名](/articles/changing-your-github-username)保留的帐户。
 
 {% endnote %}
 
@@ -42,12 +42,12 @@ ms.locfileid: '147574168'
 ## 申请加入 {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
-3. 在“哪一项最能描述你的学术状态?”下，选择“学生”。
+3. 在“哪一项最能描述你的学术状态？”下，选择“学生”。
   ![选择学术状态](/assets/images/help/education/academic-status-student.png) {% data reusables.education.select-email-address %} {% data reusables.education.upload-proof-status %} {% data reusables.education.school-name %} {% data reusables.education.plan-to-use-github %} {% data reusables.education.submit-application %}
 
 ## 到期和续订
 
-在你的 {% data variables.product.prodname_global_campus %} 访问权限到期后，如果你仍有资格，则可重新申请，但 {% data variables.product.prodname_student_pack %} 的有些合作伙伴优惠不能续订。 合作伙伴的大多数计时特惠在您设置后便开始。 若要重新申请，只需返回到 https://education.github.com ，单击你的个人资料图片，然后单击“重新验证学术关系”。
+在你的 {% data variables.product.prodname_global_campus %} 访问权限到期后，如果你仍有资格，则可重新申请，但 {% data variables.product.prodname_student_pack %} 的有些合作伙伴优惠不能续订。合作伙伴的大多数计时特惠在您设置后便开始。若要重新申请，只需返回到 https://education.github.com，单击你的个人资料图片，然后单击“重新验证学术关系”。
 
 ![用于重新验证学术关系的菜单选项](/assets/images/help/education/reverify-academic-affiliation.png)
 

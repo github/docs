@@ -47,7 +47,7 @@ ms.locfileid: '147574175'
 
 ## 非学生申请学生开发包
 
-教师没有资格获得 [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) 随附的合作伙伴优惠。 重新申请时，确保选择“教职工”来描述你的学术状态。
+教师没有资格获得 [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) 随附的合作伙伴优惠。重新申请时，确保选择“教职工”来描述你的学术状态。
 
 ## 延伸阅读
 

@@ -57,7 +57,7 @@ ms.locfileid: '147574165'
 
 {% endnote %}
 
-如果你有多个个人帐户，则必须合并帐户。 要保留折扣，请保留已授予折扣的帐户。 您可以通过将所有电子邮件地址添加到保留的帐户来重命名保留的帐户，并保留您的贡献历史记录。
+如果你有多个个人帐户，则必须合并帐户。要保留折扣，请保留已授予折扣的帐户。您可以通过将所有电子邮件地址添加到保留的帐户来重命名保留的帐户，并保留您的贡献历史记录。
 
 有关详细信息，请参阅：
 - “[合并多个个人帐户](/articles/merging-multiple-user-accounts)”
@@ -71,7 +71,7 @@ ms.locfileid: '147574165'
 - 您正在攻读将在当前学术会议上终止的学位。
 - 您未满 13 岁。
 
-您的讲师仍可申请 {% data variables.product.prodname_education %} 折扣供课堂使用。 如果你是编程学校或训练营的学生，并且你的学校参加了 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools)，你将有资格获得 {% data variables.product.prodname_student_pack %}。
+您的讲师仍可申请 {% data variables.product.prodname_education %} 折扣供课堂使用。如果你是编程学校或训练营的学生，并且你的学校参加了 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools)，你将有资格获得 {% data variables.product.prodname_student_pack %}。
 
 ## 延伸阅读
 

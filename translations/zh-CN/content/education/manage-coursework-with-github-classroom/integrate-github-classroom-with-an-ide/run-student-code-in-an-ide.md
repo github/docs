@@ -17,7 +17,7 @@ ms.locfileid: '145097944'
 ---
 ## 关于学生代码和 IDE
 
-如果为作业配置集成开发环境 (IDE)，您可以在 IDE 中运行代码。 您不需要复制作业仓库到您的计算机。
+如果为作业配置集成开发环境 (IDE)，您可以在 IDE 中运行代码。您不需要复制作业仓库到您的计算机。
 
 有关 IDE 的详细信息，请参阅“[将 {% data variables.product.prodname_classroom %} 与 IDE 集成](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)”。
 

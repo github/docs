@@ -19,7 +19,7 @@ ms.locfileid: '145099775'
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
-当对作业启用反馈拉取请求时，{% data variables.product.prodname_classroom %} 将在作业存储库中为每个学生或团队创建一个名为“反馈”的特殊拉取请求。 拉取请求会自动显示学生推送到作业仓库的默认分支的每个提交。
+当对作业启用反馈拉取请求时，{% data variables.product.prodname_classroom %} 将在作业存储库中为每个学生或团队创建一个名为“反馈”的特殊拉取请求。拉取请求会自动显示学生推送到作业仓库的默认分支的每个提交。
 
 ## 先决条件
 
@@ -32,7 +32,7 @@ ms.locfileid: '145099775'
   ![组织教室列表中的教室](/assets/images/help/classroom/click-classroom-in-list.png) {% data reusables.classroom.click-assignment-in-list %}
 1. 在提交右侧，单击“查看”。
   ![作业提交列表中的作业“查看”按钮](/assets/images/help/classroom/assignments-click-review-button.png)
-1. 评审拉取请求。 有关详细信息，请参阅“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”。
+1. 评审拉取请求。有关详细信息，请参阅“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”。
 
 ## 延伸阅读
 

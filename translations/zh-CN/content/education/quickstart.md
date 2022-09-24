@@ -31,7 +31,7 @@ ms.locfileid: '147573882'
 {% data reusables.accounts.create-account %}
 1. 按照提示创建免费的个人帐户。
 
-创建个人帐户后，创建一个免费的组织帐户。 您将使用此组织帐户创建和管理教室 {% data variables.product.prodname_classroom %}。
+创建个人帐户后，创建一个免费的组织帐户。您将使用此组织帐户创建和管理教室 {% data variables.product.prodname_classroom %}。
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %} {% data reusables.organizations.new-organization %}
 4. 按照提示创建免费组织。
@@ -44,7 +44,7 @@ ms.locfileid: '147573882'
 
 {% tip %}
 
-提示：除了个人折扣外，{% data variables.product.company_short %} 还通过 {% data variables.product.prodname_campus_program %} 与教育机构合作。 有关详细信息，请参阅 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) 网站。
+提示：除了个人折扣外，{% data variables.product.company_short %} 还通过 {% data variables.product.prodname_campus_program %} 与教育机构合作。有关详细信息，请参阅 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) 网站。
 
 {% endtip %}
 
@@ -54,17 +54,17 @@ ms.locfileid: '147573882'
 
 ## 设置 {% data variables.product.prodname_classroom %}
 
-通过个人帐户和组织帐户便可开始使用 {% data variables.product.prodname_classroom %}。 {% data variables.product.prodname_classroom %} 免费使用。 您可以跟踪和管理作业，自动对工作进行评分，并为学生提供反馈。
+通过个人帐户和组织帐户便可开始使用 {% data variables.product.prodname_classroom %}。 {% data variables.product.prodname_classroom %} 免费使用。您可以跟踪和管理作业，自动对工作进行评分，并为学生提供反馈。
 
 {% data reusables.classroom.sign-into-github-classroom %}
 1. 要授权 {% data variables.product.prodname_classroom %} 访问你在 {% data variables.product.prodname_dotcom %} 上的个人帐户，请查看相应信息，然后单击“授权 {% data variables.product.prodname_classroom %}”。
   ![个人帐户的“授权 {% data variables.product.prodname_classroom %}”按钮](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
-1. 查看信息。 要授权 {% data variables.product.prodname_classroom %} 访问你在 {% data variables.product.prodname_dotcom %} 上的组织帐户，请单击“授权”。
+1. 查看信息。要授权 {% data variables.product.prodname_classroom %} 访问你在 {% data variables.product.prodname_dotcom %} 上的组织帐户，请单击“授权”。
   ![组织的“授权”按钮](/assets/images/help/classroom/setup-click-grant.png)
   
   {% tip %}
   
-  提示：如果看到的是“请求”按钮而非“授权”按钮，则表示你是组织的成员，而不是所有者  。 所有者必须批准您的 {% data variables.product.prodname_classroom %} 请求。 您必须是组织所有者才能在 {% data variables.product.prodname_classroom %} 中创建和管理教室和作业。 有关详细信息，请参阅“[授权 OAuth 应用](/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations)”。
+  提示：如果看到的是“请求”按钮而非“授权”按钮，则表示你是组织的成员，而不是所有者。所有者必须批准您的 {% data variables.product.prodname_classroom %} 请求。您必须是组织所有者才能在 {% data variables.product.prodname_classroom %} 中创建和管理教室和作业。有关详细信息，请参阅“[授权 OAuth 应用](/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations)”。
   
   {% endtip %}
   
@@ -83,9 +83,9 @@ ms.locfileid: '147573882'
 
 您已经创建了教室，可以开始使用 {% data variables.product.product_name %} 和 {% data variables.product.prodname_classroom %} 丰富您的课程！  🎉
 
-- 观看一些关于 {% data variables.product.prodname_classroom %} 的视频。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
-- 管理您的教室和教室管理员，并为您的教室创建学生名册。 有关详细信息，请参阅“[管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms)”。
-- 使用 Git 和 {% data variables.product.company_short %} 起始作业，让学生全面了解 Git 和 {% data variables.product.product_name %} 基础知识。 有关详细信息，请参阅“[使用 Git 和 {% data variables.product.company_short %} 入门分配](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)”。
+- 观看一些关于 {% data variables.product.prodname_classroom %} 的视频。有关详细信息，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
+- 管理您的教室和教室管理员，并为您的教室创建学生名册。有关详细信息，请参阅“[管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms)”。
+- 使用 Git 和 {% data variables.product.company_short %} 起始作业，让学生全面了解 Git 和 {% data variables.product.product_name %} 基础知识。有关详细信息，请参阅“[使用 Git 和 {% data variables.product.company_short %} 入门分配](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)”。
 - 为个别学生或团队创建作业。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
-- 编写并实施自动化测试，直接在作业仓库中为学生提供即时反馈。 有关详细信息，请参阅“[使用自动分级](/education/manage-coursework-with-github-classroom/use-autograding)”。
+- 编写并实施自动化测试，直接在作业仓库中为学生提供即时反馈。有关详细信息，请参阅“[使用自动分级](/education/manage-coursework-with-github-classroom/use-autograding)”。
 - 参加 {% data variables.product.prodname_education_community_with_url %}。

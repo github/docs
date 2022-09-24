@@ -69,7 +69,7 @@ Git 和 {% data variables.product.company_short %} 入门作业是一个预制�
 
 ### 命名作业
 
-对于个人作业，{% data variables.product.prodname_classroom %} 使用仓库前缀和学生的 {% data variables.product.product_name %} 用户名对仓库命名。 默认情况下，仓库前缀是作业标题。 例如，如果你对作业 "assignment-1" 命名，学生在 {% data variables.product.product_name %} 上的用户名是 @octocat，则 @octocat 的作业存储库的名称将是 `assignment-1-octocat`。
+对于个人作业，{% data variables.product.prodname_classroom %} 使用仓库前缀和学生的 {% data variables.product.product_name %} 用户名对仓库命名。默认情况下，仓库前缀是作业标题。例如，如果你对作业 "assignment-1" 命名，学生在 {% data variables.product.product_name %} 上的用户名是 @octocat，则 @octocat 的作业存储库的名称将是 `assignment-1-octocat`。
 
 {% data reusables.classroom.assignments-type-a-title %}
 
@@ -79,7 +79,7 @@ Git 和 {% data variables.product.company_short %} 入门作业是一个预制�
 
 ### 选择作业仓库的可见性
 
-作业的仓库可以是公开或私有的。 如果您使用私有仓库，只有学生可以查看您提供的反馈。 在“Repository visibility（仓库可见性）”下，选择可见性。
+作业的仓库可以是公开或私有的。如果您使用私有仓库，只有学生可以查看您提供的反馈。在“Repository visibility（仓库可见性）”下，选择可见性。
 
 完成后，单击“继续”。 {% data variables.product.prodname_classroom %} 将创建作业并将您带到作业页面。
 
@@ -97,11 +97,11 @@ Git 和 {% data variables.product.company_short %} 入门作业是一个预制�
   <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-Git 和 {% data variables.product.company_short %} 入门作业只适用于个别学生，不适用于组。 一旦您创建作业，学生可以开始做作业。
+Git 和 {% data variables.product.company_short %} 入门作业只适用于个别学生，不适用于组。一旦您创建作业，学生可以开始做作业。
 
 ## 后续步骤
 
-- 根据课程定制其他作业。 有关详细信息，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”、“[创建组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”和“[重复使用作业](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)”。
+- 根据课程定制其他作业。有关详细信息，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”、“[创建组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”和“[重复使用作业](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)”。
 
 ## 延伸阅读
 

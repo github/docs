@@ -27,13 +27,13 @@ ms.locfileid: '147574002'
 
 当你思考哪些开源存储库可能令人感兴趣时，请考虑你是否希望学习或协作，或者是否有特定的主题或语言可以作为一个良好的起点。
 
-在 {% data variables.product.prodname_community_exchange %} 库中浏览存储库时，可以按用途、主题或语言筛选可用存储库，并按名称和说明搜索存储库。 可以按提交日期或按存储库所拥有的星标、分支或问题数量对库中的存储库列表进行排序。
+在 {% data variables.product.prodname_community_exchange %} 库中浏览存储库时，可以按用途、主题或语言筛选可用存储库，并按名称和说明搜索存储库。可以按提交日期或按存储库所拥有的星标、分支或问题数量对库中的存储库列表进行排序。
 
 ![Community Exchange 搜索框和下拉列表筛选器的屏幕截图](/assets/images/help/education/community-exchange-search-and-filter.png)
 
 ## 对存储库标星
 
-可以为 {% data variables.product.prodname_community_exchange %} 库中列出的存储库标星。 标星操作便于以后再次找到存储库或主题。 对仓库加星标也可表示赞赏仓库维护员的工作。
+可以为 {% data variables.product.prodname_community_exchange %} 库中列出的存储库标星。标星操作便于以后再次找到存储库或主题。对仓库加星标也可表示赞赏仓库维护员的工作。
 
 {% data variables.product.prodname_community_exchange %} 库中的存储库列表可以根据存储库拥有的星标进行排序。
 
@@ -41,7 +41,7 @@ ms.locfileid: '147574002'
 
 ## 举报滥用行为
 
-{% data variables.product.prodname_community_exchange %} 社区审查存储库提交。 可以随时报告滥用存储库行为、垃圾信息或破坏性内容。
+{% data variables.product.prodname_community_exchange %} 社区审查存储库提交。可以随时报告滥用存储库行为、垃圾信息或破坏性内容。
 
 若要报告滥用存储库行为：请转到 {% data variables.product.prodname_community_exchange %} 主页，找到要报告的存储库，单击 {% octicon "kebab-horizontal" aria-label="The edit icon" %} 下拉列表，然后单击 {% octicon "report" aria-label="The report symbol" %}“报告滥用行为”。
 

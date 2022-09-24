@@ -17,13 +17,13 @@ ms.locfileid: '145099783'
 ---
 ## Repl.it 集成有什么变化
 
-自 2021 年 7 月 13 日起，Repl.it 集成不再可用。 变化如下：
+自 2021 年 7 月 13 日起，Repl.it 集成不再可用。变化如下：
 
 - 无法再从 GitHub Classroom 中创建新的私有和公共版本。
 - Replit Hacker 的权益（如 Always On 和 Boosts）不再适用于新的 GitHub Classroom 用户。
 
 ## 这对现有作业意味着什么？
-您现有的 GitHub Classroom 回复将永远保持私密状态，在 2021 年 9 月 30 日之前您可以通过这些回复向 GitHub Classroom 提交作业。 2021 年 9 月之后，作业自述文件上的 Replit 图标将不再有效。 我们建议您使用集成从任何自述文件中删除说明，并让学生知道该图标将不再有效。
+您现有的 GitHub Classroom 回复将永远保持私密状态，在 2021 年 9 月 30 日之前您可以通过这些回复向 GitHub Classroom 提交作业。2021 年 9 月之后，作业自述文件上的 Replit 图标将不再有效。我们建议您使用集成从任何自述文件中删除说明，并让学生知道该图标将不再有效。
 
 虽然您无法再在 Classroom 中创建私有回复，但在 9 月 30 日之前您可以继续在 Replit 中创建私密回复。
 
