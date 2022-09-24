@@ -13,7 +13,7 @@ ms.locfileid: '147060432'
 ---
 ## 关于 {% data variables.product.prodname_desktop %} 中的通知
 
-{% data variables.product.prodname_desktop %} 将显示当前所选存储库中发生的事件的系统通知。 在以下情况下将显示通知：
+{% data variables.product.prodname_desktop %} 将显示当前所选存储库中发生的事件的系统通知。在以下情况下将显示通知：
 
 - 拉取请求检查失败。
 - 拉取请求评审保留了评论、批准或请求的更改。
@@ -26,12 +26,12 @@ ms.locfileid: '147060432'
 
 ![拉取请求检查失败通知](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
 
-单击通知将显示一个对话框，其中包含有关检查的详细信息。 查看检查失败的原因后，可以重新运行检查，或快速切换到拉取请求分支，开始修复错误。 有关详细信息，请参阅“[在 GitHub Desktop 中查看和重新运行检查](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)”。
+单击通知将显示一个对话框，其中包含有关检查的详细信息。查看检查失败的原因后，可以重新运行检查，或快速切换到拉取请求分支，开始修复错误。有关详细信息，请参阅“[在 GitHub Desktop 中查看和重新运行检查](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)”。
 
 ![检查失败对话框](/assets/images/help/desktop/checks-failed-dialog.png)
 ## 拉取请求评审的通知
 
-当队友批准、评论或请求拉取请求中的更改时，{% data variables.product.prodname_desktop %} 将显示系统通知。 有关拉取请求评审的详细信息，请参阅“[关于拉取请求评审](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)”。
+当队友批准、评论或请求拉取请求中的更改时，{% data variables.product.prodname_desktop %} 将显示系统通知。有关拉取请求评审的详细信息，请参阅“[关于拉取请求评审](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)”。
 
 ![拉取请求评审通知](/assets/images/help/desktop/pull-request-review-notification.png)
 

@@ -30,7 +30,7 @@ ms.locfileid: '145099225'
 
 {% windows %}
 
-1. 打开控制面板。 有关详细信息，请参阅 Windows 帮助中的[控制面板在哪里？](https://support.microsoft.com/en-us/help/13764/windows-where-is-control-panel)。
+1. 打开控制面板。有关详细信息，请参阅 Windows 帮助中的[控制面板在哪里？](https://support.microsoft.com/en-us/help/13764/windows-where-is-control-panel)。
 2. 在“程序”下，单击“卸载程序”。
   ![控制面板中的“卸载程序”选项](/assets/images/help/desktop/windows-uninstall-a-program.png)
 3. 右键单击名为 {% data variables.product.prodname_desktop %} 的条目，然后单击“卸载” 。

@@ -16,15 +16,15 @@ ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099279'
 ---
 ## 关于管理分支
-您可以使用分支安全地试验对项目的更改。 分支可将您的开发工作与仓库中的其他分支隔开。 例如，您可以使用分支来开发新功能或修复漏洞。
+您可以使用分支安全地试验对项目的更改。分支可将您的开发工作与仓库中的其他分支隔开。例如，您可以使用分支来开发新功能或修复漏洞。
 
-始终可以从现有分支创建分支。 通常，您可能会从仓库的默认分支创建分支。 然后，您可以单独处理这个新分支，不受其他人对仓库所做更改的影响。
+始终可以从现有分支创建分支。通常，您可能会从仓库的默认分支创建分支。然后，您可以单独处理这个新分支，不受其他人对仓库所做更改的影响。
 
-您还可以从分支历史记录中的上一个提交开始创建分支。 如果您需要返回到仓库的早期视图以调查错误，或在最新版本上创建热补丁，这会很有帮助。
+您还可以从分支历史记录中的上一个提交开始创建分支。如果您需要返回到仓库的早期视图以调查错误，或在最新版本上创建热补丁，这会很有帮助。
 
-对您的工作满意后，您可以创建拉取请求，以将当前分支中的更改合并到另一个分支。 有关详细信息，请参阅“[创建问题或拉取请求](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)”和“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
+对您的工作满意后，您可以创建拉取请求，以将当前分支中的更改合并到另一个分支。有关详细信息，请参阅“[创建问题或拉取请求](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)”和“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
 
-如果您对仓库具有读取权限，可随时在 {% data variables.product.prodname_desktop %} 中创建分支， 但如果您对仓库具有写入权限，则只能将分支推送到 {% data variables.product.prodname_dotcom %}。
+如果您对仓库具有读取权限，可随时在 {% data variables.product.prodname_desktop %} 中创建分支，但如果您对仓库具有写入权限，则只能将分支推送到 {% data variables.product.prodname_dotcom %}。
 
 {% data reusables.desktop.protected-branches %}
 
@@ -32,7 +32,7 @@ ms.locfileid: '145099279'
 
 {% tip %}
 
-提示：你创建的第一个新分支将基于默认分支。 如果有多个分支，您可以选择新分支是基于当前检出的分支还是默认分支。
+提示：你创建的第一个新分支将基于默认分支。如果有多个分支，您可以选择新分支是基于当前检出的分支还是默认分支。
 
 {% endtip %}
 
@@ -64,10 +64,10 @@ ms.locfileid: '145099279'
   ![发布分支按钮](/assets/images/help/desktop/publish-branch-button.png)
 
 ## 在分支间切换
-您可以查看并提交到任何仓库的分支。 如有未提交但已保存的更改，您需要决定如何处理更改，然后才可切换分支。 您可以在当前分支上提交更改、隐藏更改以临时将它们保存在当前分支上，或者将更改传送到新分支。 如果要在切换分支之前提交更改，请参阅“[提交和查看对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)”。
+您可以查看并提交到任何仓库的分支。如有未提交但已保存的更改，您需要决定如何处理更改，然后才可切换分支。您可以在当前分支上提交更改、隐藏更改以临时将它们保存在当前分支上，或者将更改传送到新分支。如果要在切换分支之前提交更改，请参阅“[提交和查看对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)”。
 {% tip %}
 
-提示：可以在“高级”设置中设置用于切换分支的默认行为。 有关详细信息，请参阅“[配置基本设置](/desktop/getting-started-with-github-desktop/configuring-basic-settings)”。
+提示：可以在“高级”设置中设置用于切换分支的默认行为。有关详细信息，请参阅“[配置基本设置](/desktop/getting-started-with-github-desktop/configuring-basic-settings)”。
 
 {% endtip %}
 
@@ -77,7 +77,7 @@ ms.locfileid: '145099279'
 
 ## 删除分支
 
-无法删除目前与打开的拉取请求关联的分支。 您不能撤消对分支的删除。
+无法删除目前与打开的拉取请求关联的分支。您不能撤消对分支的删除。
 
 {% mac %}
 

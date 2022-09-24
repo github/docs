@@ -23,7 +23,7 @@ ms.locfileid: '145086499'
   ![名称字段](/assets/images/help/desktop/publish-repository-name-mac.png)
 5. 要发布公共存储库，请取消选中“保留此代码为专用”。
   ![“保留此代码为专用”复选框](/assets/images/help/desktop/publish-repository-private-checkbox-mac.png)
-6. 从“组织”下拉菜单中选择要发布存储库到其中的组织，或者选择“无”以将存储库发布到你的个人帐户 。
+6. 从“组织”下拉菜单中选择要发布存储库到其中的组织，或者选择“无”以将存储库发布到你的个人帐户。
   ![组织下拉菜单](/assets/images/help/desktop/publish-repository-org-dropdown-mac.png)
 7. 单击“发布存储库”按钮。
   ![“发布存储库”对话框中的“发布存储库”按钮](/assets/images/help/desktop/publish-repository-dialog-button-mac.png)
@@ -39,7 +39,7 @@ ms.locfileid: '145086499'
   ![名称字段](/assets/images/help/desktop/publish-repository-name-win.png)
 5. 要发布公共存储库，请取消选中“保留此代码为专用”。
   ![“保留此代码为专用”复选框](/assets/images/help/desktop/publish-repository-private-checkbox-win.png)
-6. 从“组织”下拉菜单中选择要发布存储库到其中的组织，或者选择“无”以将存储库发布到你的个人帐户 。
+6. 从“组织”下拉菜单中选择要发布存储库到其中的组织，或者选择“无”以将存储库发布到你的个人帐户。
   ![组织下拉菜单](/assets/images/help/desktop/publish-repository-org-dropdown-win.png)
 7. 单击“发布存储库”按钮。
   ![“发布存储库”对话框中的“发布存储库”按钮](/assets/images/help/desktop/publish-repository-dialog-button-win.png)

@@ -16,7 +16,7 @@ ms.locfileid: '145099284'
 ---
 {% tip %}
 
-提示：也可使用 {% data variables.product.prodname_desktop %} 克隆 {% data variables.product.prodname_dotcom %} 上的存储库。  有关详细信息，请参阅“[从 {% data variables.product.prodname_desktop %} 克隆存储库](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)”。
+提示：也可使用 {% data variables.product.prodname_desktop %} 克隆 {% data variables.product.prodname_dotcom %} 上的存储库。有关详细信息，请参阅“[从 {% data variables.product.prodname_desktop %} 克隆存储库](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)”。
 
 {% endtip %}
 

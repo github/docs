@@ -16,15 +16,15 @@ ms.locfileid: '147786027'
 ---
 ## 关于 {% data variables.product.prodname_vs %} 中的 {% data variables.product.prodname_copilot %}
 
-如果使用 {% data variables.product.prodname_vs %}，{% data variables.product.prodname_copilot %} 可以在你键入时自动完成代码。 安装后，可以启用或禁用 {% data variables.product.prodname_copilot %}，并且可以在 {% data variables.product.prodname_vs %} 或 {% data variables.product.prodname_dotcom_the_website %} 上配置高级设置。
+如果使用 {% data variables.product.prodname_vs %}，{% data variables.product.prodname_copilot %} 可以在你键入时自动完成代码。安装后，可以启用或禁用 {% data variables.product.prodname_copilot %}，并且可以在 {% data variables.product.prodname_vs %} 或 {% data variables.product.prodname_dotcom_the_website %} 上配置高级设置。
 
 ## 先决条件
 
-要在 {% data variables.product.prodname_vs %} 中配置 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_copilot %} 插件。 有关详细信息，请参阅“[{% data variables.product.prodname_vs %} 中的 {% data variables.product.prodname_copilot %} 入门指南](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)”。
+要在 {% data variables.product.prodname_vs %} 中配置 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_copilot %} 插件。有关详细信息，请参阅“[{% data variables.product.prodname_vs %} 中的 {% data variables.product.prodname_copilot %} 入门指南](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)”。
 
 ## {% data variables.product.prodname_copilot %} 的键盘快捷方式
 
-使用 {% data variables.product.prodname_copilot %} 时，可使用 {% data variables.product.prodname_vs %} 中的默认键盘快捷方式。 或者，可使用每个特定命令的首选键盘快捷方式重新绑定 {% data variables.product.prodname_vs %} 的“工具设置”中的快捷方式。 可以在键盘快捷方式编辑器中按命令名称搜索每个键盘快捷方式。
+使用 {% data variables.product.prodname_copilot %} 时，可使用 {% data variables.product.prodname_vs %} 中的默认键盘快捷方式。或者，可使用每个特定命令的首选键盘快捷方式重新绑定 {% data variables.product.prodname_vs %} 的“工具设置”中的快捷方式。可以在键盘快捷方式编辑器中按命令名称搜索每个键盘快捷方式。
 
 | 操作 | 快捷键 | 命令名称 |
 |:---|:---|:---|
@@ -49,7 +49,7 @@ ms.locfileid: '147786027'
 
 ## 为 {% data variables.product.prodname_copilot %} 配置 ReSharper
 
-如果使用 ReSharper，当你将 ReSharper 配置为使用 {% data variables.product.prodname_copilot %} 的本机 IntelliSense 时，{% data variables.product.prodname_copilot %} 可能效果最佳。 有关 ReSharper 的详细信息，请参阅 [ReSharper 文档](https://www.jetbrains.com/resharper/documentation/documentation.html)
+如果使用 ReSharper，当你将 ReSharper 配置为使用 {% data variables.product.prodname_copilot %} 的本机 IntelliSense 时，{% data variables.product.prodname_copilot %} 可能效果最佳。有关 ReSharper 的详细信息，请参阅 [ReSharper 文档](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
 1. 在 {% data variables.product.prodname_vs %} 工具栏中的“工具”下，单击“选项” 。
    ![{% data variables.product.prodname_vs %} 工具栏中“选项”选项的屏幕截图](/assets/images/help/copilot/vs-toolbar-options.png)

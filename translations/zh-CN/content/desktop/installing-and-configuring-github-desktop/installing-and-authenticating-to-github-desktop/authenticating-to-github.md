@@ -74,7 +74,7 @@ ms.locfileid: '145099231'
 
 如果您遇到身份验证错误，请先尝试在 {% data variables.product.prodname_desktop %} 上注销您的帐户，然后重新登录。
 
-对于某些错误，{% data variables.product.prodname_desktop %} 会以错误消息提示您。 如果没有提示，或者要查找任何错误的更多信息，请使用以下步骤查看 {% data variables.product.prodname_desktop %} 日志文件。
+对于某些错误，{% data variables.product.prodname_desktop %} 会以错误消息提示您。如果没有提示，或者要查找任何错误的更多信息，请使用以下步骤查看 {% data variables.product.prodname_desktop %} 日志文件。
 
 {% mac %}
 
@@ -168,7 +168,7 @@ fatal: could not read Username for 'https://github.com': terminal prompts disabl
 
 这个错误可能是多个事件造成的。
 
-如果 `Command Processor` 注册表项已修改，{% data variables.product.prodname_desktop %} 将以 `Authentication failed` 错误响应。 要检查这些注册表条目是否已修改，请按照以下步骤操作。
+如果 `Command Processor` 注册表项已修改，{% data variables.product.prodname_desktop %} 将以 `Authentication failed` 错误响应。要检查这些注册表条目是否已修改，请按照以下步骤操作。
 
 1. 打开注册表编辑器 (`regedit.exe`) 并导航到以下位置。
   `HKEY_CURRENT_USER\Software\Microsoft\Command Processor\`
@@ -176,7 +176,7 @@ fatal: could not read Username for 'https://github.com': terminal prompts disabl
 2. 检查任一位置是否有 `Autorun` 值。
 3. 如果有 `Autorun` 值，请将其删除。
 
-如果您的 Windows 用户名延长了 Unicode 字符，可能导致 AskPass 响应错误。 要解决问题，请创建新的 Windows 用户帐户，然后将文件迁移到该帐户。 有关详细信息，请参阅 Microsoft 文档中的“[在 Windows 中创建用户帐户](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)”。
+如果您的 Windows 用户名延长了 Unicode 字符，可能导致 AskPass 响应错误。要解决问题，请创建新的 Windows 用户帐户，然后将文件迁移到该帐户。有关详细信息，请参阅 Microsoft 文档中的“[在 Windows 中创建用户帐户](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)”。
 
 {% endwindows %}
 

@@ -16,15 +16,15 @@ ms.locfileid: '147079750'
 ---
 ## 关于 {% data variables.product.prodname_vscode %} 中的 {% data variables.product.prodname_copilot %}
 
-如果使用 {% data variables.product.prodname_vscode %}，{% data variables.product.prodname_copilot %} 可以在你键入时自动完成代码。 安装完成后，可以启用或禁用 {% data variables.product.prodname_copilot %}，并且可以在 {% data variables.product.prodname_vscode %} 或 {% data variables.product.prodname_dotcom_the_website %} 上配置高级设置。
+如果使用 {% data variables.product.prodname_vscode %}，{% data variables.product.prodname_copilot %} 可以在你键入时自动完成代码。安装完成后，可以启用或禁用 {% data variables.product.prodname_copilot %}，并且可以在 {% data variables.product.prodname_vscode %} 或 {% data variables.product.prodname_dotcom_the_website %} 上配置高级设置。
 
 ## 先决条件
 
-若要在 {% data variables.product.prodname_vscode %} 中配置 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_copilot %} 插件。 有关详细信息，请参阅“[{% data variables.product.prodname_vscode %} 中的 {% data variables.product.prodname_copilot %} 入门指南](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)”。
+若要在 {% data variables.product.prodname_vscode %} 中配置 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_copilot %} 插件。有关详细信息，请参阅“[{% data variables.product.prodname_vscode %} 中的 {% data variables.product.prodname_copilot %} 入门指南](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)”。
 
 ## {% data variables.product.prodname_copilot %} 的键盘快捷方式
 
-使用 {% data variables.product.prodname_copilot %} 时，可使用 {% data variables.product.prodname_vscode %} 中的默认键盘快捷方式。 也可使用每个特定命令的首选键盘快捷方式在键盘快捷方式编辑器中重新绑定快捷方式。 可以在键盘快捷方式编辑器中按命令名称搜索每个键盘快捷方式。
+使用 {% data variables.product.prodname_copilot %} 时，可使用 {% data variables.product.prodname_vscode %} 中的默认键盘快捷方式。也可使用每个特定命令的首选键盘快捷方式在键盘快捷方式编辑器中重新绑定快捷方式。可以在键盘快捷方式编辑器中按命令名称搜索每个键盘快捷方式。
 
 {% mac %}
 
@@ -91,15 +91,15 @@ ms.locfileid: '147079750'
 1. 在“文件”菜单中，导航到“首选项”，然后单击“设置”  。
 ![{% data variables.product.prodname_vscode %} 设置的屏幕截图](/assets/images/help/copilot/vsc-settings.png)
 1. 在“设置”选项卡的左侧面板中，单击“扩展”，然后选择“Copilot” 。
-1. 在“内联建议: 启用”下，选中或取消选中该复选框以启用或禁用内联建议。
+1. 在“内联建议：启用”下，选中或取消选中该复选框以启用或禁用内联建议。
 
 ## 启用或禁用特定语言的 {% data variables.product.prodname_copilot %}
 
 可以指定要为其启用或禁用 {% data variables.product.prodname_copilot %} 的语言。
 
-1. 在 {% data variables.product.prodname_vscode %} 中，单击“扩展”选项卡，然后导航到“Copilot”部分 。 有关详细信息，请参阅“[启用和禁用内联建议](#enabling-and-disabling-inline-suggestions)”。
+1. 在 {% data variables.product.prodname_vscode %} 中，单击“扩展”选项卡，然后导航到“Copilot”部分。有关详细信息，请参阅“[启用和禁用内联建议](#enabling-and-disabling-inline-suggestions)”。
 1. 在“启用或禁用指定语言的 Copilot”下，单击“在 settings.json 中进行编辑”。
-1. 在 settings.json 文件中，添加或删除要为其启用或禁用 {% data variables.product.prodname_copilot %} 的语言。 例如，要在 {% data variables.product.prodname_copilot %} 中启用 Python，请将 `"python": true` 添加到列表中，确保除了最后一个列表项之外还有一个尾随逗号。
+1. 在 settings.json 文件中，添加或删除要为其启用或禁用 {% data variables.product.prodname_copilot %} 的语言。例如，要在 {% data variables.product.prodname_copilot %} 中启用 Python，请将 `"python": true` 添加到列表中，确保除了最后一个列表项之外还有一个尾随逗号。
 
     ```json
     {

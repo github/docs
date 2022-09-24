@@ -1,6 +1,6 @@
 ---
 title: 提交并审查对项目的更改
-intro: '{% data variables.product.prodname_desktop %} 可在您编辑时跟踪对所有文件的所有更改。 您可以决定如何对更改分组以创建有意义的提交。'
+intro: '{% data variables.product.prodname_desktop %} 可在您编辑时跟踪对所有文件的所有更改。您可以决定如何对更改分组以创建有意义的提交。'
 redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
@@ -31,7 +31,7 @@ ms.locfileid: '145099281'
 您可以更改差异在 {% data variables.product.prodname_desktop %} 中的显示方式，以适应您的审核需求。
 
 要更改您查看差异的方式，请单击差异视图右上角的 {% octicon "gear" aria-label="The Gear icon" %}。
-- 若要更改显示整个差异的方式，请在“差异显示”下选择“统一”或“拆分” 。 统一视图线性显示变化，而分割视图则在左侧显示旧内容，在右侧显示新内容。
+- 若要更改显示整个差异的方式，请在“差异显示”下选择“统一”或“拆分” 。统一视图线性显示变化，而分割视图则在左侧显示旧内容，在右侧显示新内容。
 - 要隐藏空格更改以便专注于更实质性的更改，请选择“隐藏空格更改”。
 
 ![差异选项菜单](/assets/images/help/desktop/diff-selection.png)
@@ -61,16 +61,16 @@ ms.locfileid: '145099281'
 
 ### 创建部分提交
 
-如果一个文件包含多处更改，但只有部分更改要包含在提交中，则可创建部分提交。 其余更改会保持不动，以便您进行其他修改和提交。 这允许您进行单独、有意义的提交，例如使提交中的换行符更改区别于代码或文字更改。
+如果一个文件包含多处更改，但只有部分更改要包含在提交中，则可创建部分提交。其余更改会保持不动，以便您进行其他修改和提交。这允许您进行单独、有意义的提交，例如使提交中的换行符更改区别于代码或文字更改。
 
-要从提交中排除更改的行，请单击一条或多条更改的行，以使蓝色消失。 仍以蓝色突出显示的行将包含在提交中。
+要从提交中排除更改的行，请单击一条或多条更改的行，以使蓝色消失。仍以蓝色突出显示的行将包含在提交中。
 
   ![文件中取消选择的行](/assets/images/help/desktop/partial-commit.png)
 
 ## 放弃更改
-如果您有不想保留的未提交更改，可以放弃这些更改。 这将从计算机上的文件中删除更改。 您可以放弃一个或多个文件中所有未提交的更改，也可以丢弃添加的特定行。
+如果您有不想保留的未提交更改，可以放弃这些更改。这将从计算机上的文件中删除更改。您可以放弃一个或多个文件中所有未提交的更改，也可以丢弃添加的特定行。
 
-丢弃的更改保存在回收站中带日期的文件中。 在回收站清空之前，您可以恢复丢弃的更改。
+丢弃的更改保存在回收站中带日期的文件中。在回收站清空之前，您可以恢复丢弃的更改。
 
 ### 丢弃一个或多个文件中的更改
 
@@ -100,7 +100,7 @@ ms.locfileid: '145099281'
 
 ## 编写提交消息并推送更改
 
-对选择要包含在提交中的更改感到满意后，编写提交消息并推送更改。 如果协作处理了某个提交，也可以将提交归于多个作者。
+对选择要包含在提交中的更改感到满意后，编写提交消息并推送更改。如果协作处理了某个提交，也可以将提交归于多个作者。
 
 {% note %}
 
@@ -124,10 +124,10 @@ ms.locfileid: '145099281'
 
   ![受保护的分支警告](/assets/images/help/desktop/protected-branch-warning.png) {% data reusables.desktop.push-origin %}
 
-6. 如果你有基于所处理的分支的拉取请求，{% data variables.product.prodname_desktop %} 将显示已针对拉取请求运行的检查的状态。 有关检查的详细信息，请参阅“[在 GitHub Desktop 中查看和重新运行检查](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)”。
+6. 如果你有基于所处理的分支的拉取请求，{% data variables.product.prodname_desktop %} 将显示已针对拉取请求运行的检查的状态。有关检查的详细信息，请参阅“[在 GitHub Desktop 中查看和重新运行检查](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)”。
 
  ![检查分支名称旁边显示的内容](/assets/images/help/desktop/checks-dialog.png)
 
- 如果尚未为当前分支创建拉取请求，则 {% data variables.product.prodname_desktop %} 将提供创建请求的选项。 有关详细信息，请参阅“[创建问题或拉取请求](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)”。
+ 如果尚未为当前分支创建拉取请求，则 {% data variables.product.prodname_desktop %} 将提供创建请求的选项。有关详细信息，请参阅“[创建问题或拉取请求](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)”。
 
  ![创建拉取请求](/assets/images/help/desktop/mac-create-pull-request.png)

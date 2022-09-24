@@ -15,7 +15,7 @@ ms.locfileid: '145085089'
 ---
 ## 关于 {% data variables.product.prodname_desktop %} 中的标记
 
-{% data variables.product.prodname_desktop %} 可用于创建带注释的标记。 标记与提交相关，因此您可以使用标记在仓库的历史记录中标记单独的点，包括发行版的版本号。 有关版本标记的详细信息，请参阅“[关于版本](/github/administering-a-repository/about-releases)”。
+{% data variables.product.prodname_desktop %} 可用于创建带注释的标记。标记与提交相关，因此您可以使用标记在仓库的历史记录中标记单独的点，包括发行版的版本号。有关版本标记的详细信息，请参阅“[关于版本](/github/administering-a-repository/about-releases)”。
 
 {% data reusables.desktop.tags-push-with-commits %}
 

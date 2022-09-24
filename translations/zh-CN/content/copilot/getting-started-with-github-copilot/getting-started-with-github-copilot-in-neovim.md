@@ -22,14 +22,14 @@ ms.locfileid: '147079734'
 
 ## 先决条件
 
-若要在 Neovim 中使用 {% data variables.product.prodname_copilot %}，必须安装 Neovim 和 Node.js 版本 17 或更低版本。 有关详细信息，请参阅 [Neovim 文档](https://neovim.io/doc/)和 [Node.js 网站](https://nodejs.org/en/)。
+若要在 Neovim 中使用 {% data variables.product.prodname_copilot %}，必须安装 Neovim 和 Node.js 版本 17 或更低版本。有关详细信息，请参阅 [Neovim 文档](https://neovim.io/doc/)和 [Node.js 网站](https://nodejs.org/en/)。
 
 ## 安装 Neovim 扩展
 
 {% mac %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-   - 若要直接安装 {% data variables.product.prodname_copilot %} 插件，必须要知道 Neovim 存储插件的位置。 若要安装插件，请在终端中输入以下命令。
+   - 若要直接安装 {% data variables.product.prodname_copilot %} 插件，必须要知道 Neovim 存储插件的位置。若要安装插件，请在终端中输入以下命令。
 
      ```
      git clone https://github.com/github/copilot.vim \
@@ -47,7 +47,7 @@ ms.locfileid: '147079734'
 {% windows %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-    - 若要直接安装 {% data variables.product.prodname_copilot %} 插件，必须要知道 Neovim 存储插件的位置。 若要安装插件，请在 Git Bash 中输入以下命令。
+    - 若要直接安装 {% data variables.product.prodname_copilot %} 插件，必须要知道 Neovim 存储插件的位置。若要安装插件，请在 Git Bash 中输入以下命令。
 
       ```
       git clone https://github.com/github/copilot.vim \

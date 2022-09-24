@@ -18,11 +18,11 @@ ms.locfileid: '147098023'
 
 {% data reusables.copilot.procedural-intro %}
 
-如果使用 {% data variables.product.prodname_vs %}，可以直接在编辑器中查看并合并来自 {% data variables.product.prodname_copilot %} 的建议。 本指南演示如何在适用于 Windows 的 {% data variables.product.prodname_vs %} 中使用 {% data variables.product.prodname_copilot %}。
+如果使用 {% data variables.product.prodname_vs %}，可以直接在编辑器中查看并合并来自 {% data variables.product.prodname_copilot %} 的建议。本指南演示如何在适用于 Windows 的 {% data variables.product.prodname_vs %} 中使用 {% data variables.product.prodname_copilot %}。
 
 ## 先决条件
 
-若要在 {% data variables.product.prodname_vs %} 中使用 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_vs %} 2022 17.2 或更高版本。 有关详细信息，请参阅 [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 文档。
+若要在 {% data variables.product.prodname_vs %} 中使用 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_vs %} 2022 17.2 或更高版本。有关详细信息，请参阅 [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 文档。
 
 {% note %}
 
@@ -43,11 +43,11 @@ ms.locfileid: '147098023'
 1. 在 {% data variables.product.prodname_vs %} 中打开或创建新项目。 
 1. 在“Microsoft {% data variables.product.prodname_vs %}”对话框中，若要复制设备激活代码，请单击“确定”。
    ![“Microsoft {% data variables.product.prodname_vs %}”对话框的屏幕截图](/assets/images/help/copilot/vs-auth-dialogue.png)
-1. 设备激活窗口将在浏览器中打开。 粘贴设备代码，然后单击“继续”。
+1. 设备激活窗口将在浏览器中打开。粘贴设备代码，然后单击“继续”。
 
    - 若要在 Windows 或 Linux 中粘贴代码，请按 <kbd>Ctrl</kbd>+<kbd>v</kbd>。
    - 若要在 macOS 中粘贴代码，请按 <kbd>command</kbd>+<kbd>v</kbd>。
-1. {% data variables.product.prodname_dotcom %} 将请求 {% data variables.product.prodname_copilot %} 所需的权限。 若要批准这些权限，请单击“授权 {% data variables.product.prodname_copilot %} 插件”。
+1. {% data variables.product.prodname_dotcom %} 将请求 {% data variables.product.prodname_copilot %} 所需的权限。若要批准这些权限，请单击“授权 {% data variables.product.prodname_copilot %} 插件”。
 1. 批准权限后，{% data variables.product.prodname_vs %} 将显示确认。
    ![{% data variables.product.prodname_vs %} 权限确认的屏幕截图](/assets/images/help/copilot/vs-confirmation.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: '147098023'
 {% data reusables.copilot.supported-languages %} 以下示例使用的是 C#，但其他语言的工作方式类似。
 
 {% data reusables.copilot.create-c-file %}
-1. 在 C# 文件中，键入以下函数签名。 {% data variables.product.prodname_copilot %} 将自动以灰色文本建议整个函数正文，如下所示。 具体的建议可能会有所不同。
+1. 在 C# 文件中，键入以下函数签名。 {% data variables.product.prodname_copilot %} 将自动以灰色文本建议整个函数正文，如下所示。具体的建议可能会有所不同。
   ```csharp{:copy}
   int CalculateDaysBetweenDates(
   ```

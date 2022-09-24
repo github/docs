@@ -1,6 +1,6 @@
 ---
 title: 更新 GitHub Desktop
-intro: GitHub Desktop 在您重新启动时自动下载并安装更新。 您也可以手动检查更新。
+intro: GitHub Desktop 在您重新启动时自动下载并安装更新。您也可以手动检查更新。
 redirect_from:
   - /desktop/getting-started-with-github-desktop/updating-github-desktop
   - /desktop/installing-and-configuring-github-desktop/updating-github-desktop

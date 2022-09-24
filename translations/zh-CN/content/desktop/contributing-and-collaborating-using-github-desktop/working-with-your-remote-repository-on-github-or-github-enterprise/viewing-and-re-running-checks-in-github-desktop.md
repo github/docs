@@ -13,9 +13,9 @@ ms.locfileid: '147068017'
 ---
 ## 关于 {% data variables.product.prodname_desktop %} 中的检查
 
-{% data variables.product.prodname_desktop %} 显示在拉取请求分支中运行的检查的状态。 分支名称旁边的检查锁屏提醒将显示检查的“待处理”、“通过”或“失败”状态 。 在 {% data variables.product.prodname_desktop %} 中查看检查状态时，还可以重新运行所有检查、失败的检查或个别检查。 有关在存储库中设置检查的详细信息，请参阅“[关于状态检查](/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”。
+{% data variables.product.prodname_desktop %} 显示在拉取请求分支中运行的检查的状态。分支名称旁边的检查锁屏提醒将显示检查的“待处理”、“通过”或“失败”状态。在 {% data variables.product.prodname_desktop %} 中查看检查状态时，还可以重新运行所有检查、失败的检查或个别检查。有关在存储库中设置检查的详细信息，请参阅“[关于状态检查](/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”。
 
-{% data variables.product.prodname_desktop %} 也会在检查失败时显示系统通知。 有关启用通知的详细信息，请参阅“[在 GitHub Desktop 中配置通知](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications-in-github-desktop)”。
+{% data variables.product.prodname_desktop %} 也会在检查失败时显示系统通知。有关启用通知的详细信息，请参阅“[在 GitHub Desktop 中配置通知](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications-in-github-desktop)”。
 
 ## 查看和重新运行检查
 
@@ -26,5 +26,5 @@ ms.locfileid: '147068017'
   ![重新运行失败的检查](/assets/images/help/desktop/re-run-failed-checks.png)
 6. 若要重新运行单个检查，请将鼠标悬停在要重新运行的单个检查上，然后选择 {% octicon "sync" aria-label="The sync icon" %} 图标以重新运行检查。
   ![重新运行单个检查](/assets/images/help/desktop/re-run-individual-checks.png)
-7. 你将看到一个确认对话框，其中包含将重新运行的检查摘要。 单击“重新运行检查”以确认要重新运行。
+7. 你将看到一个确认对话框，其中包含将重新运行的检查摘要。单击“重新运行检查”以确认要重新运行。
   ![“重新运行”确认对话框](/assets/images/help/desktop/re-run-confirmation-dialog.png)

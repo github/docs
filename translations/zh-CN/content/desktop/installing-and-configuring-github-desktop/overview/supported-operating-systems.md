@@ -22,7 +22,7 @@ ms.locfileid: '145099211'
 - {% data variables.desktop.windows-versions %}. 必须有 64 位操作系统才可运行 {% data variables.product.prodname_desktop %}。
 
 ## macOS 问题疑难排解
-如果您在 macOS 上使用 {% data variables.product.prodname_desktop %} 时遇到问题，请尝试以下解决方法。 有关详细信息，请参阅 [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md)。
+如果您在 macOS 上使用 {% data variables.product.prodname_desktop %} 时遇到问题，请尝试以下解决方法。有关详细信息，请参阅 [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md)。
 
 ### 登录到帐户后出现 `The username or passphrase you entered is not correct` 错误
 
@@ -33,7 +33,7 @@ ms.locfileid: '145099211'
 1. 打开“Keychain Access”应用程序。
 2. 右键单击“登录”，然后单击“锁定密钥链“登录”” 。
   ![“锁定密钥链“登录”选项](/assets/images/help/desktop/mac-lock-keychain.png)
-3. 右键单击“登录”，然后单击“解锁密钥链“登录”” 。 按照屏幕上的提示完成解锁密钥链“登录”。
+3. 右键单击“登录”，然后单击“解锁密钥链“登录”” 。按照屏幕上的提示完成解锁密钥链“登录”。
   ![“解锁密钥链“登录”选项](/assets/images/help/desktop/mac-unlock-keychain.png)
 4. 重新验证您在 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 上的帐户。
 
@@ -52,11 +52,11 @@ ms.locfileid: '145099211'
 6. 打开 {% data variables.product.prodname_desktop %} 并检查更新。
 
 ## Windows 问题疑难排解
-如果您在 Windows 上使用 {% data variables.product.prodname_desktop %} 时遇到问题，请尝试以下解决方法。 有关详细信息，请参阅 [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md)。
+如果您在 Windows 上使用 {% data variables.product.prodname_desktop %} 时遇到问题，请尝试以下解决方法。有关详细信息，请参阅 [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md)。
 
 ### `The revocation function was unable to check revocation for the certificate.` 个错误
 
-如果您在公司网络上使用 {% data variables.product.prodname_desktop %} 阻止Windows 检查证书的撤销状态，就可能发生这个错误。
+如果您在公司网络上使用 {% data variables.product.prodname_desktop %} 阻止 Windows 检查证书的撤销状态，就可能发生这个错误。
 
 要解决问题，请联系您的系统管理员。
 
@@ -66,6 +66,6 @@ ms.locfileid: '145099211'
 
 ### `cygheap base mismatch detected` 个错误
 
-启用强制 ASLR 时可能会发生此错误。 启用强制 ASLR 会影响 MSYS2 核心库，{% data variables.product.prodname_desktop %} 使用该库来模拟进程复刻。
+启用强制 ASLR 时可能会发生此错误。启用强制 ASLR 会影响 MSYS2 核心库，{% data variables.product.prodname_desktop %} 使用该库来模拟进程复刻。
 
 若要排查此错误，请禁用强制 ASLR 或显式允许依赖于 MSYS2 的 `<Git>\usr\bin` 下的所有可执行文件。

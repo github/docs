@@ -35,7 +35,7 @@ ms.locfileid: '146736611'
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
 - [TextMate](https://macromates.com/)
 - [Brackets](http://brackets.io/)
-  - 要将 Brackets 与 {% data variables.product.prodname_desktop %} 一起使用，您必须安装命令行快捷方式。 若要安装快捷方式，请打开方括号，单击菜单栏中的“文件”，然后单击“安装命令行快捷方式” 。
+  - 要将 Brackets 与 {% data variables.product.prodname_desktop %} 一起使用，您必须安装命令行快捷方式。若要安装快捷方式，请打开方括号，单击菜单栏中的“文件”，然后单击“安装命令行快捷方式” 。
 - [Typora](https://typora.io/)
 - [CodeRunner](https://coderunnerapp.com/)
 - [SlickEdit](https://www.slickedit.com/)

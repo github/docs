@@ -1,7 +1,7 @@
 ---
 title: GitHub Desktop
 shortTitle: GitHub Desktop
-intro: 借助 GitHub Desktop，可以使用 GUI 而不是命令行或 Web 浏览器与 GitHub 交互。 可以使用 GitHub Desktop 从桌面完成大多数 Git 命令，例如推送到、拉取和克隆远程存储库、分配提交和创建拉取请求，以及对更改进行可视化确认。
+intro: 借助 GitHub Desktop，可以使用 GUI 而不是命令行或 Web 浏览器与 GitHub 交互。可以使用 GitHub Desktop 从桌面完成大多数 Git 命令，例如推送到、拉取和克隆远程存储库、分配提交和创建拉取请求，以及对更改进行可视化确认。
 introLinks:
   overview: /desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop
 featuredLinks:

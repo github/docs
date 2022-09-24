@@ -15,13 +15,13 @@ ms.locfileid: '145085095'
 ---
 ## 关于分支同步
 
-您可以通过拉取自上次同步以来在 {% data variables.product.product_name %} 上添加到分支的任何提交来同步本地分支与远程仓库。 如果从其他设备进行提交，或有多人参与项目，则需要同步本地分支以保持分支的更新。
+您可以通过拉取自上次同步以来在 {% data variables.product.product_name %} 上添加到分支的任何提交来同步本地分支与远程仓库。如果从其他设备进行提交，或有多人参与项目，则需要同步本地分支以保持分支的更新。
 
-当您拉取到本地分支时，只会更新仓库的本地副本。 要在 {% data variables.product.prodname_dotcom %} 上更新分支，您必须推送更改。 有关详细信息，请参阅“[将更改推送到 {% data variables.product.prodname_dotcom %}](/desktop/contributing-to-projects/pushing-changes-to-github)”。
+当您拉取到本地分支时，只会更新仓库的本地副本。要在 {% data variables.product.prodname_dotcom %} 上更新分支，您必须推送更改。有关详细信息，请参阅“[将更改推送到 {% data variables.product.prodname_dotcom %}](/desktop/contributing-to-projects/pushing-changes-to-github)”。
 
-要将更改从一个分支添加到另一个分支，可以合并这些分支。 要从同一仓库中的另一个分支应用更改到您的分支，可以在 {% data variables.product.prodname_desktop %} 上将该分支合并到您的分支。 要请求将分支中的更改合并到网络中同一仓库或不同仓库中的另一个分支，可以在 {% data variables.product.prodname_desktop %} 上创建拉取请求。 有关详细信息，请参阅“[将另一个分支合并到项目分支](#merging-another-branch-into-your-project-branch)”和“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
+要将更改从一个分支添加到另一个分支，可以合并这些分支。要从同一仓库中的另一个分支应用更改到您的分支，可以在 {% data variables.product.prodname_desktop %} 上将该分支合并到您的分支。要请求将分支中的更改合并到网络中同一仓库或不同仓库中的另一个分支，可以在 {% data variables.product.prodname_desktop %} 上创建拉取请求。有关详细信息，请参阅“[将另一个分支合并到项目分支](#merging-another-branch-into-your-project-branch)”和“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
 
-有些工作流程需要或受益于变基而不是合并。 通过变基，可以重新排序、编辑提交或将其压缩到一起。 有关详细信息，请参阅“[关于 Git 变基](/github/getting-started-with-github/about-git-rebase)”和“[将项目分支变基到另一个分支](#rebasing-your-project-branch-onto-another-branch)”。
+有些工作流程需要或受益于变基而不是合并。通过变基，可以重新排序、编辑提交或将其压缩到一起。有关详细信息，请参阅“[关于 Git 变基](/github/getting-started-with-github/about-git-rebase)”和“[将项目分支变基到另一个分支](#rebasing-your-project-branch-onto-another-branch)”。
 
 ## 从远程拉取到您的本地分支
 
@@ -37,7 +37,7 @@ ms.locfileid: '145085095'
 
    {% note %}
 
-   注意：如果存在合并冲突，{% data variables.product.prodname_desktop %} 将在“将分支合并到分支”按钮上方警告你 。 在解决所有冲突之前无法合并分支。
+   注意：如果存在合并冲突，{% data variables.product.prodname_desktop %} 将在“将分支合并到分支”按钮上方警告你。在解决所有冲突之前无法合并分支。
 
    {% endnote %}
 
@@ -78,7 +78,7 @@ ms.locfileid: '145085095'
 2. 单击要合并到当前分支的分支，然后单击“压缩并合并”。
 ![“压缩并合并”按钮](/assets/images/help/desktop/squash-and-merge-selection.png) {% note %}
 
-   注意：如果存在合并冲突，{% data variables.product.prodname_desktop %} 将在“压缩并合并”按钮上方显示警告 。 在解决所有冲突之前无法压缩和合并分支。
+   注意：如果存在合并冲突，{% data variables.product.prodname_desktop %} 将在“压缩并合并”按钮上方显示警告。在解决所有冲突之前无法压缩和合并分支。
 
    {% endnote %} {% data reusables.desktop.push-origin %}
 

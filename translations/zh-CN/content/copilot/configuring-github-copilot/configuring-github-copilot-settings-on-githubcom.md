@@ -20,6 +20,6 @@ ms.locfileid: '147079586'
 ---
 ## 关于 {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.prodname_copilot %} 设置
 
-除了在所支持的 IDE 中配置 {% data variables.product.prodname_copilot %} 插件外，还可在 {% data variables.product.prodname_dotcom_the_website %} 上配置 {% data variables.product.prodname_copilot %} 的设置。 无论在何处使用 {% data variables.product.prodname_copilot %}，这些设置都适用。
+除了在所支持的 IDE 中配置 {% data variables.product.prodname_copilot %} 插件外，还可在 {% data variables.product.prodname_dotcom_the_website %} 上配置 {% data variables.product.prodname_copilot %} 的设置。无论在何处使用 {% data variables.product.prodname_copilot %}，这些设置都适用。
 
 {% data reusables.copilot.dotcom-settings %}
