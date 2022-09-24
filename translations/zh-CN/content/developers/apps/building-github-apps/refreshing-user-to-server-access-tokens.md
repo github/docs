@@ -23,9 +23,9 @@ ms.locfileid: '147064408'
 
 ## 关于过期用户访问令牌
 
-要实施定期令牌轮换并减少受威胁令牌的影响，您可以配置 {% data variables.product.prodname_github_app %} 以使用过期用户访问令牌。 有关发出用户到服务器请求的详细信息，请参阅“[识别和授权 GitHub 应用用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
+要实施定期令牌轮换并减少受威胁令牌的影响，您可以配置 {% data variables.product.prodname_github_app %} 以使用过期用户访问令牌。有关发出用户到服务器请求的详细信息，请参阅“[识别和授权 GitHub 应用用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
 
-过期用户令牌在 8 小时后过期。 当您收到新的用户到服务器访问令牌时，响应还将包含刷新令牌，可以将其交换为新的用户令牌和刷新令牌。 刷新令牌的有效期为 6 个月。 
+过期用户令牌在 8 小时后过期。当您收到新的用户到服务器访问令牌时，响应还将包含刷新令牌，可以将其交换为新的用户令牌和刷新令牌。刷新令牌的有效期为 6 个月。 
 
 ## 使用刷新令牌续订用户令牌
 
@@ -33,7 +33,7 @@ ms.locfileid: '147064408'
 
   `POST https://github.com/login/oauth/access_token`
 
-此回调请求将向您发送新的访问令牌和新的刷新令牌。  此回调请求类似于用来将临时 `code` 交换为访问令牌的 OAuth 请求。 有关详细信息，请参阅“[标识和授权 GitHub 应用用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)”和“[身份验证基础知识](/rest/guides/basics-of-authentication#providing-a-callback)”。
+此回调请求将向您发送新的访问令牌和新的刷新令牌。此回调请求类似于用来将临时 `code` 交换为访问令牌的 OAuth 请求。有关详细信息，请参阅“[标识和授权 GitHub 应用用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)”和“[身份验证基础知识](/rest/guides/basics-of-authentication#providing-a-callback)”。
 
 ### 参数
 
@@ -65,7 +65,7 @@ ms.locfileid: '147064408'
   ![编辑 GitHub 应用的设置](/assets/images/github-apps/edit-test-app.png)
 5. 在左侧边栏中，单击“可选功能”。
    ![“可选功能”选项卡](/assets/images/github-apps/optional-features-option.png) 
-6. 在“用户到服务器令牌过期”旁边，单击“选择加入”或“选择退出”。此设置可能需要几秒钟才能应用 。
+6. 在“用户到服务器令牌过期”旁边，单击“选择加入”或“选择退出”。此设置可能需要几秒钟才能应用。
 
 ## 为新的 GitHub 应用程序选择退出过期令牌
 
@@ -77,7 +77,7 @@ ms.locfileid: '147064408'
 
 仅当应用程序所有者为其应用程序启用了过期用户令牌时，使用用户到服务器授权令牌的现有 {% data variables.product.prodname_github_apps %} 才会受到这个新流程的影响。
 
-要为现有 {% data variables.product.prodname_github_apps %} 启用过期用户令牌，需要通过 OAuth 流程发送用户以重新颁发将在 8 小时后过期的新用户令牌，并使用刷新令牌发出请求以获取新的访问令牌和刷新令牌。 有关详细信息，请参阅“[标识和授权 GitHub 应用用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
+要为现有 {% data variables.product.prodname_github_apps %} 启用过期用户令牌，需要通过 OAuth 流程发送用户以重新颁发将在 8 小时后过期的新用户令牌，并使用刷新令牌发出请求以获取新的访问令牌和刷新令牌。有关详细信息，请参阅“[标识和授权 GitHub 应用用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
 
 ## 延伸阅读
 

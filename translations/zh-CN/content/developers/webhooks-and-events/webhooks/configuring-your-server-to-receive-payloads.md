@@ -23,15 +23,15 @@ ms.locfileid: '145097985'
 
 {% note %}
 
-注意：可以[从 platform-samples 存储库][platform samples]中下载此项目的完整源代码。
+注意：可以 [从 platform-samples 存储库][platform samples] 中下载此项目的完整源代码。
 
 {% endnote %}
 
 ## 编写服务器
 
-我们希望我们的服务器在 `/payload` 处侦听 `POST` 请求，因为这是我们告诉 GitHub 我们的 Webhook URL 所在的位置。 因为我们使用 ngrok 来公开我们的本地环境，所以我们不需要在某个在线位置设置一个真实的服务器，并且可以轻松地在本地测试我们的代码。
+我们希望我们的服务器在 `/payload` 处侦听 `POST` 请求，因为这是我们告诉 GitHub 我们的 Webhook URL 所在的位置。因为我们使用 ngrok 来公开我们的本地环境，所以我们不需要在某个在线位置设置一个真实的服务器，并且可以轻松地在本地测试我们的代码。
 
-让我们设置一个小 Sinatra 应用程序来处理信息。 我们的初始设置可能如下所示：
+让我们设置一个小 Sinatra 应用程序来处理信息。我们的初始设置可能如下所示：
 
 ``` ruby
 require 'sinatra'
@@ -47,7 +47,7 @@ end
 
 启动此服务器。
 
-由于我们设置了 Webhook 来侦听处理 `Issues` 的事件，因此请继续操作，并在正在测试的存储库上创建一个新问题。 创建后，切换回终端。 您应该会在输出中看到以下内容：
+由于我们设置了 Webhook 来侦听处理 `Issues` 的事件，因此请继续操作，并在正在测试的存储库上创建一个新问题。创建后，切换回终端。您应该会在输出中看到以下内容：
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb
@@ -58,7 +58,7 @@ $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.
 > I got some JSON: {"action"=>"opened", "issue"=>{"url"=>"...
 ```
 
-成功！ 您已成功配置服务器以侦听 web 挂钩。 你的服务器现在可以按照你认为合适的任何方式处理此信息。 例如，如果要设置“真实的”Web 应用程序，则可能需要将一些 JSON 输出记录到数据库中。
+成功！您已成功配置服务器以侦听 web 挂钩。你的服务器现在可以按照你认为合适的任何方式处理此信息。例如，如果要设置“真实的”Web 应用程序，则可能需要将一些 JSON 输出记录到数据库中。
 
 有关使用 Webhook 获得乐趣和利润的更多信息，请参阅[测试 Webhook](/webhooks/testing) 指南。
 

@@ -28,7 +28,7 @@ ms.locfileid: '145084989'
 
 ## 对所有 {% data variables.product.prodname_marketplace %} 上架产品的要求
 
-{% data variables.product.prodname_marketplace %} 中的所有上架产品应该是能够为 {% data variables.product.product_name %} 社区提供价值的工具。 提交要发布的上架信息时，必须阅读并接受“[{% data variables.product.prodname_marketplace %} 开发人员协议](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)”的条款。
+{% data variables.product.prodname_marketplace %} 中的所有上架产品应该是能够为 {% data variables.product.product_name %} 社区提供价值的工具。提交要发布的上架信息时，必须阅读并接受“[{% data variables.product.prodname_marketplace %} 开发人员协议](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)”的条款。
 
 ### 所有应用程序的用户体验要求
 
@@ -40,17 +40,17 @@ ms.locfileid: '145084989'
 - 上架信息必须指定定价计划。
 - 应用程序必须为客户提供价值，并通过身份验证以外的其他方式与平台集成。
 - 应用程序必须在 {% data variables.product.prodname_marketplace %} 中公开可用，并且不能是测试版或只能通过邀请获取。
-- 应用程序必须设置 web 挂钩事件，以便在发生计划更改或取消时通过 {% data variables.product.prodname_marketplace %} API 通知发布者。 有关详细信息，请参阅“[在应用中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
+- 应用程序必须设置 web 挂钩事件，以便在发生计划更改或取消时通过 {% data variables.product.prodname_marketplace %} API 通知发布者。有关详细信息，请参阅“[在应用中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
 有关提供良好客户体验的详细信息，请参阅“[应用的客户体验最佳做法](/developers/github-marketplace/customer-experience-best-practices-for-apps)”。
 
 ### 所有应用程序的品牌和上架要求
 
-- 使用 GitHub 徽标的应用程序必须遵循 {% data variables.product.company_short %} 指南。 有关详细信息，请参阅“[{% data variables.product.company_short %} 徽标和用法](https://github.com/logos)”。
+- 使用 GitHub 徽标的应用程序必须遵循 {% data variables.product.company_short %} 指南。有关详细信息，请参阅“[{% data variables.product.company_short %} 徽标和用法](https://github.com/logos)”。
 - 应用必须具有符合“[编写 {% data variables.product.prodname_marketplace %} 上架产品描述](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)”中提供的建议的徽标、功能卡和屏幕截图图像。
-- 上架信息必须包含认真编写并且没有语法错误的说明。 有关编写上架产品的指导，请参阅“[编写 {% data variables.product.prodname_marketplace %} 上架产品描述](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)”。
+- 上架信息必须包含认真编写并且没有语法错误的说明。有关编写上架产品的指导，请参阅“[编写 {% data variables.product.prodname_marketplace %} 上架产品描述](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)”。
 
-为了保护您的客户，我们建议您还要遵循安全最佳实践。 有关详细信息，请参阅“[应用的安全性最佳做法](/developers/github-marketplace/security-best-practices-for-apps)”。
+为了保护您的客户，我们建议您还要遵循安全最佳实践。有关详细信息，请参阅“[应用的安全性最佳做法](/developers/github-marketplace/security-best-practices-for-apps)”。
 
 ## 免费应用程序注意事项
 
@@ -58,15 +58,15 @@ ms.locfileid: '145084989'
 
 ## 付费应用程序的要求
 
-要在 {% data variables.product.prodname_marketplace %} 上发布应用程序的付费计划，您的应用程序必须由身份为经验证发布者的组织所拥有。 有关验证过程或转移应用所有权的详细信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
+要在 {% data variables.product.prodname_marketplace %} 上发布应用程序的付费计划，您的应用程序必须由身份为经验证发布者的组织所拥有。有关验证过程或转移应用所有权的详细信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
-如果您的应用程序已发布，并且您是经验证的发布者，则您可以使用定价计划编辑器发布新的付费计划。 有关详细信息，请参阅“[设置上架产品的定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
+如果您的应用程序已发布，并且您是经验证的发布者，则您可以使用定价计划编辑器发布新的付费计划。有关详细信息，请参阅“[设置上架产品的定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
 
 要发布付费应用程序（或提供付费计划的应用程序），您还必须满足以下要求：
 
 - {% data variables.product.prodname_github_apps %} 应至少有 100 个安装设施。
 - {% data variables.product.prodname_oauth_apps %} 应至少有 200 个用户。
-- 所有付费应用程序必须处理关于新购买、升级、降级、取消和免费试用的 {% data variables.product.prodname_marketplace %} 购买事件。 有关详细信息，请参阅下面的“[付费应用的计费要求](#billing-requirements-for-paid-apps)”。
+- 所有付费应用程序必须处理关于新购买、升级、降级、取消和免费试用的 {% data variables.product.prodname_marketplace %} 购买事件。有关详细信息，请参阅下面的“[付费应用的计费要求](#billing-requirements-for-paid-apps)”。
 
 当您准备在 {% data variables.product.prodname_marketplace %} 上发布应用程序时，您必须请求验证应用程序上架信息。
 
@@ -78,9 +78,9 @@ ms.locfileid: '145084989'
 
 ## 付费应用程序的计费要求
 
-您的应用程序无需处理付款，但需要使用 {% data variables.product.prodname_marketplace %} 购买事件来管理新购买、升级、降级、取消和免费试用。 有关如何将这些事件集成到应用的信息，请参阅“[在应用中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
+您的应用程序无需处理付款，但需要使用 {% data variables.product.prodname_marketplace %} 购买事件来管理新购买、升级、降级、取消和免费试用。有关如何将这些事件集成到应用的信息，请参阅“[在应用中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
 GitHub 的计费 API 允许客户在不离开 GitHub 的情况下购买应用程序，并使用已附加到其在 {% data variables.product.product_location %} 上帐户的付款方式来支付服务费用。
 
 - 应用程序必须在付费订阅计划中支持月度和年度计费。
-- 上架产品可提供免费和付费计划的任何组合。 免费计划是可选项，但建议提供。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_marketplace %} 上架产品的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”。
+- 上架产品可提供免费和付费计划的任何组合。免费计划是可选项，但建议提供。有关详细信息，请参阅“[设置 {% data variables.product.prodname_marketplace %} 上架产品的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”。

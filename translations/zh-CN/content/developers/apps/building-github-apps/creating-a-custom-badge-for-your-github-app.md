@@ -24,9 +24,9 @@ ms.locfileid: '145099209'
 
 ![默认肖像](/assets/images/identicon.png)
 
-创建 GitHub 应用程序后，可以通过上传徽标和选择背景颜色自定义应用程序的徽章。 徽章是圆形徽章内的方形徽标图像。 您可以为徽章选择背景颜色，以便从视觉上与应用程序区分开。
+创建 GitHub 应用程序后，可以通过上传徽标和选择背景颜色自定义应用程序的徽章。徽章是圆形徽章内的方形徽标图像。您可以为徽章选择背景颜色，以便从视觉上与应用程序区分开。
 
-徽标应为 1 MB 以下的 PNG、JPG 或 GIF 文件。 为获得最佳渲染效果，建议图像大小至少为 200px x 200px。 {% ifversion fpt or ghec %}有关自定义徽章的详细指南，请参阅“[徽标和徽章图像的提示](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)”。{% endif %}
+徽标应为 1 MB 以下的 PNG、JPG 或 GIF 文件。为获得最佳渲染效果，建议图像大小至少为 200px x 200px。 {% ifversion fpt or ghec %}有关自定义徽章的详细指南，请参阅“[徽标和徽章图像的提示](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)”。{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -39,7 +39,7 @@ ms.locfileid: '145099209'
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.github_apps %} {% data reusables.user-settings.modify_github_app %}
 5. 在“显示信息”中，从本地文件夹拖放图像，或单击“上传徽标”，从计算机选择图像。
 ![上传徽标](/assets/images/github-apps/github_apps_upload_logo.png)
-6. 裁剪图片。 完成后，单击“设置新头像”。
+6. 裁剪图片。完成后，单击“设置新头像”。
 ![裁剪和设置徽标](/assets/images/github-apps/github_apps_crop_and_set_avatar.png)
 7. 在“徽章背景色”中，键入徽章背景色的[十六进制颜色代码](http://www.color-hex.com/)。 {% ifversion fpt or ghec %}注意：“徽章背景色”输入字段只会在上传应用程序徽标后显示。{% endif %} ![徽章背景色](/assets/images/github-apps/github_apps_badge_background_color.png)
 

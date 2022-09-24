@@ -51,4 +51,4 @@ ms.locfileid: '145084996'
       &error_uri=/apps/building-integrations/setting-up-and-registering-oauth-apps/troubleshooting-authorization-request-errors/%23access-denied
       &state=xyz
 
-在这方面你无能为力，因为用户可以自由选择不使用你的应用程序。 通常，用户只是关闭窗口或在浏览器中按返回按钮，所以你可能永远不会看到此错误。
+在这方面你无能为力，因为用户可以自由选择不使用你的应用程序。通常，用户只是关闭窗口或在浏览器中按返回按钮，所以你可能永远不会看到此错误。

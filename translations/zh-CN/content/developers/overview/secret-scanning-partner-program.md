@@ -19,11 +19,11 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145097997'
 ---
-{% data variables.product.prodname_dotcom %} 扫描仓库查找已知的密码格式，以防止欺诈性使用意外提交的凭据。 {% data variables.product.prodname_secret_scanning_caps %} 默认情况下发生在公共仓库上，但仓库管理员或组织所有者可以在私有仓库上启用它。 作为服务提供者，您可以与 {% data variables.product.prodname_dotcom %} 合作，让您的密码格式包含在我们的 {% data variables.product.prodname_secret_scanning %} 中。
+{% data variables.product.prodname_dotcom %} 扫描仓库查找已知的密码格式，以防止欺诈性使用意外提交的凭据。 {% data variables.product.prodname_secret_scanning_caps %} 默认情况下发生在公共仓库上，但仓库管理员或组织所有者可以在私有仓库上启用它。作为服务提供者，您可以与 {% data variables.product.prodname_dotcom %} 合作，让您的密码格式包含在我们的 {% data variables.product.prodname_secret_scanning %} 中。
 
 在公共仓库中找到密码格式的匹配项时，将发送有效负载到您选择的 HTTP 端点。
 
-在为 {% data variables.product.prodname_secret_scanning %} 配置的私有仓库中找到密码格式的匹配项时，仓库管理员和提交者将收到警报，并且可以查看和管理 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_secret_scanning %} 结果。 有关详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)。”
+在为 {% data variables.product.prodname_secret_scanning %} 配置的私有仓库中找到密码格式的匹配项时，仓库管理员和提交者将收到警报，并且可以查看和管理 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_secret_scanning %} 结果。有关详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)。”
 
 本文介绍作为服务提供者如何与 {% data variables.product.prodname_dotcom %} 合作并加入 {% data variables.product.prodname_secret_scanning %} 合作伙伴计划。
 
@@ -54,15 +54,15 @@ ms.locfileid: '145097997'
 
 要扫描您的密码，{% data variables.product.prodname_dotcom %} 需要您要包含在 {% data variables.product.prodname_secret_scanning %} 计划中的每个密码的以下信息：
 
-* 密码类型的唯一、人类可读的名称。 稍后我们将使用它在消息有效负载中生成 `Type` 值。
-* 查找密码类型的正则表达式。 尽可能精确，因为这样可以减少误报的数量。
-* 从 {% data variables.product.prodname_dotcom %} 接收消息的端点的 URL。 对于每个密码类型，这不必是唯一的。
+* 密码类型的唯一、人类可读的名称。稍后我们将使用它在消息有效负载中生成 `Type` 值。
+* 查找密码类型的正则表达式。尽可能精确，因为这样可以减少误报的数量。
+* 从 {% data variables.product.prodname_dotcom %} 接收消息的端点的 URL。对于每个密码类型，这不必是唯一的。
 
 将此信息发送到 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
 
 ### 创建密码警报服务
 
-在您提供给我们的 URL 上创建一个可访问互联网的公共 HTTP 端点。 在公共存储库中找到正则表达式的匹配项时，{% data variables.product.prodname_dotcom %} 将发送 HTTP `POST` 消息到你的终结点。
+在您提供给我们的 URL 上创建一个可访问互联网的公共 HTTP 端点。在公共存储库中找到正则表达式的匹配项时，{% data variables.product.prodname_dotcom %} 将发送 HTTP `POST` 消息到你的终结点。
 
 #### 发送到端点的 POST 示例
 
@@ -78,7 +78,7 @@ Content-Length: 0123
 [{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt"}]
 ```
 
-消息正文是一个 JSON 数组，其中包含一个或多个具有以下内容的对象。 找到多个匹配项时，{% data variables.product.prodname_dotcom %} 可能发送一条包含多个密码匹配项的消息。 您的端点应该能够在不超时的情况下处理包含大量匹配项的请求。
+消息正文是一个 JSON 数组，其中包含一个或多个具有以下内容的对象。找到多个匹配项时，{% data variables.product.prodname_dotcom %} 可能发送一条包含多个密码匹配项的消息。您的端点应该能够在不超时的情况下处理包含大量匹配项的请求。
 
 * 令牌：机密匹配的值。
 * 类型：提供用于标识正则表达式的唯一名称。
@@ -92,16 +92,16 @@ Content-Length: 0123
 
 {% note %}
 
-注意：向上述公钥终结点发送请求时，可能会达到速率限制。 为了避免达到速率限制，您可以使用下面示例建议的个人访问令牌（无需范围），或使用条件请求。 有关详细信息，请参阅“[REST API 入门](/rest/guides/getting-started-with-the-rest-api#conditional-requests)”。
+注意：向上述公钥终结点发送请求时，可能会达到速率限制。为了避免达到速率限制，您可以使用下面示例建议的个人访问令牌（无需范围），或使用条件请求。有关详细信息，请参阅“[REST API 入门](/rest/guides/getting-started-with-the-rest-api#conditional-requests)”。
 
 {% endnote %}
 
 假设您收到以下消息，下面的代码段演示如何执行签名验证。
-代码片段假定已使用生成的 PAT (https://github.com/settings/tokens) 设置名为 `GITHUB_PRODUCTION_TOKEN` 的环境变量以避免达到速率限制。 PAT 不需要任何范围/权限。
+代码片段假定已使用生成的 PAT (https://github.com/settings/tokens) 设置名为 `GITHUB_PRODUCTION_TOKEN` 的环境变量以避免达到速率限制。PAT 不需要任何范围/权限。
 
 {% note %}
 
-注意：签名是使用原始消息正文生成的。 因此，您也必须使用原始消息正文进行签名验证，而不是解析和串联 JSON，以避免重新排列消息或更改间距，这一点很重要。
+注意：签名是使用原始消息正文生成的。因此，您也必须使用原始消息正文进行签名验证，而不是解析和串联 JSON，以避免重新排列消息或更改间距，这一点很重要。
 
 {% endnote %}
 
@@ -332,13 +332,13 @@ const verify_signature = async (payload, signature, keyID) => {
 
 ### 在密码警报服务中实施密码撤销和用户通知
 
-对于公共仓库中的 {% data variables.product.prodname_secret_scanning %}，您可以增强密码警报服务，以撤销泄露的密码并通知受影响的用户。 如何在密码警报服务中实现此功能取决于您，但我们建议您考虑 {% data variables.product.prodname_dotcom %}向您发送的公开和泄露示警消息所涉及的任何密码。
+对于公共仓库中的 {% data variables.product.prodname_secret_scanning %}，您可以增强密码警报服务，以撤销泄露的密码并通知受影响的用户。如何在密码警报服务中实现此功能取决于您，但我们建议您考虑 {% data variables.product.prodname_dotcom %}向您发送的公开和泄露示警消息所涉及的任何密码。
 
 ### 提供误报的反馈
 
-我们在合作伙伴响应中收集有关检测到的各个密码有效性的反馈。 如果你想参加，请发送电子邮件至 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
+我们在合作伙伴响应中收集有关检测到的各个密码有效性的反馈。如果你想参加，请发送电子邮件至 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
 
-向您报告密码时，我们会发送一个 JSON 数组，其中有包含令牌、类型标识符和提交 URL 的每个元素。 当您向我们发送反馈时，您将向我们发送有关检测到的令牌是真凭据还是假凭据的信息。 我们接受以下格式的反馈。
+向您报告密码时，我们会发送一个 JSON 数组，其中有包含令牌、类型标识符和提交 URL 的每个元素。当您向我们发送反馈时，您将向我们发送有关检测到的令牌是真凭据还是假凭据的信息。我们接受以下格式的反馈。
 
 您可以向我们发送原始令牌：
 
@@ -365,10 +365,10 @@ const verify_signature = async (payload, signature, keyID) => {
 重要事项：
 - 您应该只向我们发送令牌的原始形式 ("token_raw") 或哈希形式，而不要同时发送这两种形式。
 - 对于原始令牌的哈希形式，您只能使用 SHA-256 对令牌进行哈希处理，而不能使用任何其他哈希算法。
-- 用标签指示令牌为实报 ("true_positive") 还是误报 ("false_positive")。 只允许使用这两个小写的文字字符串。
+- 用标签指示令牌为实报 ("true_positive") 还是误报 ("false_positive")。只允许使用这两个小写的文字字符串。
 
 {% note %}
 
-注意：对于提供误报数据的合作伙伴，我们的请求超时设置得更高（即 30 秒）。 如果需要超过 30 秒的超时时间，请发送电子邮件至 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
+注意：对于提供误报数据的合作伙伴，我们的请求超时设置得更高（即 30 秒）。如果需要超过 30 秒的超时时间，请发送电子邮件至 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
 
 {% endnote %}

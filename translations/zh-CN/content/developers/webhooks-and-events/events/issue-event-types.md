@@ -18,13 +18,13 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: '147875988'
 ---
-问题事件由问题和拉取请求中的活动触发，在[问题事件 API](/rest/reference/issues#events) 和[时间线事件 API](/rest/reference/issues#timeline) 中可用。 每个事件类型指定事件是否可用于议题事件或时间表事件 API。
+问题事件由问题和拉取请求中的活动触发，在[问题事件 API](/rest/reference/issues#events) 和[时间线事件 API](/rest/reference/issues#timeline) 中可用。每个事件类型指定事件是否可用于议题事件或时间表事件 API。
 
-GitHub 的 REST API 认为每个拉取请求都是一个议题，但并非每个议题都是拉取请求。 因此，议题事件和时间表事件端点可能在响应中同时返回议题和拉取请求。 拉取请求在 `issue` 对象中有一个 `pull_request` 属性。 因为拉取请求也是议题，因此议题和拉取请求编号在仓库中不会重叠。 例如，如果您在仓库中打开了您的第一个议题，则编号将为 1。 如果您随后打开了一个拉取请求，则编号将为 2。 每个事件类型指定事件是否发生在拉取请求和/或议题中。
+GitHub 的 REST API 认为每个拉取请求都是一个议题，但并非每个议题都是拉取请求。因此，议题事件和时间表事件端点可能在响应中同时返回议题和拉取请求。拉取请求在 `issue` 对象中有一个 `pull_request` 属性。因为拉取请求也是议题，因此议题和拉取请求编号在仓库中不会重叠。例如，如果您在仓库中打开了您的第一个议题，则编号将为 1。如果您随后打开了一个拉取请求，则编号将为 2。每个事件类型指定事件是否发生在拉取请求和/或议题中。
 
 ## 议题事件对象公共属性
 
-议题事件都具有相同的对象结构，但仅在时间表事件 API 中可用的事件除外。 某些事件还包括可提供有关事件资源更多上下文的其他属性。 有关不同于此对象格式的任何属性的详细信息，请参阅特定事件。
+议题事件都具有相同的对象结构，但仅在时间表事件 API 中可用的事件除外。某些事件还包括可提供有关事件资源更多上下文的其他属性。有关不同于此对象格式的任何属性的详细信息，请参阅特定事件。
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -102,7 +102,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ## 已关闭
 
-议题或拉取请求已关闭。 `commit_id` 存在时，它会使用“closes/fixes”语法标识关闭问题的提交。 有关语法的详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)”。
+议题或拉取请求已关闭。 `commit_id` 存在时，它会使用“closes/fixes”语法标识关闭问题的提交。有关语法的详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)”。
 
 ### 可用性
 
@@ -138,7 +138,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 `user` | `object` | 对议题发表评论的人。
 `created_at` | `string` | 指示评论添加时间的时间戳。
 `updated_at` | `string` | 指示评论更新或创建（如果从未更新）时间的时间戳。
-`author_association` | `string` | 用户在议题仓库中拥有的权限。 例如，如果存储库的所有者创建了注释，该值将为 `"OWNER"`。
+`author_association` | `string` | 用户在议题仓库中拥有的权限。例如，如果存储库的所有者创建了注释，该值将为 `"OWNER"`。
 `body` | `string` | 评论正文文本。
 `event` | `string` | 事件值为 `"commented"`。
 `actor` | `object` | 生成事件的人。
@@ -168,12 +168,12 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 `tree` | `object` | 提交的 Git 树。
 `message` | `string` | 提交消息。
 `parents` | `array of objects` | 父提交的列表。
-`verification` | `object` | 验证提交签名的结果。 有关详细信息，请参阅“[签名验证对象](/rest/reference/git#get-a-commit)”。
+`verification` | `object` | 验证提交签名的结果。有关详细信息，请参阅“[签名验证对象](/rest/reference/git#get-a-commit)”。
 `event` | `string` | 事件值为 `"committed"`。
 
 ## 已连接
 
-议题或拉取请求已链接到另一个议题或拉取请求。 有关详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
+议题或拉取请求已链接到另一个议题或拉取请求。有关详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
 
 ### 可用性
 
@@ -235,7 +235,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 `created_at` | `string` | 指示交叉引用添加时间的时间戳。
 `updated_at` | `string` | 指示交叉引用更新或创建（如果从未更新）时间的时间戳。
 `source` | `object` | 添加交叉引用的议题或拉取请求。
-`source[type]` | `string` | 该值始终为 `"issue"`，因为拉取请求属于类型问题。 在时间表事件 API 中仅返回由议题或拉取请求触发的交叉引用事件。 若要确定触发事件的问题是否为拉取请求，可以检查 `source[issue][pull_request]` 对象是否存在。
+`source[type]` | `string` | 该值始终为 `"issue"`，因为拉取请求属于类型问题。在时间表事件 API 中仅返回由议题或拉取请求触发的交叉引用事件。若要确定触发事件的问题是否为拉取请求，可以检查 `source[issue][pull_request]` 对象是否存在。
 `source[issue]` | `object` | 添加交叉引用的 `issue` 对象。
 `event` | `string` | 事件值为 `"cross-referenced"`。
 
@@ -284,7 +284,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ## 已断开连接
 
-议题或拉取请求与另一个议题或拉取请求取消链接。 有关详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
+议题或拉取请求与另一个议题或拉取请求取消链接。有关详细信息，请参阅“[将拉取请求链接到问题](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)”。
 
 ### 可用性
 
@@ -587,10 +587,10 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 `body` | `string` | 审查摘要文本。
 `commit_id` | `string` | 审查时拉取请求中最新提交的 SHA。
 `submitted_at` | `string` | 指示审查提交时间的时间戳。
-`state` | `string` | 已提交审查的状态。 可以是下述之一：`commented`、`changes_requested` 或 `approved`。
+`state` | `string` | 已提交审查的状态。可以是下述之一：`commented`、`changes_requested` 或 `approved`。
 `html_url` | `string` | 审查的 HTML URL。
 `pull_request_url` | `string` | 用于检索拉取请求的 REST API URL。
-`author_association` | `string` | 用户在议题仓库中拥有的权限。 例如，如果存储库的所有者创建了注释，该值将为 `"OWNER"`。
+`author_association` | `string` | 用户在议题仓库中拥有的权限。例如，如果存储库的所有者创建了注释，该值将为 `"OWNER"`。
 `_links` | `object` | `html_url` 和 `pull_request_url`。
 `event` | `string` | 事件值为 `"reviewed"`。
 
@@ -709,7 +709,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 {% ifversion fpt or ghec %}
 ## user_blocked
 
-组织所有者阻止了用户访问组织。 这是[通过被阻止的用户对该问题的注释之一](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)完成的。
+组织所有者阻止了用户访问组织。这是[通过被阻止的用户对该问题的注释之一](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)完成的。
 
 ### 可用性
 

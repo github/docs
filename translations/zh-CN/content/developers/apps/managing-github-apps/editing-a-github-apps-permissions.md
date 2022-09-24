@@ -22,7 +22,7 @@ ms.locfileid: '145085018'
 ---
 {% note %}
 
-注意：在帐户所有者或组织批准更改之前，更新的权限不会对安装生效。 可以使用 [InstallationEvent Webhook](/webhooks/event-payloads/#installation) 来了解用户何时接受应用的新权限。 [用户级权限](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)是一个例外，它不需要帐户所有者批准权限更改。
+注意：在帐户所有者或组织批准更改之前，更新的权限不会对安装生效。可以使用 [InstallationEvent Webhook](/webhooks/event-payloads/#installation) 来了解用户何时接受应用的新权限。 [用户级权限](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)是一个例外，它不需要帐户所有者批准权限更改。
 
 {% endnote %}
 
@@ -31,7 +31,7 @@ ms.locfileid: '145085018'
 ![应用选择](/assets/images/github-apps/github_apps_select-app.png)
 5. 在左侧边栏中，单击“权限和 Webhook”。
 ![权限和 Webhook](/assets/images/github-apps/github_apps_permissions_and_webhooks.png)
-6. 修改要更改的权限。 对于每种类型的权限，从下拉列表中选择“只读”、“读取和写入”或“无访问权限”。
+6. 修改要更改的权限。对于每种类型的权限，从下拉列表中选择“只读”、“读取和写入”或“无访问权限”。
 ![GitHub 应用的权限选择](/assets/images/github-apps/github_apps_permissions_post2dot13.png)
 7. 在“Subscribe to events（订阅事件）”中，选择应用程序要订阅的任何事件。
 ![GitHub 应用订阅事件的权限选择](/assets/images/github-apps/github_apps_permissions_subscribe_to_events.png)

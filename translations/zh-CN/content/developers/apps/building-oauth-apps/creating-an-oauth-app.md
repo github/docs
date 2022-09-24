@@ -39,7 +39,7 @@ ms.locfileid: '146180341'
 
   {% warning %}
 
-  警告：仅在 OAuth 应用中使用你考虑公开的信息。 创建 OAuth 应用程序时，应避免使用敏感数据（如内部 URL）。
+  警告：仅在 OAuth 应用中使用你考虑公开的信息。创建 OAuth 应用程序时，应避免使用敏感数据（如内部 URL）。
 
   {% endwarning %}
 
@@ -53,7 +53,7 @@ ms.locfileid: '146180341'
    注意：与 {% data variables.product.prodname_github_apps %} 不同，OAuth 应用不能有多个回调 URL。
 
    {% endnote %} {% endif %}{% ifversion device-flow-is-opt-in %}
-1. 如果 OAuth 应用将使用设备流来识别和授权用户，请单击“启用设备流”。 有关设备流的详细信息，请参阅“[授权 OAuth 应用](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)”。
+1. 如果 OAuth 应用将使用设备流来识别和授权用户，请单击“启用设备流”。有关设备流的详细信息，请参阅“[授权 OAuth 应用](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)”。
   ![显示启用设备流的字段的屏幕截图](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 2.  单击“注册应用程序”。
 ![注册应用程序的按钮](/assets/images/oauth-apps/oauth_apps_register_application.png)

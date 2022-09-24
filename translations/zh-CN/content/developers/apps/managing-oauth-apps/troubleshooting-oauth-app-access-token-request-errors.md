@@ -38,7 +38,7 @@ ms.locfileid: '145084995'
 }
 ```
 
-要解决此错误，请确保您拥有 {% data variables.product.prodname_oauth_app %} 的正确凭据。 仔细检查 `client_id` 和 `client_secret`，并确保它们正确无误，并将其正确传递给 {% data variables.product.product_name %}。
+要解决此错误，请确保您拥有 {% data variables.product.prodname_oauth_app %} 的正确凭据。仔细检查 `client_id` 和 `client_secret`，并确保它们正确无误，并将其正确传递给 {% data variables.product.product_name %}。
 
 ## 重定向 URI 不匹配
 

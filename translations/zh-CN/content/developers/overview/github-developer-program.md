@@ -15,7 +15,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 07/27/2022
 ms.locfileid: '147425548'
 ---
-要构建与 GitHub 集成的应用程序？ 请注册我们的开发者计划！ 无尽可能，享受点赞。 [立即注册](https://github.com/developer/register)
+要构建与 GitHub 集成的应用程序？请注册我们的开发者计划！无尽可能，享受点赞。 [立即注册](https://github.com/developer/register)
 
 ## <a name="scratch-an-itch"></a>大显身手
 
@@ -27,7 +27,7 @@ ms.locfileid: '147425548'
 
 ## <a name="have-an-integration-that-works-with-github"></a>有适用于 GitHub 的集成？
 
-太棒了！ 我们希望您加入计划。 以下是您可以使用的推广方式：</p>
+太棒了！我们希望您加入计划。以下是您可以使用的推广方式：</p>
 * [让我们知道你的集成](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)
 * 使用 [Octocat 或 GitHub 徽标](https://github.com/logos)标识产品是否适用于 GitHub
 * 在您的网站上发布有关您的集成的视频或博客
