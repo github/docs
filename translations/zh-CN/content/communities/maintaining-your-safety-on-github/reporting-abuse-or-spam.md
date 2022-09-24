@@ -16,13 +16,13 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145086575'
 ---
-所有者、协作者、以前的贡献者以及具有写入权限的人员均可举报议题、拉取请求以及对议题、拉取请求和提交的评论。 任何人均可举报 {% data variables.product.prodname_marketplace %} 中的应用程序。
+所有者、协作者、以前的贡献者以及具有写入权限的人员均可举报议题、拉取请求以及对议题、拉取请求和提交的评论。任何人均可举报 {% data variables.product.prodname_marketplace %} 中的应用程序。
 
 ## 关于举报滥用或垃圾邮件
 
 {% data reusables.policies.github-community-guidelines-and-terms %}
 
-您可以通过 {% data variables.contact.report_abuse %} 或 {% data variables.contact.report_content %} 举报违反了 {% data variables.product.prodname_dotcom %} 社区指导方针或服务条款的用户。 也可以举告议题、拉取请求，或者对议题、拉取请求和提交的评论。
+您可以通过 {% data variables.contact.report_abuse %} 或 {% data variables.contact.report_content %} 举报违反了 {% data variables.product.prodname_dotcom %} 社区指导方针或服务条款的用户。也可以举告议题、拉取请求，或者对议题、拉取请求和提交的评论。
 
 如果公共仓库启用了举报的内容，您还可以直接向仓库维护员举告内容。
 

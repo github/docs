@@ -39,7 +39,7 @@ assignees: octocat
 ```
 {% note %}
 
-注意：如果前页值包含 YAML 保留字符（如 `:`），则必须将整个值放在引号中。 例如，`":bug: Bug"` 或 `":new: triage needed, :bug: bug"`。
+注意：如果前页值包含 YAML 保留字符（如 `:`），则必须将整个值放在引号中。例如，`":bug: Bug"` 或 `":new: triage needed, :bug: bug"`。
 
 {% endnote %}
 
@@ -59,14 +59,14 @@ assignees: octocat
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
 3. 在文件名字段中：
-    -  要使问题模板显示在存储库的根目录中，请输入 issue_template 的名称。 例如，`issue_template.md`。
+    -  要使问题模板显示在存储库的根目录中，请输入 issue_template 的名称。例如，`issue_template.md`。
   ![根目录中的新问题模板名称](/assets/images/help/repository/issue-template-file-name.png)
-    - 要使问题模板显示在存储库的 `docs` 目录中，请键入 docs/，后跟 issue_template 的名称 。 例如，`docs/issue_template.md`。![文档目录中的新问题模板](/assets/images/help/repository/issue-template-file-name-docs.png)
-    - 要将文件存储在隐藏目录中，请键入 .github/，后跟 issue_template 的名称 。 例如，`.github/issue_template.md`。
+    - 要使问题模板显示在存储库的 `docs` 目录中，请键入 docs/，后跟 issue_template 的名称。例如，`docs/issue_template.md`。![文档目录中的新问题模板](/assets/images/help/repository/issue-template-file-name-docs.png)
+    - 要将文件存储在隐藏目录中，请键入 .github/，后跟 issue_template 的名称。例如，`.github/issue_template.md`。
   ![隐藏目录中的新问题模板](/assets/images/help/repository/issue-template-hidden-directory.png)
-    - 要创建多个问题模板，并使用 `template` 查询参数指定填充问题正文的模板，请键入 .github/ISSUE_TEMPLATE/，后跟问题模板的名称。 例如，`.github/ISSUE_TEMPLATE/issue_template.md`。 还可以将多个问题模板存储在根目录或 `docs/` 目录的 `ISSUE_TEMPLATE` 子目录中。 有关详细信息，请参阅“[关于使用查询参数自动处理问题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
+    - 要创建多个问题模板，并使用 `template` 查询参数指定填充问题正文的模板，请键入 .github/ISSUE_TEMPLATE/，后跟问题模板的名称。例如，`.github/ISSUE_TEMPLATE/issue_template.md`。还可以将多个问题模板存储在根目录或 `docs/` 目录的 `ISSUE_TEMPLATE` 子目录中。有关详细信息，请参阅“[关于使用查询参数自动处理问题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
   ![隐藏目录中新的多问题模板](/assets/images/help/repository/issue-template-multiple-hidden-directory.png)
-4. 在新文件的正文中，添加您的议题模板。 这可能包括：
+4. 在新文件的正文中，添加您的议题模板。这可能包括：
     - YAML 前页
     - 预期行为和实际行为
     - 问题重现步骤

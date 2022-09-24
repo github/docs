@@ -21,11 +21,11 @@ ms.locfileid: '145086515'
 ---
 有关详细信息，请参阅“[关于问题和拉取请求模板](/articles/about-issue-and-pull-request-templates)”。
 
-可以在任何支持的文件夹中创建 PULL_REQUEST_TEMPLATE/ 子目录，以包含多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板。 有关详细信息，请参阅“[使用查询参数创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)”。
+可以在任何支持的文件夹中创建 PULL_REQUEST_TEMPLATE/ 子目录，以包含多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板。有关详细信息，请参阅“[使用查询参数创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)”。
 
 {% ifversion fpt or ghes or ghec %}
 
-可以为组织{% ifversion fpt or ghes or ghec %}或个人帐户{% endif %}创建默认的拉取请求模板。 有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
+可以为组织{% ifversion fpt or ghes or ghec %}或个人帐户{% endif %}创建默认的拉取请求模板。有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
 
 {% endif %}
 
@@ -39,9 +39,9 @@ ms.locfileid: '145086515'
   ![文档目录中的新拉取请求模板](/assets/images/help/repository/pr-template-file-name-docs.png)
     - 若要将文件存储在隐藏目录中，请将拉取请求模板命名为 `.github/pull_request_template.md`。
   ![隐藏目录中的新拉取请求模板](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - 若要创建多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板，请键入“.github/PULL_REQUEST_TEMPLATE/”，后跟拉取请求模板的名称。 例如，`.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`。 也可以在根目录或 `docs/` 目录的 `PULL_REQUEST_TEMPLATE` 子目录中存储多个拉取请求模板。 有关详细信息，请参阅“[关于使用查询参数自动处理问题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
+    - 若要创建多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板，请键入“.github/PULL_REQUEST_TEMPLATE/”，后跟拉取请求模板的名称。例如，`.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`。也可以在根目录或 `docs/` 目录的 `PULL_REQUEST_TEMPLATE` 子目录中存储多个拉取请求模板。有关详细信息，请参阅“[关于使用查询参数自动处理问题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
   ![隐藏目录中新的多拉取请求模板](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
-4. 在新文件的正文中，添加您的拉取请求模板。 这可能包括：
+4. 在新文件的正文中，添加您的拉取请求模板。这可能包括：
     - 存储库中[对相关问题的引用](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests)。
     - 对拉取请求中所提议更改的说明。
     - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) 负责审查提议更改的人员或团队。

@@ -19,7 +19,7 @@ ms.locfileid: '145099308'
 ---
 取消阻止用户对组织的访问后，他们将能够为组织的仓库做出贡献。
 
-如果您选择在特定的时间内阻止用户，则该时间段结束后将自动取消阻止用户。 有关详细信息，请参阅“[阻止用户访问组织](/articles/blocking-a-user-from-your-organization)”。
+如果您选择在特定的时间内阻止用户，则该时间段结束后将自动取消阻止用户。有关详细信息，请参阅“[阻止用户访问组织](/articles/blocking-a-user-from-your-organization)”。
 
 {% tip %}
 

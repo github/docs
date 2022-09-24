@@ -49,7 +49,7 @@ description: true
 ...
 ```
 
-可以通过提供字符串作为值来修复此错误。 可能需要在字符串两侧加双引号才能成功分析。 例如，必须在包含 `'` 的字符串两侧加双引号。
+可以通过提供字符串作为值来修复此错误。可能需要在字符串两侧加双引号才能成功分析。例如，必须在包含 `'` 的字符串两侧加双引号。
 
 ```yaml
 name: "Bug report"
@@ -66,7 +66,7 @@ assignees: "      "
 ...
 ```
 
-可以通过将值更正为非空字符串来修复此错误。 如果字段不是必需的，则应删除键值对。
+可以通过将值更正为非空字符串来修复此错误。如果字段不是必需的，则应删除键值对。
 
 ```yaml
 name: "Bug Report"
@@ -76,7 +76,7 @@ description: "File a bug report"
 
 ## <a name="input-is-not-a-permitted-key"></a>`input` 不是允许的键
 
-模板的顶层提供了意外的键。 有关支持哪些顶级键的详细信息，请参阅“[问题表单的语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)”。
+模板的顶层提供了意外的键。有关支持哪些顶级键的详细信息，请参阅“[问题表单的语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)”。
 
 ### <a name="example"></a>示例
 
@@ -95,7 +95,7 @@ name: "Bug report"
 
 ## <a name="forbidden-keys"></a>禁止键
 
-YAML 将某些字符串分析为 `Boolean` 值。 为了避免这种情况，我们明确禁止使用以下键：
+YAML 将某些字符串分析为 `Boolean` 值。为了避免这种情况，我们明确禁止使用以下键：
 
 `y`, `Y`, `yes`, `Yes`, `YES`, `n`, `N`, `no`, `No`, `NO`, `true`, `True`, `TRUE`, `false`, `False`, `FALSE`, `on`, `On`, `ON`, `off`, `Off`, `OFF`
 
@@ -192,7 +192,7 @@ body:
     label: Operating System
 ```
 
-输入字段也可以按其 `id` 属性进行区分。 如果需要重复的 `label` 属性，则可以提供至少一个 `id` 来区分具有相同标签的两个元素。
+输入字段也可以按其 `id` 属性进行区分。如果需要重复的 `label` 属性，则可以提供至少一个 `id` 来区分具有相同标签的两个元素。
 
 ```yaml
 name: "Bug report"
@@ -207,12 +207,12 @@ body:
     label: Name
 ```
 
-`id` 属性在问题正文中不可见。 如果要区分生成的问题中的字段，则应使用不同的 `label` 属性。
+`id` 属性在问题正文中不可见。如果要区分生成的问题中的字段，则应使用不同的 `label` 属性。
 
 
 ## <a name="labels-are-too-similar"></a>标签太相似
 
-相似的标签可以处理成相同的引用。 如果没有为 `input` 提供 `id` 属性，则 `label` 属性用于生成对 `input` 字段的引用。 为此，我们将利用 Rails [参数化](https://apidock.com/rails/ActiveSupport/Inflector/parameterize)方法来处理 `label`。 在某些情况下，可以将两个不同标签处理为相同的参数化字符串。
+相似的标签可以处理成相同的引用。如果没有为 `input` 提供 `id` 属性，则 `label` 属性用于生成对 `input` 字段的引用。为此，我们将利用 Rails [参数化](https://apidock.com/rails/ActiveSupport/Inflector/parameterize)方法来处理 `label`。在某些情况下，可以将两个不同标签处理为相同的参数化字符串。
 
 ### <a name="example"></a>示例
 
@@ -287,7 +287,7 @@ body:
     - label: Your name
 ```
 
-也可以向任何冲突的顶级元素提供一个 `id`。 嵌套复选框元素不支持 `id` 属性。
+也可以向任何冲突的顶级元素提供一个 `id`。嵌套复选框元素不支持 `id` 属性。
 
 ```yaml
 name: "Bug report"
@@ -302,13 +302,13 @@ body:
     - label: Name
 ```
 
-`id` 属性在问题正文中不可见。 如果要区分生成的问题中的字段，则应使用不同的 `label` 属性。
+`id` 属性在问题正文中不可见。如果要区分生成的问题中的字段，则应使用不同的 `label` 属性。
 
 ## <a name="bodyi-required-key-type-is-missing"></a>Body[i]：缺少所需的键类型
 
 每个正文块必须包含键 `type`。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的零索引索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的零索引索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -318,7 +318,7 @@ body:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-可以通过添加具有有效输入类型的键 `type` 作为值来修复此错误。 有关可用的 `body` 输入类型及其语法，请参阅“[{% data variables.product.prodname_dotcom %} 表单架构的语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)”。
+可以通过添加具有有效输入类型的键 `type` 作为值来修复此错误。有关可用的 `body` 输入类型及其语法，请参阅“[{% data variables.product.prodname_dotcom %} 表单架构的语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)”。
 
 ```yaml
 body:
@@ -331,7 +331,7 @@ body:
 
 其中一个正文块包含的类型值不是[允许的类型](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)之一。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -353,9 +353,9 @@ body:
 
 ## <a name="bodyi-required-attribute-key-value-is-missing"></a>Body[i]：缺少必需的属性键 `value`
 
-尚未提供所需的 `value` 属性之一。 当块没有 `attributes` 键或 `attributes` 键下没有 `value` 键时，会发生此错误。
+尚未提供所需的 `value` 属性之一。当块没有 `attributes` 键或 `attributes` 键下没有 `value` 键时，会发生此错误。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -383,7 +383,7 @@ body:
 
 在其 `attributes` 块中，值具有错误的数据类型。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -403,7 +403,7 @@ body:
     label: true
 ```
 
-可以通过为 `label` 提供字符串值来修复此错误。 如果要使用可能会分析为布尔值、整数或小数的 `label` 值，则应在该值两侧加引号。 例如，应为 `"true"` 或 `"1.3"`，而不是 `true` 或 `1.3`。
+可以通过为 `label` 提供字符串值来修复此错误。如果要使用可能会分析为布尔值、整数或小数的 `label` 值，则应在该值两侧加引号。例如，应为 `"true"` 或 `"1.3"`，而不是 `true` 或 `1.3`。
 
 ```yaml
 - type: markdown
@@ -417,9 +417,9 @@ body:
     label: Environment Details
 ```
 
-当属性应为字符串时，不允许使用空字符串或仅包含空格的字符串。 例如，不允许使用 `""` 或 `"     "`。
+当属性应为字符串时，不允许使用空字符串或仅包含空格的字符串。例如，不允许使用 `""` 或 `"     "`。
 
-如果属性是必需的，该值必须是非空字符串。 如果字段不是必需的，则应删除键值对。
+如果属性是必需的，该值必须是非空字符串。如果字段不是必需的，则应删除键值对。
 
 ```yaml
 body:
@@ -430,9 +430,9 @@ body:
 
 ## <a name="bodyi-id-can-only-contain-numbers-letters---_"></a>Body[i]：`id` 只能包含数字、字母、-、_
 
-`id` 属性只能包含字母数字字符、`-` 和 `_`。 模板可能在 `id` 中包含不允许使用的字符，例如空格。
+`id` 属性只能包含字母数字字符、`-` 和 `_`。模板可能在 `id` 中包含不允许使用的字符，例如空格。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -460,7 +460,7 @@ body:
 
 在与 `type` 和 `attributes` 相同的缩进级别提供了意外的键 `x`。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -485,7 +485,7 @@ body:
 
 为了尽量减少在 GitHub 问题中公开发布私人信息和凭据的风险，在输入或 textarea 元素的 `label` 中不允许使用一些攻击者常用的词。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -515,7 +515,7 @@ body:
 
 `attributes` 块中提供了无效的键。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -540,7 +540,7 @@ body:
 
 对于复选框和下拉列表输入类型，`options` 数组中定义的选项必须是唯一的。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -571,7 +571,7 @@ body:
 
 “None”是 `options` 集中的保留字，因为它用于在不需要 `dropdown` 时表示不进行选择。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 
@@ -588,7 +588,7 @@ body:
     required: true
 ```
 
-可以通过删除“None”选项来修复该错误。 如果希望参与者能够表明他们不喜欢这些类型的馅饼，则还可以删除 `required` 验证。
+可以通过删除“None”选项来修复该错误。如果希望参与者能够表明他们不喜欢这些类型的馅饼，则还可以删除 `required` 验证。
 
 ```
 body:
@@ -602,11 +602,11 @@ body:
 
 在此示例中，“None”将自动填充为可选选项。
 
-## <a name="bodyi-options-must-not-include-booleans-please-wrap-values-such-as-yes-and-true-in-quotes"></a>Body[i]：`options` 不得包含布尔值。 请将“yes”和“true”等值两侧加引号
+## <a name="bodyi-options-must-not-include-booleans-please-wrap-values-such-as-yes-and-true-in-quotes"></a>Body[i]：`options` 不得包含布尔值。请将“yes”和“true”等值两侧加引号
 
-有许多英文单词会被 YAML 分析程序处理成布尔值，除非它们两侧加上引号。 对于下拉列表 `options`，所有项必须为字符串而非布尔值。
+有许多英文单词会被 YAML 分析程序处理成布尔值，除非它们两侧加上引号。对于下拉列表 `options`，所有项必须为字符串而非布尔值。
 
-带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。 例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
+带有 `body` 的错误将以 `body[i]` 为前缀，其中 `i` 表示包含错误的主体块的索引。例如，可以通过 `body[0]` 得知错误是由 `body` 列表中的第一个块引起的。
 
 ### <a name="example"></a>示例
 

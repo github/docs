@@ -40,7 +40,7 @@ ms.locfileid: '147425262'
 ## 编辑 wiki 页面
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
-4. 使用 wiki 侧栏，导航到您要更改的页面。 在页面的右上角，单击“编辑”。
+4. 使用 wiki 侧栏，导航到您要更改的页面。在页面的右上角，单击“编辑”。
    ![Wiki 编辑页面按钮](/assets/images/help/wiki/wiki_edit_page_button.png)
 5. 使用文本编辑器编辑页面内容。
    ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
@@ -62,12 +62,12 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 # Clones the wiki locally
 ```
 
-在克隆 wiki 后，可以添加新文件、编辑现有文件以及提交更改。 您与协作者在操作 wiki 时可以创建分支，但只有推送到默认分支的更改才会生效并供读者使用。
+在克隆 wiki 后，可以添加新文件、编辑现有文件以及提交更改。您与协作者在操作 wiki 时可以创建分支，但只有推送到默认分支的更改才会生效并供读者使用。
 
 ## 关于 wiki 文件名
 
 文件名确定 wiki 页面的标题，文件扩展名确定 wiki 内容如何呈现。
 
-Wiki 使用[开放源代码 Markup 库](https://github.com/github/markup)转换标记，它根据文件扩展名确定要使用的转换器。 例如，如果将文件命名为 foo.md 或 foo.markdown，Wiki 将会使用 Markdown 转换器，而名为 foo.textile 的文件将使用 Textile 转换器  。
+Wiki 使用[开放源代码 Markup 库](https://github.com/github/markup)转换标记，它根据文件扩展名确定要使用的转换器。例如，如果将文件命名为 foo.md 或 foo.markdown，Wiki 将会使用 Markdown 转换器，而名为 foo.textile 的文件将使用 Textile 转换器。
 
-请勿在 Wiki 页面标题中使用以下字符：`\ / : * ? " < > |`。 有些操作系统的用户不能使用包含这些字符的文件名。 请确保使用符合扩展名的标记语言编写内容，否则您的内容无法正确呈现。
+请勿在 Wiki 页面标题中使用以下字符：`\ / : * ? " < > |`。有些操作系统的用户不能使用包含这些字符的文件名。请确保使用符合扩展名的标记语言编写内容，否则您的内容无法正确呈现。

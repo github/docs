@@ -19,11 +19,11 @@ ms.locfileid: '147422874'
 ---
 ## 关于阻止用户
 
-您可以在您的帐户设置中或从用户的个人资料中阻止用户。 {% data variables.product.prodname_dotcom %} 在您阻止用户时不会通知用户。 如果要避免与您阻止的人参与同一个项目，您可以选择针对被阻止用户先前参与的任何仓库显示警告。 有关详细信息，请参阅“[在帐户设置中阻止用户](#blocking-a-user-in-your-account-settings)”。 您仍然可以在共享空间中看到被阻止用户的活动，被阻止的用户也可以删除他们现有的内容。
+您可以在您的帐户设置中或从用户的个人资料中阻止用户。 {% data variables.product.prodname_dotcom %} 在您阻止用户时不会通知用户。如果要避免与您阻止的人参与同一个项目，您可以选择针对被阻止用户先前参与的任何仓库显示警告。有关详细信息，请参阅“[在帐户设置中阻止用户](#blocking-a-user-in-your-account-settings)”。您仍然可以在共享空间中看到被阻止用户的活动，被阻止的用户也可以删除他们现有的内容。
 
 {% tip %}
 
-**提示：** 如果你因为言辞激烈的对话而阻止用户，请考虑锁定对话，以限制为只有协作者才能评论。 有关详细信息，请参阅“[锁定对话](/communities/moderating-comments-and-conversations/locking-conversations)”。
+**提示：** 如果你因为言辞激烈的对话而阻止用户，请考虑锁定对话，以限制为只有协作者才能评论。有关详细信息，请参阅“[锁定对话](/communities/moderating-comments-and-conversations/locking-conversations)”。
 
 {% endtip %}
 

@@ -19,7 +19,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '145086607'
 ---
-关闭 wiki 后，内容会被隐藏，但不会被擦除。 如果您选择稍后重新启用 wiki，之前的页面将被恢复。
+关闭 wiki 后，内容会被隐藏，但不会被擦除。如果您选择稍后重新启用 wiki，之前的页面将被恢复。
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
 3. 在“功能”下，取消选择“Wiki”。

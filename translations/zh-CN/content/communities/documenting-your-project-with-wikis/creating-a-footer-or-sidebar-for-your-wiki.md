@@ -46,4 +46,4 @@ ms.locfileid: '145086612'
 
 ## 在本地创建页脚或边栏
 
-如果创建了名为 `_Footer.<extension>` 或 `_Sidebar.<extension>` 的文件，将使用它们分别填充 Wiki 的页脚和边栏。 与所有其他 wiki 页面一样，您为这些文件选择的扩展名将决定我们如何渲染它们。
+如果创建了名为 `_Footer.<extension>` 或 `_Sidebar.<extension>` 的文件，将使用它们分别填充 Wiki 的页脚和边栏。与所有其他 wiki 页面一样，您为这些文件选择的扩展名将决定我们如何渲染它们。

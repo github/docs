@@ -19,13 +19,13 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '145086528'
 ---
-若要将用户定向到特定的支持资源，可以将 SUPPORT 文件添加到存储库的根文件夹 `docs` 或 `.github`。 当有人在您的仓库中创建议题时，就会看到项目 SUPPORT 文件的链接。
+若要将用户定向到特定的支持资源，可以将 SUPPORT 文件添加到存储库的根文件夹 `docs` 或 `.github`。当有人在您的仓库中创建议题时，就会看到项目 SUPPORT 文件的链接。
 
 ![支持指南](/assets/images/help/issues/support_guidelines_in_issue.png)
 
 {% ifversion fpt or ghes or ghec %}
 
-可以为组织或个人帐户创建默认支持资源。 有关详细信息，请参阅“[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
+可以为组织或个人帐户创建默认支持资源。有关详细信息，请参阅“[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
 
 {% endif %}
 

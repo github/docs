@@ -17,16 +17,16 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145086535'
 ---
-行为准则定义关于如何参与社区的标准。 它宣示一个尊重所有贡献的包容性环境。 还说明解决项目社区成员间问题的程序。 若要详细了解为何行为准则要定义有关如何参与社区的标准和期望，请参阅[开源指南](https://opensource.guide/code-of-conduct/)。
+行为准则定义关于如何参与社区的标准。它宣示一个尊重所有贡献的包容性环境。还说明解决项目社区成员间问题的程序。若要详细了解为何行为准则要定义有关如何参与社区的标准和期望，请参阅[开源指南](https://opensource.guide/code-of-conduct/)。
 
 在对项目采用行为准则之前：
 
-* 研究为开源项目设计的不同行为准则。 选择一个反映您的社区标准的行为准则。
+* 研究为开源项目设计的不同行为准则。选择一个反映您的社区标准的行为准则。
 * 认真考虑您是否愿意和能够实施该行为准则。
 
-您可以使用模板向项目添加行为准则，或手动创建自定义行为准则。 您的行为守则可以通过以下任何方式获得，但如果您使用模板，“行为准则”只在您仓库的社区配置文件中标记为完成。 如果您使用由他人或组织编写的行为准则，必须遵守来源方的任何归属指导原则。 有关社区配置文件的详细信息，请参阅“[关于公共存储库的社区配置文件](//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)”。
+您可以使用模板向项目添加行为准则，或手动创建自定义行为准则。您的行为守则可以通过以下任何方式获得，但如果您使用模板，“行为准则”只在您仓库的社区配置文件中标记为完成。如果您使用由他人或组织编写的行为准则，必须遵守来源方的任何归属指导原则。有关社区配置文件的详细信息，请参阅“[关于公共存储库的社区配置文件](//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)”。
 
-你可以为组织或个人帐户创建默认的行为准则。 有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
+你可以为组织或个人帐户创建默认的行为准则。有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
 
 ## 使用模板添加行为准则
 

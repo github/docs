@@ -26,9 +26,9 @@ ms.locfileid: '145164710'
 
 {% data reusables.community.types-of-interaction-limits %}
 
-启用用户范围的活动限制时，无法对单个仓库启用或禁用交互限制。 有关限制单个存储库的活动的详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
+启用用户范围的活动限制时，无法对单个仓库启用或禁用交互限制。有关限制单个存储库的活动的详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
 
-您还可以阻止用户。 有关详细信息，请参阅“[阻止用户访问个人帐户](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)”。 
+您还可以阻止用户。有关详细信息，请参阅“[阻止用户访问个人帐户](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)”。 
 
 ## 限制个人帐户的交互
 

@@ -17,13 +17,13 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145086591'
 ---
-可以从组织的设置中或从用户发表的特定评论中阻止非成员用户。 在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。 否则，用户不会直接收到您已阻止他们的通知。 被阻止的用户仍然可以删除其现有内容。
+可以从组织的设置中或从用户发表的特定评论中阻止非成员用户。在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。否则，用户不会直接收到您已阻止他们的通知。被阻止的用户仍然可以删除其现有内容。
 
-阻止用户时，您可以选择无限期或在特定时间段内阻止他们。 如果在特定时间段内阻止某人，则所选时间结束后会自动解除对他们的阻止。 如果无限期阻止某人，您可以随时手动解除阻止。 有关详细信息，请参阅“[取消阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”。
+阻止用户时，您可以选择无限期或在特定时间段内阻止他们。如果在特定时间段内阻止某人，则所选时间结束后会自动解除对他们的阻止。如果无限期阻止某人，您可以随时手动解除阻止。有关详细信息，请参阅“[取消阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”。
 
 {% tip %}
 
-**提示：** 如果你因为言辞激烈的对话而阻止用户，请考虑锁定对话，以限制为只有协作者才能评论。 有关详细信息，请参阅“[锁定对话](/communities/moderating-comments-and-conversations/locking-conversations)”。
+**提示：** 如果你因为言辞激烈的对话而阻止用户，请考虑锁定对话，以限制为只有协作者才能评论。有关详细信息，请参阅“[锁定对话](/communities/moderating-comments-and-conversations/locking-conversations)”。
 
 {% endtip %}
 

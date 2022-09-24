@@ -18,15 +18,15 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145086552'
 ---
-如果整个对话没有建设性或者违反了社区的行为准则 {% ifversion fpt or ghec %} 或 GitHub 的[社区指南](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}，则锁定对话是恰当的。 在锁定对话时，也可公开说明锁定的原因。
+如果整个对话没有建设性或者违反了社区的行为准则 {% ifversion fpt or ghec %} 或 GitHub 的[社区指南](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}，则锁定对话是恰当的。在锁定对话时，也可公开说明锁定的原因。
 
-锁定对话会创建对仓库具有读取权限的所有人可见的时间表事件。 但对话锁定者的用户名只有能够写入仓库的人可见。 对于没有写入权限的任何人，时间表事件会匿名化。
+锁定对话会创建对仓库具有读取权限的所有人可见的时间表事件。但对话锁定者的用户名只有能够写入仓库的人可见。对于没有写入权限的任何人，时间表事件会匿名化。
 
 ![已锁定对话的匿名化时间表事件](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
 当对话被锁定时，仅[具有写入权限的人](/articles/repository-permission-levels-for-an-organization/)以及[存储库所有者和协作者](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account)才可以添加、隐藏和删除注释。
 
-若要在未存档的存储库中搜索锁定的对话，可以使用搜索限定符 `is:locked` 和 `archived:false`。 对话在存档的仓库中会自动锁定。 有关详细信息，请参阅“[搜索问题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)”。
+若要在未存档的存储库中搜索锁定的对话，可以使用搜索限定符 `is:locked` 和 `archived:false`。对话在存档的仓库中会自动锁定。有关详细信息，请参阅“[搜索问题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)”。
 
 1. 也可选择撰写注释，解释您锁定对话的原因。
 2. 在问题或拉取请求的右边，或者提交页面中注释框的上方，单击“锁定对话”。

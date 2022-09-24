@@ -29,9 +29,9 @@ ms.locfileid: '147066680'
 
 组织成员不受任何限制类型的影响。
 
-在整个组织范围内启用活动限制时，无法对个别仓库启用或禁用交互限制。 有关限制单个存储库的活动的详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
+在整个组织范围内启用活动限制时，无法对个别仓库启用或禁用交互限制。有关限制单个存储库的活动的详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
 
-组织所有者和审查者也可在特定的时间段内阻止用户。 在阻止到期后，该用户会自动解除阻止。 有关详细信息，请参阅“[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”。
+组织所有者和审查者也可在特定的时间段内阻止用户。在阻止到期后，该用户会自动解除阻止。有关详细信息，请参阅“[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”。
 
 ## 限制组织中的交互
 

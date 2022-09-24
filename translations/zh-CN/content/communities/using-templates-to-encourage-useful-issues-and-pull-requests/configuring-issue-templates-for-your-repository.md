@@ -37,15 +37,15 @@ ms.locfileid: '147431990'
 ![“预览和编辑”按钮](/assets/images/help/repository/preview-and-edit-button.png)
 6. 要编辑模板，请单击 {% octicon "pencil" aria-label="The edit icon" %}，然后在字段中键入以编辑其内容。
 ![“问题模板编辑”按钮](/assets/images/help/repository/issue-template-edit-button.png)
-7. 要自动设置默认的议题标题、将议题分配给对仓库有读取权限的人或者对议题模板应用标签，请在“Optional additional information（可选附加信息）”下输入这些详细信息。 还可使用 YAML frontmatter 格式中的 `title`、`labels` 或 `assignees` 将这些详细信息添加到问题模板中。
+7. 要自动设置默认的议题标题、将议题分配给对仓库有读取权限的人或者对议题模板应用标签，请在“Optional additional information（可选附加信息）”下输入这些详细信息。还可使用 YAML frontmatter 格式中的 `title`、`labels` 或 `assignees` 将这些详细信息添加到问题模板中。
 ![问题模板的其他信息](/assets/images/help/repository/additional-issue-template-info.png)
 8. 完成编辑和预览模板后，请单击页面右上角的“提供更改”。
 ![“提供更改”按钮](/assets/images/help/repository/propose-changes-button.png)
 9. 输入提交消息，描述您的更改。
 ![问题模板提交消息字段](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. 在提交消息字段的下方，决定是直接将模板提交到默认分支，还是创建新分支并打开拉取请求。 有关拉取请求的详细信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
+10. 在提交消息字段的下方，决定是直接将模板提交到默认分支，还是创建新分支并打开拉取请求。有关拉取请求的详细信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
 ![选择将问题模板提交到主要的或打开的拉取请求中](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
-11. 单击“提交更改”。 将这些更改合并到默认分支后，贡献者在仓库中打开新议题时便可使用该模板。
+11. 单击“提交更改”。将这些更改合并到默认分支后，贡献者在仓库中打开新议题时便可使用该模板。
 
 {% ifversion fpt or ghec %}
 
@@ -53,7 +53,7 @@ ms.locfileid: '147431990'
 
 {% data reusables.community.issue-forms-beta %}
 
-通过议题表单，您可以创建具有可自定义 Web 表单字段的议题模板。 您可以通过在仓库中使用议题表单鼓励贡献者包含特定的结构化信息。 议题表单使用 {% data variables.product.prodname_dotcom %} 表单架构以 YAML 编写。 有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 的表单架构语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)”。 {% data reusables.actions.learn-more-about-yaml %}
+通过议题表单，您可以创建具有可自定义 Web 表单字段的议题模板。您可以通过在仓库中使用议题表单鼓励贡献者包含特定的结构化信息。议题表单使用 {% data variables.product.prodname_dotcom %} 表单架构以 YAML 编写。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 的表单架构语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)”。 {% data reusables.actions.learn-more-about-yaml %}
 
 要在存储库中使用问题表单，必须创建一个新文件并将它添加到存储库中的 `.github/ISSUE_TEMPLATE` 文件夹。
 
@@ -64,10 +64,10 @@ ms.locfileid: '147431990'
 下面是议题表单的呈现版本。
   ![呈现的问题表单](/assets/images/help/repository/sample-issue-form.png)
 
-1. 选择要创建议题表单的仓库。 您可以使用您有写入权限的现有仓库，或者创建一个新的仓库。 有关创建存储库的详细信息，请参阅“[新建存储库](/articles/creating-a-new-repository)”。
-2. 在存储库中，创建一个名为 `.github/ISSUE_TEMPLATE/FORM-NAME.yml` 的文件，然后将 `FORM-NAME` 替换为问题表单的名称。 有关在 GitHub 上新建文件的详细信息，请参阅“[新建文件](/github/managing-files-in-a-repository/creating-new-files)”。
-3. 在新文件的正文中，键入议题表单的内容。 有关详细信息，请参阅“[问题表单语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)”。
-4. 将文件提交到仓库的默认分支。 有关详细信息，请参阅“[新建文件](/github/managing-files-in-a-repository/creating-new-files)”。
+1. 选择要创建议题表单的仓库。您可以使用您有写入权限的现有仓库，或者创建一个新的仓库。有关创建存储库的详细信息，请参阅“[新建存储库](/articles/creating-a-new-repository)”。
+2. 在存储库中，创建一个名为 `.github/ISSUE_TEMPLATE/FORM-NAME.yml` 的文件，然后将 `FORM-NAME` 替换为问题表单的名称。有关在 GitHub 上新建文件的详细信息，请参阅“[新建文件](/github/managing-files-in-a-repository/creating-new-files)”。
+3. 在新文件的正文中，键入议题表单的内容。有关详细信息，请参阅“[问题表单语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)”。
+4. 将文件提交到仓库的默认分支。有关详细信息，请参阅“[新建文件](/github/managing-files-in-a-repository/creating-new-files)”。
 
 {% endif %}
 
@@ -75,11 +75,11 @@ ms.locfileid: '147431990'
 
 {% data reusables.repositories.issue-template-config %}
 
-你可通过将 `blank_issues_enabled` 设置为 `false` 来鼓励贡献者使用问题模板。 如果将 `blank_issues_enabled` 设置为 `true`，则用户可以选择打开空白问题。
+你可通过将 `blank_issues_enabled` 设置为 `false` 来鼓励贡献者使用问题模板。如果将 `blank_issues_enabled` 设置为 `true`，则用户可以选择打开空白问题。
 
 {% note %}
 
-注意：如果使用旧工作流在 `.github` 文件夹中手动创建 `issue_template.md` 文件，并在“config.yml”文件中启用空白问题，则当用户选择打开空白问题时，将使用 `issue_template.md` 中的模板。 如果您禁用空白议题，将永远不会使用模板。
+注意：如果使用旧工作流在 `.github` 文件夹中手动创建 `issue_template.md` 文件，并在“config.yml”文件中启用空白问题，则当用户选择打开空白问题时，将使用 `issue_template.md` 中的模板。如果您禁用空白议题，将永远不会使用模板。
 
 {% endnote %}
 

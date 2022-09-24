@@ -35,7 +35,7 @@ Wiki 历史记录包括：
 
 ## 查看以前的内容
 
-在 Wiki 历史记录表上，可以单击 [SHA-1哈希](http://en.wikipedia.org/wiki/SHA-1)（最右侧的字母和数字序列）以查看特定时间点存在的 Wiki 页面。
+在 Wiki 历史记录表上，可以单击 [SHA-1 哈希](http://en.wikipedia.org/wiki/SHA-1)（最右侧的字母和数字序列）以查看特定时间点存在的 Wiki 页面。
 
 ![Wiki SHA 编号](/assets/images/help/wiki/wiki_sha_number.png)
 

@@ -20,13 +20,13 @@ ms.locfileid: '145099305'
 
 ## 关于报告内容的管理
 
-必须先为仓库启用报告的内容，然后才可查看或管理报告的内容。 有关详细信息，请参阅“[管理贡献者如何报告组织存储库中的滥用行为](/communities/moderating-comments-and-conversations/managing-how-contributors-report-abuse-in-your-organizations-repository)”。
+必须先为仓库启用报告的内容，然后才可查看或管理报告的内容。有关详细信息，请参阅“[管理贡献者如何报告组织存储库中的滥用行为](/communities/moderating-comments-and-conversations/managing-how-contributors-report-abuse-in-your-organizations-repository)”。
 
-您可以对破坏性内容的报告进行跟踪、分类和响应。 在“Abuse reports（滥用报告）”列表中，您可以查看所有报告并直接导航到 {% data variables.product.prodname_dotcom %} 上每条报告的评论。
+您可以对破坏性内容的报告进行跟踪、分类和响应。在“Abuse reports（滥用报告）”列表中，您可以查看所有报告并直接导航到 {% data variables.product.prodname_dotcom %} 上每条报告的评论。
 
 {% data reusables.community.tools-for-moderating %}
 
-完成调解破坏性内容后，可以将报表标记为已解决。 如果您认为尚未完成调解，也可以将报告标记为未解决。
+完成调解破坏性内容后，可以将报表标记为已解决。如果您认为尚未完成调解，也可以将报告标记为未解决。
 
 ## 查看贡献者报告的内容
 
