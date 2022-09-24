@@ -2,4 +2,4 @@
 # Documentation for dismissing GHES announcement banner
 versions:
   ghes: '>=3.6'
-  ghae: '问题-6764'
+  ghae: '问题 -6764'

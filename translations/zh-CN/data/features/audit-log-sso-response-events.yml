@@ -3,4 +3,4 @@
 versions:
   ghec: '*'
   ghes: '>=3.8'
-  ghae: '问题-7939'
+  ghae: '问题 -7939'

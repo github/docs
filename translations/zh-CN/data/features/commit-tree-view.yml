@@ -4,4 +4,4 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>=3.6'
-  ghae: '问题-6662'
+  ghae: '问题 -6662'
