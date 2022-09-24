@@ -23,13 +23,13 @@ ms.locfileid: '146754596'
 ---
 ## 关于组织成员转换为外部协作者
 
-可以将组织的成员转换为外部协作者。 有关外部协作者的详细信息，请参阅“[将外部协作者添加到组织中的存储库](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)”。
+可以将组织的成员转换为外部协作者。有关外部协作者的详细信息，请参阅“[将外部协作者添加到组织中的存储库](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)”。
 
-{% ifversion fpt or ghec %}如果组织由企业所有，则可能会限制将组织成员转换{% elsif ghes or ghae %}转换{% endif %}为外部协作者。 有关详细信息，请参阅“[在企业中实施存储库管理策略]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-{% ifversion fpt or ghec %}outside-{% endif %}collaborators-to-repositories){% ifversion ghec or ghes or ghae %}”。"{% elsif fpt %}"（在 {% data variables.product.prodname_ghe_cloud %} 文档中）。{% endif %}
+{% ifversion fpt or ghec %}如果组织由企业所有，则可能会限制将组织成员转换{% elsif ghes or ghae %}转换{% endif %}为外部协作者。有关详细信息，请参阅“[在企业中实施存储库管理策略]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-{% ifversion fpt or ghec %}outside-{% endif %}collaborators-to-repositories){% ifversion ghec or ghes or ghae %}”。"{% elsif fpt %}"（在 {% data variables.product.prodname_ghe_cloud %} 文档中）。{% endif %}
 
 {% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
 
-将组织成员转换为外部协作者后，他们将只能访问其当前团队成员资格允许的仓库。 他们将不再是组织的正式成员，不再能够：
+将组织成员转换为外部协作者后，他们将只能访问其当前团队成员资格允许的仓库。他们将不再是组织的正式成员，不再能够：
 
 - 创建团队
 - 查看所有组织成员和团队
@@ -38,9 +38,9 @@ ms.locfileid: '146754596'
 
 有关详细信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
-建议查看组织成员对仓库的访问权限，以确保其访问权限符合您的预期。 有关详细信息，请参阅[管理个人对组织存储库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)。
+建议查看组织成员对仓库的访问权限，以确保其访问权限符合您的预期。有关详细信息，请参阅[管理个人对组织存储库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)。
 
-将组织成员转换为外部协作者时，他们作为组织成员的权限将保存三个月，因此，如果你在该时间范围内{% ifversion fpt or ghec %} 邀请他们重新加入{% else %} 将他们重新添加到{% endif %} 你的组织，你可以恢复其成员权限。 有关详细信息，请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
+将组织成员转换为外部协作者时，他们作为组织成员的权限将保存三个月，因此，如果你在该时间范围内{% ifversion fpt or ghec %} 邀请他们重新加入{% else %} 将他们重新添加到{% endif %} 你的组织，你可以恢复其成员权限。有关详细信息，请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
 
 ## 将组织成员转换为外部协作者
 

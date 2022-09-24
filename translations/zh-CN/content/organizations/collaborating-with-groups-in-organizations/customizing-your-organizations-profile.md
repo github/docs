@@ -33,9 +33,9 @@ ms.locfileid: '147447928'
 
 ### 固定的仓库
 
-可以通过为公共用户选择最多 6 个存储库并为组织成员选择最多 6 个存储库，从而让用户轻松访问重要或经常使用的存储库。 将存储库固定到组织配置文件后，配置文件页的“存储库”部分上方会显示“已固定”部分。
+可以通过为公共用户选择最多 6 个存储库并为组织成员选择最多 6 个存储库，从而让用户轻松访问重要或经常使用的存储库。将存储库固定到组织配置文件后，配置文件页的“存储库”部分上方会显示“已固定”部分。
 
-只有组织所有者才能固定存储库。 有关详细信息，请参阅“[将存储库固定到组织的配置文件](#pinning-repositories-to-your-organizations-profile)”。
+只有组织所有者才能固定存储库。有关详细信息，请参阅“[将存储库固定到组织的配置文件](#pinning-repositories-to-your-organizations-profile)”。
 
 ### 组织配置文件 README
 
@@ -43,12 +43,12 @@ ms.locfileid: '147447928'
 
 可以通过为公共用户和组织成员创建组织配置文件 README 来共享有关如何与组织互动的信息。 {% data variables.product.prodname_dotcom %} 在组织的“Overview（概述）”选项卡中显示组织资料 README。
 
-可以选择要包含组织配置文件 README 的信息。 下面是一些可能有帮助的信息示例。
+可以选择要包含组织配置文件 README 的信息。下面是一些可能有帮助的信息示例。
 
 - “About（关于）”部分介绍您的组织
 - 在组织中获取帮助的指南
 
-您可以使用 {% data variables.product.company_short %} Flavored Markdown 在组织资料 README 中设置文本格式和包含表情符号、图像及 GIF。 有关详细信息，请参阅“[在 {% data variables.product.prodname_dotcom %} 上编写和设置格式入门](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)”。
+您可以使用 {% data variables.product.company_short %} Flavored Markdown 在组织资料 README 中设置文本格式和包含表情符号、图像及 GIF。有关详细信息，请参阅“[在 {% data variables.product.prodname_dotcom %} 上编写和设置格式入门](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)”。
 
 ## 添加公共组织配置文件 README
 
@@ -70,7 +70,7 @@ ms.locfileid: '147447928'
 
 ## 将存储库固定到组织的配置文件
 
-可以将要提供的存储库（例如经常使用的存储库）固定到组织的配置文件页。 要选择要固定到组织的配置文件的存储库，你必须是组织所有者。
+可以将要提供的存储库（例如经常使用的存储库）固定到组织的配置文件页。要选择要固定到组织的配置文件的存储库，你必须是组织所有者。
 
 1. 导航到组织的配置文件页。
 2. 在 {% octicon "eye" aria-label="The eye octicon" %}“查看方式”链接的页面右侧栏中，从下拉菜单中选择“公共”或“成员”配置文件视图。

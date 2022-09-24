@@ -25,16 +25,16 @@ ms.locfileid: '145097334'
 
 如果通过以下方式之一将用户从您的组织中移除，则该用户的访问权限和设置将保存三个月。 
 
-- 您手动从组织中删除了该用户。 有关详细信息，请参阅[从组织中删除成员](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)。{% ifversion not ghae %}
-- 该用户已从您的组织中删除，因为您要求成员和外部协作者启用双重身份验证 (2FA)。 有关详细信息，请参阅[要求在组织中进行双重身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)。{% endif %}{% ifversion fpt or ghec %}
-- 该用户已从您的组织中删除，因为您强制实施了 SAML 单点登录。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[强制实施组织的 SAML 单一登录](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}”{% else %}。{% endif %}{% endif %}
-- 您已将组织成员转换为外部协作者。 有关详细信息，请参阅[将组织成员转换为外部协作者](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)。
+- 您手动从组织中删除了该用户。有关详细信息，请参阅[从组织中删除成员](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)。{% ifversion not ghae %}
+- 该用户已从您的组织中删除，因为您要求成员和外部协作者启用双重身份验证 (2FA)。有关详细信息，请参阅[要求在组织中进行双重身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)。{% endif %}{% ifversion fpt or ghec %}
+- 该用户已从您的组织中删除，因为您强制实施了 SAML 单点登录。有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[强制实施组织的 SAML 单一登录](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}”{% else %}。{% endif %}{% endif %}
+- 您已将组织成员转换为外部协作者。有关详细信息，请参阅[将组织成员转换为外部协作者](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)。
 
 如果您在该时间范围内将用户{% ifversion fpt or ghec %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
 
 {% note %}
 
-注意：{% data reusables.saml.removed-users-can-rejoin %}不需要邀请这些用户重新加入。 相反，用户可以登录到其个人帐户，导航到组织，然后单击横幅以通过 SAML 单点登录进行身份验证。
+注意：{% data reusables.saml.removed-users-can-rejoin %}不需要邀请这些用户重新加入。相反，用户可以登录到其个人帐户，导航到组织，然后单击横幅以通过 SAML 单点登录进行身份验证。
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ ms.locfileid: '145097334'
 {% ifversion ghes %}如果组织成员由于未使用双重身份验证已从组织中删除，并且你的组织仍要求成员使用双重身份验证，则前成员必须启用双重身份验证，然后才能恢复其成员身份。
 {% endif %}
 
-{% ifversion fpt or ghec %}如果你的组织采用付费的每用户订阅，则必须有未使用的许可才可恢复前组织成员。 有关详细信息，请参阅[关于每用户定价](/articles/about-per-user-pricing)。 {% data reusables.organizations.org-invite-scim %} {% endif %}
+{% ifversion fpt or ghec %}如果你的组织采用付费的每用户订阅，则必须有未使用的许可才可恢复前组织成员。有关详细信息，请参阅[关于每用户定价](/articles/about-per-user-pricing)。 {% data reusables.organizations.org-invite-scim %} {% endif %}
 
 ## Reinstating a former member of your organization（恢复组织前成员的身份）
 

@@ -32,11 +32,11 @@ ms.locfileid: '147885970'
 
 {% note %}
 
-**注意**：作为组织所有者，你可以更改其他组织成员和所有者的角色。 您不能改变自己的角色。 
+**注意**：作为组织所有者，你可以更改其他组织成员和所有者的角色。您不能改变自己的角色。 
 
 {% endnote %}
 
-{% ifversion enterprise-owner-join-org %} 如果组织由企业帐户所有，则任何企业所有者都可以将自己设为组织的所有者。 有关详细信息，请参阅“[管理企业拥有的组织中的角色](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)”。
+{% ifversion enterprise-owner-join-org %} 如果组织由企业帐户所有，则任何企业所有者都可以将自己设为组织的所有者。有关详细信息，请参阅“[管理企业拥有的组织中的角色](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)”。
 {% endif %}
 
 ## 任命组织所有者

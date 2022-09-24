@@ -25,9 +25,9 @@ ms.locfileid: '147409425'
 
 ![评论中显示的评论者个人资料名称](/assets/images/help/issues/commenter-full-name.png)
 
-每个组织成员在自己的设置中选择自己的个人资料名称。 有关详细信息，请参阅“[个性化配置文件](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)”。
+每个组织成员在自己的设置中选择自己的个人资料名称。有关详细信息，请参阅“[个性化配置文件](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)”。
 
-{% ifversion profile-name-enterprise-setting %} 如果企业所有者设置了企业级策略，你可能无法为组织配置此设置。 有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)”。{% endif %}
+{% ifversion profile-name-enterprise-setting %} 如果企业所有者设置了企业级策略，你可能无法为组织配置此设置。有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)”。{% endif %}
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
 5. 在“管理存储库权限”下，选择或取消选择“允许成员在专用存储库中查看评论作者的个人资料名称”。

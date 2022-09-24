@@ -20,7 +20,7 @@ ms.locfileid: '145109431'
 ---
 ## 关于 IdP 与组织的连接
 
-为您的 {% data variables.product.product_name %} 组织启用 SAML SSO时，会将您的身份提供商 (IDP) 连接到组织。 有关详细信息，请参阅“[为组织启用和测试 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)”。
+为您的 {% data variables.product.product_name %} 组织启用 SAML SSO 时，会将您的身份提供商 (IDP) 连接到组织。有关详细信息，请参阅“[为组织启用和测试 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)”。
 
 {% data reusables.saml.ghec-only %}
 
@@ -34,7 +34,7 @@ ms.locfileid: '145109431'
 
 {% note %}
 
-注意：{% data variables.product.product_name %} 支持的SCIM 标识提供程序是 Azure AD、Okta 和 OneLogin。 有关 SCIM 的详细信息，请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
+注意：{% data variables.product.product_name %} 支持的 SCIM 标识提供程序是 Azure AD、Okta 和 OneLogin。有关 SCIM 的详细信息，请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
 
 {% data reusables.scim.enterprise-account-scim %} 
 

@@ -25,25 +25,25 @@ ms.locfileid: '145128579'
 
 ![具有公共和私人讨论的团队页面的讨论选项卡](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-您可以在其他位置链接到任何团队讨论以引用它。 您可以将重要帖子嵌入到团队页面，便于以后快速参考。 有关详细信息，请参阅“[固定团队讨论](/organizations/collaborating-with-your-team/pinning-a-team-discussion)”。
+您可以在其他位置链接到任何团队讨论以引用它。您可以将重要帖子嵌入到团队页面，便于以后快速参考。有关详细信息，请参阅“[固定团队讨论](/organizations/collaborating-with-your-team/pinning-a-team-discussion)”。
 
 ![具有嵌入讨论的团队页面的嵌入讨论选项卡](/assets/images/help/organizations/team-discussions-pinned.png)
 
-{% data reusables.organizations.team-discussions-default %} 所有者可对整个组织禁用团队讨论。 有关详细信息，请参阅[禁用组织的团队讨论](/articles/disabling-team-discussions-for-your-organization)。
+{% data reusables.organizations.team-discussions-default %} 所有者可对整个组织禁用团队讨论。有关详细信息，请参阅[禁用组织的团队讨论](/articles/disabling-team-discussions-for-your-organization)。
 
 ## 团队讨论通知
 
-当有人在团队页面上发帖或回复公共讨论时，团队成员和任何子团队的成员都会收到电子邮件或 web 通知。 当有人在团队页面上对私人讨论发帧或回复时，只有团队成员才会收到通知。
+当有人在团队页面上发帖或回复公共讨论时，团队成员和任何子团队的成员都会收到电子邮件或 web 通知。当有人在团队页面上对私人讨论发帧或回复时，只有团队成员才会收到通知。
 
 {% tip %}
 
-提示：根据通知设置，你将通过电子邮件、{% data variables.product.product_name %} 上的 Web 通知页面或两者接收更新。 有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)”。
+提示：根据通知设置，你将通过电子邮件、{% data variables.product.product_name %} 上的 Web 通知页面或两者接收更新。有关详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)”。
 
 {% endtip %}
 
-默认情况下，如果团队讨论中提及您的用户名，则对于提及您的用户名的帖子，您将收到其通知以及所有回复。 此外，默认情况下，如果您回复帖子，该帖子有其他回复您也会收到通知。
+默认情况下，如果团队讨论中提及您的用户名，则对于提及您的用户名的帖子，您将收到其通知以及所有回复。此外，默认情况下，如果您回复帖子，该帖子有其他回复您也会收到通知。
 
-要关闭团队讨论的通知，您可以取消订阅特定的讨论帖子，或者更改通知设置，以取消关注或完全忽略特定团队的讨论。 即使您取消关注团队的讨论，也可订阅特定讨论帖子的通知。
+要关闭团队讨论的通知，您可以取消订阅特定的讨论帖子，或者更改通知设置，以取消关注或完全忽略特定团队的讨论。即使您取消关注团队的讨论，也可订阅特定讨论帖子的通知。
 
 有关详细信息，请参阅“[查看订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”和“[嵌套团队](/articles/about-teams/#nested-teams)”。
 
@@ -51,7 +51,7 @@ ms.locfileid: '145128579'
 
 ## 组织讨论
 
-还可以使用组织讨论促进整个组织的对话。 有关详细信息，请参阅“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
+还可以使用组织讨论促进整个组织的对话。有关详细信息，请参阅“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 
 {% endif %}
 

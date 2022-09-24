@@ -20,7 +20,7 @@ ms.locfileid: '145128591'
 ---
 ## 关于组织见解
 
-您可以使用组织活动洞察来帮助您更好地了解组织成员如何使用 {% data variables.product.product_name %} 进行协作和处理代码。 依赖项洞察可帮助您跟踪、报告和处理组织的开源使用情况。
+您可以使用组织活动洞察来帮助您更好地了解组织成员如何使用 {% data variables.product.product_name %} 进行协作和处理代码。依赖项洞察可帮助您跟踪、报告和处理组织的开源使用情况。
 
 {% note %}
 
@@ -41,7 +41,7 @@ ms.locfileid: '145128591'
 {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %}
 3. 在组织名称下，单击 {% octicon "graph" aria-label="The bar graph icon" %}“见解”。
   ![单击“组织见解”选项卡](/assets/images/help/organizations/org-nav-insights-tab.png)
-4. （可选）在页面的右上角，选择查看过去“一周”、“一个月”或“一年”的数据  。
+4. （可选）在页面的右上角，选择查看过去“一周”、“一个月”或“一年”的数据。
   ![选择查看组织见解的时间段](/assets/images/help/organizations/org-insights-time-period.png)
 5. （可选）在页面的右上角，选择查看最多三个存储库的数据，然后单击“应用”。
   ![选择查看组织见解的存储库](/assets/images/help/organizations/org-insights-repos.png)
@@ -63,7 +63,7 @@ ms.locfileid: '145128591'
   ![主要组织导航栏下的“依赖项”选项卡](/assets/images/help/organizations/org-insights-dependencies-tab.png)
 5. 要查看所有 {% data variables.product.prodname_ghe_cloud %} 组织的依赖项见解，请单击“我的组织”。
   ![“依赖项”选项卡下的“我的组织”按钮](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)
-6. 可以单击“打开安全通告”和“许可证”图表中的结果，按漏洞状态、许可证或两者的组合进行筛选 。
+6. 可以单击“打开安全通告”和“许可证”图表中的结果，按漏洞状态、许可证或两者的组合进行筛选。
   ![我的组织的漏洞和许可证图表](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
 7. 可以单击每个漏洞旁边的 {% octicon "package" aria-label="The package icon" %}“依赖项”，了解组织中的哪些依赖项正在使用每个库。
   ![我的组织有漏洞的依赖项](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)

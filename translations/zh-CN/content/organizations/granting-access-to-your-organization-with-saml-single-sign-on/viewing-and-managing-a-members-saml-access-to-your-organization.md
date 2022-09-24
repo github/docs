@@ -21,7 +21,7 @@ ms.locfileid: '145127536'
 ---
 ## 关于对组织的 SAML 访问
 
-对组织启用 SAML 单点登录时，每个组织成员都可以将其在身份提供程序 (IdP) 上的外部身份链接到其在 {% data variables.product.product_location %} 上的现有帐户。 要在 {% data variables.product.product_name %} 上访问组织的资源，成员必须在其浏览器中启动 SAML 会话。 要使用 API 或 Git 访问组织的资源，成员必须使用被授权用于组织的个人访问令牌或 SSH 密钥。
+对组织启用 SAML 单点登录时，每个组织成员都可以将其在身份提供程序 (IdP) 上的外部身份链接到其在 {% data variables.product.product_location %} 上的现有帐户。要在 {% data variables.product.product_name %} 上访问组织的资源，成员必须在其浏览器中启动 SAML 会话。要使用 API 或 Git 访问组织的资源，成员必须使用被授权用于组织的个人访问令牌或 SSH 密钥。
 
 您可以在同一页面上查看和撤销每个成员的链接身份、活动会话和授权凭据。
 
@@ -29,14 +29,14 @@ ms.locfileid: '145127536'
 
 {% data reusables.saml.about-linked-identities %} 
 
-如果可用，该条目将包含 SCIM 数据。 有关详细信息，请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
+如果可用，该条目将包含 SCIM 数据。有关详细信息，请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
 
 {% warning %}
 
 警告：对于使用 SCIM 的组织：
-- 撤销 {% data variables.product.product_name %} 上链接的用户身份也会删除 SAML 和 SCIM 元数据。 因此，身份提供商无法同步或解除预配已链接的用户身份。
+- 撤销 {% data variables.product.product_name %} 上链接的用户身份也会删除 SAML 和 SCIM 元数据。因此，身份提供商无法同步或解除预配已链接的用户身份。
 - 管理员必须通过身份提供商撤销链接的身份。
-- 要撤销链接的身份并通过身份提供商链接其他帐户，管理员可以删除用户并重新分配给 {% data variables.product.product_name %} 应用程序。 更多信息请参阅身份提供商的文档。
+- 要撤销链接的身份并通过身份提供商链接其他帐户，管理员可以删除用户并重新分配给 {% data variables.product.product_name %} 应用程序。更多信息请参阅身份提供商的文档。
 
 {% endwarning %}
 

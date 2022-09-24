@@ -22,11 +22,11 @@ ms.locfileid: '145099719'
 ---
 ## About the default branch name
 
-当组织成员在组织中创建一个新仓库时，该仓库将包含一个分支，它就是默认分支。 可以更改 {% data variables.product.product_name %} 用于组织成员创建的新存储库中的默认分支的名称。 有关默认分支的详细信息，请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”。
+当组织成员在组织中创建一个新仓库时，该仓库将包含一个分支，它就是默认分支。可以更改 {% data variables.product.product_name %} 用于组织成员创建的新存储库中的默认分支的名称。有关默认分支的详细信息，请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”。
 
 {% data reusables.branches.change-default-branch %}
 
-如果企业所有者为您的企业强制实施了默认分支名称策略，您将无法为组织设置默认分支名称。 但是，您可以更改单个仓库的默认分支。 有关详细信息，请参阅 {% ifversion fpt %}“[在企业中强制实施存储库管理策略](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)”{% else %}“[在企业中强制实施存储库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)”{% endif %}和“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
+如果企业所有者为您的企业强制实施了默认分支名称策略，您将无法为组织设置默认分支名称。但是，您可以更改单个仓库的默认分支。有关详细信息，请参阅 {% ifversion fpt %}“[在企业中强制实施存储库管理策略](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)”{% else %}“[在企业中强制实施存储库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)”{% endif %}和“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
 
 ## 设置默认分支名称
 

@@ -22,11 +22,11 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: '147876027'
 ---
-{% ifversion fpt %} 可以选择允许或禁止组织成员发布 {% data variables.product.prodname_pages %} 站点。 使用 {% data variables.product.prodname_ghe_cloud %} 的组织还可以选择允许公开发布的站点和/或私下发布的站点。 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)。
-{% elsif ghec %} 你可以选择允许组织成员创建公开发布的站点和/或私下发布的站点。 有关 {% data variables.product.prodname_pages %} 站点的访问控制的详细信息，请参阅“[更改 {% data variables.product.prodname_pages %} 站点的可见性](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)”。
+{% ifversion fpt %} 可以选择允许或禁止组织成员发布 {% data variables.product.prodname_pages %} 站点。使用 {% data variables.product.prodname_ghe_cloud %} 的组织还可以选择允许公开发布的站点和/或私下发布的站点。有关详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)。
+{% elsif ghec %} 你可以选择允许组织成员创建公开发布的站点和/或私下发布的站点。有关 {% data variables.product.prodname_pages %} 站点的访问控制的详细信息，请参阅“[更改 {% data variables.product.prodname_pages %} 站点的可见性](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)”。
 {% endif %}
 
-禁止发布 {% data variables.product.prodname_pages %} 站点后，任何已发布的站点仍将保持已发布状态。 您可以手动取消发布站点。 有关详细信息，请参阅“[取消发布 {% data variables.product.prodname_pages %} 站点](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site)”。
+禁止发布 {% data variables.product.prodname_pages %} 站点后，任何已发布的站点仍将保持已发布状态。您可以手动取消发布站点。有关详细信息，请参阅“[取消发布 {% data variables.product.prodname_pages %} 站点](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site)”。
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}{% ifversion fpt %}
 1. 在“页面创建”下，选择或取消选择“公共”。

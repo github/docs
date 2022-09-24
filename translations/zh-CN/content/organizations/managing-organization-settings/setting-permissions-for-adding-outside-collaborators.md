@@ -20,7 +20,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099703'
 ---
-默认情况下，对存储库具有管理员访问权限的任何人都可以邀请外部协作者处理存储库。 你可以选择将添加外部协作者的能力限制为仅添加组织所有者。
+默认情况下，对存储库具有管理员访问权限的任何人都可以邀请外部协作者处理存储库。你可以选择将添加外部协作者的能力限制为仅添加组织所有者。
 
 {% ifversion ghec %} {% note %}
 
@@ -28,7 +28,7 @@ ms.locfileid: '145099703'
 
 {% endnote %} {% endif %}
 
-{% ifversion ghec %}如果贵组织属于企业帐户，在企业所有者设置了企业级策略的情况下，{% else %}你{% endif %}可能无法为组织配置此设置。 有关详细信息，请参阅“[在企业中强制实施存储库管理策略]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}。”
+{% ifversion ghec %}如果贵组织属于企业帐户，在企业所有者设置了企业级策略的情况下，{% else %}你{% endif %}可能无法为组织配置此设置。有关详细信息，请参阅“[在企业中强制实施存储库管理策略]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}。”
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 

@@ -17,9 +17,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/12/2022
 ms.locfileid: '145097332'
 ---
-组织所有者可设置查看组织依赖项洞察图的限制。 默认情况下，组织的所有成员都可以查看组织依赖项洞察图。
+组织所有者可设置查看组织依赖项洞察图的限制。默认情况下，组织的所有成员都可以查看组织依赖项洞察图。
 
-{% ifversion ghec %} 企业所有者可以为查看企业帐户中所有组织的组织依赖项见解设置限制。 有关详细信息，请参阅“[为企业中的依赖项见解强制实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)”。
+{% ifversion ghec %} 企业所有者可以为查看企业帐户中所有组织的组织依赖项见解设置限制。有关详细信息，请参阅“[为企业中的依赖项见解强制实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)”。
 {% endif %}
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}

@@ -21,7 +21,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '147876102'
 ---
-从头开始创建新组织时，它没有任何与之关联的仓库。 有关将存储库添加到组织的详细信息，请参阅“[创建新存储库](/articles/creating-a-new-repository)”和“[传输存储库](/articles/transferring-a-repository)”。
+从头开始创建新组织时，它没有任何与之关联的仓库。有关将存储库添加到组织的详细信息，请参阅“[创建新存储库](/articles/creating-a-new-repository)”和“[传输存储库](/articles/transferring-a-repository)”。
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %} {% data reusables.organizations.new-organization %}
 4. 按照提示创建组织。 {% ifversion fpt or ghec %}有关团队可用的计划的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”。{% endif %}

@@ -29,12 +29,12 @@ ms.locfileid: '147614205'
 
 {% data reusables.project-management.project-board-permissions %}
 
-组织所有者以及具有管理员权限的人员可以单独使个人以外部协作者或组织成员身份，或通过其在团队或组织中的成员身份来访问组织 {% data variables.projects.projects_v1_board %}。 外部协作者是指并非组织成员但被授予协作参与组织的人员。
+组织所有者以及具有管理员权限的人员可以单独使个人以外部协作者或组织成员身份，或通过其在团队或组织中的成员身份来访问组织 {% data variables.projects.projects_v1_board %}。外部协作者是指并非组织成员但被授予协作参与组织的人员。
 
 组织所有者以及具有 {% data variables.projects.projects_v1_board %} 管理员权限的人员还可以：
 - 设置所有组织成员的默认项目板权限。
-- 管理组织成员、团队和外部协作者对项目板的访问。 有关详细信息，请参阅“[管理团队对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-team-access-to-an-organization-project-board)”、“[管理个人对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-an-individual-s-access-to-an-organization-project-board)”或“[管理组织成员对 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-access-to-a-project-board-for-organization-members)”。
-- 管理项目板可见性。 有关详细信息，请参阅“[管理组织成员对 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-access-to-a-project-board-for-organization-members)”。
+- 管理组织成员、团队和外部协作者对项目板的访问。有关详细信息，请参阅“[管理团队对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-team-access-to-an-organization-project-board)”、“[管理个人对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-an-individual-s-access-to-an-organization-project-board)”或“[管理组织成员对 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-access-to-a-project-board-for-organization-members)”。
+- 管理项目板可见性。有关详细信息，请参阅“[管理组织成员对 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-access-to-a-project-board-for-organization-members)”。
 
 ## {% data variables.projects.projects_v1_boards %} 的级联权限
 
@@ -46,7 +46,7 @@ ms.locfileid: '147614205'
 
 {% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
 
-{% data reusables.project-management.project-board-visibility %} 可以将 {% data variables.projects.projects_v1_board %} 的可见性从专用更改为{% ifversion ghae %}内部{% else %}公共{% endif %}，反之亦然。 有关详细信息，请参阅“[更改 {% data variables.product.prodname_project_v1 %} 可见性](/articles/changing-project-board-visibility)”。
+{% data reusables.project-management.project-board-visibility %} 可以将 {% data variables.projects.projects_v1_board %} 的可见性从专用更改为{% ifversion ghae %}内部{% else %}公共{% endif %}，反之亦然。有关详细信息，请参阅“[更改 {% data variables.product.prodname_project_v1 %} 可见性](/articles/changing-project-board-visibility)”。
 
 ## 延伸阅读
 

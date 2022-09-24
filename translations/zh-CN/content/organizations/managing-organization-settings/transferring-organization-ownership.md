@@ -27,14 +27,14 @@ ms.locfileid: '145065966'
 
 {% endnote %}{% endif %}
 
-1. 如果你是具有“所有者”权限的唯一成员，则向另一个组织成员提供所有者角色。 有关详细信息，请参阅“[任命组织所有者](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)”。
+1. 如果你是具有“所有者”权限的唯一成员，则向另一个组织成员提供所有者角色。有关详细信息，请参阅“[任命组织所有者](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)”。
 2. 请联系新的所有者，并确保他或她能够[访问组织的设置](/articles/accessing-your-organization-s-settings)。
 {% ifversion fpt or ghec %}
-3. 如果你目前负责为组织中的 GitHub 付款，则还需要让新所有者或[帐单管理员](/articles/adding-a-billing-manager-to-your-organization/)更新组织的付款信息。 有关详细信息，请参阅“[添加或编辑付款方式](/articles/adding-or-editing-a-payment-method)”。
+3. 如果你目前负责为组织中的 GitHub 付款，则还需要让新所有者或[帐单管理员](/articles/adding-a-billing-manager-to-your-organization/)更新组织的付款信息。有关详细信息，请参阅“[添加或编辑付款方式](/articles/adding-or-editing-a-payment-method)”。
 
   {% warning %}
 
-  **警告**：从组织中删除自己时不会更新组织帐户存档的帐单信息。 新的所有者或帐单管理员必须更新存档的帐单信息，以删除您的信用卡或 PayPal 信息。
+  **警告**：从组织中删除自己时不会更新组织帐户存档的帐单信息。新的所有者或帐单管理员必须更新存档的帐单信息，以删除您的信用卡或 PayPal 信息。
 
   {% endwarning %}
 

@@ -21,7 +21,7 @@ ms.locfileid: '145130346'
 ---
 ## 关于 OAuth App 访问限制
 
-当 {% data variables.product.prodname_oauth_app %} 访问限制启用后，组织成员无法授权 {% data variables.product.prodname_oauth_app %} 访问组织资源。 组织成员可以申请所有者批准他们想使用的 {% data variables.product.prodname_oauth_apps %}，并且组织所有者会收到待处理申请的通知。
+当 {% data variables.product.prodname_oauth_app %} 访问限制启用后，组织成员无法授权 {% data variables.product.prodname_oauth_app %} 访问组织资源。组织成员可以申请所有者批准他们想使用的 {% data variables.product.prodname_oauth_apps %}，并且组织所有者会收到待处理申请的通知。
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
@@ -42,13 +42,13 @@ ms.locfileid: '145130346'
 - 2014 年 2 月之前创建的 SSH 密钥会立即失去对组织资源（包括用户和部署密钥）的访问权限。
 - {% data variables.product.prodname_oauth_apps %} 在 2014 年 2 月期间或以后创建的 SSH 密钥会立即失去对组织资源的访问权限。
 - 来自专用组织存储库的挂钩不再发送到未批准的 {% data variables.product.prodname_oauth_apps %}。
-- 对专用组织资源的 API 访问不适用于未批准的 {% data variables.product.prodname_oauth_apps %}。 此外，也没有在公共资源资源上执行创建、更新或删除操作的权限。
+- 对专用组织资源的 API 访问不适用于未批准的 {% data variables.product.prodname_oauth_apps %}。此外，也没有在公共资源资源上执行创建、更新或删除操作的权限。
 - 用户创建的挂钩和 2014 年 5 月之前创建的挂钩不受影响。
 - 组织拥有的存储库的专用复刻需遵守组织的访问限制。
 
 ## 解决 SSH 访问失败
 
-当 2014 年 2 月之前创建的 SSH 密钥因 {% data variables.product.prodname_oauth_app %} 访问限制启用而失去对组织的访问权限时，后续 SSH 访问尝试就会失败。 用户将会收到错误消息，将他们导向至可以批准密钥或在其位置上传可信密钥的 URL。
+当 2014 年 2 月之前创建的 SSH 密钥因 {% data variables.product.prodname_oauth_app %} 访问限制启用而失去对组织的访问权限时，后续 SSH 访问尝试就会失败。用户将会收到错误消息，将他们导向至可以批准密钥或在其位置上传可信密钥的 URL。
 
 ## Webhook
 

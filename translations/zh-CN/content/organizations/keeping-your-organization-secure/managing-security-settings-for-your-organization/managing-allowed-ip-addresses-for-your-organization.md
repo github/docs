@@ -33,9 +33,9 @@ ms.locfileid: '147707297'
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-如果您设置了允许列表，您还可以选择将为组织中安装的 {% data variables.product.prodname_github_apps %} 配置的任何 IP 地址自动添加到允许列表中。 {% data variables.product.prodname_github_app %} 的创建者可以为其应用程序配置允许列表，指定应用程序运行的 IP 地址。 通过将允许列表继承到您的列表中，您可以避免申请中的连接请求被拒绝。 有关详细信息，请参阅“[允许 {% data variables.product.prodname_github_apps %} 进行访问](#allowing-access-by-github-apps)”。
+如果您设置了允许列表，您还可以选择将为组织中安装的 {% data variables.product.prodname_github_apps %} 配置的任何 IP 地址自动添加到允许列表中。 {% data variables.product.prodname_github_app %} 的创建者可以为其应用程序配置允许列表，指定应用程序运行的 IP 地址。通过将允许列表继承到您的列表中，您可以避免申请中的连接请求被拒绝。有关详细信息，请参阅“[允许 {% data variables.product.prodname_github_apps %} 进行访问](#allowing-access-by-github-apps)”。
 
-您还可以为企业帐户中的组织配置允许的 IP 地址。 有关详细信息，请参阅“[为企业中的安全设置强制实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)”。
+您还可以为企业帐户中的组织配置允许的 IP 地址。有关详细信息，请参阅“[为企业中的安全设置强制实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)”。
 
 ## 添加允许的 IP 地址
 

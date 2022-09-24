@@ -18,21 +18,21 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '145109428'
 ---
-恢复代码不应共享或分发。 建议使用密码管理器（例如 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/)）保存它们。
+恢复代码不应共享或分发。建议使用密码管理器（例如 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/)）保存它们。
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
 5. 在“SAML 单一登录”下，在有关恢复代码的注释中，单击“保存恢复代码”。
 ![查看和保存恢复代码的链接](/assets/images/help/saml/saml_recovery_codes.png)
-6. 单击“下载”、“打印”或“复制”，保存你的恢复代码  。
+6. 单击“下载”、“打印”或“复制”，保存你的恢复代码。
 ![下载、打印或复制恢复代码的按钮](/assets/images/help/saml/saml_recovery_code_options.png)
 
   {% note %}
 
-  注意：如果你的 IdP 不可用，恢复代码将帮助你返回 {% data variables.product.product_name %}。 如果生成新的恢复代码，“单点登录恢复代码”页面上显示的恢复代码会自动更新。
+  注意：如果你的 IdP 不可用，恢复代码将帮助你返回 {% data variables.product.product_name %}。如果生成新的恢复代码，“单点登录恢复代码”页面上显示的恢复代码会自动更新。
 
   {% endnote %}
 
-7. 使用恢复代码重新获得 {% data variables.product.product_name %} 的访问权限后，无法重复使用该恢复代码。 对 {% data variables.product.product_name %} 的访问权限将仅在 24 小时内可用，之后系统会要求您使用单点登录进行登录。
+7. 使用恢复代码重新获得 {% data variables.product.product_name %} 的访问权限后，无法重复使用该恢复代码。对 {% data variables.product.product_name %} 的访问权限将仅在 24 小时内可用，之后系统会要求您使用单点登录进行登录。
 
 ## 延伸阅读
 

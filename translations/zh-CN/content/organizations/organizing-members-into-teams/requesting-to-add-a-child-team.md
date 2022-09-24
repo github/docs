@@ -20,9 +20,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '147876156'
 ---
-申请将某个团队添加为子团队时，申请会发送到子团队的维护员。 在子团队的维护员批准申请后，该子团队将嵌套在组织的层次结构中的父团队下面。
+申请将某个团队添加为子团队时，申请会发送到子团队的维护员。在子团队的维护员批准申请后，该子团队将嵌套在组织的层次结构中的父团队下面。
 
-如果您是组织所有者或者在子团队及父团队中具有团队维护员权限，无需申请批准便可添加子团队，或者从子团队的设置页面更改其父团队。 有关详细信息，请参阅“[在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organization-s-hierarchy)”。
+如果您是组织所有者或者在子团队及父团队中具有团队维护员权限，无需申请批准便可添加子团队，或者从子团队的设置页面更改其父团队。有关详细信息，请参阅“[在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organization-s-hierarchy)”。
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 

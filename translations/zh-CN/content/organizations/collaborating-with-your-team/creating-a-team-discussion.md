@@ -1,6 +1,6 @@
 ---
 title: 创建团队讨论
-intro: 任何组织成员都可以创建公开的团队讨论帖子。 要创建私密的团队讨论帖子，你必须是团队成员或组织所有者。
+intro: 任何组织成员都可以创建公开的团队讨论帖子。要创建私密的团队讨论帖子，你必须是团队成员或组织所有者。
 redirect_from:
   - /articles/creating-a-team-discussion
   - /github/building-a-strong-community/creating-a-team-discussion

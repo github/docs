@@ -17,11 +17,11 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145127537'
 ---
-若要保留对机器人和服务帐户的访问权限，组织管理员可以为其组织[启用](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)但不[强制实施](/articles/enforcing-saml-single-sign-on-for-your-organization) SAML 单一登录。 如果需要对组织实施 SAML 单点登录，您可以通过身份提供程序 (IdP) 为自动程序或服务帐户创建外部身份。
+若要保留对机器人和服务帐户的访问权限，组织管理员可以为其组织[启用](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)但不[强制实施](/articles/enforcing-saml-single-sign-on-for-your-organization) SAML 单一登录。如果需要对组织实施 SAML 单点登录，您可以通过身份提供程序 (IdP) 为自动程序或服务帐户创建外部身份。
 
 {% warning %}
 
-注意：如果对组织强制实施 SAML 单一登录，并且没有通过 IdP 为机器人和服务帐户设置外部标识，则它们将被从组织中删除 。
+注意：如果对组织强制实施 SAML 单一登录，并且没有通过 IdP 为机器人和服务帐户设置外部标识，则它们将被从组织中删除。
 
 {% endwarning %}
 

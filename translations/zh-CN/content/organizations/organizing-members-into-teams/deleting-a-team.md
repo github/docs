@@ -21,7 +21,7 @@ ms.locfileid: '145101313'
 ---
 {% tip %}
 
-提示：仅组织所有者可删除父团队。 有关详细信息，请参阅“[关于团队](/articles/about-teams)”。
+提示：仅组织所有者可删除父团队。有关详细信息，请参阅“[关于团队](/articles/about-teams)”。
 
 {% endtip %}
 

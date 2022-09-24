@@ -27,7 +27,7 @@ ms.locfileid: '145109452'
 
 ## 为组织创建预定提醒
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.reminders.scheduled-reminders %} {% data reusables.reminders.add-reminder %} {% data reusables.reminders.authorize-slack %} {% data reusables.reminders.slack-channel %} {% data reusables.reminders.days-dropdown %} {% data reusables.reminders.times-dropdowns %} {% data reusables.reminders.tracked-repos %}
-1.  在“筛选已分配进行评审代码的团队”下，单击“添加团队”下拉列表并选择一个或多个团队。 您最多可以添加 100 个团队。 如果您选择的团队无法访问上面选择的“跟踪的仓库”，您将无法创建预定提醒。
+1.  在“筛选已分配进行评审代码的团队”下，单击“添加团队”下拉列表并选择一个或多个团队。您最多可以添加 100 个团队。如果您选择的团队无法访问上面选择的“跟踪的仓库”，您将无法创建预定提醒。
 ![添加团队下拉列表](/assets/images/help/organizations/scheduled-reminders-add-teams.png) {% data reusables.reminders.ignore-drafts %} {% data reusables.reminders.no-review-requests %} {% data reusables.reminders.author-reviews %} {% data reusables.reminders.approved-prs %} {% data reusables.reminders.min-age %} {% data reusables.reminders.min-staleness %} {% data reusables.reminders.ignored-terms %} {% data reusables.reminders.ignored-labels %} {% data reusables.reminders.required-labels %} {% data reusables.reminders.create-reminder %}
 
 ## 管理组织的预定提醒

@@ -22,7 +22,7 @@ ms.locfileid: '145101309'
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
-团队维护员和组织所有者可为团队已请求审查的任何拉取请求设置预定提醒。 组织所有者必须先授权您的 Slack 工作区，然后您才可为团队创建预定提醒。 有关详细信息，请参阅“[管理组织的预定提醒](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)”。
+团队维护员和组织所有者可为团队已请求审查的任何拉取请求设置预定提醒。组织所有者必须先授权您的 Slack 工作区，然后您才可为团队创建预定提醒。有关详细信息，请参阅“[管理组织的预定提醒](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)”。
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 

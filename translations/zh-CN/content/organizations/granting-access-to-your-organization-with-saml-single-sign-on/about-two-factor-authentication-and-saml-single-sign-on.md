@@ -17,9 +17,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145127540'
 ---
-双重身份验证 (2FA) 为组织成员提供基本验证。 通过启用 2FA，组织管理员可降低 {% data variables.product.product_location %} 上成员的帐户被盗的可能性。 有关 2FA 的详细信息，请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。
+双重身份验证 (2FA) 为组织成员提供基本验证。通过启用 2FA，组织管理员可降低 {% data variables.product.product_location %} 上成员的帐户被盗的可能性。有关 2FA 的详细信息，请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。
 
-若要添加其他身份验证措施，组织管理员也可以[启用 SAML 单一登录 (SSO)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)，组织成员必须使用单一登录才能访问组织。 有关 SAML SSO 的详细信息，请参阅“[关于使用 SAML 单一登录进行标识和访问管理](/articles/about-identity-and-access-management-with-saml-single-sign-on)”。
+若要添加其他身份验证措施，组织管理员也可以[启用 SAML 单一登录 (SSO)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)，组织成员必须使用单一登录才能访问组织。有关 SAML SSO 的详细信息，请参阅“[关于使用 SAML 单一登录进行标识和访问管理](/articles/about-identity-and-access-management-with-saml-single-sign-on)”。
 
 如果同时启用了 2FA 和 SAML SSO，组织成员必须执行以下操作：
 - 使用 2FA 登录其在 {% data variables.product.product_location %} 上的帐户

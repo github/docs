@@ -22,14 +22,14 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145101308'
 ---
-组织所有者可以更改任何团队的父团队。 团队维护员如果同时是子团队和父团队的维护员，则可更改团队的父团队。 没有子团队维护员权限的团队维护员可以申请添加父团队或子团队。 有关详细信息，请参阅“[申请添加或更改父团队](/articles/requesting-to-add-or-change-a-parent-team)”和“[申请添加子团队](/articles/requesting-to-add-a-child-team)”。
+组织所有者可以更改任何团队的父团队。团队维护员如果同时是子团队和父团队的维护员，则可更改团队的父团队。没有子团队维护员权限的团队维护员可以申请添加父团队或子团队。有关详细信息，请参阅“[申请添加或更改父团队](/articles/requesting-to-add-or-change-a-parent-team)”和“[申请添加子团队](/articles/requesting-to-add-a-child-team)”。
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% tip %}
 
 **提示：**
-- 不能将团队的父团队更改为机密团队。 有关详细信息，请参阅“[关于团队](/articles/about-teams)”。
+- 不能将团队的父团队更改为机密团队。有关详细信息，请参阅“[关于团队](/articles/about-teams)”。
 - 不能将父团队嵌套在其子团队下面。
 
 {% endtip %}

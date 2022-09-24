@@ -19,7 +19,7 @@ ms.locfileid: '145101334'
 ---
 {% data reusables.saml.ghec-only %}
 
-{% data reusables.saml.when-you-enforce %} 在组织中执行 SAML SSO 之前，您应该审核组织成员资格，启用 SAML SSO，并审核组织成员的 SAML 访问权限。 有关详细信息，请参阅以下内容。
+{% data reusables.saml.when-you-enforce %} 在组织中执行 SAML SSO 之前，您应该审核组织成员资格，启用 SAML SSO，并审核组织成员的 SAML 访问权限。有关详细信息，请参阅以下内容。
 
 | 任务 | 更多信息 |
 | :- | :- |
@@ -27,6 +27,6 @@ ms.locfileid: '145101334'
 | 启用 SAML SSO 以将 IdP 连接到组织 | <ul><li>[将标识提供者连接到组织](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)</li><li>[启用和测试组织的 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)</li></ul> |
 | 确保组织成员已登录并且将其帐户与 IdP 链接。 | <ul><li>[查看和管理成员 SAML 对组织的访问权限](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)</li></ul> |
 
-完成这些任务后，便可为您的组织执行 SAML SSO。 有关详细信息，请参阅“[为组织强制实施 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)”。
+完成这些任务后，便可为您的组织执行 SAML SSO。有关详细信息，请参阅“[为组织强制实施 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)”。
 
 {% data reusables.saml.outside-collaborators-exemption %}

@@ -32,11 +32,11 @@ ms.locfileid: '147064680'
 
 ## 管理组织的 {% data variables.product.prodname_actions %} 权限
 
-可以选择对组织中的所有存储库禁用 {% data variables.product.prodname_actions %}，或仅允许特定存储库。 还可以限制公共操作{% ifversion actions-workflow-policy %} 和可重用工作流{% endif %}的使用，让用户只能使用{% ifversion ghec or ghes or ghae %}企业{% else %}组织{% endif %}中现有的本地操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}。
+可以选择对组织中的所有存储库禁用 {% data variables.product.prodname_actions %}，或仅允许特定存储库。还可以限制公共操作{% ifversion actions-workflow-policy %} 和可重用工作流{% endif %}的使用，让用户只能使用{% ifversion ghec or ghes or ghae %}企业{% else %}组织{% endif %}中现有的本地操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}。
 
 {% note %}
 
-注意：如果组织由具有替代策略的企业管理，则可能无法管理这些设置。 有关详细信息，请参阅“[在企业中强制实施 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)”。
+注意：如果组织由具有替代策略的企业管理，则可能无法管理这些设置。有关详细信息，请参阅“[在企业中强制实施 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)”。
 
 {% endnote %}
 
@@ -61,7 +61,7 @@ ms.locfileid: '147064680'
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-您可以使用以下程序为组织配置此行为。 修改此设置会覆盖企业级别的配置集。
+您可以使用以下程序为组织配置此行为。修改此设置会覆盖企业级别的配置集。
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %} {% data reusables.actions.workflows-from-public-fork-setting %}
 
@@ -72,7 +72,7 @@ ms.locfileid: '147064680'
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-{% ifversion ghec or ghae or ghes %}如果对企业禁用了某个策略，则无法对组织启用该策略。{% endif %} 如果对组织禁用了某个策略，则无法对仓库启用该策略。 如果组织启用了某个策略，则可以对个别仓库禁用该策略。
+{% ifversion ghec or ghae or ghes %}如果对企业禁用了某个策略，则无法对组织启用该策略。{% endif %} 如果对组织禁用了某个策略，则无法对仓库启用该策略。如果组织启用了某个策略，则可以对个别仓库禁用该策略。
 
 {% data reusables.actions.private-repository-forks-options %}
 
@@ -84,7 +84,7 @@ ms.locfileid: '147064680'
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-可以在组织或存储库的设置中为 `GITHUB_TOKEN` 设置默认权限。 如果你在组织设置中选择受限制的选项为默认值，那么在组织内的存储库设置中也会选择相同选项，并禁用允许选项。 如果你的组织属于 {% data variables.product.prodname_enterprise %} 帐户，并且在企业设置中选择了更受限制的默认值，则你将无法在组织设置中选择更宽松的默认值。
+可以在组织或存储库的设置中为 `GITHUB_TOKEN` 设置默认权限。如果你在组织设置中选择受限制的选项为默认值，那么在组织内的存储库设置中也会选择相同选项，并禁用允许选项。如果你的组织属于 {% data variables.product.prodname_enterprise %} 帐户，并且在企业设置中选择了更受限制的默认值，则你将无法在组织设置中选择更宽松的默认值。
 
 {% data reusables.actions.workflow-permissions-modifying %}
 

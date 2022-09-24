@@ -30,7 +30,7 @@ ms.locfileid: '145128603'
 
 {% tip %}
 
-提示：只有组织所有者和账单管理员可以查看及更改组织的账单信息与一组完整的帐户设置。 组织审查者只能查看审查设置。 {% data reusables.organizations.new-org-permissions-more-info %}
+提示：只有组织所有者和账单管理员可以查看及更改组织的账单信息与一组完整的帐户设置。组织审查者只能查看审查设置。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 

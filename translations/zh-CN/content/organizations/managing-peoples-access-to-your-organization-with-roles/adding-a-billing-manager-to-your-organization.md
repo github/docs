@@ -1,6 +1,6 @@
 ---
 title: 为组织添加帐单管理员
-intro: 账单管理员是负责为组织管理账单设置的用户管理员，例如更新付款信息。 如果组织的常规成员通常不能访问帐单资源，这将是一个很好的选择。
+intro: 账单管理员是负责为组织管理账单设置的用户管理员，例如更新付款信息。如果组织的常规成员通常不能访问帐单资源，这将是一个很好的选择。
 redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
@@ -19,7 +19,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099699'
 ---
-组织所有者团队的成员可向人们授予“帐单管理员”权限。 在个人接受其邀请成为组织的帐单管理员后，他们可邀请其他人员为帐单管理员。
+组织所有者团队的成员可向人们授予“帐单管理员”权限。在个人接受其邀请成为组织的帐单管理员后，他们可邀请其他人员为帐单管理员。
 
 {% note %}
 
@@ -57,11 +57,11 @@ ms.locfileid: '145099699'
 
 {% ifversion ghec %} {% note %}
 
-注意：如果你的组织由企业帐户拥有，则无法在组织级别邀请帐单管理员。 有关详细信息，请参阅[关于企业帐户](/admin/overview/about-enterprise-accounts)。
+注意：如果你的组织由企业帐户拥有，则无法在组织级别邀请帐单管理员。有关详细信息，请参阅[关于企业帐户](/admin/overview/about-enterprise-accounts)。
 
 {% endnote %} {% endif %}
 
-受邀人员将会收到邀请电子邮件，邀请他们成为您的组织的帐单管理员。 在受邀人员单击其邀请电子邮件中的接受链接后，他们会自动加入组织成为帐单管理员。 如果他们还没有 GitHub 帐户，将被重定向到注册页面注册一个，在创建帐户后会自动加入组织成为帐单管理员。
+受邀人员将会收到邀请电子邮件，邀请他们成为您的组织的帐单管理员。在受邀人员单击其邀请电子邮件中的接受链接后，他们会自动加入组织成为帐单管理员。如果他们还没有 GitHub 帐户，将被重定向到注册页面注册一个，在创建帐户后会自动加入组织成为帐单管理员。
 
 {% data reusables.organizations.billing-settings %}
 1. 在“帐单管理”下，单击“账单管理员”旁边的“添加”。

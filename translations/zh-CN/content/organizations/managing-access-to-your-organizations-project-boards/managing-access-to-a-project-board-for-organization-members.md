@@ -29,12 +29,12 @@ ms.locfileid: '147880780'
 
 {% tip %}
 
-提示：可向组织成员授予更高的 {% data variables.projects.projects_v1_board %} 权限。 有关详细信息，请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”。
+提示：可向组织成员授予更高的 {% data variables.projects.projects_v1_board %} 权限。有关详细信息，请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”。
 
 {% endtip %}
 
 {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. 单击“项目(经典)”{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %}
+1. 单击“项目 (经典)”{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %}
 8. 在“组织成员权限”下，为所有组织成员选择基线权限级别：“读取”、“写入”、“管理员”或“无”   。
 ![用于所有组织成员的基线项目板权限选项](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. 单击“ **保存**”。

@@ -26,6 +26,6 @@ ms.locfileid: '147422946'
 外部协作者并未明确是组织的成员，但对组织的 {% data variables.projects.projects_v1_board %} 具有访问权限。
 
 {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. 单击“项目(经典)”{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %}
+1. 单击“项目 (经典)”{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %}
 9. 在 "Search by username, full name or email address"（按用户名、全名或电子邮件地址搜索）下，输入外部协作者的姓名、用户名或 {% data variables.product.prodname_dotcom %} 电子邮件地址。
    ![在“搜索”字段中输入了 Octocat 用户名的“协作者”部分](/assets/images/help/projects/org-project-collaborators-find-name.png) {% data reusables.project-management.add-collaborator %} {% data reusables.project-management.collaborator-permissions %}

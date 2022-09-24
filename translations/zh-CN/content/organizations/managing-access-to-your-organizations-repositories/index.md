@@ -1,6 +1,6 @@
 ---
 title: 管理对组织存储库的访问权限
-intro: 组织所有者可以管理个人和团队对组织仓库的访问。 团队维护员也可以管理团队的仓库访问权限。
+intro: 组织所有者可以管理个人和团队对组织仓库的访问。团队维护员也可以管理团队的仓库访问权限。
 redirect_from:
   - /articles/permission-levels-for-an-organization-repository
   - /articles/managing-access-to-your-organization-s-repositories

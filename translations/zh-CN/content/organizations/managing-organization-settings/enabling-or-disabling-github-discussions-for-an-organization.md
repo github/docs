@@ -18,7 +18,7 @@ ms.locfileid: '147408945'
 
 {% data reusables.discussions.about-organization-discussions %}
 
-你还可以管理存储库讨论。 有关详细信息，请参阅“[为存储库启用或禁用 GitHub 讨论](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)”和“[管理组织中存储库的讨论创建](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)”。
+你还可以管理存储库讨论。有关详细信息，请参阅“[为存储库启用或禁用 GitHub 讨论](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)”和“[管理组织中存储库的讨论创建](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)”。
 
 ## <a name="enabling-or-disabling--data-variablesproductprodname_discussions--for-your-organization"></a>为组织启用或禁用 {% data variables.product.prodname_discussions %}
 

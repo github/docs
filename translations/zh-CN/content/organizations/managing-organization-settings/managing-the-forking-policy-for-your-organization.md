@@ -24,7 +24,7 @@ ms.locfileid: '145099717'
 ---
 默认情况下，新组织被配置为禁止对专用 {% ifversion ghes or ghec or ghae %} 和内部 {% endif %} 存储库创建分支。
 
-如果允许在组织级别对专用 {% ifversion ghes or ghec or ghae %} 和内部 {% endif %} 存储库进行分支，还可以配置对特定专用 {% ifversion ghes or ghec or ghae %} 或内部 {% endif %} 存储库进行分支的功能。 有关详细信息，请参阅“[管理存储库的分支策略](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)”。
+如果允许在组织级别对专用 {% ifversion ghes or ghec or ghae %} 和内部 {% endif %} 存储库进行分支，还可以配置对特定专用 {% ifversion ghes or ghec or ghae %} 或内部 {% endif %} 存储库进行分支的功能。有关详细信息，请参阅“[管理存储库的分支策略](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)”。
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.profile.org_member_privileges %}
 1. 在“存储库分支”下，选择“允许对专用 {% ifversion ghec or ghes or ghae %} 和内部 {% endif %} 存储库创建分支”。

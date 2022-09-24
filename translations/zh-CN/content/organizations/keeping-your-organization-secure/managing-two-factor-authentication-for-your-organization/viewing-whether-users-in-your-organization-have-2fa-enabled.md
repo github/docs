@@ -22,7 +22,7 @@ ms.locfileid: '145127504'
 ---
 {% note %}
 
-注意：可以要求所有成员{% ifversion fpt or ghec %}（包括组织中的所有者、帐单管理员和{% else %}和{% endif %}外部协作者）均启用双因素身份验证。 有关详细信息，请参阅“[要求在组织中进行双因素身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
+注意：可以要求所有成员{% ifversion fpt or ghec %}（包括组织中的所有者、帐单管理员和{% else %}和{% endif %}外部协作者）均启用双因素身份验证。有关详细信息，请参阅“[要求在组织中进行双因素身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
 
 {% endnote %}
 

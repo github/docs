@@ -22,13 +22,13 @@ ms.locfileid: '145097336'
 ---
 ## 关于组织邀请
 
-如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可邀请新成员加入组织或恢复前组织成员。 有关详细信息，请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。 
+如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可邀请新成员加入组织或恢复前组织成员。有关详细信息，请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。 
 
 {% data reusables.organizations.org-invite-scim %}
 
-如果您的组织要求成员使用双重身份验证，则您邀请的用户在接受邀请之前必须启用双重身份验证。 有关详细信息，请参阅“[要求在组织中进行双因素身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)”和“[使用双因素身份验证 (2FA) 保护帐户](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)”。
+如果您的组织要求成员使用双重身份验证，则您邀请的用户在接受邀请之前必须启用双重身份验证。有关详细信息，请参阅“[要求在组织中进行双因素身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)”和“[使用双因素身份验证 (2FA) 保护帐户](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)”。
 
-{% ifversion fpt %}使用 {% data variables.product.prodname_ghe_cloud %}{% else %}您{% endif %} 的组织可以实施 SCIM，以添加、管理和删除组织成员通过身份提供商 (IdP) 对 {% data variables.product.prodname_dotcom_the_website %} 的访问权限。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[关于组织的 SCIM](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations){% ifversion fpt %}”。{% else %}."{% endif %}
+{% ifversion fpt %}使用 {% data variables.product.prodname_ghe_cloud %}{% else %}您{% endif %} 的组织可以实施 SCIM，以添加、管理和删除组织成员通过身份提供商 (IdP) 对 {% data variables.product.prodname_dotcom_the_website %} 的访问权限。有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[关于组织的 SCIM](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations){% ifversion fpt %}”。{% else %}."{% endif %}
 
 ## 邀请用户加入您的组织
 

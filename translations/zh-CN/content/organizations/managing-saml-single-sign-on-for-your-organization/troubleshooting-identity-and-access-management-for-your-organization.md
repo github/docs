@@ -40,7 +40,7 @@ ms.locfileid: '147093165'
 
 > `https://github.com/orgs/<organization>/people/<username>/sso`
 
-如果用户的外部标识包括 SCIM 元数据，则组织所有者应在该页面上看到 SCIM 标识部分。 如果其外部标识不包含任何 SCIM 元数据，则 SCIM 标识部分将不存在。
+如果用户的外部标识包括 SCIM 元数据，则组织所有者应在该页面上看到 SCIM 标识部分。如果其外部标识不包含任何 SCIM 元数据，则 SCIM 标识部分将不存在。
 
 #### 通过 {% data variables.product.prodname_dotcom %} API 审核组织成员
 
@@ -48,7 +48,7 @@ ms.locfileid: '147093165'
 
 #### 使用 REST API
 
-SCIM REST API 仅返回在其外部标识下填充了 SCIM 元数据的用户的数据。 我们建议您将 SCIM 预配置身份列表与组织所有成员的列表进行比较。
+SCIM REST API 仅返回在其外部标识下填充了 SCIM 元数据的用户的数据。我们建议您将 SCIM 预配置身份列表与组织所有成员的列表进行比较。
 
 有关详细信息，请参阅：
   - [列出 SCIM 预配标识](/rest/reference/scim#list-scim-provisioned-identities)
@@ -56,7 +56,7 @@ SCIM REST API 仅返回在其外部标识下填充了 SCIM 元数据的用户的
 
 #### 使用 GraphQL
 
-此 GraphQL 查询显示组织中每个用户的 SAML `NameId`、SCIM `UserName` 和 {% data variables.product.prodname_dotcom %} 用户名 (`login`)。 若要使用此查询，请将 `ORG` 替换为你的组织名称。 
+此 GraphQL 查询显示组织中每个用户的 SAML `NameId`、SCIM `UserName` 和 {% data variables.product.prodname_dotcom %} 用户名 (`login`)。若要使用此查询，请将 `ORG` 替换为你的组织名称。 
 
 ```graphql
 {
@@ -93,9 +93,9 @@ curl -X POST -H "Authorization: Bearer <personal access token>" -H "Content-Type
 
 ### 通过身份提供商为用户重新预配 SCIM
 
-您可以通过 IdP 手动为用户重新预配 SCIM。 例如，要解决 Okta 的预配错误，可以在 Okta 管理门户中取消分配用户并将其重新分配给 {% data variables.product.prodname_dotcom %} 应用。 这应该会触发 Okta 进行 API 调用，以便在 {% data variables.product.prodname_dotcom %} 上为这些用户填充 SCIM 元数据。 有关详细信息，请参阅 Okta 文档中的“[从应用程序取消分配用户](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)”或“[将用户分配给应用程序](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)”。
+您可以通过 IdP 手动为用户重新预配 SCIM。例如，要解决 Okta 的预配错误，可以在 Okta 管理门户中取消分配用户并将其重新分配给 {% data variables.product.prodname_dotcom %} 应用。这应该会触发 Okta 进行 API 调用，以便在 {% data variables.product.prodname_dotcom %} 上为这些用户填充 SCIM 元数据。有关详细信息，请参阅 Okta 文档中的“[从应用程序取消分配用户](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)”或“[将用户分配给应用程序](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)”。
 
-要确认是否已创建用户的 SCIM 标识，我们建议您使用已确认没有 SCIM 外部标识的单个组织成员来测试此过程。 手动更新 IdP 中的用户后，您可以检查用户的 SCIM 身份是使用 SCIM API 创建的，还是在 {% data variables.product.prodname_dotcom %} 上创建的。 有关详细信息，请参阅“[审核用户是否缺少 SCIM 元数据](#auditing-users-for-missing-scim-metadata)”或 REST API 终结点“[获取用户的 SCIM 配置信息](/rest/reference/scim#get-scim-provisioning-information-for-a-user)”。
+要确认是否已创建用户的 SCIM 标识，我们建议您使用已确认没有 SCIM 外部标识的单个组织成员来测试此过程。手动更新 IdP 中的用户后，您可以检查用户的 SCIM 身份是使用 SCIM API 创建的，还是在 {% data variables.product.prodname_dotcom %} 上创建的。有关详细信息，请参阅“[审核用户是否缺少 SCIM 元数据](#auditing-users-for-missing-scim-metadata)”或 REST API 终结点“[获取用户的 SCIM 配置信息](/rest/reference/scim#get-scim-provisioning-information-for-a-user)”。
 
 如果为用户重新预配 SCIM 不起作用，请联系 {% data variables.product.prodname_dotcom %} 支持。
 

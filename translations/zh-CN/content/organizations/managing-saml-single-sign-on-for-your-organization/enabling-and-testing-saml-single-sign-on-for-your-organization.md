@@ -19,11 +19,11 @@ ms.locfileid: '145109427'
 ---
 ## 关于 SAML 单点登录
 
-无需所有成员使用 SAML SSO，即可在组织中将其启用。 在组织中启用但不实施 SAML SSO 可帮助组织顺利采用 SAML SSO。 一旦组织内的大多数成员使用 SAML SSO，即可在组织内将其实施。
+无需所有成员使用 SAML SSO，即可在组织中将其启用。在组织中启用但不实施 SAML SSO 可帮助组织顺利采用 SAML SSO。一旦组织内的大多数成员使用 SAML SSO，即可在组织内将其实施。
 
 {% data reusables.saml.ghec-only %}
 
-如果启用但不实施 SAML SSO，则选择不使用 SAML SSO 的组织成员仍可以是组织的成员。 有关强制实施 SAML SSO 的详细信息，请参阅“[为组织强制实施 SAML 单一登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
+如果启用但不实施 SAML SSO，则选择不使用 SAML SSO 的组织成员仍可以是组织的成员。有关强制实施 SAML SSO 的详细信息，请参阅“[为组织强制实施 SAML 单一登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -31,7 +31,7 @@ ms.locfileid: '145109427'
 
 ## 启用和测试组织的 SAML 单点登录
 
-在组织中实施 SAML SSO 之前，请确保您已准备好组织。 有关详细信息，请参阅“[准备在组织中强制实施 SAML 单一登录](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)”。
+在组织中实施 SAML SSO 之前，请确保您已准备好组织。有关详细信息，请参阅“[准备在组织中强制实施 SAML 单一登录](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)”。
 
 有关 {% data variables.product.company_short %} 支持用于 SAML SSO 的标识提供程序 (IdP) 的详细信息，请参阅“[将标识提供程序连接到组织](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)”。
 
@@ -41,13 +41,13 @@ ms.locfileid: '145109427'
 
   {% note %}
 
-  注意：启用 SAML SSO 后，可以下载单一登录恢复代码，以便即使在 IdP 不可用时也能访问组织。 有关详细信息，请参阅“[下载组织的 SAML 单一登录恢复代码](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)”。
+  注意：启用 SAML SSO 后，可以下载单一登录恢复代码，以便即使在 IdP 不可用时也能访问组织。有关详细信息，请参阅“[下载组织的 SAML 单一登录恢复代码](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)”。
 
   {% endnote %}
 
-6. 在“Sign on URL”（登录 URL）字段中，为单点登录请求输入 IdP 上的 HTTPS 端点。 此值可在 IdP 配置中找到。
+6. 在“Sign on URL”（登录 URL）字段中，为单点登录请求输入 IdP 上的 HTTPS 端点。此值可在 IdP 配置中找到。
 ![登录时将成员转发到的 URL 字段](/assets/images/help/saml/saml_sign_on_url.png)
-7. 可选择在“Issuer”（签发者）字段中，输入 SAML 签发者的姓名。 此操作验证已发送消息的真实性。
+7. 可选择在“Issuer”（签发者）字段中，输入 SAML 签发者的姓名。此操作验证已发送消息的真实性。
 ![SAML 颁发者的姓名字段](/assets/images/help/saml/saml_issuer.png)
 8. 在“Public Certificate”（公共证书）下，粘贴证书以验证 SAML 响应。
 ![标识提供程序的公共证书字段](/assets/images/help/saml/saml_public_certificate.png)
@@ -60,7 +60,7 @@ ms.locfileid: '145109427'
   **提示：** {% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
-11. 要强制实施 SAML SSO 并删除未通过 IdP 进行身份验证的所有组织成员，请选择“要求 organization name 组织的所有成员进行 SAML SSO 身份验证”。 有关强制实施 SAML SSO 的详细信息，请参阅“[为组织强制实施 SAML 单一登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
+11. 要强制实施 SAML SSO 并删除未通过 IdP 进行身份验证的所有组织成员，请选择“要求 organization name 组织的所有成员进行 SAML SSO 身份验证”。有关强制实施 SAML SSO 的详细信息，请参阅“[为组织强制实施 SAML 单一登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
 ![要求为组织使用 SAML SSO 的复选框](/assets/images/help/saml/saml_require_saml_sso.png)
 12. 单击“ **保存**”。
 ![保存 SAML SSO 设置的按钮](/assets/images/help/saml/saml_save.png)

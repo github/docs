@@ -16,7 +16,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '145097347'
 ---
-您可以导出有关组织中成员的信息。 如果要对组织内的用户执行审核，这将非常有用。
+您可以导出有关组织中成员的信息。如果要对组织内的用户执行审核，这将非常有用。
 
 导出的信息包括：
 - 用户名和显示名称详细信息
@@ -26,7 +26,7 @@ ms.locfileid: '145097347'
 - 用户上次活动的日期/时间（如需相关活动的完整列表，请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”）
 - 用户的 SAML 名称 ID（如果可用）
 
-您可以直接从 {% data variables.product.product_name %} 用户界面或使用 API 获取成员信息。 本文介绍如何从 {% data variables.product.product_name %} 中获取成员信息。
+您可以直接从 {% data variables.product.product_name %} 用户界面或使用 API 获取成员信息。本文介绍如何从 {% data variables.product.product_name %} 中获取成员信息。
 
 有关 API 的详细信息，请参阅关于用户的 [GraphQL API](/graphql/reference/objects#user) 和 [REST API](/rest/reference/users) 文档。
 

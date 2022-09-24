@@ -25,31 +25,31 @@ ms.locfileid: '147061736'
 ## 关于角色
 {% data reusables.organizations.about-roles %}
 
-存储库级别角色为组织成员、外部协作者和团队提供不同级别的存储库访问权限。 有关详细信息，请参阅“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
+存储库级别角色为组织成员、外部协作者和团队提供不同级别的存储库访问权限。有关详细信息，请参阅“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
-团队级别角色是授予管理团队的权限的角色。 您可以为团队的任何单个成员授予团队维护者角色，授予该成员对团队的诸多管理权限。 有关详细信息，请参阅“[将团队维护员角色分配给团队成员](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)”。
+团队级别角色是授予管理团队的权限的角色。您可以为团队的任何单个成员授予团队维护者角色，授予该成员对团队的诸多管理权限。有关详细信息，请参阅“[将团队维护员角色分配给团队成员](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)”。
 
-组织级角色是可分配给个人或团队以管理组织及组织的存储库、团队和设置的权限集。 有关组织级可用的所有角色的详细信息，请参阅“[关于组织角色](#about-organization-roles)”。
+组织级角色是可分配给个人或团队以管理组织及组织的存储库、团队和设置的权限集。有关组织级可用的所有角色的详细信息，请参阅“[关于组织角色](#about-organization-roles)”。
 
 ## 关于组织角色
 
-您可以将个人或团队分配到各种组织级角色，以控制成员对组织及其资源的访问权限。 若要详细了解每个角色中包含的各个权限，请参阅“[组织角色的权限](#permissions-for-organization-roles)”。
+您可以将个人或团队分配到各种组织级角色，以控制成员对组织及其资源的访问权限。若要详细了解每个角色中包含的各个权限，请参阅“[组织角色的权限](#permissions-for-organization-roles)”。
 
-{% ifversion enterprise-owner-join-org %} 如果组织归企业帐户所有，则企业所有者可选择以任何角色加入组织。 有关详细信息，请参阅“[管理企业拥有的组织中的角色](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)”。
+{% ifversion enterprise-owner-join-org %} 如果组织归企业帐户所有，则企业所有者可选择以任何角色加入组织。有关详细信息，请参阅“[管理企业拥有的组织中的角色](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)”。
 {% endif %}
 
 ### 组织所有者
-组织所有者对组织具有完全管理权限。 此角色应限于组织中的少数几个人，但不少于两人。 有关详细信息，请参阅“[保持组织的所有权连续性](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)”。
+组织所有者对组织具有完全管理权限。此角色应限于组织中的少数几个人，但不少于两人。有关详细信息，请参阅“[保持组织的所有权连续性](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)”。
 
 ### 组织成员
-组织中人员的默认非管理角色是组织成员。 默认情况下，组织成员具有许多权限，包括能够创建存储库和项目板。
+组织中人员的默认非管理角色是组织成员。默认情况下，组织成员具有许多权限，包括能够创建存储库和项目板。
 
 {% ifversion fpt or ghec %}
 ### 组织审核员
-审核员是组织成员，除了其作为成员的权限外，他们还可阻止和取消阻止非成员贡献者、设置交互限制，并可在组织拥有的公共存储库中隐藏评论。 有关详细信息，请参阅“[管理组织中的审核员](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)”。
+审核员是组织成员，除了其作为成员的权限外，他们还可阻止和取消阻止非成员贡献者、设置交互限制，并可在组织拥有的公共存储库中隐藏评论。有关详细信息，请参阅“[管理组织中的审核员](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)”。
 
 ### 帐单管理员
-帐单管理员是可以管理组织的帐单设置（如付款信息）的用户。 如果组织成员通常无权访问计费资源，则这是一个有用的选项。 有关详细信息，请参阅“[为组织添加账单管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)”。
+帐单管理员是可以管理组织的帐单设置（如付款信息）的用户。如果组织成员通常无权访问计费资源，则这是一个有用的选项。有关详细信息，请参阅“[为组织添加账单管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)”。
 
 {% endif %}
 
@@ -60,12 +60,12 @@ ms.locfileid: '147061736'
 
 {% data reusables.organizations.about-security-managers %}
 
-如果您的组织具有安全团队，则可以使用安全管理员角色为团队成员提供他们对组织所需的最少访问权限。 有关详细信息，请参阅“[管理组织中的安全管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)”。
+如果您的组织具有安全团队，则可以使用安全管理员角色为团队成员提供他们对组织所需的最少访问权限。有关详细信息，请参阅“[管理组织中的安全管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)”。
 {% endif %}
 ### {% data variables.product.prodname_github_app %} 管理员
-默认情况下，只有组织所有者才可管理组织拥有的 {% data variables.product.prodname_github_apps %} 的设置。 要允许其他用户管理组织拥有的 {% data variables.product.prodname_github_apps %}，所有者可向他们授予 {% data variables.product.prodname_github_app %} 管理员权限。
+默认情况下，只有组织所有者才可管理组织拥有的 {% data variables.product.prodname_github_apps %} 的设置。要允许其他用户管理组织拥有的 {% data variables.product.prodname_github_apps %}，所有者可向他们授予 {% data variables.product.prodname_github_app %} 管理员权限。
 
-指定用户为组织中 {% data variables.product.prodname_github_app %} 的管理员时，您可以授予他们对组织拥有的部分或全部 {% data variables.product.prodname_github_apps %} 的设置进行管理的权限。 有关详细信息，请参阅：
+指定用户为组织中 {% data variables.product.prodname_github_app %} 的管理员时，您可以授予他们对组织拥有的部分或全部 {% data variables.product.prodname_github_apps %} 的设置进行管理的权限。有关详细信息，请参阅：
 
 - [为组织添加 GitHub 应用程序管理员](/articles/adding-github-app-managers-in-your-organization)
 - [从组织中删除 GitHub 应用程序管理员](/articles/removing-github-app-managers-from-your-organization)

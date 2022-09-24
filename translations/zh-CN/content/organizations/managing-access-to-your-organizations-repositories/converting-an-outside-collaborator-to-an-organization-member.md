@@ -21,7 +21,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145127480'
 ---
-{% ifversion fpt or ghec %}如果组织采用付费的每用户订阅，则必须有未使用的许可证才可邀请新成员加入组织或恢复前组织成员。 有关详细信息，请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。 {% data reusables.organizations.org-invite-expiration %}{% endif %}
+{% ifversion fpt or ghec %}如果组织采用付费的每用户订阅，则必须有未使用的许可证才可邀请新成员加入组织或恢复前组织成员。有关详细信息，请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。 {% data reusables.organizations.org-invite-expiration %}{% endif %}
 
 {% ifversion not ghae %}如果组织[需要成员使用双因素身份验证](/articles/requiring-two-factor-authentication-in-your-organization)，则{% ifversion fpt or ghec %}你邀请的用户必须[启用双因素身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)，然后才可接受邀请。{% else %}用户必须[启用双因素身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)，然后才可将用户添加到组织。{% endif %} {% endif %}
 

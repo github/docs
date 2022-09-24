@@ -16,9 +16,9 @@ ms.locfileid: '147409771'
 ---
 ## 关于提交签核
 
-为了确认提交符合管理存储库的规则和许可，许多组织要求开发人员在每次提交时进行签核。 如果组织需要提交签核，你可以通过为经由 {% data variables.product.product_name %} 的 Web 界面提交的用户启用强制提交签核来使签核成为提交过程中无缝的一部分。 为组织启用强制提交签核后，通过 {% data variables.product.product_name %} 的 Web 界面对该组织中的存储库进行的每个提交都将由提交作者自动签核。
+为了确认提交符合管理存储库的规则和许可，许多组织要求开发人员在每次提交时进行签核。如果组织需要提交签核，你可以通过为经由 {% data variables.product.product_name %} 的 Web 界面提交的用户启用强制提交签核来使签核成为提交过程中无缝的一部分。为组织启用强制提交签核后，通过 {% data variables.product.product_name %} 的 Web 界面对该组织中的存储库进行的每个提交都将由提交作者自动签核。
 
-对存储库具有管理员访问权限的人员还可以在存储库级别启用强制提交签核。 有关详细信息，请参阅“[管理存储库的提交签核策略](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)”。
+对存储库具有管理员访问权限的人员还可以在存储库级别启用强制提交签核。有关详细信息，请参阅“[管理存储库的提交签核策略](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)”。
 
 {% data reusables.repositories.commit-signoffs %}
 
