@@ -13,4 +13,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147065336'
 ---
-通过 LDAP 映射端点，您可以更新用户或团队所映射的识别名称 (DN) 。 请注意，仅当 {% data variables.product.product_name %} 设备 [启用了 LDAP 同步](/enterprise/admin/authentication/using-ldap)时，LDAP 终结点通常才有效。 即使已禁用 LDAP 同步，也可以在启用 LDAP 后使用[为用户更新 LDAP 映射](#update-ldap-mapping-for-a-user)终结点。
+通过 LDAP 映射端点，您可以更新用户或团队所映射的识别名称 (DN) 。请注意，仅当 {% data variables.product.product_name %} 设备 [启用了 LDAP 同步](/enterprise/admin/authentication/using-ldap)时，LDAP 终结点通常才有效。即使已禁用 LDAP 同步，也可以在启用 LDAP 后使用[为用户更新 LDAP 映射](#update-ldap-mapping-for-a-user)终结点。

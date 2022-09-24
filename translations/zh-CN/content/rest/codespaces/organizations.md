@@ -20,4 +20,4 @@ ms.locfileid: '147079873'
 
 ## 关于 Codespaces 组织 API
 
-可通过 {% data variables.product.prodname_codespaces %} 组织 API 使用 REST API 管理向组织收费的 {% data variables.product.prodname_codespaces %}。 此 API 可用于经过身份验证的组织管理员和 OAuth 应用，但不适用于 GitHub 应用。 有关详细信息，请参阅“[{% data variables.product.prodname_codespaces %}](/codespaces)。”
+可通过 {% data variables.product.prodname_codespaces %} 组织 API 使用 REST API 管理向组织收费的 {% data variables.product.prodname_codespaces %}。此 API 可用于经过身份验证的组织管理员和 OAuth 应用，但不适用于 GitHub 应用。有关详细信息，请参阅“[{% data variables.product.prodname_codespaces %}](/codespaces)。”

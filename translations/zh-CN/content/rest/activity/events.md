@@ -18,9 +18,9 @@ ms.locfileid: '147064304'
 ---
 这些事件推动站点上的各种活动流。
 
-事件 API 可以返回 {% data variables.product.product_name %} 上的活动触发的不同类型事件。 有关可从事件 API 接收的特定事件的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 事件类型](/developers/webhooks-and-events/github-event-types)”。 存储库问题的事件 API 也可用。 有关详细信息，请参阅“[议题事件 API](/rest/reference/issues#events)”。
+事件 API 可以返回 {% data variables.product.product_name %} 上的活动触发的不同类型事件。有关可从事件 API 接收的特定事件的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 事件类型](/developers/webhooks-and-events/github-event-types)”。存储库问题的事件 API 也可用。有关详细信息，请参阅“[议题事件 API](/rest/reference/issues#events)”。
 
-事件针对使用 "ETag" 标头的轮询进行了优化。 如果未触发任何新事件，您将会看到一个 "304 Not Modified" 响应，并且您的当前速率限制不受影响。 还有一个 "X-Poll-Interval" 标头，用于指定允许您轮询的间隔时间（以秒为单位）。 在服务器负载较高时，该时间可能会增加。 请遵循标头指示。
+事件针对使用 "ETag" 标头的轮询进行了优化。如果未触发任何新事件，您将会看到一个 "304 Not Modified" 响应，并且您的当前速率限制不受影响。还有一个 "X-Poll-Interval" 标头，用于指定允许您轮询的间隔时间（以秒为单位）。在服务器负载较高时，该时间可能会增加。请遵循标头指示。
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
@@ -35,4 +35,4 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > X-Poll-Interval: 60
 ```
 
-时间表中只包含过去 90 天内创建的事件。 超过 90 天的活动将不包括在内（即使时间表中的活动总数不到 300 个）。
+时间表中只包含过去 90 天内创建的事件。超过 90 天的活动将不包括在内（即使时间表中的活动总数不到 300 个）。

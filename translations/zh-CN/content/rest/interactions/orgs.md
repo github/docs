@@ -24,4 +24,4 @@ ms.locfileid: '147062464'
 * 组织中的 {% data reusables.interactions.contributor-user-limit-definition %}。
 * 组织中的 {% data reusables.interactions.collaborator-user-limit-definition %}。
 
-在组织级别设置交互限制将覆盖为组织拥有的各个仓库设置的任何交互限制。 要为组织拥有的个别存储库设置不同的交互限制，请改为使用[存储库](#repository)交互终结点。
+在组织级别设置交互限制将覆盖为组织拥有的各个仓库设置的任何交互限制。要为组织拥有的个别存储库设置不同的交互限制，请改为使用[存储库](#repository)交互终结点。

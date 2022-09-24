@@ -22,15 +22,15 @@ ms.locfileid: '147717675'
 ## 现有存储库的 `404` 错误
 
 一般来说，客户端没有正确通过身份验证时，我们会发送 `404` 错误。
-在这些情况下，你可能会看到 `403 Forbidden`。 但是，由于我们不想提供有关专用存储库的任何信息，API 会改为返回 `404` 错误。
+在这些情况下，你可能会看到 `403 Forbidden`。但是，由于我们不想提供有关专用存储库的任何信息，API 会改为返回 `404` 错误。
 
-若要进行故障排除，请确保[正确进行身份验证](/guides/getting-started/)、[OAuth 访问令牌具有所需的范围](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)、[第三方应用程序限制][oap-guide]不会阻止访问，并且[令牌未过期或已吊销](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)。
+若要进行故障排除，请确保[正确进行身份验证](/guides/getting-started/)、[OAuth 访问令牌具有所需的范围](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)、[第三方应用程序限制][oap-guide] 不会阻止访问，并且[令牌未过期或已吊销](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)。
 
 ## 并非所有结果都返回
 
-大多数 API 调用访问资源列表（例如，用户、问题等）支持分页 。 如果你发出请求但收到的结果集不完整，你可能只会看到第一页。 为了获得更多结果，你需要请求剩余的页面。
+大多数 API 调用访问资源列表（例如，用户、问题等）支持分页。如果你发出请求但收到的结果集不完整，你可能只会看到第一页。为了获得更多结果，你需要请求剩余的页面。
 
-请务必不要尝试和猜测分页 URL 的格式。 并非每个 API 调用都使用相同的结构， 而是从[链接标头](/rest#pagination)中提取分页信息，该标头随每个请求一起发送。
+请务必不要尝试和猜测分页 URL 的格式。并非每个 API 调用都使用相同的结构，而是从[链接标头](/rest#pagination)中提取分页信息，该标头随每个请求一起发送。
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
@@ -41,7 +41,7 @@ ms.locfileid: '147717675'
 
 ### 使用 `username`/`password` 进行基本身份验证
 
-如果使用的是 `username` 和 `password` 进行 API 调用，则它们将无法再进行身份验证。 例如：
+如果使用的是 `username` 和 `password` 进行 API 调用，则它们将无法再进行身份验证。例如：
 
 ```bash
 curl -u my_user:my_password https://api.github.com/user/repos

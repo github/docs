@@ -20,6 +20,6 @@ ms.locfileid: '147060552'
 ---
 ## 关于团队讨论 API
 
-您可以使用团队讨论进行不特定于存储库或项目的对话。 团队[组织](/rest/reference/orgs)的任何成员都可以创建和阅读公开讨论帖。 有关详细信息，请参阅“[关于团队讨论](//organizations/collaborating-with-your-team/about-team-discussions/)”。 若要详细了解如何对讨论帖子发表评论，请参阅[团队讨论评论 API](/rest/reference/teams#discussion-comments)。
+您可以使用团队讨论进行不特定于存储库或项目的对话。团队[组织](/rest/reference/orgs)的任何成员都可以创建和阅读公开讨论帖。有关详细信息，请参阅“[关于团队讨论](//organizations/collaborating-with-your-team/about-team-discussions/)”。若要详细了解如何对讨论帖子发表评论，请参阅[团队讨论评论 API](/rest/reference/teams#discussion-comments)。
 
 {% data reusables.organizations.team-api %}

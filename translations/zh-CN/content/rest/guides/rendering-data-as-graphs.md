@@ -18,15 +18,15 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: '147875987'
 ---
-在本指南中，我们将使用 API 来获取有关我们拥有的存储库以及构成这些存储库的编程语言的信息。 然后，我们将使用 [D3.js][D3.js] 库来以几种不同的方式可视化这些信息。 若要与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行交互，我们将使用出色的 Ruby 库 [Octokit][Octokit]。
+在本指南中，我们将使用 API 来获取有关我们拥有的存储库以及构成这些存储库的编程语言的信息。然后，我们将使用 [D3.js][D3.js] 库来以几种不同的方式可视化这些信息。若要与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行交互，我们将使用出色的 Ruby 库 [Octokit][Octokit]。
 
-在开始本示例之前，应阅读[“身份验证基础知识”][basics-of-authentication]指南（如果尚未阅读）。 可以在 [platform-samples][platform samples] 存储库中找到此项目的完整源代码。
+在开始本示例之前，应阅读 [“身份验证基础知识”][basics-of-authentication] 指南（如果尚未阅读）。可以在 [platform-samples][platform samples] 存储库中找到此项目的完整源代码。
 
 我们马上开始！
 
 ## 设置 OAuth 应用程序
 
-首先，在 {% data variables.product.product_name %} 上[注册新应用程序][new oauth application]。 将主 URL 和回叫 URL 设置为 `http://localhost:4567/`。 与 [以前一][basics-of-authentication]样，我们将使用 [sinatra-auth-github][sinatra auth github] 实现机架中间件来处理 API 的身份验证：
+首先，在 {% data variables.product.product_name %} 上 [注册新应用程序][new oauth application]。将主 URL 和回叫 URL 设置为 `http://localhost:4567/`。与 [以前一][basics-of-authentication] 样，我们将使用 [sinatra-auth-github][sinatra auth github] 实现机架中间件来处理 API 的身份验证：
 
 ``` ruby
 require 'sinatra/auth/github'
@@ -79,9 +79,9 @@ run Example::MyGraphApp
 
 ## 获取仓库信息
 
-这一次，为了与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 通信，我们将使用 [Octokit Ruby 库][Octokit]。 这比直接进行一大堆 REST 调用要容易得多。 另外，Octokit 是由 GitHubber 开发的，并且一直在积极维护，因此可以确保有效性。
+这一次，为了与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 通信，我们将使用 [Octokit Ruby 库][Octokit]。这比直接进行一大堆 REST 调用要容易得多。另外，Octokit 是由 GitHubber 开发的，并且一直在积极维护，因此可以确保有效性。
 
-通过 Octokit 进行 API 身份验证非常简单。 只需将登录名和令牌传递到 `Octokit::Client` 构造函数：
+通过 Octokit 进行 API 身份验证非常简单。只需将登录名和令牌传递到 `Octokit::Client` 构造函数：
 
 ``` ruby
 if !authenticated?
@@ -91,7 +91,7 @@ else
 end
 ```
 
-我们来用仓库的数据做一些有趣的事情。 我们将看到它们使用的不同编程语言，并计算出哪些是最常用的。 为此，我们首先需要从 API 获取仓库列表。
+我们来用仓库的数据做一些有趣的事情。我们将看到它们使用的不同编程语言，并计算出哪些是最常用的。为此，我们首先需要从 API 获取仓库列表。
 使用 Octokit 时，其代码如下所述：
 
 ``` ruby
@@ -122,14 +122,14 @@ languages.to_s
 {"JavaScript"=>13, "PHP"=>1, "Perl"=>1, "CoffeeScript"=>2, "Python"=>1, "Java"=>3, "Ruby"=>3, "Go"=>1, "C++"=>1}
 ```
 
-到目前为止，进展不错，但结果不是很人性化。 可视化将非常有助于我们理解这些语言计数是如何分布的。 现在将这些计数输入到 D3 中，得到一个表示语言使用频率的简洁条形图。
+到目前为止，进展不错，但结果不是很人性化。可视化将非常有助于我们理解这些语言计数是如何分布的。现在将这些计数输入到 D3 中，得到一个表示语言使用频率的简洁条形图。
 
 ## 可视化语言计数
 
 D3.js（或仅 D3）是用于创建多种图表、图形和交互式可视化内容的综合库。
 D3 的详细用法超出了本指南的范围，推荐阅读一篇不错的介绍性文章：[“面向大众的 D3”][D3 mortals]。
 
-D3 是一个JavaScript 库，喜欢以数组的形式处理数据。 因此，让我们将 Ruby 哈希转换为 JSON 数组，以供浏览器中的 JavaScript 使用。
+D3 是一个 JavaScript 库，喜欢以数组的形式处理数据。因此，让我们将 Ruby 哈希转换为 JSON 数组，以供浏览器中的 JavaScript 使用。
 
 ``` ruby
 languages = []
@@ -140,7 +140,7 @@ end
 erb :lang_freq, :locals => { :languages => languages.to_json}
 ```
 
-我们只需遍历对象中的每个键值对，然后将它们推送到新的数组内。 我们之前没有这样做是因为我们不想在创建 `language_obj` 对象的过程中遍历它。
+我们只需遍历对象中的每个键值对，然后将它们推送到新的数组内。我们之前没有这样做是因为我们不想在创建 `language_obj` 对象的过程中遍历它。
 
 现在，lang_freq.erb 将需要一些 JavaScript 来支持渲染条形图。
 以后，只需使用此处提供的代码，如果想详细了解 D3 的工作原理，可以参考上面链接的资源：
@@ -224,15 +224,15 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 </html>
 ```
 
-呼！ 同样，不必担心这段代码的主要功能。 这里值得注意的是顶行--`var data = <%= languages %>;`--它表示我们正在将先前创建的 `languages` 数组传递到 ERB 中进行处理。
+呼！同样，不必担心这段代码的主要功能。这里值得注意的是顶行--`var data = <%= languages %>;`--它表示我们正在将先前创建的 `languages` 数组传递到 ERB 中进行处理。
 
-如“面向大众的 D3”所述，这未必是 D3 的最佳用法。 但它确实表明了如何配合使用该库与 Octokit，实现一些很棒的操作。
+如“面向大众的 D3”所述，这未必是 D3 的最佳用法。但它确实表明了如何配合使用该库与 Octokit，实现一些很棒的操作。
 
 ## 结合不同的 API 调用
 
-现在是时候坦白了：存储库中的 `language` 属性仅标识定义的“主要”语言。 这意味着，如果存储库结合了多种语言，则代码字节数最多的语言将被视为主要语言。
+现在是时候坦白了：存储库中的 `language` 属性仅标识定义的“主要”语言。这意味着，如果存储库结合了多种语言，则代码字节数最多的语言将被视为主要语言。
 
-让我们结合使用几个 API 调用来真正呈现哪种语言在我们所有代码中写入的字节数最多。 相比简单的计数，[树状图][D3 treemap]应是直观展示编码语言使用量的好方法。 我们需要构造一个如下所示的对象数组：
+让我们结合使用几个 API 调用来真正呈现哪种语言在我们所有代码中写入的字节数最多。相比简单的计数，[树状图][D3 treemap] 应是直观展示编码语言使用量的好方法。我们需要构造一个如下所示的对象数组：
 
 ``` json
 [ { "name": "language1", "size": 100},
@@ -241,7 +241,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 ]
 ```
 
-我们在前面已经获取了存储库列表，现在我们来检查每个存储库，然后调用[语言列表 API 方法][language API]：
+我们在前面已经获取了存储库列表，现在我们来检查每个存储库，然后调用 [语言列表 API 方法][language API]：
 
 ``` ruby
 repos.each do |repo|
@@ -273,7 +273,7 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-（有关 D3 树状图的详细信息，请查看[此简单教程][language API]。）
+（有关 D3 树状图的详细信息，请查看 [此简单教程][language API]。）
 
 最后，我们将这些 JSON 信息传递到同一个 ERB 模板：
 
@@ -331,7 +331,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json, :language_byte_cou
 </script>
 ```
 
-瞧！ 包含存储库语言信息的精美矩形，按相对比例显示，让你一目了然。 可能需要调整树状图的高度和宽度（作为前两个参数传递到上述 `drawTreemap`），使所有信息适当显示。
+瞧！包含存储库语言信息的精美矩形，按相对比例显示，让你一目了然。可能需要调整树状图的高度和宽度（作为前两个参数传递到上述 `drawTreemap`），使所有信息适当显示。
 
 
 [D3.js]: http://d3js.org/

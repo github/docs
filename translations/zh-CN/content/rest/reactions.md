@@ -20,6 +20,6 @@ ms.locfileid: '147063432'
 ---
 ## 关于反应 API
 
-可以使用反应 API 创建和管理对评论的反应。 创建反应时，`content` 参数的允许值如下（对应的表情符号供参考）：
+可以使用反应 API 创建和管理对评论的反应。创建反应时，`content` 参数的允许值如下（对应的表情符号供参考）：
 
 {% data reusables.repositories.reaction_list %}

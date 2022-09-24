@@ -16,9 +16,9 @@ ms.locfileid: '147876003'
 ---
 API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它们被纳入正式的 GitHub API 之前）。
 
-在预览期间，我们可以根据开发者的反馈更改某些功能。 如果我们确实进行了更改，我们将在[开发者博客](https://developer.github.com/changes/)上公布这些更改，而不会事先通知。
+在预览期间，我们可以根据开发者的反馈更改某些功能。如果我们确实进行了更改，我们将在[开发者博客](https://developer.github.com/changes/)上公布这些更改，而不会事先通知。
 
-要访问 API 预览，需要在请求的 `Accept` 标头中提供自定义[媒体类型](/rest/overview/media-types)。 每个预览的功能文档可指定要提供的自定义媒体类型。
+要访问 API 预览，需要在请求的 `Accept` 标头中提供自定义[媒体类型](/rest/overview/media-types)。每个预览的功能文档可指定要提供的自定义媒体类型。
 
 {% ifversion ghes < 3.3 %}
 
@@ -89,7 +89,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 ## 全局 web 挂钩
 
-为[组织](/webhooks/event-payloads/#organization)和[用户](/webhooks/event-payloads/#user)事件类型启用[全局 Webhook](/rest/reference/enterprise-admin#global-webhooks/)。 此 API 预览仅适用于 {% data variables.product.prodname_ghe_server %}。
+为[组织](/webhooks/event-payloads/#organization)和[用户](/webhooks/event-payloads/#user)事件类型启用[全局 Webhook](/rest/reference/enterprise-admin#global-webhooks/)。此 API 预览仅适用于 {% data variables.product.prodname_ghe_server %}。
 
 自定义媒体类型：`superpro-preview`
 公布日期：[2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
@@ -129,7 +129,7 @@ REST API 对[问题事件](/rest/reference/issues#events)和[问题时间表事�
 
 ## 部署状态
 
-现在可以更新[部署状态](/rest/reference/deployments#create-a-deployment-status)的 `environment` 并使用 `in_progress` 和 `queued` 状态。 创建部署状态时，现在可以使用 `auto_inactive` 参数将旧的 `production` 部署标记为 `inactive`。
+现在可以更新[部署状态](/rest/reference/deployments#create-a-deployment-status)的 `environment` 并使用 `in_progress` 和 `queued` 状态。创建部署状态时，现在可以使用 `auto_inactive` 参数将旧的 `production` 部署标记为 `inactive`。
 
 自定义媒体类型：`flash-preview`
 公布日期：[2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
@@ -140,7 +140,7 @@ REST API 对[问题事件](/rest/reference/issues#events)和[问题时间表事�
 
 ## 仓库创建权限
 
-现在，您可以配置组织成员是否可以创建仓库以及他们可以创建哪些类型的仓库。 有关详细信息，请参阅“[更新组织](/rest/reference/orgs#update-an-organization)”。
+现在，您可以配置组织成员是否可以创建仓库以及他们可以创建哪些类型的仓库。有关详细信息，请参阅“[更新组织](/rest/reference/orgs#update-an-organization)”。
 
 自定义媒体类型：`surtur-preview`
 公布日期：[2019-12-03](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
@@ -150,7 +150,7 @@ REST API 对[问题事件](/rest/reference/issues#events)和[问题时间表事�
 {% ifversion ghes < 3.4 %}
 ## 内容附件
 
-现在，您可以在 GitHub 中使用 {% data variables.product.prodname_unfurls %} API 提供有关链接到注册域的 URL 的更多信息。 有关详细信息，请参阅“[使用内容附件](/apps/using-content-attachments/)”。
+现在，您可以在 GitHub 中使用 {% data variables.product.prodname_unfurls %} API 提供有关链接到注册域的 URL 的更多信息。有关详细信息，请参阅“[使用内容附件](/apps/using-content-attachments/)”。
 
 自定义媒体类型：`corsair-preview`
 公布日期：[2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
@@ -159,7 +159,7 @@ REST API 对[问题事件](/rest/reference/issues#events)和[问题时间表事�
 
 ## 启用和禁用页面
 
-可以使用[页面 API](/rest/reference/repos#pages) 中的新终结点来启用或禁用页面。 若要了解有关页面的详细信息，请参阅“[GitHub 页面基础知识](/categories/github-pages-basics)”。
+可以使用[页面 API](/rest/reference/repos#pages) 中的新终结点来启用或禁用页面。若要了解有关页面的详细信息，请参阅“[GitHub 页面基础知识](/categories/github-pages-basics)”。
 
 自定义媒体类型：`switcheroo-preview`
 公布日期：[2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)

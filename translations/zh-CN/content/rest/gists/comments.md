@@ -20,7 +20,7 @@ ms.locfileid: '147067530'
 ---
 ## 关于 Gist 评论 API
 
-通过 Gist 评论 API，可以查看和修改 Gist 上的评论。 有关 Gist 的详细信息，请参阅“[使用 Gist 编辑和共享内容](/get-started/writing-on-github/editing-and-sharing-content-with-gists)”。
+通过 Gist 评论 API，可以查看和修改 Gist 上的评论。有关 Gist 的详细信息，请参阅“[使用 Gist 编辑和共享内容](/get-started/writing-on-github/editing-and-sharing-content-with-gists)”。
 
 ### Gist 评论的自定义媒体类型
 

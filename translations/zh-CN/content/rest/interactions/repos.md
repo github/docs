@@ -24,4 +24,4 @@ ms.locfileid: '147064664'
 * 仓库中的 {% data reusables.interactions.contributor-user-limit-definition %}。
 * 仓库中的 {% data reusables.interactions.collaborator-user-limit-definition %}。
 
-如果对拥有该仓库的用户或组织启用了交互限制，单个仓库的限制就不能更改。 而应使用[用户](#user)或[组织](#organization)交互终结点来更改交互限制。
+如果对拥有该仓库的用户或组织启用了交互限制，单个仓库的限制就不能更改。而应使用[用户](#user)或[组织](#organization)交互终结点来更改交互限制。

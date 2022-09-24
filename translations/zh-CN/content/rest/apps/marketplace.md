@@ -24,8 +24,8 @@ ms.locfileid: '145129186'
 
 ### 使用存根端点进行测试
 
-此 API 包含的终结点允许使用“存根数据”[测试 {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/)。 存根数据是硬编码的假数据，不会根据实际订阅而更改。
+此 API 包含的终结点允许使用“存根数据”[测试 {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/)。存根数据是硬编码的假数据，不会根据实际订阅而更改。
 
-要使用存根数据进行测试，请使用存根端点代替其对应的生产端点。 这允许您在 {% data variables.product.prodname_marketplace %} 上列出 {% data variables.product.prodname_github_apps %} 之前测试 API 逻辑是否成功。
+要使用存根数据进行测试，请使用存根端点代替其对应的生产端点。这允许您在 {% data variables.product.prodname_marketplace %} 上列出 {% data variables.product.prodname_github_apps %} 之前测试 API 逻辑是否成功。
 
 在部署您的 {% data variables.product.prodname_github_app %} 之前，请务必将存根端点替换为生产端点。

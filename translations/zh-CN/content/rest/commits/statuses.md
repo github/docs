@@ -19,11 +19,11 @@ ms.locfileid: '147882293'
 ---
 ## 关于提交状态 API
 
-提交状态 API 允许外部服务将提交标记为 `error`、`failure`、`pending` 或 `success` 状态，然后在涉及这些提交的拉取请求中反映出来。 状态还可以选择包含 `description` 和 `target_url`，强烈建议使用它们，因为它们使状态在 GitHub UI 中更有用。
+提交状态 API 允许外部服务将提交标记为 `error`、`failure`、`pending` 或 `success` 状态，然后在涉及这些提交的拉取请求中反映出来。状态还可以选择包含 `description` 和 `target_url`，强烈建议使用它们，因为它们使状态在 GitHub UI 中更有用。
 
 例如，持续集成服务的一个常见用途是使用状态将提交标记为通过或失败的构建。  `target_url` 将是到构建输出的完整 URL，而 `description` 将是构建过程中发生情况的高级摘要。
 
-状态可以包括 `context` 以指示提供该状态的服务是什么。 例如，你可以让持续集成服务推送上下文为 `ci` 的状态，让安全审核工具推送上下文为 `security` 的状态。  然后，可以使用[获取组合状态作为特定引用](/rest/reference/commits#get-the-combined-status-for-a-specific-reference)来检索提交的完整状态。
+状态可以包括 `context` 以指示提供该状态的服务是什么。例如，你可以让持续集成服务推送上下文为 `ci` 的状态，让安全审核工具推送上下文为 `security` 的状态。然后，可以使用[获取组合状态作为特定引用](/rest/reference/commits#get-the-combined-status-for-a-specific-reference)来检索提交的完整状态。
 
 请注意，`repo:status` [OAuth 范围](/developers/apps/scopes-for-oauth-apps)授予对状态的目标访问权限，而不授予对存储库代码的访问权限，同时 `repo` 范围授予对代码和状态的权限。
 

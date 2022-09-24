@@ -72,7 +72,7 @@ ms.locfileid: '146769155'
 | 库名称 | 存储库 | 详细信息 |
 |---|---|---|
 |GitHub API for Java| [org.kohsuke.github（来自 github-api）](http://github-api.kohsuke.org/)|定义 GitHub API 的面向对象的表示。|
-|JCabi GitHub API|[github.jcabi.com（个人网站）](http://github.jcabi.com)|基于 JavaScript API (JSR-353)，可简化使用运行时 GitHub stub 的测试，并覆盖整个API。|
+|JCabi GitHub API|[github.jcabi.com（个人网站）](http://github.jcabi.com)|基于 JavaScript API (JSR-353)，可简化使用运行时 GitHub stub 的测试，并覆盖整个 API。|
 
 ### JavaScript
 

@@ -18,11 +18,11 @@ ms.locfileid: '147064296'
 ---
 ## 关于源 API
 
-若要查看可用的源，请使用[“获取源”](#get-feeds)操作。 然后，可以通过向其中一个源 URL 发送请求来获取源。
+若要查看可用的源，请使用[“获取源”](#get-feeds)操作。然后，可以通过向其中一个源 URL 发送请求来获取源。
 
 ### 获取 Atom 馈送的示例
 
-若要获取 Atom 格式的馈送，必须在 `Accept` 标头中指定 `application/atom+xml` 类型。 例如，要获取 GitHub 安全通告的 Atom 馈送：
+若要获取 Atom 格式的馈送，必须在 `Accept` 标头中指定 `application/atom+xml` 类型。例如，要获取 GitHub 安全通告的 Atom 馈送：
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 

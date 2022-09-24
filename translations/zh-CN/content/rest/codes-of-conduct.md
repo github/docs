@@ -20,4 +20,4 @@ ms.locfileid: '147061384'
 ---
 ## 关于行为准则 API
 
-您可以使用行为准则 API 检索有关仓库行为准则的信息。 若要获取存储库的行为准则，请使用“[获取存储库](/rest/reference/repos#get-a-repository)”终结点。
+您可以使用行为准则 API 检索有关仓库行为准则的信息。若要获取存储库的行为准则，请使用“[获取存储库](/rest/reference/repos#get-a-repository)”终结点。

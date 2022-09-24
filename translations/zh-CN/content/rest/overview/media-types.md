@@ -17,7 +17,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '146681123'
 ---
-自定义媒体类型在 API 中用于让使用者选择他们想要接收的数据格式。 可在发出请求时将以下一种或多种类型添加到 `Accept` 标头来实现此功能。 媒体类型特定于资源，允许它们独立更改并支持其他资源不支持的格式。
+自定义媒体类型在 API 中用于让使用者选择他们想要接收的数据格式。可在发出请求时将以下一种或多种类型添加到 `Accept` 标头来实现此功能。媒体类型特定于资源，允许它们独立更改并支持其他资源不支持的格式。
 
 所有 {% data variables.product.product_name %} 媒体类型如下所示：
 
@@ -30,7 +30,7 @@ API 支持的最基本媒体类型是：
 
 {% note %}
 
-注意：过去，我们建议在 `Accept` 标头中包含 `v3`。 现在不再需要此操作，对你的 API 请求没有影响。
+注意：过去，我们建议在 `Accept` 标头中包含 `v3`。现在不再需要此操作，对你的 API 请求没有影响。
 
 {% endnote %}
 
@@ -46,25 +46,25 @@ API 支持的最基本媒体类型是：
 
     application/vnd.github.raw+json
 
-返回原始 Markdown 正文。 响应将包括 `body`。 这是在不传递任何特定媒体类型时的默认值。
+返回原始 Markdown 正文。响应将包括 `body`。这是在不传递任何特定媒体类型时的默认值。
 
 ### 文本
 
     application/vnd.github.text+json
 
-返回 Markdown 正文的纯文本表示形式。 响应将包括 `body_text`。
+返回 Markdown 正文的纯文本表示形式。响应将包括 `body_text`。
 
 ### HTML
 
     application/vnd.github.html+json
 
-返回从正文的 Markdown 中渲染的 HTML。 响应将包括 `body_html`。
+返回从正文的 Markdown 中渲染的 HTML。响应将包括 `body_html`。
 
 ### 完全
 
     application/vnd.github.full+json
 
-返回 raw、text 和 HTML 表示形式。 响应将包括 `body`、`body_text` 和 `body_html`：
+返回 raw、text 和 HTML 表示形式。响应将包括 `body`、`body_text` 和 `body_html`：
 
 ## Git blob 属性
 
@@ -75,7 +75,7 @@ API 支持的最基本媒体类型是：
     application/vnd.github+json
     application/json
 
-返回 Blob 的 JSON 表示形式，`content` 为 base64 编码的字符串。 这是在未传递任何参数时的默认值。
+返回 Blob 的 JSON 表示形式，`content` 为 base64 编码的字符串。这是在未传递任何参数时的默认值。
 
 ### 原始
 
@@ -105,13 +105,13 @@ API 支持的最基本媒体类型是：
 
     application/vnd.github.raw
 
-返回文件的原始内容。 这是在不传递任何特定媒体类型时的默认值。
+返回文件的原始内容。这是在不传递任何特定媒体类型时的默认值。
 
 ### HTML
 
     application/vnd.github.html
 
-对于 Markdown 或 AsciiDoc 等标记文件，可以使用 `.html` 媒体类型检索呈现的 HTML。 使用开源[标记库](https://github.com/github/markup)将标记语言呈现给 HTML。
+对于 Markdown 或 AsciiDoc 等标记文件，可以使用 `.html` 媒体类型检索呈现的 HTML。使用开源[标记库](https://github.com/github/markup)将标记语言呈现给 HTML。
 
 ## Gists
 
@@ -119,7 +119,7 @@ API 支持的最基本媒体类型是：
 
     application/vnd.github.raw
 
-返回 gist 的原始内容。 这是在不传递任何特定媒体类型时的默认值。
+返回 gist 的原始内容。这是在不传递任何特定媒体类型时的默认值。
 
 ### base64
 

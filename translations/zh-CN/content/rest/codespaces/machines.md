@@ -18,6 +18,6 @@ ms.locfileid: '147067976'
 ---
 ## 关于 Codespaces 计算机 API
 
-Codespaces 计算机 API 允许用户确定哪些计算机类型可用于创建 codespace，无论是在给定的存储库上还是作为经过身份验证的用户。 有关详细信息，请参阅“[有关计算机类型](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)。”
+Codespaces 计算机 API 允许用户确定哪些计算机类型可用于创建 codespace，无论是在给定的存储库上还是作为经过身份验证的用户。有关详细信息，请参阅“[有关计算机类型](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)。”
 
-还可以通过更新其 `machine` 属性来更改现有 codespace 的机器时使用此信息。 计算机更新将在下次重新启动 codespace 时进行。 有关详细信息，请参阅“[更改 codespace 的计算机类型](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)。”
+还可以通过更新其 `machine` 属性来更改现有 codespace 的机器时使用此信息。计算机更新将在下次重新启动 codespace 时进行。有关详细信息，请参阅“[更改 codespace 的计算机类型](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)。”

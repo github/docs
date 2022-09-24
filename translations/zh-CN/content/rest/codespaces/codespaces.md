@@ -16,4 +16,4 @@ ms.locfileid: '147110568'
 ---
 ## 关于 Codespaces API
 
-{% data variables.product.prodname_github_codespaces %} API 使你能够使用 REST API 管理 {% data variables.product.prodname_codespaces %}。 此 API 适用于经过验证的用户、OAuth 应用和 GitHub 应用。 有关详细信息，请参阅“[{% data variables.product.prodname_codespaces %}](/codespaces)。”
+{% data variables.product.prodname_github_codespaces %} API 使你能够使用 REST API 管理 {% data variables.product.prodname_codespaces %}。此 API 适用于经过验证的用户、OAuth 应用和 GitHub 应用。有关详细信息，请参阅“[{% data variables.product.prodname_codespaces %}](/codespaces)。”

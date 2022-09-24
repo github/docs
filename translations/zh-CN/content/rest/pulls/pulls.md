@@ -18,9 +18,9 @@ ms.locfileid: '145101145'
 ---
 ## 关于拉取 API
 
-拉取请求 API 允许您列出、查看、编辑、创建甚至合并拉取请求。 可通过[问题注释 API](/rest/reference/issues#comments) 管理对拉取请求的注释。
+拉取请求 API 允许您列出、查看、编辑、创建甚至合并拉取请求。可通过[问题注释 API](/rest/reference/issues#comments) 管理对拉取请求的注释。
 
-每个拉取请求都是一个议题，但并非每个议题都是拉取请求。 因此，[问题 API](/rest/reference/issues) 中为这两项功能提供了“共享”操作，如操作代理人、标签和里程碑。
+每个拉取请求都是一个议题，但并非每个议题都是拉取请求。因此，[问题 API](/rest/reference/issues) 中为这两项功能提供了“共享”操作，如操作代理人、标签和里程碑。
 
 ### 拉取请求的自定义媒体类型
 
@@ -35,7 +35,7 @@ ms.locfileid: '145101145'
 
 有关详细信息，请参阅“[自定义媒体类型](/rest/overview/media-types)”。
 
-如果 diff 损坏，请联系 {% data variables.contact.contact_support %}。 在您的消息中包括仓库名称和拉取请求 ID。
+如果 diff 损坏，请联系 {% data variables.contact.contact_support %}。在您的消息中包括仓库名称和拉取请求 ID。
 
 ### 链接关系
 

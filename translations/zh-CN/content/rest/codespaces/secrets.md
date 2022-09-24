@@ -18,4 +18,4 @@ ms.locfileid: '147067232'
 ---
 ## 关于 Codespaces 用户机密 API
 
-Codespaces 用户机密 API 支持用户创建、列出和删除机密（例如云服务的访问令牌）以及将机密分配给用户有权访问的存储库。 这些机密在运行时可供 codespace 使用。 有关详细信息，请参阅“[管理 codespace 的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)。”
+Codespaces 用户机密 API 支持用户创建、列出和删除机密（例如云服务的访问令牌）以及将机密分配给用户有权访问的存储库。这些机密在运行时可供 codespace 使用。有关详细信息，请参阅“[管理 codespace 的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)。”

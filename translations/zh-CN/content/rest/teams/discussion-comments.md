@@ -20,6 +20,6 @@ ms.locfileid: '147884451'
 ---
 ## 关于团队讨论评论 API
 
-团队[组织](/rest/reference/orgs)的任何成员都可以创建和阅读公共讨论上的评论。 有关详细信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions/)”。 
+团队[组织](/rest/reference/orgs)的任何成员都可以创建和阅读公共讨论上的评论。有关详细信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions/)”。 
 
 {% data reusables.organizations.team-api %}

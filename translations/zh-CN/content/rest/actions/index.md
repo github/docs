@@ -30,4 +30,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147061968'
 ---
-{% data variables.product.prodname_actions %} API 允许您使用 REST API 来管理 {% data variables.product.prodname_actions %}。 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 需要在每个端点中提及的权限。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 文档](/actions)”。
+{% data variables.product.prodname_actions %} API 允许您使用 REST API 来管理 {% data variables.product.prodname_actions %}。 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 需要在每个端点中提及的权限。有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 文档](/actions)”。

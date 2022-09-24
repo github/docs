@@ -23,7 +23,7 @@ ms.locfileid: '147059968'
 
 **注意：** 
 
-- 外部组 API 仅适用于属于使用 {% data variables.product.prodname_emus %} 的企业中的组织。 有关详细信息，请参阅“[关于企业托管用户](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
-- 如果您的组织使用团队同步，则可以使用团队同步 API。 有关详细信息，请参阅“[团队同步 API](#team-synchronization)”。
+- 外部组 API 仅适用于属于使用 {% data variables.product.prodname_emus %} 的企业中的组织。有关详细信息，请参阅“[关于企业托管用户](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+- 如果您的组织使用团队同步，则可以使用团队同步 API。有关详细信息，请参阅“[团队同步 API](#team-synchronization)”。
 
 {% endnote %} {% endif %}

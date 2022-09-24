@@ -18,4 +18,4 @@ ms.locfileid: '147883479'
 ---
 ## 关于监视 API
 
-监视 API 允许用户订阅存储库中活动的通知。 若要改为为存储库添加书签，请参阅“[标星](/rest/reference/activity#starring)”。
+监视 API 允许用户订阅存储库中活动的通知。若要改为为存储库添加书签，请参阅“[标星](/rest/reference/activity#starring)”。

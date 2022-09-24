@@ -20,4 +20,4 @@ ms.locfileid: '147063480'
 ---
 ## 关于 Git 提交 API
 
-Git 提交是层次结构（[Git 树](/rest/reference/git#trees)）和 Git 存储库中文件内容 ([Git blob](/rest/reference/git#blobs)) 的快照。 通过这些终结点，可以在 {% data variables.product.product_name %} 上读取[提交对象](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects)并将其写入 Git 数据库。
+Git 提交是层次结构（[Git 树](/rest/reference/git#trees)）和 Git 存储库中文件内容 ([Git blob](/rest/reference/git#blobs)) 的快照。通过这些终结点，可以在 {% data variables.product.product_name %} 上读取[提交对象](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects)并将其写入 Git 数据库。

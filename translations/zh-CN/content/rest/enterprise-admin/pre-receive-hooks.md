@@ -13,7 +13,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '147066152'
 ---
-它仅适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)网站管理员。 如果普通用户尝试访问它，他们将收到 `404` 响应。
+它仅适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)网站管理员。如果普通用户尝试访问它，他们将收到 `404` 响应。
 
 ### 对象属性
 

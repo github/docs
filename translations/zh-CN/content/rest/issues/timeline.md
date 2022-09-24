@@ -20,7 +20,7 @@ ms.locfileid: '147061872'
 ---
 ## 关于时间线事件 API
 
-时间线事件 API 可以返回问题和拉取请求中的时间线活动所触发的不同类型的事件。 有关可从议题事件 API 接收的特定事件的详细信息，请参阅“[议题事件类型](/developers/webhooks-and-events/issue-event-types)”。 有关可以从议题事件 API 接收的特定事件的更多信息，请参阅“<a href="/developers/webhooks-and-events/issue-event-types">议题事件类型</a>”。 有关详细信息，请参阅“[GitHub 事件 API](/developers/webhooks-and-events/github-event-types)”。
+时间线事件 API 可以返回问题和拉取请求中的时间线活动所触发的不同类型的事件。有关可从议题事件 API 接收的特定事件的详细信息，请参阅“[议题事件类型](/developers/webhooks-and-events/issue-event-types)”。有关可以从议题事件 API 接收的特定事件的更多信息，请参阅“<a href="/developers/webhooks-and-events/issue-event-types">议题事件类型</a>”。有关详细信息，请参阅“[GitHub 事件 API](/developers/webhooks-and-events/github-event-types)”。
 
 您可以使用此 API 显示有关议题和拉取请求的信息，或确定应向谁通知议题评论。
 

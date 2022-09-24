@@ -21,4 +21,4 @@ ms.locfileid: '147064872'
 
 {% data reusables.dependency-review.dependency-review-api-beta-note %}
 
-通过依赖项审查 API，你可以在将这些更改添加到环境之前了解依赖项更改以及这些更改的安全影响。 可以查看存储库的两次提交之间的依赖项差异，包括具有已知漏洞的任何版本更新的漏洞数据。 有关依赖项审查的详细信息，请参阅“[关于依赖项审查](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)”。
+通过依赖项审查 API，你可以在将这些更改添加到环境之前了解依赖项更改以及这些更改的安全影响。可以查看存储库的两次提交之间的依赖项差异，包括具有已知漏洞的任何版本更新的漏洞数据。有关依赖项审查的详细信息，请参阅“[关于依赖项审查](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)”。

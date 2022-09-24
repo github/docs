@@ -24,4 +24,4 @@ ms.locfileid: '147066896'
 * 与仓库交互产生的 {% data reusables.interactions.contributor-user-limit-definition %}。
 * 与仓库交互产生的 {% data reusables.interactions.collaborator-user-limit-definition %}。
 
-在用户级别设置交互限制将覆盖为用户拥有的各个仓库设置的任何交互限制。 要为用户拥有的个别存储库设置不同的交互限制，请使用[存储库](#repository)交互终结点。
+在用户级别设置交互限制将覆盖为用户拥有的各个仓库设置的任何交互限制。要为用户拥有的个别存储库设置不同的交互限制，请使用[存储库](#repository)交互终结点。

@@ -16,4 +16,4 @@ ms.locfileid: '147883017'
 ---
 ## 公告
 
-公告 API 允许您管理企业中的全局公告横幅。 有关详细信息，请参阅“[为企业自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)”。
+公告 API 允许您管理企业中的全局公告横幅。有关详细信息，请参阅“[为企业自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)”。

@@ -20,13 +20,13 @@ ms.locfileid: '147081046'
 ---
 ## 关于速率限制 API
 
-REST API 概述文档介绍了[速率限制规则](/rest/overview/resources-in-the-rest-api#rate-limiting)。 您可以随时使用下面描述的速率限制 API 来检查您当前的速率限制状态。
+REST API 概述文档介绍了[速率限制规则](/rest/overview/resources-in-the-rest-api#rate-limiting)。您可以随时使用下面描述的速率限制 API 来检查您当前的速率限制状态。
 
 ### 了解您的速率限制状态
 
-搜索 API 具有[自定义速率限制](/rest/reference/search#rate-limit)，与管理 REST API 其余部分的速率限制不同。 GraphQL API 也有[自定义速率限制](/graphql/overview/resource-limitations#rate-limit)，它与 REST API 中的速率限制不同且计算方式也不同。
+搜索 API 具有[自定义速率限制](/rest/reference/search#rate-limit)，与管理 REST API 其余部分的速率限制不同。GraphQL API 也有[自定义速率限制](/graphql/overview/resource-limitations#rate-limit)，它与 REST API 中的速率限制不同且计算方式也不同。
 
-出于这些原因，速率限制 API 响应对速率限制进行分类。 在 `resources` 下，你将看到四个对象：
+出于这些原因，速率限制 API 响应对速率限制进行分类。在 `resources` 下，你将看到四个对象：
 
 * `core` 对象提供 REST API 中所有非搜索相关资源的速率限制状态。
 

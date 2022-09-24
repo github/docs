@@ -31,12 +31,12 @@ ms.locfileid: '147060328'
 
 使用 `.raw` 媒体类型检索文件的内容。
 
-对于 Markdown 或 AsciiDoc 等标记文件，可以使用 `.html` 媒体类型检索呈现的 HTML。 使用我们的开源[标记库](https://github.com/github/markup)将标记语言呈现为 HTML。
+对于 Markdown 或 AsciiDoc 等标记文件，可以使用 `.html` 媒体类型检索呈现的 HTML。使用我们的开源[标记库](https://github.com/github/markup)将标记语言呈现为 HTML。
 
 [所有对象](/rest/reference/repos#get-repository-content)都支持以下自定义媒体类型：
 
     application/vnd.github.VERSION.object
 
-无论内容类型如何，使用 `object` 媒体类型参数以一致的对象格式检索内容。 例如，响应不是目录的对象数组，而是具有包含对象数组的 `entries` 属性的对象。
+无论内容类型如何，使用 `object` 媒体类型参数以一致的对象格式检索内容。例如，响应不是目录的对象数组，而是具有包含对象数组的 `entries` 属性的对象。
 
 可在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。

@@ -17,6 +17,6 @@ ms.locfileid: '147079889'
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-依赖项以快照的形式提交到依赖项提交 API。 快照是一组与提交 SHA 和其他元数据关联的依赖项，反映提交存储库的当前状态。  可以选择使用预先创建的操作，或创建自己的操作，以在每次生成项目时，以所需的格式将依赖项提交到依赖项提交 API。 有关使用依赖项提交 API 的详细信息，请参阅“[使用依赖项提交 API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)”。
+依赖项以快照的形式提交到依赖项提交 API。快照是一组与提交 SHA 和其他元数据关联的依赖项，反映提交存储库的当前状态。可以选择使用预先创建的操作，或创建自己的操作，以在每次生成项目时，以所需的格式将依赖项提交到依赖项提交 API。有关使用依赖项提交 API 的详细信息，请参阅“[使用依赖项提交 API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)”。
 
-可以将多个依赖项集提交到依赖项提交 API，以包含在依赖项关系图中。 API 使用快照的 `job.correlator` 属性和 `detector.name` 类别来确保显示每个工作流的最新提交。 属性 `correlator` 本身是用于保持独立提交不同的主要字段。 例如 `correlator` 可以是操作运行中两个可用变量的简单组合：`<GITHUB_WORKFLOW> <GITHUB_JOB>`。
+可以将多个依赖项集提交到依赖项提交 API，以包含在依赖项关系图中。API 使用快照的 `job.correlator` 属性和 `detector.name` 类别来确保显示每个工作流的最新提交。属性 `correlator` 本身是用于保持独立提交不同的主要字段。例如 `correlator` 可以是操作运行中两个可用变量的简单组合：`<GITHUB_WORKFLOW> <GITHUB_JOB>`。

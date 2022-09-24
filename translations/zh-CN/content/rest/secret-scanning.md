@@ -23,7 +23,7 @@ ms.locfileid: '147880122'
 
 使用 {% data variables.product.prodname_secret_scanning %} API，你可以：
 
-- 为存储库启用或禁用 {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %} 和推送保护{% endif %}。 有关详细信息，请参阅“[存储库](/rest/repos/repos#update-a-repository)”，并展开 REST API 文档中的“`security_and_analysis` 对象的属性”部分。
-- 从存储库检索和更新 {% data variables.product.prodname_secret_scanning_GHAS %} 警报。 有关更多详细信息，请参阅以下部分。
+- 为存储库启用或禁用 {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %} 和推送保护{% endif %}。有关详细信息，请参阅“[存储库](/rest/repos/repos#update-a-repository)”，并展开 REST API 文档中的“`security_and_analysis` 对象的属性”部分。
+- 从存储库检索和更新 {% data variables.product.prodname_secret_scanning_GHAS %} 警报。有关更多详细信息，请参阅以下部分。
 
 有关 {% data variables.product.prodname_secret_scanning %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)”。

@@ -20,6 +20,6 @@ ms.locfileid: '147066376'
 ---
 ## 关于部署环境 API
 
-有关环境的详细信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。 若要管理环境机密，请参阅“[机密](/rest/reference/actions#secrets)”。
+有关环境的详细信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。若要管理环境机密，请参阅“[机密](/rest/reference/actions#secrets)”。
 
 {% data reusables.gated-features.environments %}

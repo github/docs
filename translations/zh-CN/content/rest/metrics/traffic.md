@@ -18,4 +18,4 @@ ms.locfileid: '147064847'
 ---
 ## 关于存储库流量 API
 
-对于你具有推送访问权限的存储库，存储库流量 API 提供对存储库图中提供的信息的访问权限。 有关详细信息，请参阅“[查看存储库的流量](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository)”。
+对于你具有推送访问权限的存储库，存储库流量 API 提供对存储库图中提供的信息的访问权限。有关详细信息，请参阅“[查看存储库的流量](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository)”。

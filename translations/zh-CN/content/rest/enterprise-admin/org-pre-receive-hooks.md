@@ -25,4 +25,4 @@ ms.locfileid: '147063960'
 
 强制执行的可能值为 `enabled`、`disabled` 和 `testing`。 `disabled` 表示预接收挂钩不会运行。 `enabled` 表示它将运行并拒绝任何导致非零状态的推送。 `testing` 表示脚本将运行但不会导致任何推送被拒绝。
 
-`configuration_url` 可能是指向此终结点或此挂钩的全局配置的链接。 只有站点管理员才能访问全局配置。
+`configuration_url` 可能是指向此终结点或此挂钩的全局配置的链接。只有站点管理员才能访问全局配置。
