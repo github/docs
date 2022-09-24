@@ -8,7 +8,7 @@ ms.locfileid: "145099399"
 ---
 {% warning %}
 
-警告：从不 `git add``commit` 或 `push` 敏感信息到远程存储库。 敏感信息包括但不限于：
+警告：从不 `git add``commit` 或 `push` 敏感信息到远程存储库。敏感信息包括但不限于：
 
 - 密码
 - SSH 密钥

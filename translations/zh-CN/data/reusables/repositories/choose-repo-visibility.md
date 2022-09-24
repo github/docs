@@ -6,5 +6,5 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145099470"
 ---
-1. 选择仓库可见性。 有关详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
+1. 选择仓库可见性。有关详细信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
   ![用于选择存储库可见性的单选按钮](/assets/images/help/repository/create-repository-public-private.png)

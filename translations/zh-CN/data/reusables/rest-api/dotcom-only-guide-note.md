@@ -14,7 +14,7 @@ ms.locfileid: "145099339"
 
 - 使用 <code>{% data variables.product.api_url_pre %}</code> 访问 {% data variables.product.product_name %} 的 API。 
 
-- 指南指定了可能在 {% data variables.product.product_location %} 上不存在的用户名和仓库。 您可能需要使用不同的名称才能看到类似的输出。
+- 指南指定了可能在 {% data variables.product.product_location %} 上不存在的用户名和仓库。您可能需要使用不同的名称才能看到类似的输出。
 
 {% endnote %}
 

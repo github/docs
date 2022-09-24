@@ -10,6 +10,6 @@ ms.locfileid: "147882865"
 
     {% warning %}
 
-    警告：如果你的分支包含 {% data variables.product.prodname_actions %} 工作流，则选项是“允许维护员编辑和访问机密” 。 允许对包含 {% data variables.product.prodname_actions %} 工作流程的复刻分支进行编辑，也会允许维护员编辑复刻的仓库的工作流程，从而可能暴露密码值并允许访问其他分支。
+    警告：如果你的分支包含 {% data variables.product.prodname_actions %} 工作流，则选项是“允许维护员编辑和访问机密” 。允许对包含 {% data variables.product.prodname_actions %} 工作流程的复刻分支进行编辑，也会允许维护员编辑复刻的仓库的工作流程，从而可能暴露密码值并允许访问其他分支。
 
     {% endwarning %}

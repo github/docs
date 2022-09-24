@@ -6,5 +6,5 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "146455699"
 ---
-{% ifversion ghes or ghae %} 企业所有者必须对 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_dependabot_alerts %}，然后才能使用此功能。 有关详细信息，请参阅“[对企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
+{% ifversion ghes or ghae %} 企业所有者必须对 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_dependabot_alerts %}，然后才能使用此功能。有关详细信息，请参阅“[对企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 {% endif %}

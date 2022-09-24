@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145099462"
 ---
-您可以使用 {% data variables.product.prodname_desktop %} 复刻仓库。 有关详细信息，请参阅“[从 {% data variables.product.prodname_desktop %} 克隆存储库并对其创建分支](/desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop)”。
+您可以使用 {% data variables.product.prodname_desktop %} 复刻仓库。有关详细信息，请参阅“[从 {% data variables.product.prodname_desktop %} 克隆存储库并对其创建分支](/desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop)”。

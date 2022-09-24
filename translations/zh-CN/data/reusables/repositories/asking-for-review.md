@@ -8,6 +8,6 @@ ms.locfileid: "145099483"
 ---
 {% tip %}
 
-提示：创建拉取请求后，你可请求特定人员[审查你提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)。 有关详细信息，请参阅“[请求拉取请求审查](/articles/requesting-a-pull-request-review)”。
+提示：创建拉取请求后，你可请求特定人员[审查你提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)。有关详细信息，请参阅“[请求拉取请求审查](/articles/requesting-a-pull-request-review)”。
 
 {% endtip %}
