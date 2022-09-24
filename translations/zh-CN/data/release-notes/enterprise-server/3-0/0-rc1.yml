@@ -1,7 +1,7 @@
 date: '2021-01-12'
 release_candidate: true
 deprecated: true
-intro: "应在非生产环境中测试候选发布版。有关候选发布计划的更多信息，请参阅 [GitHub 博客](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/)或“[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)”。"
+intro: "应在非生产环境中测试候选发布版。有关候选发布计划的更多信息，请参阅 [GitHub 博客](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) 或“[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)”。"
 sections:
   bugs:
     - 已更改几个日志文件的格式，包括为不同的日志类型添加了一个 PID。此更改不会影响 GitHub Enterprise Support 使用支持包来解决问题的方法。
@@ -10,7 +10,7 @@ sections:
     - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。"
     - 候选发布版 1 不支持群集模式。
     - 在升级期间不会维护自定义防火墙规则。
-    - "Git LFS 跟踪的文件[通过 Web 界面上传](https://github.blog/2016-02-18-upload-files-to-your-repositories/)被错误地直接添加到存储库。"
+    - "Git LFS 跟踪的文件[通过 Web 界面上传](https://github.blog/2016-02-18-upload-files-to-your-repositories/) 被错误地直接添加到存储库。"
     - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
     - 在尝试设置 Actions 未成功后，如果禁用 Actions，你将无法创建第一个用户，也无法使用设备
     - 未保存“必要消息已查看”审核日志事件

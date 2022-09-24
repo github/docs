@@ -1,7 +1,7 @@
 date: '2021-12-13'
 sections:
   security_fixes:
-    - '{% octicon "alert" aria-label="The alert icon" %} **严重：**在 Log4j 库中发现远程代码执行漏洞，该漏洞会影响 3.3.1 之前的所有 {% data variables.product.prodname_ghe_server %} 版本，漏洞编号为[CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)。Log4j 库用于在 {% data variables.product.prodname_ghe_server %} 实例上运行的开源服务。已在 {% data variables.product.prodname_ghe_server %} 3.0.22、3.1.14、3.2.6 和 3.3.1 中修复该漏洞。 有关详细信息，请参阅 GitHub 博客[文章](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/)。'
+    - '{% octicon "alert" aria-label="The alert icon" %} **严重：**在 Log4j 库中发现远程代码执行漏洞，该漏洞会影响 3.3.1 之前的所有 {% data variables.product.prodname_ghe_server %} 版本，漏洞编号为[CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)。Log4j 库用于在 {% data variables.product.prodname_ghe_server %} 实例上运行的开源服务。已在 {% data variables.product.prodname_ghe_server %} 3.0.22、3.1.14、3.2.6 和 3.3.1 中修复该漏洞。有关详细信息，请参阅 GitHub 博客 [文章](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/)。'
     - '**2021 年 12 月 17 日更新**：此版本中的修复也能缓解在该版本之后发布的 [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)。无需再升级 {% data variables.product.prodname_ghe_server %}，即可缓解 CVE-2021-44228 和 CVE-2021-45046。'
   known_issues:
     - "{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。"

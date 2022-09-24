@@ -2,7 +2,7 @@ date: '2022-05-17'
 sections:
   security_fixes:
     - '**中：**发现了 nginx 解析器中的一个安全问题，可以从 DNS 服务器伪造 UDP 数据包的攻击者可能导致 1 字节内存覆盖，从而导致工作进程崩溃或其他潜在的破坏性影响。该漏洞的编号为 [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017)。'
-    - "更新了 `actions/checkout@v2` 和 `actions/checkout@v3` 操作以解决 [Git 安全措施实施博客文章](https://github.blog/2022-04-12-git-security-vulnerability-announced/)中公布的新漏洞。"
+    - "更新了 `actions/checkout@v2` 和 `actions/checkout@v3` 操作以解决 [Git 安全措施实施博客文章](https://github.blog/2022-04-12-git-security-vulnerability-announced/) 中公布的新漏洞。"
     - 包已更新到最新的安全版本。
   bugs:
     - 在某些群集拓扑中，`ghe-cluster-status` 命令会在 `/tmp` 中留下空目录。

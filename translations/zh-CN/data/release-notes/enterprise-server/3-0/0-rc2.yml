@@ -1,7 +1,7 @@
 date: '2021-01-29'
 release_candidate: true
 deprecated: true
-intro: "应在非生产环境中测试候选发布版。有关候选发布计划的更多信息，请参阅 [GitHub 博客](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/)或“[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)”。"
+intro: "应在非生产环境中测试候选发布版。有关候选发布计划的更多信息，请参阅 [GitHub 博客](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) 或“[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)”。"
 sections:
   bugs:
     - heading: 修复候选发布 1 中的已知问题

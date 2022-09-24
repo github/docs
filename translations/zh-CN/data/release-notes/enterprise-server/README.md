@@ -8,13 +8,13 @@ ms.locfileid: "145098647"
 ---
 # GitHub Enterprise Server 发行说明
 
-已呈现在此处： https://docs.github.com/en/enterprise-server@latest/admin/release-notes
+已呈现在此处：https://docs.github.com/en/enterprise-server@latest/admin/release-notes
 
 ## 工作原理
 
 ### 占位符内容文件
 
-内容文件存在于 `content/admin/release-notes.md` 中。 它有一个特殊的前辅文属性 `layout: release-notes`，无 Markdown 内容。 发行说明的来源来自 YAML 数据。
+内容文件存在于 `content/admin/release-notes.md` 中。它有一个特殊的前辅文属性 `layout: release-notes`，无 Markdown 内容。发行说明的来源来自 YAML 数据。
 
 ### YAML 来源
 
@@ -22,7 +22,7 @@ ms.locfileid: "145098647"
 
 目录按 GHES 版本编号命名（带有连字符而不是句点）。
 
-每个目录中的 YAML 文件按补丁编号命名。 某些修补程序文件名可能以 `-rc<num>.yml` 结尾，这表示它是候选发布。 候选发布文件还需要 YAML 数据中的 `release_candidate: true`。
+每个目录中的 YAML 文件按补丁编号命名。某些修补程序文件名可能以 `-rc<num>.yml` 结尾，这表示它是候选发布。候选发布文件还需要 YAML 数据中的 `release_candidate: true`。
 
 已弃用的 GHES 版本的发行说明（参见 `lib/enterprise-server-releases.js`）不会从网站删除，并且将始终与当前支持的版本一起显示。
 
@@ -40,6 +40,6 @@ YAML 数据由 `middleware/contextualizers/release-notes.js` 处理和排序，�
 
 ### 架构
 
-验证 YAML 数据的架构存在于 `tests/helpers/schemas/ghes-release-notes-schema.js` 中。 查看架构文件来了解必需和可选的属性。
+验证 YAML 数据的架构存在于 `tests/helpers/schemas/ghes-release-notes-schema.js` 中。查看架构文件来了解必需和可选的属性。
 
-架构在 `tests/linting/lint-files.js` 中执行测试。 如果数据未通过验证，测试将失败。
+架构在 `tests/linting/lint-files.js` 中执行测试。如果数据未通过验证，测试将失败。

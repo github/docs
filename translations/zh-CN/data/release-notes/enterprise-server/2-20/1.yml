@@ -10,7 +10,7 @@ sections:
   known_issues:
     - '在没有任何用户的新建 GitHub Enterprise Server 上，攻击者可能创建第一个管理员用户。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
     - '自定义防火墙规则在升级期间没有维护。{% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
-    - '[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 的 Git LFS 跟踪文件被错误地直接添加到存储库。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
     - '问题若是包含同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。{% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
     - '推送到 Gist 时，可能会在后接收挂钩时触发异常。{% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
     - '如果自定义了后台工作进程配置，则升级和设置更新将失败。{% comment %} https://github.com/github/enterprise2/issues/19119 {% endcomment %}'
