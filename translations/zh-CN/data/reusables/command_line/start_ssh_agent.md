@@ -13,4 +13,4 @@ ms.locfileid: "145129943"
     > Agent pid 59566
     ```
 
-    根据您的环境，您可能需要使用不同的命令。 例如，在启动 ssh-agent 之前，你可能需要通过运行 `sudo -s -H` 根访问，或者可能需要使用 `exec ssh-agent bash` 或 `exec ssh-agent zsh` 运行 ssh-agent。
+    根据您的环境，您可能需要使用不同的命令。例如，在启动 ssh-agent 之前，你可能需要通过运行 `sudo -s -H` 根访问，或者可能需要使用 `exec ssh-agent bash` 或 `exec ssh-agent zsh` 运行 ssh-agent。

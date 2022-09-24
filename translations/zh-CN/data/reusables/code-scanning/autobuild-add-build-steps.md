@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145098803"
 ---
-如果存储库中的 C/C++、C# 或 Java 代码有非标准生成过程，`autobuild` 可能会失败。 这种情况需要从工作流中删除 `autobuild` 步骤，并手动添加生成步骤。 如果您要指定仓库中的哪个 Go 文件要提取，则需要添加生成步骤。
+如果存储库中的 C/C++、C# 或 Java 代码有非标准生成过程，`autobuild` 可能会失败。这种情况需要从工作流中删除 `autobuild` 步骤，并手动添加生成步骤。如果您要指定仓库中的哪个 Go 文件要提取，则需要添加生成步骤。

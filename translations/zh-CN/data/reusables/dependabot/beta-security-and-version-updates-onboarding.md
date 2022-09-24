@@ -10,7 +10,7 @@ ms.locfileid: "145129911"
 
 {% note %}
 
-注意：Dependabot 安全更新和版本更新目前可用于 {% data variables.product.prodname_ghe_cloud %}，其测试版可用于 {% data variables.product.prodname_ghe_server %} 3.3。 有关如何启用 Dependabot 更新的说明，请[联系帐户管理团队](https://enterprise.github.com/contact)。
+注意：Dependabot 安全更新和版本更新目前可用于 {% data variables.product.prodname_ghe_cloud %}，其测试版可用于 {% data variables.product.prodname_ghe_server %} 3.3。有关如何启用 Dependabot 更新的说明，请[联系帐户管理团队](https://enterprise.github.com/contact)。
 
 {% endnote %}
 

@@ -8,7 +8,7 @@ ms.locfileid: "147079894"
 ---
 ## 启用或禁用 {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_vs %} 窗口底部面板中的 {% data variables.product.prodname_copilot %} 状态图标指示 {% data variables.product.prodname_copilot %} 启用还是禁用。 启用后，图标的背景色将与状态栏颜色相匹配。 禁用后，将有一条对角线穿过它。
+{% data variables.product.prodname_vs %} 窗口底部面板中的 {% data variables.product.prodname_copilot %} 状态图标指示 {% data variables.product.prodname_copilot %} 启用还是禁用。启用后，图标的背景色将与状态栏颜色相匹配。禁用后，将有一条对角线穿过它。
 
 1. 若要启用或禁用 {% data variables.product.prodname_copilot %}，请单击 {% data variables.product.prodname_vs %} 窗口底部面板中的 {% data variables.product.prodname_copilot %} 图标。
   ![Visual Studio 中编辑器边距的屏幕截图，其中突出显示 GitHub Copilot 图标](/assets/images/help/copilot/editor-margin-visual-studio.png)

@@ -8,6 +8,6 @@ ms.locfileid: "147677225"
 ---
 {% note %}
 
-注意：如果为组织禁用计费 codespace 使用，则可以作为个人用户创建 codespace，并且可以克隆组织中的存储库的任何人都可以为该存储库创建 codespace。 但是，这不会对组织产生任何费用。 有关限制存储库访问的信息，请参阅“[管理有权访问存储库的团队和人员](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)”。
+注意：如果为组织禁用计费 codespace 使用，则可以作为个人用户创建 codespace，并且可以克隆组织中的存储库的任何人都可以为该存储库创建 codespace。但是，这不会对组织产生任何费用。有关限制存储库访问的信息，请参阅“[管理有权访问存储库的团队和人员](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)”。
 
 {% endnote %}

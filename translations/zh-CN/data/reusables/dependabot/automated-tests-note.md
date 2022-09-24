@@ -8,6 +8,6 @@ ms.locfileid: "145129914"
 ---
 {% note %}
 
-注意：最好制定自动测试和验收流程，以便在合并拉取请求之前执行检查。 如果建议的升级版本包含额外的功能，或者更改会中断您的项目代码，这种做法尤其重要。 有关持续集成的详细信息，请参阅“[关于持续集成](/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)”。
+注意：最好制定自动测试和验收流程，以便在合并拉取请求之前执行检查。如果建议的升级版本包含额外的功能，或者更改会中断您的项目代码，这种做法尤其重要。有关持续集成的详细信息，请参阅“[关于持续集成](/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)”。
 
 {% endnote %}

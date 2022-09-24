@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147067392"
 ---
-如果使用多个配置运行代码扫描，则有时警报会有多个分析源。 如果警报有多个分析源，你可在警报页上查看每个分析源的警报状态。 有关详细信息，请参阅“[关于分析源](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)”。
+如果使用多个配置运行代码扫描，则有时警报会有多个分析源。如果警报有多个分析源，你可在警报页上查看每个分析源的警报状态。有关详细信息，请参阅“[关于分析源](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)”。

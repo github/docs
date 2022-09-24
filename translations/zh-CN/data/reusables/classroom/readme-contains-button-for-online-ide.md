@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098821"
 ---
-当学生接受具有 IDE 的作业时，作业存储库将包括一个 README.md 文件，文件顶部有一个特殊按钮。 该按钮将学生直接链接到 IDE 中的工作空间。
+当学生接受具有 IDE 的作业时，作业存储库将包括一个 README.md 文件，文件顶部有一个特殊按钮。该按钮将学生直接链接到 IDE 中的工作空间。

@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098232"
 ---
-对于受支持的编译语言，你可使用 {% data variables.product.prodname_codeql_workflow %} 中的 `autobuild` 操作来构建代码。 这避免了为 C/C++、C# 和 Java 指定显式生成命令。
+对于受支持的编译语言，你可使用 {% data variables.product.prodname_codeql_workflow %} 中的 `autobuild` 操作来构建代码。这避免了为 C/C++、C# 和 Java 指定显式生成命令。

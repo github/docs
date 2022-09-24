@@ -37,17 +37,17 @@ yarn           | `npm`            | v1               | **✓** | **✓** | |
 
 {% tip %}
 
-提示：对于包管理器（如 `pipenv` 和 `poetry`），需要使用 `pip` YAML 值。 例如，如果使用 `poetry` 来管理 Python 依赖项，并且希望让 {% data variables.product.prodname_dependabot %} 监视新版本的依赖项清单文件，请在 dependabot.yml 文件中使用 `package-ecosystem: "pip"`。
+提示：对于包管理器（如 `pipenv` 和 `poetry`），需要使用 `pip` YAML 值。例如，如果使用 `poetry` 来管理 Python 依赖项，并且希望让 {% data variables.product.prodname_dependabot %} 监视新版本的依赖项清单文件，请在 dependabot.yml 文件中使用 `package-ecosystem: "pip"`。
 
 {% endtip %}
 
-[1] {% data variables.product.prodname_dependabot %} 不运行 Gradle，但支持对以下文件的更新：`build.gradle`、`build.gradle.kts`（针对 Kotlin 项目），以及通过 `apply` 声明包含在内且文件名中带有 `dependencies` 的文件。 请注意，`apply` 不支持 `apply to`、递归或高级语法（例如，Kotlin 的 `apply` 和 `mapOf`，由属性定义的文件名）。
+[1] {% data variables.product.prodname_dependabot %} 不运行 Gradle，但支持对以下文件的更新：`build.gradle`、`build.gradle.kts`（针对 Kotlin 项目），以及通过 `apply` 声明包含在内且文件名中带有 `dependencies` 的文件。请注意，`apply` 不支持 `apply to`、递归或高级语法（例如，Kotlin 的 `apply` 和 `mapOf`，由属性定义的文件名）。
 
 [2] {% data variables.product.prodname_dependabot %} 不运行 Maven，但支持对 `pom.xml` 文件的更新。
 
 [3] {% data variables.product.prodname_dependabot %} 不运行 NuGet CLI，但支持直到版本 4.8 的大多数功能。
 
-{% ifversion fpt or ghec or ghes > 3.4 %} [4] {% ifversion ghes = 3.5 %}`pub` 支持目前为 beta 版本。 任何已知限制都可能会发生变化。 请注意 {% data variables.product.prodname_dependabot %}：
+{% ifversion fpt or ghec or ghes > 3.4 %} [4] {% ifversion ghes = 3.5 %}`pub` 支持目前为 beta 版本。任何已知限制都可能会发生变化。请注意 {% data variables.product.prodname_dependabot %}：
    - 不支持更新 `pub` 的 git 依赖项。 
    - 当尝试更新到的版本被忽略时，即使早期版本可用，也不会执行更新。
 

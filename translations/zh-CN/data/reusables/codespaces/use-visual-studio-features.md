@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145148726"
 ---
-使用 {% data variables.product.prodname_vscode_shortname %} 在 codespace 中开发时，你可以编辑代码、调试和使用 Git 命令。 有关详细信息，请参阅 [{% data variables.product.prodname_vscode_shortname %} 文档](https://code.visualstudio.com/docs)。
+使用 {% data variables.product.prodname_vscode_shortname %} 在 codespace 中开发时，你可以编辑代码、调试和使用 Git 命令。有关详细信息，请参阅 [{% data variables.product.prodname_vscode_shortname %} 文档](https://code.visualstudio.com/docs)。

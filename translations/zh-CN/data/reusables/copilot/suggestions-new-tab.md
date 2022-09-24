@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147079765"
 ---
-你可能不想获得 {% data variables.product.prodname_copilot %} 提供的任何初始建议。 可以使用键盘快捷方式来提示 {% data variables.product.prodname_copilot %} 在新选项卡中显示多个建议。
+你可能不想获得 {% data variables.product.prodname_copilot %} 提供的任何初始建议。可以使用键盘快捷方式来提示 {% data variables.product.prodname_copilot %} 在新选项卡中显示多个建议。

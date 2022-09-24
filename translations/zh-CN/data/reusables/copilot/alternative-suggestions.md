@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/12/2022
 ms.locfileid: "147079555"
 ---
-对于任何给定的输入，{% data variables.product.prodname_copilot %} 可以提供多个建议。 可以选择要使用的建议，或拒绝所有建议。
+对于任何给定的输入，{% data variables.product.prodname_copilot %} 可以提供多个建议。可以选择要使用的建议，或拒绝所有建议。

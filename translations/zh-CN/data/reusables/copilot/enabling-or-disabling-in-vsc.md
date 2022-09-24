@@ -8,7 +8,7 @@ ms.locfileid: "147079574"
 ---
 ## 启用或禁用 {% data variables.product.prodname_copilot %}
 
-可以在 {% data variables.product.prodname_vscode %} 中启用或禁用 {% data variables.product.prodname_copilot %}。 {% data variables.product.prodname_vscode %} 窗口底部面板中的 {% data variables.product.prodname_copilot %} 状态图标指示 {% data variables.product.prodname_copilot %} 是启用还是禁用。 启用后，图标的背景色将与状态栏颜色相匹配。 禁用后，图标的背景色将与状态栏颜色形成对比。
+可以在 {% data variables.product.prodname_vscode %} 中启用或禁用 {% data variables.product.prodname_copilot %}。 {% data variables.product.prodname_vscode %} 窗口底部面板中的 {% data variables.product.prodname_copilot %} 状态图标指示 {% data variables.product.prodname_copilot %} 是启用还是禁用。启用后，图标的背景色将与状态栏颜色相匹配。禁用后，图标的背景色将与状态栏颜色形成对比。
 
 1. 若要启用或禁用 {% data variables.product.prodname_copilot %}，请单击 {% data variables.product.prodname_vscode %} 窗口底部面板中的状态图标。
    ![{% data variables.product.prodname_vscode %} 中状态图标的屏幕截图](/assets/images/help/copilot/status-icon-visual-studio-code.png)

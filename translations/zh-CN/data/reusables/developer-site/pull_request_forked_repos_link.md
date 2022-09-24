@@ -8,15 +8,15 @@ ms.locfileid: "145129709"
 ---
 #### 存储库分支中的工作流
 
-默认情况下，工作流不在存储库分支中运行。 必须在存储库分支的“操作”选项卡中启用 GitHub Actions。
+默认情况下，工作流不在存储库分支中运行。必须在存储库分支的“操作”选项卡中启用 GitHub Actions。
 
-{% data reusables.actions.forked-secrets %} `GITHUB_TOKEN` 在存储库分支中具有只读权限。 有关详细信息，请参阅“[使用 GITHUB_TOKEN 进行身份验证](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
+{% data reusables.actions.forked-secrets %} `GITHUB_TOKEN` 在存储库分支中具有只读权限。有关详细信息，请参阅“[使用 GITHUB_TOKEN 进行身份验证](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
 
 #### 复刻的仓库的拉取请求事件
 
-对于从存储库分支到基础存储库的拉取请求，{% data variables.product.product_name %} 会将 `pull_request`、`issue_comment`、`pull_request_review_comment`、`pull_request_review` 和 `pull_request_target` 事件发送到基础存储库。 存储库分支上不会发生拉取请求事件。
+对于从存储库分支到基础存储库的拉取请求，{% data variables.product.product_name %} 会将 `pull_request`、`issue_comment`、`pull_request_review_comment`、`pull_request_review` 和 `pull_request_target` 事件发送到基础存储库。存储库分支上不会发生拉取请求事件。
 
-{% ifversion fpt or ghec %} 当参与者第一次向公共存储库提交拉取请求时，拥有写入权限的维护者可能需要审核拉取请求上运行的工作流。 有关详细信息，请参阅“[审核公共分支中的工作流运行](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)”。
+{% ifversion fpt or ghec %} 当参与者第一次向公共存储库提交拉取请求时，拥有写入权限的维护者可能需要审核拉取请求上运行的工作流。有关详细信息，请参阅“[审核公共分支中的工作流运行](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)”。
 {% endif %}
 
 {% note %}

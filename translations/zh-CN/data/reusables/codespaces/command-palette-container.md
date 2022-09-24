@@ -6,6 +6,6 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "147076700"
 ---
-1. 访问 {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux))，然后开始键入“开发容器”。 选择“代码空间: 添加开发容器配置文件...”。
+1. 访问 {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux))，然后开始键入“开发容器”。选择“代码空间：添加开发容器配置文件...”。
 
-   ![{% data variables.product.prodname_vscode_command_palette %} 中的“代码空间: 添加开发容器配置文件...”](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+   ![{% data variables.product.prodname_vscode_command_palette %} 中的“代码空间：添加开发容器配置文件...”](/assets/images/help/codespaces/add-prebuilt-container-command.png)

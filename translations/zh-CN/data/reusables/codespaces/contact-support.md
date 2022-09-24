@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145098166"
 ---
-可能需要联系支持人员。 有关详细信息，请参阅“[使用支持](/codespaces/troubleshooting/working-with-support-for-codespaces)”。
+可能需要联系支持人员。有关详细信息，请参阅“[使用支持](/codespaces/troubleshooting/working-with-support-for-codespaces)”。

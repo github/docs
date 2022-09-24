@@ -8,6 +8,6 @@ ms.locfileid: "145098255"
 ---
 {% warning %}
 
-警告：请注意共享邀请 URL 的位置。 任何拥有作业邀请 URL 的人都可以接受邀请并将 {% data variables.product.product_name %} 上的个人帐户与你的名册中的标识符相关联。
+警告：请注意共享邀请 URL 的位置。任何拥有作业邀请 URL 的人都可以接受邀请并将 {% data variables.product.product_name %} 上的个人帐户与你的名册中的标识符相关联。
 
 {% endwarning %}

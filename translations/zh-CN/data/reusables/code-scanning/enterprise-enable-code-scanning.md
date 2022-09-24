@@ -10,7 +10,7 @@ ms.locfileid: "145098775"
 
 {% note %}
 
-注意：站点管理员必须为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_code_scanning %}，你才能使用这些功能。 有关详细信息，请参阅“[为设备配置 {% data variables.product.prodname_code_scanning %}](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance)”。
+注意：站点管理员必须为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_code_scanning %}，你才能使用这些功能。有关详细信息，请参阅“[为设备配置 {% data variables.product.prodname_code_scanning %}](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance)”。
 
 {% endnote %}
 

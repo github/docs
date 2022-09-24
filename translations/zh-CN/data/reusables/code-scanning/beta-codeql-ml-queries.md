@@ -10,7 +10,7 @@ ms.locfileid: "146180885"
 
 {% note %}
 
-注意：{% data variables.product.prodname_code_scanning %} 的实验性警报是使用实验技术在 {% data variables.product.prodname_codeql %} 操作中创建的。 此功能目前是针对 JavaScript 代码的 beta 版本，可能会有变化。 
+注意：{% data variables.product.prodname_code_scanning %} 的实验性警报是使用实验技术在 {% data variables.product.prodname_codeql %} 操作中创建的。此功能目前是针对 JavaScript 代码的 beta 版本，可能会有变化。 
 
 {% endnote %}
 

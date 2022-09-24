@@ -10,7 +10,7 @@ ms.locfileid: "145129889"
 
 {% note %}
 
-注意：站点管理员必须先为 {% data variables.product.product_location %} 设置 {% data variables.product.prodname_dependabot_updates %}，然后你才能使用此功能。 有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
+注意：站点管理员必须先为 {% data variables.product.product_location %} 设置 {% data variables.product.prodname_dependabot_updates %}，然后你才能使用此功能。有关详细信息，请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 
 {% endnote %}
 

@@ -16,7 +16,7 @@ ms.locfileid: "145098267"
 
 <br/>
 
-定义测试案例的参数，如名称、命令、输入、输出、超时和点。 完成后，单击“保存测试用例”。
+定义测试案例的参数，如名称、命令、输入、输出、超时和点。完成后，单击“保存测试用例”。
 
 <div class="procedural-image-wrapper">
   <img alt="'Save test case' button for an autograding test" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-save-test-case-button.png">

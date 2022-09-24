@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145129773"
 ---
-要对最近打开的存储库启动 {% data variables.product.prodname_desktop %}，请键入 `github`。 要对特定存储库启动 {% data variables.product.prodname_desktop %}，请键入 `github`，后跟该存储库的路径。
+要对最近打开的存储库启动 {% data variables.product.prodname_desktop %}，请键入 `github`。要对特定存储库启动 {% data variables.product.prodname_desktop %}，请键入 `github`，后跟该存储库的路径。

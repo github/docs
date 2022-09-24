@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145129937"
 ---
-在没有来自 [{% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/) 的指导下，请勿使用此命令。 不正确的使用可能造成损坏或数据丢失。
+在没有来自 [{% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/) 的指导下，请勿使用此命令。不正确的使用可能造成损坏或数据丢失。

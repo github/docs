@@ -22,4 +22,4 @@ ms.locfileid: "147079826"
 
    ![带有“保存并开始”按钮的 GitHub Copilot 设置屏幕截图](/assets/images/help/copilot/copilot-signup-preferences.png)
 
-   可以稍后通过返回到 {% data variables.product.prodname_copilot %} 设置来更改这些首选项。 有关详细信息，请参阅“[在 Visual Studio Code 中配置 GitHub Copilot](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-github-copilot-settings-on-githubcom)”。
+   可以稍后通过返回到 {% data variables.product.prodname_copilot %} 设置来更改这些首选项。有关详细信息，请参阅“[在 Visual Studio Code 中配置 GitHub Copilot](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-github-copilot-settings-on-githubcom)”。

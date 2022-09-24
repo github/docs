@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098853"
 ---
-您必须先创建一个课堂才能创建作业。 有关详细信息，请参阅“[管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms)”。
+您必须先创建一个课堂才能创建作业。有关详细信息，请参阅“[管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms)”。

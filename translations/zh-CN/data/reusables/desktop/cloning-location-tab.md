@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145129814"
 ---
-1. 单击与要克隆的仓库位置对应的选项卡。 也可以单击 URL 手动输入存储库位置。
+1. 单击与要克隆的仓库位置对应的选项卡。也可以单击 URL 手动输入存储库位置。
 
   {% mac %}
 

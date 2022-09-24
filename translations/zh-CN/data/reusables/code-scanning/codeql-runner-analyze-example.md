@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098785"
 ---
-1. 填充 {% data variables.product.prodname_codeql %} 数据库、进行分析并将结果上传到 {% data variables.product.product_name %}。 结果将显示在存储库的“安全”选项卡中。
+1. 填充 {% data variables.product.prodname_codeql %} 数据库、进行分析并将结果上传到 {% data variables.product.product_name %}。结果将显示在存储库的“安全”选项卡中。
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
@@ -17,7 +17,7 @@ ms.locfileid: "145098785"
     > POST /repos/octo-org/example-repo/code-scanning/sarifs - 202 in 786ms
     > Successfully uploaded results
     ```
-2. 要将 {% data variables.product.prodname_code_scanning %} 结果作为拉取请求检查上传，请使用 <nobr>`--ref`</nobr> 标志指定拉取请求。 我们建议设置 {% data variables.product.prodname_codeql_runner %} 以便它在 [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) Webhook 事件上运行。
+2. 要将 {% data variables.product.prodname_code_scanning %} 结果作为拉取请求检查上传，请使用 <nobr>`--ref`</nobr> 标志指定拉取请求。我们建议设置 {% data variables.product.prodname_codeql_runner %} 以便它在 [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) Webhook 事件上运行。
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo

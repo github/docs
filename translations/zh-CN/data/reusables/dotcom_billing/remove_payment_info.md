@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145100990"
 ---
-1. 通过单击“移除信用卡”或“移除 PayPal 帐户”确认更改 。
+1. 通过单击“移除信用卡”或“移除 PayPal 帐户”确认更改。

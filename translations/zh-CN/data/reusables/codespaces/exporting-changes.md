@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098731"
 ---
-如果达到支出限制，你将无法再创建或恢复 codespace。 你仍然可以[将任何正在进行的更改导出到新分支](/codespaces/troubleshooting/exporting-changes-to-a-branch)。 
+如果达到支出限制，你将无法再创建或恢复 codespace。你仍然可以[将任何正在进行的更改导出到新分支](/codespaces/troubleshooting/exporting-changes-to-a-branch)。 
