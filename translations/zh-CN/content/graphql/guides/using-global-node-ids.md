@@ -17,11 +17,11 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '146381470'
 ---
-您可以使用 REST API 或 GraphQL API 访问 GitHub 中的大多数对象（用户、议题、拉取请求等）。 可以在 REST API 中找到许多对象的全局节点 ID，并将这些 ID 用于 GraphQL 操作。 有关详细信息，请参阅“[预览 REST API 资源中的 GraphQL API 节点 ID](https://developer.github.com/changes/2017-12-19-graphql-node-id/)”。
+您可以使用 REST API 或 GraphQL API 访问 GitHub 中的大多数对象（用户、议题、拉取请求等）。可以在 REST API 中找到许多对象的全局节点 ID，并将这些 ID 用于 GraphQL 操作。有关详细信息，请参阅“[预览 REST API 资源中的 GraphQL API 节点 ID](https://developer.github.com/changes/2017-12-19-graphql-node-id/)”。
 
 {% note %}
 
-注意：在 REST 中，全局节点 ID 字段被命名为 `node_id`。 在 GraphQL 中，此字段为 `node` 接口上的 `id` 字段。 若要重温“节点”在 GraphQL 中的含义，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#node)”。
+注意：在 REST 中，全局节点 ID 字段被命名为 `node_id`。在 GraphQL 中，此字段为 `node` 接口上的 `id` 字段。若要重温“节点”在 GraphQL 中的含义，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#node)”。
 
 {% endnote %}
 
@@ -95,9 +95,9 @@ $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/us
 
 ## 2. 在 GraphQL 中查找对象类型
 
-在此示例中，`node_id` 值为 `MDQ6VXNlcjU4MzIzMQ==`。 您可以使用此值在 GraphQL 中查询同一个对象。
+在此示例中，`node_id` 值为 `MDQ6VXNlcjU4MzIzMQ==`。您可以使用此值在 GraphQL 中查询同一个对象。
 
-不过，首先需要知道对象的类型。 您可以通过简单的 GraphQL 查询检查类型：
+不过，首先需要知道对象的类型。您可以通过简单的 GraphQL 查询检查类型：
 
 ```graphql
 query {
@@ -113,7 +113,7 @@ query {
 
 ## 3. 在 GraphQL 中执行直接节点查找
 
-一旦确认类型，即可使用[行内分段](https://graphql.github.io/learn/queries/#inline-fragments)按 ID 访问对象并返回附加数据。 在本示例中，我们可以定义想要查询的 `User` 上的字段：
+一旦确认类型，即可使用[行内分段](https://graphql.github.io/learn/queries/#inline-fragments)按 ID 访问对象并返回附加数据。在本示例中，我们可以定义想要查询的 `User` 上的字段：
 
 ```graphql
 query {
@@ -130,4 +130,4 @@ query {
 
 ## 在迁移中使用全局节点 ID
 
-构建使用 REST API 或 GraphQL API 的集成时，最佳做法是保留全局节点 ID，以便轻松引用不同 API 版本的对象。 有关处理 REST 与 GraphQL 之间的转换的更多信息，请参阅“[从 REST 迁移到 GraphQL](/graphql/guides/migrating-from-rest-to-graphql)”。
+构建使用 REST API 或 GraphQL API 的集成时，最佳做法是保留全局节点 ID，以便轻松引用不同 API 版本的对象。有关处理 REST 与 GraphQL 之间的转换的更多信息，请参阅“[从 REST 迁移到 GraphQL](/graphql/guides/migrating-from-rest-to-graphql)”。

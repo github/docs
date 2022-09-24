@@ -11,15 +11,15 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147408841'
 ---
-{% data variables.product.prodname_discussions %} GraphQL API 允许您获取、创建、编辑和删除讨论帖子。 有关 {% data variables.product.prodname_discussions %} 的详细信息，请参阅“[‎关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
+{% data variables.product.prodname_discussions %} GraphQL API 允许您获取、创建、编辑和删除讨论帖子。有关 {% data variables.product.prodname_discussions %} 的详细信息，请参阅“[‎关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
-此 API 适用于经过验证的用户、OAuth 应用程序和 GitHub 应用程序。 对于专用存储库，访问令牌需要 `repo` 范围，对于公共存储库，则需要 `public_repo` 范围。 有关详细信息，请参阅“[OAuth 应用的范围](/developers/apps/scopes-for-oauth-apps)”。
+此 API 适用于经过验证的用户、OAuth 应用程序和 GitHub 应用程序。对于专用存储库，访问令牌需要 `repo` 范围，对于公共存储库，则需要 `public_repo` 范围。有关详细信息，请参阅“[OAuth 应用的范围](/developers/apps/scopes-for-oauth-apps)”。
 
 ## 字段
 
 ### Repository.discussions
 
-列出仓库中的讨论。 如果指定了 `categoryId`，则仅返回该类别中的结果。
+列出仓库中的讨论。如果指定了 `categoryId`，则仅返回该类别中的结果。
 
 _签名：_
 
@@ -72,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-返回此仓库中定义的可用讨论类别。 每个仓库最多可以有 10 个类别。 有关讨论类别的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
+返回此仓库中定义的可用讨论类别。每个仓库最多可以有 10 个类别。有关讨论类别的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
 
 _签名：_
 
@@ -87,7 +87,7 @@ discussionCategories(
 
 ### Repository.discussion
 
-获取讨论. 如果使用指定 ID 的讨论不存在则返回 `null`。
+获取讨论。如果使用指定 ID 的讨论不存在则返回 `null`。
 
 _签名：_
 
@@ -112,7 +112,7 @@ pinnedDiscussions(
 
 ## 对象
 
-注意：为简洁起见，此处不会扩展连接类型。 架构中提到的每个连接类型都遵循与 GraphQL API 中其他连接相同的模式。 有关详细信息，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#connection)”。
+注意：为简洁起见，此处不会扩展连接类型。架构中提到的每个连接类型都遵循与 GraphQL API 中其他连接相同的模式。有关详细信息，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#connection)”。
 
 ```graphql
 query {
@@ -854,7 +854,7 @@ enum PinnedDiscussionGradient {
 
 ### RepositoryDiscussionAuthor
 
-由 `User` 和 `Organization` 类型实现。 注意：只有从 `User` 转换来的 `Organization` 才会有与之关联的讨论。
+由 `User` 和 `Organization` 类型实现。注意：只有从 `User` 转换来的 `Organization` 才会有与之关联的讨论。
 
 <details>
 <summary>字段</summary>
@@ -962,7 +962,7 @@ interface RepositoryDiscussionCommentAuthor {
 
 ## 突变
 
-这些突变遵循与 GraphQL API 中其他突变相同的实现模式。 每个突变都接受以突变命名的 `Input` 类型的单个参数，并返回包含指定字段的 `Payload` 类型。
+这些突变遵循与 GraphQL API 中其他突变相同的实现模式。每个突变都接受以突变命名的 `Input` 类型的单个参数，并返回包含指定字段的 `Payload` 类型。
 
 例如，这是一个基本 `createDiscussion` 突变，将会创建一个新的讨论：
 
@@ -981,7 +981,7 @@ mutation {
 
 ### createDiscussion
 
-输入字段:
+输入字段：
 
 * `body: String!` 新讨论的正文。
 * `title: String!` 新讨论的标题。
@@ -996,7 +996,7 @@ mutation {
 
 ### updateDiscussion
 
-输入字段:
+输入字段：
 
 * `discussionId: ID!` 要更新的讨论的节点 ID。
 * `body: String` 讨论正文的新内容。
@@ -1010,7 +1010,7 @@ mutation {
 * `discussion: Discussion` 已修改的讨论。
 
 ### deleteDiscussion
-输入字段:
+输入字段：
 
 * `id: ID!` 要删除的讨论的节点 ID。
 * `clientMutationId: String` 进行突变的客户端的唯一标识符。
@@ -1022,11 +1022,11 @@ mutation {
 
 ### addDiscussionComment
 
-输入字段:
+输入字段：
 
 * `body: String!` 注释的内容。
 * `discussionId: ID!` 要注释的讨论的节点 ID。
-* `replyToId: ID` 要答复的讨论注释的节点 ID。 如果不存在，创建的评论将是顶层评论。
+* `replyToId: ID` 要答复的讨论注释的节点 ID。如果不存在，创建的评论将是顶层评论。
 * `clientMutationId: String` 进行突变的客户端的唯一标识符。
 
 返回类型字段：
@@ -1036,7 +1036,7 @@ mutation {
 
 ### updateDiscussionComment
 
-输入字段:
+输入字段：
 
 * `body: String!` 注释正文的新内容。
 * `commentId: ID!` 要更新的讨论注释的节点 ID。
@@ -1049,7 +1049,7 @@ mutation {
 
 ### deleteDiscussionComment
 
-输入字段:
+输入字段：
 
 * `id: ID!` 要删除的讨论注释的节点 ID。
 * `clientMutationId: String` 进行突变的客户端的唯一标识符。
@@ -1061,7 +1061,7 @@ mutation {
 
 ### markDiscussionCommentAsAnswer
 
-输入字段:
+输入字段：
 
 * `id: ID!` 要标记为答案的讨论注释的节点 ID。
 * `clientMutationId: String` 进行突变的客户端的唯一标识符。
@@ -1073,7 +1073,7 @@ mutation {
 
 ### unmarkDiscussionCommentAsAnswer
 
-输入字段:
+输入字段：
 
 * `id: ID!` 要取消标记为答案的讨论注释的节点 ID。
 * `clientMutationId: String` 进行突变的客户端的唯一标识符。
@@ -1085,4 +1085,4 @@ mutation {
 
 ## 搜索
 
-可以从顶层 `search` 字段返回讨论。 若要搜索讨论，请指定 `type` 为 `DISCUSSION`。 `SearchResultItemConnection` 类型有一个 `discussionCount` 字段来报告返回的讨论数，并且 `Discussion` 类型已添加到 `SearchResultItem` 并集。 有关详细信息，请参阅“[查询](/graphql/reference/queries#searchresultitemconnection)”和“[搜索讨论](/search-github/searching-on-github/searching-discussions)”。
+可以从顶层 `search` 字段返回讨论。若要搜索讨论，请指定 `type` 为 `DISCUSSION`。 `SearchResultItemConnection` 类型有一个 `discussionCount` 字段来报告返回的讨论数，并且 `Discussion` 类型已添加到 `SearchResultItem` 并集。有关详细信息，请参阅“[查询](/graphql/reference/queries#searchresultitemconnection)”和“[搜索讨论](/search-github/searching-on-github/searching-discussions)”。

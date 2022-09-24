@@ -19,7 +19,7 @@ ms.locfileid: '147496538'
 ---
 ## 关于对象
 
-GraphQL 中的[对象](https://graphql.github.io/graphql-spec/June2018/#sec-Objects)表示可以访问的资源。 对象包含经过专门类型化的字段列表。
+GraphQL 中的[对象](https://graphql.github.io/graphql-spec/June2018/#sec-Objects)表示可以访问的资源。对象包含经过专门类型化的字段列表。
 
 例如，[`Repository`](/graphql/reference/objects#repository) 对象具有一个名为 `name` 的字段，该字段是 `String`。
 

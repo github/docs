@@ -38,7 +38,7 @@ ms.locfileid: '146749487'
 1. 获取 [OAuth 标记](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)。
 1. 启动 GraphiQL。
 1. 在 GraphiQL 的右上角，单击“编辑 HTTP 标头”。
-1. 在“键”字段中，选择 。 在“值”字段中，输入 `Bearer <token>`，其中 `<token>` 是你生成的 OAuth 令牌。
+1. 在“键”字段中，选择。在“值”字段中，输入 `Bearer <token>`，其中 `<token>` 是你生成的 OAuth 令牌。
 ![graphiql 标头](/assets/images/developer/graphiql-headers.png)
 1. 单击该令牌右侧的复选标记进行保存。
 1. 要返回编辑器，请在“编辑 HTTP 标头”模式外部单击。
@@ -61,11 +61,11 @@ query {
 }
 ```
 
-如果一切运行正常，将会显示您的登录信息。 您已设置完成，可以开始查询。
+如果一切运行正常，将会显示您的登录信息。您已设置完成，可以开始查询。
 
 ## 访问边栏文档
 
-GraphQL 架构中的所有类型都包含一个编译到文档中的 `description` 字段。 该浏览器页面右侧可折叠的“文档”窗格可用于浏览有关类型系统的文档。 文档将自动更新，并删除已弃用的字段。
+GraphQL 架构中的所有类型都包含一个编译到文档中的 `description` 字段。该浏览器页面右侧可折叠的“文档”窗格可用于浏览有关类型系统的文档。文档将自动更新，并删除已弃用的字段。
 
 {% note %}
 
@@ -95,7 +95,7 @@ variables {
 
 这是通过 cURL `POST` 提交调用的正确格式（但要[避免使用换行符](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)）。
 
-如果要在浏览器中运行调用，请在主窗格中输入 `query` 字段，并在其下方的“查询变量”窗格中输入变量。 在浏览器中省略 `variables` 一词：
+如果要在浏览器中运行调用，请在主窗格中输入 `query` 字段，并在其下方的“查询变量”窗格中输入变量。在浏览器中省略 `variables` 一词：
 
 ```graphql
 {
@@ -114,7 +114,7 @@ variables {
 * 基于当前架构的智能输入提示
 * 键入时预提示验证错误
 
-如果输入的查询格式不正确或未通过[架构验证](/graphql/guides/introduction-to-graphql#schema)，则会弹出错误警示窗口。 如果您运行查询，错误将返回响应窗格中。
+如果输入的查询格式不正确或未通过[架构验证](/graphql/guides/introduction-to-graphql#schema)，则会弹出错误警示窗口。如果您运行查询，错误将返回响应窗格中。
 
 GraphQL 响应中包含多个键：`data` 哈希和 `errors` 数组。
 
@@ -135,7 +135,7 @@ GraphQL 响应中包含多个键：`data` 哈希和 `errors` 数组。
 }
 ```
 
-您可能会遇到与架构无关的意外错误。 如果发生这种情况，该消息将包含一个参考代码，供您在报告问题时使用：
+您可能会遇到与架构无关的意外错误。如果发生这种情况，该消息将包含一个参考代码，供您在报告问题时使用：
 
 ```json
 {
@@ -150,6 +150,6 @@ GraphQL 响应中包含多个键：`data` 哈希和 `errors` 数组。
 
 {% note %}
 
-注意：{% data variables.product.prodname_dotcom %} 建议，在将数据用于生产环境之前，先检查其是否有错误。 在 GraphQL 中，失败并不意味着全部错误：在一些 GraphQL 查询失败的同时，另一些查询可能成功。
+注意：{% data variables.product.prodname_dotcom %} 建议，在将数据用于生产环境之前，先检查其是否有错误。在 GraphQL 中，失败并不意味着全部错误：在一些 GraphQL 查询失败的同时，另一些查询可能成功。
 
 {% endnote %}

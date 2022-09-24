@@ -22,7 +22,7 @@ ms.locfileid: '145066718'
 gh
 ```
 
-要列出特定组下的所有命令，请使用不带参数的顶层命令。 例如，列出 [用于管理存储库的命令](https://cli.github.com/manual/gh_repo)：
+要列出特定组下的所有命令，请使用不带参数的顶层命令。例如，列出 [用于管理存储库的命令](https://cli.github.com/manual/gh_repo)：
 
 ```shell
 gh repo

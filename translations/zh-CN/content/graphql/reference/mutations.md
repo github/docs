@@ -19,7 +19,7 @@ ms.locfileid: '147496684'
 ---
 ## 关于突变
 
-每个 GraphQL 架构的查询和突变都有根类型。 [变更类型](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System)定义更改服务器数据的 GraphQL 操作。 类似于执行 Http 谓词，例如 `POST`、`PATCH` 和 `DELETE`。
+每个 GraphQL 架构的查询和突变都有根类型。 [变更类型](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System)定义更改服务器数据的 GraphQL 操作。类似于执行 Http 谓词，例如 `POST`、`PATCH` 和 `DELETE`。
 
 有关详细信息，请参阅“[关于变更](/graphql/guides/forming-calls-with-graphql#about-mutations)”。
 

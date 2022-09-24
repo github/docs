@@ -38,14 +38,14 @@ ms.locfileid: '145066714'
   ```
 
   {% endif %}
-1. 开始在命令行中使用 {% data variables.product.company_short %}。 例如，使用 `gh issue status` 或 `gh issue list --assignee @me` 查找要处理的问题。 使用 `gh pr create` 创建拉取请求。 使用 `gh pr checkout`、`gh pr diff` 和 `gh pr review` 查看拉取请求。
+1. 开始在命令行中使用 {% data variables.product.company_short %}。例如，使用 `gh issue status` 或 `gh issue list --assignee @me` 查找要处理的问题。使用 `gh pr create` 创建拉取请求。使用 `gh pr checkout`、`gh pr diff` 和 `gh pr review` 查看拉取请求。
 
 ## 后续步骤
 
-- 告诉 {% data variables.product.prodname_cli %} 哪个文本编辑器用于打开文本编辑器的命令。 例如，输入 `gh config set editor "code -w"` 将首选文本编辑器设置为 {% data variables.product.prodname_vscode %}。 有关详细信息，请参阅 [`gh config set`](https://cli.github.com/manual/gh_config_set)。
+- 告诉 {% data variables.product.prodname_cli %} 哪个文本编辑器用于打开文本编辑器的命令。例如，输入 `gh config set editor "code -w"` 将首选文本编辑器设置为 {% data variables.product.prodname_vscode %}。有关详细信息，请参阅 [`gh config set`](https://cli.github.com/manual/gh_config_set)。
 
-- 为通常运行的命令定义别名。 例如，如果运行 `gh alias set prd "pr create --draft"`，则你可以运行 `gh prd` 以快速打开草稿拉取请求。 有关详细信息，请参阅 [`gh alias`](https://cli.github.com/manual/gh_alias)。
+- 为通常运行的命令定义别名。例如，如果运行 `gh alias set prd "pr create --draft"`，则你可以运行 `gh prd` 以快速打开草稿拉取请求。有关详细信息，请参阅 [`gh alias`](https://cli.github.com/manual/gh_alias)。
 
-- 使用 {% data variables.product.prodname_cli %} 扩展创建或添加自定义命令。 有关详细信息，请参阅“[使用 {% data variables.product.prodname_cli %} 扩展](/github-cli/github-cli/using-github-cli-extensions)”和“[创建 {% data variables.product.prodname_cli %} 扩展](/github-cli/github-cli/creating-github-cli-extensions)”。
+- 使用 {% data variables.product.prodname_cli %} 扩展创建或添加自定义命令。有关详细信息，请参阅“[使用 {% data variables.product.prodname_cli %} 扩展](/github-cli/github-cli/using-github-cli-extensions)”和“[创建 {% data variables.product.prodname_cli %} 扩展](/github-cli/github-cli/creating-github-cli-extensions)”。
 
 - 有关可以使用 {% data variables.product.prodname_cli %} 运行的所有命令的详细信息，请参阅“[{% data variables.product.prodname_cli %} 参考](/github-cli/github-cli/github-cli-reference)”。

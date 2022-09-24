@@ -26,7 +26,7 @@ ms.locfileid: '147496522'
 
 {% note %}
 
-注意：对于[用户到服务器](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %} 请求，应该为问题和拉取请求使用单独的查询。 例如，使用 `is:issue` 或 `is:pull-request` 筛选器及其等效项。 使用 `search` 连接在单一查询中返回问题和拉取请求的组合将产生一组空节点。
+注意：对于[用户到服务器](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %} 请求，应该为问题和拉取请求使用单独的查询。例如，使用 `is:issue` 或 `is:pull-request` 筛选器及其等效项。使用 `search` 连接在单一查询中返回问题和拉取请求的组合将产生一组空节点。
 
 {% endnote %}
 

@@ -19,11 +19,11 @@ ms.locfileid: '145066719'
 
 {% data reusables.cli.cli-extensions %} 有关如何使用 {% data variables.product.prodname_cli %} 扩展的详细信息，请参阅“[使用 {% data variables.product.prodname_cli %} 扩展](/github-cli/github-cli/using-github-cli-extensions)”。
 
-对于您创建的每个扩展，都需要一个存储库。 存储库名称必须以 `gh-` 开头。 存储库名称的其余部分是扩展的名称。 存储库的根目录下必须有一个与存储库同名的可执行文件，或者附加到发行版的一组预编译二进制可执行文件。
+对于您创建的每个扩展，都需要一个存储库。存储库名称必须以 `gh-` 开头。存储库名称的其余部分是扩展的名称。存储库的根目录下必须有一个与存储库同名的可执行文件，或者附加到发行版的一组预编译二进制可执行文件。
 
 {% note %}
 
-**注意**：当依赖于可执行脚本时，我们建议使用 bash 脚本，因为 bash 是一种广泛使用的解释器。 您可以使用非 bash 脚本，但用户必须安装必要的解译程序才能使用扩展。 如果您不希望依赖安装了解译程序的用户，请考虑使用预编译扩展。
+**注意**：当依赖于可执行脚本时，我们建议使用 bash 脚本，因为 bash 是一种广泛使用的解释器。您可以使用非 bash 脚本，但用户必须安装必要的解译程序才能使用扩展。如果您不希望依赖安装了解译程序的用户，请考虑使用预编译扩展。
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ ms.locfileid: '145066719'
 
 可以使用 `gh extension create` 命令为扩展创建一个项目，包括包含一些起始代码的 bash 脚本。
 
-1. 使用 `gh extension create` 子命令设置新的扩展。 将 `EXTENSION-NAME` 替换为扩展的名称。
+1. 使用 `gh extension create` 子命令设置新的扩展。将 `EXTENSION-NAME` 替换为扩展的名称。
 
     ```shell
     gh extension create <em>EXTENSION-NAME</em>
@@ -49,7 +49,7 @@ ms.locfileid: '145066719'
 
 可以使用 `--precompiled=go` 参数为扩展创建基于 Go 的项目，包括 Go 基架、工作流基架和起始代码。
 
-1. 使用 `gh extension create` 子命令设置新的扩展。 将 `EXTENSION-NAME` 替换为扩展的名称并指定 `--precompiled=go`。
+1. 使用 `gh extension create` 子命令设置新的扩展。将 `EXTENSION-NAME` 替换为扩展的名称并指定 `--precompiled=go`。
 
     ```shell
     gh extension create --precompiled=go <em>EXTENSION-NAME</em>
@@ -61,7 +61,7 @@ ms.locfileid: '145066719'
 
 可以使用 `--precompiled=other` 参数为非 Go 预编译扩展（包括工作流基架）创建项目。
 
-1. 使用 `gh extension create` 子命令设置新的扩展。 将 `EXTENSION-NAME` 替换为扩展的名称并指定 `--precompiled=other`。
+1. 使用 `gh extension create` 子命令设置新的扩展。将 `EXTENSION-NAME` 替换为扩展的名称并指定 `--precompiled=other`。
 
     ```shell
     gh extension create --precompiled=other <em>EXTENSION-NAME</em>
@@ -75,17 +75,17 @@ ms.locfileid: '145066719'
 
 ## 手动创建解译的扩展
 
-1. 为扩展创建一个名为 `gh-EXTENSION-NAME` 的本地目录。 将 `EXTENSION-NAME` 替换为扩展的名称。 例如 `gh-whoami`。
+1. 为扩展创建一个名为 `gh-EXTENSION-NAME` 的本地目录。将 `EXTENSION-NAME` 替换为扩展的名称。例如 `gh-whoami`。
 
 1. 在您创建的目录中，添加与该目录同名的可执行文件。
 
   {% note %}
 
-  **注意：** 请确保你的文件是可执行的。 在 Unix 上，可以在命令行中执行 `chmod +x file_name` 以使 `file_name` 可执行。 在 Windows 上，可以运行 `git init -b main`、`git add file_name`，然后运行 `git update-index --chmod=+x file_name`。
+  **注意：** 请确保你的文件是可执行的。在 Unix 上，可以在命令行中执行 `chmod +x file_name` 以使 `file_name` 可执行。在 Windows 上，可以运行 `git init -b main`、`git add file_name`，然后运行 `git update-index --chmod=+x file_name`。
 
   {% endnote %}
 
-1. 在可执行文件中编写脚本。 例如：
+1. 在可执行文件中编写脚本。例如：
 
   ```bash
   #!/usr/bin/env bash
@@ -99,13 +99,13 @@ ms.locfileid: '145066719'
    gh extension install .
    ```
 
-1. 验证您的扩展是否正常工作。 将 `EXTENSION-NAME` 替换为扩展的名称。 例如 `whoami`。
+1. 验证您的扩展是否正常工作。将 `EXTENSION-NAME` 替换为扩展的名称。例如 `whoami`。
 
    ```shell
    gh <em>EXTENSION-NAME</em>
    ```
 
-1. 从目录中，创建一个存储库以发布扩展。 将 `EXTENSION-NAME` 替换为扩展的名称。
+1. 从目录中，创建一个存储库以发布扩展。将 `EXTENSION-NAME` 替换为扩展的名称。
 
    ```shell
    git init -b main
@@ -113,15 +113,15 @@ ms.locfileid: '145066719'
    gh repo create gh-<em>EXTENSION-NAME</em> --source=. --public --push
    ```
 
-1. （可选）为了帮助其他用户发现你的扩展，请添加存储库主题 `gh-extension`。 这将使扩展显示在 [`gh-extension` 主题页](https://github.com/topics/gh-extension)上。 有关如何添加存储库主题的详细信息，请参阅“[使用主题对存储库进行分类](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)”。
+1. （可选）为了帮助其他用户发现你的扩展，请添加存储库主题 `gh-extension`。这将使扩展显示在 [`gh-extension` 主题页](https://github.com/topics/gh-extension)上。有关如何添加存储库主题的详细信息，请参阅“[使用主题对存储库进行分类](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)”。
 
 ## 编写解译型 {% data variables.product.prodname_cli %} 扩展的提示
 
 ### 处理参数和标志
 
-`gh my-extension-name` 命令之后的所有命令行参数都将传递给扩展脚本。 在 bash 脚本中，可以引用 `$1`、`$2` 等参数。可以使用参数来接受用户输入或修改脚本的行为。
+`gh my-extension-name` 命令之后的所有命令行参数都将传递给扩展脚本。在 bash 脚本中，可以引用 `$1`、`$2` 等参数。可以使用参数来接受用户输入或修改脚本的行为。
 
-例如，此脚本处理多个标志。 使用 `-h` 或 `--help` 标志调用脚本时，脚本将打印帮助文本，而不是继续执行。 使用 `--name` 标志调用脚本时，脚本会将标志后的下一个值设置为 `name_arg`。 使用 `--verbose` 标志调用脚本时，脚本将打印不同的问候语。
+例如，此脚本处理多个标志。使用 `-h` 或 `--help` 标志调用脚本时，脚本将打印帮助文本，而不是继续执行。使用 `--name` 标志调用脚本时，脚本会将标志后的下一个值设置为 `name_arg`。使用 `--verbose` 标志调用脚本时，脚本将打印不同的问候语。
 
 ```bash
 #!/usr/bin/env bash
@@ -159,7 +159,7 @@ fi
 
 ### 在非交互模式下调用核心命令
 
-某些 {% data variables.product.prodname_cli %} 核心命令将提示用户输入。 使用这些命令编写脚本时，通常需要提示。 为避免提示，请通过参数显式提供必要的信息。
+某些 {% data variables.product.prodname_cli %} 核心命令将提示用户输入。使用这些命令编写脚本时，通常需要提示。为避免提示，请通过参数显式提供必要的信息。
 
 例如，要以编程方式创建问题，请指定标题和正文：
 
@@ -169,19 +169,19 @@ gh issue create --title "My Title" --body "Issue description"
 
 ### 以编程方式获取数据
 
-许多核心命令支持 `--json` 标志，用于以编程方式提取数据。 例如，要返回其中列出拉取请求数量、标题和可合并性状态的 JSON 对象：
+许多核心命令支持 `--json` 标志，用于以编程方式提取数据。例如，要返回其中列出拉取请求数量、标题和可合并性状态的 JSON 对象：
 
 ```shell
 gh pr list --json number,title,mergeStateStatus
 ```
 
-如果没有从 GitHub 提取特定数据的核心命令，则可以使用 [`gh api`](https://cli.github.com/manual/gh_api) 命令来访问 GitHub API。 例如，要获取有关当前用户的信息，
+如果没有从 GitHub 提取特定数据的核心命令，则可以使用 [`gh api`](https://cli.github.com/manual/gh_api) 命令来访问 GitHub API。例如，要获取有关当前用户的信息，
 
 ```shell
 gh api user
 ```
 
-所有输出 JSON 数据的命令还具有将该数据筛选为脚本可以立即使用的数据的选项。 例如，要获取当前用户的名称：
+所有输出 JSON 数据的命令还具有将该数据筛选为脚本可以立即使用的数据的选项。例如，要获取当前用户的名称：
 
 ```shell
 gh api user --jq '.name'
@@ -191,9 +191,9 @@ gh api user --jq '.name'
 
 ## 手动创建预编译的扩展
 
-1. 为扩展创建一个名为 `gh-EXTENSION-NAME` 的本地目录。 将 `EXTENSION-NAME` 替换为扩展的名称。 例如 `gh-whoami`。
+1. 为扩展创建一个名为 `gh-EXTENSION-NAME` 的本地目录。将 `EXTENSION-NAME` 替换为扩展的名称。例如 `gh-whoami`。
 
-1. 在您创建的目录中，添加一些源代码。 例如：
+1. 在您创建的目录中，添加一些源代码。例如：
 
     ```go
     package main
@@ -219,7 +219,7 @@ gh api user --jq '.name'
     gh extension install .
     ```
 
-1. 生成代码。 例如，使用 Go，将 `YOUR-USERNAME` 替换为你的 GitHub 用户名：
+1. 生成代码。例如，使用 Go，将 `YOUR-USERNAME` 替换为你的 GitHub 用户名：
 
     ```shell
     go mod init github.com/<em>YOUR-USERNAME</em>/gh-whoami
@@ -227,13 +227,13 @@ gh api user --jq '.name'
     go build
     ```
 
-1. 验证您的扩展是否正常工作。 将 `EXTENSION-NAME` 替换为扩展的名称。 例如 `whoami`。
+1. 验证您的扩展是否正常工作。将 `EXTENSION-NAME` 替换为扩展的名称。例如 `whoami`。
 
     ```shell
     gh <em>EXTENSION-NAME</em>
     ```
 
-1. 从目录中，创建一个存储库以发布扩展。 将 `EXTENSION-NAME` 替换为扩展的名称。
+1. 从目录中，创建一个存储库以发布扩展。将 `EXTENSION-NAME` 替换为扩展的名称。
 
   {% note %}
 
@@ -248,17 +248,17 @@ gh api user --jq '.name'
     gh repo create "gh-<em>EXTENSION-NAME</em>"
     ```
 
-1. 创建版本以与他人共享预编译的扩展。 针对要支持的每个平台进行编译，将每个二进制文件作为资产附加到发行版。 附加到发行版的二进制可执行文件必须遵循命名约定，并且具有 OS-ARCHITECTURE\[EXTENSION\] 的后缀。
+1. 创建版本以与他人共享预编译的扩展。针对要支持的每个平台进行编译，将每个二进制文件作为资产附加到发行版。附加到发行版的二进制可执行文件必须遵循命名约定，并且具有 OS-ARCHITECTURE\[EXTENSION\] 的后缀。
 
-  例如，为 Windows 64 位编译的名为 `whoami` 的扩展将具有名称 `gh-whoami-windows-amd64.exe`，而为 Linux 32 位编译的同一扩展将具有名称 `gh-whoami-linux-386`。 若要查看 `gh` 识别的 OS 和体系结构组合的详尽列表，请参阅[此源代码](https://github.com/cli/cli/blob/14f704fd0da58cc01413ee4ba16f13f27e33d15e/pkg/cmd/extension/manager.go#L696)。
+  例如，为 Windows 64 位编译的名为 `whoami` 的扩展将具有名称 `gh-whoami-windows-amd64.exe`，而为 Linux 32 位编译的同一扩展将具有名称 `gh-whoami-linux-386`。若要查看 `gh` 识别的 OS 和体系结构组合的详尽列表，请参阅[此源代码](https://github.com/cli/cli/blob/14f704fd0da58cc01413ee4ba16f13f27e33d15e/pkg/cmd/extension/manager.go#L696)。
 
   {% note %}
 
-  **注意：** 要使扩展在 Windows 上正常运行，其资产文件必须具有 `.exe` 扩展名。 其他操作系统不需要扩展。
+  **注意：** 要使扩展在 Windows 上正常运行，其资产文件必须具有 `.exe` 扩展名。其他操作系统不需要扩展。
 
   {% endnote %}
 
-  可以从命令行创建版本。 例如：
+  可以从命令行创建版本。例如：
 
   ```shell
   git tag v1.0.0
