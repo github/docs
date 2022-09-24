@@ -1,6 +1,6 @@
 ---
-title: Organization のリポジトリへの個人のアクセスを管理する
-intro: Organization が所有するリポジトリへの個人のアクセスを管理できます。
+title: Managing an individual's access to an organization repository
+intro: You can manage a person's access to a repository owned by your organization.
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program
   - /articles/managing-an-individual-s-access-to-an-organization-repository
@@ -16,42 +16,43 @@ topics:
   - Teams
 shortTitle: Manage individual access
 permissions: People with admin access to a repository can manage access to the repository.
-ms.openlocfilehash: 90a9df66f0cd4089634b2d29dd798b37629bbb7b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145130727'
 ---
-## Organizationのリポジトリへのアクセスについて
 
-Organization のリポジトリからコラボレーターを削除すると、そのコラボレータはリポジトリに対する読み取りおよび書き込みアクセスを失います。 リポジトリがプライベートで、コラボレータがリポジトリをフォークしている場合、そのそのフォークも削除されますが、リポジトリのローカルクローンは保持したままになります。
+## About access to organization repositories
+
+When you remove a collaborator from a repository in your organization, the collaborator loses read and write access to the repository. If the repository is private and the collaborator has forked the repository, then their fork is also deleted, but the collaborator will still retain any local clones of your repository.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
-## Organization のリポジトリへの個人のアクセスを管理する
-リポジトリへのアクセス権のユーザへの付与や、リポジトリへのユーザのアクセスレベルの変更をリポジトリ設定で行えます。 詳細については、「[リポジトリへのアクセス権を持つ Team と人を管理する](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)」を参照してください。
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+## Managing an individual's access to an organization repository
+You can give a person access to a repository or change a person's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
 {% else %}
-## ユーザへのリポジトリへのアクセスの付与
+## Giving a person access to a repository
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-manage-access %} {% data reusables.organizations.invite-teams-or-people %}
-1. 検索フィールドで、招待したい人の名前を入力し始め、マッチのリスト内の名前をクリックしてください。
-  ![リポジトリに招待する Team または人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. [ロールの選択] で、ユーザーを割り当てるリポジトリ ロールを選択し、 **[リポジトリに名前を追加]** をクリックします。
-  ![Team または人のアクセス許可を選択する](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.organizations.invite-teams-or-people %}
+1. In the search field, start typing the name of the person to invite, then click a name in the list of matches.
+  ![Search field for typing the name of a team or person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
+6. Under "Choose a role", select the repository role to assign the person, then click **Add NAME to REPOSITORY**.
+  ![Selecting permissions for the team or person](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
-## Organization のリポジトリへの個人のアクセスを管理する
+## Managing an individual's access to an organization repository
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
-4. **[メンバー]** または **[外部コラボレーター]** をクリックして、さまざまな種類のアクセス権を持つユーザーを管理します。 ![メンバーまたは外部コラボレーターを Organization に招待するボタン](/assets/images/help/organizations/select-outside-collaborators.png)
-5. 管理する個人のユーザー名の右側にある {% octicon "gear" aria-label="The Settings gear" %} ドロップダウン メニューで、 **[管理]** をクリックします。
-  ![[アクセスの管理] リンク](/assets/images/help/organizations/member-manage-access.png)
-6. [アクセスの管理] ページで、リポジトリの横にある **[アクセスの管理]** をクリックします。
-![リポジトリの [アクセスの管理] ボタン](/assets/images/help/organizations/repository-manage-access.png)
-7. この個人がコラボレーターなのか、チーム メンバーとしてリポジトリにアクセスできるのかなど、特定のリポジトリに対するアクセスを確認します。
-![ユーザーのリポジトリ アクセスのマトリクス](/assets/images/help/organizations/repository-access-matrix-for-user.png) {% endif %}
-## 参考資料
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.people %}
+4. Click either **Members** or **Outside collaborators** to manage people with different types of access. ![Button to invite members or outside collaborators to an organization](/assets/images/help/organizations/select-outside-collaborators.png)
+5. To the right of the name of the person you'd like to manage, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.
+  ![The manage access link](/assets/images/help/organizations/member-manage-access.png)
+6. On the "Manage access" page, next to the repository, click **Manage access**.
+![Manage access button for a repository](/assets/images/help/organizations/repository-manage-access.png)
+7. Review the person's access to a given repository, such as whether they're a collaborator or have access to the repository via team membership.
+![Repository access matrix for the user](/assets/images/help/organizations/repository-access-matrix-for-user.png)
+{% endif %}
+## Further reading
 
-{% ifversion fpt or ghec %}- 「[リポジトリ内での操作を制限する](/articles/limiting-interactions-with-your-repository)」{% endif %}
-- 「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」
+{% ifversion fpt or ghec %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
