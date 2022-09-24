@@ -7,7 +7,7 @@ ms.lasthandoff: 09/05/2022
 ms.locfileid: "145100735"
 ---
 1. 如果已选择付款计划，请检查您的付款方式。
-    - 要更改已存档的个人帐户现有付款方式，请单击“编辑…”，然后填写表单以添加新的付款方式。 在成功添加新付款方式后，您将自动返回订单页面。
+    - 要更改已存档的个人帐户现有付款方式，请单击“编辑…”，然后填写表单以添加新的付款方式。在成功添加新付款方式后，您将自动返回订单页面。
       ![用于向个人帐户添加付款方式的链接](/assets/images/help/marketplace/marketplace-edit-payment-method-personal.png)
     - 如果个人帐户没有已存档的付款方式，请单击“添加付款方式”，然后填写表单以添加信用卡或 PayPal 帐户。
       ![用于向个人帐户添加付款方式的链接](/assets/images/help/marketplace/marketplace-add-payment-method-personal.png)

@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145097365"
 ---
-您可以在 {% data variables.product.product_name %} 上检查已签名提交或标记的验证状态，并查看提交签名未验证的原因。 有关详细信息，请参阅“[检查提交和标记签名验证状态](/articles/checking-your-commit-and-tag-signature-verification-status)”。
+您可以在 {% data variables.product.product_name %} 上检查已签名提交或标记的验证状态，并查看提交签名未验证的原因。有关详细信息，请参阅“[检查提交和标记签名验证状态](/articles/checking-your-commit-and-tag-signature-verification-status)”。

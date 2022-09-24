@@ -8,6 +8,6 @@ ms.locfileid: "145097383"
 ---
 {% warning %}
 
-警告：如果贵组织使用团队同步，则撤销某人的 SSO 标识会从映射到 IdP 组的任何团队中删除该人员。 有关详细信息，请参阅“[将团队与标识提供者同步](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。
+警告：如果贵组织使用团队同步，则撤销某人的 SSO 标识会从映射到 IdP 组的任何团队中删除该人员。有关详细信息，请参阅“[将团队与标识提供者同步](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。
 
 {% endwarning %}

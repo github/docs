@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: "147875975"
 ---
-例如，您可以只允许从您办公室网络的 IP 地址访问。 IP 地址的允许列表将阻止不在允许列表中的任何 IP 地址通过 Web、API、Git 访问专用资源。
+例如，您可以只允许从您办公室网络的 IP 地址访问。IP 地址的允许列表将阻止不在允许列表中的任何 IP 地址通过 Web、API、Git 访问专用资源。

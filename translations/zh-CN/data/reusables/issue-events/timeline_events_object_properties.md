@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "147884686"
 ---
-此事件属性不使用与[问题事件对象通用属性](#issue-event-object-common-properties)相同的结构。 此事件返回以下属性。
+此事件属性不使用与[问题事件对象通用属性](#issue-event-object-common-properties)相同的结构。此事件返回以下属性。

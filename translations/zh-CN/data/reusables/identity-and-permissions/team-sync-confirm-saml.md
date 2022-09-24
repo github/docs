@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145097378"
 ---
-3. 确认是否组织启用了 SAML SSO。 有关详细信息，请参阅“[管理组织的 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/)”。
+3. 确认是否组织启用了 SAML SSO。有关详细信息，请参阅“[管理组织的 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/)”。

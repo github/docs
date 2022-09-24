@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147093028"
 ---
-1. 建议确认用户是否已启用 SAML 并具有关联的 SCIM 标识，以避免潜在的预配错误。 有关详细信息，请参阅“[排除组织的标识和访问管理故障](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)”。
+1. 建议确认用户是否已启用 SAML 并具有关联的 SCIM 标识，以避免潜在的预配错误。有关详细信息，请参阅“[排除组织的标识和访问管理故障](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)”。

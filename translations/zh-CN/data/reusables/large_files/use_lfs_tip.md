@@ -8,6 +8,6 @@ ms.locfileid: "145100741"
 ---
 {% tip %}
 
-提示：如果经常推送大型文件到 {% data variables.product.product_location %}，请考虑使用 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %})。 有关详细信息，请参阅“[大型文件版本控制](/articles/versioning-large-files)”。
+提示：如果经常推送大型文件到 {% data variables.product.product_location %}，请考虑使用 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %})。有关详细信息，请参阅“[大型文件版本控制](/articles/versioning-large-files)”。
 
 {% endtip %}
