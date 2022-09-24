@@ -1,0 +1,23 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 'Tras desbloquear un repositorio para su acceso temporal, un administrador de sitio no podía administrar los ajustes de los productos de seguridad en el repositorio.'
+    - 'Podían aparecer claves SSH administrativas duplicadas en la Consola de administración y en el archivo `/home/admin/.ssh/authorized_keys`.'
+    - 'En algunos casos, la ejecución de `ghe-cluster-config-apply` podía replicar una configuración vacía en nodos existentes de un clúster.'
+    - 'En algunos casos, las ejecuciones de configuración que se iniciaban con `ghe-config-apply` no se completaban, o devolvían un error de tipo `Container count mismatch`.'
+    - 'Después de actualizar un certificado TLS autofirmado en una instancia de GitHub Enterprise Server, los elementos de la interfaz de usuario de algunas páginas de la interfaz web no aparecían.'
+    - 'En algunos casos, las tareas en segundo plano se bloqueaban porque se utilizaba una biblioteca simultáneamente a pesar de no ser segura para subprocesos.'
+  changes:
+    - 'Se ha acelerado la generación de conjuntos de soporte gracias a un saneamiento de registros en paralelo. Si desea más información sobre los conjuntos de soporte, consulte "[Facilitar información al equipo de soporte de GitHub](/support/contacting-github-support/providing-data-to-github-support)".'
+    - 'El registro de auditoría empresarial incluye ahora más eventos generados por el usuario, como `project.create`. La API REST también devuelve eventos adicionales generados por el usuario, como `repo.create`. Para más información, consulte "[Acceso al registro de auditoría de tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" y "[Uso de la API de registro de auditoría para la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)".'
+  known_issues:
+    - 'Después de actualizar a {% data variables.product.prodname_ghe_server %} 3.3, es posible que {% data variables.product.prodname_actions %} no se inicie automáticamente. Para resolver este problema, conéctese al dispositivo mediante SSH y ejecuta el comando "ghe-actions-start".'
+    - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio.'
+    - "Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255\_caracteres."
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con {% data variables.product.prodname_github_connect %}, las incidencias en los repositorios privados e internos no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}.'
+    - 'El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes.'
+    - 'Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.'
+    - 'Los ajustes de almacenamiento de {% data variables.product.prodname_actions %} no se pueden validar y guardar en la {% data variables.enterprise.management_console %} cuando se selecciona "Forzar estilo de ruta" y, en su lugar, deben configurarse con la utilidad de línea de comandos "ghe-actions-precheck".'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
