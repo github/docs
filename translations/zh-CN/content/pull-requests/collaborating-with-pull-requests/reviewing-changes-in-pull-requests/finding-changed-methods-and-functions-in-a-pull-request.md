@@ -34,12 +34,12 @@ ms.locfileid: '145129990'
 2. 在拉取请求列表中，单击要在其中查找已更改函数和方法的拉取请求。
 {% data reusables.repositories.changed-files %}
 4. 要查看已更改函数和方法的摘要列表，请单击“跳转到...”。![“跳转到”下拉菜单](/assets/images/help/pull_requests/jump-to-menu.png)
-5. 从下拉菜单中选择已更改的函数或方法。 也可以输入函数或方法的名称以过滤结果。
+5. 从下拉菜单中选择已更改的函数或方法。也可以输入函数或方法的名称以过滤结果。
   ![筛选函数和方法](/assets/images/help/pull_requests/filter-function-and-methods.png)
 
  {% note %}
 
- 注意：如果没有看到预期的函数或方法，请确认代码已编译且不含错误。 只有在此拉请求中更改的函数和方法以及“.go”、“.js”、“.ts”、“.py”、“.php”和“.rb”文件中的函数和方法才会显示在下拉菜单中     。
+ 注意：如果没有看到预期的函数或方法，请确认代码已编译且不含错误。只有在此拉请求中更改的函数和方法以及“.go”、“.js”、“.ts”、“.py”、“.php”和“.rb”文件中的函数和方法才会显示在下拉菜单中。
 
  {% endnote %}
 

@@ -29,7 +29,7 @@ ms.locfileid: '147883293'
 
 {% tip %}
 
-提示：你也可以使用 {% data variables.product.prodname_cli %} 将拉取请求标记为可供审查。 有关详细信息，请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)”。
+提示：你也可以使用 {% data variables.product.prodname_cli %} 将拉取请求标记为可供审查。有关详细信息，请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)”。
 
 {% endtip %}
 
@@ -40,7 +40,7 @@ ms.locfileid: '147883293'
 
 ## 将拉取请求转换为草稿
 
-您可以随时将拉取请求转换为草稿。 例如，如果您意外打开了拉取请求而不是草稿，或者收到了需要解决的关于拉取请求的反馈，则可将拉取请求转换为草稿，以表示需要进一步更改。 再次将拉取请求标记为可供审查之前，任何人都不能合并拉取请求。 将拉取请求转换为草稿时，已订阅拉取请求通知的用户将不会取消订阅。
+您可以随时将拉取请求转换为草稿。例如，如果您意外打开了拉取请求而不是草稿，或者收到了需要解决的关于拉取请求的反馈，则可将拉取请求转换为草稿，以表示需要进一步更改。再次将拉取请求标记为可供审查之前，任何人都不能合并拉取请求。将拉取请求转换为草稿时，已订阅拉取请求通知的用户将不会取消订阅。
 
 {% data reusables.repositories.sidebar-pr %}
 2. 在“Pull Requests（拉取请求）”列表中，单击要转换为草稿的拉取请求。

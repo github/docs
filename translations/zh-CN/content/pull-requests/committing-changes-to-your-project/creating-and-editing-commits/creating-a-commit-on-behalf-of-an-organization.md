@@ -1,6 +1,6 @@
 ---
 title: 代表组织创建提交
-intro: '通过在提交消息中添加尾行可代表组织创建提交。 归属于组织的提交应包含 {% data variables.product.product_name %} 上的 `on-behalf-of` 徽章。'
+intro: '通过在提交消息中添加尾行可代表组织创建提交。归属于组织的提交应包含 {% data variables.product.product_name %} 上的 `on-behalf-of` 徽章。'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
@@ -35,7 +35,7 @@ ms.locfileid: '145129453'
 
 ## 在命令行上使用 `on-behalf-of` 徽章创建提交
 
-1. 输入提交消息以及简短、有意义的更改描述。 在提交描述后，不要加上右引号，而是添加两个空行。
+1. 输入提交消息以及简短、有意义的更改描述。在提交描述后，不要加上右引号，而是添加两个空行。
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -56,7 +56,7 @@ ms.locfileid: '145129453'
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-在下次推送时，新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。 有关详细信息，请参阅“[将更改推送到远程存储库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)”。
+在下次推送时，新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。有关详细信息，请参阅“[将更改推送到远程存储库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)”。
 
 ## 在 {% data variables.product.product_name %} 上使用 `on-behalf-of` 徽章创建提交
 

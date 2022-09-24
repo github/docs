@@ -21,7 +21,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147065864'
 ---
-状态检查基于针对您每次向仓库的推送而运行的外部流程，例如持续集成构建。 可以在拉取请求中的各个提交旁边看到状态检查的“待处理”、“通过”或“失败”状态  。
+状态检查基于针对您每次向仓库的推送而运行的外部流程，例如持续集成构建。可以在拉取请求中的各个提交旁边看到状态检查的“待处理”、“通过”或“失败”状态。
 
 ![提交和状态列表](/assets/images/help/pull_requests/commit-list-statuses.png)
 
@@ -40,7 +40,7 @@ ms.locfileid: '147065864'
 
 “检查”与“状态”的不同之处在于它们提供行注释、更详细的消息，并且仅适用于 {% data variables.product.prodname_github_apps %} 。
 
-组织所有者和能够推送到仓库的用户可使用 {% data variables.product.product_name %} 的 API 创建检查和状态。 有关详细信息，请参阅“[检查](/rest/reference/checks)”和“[状态](/rest/reference/commits#commit-statuses)”。
+组织所有者和能够推送到仓库的用户可使用 {% data variables.product.product_name %} 的 API 创建检查和状态。有关详细信息，请参阅“[检查](/rest/reference/checks)”和“[状态](/rest/reference/commits#commit-statuses)”。
 
 ## 检查
 
@@ -50,7 +50,7 @@ ms.locfileid: '147065864'
 
 {% note %}
 
-**注意：** 仅当你为存储库设置了“检查”（而不是“状态”）时，才会为拉取请求填充“检查”选项卡 。
+**注意：** 仅当你为存储库设置了“检查”（而不是“状态”）时，才会为拉取请求填充“检查”选项卡。
 
 {% endnote %}
 
@@ -64,18 +64,18 @@ ms.locfileid: '147065864'
 
 ### 跳过和申请个别提交的检查
 
-当仓库设置为自动申请检查推送时，您可以选择跳过所推送的个别提交的检查。 当存储库未设置为自动申请检查推送时，你可以请求检查你推送的个别提交。 有关这些设置的详细信息，请参阅“[检查套件](/rest/reference/checks#update-repository-preferences-for-check-suites)”。
+当仓库设置为自动申请检查推送时，您可以选择跳过所推送的个别提交的检查。当存储库未设置为自动申请检查推送时，你可以请求检查你推送的个别提交。有关这些设置的详细信息，请参阅“[检查套件](/rest/reference/checks#update-repository-preferences-for-check-suites)”。
 
 要跳过或申请检查提交，请在提交消息末添加以下尾行之一：
 
-- 若要跳过检查进行提交，请输入提交消息以及简短、有意义的更改说明。 提交说明后，在右引号之前，添加两个空行，后接 `skip-checks: true`：
+- 若要跳过检查进行提交，请输入提交消息以及简短、有意义的更改说明。提交说明后，在右引号之前，添加两个空行，后接 `skip-checks: true`：
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
-- 若要请求检查进行提交，请输入提交消息以及简短、有意义的更改说明。 提交说明后，在右引号之前，添加两个空行，后接 `request-checks: true`：
+- 若要请求检查进行提交，请输入提交消息以及简短、有意义的更改说明。提交说明后，在右引号之前，添加两个空行，后接 `request-checks: true`：
   ```shell
   $ git commit -m "Refactor usability tests
   >

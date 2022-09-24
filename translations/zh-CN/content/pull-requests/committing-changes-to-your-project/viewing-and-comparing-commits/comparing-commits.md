@@ -24,11 +24,11 @@ ms.locfileid: '145129444'
 
 每个存储库的“比较”视图都包含两个下拉菜单：`base` 和 `compare`。
 
-`base` 应被视为比较的起点，而 `compare` 是终结点。 在比较期间，始终可以通过单击“编辑”来更改 `base` 和 `compare` 点。
+`base` 应被视为比较的起点，而 `compare` 是终结点。在比较期间，始终可以通过单击“编辑”来更改 `base` 和 `compare` 点。
 
 ## 比较分支
 
-最常用的比较是比较分支，例如在启动新的拉取请求时。 启动 [新的拉取请求](/articles/creating-a-pull-request)时，始终会进入分支比较视图。
+最常用的比较是比较分支，例如在启动新的拉取请求时。启动 [新的拉取请求](/articles/creating-a-pull-request)时，始终会进入分支比较视图。
 
 若要比较分支，可以从页面顶部的 `compare` 下拉菜单中选择分支名称。
 
@@ -36,7 +36,7 @@ ms.locfileid: '145129444'
 
 ## 比较标记
 
-比较发行版标记将显示自上次发布以来您对仓库的更改。 有关详细信息，请参阅“[比较版本](/github/administering-a-repository/comparing-releases)”。
+比较发行版标记将显示自上次发布以来您对仓库的更改。有关详细信息，请参阅“[比较版本](/github/administering-a-repository/comparing-releases)”。
 
 若要比较标记，可以从页面顶部的 `compare` 下拉菜单中选择标记名称。
 
@@ -54,9 +54,9 @@ ms.locfileid: '145129444'
 
 ## 跨复刻比较
 
-您可以比较基础仓库与任何复刻的仓库。 这是用户对项目执行拉取请求时显示的视图。
+您可以比较基础仓库与任何复刻的仓库。这是用户对项目执行拉取请求时显示的视图。
 
-要比较不同仓库上的分支，请在分支名称前加上用户名。 例如，通过为 `base` 指定 `octocat:main`，为 `compare` 指定 `octo-org:main`，可以比较分别由 `octocat` 和 `octo-org` 拥有的存储库上的 `main` 分支。
+要比较不同仓库上的分支，请在分支名称前加上用户名。例如，通过为 `base` 指定 `octocat:main`，为 `compare` 指定 `octo-org:main`，可以比较分别由 `octocat` 和 `octo-org` 拥有的存储库上的 `main` 分支。
 
 下面是[两个存储库之间的比较](https://github.com/github/linguist/compare/master...octocat:master)示例。
 
@@ -64,7 +64,7 @@ ms.locfileid: '145129444'
 
 作为一种快捷方法，Git 使用 `^` 表示法表示“前一次提交”。
 
-您可以使用此表示法对某个提交或分支的现状与前身进行比较。 例如， `96d29b7^^^^^` 指示 `96d29b7` 之前的五个提交，因为有五个 `^` 标记。 在 `base` 分支中键入 `96d29b7^^^^^`，并在 `compare` 分支中键入 `96d29b7`，可将 `96d29b7` 之前提交的五个提交与 `96d29b7` 提交进行比较。
+您可以使用此表示法对某个提交或分支的现状与前身进行比较。例如， `96d29b7^^^^^` 指示 `96d29b7` 之前的五个提交，因为有五个 `^` 标记。在 `base` 分支中键入 `96d29b7^^^^^`，并在 `compare` 分支中键入 `96d29b7`，可将 `96d29b7` 之前提交的五个提交与 `96d29b7` 提交进行比较。
 
 下面是 [使用 `^` 表示法进行比较](https://github.com/octocat/linguist/compare/octocat:96d29b7%5E%5E%5E%5E%5E...octocat:96d29b7)的示例。
 

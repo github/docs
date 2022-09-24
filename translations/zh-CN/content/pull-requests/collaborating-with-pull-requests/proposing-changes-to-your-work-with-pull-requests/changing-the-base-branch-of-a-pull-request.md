@@ -23,7 +23,7 @@ ms.locfileid: '145129629'
 ---
 {% warning %}
 
-警告：更改拉取请求的基本分支时，有些提交可能会从时间表中被删除。 审查评论也可能过时，因为评论引用的代码行可能不再是拉取请求中更改的一部分。
+警告：更改拉取请求的基本分支时，有些提交可能会从时间表中被删除。审查评论也可能过时，因为评论引用的代码行可能不再是拉取请求中更改的一部分。
 
 {% endwarning %}
 
@@ -35,7 +35,7 @@ ms.locfileid: '145129629'
 
 {% tip %}
 
-提示：打开拉取请求时，{% data variables.product.product_name %} 会将基础设置为分支引用的提交。 如果将来更新该分支，{% data variables.product.product_name %} 不会更新基础分支的提交。
+提示：打开拉取请求时，{% data variables.product.product_name %} 会将基础设置为分支引用的提交。如果将来更新该分支，{% data variables.product.product_name %} 不会更新基础分支的提交。
 
 {% endtip %}
 

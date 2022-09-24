@@ -21,7 +21,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: '147876068'
 ---
-{% data reusables.pull_requests.dismiss_review %} 这会将审查状态更改为审查注释。 忽略审查后，必须添加注释，解释忽略原因。 注释将被添加到拉取请求对话。
+{% data reusables.pull_requests.dismiss_review %} 这会将审查状态更改为审查注释。忽略审查后，必须添加注释，解释忽略原因。注释将被添加到拉取请求对话。
 
 {% data reusables.search.requested_reviews_search %}
 

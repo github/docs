@@ -29,13 +29,13 @@ ms.locfileid: '147614269'
 
 1. 在“拉取请求”列表中，单击要添加到合并队列的拉取请求。
 
-1. 单击“准备就绪后合并”，将拉取请求添加到合并队列。 或者，如果你是管理员，可以执行以下操作：
-   -  如果分支保护设置允许，可通过选中“合并而不等待满足要求({% ifversion bypass-branch-protections %}绕过分支保护{% else %}仅限管理员{% endif %})”直接合并拉取请求，并遵循标准流程。
+1. 单击“准备就绪后合并”，将拉取请求添加到合并队列。或者，如果你是管理员，可以执行以下操作：
+   -  如果分支保护设置允许，可通过选中“合并而不等待满足要求 ({% ifversion bypass-branch-protections %}绕过分支保护{% else %}仅限管理员{% endif %})”直接合并拉取请求，并遵循标准流程。
    ![合并队列选项](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}
 
-  **提示：** 只要准备好合并建议的更改，就可以单击“准备就绪后合并”。 一旦满足所需的审批和状态检查条件，{% data variables.product.product_name %} 会自动将拉取请求添加到合并队列中。
+  **提示：** 只要准备好合并建议的更改，就可以单击“准备就绪后合并”。一旦满足所需的审批和状态检查条件，{% data variables.product.product_name %} 会自动将拉取请求添加到合并队列中。
 
   {% endtip %}
 
@@ -50,13 +50,13 @@ ms.locfileid: '147614269'
 1. 若要从队列中删除拉取请求，请单击“从队列中删除”。
   ![从队列中删除拉取请求](/assets/images/help/pull_requests/remove-from-queue-button.png)
 
-或者，可以导航到基础分支的合并队列页，单击要删除的拉取请求旁边的“...”，然后选择“从队列中删除” 。 有关如何访问基本分支的合并队列页的信息，请参阅下面的部分。
+或者，可以导航到基础分支的合并队列页，单击要删除的拉取请求旁边的“...”，然后选择“从队列中删除” 。有关如何访问基本分支的合并队列页的信息，请参阅下面的部分。
 
 ## 查看合并队列
 
 可以在 {% data variables.product.product_name %} 上的不同位置查看基础分支的合并队列。
 
-- 在存储库的“分支”页上。 如果你没有拉取请求或不知道队列中已有拉取请求，并且想要查看队列中的内容，我们建议你使用此路径。 有关详细信息，请参阅“[查看存储库中的分支](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)”。
+- 在存储库的“分支”页上。如果你没有拉取请求或不知道队列中已有拉取请求，并且想要查看队列中的内容，我们建议你使用此路径。有关详细信息，请参阅“[查看存储库中的分支](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)”。
 
   ![在“分支”页面中查看合并队列](/assets/images/help/pull_requests/merge-queue-branches-page.png)
 

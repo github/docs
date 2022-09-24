@@ -22,11 +22,11 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129986'
 ---
-只有拉取请求作者才可授权上游仓库维护员或对上游仓库具有推送权限的人员，允许他们提交到用户拥有的复刻中其拉取请求的比较分支。 若要了解有关上游存储库的详细信息，请参阅“[关于分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)”。
+只有拉取请求作者才可授权上游仓库维护员或对上游仓库具有推送权限的人员，允许他们提交到用户拥有的复刻中其拉取请求的比较分支。若要了解有关上游存储库的详细信息，请参阅“[关于分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)”。
 
-拉取请求作者可在最初从用户拥有的复刻创建拉取请求时或在创建拉取请求后授予这些权限。 有关详细信息，请参阅“[从分支创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)”。
+拉取请求作者可在最初从用户拥有的复刻创建拉取请求时或在创建拉取请求后授予这些权限。有关详细信息，请参阅“[从分支创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)”。
 
-您可以在第一次从复刻创建拉取请求时设置提交权限。 有关详细信息，请参阅“[从分支创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)”。 此外，您也可以修改现有拉取请求，让仓库维护员提交到分支。
+您可以在第一次从复刻创建拉取请求时设置提交权限。有关详细信息，请参阅“[从分支创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)”。此外，您也可以修改现有拉取请求，让仓库维护员提交到分支。
 
 ## 在现有拉取请求上启用仓库维护员权限
 

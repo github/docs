@@ -23,13 +23,13 @@ ms.locfileid: '145130085'
 ---
 有关所需审查的详细信息，请参阅“[关于受保护的分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。
 
-您可以评论拉取请求、批准更改或在批准前申请改进。 有关详细信息，请参阅“[审查拉取请求中的建议更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。
+您可以评论拉取请求、批准更改或在批准前申请改进。有关详细信息，请参阅“[审查拉取请求中的建议更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。
 
 {% data reusables.search.requested_reviews_search %}
 
 {% tip %}
 
-提示：如果你批准的拉取请求发生了重要更改，你可以消除审查。 拉取请求在合并前需要新的审查。 有关详细信息，请参阅“[消除拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。
+提示：如果你批准的拉取请求发生了重要更改，你可以消除审查。拉取请求在合并前需要新的审查。有关详细信息，请参阅“[消除拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。
 
 {% endtip %}
 

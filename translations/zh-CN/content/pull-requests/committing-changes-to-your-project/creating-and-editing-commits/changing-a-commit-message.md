@@ -5,7 +5,7 @@ redirect_from:
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
-intro: '如果提交消息中包含不明确、不正确或敏感的信息，您可以在本地修改它，然后将含有新消息的新提交推送到 {% data variables.product.product_name %}。 您还可以更改提交消息以添加遗漏的信息。'
+intro: '如果提交消息中包含不明确、不正确或敏感的信息，您可以在本地修改它，然后将含有新消息的新提交推送到 {% data variables.product.product_name %}。您还可以更改提交消息以添加遗漏的信息。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,7 +22,7 @@ ms.locfileid: '145129461'
 
 可以使用 `git commit --amend` 命令更改最新的提交消息。
 
-在 Git 中，提交消息的文本是提交的一部分。 更改提交消息将更改提交 ID - 即用于命名提交的 SHA1 校验和。 实际上，您是创建一个新提交以替换旧提交。
+在 Git 中，提交消息的文本是提交的一部分。更改提交消息将更改提交 ID - 即用于命名提交的 SHA1 校验和。实际上，您是创建一个新提交以替换旧提交。
 
 ## 提交尚未推送上线
 
@@ -31,15 +31,15 @@ ms.locfileid: '145129461'
 1. 在命令行上，导航到包含要修改的提交的仓库。
 2. 键入 `git commit --amend`，然后按“Enter”。
 3. 在文本编辑器中编辑提交消息，然后保存该提交。
-    - 通过在提交中添加尾行可添加合作作者。 有关详细信息，请参阅“[创建具有多个作者的提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)”。
+    - 通过在提交中添加尾行可添加合作作者。有关详细信息，请参阅“[创建具有多个作者的提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)”。
 {% ifversion fpt or ghec %}
-    - 通过在提交中添加尾行可创建代表组织的提交。 有关详细信息，请参阅“[代表组织创建提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)”{% endif %}
+    - 通过在提交中添加尾行可创建代表组织的提交。有关详细信息，请参阅“[代表组织创建提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)”{% endif %}
 
 在下次推送时，新的提交和消息将显示在 {% data variables.product.product_location %} 上。
 
 {% tip %}
 
-通过更改 `core.editor` 设置可更改 Git 的默认文本编辑器。 有关详细信息，请参阅 Git 手册中的“[基本客户端配置](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)”。
+通过更改 `core.editor` 设置可更改 Git 的默认文本编辑器。有关详细信息，请参阅 Git 手册中的“[基本客户端配置](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)”。
 
 {% endtip %}
 
@@ -49,7 +49,7 @@ ms.locfileid: '145129461'
 
 {% warning %}
 
-我们很不提倡强制推送，因为这会改变仓库的历史记录。 如果强制推送，已克隆仓库的人员必须手动修复其本地历史记录。 有关详细信息，请参阅 Git 手册中的“[从上游变基恢复](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)”。
+我们很不提倡强制推送，因为这会改变仓库的历史记录。如果强制推送，已克隆仓库的人员必须手动修复其本地历史记录。有关详细信息，请参阅 Git 手册中的“[从上游变基恢复](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)”。
 
 {% endwarning %}
 
@@ -114,13 +114,13 @@ $ git push --force origin <em>example-branch</em>
 
 {% tip %}
 
-如前文所述，修改提交消息会生成含有新 ID 的新提交。 但是，在这种情况下，该修改提交的每个后续提交也会获得一个新 ID，因为每个提交也包含其父提交的 ID。
+如前文所述，修改提交消息会生成含有新 ID 的新提交。但是，在这种情况下，该修改提交的每个后续提交也会获得一个新 ID，因为每个提交也包含其父提交的 ID。
 
 {% endtip %}
 
 {% warning %}
 
-如果您的提交消息中包含敏感信息，则强制推送修改后的提交可能不会导致从 {% data variables.product.product_name %} 中删除原提交。 旧提交不会成为后续克隆的一部分；但是，它可能仍然缓存在 {% data variables.product.product_name %} 上，并且可通过提交 ID 访问。 您必须联系 {% data variables.contact.contact_support %} 并提供旧提交 ID，以便从远程仓库中清除它。
+如果您的提交消息中包含敏感信息，则强制推送修改后的提交可能不会导致从 {% data variables.product.product_name %} 中删除原提交。旧提交不会成为后续克隆的一部分；但是，它可能仍然缓存在 {% data variables.product.product_name %} 上，并且可通过提交 ID 访问。您必须联系 {% data variables.contact.contact_support %} 并提供旧提交 ID，以便从远程仓库中清除它。
 
 {% endwarning %}
 

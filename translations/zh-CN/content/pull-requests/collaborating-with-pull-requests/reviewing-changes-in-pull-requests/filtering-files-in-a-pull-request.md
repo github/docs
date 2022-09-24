@@ -56,7 +56,7 @@ ms.locfileid: '147884171'
    {% endnote %}
    
    ![突出显示“筛选已更改的文件”搜索框和文件树的屏幕截图](/assets/images/help/repository/file-tree.png)
-1. 若要按文件路径进行筛选，请在“筛选已更改的文件”搜索框中输入部分或全部文件路径。 或者，使用文件筛选器下拉列表。 有关详细信息，请参阅“[使用文件筛选器下拉菜单](#using-the-file-filter-dropdown)”。
+1. 若要按文件路径进行筛选，请在“筛选已更改的文件”搜索框中输入部分或全部文件路径。或者，使用文件筛选器下拉列表。有关详细信息，请参阅“[使用文件筛选器下拉菜单](#using-the-file-filter-dropdown)”。
 
 {% endif %}
 

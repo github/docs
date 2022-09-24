@@ -60,7 +60,7 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 将当前工作目录更改为您的本地仓库。
-3. 从上游仓库获取分支及其各自的提交。 对 `BRANCHNAME` 的提交将保存在本地分支 `upstream/BRANCHNAME` 中。
+3. 从上游仓库获取分支及其各自的提交。对 `BRANCHNAME` 的提交将保存在本地分支 `upstream/BRANCHNAME` 中。
 
   ```shell
   $ git fetch upstream
@@ -79,7 +79,7 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
   > Switched to branch 'main'
   ```
 
-5. 将上游默认分支（在本例中为 `upstream/main`）的更改合并到本地默认分支中。 这会使复刻的默认分支与上游仓库同步，而不会丢失本地更改。
+5. 将上游默认分支（在本例中为 `upstream/main`）的更改合并到本地默认分支中。这会使复刻的默认分支与上游仓库同步，而不会丢失本地更改。
 
   ```shell
   $ git merge upstream/main
@@ -92,7 +92,7 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
   >  create mode 100644 README.md
   ```
   
-  如果本地分支没有任何唯一提交，Git 将执行快速转发。 有关详细信息，请参阅 Git 文档中的[基本分支和合并](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)。
+  如果本地分支没有任何唯一提交，Git 将执行快速转发。有关详细信息，请参阅 Git 文档中的[基本分支和合并](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)。
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
@@ -100,10 +100,10 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
   ``` 
-  如果本地分支具有唯一提交，则可能需要解决冲突。 有关详细信息，请参阅“[解决合并冲突](/github/collaborating-with-pull-requests/addressing-merge-conflicts)”。
+  如果本地分支具有唯一提交，则可能需要解决冲突。有关详细信息，请参阅“[解决合并冲突](/github/collaborating-with-pull-requests/addressing-merge-conflicts)”。
 
 {% tip %}
 
-**提示**：同步分支只更新存储库的本地副本。 若要在 {% data variables.product.product_location %} 上更新分支，必须[推送更改](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)。
+**提示**：同步分支只更新存储库的本地副本。若要在 {% data variables.product.product_location %} 上更新分支，必须[推送更改](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)。
 
 {% endtip %}

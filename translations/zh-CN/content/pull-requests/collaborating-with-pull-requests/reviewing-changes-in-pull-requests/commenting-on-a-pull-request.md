@@ -26,21 +26,21 @@ ms.locfileid: '147578954'
 ---
 ## 关于拉取请求评论
 
-可以在拉取请求的“对话”选项卡上添加注释，留下一般性注释、疑问或提议。 您还可以提出拉取请求的作者可直接从您的注释中应用的更改。
+可以在拉取请求的“对话”选项卡上添加注释，留下一般性注释、疑问或提议。您还可以提出拉取请求的作者可直接从您的注释中应用的更改。
 
 ![拉取请求对话](/assets/images/help/pull_requests/conversation.png)
 
-还可以在拉取请求的“已更改的文件”选项卡上以单行注释的形式或作为[拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)的一部分对文件的特定部分进行注释。 添加行注释是讨论有关实现的问题或向作者提供反馈的好方法。
+还可以在拉取请求的“已更改的文件”选项卡上以单行注释的形式或作为[拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)的一部分对文件的特定部分进行注释。添加行注释是讨论有关实现的问题或向作者提供反馈的好方法。
 
 有关如何在拉取请求审查中添加行注释的详细信息，请参阅“[审查拉取请求中的建议更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。
 
 {% note %}
 
-注意：如果通过电子邮件回复拉取请求，则会将注释添加到“对话”选项卡中，并且不会成为拉取请求审查的一部分 。
+注意：如果通过电子邮件回复拉取请求，则会将注释添加到“对话”选项卡中，并且不会成为拉取请求审查的一部分。
 
 {% endnote %}
 
-若要回复现有的行注释，需要导航到“对话”选项卡或“已更改的文件”选项卡上的注释，并在其下方添加额外的行注释 。
+若要回复现有的行注释，需要导航到“对话”选项卡或“已更改的文件”选项卡上的注释，并在其下方添加额外的行注释。
 
 {% tip %}
 

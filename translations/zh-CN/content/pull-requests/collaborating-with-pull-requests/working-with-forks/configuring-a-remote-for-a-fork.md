@@ -1,6 +1,6 @@
 ---
 title: 为复刻配置远程仓库
-intro: '必须在 Git 中配置指向上游存储库的远程存储库，才能[将你在分支中所做的更改同步](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)到原始存储库。 这也允许您将在原始仓库中所做的更改同步到复刻中。'
+intro: '必须在 Git 中配置指向上游存储库的远程存储库，才能[将你在分支中所做的更改同步](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)到原始存储库。这也允许您将在原始仓库中所做的更改同步到复刻中。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
   - /articles/configuring-a-remote-for-a-fork

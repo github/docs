@@ -31,8 +31,8 @@ ms.locfileid: '147580437'
 
 ### 合并压缩合并的消息
 
-{% ifversion default-merge-squash-commit-message %} 在压缩和合并时，{% data variables.product.prodname_dotcom %} 生成默认的提交消息，你可以对其进行编辑。 根据存储库的配置方式和拉取请求中的提交数（不包括合并提交），此消息可能包括拉取请求标题、拉取请求说明或有关提交的信息。
-{% else %} 在压缩和合并时，{% data variables.product.prodname_dotcom %} 生成默认的提交消息，你可以对其进行编辑。 默认消息取决于拉取请求中的提交数，不包括合并提交。
+{% ifversion default-merge-squash-commit-message %} 在压缩和合并时，{% data variables.product.prodname_dotcom %} 生成默认的提交消息，你可以对其进行编辑。根据存储库的配置方式和拉取请求中的提交数（不包括合并提交），此消息可能包括拉取请求标题、拉取请求说明或有关提交的信息。
+{% else %} 在压缩和合并时，{% data variables.product.prodname_dotcom %} 生成默认的提交消息，你可以对其进行编辑。默认消息取决于拉取请求中的提交数，不包括合并提交。
 
 提交数 | 总结 | 说明 |
 ----------------- | ------- | ----------- | 
@@ -45,18 +45,18 @@ ms.locfileid: '147580437'
 一个提交 | 单个提交的提交消息标题，后接拉取请求编号 | 单个提交的提交消息正文
 多个提交 | 拉取请求标题，后接拉取请求编号 | 按日期顺序列出所有被压缩提交的提交消息
 
-{% ifversion default-merge-squash-commit-message %} 拥有存储库维护员或管理员权限的人员可以为所有已压缩提交配置其存储库的默认合并消息，以使用拉取请求标题、拉取请求标题和提交详细信息或拉取请求标题和说明。 有关详细信息，请参阅“[配置提交压缩](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)”。{% endif %}
+{% ifversion default-merge-squash-commit-message %} 拥有存储库维护员或管理员权限的人员可以为所有已压缩提交配置其存储库的默认合并消息，以使用拉取请求标题、拉取请求标题和提交详细信息或拉取请求标题和说明。有关详细信息，请参阅“[配置提交压缩](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)”。{% endif %}
 
-{% ifversion ghes = 3.6 %} 拥有存储库管理员访问权限的人员可以将存储库配置为使用拉取请求的标题作为所有已压缩提交的默认合并消息。 有关详细信息，请参阅“[配置提交压缩](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)”。
+{% ifversion ghes = 3.6 %} 拥有存储库管理员访问权限的人员可以将存储库配置为使用拉取请求的标题作为所有已压缩提交的默认合并消息。有关详细信息，请参阅“[配置提交压缩](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)”。
 {% endif %}
 
 ### 压缩与合并长运行分支
 
 如果计划在合并拉取请求后继续操作[头部分支](/github/getting-started-with-github/github-glossary#head-branch)，建议不要压缩与合并拉取请求。
 
-在创建拉取请求时，{% data variables.product.prodname_dotcom %} 会标识头部分支和[基础分支](/github/getting-started-with-github/github-glossary#base-branch)上的最新提交：共同的提交原型。 在压缩与合并拉取请求时，{% data variables.product.prodname_dotcom %} 会在基础分支上创建提交，其中包含自提交原型以来对头部分支所做的所有更改。
+在创建拉取请求时，{% data variables.product.prodname_dotcom %} 会标识头部分支和[基础分支](/github/getting-started-with-github/github-glossary#base-branch)上的最新提交：共同的提交原型。在压缩与合并拉取请求时，{% data variables.product.prodname_dotcom %} 会在基础分支上创建提交，其中包含自提交原型以来对头部分支所做的所有更改。
 
-由于此提交仅位于基础分支而不是头部分支上，因此两个分支的共同原型保持不变。 如果您继续使用头部分支，则在两个分支之间创建新的拉取请求，该拉取请求将包含自共同原型以来的所有提交，其中包括你在之前的拉取请求中压缩与合并的提交。 如果没有冲突，您可以安全地合并这些提交。 但是，此工作流会增大合并冲突的可能性。 如果您继续压缩与合并长运行头部分支的拉取请求，则必须反复解决相同的冲突。
+由于此提交仅位于基础分支而不是头部分支上，因此两个分支的共同原型保持不变。如果您继续使用头部分支，则在两个分支之间创建新的拉取请求，该拉取请求将包含自共同原型以来的所有提交，其中包括你在之前的拉取请求中压缩与合并的提交。如果没有冲突，您可以安全地合并这些提交。但是，此工作流会增大合并冲突的可能性。如果您继续压缩与合并长运行头部分支的拉取请求，则必须反复解决相同的冲突。
 
 ## 对提交进行变基和合并
 
