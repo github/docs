@@ -13,13 +13,13 @@ ms.locfileid: '147529733'
 ---
 ## 关于创建关系图
 
-可以使用以下三种不同的语法在 Markdown 中创建关系图：mermaid、geoJSON 和 topoJSON、ASCII STL。 关系图可在以下项中呈现：{% data variables.product.prodname_github_issues %}、{% data variables.product.prodname_discussions %}、拉取请求、Wiki 和 Markdown 文件。
+可以使用以下三种不同的语法在 Markdown 中创建关系图：mermaid、geoJSON 和 topoJSON、ASCII STL。关系图可在以下项中呈现：{% data variables.product.prodname_github_issues %}、{% data variables.product.prodname_discussions %}、拉取请求、Wiki 和 Markdown 文件。
 
 ## 创建 Mermaid 关系图
 
-Mermaid 是一款受 Markdown 启发的工具，可将文本呈现为关系图。 例如，Mermaid 可以呈现流程图、序列图、饼图等。 有关详细信息，请参阅 [Mermaid 文档](https://mermaid-js.github.io/mermaid/#/)。
+Mermaid 是一款受 Markdown 启发的工具，可将文本呈现为关系图。例如，Mermaid 可以呈现流程图、序列图、饼图等。有关详细信息，请参阅 [Mermaid 文档](https://mermaid-js.github.io/mermaid/#/)。
 
-若要创建 Mermaid 关系图，请使用 `mermaid` 语言标识符在围栏代码块中添加 Mermaid 语法。 有关创建代码块的详细信息，请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
+若要创建 Mermaid 关系图，请使用 `mermaid` 语言标识符在围栏代码块中添加 Mermaid 语法。有关创建代码块的详细信息，请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
 例如，可以创建流程图：
 
@@ -45,7 +45,7 @@ graph TD;
 
 ## 创建 GeoJSON 和 TopoJSON 地图
 
-可使用 GeoJSON/TopoJSON 语法创建交互式地图。 若要创建地图，请使用 `geojson` 或 `topojson` 语法标识符在围栏代码块中添加 GeoJSON 或 TopoJSON。 有关详细信息，请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
+可使用 GeoJSON/TopoJSON 语法创建交互式地图。若要创建地图，请使用 `geojson` 或 `topojson` 语法标识符在围栏代码块中添加 GeoJSON 或 TopoJSON。有关详细信息，请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
 ### 使用 GeoJSON
 
@@ -130,7 +130,7 @@ graph TD;
 
 ## 创建 STL 3D 模型
 
-可以直接在 Markdown 中使用 ASCII STL 语法来创建交互式 3D 模型。 若要显示模型，请使用 `stl` 语法标识符在围栏代码块中添加 ASCII STL 语法。 有关详细信息，请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
+可以直接在 Markdown 中使用 ASCII STL 语法来创建交互式 3D 模型。若要显示模型，请使用 `stl` 语法标识符在围栏代码块中添加 ASCII STL 语法。有关详细信息，请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
 例如，可创建简单的 3D 模型：
 

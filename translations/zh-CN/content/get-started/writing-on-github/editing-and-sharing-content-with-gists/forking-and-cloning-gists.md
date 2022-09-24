@@ -1,6 +1,6 @@
 ---
 title: 复刻和克隆 Gist
-intro: Gist 实际上是 Git 仓库，这意味着即使您不是原作者，也可以复刻或克隆任何 Gist。 还可以查看 Gist 的完整提交历史记录，包括差异。
+intro: Gist 实际上是 Git 仓库，这意味着即使您不是原作者，也可以复刻或克隆任何 Gist。还可以查看 Gist 的完整提交历史记录，包括差异。
 permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/forking-and-cloning-gists
@@ -26,7 +26,7 @@ ms.locfileid: '145066803'
 
 ## 克隆 Gist
 
-如果要对 Gist 进行本地更改然后将其推送到 web 上，您可以克隆 Gist 然后进行提交，与使用任何 Git 仓库的方法一样。 有关详细信息，请参阅“[克隆存储库](/articles/cloning-a-repository)”。
+如果要对 Gist 进行本地更改然后将其推送到 web 上，您可以克隆 Gist 然后进行提交，与使用任何 Git 仓库的方法一样。有关详细信息，请参阅“[克隆存储库](/articles/cloning-a-repository)”。
 
 ![Gist 克隆按钮](/assets/images/help/gist/gist_clone_btn.png)
 

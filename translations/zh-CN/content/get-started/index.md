@@ -1,7 +1,7 @@
 ---
 title: GitHub 入门
 shortTitle: Get started
-intro: '了解如何开始构建、运输和维护具有 {% data variables.product.prodname_dotcom %} 的软件。 了解我们的产品，注册一个帐户，与世界上最大的发展社区建立联系。'
+intro: '了解如何开始构建、运输和维护具有 {% data variables.product.prodname_dotcom %} 的软件。了解我们的产品，注册一个帐户，与世界上最大的发展社区建立联系。'
 redirect_from:
   - /categories/54/articles
   - /categories/bootcamp

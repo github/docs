@@ -23,7 +23,7 @@ ms.lasthandoff: 09/11/2022
 ms.locfileid: '147884203'
 ---
 ## 关于行结尾
-每次按键盘上的 return 时，会插入一个称为行结束符的不可见字符<kbd></kbd>。 不同的操作系统处理行结束符的方式不同。
+每次按键盘上的 return 时，会插入一个称为行结束符的不可见字符<kbd></kbd>。不同的操作系统处理行结束符的方式不同。
 
 在使用 Git 和 {% data variables.product.product_name %} 协作处理项目时，Git 可能产生意外结果，例如，您在 Windows 计算机上操作，而您的协作者是在 macOS 中做的更改。
 
@@ -31,11 +31,11 @@ ms.locfileid: '147884203'
 
 ## 行结束符的全局设置
 
-`git config core.autocrlf` 命令用于更改 Git 处理行尾的方式。 它将采用单一参数。
+`git config core.autocrlf` 命令用于更改 Git 处理行尾的方式。它将采用单一参数。
 
 {% mac %}
 
-在 macOS 上，只需将 `input` 传递给配置即可。 例如：
+在 macOS 上，只需将 `input` 传递给配置即可。例如：
 
 ```shell
 $ git config --global core.autocrlf input
@@ -46,7 +46,7 @@ $ git config --global core.autocrlf input
 
 {% windows %}
 
-在 Windows 上，只需将 `true` 传递给配置即可。 例如：
+在 Windows 上，只需将 `true` 传递给配置即可。例如：
 
 ```shell
 $ git config --global core.autocrlf true
@@ -58,7 +58,7 @@ $ git config --global core.autocrlf true
 
 {% linux %}
 
-在 Linux 上，只需将 `input` 传递给配置即可。 例如：
+在 Linux 上，只需将 `input` 传递给配置即可。例如：
 
 ```shell
 $ git config --global core.autocrlf input
@@ -69,7 +69,7 @@ $ git config --global core.autocrlf input
 
 ## 按仓库设置
 
-你可以选择配置“.gitattribute”文件来管理 Git 读取特定存储库中的行结束符的方式。 将此文件提交到存储库时，它将覆盖所有存储库贡献者的 `core.autocrlf` 设置。 这可确保所有用户的行为一致，而不管其 Git 设置和环境如何。
+你可以选择配置“.gitattribute”文件来管理 Git 读取特定存储库中的行结束符的方式。将此文件提交到存储库时，它将覆盖所有存储库贡献者的 `core.autocrlf` 设置。这可确保所有用户的行为一致，而不管其 Git 设置和环境如何。
 
 “.gitattributes”文件必须在存储库的根目录下创建，且像任何其他文件一样提交。
 
@@ -80,7 +80,7 @@ $ git config --global core.autocrlf input
 
 ### 示例
 
-下面是一个“.gitattributes”示例文件。 您可以将其用作仓库的模板：
+下面是一个“.gitattributes”示例文件。您可以将其用作仓库的模板：
 
 ```
 # Set the default behavior, in case people don't have core.autocrlf set.
@@ -99,19 +99,19 @@ $ git config --global core.autocrlf input
 *.jpg binary
 ```
 
-你会注意到，文件是匹配的，即 `*.c`、`*.sln`、`*.png`（用空格分隔），然后给定一个设置，即 `text`、`text eol=crlf`、`binary`。 我们将在下面介绍一些可能的设置。
+你会注意到，文件是匹配的，即 `*.c`、`*.sln`、`*.png`（用空格分隔），然后给定一个设置，即 `text`、`text eol=crlf`、`binary`。我们将在下面介绍一些可能的设置。
 
-- `text=auto` Git 将以其认为的最佳方式处理文件。 这是一个合适的默认选项。
+- `text=auto` Git 将以其认为的最佳方式处理文件。这是一个合适的默认选项。
 
-- 在检出时 `text eol=crlf` Git 将始终把行结束符转换为 `CRLF`。 你应将其用于必须保持 `CRLF` 结束符的文件，即使在 OSX 或 Linux 上。
+- 在检出时 `text eol=crlf` Git 将始终把行结束符转换为 `CRLF`。你应将其用于必须保持 `CRLF` 结束符的文件，即使在 OSX 或 Linux 上。
 
-- 在检出时 `text eol=lf` Git 将始终把行结束符转换为 `LF`。 您应将其用于必须保持 LF 结束符的文件，即使在 Windows 上。
+- 在检出时 `text eol=lf` Git 将始终把行结束符转换为 `LF`。您应将其用于必须保持 LF 结束符的文件，即使在 Windows 上。
 
-- `binary` Git 会理解指定文件不是文本，并且不应尝试更改这些文件。 该 `binary` 设置也是 `-text -diff` 的别名。
+- `binary` Git 会理解指定文件不是文本，并且不应尝试更改这些文件。该 `binary` 设置也是 `-text -diff` 的别名。
 
 ## 在更改行结束符后刷新仓库
 
-设置 `core.autocrlf` 选项或提交“.gitattributes”文件后，你可能会发现 Git 会报告未修改的文件发生更改。 Git 更改了行结束符，以匹配您的新配置。
+设置 `core.autocrlf` 选项或提交“.gitattributes”文件后，你可能会发现 Git 会报告未修改的文件发生更改。Git 更改了行结束符，以匹配您的新配置。
 
 为确保存储库中的所有行结束符与新配置匹配，请使用 Git 备份文件，删除存储库中的所有文件（`.git` 目录除外），然后一次性恢复所有文件。
 

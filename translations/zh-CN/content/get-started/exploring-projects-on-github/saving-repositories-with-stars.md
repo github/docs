@@ -28,12 +28,12 @@ ms.locfileid: '146374177'
 
 ## 关于星标
 
-标星操作便于以后再次找到仓库或主题。 您可以到 {% data variables.explore.your_stars_page %} 查看已经加星标的所有仓库和主题。
+标星操作便于以后再次找到仓库或主题。您可以到 {% data variables.explore.your_stars_page %} 查看已经加星标的所有仓库和主题。
 
-{% ifversion fpt or ghec %} 可以对存储库和主题加星标以在 {% data variables.product.product_name %} 上发现类似的项目。 当您为存储库或主题添加星标时， {% data variables.product.product_name %} 可能会在您的个人仪表板上推荐相关内容。 有关详细信息，请参阅“[查找为 {% data variables.product.prodname_dotcom %} 上的开放源代码做贡献的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”和“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
+{% ifversion fpt or ghec %} 可以对存储库和主题加星标以在 {% data variables.product.product_name %} 上发现类似的项目。当您为存储库或主题添加星标时， {% data variables.product.product_name %} 可能会在您的个人仪表板上推荐相关内容。有关详细信息，请参阅“[查找为 {% data variables.product.prodname_dotcom %} 上的开放源代码做贡献的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”和“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
 {% endif %}
 
-对仓库加星标也可表示赞赏仓库维护员的工作。 许多 {% data variables.product.prodname_dotcom %} 的仓库评级取决于仓库拥有的星标数。 此外，[Explore](https://github.com/explore) 也会根据星标数显示最受欢迎的存储库。
+对仓库加星标也可表示赞赏仓库维护员的工作。许多 {% data variables.product.prodname_dotcom %} 的仓库评级取决于仓库拥有的星标数。此外，[Explore](https://github.com/explore) 也会根据星标数显示最受欢迎的存储库。
 
 ## 对仓库标星
 
@@ -53,7 +53,7 @@ ms.locfileid: '146374177'
 可以查看已为你有权访问的公共存储库或专用存储库加星标的每个人。 
 
 
-要查看已为存储库加星标的每个人，请将 `/stargazers` 添加到存储库 URL 的末尾。 例如，要查看 github/docs 存储库的标星者，请访问 https://github.com/github/docs/stargazers 。
+要查看已为存储库加星标的每个人，请将 `/stargazers` 添加到存储库 URL 的末尾。例如，要查看 github/docs 存储库的标星者，请访问 https://github.com/github/docs/stargazers。
 
 
 ## 使用列表组织带星标的存储库
@@ -64,13 +64,13 @@ ms.locfileid: '146374177'
 
 {% endnote %}
 
-管理您已经用公开列表加星标的存储库。 可以在 `https://github.com/USERNAME?tab=stars` 创建显示在星标页面上的公开列表。
+管理您已经用公开列表加星标的存储库。可以在 `https://github.com/USERNAME?tab=stars` 创建显示在星标页面上的公开列表。
 
 如果将专用存储库添加到列表中，则专用存储库将仅显示在你的列表中，供具有存储库 `read` 访问权限的人员使用。
 
 ![星标页面上列表的屏幕截图](/assets/images/help/stars/lists-overview-on-stars-page.png)
 
-只要你看到存储库的“星标”或“已加星标”下拉菜单，无论是在存储库页面还是已加星标存储库列表上，你都可以将存储库添加到现有列表或新列表中 。 
+只要你看到存储库的“星标”或“已加星标”下拉菜单，无论是在存储库页面还是已加星标存储库列表上，你都可以将存储库添加到现有列表或新列表中。 
 
 ![“星标”下拉菜单的屏幕截图，其中包含存储库页面中的列表选项](/assets/images/help/stars/stars-dropdown-on-repo.png)
 

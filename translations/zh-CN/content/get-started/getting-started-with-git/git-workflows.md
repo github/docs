@@ -19,4 +19,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145097907'
 ---
-您可以采用 {% data variables.product.prodname_dotcom %} 流方法标准化 {% data variables.product.prodname_dotcom %} 上团队的运作和协作方式。 有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 流](/github/getting-started-with-github/github-flow)”。
+您可以采用 {% data variables.product.prodname_dotcom %} 流方法标准化 {% data variables.product.prodname_dotcom %} 上团队的运作和协作方式。有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 流](/github/getting-started-with-github/github-flow)”。

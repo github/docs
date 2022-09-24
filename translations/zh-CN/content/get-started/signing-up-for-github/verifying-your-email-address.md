@@ -22,7 +22,7 @@ ms.locfileid: '145109496'
 ---
 ## 关于电子邮件通知
 
-您可在注册新帐户后或添加新电子邮件地址时验证您的电子邮件地址。 如果电子邮件地址无法送达或退回，它将无法进行验证。
+您可在注册新帐户后或添加新电子邮件地址时验证您的电子邮件地址。如果电子邮件地址无法送达或退回，它将无法进行验证。
 
 如果没有验证电子邮件地址，您将无法：
   - 创建或复刻仓库
@@ -51,7 +51,7 @@ ms.locfileid: '145109496'
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
 1. 在电子邮件地址下，单击“重新发送验证电子邮件”。
   ![重新发送验证电子邮件链接](/assets/images/help/settings/email-verify-button.png)
-4. {% data variables.product.prodname_dotcom %} 将向您发送一封含有链接的电子邮件。 单击该链接后，您将转到 {% data variables.product.prodname_dotcom %} 仪表板并看到确认横幅。
+4. {% data variables.product.prodname_dotcom %} 将向您发送一封含有链接的电子邮件。单击该链接后，您将转到 {% data variables.product.prodname_dotcom %} 仪表板并看到确认横幅。
   ![确认电子邮件已验证的横幅](/assets/images/help/settings/email-verification-confirmation-banner.png)
 
 ## 电子邮件验证故障排除
@@ -62,7 +62,7 @@ ms.locfileid: '145109496'
 
 ### 单击验证链接后的错误页面
 
-验证链接将在 24 小时后过期。 如果您没有在 24 小时内验证电子邮件，则可以请求其他电子邮件验证链接。 有关详细信息，请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
+验证链接将在 24 小时后过期。如果您没有在 24 小时内验证电子邮件，则可以请求其他电子邮件验证链接。有关详细信息，请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
 
 如果您在 24 小时内单击了确认电子邮件中的链接并被定向到错误页面，则应确保您已登录到 {% data variables.product.product_location %} 上正确的帐户。
 

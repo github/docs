@@ -1,6 +1,6 @@
 ---
 title: Subversion 客户端支持
-intro: GitHub 仓库可从 Git 和 Subversion (SVN) 客户端进行访问。 本文介绍如何在 GitHub 上使用 Subversion 客户端以及您可能遇到的一些常见问题。
+intro: GitHub 仓库可从 Git 和 Subversion (SVN) 客户端进行访问。本文介绍如何在 GitHub 上使用 Subversion 客户端以及您可能遇到的一些常见问题。
 redirect_from:
   - /articles/support-for-subversion-clients
   - /github/importing-your-projects-to-github/support-for-subversion-clients
@@ -17,13 +17,13 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145128931'
 ---
-GitHub 通过 HTTPS 协议支持 Subversion 客户端。 我们使用 Subversion 网桥将 svn 命令传递给 GitHub。
+GitHub 通过 HTTPS 协议支持 Subversion 客户端。我们使用 Subversion 网桥将 svn 命令传递给 GitHub。
 
 ## GitHub 上支持的 Subversion 功能
 
 ### 签出
 
-您首先要进行 Subversion 检出。  由于 Git 克隆将工作目录（您编辑文件的位置）与仓库数据分开，因此工作目录中一次只有一个分支。
+您首先要进行 Subversion 检出。由于 Git 克隆将工作目录（您编辑文件的位置）与仓库数据分开，因此工作目录中一次只有一个分支。
 
 Subversion 签出则不同：它们混合工作目录中的存储库数据，因此存在用于你已签出的每个分支和标记的工作目录。对于具有许多分支和标记的存储库，签出所有内容可能会造成带宽负担，因此应从部分签出开始。
 
@@ -36,7 +36,7 @@ Subversion 签出则不同：它们混合工作目录中的存储库数据，因
   $ cd <em>repo</em>
   ```
 
-4. 获取 `trunk` 分支。 Subversion 网桥将主干映射到 Git HEAD 分支。
+4. 获取 `trunk` 分支。Subversion 网桥将主干映射到 Git HEAD 分支。
   ```shell
   $ svn up trunk
   > A    trunk
@@ -45,7 +45,7 @@ Subversion 签出则不同：它们混合工作目录中的存储库数据，因
   > Updated to revision 1.
   ```
 
-5. 获取 `branches` 目录的空签出。  这是所有非 `HEAD` 分支所在的位置，你将在此处创建功能分支。
+5. 获取 `branches` 目录的空签出。这是所有非 `HEAD` 分支所在的位置，你将在此处创建功能分支。
   ```shell
   $ svn up --depth empty branches
   Updated to revision 1.
@@ -85,7 +85,7 @@ $ git fetch
 
 ### 对 Subversion 进行提交
 
-添加一些功能并修复一些 bug 后，你想要将这些更改提交到 GitHub。 此工作正如您惯用的 Subversion 一样。 编辑文件，然后使用 `svn commit` 记录你的更改：
+添加一些功能并修复一些 bug 后，你想要将这些更改提交到 GitHub。此工作正如您惯用的 Subversion 一样。编辑文件，然后使用 `svn commit` 记录你的更改：
 
 ```shell
 $ svn status

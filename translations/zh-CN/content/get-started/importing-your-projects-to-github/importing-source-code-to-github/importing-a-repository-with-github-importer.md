@@ -19,7 +19,7 @@ ms.locfileid: '145911197'
 ---
 {% tip %}
 
-提示：GitHub 导入工具并不适用于所有导入。 例如，如果您现有的代码托管在私有网络上，我们的工具便无法访问。 在这些情况下，我们建议对 Git 存储库[使用命令行导入](/articles/importing-a-git-repository-using-the-command-line)，或者对从其他版本控制系统导入的项目使用[源代码迁移工具](/articles/source-code-migration-tools)。
+提示：GitHub 导入工具并不适用于所有导入。例如，如果您现有的代码托管在私有网络上，我们的工具便无法访问。在这些情况下，我们建议对 Git 存储库[使用命令行导入](/articles/importing-a-git-repository-using-the-command-line)，或者对从其他版本控制系统导入的项目使用[源代码迁移工具](/articles/source-code-migration-tools)。
 
 {% endtip %}
 
@@ -33,11 +33,11 @@ ms.locfileid: '145911197'
 ![导入的存储库的 URL 对应的文本字段](/assets/images/help/importer/import-url.png)
 3. 选择拥有存储库的个人帐户或组织，然后输入 GitHub 上帐户的名称。
 ![存储库所有者菜单和存储库名称字段](/assets/images/help/importer/import-repo-owner-name.png)
-4. 指定新存储库是“公共”还是“专用” 。 有关详细信息，请参阅[设置存储库可见性](/articles/setting-repository-visibility)。
+4. 指定新存储库是“公共”还是“专用” 。有关详细信息，请参阅[设置存储库可见性](/articles/setting-repository-visibility)。
 ![公共或专用存储库单选按钮](/assets/images/help/importer/import-public-or-private.png)
 5. 检查你输入的信息，然后单击“开始导入”。
 ![“开始导入”按钮](/assets/images/help/importer/begin-import-button.png)
-6. 如果你的旧项目需要凭据，请输入该项目的登录信息，然后单击“提交”。 如果在旧项目中为用户帐户启用了 SAML SSO 或 2FA，请在“密码”字段中输入具有存储库读取权限的个人访问令牌，而不是密码。
+6. 如果你的旧项目需要凭据，请输入该项目的登录信息，然后单击“提交”。如果在旧项目中为用户帐户启用了 SAML SSO 或 2FA，请在“密码”字段中输入具有存储库读取权限的个人访问令牌，而不是密码。
 ![受密码保护项目的密码表单和“提交”按钮](/assets/images/help/importer/submit-old-credentials-importer.png)
 7. 如果有多个项目托管在旧项目的克隆 URL 上，请选择要导入的项目，然后单击“提交”。
 ![要导入的项目列表和“提交”按钮](/assets/images/help/importer/choose-project-importer.png)

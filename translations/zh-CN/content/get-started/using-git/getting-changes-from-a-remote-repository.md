@@ -33,7 +33,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em
 # Clones a repository to your computer
 ```
 
-克隆存储库时，可以从[多个不同的 URL](/github/getting-started-with-github/about-remote-repositories) 中进行选择。 登录到 {% data variables.product.prodname_dotcom %} 后，可在仓库详细信息下面找到这些 URL：
+克隆存储库时，可以从[多个不同的 URL](/github/getting-started-with-github/about-remote-repositories) 中进行选择。登录到 {% data variables.product.prodname_dotcom %} 后，可在仓库详细信息下面找到这些 URL：
 
 ![远程 URL 列表](/assets/images/help/repository/remotes-url.png)
 
@@ -44,11 +44,11 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em
 - 将所有的仓库文件和提交下载到那里
 - 默认分支已检出
 
-对于远程存储库中的每个分支 `foo`，在本地存储库中创建相应的远程跟踪分支 `refs/remotes/origin/foo`。 通常可将此类远程跟踪分支名称缩写为 `origin/foo`。
+对于远程存储库中的每个分支 `foo`，在本地存储库中创建相应的远程跟踪分支 `refs/remotes/origin/foo`。通常可将此类远程跟踪分支名称缩写为 `origin/foo`。
 
 ## 从远程仓库获取更改
 
-使用 `git fetch` 检索其他人完成的新工作。 从存储库中提取会获取所有新的远程跟踪分支和标记，而无需将这些更改合并到自己的分支中。
+使用 `git fetch` 检索其他人完成的新工作。从存储库中提取会获取所有新的远程跟踪分支和标记，而无需将这些更改合并到自己的分支中。
 
 如果已经有本地存储库包含为所需项目设置的远程 URL，则可以通过在终端使用 `git fetch *remotename*` 获取所有新信息：
 
@@ -57,7 +57,7 @@ $ git fetch <em>remotename</em>
 # Fetches updates made to a remote repository
 ```
 
-否则，您可以随时添加新的远程，然后获取。 有关详细信息，请参阅“[管理远程存储库](/github/getting-started-with-github/managing-remote-repositories)”。
+否则，您可以随时添加新的远程，然后获取。有关详细信息，请参阅“[管理远程存储库](/github/getting-started-with-github/managing-remote-repositories)”。
 
 ## 合并更改到本地分支
 
@@ -79,7 +79,7 @@ $ git pull <em>remotename</em> <em>branchname</em>
 # Grabs online updates and merges them with your local work
 ```
 
-由于 `pull` 会对检索到的更改执行合并，因此应确保在运行 `pull` 命令之前提交本地工作。 如果遇到无法解决的[合并冲突](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)，或者如果你决定退出合并，则可以使用 `git merge --abort` 将分支返回到拉取之前的位置。
+由于 `pull` 会对检索到的更改执行合并，因此应确保在运行 `pull` 命令之前提交本地工作。如果遇到无法解决的[合并冲突](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)，或者如果你决定退出合并，则可以使用 `git merge --abort` 将分支返回到拉取之前的位置。
 
 ## 延伸阅读
 

@@ -21,13 +21,13 @@ ms.locfileid: '147882165'
 ---
 {% ifversion fpt or ghec %}
 
-我们建议使用 [GitHub 导入工具](/articles/about-github-importer)从 Subversion、Mercurial、Team Foundation Version Control (TFVC) 或其他 Git 存储库导入项目。 您还可以使用这些外部工具将项目转换为 Git。
+我们建议使用 [GitHub 导入工具](/articles/about-github-importer)从 Subversion、Mercurial、Team Foundation Version Control (TFVC) 或其他 Git 存储库导入项目。您还可以使用这些外部工具将项目转换为 Git。
 
 {% endif %}
 
 ## 从 Subversion 导入
 
-在典型 Subversion 环境中，多个项目存储在一个根仓库中。 在 GitHub 上，这些项目的每一个通常都将映射到个人帐户或组织的单独 Git 存储库。 以下情况时，我们建议将 Subversion 仓库的每一部分导入到单独的 GitHub 仓库：
+在典型 Subversion 环境中，多个项目存储在一个根仓库中。在 GitHub 上，这些项目的每一个通常都将映射到个人帐户或组织的单独 Git 存储库。以下情况时，我们建议将 Subversion 仓库的每一部分导入到单独的 GitHub 仓库：
 
 * 协作者需要检出或提交到独立于项目其他部分的部分
 * 您想要不同的部分有其自己的访问权限

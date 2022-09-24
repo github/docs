@@ -20,7 +20,7 @@ ms.locfileid: '145066750'
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.saved_replies %}
 3. 在“Add a saved reply（添加已保存回复）”下，添加已保存回复的标题。
 ![已保存回复标题](/assets/images/help/settings/saved-replies-title.png)
-4. 在“Write（撰写 ）”字段中，添加要用于已保存回复的内容。 有关在 {% data variables.product.product_name %} 上写入的详细信息，请参阅“[基本编写和格式设语法](/articles/basic-writing-and-formatting-syntax)”。
+4. 在“Write（撰写）”字段中，添加要用于已保存回复的内容。有关在 {% data variables.product.product_name %} 上写入的详细信息，请参阅“[基本编写和格式设语法](/articles/basic-writing-and-formatting-syntax)”。
 ![编写已保存的答复](/assets/images/help/settings/saved-replies-settings-adding.png)
 5. 若要查看回复，请单击“预览”。
 ![添加已保存的回复](/assets/images/help/settings/saved-replies-preview.png)

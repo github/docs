@@ -27,7 +27,7 @@ ms.locfileid: '147408889'
 ---
 ## 简介
 
-{% data variables.product.product_name %} 提供内置的协作通信工具，使您能够与社区进行密切互动。 此快速入门指南将指导您如何根据您的需求选择合适的工具。
+{% data variables.product.product_name %} 提供内置的协作通信工具，使您能够与社区进行密切互动。此快速入门指南将指导您如何根据您的需求选择合适的工具。
 
 {% ifversion discussions %}可以根据想参加的对话类型创建并参与问题、拉取请求、{% data variables.product.prodname_discussions %} 和团队讨论。
 {% else %}可以根据你想参加的对话类型创建并参与问题、拉取请求和团队讨论。
@@ -53,7 +53,7 @@ ms.locfileid: '147408889'
 {% endif %}
 
 ### 团队讨论
-- 可以在您的团队页面上启动跨项目的对话，不属于特定的议题或拉取请求。 不要在仓库中开启一个议题来讨论一个想法，而可以通过在团队讨论中进行对话将整个团队包括在内。
+- 可以在您的团队页面上启动跨项目的对话，不属于特定的议题或拉取请求。不要在仓库中开启一个议题来讨论一个想法，而可以通过在团队讨论中进行对话将整个团队包括在内。
 - 允许您与您的团队在一个地方就规划、分析、设计、用户研究和一般项目决策进行讨论。{% ifversion ghes or ghae %} 
 - 在代码库之外提供协作体验，从而可以集思广益。
 - 往往没有明确的所有者。
@@ -116,7 +116,7 @@ ms.locfileid: '147408889'
 
 ![{% data variables.product.prodname_discussions %} 示例](/assets/images/help/discussions/github-discussions-example.png)
 
-这位社区维护员发起讨论以欢迎社区成员，并请成员自我介绍。 这个帖子营造了欢迎访客和参与者的氛围。 这个帖子还阐明，团队乐于帮助用户参与仓库。
+这位社区维护员发起讨论以欢迎社区成员，并请成员自我介绍。这个帖子营造了欢迎访客和参与者的氛围。这个帖子还阐明，团队乐于帮助用户参与仓库。
 
 {% endif %}
 ### 团队讨论场景
@@ -126,7 +126,7 @@ ms.locfileid: '147408889'
 - 我想发起或参与开放式对话。
 - 我想向团队发布公告。
 
-{% ifversion fpt or ghec %} 如你所见，团队讨论与 {% data variables.product.prodname_discussions %} 非常类似。 对于 {% data variables.product.prodname_dotcom_the_website %}，我们建议使用 {% data variables.product.prodname_discussions %} 作为对话的起点。 您可以使用 {% data variables.product.prodname_discussions %} 与任何社区在 {% data variables.product.prodname_dotcom %} 上进行协作。 如果您是组织成员，希望在您的组织或组织的团队中发起对话，您应该使用团队讨论。
+{% ifversion fpt or ghec %} 如你所见，团队讨论与 {% data variables.product.prodname_discussions %} 非常类似。对于 {% data variables.product.prodname_dotcom_the_website %}，我们建议使用 {% data variables.product.prodname_discussions %} 作为对话的起点。您可以使用 {% data variables.product.prodname_discussions %} 与任何社区在 {% data variables.product.prodname_dotcom %} 上进行协作。如果您是组织成员，希望在您的组织或组织的团队中发起对话，您应该使用团队讨论。
 {% endif %}
 
 #### 团队讨论示例
@@ -142,13 +142,13 @@ ms.locfileid: '147408889'
 
 ## 后续步骤
 
-这些示例向您展示了如何决定哪种工具是您在 {% data variables.product.product_name %} 上进行对话的最佳工具。 但这仅仅是个开始；您可以做更多的工作来根据需求定制这些工具。
+这些示例向您展示了如何决定哪种工具是您在 {% data variables.product.product_name %} 上进行对话的最佳工具。但这仅仅是个开始；您可以做更多的工作来根据需求定制这些工具。
 
-例如，对于议题，您可以用标签标记议题以支持更快的搜索，并创建议题模板以帮助参与者打开有意义的议题。 有关详细信息，请参阅“[关于问题](/github/managing-your-work-on-github/about-issues#working-with-issues)”和“[关于问题和拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)”。
+例如，对于议题，您可以用标签标记议题以支持更快的搜索，并创建议题模板以帮助参与者打开有意义的议题。有关详细信息，请参阅“[关于问题](/github/managing-your-work-on-github/about-issues#working-with-issues)”和“[关于问题和拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)”。
 
-对于拉取请求，如果您提议的更改仍在进行中，您可以创建拉取请求草稿。 草稿拉取请求在标记为可供审查之前无法合并。 有关详细信息，请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)”。
+对于拉取请求，如果您提议的更改仍在进行中，您可以创建拉取请求草稿。草稿拉取请求在标记为可供审查之前无法合并。有关详细信息，请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)”。
 
-{% ifversion discussions %}对于 {% data variables.product.prodname_discussions %}，可以{% ifversion fpt or ghec %}设置行为准则并{% endif %}将包含社区重要信息的讨论置顶。 有关详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
+{% ifversion discussions %}对于 {% data variables.product.prodname_discussions %}，可以{% ifversion fpt or ghec %}设置行为准则并{% endif %}将包含社区重要信息的讨论置顶。有关详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 {% endif %}
 
-对于团队讨论，您可以编辑或删除团队页面上的讨论，还可以为团队讨论配置通知。 有关详细信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
+对于团队讨论，您可以编辑或删除团队页面上的讨论，还可以为团队讨论配置通知。有关详细信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。

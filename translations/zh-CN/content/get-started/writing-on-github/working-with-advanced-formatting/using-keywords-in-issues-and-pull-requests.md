@@ -20,7 +20,7 @@ ms.locfileid: '146273088'
 ---
 ## 将拉取请求链接到议题
 
-要将拉取请求链接到问题以显示正在进行的修复，并且当有人合并拉取请求时自动关闭问题，请键入以下关键字之一，然后引用问题。 例如，`Closes #10` 或 `Fixes octo-org/octo-repo#100`。
+要将拉取请求链接到问题以显示正在进行的修复，并且当有人合并拉取请求时自动关闭问题，请键入以下关键字之一，然后引用问题。例如，`Closes #10` 或 `Fixes octo-org/octo-repo#100`。
 
 * 关闭
 * closes
@@ -36,4 +36,4 @@ ms.locfileid: '146273088'
 
 ## 将议题或拉取请求标记为重复
 
-要将议题或拉取请求标记为重复，请在新评论正文中输入 "Duplicate of"，后接它复制的议题或拉取请求编号。 有关详细信息，请参阅“[将问题或拉取请求标记为重复](/issues/tracking-your-work-with-issues/marking-issues-or-pull-requests-as-a-duplicate)”。
+要将议题或拉取请求标记为重复，请在新评论正文中输入 "Duplicate of"，后接它复制的议题或拉取请求编号。有关详细信息，请参阅“[将问题或拉取请求标记为重复](/issues/tracking-your-work-with-issues/marking-issues-or-pull-requests-as-a-duplicate)”。

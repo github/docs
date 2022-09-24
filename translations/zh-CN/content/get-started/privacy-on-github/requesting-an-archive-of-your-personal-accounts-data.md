@@ -19,15 +19,15 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '147876155'
 ---
-{% data variables.product.product_name %} 存储您个人帐户活动的仓库和个人资料元数据。 您可以通过 {% data variables.product.prodname_dotcom_the_website %} 上的设置或使用用户迁移 API 导出个人帐户的数据。
+{% data variables.product.product_name %} 存储您个人帐户活动的仓库和个人资料元数据。您可以通过 {% data variables.product.prodname_dotcom_the_website %} 上的设置或使用用户迁移 API 导出个人帐户的数据。
 
 有关可用于导出的数据 {% data variables.product.product_name %} 存储的详细信息，请参阅“[下载用户迁移存档](/rest/reference/migrations#download-a-user-migration-archive)”和“[关于 {% data variables.product.product_name %} 对你的数据的使用](/articles/about-github-s-use-of-your-data)”。
 
 当你通过 {% data variables.product.prodname_dotcom_the_website %} 上的设置请求导出个人数据时，{% data variables.product.product_name %} 会将你的个人数据打包到 `tar.gz` 文件中，并向你的主电子邮件地址发送含有下载链接的电子邮件。
 
-默认情况下，下载链接会在七天后过期。 在下载链接过期之前的任何时候，您都可以从用户设置中禁用该链接。 有关详细信息，请参阅“[删除对个人帐户数据存档的访问权限](/articles/requesting-an-archive-of-your-personal-account-s-data/#deleting-access-to-an-archive-of-your-personal-accounts-data)”。
+默认情况下，下载链接会在七天后过期。在下载链接过期之前的任何时候，您都可以从用户设置中禁用该链接。有关详细信息，请参阅“[删除对个人帐户数据存档的访问权限](/articles/requesting-an-archive-of-your-personal-account-s-data/#deleting-access-to-an-archive-of-your-personal-accounts-data)”。
 
-如果你的操作系统无法本机解压缩 `tar.gz` 文件，则可以使用第三方工具来解压缩存档的文件。 有关详细信息，请参阅 Opensource.com 上的“[如何解压缩 tar.gz 文件](https://opensource.com/article/17/7/how-unzip-targz-file)”。
+如果你的操作系统无法本机解压缩 `tar.gz` 文件，则可以使用第三方工具来解压缩存档的文件。有关详细信息，请参阅 Opensource.com 上的“[如何解压缩 tar.gz 文件](https://opensource.com/article/17/7/how-unzip-targz-file)”。
 
 生成的 `tar.gz` 文件反映了在你开始数据导出时存储的数据。
 

@@ -21,7 +21,7 @@ ms.locfileid: '145066731'
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.saved_replies %}
 3. 在“已保存的回复”下，单击要编辑的已保存回复旁边的 {% octicon "pencil" aria-label="The pencil" %}。  
 ![编辑已保存回复](/assets/images/help/settings/saved-replies-edit-existing.png)
-4. 在“ Edit saved reply”（已保存回复）下，您可以编辑已保存回复的标题和内容。
+4. 在“Edit saved reply”（已保存回复）下，您可以编辑已保存回复的标题和内容。
 ![编辑标题和内容](/assets/images/help/settings/saved-replies-edit-existing-content.png)
 5. 单击“更新已保存的回复”。
 ![更新已保存的回复](/assets/images/help/settings/saved-replies-save-edit.png)

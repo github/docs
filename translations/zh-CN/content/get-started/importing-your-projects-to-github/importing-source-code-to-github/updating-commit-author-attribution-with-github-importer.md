@@ -16,7 +16,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '145128948'
 ---
-GitHub 导入工具查找其电子邮件地址匹配您所导入仓库中提交作者的 GitHub 用户。 然后，您可以使用其电子邮件地址或作者的 GitHub 用户名将提交连接到其作者。
+GitHub 导入工具查找其电子邮件地址匹配您所导入仓库中提交作者的 GitHub 用户。然后，您可以使用其电子邮件地址或作者的 GitHub 用户名将提交连接到其作者。
 
 ## 更新提交作者
 
@@ -34,7 +34,7 @@ GitHub 导入工具查找其电子邮件地址匹配您所导入仓库中提交�
 
 如果导入的存储库中的提交的作者既没有在其 GitHub 个人资料中设置公共电子邮件地址，也没有[将其提交电子邮件地址设为私有](/articles/setting-your-commit-email-address)，则 GitHub 导入工具可能无法将和提交关联的电子邮件地址与其 GitHub 帐户进行匹配。
 
-提交作者可通过将其电子邮件地址设为私有来解决此问题。 然后，它们的提交将归为 `<username>@users.noreply.github.com`，导入的提交将与其 GitHub 帐户相关联。
+提交作者可通过将其电子邮件地址设为私有来解决此问题。然后，它们的提交将归为 `<username>@users.noreply.github.com`，导入的提交将与其 GitHub 帐户相关联。
 
 ## 使用电子邮件地址归属提交
 

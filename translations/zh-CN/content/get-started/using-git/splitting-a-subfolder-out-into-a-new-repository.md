@@ -70,7 +70,7 @@ ms.locfileid: '147876072'
 
    {% endtip %}
 
-8. 检查仓库现有的远程名称。 例如，`origin` 或 `upstream` 是两个常见的选项。
+8. 检查仓库现有的远程名称。例如，`origin` 或 `upstream` 是两个常见的选项。
    ```shell
    $ git remote -v
    > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (fetch)

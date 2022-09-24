@@ -36,7 +36,7 @@ git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
 
 ## 重命名分支
 
-若要重命名分支，同样使用 `git push` 命令，但要加上一个或多个参数：新分支的名称。 例如：
+若要重命名分支，同样使用 `git push` 命令，但要加上一个或多个参数：新分支的名称。例如：
 
 ```shell
 git push <em> &lt;REMOTENAME> &lt;LOCALBRANCHNAME></em>:<em>&lt;REMOTEBRANCHNAME> </em>
@@ -75,13 +75,13 @@ git push <em> &lt;REMOTENAME></em> --tags
 git push <em> &lt;REMOTENAME></em> :<em>&lt;BRANCHNAME> </em>
 ```
 
-请注意，冒号前有一个空格。 命令与重命名分支的步骤类似。 但这里是指示 Git 不要将任何内容推送到 `REMOTENAME` 上的 `BRANCHNAME`。 因此，`git push` 会删除远程存储库上的分支。
+请注意，冒号前有一个空格。命令与重命名分支的步骤类似。但这里是指示 Git 不要将任何内容推送到 `REMOTENAME` 上的 `BRANCHNAME`。因此，`git push` 会删除远程存储库上的分支。
 
 ## 远程和复刻
 
 你可能已经了解[可以为 GitHub 上的存储库“创建分支”](https://guides.github.com/overviews/forking/)。
 
-在克隆拥有的存储库时，向其提供远程 URL，指示 Git 到何处提取和推送更新。 如果要协作处理原始存储库，可将新的远程 URL（通常称为 `upstream`）添加到本地 Git 克隆：
+在克隆拥有的存储库时，向其提供远程 URL，指示 Git 到何处提取和推送更新。如果要协作处理原始存储库，可将新的远程 URL（通常称为 `upstream`）添加到本地 Git 克隆：
 
 ```shell
 git remote add upstream <em> &lt;THEIR_REMOTE_URL> </em>

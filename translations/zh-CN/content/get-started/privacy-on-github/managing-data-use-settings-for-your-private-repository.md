@@ -27,12 +27,12 @@ ms.locfileid: '147526668'
 - 启用依赖项关系图以允许对存储库进行只读数据分析。 
 - 禁用依赖项关系图以阻止对存储库进行只读数据分析。 
 
-启用私有仓库的数据使用后，您可以访问依赖项图，从中可以跟踪仓库的依赖项，在 {% data variables.product.product_name %} 检测到漏洞依赖项时接收 {% data variables.product.prodname_dependabot_alerts %}。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)”。
+启用私有仓库的数据使用后，您可以访问依赖项图，从中可以跟踪仓库的依赖项，在 {% data variables.product.product_name %} 检测到漏洞依赖项时接收 {% data variables.product.prodname_dependabot_alerts %}。有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)”。
 
 
 {% note %}
 
-**注意：** 如果禁用依赖项关系图，{% data variables.product.prodname_dependabot_alerts %} 和 {% data variables.product.prodname_dependabot_security_updates %} 也会被禁用。 有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。 
+**注意：** 如果禁用依赖项关系图，{% data variables.product.prodname_dependabot_alerts %} 和 {% data variables.product.prodname_dependabot_security_updates %} 也会被禁用。有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。 
 
 {% endnote %}
 

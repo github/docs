@@ -17,6 +17,6 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: '145109535'
 ---
-很快掌握所有可用的 Git 命令可能是一项艰巨的任务。 可以使用“[Git 速查表](https://training.github.com/)”快速参考常用命令。 “Using Git（使用 Git）”备忘清单有多种语言版本。 
+很快掌握所有可用的 Git 命令可能是一项艰巨的任务。可以使用“[Git 速查表](https://training.github.com/)”快速参考常用命令。 “Using Git（使用 Git）”备忘清单有多种语言版本。 
 
 此外，请查看 [Git 和 GitHub 学习资源](/articles/git-and-github-learning-resources/)页，该页链接到指南、视频等。

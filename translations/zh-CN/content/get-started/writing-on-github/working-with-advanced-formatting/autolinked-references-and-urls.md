@@ -46,13 +46,13 @@ ms.locfileid: '147419687'
 | `Username/Repository#` 和问题或拉取请求编号 | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
 | `Organization_name/Repository#` 和问题或拉取请求编号 | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
 
-{% ifversion fpt or ghec %} 如果在列表中引用问题、拉取请求或讨论，则引用将展开以显示标题和状态。 有关任务列表的详细信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
+{% ifversion fpt or ghec %} 如果在列表中引用问题、拉取请求或讨论，则引用将展开以显示标题和状态。有关任务列表的详细信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
 {% endif %}
 
 ## 标签
-在 Markdown 中引用标签的 URL 时，标签会自动呈现。 仅呈现同一存储库的标签，指向不同存储库标签的 URL 将呈现为任何 [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls)。
+在 Markdown 中引用标签的 URL 时，标签会自动呈现。仅呈现同一存储库的标签，指向不同存储库标签的 URL 将呈现为任何 [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls)。
 
-通过导航到标签页并单击标签，可找到标签的 URL。 例如，公共[文档存储库](https://github.com/github/docs/)中标签“增强”的 URL 为
+通过导航到标签页并单击标签，可找到标签的 URL。例如，公共[文档存储库](https://github.com/github/docs/)中标签“增强”的 URL 为
 
 ```md
 https://github.com/github/docs/labels/enhancement

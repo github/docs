@@ -26,18 +26,18 @@ ms.locfileid: '147860832'
 
 ## 文本格式工具栏
 
-{% data variables.product.product_name %} 上的每个评论字段都包含文本格式工具栏，用于格式化文本，而无需了解 Markdown 语法。 除了 Markdown 格式设置（如粗体和斜体样式）和创建标题、链接及列表等之外，工具栏还包括 {% data variables.product.product_name %} 特定的功能，如 @mentions、任务列表和指向问题和拉取请求的链接。
+{% data variables.product.product_name %} 上的每个评论字段都包含文本格式工具栏，用于格式化文本，而无需了解 Markdown 语法。除了 Markdown 格式设置（如粗体和斜体样式）和创建标题、链接及列表等之外，工具栏还包括 {% data variables.product.product_name %} 特定的功能，如 @mentions、任务列表和指向问题和拉取请求的链接。
 
 {% ifversion fixed-width-font-gfm-fields %}
 
 ## 在编辑器中启用定宽字体
 
-可以在 {% data variables.product.product_name %} 的每个注释字段中启用定宽字体。 定宽（也称固定宽度）字体中的每个字符占据相同的水平空间，这可以更容易地编辑高级 Markdown 结构，例如表和代码片段。
+可以在 {% data variables.product.product_name %} 的每个注释字段中启用定宽字体。定宽（也称固定宽度）字体中的每个字符占据相同的水平空间，这可以更容易地编辑高级 Markdown 结构，例如表和代码片段。
 
 ![显示 {% data variables.product.product_name %} 注释字段的屏幕截图，其中启用了定宽字体](/assets/images/help/writing/fixed-width-example.png)
 
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.appearance-settings %}
-1. 在“Markdown 编辑器字体首选项”下，选择“编辑 Markdown 时使用定宽(固定宽度)字体”。
+1. 在“Markdown 编辑器字体首选项”下，选择“编辑 Markdown 时使用定宽 (固定宽度) 字体”。
   ![显示 {% data variables.product.product_name %} 注释字段的屏幕截图，其中启用了定宽字体](/assets/images/help/writing/enable-fixed-width.png)
 
 {% endif %}

@@ -20,7 +20,7 @@ ms.locfileid: '145128852'
 ---
 {% data reusables.repositories.about-github-archive-program %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的存档内容和数据](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。
 
-如果您对仓库选择退出 {% data variables.product.prodname_archive %}，该仓库将被排除在 {% data variables.product.prodname_dotcom %} 未来可能创建的任何长期存档之外。 我们还会向每个合作伙伴组织发送请求，请求从他们的数据中删除该仓库。
+如果您对仓库选择退出 {% data variables.product.prodname_archive %}，该仓库将被排除在 {% data variables.product.prodname_dotcom %} 未来可能创建的任何长期存档之外。我们还会向每个合作伙伴组织发送请求，请求从他们的数据中删除该仓库。
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
 3. 在“功能”下，选择或取消选择“保留此存储库”。

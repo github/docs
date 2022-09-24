@@ -1,6 +1,6 @@
 ---
 title: 使用已保存回复
-intro: 对议题或拉取请求进行评论时，可添加您已设置的已保存回复。 已保存回复可以是整个评论；或者如果您想要自定义，可以添加或删除内容。
+intro: 对议题或拉取请求进行评论时，可添加您已设置的已保存回复。已保存回复可以是整个评论；或者如果您想要自定义，可以添加或删除内容。
 redirect_from:
   - /articles/using-saved-replies
   - /github/writing-on-github/using-saved-replies
@@ -27,7 +27,7 @@ ms.locfileid: '145066726'
 {% tip %}
 
 **提示：**
-- 您可以使用键盘快捷键通过已保存回复自动填充评论。 有关详细信息，请参阅“[键盘快捷方式](/articles/keyboard-shortcuts/#comments)”。
+- 您可以使用键盘快捷键通过已保存回复自动填充评论。有关详细信息，请参阅“[键盘快捷方式](/articles/keyboard-shortcuts/#comments)”。
 - 您可通过输入已保存回复的标题来过滤该列表。
 
 {% endtip %}

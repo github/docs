@@ -20,7 +20,7 @@ ms.locfileid: '147882415'
 ---
 ## 隔离代码块
 
-通过在代码块的前后输入三反引号 <code>\`\`\`</code>，可创建围栏代码块。 我们建议在代码块的前后各留一个空白行，使原始格式更易辨读。
+通过在代码块的前后输入三反引号 <code>\`\`\`</code>，可创建围栏代码块。我们建议在代码块的前后各留一个空白行，使原始格式更易辨读。
 
 <pre>
 ```
@@ -69,12 +69,12 @@ Look! You can see my backticks.
 
 ![渲染的启用 Ruby 语法突显的代码块](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
 
-我们使用 [Linguist](https://github.com/github/linguist) 执行语言检测，并选择[第三方语法](https://github.com/github/linguist/blob/master/vendor/README.md) 以强调语法。 你可以在[语言 YAML 文件](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)中找出哪些关键字有效。
+我们使用 [Linguist](https://github.com/github/linguist) 执行语言检测，并选择[第三方语法](https://github.com/github/linguist/blob/master/vendor/README.md) 以强调语法。你可以在[语言 YAML 文件](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)中找出哪些关键字有效。
 
 {% ifversion mermaid %}
 ## 创建关系图
 
-你也可以使用代码块在 Markdown 中创建关系图。 GitHub 支持 Mermaid、GeoJSON、TopoJSON 和 ASCII STL 语法。 有关详细信息，请参阅“[创建关系图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)”。
+你也可以使用代码块在 Markdown 中创建关系图。GitHub 支持 Mermaid、GeoJSON、TopoJSON 和 ASCII STL 语法。有关详细信息，请参阅“[创建关系图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)”。
 
 {% endif %}
 ## 延伸阅读

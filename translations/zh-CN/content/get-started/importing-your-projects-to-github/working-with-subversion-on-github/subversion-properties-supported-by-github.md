@@ -27,7 +27,7 @@ ms.locfileid: '145128935'
 
 ## 忽略未版本化的项目 (`svn:ignore`)
 
-如果您已设置要在 Subversion 中忽略的文件和目录，{% data variables.product.product_name %} 将在内部跟踪它们。 Subversion 客户端忽略的文件与 .gitignore 文件中的条目完全不同。
+如果您已设置要在 Subversion 中忽略的文件和目录，{% data variables.product.product_name %} 将在内部跟踪它们。Subversion 客户端忽略的文件与 .gitignore 文件中的条目完全不同。
 
 ## 目前不支持的属性
 

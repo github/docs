@@ -18,9 +18,9 @@ ms.locfileid: '146273096'
 ---
 ## 创建折叠部分
 
-可以通过创建读者可以选择展开的折叠部分来暂时隐藏 Markdown 的分区。 例如，当想在问题评论中包含可能不是每个读者都相关或感兴趣的技术细节时，可以将这些细节放在折叠部分中。
+可以通过创建读者可以选择展开的折叠部分来暂时隐藏 Markdown 的分区。例如，当想在问题评论中包含可能不是每个读者都相关或感兴趣的技术细节时，可以将这些细节放在折叠部分中。
 
-`<details>` 块中的任何 Markdown 都将被折叠，直到读者单击 {% octicon "triangle-right" aria-label="The right triange icon" %} 展开详细信息。 在 `<details>` 块中，使用 `<summary>` 标记在 {% octicon "triangle-right" aria-label="The right triange icon" %} 的右侧创建一个标签。
+`<details>` 块中的任何 Markdown 都将被折叠，直到读者单击 {% octicon "triangle-right" aria-label="The right triange icon" %} 展开详细信息。在 `<details>` 块中，使用 `<summary>` 标记在 {% octicon "triangle-right" aria-label="The right triange icon" %} 的右侧创建一个标签。
 
 ````markdown
 <details><summary>CLICK ME</summary>

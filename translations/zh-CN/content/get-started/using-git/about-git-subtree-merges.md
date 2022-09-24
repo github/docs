@@ -24,7 +24,7 @@ ms.locfileid: '147880026'
 
 通常，子树合并用于在仓库中包含仓库。 “子仓库”存储在主仓库的文件夹中。
 
-解释子树合并的最佳方式是举例说明。 我们将：
+解释子树合并的最佳方式是举例说明。我们将：
 
 - 创建一个名为 `test` 的空存储库，用于表示我们的项目
 - 将另一个名为 `Spoon-Knife` 的存储库作为子树合并到其中。
@@ -69,7 +69,7 @@ ms.locfileid: '147880026'
   > From https://github.com/octocat/Spoon-Knife
   >  * [new branch]      main     -> Spoon-Knife/main
   ```
-2. 将 `Spoon-Knife` 项目合并到本地 Git 项目。 这不会在本地更改任何文件，但会为下一步准备 Git。
+2. 将 `Spoon-Knife` 项目合并到本地 Git 项目。这不会在本地更改任何文件，但会为下一步准备 Git。
 
   如果您使用的是 Git 2.9 或更高版本：
   ```shell
@@ -96,13 +96,13 @@ ms.locfileid: '147880026'
 
 {% tip %}
 
-**提示**：如果你以后创建存储库的全新克隆，系统不会为你创建你已添加的远程库。 必须使用 [`git remote add` 命令](/github/getting-started-with-github/managing-remote-repositories) 来添加它们。
+**提示**：如果你以后创建存储库的全新克隆，系统不会为你创建你已添加的远程库。必须使用 [`git remote add` 命令](/github/getting-started-with-github/managing-remote-repositories) 来添加它们。
 
 {% endtip %}
 
 ## 同步更新和更改
 
-添加子项目时，它不会自动与上游更改保持同步。 您需要使用以下命令更新子项目：
+添加子项目时，它不会自动与上游更改保持同步。您需要使用以下命令更新子项目：
 
 ```shell
 $ git pull -s subtree <em>remotename</em> <em>branchname</em>

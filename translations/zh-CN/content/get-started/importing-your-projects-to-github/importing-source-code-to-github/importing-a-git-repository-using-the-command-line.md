@@ -34,8 +34,8 @@ ms.locfileid: '145128967'
 
 {% endtip %}
 
-1. [在 {% data variables.product.product_name %} 上新建存储库](/articles/creating-a-new-repository)。 您将在此新仓库中导入外部 Git 仓库。
-2. 在命令行上，使用外部克隆 URL 创建仓库的“裸”克隆。 这会创建数据的完整副本，但没有编辑文件的工作目录，并确保干净、新鲜地导出所有旧数据。
+1. [在 {% data variables.product.product_name %} 上新建存储库](/articles/creating-a-new-repository)。您将在此新仓库中导入外部 Git 仓库。
+2. 在命令行上，使用外部克隆 URL 创建仓库的“裸”克隆。这会创建数据的完整副本，但没有编辑文件的工作目录，并确保干净、新鲜地导出所有旧数据。
   ```shell
   $ git clone --bare https://external-host.com/<em>extuser</em>/<em>repo.git</em>
   # Makes a bare clone of the external repository in a local directory

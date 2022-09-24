@@ -20,9 +20,9 @@ ms.locfileid: '145098890'
 ---
 ## 关于 {% data variables.product.prodname_dotcom_the_website %} 上的新帐户
 
-您可以创建个人帐户，用作您在 {% data variables.product.prodname_dotcom_the_website %} 上的身份，或用作组织，允许多个个人帐户协作处理多个项目。 有关帐户类型的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/get-started/learning-about-github/types-of-github-accounts)”。
+您可以创建个人帐户，用作您在 {% data variables.product.prodname_dotcom_the_website %} 上的身份，或用作组织，允许多个个人帐户协作处理多个项目。有关帐户类型的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/get-started/learning-about-github/types-of-github-accounts)”。
 
-创建个人帐户或组织时，必须为该帐户选择计费方案。 有关详细信息，请参阅“[{% data variables.product.company_short %} 的产品](/get-started/learning-about-github/githubs-products)”。
+创建个人帐户或组织时，必须为该帐户选择计费方案。有关详细信息，请参阅“[{% data variables.product.company_short %} 的产品](/get-started/learning-about-github/githubs-products)”。
 
 ## 注册新帐户
 

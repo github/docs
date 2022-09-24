@@ -26,7 +26,7 @@ ms.locfileid: '145148751'
 
 ## 使用 Atom 作为编辑器
 
-1. 安装 [Atom](https://atom.io/)。 有关详细信息，请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
+1. 安装 [Atom](https://atom.io/)。有关详细信息，请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell
@@ -35,7 +35,7 @@ ms.locfileid: '145148751'
 
 ## 将 {% data variables.product.prodname_vscode %} 用作编辑器
 
-1. 安装 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %})。 有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置 {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)”。
+1. 安装 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %})。有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置 {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell
@@ -44,7 +44,7 @@ ms.locfileid: '145148751'
 
 ## 使用 Sublime Text 作为编辑器
 
-1. 安装 [Sublime Text](https://www.sublimetext.com/)。 有关详细信息，请参阅 Sublime Text 文档中的“[安装](https://docs.sublimetext.io/guide/getting-started/installation.html)”。
+1. 安装 [Sublime Text](https://www.sublimetext.com/)。有关详细信息，请参阅 Sublime Text 文档中的“[安装](https://docs.sublimetext.io/guide/getting-started/installation.html)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell
@@ -54,7 +54,7 @@ ms.locfileid: '145148751'
 ## 使用 TextMate 作为编辑器
 
 1. 安装 [TextMate](https://macromates.com/)。
-2. 安装 TextMate 的 `mate` shell 实用工具。 有关详细信息，请参阅 TextMate 文档中的“[`mate` 和 `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)”。
+2. 安装 TextMate 的 `mate` shell 实用工具。有关详细信息，请参阅 TextMate 文档中的“[`mate` 和 `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. 键入以下命令：
   ```shell
@@ -66,7 +66,7 @@ ms.locfileid: '145148751'
 
 ## 使用 Atom 作为编辑器
 
-1. 安装 [Atom](https://atom.io/)。 有关详细信息，请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
+1. 安装 [Atom](https://atom.io/)。有关详细信息，请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell
@@ -75,7 +75,7 @@ ms.locfileid: '145148751'
 
 ## 将 {% data variables.product.prodname_vscode %} 用作编辑器
 
-1. 安装 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %})。 有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置 {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)”。
+1. 安装 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %})。有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置 {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell
@@ -84,7 +84,7 @@ ms.locfileid: '145148751'
 
 ## 使用 Sublime Text 作为编辑器
 
-1. 安装 [Sublime Text](https://www.sublimetext.com/)。 有关详细信息，请参阅 Sublime Text 文档中的“[安装](https://docs.sublimetext.io/guide/getting-started/installation.html)”。
+1. 安装 [Sublime Text](https://www.sublimetext.com/)。有关详细信息，请参阅 Sublime Text 文档中的“[安装](https://docs.sublimetext.io/guide/getting-started/installation.html)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell
@@ -93,7 +93,7 @@ ms.locfileid: '145148751'
 
 ## 使用 Notepad++ 作为编辑器
 
-1. 从 https://notepad-plus-plus.org/ 安装 Notepad++。 有关详细信息，请参阅 Notepad++ 文档中的“[入门](https://npp-user-manual.org/docs/getting-started/)”。
+1. 从 https://notepad-plus-plus.org/ 安装 Notepad++。有关详细信息，请参阅 Notepad++ 文档中的“[入门](https://npp-user-manual.org/docs/getting-started/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell
@@ -105,7 +105,7 @@ ms.locfileid: '145148751'
 
 ## 使用 Atom 作为编辑器
 
-1. 安装 [Atom](https://atom.io/)。 有关详细信息，请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
+1. 安装 [Atom](https://atom.io/)。有关详细信息，请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell
@@ -114,7 +114,7 @@ ms.locfileid: '145148751'
 
 ## 将 {% data variables.product.prodname_vscode %} 用作编辑器
 
-1. 安装 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %})。 有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置 {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)”。
+1. 安装 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %})。有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置 {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell
@@ -123,7 +123,7 @@ ms.locfileid: '145148751'
 
 ## 使用 Sublime Text 作为编辑器
 
-1. 安装 [Sublime Text](https://www.sublimetext.com/)。 有关详细信息，请参阅 Sublime Text 文档中的“[安装](https://docs.sublimetext.io/guide/getting-started/installation.html)”。
+1. 安装 [Sublime Text](https://www.sublimetext.com/)。有关详细信息，请参阅 Sublime Text 文档中的“[安装](https://docs.sublimetext.io/guide/getting-started/installation.html)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 键入以下命令：
   ```shell

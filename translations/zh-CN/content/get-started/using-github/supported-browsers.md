@@ -21,7 +21,7 @@ ms.locfileid: '145130112'
 ---
 ## 关于对 {% data variables.product.product_name %} 的 Web 浏览器支持
 
-我们在设计 {% data variables.product.product_name %} 时考虑了最新的 Web 浏览器。 建议使用以下某个浏览器的最新版本。
+我们在设计 {% data variables.product.product_name %} 时考虑了最新的 Web 浏览器。建议使用以下某个浏览器的最新版本。
 
  - [Apple Safari](https://apple.com/safari)
  - [Google Chrome](https://google.com/chrome)
@@ -33,7 +33,7 @@ ms.locfileid: '145130112'
 若要详细了解如何维护 {% data variables.product.company_short %} 产品的浏览器兼容性，请参阅 [`github/browser-support`](https://github.com/github/browser-support) 存储库。
 ## 对建议的 Web 浏览器的扩展支持
 
-某些浏览器供应商提供扩展支持版本。 我们尽最大努力确保 {% data variables.product.product_name %} 在最新的扩展支持版本中正常运行：
+某些浏览器供应商提供扩展支持版本。我们尽最大努力确保 {% data variables.product.product_name %} 在最新的扩展支持版本中正常运行：
 
 - Chrome 的[扩展稳定通道](https://support.google.com/chrome/a/answer/9027636)
 - Edge 的[扩展稳定通道](https://docs.microsoft.com/en-gb/deployedge/microsoft-edge-channels#extended-stable-channel)
@@ -44,4 +44,4 @@ ms.locfileid: '145130112'
 
 ## 测试版和开发者版本
 
-您可能会在我们支持的浏览器的测试版和开发者版本中遇到意外的漏洞。 如果您在这些未发布版本之一中遇到 {% data variables.product.product_name %} 上的漏洞，请确认同一浏览器的稳定版本中也存在该漏洞。 如果漏洞仅在不稳定版本中存在，请考虑向浏览器开发者报告该漏洞。
+您可能会在我们支持的浏览器的测试版和开发者版本中遇到意外的漏洞。如果您在这些未发布版本之一中遇到 {% data variables.product.product_name %} 上的漏洞，请确认同一浏览器的稳定版本中也存在该漏洞。如果漏洞仅在不稳定版本中存在，请考虑向浏览器开发者报告该漏洞。
