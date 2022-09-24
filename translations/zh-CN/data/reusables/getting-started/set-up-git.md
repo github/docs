@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145097482"
 ---
-将 {% data variables.product.prodname_dotcom %} 存储库与计算机同步后，可以在本地工作并将更改推送到 {% data variables.product.prodname_dotcom %}。 有关详细信息，请参阅“[设置 Git](/get-started/quickstart/set-up-git)”。
+将 {% data variables.product.prodname_dotcom %} 存储库与计算机同步后，可以在本地工作并将更改推送到 {% data variables.product.prodname_dotcom %}。有关详细信息，请参阅“[设置 Git](/get-started/quickstart/set-up-git)”。

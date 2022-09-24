@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "145100454"
 ---
-此 API 仅供团队[组织](/rest/reference/orgs)中经过身份验证的成员使用。 OAuth 访问令牌需要 `read:org` [作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)。 {% data variables.product.prodname_dotcom %} 从团队 `name` 生成团队的 `slug`。
+此 API 仅供团队[组织](/rest/reference/orgs)中经过身份验证的成员使用。OAuth 访问令牌需要 `read:org` [作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)。 {% data variables.product.prodname_dotcom %} 从团队 `name` 生成团队的 `slug`。

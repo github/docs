@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "145100614"
 ---
-在颁发每个客户端证书时，必须包含扩展，以指定证书用于哪个 {% data variables.product.product_name %} 用户。 有关详细信息，请参阅“[关于 SSH 证书颁发机构](/articles/about-ssh-certificate-authorities)”。
+在颁发每个客户端证书时，必须包含扩展，以指定证书用于哪个 {% data variables.product.product_name %} 用户。有关详细信息，请参阅“[关于 SSH 证书颁发机构](/articles/about-ssh-certificate-authorities)”。

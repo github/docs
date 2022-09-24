@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145097582"
 ---
-可通过 {% data variables.contact.premium_support %} 生成运行状况检查。 有关详细信息，请参阅“[关于 {% data variables.contact.premium_support %}](/support/learning-about-github-support/about-github-premium-support)”。
+可通过 {% data variables.contact.premium_support %} 生成运行状况检查。有关详细信息，请参阅“[关于 {% data variables.contact.premium_support %}](/support/learning-about-github-support/about-github-premium-support)”。

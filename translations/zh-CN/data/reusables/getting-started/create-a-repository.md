@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "147065456"
 ---
-为项目创建存储库后，可以将代码存储在 {% data variables.product.prodname_dotcom %} 中。 这提供了工作备份，你可以选择将其与其他开发人员共享。 有关详细信息，请参阅“[创建存储库](/get-started/quickstart/create-a-repo)”。
+为项目创建存储库后，可以将代码存储在 {% data variables.product.prodname_dotcom %} 中。这提供了工作备份，你可以选择将其与其他开发人员共享。有关详细信息，请参阅“[创建存储库](/get-started/quickstart/create-a-repo)”。

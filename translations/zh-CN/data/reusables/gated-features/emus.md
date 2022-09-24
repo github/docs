@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "147884985"
 ---
-若要使用标识提供者管理企业中的用户，企业必须启用 {% data variables.product.prodname_emus %}，它适用于 {% data variables.product.prodname_ghe_cloud %}。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+若要使用标识提供者管理企业中的用户，企业必须启用 {% data variables.product.prodname_emus %}，它适用于 {% data variables.product.prodname_ghe_cloud %}。有关详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。

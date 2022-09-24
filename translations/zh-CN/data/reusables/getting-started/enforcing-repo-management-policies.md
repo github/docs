@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/10/2022
 ms.locfileid: "147880354"
 ---
-作为企业所有者，你可以在 {% data variables.product.product_location %} 中为所有组织设置存储库管理策略，或者允许在每个组织中单独设置策略。 有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)”。
+作为企业所有者，你可以在 {% data variables.product.product_location %} 中为所有组织设置存储库管理策略，或者允许在每个组织中单独设置策略。有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)”。

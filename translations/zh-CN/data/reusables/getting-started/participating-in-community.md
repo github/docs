@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145097490"
 ---
-有多种方法可以参与 {% data variables.product.prodname_dotcom %} 社区。 你可以参与开放源代码项目、与 {% data variables.product.prodname_gcf %} 中的人员交互，或者通过 {% data variables.product.prodname_learning %} 学习。
+有多种方法可以参与 {% data variables.product.prodname_dotcom %} 社区。你可以参与开放源代码项目、与 {% data variables.product.prodname_gcf %} 中的人员交互，或者通过 {% data variables.product.prodname_learning %} 学习。

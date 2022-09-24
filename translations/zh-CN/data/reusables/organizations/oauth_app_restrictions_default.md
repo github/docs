@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/12/2022
 ms.locfileid: "145100535"
 ---
-{% ifversion fpt or ghec %}创建新组织时，默认启用 {% data variables.product.prodname_oauth_app %} 访问限制。 组织所有者可以随时[禁用 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/disabling-oauth-app-access-restrictions-for-your-organization)。{% endif %}
+{% ifversion fpt or ghec %}创建新组织时，默认启用 {% data variables.product.prodname_oauth_app %} 访问限制。组织所有者可以随时[禁用 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/disabling-oauth-app-access-restrictions-for-your-organization)。{% endif %}

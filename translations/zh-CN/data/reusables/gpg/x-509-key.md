@@ -15,7 +15,7 @@ ms.locfileid: "145097421"
 
 1. 安装 [smimesign](https://github.com/github/smimesign#installation)。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. 配置 Git 使用 S/MIME 对提交和标记签名。 在 Git 2.19 或更高版本中，使用 `git config gpg.x509.program` 和 `git config gpg.format` 命令：
+3. 配置 Git 使用 S/MIME 对提交和标记签名。在 Git 2.19 或更高版本中，使用 `git config gpg.x509.program` 和 `git config gpg.format` 命令：
   - 要使用 S/MIME 对所有仓库签名：
   ```shell
   $ git config --global gpg.x509.program smimesign
@@ -42,7 +42,7 @@ ms.locfileid: "145097421"
   ```shell
   $ smimesign --list-keys
   ```
-5. 从 X.509 密钥列表中复制您想要使用的 X.509 密钥的证书 ID。 在本示例中，客户端 ID 为 `0ff455a2708394633e4bb2f88002e3cd80cbd76f`：
+5. 从 X.509 密钥列表中复制您想要使用的 X.509 密钥的证书 ID。在本示例中，客户端 ID 为 `0ff455a2708394633e4bb2f88002e3cd80cbd76f`：
   ```shell
   $ smimesign --list-keys
                ID: 0ff455a2708394633e4bb2f88002e3cd80cbd76f
@@ -53,7 +53,7 @@ ms.locfileid: "145097421"
           Subject: CN=Octocat,O=GitHub\, Inc.,L=San Francisco,ST=California,C=US
            Emails: octocat@github.com
   ```
-6. 要在 Git 中设置您的 X.509 签名密钥，请粘贴下面的文本，替换之前复制的证书 ID 。
+6. 要在 Git 中设置您的 X.509 签名密钥，请粘贴下面的文本，替换之前复制的证书 ID。
   - 要使用 X.509 密钥注册所有仓库：
   ```shell
   $ git config --global user.signingkey <em>0ff455a2708394633e4bb2f88002e3cd80cbd76f</em>

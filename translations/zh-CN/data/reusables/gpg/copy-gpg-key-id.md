@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/09/2022
 ms.locfileid: "147869441"
 ---
-1. 从 GPG 密钥列表中复制您想要使用的 GPG 密钥 ID 的长形式。 在本例中，GPG 密钥 ID 为 `3AA5C34371567BD2`：
+1. 从 GPG 密钥列表中复制您想要使用的 GPG 密钥 ID 的长形式。在本例中，GPG 密钥 ID 为 `3AA5C34371567BD2`：
     ```shell{:copy}
   $ gpg --list-secret-keys --keyid-format=long
   /Users/hubot/.gnupg/secring.gpg

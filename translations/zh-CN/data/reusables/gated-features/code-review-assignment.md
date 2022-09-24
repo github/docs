@@ -6,4 +6,4 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: "145951036"
 ---
-{% data variables.product.prodname_team %}、{% data variables.product.prodname_ghe_server %} 2.20+、{% ifversion ghae %} {% data variables.product.prodname_ghe_managed %}{% endif %} 和 {% data variables.product.prodname_ghe_cloud %} 上组织拥有的所有公共存储库，以及组织拥有的所有专用存储库中提供代码评审设置。 有关详细信息，请参阅“[GitHub 的产品](/articles/githubs-products)”。
+{% data variables.product.prodname_team %}、{% data variables.product.prodname_ghe_server %} 2.20+、{% ifversion ghae %} {% data variables.product.prodname_ghe_managed %}{% endif %} 和 {% data variables.product.prodname_ghe_cloud %} 上组织拥有的所有公共存储库，以及组织拥有的所有专用存储库中提供代码评审设置。有关详细信息，请参阅“[GitHub 的产品](/articles/githubs-products)”。

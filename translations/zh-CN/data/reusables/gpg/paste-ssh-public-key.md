@@ -6,7 +6,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/11/2022
 ms.locfileid: "147884718"
 ---
-1. 若要在 Git 中设置 SSH 签名密钥，请粘贴下面的文本，替换要使用的密钥的剪贴板内容。 由于密钥包含空格，因此必须用引号将它括起：
+1. 若要在 Git 中设置 SSH 签名密钥，请粘贴下面的文本，替换要使用的密钥的剪贴板内容。由于密钥包含空格，因此必须用引号将它括起：
   ```bash
   $ git config --global user.signingkey 'ssh-ed25519 AAAAC3(...) user@example.com'
   ```
