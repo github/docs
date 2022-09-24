@@ -24,10 +24,10 @@ ms.locfileid: '145100158'
 
 ## 查看组织或企业中的排队作业
 
-{% data variables.product.prodname_dotcom %}-hosted runners 允许你同时运行作业，最大并发作业数将根据你的计划而有所不同。 如果达到最大并发作业数，任何新作业都将开始进入队列。 若要详细了解计划可用的并发作业数量，请参阅“[使用限制、计费和管理](/actions/learn-github-actions/usage-limits-billing-and-administration)”。
+{% data variables.product.prodname_dotcom %}-hosted runners 允许你同时运行作业，最大并发作业数将根据你的计划而有所不同。如果达到最大并发作业数，任何新作业都将开始进入队列。若要详细了解计划可用的并发作业数量，请参阅“[使用限制、计费和管理](/actions/learn-github-actions/usage-limits-billing-and-administration)”。
 
 以下过程演示了如何检查可以运行的最大并发作业数。
 
 {% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %} {% data reusables.actions.github-hosted-runners-table-entry %}
-1. 查看“所有作业使用情况”部分，其中列出了活动作业的数量和你可以运行的最大作业数量。 在此示例中，`9` 个作业当前已超过最大值 `180`。
+1. 查看“所有作业使用情况”部分，其中列出了活动作业的数量和你可以运行的最大作业数量。在此示例中，`9` 个作业当前已超过最大值 `180`。
   ![一个帐户的最大作业的屏幕截图](/assets/images/help/settings/github-hosted-runners-max-jobs.png)

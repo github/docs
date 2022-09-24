@@ -21,7 +21,7 @@ ms.locfileid: '146749535'
 
 ## 示例概述
 
-{% data reusables.actions.example-workflow-intro-ci %} 此工作流触发后，会自动运行一个脚本，用于检查 {% data variables.product.prodname_dotcom %} Docs 站点是否有任何损坏的链接。 如果找到任何损坏的链接，工作流将使用 {% data variables.product.prodname_dotcom %} CLI 创建包含详细信息的 {% data variables.product.prodname_dotcom %} 问题。
+{% data reusables.actions.example-workflow-intro-ci %} 此工作流触发后，会自动运行一个脚本，用于检查 {% data variables.product.prodname_dotcom %} Docs 站点是否有任何损坏的链接。如果找到任何损坏的链接，工作流将使用 {% data variables.product.prodname_dotcom %} CLI 创建包含详细信息的 {% data variables.product.prodname_dotcom %} 问题。
 
 {% data reusables.actions.example-diagram-intro %}
 
@@ -206,8 +206,8 @@ on:
 
 将 `workflow_dispatch` 和 `scheduled` 定义为工作流的触发器：
 
-* 通过 `workflow_dispatch`，可从 UI 手动运行此工作流。 有关详细信息，请参阅 [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)。
-* 通过 `schedule` 事件，可使用 `cron` 语法来定义自动触发工作流的定期间隔。 有关详细信息，请参阅 [`schedule`](/actions/reference/events-that-trigger-workflows#schedule)。
+* 通过 `workflow_dispatch`，可从 UI 手动运行此工作流。有关详细信息，请参阅 [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)。
+* 通过 `schedule` 事件，可使用 `cron` 语法来定义自动触发工作流的定期间隔。有关详细信息，请参阅 [`schedule`](/actions/reference/events-that-trigger-workflows#schedule)。
 </td>
 </tr>
 <tr>
@@ -221,7 +221,7 @@ permissions:
 </td>
 <td>
 
-修改授予 `GITHUB_TOKEN` 的默认权限。 这将因工作流的需求而异。 有关详细信息，请参阅“[为作业分配权限](/actions/using-jobs/assigning-permissions-to-jobs)”。
+修改授予 `GITHUB_TOKEN` 的默认权限。这将因工作流的需求而异。有关详细信息，请参阅“[为作业分配权限](/actions/using-jobs/assigning-permissions-to-jobs)”。
 </td>
 </tr>
 <tr>
@@ -258,7 +258,7 @@ if: github.repository == 'github/docs-internal'
 </td>
 <td>
 
-仅当存储库名为 `docs-internal` 且位于 `github` 组织内时，才运行 `check_all_english_links` 作业。 否则，作业会被标记为“跳过”。
+仅当存储库名为 `docs-internal` 且位于 `github` 组织内时，才运行 `check_all_english_links` 作业。否则，作业会被标记为“跳过”。
 </td>
 </tr>
 <tr>
@@ -270,7 +270,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-配置作业在 Ubuntu Linux 运行器上运行。 这意味着作业将在 {% data variables.product.prodname_dotcom %}. 托管的新虚拟机上执行。 有关使用其他运行器的语法示例，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
+配置作业在 Ubuntu Linux 运行器上运行。这意味着作业将在 {% data variables.product.prodname_dotcom %}. 托管的新虚拟机上执行。有关使用其他运行器的语法示例，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
 </td>
 </tr>
 <tr>
@@ -286,7 +286,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-创建自定义环境变量，并重新定义内置的 `GITHUB_TOKEN` 变量以使用自定义[机密](/actions/security-guides/encrypted-secrets)。 稍后将在工作流中引用这些变量。
+创建自定义环境变量，并重新定义内置的 `GITHUB_TOKEN` 变量以使用自定义[机密](/actions/security-guides/encrypted-secrets)。稍后将在工作流中引用这些变量。
 </td>
 </tr>
 <tr>
@@ -298,7 +298,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-将作为 `check_all_english_links` 作业一部分运行的所有步骤组合在一起。 工作流中的每个作业都有其自己的 `steps` 部分。
+将作为 `check_all_english_links` 作业一部分运行的所有步骤组合在一起。工作流中的每个作业都有其自己的 `steps` 部分。
 </td>
 </tr>
 <tr>
@@ -311,7 +311,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-`uses` 关键字指示作业检索名为 `actions/checkout` 的操作。 这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。 只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。
+`uses` 关键字指示作业检索名为 `actions/checkout` 的操作。这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。
 </td>
 </tr>
 <tr>
@@ -342,7 +342,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-`run` 关键字指示作业在运行器上执行命令。 在这种情况下，`npm ci` 和 `npm run build` 命令作为单独的步骤运行，用于在存储库中安装和生成 Node.js 应用程序。
+`run` 关键字指示作业在运行器上执行命令。在这种情况下，`npm ci` 和 `npm run build` 命令作为单独的步骤运行，用于在存储库中安装和生成 Node.js 应用程序。
 </td>
 </tr>
 <tr>
@@ -393,7 +393,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-使用 `peter-evans/create-issue-from-file` 操作创建新的 {% data variables.product.prodname_dotcom %} 问题。 此示例使用 `b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e` SHA 固定到操作的特定版本。
+使用 `peter-evans/create-issue-from-file` 操作创建新的 {% data variables.product.prodname_dotcom %} 问题。此示例使用 `b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e` SHA 固定到操作的特定版本。
 </td>
 </tr>
 <tr>
@@ -421,7 +421,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-使用 [`gh issue list`](https://cli.github.com/manual/gh_issue_list) 查找之前在早期运行中创建的问题。 在后续步骤中，为了简化处理，这将[别名](https://cli.github.com/manual/gh_alias_set)设置为 `gh list-reports`。 若要获取问题 URL，`jq` 表达式将处理生成的 JSON 输出。
+使用 [`gh issue list`](https://cli.github.com/manual/gh_issue_list) 查找之前在早期运行中创建的问题。在后续步骤中，为了简化处理，这将[别名](https://cli.github.com/manual/gh_alias_set)设置为 `gh list-reports`。若要获取问题 URL，`jq` 表达式将处理生成的 JSON 输出。
 
 然后，使用 [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) 向链接到上一个问题的新问题添加注释。
 </td>

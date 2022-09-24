@@ -42,7 +42,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 要在 IAM 中配置角色和信任，请参阅[“假定角色”](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role)和[“为 Web 身份或 OpenID 连接联合创建角色”](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)的 AWS 文档。
 
-编辑信任策略以将 `sub` 字段添加到验证条件。 例如：
+编辑信任策略以将 `sub` 字段添加到验证条件。例如：
 
 ```json{:copy}
 "Condition": {
@@ -53,7 +53,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 }
 ```
 
-在以下示例中，`ForAllValues` 用于匹配多个条件键，`StringLike` 用于匹配指定存储库中的任何 ref。 请注意，`ForAllValues` [过于宽松](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html)，不应在 `Allow` 效果中单独使用。 对于此示例，包含 `StringLike` 表示 `ForAllValues` 中的空集仍然不会传递条件：
+在以下示例中，`ForAllValues` 用于匹配多个条件键，`StringLike` 用于匹配指定存储库中的任何 ref。请注意，`ForAllValues` [过于宽松](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html)，不应在 `Allow` 效果中单独使用。对于此示例，包含 `StringLike` 表示 `ForAllValues` 中的空集仍然不会传递条件：
 
 ```json{:copy}
 {
@@ -92,7 +92,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 ### 请求访问令牌
 
-`aws-actions/configure-aws-credentials` 操作从 {% data variables.product.prodname_dotcom %} OIDC 提供商接收 JWT，然后从 AWS 请求访问令牌。 有关详细信息，请参阅 [AWS 文档](https://github.com/aws-actions/configure-aws-credentials)。
+`aws-actions/configure-aws-credentials` 操作从 {% data variables.product.prodname_dotcom %} OIDC 提供商接收 JWT，然后从 AWS 请求访问令牌。有关详细信息，请参阅 [AWS 文档](https://github.com/aws-actions/configure-aws-credentials)。
 
 - `<example-bucket-name>`：在此处添加 S3 Bucket 的名称。
 - `<role-to-assume>`：将示例替换为你的 AWS 角色。

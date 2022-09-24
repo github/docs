@@ -33,9 +33,9 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 ## 将联合凭据添加到 Azure
 
-{% data variables.product.prodname_dotcom %} 的 OIDC 提供商与 Azure 的工作负载联合身份验证配合使用。 有关概述，请参阅“[工作负载联合身份验证](https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)”中的 Microsoft 文档。
+{% data variables.product.prodname_dotcom %} 的 OIDC 提供商与 Azure 的工作负载联合身份验证配合使用。有关概述，请参阅“[工作负载联合身份验证](https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)”中的 Microsoft 文档。
 
-要在 Azure 中配置 OIDC 身份提供商，您需要执行以下配置。 有关进行这些更改的说明，请参阅 [Azure 文档](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure)。
+要在 Azure 中配置 OIDC 身份提供商，您需要执行以下配置。有关进行这些更改的说明，请参阅 [Azure 文档](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure)。
 
 1. 创建 Azure Active Directory 应用程序和服务主体。
 2. 为 Azure Active Directory 应用程序添加联合凭据。
@@ -43,7 +43,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 配置身份提供商的附加指导：
 
-- 有关安全强化，请确保已查看[“使用云配置 OIDC 信任”](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)。 有关示例，请参阅“[在云提供商中配置主题](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)”。
+- 有关安全强化，请确保已查看[“使用云配置 OIDC 信任”](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)。有关示例，请参阅“[在云提供商中配置主题](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)”。
 - 对于 `audience` 设置，建议使用 `api://AzureADTokenExchange` 值，但也可以在此处指定其他值。
 
 ## 更新 {% data variables.product.prodname_actions %} 工作流程
@@ -58,7 +58,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 ### 请求访问令牌
 
-[`azure/login`](https://github.com/Azure/login) 操作从 {% data variables.product.prodname_dotcom %} OIDC 提供商接收 JWT，然后从 Azure 请求访问令牌。 有关详细信息，请参阅 [`azure/login`](https://github.com/Azure/login) 文档。
+[`azure/login`](https://github.com/Azure/login) 操作从 {% data variables.product.prodname_dotcom %} OIDC 提供商接收 JWT，然后从 Azure 请求访问令牌。有关详细信息，请参阅 [`azure/login`](https://github.com/Azure/login) 文档。
 
 以下示例将 OIDC ID 令牌与 Azure 交换以接收访问令牌，然后可以使用该令牌访问云资源。
 

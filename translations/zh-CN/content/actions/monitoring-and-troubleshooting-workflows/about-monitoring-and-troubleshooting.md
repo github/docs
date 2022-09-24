@@ -28,7 +28,7 @@ ms.locfileid: '147062040'
 
 ### 使用可视化图表
 
-每个工作流程运行都会生成一个实时图表，说明运行进度。 您可以使用此图表来监控和调试工作流程。 例如：
+每个工作流程运行都会生成一个实时图表，说明运行进度。您可以使用此图表来监控和调试工作流程。例如：
 
    ![工作流程图表](/assets/images/help/images/workflow-graph.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: '147062040'
 {% ifversion fpt or ghec %}
 ### 查看作业执行时间
 
-要确定作业运行所花费的时间，可以查看其执行时间。 例如：
+要确定作业运行所花费的时间，可以查看其执行时间。例如：
 
    ![运行和可计费时间详细信息链接](/assets/images/help/repository/view-run-billable-time.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: '147062040'
 
 ### 查看工作流程运行历史记录
 
-您可以查看工作流程中每个作业和步骤的状态。 例如：
+您可以查看工作流程中每个作业和步骤的状态。例如：
 
    ![工作流程运行的名称](/assets/images/help/repository/run-name.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: '147062040'
 
 ### 使用工作流运行日志
 
-每个工作流程运行都会生成活动日志，您可以查看、搜索和下载这些日志。 例如：
+每个工作流程运行都会生成活动日志，您可以查看、搜索和下载这些日志。例如：
 
    ![Super linter 工作流程结果](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: '147062040'
 
 ### 启用调试日志记录
 
-如果工作流程日志没有提供足够的详细信息来诊断工作流程、作业或步骤未按预期工作的原因，您可以启用额外的调试日志。 有关详细信息，请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。
+如果工作流程日志没有提供足够的详细信息来诊断工作流程、作业或步骤未按预期工作的原因，您可以启用额外的调试日志。有关详细信息，请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。
 
 ## 对自托管运行程序进行监视和故障排除
 

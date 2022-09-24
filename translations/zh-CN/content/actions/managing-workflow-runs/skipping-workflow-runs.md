@@ -18,7 +18,7 @@ ms.locfileid: '146199968'
 
 {% note %}
 
-注意：如果因[路径筛选](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、[分支筛选](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)或提交消息（见下文）而跳过某工作流，则与该工作流关联的检查将保持为“挂起”状态。 要求这些检查成功的拉取请求将被阻止合并。
+注意：如果因[路径筛选](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、[分支筛选](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)或提交消息（见下文）而跳过某工作流，则与该工作流关联的检查将保持为“挂起”状态。要求这些检查成功的拉取请求将被阻止合并。
 
 {% endnote %}
 
@@ -34,12 +34,12 @@ ms.locfileid: '146199968'
 - `skip-checks:true`
 - `skip-checks: true`
 
-如果您的仓库配置为需要先通过特定检查，则无法合并拉取请求。 要允许合并拉取请求，您可以将新提交推送到拉取请求，而无需提交消息中的跳过指令。
+如果您的仓库配置为需要先通过特定检查，则无法合并拉取请求。要允许合并拉取请求，您可以将新提交推送到拉取请求，而无需提交消息中的跳过指令。
 
 {% note %}
 
-**注意**：跳过说明仅适用于 `push` 事件和 `pull_request` 事件。 例如，将 `[skip ci]` 添加到提交消息不会停止触发 `on: pull_request_target` 的工作流运行。
+**注意**：跳过说明仅适用于 `push` 事件和 `pull_request` 事件。例如，将 `[skip ci]` 添加到提交消息不会停止触发 `on: pull_request_target` 的工作流运行。
 
 {% endnote %}
 
-跳过指令仅适用于由包含跳过指令的提交触发的工作流程运行。 您还可以禁用工作流程的运行。 有关详细信息，请参阅“[禁用和启用工作流](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)”。
+跳过指令仅适用于由包含跳过指令的提交触发的工作流程运行。您还可以禁用工作流程的运行。有关详细信息，请参阅“[禁用和启用工作流](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)”。

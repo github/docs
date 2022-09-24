@@ -18,7 +18,7 @@ ms.locfileid: '145099187'
 
 ## 配置工作流程手动运行
 
-要手动运行工作流，必须将工作流配置为在 `workflow_dispatch` 事件上运行。 要触发 `workflow_dispatch` 事件，工作流必须位于默认分支中。 有关配置 `workflow_dispatch` 事件的详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#workflow_dispatch)”。
+要手动运行工作流，必须将工作流配置为在 `workflow_dispatch` 事件上运行。要触发 `workflow_dispatch` 事件，工作流必须位于默认分支中。有关配置 `workflow_dispatch` 事件的详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#workflow_dispatch)”。
 
 {% data reusables.repositories.permissions-statement-write %}
 
@@ -31,7 +31,7 @@ ms.locfileid: '145099187'
 ![操作选择工作流](/assets/images/actions-select-workflow.png)
 1. 在工作流运行列表上方，选择“运行工作流”。
 ![操作工作流调度](/assets/images/actions-workflow-dispatch.png)
-1. 使用“分支”下拉菜单，选择工作流的分支，并键入输入参数。 单击“运行工作流”。
+1. 使用“分支”下拉菜单，选择工作流的分支，并键入输入参数。单击“运行工作流”。
 ![操作手动运行工作流](/assets/images/actions-manually-run-workflow.png)
 
 {% endwebui %}
@@ -40,13 +40,13 @@ ms.locfileid: '145099187'
 
 {% data reusables.cli.cli-learn-more %}
 
-要运行工作流，请使用 `workflow run` 子命令。 将 `workflow` 参数替换为要运行的工作流的名称、ID 或文件名。 例如，`"Link Checker"`、`1234567` 或 `"link-check-test.yml"`。 如果您没有指定工作流程，{% data variables.product.prodname_cli %} 将返回交互式菜单供您选择工作流程。
+要运行工作流，请使用 `workflow run` 子命令。将 `workflow` 参数替换为要运行的工作流的名称、ID 或文件名。例如，`"Link Checker"`、`1234567` 或 `"link-check-test.yml"`。如果您没有指定工作流程，{% data variables.product.prodname_cli %} 将返回交互式菜单供您选择工作流程。
 
 ```shell
 gh workflow run <em>workflow</em>
 ```
 
-如果您的工作流程接受输入，{% data variables.product.prodname_cli %} 将提示您输入它们。 或者，可以使用 `-f` 或 `-F` 添加 `key=value` 格式的输入。 使用 `-F` 从文件中读取。
+如果您的工作流程接受输入，{% data variables.product.prodname_cli %} 将提示您输入它们。或者，可以使用 `-f` 或 `-F` 添加 `key=value` 格式的输入。使用 `-F` 从文件中读取。
 
 ```shell
 gh workflow run greet.yml -f name=mona -f greeting=hello -F data=@myfile.txt
@@ -74,7 +74,7 @@ gh run watch
 
 ## 使用 REST API 运行工作流程
 
-使用 REST API 时，应将 `inputs` 和 `ref` 配置为请求正文参数。 如果忽略输入，则使用工作流程文件中定义的默认值。
+使用 REST API 时，应将 `inputs` 和 `ref` 配置为请求正文参数。如果忽略输入，则使用工作流程文件中定义的默认值。
 
 {% note %}
 

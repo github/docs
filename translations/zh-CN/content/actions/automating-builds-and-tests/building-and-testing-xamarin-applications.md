@@ -28,7 +28,7 @@ ms.locfileid: '147518926'
 
 ## 简介
 
-本指南介绍如何为 Xamarin 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。
+本指南介绍如何为 Xamarin 项目创建执行持续集成 (CI) 的工作流程。您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败；这个方法可帮助确保您的代码始终是健康的。
 
 在 {% data variables.product.prodname_actions %} 托管的 macOS 运行器上有可用的 Xamarin SDK 版本的完整列表，请参阅文档：
 
@@ -39,7 +39,7 @@ ms.locfileid: '147518926'
 
 ## 先决条件
 
-建议基本了解 Xamarin、.NET Core SDK、YAML、工作流程配置选项以及如何创建工作流程文件。 有关详细信息，请参阅：
+建议基本了解 Xamarin、.NET Core SDK、YAML、工作流程配置选项以及如何创建工作流程文件。有关详细信息，请参阅：
 
 - “[{% data variables.product.prodname_actions %} 的工作流语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”
 - “[.NET 入门](https://dotnet.microsoft.com/learn)”
@@ -117,6 +117,6 @@ jobs:
 
 ## 指定 .NET 版本
 
-若要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用预安装的 .NET Core SDK 版本，请使用 `setup-dotnet` 操作。 此操作从每个运行器上的工具缓存中查找特定版本的 .NET，并将必要的二进制文件添加到 `PATH`。 这些更改将持续用于作业的其余部分。
+若要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用预安装的 .NET Core SDK 版本，请使用 `setup-dotnet` 操作。此操作从每个运行器上的工具缓存中查找特定版本的 .NET，并将必要的二进制文件添加到 `PATH`。这些更改将持续用于作业的其余部分。
  
-`setup-dotnet` 操作是 .NET 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 .NET 行为一致。 如果使用自托管运行器，则必须安装 .NET 并将其添加到 `PATH`。 有关详细信息，请参阅 [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk) 操作。
+`setup-dotnet` 操作是 .NET 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 .NET 行为一致。如果使用自托管运行器，则必须安装 .NET 并将其添加到 `PATH`。有关详细信息，请参阅 [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk) 操作。

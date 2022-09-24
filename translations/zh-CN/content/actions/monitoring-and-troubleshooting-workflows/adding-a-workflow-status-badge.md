@@ -27,7 +27,7 @@ ms.locfileid: '147880627'
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
 
-若要向 `README.md` 文件添加工作流状态徽章，请首先找到要显示的状态徽章的 URL。 然后，可以使用 Markdown 将徽章显示为 `README.md` 文件中的图像。 有关 Markdown 中的图像标记的详细信息，请参阅“[基本编写和格式设置语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)”。
+若要向 `README.md` 文件添加工作流状态徽章，请首先找到要显示的状态徽章的 URL。然后，可以使用 Markdown 将徽章显示为 `README.md` 文件中的图像。有关 Markdown 中的图像标记的详细信息，请参阅“[基本编写和格式设置语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)”。
 
 ## 使用工作流程文件名称
 
@@ -37,9 +37,9 @@ ms.locfileid: '147880627'
 {% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg
 ```
 
-若要在 `README.md` 文件中显示工作流状态徽章，请使用 Markdown 标记来嵌入图像。 有关 Markdown 中的图像标记的详细信息，请参阅“[基本编写和格式设置语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)”。
+若要在 `README.md` 文件中显示工作流状态徽章，请使用 Markdown 标记来嵌入图像。有关 Markdown 中的图像标记的详细信息，请参阅“[基本编写和格式设置语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)”。
 
-例如，将以下 Markdown 添加到 `README.md` 文件，可为文件路径为 `.github/workflows/main.yml` 的工作流添加状态徽章。 存储库的 `OWNER` 是 `github` 组织，`REPOSITORY` 名称为 `docs`。
+例如，将以下 Markdown 添加到 `README.md` 文件，可为文件路径为 `.github/workflows/main.yml` 的工作流添加状态徽章。存储库的 `OWNER` 是 `github` 组织，`REPOSITORY` 名称为 `docs`。
 
 ```markdown
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)

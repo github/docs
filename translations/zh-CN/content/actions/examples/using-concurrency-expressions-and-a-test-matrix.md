@@ -238,7 +238,7 @@ on:
 </td>
 <td>
 
-通过 `on` 关键字，可以定义运行工作流时触发的事件。 可在此处定义多个事件。 有关详细信息，请参阅“[触发工作流](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)”。
+通过 `on` 关键字，可以定义运行工作流时触发的事件。可在此处定义多个事件。有关详细信息，请参阅“[触发工作流](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)”。
 </td>
 </tr>
 <tr>
@@ -250,7 +250,7 @@ on:
 </td>
 <td>
 
-如果要在 UI 中手动运行此工作流，请添加 `workflow_dispatch` 事件。 有关详细信息，请参阅 [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch)。
+如果要在 UI 中手动运行此工作流，请添加 `workflow_dispatch` 事件。有关详细信息，请参阅 [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch)。
 </td>
 </tr>
 <tr>
@@ -262,7 +262,7 @@ on:
 </td>
 <td>
 
-添加 `pull_request` 事件，以便每次创建或更新拉取请求时，工作流都会自动运行。 有关详细信息，请参阅 [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request)。
+添加 `pull_request` 事件，以便每次创建或更新拉取请求时，工作流都会自动运行。有关详细信息，请参阅 [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request)。
 </td>
 </tr>
 <tr>
@@ -276,7 +276,7 @@ on:
 </td>
 <td>
 
-添加 `push` 事件，以便每次将提交推送到匹配筛选器 `main` 的分支时，工作流都会自动运行。 有关详细信息，请参阅 [`push`](/actions/using-workflows/events-that-trigger-workflows#push)。
+添加 `push` 事件，以便每次将提交推送到匹配筛选器 `main` 的分支时，工作流都会自动运行。有关详细信息，请参阅 [`push`](/actions/using-workflows/events-that-trigger-workflows#push)。
 </td>
 </tr>
 <tr>
@@ -290,7 +290,7 @@ permissions:
 </td>
 <td>
 
-修改授予 `GITHUB_TOKEN` 的默认权限。 这将因工作流的需求而异。 有关详细信息，请参阅“[为作业分配权限](/actions/using-jobs/assigning-permissions-to-jobs)”。
+修改授予 `GITHUB_TOKEN` 的默认权限。这将因工作流的需求而异。有关详细信息，请参阅“[为作业分配权限](/actions/using-jobs/assigning-permissions-to-jobs)”。
 </td>
 </tr>
 <tr>
@@ -304,7 +304,7 @@ concurrency:
 </td>
 <td>
 
-为特定事件创建并发组，并使用 `||` 运算符定义回退值。 有关详细信息，请参阅“[使用并发](/actions/using-jobs/using-concurrency)”。
+为特定事件创建并发组，并使用 `||` 运算符定义回退值。有关详细信息，请参阅“[使用并发](/actions/using-jobs/using-concurrency)”。
 </td>
 </tr>
 <tr>
@@ -352,7 +352,7 @@ jobs:
 </td>
 <td>
 
-根据运行工作流的存储库，将作业配置为在 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管运行器上运行。 在此示例中，如果存储库名为 `docs-internal` 且位于 `github` 组织内，则作业将在自托管运行器上运行。 如果存储库与此路径不匹配，则其会在由 {% data variables.product.prodname_dotcom %} 托管的 `ubuntu-latest` 运行器上运行。 有关这些选项的详细信息，请参阅“[为作业选择运行器](/actions/using-jobs/choosing-the-runner-for-a-job)”。
+根据运行工作流的存储库，将作业配置为在 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管运行器上运行。在此示例中，如果存储库名为 `docs-internal` 且位于 `github` 组织内，则作业将在自托管运行器上运行。如果存储库与此路径不匹配，则其会在由 {% data variables.product.prodname_dotcom %} 托管的 `ubuntu-latest` 运行器上运行。有关这些选项的详细信息，请参阅“[为作业选择运行器](/actions/using-jobs/choosing-the-runner-for-a-job)”。
 </td>
 </tr>
 <tr>
@@ -364,7 +364,7 @@ jobs:
 </td>
 <td>
 
-设置作业在自动取消之前运行的最大分钟数。 有关详细信息，请参阅 [`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)。
+设置作业在自动取消之前运行的最大分钟数。有关详细信息，请参阅 [`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)。
 </td>
 </tr>
 <tr>
@@ -410,7 +410,7 @@ jobs:
 </td>
 <td>
 
-创建名为 `test-group` 的矩阵，其中包含测试组数组。 这些值与将由 `npm test` 运行的测试组的名称匹配。
+创建名为 `test-group` 的矩阵，其中包含测试组数组。这些值与将由 `npm test` 运行的测试组的名称匹配。
 </td>
 </tr>
 <tr>
@@ -422,7 +422,7 @@ jobs:
 </td>
 <td>
 
-将作为 `test` 作业一部分运行的所有步骤组合在一起。 工作流中的每个作业都有其自己的 `steps` 部分。
+将作为 `test` 作业一部分运行的所有步骤组合在一起。工作流中的每个作业都有其自己的 `steps` 部分。
 </td>
 </tr>
 <tr>
@@ -438,7 +438,7 @@ jobs:
 </td>
 <td>
 
-`uses` 关键字指示作业检索名为 `actions/checkout` 的操作。 这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。 只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。 使用 `with` 键为操作提供了一些额外的选项。
+`uses` 关键字指示作业检索名为 `actions/checkout` 的操作。这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。使用 `with` 键为操作提供了一些额外的选项。
 </td>
 </tr>
 <tr>
@@ -546,7 +546,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用 `trilom/file-changes-action` 操作收集拉取请求中更改的文件，以便在下一步中分析它们。 此示例使用 `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA 固定到操作的特定版本。
+此步骤使用 `trilom/file-changes-action` 操作收集拉取请求中更改的文件，以便在下一步中分析它们。此示例使用 `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA 固定到操作的特定版本。
 </td>
 </tr>
 <tr>
@@ -605,7 +605,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用 `actions/cache` 操作来缓存 Next.js 生成，以便工作流将尝试检索生成的缓存，而不是每次都从头重新生成它。 有关详细信息，请参阅“[缓存依赖项以加快工作流](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
+此步骤使用 `actions/cache` 操作来缓存 Next.js 生成，以便工作流将尝试检索生成的缓存，而不是每次都从头重新生成它。有关详细信息，请参阅“[缓存依赖项以加快工作流](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
 </td>
 </tr>
 <tr>
@@ -634,7 +634,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用 `npm test` 运行测试，测试矩阵为矩阵中的每个作业提供不同的 {% raw %}`${{ matrix.test-group }}`{% endraw %} 值。 它使用 `DIFF_FILE` 环境变量来识别已更改的文件，并将 `CHANGELOG_CACHE_FILE_PATH` 环境变量用于 changelog 缓存文件。
+此步骤使用 `npm test` 运行测试，测试矩阵为矩阵中的每个作业提供不同的 {% raw %}`${{ matrix.test-group }}`{% endraw %} 值。它使用 `DIFF_FILE` 环境变量来识别已更改的文件，并将 `CHANGELOG_CACHE_FILE_PATH` 环境变量用于 changelog 缓存文件。
 </td>
 </tr>
 </tbody>

@@ -24,8 +24,8 @@ ms.locfileid: '145087316'
 要查看当前和过去的部署，请在存储库的主页上单击“环境”。
 {% ifversion ghae %} ![环境](/assets/images/enterprise/2.22/environments-sidebar.png){% else %} ![环境](/assets/images/environments-sidebar.png){% endif %}
 
-部署页显示仓库中每个环境的最新活动部署。 如果部署包含环境 URL，则部署旁边将显示链接到 URL 的“查看部署”按钮。
+部署页显示仓库中每个环境的最新活动部署。如果部署包含环境 URL，则部署旁边将显示链接到 URL 的“查看部署”按钮。
 
-活动日志显示环境的部署历史记录。 默认情况下，只有环境的最新部署为 `Active` 状态；所有先前的活动部署为 `Inactive` 状态。 有关自动失活部署的更多信息，请参阅“[非活动部署](/rest/reference/deployments#inactive-deployments)”。
+活动日志显示环境的部署历史记录。默认情况下，只有环境的最新部署为 `Active` 状态；所有先前的活动部署为 `Inactive` 状态。有关自动失活部署的更多信息，请参阅“[非活动部署](/rest/reference/deployments#inactive-deployments)”。
 
-您也可以使用 REST API 来获取有关部署的信息。 有关详细信息，请参阅“[存储库](/rest/reference/repos#deployments)”。
+您也可以使用 REST API 来获取有关部署的信息。有关详细信息，请参阅“[存储库](/rest/reference/repos#deployments)”。

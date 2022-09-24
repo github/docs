@@ -36,10 +36,10 @@ ms.locfileid: '146199800'
 
 ## 设置构件的保留期
 
-可在仓库、组织和企业级配置构件和日志的保留期。 有关详细信息，请参阅{% ifversion fpt or ghec or ghes %}“[使用情况限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。{% elsif ghae %}“[为存储库管理 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)”、“[为组织中的工件和日志配置 {% data variables.product.prodname_actions %} 的保留期](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)”或“[为企业中的 {% data variables.product.prodname_actions %} 强制实施政策](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)”。{% endif %}
+可在仓库、组织和企业级配置构件和日志的保留期。有关详细信息，请参阅{% ifversion fpt or ghec or ghes %}“[使用情况限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。{% elsif ghae %}“[为存储库管理 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)”、“[为组织中的工件和日志配置 {% data variables.product.prodname_actions %} 的保留期](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)”或“[为企业中的 {% data variables.product.prodname_actions %} 强制实施政策](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)”。{% endif %}
 
-也可以在工作流中使用 `actions/upload-artifact` 操作自定义个别工件的保留期。 有关详细信息，请参阅“[将工作流数据存储为工件](/actions/guides/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period)”。
+也可以在工作流中使用 `actions/upload-artifact` 操作自定义个别工件的保留期。有关详细信息，请参阅“[将工作流数据存储为工件](/actions/guides/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period)”。
 
 ## 查找构件的到期日期
 
-您可以使用 API 确认构件计划删除的日期。 有关详细信息，请参阅“[列出存储库的工件](/rest/reference/actions#artifacts)返回的 `expires_at` 值”。
+您可以使用 API 确认构件计划删除的日期。有关详细信息，请参阅“[列出存储库的工件](/rest/reference/actions#artifacts)返回的 `expires_at` 值”。

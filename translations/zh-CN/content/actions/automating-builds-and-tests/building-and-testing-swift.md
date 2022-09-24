@@ -26,17 +26,17 @@ ms.locfileid: '147408993'
 
 本指南介绍如何构建和测试 Swift 包。
 
-{% ifversion ghae %} 要在 {% data variables.product.prodname_ghe_managed %}上构建和测试 Swift 项目，需要必要的 Swift 依赖项。 {% data reusables.actions.self-hosted-runners-software %} {% else %}{% data variables.product.prodname_dotcom %} 托管的运行器带有预装软件的工具缓存，Ubuntu 和 macOS 运行器包括用于构建 Swift 包的依赖项。 有关最新软件和预安装版本的 Swift 和 Xcode 的完整列表，请参阅“[关于 GitHub 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)”。{% endif %}
+{% ifversion ghae %} 要在 {% data variables.product.prodname_ghe_managed %}上构建和测试 Swift 项目，需要必要的 Swift 依赖项。 {% data reusables.actions.self-hosted-runners-software %} {% else %}{% data variables.product.prodname_dotcom %} 托管的运行器带有预装软件的工具缓存，Ubuntu 和 macOS 运行器包括用于构建 Swift 包的依赖项。有关最新软件和预安装版本的 Swift 和 Xcode 的完整列表，请参阅“[关于 GitHub 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)”。{% endif %}
 
 ## 先决条件
 
-您应该已经熟悉 YAML 语法及其如何与 {% data variables.product.prodname_actions %} 结合使用。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
+您应该已经熟悉 YAML 语法及其如何与 {% data variables.product.prodname_actions %} 结合使用。有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
 
-我们建议您对 Swift 包有基本的了解。 有关详细信息，请参阅 Apple 开发人员文档中的“[Swift 包](https://developer.apple.com/documentation/swift_packages)”。
+我们建议您对 Swift 包有基本的了解。有关详细信息，请参阅 Apple 开发人员文档中的“[Swift 包](https://developer.apple.com/documentation/swift_packages)”。
 
 ## 使用 Swift 入门工作流程
 
-{% data variables.product.prodname_dotcom %} 提供有 Swift 入门工作流程，应适合大多数 Swift 项目，本指南包括演示如何自定义此入门工作流程的示例。 有关详细信息，请参阅 [Swift 入门工作流](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml)。
+{% data variables.product.prodname_dotcom %} 提供有 Swift 入门工作流程，应适合大多数 Swift 项目，本指南包括演示如何自定义此入门工作流程的示例。有关详细信息，请参阅 [Swift 入门工作流](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml)。
 
 若要快速入门，请将入门工作流添加到存储库的 `.github/workflows` 目录。
 
@@ -60,7 +60,7 @@ jobs:
 
 ## 指定 Swift 版本
 
-要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用特定的预安装 Swift 版本，请使用 `fwal/setup-swift` 操作。 此操作从运行器上的工具缓存中查找特定版本的 Swift，并将必要的二进制文件添加到 `PATH`。 这些更改将持续用于作业的其余部分。 有关详细信息，请参阅 [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) 操作。
+要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用特定的预安装 Swift 版本，请使用 `fwal/setup-swift` 操作。此操作从运行器上的工具缓存中查找特定版本的 Swift，并将必要的二进制文件添加到 `PATH`。这些更改将持续用于作业的其余部分。有关详细信息，请参阅 [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) 操作。
 
 如果使用自托管运行程序，则必须安装所需的 Swift 版本并将它们添加到 `PATH`。
 
@@ -117,7 +117,7 @@ steps:
 
 ## 构建和测试代码
 
-您可以使用与本地相同的命令来使用 Swift 构建和测试代码。 此示例演示如何在作业中使用 `swift build` 和 `swift test`：
+您可以使用与本地相同的命令来使用 Swift 构建和测试代码。此示例演示如何在作业中使用 `swift build` 和 `swift test`：
 
 ```yaml{:copy}
 steps:

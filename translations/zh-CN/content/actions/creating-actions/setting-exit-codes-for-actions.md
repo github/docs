@@ -26,11 +26,11 @@ ms.locfileid: '145084703'
 退出状态 | 检查运行状态 | 说明
 ------------|------------------|------------
 `0` | `success` | 操作已成功完成，依赖它的其他操作可以开始。
-非零值（0 除外的任何整数）| `failure` | 任何其他退出代码都表示操作失败。 当操作失败时，所有同时进行的操作都会取消，且跳过未来的操作。 检查运行和检查套件都将收到 `failure` 状态。
+非零值（0 除外的任何整数）| `failure` | 任何其他退出代码都表示操作失败。当操作失败时，所有同时进行的操作都会取消，且跳过未来的操作。检查运行和检查套件都将收到 `failure` 状态。
 
 ## 在 JavaScript 操作中设置失败退出代码
 
-如需创建 JavaScript 操作，可以使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 程序包来记录消息并设置失败退出代码。 例如：
+如需创建 JavaScript 操作，可以使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 程序包来记录消息并设置失败退出代码。例如：
 
 ```javascript
 try {
@@ -44,7 +44,7 @@ try {
 
 ## 在 Docker 容器操作中设置失败退出代码
 
-如需创建 Docker 容器操作，可以在 `entrypoint.sh` 脚本中设置失败退出代码。 例如：
+如需创建 Docker 容器操作，可以在 `entrypoint.sh` 脚本中设置失败退出代码。例如：
 
 ```
 if <condition> ; then

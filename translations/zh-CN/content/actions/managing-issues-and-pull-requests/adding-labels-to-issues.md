@@ -23,9 +23,9 @@ ms.locfileid: '147884307'
 
 ## 简介
 
-本教程演示如何使用工作流中的 [`andymckay/labeler` 操作](https://github.com/marketplace/actions/simple-issue-labeler) 来标记新打开或重新打开的问题。 例如，每次打开或重新打开问题时，都可以添加 `triage` 标签。 然后，可通过筛选具有 `triage` 标签的问题来查看需要会审的问题。
+本教程演示如何使用工作流中的 [`andymckay/labeler` 操作](https://github.com/marketplace/actions/simple-issue-labeler) 来标记新打开或重新打开的问题。例如，每次打开或重新打开问题时，都可以添加 `triage` 标签。然后，可通过筛选具有 `triage` 标签的问题来查看需要会审的问题。
 
-在本教程中，你将首先创建一个使用 [`andymckay/labeler` 操作](https://github.com/marketplace/actions/simple-issue-labeler)的工作流文件。 然后，您将自定义工作流以适应您的需要。
+在本教程中，你将首先创建一个使用 [`andymckay/labeler` 操作](https://github.com/marketplace/actions/simple-issue-labeler)的工作流文件。然后，您将自定义工作流以适应您的需要。
 
 ## 创建工作流程
 
@@ -58,7 +58,7 @@ ms.locfileid: '147884307'
     ```
 
 4. 自定义工工作流程文件中的参数：
-   - 将 `add-labels` 的值更改为你想要添加到此问题的标签列表。 使用逗号分隔多个标签。 例如 `"help wanted, good first issue"`。 有关标签的详细信息，请参阅[管理标签](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)。
+   - 将 `add-labels` 的值更改为你想要添加到此问题的标签列表。使用逗号分隔多个标签。例如 `"help wanted, good first issue"`。有关标签的详细信息，请参阅[管理标签](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)。
 5. {% data reusables.actions.commit-workflow %}
 
 ## 测试工作流程
@@ -67,8 +67,8 @@ ms.locfileid: '147884307'
 
 通过在仓库中创建议题来测试工作流程。
 
-1. 在仓库中创建议题。 有关详细信息，请参阅[创建问题](/github/managing-your-work-on-github/creating-an-issue)。
-2. 要查看通过创建议题所触发的工作流程运行，请查看工作流程运行的历史记录。 有关详细信息，请参阅“[查看工作流运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
+1. 在仓库中创建议题。有关详细信息，请参阅[创建问题](/github/managing-your-work-on-github/creating-an-issue)。
+2. 要查看通过创建议题所触发的工作流程运行，请查看工作流程运行的历史记录。有关详细信息，请参阅“[查看工作流运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
 3. 当工作流程完成时，您创建的议题应已添加指定的标签。
 
 ## 后续步骤

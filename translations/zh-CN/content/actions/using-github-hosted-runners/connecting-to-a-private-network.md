@@ -20,20 +20,20 @@ ms.locfileid: '147884267'
 
 ## 关于 {% data variables.product.prodname_dotcom %} 托管的运行器网络
 
-默认情况下，{% data variables.product.prodname_dotcom %} 托管的运行器有权访问公共 Internet。 但是，你可能还希望这些运行器访问专用网络上的资源，例如包注册表、机密管理器或其他本地服务。 
+默认情况下，{% data variables.product.prodname_dotcom %} 托管的运行器有权访问公共 Internet。但是，你可能还希望这些运行器访问专用网络上的资源，例如包注册表、机密管理器或其他本地服务。 
 
-{% data variables.product.prodname_dotcom %} 托管的运行器在所有 {% data variables.product.prodname_dotcom %} 客户之间共享，因此，你需要一种方法，在运行器运行你的工作流时，将你的专用网络仅连接到它们。 可以采用几种不同的方法来配置此访问，每个方法都有不同的优缺点。
+{% data variables.product.prodname_dotcom %} 托管的运行器在所有 {% data variables.product.prodname_dotcom %} 客户之间共享，因此，你需要一种方法，在运行器运行你的工作流时，将你的专用网络仅连接到它们。可以采用几种不同的方法来配置此访问，每个方法都有不同的优缺点。
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 ### 将 API 网关与 OIDC 配合使用
 
-借助 {% data variables.product.prodname_actions %}，可以使用 OpenID Connect (OIDC) 令牌对 {% data variables.product.prodname_actions %} 之外的工作流进行身份验证。 例如，可以在专用网络的边缘运行 API 网关，该网关使用 OIDC 令牌对传入请求进行身份验证，然后代表专用网络中的工作流发出 API 请求。
+借助 {% data variables.product.prodname_actions %}，可以使用 OpenID Connect (OIDC) 令牌对 {% data variables.product.prodname_actions %} 之外的工作流进行身份验证。例如，可以在专用网络的边缘运行 API 网关，该网关使用 OIDC 令牌对传入请求进行身份验证，然后代表专用网络中的工作流发出 API 请求。
 
 下图概述了此解决方案的体系结构：
 
 ![OIDC 网关示意图](/assets/images/help/images/actions-oidc-gateway.png)
 
-重要的是，不仅要验证 OIDC 令牌来自 {% data variables.product.prodname_actions %}，而且还要验证它专门来自你预期的工作流，以便其他 {% data variables.product.prodname_actions %} 用户无法访问专用网络中的服务。 可以使用 OIDC 声明创建这些条件。 有关详细信息，请参阅“[使用 OIDC 声明定义云角色的信任条件](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)”。
+重要的是，不仅要验证 OIDC 令牌来自 {% data variables.product.prodname_actions %}，而且还要验证它专门来自你预期的工作流，以便其他 {% data variables.product.prodname_actions %} 用户无法访问专用网络中的服务。可以使用 OIDC 声明创建这些条件。有关详细信息，请参阅“[使用 OIDC 声明定义云角色的信任条件](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)”。
 
 这种方法的主要缺点是，必须实现 API 网关来代表你发出请求，并在网络边缘运行它。
 
@@ -53,7 +53,7 @@ ms.locfileid: '147884267'
 - 若要访问在专用服务上运行的 WireGuard，需要工作流可以引用的已知 IP 地址和端口：可以是公共 IP 地址和端口、网络网关上的端口映射，或者动态更新 DNS 的服务。 
 - WireGuard 无法即时处理 NAT 遍历，因此需要确定一种提供此服务的方法。
 - 此连接是一对一的，因此如果需要高可用性或高吞吐量，则需要在 WireGuard 之上构建它。 
-- 需要为运行器和专用服务生成并安全地存储密钥。 WireGuard 使用 UDP，因此网络必须支持 UDP 流量。
+- 需要为运行器和专用服务生成并安全地存储密钥。WireGuard 使用 UDP，因此网络必须支持 UDP 流量。
 
 也有一些优点，由于可以在现有服务器上运行 WireGuard，因此不必维护单独的基础结构，并且它在 {% data variables.product.prodname_dotcom %} 托管的运行器上得到了很好的支持。
 
@@ -99,10 +99,10 @@ jobs:
 
 ### 使用 Tailscale 创建网络覆盖
 
-Tailscale 是基于 WireGuard 构建的商业产品。 此选项与 WireGuard 非常相似，不同之处在于 Tailscale 更多的是完整的产品体验，而不是开源组件。
+Tailscale 是基于 WireGuard 构建的商业产品。此选项与 WireGuard 非常相似，不同之处在于 Tailscale 更多的是完整的产品体验，而不是开源组件。
 
-它的缺点与 WireGuard 类似：连接是一对一的，因此可能需要执行额外的操作以实现高可用性或高吞吐量。 你仍然需要生成并安全地存储密钥。 协议仍然是 UDP，因此网络必须支持 UDP 流量。
+它的缺点与 WireGuard 类似：连接是一对一的，因此可能需要执行额外的操作以实现高可用性或高吞吐量。你仍然需要生成并安全地存储密钥。协议仍然是 UDP，因此网络必须支持 UDP 流量。
 
-但是，与 WireGuard 相比，它也有一些优势：NAT 遍历是内置的，因此无需向公共 Internet 公开端口。 这是迄今为止启动和运行最快的选项，因为 Tailscale 提供了一个 {% data variables.product.prodname_actions %} 工作流，只需一步即可连接到覆盖网络。
+但是，与 WireGuard 相比，它也有一些优势：NAT 遍历是内置的，因此无需向公共 Internet 公开端口。这是迄今为止启动和运行最快的选项，因为 Tailscale 提供了一个 {% data variables.product.prodname_actions %} 工作流，只需一步即可连接到覆盖网络。
 
 有关详细信息，请参阅 [Tailscale GitHub 操作](https://github.com/tailscale/github-action)以及“[加密机密](/actions/security-guides/encrypted-secrets)”以了解如何安全地存储密钥。

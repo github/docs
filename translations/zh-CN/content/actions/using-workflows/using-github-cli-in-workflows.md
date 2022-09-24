@@ -23,9 +23,9 @@ ms.locfileid: '145100117'
 ---
 {% data reusables.cli.cli-learn-more %}
 
-{% data variables.product.prodname_cli %} 预安装在所有 {% data variables.product.prodname_dotcom %} 托管的运行程序上。 对于使用 {% data variables.product.prodname_cli %} 的每个步骤，必须将调用 `GITHUB_TOKEN` 的环境变量设置为具有所需范围的令牌。
+{% data variables.product.prodname_cli %} 预安装在所有 {% data variables.product.prodname_dotcom %} 托管的运行程序上。对于使用 {% data variables.product.prodname_cli %} 的每个步骤，必须将调用 `GITHUB_TOKEN` 的环境变量设置为具有所需范围的令牌。
 
-可以执行任何 {% data variables.product.prodname_cli %} 命令。 例如，此工作流使用 `gh issue comment` 子命令在打开问题时添加注释。
+可以执行任何 {% data variables.product.prodname_cli %} 命令。例如，此工作流使用 `gh issue comment` 子命令在打开问题时添加注释。
 
 ```yaml{:copy}
 name: Comment when opened
@@ -43,7 +43,7 @@ jobs:
           ISSUE: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
 ```
 
-还可以通过 {% data variables.product.prodname_cli %} 执行 API 调用。 例如，此工作流首先使用 `gh api` 子命令查询 GraphQL API 并分析结果。 然后，它将结果存储在可在后续步骤中访问的环境变量中。 在第二步中，它使用 `gh issue create` 子命令创建包含第一步中信息的问题。
+还可以通过 {% data variables.product.prodname_cli %} 执行 API 调用。例如，此工作流首先使用 `gh api` 子命令查询 GraphQL API 并分析结果。然后，它将结果存储在可在后续步骤中访问的环境变量中。在第二步中，它使用 `gh issue create` 子命令创建包含第一步中信息的问题。
 
 ```yaml{:copy}
 name: Report remaining open issues

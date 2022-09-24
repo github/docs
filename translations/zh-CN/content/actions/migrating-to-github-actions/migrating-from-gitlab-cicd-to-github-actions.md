@@ -26,7 +26,7 @@ ms.locfileid: '146178981'
 
 ## 简介
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都允许您创建能自动构建、测试、发布、发行和部署代码的工作流程。 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 的工作流程配置有一些相似之处：
+GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都允许您创建能自动构建、测试、发布、发行和部署代码的工作流程。GitLab CI/CD 和 {% data variables.product.prodname_actions %} 的工作流程配置有一些相似之处：
 
 - 工作流程配置文件以 YAML 编写并存储在代码仓库中。
 - 工作流程包括一项或多项作业。
@@ -37,13 +37,13 @@ GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都允许您创�
 
 ## 作业
 
-GitLab CI/CD 中的作业非常类似于 {% data variables.product.prodname_actions %} 中的作业。 在这两个系统中，作业具有以下特征：
+GitLab CI/CD 中的作业非常类似于 {% data variables.product.prodname_actions %} 中的作业。在这两个系统中，作业具有以下特征：
 
 * 作业包含一系列按顺序运行的步骤或脚本。
 * 作业可在单独的计算机或单独的容器中运行。
 * 默认情况下作业并行运行，但可以配置为按顺序运行。
 
-可在作业中运行脚本或 shell 命令。 在 GitLab CI/CD 中，使用 `script` 键指定脚本步骤。 在 {% data variables.product.prodname_actions %} 中，所有脚本都使用 `run` 键来指定。
+可在作业中运行脚本或 shell 命令。在 GitLab CI/CD 中，使用 `script` 键指定脚本步骤。在 {% data variables.product.prodname_actions %} 中，所有脚本都使用 `run` 键来指定。
 
 下面是每个系统的语法示例：
 
@@ -84,7 +84,7 @@ jobs:
 
 ## 运行程序
 
-运行器是运行作业的机器。 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 提供托管和自托管的运行器变体。 在 GitLab CI/CD 中，`tags` 用于在不同的平台上运行作业，而在 {% data variables.product.prodname_actions %} 中，它使用 `runs-on` 键运行。
+运行器是运行作业的机器。GitLab CI/CD 和 {% data variables.product.prodname_actions %} 提供托管和自托管的运行器变体。在 GitLab CI/CD 中，`tags` 用于在不同的平台上运行作业，而在 {% data variables.product.prodname_actions %} 中，它使用 `runs-on` 键运行。
 
 下面是每个系统的语法示例：
 
@@ -135,7 +135,7 @@ linux_job:
 
 ## Docker 映像
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都支持在 Docker 映像中运行作业。 在 GitLab CI/CD 中，Docker 映像使用 `image` 键定义，而在 {% data variables.product.prodname_actions %} 中，它使用 `container` 键定义。
+GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都支持在 Docker 映像中运行作业。在 GitLab CI/CD 中，Docker 映像使用 `image` 键定义，而在 {% data variables.product.prodname_actions %} 中，它使用 `container` 键定义。
 
 下面是每个系统的语法示例：
 
@@ -218,9 +218,9 @@ jobs:
 
 ## 作业之间的依赖关系
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 允许您为作业设置依赖项。 在这两个系统中，默认情况下作业并行运行，但 {% data variables.product.prodname_actions %} 中的作业依赖项可以用 `needs` 键进行显式指定。 GitLab CI/CD 还具有 `stages` 的概念，其中作业分阶段同时运行，但下一阶段将在前一阶段的所有作业完成时开始。 可以使用 `needs` 键在 {% data variables.product.prodname_actions %} 中重新创建此情景。
+GitLab CI/CD 和 {% data variables.product.prodname_actions %} 允许您为作业设置依赖项。在这两个系统中，默认情况下作业并行运行，但 {% data variables.product.prodname_actions %} 中的作业依赖项可以用 `needs` 键进行显式指定。GitLab CI/CD 还具有 `stages` 的概念，其中作业分阶段同时运行，但下一阶段将在前一阶段的所有作业完成时开始。可以使用 `needs` 键在 {% data variables.product.prodname_actions %} 中重新创建此情景。
 
-下面是每个系统的语法示例： 工作流首先同时运行两个名为 `build_a` 和 `build_b` 的作业，当这些作业完成后，另一个名为 `test_ab` 的作业将运行。 最后，`test_ab` 完成后，`deploy_ab` 作业将运行。
+下面是每个系统的语法示例：工作流首先同时运行两个名为 `build_a` 和 `build_b` 的作业，当这些作业完成后，另一个名为 `test_ab` 的作业将运行。最后，`test_ab` 完成后，`deploy_ab` 作业将运行。
 
 <table class="d-block">
 <tr>
@@ -289,7 +289,7 @@ jobs:
 
 ## 预定工作流程
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 允许您以特定的间隔运行工作流程。 在 GitLab CI/CD 中，管道计划使用 UI 配置，而在 {% data variables.product.prodname_actions %} 中，您可以使用 "on" 键在预定的间隔时间触发工作流程。
+GitLab CI/CD 和 {% data variables.product.prodname_actions %} 允许您以特定的间隔运行工作流程。在 GitLab CI/CD 中，管道计划使用 UI 配置，而在 {% data variables.product.prodname_actions %} 中，您可以使用 "on" 键在预定的间隔时间触发工作流程。
 
 有关详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#scheduled-events)”。
 
@@ -360,7 +360,7 @@ jobs:
 
 ## Artifacts
 
-GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都可以上传作业创建的文件和目录作为构件。 在 {% data variables.product.prodname_actions %} 中，构件可用于在多个作业中保留数据。
+GitLab CI/CD 和 {% data variables.product.prodname_actions %} 都可以上传作业创建的文件和目录作为构件。在 {% data variables.product.prodname_actions %} 中，构件可用于在多个作业中保留数据。
 
 下面是每个系统的语法示例：
 
@@ -404,7 +404,7 @@ artifacts:
 
 这两个系统都允许您包括用于数据库、缓存或其他依赖项的其他容器。
 
-在 GitLab CI/CD 中，作业的容器使用 `image` 键指定，而 {% data variables.product.prodname_actions %} 使用 `container` 键指定。 在这两个系统中，使用 `services` 键指定附加服务容器。
+在 GitLab CI/CD 中，作业的容器使用 `image` 键指定，而 {% data variables.product.prodname_actions %} 使用 `container` 键指定。在这两个系统中，使用 `services` 键指定附加服务容器。
 
 下面是每个系统的语法示例：
 

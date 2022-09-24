@@ -26,31 +26,31 @@ ms.locfileid: '145100215'
 
 ## 简介
 
-Jenkins 和 {% data variables.product.prodname_actions %} 都允许您创建能自动构建、测试、发布、发行和部署代码的工作流程。 Jenkins 和 {% data variables.product.prodname_actions %} 的工作流程配置有一些相似之处：
+Jenkins 和 {% data variables.product.prodname_actions %} 都允许您创建能自动构建、测试、发布、发行和部署代码的工作流程。Jenkins 和 {% data variables.product.prodname_actions %} 的工作流程配置有一些相似之处：
 
 - Jenkins 使用 Declarative Pelines 创建工作流，这些工作流类似于 {% data variables.product.prodname_actions %} 工作流文件。
 - Jenkins 使用阶段运行步骤集合，而 {% data variables.product.prodname_actions %} 则使用作业对一个或多个步骤或单个命令进行分组。
-- Jenkins 和 {% data variables.product.prodname_actions %} 支持基于容器的构建。 有关详细信息，请参阅“[创建 Docker 容器操作](/articles/creating-a-docker-container-action)”。
+- Jenkins 和 {% data variables.product.prodname_actions %} 支持基于容器的构建。有关详细信息，请参阅“[创建 Docker 容器操作](/articles/creating-a-docker-container-action)”。
 - 步骤或任务可以重复使用并与社区共享。
 
 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的核心概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)”。
 
 ## 主要差异
 
-- Jenkins 有两种类型的语法用来创建管道：Declarative Pipeline 和 Scripted Pipeline。 {% data variables.product.prodname_actions %} 使用 YAML 创建工作流程和配置文件。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/reference/workflow-syntax-for-github-actions)”。
-- Jenkins 部署通常是自托管的，用户在自己的数据中心维护服务器。 {% data variables.product.prodname_actions %} 通过托管自己可用于运行作业的运行器提供混合云方法，同时也支持自托管运行器。 有关详细信息，请参阅[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)。
+- Jenkins 有两种类型的语法用来创建管道：Declarative Pipeline 和 Scripted Pipeline。 {% data variables.product.prodname_actions %} 使用 YAML 创建工作流程和配置文件。有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/reference/workflow-syntax-for-github-actions)”。
+- Jenkins 部署通常是自托管的，用户在自己的数据中心维护服务器。 {% data variables.product.prodname_actions %} 通过托管自己可用于运行作业的运行器提供混合云方法，同时也支持自托管运行器。有关详细信息，请参阅[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)。
 
 ## 比较功能
 
 ### 分发版本
 
-Jenkins 可让您发送版本到单个构建代理，或者您可以在多个代理之间进行分发。 您也可以根据不同的属性（例如操作系统类型）对这些代理进行分类。
+Jenkins 可让您发送版本到单个构建代理，或者您可以在多个代理之间进行分发。您也可以根据不同的属性（例如操作系统类型）对这些代理进行分类。
 
-同样， {% data variables.product.prodname_actions %} 可以向 {% data variables.product.prodname_dotcom %} 托管或自托管的运行器发送作业，您可以根据不同的属性使用标签对运行器分类。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions#runners)”和“[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
+同样， {% data variables.product.prodname_actions %} 可以向 {% data variables.product.prodname_dotcom %} 托管或自托管的运行器发送作业，您可以根据不同的属性使用标签对运行器分类。有关详细信息，请参阅“[{% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions#runners)”和“[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
 
 ### 使用区段组织管道
 
-Jenkins 将其 Declarative Pipelines 分为多个区段。 同样，{% data variables.product.prodname_actions %} 也将其工作流程分成单独的部分。 下表比较了Jenkins 区段与 {% data variables.product.prodname_actions %} 工作流程。
+Jenkins 将其 Declarative Pipelines 分为多个区段。同样，{% data variables.product.prodname_actions %} 也将其工作流程分成单独的部分。下表比较了 Jenkins 区段与 {% data variables.product.prodname_actions %} 工作流程。
 
 | Jenkins 指令 | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |
@@ -61,7 +61,7 @@ Jenkins 将其 Declarative Pipelines 分为多个区段。 同样，{% data vari
 
 ## using 指令
 
-Jenkins 使用指令来管理 Declarative Pipelines。 这些指令定义工作流程的特性及其执行方式。 下表演示这些指令如何映射到 {% data variables.product.prodname_actions %} 中的概念。
+Jenkins 使用指令来管理 Declarative Pipelines。这些指令定义工作流程的特性及其执行方式。下表演示这些指令如何映射到 {% data variables.product.prodname_actions %} 中的概念。
 
 | Jenkins 指令 | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |
@@ -98,7 +98,7 @@ Jenkins 可以并行运行 `stages` 和 `steps`，而 {% data variables.product.
 
 ### 使用步骤执行任务
 
-Jenkins 按 `stages` 将 `steps` 分组在一起。 每个步骤都可以是脚本、函数或命令等。 同样，{% data variables.product.prodname_actions %} 使用 `jobs` 来执行特定的 `steps` 组。
+Jenkins 按 `stages` 将 `steps` 分组在一起。每个步骤都可以是脚本、函数或命令等。同样，{% data variables.product.prodname_actions %} 使用 `jobs` 来执行特定的 `steps` 组。
 
 | Jenkins 步骤 | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |

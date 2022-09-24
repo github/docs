@@ -31,7 +31,7 @@ ms.locfileid: '147410281'
 
 ## 先决条件
 
-建议对工作流程文件和配置选项有一个基本了解。 有关详细信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
+建议对工作流程文件和配置选项有一个基本了解。有关详细信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
 有关使用 Gradle 为 Java 项目创建 CI 工作流的更多信息，请参阅“[使用 Gradle 构建和测试 Java](/actions/language-and-framework-guides/building-and-testing-java-with-gradle)”。
 
@@ -44,15 +44,15 @@ ms.locfileid: '147410281'
 
 ## 关于包配置
 
-build.gradle 文件 `MavenPublication` 部分中的 `groupId` 和 `artifactId` 字段为包创建唯一标识符，注册表使用该标识符将包链接到注册表。  这类似于 Maven pom.xml 文件的 `groupId` 和 `artifactId` 字段。  有关详细信息，请参阅 Gradle 文档中的“[Maven 发布插件](https://docs.gradle.org/current/userguide/publishing_maven.html)”。
+build.gradle 文件 `MavenPublication` 部分中的 `groupId` 和 `artifactId` 字段为包创建唯一标识符，注册表使用该标识符将包链接到注册表。这类似于 Maven pom.xml 文件的 `groupId` 和 `artifactId` 字段。有关详细信息，请参阅 Gradle 文档中的“[Maven 发布插件](https://docs.gradle.org/current/userguide/publishing_maven.html)”。
 
-build.gradle 文件还包含 Gradle 将向其发布包的分发管理存储库的配置。 每个仓库必须有名称、部署 URL 和验证凭据。
+build.gradle 文件还包含 Gradle 将向其发布包的分发管理存储库的配置。每个仓库必须有名称、部署 URL 和验证凭据。
 
 ## 将包发布到 Maven 中心仓库
 
-每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程将包发布到 Maven 中心仓库。 有关 `release` 事件的详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#release)”。
+每次创建新版本时，都可以触发工作流程来发布包。以下示例中的工作流在类型为 `created` 的 `release` 事件触发时运行。如果 CI 测试通过，工作流程将包发布到 Maven 中心仓库。有关 `release` 事件的详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#release)”。
 
-你可以在指向包存储库的 build.gradle 文件的发布块中定义一个新的 Maven 存储库。  例如，如果通过 OSSRH 托管项目部署到 Maven 中央存储库，则 build.gradle 可以指定名称为 `"OSSRH"` 的存储库。
+你可以在指向包存储库的 build.gradle 文件的发布块中定义一个新的 Maven 存储库。例如，如果通过 OSSRH 托管项目部署到 Maven 中央存储库，则 build.gradle 可以指定名称为 `"OSSRH"` 的存储库。
 
 {% raw %}
 ```groovy{:copy}
@@ -78,7 +78,7 @@ publishing {
 ```
 {% endraw %}
 
-使用此配置，可以创建一个工作流，通过运行 `gradle publish` 命令将包发布到 Maven 中央存储库。 在部署步骤中，您需要为用于向 Maven 仓库验证身份的用户名和密码或令牌设置环境变量。 有关详细信息，请参阅“[创建和使用加密机密](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+使用此配置，可以创建一个工作流，通过运行 `gradle publish` 命令将包发布到 Maven 中央存储库。在部署步骤中，您需要为用于向 Maven 仓库验证身份的用户名和密码或令牌设置环境变量。有关详细信息，请参阅“[创建和使用加密机密](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 ```yaml{:copy}
 
@@ -118,9 +118,9 @@ jobs:
 
 ## 发布包到 {% data variables.product.prodname_registry %}
 
-每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。 有关 `release` 事件的详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#release)”。
+每次创建新版本时，都可以触发工作流程来发布包。以下示例中的工作流在类型为 `created` 的 `release` 事件触发时运行。如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。有关 `release` 事件的详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#release)”。
 
-可以在指向 {% data variables.product.prodname_registry %} 的 build.gradle 的发布块中定义一个新的 Maven 存储库。  在仓库配置中，您也可以利用在 CI 工作流程运行中设置的环境变量。  可以使用 `GITHUB_ACTOR` 环境变量作为用户名，并且可以使用 `GITHUB_TOKEN` 机密设置 `GITHUB_TOKEN` 环境变量。
+可以在指向 {% data variables.product.prodname_registry %} 的 build.gradle 的发布块中定义一个新的 Maven 存储库。在仓库配置中，您也可以利用在 CI 工作流程运行中设置的环境变量。可以使用 `GITHUB_ACTOR` 环境变量作为用户名，并且可以使用 `GITHUB_TOKEN` 机密设置 `GITHUB_TOKEN` 环境变量。
 
 {% data reusables.actions.github-token-permissions %}
 
@@ -195,7 +195,7 @@ jobs:
 
 确保 build.gradle 文件包含 {% data variables.product.prodname_dotcom %} 存储库和 Maven 中央存储库提供程序的存储库。
 
-例如，如果通过 OSSRH 托管项目部署到中央存储库，可能希望在分发管理存储库中指定它，并将 `name` 设置为 `OSSRH`。 如果部署到 {% data variables.product.prodname_registry %}，可能希望在分发管理存储库中指定它，并将 `name` 设置为 `GitHubPackages`。
+例如，如果通过 OSSRH 托管项目部署到中央存储库，可能希望在分发管理存储库中指定它，并将 `name` 设置为 `OSSRH`。如果部署到 {% data variables.product.prodname_registry %}，可能希望在分发管理存储库中指定它，并将 `name` 设置为 `GitHubPackages`。
 
 如果组织名为“octocat”，存储库名为“hello-world”，则 build.gradle 中的配置类似于以下示例。
 

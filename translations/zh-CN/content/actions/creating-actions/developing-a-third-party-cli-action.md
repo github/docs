@@ -28,17 +28,17 @@ ms.locfileid: '145086712'
 - 跨 {% data variables.product.product_name %} 托管和自托管运行器工作
 - 尽可能利用社区工具
 
-本文将演示如何编写一个操作来检索特定版本的 CLI、安装它、将其添加到路径以及（可选）缓存它。 这种类型的操作（设置工具的操作）通常命名为 `setup-$TOOL`。 
+本文将演示如何编写一个操作来检索特定版本的 CLI、安装它、将其添加到路径以及（可选）缓存它。这种类型的操作（设置工具的操作）通常命名为 `setup-$TOOL`。 
 
 ## 先决条件
 
-您应该了解如何编写自定义操作。 有关详细信息，请参阅“[关于自定义操作](/actions/creating-actions/about-custom-actions)”。 有关如何编写自定义操作的更详细指南，请参阅“[创建 JavaScript 操作](/actions/creating-actions/creating-a-javascript-action)”。
+您应该了解如何编写自定义操作。有关详细信息，请参阅“[关于自定义操作](/actions/creating-actions/about-custom-actions)”。有关如何编写自定义操作的更详细指南，请参阅“[创建 JavaScript 操作](/actions/creating-actions/creating-a-javascript-action)”。
 
 ## 示例
 
 以下脚本演示如何获取用户指定的版本作为输入，下载并提取 CLI 的特定版本，然后将 CLI 添加到路径中。
 
-{% data variables.product.prodname_dotcom %} 提供 [`actions/toolkit`](https://github.com/actions/toolkit)，这是一组可帮助你创建操作的包。 此示例使用 [`actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 和 [`actions/tool-cache`](https://github.com/actions/toolkit/tree/main/packages/tool-cache) 包。
+{% data variables.product.prodname_dotcom %} 提供 [`actions/toolkit`](https://github.com/actions/toolkit)，这是一组可帮助你创建操作的包。此示例使用 [`actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 和 [`actions/tool-cache`](https://github.com/actions/toolkit/tree/main/packages/tool-cache) 包。
 
 {% raw %}
 ```javascript{:copy}
@@ -63,13 +63,13 @@ module.exports = setup
 ```
 {% endraw %}
 
-若要使用此脚本，请将 `getDownloadURL` 替换为下载 CLI 的函数。 还需要创建一个接受 `version` 输入并运行此脚本的操作元数据文件 (`action.yml`)。 有关如何创建操作的完整详细信息，请参阅“[创建 JavaScript 操作](/actions/creating-actions/creating-a-javascript-action)”。
+若要使用此脚本，请将 `getDownloadURL` 替换为下载 CLI 的函数。还需要创建一个接受 `version` 输入并运行此脚本的操作元数据文件 (`action.yml`)。有关如何创建操作的完整详细信息，请参阅“[创建 JavaScript 操作](/actions/creating-actions/creating-a-javascript-action)”。
 
 有关如何设置此操作的完整示例，请参阅 [example-setup-gh](https://github.com/github-developer/example-setup-gh)。
 
 ## 延伸阅读
 
-此模式用于多个操作。 有关更多示例，请参阅：
+此模式用于多个操作。有关更多示例，请参阅：
 
 * [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)
 * [`google-github-actions/setup-gcloud`](https://github.com/google-github-actions/setup-gcloud)

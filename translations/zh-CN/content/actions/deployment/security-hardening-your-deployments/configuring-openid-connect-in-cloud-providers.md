@@ -45,13 +45,13 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 ### 使用官方操作
 
-如果您的云提供商已创建将 OIDC 与 {% data variables.product.prodname_actions %} 结合使用的官方操作，它将允许您轻松地将 OIDC 令牌交换为访问令牌。 然后，可以更新工作流程，以便在访问云资源时使用此令牌。
+如果您的云提供商已创建将 OIDC 与 {% data variables.product.prodname_actions %} 结合使用的官方操作，它将允许您轻松地将 OIDC 令牌交换为访问令牌。然后，可以更新工作流程，以便在访问云资源时使用此令牌。
 
 ## 使用自定义操作
 
 如果您的云提供商没有官方操作，或者您更喜欢创建自定义脚本，则可以手动向 {% data variables.product.prodname_dotcom %}的 OIDC 提供商请求 JSON Web 令牌 (JWT)。 
 
-如果您没有使用官方操作，则 {% data variables.product.prodname_dotcom %} 建议您使用 Actions 核心工具包。 也可使用以下环境变量来检索令牌：`ACTIONS_RUNTIME_TOKEN`、`ACTIONS_ID_TOKEN_REQUEST_URL`。
+如果您没有使用官方操作，则 {% data variables.product.prodname_dotcom %} 建议您使用 Actions 核心工具包。也可使用以下环境变量来检索令牌：`ACTIONS_RUNTIME_TOKEN`、`ACTIONS_ID_TOKEN_REQUEST_URL`。
 
 要使用此方法更新工作流程，您需要对 YAML 进行三项更改：
 
@@ -61,7 +61,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 ### 使用 Actions 核心工具包请求 JWT
 
-以下示例演示如何将 `actions/github-script` 与 `core` 工具包一起使用，从 {% data variables.product.prodname_dotcom %} 的 OIDC 提供商那里请求 JWT。 有关详细信息，请参阅“[添加操作工具包](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)”。
+以下示例演示如何将 `actions/github-script` 与 `core` 工具包一起使用，从 {% data variables.product.prodname_dotcom %} 的 OIDC 提供商那里请求 JWT。有关详细信息，请参阅“[添加操作工具包](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)”。
 
 ```yaml
 jobs:
@@ -85,7 +85,7 @@ jobs:
 
 下面的示例演示如何使用环境变量来请求 JSON Web 令牌。
 
-对于部署作业，需要使用 `actions/github-script` 和 `core` 工具包来定义令牌设置。 有关详细信息，请参阅“[添加操作工具包](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)”。
+对于部署作业，需要使用 `actions/github-script` 和 `core` 工具包来定义令牌设置。有关详细信息，请参阅“[添加操作工具包](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)”。
 
 例如：
 
@@ -106,7 +106,7 @@ jobs:
           core.setOutput('IDTOKENURL', runtimeUrl.trim())
 ```
 
-然后，可使用 `curl` 从 {% data variables.product.prodname_dotcom %} OIDC 提供商那里检索 JWT。 例如：
+然后，可使用 `curl` 从 {% data variables.product.prodname_dotcom %} OIDC 提供商那里检索 JWT。例如：
 
 ```yaml
     - run: |
@@ -127,11 +127,11 @@ jobs:
 
 您需要向云提供商提供 OIDC JSON Web 令牌，以便获取访问令牌。
 
-对于每个部署，您的工作流程必须使用云登录操作（或自定义脚本），以提取 OIDC 令牌并将其提供给您的云提供商。 然后，云提供商验证令牌中的声明；如果成功，它将提供仅可用于该作业运行的云访问令牌。 然后，作业中的后续操作可以使用提供的访问令牌连接到云并部署到其资源。
+对于每个部署，您的工作流程必须使用云登录操作（或自定义脚本），以提取 OIDC 令牌并将其提供给您的云提供商。然后，云提供商验证令牌中的声明；如果成功，它将提供仅可用于该作业运行的云访问令牌。然后，作业中的后续操作可以使用提供的访问令牌连接到云并部署到其资源。
 
 将 OIDC 令牌交换为访问令牌的步骤因每个云提供商而异。 
  
 ### 访问云提供商中的资源
 
-获取访问令牌后，可以使用特定的云操作或脚本向云提供商进行身份验证并部署到其资源。 对于每个云提供商，这些步骤可能会有所不同。
+获取访问令牌后，可以使用特定的云操作或脚本向云提供商进行身份验证并部署到其资源。对于每个云提供商，这些步骤可能会有所不同。
 此外，此访问令牌的默认过期时间可能因每个云而异，并且可以在云提供商端进行配置。

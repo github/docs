@@ -16,7 +16,7 @@ ms.locfileid: '145099189'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-默认情况下，{% data variables.product.product_name %} 存储 90 天内的构建日志和构件，您可以根据仓库类型定制此存储期。 有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)”。
+默认情况下，{% data variables.product.product_name %} 存储 90 天内的构建日志和构件，您可以根据仓库类型定制此存储期。有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)”。
 
 {% data reusables.repositories.permissions-statement-read %}
 
@@ -34,15 +34,15 @@ ms.locfileid: '145099189'
 
 {% data reusables.cli.cli-learn-more %}
 
-{% data variables.product.prodname_cli %} 将根据构件名称将每个构件下载到单独的目录中。 如果只指定了单个构件, 它将被提取到当前目录。
+{% data variables.product.prodname_cli %} 将根据构件名称将每个构件下载到单独的目录中。如果只指定了单个构件，它将被提取到当前目录。
 
-要下载工作流运行产生的所有项目，请使用 `run download` 子命令。 将 `run-id` 替换为你要从中下载项目的运行的 ID。 如果没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回交互式菜单供你选择最近的运行。
+要下载工作流运行产生的所有项目，请使用 `run download` 子命令。将 `run-id` 替换为你要从中下载项目的运行的 ID。如果没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回交互式菜单供你选择最近的运行。
 
 ```shell
 gh run download <em>run-id</em>
 ```
 
-要从运行中下载特定的项目，请使用 `run download` 子命令。 将 `run-id` 替换为你要从中下载项目的运行的 ID。 将 `artifact-name` 替换为你要下载的项目的名称。
+要从运行中下载特定的项目，请使用 `run download` 子命令。将 `run-id` 替换为你要从中下载项目的运行的 ID。将 `artifact-name` 替换为你要下载的项目的名称。
 
 ```shell
 gh run download <em>run-id</em> -n <em>artifact-name</em>

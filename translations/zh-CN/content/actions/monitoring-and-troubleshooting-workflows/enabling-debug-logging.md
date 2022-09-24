@@ -28,7 +28,7 @@ ms.locfileid: '146179381'
 
 {% ifversion debug-reruns %}
 
-此外，有权运行工作流的任何人都可以为工作流重新运行启用运行器诊断日志记录和步骤调试日志记录。 有关详细信息，请参阅“[重新运行工作流和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)”。
+此外，有权运行工作流的任何人都可以为工作流重新运行启用运行器诊断日志记录和步骤调试日志记录。有关详细信息，请参阅“[重新运行工作流和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)”。
 
  {% endif %}
 
@@ -41,7 +41,7 @@ Runner diagnostic logging provides additional log files that contain information
 
 1. 若要启用运行器诊断日志记录，请在包含工作流的存储库中进行以下设置：将 `ACTIONS_RUNNER_DEBUG` 机密设置为 `true`。
 
-1. 要下载运行程序诊断日志，请下载工作流程运行情况的日志存档。 运行程序诊断日志包含在 `runner-diagnostic-logs` 文件夹中。 关于下载日志的详细信息，请参阅“[下载日志](/actions/managing-workflow-runs/using-workflow-run-logs/#downloading-logs)”。
+1. 要下载运行程序诊断日志，请下载工作流程运行情况的日志存档。运行程序诊断日志包含在 `runner-diagnostic-logs` 文件夹中。关于下载日志的详细信息，请参阅“[下载日志](/actions/managing-workflow-runs/using-workflow-run-logs/#downloading-logs)”。
 
 ## 启用步骤调试日志
 
@@ -49,4 +49,4 @@ Runner diagnostic logging provides additional log files that contain information
 
 1. 要启用步骤调试日志记录，必须在包含工作流的存储库中进行以下设置：将机密 `ACTIONS_STEP_DEBUG` 设置为 `true`。
 
-1. 设置密码后，步骤日志中会显示更多调试事件。 有关详细信息，请参阅[“查看日志以诊断故障”](/actions/managing-workflow-runs/using-workflow-run-logs/#viewing-logs-to-diagnose-failures)。
+1. 设置密码后，步骤日志中会显示更多调试事件。有关详细信息，请参阅[“查看日志以诊断故障”](/actions/managing-workflow-runs/using-workflow-run-logs/#viewing-logs-to-diagnose-failures)。
