@@ -27,7 +27,7 @@ ms.locfileid: '147614477'
 **{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
 
 * {% data reusables.projects.owners-can-limit-visibility-permissions %}
-* {% endif %}将 {% data variables.projects.projects_v1_board %} 设为{% ifversion ghae %}内部{% else %}公共{% endif %}时，组织成员默认获得读取权限。 你可以授予特定组织成员写入或管理员权限，方法是为他们所在的团队授予访问权限或将他们作为协作者添加到 {% data variables.projects.projects_v1_board %}。 有关详细信息，请参阅“[组织的 {% data variables.product.prodname_project_v1_caps %} 权限](/articles/project-board-permissions-for-an-organization)”。
+* {% endif %}将 {% data variables.projects.projects_v1_board %} 设为{% ifversion ghae %}内部{% else %}公共{% endif %}时，组织成员默认获得读取权限。你可以授予特定组织成员写入或管理员权限，方法是为他们所在的团队授予访问权限或将他们作为协作者添加到 {% data variables.projects.projects_v1_board %}。有关详细信息，请参阅“[组织的 {% data variables.product.prodname_project_v1_caps %} 权限](/articles/project-board-permissions-for-an-organization)”。
 
 {% endnote %}
 

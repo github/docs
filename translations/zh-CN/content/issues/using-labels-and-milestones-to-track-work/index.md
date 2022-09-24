@@ -1,7 +1,7 @@
 ---
 title: 使用标签和里程碑来跟踪工作
 shortTitle: Labels and milestones
-intro: '使用标签和里程碑在 {% data variables.product.prodname_dotcom %} 上分类和跟踪工作.'
+intro: '使用标签和里程碑在 {% data variables.product.prodname_dotcom %} 上分类和跟踪工作。'
 versions:
   fpt: '*'
   ghes: '*'

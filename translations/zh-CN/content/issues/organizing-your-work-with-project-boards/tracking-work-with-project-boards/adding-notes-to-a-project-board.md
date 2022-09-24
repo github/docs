@@ -24,9 +24,9 @@ ms.locfileid: '147422746'
 {% tip %}
 
 **提示：**
-- 您可以使用 Markdown 语法格式化注释。 例如，可以使用标题、链接、任务列表或表情符号。 有关详细信息，请参阅“[基本编写和格式设置语法](/articles/basic-writing-and-formatting-syntax)”。
+- 您可以使用 Markdown 语法格式化注释。例如，可以使用标题、链接、任务列表或表情符号。有关详细信息，请参阅“[基本编写和格式设置语法](/articles/basic-writing-and-formatting-syntax)”。
 - 可以通过拖放或键盘快捷键对注释重新排序以及在列之间移动它们。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-- {% data variables.projects.projects_v1_board %} 必须至少有一列，然后才可添加注释。 有关详细信息，请参阅“[创建项目板](/articles/creating-a-project-board)”。
+- {% data variables.projects.projects_v1_board %} 必须至少有一列，然后才可添加注释。有关详细信息，请参阅“[创建项目板](/articles/creating-a-project-board)”。
 
 {% endtip %}
 
@@ -52,11 +52,11 @@ ms.locfileid: '147422746'
 
 如果您创建了注释但发现它不足以表达您的需求，可以将其转换为议题。
 
-在将注释转换为议题时，会使用注释中的内容自动创建议题。 注释的第一行将成为议题的标题，其他内容将添加到议题说明中。
+在将注释转换为议题时，会使用注释中的内容自动创建议题。注释的第一行将成为议题的标题，其他内容将添加到议题说明中。
 
 {% tip %}
 
-**提示：** 可以添加注释正文的内容，以 @mention 某人、链接到其他问题或拉取请求，以及添加表情符号。 这些 {% data variables.product.prodname_dotcom %} Flavored Markdown 功能在 {% data variables.projects.projects_v1_board %} 注释中不受支持，但在注释转换为问题之后，它们会正确显示。 有关使用这些功能的详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github)”。
+**提示：** 可以添加注释正文的内容，以 @mention 某人、链接到其他问题或拉取请求，以及添加表情符号。这些 {% data variables.product.prodname_dotcom %} Flavored Markdown 功能在 {% data variables.projects.projects_v1_board %} 注释中不受支持，但在注释转换为问题之后，它们会正确显示。有关使用这些功能的详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github)”。
 
 {% endtip %}
 
@@ -69,7 +69,7 @@ ms.locfileid: '147422746'
 5. 可以选择编辑预填的议题标题，并输入议题正文。
   ![问题标题和正文字段](/assets/images/help/projects/convert-note-issue-title-body.png)
 6. 单击“转换为问题”。
-7. 该注释会自动转换为议题。 在 {% data variables.projects.projects_v1_board %} 中，新问题卡与之前的注释位于同一位置。
+7. 该注释会自动转换为议题。在 {% data variables.projects.projects_v1_board %} 中，新问题卡与之前的注释位于同一位置。
 
 ## 编辑和删除注释
 

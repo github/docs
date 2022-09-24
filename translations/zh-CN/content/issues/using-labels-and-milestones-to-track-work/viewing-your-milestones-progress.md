@@ -28,7 +28,7 @@ ms.locfileid: '147880788'
 
 ![议题里程碑概览](/assets/images/help/issues/issues_milestone_overview.png)
 
-为了更好地管理项目，您可以在里程碑内确定议题或拉取请求的优先级。 有关详细信息，请参阅“[关于里程碑](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)”。
+为了更好地管理项目，您可以在里程碑内确定议题或拉取请求的优先级。有关详细信息，请参阅“[关于里程碑](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)”。
 
 ## 延伸阅读
 

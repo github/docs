@@ -15,7 +15,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147423913'
 ---
-可以通过指定选项按单选字段进行筛选，例如：`fieldname:option`。 可以通过提供以逗号分隔的选项列表来筛选多个值，例如：`fieldname:option,option`。 有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
+可以通过指定选项按单选字段进行筛选，例如：`fieldname:option`。可以通过提供以逗号分隔的选项列表来筛选多个值，例如：`fieldname:option,option`。有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
 
 单选字段最多可以包含 50 个选项。 
 

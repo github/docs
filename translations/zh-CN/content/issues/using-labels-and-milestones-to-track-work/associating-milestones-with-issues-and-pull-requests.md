@@ -23,7 +23,7 @@ ms.locfileid: '145128640'
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
 3. 选中要与里程碑关联的项目旁边的复选框。
   ![议题元数据复选框](/assets/images/help/issues/issues_assign_checkbox.png)
-4. 在右上角单击“里程碑”，然后开始键入[现有里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)的名称。 单击里程碑名称以将其与该项目关联。
+4. 在右上角单击“里程碑”，然后开始键入[现有里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)的名称。单击里程碑名称以将其与该项目关联。
   ![议题里程碑分配下拉菜单](/assets/images/help/issues/issues_assigning_milestone_dropdown.png)
 
 {% tip %}

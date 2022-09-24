@@ -20,7 +20,7 @@ ms.locfileid: '147060424'
 ---
 {% note %}
 
-注意：还可在拉取请求和提交消息中通过关键字自动关闭问题。 有关详细信息，请参阅“[将拉取请求链接到问题](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword#linking-a-pull-request-to-an-issue-using-a-keyword)”。
+注意：还可在拉取请求和提交消息中通过关键字自动关闭问题。有关详细信息，请参阅“[将拉取请求链接到问题](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword#linking-a-pull-request-to-an-issue-using-a-keyword)”。
 
 {% endnote %}
 

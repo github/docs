@@ -22,7 +22,7 @@ ms.locfileid: '147422706'
 
 关闭 {% data variables.projects.projects_v1_board %} 时，默认情况下，任何已配置的工作流自动化都会暂停。
 
-如果重新打开 {% data variables.projects.projects_v1_board %}，可以选择同步自动化，以便根据为项目板配置的自动化设置来更新板上卡的位置。 有关详细信息，请参阅“[重新打开已关闭的 {% data variables.product.prodname_project_v1 %}](/articles/reopening-a-closed-project-board)”或“[关于 {% data variables.product.prodname_projects_v1 %} 的自动化](/articles/about-automation-for-project-boards)”。
+如果重新打开 {% data variables.projects.projects_v1_board %}，可以选择同步自动化，以便根据为项目板配置的自动化设置来更新板上卡的位置。有关详细信息，请参阅“[重新打开已关闭的 {% data variables.product.prodname_project_v1 %}](/articles/reopening-a-closed-project-board)”或“[关于 {% data variables.product.prodname_projects_v1 %} 的自动化](/articles/about-automation-for-project-boards)”。
 
 1. 导航到存储库或组织中或由个人帐户拥有的 {% data variables.projects.projects_v1_boards %} 列表。
 2. 在项目列表中，在要关闭的 {% data variables.projects.projects_v1_board %} 旁边单击 {% octicon "chevron-down" aria-label="The chevron icon" %}。

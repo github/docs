@@ -24,9 +24,9 @@ ms.locfileid: '146774570'
 - 唯一可以删除个人帐户所拥有存储库中的议题的帐户便是该帐户本身。
 - 只有具有管理员或所有者权限的帐户才能删除组织拥有的存储库中的议题。
 
-  若要删除组织拥有的存储库中的议题，组织所有者必须允许删除组织存储库的议题。 有关详细信息，请参阅“[允许人员删除组织中的议题](/articles/allowing-people-to-delete-issues-in-your-organization)”和“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
+  若要删除组织拥有的存储库中的议题，组织所有者必须允许删除组织存储库的议题。有关详细信息，请参阅“[允许人员删除组织中的议题](/articles/allowing-people-to-delete-issues-in-your-organization)”和“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
-删除议题时，协作者不会收到通知。 在访问已删除议题的 URL 时，协作者将看到一条消息，指出无法找到该网页（但他们可以使用 API 来确定它已被删除）。 拥有仓库管理员或所有者权限的人员还将看到删除议题的人员的用户名和删除时间。
+删除议题时，协作者不会收到通知。在访问已删除议题的 URL 时，协作者将看到一条消息，指出无法找到该网页（但他们可以使用 API 来确定它已被删除）。拥有仓库管理员或所有者权限的人员还将看到删除议题的人员的用户名和删除时间。
 
 1. 导航到要删除的议题。
 2. 在右侧边栏的“通知”下，单击“删除议题”。

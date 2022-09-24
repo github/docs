@@ -30,7 +30,7 @@ ms.locfileid: '147876104'
   ![“新建里程碑”按钮](/assets/images/help/repository/new-milestone.png)
     - 要编辑里程碑，请在要编辑的里程碑旁边，单击“编辑”。
   ![编辑里程碑选项](/assets/images/help/repository/edit-milestone.png)
-5. 键入里程碑的标题、说明或其他更改，然后单击“创建里程碑”或“保存更改” 。 里程碑将呈现 Markdown 语法。 有关 Markdown 语法的详细信息，请参阅“[基本编写和格式设置语法](/github/writing-on-github/basic-writing-and-formatting-syntax)”。
+5. 键入里程碑的标题、说明或其他更改，然后单击“创建里程碑”或“保存更改” 。里程碑将呈现 Markdown 语法。有关 Markdown 语法的详细信息，请参阅“[基本编写和格式设置语法](/github/writing-on-github/basic-writing-and-formatting-syntax)”。
 
 ## 删除里程碑
 

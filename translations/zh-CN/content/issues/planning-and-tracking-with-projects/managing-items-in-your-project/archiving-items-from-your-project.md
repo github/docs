@@ -33,7 +33,7 @@ ms.locfileid: '147423807'
   ![显示菜单图标的屏幕截图](/assets/images/help/projects-v2/open-menu.png)
 1. 在菜单中，单击 {% octicon "archive" aria-label="The archive icon" %}“已存档项”。
   ![显示“已存档项”菜单项的屏幕截图](/assets/images/help/projects-v2/archived-items-menu-item.png)
-1. （可选）若要筛选显示的已存档项，请在项列表上方的文本框中键入筛选器。 有关可用筛选器的详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
+1. （可选）若要筛选显示的已存档项，请在项列表上方的文本框中键入筛选器。有关可用筛选器的详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
    ![显示用于筛选已存档项的字段的屏幕截图](/assets/images/help/issues/filter-archived-items.png)   
 1. 在每个项标题的左侧，选择要还原的项。
    ![显示已存档项旁边的复选框的屏幕截图](/assets/images/help/issues/select-archived-item.png)   

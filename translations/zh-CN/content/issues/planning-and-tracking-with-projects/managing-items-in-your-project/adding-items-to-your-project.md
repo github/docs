@@ -34,9 +34,9 @@ ms.locfileid: '147423792'
 
 {% data reusables.projects.add-item-bottom-row %}
 2. 输入 <kbd>#</kbd> 。
-3. 选择拉取请求或议题所在的仓库。 您可以输入仓库名称的一部分来缩小选项范围。
+3. 选择拉取请求或议题所在的仓库。您可以输入仓库名称的一部分来缩小选项范围。
   ![显示粘贴问题 URL 以将其添加到项目的屏幕截图](/assets/images/help/projects-v2/add-item-select-repo.png)
-4. 选择议题或拉取请求。 您可以键入标题的一部分以缩小选项范围。
+4. 选择议题或拉取请求。您可以键入标题的一部分以缩小选项范围。
   ![显示粘贴问题 URL 以将其添加到项目的屏幕截图](/assets/images/help/projects-v2/add-item-select-issue.png)
 
 #### 批量添加问题和拉取请求
@@ -77,11 +77,11 @@ ms.locfileid: '147423792'
 
 ### 创建草稿议题
 
-草稿议题有助于快速捕获想法。 与从存储库引用的问题和拉取请求不同，草稿问题只存在于你的项目中。
+草稿议题有助于快速捕获想法。与从存储库引用的问题和拉取请求不同，草稿问题只存在于你的项目中。
 
 {% data reusables.projects.add-draft-issue %}
 
-草稿议题可以具有标题、文本正文、受理人以及项目中的任何自定义字段。 为了填充草稿议题的存储库、标签或里程碑，必须首先将草稿问题转换为议题。 有关详细信息，请参阅“[将草稿问题转换为问题](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)”。
+草稿议题可以具有标题、文本正文、受理人以及项目中的任何自定义字段。为了填充草稿议题的存储库、标签或里程碑，必须首先将草稿问题转换为议题。有关详细信息，请参阅“[将草稿问题转换为问题](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)”。
 
 {% note %}
 

@@ -17,7 +17,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147423920'
 ---
-{% data variables.product.prodname_projects_v2 %} 是与 {% data variables.product.company_short %} 数据保持同步的自适应项集合。 你的项目可以跟踪问题、拉取请求以及你记下的想法。 您可以添加自定义字段并为特定目的创建视图。
+{% data variables.product.prodname_projects_v2 %} 是与 {% data variables.product.company_short %} 数据保持同步的自适应项集合。你的项目可以跟踪问题、拉取请求以及你记下的想法。您可以添加自定义字段并为特定目的创建视图。
 
 ## 创建项目
 

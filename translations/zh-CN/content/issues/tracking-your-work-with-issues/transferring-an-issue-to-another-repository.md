@@ -21,7 +21,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2022
 ms.locfileid: '145128699'
 ---
-要将打开的议题转让给另一个仓库，必须对议题所在的仓库以及议题要转让到的仓库都有写入权限。 有关详细信息，请参阅“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
+要将打开的议题转让给另一个仓库，必须对议题所在的仓库以及议题要转让到的仓库都有写入权限。有关详细信息，请参阅“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 {% note %}
 
@@ -29,9 +29,9 @@ ms.locfileid: '145128699'
 
 {% endnote %}
 
-转让议题时，评论、标签和受理人将保留。 不会保留议题的里程碑。 此议题将留在任何用户拥有或组织范围的项目板上，并从任何仓库项目板中删除。 有关详细信息，请参阅“[关于项目板](/articles/about-project-boards)”。
+转让议题时，评论、标签和受理人将保留。不会保留议题的里程碑。此议题将留在任何用户拥有或组织范围的项目板上，并从任何仓库项目板中删除。有关详细信息，请参阅“[关于项目板](/articles/about-project-boards)”。
 
-议题中提及的人员或团队将收到通知，告知他们该议题已转让给新仓库。 原来的 URL 会重定向到新议题的 URL。 在新仓库中没有读取权限的人员将看到一个横幅，告知他们该议题已转让给他们无法访问的新仓库。
+议题中提及的人员或团队将收到通知，告知他们该议题已转让给新仓库。原来的 URL 会重定向到新议题的 URL。在新仓库中没有读取权限的人员将看到一个横幅，告知他们该议题已转让给他们无法访问的新仓库。
 
 ## <a name="transferring-an-open-issue-to-another-repository"></a>将开放的议题转让给其他仓库
 
@@ -52,7 +52,7 @@ ms.locfileid: '145128699'
 
 {% data reusables.cli.cli-learn-more %}
 
-要转移问题，请使用 `gh issue transfer` 子命令。 将 `issue` 参数替换为问题的编号或 URL。 将 `{% ifversion ghes %}hostname/{% endif %}owner/repo` 参数替换为要将问题转移到的存储库的 {% ifversion ghes %}URL{% else %} 名称{% endif %}，例如 `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`。
+要转移问题，请使用 `gh issue transfer` 子命令。将 `issue` 参数替换为问题的编号或 URL。将 `{% ifversion ghes %}hostname/{% endif %}owner/repo` 参数替换为要将问题转移到的存储库的 {% ifversion ghes %}URL{% else %} 名称{% endif %}，例如 `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`。
 
 ```shell
 gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>

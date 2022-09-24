@@ -20,7 +20,7 @@ ms.locfileid: '147423586'
 ---
 {% data reusables.projects.project_boards_old %}
 
-{% data variables.projects.projects_v1_board %} 中的自动化不适用于存档的 {% data variables.projects.projects_v1_board %} 卡。 例如，如果关闭 {% data variables.projects.projects_v1_board %} 存档中的问题，存档的卡不会自动移到“已完成”列。 从 {% data variables.projects.projects_v1_board %} 存档还原卡时，该卡将回到存档它的列。
+{% data variables.projects.projects_v1_board %} 中的自动化不适用于存档的 {% data variables.projects.projects_v1_board %} 卡。例如，如果关闭 {% data variables.projects.projects_v1_board %} 存档中的问题，存档的卡不会自动移到“已完成”列。从 {% data variables.projects.projects_v1_board %} 存档还原卡时，该卡将回到存档它的列。
 
 ## 将 {% data variables.projects.projects_v1_board %} 上的卡存档
 

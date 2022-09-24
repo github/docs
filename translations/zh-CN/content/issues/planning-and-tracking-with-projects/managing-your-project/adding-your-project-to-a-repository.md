@@ -16,9 +16,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147423952'
 ---
-您可以在存储库中列出相关项目。 您只能列出由拥有存储库的同一用户或组织拥有的项目。
+您可以在存储库中列出相关项目。您只能列出由拥有存储库的同一用户或组织拥有的项目。
 
-为了使存储库成员能够看到存储库中列出的项目，他们必须具有项目的可见性。 有关详细信息，请参阅“[管理 {% data variables.projects.projects_v2 %} 的可见性](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)”以及“[管理 {% data variables.projects.projects_v2 %} 的访问权限](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)”。
+为了使存储库成员能够看到存储库中列出的项目，他们必须具有项目的可见性。有关详细信息，请参阅“[管理 {% data variables.projects.projects_v2 %} 的可见性](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)”以及“[管理 {% data variables.projects.projects_v2 %} 的访问权限](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)”。
 
 1. 在 {% data variables.product.prodname_dotcom %} 上，导航到仓库的主页面。
 1. 单击 {% octicon "table" aria-label="the project icon" %}“项目”。

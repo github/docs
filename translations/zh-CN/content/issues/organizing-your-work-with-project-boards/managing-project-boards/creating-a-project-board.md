@@ -30,9 +30,9 @@ ms.locfileid: '147614253'
 
 {% data reusables.project-management.link-repos-to-project-board %} 有关详细信息，请参阅“[将存储库链接到 {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)”。
 
-创建 {% data variables.projects.projects_v1_board %} 后，可以向其添加问题、拉取请求和备注。 有关详细信息，请参阅“[将问题和拉取请求添加到 {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)”和“[将备注添加到 {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)”。
+创建 {% data variables.projects.projects_v1_board %} 后，可以向其添加问题、拉取请求和备注。有关详细信息，请参阅“[将问题和拉取请求添加到 {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)”和“[将备注添加到 {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)”。
 
-还可以配置工作流自动化，使 {% data variables.projects.projects_v1_board %} 与问题和拉取请求的状态保持同步。 有关详细信息，请参阅“[有关 {% data variables.product.prodname_projects_v1 %} 的自动化](/articles/about-automation-for-project-boards)”。
+还可以配置工作流自动化，使 {% data variables.projects.projects_v1_board %} 与问题和拉取请求的状态保持同步。有关详细信息，请参阅“[有关 {% data variables.product.prodname_projects_v1 %} 的自动化](/articles/about-automation-for-project-boards)”。
 
 {% data reusables.project-management.project-board-import-with-api %}
 
@@ -43,7 +43,7 @@ ms.locfileid: '147614253'
 {% data reusables.profile.access_profile %}
 2. 在个人资料页面顶部的主导航栏中，单击 {% octicon "project" aria-label="The project board icon" %}“项目”。
 ![项目选项卡](/assets/images/help/projects/user-projects-tab.png) {% ifversion projects-v2 %}
-1. 单击“项目(经典)”{% endif %} {% data reusables.project-management.click-new-project %} {% data reusables.project-management.create-project-name-description %} {% data reusables.project-management.choose-template %} {% data reusables.project-management.choose-visibility %} {% data reusables.project-management.linked-repositories %} {% data reusables.project-management.create-project-button %} {% data reusables.project-management.add-column-new-project %} {% data reusables.project-management.name-project-board-column %} {% data reusables.project-management.select-column-preset %} {% data reusables.project-management.select-automation-options-new-column %} {% data reusables.project-management.click-create-column %} {% data reusables.project-management.add-more-columns %}
+1. 单击“项目 (经典)”{% endif %} {% data reusables.project-management.click-new-project %} {% data reusables.project-management.create-project-name-description %} {% data reusables.project-management.choose-template %} {% data reusables.project-management.choose-visibility %} {% data reusables.project-management.linked-repositories %} {% data reusables.project-management.create-project-button %} {% data reusables.project-management.add-column-new-project %} {% data reusables.project-management.name-project-board-column %} {% data reusables.project-management.select-column-preset %} {% data reusables.project-management.select-automation-options-new-column %} {% data reusables.project-management.click-create-column %} {% data reusables.project-management.add-more-columns %}
 
 {% data reusables.project-management.edit-project-columns %}
 
@@ -58,7 +58,7 @@ ms.locfileid: '147614253'
 {% endnote %} {% endif %}
 
 {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. 单击“项目(经典)”{% endif %} {% data reusables.project-management.click-new-project %} {% data reusables.project-management.create-project-name-description %} {% data reusables.project-management.choose-template %} {% data reusables.project-management.choose-visibility %} {% data reusables.project-management.linked-repositories %} {% data reusables.project-management.create-project-button %} {% data reusables.project-management.add-column-new-project %} {% data reusables.project-management.name-project-board-column %} {% data reusables.project-management.select-column-preset %} {% data reusables.project-management.select-automation-options-new-column %} {% data reusables.project-management.click-create-column %} {% data reusables.project-management.add-more-columns %}
+1. 单击“项目 (经典)”{% endif %} {% data reusables.project-management.click-new-project %} {% data reusables.project-management.create-project-name-description %} {% data reusables.project-management.choose-template %} {% data reusables.project-management.choose-visibility %} {% data reusables.project-management.linked-repositories %} {% data reusables.project-management.create-project-button %} {% data reusables.project-management.add-column-new-project %} {% data reusables.project-management.name-project-board-column %} {% data reusables.project-management.select-column-preset %} {% data reusables.project-management.select-automation-options-new-column %} {% data reusables.project-management.click-create-column %} {% data reusables.project-management.add-more-columns %}
 
 {% data reusables.project-management.edit-project-columns %}
 
@@ -69,7 +69,7 @@ ms.locfileid: '147614253'
 {% data reusables.repositories.navigate-to-repo %}
 2. 在存储库名称下，单击 {% octicon "project" aria-label="The project board icon" %}“项目”。
 ![项目选项卡](/assets/images/help/projects/repo-tabs-projects.png) {% ifversion projects-v2 %}
-1. 单击“项目(经典)”{% endif %} {% data reusables.project-management.click-new-project %} {% data reusables.project-management.create-project-name-description %} {% data reusables.project-management.choose-template %} {% data reusables.project-management.create-project-button %} {% data reusables.project-management.add-column-new-project %} {% data reusables.project-management.name-project-board-column %} {% data reusables.project-management.select-column-preset %} {% data reusables.project-management.select-automation-options-new-column %} {% data reusables.project-management.click-create-column %} {% data reusables.project-management.add-more-columns %}
+1. 单击“项目 (经典)”{% endif %} {% data reusables.project-management.click-new-project %} {% data reusables.project-management.create-project-name-description %} {% data reusables.project-management.choose-template %} {% data reusables.project-management.create-project-button %} {% data reusables.project-management.add-column-new-project %} {% data reusables.project-management.name-project-board-column %} {% data reusables.project-management.select-column-preset %} {% data reusables.project-management.select-automation-options-new-column %} {% data reusables.project-management.click-create-column %} {% data reusables.project-management.add-more-columns %}
 
 {% data reusables.project-management.edit-project-columns %}
 

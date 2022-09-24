@@ -17,9 +17,9 @@ ms.locfileid: '147423945'
 ---
 可以使用文本字段在项目中包含备注或任何其他自由格式的文本。
 
-文本字段可以用于筛选器，例如：`field:"exact text"`。 如果你在不指定字段的情况下筛选文本，也会使用文本字段和项标题。 
+文本字段可以用于筛选器，例如：`field:"exact text"`。如果你在不指定字段的情况下筛选文本，也会使用文本字段和项标题。 
 
-数字字段也可以用于筛选器。 可以使用 `>`、`>=`、`<`、`<=` 和 `..` 范围查询按数字字段进行筛选。 例如 `field:5..15` 或 `field:>=20`。 有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
+数字字段也可以用于筛选器。可以使用 `>`、`>=`、`<`、`<=` 和 `..` 范围查询按数字字段进行筛选。例如 `field:5..15` 或 `field:>=20`。有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
 
 ## 添加文本字段
 

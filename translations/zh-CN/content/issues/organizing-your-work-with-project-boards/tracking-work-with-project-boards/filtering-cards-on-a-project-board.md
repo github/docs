@@ -20,9 +20,9 @@ ms.locfileid: '147882309'
 ---
 {% data reusables.projects.project_boards_old %}
 
-在卡上，你可以单击任意被分派人、里程碑或标签，以便按该限定符筛选 {% data variables.projects.projects_v1_board %}。 要清除搜索，您可以再次单击相同的受理人、里程碑或标签。
+在卡上，你可以单击任意被分派人、里程碑或标签，以便按该限定符筛选 {% data variables.projects.projects_v1_board %}。要清除搜索，您可以再次单击相同的受理人、里程碑或标签。
 
-也可以使用每个 {% data variables.projects.projects_v1_board %} 顶部的“筛选卡”搜索栏来搜索卡。 您可以使用以下搜索限定符的任意组合来过滤卡，或者直接输入您要搜索的某些文本。
+也可以使用每个 {% data variables.projects.projects_v1_board %} 顶部的“筛选卡”搜索栏来搜索卡。您可以使用以下搜索限定符的任意组合来过滤卡，或者直接输入您要搜索的某些文本。
 
 - 使用 `author:USERNAME` 按作者筛选卡片
 - 使用 `assignee:USERNAME` 或 `no:assignee` 按被分派人筛选卡片

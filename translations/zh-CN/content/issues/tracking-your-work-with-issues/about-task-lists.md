@@ -29,7 +29,7 @@ ms.locfileid: '146179509'
 
 ## 关于任务列表
 
-任务列表是一组任务，每个任务都在单独的行上呈现，带有可点击的复选框。 您可以选中或取消选中复选框来将任务标记为完成或未完成。 
+任务列表是一组任务，每个任务都在单独的行上呈现，带有可点击的复选框。您可以选中或取消选中复选框来将任务标记为完成或未完成。 
 
 您可以使用 Markdown 在 {% data variables.product.product_name %} 上的任何评论中创建任务列表。 {% ifversion fpt or ghec %}如果在列表中引用议题、拉取请求或讨论，则引用将展开以显示标题和状态。{% endif %} 
 
@@ -42,7 +42,7 @@ ms.locfileid: '146179509'
 
 - 为了帮助您跟踪团队在议题上的操作，议题任务列表的进度出现在 {% data variables.product.product_name %} 的不同位置，例如仓库的议题列表。
 - 如果任务引用另一个议题，并且有人关闭该议题，则任务的复选框将自动标记为完整。 
-- 如果任务需要进一步跟踪或讨论，您可以通过在任务上方悬停并单击任务右上角的 {% octicon "issue-opened" aria-label="The issue opened icon" %} 将任务转换为议题。 要在创建议题之前添加更多详细信息，您可以使用键盘快捷方式打开新议题表单。 有关详细信息，请参阅“[键盘快捷方式](/github/getting-started-with-github/using-github/keyboard-shortcuts#issues-and-pull-requests)”。
+- 如果任务需要进一步跟踪或讨论，您可以通过在任务上方悬停并单击任务右上角的 {% octicon "issue-opened" aria-label="The issue opened icon" %} 将任务转换为议题。要在创建议题之前添加更多详细信息，您可以使用键盘快捷方式打开新议题表单。有关详细信息，请参阅“[键盘快捷方式](/github/getting-started-with-github/using-github/keyboard-shortcuts#issues-and-pull-requests)”。
 - 任务列表中提及的任何议题都将指定在引用议题中跟踪它们。
 
 ![渲染的任务列表](/assets/images/help/writing/task-list-rendered.png)
@@ -61,7 +61,7 @@ ms.locfileid: '146179509'
 
 ## 对任务重新排序
 
-您可以单击任务左边的复选框并将任务拖放至新位置，对任务列表中的项目重新排序。 您可以在相同的评论中对不同列表中的任务重新排序，但是不能在不同的评论中重新排序任务。
+您可以单击任务左边的复选框并将任务拖放至新位置，对任务列表中的项目重新排序。您可以在相同的评论中对不同列表中的任务重新排序，但是不能在不同的评论中重新排序任务。
 
 {% ifversion fpt %} ![重新排序的任务列表](/assets/images/help/writing/task-list-reordered.gif) {% else %} ![重新排序的任务列表](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
 
@@ -69,7 +69,7 @@ ms.locfileid: '146179509'
 
 ## 导航跟踪的议题
 
-任务列表中引用的任何议题都指定它们被包含任务列表的议题跟踪。 要从已跟踪的议题导航到正在跟踪的议题，请单击议题状态旁边的“已跟踪”中的跟踪议题编号。
+任务列表中引用的任何议题都指定它们被包含任务列表的议题跟踪。要从已跟踪的议题导航到正在跟踪的议题，请单击议题状态旁边的“已跟踪”中的跟踪议题编号。
 
 ![跟踪示例](/assets/images/help/writing/task_list_tracked.png)
 

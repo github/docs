@@ -39,11 +39,11 @@ ms.locfileid: '145128619'
 ---
 ## 关于标签
 
-可以通过创建标签来分类{% ifversion fpt or ghec %}问题、拉取请求和讨论{% else %}问题和拉取请求{% endif %}，以便管理 {% data variables.product.product_name %} 上的工作。 您可以在创建标签的仓库中应用标签。 创建标签后，可以在该存储库中的任何{% ifversion fpt or ghec %}问题、拉取请求或讨论{% else %}问题或拉取请求{% endif %}上使用标签。
+可以通过创建标签来分类{% ifversion fpt or ghec %}问题、拉取请求和讨论{% else %}问题和拉取请求{% endif %}，以便管理 {% data variables.product.product_name %} 上的工作。您可以在创建标签的仓库中应用标签。创建标签后，可以在该存储库中的任何{% ifversion fpt or ghec %}问题、拉取请求或讨论{% else %}问题或拉取请求{% endif %}上使用标签。
 
 ## 关于默认标签
 
-{% data variables.product.product_name %} 在每个新仓库中提供默认标签。 您可以使用这些默认标签帮助在仓库中创建标准工作流程。
+{% data variables.product.product_name %} 在每个新仓库中提供默认标签。您可以使用这些默认标签帮助在仓库中创建标准工作流程。
 
 Label | 说明
 ---  | ---
@@ -59,9 +59,9 @@ Label | 说明
 
 创建仓库时，每个新仓库中均包含默认标签，但您稍后可以编辑或删除标签。
 
-带有 `good first issue` 标签的问题用于填充存储库的 `contribute` 页面。 有关 `contribute` 页面的示例，请参阅 [github/docs/contribute](https://github.com/github/docs/contribute)。 
+带有 `good first issue` 标签的问题用于填充存储库的 `contribute` 页面。有关 `contribute` 页面的示例，请参阅 [github/docs/contribute](https://github.com/github/docs/contribute)。 
 
-{% ifversion fpt or ghes or ghec %} 组织所有者可以为其组织中的存储库定制默认标签。 有关详细信息，请参阅“[管理组织中存储库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”。
+{% ifversion fpt or ghes or ghec %} 组织所有者可以为其组织中的存储库定制默认标签。有关详细信息，请参阅“[管理组织中存储库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”。
 {% endif %}
 
 ## 创建标签

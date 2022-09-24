@@ -15,7 +15,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2022
 ms.locfileid: '147423901'
 ---
-可以使用 `YYYY-MM-DD` 格式筛选日期值，例如：`date:2022-07-01`。 还可以使用运算符，例如 `>`、`>=`、`<`、`<=` 和 `..`。 例如，`date:>2022-07-01` 和 `date:2022-07-01..2022-07-31`。 还可以提供 `@today` 来表示筛选器中的当前日期。 有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
+可以使用 `YYYY-MM-DD` 格式筛选日期值，例如：`date:2022-07-01`。还可以使用运算符，例如 `>`、`>=`、`<`、`<=` 和 `..`。例如，`date:>2022-07-01` 和 `date:2022-07-01..2022-07-31`。还可以提供 `@today` 来表示筛选器中的当前日期。有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
 
 ## 添加日期字段
 

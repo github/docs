@@ -21,7 +21,7 @@ ms.locfileid: '145128643'
 ---
 [创建里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)时，可以[将其与议题及拉取请求相关联](/articles/associating-milestones-with-issues-and-pull-requests)。
 
-若要更好地管理项目，可以查看[有关里程碑的详细信息](/articles/viewing-your-milestone-s-progress)。 从里程碑页面，可以看到：
+若要更好地管理项目，可以查看[有关里程碑的详细信息](/articles/viewing-your-milestone-s-progress)。从里程碑页面，可以看到：
 
 - 用户提供的里程碑说明，可包括项目概述、相关团队和预计到期日期等信息
 - 里程碑的到期日期

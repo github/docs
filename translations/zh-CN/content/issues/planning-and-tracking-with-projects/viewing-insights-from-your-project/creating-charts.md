@@ -20,6 +20,6 @@ ms.locfileid: '147423795'
    ![显示“新建图表”按钮的屏幕截图](/assets/images/help/projects-v2/insights-new-chart.png)
 4. （可选）要更改新图表的名称，请单击 {% octicon "triangle-down" aria-label="The triangle icon" %}，键入新名称，然后按 <kbd>Return</kbd>。
    ![显示如何重命名图表的屏幕截图](/assets/images/help/projects-v2/insights-rename.png)
-5. 在图表上方，键入筛选器以更改用于生成图表的数据。 有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
+5. 在图表上方，键入筛选器以更改用于生成图表的数据。有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
 6. 在筛选器文本框的右侧，单击“保存更改”。
    ![显示“保存”按钮的屏幕截图](/assets/images/help/projects-v2/insights-save-filter.png)

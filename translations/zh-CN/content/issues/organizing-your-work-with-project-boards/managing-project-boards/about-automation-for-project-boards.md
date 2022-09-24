@@ -22,7 +22,7 @@ ms.locfileid: '147423338'
 
 {% data reusables.project-management.automate-project-board-permissions %} 有关详细信息，请参阅“[组织的 {% data variables.product.prodname_projects_v1_caps %} 权限](/articles/project-board-permissions-for-an-organization)”。
 
-可根据 {% data variables.projects.projects_v1_board %} 列的触发事件自动执行操作。 这可以省去 {% data variables.projects.projects_v1_board %} 管理过程中的一些手动任务。 例如，你可配置“待处理”列，其中你添加到 {% data variables.projects.projects_v1_board %} 的任何新问题或拉取请求都会自动移至配置的列。 有关详细信息，请参阅“[为 {% data variables.product.prodname_projects_v1 %} 配置自动化](/articles/configuring-automation-for-project-boards)”。  
+可根据 {% data variables.projects.projects_v1_board %} 列的触发事件自动执行操作。这可以省去 {% data variables.projects.projects_v1_board %} 管理过程中的一些手动任务。例如，你可配置“待处理”列，其中你添加到 {% data variables.projects.projects_v1_board %} 的任何新问题或拉取请求都会自动移至配置的列。有关详细信息，请参阅“[为 {% data variables.product.prodname_projects_v1 %} 配置自动化](/articles/configuring-automation-for-project-boards)”。  
 
 {% data reusables.project-management.use-automated-template %}
 

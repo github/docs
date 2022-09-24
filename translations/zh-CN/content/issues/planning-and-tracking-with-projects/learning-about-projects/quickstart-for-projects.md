@@ -19,13 +19,13 @@ ms.locfileid: '147423814'
 ---
 ## 简介
 
-本指南说明如何使用 {% data variables.product.prodname_projects_v2 %} 来规划和跟踪工作。 在本指南中，您将创建一个新项目，并添加自定义字段来跟踪任务的优先级。 您还将学习如何创建保存的视图，帮助您与协作者交流优先事项和进度。
+本指南说明如何使用 {% data variables.product.prodname_projects_v2 %} 来规划和跟踪工作。在本指南中，您将创建一个新项目，并添加自定义字段来跟踪任务的优先级。您还将学习如何创建保存的视图，帮助您与协作者交流优先事项和进度。
 
 ## 先决条件
 
-您可以创建组织项目或用户项目。 要创建组织项目，您需要一个 {% data variables.product.prodname_dotcom %} 组织。 有关创建组织的详细信息，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
+您可以创建组织项目或用户项目。要创建组织项目，您需要一个 {% data variables.product.prodname_dotcom %} 组织。有关创建组织的详细信息，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
 
-在本指南中，您将把组织拥有的存储库（对于组织项目）或您拥有的存储库（对于用户项目）的现有议题添加到新项目中。 有关创建问题的详细信息，请参阅“[创建问题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
+在本指南中，您将把组织拥有的存储库（对于组织项目）或您拥有的存储库（对于用户项目）的现有议题添加到新项目中。有关创建问题的详细信息，请参阅“[创建问题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
 
 ## 创建项目
 
@@ -61,7 +61,7 @@ ms.locfileid: '147423814'
 
 ## 添加迭代字段
 
-接下来创建迭代字段，以便可以计划和跟踪重复时间段内的工作。 可根据你和团队的工作方式，使用可自定义的长度和插入中断的功能来配置迭代。
+接下来创建迭代字段，以便可以计划和跟踪重复时间段内的工作。可根据你和团队的工作方式，使用可自定义的长度和插入中断的功能来配置迭代。
 
 {% data reusables.projects.new-field %}
 1. 选择“迭代”
@@ -100,20 +100,20 @@ ms.locfileid: '147423814'
 
 现在，在组之间移动议题以更改其优先级。
 
-1. 选择议题.
-2. 将议题拖放到另一个优先级组。 当您这样做时，议题的优先级将更改为其新组的优先级。
+1. 选择议题。
+2. 将议题拖放到另一个优先级组。当您这样做时，议题的优先级将更改为其新组的优先级。
 
 ![在组之间移动议题](/assets/images/help/projects/move_between_group.gif)
 
 ## 保存优先级视图
 
-在上一步按优先级对议题分组时，项目显示一个指示来显示视图已修改。 保存这些更改，以便您的协作者也能看到按优先级分组的任务。
+在上一步按优先级对议题分组时，项目显示一个指示来显示视图已修改。保存这些更改，以便您的协作者也能看到按优先级分组的任务。
 
 {% data reusables.projects.save-view %}
 
 您可以与您的团队共享 URL，让每个人就项目优先级保持一致。
 
-保存视图后，打开项目的任何人都将看到保存的视图。 在这里按优先级分组，但您还可以添加其他修饰符，如排序、筛选或布局。 接下来，您将创建一个修改了布局的新视图。
+保存视图后，打开项目的任何人都将看到保存的视图。在这里按优先级分组，但您还可以添加其他修饰符，如排序、筛选或布局。接下来，您将创建一个修改了布局的新视图。
 
 ## 添加板布局
 
@@ -135,7 +135,7 @@ ms.locfileid: '147423814'
 
 ![示例优先级](/assets/images/help/projects/example_board.png)
 
-更改布局时，项目显示一个指示来显示视图已修改。 保存此视图，以便您和您的协作者能够轻松地访问它。
+更改布局时，项目显示一个指示来显示视图已修改。保存此视图，以便您和您的协作者能够轻松地访问它。
 
 {% data reusables.projects.save-view %}
 
@@ -161,7 +161,7 @@ ms.locfileid: '147423814'
   ![显示默认工作流的屏幕截图](/assets/images/help/projects-v2/default-workflows.png)
 1. 在“何时”旁边，确保同时选择了 `issues` 和 `pull requests`。
   ![显示工作流的“何时”配置的屏幕截图](/assets/images/help/projects-v2/workflow-when.png)
-1. 在“设置”旁边，选择“状态: 待办” 。
+1. 在“设置”旁边，选择“状态：待办” 。
   ![显示工作流的“设置”配置的屏幕截图](/assets/images/help/projects-v2/workflow-set.png)
 1. 单击“禁用”切换以启用工作流。
   ![显示工作流的“启用”控件的屏幕截图](/assets/images/help/projects-v2/workflow-enable.png)

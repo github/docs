@@ -24,12 +24,12 @@ ms.locfileid: '145128720'
 
 ## 标记重复
 
-要将议题或拉取请求标记为重复，请在新评论正文中输入 "Duplicate of"，后接它复制的议题或拉取请求编号。 您也可以使用 GitHub 提供的“复制议题”或“复制拉取请求”已保存回复将议题或拉取请求标记为重复。 有关详细信息，请参阅“[关于已保存回复](/articles/about-saved-replies)”。
+要将议题或拉取请求标记为重复，请在新评论正文中输入 "Duplicate of"，后接它复制的议题或拉取请求编号。您也可以使用 GitHub 提供的“复制议题”或“复制拉取请求”已保存回复将议题或拉取请求标记为重复。有关详细信息，请参阅“[关于已保存回复](/articles/about-saved-replies)”。
 
 ![复制议题语法](/assets/images/help/issues/duplicate-issue-syntax.png)
 
 ## 取消标记重复
 
-可以通过单击时间线中的“撤消”来取消标记重复的问题和拉取请求。 这会新增一个时间表事件，表示该议题或拉取请求已取消标记。
+可以通过单击时间线中的“撤消”来取消标记重复的问题和拉取请求。这会新增一个时间表事件，表示该议题或拉取请求已取消标记。
 
 ![取消标记重复议题按钮](/assets/images/help/issues/unmark-duplicate-issue-button.png)
