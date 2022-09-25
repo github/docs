@@ -4,7 +4,7 @@ intro: Puedes crear una rama para trabajar en una incidencia directamente desde 
 versions:
   fpt: '*'
   ghes: '>=3.5'
-  ghae: issue-6234
+  ghae: '>= 3.5'
   ghec: '*'
 allowTitleToDifferFromFilename: true
 topics:

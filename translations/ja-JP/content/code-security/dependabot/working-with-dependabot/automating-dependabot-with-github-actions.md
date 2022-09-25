@@ -1,12 +1,13 @@
 ---
-title: GitHub ActionsでのDependabotの自動化
-intro: '{% data variables.product.prodname_actions %}を使って一般的な{% data variables.product.prodname_dependabot %}関連のタスクを自動化する例。'
+title: Automating Dependabot with GitHub Actions
+intro: 'Examples of how you can use {% data variables.product.prodname_actions %} to automate common {% data variables.product.prodname_dependabot %} related tasks.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_actions %} to respond to {% data variables.product.prodname_dependabot %}-created pull requests.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
+  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -19,40 +20,39 @@ topics:
 shortTitle: Use Dependabot with Actions
 redirect_from:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
-ms.openlocfilehash: 573304093b85fcc05d86a99934a94904aa98b816
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147429733'
 ---
-{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## {% data variables.product.prodname_dependabot %}及び{% data variables.product.prodname_actions %}について
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data variables.product.prodname_dependabot %}は、依存関係を最新に保つためのPull Requestを作成します。{% data variables.product.prodname_actions %}を使って、それらのPull Requestが作成されたときに自動化されたタスクを実行できます。 たとえば、追加の成果物のフェッチ、ラベルの追加、テストの実行、あるいはPull Requestの変更ができます。
+## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}
 
-## イベントへの応答
+{% data variables.product.prodname_dependabot %} creates pull requests to keep your dependencies up to date, and you can use {% data variables.product.prodname_actions %} to perform automated tasks when these pull requests are created. For example, fetch additional artifacts, add labels, run tests, or otherwise modifying the pull request.
 
-{% data variables.product.prodname_dependabot %} は、pull request とコメントで {% data variables.product.prodname_actions %} ワークフローをトリガーできます。ただし、特定のイベントは異なる方法で処理されます。
+## Responding to events
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %} `pull_request`、`pull_request_review`、`pull_request_review_comment`、`push`、`create`、`deployment`、および `deployment_status` イベントを使用して {% data variables.product.prodname_dependabot %} によって開始されるワークフロー (`github.actor == 'dependabot[bot]'`) の場合は、次の制限が適用されます: {% endif %}
+{% data variables.product.prodname_dependabot %} is able to trigger {% data variables.product.prodname_actions %} workflows on its pull requests and comments; however, certain events are treated differently.
 
-- {% ifversion ghes = 3.3 %}`GITHUB_TOKEN` には、管理者が制限を削除していない限り、読み取り専用のアクセス許可があります。{% else %}`GITHUB_TOKEN` には、既定で読み取り専用のアクセス許可があります。{% endif %}
-- {% ifversion ghes = 3.3 %} 管理者が制限を削除していない限り、シークレットにアクセスできません。{% else %}シークレットは、{% data variables.product.prodname_dependabot %} シークレットから設定されます。 {% data variables.product.prodname_actions %} シークレットは使用できません。{% endif %}
-
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %} `pull_request_target` イベントを使用して {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) によって開始されたワークフローについては、pull request のベース参照が {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) によって作成された場合、`GITHUB_TOKEN` は読み取り専用であり、シークレットは使用できません。
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status` events, the following restrictions apply:
 {% endif %}
 
-{% ifversion actions-stable-actor-ids %}これらの制限は、ワークフローが別のアクターによって再実行された場合でも適用されます。{% endif %}
+- {% ifversion ghes = 3.3 %}`GITHUB_TOKEN` has read-only permissions, unless your administrator has removed restrictions.{% else %}`GITHUB_TOKEN` has read-only permissions by default.{% endif %}
+- {% ifversion ghes = 3.3 %}Secrets are inaccessible, unless your administrator has removed restrictions.{% else %}Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.{% endif %}
 
-詳細については、[GitHub Actions およびワークフローのセキュリティ保護の維持: pwn 要求の阻止](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)に関するページを参照してください。
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
+{% endif %}
+
+{% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}
+
+For more information, see ["Keeping your GitHub Actions and workflows secure: Preventing pwn requests"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
 
 {% ifversion fpt or ghec or ghes > 3.3 %}
 
-### `GITHUB_TOKEN` アクセス許可の変更
+### Changing `GITHUB_TOKEN` permissions
 
-既定では、{% data variables.product.prodname_dependabot %} によってトリガーされる {% data variables.product.prodname_actions %} ワークフローでは、読み取り専用のアクセス許可を持つ `GITHUB_TOKEN` を取得します。 ワークフローで `permissions` キーを使用すると、トークンのアクセスを増やすことができます。
+By default, {% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} get a `GITHUB_TOKEN` with read-only permissions. You can use the `permissions` key in your workflow to increase the access for the token:
 
 {% raw %}
 
@@ -73,17 +73,17 @@ jobs:
 
 {% endraw %}
 
-詳細については、「[GITHUB_TOKEN の権限を変更する](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)」を参照してください。
+For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
 
-### シークレットへのアクセス
+### Accessing secrets
 
-{% data variables.product.prodname_dependabot %} イベントでワークフローがトリガーされる場合、ワークフローで使用できるシークレットは {% data variables.product.prodname_dependabot %} シークレットのみです。 {% data variables.product.prodname_actions %} シークレットは使用できません。 そのため、{% data variables.product.prodname_dependabot %} イベントによってトリガーされるワークフローで使用されるシークレットは、{% data variables.product.prodname_dependabot %} シークレットとして格納する必要があります。 詳細については、「[Dependabot に対する暗号化されたシークレットを管理する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」を参照してください。
+When a {% data variables.product.prodname_dependabot %} event triggers a workflow, the only secrets available to the workflow are {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available. Consequently, you must store any secrets that are used by a workflow triggered by {% data variables.product.prodname_dependabot %} events as {% data variables.product.prodname_dependabot %} secrets. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)".
 
-{% data variables.product.prodname_dependabot %} シークレットは `secrets` コンテキストに追加され、{% data variables.product.prodname_actions %} のシークレットとまったく同じ構文を使用して参照されます。 詳細については、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow)」を参照してください。
+{% data variables.product.prodname_dependabot %} secrets are added to the `secrets` context and referenced using exactly the same syntax as secrets for {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow)."
 
-{% data variables.product.prodname_dependabot %} や他のアクターによってトリガーされるワークフローがある場合、最もシンプルな解決策は、アクションで、および同じ名前を持つ {% data variables.product.prodname_dependabot %} シークレットで必要なアクセス許可を持つトークンを格納することです。 その後、ワークフローには、これらのシークレットへの 1 回の呼び出しを含めることができます。 {% data variables.product.prodname_dependabot %} のシークレットの名前が異なる場合は、条件を使用して、使用するアクターごとに適切なシークレットを指定します。 条件を使用する例については、以下の[一般的な自動化](#common-dependabot-automations)に関するセクションを参照してください。
+If you have a workflow that will be triggered by {% data variables.product.prodname_dependabot %} and also by other actors, the simplest solution is to store the token with the permissions required in an action and in a {% data variables.product.prodname_dependabot %} secret with identical names. Then the workflow can include a single call to these secrets. If the secret for {% data variables.product.prodname_dependabot %} has a different name, use conditions to specify the correct secrets for different actors to use. For examples that use conditions, see "[Common automations](#common-dependabot-automations)" below.
 
-ユーザー名とパスワードを使用して AWS 上のプライベート コンテナー レジストリにアクセスするには、ワークフローに `username` と `password` のシークレットを含める必要があります。 次の例では、{% data variables.product.prodname_dependabot %} によってワークフローがトリガーされると、`READONLY_AWS_ACCESS_KEY_ID` および `READONLY_AWS_ACCESS_KEY` という名前を持つ {% data variables.product.prodname_dependabot %} シークレットが使用されます。 別のアクターでワークフローがトリガーされる場合は、それらの名前を持つアクション シークレットが使用されます。
+To access a private container registry on AWS with a user name and password, a workflow must include a secret for `username` and `password`. In the example below, when {% data variables.product.prodname_dependabot %} triggers the workflow, the {% data variables.product.prodname_dependabot %} secrets with the names `READONLY_AWS_ACCESS_KEY_ID` and `READONLY_AWS_ACCESS_KEY` are used. If another actor triggers the workflow, the actions secrets with those names are used.
 
 ```yaml
 name: CI
@@ -115,17 +115,17 @@ jobs:
 
 {% note %}
 
-**注:** サイト管理者は、{% data variables.product.product_location %} に対するこれらの制限をオーバーライドできます。 詳細については、「[エンタープライズでの {% data variables.product.prodname_actions %} のトラブルシューティング](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#troubleshooting-failures-when-dependabot-triggers-existing-workflows)」を参照してください。
+**Note:** Your site administrator can override these restrictions for {% data variables.product.product_location %}. For more information, see "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#troubleshooting-failures-when-dependabot-triggers-existing-workflows)."
 
-制限が削除された場合、{% data variables.product.prodname_dependabot %} によってワークフローがトリガーされると、それは {% data variables.product.prodname_actions %} シークレットにアクセスできるようになり、この `permissions` 条件を使用して、読み取り専用アクセスから `GITHUB_TOKEN` の既定のスコープを増やすことができます。 [`pull_request` イベントの処理] および [`push` イベントの処理] セクションの特定のステップは、適用されなくなったため無視できます。
+If the restrictions are removed, when a workflow is triggered by {% data variables.product.prodname_dependabot %} it will have access to {% data variables.product.prodname_actions %} secrets and can use the `permissions` term to increase the default scope of the `GITHUB_TOKEN` from read-only access. You can ignore the specific steps in the "Handling `pull_request` events" and "Handling `push` events" sections, as it no longer applies.
 
 {% endnote %}
 
-### `pull_request` イベントの処理
+### Handling `pull_request` events
 
-ご利用のワークフローでシークレットに、または書き込みアクセス許可がある `GITHUB_TOKEN` にアクセスする必要がある場合は、次の 2 つのオプションを使用できます: `pull_request_target` を使用する。2 つの個別のワークフローを使用する。 このセクションでは、`pull_request_target` の使用方法を、「[`push` イベントの処理](#handling-push-events)」では以下の 2 つのワークフローを使用する方法について詳しく説明します。
+If your workflow needs access to secrets or a `GITHUB_TOKEN` with write permissions, you have two options: using `pull_request_target`, or using two separate workflows. We will detail using `pull_request_target` in this section, and using two workflows below in "[Handling `push` events](#handling-push-events)."
 
-失敗する可能性がある `pull_request` ワークフローのシンプルな例を次に示します。
+Below is a simple example of a `pull_request` workflow that might now be failing:
 
 ```yaml
 ### This workflow now has no secrets and a read-only token
@@ -142,11 +142,11 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
 ```
 
-`pull_request` を `pull_request_target` (フォークからの pull request に使用される) に置き換えて、pull request の `HEAD` を明示的にチェックアウトできます。
+You can replace `pull_request` with `pull_request_target`, which is used for pull requests from forks, and explicitly check out the pull request `HEAD`.
 
 {% warning %}
 
-**警告:** `pull_request` の代わりに `pull_request_target` を使用すると、安全でない動作にさらされます。 「[`push` イベントの処理](#handling-push-events)」で後述するように、2 つのワークフロー メソッドを使用することをお勧めします。
+**Warning:** Using `pull_request_target` as a substitute for `pull_request` exposes you to insecure behavior. We recommend you use the two workflow method, as described below in "[Handling `push` events](#handling-push-events)."
 
 {% endwarning %}
 
@@ -171,13 +171,13 @@ jobs:
           github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-必要以上の権限を持つトークンの漏洩を避けるために、`GITHUB_TOKEN` に付与する権限のスコープを絞ることも強くおすすめします。 詳細については、「[`GITHUB_TOKEN` の権限](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
+It is also strongly recommended that you downscope the permissions granted to the `GITHUB_TOKEN` in order to avoid leaking a token with more privilege than necessary. For more information, see "[Permissions for the `GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
 
-### `push` イベントの処理
+### Handling `push` events
 
-`push` イベントには、`pull_request_target` に相当するものがないので、2 つのワークフローを使うことになります。1 つは信頼されないワークフローで、成果物のアップロードで終わります。そしてこれは、成果物をダウンロードして処理を続ける、2 番目の信頼されるワークフローをトリガーします。
+As there is no `pull_request_target` equivalent for `push` events, you will have to use two workflows: one untrusted workflow that ends by uploading artifacts, which triggers a second trusted workflow that downloads artifacts and continues processing.
 
-最初のワークフローは、信頼されない作業をすべて行います。
+The first workflow performs any untrusted work:
 
 {% raw %}
 
@@ -197,7 +197,7 @@ jobs:
 
 {% endraw %}
 
-2番目のワークフローは、最初のワークフローが正常に終了した後に、信頼された処理を行います。
+The second workflow performs trusted work after the first workflow completes successfully:
 
 {% raw %}
 
@@ -225,37 +225,37 @@ jobs:
 
 {% endif %}
 
-### 手動でのワークフローの再実行
+### Manually re-running a workflow
 
 {% ifversion actions-stable-actor-ids %}
 
-Dependabot ワークフローを手動で再実行すると、再実行を開始したユーザーの権限が異なる場合でも、以前と同じ権限で実行されます。 詳しくは、「[ワークフローとジョブの再実行](/actions/managing-workflow-runs/re-running-workflows-and-jobs)」をご覧ください。
+When you manually re-run a Dependabot workflow, it will run with the same privileges as before even if the user who initiated the rerun has different privileges. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
 
 {% else %}
 
-失敗したDependabotワークフローを手動で再実行することもできます。これは、読み書きできるトークンを持ち、シークレットにアクセスできる状態で実行されます。 失敗したワークフローを手動で再実行する前には、更新される依存関係を常にチェックし、その変更によって悪意ある、あるいは意図しない動作が入り込むことがないようにすべきです。
+You can also manually re-run a failed Dependabot workflow, and it will run with a read-write token and access to secrets. Before manually re-running a failed workflow, you should always check the dependency being updated to ensure that the change doesn't introduce any malicious or unintended behavior.
 
 {% endif %}
 
-## 一般的なDependabotの自動化
+## Common Dependabot automations
 
-以下は、{% data variables.product.prodname_actions %}を使って自動化できる一般的ないくつかのシナリオです。
+Here are several common scenarios that can be automated using {% data variables.product.prodname_actions %}.
 
 {% ifversion ghes = 3.3 %}
 
 {% note %}
 
-**注:** サイト管理者が {% data variables.product.product_location %} 上の {% data variables.product.prodname_dependabot %} に対する制限をオーバーライドしている場合は、次のワークフローの `pull_request` ではなく `pull_request_target` を使用できます。
+**Note:** If your site administrator has overridden restrictions for {% data variables.product.prodname_dependabot %} on {% data variables.product.product_location %}, you can use `pull_request` instead of `pull_request_target` in the following workflows.
 
 {% endnote %}
 
 {% endif %}
 
-### Pull Reqeustに関するメタデータのフェッチ
+### Fetch metadata about a pull request
 
-大量の自動化には、依存関係の名前が何か、それは実働環境の依存関係か、メジャー、マイナー、パッチアップデートのいずれなのかといった、Pull Requestの内容に関する情報を知ることが必要です。
+A large amount of automation requires knowing information about the contents of the pull request: what the dependency name was, if it's a production dependency, and if it's a major, minor, or patch update.
 
-`dependabot/fetch-metadata` アクションによって、次の情報のすべてが提供されます。
+The `dependabot/fetch-metadata` action provides all that information for you:
 
 {% ifversion ghes = 3.3 %}
 
@@ -321,13 +321,13 @@ jobs:
 
 {% endif %}
 
-詳細については、[`dependabot/fetch-metadata`](https://github.com/dependabot/fetch-metadata) リポジトリを参照してください。
+For more information, see the [`dependabot/fetch-metadata`](https://github.com/dependabot/fetch-metadata) repository.
 
-### Pull Requestのラベル付け
+### Label a pull request
 
-{% data variables.product.prodname_dotcom %}ラベルに基づく他の自動化やトリアージワークフローがあるなら、提供されたメタデータに基づいてラベルを割り当てるアクションを設定できます。
+If you have other automation or triage workflows based on {% data variables.product.prodname_dotcom %} labels, you can configure an action to assign labels based on the metadata provided.
 
-たとえば、すべての実働環境の依存関係の更新にラベルでフラグを設定したいなら:
+For example, if you want to flag all production dependency updates with a label:
 
 {% ifversion ghes = 3.3 %}
 
@@ -395,9 +395,9 @@ jobs:
 
 {% endif %}
 
-### Pull Requestの承認
+### Approve a pull request
 
-自動的にDependabotのPull Requestを承認したいなら、ワークフロー中で{% data variables.product.prodname_cli %}を利用できます。
+If you want to automatically approve Dependabot pull requests, you can use the {% data variables.product.prodname_cli %} in a workflow:
 
 {% ifversion ghes = 3.3 %}
 
@@ -461,11 +461,11 @@ jobs:
 
 {% endif %}
 
-### Pull Requestの自動マージを有効化する
+### Enable auto-merge on a pull request
 
-メンテナーが自動マージの特定の pull request をマークできるようにする場合は、{% data variables.product.prodname_dotcom %} の自動マージ機能を使用できます。 これは、すべての必須テストと承認が正常に満たされた場合に、Pull Requestがマージされるようにしてくれます。 自動マージの詳細については、「[pull request の自動マージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)」を参照してください。
+If you want to allow maintainers to mark certain pull requests for auto-merge, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. This enables the pull request to be merged when all required tests and approvals are successfully met. For more information on auto-merge, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
 
-代わりに、{% data variables.product.prodname_actions %} と {% data variables.product.prodname_cli %} を使用できます。 すべてのパッチ更新プログラムを `my-dependency` に自動マージする例を次に示します。
+You can instead use {% data variables.product.prodname_actions %} and the {% data variables.product.prodname_cli %}. Here is an example that auto merges all patch updates to `my-dependency`:
 
 {% ifversion ghes = 3.3 %}
 
@@ -533,24 +533,24 @@ jobs:
 
 {% endif %}
 
-## 失敗したワークフローの実行のトラブルシューティング
+## Troubleshooting failed workflow runs
 
-ワークフローの実行が失敗した場合は、以下をチェックしてください。
+If your workflow run fails, check the following:
 
 {% ifversion ghes = 3.3 %}
 
-- 適切なアクターがトリガーした場合にのみワークフローを実行しているか。
-- `pull_request` に対する正しい `ref` をチェックアウトしています。
-- Dependabot によってトリガーされる `pull_request`、`pull_request_review`、`pull_request_review_comment`、または `push` イベント内からシークレットにアクセスしようとしているのではありません。
-- Dependabot によってトリガーされた `write``pull_request``pull_request_review`、または `pull_request_review_comment` イベント内からアクション`push` を実行しようとはしていません。
+- You are running the workflow only when the correct actor triggers it.
+- You are checking out the correct `ref` for your `pull_request`.
+- You aren't trying to access secrets from within a Dependabot-triggered `pull_request`, `pull_request_review`, `pull_request_review_comment`, or `push` event.
+- You aren't trying to perform any `write` actions from within a Dependabot-triggered `pull_request`, `pull_request_review`, `pull_request_review_comment`, or `push` event.
 
 {% else %}
 
-- 適切なアクターがトリガーした場合にのみワークフローを実行しているか。
-- `pull_request` に対する正しい `ref` をチェックアウトしています。
-- シークレットは、{% data variables.product.prodname_actions %} シークレットとしてではなく、{% data variables.product.prodname_dependabot %} シークレットで使用できます。
-- 適切なアクセス許可を持つ `GITHUB_TOKEN` があります。
+- You are running the workflow only when the correct actor triggers it.
+- You are checking out the correct `ref` for your `pull_request`.
+- Your secrets are available in {% data variables.product.prodname_dependabot %} secrets rather than as {% data variables.product.prodname_actions %} secrets.
+- You have a `GITHUB_TOKEN` with the correct permissions.
 
 {% endif %}
 
-{% data variables.product.prodname_actions %} の作成とデバッグに関する情報については、「[GitHub Actions について学ぶ](/actions/learn-github-actions)」を参照してください。
+For information on writing and debugging {% data variables.product.prodname_actions %}, see "[Learning GitHub Actions](/actions/learn-github-actions)."
