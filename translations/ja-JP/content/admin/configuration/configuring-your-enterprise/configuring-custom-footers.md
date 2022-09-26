@@ -4,7 +4,7 @@ intro: '{% data variables.product.product_name %} にカスタム フッター�
 versions:
   ghec: '*'
   ghes: '>=3.4'
-  ghae: issue-5487
+  ghae: '>= 3.4'
 type: how_to
 topics:
   - Enterprise
