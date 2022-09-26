@@ -525,6 +525,7 @@ translations/es-ES/data/release-notes/enterprise-server/3-4/8.yml,rendering erro
 translations/es-ES/data/release-notes/enterprise-server/3-5/0-rc1.yml,rendering error
 translations/es-ES/data/release-notes/enterprise-server/3-5/4.yml,rendering error
 translations/es-ES/data/release-notes/enterprise-server/3-6/0-rc1.yml,rendering error
+translations/es-ES/data/release-notes/enterprise-server/3-6/1.yml,broken liquid tags
 translations/es-ES/data/reusables/actions/actions-audit-events-workflow.md,rendering error
 translations/es-ES/data/reusables/actions/actions-do-not-trigger-workflows.md,broken liquid tags
 translations/es-ES/data/reusables/actions/changing-the-access-policy-of-a-runner-group.md,rendering error
