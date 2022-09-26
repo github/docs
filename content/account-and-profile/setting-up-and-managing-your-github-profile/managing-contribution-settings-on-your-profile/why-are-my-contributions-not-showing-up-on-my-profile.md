@@ -93,9 +93,9 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 
 Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
 - [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the parent repository.
-- To detach the fork and turn it into a standalone repository on {% data variables.product.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see "[About forks](/articles/about-forks/)."
+- To detach the fork and turn it into a standalone repository on {% data variables.product.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see [About forks](/articles/about-forks/).
 
 ## Further reading
 
-- "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
-- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"
+- [Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)
+- [Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)
