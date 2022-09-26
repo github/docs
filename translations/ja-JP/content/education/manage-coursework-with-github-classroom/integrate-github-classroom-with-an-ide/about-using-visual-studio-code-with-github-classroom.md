@@ -1,44 +1,50 @@
 ---
-title: About using Visual Studio Code with GitHub Classroom
+title: GitHub Classroom での Visual Studio Code の使用について
 shortTitle: About using Visual Studio Code
-intro: 'You can configure Visual Studio Code as the preferred editor for assignments in {% data variables.product.prodname_classroom %}.'
+intro: '{% data variables.product.prodname_vscode %} は、{% data variables.product.prodname_classroom %} の割り当ての優先エディターとして構成できます。'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/about-using-vs-code-with-github-classroom
+ms.openlocfilehash: fe0e8e0c3194f9c97cc30c80dcec00256824e6ab
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145148745'
 ---
+## {% data variables.product.prodname_vscode %} について
 
-## About Visual Studio Code
+{% data variables.product.prodname_vscode %} は、軽量でありながら強力なソース コード エディターです。これはデスクトップで使用でき、Windows、macOS、Linux に対応しています。 [{% data variables.product.prodname_vscode_shortname %} 用 GitHub Classroom 拡張機能](https://aka.ms/classroom-vscode-ext)を使用すると、学生は Classroom の課題を簡単に参照、編集、送信、共同作業、およびテストできます。 IDE と {% data variables.product.prodname_classroom %} の詳細については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)」を参照してください。
 
-Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. With the [GitHub Classroom extension for Visual Studio Code](https://aka.ms/classroom-vscode-ext), students can easily browse, edit, submit, collaborate, and test their Classroom Assignments. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+### 任意の学生のエディター 
+GitHub Classroom と {% data variables.product.prodname_vscode_shortname %} の統合により、以下を含む拡張機能パックが学生に提供されます。
 
-### Your student's editor of choice
-The GitHub Classroom integration with Visual Studio Code provides students with an extension pack which contains:
+1. [GitHub Classroom 拡張機能](https://aka.ms/classroom-vscode-ext)とカスタム抽象化により、学生が簡単に作業を開始できるようになります。
+2. [Visual Studio Live Share 拡張機能](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack)を学生ビューに統合することで、支援と共同作業のために補助教員やクラスメートに簡単にアクセスできます。
+3. [GitHub Pull Request 拡張機能](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)を使用すると、学生はエディター内で講師からのフィードバックを確認できます。 
 
-1. [GitHub Classroom Extension](https://aka.ms/classroom-vscode-ext) with custom abstractions that make it easy for students to navigate getting started.
-2. [Visual Studio Live Share Extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) integrating into a student view for easy access to teaching assistants and classmates for help and collaboration.
-3. [GitHub Pull Request Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) allowing students to see feedback from their instructors within the editor.
+### {% data variables.product.prodname_vscode_shortname %} で割り当てを起動する方法
+割り当てを作成するときに、割り当ての優先エディターとして {% data variables.product.prodname_vscode_shortname %} を追加できます。 詳細については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)」を参照してください。
 
-### How to launch the assignment in Visual Studio Code
-When creating an assignment, Visual Studio Code can be added as the preferred editor for an assignment. For more details, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
-
-This will include an "Open in Visual Studio Code" badge in all student repositories. This badge handles installing Visual Studio Code, the Classroom extension pack, and opening to the active assignment with one click.
+これには、すべての学生リポジトリの [{% data variables.product.prodname_vscode_shortname %} で開く] バッジが含まれます。 このバッジでは、{% data variables.product.prodname_vscode_shortname %} のインストール、Classroom 拡張機能パック、およびワン クリックでのアクティブな課題の開始について処理します。
 
 {% note %}
 
-**Note:** The student must have Git installed on their computer to push code from Visual Studio Code to their repository. This is not automatically installed when clicking the **Open in Visual Studio Code** button. The student can download Git from [here](https://git-scm.com/downloads).
+**注:** 学生は {% data variables.product.prodname_vscode_shortname %} からリポジトリにコードをプッシュするために、Git を自分のコンピューターにインストールする必要があります。 **[{% data variables.product.prodname_vscode_shortname %} で開く]** ボタンをクリックしても、これは自動的にインストールされません。 学生は [ここ](https://git-scm.com/downloads)から Git をダウンロードできます。
 
 {% endnote %}
 
-### How to use GitHub Classroom extension pack
-The GitHub Classroom extension has two major components: the 'Classrooms' view and the 'Active Assignment' view.
+### GitHub Classroom 拡張機能パックを使用する方法 
+GitHub Classroom 拡張機能には、[クラスルーム] ビューと [アクティブな課題] ビューの 2 つの主要なコンポーネントがあります。 
 
-When the student launches the extension for the first time, they are automatically navigated to the Explorer tab in Visual Studio Code, where they can see the "Active Assignment" view alongside the tree-view of files in the repository.
+学生が初めて拡張機能を起動すると、{% data variables.product.prodname_vscode_shortname %} の [エクスプローラー] タブに自動的に移動され、リポジトリ内のファイルのツリービューと共に [アクティブな課題] ビューを表示できます。 
 
-![GitHub Classroom Active Assignment View](/assets/images/help/classroom/vs-code-active-assignment.png)
+![GitHub Classroom の [アクティブな課題] ビュー](/assets/images/help/classroom/vs-code-active-assignment.png)
 
-The student can push their commits to the latest version of remote, by clicking the **sync changes** button, displayed when hovering over the "Active Assignment" line. This abstracts away source control with Git, allowing instructors to teach Git at their own pace. Synching changes also triggers "Tests" to run if a teacher has configured autograding for their assignment.
+学生は、[アクティブな課題] 行の上にカーソルを置いたときに表示される **[変更を同期する]** ボタンをクリックして、コミットを最新バージョンのリモートにプッシュできます。 これにより、Git でのソース管理が抽象化され、講師が自分のペースで Git を教えられるようになります。
+変更の同期により、教師が課題に対して自動採点を構成した場合に実行される [テスト] もトリガーされます。
 
-The "Group" node under "Active Assignment" will show members of a group, if the assignment is a group project. It will also show the admin members of the repository who can help when a student is stuck. To collaborate on the project, a student can start a Live Share session with anyone in the group node, and they will immediately share the entire context of the repository with them. You can learn more about Live Share and collaborating with it [here](https://docs.microsoft.com/en-us/visualstudio/liveshare/).
+課題がグループ プロジェクトの場合は、[アクティブな課題] の下の [グループ] ノードにグループのメンバーが表示されます。 また、学生が行き詰ったときに役立つ場合があるリポジトリの管理者メンバーも表示されます。 プロジェクトで共同作業を行うために、学生はグループ ノード内の誰とでも Live Share セッションを開始でき、彼らはすぐにリポジトリのコンテキスト全体を共有するようになります。 Live Share とそれを使った共同作業の詳細については、[こちら](https://docs.microsoft.com/en-us/visualstudio/liveshare/)を参照してください。
 
-Once a student is done with the assignment, they can also navigate to see other Assignments and Classrooms. These can be found under the GitHub tab.
+学生は課題を完了したら、移動して他の [課題] や [クラスルーム] を表示することもできます。 これらは [GitHub] タブで見つけることができます。

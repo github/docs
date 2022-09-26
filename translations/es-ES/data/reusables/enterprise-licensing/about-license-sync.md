@@ -1,5 +1,9 @@
-{% data variables.product.prodname_enterprise %} utiliza un modelo de licencias de usuario exclusivo en donde cada persona solo consume una licencia, sin importar cuántas instancias de {% data variables.product.prodname_ghe_server %} utilice o de cuántas organizaciones de {% data variables.product.prodname_ghe_cloud %} sea miembro. Este modelo permite a cada persona utilizar varios ambientes de {% data variables.product.prodname_enterprise %} sin incurrir en costos adicionales.
-
-Para que una persona que utiliza varios ambientes de {% data variables.product.prodname_enterprise %} consuma una licencia única, debes sincronizar el uso de licencias entre ambientes. Luego, {% data variables.product.company_short %} desduplicará a los usuarios con base en las direcciones de correo electrónico asociadas con sus cuentas personales. Las cuentas personales múltiples consumirán solo una licencia cuando haya una coincidencia entre la dirección de correo electrónico principal de la cuenta en {% data variables.product.prodname_ghe_server %} o una dirección de correo electrónico verificada de la cuenta en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información sobre la verificación de las direcciones de correo electrónico de {% data variables.product.prodname_dotcom_the_website %}, consulta la sección "[Verificar tu dirección de correo electrónico](/enterprise-cloud@latest/get-started/signing-up-for-github/verifying-your-email-address){% ifversion not ghec %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
-
-Cuando sincronizas el uso de licencia, solo el correo electrónico y la ID de usuario de cada cuenta personal de {% data variables.product.prodname_ghe_server %} se transmitirán a {% data variables.product.prodname_ghe_cloud %}.
+---
+ms.openlocfilehash: 12b28d4c3665573a1cfc0d56e2a61b616ee0a9ec
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147572676"
+---
+Para que una persona que utiliza varios ambientes de {% data variables.product.prodname_enterprise %} consuma una licencia única, debes sincronizar el uso de licencias entre ambientes. Luego, {% data variables.product.company_short %} desduplicará a los usuarios en función de las direcciones de correo electrónico asociadas a sus cuentas de usuario. Para más información, consulta «[Solución de problemas del uso de licencias para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise#about-the-calculation-of-consumed-licenses)».

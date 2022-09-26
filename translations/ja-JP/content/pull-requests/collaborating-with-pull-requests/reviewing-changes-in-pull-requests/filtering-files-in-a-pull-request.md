@@ -1,6 +1,6 @@
 ---
 title: プルリクエスト内のファイルをフィルタリングする
-intro: 'To help you quickly review changes in a large pull request, you can filter changed files{% if pr-tree-view %} or use the file tree to navigate between files{% endif %}.'
+intro: '大規模な pull request 内の変更をすばやく確認できるように、変更されたファイルをフィルター処理する{% ifversion pr-tree-view %}か、ファイル ツリーを使用してファイル間を移動する{% endif %}ことができます。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
   - /articles/filtering-files-in-a-pull-request-by-file-type
@@ -15,44 +15,52 @@ versions:
 topics:
   - Pull requests
 shortTitle: Filter files
+ms.openlocfilehash: 1ca50334e4329d40ee164cd01523abc69e127ab3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884174'
 ---
+pull request 内のファイルは、`.html` や `.js` などのファイル拡張子の種類、拡張子なし、コード所有権、ドットファイルなどでフィルター処理することができます。{% ifversion pr-tree-view %}また、ファイル ツリーを使用すると、ファイル パスでフィルター処理したり、ファイル間を移動したり、変更されたファイルの概要を表示したりすることができます。{% endif %}
 
-You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.{% if pr-tree-view %} You can also use the file tree to filter by file path, navigate between files, or see a high level view of the changed files.{% endif %}
-
-## Using the file filter dropdown
+## [File Filter]\(ファイル フィルター) ドロップダウンの使用
 
 {% tip %}
 
-**ヒント:** ファイルのフィルタドロップダウンメニューから、プルリクエストの diff 内の削除されたファイル、または既に表示したファイルを一時的に非表示にして、プルリクエストの diff 表示を簡素化できます。
+**ヒント:** pull request の diff 表示を簡素化するには、[File Filter]\(ファイル フィルター) ドロップダウン メニューから、pull request の diff 内の削除したファイルまたは既に表示したファイルを一時的に非表示にすることもできます。
 
 {% endtip %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. プルリクエストのリストで、フィルタしたいプルリクエストをクリックします。
 {% data reusables.repositories.changed-files %}
-4. [File filter] ドロップダウンメニュードロップダウンメニュー使って、目的のフィルタを選択、選択解除、またはクリックします。 ![プルリクエスト diff の上のファイルのフィルタオプション](/assets/images/help/pull_requests/file-filter-option.png)
-5. オプションで、フィルタの選択をクリアするには、 [**Files changed**] タブの下で [**Clear**] をクリックします。 ![ファイルのフィルタの選択のクリア](/assets/images/help/pull_requests/clear-file-filter.png)
+4. [File filter] ドロップダウンメニュードロップダウンメニュー使って、目的のフィルタを選択、選択解除、またはクリックします。
+  ![pull request の diff の上にあるファイル フィルター オプション](/assets/images/help/pull_requests/file-filter-option.png)
+5. 必要に応じて、フィルターの選択をクリアするには、 **[Files changed]\(変更したファイル)** タブで、 **[Clear]\(クリア)** をクリックします。
+  ![ファイル フィルター選択のクリア](/assets/images/help/pull_requests/clear-file-filter.png)
 
-{% if pr-tree-view %}
-## Using the file tree
+{% ifversion pr-tree-view %}
+## ファイル ツリーの使用
 
 {% data reusables.repositories.sidebar-pr %}
 1. プルリクエストのリストで、フィルタしたいプルリクエストをクリックします。
 {% data reusables.repositories.changed-files %}
-1. If the file tree is hidden, click **Show file tree** to display the file tree.
+
+1. ファイル ツリー内のファイルをクリックして、対応するファイルの diff を表示します。 ファイル ツリーが表示されない場合は、{% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} をクリックしてファイル ツリーを表示します。
 
    {% note %}
 
-   **Note**: The file tree will not display if your screen width is too narrow or if the pull request only includes one file.
+   **注**: 画面の幅が狭すぎる場合、または pull request に含まれるファイルが 1 つのみの場合、ファイル ツリーは表示されません。
 
    {% endnote %}
-
-1. Click on a file in the file tree to view the corresponding file diff. ![Pull request file tree](/assets/images/help/pull_requests/pr-file-tree.png)
-1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box. Alternatively, use the file filter dropdown. For more information, see "[Using the file filter dropdown](#using-the-file-filter-dropdown)."
+   
+   ![[変更したファイルのフィルタリング] 検索ボックスとファイル ツリーが強調されたスクリーンショット](/assets/images/help/repository/file-tree.png)
+1. ファイル パスでフィルタリングするには、 **[Filter changed files]\(変更したファイルのフィルタリング)** 検索ボックスに、ファイル パスの一部または全部を入力します。 または、[File Filter]\(ファイル フィルター) ドロップダウンを使用します。 詳細については、「[Using the file filter dropdown](#using-the-file-filter-dropdown)」 ([File Filter]\(ファイル フィルター) ドロップダウンの使用) を参照してください。
 
 {% endif %}
 
-## 参考リンク
+## 参考資料
 
-- 「[プルリクエスト内のブランチの比較について](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)」
-- 「[プルリクエストで変更されたメソッドや機能を見つける](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/finding-changed-methods-and-functions-in-a-pull-request)」
+- 「[About comparing branches in a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)」 (pull request 内のブランチの比較について)
+- 「[Finding changed methods and functions in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/finding-changed-methods-and-functions-in-a-pull-request)」 (pull request で変更されたメソッドや機能を見つける)

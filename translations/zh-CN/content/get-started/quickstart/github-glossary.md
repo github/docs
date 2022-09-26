@@ -10,8 +10,13 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: e7c6be7286d1221970c9e4e50b477fb82b4d3652
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145109528'
 ---
-
 {% for term in site.data.glossaries.external %}
   ### {% data glossaries.external[forloop.index0].term %}
   {% data glossaries.external[forloop.index0].description %}
@@ -23,5 +28,5 @@ versions:
 ## 延伸阅读
 
 - [官方 Git 术语表](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
-- [Git 参考](http://gitref.org/)
-- [Git SCM](https://git-scm.com/doc)
+- [Git 文档](https://git-scm.com/doc)
+- [Git 命令列表](https://git-scm.com/docs)

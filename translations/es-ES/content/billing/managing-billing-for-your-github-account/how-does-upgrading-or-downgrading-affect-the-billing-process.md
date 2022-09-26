@@ -1,5 +1,5 @@
 ---
-title: ¿Cómo impacta subir o bajar de categoría en el proceso de facturación?
+title: ¿Cómo afecta subir o bajar de categoría al proceso de facturación?
 intro: 'Cuando subes de categoría la suscripción de tu cuenta personal u organización, las modificaciones se aplican de inmediato. Cuando bajas de categoría tu suscripción, las modificaciones se aplican al final de tu ciclo de facturación actual.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/how-does-upgrading-or-downgrading-affect-the-billing-process
@@ -14,12 +14,17 @@ topics:
   - Organizations
   - Upgrades
   - User account
-shortTitle: Proceso de facturación
+shortTitle: Billing process
+ms.openlocfilehash: 9908e230f5b34b00ee7e62865a26a4796632c329
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145091649'
 ---
+Los cambios en tu cuenta personal o suscripción de organización de pago no afectan a las suscripciones o pagos de otras características de pago de {% data variables.product.prodname_dotcom %}, tales como {% data variables.large_files.product_name_long %} o aplicaciones de pago compradas en {% data variables.product.prodname_marketplace %}.
 
-Los cambios en tu suscripción pagada de cuenta de usuario u organización no afectan las suscripciones o pagos de otras características pagadas de {% data variables.product.prodname_dotcom %}, tales como {% data variables.large_files.product_name_long %} o aplicaciones pagadas que compraste en {% data variables.product.prodname_marketplace %}.
-
-Para obtener más información, consulta los productos de "[{% data variables.product.prodname_dotcom %}](/articles/github-s-products)" y "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
+Para más información, vea "[Productos de {% data variables.product.prodname_dotcom %}](/articles/github-s-products)" y "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".
 
 ## Ejemplo de cancelación de una suscripción paga de una cuenta personal u organización
 
@@ -37,9 +42,9 @@ La organización de Mada paga por 25 asientos el día 15 de cada mes. Si el 4 de
 
 La organización de Stefan paga por 50 asientos el 20 de mayo de cada año. Si Stefan elimina 20 asientos y baja de categoría a un nuevo total de 30 asientos pagos el 30 de septiembre, su organización puede seguir accediendo a sus 50 asientos pagos hasta el final de su ciclo de facturación actual, el 19 de mayo. El 20 de mayo, entrará en vigor la categoría más baja, la organización de Stefan pagará por 30 asientos y tendrá acceso a 30 asientos pagos.
 
-## Leer más
+## Información adicional
 
-- "[Administrar la facturación para tu cuenta de {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)"
-- "[Administrar la facturación de las apps de {% data variables.product.prodname_marketplace %}](/articles/managing-billing-for-github-marketplace-apps)"
-- "[Administrar la facturación para {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"
-- "[Acerca del precio por usuario](/articles/about-per-user-pricing)"
+- "[Administración de la facturación para la cuenta de {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)"
+- "[Administración de la facturación para las aplicaciones de {% data variables.product.prodname_marketplace %}](/articles/managing-billing-for-github-marketplace-apps)"
+- "[Administración de la facturación para {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"
+- "[Acerca de los precios por usuario](/articles/about-per-user-pricing)"

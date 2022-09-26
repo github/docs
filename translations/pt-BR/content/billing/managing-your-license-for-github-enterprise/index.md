@@ -1,6 +1,6 @@
 ---
 title: Gerenciando a sua licença para o GitHub Enterprise
-shortTitle: Licença do GitHub Enterprise
+shortTitle: GitHub Enterprise license
 intro: '{% data variables.product.prodname_enterprise %} inclui opções de implantação auto-hospedadas. Se você hospedar uma instância de {% data variables.product.prodname_ghe_server %}, você deverá desbloquear a instância com um arquivo de licença. Você pode visualizar, gerenciar e atualizar o arquivo de licença.'
 redirect_from:
   - /free-pro-team@latest/billing/managing-your-license-for-github-enterprise
@@ -23,5 +23,12 @@ children:
   - /uploading-a-new-license-to-github-enterprise-server
   - /viewing-license-usage-for-github-enterprise
   - /syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud
+  - /troubleshooting-license-usage-for-github-enterprise
+ms.openlocfilehash: 700c58c990512f1335f74431488b3082fb91c117
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145910604'
 ---
 

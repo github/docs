@@ -92,7 +92,8 @@ export function GHESReleaseNotes({ context }: Props) {
                     >
                       {release.version}
                       <span className="color-fg-muted text-small text-normal mr-1">
-                        {release.patches.length} releases
+                        {release.patches.length}{' '}
+                        {release.patches.length === 1 ? 'release' : 'releases'}
                       </span>
                     </Link>
                   </li>

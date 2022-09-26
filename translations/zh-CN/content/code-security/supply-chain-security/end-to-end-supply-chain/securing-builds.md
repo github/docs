@@ -1,62 +1,68 @@
 ---
-title: Best practices for securing your build system
+title: 保护生成系统的最佳做法
 shortTitle: Securing builds
 allowTitleToDifferFromFilename: true
-intro: Guidance on how to protect the end of your supply chain—the systems you use to build and distribute artifacts.
+intro: 关于如何保护供应链末端（用于构建和分发工件的系统）的指南。
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Fundamentals
   - Security
   - CI
   - CD
+ms.openlocfilehash: f184bb668ba1594a77099fab734686b9c550c238
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147518854'
 ---
+## 关于本指南
 
-## About this guide
+本指南介绍为提高生成系统的安全性而做出的影响最大的更改。 每个部分都概述了可以对流程进行的更改，以提高安全性。 影响最大的更改列在前面。
 
-This guide describes the highest impact changes you can make to improve the security of your build systems. Each section outlines a change you can make to your processes to improve security. The highest impact changes are listed first.
+## 风险是什么？
 
-## What's the risk?
+对软件供应链的一些攻击直接面向生成系统。 如果攻击者可以修改生成过程，则他们可以利用你的系统，而无需破坏个人帐户或代码。 请务必确保不要忘记保护生成系统以及个人帐户和代码。
 
-Some attacks on software supply chains target the build system directly. If an attacker can modify the build process, they can exploit your system without the effort of compromising personal accounts or code. It's important to make sure that you don't forget to protect the build system as well as personal accounts and code.
+## 保护生成系统
 
-## Secure your build system
+生成系统应具有以下几种安全功能：
 
-There are several security capabilities a build system should have:
+1. 生成步骤应清晰且可重复。
 
-1. The build steps should be clear and repeatable.
+2. 应确切地知道在生成过程中运行的内容。
 
-2. You should know exactly what was running during the build process.
+3. 每个生成都应在新的环境中启动，因此泄露的生成不会持久影响将来的生成。
 
-3. Each build should start in a fresh environment, so a compromised build doesn't persist to affect future builds.
+{% data variables.product.prodname_actions %} 可以帮助你满足这些功能。 生成说明与代码一起存储在存储库中。 选择生成在哪些环境中运行，包括 Windows、Mac、Linux 或自己托管的运行程序。 每次生成都从一个新的运行器映像开始，这使得攻击很难在生成环境中持续存在。
 
-{% data variables.product.prodname_actions %} can help you meet these capabilities. Build instructions are stored in your repository, alongside your code. You choose what environment your build runs on, including Windows, Mac, Linux, or runners you host yourself. Each build starts with a fresh virtual environment, making it difficult for an attack to persist in your build environment.
+除了安全优势之外，{% data variables.product.prodname_actions %} 还允许你手动、定期或针对存储库中的 git 事件触发生成，以实现频繁快速的生成。
 
-In addition to the security benefits, {% data variables.product.prodname_actions %} lets you trigger builds manually, periodically, or on git events in your repository for frequent and fast builds.
+{% data variables.product.prodname_actions %} 是一个很大的主题，但一个很好的起点是“[了解 GitHub Actions](/actions/learn-github-actions/understanding-github-actions)”，以及“[选择 GitHub 托管的运行器](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)”和“[触发工作流](/actions/using-workflows/triggering-a-workflow)”。
 
-{% data variables.product.prodname_actions %} is a big topic, but a good place to get started is "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions)," as well as "[Choosing GitHub-hosted runners](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)," and "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)."
+## 对生成进行签名
 
-## Sign your builds
+生成过程安全后，需要防止有人篡改生成过程的最终结果。 一种很好的方法是对生成进行签名。 公开分发软件时，这通常是使用加密公钥/私钥对完成的。 使用私钥对生成进行签名，并发布公钥，以便软件用户在使用生成之前验证其签名。 如果修改生成的字节，则不会验证签名。
 
-After your build process is secure, you want to prevent someone from tampering with the end result of your build process. A great way to do this is to sign your builds. When distributing software publicly, this is often done with a public/private cryptographic key pair. You use the private key to sign the build, and you publish your public key so users of your software can verify the signature on the build before they use it. If the bytes of the build are modified, the signature will not verify.
+具体如何签名取决于所编写的代码类型以及用户是谁。 通常很难知道如何安全地存储私钥。 此处的一个基本选项是使用 {% data variables.product.prodname_actions %} 加密的机密，但需要谨慎限制谁有权访问这些 {% data variables.product.prodname_actions %} 工作流。 {% ifversion fpt or ghec %}如果私钥存储在另一个可以通过公共 Internet 访问的系统中（例如 Microsoft Azure 或 HashiCorp Vault），则更高级的选项是使用 OpenID Connect 进行身份验证，因此无需跨系统共享机密。{% endif %} 如果私钥只能通过专用网络访问，另一个选项是为 {% data variables.product.prodname_actions %} 使用自托管运行程序。
 
-How exactly you sign your build will depend on what sort of code you're writing, and who your users are. Often it's difficult to know how to securely store the private key. One basic option here is to use {% data variables.product.prodname_actions %} encrypted secrets, although you'll need to be careful to limit who has access to those {% data variables.product.prodname_actions %} workflows. {% ifversion fpt or ghec %}If your private key is stored in another system accessible over the public internet (like Microsoft Azure, or HashiCorp Vault), a more advanced option is to authenticate with OpenID Connect, so you don't have to share secrets across systems.{% endif %} If your private key is only accessible from a private network, another option is to use self-hosted runners for {% data variables.product.prodname_actions %}.
+有关详细信息，请参阅“[加密机密](/actions/security-guides/encrypted-secrets)”{% ifversion fpt or ghec %}、“[关于使用 OpenID Connect 进行安全强化](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)”{% endif %}和“[关于自托管运行程序](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
 
-For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)"{% ifversion fpt or ghec %}, "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)",{% endif %} and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+## 强化 {% data variables.product.prodname_actions %} 的安全性
 
-## Harden security for {% data variables.product.prodname_actions %}
+可以采取许多进一步的步骤来确保 {% data variables.product.prodname_actions %} 的安全。 具体而言，请谨慎评估第三方工作流，并考虑使用 `CODEOWNERS` 限制谁可以对工作流进行更改。
 
-There are many further steps you can take to additionally secure {% data variables.product.prodname_actions %}. In particular, be careful when evaluating third-party workflows, and consider using `CODEOWNERS` to limit who can make changes to your workflows.
-
-For more information, see "[Security hardening for GitHub Actions](/actions/security-guides/security-hardening-for-github-actions);" particularly "[Using third-party actions](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)" and "[Using `CODEOWNERS` to monitor changes](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)."
+有关详细信息，请参阅“[GitHub Actions 的安全强化](/actions/security-guides/security-hardening-for-github-actions)”，特别是“[使用第三方操作](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)”和“[使用 `CODEOWNERS` 监视更改](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)”。
 
 ## 后续步骤
 
-- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+- [保护端到端供应链](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)
 
-- "[Best practices for securing accounts](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+- [确保帐户安全的最佳做法](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)
 
-- "[Best practices for securing code in your supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- [保护供应链中的代码的最佳做法](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)

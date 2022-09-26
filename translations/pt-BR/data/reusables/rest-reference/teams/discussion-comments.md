@@ -1,3 +1,0 @@
-## Comentários da discussão
-
-A API de comentários de discussão em equipe permite que você obtenha, crie, edite e exclua comentários de discussão em um post de [discussão de equipe](/rest/reference/teams#discussions). Qualquer integrante da organização da [organização](/rest/reference/orgs) da equipe pode criar e ler comentários em uma discussão pública. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions/)". Esta API só está disponível para os integrantes autenticados da organização da equipe.

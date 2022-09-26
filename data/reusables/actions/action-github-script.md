@@ -1,1 +1,1 @@
-actions/github-script@{% if actions-node16-action %}v6{% else %}v5{% endif %}
+actions/github-script@{% ifversion actions-node16-action %}v6{% else %}v5{% endif %}

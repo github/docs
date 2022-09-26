@@ -1,6 +1,6 @@
 ---
-title: Secret scanning patterns
-intro: 'Lists of supported secrets and the partners that {% data variables.product.company_short %} works with to prevent fraudulent use of secrets that were committed accidentally.'
+title: secret scanning パターン
+intro: 'サポートされているシークレットと、誤ってコミットされたシークレットの不正使用を防ぐために {% data variables.product.company_short %} が連携するパートナーの一覧。'
 product: '{% data reusables.gated-features.secret-scanning-partner %}'
 versions:
   fpt: '*'
@@ -13,52 +13,65 @@ topics:
   - Advanced Security
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
+ms.openlocfilehash: 68dd1338fc1812cd2fc40ba38949434a04986f86
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578643'
 ---
-
-{% data reusables.secret-scanning.beta %}
-{% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
+{% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
-## About {% data variables.product.prodname_secret_scanning %} patterns
+## {% data variables.product.prodname_secret_scanning %} パターンについて
 
-{% data variables.product.product_name %} maintains two different sets of {% data variables.product.prodname_secret_scanning %} patterns:
+{% data variables.product.product_name %} では、{% data variables.product.prodname_secret_scanning %} パターンの次のさまざまなセットが保持されています。
 
-1. **Partner patterns.** Used to detect potential secrets in all public repositories. For details, see "[Supported secrets for partner patterns](#supported-secrets-for-partner-patterns)."
-2. **Advanced security patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} enabled. {% ifversion ghec %} For details, see "[Supported secrets for advanced security](#supported-secrets-for-advanced-security)."{% endif %}
+1. **パートナー パターン。** すべてのパブリック リポジトリで潜在的なシークレットを検出するために使われます。 詳しくは、「[パートナー パターンでサポートされるシークレット](#supported-secrets-for-partner-patterns)」をご覧ください。
+2. **高度なセキュリティ パターン。** {% data variables.product.prodname_secret_scanning %} が有効になっているリポジトリで潜在的なシークレットを検出するために使われます。 {% ifversion ghec %}詳しくは、「[高度なセキュリティでサポートされるシークレット](#supported-secrets-for-advanced-security)」をご覧ください。{% endif %}{% ifversion secret-scanning-push-protection %}
+3. **プッシュ保護パターン。** プッシュ保護として {% data variables.product.prodname_secret_scanning %} が有効になっているリポジトリで潜在的なシークレットを検出するために使われます。 詳しくは、「[プッシュ保護でサポートされるシークレット](#supported-secrets-for-push-protection)」をご覧ください。{% endif %}
 
-{% ifversion fpt %}
-Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning_GHAS %} on their repositories. For details of these patterns, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security).
+{% ifversion fpt %} {% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_GH_advanced_security %} を使っている Organization は、リポジトリで {% data variables.product.prodname_secret_scanning_GHAS %} を有効にすることができます。 これらのパターンについて詳しくは、 [{% data variables.product.prodname_ghe_cloud %} のドキュメント](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security)をご覧ください。
 {% endif %}
 
-## Supported secrets for partner patterns
+## パートナー パターンでサポートされるシークレット
 
-現在 {% data variables.product.product_name %} は、パブリックリポジトリをスキャンして、次のサービスプロバイダが発行したシークレットを探します。 {% data variables.product.prodname_secret_scanning_partner %} の詳細については、「[{% data variables.product.prodname_secret_scanning_partner %} について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)」を参照してください。
+現在 {% data variables.product.product_name %} は、パブリックリポジトリをスキャンして、次のサービスプロバイダが発行したシークレットを探します。 {% data variables.product.prodname_secret_scanning_partner %} について詳しくは、「[{% data variables.product.prodname_secret_scanning_partner %} について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)」をご覧ください。
 
-{% data reusables.secret-scanning.partner-secret-list-public-repo %}
-{% endif %}
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
+
+{% data reusables.secret-scanning.partner-secret-list-public-repo %} {% endif %}
 
 {% ifversion ghec or ghae or ghes %}
-## Supported secrets{% ifversion ghec %} for advanced security{% endif %}
+## {% ifversion ghec %}高度なセキュリティ{% endif %}でサポートされるシークレット
 
-When {% data variables.product.prodname_secret_scanning_GHAS %} is enabled, {% data variables.product.prodname_dotcom %} scans for secrets issued by the following service providers. {% ifversion ghec %}For more information about {% data variables.product.prodname_secret_scanning_GHAS %}, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."{% endif %}
+{% data variables.product.prodname_secret_scanning_GHAS %} が有効になっていると、{% data variables.product.prodname_dotcom %} は、次のサービス プロバイダーによって発行されたシークレットをスキャンします。 {% ifversion ghec %}{% data variables.product.prodname_secret_scanning_GHAS %} について詳しくは、「[{% data variables.product.prodname_secret_scanning_GHAS %} について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)」をご覧ください。{% endif %}
 
-{% ifversion ghes > 3.1 or ghae or ghec %}
-{% note %}
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
-**Note:** You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for your repository, organization, or enterprise. 詳しい情報については「[{% data variables.product.prodname_secret_scanning %}のカスタムパターンの定義](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)」を参照してください。
+secret scanning に REST API を使う場合は、`Secret type` を使って特定の発行者からのシークレットについて報告できます。 詳しくは、「[secret scanning](/enterprise-cloud@latest/rest/secret-scanning)」をご覧ください。
+ 
+{% ifversion ghes or ghae or ghec %} {% note %}
 
-{% endnote %}
+**注:** リポジトリ、Organization、または Enterprise 用のカスタム {% data variables.product.prodname_secret_scanning %} パターンを定義することもできます。 詳細については、「[{% data variables.product.prodname_secret_scanning %}のカスタム パターンの定義](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)」を参照してください。
+
+{% endnote %} {% endif %}
+
+{% data reusables.secret-scanning.partner-secret-list-private-repo %} {% endif %}
+
+{% ifversion secret-scanning-push-protection %}
+## プッシュ保護でサポートされるシークレット
+
+プッシュ保護として {% data variables.product.prodname_secret_scanning_caps %} は、現在、次のサービス プロバイダーによって発行されたシークレットのリポジトリをスキャンします。
+
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
+
+{% data reusables.secret-scanning.secret-list-private-push-protection %}
+
 {% endif %}
+## 参考資料
 
-{% data reusables.secret-scanning.partner-secret-list-private-repo %}
-{% endif %}
-
-## 参考リンク
-
-- 「[リポジトリをセキュアにする](/code-security/getting-started/securing-your-repository)」
-- 「[アカウントとデータを安全に保つ](/github/authenticating-to-github/keeping-your-account-and-data-secure)」
-{%- ifversion fpt or ghec %}
-- "[{% data variables.product.prodname_secret_scanning_caps %} partner program](/developers/overview/secret-scanning-partner-program)"
-{%- else %}
-- "[{% data variables.product.prodname_secret_scanning_caps %} partner program](/free-pro-team@latest/developers/overview/secret-scanning-partner-program)" in the {% data variables.product.prodname_ghe_cloud %} documentation
-{% endif %}
+- 「[リポジトリの保護](/code-security/getting-started/securing-your-repository)」
+- 「[アカウントとデータを安全に保つ](/github/authenticating-to-github/keeping-your-account-and-data-secure)」{%- ifversion fpt or ghec %}
+- [{% data variables.product.prodname_secret_scanning_caps %} パートナー プログラム](/developers/overview/secret-scanning-partner-program){%- else %}
+- [{% data variables.product.prodname_secret_scanning_caps %} パートナー プログラム](/free-pro-team@latest/developers/overview/secret-scanning-partner-program) ({% data variables.product.prodname_ghe_cloud %} ドキュメント){% endif %}

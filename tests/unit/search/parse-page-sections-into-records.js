@@ -1,7 +1,10 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs/promises'
+
 import cheerio from 'cheerio'
+import { expect, test } from '@jest/globals'
+
 import parsePageSectionsIntoRecords from '../../../script/search/parse-page-sections-into-records.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -22,6 +25,10 @@ const fixtures = {
     path.join(__dirname, 'fixtures/page-with-multiple-h1s.html'),
     'utf8'
   ),
+  pageHeadingParagraphNoWhitespace: await fs.readFile(
+    path.join(__dirname, 'fixtures/page-with-heading-and-paragraph-no-whitespace.html'),
+    'utf8'
+  ),
 }
 
 describe('search parsePageSectionsIntoRecords module', () => {
@@ -40,7 +47,7 @@ describe('search parsePageSectionsIntoRecords module', () => {
         "In this article\nThis won't be ignored.\nFirst heading\n" +
         "Here's a paragraph.\nAnd another.\nSecond heading\n" +
         "Here's a paragraph in the second section.\nAnd another.\n" +
-        'Table heading\nPeter Human\n' +
+        'Table heading\nPeter\nHuman\n' +
         'Bullet\nPoint\nNumbered\nList\n' +
         "Further reading\nThis won't be ignored.",
       topics: ['topic1', 'topic2', 'GitHub Actions', 'Actions'],
@@ -89,5 +96,28 @@ describe('search parsePageSectionsIntoRecords module', () => {
     const href = '/example/href'
     const record = parsePageSectionsIntoRecords({ href, $, languageCode: 'en' })
     expect(record.title).toEqual('I am the page title')
+  })
+
+  test("content doesn't lump headings with paragraphs together", () => {
+    const html = fixtures.pageHeadingParagraphNoWhitespace
+    const $ = cheerio.load(html)
+    const href = '/example/href'
+    const record = parsePageSectionsIntoRecords({ href, $, languageCode: 'en' })
+
+    // This is a <h2> inside the page but it should only appear once.
+    // We had a bug where the heading would be injected twice.
+    // E.g.
+    //
+    //    <h2>Heading</h2><p>Text here</p>
+    //
+    // would become:
+    //
+    //    Heading\nHeadingText here
+    //
+    // So now we make sure it only appears exactly once.
+    expect(record.content.match(/Changing your primary email address/g).length).toBe(1)
+    // But note also that it would also concatenate the text of the heading
+    // with the text of the paragraph without a whitespace in between.
+    expect(record.content.includes('email addressYou can set')).toBeFalsy()
   })
 })

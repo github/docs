@@ -12,17 +12,22 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Code migration tools
+ms.openlocfilehash: 7877d435e7971f669d9d49a70d2d2450371b5159
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882168'
 ---
-
 {% ifversion fpt or ghec %}
 
-We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository. これらの外部ツールを使って、プロジェクトを Git に変換することもできます。
+Subversion、Mercurial、TTeam Foundation バージョン管理 (TFVC) や他の Git リポジトリからプロジェクトをインポートする場合は、[GitHub Importer](/articles/about-github-importer) を使用することをお勧めします。 これらの外部ツールを使って、プロジェクトを Git に変換することもできます。
 
 {% endif %}
 
 ## Subversion からインポートする
 
-一般的な Subversion の環境では、複数のプロジェクトが単一のルートリポジトリに保管されます。 GitHub 上では、一般的に、それぞれのプロジェクトはユーザアカウントや Organization の別々の Git リポジトリにマップします。 次の場合、Subversion リポジトリのそれぞれの部分を別々の GitHub リポジトリにインポートすることをおすすめします。
+一般的な Subversion の環境では、複数のプロジェクトが単一のルートリポジトリに保管されます。 GitHub では、一般的に、それぞれのプロジェクトは個人アカウントや Organization の別々の Git リポジトリにマップされます。 次の場合、Subversion リポジトリのそれぞれの部分を別々の GitHub リポジトリにインポートすることをおすすめします。
 
 * コラボレーターが、他の部分とは別のプロジェクトの部分をチェックアウトまたはコミットする必要がある場合
 * それぞれの部分にアクセス許可を設定したい場合
@@ -34,26 +39,26 @@ Subversion リポジトリを Git にコンバートするには、これらの�
 
 ## Mercurial からインポートする
 
-Mercurial リポジトリを Git にコンバートするには、 [hg-fast-export](https://github.com/frej/fast-export) をおすすめします。
+Mercurial リポジトリを Git に変換する場合は、[hg-fast-export](https://github.com/frej/fast-export) をお勧めします。
 
-## Importing from TFVC
+## TFVC からのインポート
 
-We recommend [git-tfs](https://github.com/git-tfs/git-tfs) for moving changes between TFVC and Git.
+TFVC と Git の間で変更を移動する場合は、[git-tfs](https://github.com/git-tfs/git-tfs) をお勧めします。
 
-For more information about moving from TFVC (a centralized version control system) to Git, see "[Plan your Migration to Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" from the Microsoft docs site.
+TFVC (一元化されたバージョン管理システム) から Git への移行の詳細については、Microsoft ドキュメント サイトの「[Git への移行を計画する](https://docs.microsoft.com/devops/develop/git/centralized-to-git)」を参照してください。
 
 {% tip %}
 
-**ヒント:** Git へのプロジェクトの変換が完了した後、[{% data variables.product.prodname_dotcom %} にプッシュできます。](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)
+**ヒント:** Git へのプロジェクトの変換が完了したら、[{% data variables.product.prodname_dotcom %} にプッシュ](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)できます。
 
 {% endtip %}
 
 {% ifversion fpt or ghec %}
 
-## 参考リンク
+## 参考資料
 
 - 「[GitHub Importer について](/articles/about-github-importer)」
-- [GitHub Importerでのリポジトリのインポート](/articles/importing-a-repository-with-github-importer)
+- 「[GitHub Importer でリポジトリをインポートする](/articles/importing-a-repository-with-github-importer)」
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})
 
 {% endif %}

@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: d435e6c0fdaac791e6663be5afa511b99365b3a3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146332172"
+---
 {% note %}
 
-**Nota:** Si habilitaste las verificaciones de actualizaciones automáticas, no necesitas descargar el paquete de actualizaciones y puedes usar el archivo que se descargó automáticamente. Para obtener más información, consulta "[Enabling automatic update checks](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)" (Habilitar verificaciones de actualizaciones automáticas).
+**Nota:** Si ha habilitado las comprobaciones de actualizaciones automáticas, no es necesario descargar el paquete de actualizaciones y puede usar el archivo que se ha descargado automáticamente. Para más información, vea "[Habilitación de comprobaciones automáticas de actualizaciones](/enterprise/admin/guides/installation/enabling-automatic-update-checks/)".
 
 {% endnote %}

@@ -1,4 +1,12 @@
-Available scopes and access values:
+---
+ms.openlocfilehash: 56ed7762c2325d0328bd52ca89fe7879b5ce4601
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145084941"
+---
+可用的作用域和访问权限值：
 
 ```yaml
 permissions:
@@ -17,15 +25,15 @@ permissions:
   statuses: read|write|none
 ```
 
-If you specify the access for any of these scopes, all of those that are not specified are set to `none`.
+如果你指定其中任何作用域的访问权限，则所有未指定的作用域都被设置为 `none`。
 
-You can use the following syntax to define read or write access for all of the available scopes:
+您可以使用以下语法来定义所有可用作用域的读取或写入权限：
 
 ```yaml
 permissions: read-all|write-all
 ```
 
-You can use the following syntax to disable permissions for all of the available scopes:
+可以使用以下语法禁用所有可用作用域的权限：
 
 ```yaml
 permissions: {}

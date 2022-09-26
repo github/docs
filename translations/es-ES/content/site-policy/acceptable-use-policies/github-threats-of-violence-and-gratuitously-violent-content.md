@@ -1,5 +1,5 @@
 ---
-title: GitHub Threats of Violence and Gratuitously Violent Content
+title: Amenazas de Violencia y Contenido Violento Gratuito en GitHub
 shortTitle: Threats of Violence and Gratuitously Violent Content
 versions:
   fpt: '*'
@@ -13,10 +13,10 @@ redirect_from:
 ---
 
 
-You may not use GitHub to organize, promote, encourage, threaten, or incite acts of violence. You may not post content that depicts or glorifies violence or physical harm against human beings or animals. Esto incluye:
+Queda prohibido usar GitHub para organizar, promover, alentar, amenazar o incitar a actos de violencia. Queda prohibido publicar contenido que represente o haga apología de la violencia o el daño físico contra seres humanos o animales. Esto incluye:
 
-- Threatening another individual or group with abuse, harm, sexual violence, or death
-- Posting text, imagery, or audio content glorifying or containing a graphic depiction of violence toward oneself, another individual, group, or animal
-- Encouraging another individual to engage in self harm
+- amenazar a otra persona o grupo con abusos, daños, violencia sexual o muerte;
+- publicar textos, imágenes o contenido de audio que haga apología o contenga representaciones gráficas de violencia hacia uno mismo o hacia otra persona, grupo o animal;
+- animar a otra persona a que se autolesione.
 
-We do not allow violent content to be posted indiscriminately or in a way that is difficult for other users to avoid, such as a profile avatar or an issue comment. However, we understand there may be legitimate reasons to post violent content, such as for educational or documentary purposes, creative works, or depictions of historical events. In those cases, a clear warning or disclaimer can help users make an educated decision as to whether or not they want to engage with such content. Still, GitHub may decide to limit the visibility of such content to those who choose to opt in. 
+No permitimos que se publique contenido violento de manera indiscriminada o de una manera que sea difícil de evitar para otros usuarios, como en un avatar del perfil o en un comentario sobre un problema. Sin embargo, entendemos que puede haber razones legítimas para publicar contenido violento como, por ejemplo, con fines educativos o documentales, trabajos creativos o representaciones de acontecimientos históricos. En esos casos, utilice una advertencia clara o un descargo de responsabilidad para ayudar a los usuarios a tomar una decisión informada sobre si desean o no interactuar con dicho contenido. Aun así, GitHub puede decidir limitar la visibilidad de dicho contenido a aquellos que decidan hacerlo. 

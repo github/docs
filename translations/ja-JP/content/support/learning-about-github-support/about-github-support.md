@@ -17,6 +17,8 @@ redirect_from:
   - /github/working-with-github-support/github-enterprise-cloud-support
   - /articles/business-plan-support
   - /articles/github-business-cloud-support
+  - /admin/enterprise-support/about-support-for-advanced-security
+  - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
 ---
@@ -58,9 +60,14 @@ For more information, see "[About GitHub Premium Support](/support/about-github-
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghae %}
 
-Before contacting {% data variables.contact.github_support %}, check  if there are currently any incidents affecting services on {% data variables.product.prodname_dotcom %} on [{% data variables.product.prodname_dotcom %} Status](https://www.githubstatus.com/). For more information, see "[About GitHub status](#about-github-status)."
+Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on 
+{%- ifversion fpt or ghec %}
+[{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/)
+{%- elsif ghae %}
+[{% data variables.product.product_name %} Status](https://ghestatus.com/)
+{%- endif %}. For more information, see "[About GitHub status](#about-github-status)."
 
 {% endif %}
 
@@ -73,7 +80,7 @@ To report account, security, and abuse issues, or to receive assisted support fo
 {% ifversion fpt %}
 If you have any paid product or are a member of an organization with a paid product, you can contact {% data variables.contact.github_support %} in English.
 {% else %} 
-With {% data variables.product.product_name %}, you have access to support in English{% ifversion ghes %} and Japanese{% endif %}.
+With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}
 
 {% ifversion ghes or ghec %}
@@ -94,12 +101,12 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 {% data reusables.support.scope-of-support %}
 
-{% ifversion ghec or fpt %}
+{% ifversion ghec or fpt or ghae %}
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.prodname_dotcom %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page](https://www.githubstatus.com/).
+You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}).
 
-You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.prodname_dotcom %}.
+You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.product_name %}.
 
 {% endif %}
 
@@ -135,18 +142,24 @@ To learn more about training options, including customized trainings, see [{% da
 
 {% endif %}
 
-{% ifversion ghes %}
+{% ifversion ghes or ghec %}
 ## Hours of operation
 
 ### Support in English
 
 For standard non-urgent issues, we offer support in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 24 hours.
 
+{% ifversion ghes %}
 For urgent issues, we are available 24 hours per day, 7 days per week, even during national U.S. holidays.
+{% endif %}
 
 ### Support in Japanese
 
-For non-urgent issues, support in Japanese is available Monday through Friday from 9:00 AM to 5:00 PM JST, excluding national holidays in Japan. For urgent issues, we offer support in English 24 hours per day, 7 days per week, even during national U.S. holidays.
+For standard non-urgent issues, support in Japanese is available Monday through Friday from 9:00 AM to 5:00 PM JST, excluding national holidays in Japan. 
+
+{% ifversion ghes %}
+For urgent issues, we offer support in English 24 hours per day, 7 days per week, even during national U.S. holidays.
+{% endif %}
 
 For a complete list of U.S. and Japanese national holidays observed by {% data variables.contact.enterprise_support %}, see "[Holiday schedules](#holiday-schedules)."
 

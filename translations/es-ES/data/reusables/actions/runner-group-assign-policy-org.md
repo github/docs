@@ -1,3 +1,11 @@
-1. Assign a policy for organization access.
+---
+ms.openlocfilehash: 1122a6eba1b8e9e2501ddf011c36baf6d0a5f2e9
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145069482"
+---
+1. Asigne una directiva para el acceso de la organización.
 
-    You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. Esta configuración no puede anularse si se configura un grupo ejecutor de la organización que haya compartido una empresa.{% endif %}
+    Puede configurar un grupo de ejecutores a fin de que sea accesible para una lista de organizaciones específica o para todas las organizaciones de la empresa.{% ifversion ghec or ghes %} De manera predeterminada, solo los repositorios privados pueden acceder a los ejecutores de un grupo, pero esto se puede invalidar. Esta configuración no puede anularse si se configura un grupo ejecutor de la organización que haya compartido una empresa.{% endif %}

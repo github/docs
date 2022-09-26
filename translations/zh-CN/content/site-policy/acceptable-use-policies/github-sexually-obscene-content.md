@@ -1,5 +1,5 @@
 ---
-title: GitHub Sexually Obscene Content
+title: GitHub 上的性淫秽内容
 shortTitle: Sexually Obscene Content
 versions:
   fpt: '*'
@@ -11,10 +11,10 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#sexually-obscene-content
 ---
 
-We do not tolerate content associated with sexual exploitation or abuse of another individual, including where minors are concerned. We do not allow sexually themed or suggestive content that serves little or no purpose other than to solicit an erotic or shocking response, particularly where that content is amplified by its placement in profiles or other social contexts. 这包括：
+我们不容忍与对他人进行性剥削或性虐待相关的内容，包括其中涉及未成年人的内容。 如果以性为主题的内容或性暗示的内容，其目的只是引起性反应或使人震惊，则不被允许，尤其是在通过将此类内容放置在个人资料或其他社交环境中而扩大影响的情况下。 其中包括：
 
-- Pornographic content
-- Non-consensual intimate imagery
-- Graphic depictions of sexual acts including photographs, video, animation, drawings, computer-generated images, or text-based content
+- 色情内容
+- 非自愿的亲密图片
+- 对性行为的图形描述，包括照片、视频、动画、图画、计算机生成的图像或基于文本的内容
 
-We recognize that not all nudity or content related to sexuality is obscene. We may allow visual and/or textual depictions in artistic, educational, historical or journalistic contexts, or as it relates to victim advocacy. In some cases a disclaimer can help communicate the context of the project. However, please understand that we may choose to limit the content by giving users the option to opt in before viewing.
+我们承认，并非所有与性有关的裸露或内容都是淫秽的。 我们可能会允许在艺术、教育、历史或新闻背景下，或在与受害者辩护相关的情况下进行视觉和/或文字描述。 在某些情况下，免责声明可帮助传达项目的背景信息。 然而，请理解，我们可能会选择通过让用户在浏览之前选择是否加入来限制此类内容。

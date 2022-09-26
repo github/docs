@@ -11,6 +11,7 @@ Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
 Azure | Azure Active Directory Application Secret
 Azure | Azure DevOps Personal Access Token
+Azure | Azure ML Studio (classic) Web Service Key
 Azure | Azure SAS Token
 Azure | Azure Service Management Certificate
 Azure | Azure SQL Connection String
@@ -22,6 +23,10 @@ CloudBees CodeShip | CloudBees CodeShip Credential
 Contributed Systems | Contributed Systems Credentials
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
+DigitalOcean | DigitalOcean Personal Access Token
+DigitalOcean | DigitalOcean OAuth Token
+DigitalOcean | DigitalOcean Refresh Token
+DigitalOcean | DigitalOcean System Token
 Discord | Discord Bot Token
 Doppler | Doppler Personal Token
 Doppler | Doppler Service Token
@@ -49,6 +54,7 @@ Hashicorp Terraform | Terraform Cloud / Enterprise API Token
 Hubspot | Hubspot API Key
 Ionic | Ionic Personal Access Token
 Ionic | Ionic Refresh Token
+JD Cloud | JD Cloud Access Key
 Linear | Linear API Key
 Linear | Linear OAuth Access Token
 Mailchimp | Mailchimp API Key
@@ -66,12 +72,16 @@ PlanetScale | PlanetScale OAuth Token
 PlanetScale | PlanetScale Service Token
 Plivo | Plivo Auth ID and Token
 Postman | Postman API Key
+Prefect | Prefect Server API Key
+Prefect | Prefect User API Token
 Proctorio | Proctorio Consumer Key
 Proctorio | Proctorio Linkage Key
 Proctorio | Proctorio Registration Key
 Proctorio | Proctorio Secret Key
 Pulumi | Pulumi Access Token
 PyPI | PyPI API Token
+ReadMe | ReadMe API Access Key
+redirect.pizza | redirect.pizza API Token
 RubyGems | RubyGems API Key
 Samsara | Samsara API Token
 Samsara | Samsara OAuth Access Token
@@ -96,4 +106,6 @@ Tencent Cloud | Tencent Cloud Secret ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
 Typeform | Typeform Personal Access Token
+Uniwise | WISEflow API Key 
 Valour | Valour Access Token
+Zuplo | Zuplo Consumer API

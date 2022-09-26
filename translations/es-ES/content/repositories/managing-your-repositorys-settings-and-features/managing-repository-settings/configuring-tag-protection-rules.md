@@ -1,28 +1,35 @@
 ---
-title: Configuring tag protection rules
+title: Configuración de reglas de protección de etiquetas
 shortTitle: Tag protection rules
-intro: You can configure tag protection rules for your repository to prevent contributors from creating or deleting tags.
+intro: Puedes configurar reglas de protección de etiquetas para el repositorio para evitar que los colaboradores creen o eliminen etiquetas.
 product: '{% data reusables.gated-features.tag-protection-rules %}'
 versions:
   fpt: '*'
-  ghes: '>3.4'
-  ghae: issue-6337
+  ghae: '>= 3.5'
   ghec: '*'
+  ghes: '>3.4'
+ms.openlocfilehash: 3b7b84cb26d8994c89222b2e4f642592fd45b72f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063206'
 ---
-
 {% note %}
 
-**Note:** Tag protection rules are currently in beta and subject to change.
+**Nota:** Las reglas de protección de etiquetas se encuentran actualmente en versión beta y están sujetas a cambios.
 
 {% endnote %}
 
-When you add a tag protection rule, all tags that match the pattern provided will be protected. Only users with admin or maintain permissions in the repository will be able to create protected tags, and only users with admin permissions in the repository will be able to delete protected tags. Para obtener más información, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#permissions-for-each-role)". {% data variables.product.prodname_github_apps %} require the `Repository administration: write` permission to modify a protected tag.
+Al agregar una regla de protección de etiquetas, se protegerán todas las etiquetas que coincidan con el patrón proporcionado. Solo los usuarios con permisos de administración o mantenimiento en el repositorio podrán crear etiquetas protegidas y solo los usuarios con permisos de administración en el repositorio podrán eliminar etiquetas protegidas. Para más información, vea "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#permissions-for-each-role)". {% data variables.product.prodname_github_apps %} necesitan el permiso `Repository administration: write` para modificar una etiqueta protegida.
 
-Additionally, you can create custom repository roles to allow other groups of users to create or delete tags that match tag protection rules. Para obtener más información, consulta la sección "[Administrar los roles personalizados de repositorio en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% ifversion custom-repository-roles %} Además, puedes crear roles de repositorio personalizados para permitir que otros grupos de usuarios creen o eliminen etiquetas que coincidan con las reglas de protección de etiquetas. Para obtener más información, consulte "[Administración de roles de repositorio personalizados para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".{% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the "Code and automation" section of the sidebar, click **{% octicon "tag" aria-label="The tag icon" %} Tags**.
-1. Click **New rule**. ![New tag protection rule](/assets/images/help/repository/new-tag-protection-rule.png)
-1. Under "Tag name pattern", type the pattern of the tags you want to protect. In this example, typing "\*" protects all tags. ![Set tag protection pattern](/assets/images/help/repository/set-tag-protection-pattern.png)
-1. Click **Add rule**. ![Add tag protection rule](/assets/images/help/repository/add-tag-protection-rule.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. En la sección "Código y automatización" de la barra lateral, haga clic en **{% octicon "tag" aria-label="The tag icon" %} Etiquetas**.
+1. Haga clic en **Nueva regla**.
+![Nueva regla de protección de etiquetas](/assets/images/help/repository/new-tag-protection-rule.png)
+1. En "Patrón de nombre de etiqueta", escriba el patrón de las etiquetas que quiera proteger. En este ejemplo, al escribir "\*" se protegen todas las etiquetas. 
+![Establecimiento del patrón de protección de etiquetas](/assets/images/help/repository/set-tag-protection-pattern.png)
+1. Haga clic en **Agregar regla**.
+![Agregar regla de protección de etiquetas](/assets/images/help/repository/add-tag-protection-rule.png)

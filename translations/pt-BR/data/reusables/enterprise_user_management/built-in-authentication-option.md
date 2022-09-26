@@ -1,1 +1,9 @@
-Optionally, to allow people to use built-in authentication if they don't have an account on your IdP, select **Allow built-in authentication**. Para obter mais informações, consulte "[Permitir a autenticação integrada para usuários de fora do provedor de identidade](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider)".
+---
+ms.openlocfilehash: c279ab7f9d2965fbe2ddc9dcd0047d3a0be0717a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145065268"
+---
+Opcionalmente, para permitir que pessoas sem uma conta em seu sistema de autenticação externa entrem com autenticação interna, selecione **Permitir autenticação interna**. Para obter mais informações, confira "[Como permitir a autenticação interna para usuários fora do seu provedor](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)".

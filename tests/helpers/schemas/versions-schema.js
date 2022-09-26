@@ -57,6 +57,12 @@ export default {
       type: 'string',
       pattern: releasePattern,
     },
+    internalLatestRelease: {
+      required: false,
+      description:
+        'the value of "latest" if a plan uses semantic versioning internally while displaying @latest externally',
+      type: 'string',
+    },
     hasNumberedReleases: {
       description:
         'boolean indicating whether the plan has numbered releases; if not, the release defalts to "latest"',

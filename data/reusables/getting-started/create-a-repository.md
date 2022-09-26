@@ -1,0 +1,1 @@
+Creating a repository for your project allows you to store code in {% data variables.product.prodname_dotcom %}. This provides a backup of your work that you can choose to share with other developers. For more information, see “[Create a repository](/get-started/quickstart/create-a-repo)."

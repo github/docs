@@ -12,9 +12,14 @@ type: overview
 topics:
   - LFS
   - Upgrades
-shortTitle: 关于 Git LFS 计费
+shortTitle: About Git LFS billing
+ms.openlocfilehash: e09a093aa827d3ed4a25236f42cee65c1c195f14
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084554'
 ---
-
 ## 关于 {% data variables.large_files.product_name_long %} 的计费
 
 {% data reusables.large_files.free-storage-bandwidth-amount %} {% data reusables.large_files.does_not_carry %}
@@ -35,9 +40,9 @@ shortTitle: 关于 Git LFS 计费
 
 ## 延伸阅读
 
-- "[关于 {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
-- "[安装 {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)"
-- "[关于存储空间和带宽的使用](/articles/about-storage-and-bandwidth-usage)"
-- "[查看您的 {% data variables.large_files.product_name_long %} 使用情况](/articles/viewing-your-git-large-file-storage-usage)"
-- "[升级 {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)"
-- "[降级 {% data variables.large_files.product_name_long %}](/articles/downgrading-git-large-file-storage)"
+- [关于 {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)
+- [安装 {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)
+- [关于存储和带宽使用情况](/articles/about-storage-and-bandwidth-usage)
+- [查看 {% data variables.large_files.product_name_long %} 的使用情况](/articles/viewing-your-git-large-file-storage-usage)
+- [对 {% data variables.large_files.product_name_long %} 进行升级](/articles/upgrading-git-large-file-storage)
+- [对 {% data variables.large_files.product_name_long %} 进行降级](/articles/downgrading-git-large-file-storage)

@@ -10,20 +10,24 @@ topics:
   - Billing
   - Sponsors
   - Policy
-shortTitle: Pagamentos únicos da Índia
+shortTitle: India one-time payments
+ms.openlocfilehash: 802aadbed65cf4fcb133d82e3ba417c8582be1af
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147111319'
 ---
-
-
 ## Sobre o regulamento de pagamentos recorrentes do Banco de Reserva da Índia
 
-Recentemente, um novo regulamento relativo aos pagamentos do Banco Reserva da Índia (RBI) entrou em vigor. Este regulamento impõe requisitos adicionais a transações on-line recorrentes e impediu alguns clientes de{% data variables.product.company_short %} na Índia de efetuar pagamentos recorrentes. Os clientes que usam métodos de pagamento emitidos na Índia para quaisquer transações recorrentes na {% data variables.product.product_name %} podem descobrir que seus pagamentos são recusados pelos seus bancos ou emissores de cartão. Para obter mais informações, consulte o [Comunicado de imprensa do RBI.](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
+Recentemente, um novo regulamento relativo aos pagamentos do Banco Reserva da Índia (RBI) entrou em vigor. Este regulamento impõe requisitos adicionais a transações on-line recorrentes e impediu alguns clientes de{% data variables.product.company_short %} na Índia de efetuar pagamentos recorrentes. Os clientes que usam métodos de pagamento emitidos na Índia para quaisquer transações recorrentes na {% data variables.product.product_name %} podem descobrir que seus pagamentos são recusados pelos seus bancos ou emissores de cartão. Para obter mais informações, confira o [comunicado à imprensa da RBI](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
 
 O regulamento aplica-se a todas as transações recorrentes, incluindo:
 - os planos de assinatura de {% data variables.product.prodname_dotcom %} (Pro, Equipe, Empresa)
 - Compras de e{% data variables.product.prodname_marketplace %}
 - Transações de {% data variables.product.prodname_sponsors %}
 - Compras de grandes armazenamento de arquivos do Git
-- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, e consumo de {% data variables.product.prodname_codespaces %}
+- Consumo de {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} e {% data variables.product.prodname_github_codespaces %}
 
 A fim de minimizar as interrupções, os pagamentos recorrentes para os nossos clientes afetados foram pausados no dia 29 de outubro de 2021 de 2021. Os recursos e serviços pagos permaneceram disponíveis para os clientes afetados pelo regulamento do RBI.
 
@@ -35,7 +39,7 @@ A fim de minimizar as interrupções, os pagamentos recorrentes para os nossos c
 
 Os clientes com planos de cobrança mensal poderão efetuar um pagamento único no mesmo dia em que o seu ciclo de cobrança for renovado da forma tradicional. Por exemplo, se, de modo geral, a cobrança for efetuada no dia 7 de cada mês, agora você poderá efetuar um pagamento único da sua conta a partir do dia 7 de cada mês. Seu primeiro pagamento único também incluirá qualquer uso acumulado a partir de outubro de 2021 em diante.
 
-Se a cobrança é feita mensalmente e você gostaria de mudar para a cobrança anual, você poderá reduzir a frequência de seus pagamentos únicos. Para obter mais informações, consulte "[Alterando a duração do seu ciclo de cobrança](/en/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)".
+Se a cobrança é feita mensalmente e você gostaria de mudar para a cobrança anual, você poderá reduzir a frequência de seus pagamentos únicos. Para obter mais informações, confira "[Como alterar a duração do período de cobrança](/en/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)".
 
 ### Para clientes com cobrança anual
 
@@ -43,7 +47,7 @@ Se a sua cobrança for efetuada anualmente e sua data de renovação estava entr
 
 Se seu ciclo de cobrança for renovado após 15 de fevereiro, tentaremos efetuar o pagamento recorrente. Se a tentativa de pagamento for recusada, você poderá fazer um pagamento único por meio da página de cobrança da sua conta.
 
-Nesse meio tempo, estamos trabalhando ativamente com os nossos parceiros de pagamento para restaurar pagamentos recorrentes para os clientes impactados. Para obter mais informações ou dúvidas, você pode entrar em contato com o [Suporte do GitHub](https://support.github.com/contact).
+Nesse meio tempo, estamos trabalhando ativamente com os nossos parceiros de pagamento para restaurar pagamentos recorrentes para os clientes impactados. Para obter mais informações ou fazer perguntas, entre em contato com o [Suporte do GitHub](https://support.github.com/contact).
 
 ### Impacto em {% data variables.product.prodname_sponsors %}
 
@@ -53,13 +57,17 @@ Os patrocínios existentes permanecerão em vigor durante este período e os man
 
 {% note %}
 
-**Observação**: Os clientes afetados receberão um email de notificação com um link para suas configurações de cobrança quando o pagamento estiver vencido. Mais dois e-mails de lembrete serão enviados 7 e 14 dias depois se o pagamento não tiver sido efetuado. Após 14 dias, os recursos e serviços pagos serão bloqueados até que o pagamento seja feito.
+**Observação**: os clientes afetados receberão uma notificação por email com um link para suas configurações de cobrança quando o pagamento estiver vencido. Mais dois e-mails de lembrete serão enviados 7 e 14 dias depois se o pagamento não tiver sido efetuado. Após 14 dias, os recursos e serviços pagos serão bloqueados até que o pagamento seja feito.
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-3. Na parte superior da página, clique em **Pagar agora**. ![Botão de pagamento único agora](/assets/images/help/billing/pay-now-button.png)
-4. Revise suas informações de cobrança e pagamento. Se você precisar fazer uma edição, clique em **Editar** ao lado da seção relevante. Caso contrário, clique em **Enviar pagamento**. ![Resumo de pagamento único](/assets/images/help/billing/payment-summary.png)
-5. Opcionalmente, se você clicou em **Editar**, faça as alterações necessárias e, em seguida, clique em **Enviar pagamento**. ![Resumo de edição de pagamento único](/assets/images/help/billing/payment-summary-edit.png)
-6. Uma vez que o pagamento do ciclo de cobrança atual foi realizado com sucesso, o botão **Pagar agora** na página de "planos de& cobrança" será desabilitado até o seu próximo pagamento ser devido. ![Botão de pagamento único "pague agora" desativado](/assets/images/help/billing/pay-now-button-disabled.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+3. Na parte superior da página, clique em **Pagar agora**.
+  ![Botão de pagamento único Pagar agora](/assets/images/help/billing/pay-now-button.png)
+4. Revise suas informações de cobrança e pagamento. Se você precisar fazer uma edição, clique em **Editar** ao lado da seção pertinente. Caso contrário, clique em **Enviar pagamento**.
+  ![Resumo de pagamento único](/assets/images/help/billing/payment-summary.png)
+5. Opcionalmente, se você clicar em **Editar**, faça as alterações necessárias e clique em **Enviar pagamento**.
+  ![Resumo da edição do pagamento único](/assets/images/help/billing/payment-summary-edit.png)
+6. Uma vez que o pagamento do ciclo de cobrança atual for realizado com êxito, o botão **Pagar agora** da página "Cobrança e Planos" será desabilitado até o vencimento do seu próximo pagamento.
+  ![Botão de pagamento único Pagar agora desativado](/assets/images/help/billing/pay-now-button-disabled.png)
+  

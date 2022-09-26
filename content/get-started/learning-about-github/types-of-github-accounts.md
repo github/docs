@@ -46,7 +46,7 @@ Your personal account can own resources such as repositories, packages, and proj
 {% endtip %}
 
 {% ifversion fpt or ghec %}
-Most people will use one personal account for all their work on {% data variables.product.prodname_dotcom_the_website %}, including both open source projects and paid employment. If you're currently using more than one personal account that you created for yourself, we suggest combining the accounts. For more information, see "[Merging multiple user accounts](/articles/merging-multiple-user-accounts)."
+Most people will use one personal account for all their work on {% data variables.product.prodname_dotcom_the_website %}, including both open source projects and paid employment. If you're currently using more than one personal account that you created for yourself, we suggest combining the accounts. For more information, see "[Merging multiple personal accounts](/articles/merging-multiple-user-accounts)."
 {% endif %}
 
 ## Organization accounts
@@ -57,7 +57,7 @@ Like personal accounts, organizations can own resources such as repositories, pa
 
 The personal accounts within an organization can be given different roles in the organization, which grant different levels of access to the organization and its data. All members can collaborate with each other in repositories and projects, but only organization owners and security managers can manage the settings for the organization and control access to the organization's data with sophisticated security and administrative features. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Keeping your organization secure](/organizations/keeping-your-organization-secure)."
 
-![Diagram showing that users must sign in to their personal user account to access an organization's resources](/assets/images/help/overview/sign-in-pattern.png)
+![Diagram showing that users must sign in to their personal account to access an organization's resources](/assets/images/help/overview/sign-in-pattern.png)
 
 {% ifversion fpt or ghec %} 
 Even if you're a member of an organization that uses SAML single sign-on, you will still sign into your own personal account on {% data variables.product.prodname_dotcom_the_website %}, and that personal account will be linked to your identity in your organization's identity provider (IdP). For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}

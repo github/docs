@@ -1,5 +1,5 @@
 ---
-title: サイトポリシー
+title: サイト ポリシー
 redirect_from:
   - /categories/61/articles
   - /categories/site-policy
@@ -17,5 +17,6 @@ children:
   - /content-removal-policies
   - /security-policies
   - /github-company-policies
+  - /site-policy-deprecated
 ---
 

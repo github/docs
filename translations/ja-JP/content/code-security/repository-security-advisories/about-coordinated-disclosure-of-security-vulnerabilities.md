@@ -11,14 +11,19 @@ type: overview
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: 協調開示
+shortTitle: Coordinated disclosure
+ms.openlocfilehash: a5d4445525b46536cbfd3301cccb78140589de22
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145087581'
 ---
-
 ## 業界における脆弱性の開示について
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %}
 
-脆弱性の初期の報告は非公開で行われ、完全な詳細はメンテナが問題を認め、理想的には対策もしくはパッチが利用可能になり、場合によってはパッチがインストールできるようさらに時間をおいてから公開されます。 詳しい情報については、OWASP Cheat Sheet Series Webサイトの「[OWASP Cheat Sheet Series about vulnerability disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)」を参照してください。
+脆弱性の初期の報告は非公開で行われ、完全な詳細はメンテナが問題を認め、理想的には対策もしくはパッチが利用可能になり、場合によってはパッチがインストールできるようさらに時間をおいてから公開されます。 詳細については、OWASP Cheat Sheet Series (OWASP チート シート シリーズ) の Web サイトの [「OWASP Cheat Sheet Series」 (OWASP チート シート シリーズ) の「Vulnerability Disclosure」 (脆弱性の開示) ](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)を参照してください。
 
 ### 脆弱性報告者のためのベストプラクティス
 
@@ -28,9 +33,9 @@ shortTitle: 協調開示
 - コードの修正バージョンが利用可能になる前に脆弱性を公開してしまうこと。
 - パブリックなバウンティプログラムが存在しない場合に、問題の報告に補償がなされると期待すること。
 
-メンテナに連絡を取ろうとしてレスポンスがなかったり、連絡は取れたものの公開をあまりに長く待つよう頼まれたなら、一定期間後に脆弱性報告者が脆弱性を公開することは許容できます。
+メンテナに連絡を取ろうとしてレスポンスがなかったり、連絡は取れたものの公開をあまりに長く待つよう頼まれたなら、一定期間後に脆弱性報告者が脆弱性を公開することは許容できます。 
 
-脆弱性の報告者は、報告のプロセスの一部として、開示ポリシーの条件を明確に述べることをおすすめします。 脆弱性報告者が厳密なポリシーに従っていないばあいでも、意図的な脆弱性の開示の時期についてメンテナが明確な期待を持てるようにするのは良い考えです。 開示ポリシーの例については、GitHubセキュリティラボのWebサイトの「[セキュリティラボの開示ポリシー](https://securitylab.github.com/advisories#policy)」を参照してください。
+脆弱性の報告者は、報告のプロセスの一部として、開示ポリシーの条件を明確に述べることをおすすめします。 脆弱性報告者が厳密なポリシーに従っていないばあいでも、意図的な脆弱性の開示の時期についてメンテナが明確な期待を持てるようにするのは良い考えです。 開示ポリシーの例については、GitHub Security Lab の Web サイトの「[Security Lab's disclosure policy](https://securitylab.github.com/advisories#policy)」 (Security Lab の開示ポリシー) を参照してください。
 
 ### メンテナのためのベストプラクティス
 
@@ -51,21 +56,21 @@ shortTitle: 協調開示
 
 {% data variables.product.prodname_dotcom_the_website %}上のプロジェクトの脆弱性の報告と開示のプロセスは以下のようになります。
 
- あなたが脆弱性の報告したいと考えている人（たとえばセキュリティ研究者）なら、まず関連するリポジトリにセキュリティポリシーがあるかをチェックしてください。 詳しい情報については「[セキュリティポリシーについて](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)」を参照してください。 セキュリティポリシーがあるなら、そのリポジトリのセキュリティチームに連絡する前に、それに従ってプロセスを理解してください。
-
+ あなたが脆弱性の報告したいと考えている人（たとえばセキュリティ研究者）なら、まず関連するリポジトリにセキュリティポリシーがあるかをチェックしてください。 詳細については、「[セキュリティ ポリシーについて](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)」を参照してください。 セキュリティポリシーがあるなら、そのリポジトリのセキュリティチームに連絡する前に、それに従ってプロセスを理解してください。 
+ 
  セキュリティポリシーがないなら、メンテナへの非公開のコミュニケーション方法を確立するための最も効率的な方法は、望ましいセキュリティの連絡先を尋ねるIssueを作成することです。 そのIssueはすぐに公に見ることができるようになるので、そこにはバグに関する情報は含めないようにするべきであることには注意してください。 コミュニケーションが確立できたら、将来的に利用できるよう、セキュリティポリシーを規定してもらうメンテナに提案できます。
 
 {% note %}
 
-**ノート**: _npmの場合のみ_ - npmパッケージ内でマルウェアの報告を受け取った場合、私たちは非公開であなたに連絡しようとします。 あなたが適時問題に対応しない場合、私たちはその問題を開示します。 詳しい情報についてはnpmドキュメントWebサイトの「[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)」を参照してください。
+**注**: _npm のみ_ - npm パッケージのマルウェアに関する報告を受けた場合は、お客様個人にご連絡させていただきます。 あなたが適時問題に対応しない場合、私たちはその問題を開示します。 詳細については、npm Docs の Web サイトの「[eporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)」 (npm パッケージ内のマルウェアの報告) を参照してください。
 
 {% endnote %}
 
- {% data variables.product.prodname_dotcom_the_website %}でセキュリティ脆弱性を発見したら、私たちの調整された開示プロセスを通じてその脆弱性を報告してください。 詳しい情報については「[{% data variables.product.prodname_dotcom %} Security Bug Bounty](https://bounty.github.com/) Webサイトを参照してください。
+ {% data variables.product.prodname_dotcom_the_website %}でセキュリティ脆弱性を発見したら、私たちの調整された開示プロセスを通じてその脆弱性を報告してください。 詳細については、「[{% data variables.product.prodname_dotcom %} セキュリティ アドバイザリの概要](https://bounty.github.com/)」を参照してください。
 
- あなたがメンテナなら、リポジトリのセキュリティポリシーを設定するか、たとえばプロジェクトのREADMEファイルでセキュリティの報告方法を明確にしておくことによって、このパイプラインの開始時点からプロセスの所有権を取ることができます。 セキュリティポリシーの追加に関する情報については「[セキュリティポリシーについて](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)」を参照してください。 セキュリティポリシーがない場合、セキュリティの報告者はおそらくあなたにメールするか、非公開であなたに連絡しようとするでしょう。 あるいは、誰かがセキュリティの問題の詳細を含む（パブリックな）Issueをオープンするかもしれません。
+ あなたがメンテナなら、リポジトリのセキュリティポリシーを設定するか、たとえばプロジェクトのREADMEファイルでセキュリティの報告方法を明確にしておくことによって、このパイプラインの開始時点からプロセスの所有権を取ることができます。 セキュリティ ポリシーの追加の詳細については、「[セキュリティ ポリシーについて](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)」を参照してください。 セキュリティポリシーがない場合、セキュリティの報告者はおそらくあなたにメールするか、非公開であなたに連絡しようとするでしょう。 あるいは、誰かがセキュリティの問題の詳細を含む（パブリックな）Issueをオープンするかもしれません。
 
- メンテナとしてコード中の脆弱性を開示するために、まずは{% data variables.product.prodname_dotcom %}でパッケージのリポジトリにドラフトのセキュリティアドバイザリを作成します。 {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
+ メンテナとしてコード中の脆弱性を開示するために、まずは{% data variables.product.prodname_dotcom %}でパッケージのリポジトリにドラフトのセキュリティアドバイザリを作成します。 {% data reusables.security-advisory.security-advisory-overview %} 詳細については、「[リポジトリの {% data variables.product.prodname_security_advisories %}について](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)」を参照してください。
 
 
- To get started, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
+ 開始するには、「[リポジトリ セキュリティ アドバイザリの作成](/code-security/repository-security-advisories/creating-a-repository-security-advisory)」を参照してください。

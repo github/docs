@@ -21,15 +21,17 @@ redirect_from:
 
 After you create a classroom, {% data variables.product.prodname_classroom %} will prompt you to invite teaching assistants (TAs) and admins to the classroom. Each classroom can have one or more admins. Admins can be teachers, TAs, or any other course administrator who you'd like to have control over your classrooms on {% data variables.product.prodname_classroom %}.
 
-Invite TAs and admins to your classroom by inviting the user accounts on {% data variables.product.product_name %} to your organization as organization owners and sharing the URL for your classroom. Organization owners can administer any classroom for the organization. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
+Invite TAs and admins to your classroom by inviting the personal accounts on {% data variables.product.product_name %} to your organization as organization owners and sharing the URL for your classroom. Organization owners can administer any classroom for the organization. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
 
-When you're done using a classroom, you can archive the classroom and refer to the classroom, roster, and assignments later, or you can delete the classroom if you no longer need the classroom.
+When you're done using a classroom, you can archive the classroom and refer to the classroom, roster, and assignments later, or you can delete the classroom if you no longer need the classroom. 
+
+{% data reusables.classroom.reuse-assignment-link %}
 
 ## About classroom rosters
 
 Each classroom has a roster. A roster is a list of identifiers for the students who participate in your course.
 
-When you first share the URL for an assignment with a student, the student must sign into {% data variables.product.product_name %} with a user account to link the user account to an identifier for the classroom. After the student links a user account, you can see the associated user account in the roster. You can also see when the student accepts or submits an assignment.
+When you first share the URL for an assignment with a student, the student must sign into {% data variables.product.product_name %} with a personal account to link the personal account to an identifier for the classroom. After the student links a personal account, you can see the associated personal account in the roster. You can also see when the student accepts or submits an assignment.
 
 ![Classroom roster](/assets/images/help/classroom/roster-hero.png)
 
@@ -46,7 +48,7 @@ You must authorize the OAuth app for {% data variables.product.prodname_classroo
   !["New classroom" button](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-After you create a classroom, you can begin creating assignments for students. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+After you create a classroom, you can begin creating assignments for students. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," or "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
 ## Creating a roster for your classroom
 

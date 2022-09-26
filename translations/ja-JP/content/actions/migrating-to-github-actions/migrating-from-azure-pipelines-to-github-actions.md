@@ -15,10 +15,14 @@ topics:
   - CI
   - CD
 shortTitle: Migrate from Azure Pipelines
+ms.openlocfilehash: 5890afb4c0f0e8eae6b5981a39e68f272bff7440
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145121309'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
@@ -29,15 +33,15 @@ Azure Pipelinesと{% data variables.product.prodname_actions %}は、どちら�
 - ジョブには1つ以上のステップもしくは個別のコマンドが含まれます。
 - ステップもしくはタスクは、再利用とコミュニティとの共有が可能です。
 
-詳しい情報については、「[{% data variables.product.prodname_actions %}の中核的概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)」を参照してください。
+詳しくは、[{% data variables.product.prodname_actions %} のコア概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)に関するページをご覧ください。
 
-## 主要な差異
+## 主要な相違点
 
 Azure Pipelinesから移行する際には、以下の差異を考慮してください。
 
-- Azure Pipelineはレガシーの_クラシックエディタ_をサポートしています。これはCIの設定を、YAMLファイルでパイプラインの定義を作成する代わりに、GUIのエディタで定義できるようにするものです。 {% data variables.product.prodname_actions %}はワークフローの定義にYAMLファイルを使い、グラフィカルなエディタはサポートしていません。
+- Azure Pipeline はレガシーの _クラシック エディター_ をサポートしています。これは CI の設定を、YAML ファイルでパイプラインの定義を作成する代わりに、GUI のエディタで定義できるようにするものです。 {% data variables.product.prodname_actions %}はワークフローの定義にYAMLファイルを使い、グラフィカルなエディタはサポートしていません。
 - Azure Pipelinesでは、ジョブの定義中の一部の構造を省略できます。 たとえば、ジョブが1つだけしかないなら、ジョブを定義する必要はなく、ステップだけを定義すれば済みます。 {% data variables.product.prodname_actions %}は明示的な設定が必要であり、YAMLの構造は省略できません。
-- Azure PipelinesはYAMLファイル中で定義される_ステージ_をサポートしています。ステージは、デプロイメントのワークフローの作成に利用できます。 {% data variables.product.prodname_actions %}では、ステージは個別のYAMLワークフローファイルに分割しなければなりません。
+- Azure Pipelines は YAML ファイル中で定義される _ステージ_ をサポートしています。ステージは、デプロイのワークフローの作成に利用できます。 {% data variables.product.prodname_actions %}では、ステージは個別のYAMLワークフローファイルに分割しなければなりません。
 - オンプレミスのAzure Pipelinesビルドエージェントは、機能で選択できます。 {% data variables.product.prodname_actions %}のセルフホストランナーは、ラベルで選択できます。
 
 ## ジョブとステップの移行
@@ -50,9 +54,9 @@ Azure Pipelinesのジョブとステップは、{% data variables.product.prodna
 
 ## スクリプトのステップの移行
 
-スクリプトやシェルのコマンドを、ワークフロー中のステップとして実行できます。 Azure Pipelinesでは、スクリプトのステップは`script`キー、あるいは`bash`、`powershell`、`pwsh`といったキーで指定できます。 スクリプトはまた、[Bashタスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops)あるいは[PowerShellタスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops)への入力としても指定できます。
+スクリプトやシェルのコマンドを、ワークフロー中のステップとして実行できます。 Azure Pipelines で、スクリプトの手順を `script` キーを使用して指定するか、`bash` キーか、`powershell` キーか、`pwsh` キーで指定できます。 スクリプトは [Bash タスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops)または [PowerShell タスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops)への入力として指定することもできます。
 
-{% data variables.product.prodname_actions %}では、すべてのスクリプトは`run`キーを使って指定されます。 特定のシェルを選択するには、スクリプトを提供する際に`shell`キーを指定します。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
+{% data variables.product.prodname_actions %} では、すべてのスクリプトは `run` キーを使って指定されます。 特定のシェルを選択するには、スクリプトを提供する際に `shell` キーを指定します。 詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)に関するページを参照してください。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -105,15 +109,15 @@ jobs:
 
 ## スクリプトのエラー処理の差異
 
-Azure Pipelinesでは、`stderr`への出力があればスクリプトがエラーとなるように設定できます。 {% data variables.product.prodname_actions %}はこの設定をサポートしていません。
+Azure Pipelines では、`stderr` への出力があればスクリプトがエラーとなるように設定できます。 {% data variables.product.prodname_actions %}はこの設定をサポートしていません。
 
-{% data variables.product.prodname_actions %}は、可能な場合にはシェルを"fail fast"に設定します。これは、スクリプト中のコマンドの1つがエラーコードで終了した場合に即座にスクリプトを停止させるものです。 これに対し、Azure Pipelinesではエラーの際に即座に終了させるためには、明示的に設定しなければなりません。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)」を参照してください。
+{% data variables.product.prodname_actions %}は、可能な場合にはシェルを"fail fast"に設定します。これは、スクリプト中のコマンドの1つがエラーコードで終了した場合に即座にスクリプトを停止させるものです。 これに対し、Azure Pipelinesではエラーの際に即座に終了させるためには、明示的に設定しなければなりません。 詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)に関するページを参照してください。
 
 ## Windows上でのデフォルトシェルの差異
 
-Azure Pipelinesでは、Windowsプラットフォーム上のスクリプトのためのデフォルトシェルはコマンドシェル(_cmd.exe_)です。 {% data variables.product.prodname_actions %}では、Windowsプラットフォーム上のスクリプトのためのデフォルトシェルはPowerShellです。 PowerShellは、組み込みコマンド、変数の展開、フロー制御で多少の差異があります。
+Azure Pipelines では、Windows プラットフォーム上のスクリプトのための既定シェルはコマンドシェル (_cmd.exe_) です。 {% data variables.product.prodname_actions %}では、Windowsプラットフォーム上のスクリプトのためのデフォルトシェルはPowerShellです。 PowerShellは、組み込みコマンド、変数の展開、フロー制御で多少の差異があります。
 
-シンプルなコマンドを実行するなら、コマンドシェルのスクリプトを変更なしにPowerShellで実行できるかもしれません。 しかしほとんどの場合は、PowerShellの構文でスクリプトをアップデートするか、{% data variables.product.prodname_actions %}に対してスクリプトをPowerShellではなくコマンドシェルで実行するように指定することになります。 それには、`shell`を`cmd`と指定します。
+シンプルなコマンドを実行するなら、コマンドシェルのスクリプトを変更なしにPowerShellで実行できるかもしれません。 しかしほとんどの場合は、PowerShellの構文でスクリプトをアップデートするか、{% data variables.product.prodname_actions %}に対してスクリプトをPowerShellではなくコマンドシェルで実行するように指定することになります。 `shell` を `cmd` として指定することでこれを実行できます。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -155,13 +159,13 @@ jobs:
 </tr>
 </table>
 
-詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)」を参照してください。
+詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)に関するページを参照してください。
 
 ## 条件と式の構文の移行
 
-Azure Pipelinesと{% data variables.product.prodname_actions %}は、どちらもステップを条件付きで実行できます。 Azure Pipelinesでは、条件式は`condition`キーを使って指定します。 {% data variables.product.prodname_actions %}では、条件式は`if`キーを使って指定します。
+Azure Pipelinesと{% data variables.product.prodname_actions %}は、どちらもステップを条件付きで実行できます。 Azure Pipelines では、条件式は `condition` キーを使って指定します。 {% data variables.product.prodname_actions %}では、条件式は `if` キーを使って指定します。
 
-Azure Pipelinesは、ステップを条件付きで実行するために、式の中で関数を使います。 それに対し、{% data variables.product.prodname_actions %}はinfix表記を使います。 たとえば、Azure Pipelinesにおける`eq`関数は、{% data variables.product.prodname_actions %}では`==`演算子に置き換えなければなりません。
+Azure Pipelinesは、ステップを条件付きで実行するために、式の中で関数を使います。 それに対し、{% data variables.product.prodname_actions %}はinfix表記を使います。 たとえば、Azure Pipelines における `eq` 関数は、{% data variables.product.prodname_actions %} では `==` 演算子に置き換えなければなりません。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -203,13 +207,13 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+詳細については、「[式](/actions/learn-github-actions/expressions)」を参照してください。
 
 ## ジョブ間の依存関係
 
-Azure Pipelinesと{% data variables.product.prodname_actions %}は、どちらもジョブの依存関係を設定できます。 どちらのシステムでも、デフォルトではジョブは並行に実行されますが、ジョブの依存関係を明示的に指定できます。 Azure Pipelinesでは、これは`dependsOn`キーで行います。 {% data variables.product.prodname_actions %}では、`needs`キーを使って行います。
+Azure Pipelinesと{% data variables.product.prodname_actions %}は、どちらもジョブの依存関係を設定できます。 どちらのシステムでも、デフォルトではジョブは並行に実行されますが、ジョブの依存関係を明示的に指定できます。 Azure Pipelines では、これは `dependsOn` キーで行われます。 {% data variables.product.prodname_actions %} では、`needs` キーを使って行います。
 
-以下は、それぞれのシステムにおける構文の例です。 このワークフローは、`initial`という名前の最初のジョブを開始し、そのジョブが終わると`fanout1`と`fanout2`という名前の2つのジョブが実行されます。 最後に、それらのジョブが完了すると、`fanin`というジョブが実行されます。
+以下は、それぞれのシステムにおける構文の例です。 ワークフローは `initial` という名前の最初のジョブを開始し、そのジョブが完了すると `fanout1` と `fanout2` という名前の 2 つのジョブが実行されます。 最後に、これらのジョブが完了すると、ジョブ `fanin` が実行されます。
 
 <table class="d-block">
 <tr>
@@ -280,11 +284,11 @@ jobs:
 </tr>
 </table>
 
-詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
+詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)に関するページを参照してください。
 
 ## タスクのアクションへの移行
 
-Azure Pipelinesは_タスク_を使います。これは、複数のワークフローで再利用できるアプリケーションのコンポーネントです。 {% data variables.product.prodname_actions %}は_アクション_を使います。これは、タスクの実行とワークフローのカスタマイズに利用できます。 どちらのシステムでも、実行するタスクやアクションの名前を、必要な入力のキー/値のペアとともに指定できます。
+Azure Pipelines は _タスク_ を使います。これは、複数のワークフローで再利用できるアプリケーションのコンポーネントです。 {% data variables.product.prodname_actions %} は _アクション_ を使います。これは、タスクの実行とワークフローのカスタマイズに利用できます。 どちらのシステムでも、実行するタスクやアクションの名前を、必要な入力のキー/値のペアとともに指定できます。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -315,21 +319,21 @@ jobs:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.7'
           architecture: 'x64'
       - run: python script.py
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-ワークフロー中で利用できるアクションは、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions)で見つけることも、独自のactionsを作成することもできます。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
+ワークフローで使用できるアクションは [、{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) にあります。または、独自のアクションを作成することもできます。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。

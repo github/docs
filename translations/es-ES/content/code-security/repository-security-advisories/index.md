@@ -1,7 +1,7 @@
 ---
-title: Managing repository security advisories for vulnerabilities in your project
-shortTitle: Asesorías de seguridad de repositorio
-intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using repository security advisories.'
+title: Administrar las advertencias de seguridad de vulnerabilidades en tu proyecto
+shortTitle: Repository security advisories
+intro: 'Debate, arregla y divulga las vulnerabilidades de seguridad en tus repositorios utilizando asesorías de seguridad de repositorios.'
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
@@ -25,5 +25,11 @@ children:
   - /publishing-a-repository-security-advisory
   - /editing-a-repository-security-advisory
   - /withdrawing-a-repository-security-advisory
+ms.openlocfilehash: 43efe7ceaf307da4a8a7c02c45f744a4967b05b0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145119385'
 ---
 

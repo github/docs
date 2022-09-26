@@ -17,6 +17,12 @@ children:
   - /disabling-oauth-app-access-restrictions-for-your-organization
   - /approving-oauth-apps-for-your-organization
   - /denying-access-to-a-previously-approved-oauth-app-for-your-organization
-shortTitle: 限制访问组织数据
+shortTitle: Restrict access to organization data
+ms.openlocfilehash: c4d45a93f4fb45adc65dc04151bd58b6ee823344
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130338'
 ---
 

@@ -11,21 +11,26 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: abc74dfd4aa65035405fd956c6438a487381284b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145068471'
 ---
-
 ## GraphQLの用語
 
-GitHub GraphQL APIは、GitHub REST APIからのアーキテクチャ及び概念的な移行を表すものです。 GraphQL APIの[リファレンスドキュメント](/graphql)では、いくつかの新しい用語が登場することになるでしょう。
+GitHub GraphQL APIは、GitHub REST APIからのアーキテクチャ及び概念的な移行を表すものです。 GraphQL API の[リファレンス ドキュメント](/graphql)では、いくつかの新しい用語が登場することになるでしょう。
 
 ## スキーマ
 
-スキーマは、GraphQL APIの型システムを定義します。 これは、クライアントがアクセスできる、存在しうるデータ（オブジェクト、フィールド、リレーションシップ、すべて）の完全な集合を記述します。 クライアントからの呼び出しは、スキーマに対して[検証](https://graphql.github.io/learn/validation/)され、[実行](https://graphql.github.io/learn/execution/)されます。 クライアントは、[イントロスペクション](#discovering-the-graphql-api)を通じてスキーマに関する情報を見つけます。 スキーマはGraphQL APIサーバー上にあります。 詳しい情報については「[GraphQL APIを見つける](#discovering-the-graphql-api)」を参照してください。
+スキーマは、GraphQL APIの型システムを定義します。 これは、クライアントがアクセスできる、存在しうるデータ（オブジェクト、フィールド、リレーションシップ、すべて）の完全な集合を記述します。 クライアントからの呼び出しは、スキーマに対して[検証](https://graphql.github.io/learn/validation/)され、[実行](https://graphql.github.io/learn/execution/)されます。 クライアントは、[イントロスペクション](#discovering-the-graphql-api)を使用してスキーマに関する情報を確認できます。 スキーマはGraphQL APIサーバー上にあります。 詳細については、「[GraphQL API の検出](#discovering-the-graphql-api)」を参照してください。
 
 ## フィールド
 
-フィールドは、オブジェクトから取り出せるデータの単位です。 [公式GraphQLドキュメント](https://graphql.github.io/learn/schema/)は「GraphQLクエリ言語は、基本的にオブジェクト上のフィールドを選択するものです」と述べています。
+フィールドは、オブジェクトから取り出せるデータの単位です。 [GraphQL の公式ドキュメント](https://graphql.github.io/learn/schema/)では、「GraphQL クエリ言語は、基本的にオブジェクトのフィールドを選択するものです」と記載されています。
 
-[公式の仕様](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields)も、フィールドについて述べています。
+[公式仕様](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields)では、フィールドについても次のように記載されています。
 
 > すべてのGraphQLの操作は、明確な形のレスポンスが保証されるよう、スカラー値を返すフィールドまで降りた指定をしなければなりません。
 
@@ -33,13 +38,13 @@ GitHub GraphQL APIは、GitHub REST APIからのアーキテクチャ及び概�
 
 ## 引数
 
-引数は、特定のフィールドに添付されるキー/値ペアの集合です。 フィールドの中には、引数を必要とするものがあります。 [ミューテーション](/graphql/guides/forming-calls-with-graphql#about-mutations)は引数として入力オブジェクトを必要とします。
+引数は、特定のフィールドに添付されるキー/値ペアの集合です。 フィールドの中には、引数を必要とするものがあります。 [ミューテーション](/graphql/guides/forming-calls-with-graphql#about-mutations)では、引数として入力オブジェクトが要求されます。
 
-## Implementation
+## 実装
 
-GraphQLのスキーマは、_implements_という語を使ってオブジェクトが[インターフェース](/graphql/reference/interfaces)からどのように継承するかを定義することがあります。
+GraphQL スキーマでは、_実装_ という用語を使用して、オブジェクトが [インターフェイス](/graphql/reference/interfaces)からどのように継承されるかを定義することがあります。
 
-以下は、インターフェース`X`とオブジェクト`Y`の仮想的な例です。
+以下は、インターフェース `X` とオブジェクト `Y` を定義するスキーマの考案された例です。
 
 ```
 interface X {
@@ -54,33 +59,33 @@ type Y implements X {
 }
 ```
 
-これは、オブジェクト`Y`がインターフェース`X`と同じフィールド/引数/返値型を必要とし、一方でオブジェクト`Y`固有の新たなフィールドを追加しているということです。 （`!`はそのフィールドが必須だという意味です）
+これは、オブジェクト `Y` でインターフェース `X` と同じフィールド/引数/戻り値の型が必要とされる一方で、オブジェクト `Y` 固有の新たなフィールドを追加する必要があるということです。 (`!` はそのフィールドが必須であることを意味します。)
 
 リファレンスドキュメントには、以下のような記述があります。
 
-* 各[オブジェクト](/graphql/reference/objects)は、**Implements**の下に_継承元の_インターフェースを並べます。
+* 各 [オブジェクト](/graphql/reference/objects) には、継承元のインターフェイス _が_ **[実装**] の下に一覧表示されます。
 
-* 各[インターフェース](/graphql/reference/interfaces)は、** Implementations**の下に_継承先_のオブジェクトを並べます。
+* 各 [インターフェイス](/graphql/reference/interfaces) には、継承 _するオブジェクトが_ **[実装]** の下に一覧表示されます。
 
-## コネクション
+## Connection
 
-コネクションを使うと、同じ呼び出しの一部として関連するオブジェクトに対するクエリを実行できます。 コネクションを使うと、REST APIでは複数の呼び出しを使うような場合に、単一のGraphQL呼び出しを使うことができます。 詳しい情報については「[RESTからGraphQLへの移行](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
+コネクションを使うと、同じ呼び出しの一部として関連するオブジェクトに対するクエリを実行できます。 コネクションを使うと、REST APIでは複数の呼び出しを使うような場合に、単一のGraphQL呼び出しを使うことができます。 詳細については、「[REST から GraphQL への移行](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
 点を線でつなぎ、グラフを図示すると役立ちます。 点はノードで、線はエッジです。 コネクションは、ノード間の関係を定義します。
 
-## エッジ
+## Edge
 
-エッジは、ノード間のコネクションを表します。 コネクションに対してクエリを行うと、そのエッジをトラバースしてノードを取得することになります。 すべての`edges`フィールドは`node`フィールドと`cursor`フィールドを持ちます。 カーソルは[ページネーション](https://graphql.github.io/learn/pagination/)に使われます。
+エッジは、ノード間のコネクションを表します。 コネクションに対してクエリを行うと、そのエッジをトラバースしてノードを取得することになります。 すべての `edges` フィールドには、`node` フィールドと `cursor` フィールドがあります。 カーソルは[改ページ位置の自動修正](https://graphql.github.io/learn/pagination/)に使用されます。
 
-## ノード
+## Node
 
-_ノード_ はオブジェクトの総称です。 ノードは直接ルックアップすることもできますが、コネクションを通じて関連するノードにアクセスすることもできます。 [スカラー](/graphql/reference/scalars)を返さない`node`を指定する場合は、すべてのフィールドがスカラーを返すまでサブフィールドを含めなければなりません。 REST APIを通じてノードIDにアクセスし、それらをGraphQLクエリで利用することに関する情報については、「[グローバルノードIDの利用](/graphql/guides/using-global-node-ids)」を参照してください。
+_ノード_ はオブジェクトの総称です。 ノードは直接ルックアップすることもできますが、コネクションを通じて関連するノードにアクセスすることもできます。 [スカラー](/graphql/reference/scalars)を返さない `node` を指定する場合は、すべてのフィールドでスカラーが返されるまでサブフィールドを含める必要があります。 REST API を通じてノード ID にアクセスし、それらを GraphQL クエリで使用する方法について詳しくは、「[グローバル ノード ID を使用する](/graphql/guides/using-global-node-ids)」を参照してください。
 
 ## GraphQL APIの発見
 
-GraphQLは[イントロスペクション](https://graphql.github.io/learn/introspection/)ができます。 これはすなわち、GraphQLスキーマに関する詳細をクエリできるということです。
+GraphQL は[内省的](https://graphql.github.io/learn/introspection/)です。 これはすなわち、GraphQLスキーマに関する詳細をクエリできるということです。
 
-* `__schema`に対してクエリを行い、スキーマ中で定義されているすべての型と、それぞれについての詳細を取得してください。
+* `__schema` に対してクエリを実行して、スキーマで定義されているすべての型を一覧表示させ、それぞれの詳細を取得します。
 
   ```graphql
   query {
@@ -97,7 +102,7 @@ GraphQLは[イントロスペクション](https://graphql.github.io/learn/intro
   }
   ```
 
-* 任意の型について、`__type`にクエリを行って詳細を得てください。
+* `__type` に対してクエリを実行して、任意の型の詳細を取得します。
 
   ```graphql
   query {
@@ -112,21 +117,21 @@ GraphQLは[イントロスペクション](https://graphql.github.io/learn/intro
   }
   ```
 
-* `GET`リクエストを通じてスキーマの_イントロスペクションクエリ_を実行することもできます。
+* `GET` 要求を使用して、スキーマの _イントロスペクション クエリ_ を実行することもできます。
 
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
   ```
-
+  
   {% note %}
 
-  **ノート**: `"message": "Bad credentials"`あるいは`401 Unauthorized`というレスポンスが返された場合は、有効なトークンを使っているか確認してください。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+  **注**: `"message": "Bad credentials"` または `401 Unauthorized` 応答を受け取った場合は、有効なトークンを使用していることを確認してください。 詳細については、[個人アクセス トークンの作成](/github/authenticating-to-github/creating-a-personal-access-token)に関する記事を参照してください。 
 
   {% endnote %}
-
-  結果はJSONで返されるので、読んだり検索したりしやすくするために、プリティプリントすることをおすすめします。 そのためには、[jq](https://stedolan.github.io/jq/)のようなコマンドラインツールを使ったり、結果を`python -m json.tool`にパイプしたりすることができます。
-
-  あるいは、`idl`メディアタイプを渡して、IDLフォーマットで結果を返してもらうこともできます。これはスキーマの圧縮バージョンです。
+  
+  結果はJSONで返されるので、読んだり検索したりしやすくするために、プリティプリントすることをおすすめします。 [jq](https://stedolan.github.io/jq/) などのコマンドライン ツールを使用したり、この目的のために結果を `python -m json.tool` にパイプしたりできます。
+  
+  あるいは、`idl` メディア型を渡して、IDL 形式で結果を返してもらうこともできます。これはスキーマの圧縮バージョンです。
 
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" -H "Accept: application/vnd.github.v4.idl" \
@@ -135,8 +140,8 @@ GraphQLは[イントロスペクション](https://graphql.github.io/learn/intro
 
   {% note %}
 
-  **ノート**: イントロスペクションクエリは、おそらくGraphQLで実行する唯一の`GET`リクエストです。 ボディを渡す場合、GraphQLのリクエストメソッドはクエリでもミューテーションでも`POST`です。
+  **注**: イントロスペクション クエリは、おそらく GraphQL で実行する唯一の `GET` 要求です。 本文を渡す場合、GraphQL の要求メソッドは、クエリでもミューテーションでも `POST` です。
 
   {% endnote %}
 
-  クエリの実行に関する詳しい情報については「[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
+  クエリの実行について詳しくは、「[GraphQL での呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。

@@ -49,7 +49,7 @@ When a job runs directly on a runner machine, the service running in the Docker 
 
 You can use the `services` keyword to create service containers that are part of a job in your workflow. For more information, see [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
 
-This example creates a service called `redis` in a job called `container-job`. The Docker host in this example is the `node:10.18-jessie` container.
+This example creates a service called `redis` in a job called `container-job`. The Docker host in this example is the `node:16-bullseye` container.
 
 {% raw %}
 ```yaml{:copy}
@@ -62,7 +62,7 @@ jobs:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
-    container: node:10.18-jessie
+    container: node:16-bullseye
 
     # Service containers to run with `container-job`
     services:

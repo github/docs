@@ -23,7 +23,7 @@ The regulation applies to all recurring transactions, including:
 - {% data variables.product.prodname_marketplace %} purchases
 - {% data variables.product.prodname_sponsors %} transactions
 - Git Large File Storage purchases
-- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_codespaces %} consumption
+- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %} consumption
 
 In order to minimize disruption, recurring payments for our affected customers were paused on October 29th, 2021. Paid features and services have remained available to customers impacted by the RBI regulation.
 
@@ -67,3 +67,4 @@ Existing sponsorships will remain in place during this period and maintainers wi
   ![One-time payment edit summary](/assets/images/help/billing/payment-summary-edit.png)
 6. Once payment for the current billing cycle has been successfully made, the **Pay now** button on your "Billing & plans" page will be disabled until your next payment is due.
   ![One-time payment pay now button disabled](/assets/images/help/billing/pay-now-button-disabled.png)
+  

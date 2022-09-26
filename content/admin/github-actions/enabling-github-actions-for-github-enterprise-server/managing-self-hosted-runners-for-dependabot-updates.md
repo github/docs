@@ -25,7 +25,7 @@ To use {% data variables.product.prodname_dependabot_updates %} on {% data varia
 
 ## Prerequisites
 
-{% if dependabot-updates-github-connect %}
+{% ifversion dependabot-updates-github-connect %}
 Configuring self-hosted runners is only one step in the middle of the process for enabling {% data variables.product.prodname_dependabot_updates %}. There are several steps you must follow before these steps, including configuring {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% else %}
 Before you configure self-hosted runners for {% data variables.product.prodname_dependabot_updates %}, you must:
@@ -42,8 +42,8 @@ After you configure {% data variables.product.product_location %} to use {% data
 
 Any VM that you use for {% data variables.product.prodname_dependabot %} runners must meet the requirements for self-hosted runners. In addition, they must meet the following requirements.
 
-- Linux operating system
-- Git installed
+- Linux operating system{% ifversion ghes < 3.5 %}
+- Git installed{% endif %}
 - Docker installed with access for the runner users:
   - We recommend installing Docker in rootless mode and configuring the runners to access Docker without `root` privileges.
   - Alternatively, install Docker and give the runner users raised privileges to run Docker.
@@ -68,9 +68,9 @@ If you specify more than 14 concurrent runners on a VM, you must also update the
 
 1. Provision self-hosted runners, at the repository, organization, or enterprise account level. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
-2. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:
+2. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:{% ifversion ghes < 3.5 %}
 
-   - Verify that Git is installed: `command -v git`
+   - Verify that Git is installed: `command -v git`{% endif %}
    - Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
      - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
      - Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)

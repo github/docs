@@ -1,8 +1,8 @@
 ---
-title: Testing dev container configuration changes on a prebuild-enabled branch
+title: Prueba de los cambios de configuración del contenedor de desarrollo en una rama habilitada para precompilación
 shortTitle: Test dev container changes
 allowTitleToDifferFromFilename: true
-intro: When you change the dev container configuration for a branch that's enabled for prebuilds you should test your changes in a codespace.
+intro: 'Al cambiar la configuración del contenedor de desarrollo de una rama habilitada para las precompilaciones, debes probar los cambios en un codespace.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,24 +12,27 @@ topics:
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with write permissions to a repository can create or edit the dev container configuration for a branch.
+ms.openlocfilehash: ad89e9242f27c00bf95dab308b8ce571e3d3b1b2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147548076'
 ---
+Los cambios realizados en la configuración del contenedor de desarrollo para una rama habilitada para precompilación darán lugar a una actualización de la configuración del codespace y la precompilación asociada. Por tanto, es importante probar estos cambios en un codespace de una rama de prueba antes de confirmarlos en una rama del repositorio que se use de forma activa. Esto garantizará que no se introducen cambios importantes para el equipo.
 
-{% data reusables.codespaces.prebuilds-beta-note %}
+Para más información, vea "[Introducción a los contenedores de desarrollo](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
-Any changes you make to the dev container configuration for a prebuild-enabled branch will result in an update to the codespace configuration and the associated prebuild template. It’s therefore important to test such changes in a codespace from a test branch before committing your changes to a branch of your repository that's actively used. This will ensure you’re not introducing breaking changes for your team.
+## Prueba de los cambios en la configuración del contenedor de desarrollo
 
-Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project)".
-
-## Testing changes to the dev container configuration
-
-1. Create a codespace from the prebuild-enabled branch whose dev container you want to change. For more information, see "[Creating a codespace ](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
-1. In the codespace, check out a test branch. Para obtener más información, consulta la sección "[Utilizar el control de código fuente en tu codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#creating-or-switching-branches)."
-1. Make the required changes to the dev container configuration.
-1. Apply the changes by rebuilding the container. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)".
-1. After everything looks good, we also recommend creating a new codespace from your test branch to ensure everything is working. You can then commit your changes to your repository's default branch, or an active feature branch, triggering an update of the prebuild template for that branch.
+1. Cree un codespace a partir de la rama habilitada para precompilación cuyo contenedor de desarrollo quiera cambiar. Para más información, vea "[Creación de un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+1. En el codespace, extraiga del repositorio una rama de prueba. Para más información, vea "[Uso del control de código fuente en el codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#creating-or-switching-branches)".
+1. Realice los cambios necesarios en la configuración del contenedor de desarrollo.
+1. Recompile el contenedor para aplicar los cambios. Para más información, vea "[Introducción a los contenedores de desarrollo](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)".
+1. Cuando todo parezca correcto, también se recomienda crear un codespace desde la rama de prueba para asegurarse de que todo funciona. Después, puede confirmar los cambios en la rama predeterminada del repositorio o en una rama de características activa, lo que desencadena una actualización de la precompilación para esa rama.
 
    {% note %}
-
-   **Note**: Creating this codespace will take longer than usual because it will not be created from a prebuild.
-
+   
+   **Nota**: La creación de este codespace tardará más de lo habitual porque no se creará a partir de una precompilación.
+   
    {% endnote %}

@@ -1,30 +1,33 @@
 ---
 title: Monitorear tus jobs actuales
-intro: 'Monitor how {% data variables.product.prodname_dotcom %}-hosted runners are processing jobs in your organization or enterprise, and identify any related constraints.'
+intro: 'Supervisa cómo los ejecutores hospedados en {% data variables.product.prodname_dotcom %} están procesando trabajos en tu organización o empresa e identifica las restricciones relacionadas.'
 versions:
   feature: github-runner-dashboard
-shortTitle: Monitorear tus jobs actuales
+shortTitle: Monitoring your current jobs
+ms.openlocfilehash: 86f1551e1908106126516b489c436922b15ce60d
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145121065'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Visualización de trabajos activos en la organización o la empresa
 
-## Viewing active jobs in your organization or enterprise
+Puede obtener una lista de todos los trabajos que se ejecutan actualmente en ejecutores hospedados en {% data variables.product.prodname_dotcom %} en la organización o la empresa.
 
-You can get a list of all jobs currently running on {% data variables.product.prodname_dotcom %}-hosted runners in your organization or enterprise.
+{% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %} {% data reusables.actions.github-hosted-runners-table-entry %}
+1. Revise la sección "Trabajos activos", que contiene una lista de todos los trabajos que se ejecutan actualmente en ejecutores hospedados en {% data variables.product.prodname_dotcom %}.
 
-{% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.github-hosted-runners-table-entry %}
-1. Review the "Active jobs" section, which contains a list of all jobs currently running on {% data variables.product.prodname_dotcom %}-hosted runners.
+  ![Captura de pantalla de la lista de trabajos activos](/assets/images/help/settings/actions-runner-active-jobs.png)
 
-  ![Screenshot of the list of active jobs](/assets/images/help/settings/actions-runner-active-jobs.png)
+## Visualización de trabajos en cola en la organización o la empresa
 
-## Viewing queued jobs in your organization or enterprise
+Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} permiten ejecutar trabajos simultáneamente y el número máximo de trabajos simultáneos variará en función del plan. Si alcanza el número máximo de trabajos simultáneos, los nuevos trabajos comenzarán a entrar en una cola. Para más información sobre el número de trabajos simultáneos disponibles en el plan, vea "[Límites de uso, facturación y administración](/actions/learn-github-actions/usage-limits-billing-and-administration)".
 
-{% data variables.product.prodname_dotcom %}-hosted runners allow you to run jobs concurrently, and the maximum number of concurrent jobs will vary depending on your plan. If you reach the maximum number of concurrent jobs, any new jobs will start to enter a queue. To find out more about the number of concurrent jobs available to your plan, see "[Usage limits, billing, and administration](/actions/learn-github-actions/usage-limits-billing-and-administration)."
+En el procedimiento siguiente se muestra cómo comprobar el número máximo de trabajos simultáneos que se pueden ejecutar.
 
-The following procedure demonstrates how to check the maximum number of concurrent jobs you can run.
-
-{% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.github-hosted-runners-table-entry %}
-1. Review the "All jobs usage" section, which lists the number of active jobs and the maximum number of jobs you can run. In this example, `9` jobs are currently running out of a maximum of `180`. ![Screenshot of the maximum jobs for an account](/assets/images/help/settings/github-hosted-runners-max-jobs.png)
+{% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %} {% data reusables.actions.github-hosted-runners-table-entry %}
+1. Revise la sección "Todo el uso de trabajos", en la que se enumera el número de trabajos activos y el número máximo de trabajos que puede ejecutar. En este ejemplo, hay `9` trabajos en ejecución, de un máximo de `180`.
+  ![Captura de pantalla de los trabajos máximos para una cuenta](/assets/images/help/settings/github-hosted-runners-max-jobs.png)

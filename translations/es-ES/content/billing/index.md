@@ -1,7 +1,7 @@
 ---
 title: Facturación y pagos en GitHub
-shortTitle: Facturación y pagos
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes tanto mejorar como bajar de nivel la suscripción de tu cuenta y administrar tu configuración de facturación en cualquier momento.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} factura el {% ifversion ghec or ghae %}uso de plazas de licencia de {% data variables.product.product_name %}{% elsif ghes %} de los miembros de tu empresa para {% data variables.product.product_name %}{% ifversion ghes %} y para cualquier servicio adicional que compres{% endif %}{% endif %}. {% endif %}{% ifversion ghec %} Puedes ver tu suscripción y administrar tus ajustes de facturación en cualquier momento. {% endif %}{% ifversion fpt or ghec %} También puedes ver el uso y administrar los límites de gastos de las características de {% data variables.product.product_name %}, tales como las {% data variables.product.prodname_actions %}, el {% data variables.product.prodname_registry %} y los {% data variables.product.prodname_codespaces %}.{% endif %}'
+shortTitle: Billing and payments
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes tanto mejorar como bajar de nivel la suscripción de tu cuenta y administrar tu configuración de facturación en cualquier momento.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} factura el {% ifversion ghec or ghae %}uso de plazas de licencia de {% data variables.product.product_name %}{% elsif ghes %} de los miembros de tu empresa para {% data variables.product.product_name %}{% ifversion ghes %} y para cualquier servicio adicional que compres{% endif %}{% endif %}. {% endif %}{% ifversion ghec %} Puedes ver tu suscripción y administrar tus ajustes de facturación en cualquier momento. {% endif %}{% ifversion fpt or ghec %} También puedes ver el uso y administrar los límites de gastos de las características de {% data variables.product.product_name %}, tales como {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} y {% data variables.product.prodname_github_codespaces %}.{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
@@ -43,15 +43,22 @@ topics:
 children:
   - /managing-your-github-billing-settings
   - /managing-billing-for-your-github-account
+  - /managing-your-license-for-github-enterprise
+  - /managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
   - /managing-billing-for-github-actions
   - /managing-billing-for-github-codespaces
   - /managing-billing-for-github-packages
-  - /managing-your-license-for-github-enterprise
-  - /managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
+  - /managing-billing-for-github-copilot
   - /managing-billing-for-github-advanced-security
   - /managing-billing-for-github-sponsors
   - /managing-billing-for-github-marketplace-apps
   - /managing-billing-for-git-large-file-storage
   - /setting-up-paid-organizations-for-procurement-companies
+ms.openlocfilehash: 816bfb699135974a180ccf350aa04bc36dfbf25a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147110902'
 ---
 

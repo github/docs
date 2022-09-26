@@ -1,6 +1,6 @@
 ---
 title: Restoring a deleted organization
-intro: "You can partially restore an organization that was previously deleted on {% data variables.product.product_location %}."
+intro: 'You can partially restore an organization that was previously deleted on {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -9,7 +9,7 @@ topics:
   - Enterprise
   - Organizations
 shortTitle: Restore organization
-permissions: Site administers can restore an organization on {% data variables.product.product_name %}.
+permissions: 'Site administers can restore an organization on {% data variables.product.product_name %}.'
 ---
 
 ## About organization restoration

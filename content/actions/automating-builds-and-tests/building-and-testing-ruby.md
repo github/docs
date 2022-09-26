@@ -38,6 +38,8 @@ To get started quickly, add the starter workflow to the `.github/workflows` dire
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Ruby
 
 on:
@@ -102,6 +104,8 @@ The full updated workflow with a matrix strategy could look like this:
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Ruby CI
 
 on:
@@ -144,9 +148,11 @@ steps:
 - run: bundle install
 ```
 
+{% ifversion actions-caching %}
+
 ### Caching dependencies
 
-If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
 To enable caching, set the following.
 
@@ -159,11 +165,11 @@ steps:
 ```
 {% endraw %}
 
-This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by Actions and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
+This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
 
 **Caching without setup-ruby**
 
-For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+For greater control over caching, you can use the `actions/cache` action directly. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 ```yaml
 steps:
@@ -195,12 +201,16 @@ steps:
     bundle install --jobs 4 --retry 3
 ```
 
+{% endif %}
+
 ## Matrix testing your code
 
 The following example matrix tests all stable releases and head versions of MRI, JRuby and TruffleRuby on Ubuntu and macOS.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Matrix Testing
 
@@ -235,6 +245,8 @@ The following example installs `rubocop` and uses it to lint all files. For more
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Linting
 
 on: [push]
@@ -261,6 +273,8 @@ You can store any access tokens or credentials needed to publish your package us
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Ruby Gem
 
 on:
@@ -275,10 +289,10 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

@@ -12,22 +12,26 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Ver ramas
+shortTitle: View branches
+ms.openlocfilehash: 286c8eb8c717f5a002db0059e65c416ccc3981e8
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145136932'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.navigate-to-branches %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.navigate-to-branches %}
 3. Utiliza la navegación en la parte superior de la página para ver las listas de ramas específicas:
-    - **Tus ramas**: En los repositorios a los cuales hayas subido código, la vista de **Tuyos** muestra todas las ramas que has subido, excluyendo la predeterminada, con las ramas más recientes primero.
-    - **Ramas activas**: la vista **Active** (Activas) muestra todas las ramas a las que alguien ha confirmado dentro de los últimos tres meses, ordenadas de forma descendente desde las ramas con las confirmaciones más recientes.
-    - **Ramas en espera**: la vista **Stale** (En espera) muestra todas las ramas en las que nadie ha confirmado durante los últimos tres meses, ordenadas de forma descendente desde las confirmaciones más antiguas. Utiliza esta lista para determinar [qué ramas eliminar](/articles/creating-and-deleting-branches-within-your-repository).
-    - **Todas las ramas**: la vista **All** (Todas) muestra la rama por defecto, seguida por todas las otras ramas ordenadas de forma descendente desde las ramas con las confirmaciones más recientes.
+    - **Ramas**: en repositorios a los que tiene acceso de inserción, en la vista **Sus** se muestran todas las ramas en las que ha realizado inserciones, excepto la predeterminada, con las ramas más recientes primero.
+    - **Ramas activas**: en la vista **Activas** se muestran todas las ramas en las que alguien ha realizado confirmaciones sen los últimos tres meses, ordenadas por las ramas con las confirmaciones más recientes primero.
+    - **Ramas inactivas**: en la vista **Inactivas** se muestran todas las ramas en las que nadie ha realizado confirmaciones sen los últimos tres meses, ordenadas por las ramas con las confirmaciones más antiguas primero. Use esta lista para determinar [qué ramas se van a eliminar](/articles/creating-and-deleting-branches-within-your-repository).
+    - **Todas las ramas**: en la vista **Todas** se muestra la rama predeterminada, seguida de todas las demás ordenadas por las ramas con las confirmaciones más recientes primero.
 
 4. Opcionalmente, utiliza el campo de búsqueda en la parte superior derecha. Este proporciona una búsqueda de sub-secuencias simple y que distingue entre mayúsculas y minusculas para el nombre de rama. Esta no es compatible con ninguna sintaxis de consulta adicional.
 
 ![La página de ramas para el repositorio Atom](/assets/images/help/branches/branches-overview-atom.png)
 
-## Leer más
+## Información adicional
 
-- "[Crear y eliminar ramas dentro de tu repositorio](/articles/creating-and-deleting-branches-within-your-repository/)"
-- "[Eliminar ramas no utilizadas](/articles/deleting-unused-branches)"
+- "[Creación y eliminación de ramas en el repositorio](/articles/creating-and-deleting-branches-within-your-repository)"
+- "[Eliminación de ramas sin usar](/articles/deleting-unused-branches)"

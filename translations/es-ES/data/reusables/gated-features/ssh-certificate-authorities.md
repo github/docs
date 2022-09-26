@@ -1,1 +1,0 @@
-La compatibilidad para las autoridades de certificados SSH se encuentra disponible con {% data variables.product.prodname_ghe_cloud %}{% ifversion ghae %}, {% data variables.product.prodname_ghe_managed %},{% endif %} y con {% data variables.product.prodname_ghe_server %} 2.19+. Para obtener más información, consulta la sección "[Productos de GitHub](/articles/githubs-products)".

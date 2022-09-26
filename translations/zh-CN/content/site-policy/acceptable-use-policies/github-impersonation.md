@@ -1,5 +1,5 @@
 ---
-title: GitHub Impersonation
+title: 在 GitHub 上冒充他人
 shortTitle: Impersonation
 versions:
   fpt: '*'
@@ -11,13 +11,13 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#impersonation
 ---
 
-You may not misrepresent your identity or your association with another person or organization. This includes doing any of the following in a way that misleads or deceives others:
+您不得歪曲您的身份或者您与他人或组织的关系。 这包括以误导或欺骗他人的方式执行以下任何操作：
 
-- Copying another user's avatar or other personal profile information
-- Posting content under another user's email address
-- Using a deceptively similar username, organization name, or other namespace
-- Otherwise posing as another individual or organization
+- 复制其他用户的头像或其他个人资料信息
+- 使用其他用户的电子邮件地址发布内容
+- 使用看似相似的用户名、组织名称或其他命名空间
+- 以其他方式冒充其他个人或组织
 
-Impersonation is a form of harassment and violation of this policy may lead to loss of access to your account.
+冒充是一种骚扰形式，违反此政策可能会导致无法访问您的帐户。
 
-Please note, having a username similar to another is not necessarily impersonation. GitHub will take context into account. For example, as in cases involving claims of [misinformation or disinformation](/github/site-policy/github-misinformation-and-disinformation), we generally allow parody and satire that is in line with our [Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
+请注意，用户名与其他人的用户名相似并不一定是冒充。 GitHub 将考虑背景信息。 例如，在涉及[错误信息或虚假信息](/github/site-policy/github-misinformation-and-disinformation)主张的情况下，我们通常允许符合我们[可接受使用政策](/github/site-policy/github-acceptable-use-policies)的模仿和讽刺。

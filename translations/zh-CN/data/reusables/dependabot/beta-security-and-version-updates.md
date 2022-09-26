@@ -11,7 +11,7 @@
 
 {% endif %}
 
-{% ifversion ghae-issue-5867 %}
+{% ifversion ghae = 3.4 %}
 
 {% note %}
 

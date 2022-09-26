@@ -1,3 +1,0 @@
-## Referencias
-
-Una referencia (`git ref`) es simplemente un archivo que contiene un hash SHA-1 de una confirmación de Git. Cuando te refieres a una confirmación de Git, puedes utilizar la referencia de Git, la cual es un nombre fácil de recordar, en vez de utilizar el hash. La referencia de Git puede reescribirse para apuntar a una confirmación nueva. Una rama es solo una referencia de Git que almacena el hash de la confirmación de Git nueva. Estas terminales te permiten leer y escribir [referencias](https://git-scm.com/book/en/v1/Git-Internals-Git-References) en tu base de datos de Git en {% data variables.product.product_name %}.

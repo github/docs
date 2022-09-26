@@ -1,6 +1,7 @@
 ---
-title: Codespaces 的 dotfiles 疑难解答
-intro: 常见 dotfiles 问题的疑难解答步骤。
+title: Troubleshooting dotfiles for GitHub Codespaces 
+allowTitleToDifferFromFilename: true
+intro: Troubleshooting steps for common dotfiles issues.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,12 +12,15 @@ topics:
 shortTitle: Dotfiles
 ---
 
-如果代码空间无法从 dotfiles 中选取配置设置，则应执行以下调试步骤。
+If your codespace fails to pick up configuration settings from dotfiles, you should work through the following debugging steps.
 
-1. 确保您的 dotfiles 仓库是公开的。 如果您的代码空间中有密钥或敏感数据，请使用[代码空间密钥](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)，而不是私人 dotfiles。
-2. 检查 `/workspaces/.codespaces/.persistedshare/dotfiles`，查看您的 dotfiles 是否被克隆。
-    - 如果您的 dotfiles 被克隆，请尝试手动重新运行安装脚本以验证其可执行性。
-    - 如果您的 dotfiles 未被克隆，请检查 `/workspaces/.codespaces/.persistedshare/EnvironmentLog.txt` 是否存在克隆问题。
-3. 检查 `/workspaces/.codespaces/.persistedshare/creation.log` 是否有可能的问题。 更多信息请参阅[创建日志](/codespaces/troubleshooting/codespaces-logs#creation-logs)。
+1. Enable dotfiles by selecting **Automatically install dotfiles** in [your personal {% data variables.product.prodname_github_codespaces %} settings](https://github.com/settings/codespaces).
 
-如果已正确选取 dotfiles 中的配置，但部分配置与代码空间不兼容，请使用 `$CODESPACES` 环境变量为特定于代码空间的配置设置添加条件逻辑。
+   ![The 'Automatically install dotfiles' option](/assets/images/help/codespaces/automatically-install-dotfiles.png)
+
+1. Check `/workspaces/.codespaces/.persistedshare/dotfiles` to see if your dotfiles were cloned.
+   - If your dotfiles were cloned, try manually re-running your install script to verify that it is executable.
+   - If your dotfiles were not cloned, check `/workspaces/.codespaces/.persistedshare/EnvironmentLog.txt` to see if there was a problem cloning them.
+1. Check `/workspaces/.codespaces/.persistedshare/creation.log` for possible issues. For more information, see [Creation logs](/codespaces/troubleshooting/codespaces-logs#creation-logs).
+
+If the configuration from your dotfiles is correctly picked up, but part of the configuration is incompatible with codespaces, use the `$CODESPACES` environment variable to add conditional logic for codespace-specific configuration settings.

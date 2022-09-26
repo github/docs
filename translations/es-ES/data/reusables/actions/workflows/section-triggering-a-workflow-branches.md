@@ -1,18 +1,26 @@
-Al usar los eventos `pull_request` y `pull_request_target`, puedes configurar un flujo de trabajo para que se ejecute únicamente para las solicitudes de cambio que apuntan a ramas específicas.
+---
+ms.openlocfilehash: 476305b7c40430f20edb235a1c1ce73482464c90
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146064239"
+---
+Al usar los eventos `pull_request` y `pull_request_target`, puede configurar un flujo de trabajo a fin de que solo se ejecute para las solicitudes de incorporación de cambios destinadas a ramas específicas.
 
-Utiliza el filtro `branches` cuando quieras incluir patrones de nombre de rama o cuando quieras tanto incluirlos como excluirlos. Utiliza el filtro `branches-ignore` cuando solo quieras excluir los patrones de nombre de rama. No puedes utilizar tanto el filtro `branches` como `branches-ignore` para el mismo evento en un flujo de trabajo.
+Use el filtro `branches` cuando quiera incluir patrones de nombre de rama, o bien cuando quiera incluirlos y excluirlos. Use el filtro `branches-ignore` cuando solo quiera excluir patrones de nombre de rama. No puede usar los filtros `branches` y `branches-ignore` para el mismo evento de un flujo de trabajo.
 
-Si defines `branches`/`branches-ignore` y [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), el flujo de trabajo solo se ejecutará cuando ambos filtros se hayan satisfecho.
+Si define `branches`/`branches-ignore` y [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), el flujo de trabajo solo se ejecutará cuando se cumplan los dos filtros.
 
-Las palabras clave `branches` y `branches-ignore` aceptan patrones globales que utilizan caracteres como `*`, `**`, `+`, `?`, `!` y otros para empatar con más de un nombre de rama. Si un nombre contiene cualquiera de estos caracteres y quieres una coincidencia literal, necesitas escapar a cada uno de estos caracteres especiales con `\`. Para obtener más información sobre los patrones globales, consulta "[Hoja de información para filtrar patrones](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
+Las palabras clave `branches` y `branches-ignore` aceptan patrones globales que usan caracteres como `*`, `**`, `+`, `?` y `!`, entre otros, para que coincidan con más de un nombre de rama. Si un nombre contiene cualquiera de estos caracteres y quiere una coincidencia literal, necesita escapar a cada uno de estos caracteres especiales con `\`. Para obtener más información sobre los patrones globales, consulte la "[Hoja de referencia rápida de patrones de filtro](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 #### Ejemplo: Incluir ramas
 
-Los patrones que se definen en `branches` se evalúan contra el nombre de ref de Git. Por ejemplo, el siguiente flujo de trabajo se ejecutaría siempre que exista un evento `pull_request` para una solicitud de cambios que apunte a:
+Los patrones definidos en `branches` se evalúan con el nombre de referencia de Git. Por ejemplo, el siguiente flujo de trabajo se ejecutará siempre que exista un evento `pull_request` para una solicitud de incorporación de cambios destinada a:
 
-- Una rama de nombre `main` (`refs/heads/main`)
-- Una rama de nombre `mona/octocat` (`refs/heads/mona/octocat`)
-- Una rama cuyo nombre inicie con `releases/`, tal como `releases/10` (`refs/heads/releases/10`)
+- Una rama denominada `main` (`refs/heads/main`)
+- Una rama denominada `mona/octocat` (`refs/heads/mona/octocat`)
+- Una rama cuyo nombre comienza por `releases/`, como `releases/10` (`refs/heads/releases/10`)
 
 ```yaml
 on:
@@ -26,10 +34,10 @@ on:
 
 #### Ejemplo: Excluir ramas
 
-Cuando un patrón empata con el de `branches-ignore`, el flujo de trabajo no se ejecutará. Los patrones que se definen en `branches` se evalúan contra el nombre de ref de Git. Por ejemplo, el siguiente flujo de trabajo se ejecutaría siempre que haya un evento de `pull_request` a menos de que la solicitud de cambios apunte a:
+Cuando un patrón coincide con el patrón `branches-ignore`, el flujo de trabajo no se ejecutará. Los patrones definidos en `branches` se evalúan con el nombre de referencia de Git. Por ejemplo, el siguiente flujo de trabajo se ejecutará siempre que haya un evento de `pull_request` a menos de que la solicitud de incorporación de cambios esté destinada a:
 
-- Una rama de nombre `mona/octocat` (`refs/heads/mona/octocat`)
-- Una rama cuyo nombre empate con `releases/**-alpha`, tal como `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- Una rama denominada `mona/octocat` (`refs/heads/mona/octocat`)
+- Una rama cuyo nombre coincide con `releases/**-alpha`, como `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
 
 ```yaml
 on:
@@ -42,16 +50,16 @@ on:
 
 #### Ejemplo: Incluir y excluir ramas
 
-No puedes utilizar `branches` y `branches-ignore` para filtrar el mismo evento en un mismo flujo de trabajo. Si quieres tanto incluir como excluir patrones de rama para un solo evento, utiliza el filtro `branches` junto con el carácter `!` para indicar qué ramas deberían excluirse.
+No puede usar `branches` y `branches-ignore` para filtrar el mismo evento en un único flujo de trabajo. Si quiere tanto incluir como excluir patrones de rama para un solo evento, utilice el filtro `branches` junto con el carácter `!` para indicar qué ramas deberían excluirse.
 
-Si defines una rama con el carácter `!`, también debes definir por lo mismo una rama sin el carácter `!`. Si solo quieres excluir ramas, utiliza `branches-ignore` en su lugar.
+Si define una rama con el carácter `!`, también tendrá que definir al menos otra sin el carácter `!`. Si solo quiere excluir ramas, use `branches-ignore` en su lugar.
 
 El orden en que defines los patrones importa.
 
-- Un patrón negativo de coincidencia (con prefijo `!`) luego de una coincidencia positiva excluirá la ref de Git.
+- Un patrón negativo coincidente (con el prefijo `!`) después de una coincidencia positiva hará que se excluya la referencia de Git.
 - Un patrón positivo de coincidencia luego de una coincidencia negativa volverá a incluir la ref de Git.
 
-El siguiente flujo de trabajo se ejecutará en eventos de `pull_request` para las solicitudes de cambio que apunten a `releases/10` o `releases/beta/mona`, pero para aquellas que empaten con `releases/10-alpha` o `releases/beta/3-alpha`, ya que el patrón negativo `!releases/**-alpha` sigue al patrón positivo.
+El flujo de trabajo siguiente se ejecutará en eventos `pull_request` para las solicitudes de incorporación de cambios que tienen como destino `releases/10` o `releases/beta/mona`, pero no para las que tienen como destino `releases/10-alpha` o `releases/beta/3-alpha` porque el patrón negativo `!releases/**-alpha` sigue el patrón positivo.
 
 ```yaml
 on:

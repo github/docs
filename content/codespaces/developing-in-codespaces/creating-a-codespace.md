@@ -2,7 +2,6 @@
 title: Creating a codespace
 intro: You can create a codespace for a branch in a repository to develop online.
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
@@ -21,8 +20,7 @@ shortTitle: Create a codespace
 
 You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces are associated with a specific branch of a repository and the repository cannot be empty. {% data reusables.codespaces.concurrent-codespace-limit %} For more information, see "[Deleting a codespace](/github/developing-online-with-codespaces/deleting-a-codespace)."
-
+Codespaces are associated with a specific branch of a repository and the repository cannot be empty. You can create more than one codespace per repository or even per branch.
 
 When you create a codespace, a number of steps happen to create and connect you to your development environment:
 
@@ -35,7 +33,7 @@ For more information on what happens when you create a codespace, see "[Deep Div
 
 For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
 
-If you want to use Git hooks for your codespace, then you should set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`, during step 4. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created. For more information on using `postCreateCommand`, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the Visual Studio Code documentation.
+If you want to use Git hooks for your codespace, then you should set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`, during step 4. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created. For more information on using `postCreateCommand`, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -43,48 +41,77 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## Access to {% data variables.product.prodname_codespaces %}
+## Access to {% data variables.product.prodname_github_codespaces %}
 
-{% data reusables.codespaces.availability %}
+When you have access to {% data variables.product.prodname_github_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
 
-When you have access to {% data variables.product.prodname_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
+You'll have access to {% data variables.product.prodname_github_codespaces %} under the following conditions:
 
-You'll have access to codespaces under the following conditions:
+Either all of these are true:
+* You are a member, or outside collaborator, of an organization that has enabled {% data variables.product.prodname_codespaces %} and set a spending limit.
+* The organization owner has allowed you to create codespaces at the organization's expense.
+* The repository for which you want to create a codespace is owned by this organization.
 
-* You are a member of an organization that has enabled {% data variables.product.prodname_codespaces %} and set a spending limit.
-* An organization owner has granted you access to {% data variables.product.prodname_codespaces %}.
-* The repository is owned by the organization that has enabled {% data variables.product.prodname_codespaces %}.
+Or both of these are true:
+* You are participating in the beta of {% data variables.product.prodname_codespaces %} for individual users.
+* Either you own the repository for which you want to create a codespace, or it is owned by an organization of which you are either a member or an outside collaborator.
 
-{% note %}
+Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces#about-spending-limits-for-codespaces)."
 
-**Note:** Individuals who have already joined the beta with their personal {% data variables.product.prodname_dotcom %} account will not lose access to {% data variables.product.prodname_codespaces %}, however {% data variables.product.prodname_codespaces %} for individuals will continue to remain in beta.
-
-{% endnote %}
-
-Organization owners can allow all members of the organization to create codespaces, limit codespace creation to selected organization members, or disable codespace creation. For more information about managing access to codespaces within your organization, see "[Enable Codespaces for users in your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)."
-
-Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[About spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)."
-
-If you would like to create a codespace for a repository owned by your personal account or another user, and you have permission to create repositories in an organization that has enabled {% data variables.product.prodname_codespaces %}, you can fork user-owned repositories to that organization and then create a codespace for the fork. 
+Organization owners can specify who can create and use codespaces at the organization's expense. Organization owners can also prevent any codespace usage being charged to the organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)."
 
 ## Creating a codespace
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Under the repository name, use the "Branch" drop-down menu, and select the branch you want to create a codespace for.
+1. Under the repository name, use the "Branch" drop-down menu, and select the branch you want to create a codespace for.
 
    ![Branch drop-down menu](/assets/images/help/codespaces/branch-drop-down.png)
 
-3. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
 
    ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-   If you are a member of an organization and are creating a codespace on a repository owned by that organization, you can select the option of a different machine type. From the dialog box, choose a machine type and then click **Create codespace**.
+1. Create your codespace, either using the default options, or after configuring advanced options:
+ 
+   * **Use the default options**
 
-   ![Machine type choice](/assets/images/help/codespaces/choose-custom-machine-type.png)
+      To create a codespace using the default options, click **Create codespace on BRANCH**.
 
-   {% data reusables.codespaces.codespaces-machine-type-availability %}
+      Optionally, before clicking **Create codespace on BRANCH**, you can click the down arrow at the side of the button to see what machine type will be used for your codespace.
+
+      ![View the default machine type](/assets/images/help/codespaces/default-machine-type.png)
+
+      {% note %}
+
+      **Note**: The machine type with the lowest resources that are valid for the repository is selected by default.
+
+      {% endnote %}
+
+   * **Configure options**
+
+      To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
+
+      1. Click the down arrow at the side of the **Create codespace on BRANCH** button, then click **Configure and create codespace**.
+      1. Click the **Configure and create codespace** button.
+      1. On the options page for your codespace, choose your preferred options from the drop-down menus.
+
+         ![The codespace options page](/assets/images/help/codespaces/advanced-options.png)
+
+         {% note %}
+      
+         **Notes**
+      
+         * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
+         * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
+         * For more information about the `devcontainer.json` file, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
+         * For more information about machine types, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+         * {% data reusables.codespaces.codespaces-machine-type-availability %}
+      
+         {% endnote %}
+
+      1. Click **Start session**.
 
 {% endwebui %}
    
@@ -104,18 +131,24 @@ To create a new codespace, use the `gh codespace create` subcommand.
 gh codespace create 
 ```
 
-You are prompted to choose a repository, a branch, and a machine type (if more than one is available).
+You are prompted to choose a repository, a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
 
 Alternatively, you can use flags to specify some or all of the options:
 
 ```shell
-gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> -m <em>machine-type</em> 
+gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> --devcontainer-path <em>path</em> -m <em>machine-type</em> 
 ```
 
-Replace `owner/repo` with the repository identifier. Replace `branch` with the name of the branch, or the full SHA hash of the commit, that you want to be initially checked out in the codespace. If you use the `-r` flag without the `b` flag, the codespace is created from the default branch.
+In this example, replace `owner/repo` with the repository identifier. Replace `branch` with the name of the branch, or the full SHA hash of the commit, that you want to be initially checked out in the codespace. If you use the `-r` flag without the `b` flag, the codespace is created from the default branch.
 
-Replace `machine-type` with a valid identifier for an available machine type. Identifiers are strings such as: `basicLinux32gb` and `standardLinux32gb`. The type of machines that are available depends on the repository, your user account, and your location. If you enter an invalid or unavailable machine type, the available types are shown in the error message. If you omit this flag and more than one machine type is available you will be prompted to choose one from a list.
+Replace `path` with the path to the dev container configuration file you want to use for the new codespace. If you omit this flag and more than one dev container file is available you will be prompted to choose one from a list. For more information about the dev container configuration file, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
+Replace `machine-type` with a valid identifier for an available machine type. Identifiers are strings such as: `basicLinux32gb` and `standardLinux32gb`. The type of machines that are available depends on the repository, your personal account, and your location. If you enter an invalid or unavailable machine type, the available types are shown in the error message. If you omit this flag and more than one machine type is available you will be prompted to choose one from a list.
+
+For full details of the options for this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}
+
+## Further reading
+- "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
+- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"

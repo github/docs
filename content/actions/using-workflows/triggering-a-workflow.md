@@ -20,14 +20,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About workflow triggers
 
-Workflow triggers are events that cause a workflow to run. These events can be:
-
-- Events that occur in your workflow's repository
-- Events that occur outside of {% data variables.product.product_name %} and trigger a `repository_dispatch` event on {% data variables.product.product_name %}
-- Scheduled times
-- Manual
-
-For example, you can configure your workflow to run when a push is made to the default branch of your repository, when a release is created, or when an issue is opened.
+{% data reusables.actions.about-triggers %}
 
 Workflow triggers are defined with the `on` key. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)."
 
@@ -127,7 +120,7 @@ You can use activity types and filters to further control when your workflow wil
 
 {% data reusables.actions.workflow-dispatch-inputs %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## Defining inputs, outputs, and secrets for reusable workflows
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
@@ -191,7 +184,7 @@ For more information about contexts, see "[Contexts](/actions/learn-github-actio
 
 ## Further controlling how your workflow will run
 
-If you want more granular control than events, event activity types, or event filters provide, you can use conditionals{% ifversion fpt or ghae or ghes > 3.1 or ghec %} and environments{% endif %} to control whether individual jobs or steps in your workflow will run.
+If you want more granular control than events, event activity types, or event filters provide, you can use conditionals and environments to control whether individual jobs or steps in your workflow will run.
 
 ### Using conditionals
 
@@ -244,8 +237,6 @@ jobs:
 
 For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-
 ### Using environments to manually trigger workflow jobs
 
 If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)." Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
@@ -279,7 +270,6 @@ jobs:
 {% data reusables.gated-features.environments %}
 
 {% endnote %}
-{% endif %}
 
 ## Available events
 

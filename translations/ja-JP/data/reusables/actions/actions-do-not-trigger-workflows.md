@@ -1,1 +1,9 @@
-When you use the repository's `GITHUB_TOKEN` to perform tasks, events triggered by the `GITHUB_TOKEN` will not create a new workflow run. これによって、予想外の再帰的なワークフローの実行が生じないようになります。 たとえば、ワークフローの実行によってリポジトリの`GITHUB_TOKEN`を使ったコードのプッシュが行われた場合、そのリポジトリに`push`イベントが生じた際に実行されるよう設定されたワークフローが含まれていても、新しいワークフローの実行は行われません。
+---
+ms.openlocfilehash: d503b739b31064e743351c490bfbdc2dda14028f
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147865930"
+---
+リポジトリ`GITHUB_TOKEN`を使用してタスクを実行する場合、{% ifversion actions-token-updated-triggers %} `GITHUB_TOKEN` によって`workflow_dispatch`トリガーされるイベント (例外) と `repository_dispatch`、{% endif %} は新しいワークフロー実行を作成しません。 これによって、予想外の再帰的なワークフローの実行が生じないようになります。 たとえば、ワークフロー実行でリポジトリの `GITHUB_TOKEN` を使用してコードがプッシュされた場合、`push` イベントの発生時に実行するように構成されたワークフローがリポジトリに含まれている場合でも、新しいワークフローは実行されません。

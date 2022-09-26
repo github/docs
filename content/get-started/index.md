@@ -27,7 +27,6 @@ introLinks:
 featuredLinks:
   guides:
     - /github/getting-started-with-github/githubs-products
-    - /github/getting-started-with-github/create-a-repo
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
@@ -39,9 +38,7 @@ featuredLinks:
     - /github/getting-started-with-github/set-up-git
     - /get-started/learning-about-github/about-versions-of-github-docs
     - /github/getting-started-with-github/github-glossary
-    - /github/getting-started-with-github/fork-a-repo
     - /github/getting-started-with-github/keyboard-shortcuts
-    - /github/getting-started-with-github/saving-repositories-with-stars
   guideCards:
     - /github/getting-started-with-github/types-of-github-accounts
     - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github

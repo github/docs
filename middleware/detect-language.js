@@ -1,11 +1,9 @@
 import languages, { languageKeys } from '../lib/languages.js'
 import parser from 'accept-language-parser'
 
-const chineseRegions = ['CN', 'HK']
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../lib/constants.js'
 
-// This value is replicated in two places! See <LanguagePicker/> component.
-// Note, the only reason this is exported is to benefit the tests.
-export const PREFERRED_LOCALE_COOKIE_NAME = 'preferredlang'
+const chineseRegions = ['CN', 'HK']
 
 function translationExists(language) {
   if (language.code === 'zh') {
@@ -36,8 +34,7 @@ function getUserLanguage(browserLanguages) {
 
 function getUserLanguageFromCookie(req) {
   const value = req.cookies[PREFERRED_LOCALE_COOKIE_NAME]
-  // But if it's a WIP language, reject it.
-  if (value && languages[value] && !languages[value].wip) {
+  if (value && languages[value]) {
     return value
   }
 }
@@ -48,13 +45,17 @@ export function getLanguageCodeFromPath(path) {
   return languageKeys.includes(maybeLanguage) ? maybeLanguage : 'en'
 }
 
+export function getLanguageCodeFromHeader(req) {
+  const browserLanguages = parser.parse(req.headers['accept-language'])
+  return getUserLanguage(browserLanguages)
+}
+
 export default function detectLanguage(req, res, next) {
   req.language = getLanguageCodeFromPath(req.path)
   // Detecting browser language by user preference
   req.userLanguage = getUserLanguageFromCookie(req)
   if (!req.userLanguage) {
-    const browserLanguages = parser.parse(req.headers['accept-language'])
-    req.userLanguage = getUserLanguage(browserLanguages)
+    req.userLanguage = getLanguageCodeFromHeader(req)
   }
   return next()
 }

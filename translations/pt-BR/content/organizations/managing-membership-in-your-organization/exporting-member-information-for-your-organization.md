@@ -5,14 +5,17 @@ permissions: Organization owners can export member information for their organiz
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.3'
-  ghae: issue-5146
 topics:
   - Organizations
   - Teams
-shortTitle: Exportar informações do integrante
+shortTitle: Export member information
+ms.openlocfilehash: 2777e125f5eb43bfcf8ec1172db29fe7338bdbad
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145093253'
 ---
-
 Você pode exportar informações sobre os integrantes da sua organização. Isso é útil se você deseja realizar uma auditoria aos usuários dentro da organização.
 
 As informações exportadas incluem:
@@ -20,14 +23,11 @@ As informações exportadas incluem:
 - Se o usuário tem autenticação de dois fatores habilitada
 - Se a associação é pública ou privada
 - Se o usuário é um proprietário ou integrante da organização
-- Data e hora da última atividade do usuário (para uma lista completa da atividade relevante, consulte "[Gerenciando usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
+- Datetime da última atividade do usuário (para ver a lista completa de atividades relevantes, confira "[Como gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
 - O NameID do SAML do usuário, se disponível
 
 Você pode obter informações dos membros diretamente da interface de usuário {% data variables.product.product_name %} ou usando APIs. Este artigo explica como obter informações dos membros de dentro de {% data variables.product.product_name %}.
 
-Para obter mais informações sobre as APIs, consulte a nossa [API do GraphQL](/graphql/reference/objects#user) e [API REST](/rest/reference/users) documentação sobre os usuários.
+Para obter mais informações sobre as APIs, confira nossa documentação da [API do GraphQL](/graphql/reference/objects#user) e da [API REST](/rest/reference/users) sobre os usuários.
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.people-export %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.people-export %}

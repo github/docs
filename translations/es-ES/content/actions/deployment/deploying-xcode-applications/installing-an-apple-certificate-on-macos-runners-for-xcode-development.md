@@ -13,37 +13,41 @@ type: tutorial
 topics:
   - CI
   - Xcode
-shortTitle: Firmar aplicaciones de Xcode
+shortTitle: Sign Xcode applications
+ms.openlocfilehash: 47c534db1e16595af4735362c524f673376b53fe
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145092515'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introducción
 
 Esta guía te muestra cómo agregar un paso a tu flujo de trabajo de integración continua (IC), el cual instale un certificado de firma de código de Apple y perfil de aprovisionamiento en los ejecutores de {% data variables.product.prodname_actions %}. Esto te permitirá firmar tus apps de Xcode para publicarlas en la App Store de Apple o distribuirlas a los grupos de prueba.
 
-## Prerrequisitos
+## Requisitos previos
 
-Deberías estar familiarizado con YAML y la sintaxis para las {% data variables.product.prodname_actions %}. Para obtener más información, consulta:
+Deberías estar familiarizado con YAML y la sintaxis para las {% data variables.product.prodname_actions %}. Para más información, consulte:
 
-- "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
-- "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+- "[Más información sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[Sintaxis de flujos de trabajo para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
 
-Debes entender la forma en la que la app de Xcode crea y firma las apps. Para obtener más información, consulta la [Documentación de desarrollador de Apple](https://developer.apple.com/documentation/).
+Debes entender la forma en la que la app de Xcode crea y firma las apps. Para más información, consulte la [documentación para desarrolladores de Apple](https://developer.apple.com/documentation/).
 
 ## Crear secretos para tu certificado y perfil de aprovisionamiento
 
 El proceso de inicio de sesión involucra almacenar certificados y perfiles de aprovisionamiento, transferirlos al ejecutor, importarlos en el keychain del ejecutor y utilizarlos en tu compilación.
 
-Para utilizar tu certificado y perfil de aprovisionamiento en un ejecutor, te recomendamos fuertemente que utilices los secretos de {% data variables.product.prodname_dotcom %}. Para obtener más información sobre cómo crear secretos y utilizarlos en un flujo de trabajo, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
+Para utilizar tu certificado y perfil de aprovisionamiento en un ejecutor, te recomendamos fuertemente que utilices los secretos de {% data variables.product.prodname_dotcom %}. Para más información sobre cómo crear secretos y usarlos en un flujo de trabajo, vea "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 
 Crea secretos en tu repositorio u organización para los siguientes elementos:
 
 * Tu certificado de inicio de sesión de Apple.
 
-  - Este es tu archivo de certificado `p12`. Para obtener más información sobre cómo exportar tu certificado de inicio de sesión desde Xcode, consulta la [documentación de Xcode](https://help.apple.com/xcode/mac/current/#/dev154b28f09).
-
+  - Es el archivo de certificado `p12`. Para obtener más información sobre cómo exportar el certificado de firma desde Xcode, consulte la [documentación de Xcode](https://help.apple.com/xcode/mac/current/#/dev154b28f09).
+  
   - Deberías convertir tu certificado en Base64 cuando lo guartes como secreto. En este ejemplo, el secreto se llama `BUILD_CERTIFICATE_BASE64`.
 
   - Utiliza el siguiente comando para convertir tu certificado en Base64 y cópialo a tu portapapeles:
@@ -56,12 +60,12 @@ Crea secretos en tu repositorio u organización para los siguientes elementos:
 
 * Tu perfil de aprovisionamiento de Apple.
 
-  - Para obtener más información sobre cómo exportar tu perfil de aprovisionamiento desde Xcode, consulta la [documentación de Xcode](https://help.apple.com/xcode/mac/current/#/deva899b4fe5).
+  - Para obtener más información sobre cómo exportar el perfil de aprovisionamiento desde Xcode, consulte la [documentación de Xcode](https://help.apple.com/xcode/mac/current/#/deva899b4fe5).
 
   - Debes convertir tu perfil de aprovisionamiento a Base64 cuando lo guardas como secreto. En este ejemplo, el secreto se llama `BUILD_PROVISION_PROFILE_BASE64`.
 
   - Utiliza el siguiente comando para convertir tu perfil de aprovisionamiento en Base64 y cópialo a tu portapapeles:
-
+  
     ```shell
     base64 <em>provisioning_profile.mobileprovision</em> | pbcopy
     ```
@@ -74,7 +78,6 @@ Crea secretos en tu repositorio u organización para los siguientes elementos:
 
 Este flujo de trabajo de ejemplo incluye un paso que importa el certificado de Apple y perfil de aprovisionamiento desde los secretos de {% data variables.product.prodname_dotcom %} y los instala en el ejecutor.
 
-{% raw %}
 ```yaml{:copy}
 name: App build
 on: push
@@ -85,13 +88,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install the Apple certificate and provisioning profile
         env:
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
-          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
-          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+          BUILD_CERTIFICATE_BASE64: {% raw %}${{ secrets.BUILD_CERTIFICATE_BASE64 }}{% endraw %}
+          P12_PASSWORD: {% raw %}${{ secrets.P12_PASSWORD }}{% endraw %}
+          BUILD_PROVISION_PROFILE_BASE64: {% raw %}${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}{% endraw %}
+          KEYCHAIN_PASSWORD: {% raw %}${{ secrets.KEYCHAIN_PASSWORD }}{% endraw %}
         run: |
           # create variables
           CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
@@ -117,13 +120,12 @@ jobs:
       - name: Build app
         ...
 ```
-{% endraw %}
 
 ## Limpieza requerida en los ejecutores auto-hospedados
 
 Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} son máquinas virtuales aisladas que se destruyen automáticamente al final de la ejecución del job. Esto significa que los certificados y prefil de aprovisionamiento que se utiliza en el ejecutor durante el job se destruirán con el ejecutor cuando se complete dicho job.
 
-En los ejecutores auto-hospedados, el directorio `$RUNNER_TEMP` se limpia al final de la ejecución del job, pero la keychain y archivo de aprovisionamiento podrían seguir existiendo en el ejecutor.
+En los ejecutores autohospedados, el directorio `$RUNNER_TEMP` se limpia al final de la ejecución del trabajo, pero es posible que la cadena de claves y el perfil de aprovisionamiento sigan existiendo en el ejecutor.
 
 Si utilizas ejecutores auto-programados, deberás agregar un paso final a tu flujo de trabajo para ayudar a asegurarte que estos archivos sensibles se borren al final del job. El paso de flujo de trabajo que se muestra a continuación es un ejemplo de como hacer esto.
 

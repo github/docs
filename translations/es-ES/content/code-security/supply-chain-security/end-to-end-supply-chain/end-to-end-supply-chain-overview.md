@@ -1,38 +1,46 @@
 ---
-title: Securing your end-to-end supply chain
-shortTitle: Resumen
+title: Protección de la cadena de suministro de un extremo a otro
+shortTitle: Overview
 allowTitleToDifferFromFilename: true
-intro: 'Introducing best practice guides on complete end-to-end supply chain security including personal accounts, code, and build processes.'
+intro: 'Introducción a las guías de procedimientos recomendados sobre la seguridad completa de la cadena de suministro de un extremo a otro, incluidas las cuentas personales, el código y los procesos de compilación.'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Organizations
   - Teams
   - Dependencies
   - Advanced Security
+ms.openlocfilehash: 44eb2f8fa24d172cc1ad5f988bbbda3a192797a3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060686'
 ---
+## ¿Qué es la cadena de suministro de un extremo a otro?
 
-## What is the end-to-end supply chain?
+Básicamente, la seguridad de la cadena de suministro de software de un extremo a otro consiste en asegurarte de que el código que distribuyes no se ha alterado. Anteriormente, los atacantes se centraban en atacar las dependencias que usas, como, por ejemplo, las bibliotecas y los marcos. Los atacantes han ampliado su enfoque para incluir como destino cuentas de usuario y procesos de compilación, por lo que esos sistemas también deben defenderse.
 
-At its core, end-to-end software supply chain security is about making sure the code you distribute hasn't been tampered with. Previously, attackers focused on targeting dependencies you use, for example libraries and frameworks. Attackers have now expanded their focus to include targeting user accounts and build processes, and so those systems must be defended as well.
+Para obtener información sobre las características de {% data variables.product.prodname_dotcom %} que pueden ayudarte a proteger las dependencias, consulta "[Acerca de la seguridad de la cadena de suministro](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)".
 
-## About these guides
+## Acerca de estas guías
 
-This series of guides explains how to think about securing your end-to-end supply chain: personal account, code, and build processes. Each guide explains the risk to that area, and introduces the {% data variables.product.product_name %} features that can help you address that risk.
+En esta serie de guías se explica cómo pensar en la protección de la cadena de suministro de un extremo a otro: cuentas personales, código y procesos de compilación. En cada guía se explica el riesgo de esa área y se presentan las características de {% data variables.product.product_name %} que pueden ayudarte a abordar ese riesgo. 
 
-Everyone's needs are different, so each guide starts with the highest impact change, and continues from there with additional improvements you should consider. You should feel free to skip around and focus on improvements you think will have the biggest benefit. The goal isn't to do everything at once but to continuously improve security in your systems over time.
+Las necesidades de cada usuario son diferentes, por lo que cada guía comienza con el cambio de mayor impacto y continúa desde allí con mejoras adicionales que debes tener en cuenta. No dudes en dar un vistazo y centrarte en las mejoras que crees que te van a beneficiar más. El objetivo no es hacer todo a la vez, sino mejorar continuamente la seguridad en los sistemas a lo largo del tiempo.
 
-- "[Mejores prácticas para asegurar cuentas](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+- "[Procedimientos recomendados para proteger las cuentas](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- "[Mejores prácticas para asegurar el código en tu cadena de suministros](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- "[Procedimientos recomendados para proteger el código en la cadena de suministro](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
 
-- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- "[Procedimientos recomendados para proteger el sistema de compilación](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
 
-## Leer más
+## Información adicional
 
-- [Safeguarding artifact integrity across any software supply chain](https://slsa.dev/)
-- [Microsoft Supply Chain Integrity Model](https://github.com/microsoft/scim)
-- [Software Supply Chain Security Paper - CNCF Security Technical Advisory Group](https://github.com/cncf/tag-security/blob/main/supply-chain-security/supply-chain-security-paper/CNCF_SSCP_v1.pdf)
+- [Proteger la integridad de los artefactos en cualquier cadena de suministro de software](https://slsa.dev/)
+- [Modelo de integridad de la cadena de suministro de Microsoft](https://github.com/microsoft/scim)
+- [Papel de seguridad de la cadena de suministro de software - Grupo de asesoramiento técnico de seguridad de CNCF](https://github.com/cncf/tag-security/blob/main/supply-chain-security/supply-chain-security-paper/CNCF_SSCP_v1.pdf)

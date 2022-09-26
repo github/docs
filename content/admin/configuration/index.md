@@ -1,6 +1,6 @@
 ---
 title: Configuring GitHub Enterprise
-shortTitle: Configuring GitHub Enterprise
+shortTitle: Configure GitHub Enterprise
 intro: You can configure your enterprise to suit your organization's needs.
 redirect_from:
   - /enterprise/admin/configuration

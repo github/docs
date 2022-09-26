@@ -16,7 +16,10 @@ topics:
   - SSH
 shortTitle: SSH key passphrases
 ---
-With SSH keys, if someone gains access to your computer, they also gain access to every system that uses that key. To add an extra layer of security, you can add a passphrase to your SSH key. You can use `ssh-agent` to securely save your passphrase so you don't have to reenter it.
+
+## About passphrases for SSH keys
+
+With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. To add an extra layer of security, you can add a passphrase to your SSH key. To avoid entering the passphrase every time you connect, you can securely save your passphrase in the SSH agent.
 
 ## Adding or changing a passphrase
 
@@ -102,7 +105,3 @@ The first time you use your key, you will be prompted to enter your passphrase. 
 Otherwise, you can store your passphrase in the keychain when you add your key to the ssh-agent. For more information, see "[Adding your SSH key to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% endmac %}
-
-## Further reading
-
-- "[About SSH](/articles/about-ssh)"

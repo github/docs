@@ -1,6 +1,6 @@
 ---
-title: Merging a pull request with a merge queue
-intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.product_name %} will merge the pull requests for you once all required checks have passed.'
+title: Como mesclar uma solicitação de pull com uma fila de mesclagem
+intro: 'Se uma fila de mesclagem for exigida pela configuração de proteção do branch, você poderá adicionar as solicitações de pull a uma fila de mesclagem para que o {% data variables.product.product_name %} mescle as solicitações de pull depois que todas as verificações necessárias forem aprovadas.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,59 +9,64 @@ topics:
 shortTitle: Merge PR with merge queue
 redirect_from:
   - /pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
+  - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
+ms.openlocfilehash: ce2bc87b82e3590c2a7f55f528fc9f71dc0ceb0d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614268'
 ---
-
 {% data reusables.pull_requests.merge-queue-beta %}
 
-## About merge queues
+## Sobre as filas de mesclagem
 
-{% data reusables.pull_requests.merge-queue-overview %}
-{% data reusables.pull_requests.merge-queue-references %}
+{% data reusables.pull_requests.merge-queue-overview %} {% data reusables.pull_requests.merge-queue-references %}
 
-## Adding a pull request to a merge queue
+## Como adicionar uma solicitação de pull a uma fila de mesclagem
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
 
-1. In the "Pull Requests" list, click the pull request you would like to add to a merge queue.
+1. Na lista "Solicitações de Pull", clique na solicitação de pull que deseja adicionar a uma fila de mesclagem.
 
-1. Click **Merge when ready** to add the pull request to the merge queue. Alternatively, if you are an administrator, you can:
-   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met (administrators only)**, if allowed by branch protection settings, and follow the standard flow. ![Opções da fila de merge](/assets/images/help/pull_requests/merge-queue-options.png)
+1. Clique em **Mesclar quando estiver pronto** para adicionar a solicitação de pull à fila de mesclagem. Como alternativa, se você for um administrador, poderá:
+   -  Mescle diretamente a solicitação de pull marcando **Mesclar sem esperar que os requisitos sejam atendidos ({% ifversion bypass-branch-protections %}ignorar proteções de branch{% else %}somente administradores{% endif %})** , se permitido pelas configurações de proteção de branch, e siga o fluxo padrão.
+   ![Opções da fila de mesclagem](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}
 
-  **Tip:** You can click  **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.product_name %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
+  **Dica:** clique em **Mesclar quando estiver pronto** sempre que estiver pronto para mesclar as alterações propostas. O {% data variables.product.product_name %} adicionará automaticamente a solicitação de pull à fila de mesclagem depois que as condições de aprovação e verificação de status necessárias forem atendidas.
 
   {% endtip %}
 
-1. Confirm you want to add the pull request to the merge queue by clicking  **Confirm merge when ready**.
+1. Confirme se deseja adicionar a solicitação de pull à fila de mesclagem clicando em **Confirmar mesclagem quando estiver pronto**.
 
-## Removing a pull request from a merge queue
+## Como remover uma solicitação de pull de uma fila de mesclagem
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
 
-1. In the "Pull Requests" list, click the pull request you would like to remove from a merge queue.
+1. Na lista "Solicitações de Pull", clique na solicitação de pull que deseja remover de uma fila de mesclagem.
 
-1. To remove the pull request from the queue, click **Remove from queue**. ![Remove pull request from queue](/assets/images/help/pull_requests/remove-from-queue-button.png)
+1. Para remover a solicitação de pull da fila, clique em **Remover da fila**.
+  ![Remover solicitação de pull da fila](/assets/images/help/pull_requests/remove-from-queue-button.png)
 
-Alternatively, you can navigate to the merge queue page for the base branch, click **...** next to the pull request you want to remove, and select **Remove from queue**. For information on how to get to the merge queue page for the base branch, see the section below.
+Como alternativa, navegue até a página da fila de mesclagem do branch base, clique em **…** ao lado da solicitação de pull que deseja remover e selecionar **Remover da fila**. Para obter informações sobre como acessar a página de fila de mesclagem do branch base, confira a seção abaixo.
 
-## Viewing merge queues
+## Como ver as filas de mesclagem
 
-You can view the merge queue for a base branch in various places on {% data variables.product.product_name %}.
+Você pode ver a fila de mesclagem de um branch base em vários locais no {% data variables.product.product_name %}.
 
-- Na página **Branches** para o repositório. We recommend you use this route if you don't have or don't know about a pull request already in a queue, and if you want to see what's in that queue. Para obter mais informações, consulte "[Visualizar branches no seu repositório](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)".
+- Na página **Branches** do repositório. Recomendamos que você use essa rota se não tiver ou não souber que uma solicitação de pull já está em uma fila e quiser ver o que está nessa fila. Para obter mais informações, confira "[Como ver branches no seu repositório](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)".
 
   ![Visualizar fila de merge na página de Branches](/assets/images/help/pull_requests/merge-queue-branches-page.png)
 
-- On the **Pull requests** page of your repository, click {% octicon "clock" aria-label="The clock symbol" %} next to any pull request in the merge queue.
+- Na página **Solicitações de pull** do repositório, clique em {% octicon "clock" aria-label="The clock symbol" %} ao lado de qualquer solicitação de pull na fila de mesclagem.
 
   ![Visualizar fila de merge na página de Pull requests](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
 
-- On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click **the merge queue** link.
+- Na página de solicitação de pull quando a fila de mesclagem for necessária para mesclagem, role a página até a parte inferior da linha do tempo e clique no link da **fila de mesclagem**.
 
-  ![Merge queue link on pull request](/assets/images/help/pull_requests/merge-queue-link.png)
+  ![Mesclar link da fila na solicitação de pull](/assets/images/help/pull_requests/merge-queue-link.png)
 
 - A exibição da fila de merge mostra os pull requests que estão atualmente na fila, com seus pull requests claramente marcados.
 

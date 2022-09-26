@@ -9,7 +9,7 @@
 import fs from 'fs'
 import mkdirp from 'mkdirp'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import { allVersions } from '../../lib/all-versions.js'
 
 const payloadsDir = 'lib/webhooks/static'

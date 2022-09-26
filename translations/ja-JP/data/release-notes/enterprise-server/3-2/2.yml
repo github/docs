@@ -1,23 +1,23 @@
----
 date: '2021-10-28'
 sections:
   security_fixes:
-    - 'It was possible for cleartext passwords to end up in certain log files.'
-    - 'Several known weak SSH public keys have been added to the deny list and can no longer be registered. In addition, versions of GitKraken known to generate weak SSH keys (7.6.x, 7.7.x and 8.0.0) have been blocked from registering new public keys.'
-    - 'パッケージは最新のセキュリティバージョンにアップデートされました。'
+    - 'クリア テキストのパスワードが特定のログ ファイルに格納される可能性がありました。'
+    - '複数の既知の脆弱な SSH 公開キーが拒否リストに追加されており、登録できなくなっています。さらに、脆弱な SSH 公開キーを生成することが知られている GitKraken のバージョン (7.6.x、7.7.x、8.0.0) が、新しい公開キーの登録からブロックされるようになりました。'
+    - 'パッケージは最新のセキュリティ バージョンに更新されました。'
   bugs:
-    - 'Restore might fail for enterprise server in clustering mode if orchestrator is not healthily.'
-    - 'Codespaces links were displayed in organization settings.'
-    - 'Several parts of the application were unusable for users who are owners of many organizations.'
-    - 'Fixed a link to https://docs.github.com.'
+    - 'オーケストレーターが正常でない場合、クラスタリング モードでのエンタープライズ サーバーの復元が失敗することがありました。'
+    - 'codespace のリンクが組織の設定に表示されていました。'
+    - '多くの組織の所有者であるユーザーが、アプリケーションの複数の部分を利用できませんでした。'
+    - 'https://docs.github.com へのリンクを修正しました。'
   changes:
-    - 'Browsing and job performance optimizations for repositories with many refs.'
+    - '多くの参照を含むリポジトリに関する閲覧とジョブのパフォーマンスの最適化。'
   known_issues:
-    - After saving a new release on a repository, the `/releases` page shows a 500 error. A fix for this issue is expected to ship in 3.2.3.
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - リポジトリに新しいリリースを保存すると、`/releases` ページに 500 エラーが表示されます。この issue の修正プログラムは、3.2.3 でリリースされる予定です。
+    - "{% data variables.product.prodname_ghe_server %} をセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 
-import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
+import { ZapIcon, InfoIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { Link } from 'components/Link'
@@ -17,17 +16,15 @@ import { ArticleGridLayout } from './ArticleGridLayout'
 import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
+import { ClientSideHighlight } from 'components/ClientSideHighlight'
 
-const ClientSideHighlightJS = dynamic(() => import('./ClientSideHighlightJS'), { ssr: false })
+const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
+  ssr: false,
+})
+const isDev = process.env.NODE_ENV === 'development'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
-  '/actions/automating-builds-and-tests/building-and-testing-nodejs': {
-    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=nodejs',
-  },
-  '/actions/automating-builds-and-tests/building-and-testing-python': {
-    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=python',
-  },
   '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces':
     {
       href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=nodejs',
@@ -45,11 +42,8 @@ const interactiveAlternatives: Record<string, { href: string }> = {
       href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=py',
     },
 }
-type Props = {
-  children?: React.ReactNode
-}
 
-export const ArticlePage = ({ children }: Props) => {
+export const ArticlePage = () => {
   const { asPath } = useRouter()
   const {
     title,
@@ -67,29 +61,10 @@ export const ArticlePage = ({ children }: Props) => {
   const { t } = useTranslation('pages')
   const currentPath = asPath.split('?')[0]
 
-  // If the page contains `[data-highlight]` blocks, these pages need
-  // syntax highlighting. But not every page needs it, so it's conditionally
-  // lazy-loaded on the client.
-  const [lazyLoadHighlightJS, setLazyLoadHighlightJS] = useState(false)
-  useEffect(() => {
-    // It doesn't need to use querySelector because all we care about is if
-    // there is greater than zero of these in the DOM.
-    // Note! This "core selector", which determines whether to bother
-    // or not, needs to match what's used inside ClientSideHighlightJS.tsx
-    if (document.querySelector('[data-highlight]')) {
-      setLazyLoadHighlightJS(true)
-    }
-
-    // Important to depend on the current path because the first page you
-    // load, before any client-side navigation, might not need it, but the
-    // consecutive one does.
-  }, [asPath])
-
   return (
     <DefaultLayout>
-      {/* Doesn't matter *where* this is included because it will
-      never render anything. It always just return null. */}
-      {lazyLoadHighlightJS && <ClientSideHighlightJS />}
+      {isDev && <ClientSideRefresh />}
+      <ClientSideHighlight />
 
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
@@ -114,11 +89,9 @@ export const ArticlePage = ({ children }: Props) => {
               )}
 
               {permissions && (
-                <div className="permissions-statement d-table">
-                  <div className="d-table-cell pr-2">
-                    <ShieldLockIcon size={16} />
-                  </div>
-                  <div className="d-table-cell" dangerouslySetInnerHTML={{ __html: permissions }} />
+                <div className="permissions-statement pl-3 my-4">
+                  <div className="text-bold pr-2">{t('permissions_statement')}</div>
+                  <div dangerouslySetInnerHTML={{ __html: permissions }} />
                 </div>
               )}
 
@@ -151,7 +124,7 @@ export const ArticlePage = ({ children }: Props) => {
           }
         >
           <div id="article-contents">
-            <MarkdownContent>{children || renderedPage}</MarkdownContent>
+            <MarkdownContent>{renderedPage}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">
                 Effective as of:{' '}

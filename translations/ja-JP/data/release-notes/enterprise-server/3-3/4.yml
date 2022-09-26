@@ -1,24 +1,25 @@
----
 date: '2022-02-17'
 sections:
   security_fixes:
-    - It was possible for a user to register a user or organization named "saml".
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - "ユーザーが、\"saml\" という名前のユーザーまたは Organization を登録することができました。"
+    - パッケージは最新のセキュリティ バージョンに更新されました。 
   bugs:
-    - GitHub Packages storage settings could not be validated and saved in the Management Console when Azure Blob Storage was used.
-    - The mssql.backup.cadence configuration option failed ghe-config-check with an invalid characterset warning.
-    - Fixes SystemStackError (stack too deep) when getting more than 2<sup>^16</sup> keys from memcached.
-    - A number of select menus across the site rendered incorrectly and were not functional.
+    - Azure Blob Storage を使っていると、GitHub Packages のストレージ設定を検証して管理コンソールに保存することができませんでした。 
+    - mssql.backup.cadence 構成オプションが、無効な文字の警告で ghe-config-check に失敗しました。
+    - memcached から 2<sup>^16</sup> を超えるキーを取得した場合の SystemStackError (スタックが深すぎます) を修正します。 
+    - サイト全体でいくつかの選択メニューが間違ってレンダリングされており、機能しませんでした。 
   changes:
-    - Dependency Graph can now be enabled without vulnerability data, allowing customers to see what dependencies are in use and at what versions. Enabling Dependency Graph without enabling GitHub Connect will *not* provide vulnerability information.
-    - Secret scanning will skip scanning ZIP and other archive files for secrets.
+    - "脆弱性データなしで依存関係グラフを有効にできるようになり、お客様は使われている依存関係とそのバージョンを確認できます。GitHub Connect を有効にしないで依存関係グラフを有効にすると、脆弱性の情報は提供され \"ません\"。" 
+    - シークレット スキャンは、ZIP および他のアーカイブ ファイルでのシークレットのスキャンをスキップします。
   known_issues:
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
-    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
+    - "{% data variables.product.prodname_ghe_server %} 3.3 にアップグレードした後、{% data variables.product.prodname_actions %} が自動的に開始しないことがあります。この問題を解決するには、SSH を使ってアプライアンスに接続し、`ghe-actions-start` コマンドを実行します。"
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue はクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - '[Force Path Style]\(パス スタイルの強制\) がオンになっていると、{% data variables.product.prodname_actions %} のストレージ設定を検証して {% data variables.enterprise.management_console %} に保存することができず、代わりに `ghe-actions-precheck` コマンド ライン ユーティリティで構成する必要があります。'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 のインスタンスを Azure にインストールし、32 個以上の CPU コアでプロビジョニングすると、現在の Linux カーネルに存在するバグのため、起動しませんでした。 [更新日: 2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -1,5 +1,9 @@
-{% data variables.product.prodname_enterprise %} uses a unique-user licensing model, where each person only consumes one license, no matter how many {% data variables.product.prodname_ghe_server %} instances the person uses, or how many organizations the person is a member of on {% data variables.product.prodname_ghe_cloud %}. This model allows each person to use multiple {% data variables.product.prodname_enterprise %} environments without incurring extra costs.
-
-For a person using multiple {% data variables.product.prodname_enterprise %} environments to only consume a single license, you must synchronize license usage between environments. Then, {% data variables.product.company_short %} will deduplicate users based on the email addresses associated with their personal accounts. Multiple personal accounts will consume a single license when there is a match between an account's primary email address on {% data variables.product.prodname_ghe_server %} and/or an account's verified email address on {% data variables.product.prodname_dotcom_the_website %}. For more information about verification of email addresses on {% data variables.product.prodname_dotcom_the_website %}, see "[Verifying your email address](/enterprise-cloud@latest/get-started/signing-up-for-github/verifying-your-email-address){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
-
-When you synchronize license usage, only the user ID and email addresses for each personal account on {% data variables.product.prodname_ghe_server %} are transmitted to {% data variables.product.prodname_ghe_cloud %}.
+---
+ms.openlocfilehash: 12b28d4c3665573a1cfc0d56e2a61b616ee0a9ec
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147572670"
+---
+要让使用多个 {% data variables.product.prodname_enterprise %} 环境的用户仅使用单个许可证，你必须在环境之间同步许可证使用情况。 然后，{% data variables.product.company_short %} 将根据与用户帐户关联的电子邮件地址删除重复用户。 有关详细信息，请参阅“[排查 {% data variables.product.prodname_enterprise %} 的许可证使用情况问题](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise#about-the-calculation-of-consumed-licenses)”。

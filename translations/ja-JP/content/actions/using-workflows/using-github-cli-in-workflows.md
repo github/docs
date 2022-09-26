@@ -1,7 +1,7 @@
 ---
-title: Using GitHub CLI in workflows
+title: ワークフローで GitHub CLI を使用する
 shortTitle: GitHub CLI in workflows
-intro: 'You can script with {% data variables.product.prodname_cli %} in {% data variables.product.prodname_actions %} workflows.'
+intro: '{% data variables.product.prodname_actions %} ワークフローでは、{% data variables.product.prodname_cli %} を使用してスクリプトを作成できます。'
 redirect_from:
   - /actions/guides/using-github-cli-in-workflows
   - /actions/advanced-guides/using-github-cli-in-workflows
@@ -14,14 +14,18 @@ topics:
   - CLI
   - Workflows
 type: how_to
+ms.openlocfilehash: 3455e4f082acf26215ad050c5c381df53c0c2713
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145120901'
 ---
-
-
 {% data reusables.cli.cli-learn-more %}
 
-{% data variables.product.prodname_cli %} is preinstalled on all {% data variables.product.prodname_dotcom %}-hosted runners. For each step that uses {% data variables.product.prodname_cli %}, you must set an environment variable called `GITHUB_TOKEN` to a token with the required scopes.
+{% data variables.product.prodname_cli %} は、{% data variables.product.prodname_dotcom %} でホストされるすべてのランナーにプレインストールされます。 {% data variables.product.prodname_cli %} を使う各ステップで、`GITHUB_TOKEN` という環境変数に必要なスコープを持つトークンを設定する必要があります。
 
-You can execute any {% data variables.product.prodname_cli %} command. For example, this workflow uses the `gh issue comment` subcommand to add a comment when an issue is opened.
+任意の {% data variables.product.prodname_cli %} コマンドを実行できます。 たとえば、このワークフローでは、`gh issue comment` サブコマンドを使って、issue が開かれるときにコメントを追加します。
 
 ```yaml{:copy}
 name: Comment when opened
@@ -39,7 +43,7 @@ jobs:
           ISSUE: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
 ```
 
-You can also execute API calls through {% data variables.product.prodname_cli %}. For example, this workflow first uses the `gh api` subcommand to query the GraphQL API and parse the result. Then it stores the result in an environment variable that it can access in a later step. In the second step, it uses the `gh issue create` subcommand to create an issue containing the information from the first step.
+{% data variables.product.prodname_cli %} を使って API 呼び出しを実行することもできます。 たとえば、このワークフローでは、最初に `gh api` サブコマンドを使って GraphQL API のクエリを実行し、結果を解析します。 次に、後のステップでアクセスできる環境変数に結果を格納します。 2 番目のステップでは、`gh issue create` サブコマンドを使って、最初のステップの情報を含む issue を作成します。
 
 ```yaml{:copy}
 name: Report remaining open issues

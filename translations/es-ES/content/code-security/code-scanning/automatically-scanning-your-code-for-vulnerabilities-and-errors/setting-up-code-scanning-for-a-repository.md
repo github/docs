@@ -33,6 +33,10 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 
 {% data reusables.code-scanning.enabling-options %}
 
+{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
+{% data reusables.code-scanning.about-analysis-origins-link %}
+{% endif %}
+
 {% ifversion ghes or ghae %}
 {% note %}
 
@@ -80,10 +84,16 @@ Enterprise owners, organization and repository administrators can add self-hoste
 
 ## Setting up {% data variables.product.prodname_code_scanning %} manually
 
+{% ifversion fpt %}
+
+You can set up {% data variables.product.prodname_code_scanning %} in any public repository where you have write access.
+
+{% endif %}
+
 {% data reusables.code-scanning.billing %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-1. To the right of "{% data variables.product.prodname_code_scanning_capc %} alerts", click **Set up {% data variables.product.prodname_code_scanning %}**. If {% data variables.product.prodname_code_scanning %} is missing, you need to ask an organization owner or repository administrator to enable {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" or "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+1. To the right of "{% data variables.product.prodname_code_scanning_capc %} alerts", click **Set up {% data variables.product.prodname_code_scanning %}**.{% ifversion ghec or ghes or ghae %} If {% data variables.product.prodname_code_scanning %} is missing, you need to ask an organization owner or repository administrator to enable {% data variables.product.prodname_GH_advanced_security %}.{% endif %} For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" or "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
  !["Set up {% data variables.product.prodname_code_scanning %}" button to the right of "{% data variables.product.prodname_code_scanning_capc %}" in the Security Overview](/assets/images/help/security/overview-set-up-code-scanning.png)
 4. Under "Get started with {% data variables.product.prodname_code_scanning %}", click **Set up this workflow** on the {% data variables.product.prodname_codeql_workflow %} or on a third-party workflow.
  !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png)Workflows are only displayed if they are relevant for the programming languages detected in the repository. The {% data variables.product.prodname_codeql_workflow %} is always displayed, but the "Set up this workflow" button is only enabled if {% data variables.product.prodname_codeql %} analysis supports the languages present in the repository.
@@ -129,11 +139,7 @@ After setting up {% data variables.product.prodname_code_scanning %} for your re
 
 **Note:** If you raised a pull request to add the {% data variables.product.prodname_code_scanning %} workflow to the repository, alerts from that pull request aren't displayed directly on the {% data variables.product.prodname_code_scanning_capc %} page until the pull request is merged. If any alerts were found you can view these, before the pull request is merged, by clicking the **_n_ alerts found** link in the banner on the {% data variables.product.prodname_code_scanning_capc %} page.
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-  ![Click the "n alerts found" link](/assets/images/help/repository/code-scanning-alerts-found-link.png)
-{% else %}
-  ![Click the "n alerts found" link](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
-{% endif %}
+![Click the "n alerts found" link](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 
 {% endnote %}
 
@@ -145,25 +151,29 @@ The names of the {% data variables.product.prodname_code_scanning %} analysis ch
 
   ![{% data variables.product.prodname_code_scanning %} pull request checks](/assets/images/help/repository/code-scanning-pr-checks.png)
 
-When the {% data variables.product.prodname_code_scanning %} jobs complete, {% data variables.product.prodname_dotcom %} works out whether any alerts were added by the pull request and adds the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" entry to the list of checks. After {% data variables.product.prodname_code_scanning %} has been performed at least once, you can click **Details** to view the results of the analysis. If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}an "Analysis not found"{% else %}a "Missing analysis"{% endif %} message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.
+When the {% data variables.product.prodname_code_scanning %} jobs complete, {% data variables.product.prodname_dotcom %} works out whether any alerts were added by the pull request and adds the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" entry to the list of checks. After {% data variables.product.prodname_code_scanning %} has been performed at least once, you can click **Details** to view the results of the analysis.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}
-  ![Analysis not found for commit message](/assets/images/help/repository/code-scanning-analysis-not-found.png)
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4  %}
+<!--Troubleshooting section no longer relevant-->
+{% elsif ghes < 3.5 or ghae %}
+If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see {% ifversion ghes > 3.2 or ghae %}an "Analysis not found"{% elsif ghes = 3.2 %}a "Missing analysis"{% endif %} message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.
+
+{% ifversion ghes > 3.2 or ghae %}
+  ![Analysis not found for commit message](/assets/images/enterprise/3.4/repository/code-scanning-analysis-not-found.png)
 
 The table lists one or more categories. Each category relates to specific analyses, for the same tool and commit, performed on a different language or a different part of the code. For each category, the table shows the two analyses that {% data variables.product.prodname_code_scanning %} attempted to compare to determine which alerts were introduced or fixed in the pull request.
 
 For example, in the screenshot above, {% data variables.product.prodname_code_scanning %} found an analysis for the merge commit of the pull request, but no analysis for the head of the main branch.
-{% else %}
-  ![Missing analysis for commit message](/assets/images/enterprise/3.2/repository/code-scanning-missing-analysis.png)
-{% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}
 ### Reasons for the "Analysis not found" message
-{% else %}
+
+{% elsif ghes = 3.2 %}
+  ![Missing analysis for commit message](/assets/images/enterprise/3.2/repository/code-scanning-missing-analysis.png)
+
 ### Reasons for the "Missing analysis" message
 {% endif %}
 
-After {% data variables.product.prodname_code_scanning %} has analyzed the code in a pull request, it needs to compare the analysis of the topic branch (the branch you used to create the pull request) with the analysis of the base branch (the branch into which you want to merge the pull request). This allows {% data variables.product.prodname_code_scanning %} to compute which alerts are newly introduced by the pull request, which alerts were already present in the base branch, and whether any existing alerts are fixed by the changes in the pull request. Initially, if you use a pull request to add {% data variables.product.prodname_code_scanning %} to a repository, the base branch has not yet been analyzed, so it's not possible to compute these details. In this case, when you click through from the results check on the pull request you will see the {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}"Analysis not found"{% else %}"Missing analysis for base commit SHA-HASH"{% endif %} message.
+After {% data variables.product.prodname_code_scanning %} has analyzed the code in a pull request, it needs to compare the analysis of the topic branch (the branch you used to create the pull request) with the analysis of the base branch (the branch into which you want to merge the pull request). This allows {% data variables.product.prodname_code_scanning %} to compute which alerts are newly introduced by the pull request, which alerts were already present in the base branch, and whether any existing alerts are fixed by the changes in the pull request. Initially, if you use a pull request to add {% data variables.product.prodname_code_scanning %} to a repository, the base branch has not yet been analyzed, so it's not possible to compute these details. In this case, when you click through from the results check on the pull request you will see the {% ifversion ghes > 3.2 or ghae %}"Analysis not found"{% elsif ghes = 3.2 %}"Missing analysis for base commit SHA-HASH"{% endif %} message.
 
 There are other situations where there may be no analysis for the latest commit to the base branch for a pull request. These include:
 
@@ -171,11 +181,7 @@ There are other situations where there may be no analysis for the latest commit 
 
   To check whether a branch has been scanned, go to the {% data variables.product.prodname_code_scanning_capc %} page, click the **Branch** drop-down and select the relevant branch.
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
   ![Choose a branch from the Branch drop-down menu](/assets/images/help/repository/code-scanning-branch-dropdown.png)
-{% else %}
-  ![Choose a branch from the Branch drop-down menu](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)
-{% endif %}
 
   The solution in this situation is to add the name of the base branch to the `on:push` and `on:pull_request` specification in the {% data variables.product.prodname_code_scanning %} workflow on that branch and then make a change that updates the open pull request that you want to scan.
 
@@ -186,6 +192,8 @@ There are other situations where there may be no analysis for the latest commit 
 * An error occurred while analyzing the latest commit on the base branch and analysis for that commit isn't available.
 
   Merge a trivial change into the base branch to trigger {% data variables.product.prodname_code_scanning %} on this latest commit, then push a change to the pull request to retrigger {% data variables.product.prodname_code_scanning %}.
+
+{% endif %}
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Removing a member from your enterprise
-intro: You can remove a member from all organizations owned by your enterprise.
+title: Eliminar a un miembro de tu empresa
+intro: Puedes quitar un miembro de todas las organizaciones que son propiedad de tu empresa.
 permissions: Enterprise owners can remove an enterprise member from the enterprise.
 versions:
   feature: remove-enterprise-members
@@ -8,32 +8,30 @@ type: how_to
 topics:
   - Enterprise
 shortTitle: Remove member
+ms.openlocfilehash: c3090cd49c2c2e8089093dc01ddeb7b69ae39416
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717994'
 ---
+## Acerca de la eliminación de miembros de la empresa
 
-{% note %}
+Al quitar a un miembro de empresa de la empresa, el miembro se quita de todas las organizaciones que pertenecen a la empresa.
 
-**Note:** The ability to remove enterprise members is in beta and subject to change.
+Si el miembro de empresa que va a quitar es el último propietario de una organización propiedad de la empresa, se convertirá en propietario de esa organización.
 
-{% endnote %}
-
-## About removal of enterprise members
-
-When you remove an enterprise member from your enterprise, the member is removed from all organizations owned by your enterprise.
-
-If the enterprise member you're removing is the last owner of an organization owned by your enterprise, you will become an owner of that organization.
-
-If your enterprise or any of the organizations owned by your enterprise uses an identity provider (IdP) to manage organization membership, the member may be added back to the organization by the IdP. Make sure to also make any necessary changes in your IdP.
+Si la empresa o cualquiera de las organizaciones que le pertenecen usa un proveedor de identidades (IdP) para administrar la pertenencia a la organización, es posible que el idP vuelva a agregar el miembro a la organización. Asegúrese de realizar también los cambios necesarios en el IdP.
 
 ## Eliminar a un miembro de tu empresa
 
 {% note %}
 
-**Note:** If an enterprise member uses only {% data variables.product.prodname_ghe_server %}, and not {% data variables.product.prodname_ghe_cloud %}, you cannot remove the enterprise member this way.
+**Nota:** Si un miembro de la empresa solo usa {% data variables.product.prodname_ghe_server %} y no {% data variables.product.prodname_ghe_cloud %}, no puede quitarlo de esta manera.
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-1. To the right of the person you want to remove, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click **Remove from enterprise**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}
+1. A la derecha de la persona que quiera quitar, seleccione el menú desplegable {% octicon "gear" aria-label="The gear icon" %} y haga clic en **Quitar de la empresa**.
 
-   ![Screenshot of the "Remove from enterprise" option for an enterprise member](/assets/images/help/business-accounts/remove-member.png)
+   ![Captura de pantalla de la opción "Quitar de la empresa" para un miembro de la empresa](/assets/images/help/business-accounts/remove-member.png)

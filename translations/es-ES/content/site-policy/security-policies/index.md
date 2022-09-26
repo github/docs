@@ -1,5 +1,5 @@
 ---
-title: Security Policies
+title: Directivas de Seguridad
 versions:
   fpt: '*'
 topics:

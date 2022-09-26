@@ -5,9 +5,6 @@
 // This is a convenience script for replacing the contents of translated
 // files with the English content from their corresponding source file.
 //
-// It's intended to be a workaround to temporarily bypass Crowdin parser bugs
-// while we wait for translators to fix them.
-//
 // Usage:
 // script/i18n/reset-translated-file.js <filename>
 //
@@ -17,7 +14,7 @@
 //
 // [end-readme]
 
-import program from 'commander'
+import { program } from 'commander'
 import { execSync } from 'child_process'
 import assert from 'assert'
 import fs from 'fs'
@@ -30,6 +27,7 @@ program
     '-m, --prefer-main',
     'Reset file to the translated file, try using the file from `main` branch first, if not found (usually due to renaming), fall back to English source.'
   )
+  .option('-rm, --remove', 'Remove the translated files altogether')
   .option('-d, --dry-run', 'Just pretend to reset files')
   .option('-r, --reason <reason>', 'A reason why the file is getting reset')
   .parse(process.argv)
@@ -44,6 +42,14 @@ const resetToEnglishSource = (translationFilePath) => {
     'path argument must be in the format `translations/<lang>/path/to/file`'
   )
 
+  if (program.opts().remove) {
+    if (!dryRun) {
+      const fullPath = path.join(process.cwd(), translationFilePath)
+      fs.unlinkSync(fullPath)
+    }
+    console.log('-> removed: %s %s', translationFilePath, reasonMessage)
+    return
+  }
   if (!fs.existsSync(translationFilePath)) {
     return
   }

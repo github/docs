@@ -1,7 +1,7 @@
 ---
-title: Working with Dependabot
+title: 使用 Dependabot
 shortTitle: Work with Dependabot
-intro: 'Guidance and recommendations for working with {% data variables.product.prodname_dependabot %}, such as managing pull requests raised by {% data variables.product.prodname_dependabot %}, using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_dependabot %}, and troubleshooting {% data variables.product.prodname_dependabot %} errors.'
+intro: '有关使用 {% data variables.product.prodname_dependabot %} 的指导和建议，例如管理 {% data variables.product.prodname_dependabot %} 引发的拉取请求、将 {% data variables.product.prodname_actions %} 与 {% data variables.product.prodname_dependabot %} 配合使用，以及排查 {% data variables.product.prodname_dependabot %} 错误。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -20,5 +20,11 @@ children:
   - /managing-encrypted-secrets-for-dependabot
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
+ms.openlocfilehash: ae4f4cd7f4f748487420c2804eae67d561455099
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145109551'
 ---
 

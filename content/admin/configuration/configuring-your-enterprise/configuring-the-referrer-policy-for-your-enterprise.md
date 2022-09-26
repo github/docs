@@ -3,7 +3,7 @@ title: Configuring the referrer policy for your enterprise
 shortTitle: Configure referrer policy
 intro: 'You can increase the privacy of {% data variables.product.product_location %} by configuring the policy for cross-origin requests.'
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

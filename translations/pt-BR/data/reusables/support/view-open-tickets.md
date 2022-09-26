@@ -1,4 +1,16 @@
-1. Navigate to the [GitHub Support Portal](https://support.github.com/).
-1. In the header, click **My Tickets**. ![Screenshot showing "My Tickets" link in the GitHub Support Portal header.](/assets/images/help/support/my-tickets-header.png)
-1. Optionally, to view tickets associated with an organization or enterprise account, select the **My Tickets** drop-down menu and click the name of the organization or enterprise account. ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
-1. In the list of tickets, click the subject of the ticket you want to view. ![Screenshot showing a list of support tickets with the subject highlighted.](/assets/images/help/support/my-tickets-list.png)
+---
+ms.openlocfilehash: 99112ea1a854a693b779aec53f5d7bfca1ea9ec2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147051953"
+---
+{% data reusables.support.navigate-to-my-tickets %}
+1. Opcionalmente, para exibir os tíquetes associados a uma organização ou conta corporativa, selecione o menu suspenso **Meus Tíquetes** e clique no nome da organização ou da conta corporativa. 
+
+{% indented_data_reference reusables.support.entitlements-note spaces=3 %}
+
+   ![Captura de tela do menu suspenso "Meus Ingressos".](/assets/images/help/support/ticket-context.png)
+1. Na lista de tíquetes, clique no assunto do tíquete que você deseja exibir.
+![Captura de tela mostrando uma lista de tíquetes de suporte com o assunto realçado.](/assets/images/help/support/my-tickets-list.png)

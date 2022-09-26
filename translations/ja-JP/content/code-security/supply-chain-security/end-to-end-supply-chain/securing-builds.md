@@ -1,62 +1,68 @@
 ---
-title: Best practices for securing your build system
+title: ビルド システムをセキュリティで保護するためのベスト プラクティス
 shortTitle: Securing builds
 allowTitleToDifferFromFilename: true
-intro: Guidance on how to protect the end of your supply chain—the systems you use to build and distribute artifacts.
+intro: サプライ チェーンの終端を保護する方法 (成果物の構築と配布に使用するシステム) に関するガイダンス。
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Fundamentals
   - Security
   - CI
   - CD
+ms.openlocfilehash: f184bb668ba1594a77099fab734686b9c550c238
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147518857'
 ---
+## このガイドについて
 
-## About this guide
+このガイドでは、ビルド システムのセキュリティを向上させるために加えられる最も影響が大きい変更について説明します。 各セクションで、セキュリティを向上させるためにプロセスに対して行うことができる変更の概要を示します。 変更は影響が大きい順に示されます。
 
-This guide describes the highest impact changes you can make to improve the security of your build systems. Each section outlines a change you can make to your processes to improve security. The highest impact changes are listed first.
+## リスクとは
 
-## What's the risk?
+ソフトウェア サプライ チェーンに対する攻撃の一部は、ビルド システムを直接対象とします。 攻撃者がビルド プロセスを変更できる場合は、個人アカウントやコードを侵害することなく、システムを悪用するおそれがあります。 ビルド システムだけでなく、個人のアカウントやコードも忘れずに保護することが重要です。
 
-Some attacks on software supply chains target the build system directly. If an attacker can modify the build process, they can exploit your system without the effort of compromising personal accounts or code. It's important to make sure that you don't forget to protect the build system as well as personal accounts and code.
+## ビルド システムのセキュリティによる保護
 
-## Secure your build system
+ビルド システムに必要なセキュリティ機能がいくつかあります。
 
-There are several security capabilities a build system should have:
+1. ビルドの手順は明確で繰り返すことができる必要があります。
 
-1. The build steps should be clear and repeatable.
+2. ビルド プロセス中に何が実行されていたかを正確に把握する必要があります。
 
-2. You should know exactly what was running during the build process.
+3. 各ビルドは新しい環境で開始する必要があるため、侵害されたビルドは今後のビルドに影響を与えることはありません。
 
-3. Each build should start in a fresh environment, so a compromised build doesn't persist to affect future builds.
+{% data variables.product.prodname_actions %} は、これらの機能を満たすのに役立ちます。 ビルド手順は、コードと共にリポジトリに格納されます。 ご自分でホストする Windows、Mac、Linux、ランナーなど、ビルドを実行する環境を選びます。 各ビルドは新しいランナー イメージから始まり、ビルド環境に攻撃が持続することは困難になります。
 
-{% data variables.product.prodname_actions %} can help you meet these capabilities. Build instructions are stored in your repository, alongside your code. You choose what environment your build runs on, including Windows, Mac, Linux, or runners you host yourself. Each build starts with a fresh virtual environment, making it difficult for an attack to persist in your build environment.
+{% data variables.product.prodname_actions %} を使用すると、セキュリティ上の利点に加えて、頻繁かつ高速なビルドのために、ビルドを手動で、定期的に、またはリポジトリの Git イベントでトリガーできます。
 
-In addition to the security benefits, {% data variables.product.prodname_actions %} lets you trigger builds manually, periodically, or on git events in your repository for frequent and fast builds.
+{% data variables.product.prodname_actions %} は大きなトピックですが、作業を開始するには、「[GitHub Actions について](/actions/learn-github-actions/understanding-github-actions)」のほかに、「[GitHub ホストランナーの選択](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)」、「[ワークフローのトリガー](/actions/using-workflows/triggering-a-workflow)」を参照してください。
 
-{% data variables.product.prodname_actions %} is a big topic, but a good place to get started is "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions)," as well as "[Choosing GitHub-hosted runners](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)," and "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)."
+## ビルドに署名する
 
-## Sign your builds
+ビルド プロセスがセキュリティで保護されたら、誰かがビルド プロセスの最終的な結果を改ざんできないようにする必要があります。 これを行う優れた方法は、ビルドに署名することです。 ソフトウェアをパブリックに配布する場合、多くの場合、公開/秘密の暗号化キー ペアで行われます。 秘密キーを使用してビルドに署名し、公開キーを公開して、ソフトウェアのユーザーがビルドの署名を使用する前に確認できるようにします。 ビルドのバイトが変更された場合、署名は検証されません。
 
-After your build process is secure, you want to prevent someone from tampering with the end result of your build process. A great way to do this is to sign your builds. When distributing software publicly, this is often done with a public/private cryptographic key pair. You use the private key to sign the build, and you publish your public key so users of your software can verify the signature on the build before they use it. If the bytes of the build are modified, the signature will not verify.
+ビルドに正確に署名する方法は、記述しているコードの種類とユーザーによって異なります。 多くの場合、秘密キーを安全に格納する方法を知ることは困難です。 ここでの基本的なオプションの 1 つは、{% data variables.product.prodname_actions %} 暗号化されたシークレットを使用することですが、それらの {% data variables.product.prodname_actions %} ワークフローにアクセスするユーザーを制限するように注意する必要があります。 {% ifversion fpt or ghec %} 秘密キーがパブリック インターネット (Microsoft Azure、HashiCorp Vault など) 経由でアクセスできる別のシステムに格納されている場合、より高度なオプションは OpenID Connect で認証することであるため、システム間でシークレットを共有する必要はありません。{% endif %} 秘密キーにアクセスできるのがプライベート ネットワークからのみの場合は、{% data variables.product.prodname_actions %} にセルフホステッド ランナーを使用することもできます。
 
-How exactly you sign your build will depend on what sort of code you're writing, and who your users are. Often it's difficult to know how to securely store the private key. One basic option here is to use {% data variables.product.prodname_actions %} encrypted secrets, although you'll need to be careful to limit who has access to those {% data variables.product.prodname_actions %} workflows. {% ifversion fpt or ghec %}If your private key is stored in another system accessible over the public internet (like Microsoft Azure, or HashiCorp Vault), a more advanced option is to authenticate with OpenID Connect, so you don't have to share secrets across systems.{% endif %} If your private key is only accessible from a private network, another option is to use self-hosted runners for {% data variables.product.prodname_actions %}.
+詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」{% ifversion fpt or ghec %}、「[OpenID Connect によるセキュリティ強化について](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)」、{% endif %} および「[セルフホステッド ランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。
 
-For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)"{% ifversion fpt or ghec %}, "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)",{% endif %} and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+## {% data variables.product.prodname_actions %} のセキュリティを強化する
 
-## Harden security for {% data variables.product.prodname_actions %}
+さらに {% data variables.product.prodname_actions %} をセキュリティで保護するために、さらに多くの手順を実行できます。 特に、サードパーティのワークフローを評価する場合は注意が必要です。また、ワークフローに変更を加えることができるユーザーを制限するために `CODEOWNERS` を使用することを検討してください。
 
-There are many further steps you can take to additionally secure {% data variables.product.prodname_actions %}. In particular, be careful when evaluating third-party workflows, and consider using `CODEOWNERS` to limit who can make changes to your workflows.
+詳しくは、「[GitHub Actions のセキュリティ強化](/actions/security-guides/security-hardening-for-github-actions)」、特に「[サードパーティ アクションを使用する](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)」および「[変更の監視に `CODEOWNERS` を使用する](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)」を参照してください。
 
-For more information, see "[Security hardening for GitHub Actions](/actions/security-guides/security-hardening-for-github-actions);" particularly "[Using third-party actions](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)" and "[Using `CODEOWNERS` to monitor changes](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)."
+## 次の手順
 
-## 次のステップ
+- 「[エンドツーエンドのサプライ チェーンのセキュリティ保護](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)」
 
-- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+- 「[アカウントをセキュリティで保護するためのベスト プラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)」
 
-- "[Best practices for securing accounts](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
-
-- "[Best practices for securing code in your supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- 「[サプライ チェーンのコードをセキュリティで保護するためのベスト プラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)」

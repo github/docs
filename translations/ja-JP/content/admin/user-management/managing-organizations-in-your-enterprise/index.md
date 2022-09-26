@@ -8,7 +8,11 @@ redirect_from:
   - /articles/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account
-intro: 'Organizationは企業内で、部署や同様のプロジェクトで作業を行うグループなど、個別のユーザグループを作成する素晴らしい手段です。 {% ifversion ghae %}Internal{% else %}Public and internal{% endif %} repositories that belong to an organization are accessible to members of other organizations in the enterprise, while private repositories are inaccessible to anyone but members of the organization that are granted access.'
+  - /admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise
+  - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
+intro: 'Organization は、類似したプロジェクトに取り組む部門やグループなど、社内の個別のユーザー グループを作成するのに最適です。 Organization に属する{% ifversion ghae %}内部{% else %}パブリックおよび内部{% endif %}リポジトリには、Enterprise 内の他の Organization のメンバーがアクセスできますが、プライベート リポジトリには、アクセスが許可されている Organization のメンバー以外はアクセスできません。'
 versions:
   ghec: '*'
   ghes: '*'
@@ -17,14 +21,11 @@ topics:
   - Enterprise
 children:
   - /adding-organizations-to-your-enterprise
-  - /managing-unowned-organizations-in-your-enterprise
   - /configuring-visibility-for-organization-membership
   - /preventing-users-from-creating-organizations
   - /requiring-two-factor-authentication-for-an-organization
   - /creating-teams
   - /adding-people-to-teams
-  - /viewing-the-audit-logs-for-organizations-in-your-enterprise
-  - /streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /managing-your-role-in-an-organization-owned-by-your-enterprise
   - /removing-users-from-teams-and-organizations
   - /removing-organizations-from-your-enterprise
@@ -32,5 +33,11 @@ children:
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
+ms.openlocfilehash: 5d1430bc4efff03e6cddfe81f3c018d4f2064155
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884246'
 ---
 

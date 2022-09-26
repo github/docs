@@ -6,7 +6,7 @@
 // {% if ghes %}
 //
 // For the custom operator handling in statements like {% if ghes > 3.0 %}, see `lib/liquid-tags/if-ver.js`.
-export default async function shortVersions(req, res, next) {
+export default function shortVersions(req, res, next) {
   const { allVersions, currentVersion } = req.context
   const currentVersionObj = allVersions[currentVersion]
   if (!currentVersionObj) return next()
@@ -15,6 +15,7 @@ export default async function shortVersions(req, res, next) {
   req.context[currentVersionObj.shortName] = true
 
   // Add convenience props.
+  req.context.currentVersionObj = currentVersionObj
   req.context.currentRelease = currentVersion.split('@')[1]
   req.context.currentVersionShortName = currentVersionObj.shortName
 

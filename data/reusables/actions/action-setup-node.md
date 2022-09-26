@@ -1,1 +1,1 @@
-actions/setup-node@{% if actions-node16-action %}v3{% else %}v2{% endif %}
+actions/setup-node@{% ifversion actions-node16-action %}v3{% else %}v2{% endif %}

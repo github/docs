@@ -60,7 +60,7 @@ The GitHub Sponsors Matching Fund aims to encourage the community that participa
 #### 2.2.1. Matching Fund Terms.
 Eligibility for the GitHub Sponsors Matching Fund is evaluated on a case-by-case basis and is subject to the following limitations:
 
-* You must have a GitHub account, be accepted into the Program as an individual, and be actively contributing to OSS. Please note, GitHub does not allow operating more than one free user account. As such, matching is available on an individual basis and will not be approved across multiple accounts.
+* You must have a GitHub account, be accepted into the Program as an individual, and be actively contributing to OSS. Please note, GitHub does not allow operating more than one free personal account. As such, matching is available on an individual basis and will not be approved across multiple accounts.
 
 * Your use of GitHub and your Sponsored Developer Account must be, based on our determination, in our sole discretion, in accordance with the GitHub Sponsors mission to expand the opportunities to contribute to open source that upholds the [GitHub Community Guidelines](/github/site-policy/github-community-guidelines).
 
@@ -120,7 +120,7 @@ In the event of a Sponsored Developer's breach, or suspected breach, of these Ad
 ### 4.3. Payment Timing.
 During the term, GitHub will remit to you all Sponsored Developer Payments received in a given month within 30 days after the close of that month, subject to the variables below. Payouts are sent through Stripe Connect, ACH transfer, or wire transfer to the bank account you provided when you applied for GitHub Sponsors. We are not responsible for delay or misapplication of any Sponsored Developer Payment because of incorrect or incomplete information supplied by you or a bank, or for failure of a bank to credit your account.
 
-- For newly created Sponsored Developer Accounts, GitHub will remit to you all Sponsored Developer Payments received in a given month within 90 days of the creation of your Sponsored Developer Account, subject to the variables below. Payments thereafter will be remitted within 30 days of the close of that month, in accordance with this section.
+- For first payments, GitHub will remit to you all Sponsored Developer Payments 60 days after the first sponsorship is initiated, subject to the variables below. This probation period is applied to all Sponsored Developer Accounts and helps insure the integrity of the program. Payments thereafter will be remitted within 30 days of the close of that month, in accordance with this section.
 
 - If you are paid through Stripe Connect, you will receive payouts on the 22nd of the month for the balance accrued since the last payout, regardless of the amount of the balance. Payout initiation dates vary by country, and can change from month to month due to public holidays, weekends, and other factors.
 

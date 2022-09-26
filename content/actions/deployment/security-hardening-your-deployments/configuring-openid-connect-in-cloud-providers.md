@@ -5,8 +5,8 @@ intro: Use OpenID Connect within your workflows to authenticate with cloud provi
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security

@@ -29,7 +29,7 @@ An organization owner can restrict the ability to invite collaborators. For more
 {% endif %}
 
 {% ifversion ghes %}
-Before you can add someone as an outside collaborator on a repository, the person must have a user account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site admin can create a user account for the person. For more information, see "[Using built-in authentication](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)."
+Before you can add someone as an outside collaborator on a repository, the person must have a personal account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site administrator can create an account for the person. For more information, see "[Configuring built-in authentication](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
 {% endif %}
 
 {% ifversion not ghae %}
@@ -38,7 +38,7 @@ If your organization requires two-factor authentication, all outside collaborato
 
 ## Adding outside collaborators to a repository
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 You can give outside collaborators access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)." 
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}

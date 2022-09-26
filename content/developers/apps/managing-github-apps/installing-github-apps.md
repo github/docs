@@ -24,7 +24,7 @@ Once you create a private GitHub App, you can install it on one of your org or u
 
 1. From the [GitHub Apps settings page](https://github.com/settings/apps), select your app.
 2. In the left sidebar, click **Install App**.
-3. Click **Install** next to the organization or user account containing the correct repository.
+3. Click **Install** next to the organization or personal account containing the correct repository.
 4. Install the app on all repositories or select repositories.
 ![App installation permissions](/assets/images/install_permissions.png)
 5. Once installed, you will see configuration options for the app on your selected account. You can make changes here, or repeat the previous steps to install the app on another account.

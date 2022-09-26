@@ -59,7 +59,7 @@ export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps)
           {icon(group)}
 
           <div>
-            <h3>{name}</h3>
+            <h2 className="h3">{name}</h2>
           </div>
         </div>
 

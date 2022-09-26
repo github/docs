@@ -2,7 +2,7 @@
 title: Running scripts before or after a job
 intro: 'Scripts can automatically execute on a self-hosted runner, directly before or after a job.'
 versions:
-  feature: 'job-hooks-for-runners'
+  feature: job-hooks-for-runners
 type: tutorial
 miniTocMaxHeadingLevel: 3
 shortTitle: Run a script before or after a job

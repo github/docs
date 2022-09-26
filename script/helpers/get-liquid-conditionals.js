@@ -72,7 +72,9 @@ function getLiquidConditionalsWithContent(str, tagName) {
 function groupTokens(tokens, tagName, endTagName, newArray = []) {
   const startIndex = tokens.findIndex((token) => token.conditional === tagName)
   // The end tag name is currently in a separate token, but we want to group it with the start tag and content.
-  const endIndex = tokens.findIndex((token) => token.conditional === endTagName)
+  const endIndex = tokens.findIndex(
+    (token, index) => token.conditional === endTagName && index > startIndex
+  )
   // Once all tags are grouped and removed from `tokens`, this findIndex will not find anything,
   // so we can return the grouped result at this point.
   if (startIndex === -1) return newArray

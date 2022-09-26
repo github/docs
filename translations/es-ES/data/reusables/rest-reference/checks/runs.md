@@ -1,1 +1,0 @@
-## Ejecuciones de Verificación

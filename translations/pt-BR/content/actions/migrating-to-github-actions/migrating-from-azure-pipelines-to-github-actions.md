@@ -14,11 +14,15 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: Fazer a migração a partir dos pipelines do Azure
+shortTitle: Migrate from Azure Pipelines
+ms.openlocfilehash: 5890afb4c0f0e8eae6b5981a39e68f272bff7440
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145096125'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introdução
 
@@ -29,15 +33,15 @@ O Azure Pipelines e o {% data variables.product.prodname_actions %} permitem cri
 - Os trabalhos incluem uma ou mais etapas ou comandos individuais.
 - É possível reutilizar e compartilhar novamente etapas ou tarefas com a comunidade.
 
-Para obter mais informações, consulte "[Conceitos básicos para {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)".
+Para obter mais informações, confira "[Conceitos básicos do {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)".
 
 ## Principais diferenças
 
 Ao migrar do Azure Pipelines, considere as diferenças a seguir:
 
-- O Azure Pipelines suporta um legado do _editor clássico_, que permite que você defina sua configuração de CI em um editor GUI em vez de criar a definição do pipeline em um arquivo YAML. O {% data variables.product.prodname_actions %} usa arquivos YAML para definir fluxos de trabalho e não é compatível com um editor gráfico.
+- O Azure Pipelines dá suporte a um _editor clássico_ herdado, que permite que você defina a configuração de CI em um editor de GUI em vez de criar a definição do pipeline em um arquivo YAML. O {% data variables.product.prodname_actions %} usa arquivos YAML para definir fluxos de trabalho e não é compatível com um editor gráfico.
 - O Azure Pipelines permite que você omita algumas estruturas nas definições de trabalho. Por exemplo, se você tem apenas um único trabalho, não é necessário definir o trabalho. Você precisa definir apenas as etapas. O {% data variables.product.prodname_actions %} requer configuração explícita e não é possível omitir a estrutura do YAML.
-- O Azure Pipelines é compatível com as _etapas_ definidas no arquivo YAML, que pode ser usado para criar fluxos de trabalho de implantação. O {% data variables.product.prodname_actions %} exige que você que você separe as etapas em arquivos separados do fluxo de trabalho do YAML.
+- O Azure Pipelines dá suporte a _fases_ definidas no arquivo YAML, que pode ser usado para criar fluxos de trabalho de implantação. O {% data variables.product.prodname_actions %} exige que você que você separe as etapas em arquivos separados do fluxo de trabalho do YAML.
 - É possível selecionar os agentes de criação locais do Azure Pipelines com recursos. {% data variables.product.prodname_actions %} executores auto-hospedados podem ser selecionados com etiquetas.
 
 ## Migrar trabalhos e etapas
@@ -50,9 +54,9 @@ Os trabalhos e as etapas no Azure Pipelines são muito semelhantes a trabalhos e
 
 ## Migrar etapas de script
 
-Você pode executar um script ou um comando de shell como uma etapa em um fluxo de trabalho. No Azure Pipelines, as etapas do script podem ser especificadas usando a chave `script`, ou usando as chaves `bash`, `powershell`, ou `pwsh`. É possível especificar os scripts como entrada para uma [tarefa de Bash](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) ou a como uma [tarefa de PowerShell](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops).
+Você pode executar um script ou um comando de shell como uma etapa em um fluxo de trabalho. No Azure Pipelines, as etapas de script podem ser especificadas por meio da chave `script` ou com as chaves `bash`, `powershell` ou `pwsh`. Os scripts também podem ser especificados como uma entrada para a [tarefa do Bash](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) ou a [tarefa do PowerShell](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops).
 
-Em {% data variables.product.prodname_actions %}, todos os scripts são especificados usando a chave `executar`. Para selecionar um shell específico, você pode especificar a chave `shell` ao fornecer o script. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
+No {% data variables.product.prodname_actions %}, todos os scripts são especificados por meio da chave `run`. Para selecionar um shell específico, você pode especificar a chave `shell` ao fornecer o script. Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
@@ -105,15 +109,15 @@ jobs:
 
 ## Diferenças na manipulação de erros de script
 
-No Azure Pipelines, os scripts podem ser configurados com erro se houver uma saída for enviada para `stderr`. {% data variables.product.prodname_actions %} não suporta esta configuração.
+No Azure Pipelines, os scripts podem ser configurados para erro se uma saída é enviada para `stderr`. {% data variables.product.prodname_actions %} não suporta esta configuração.
 
-{% data variables.product.prodname_actions %} configura shells como "falha rápida" sempre que possível, que interrompe o script imediatamente caso um dos comandos em um script saia com um código de erro. Em contrapartida, o Azure Pipelines exige uma configuração explícita para sair imediatamente de um erro. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)".
+{% data variables.product.prodname_actions %} configura shells como "falha rápida" sempre que possível, que interrompe o script imediatamente caso um dos comandos em um script saia com um código de erro. Em contrapartida, o Azure Pipelines exige uma configuração explícita para sair imediatamente de um erro. Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)".
 
 ## Diferenças no shell-padrão no Windows
 
-No Azure Pipelines, o shell-padrão para scripts nas plataformas do Windows é o shell de comando (_cmd.exe_). Em {% data variables.product.prodname_actions %}, o shell-padrão para os scripts nas plataformas do Windows é o PowerShell. O PowerShell tem várias diferenças em comandos integrados, expansão de variáveis e controle de fluxo.
+No Azure Pipelines, o shell padrão para scripts nas plataformas Windows é o shell de comando (_cmd.exe_). Em {% data variables.product.prodname_actions %}, o shell-padrão para os scripts nas plataformas do Windows é o PowerShell. O PowerShell tem várias diferenças em comandos integrados, expansão de variáveis e controle de fluxo.
 
-Se você estiver executando um comando simples, você poderá executar um script do shell do comando no PowerShell sem alterações. No entanto, na maioria dos casos, você deverá atualizar seu script com sintaxe PowerShell ou instruir {% data variables.product.prodname_actions %} para executar o script com a shell de comando em vez de executar o PowerShell. Você pode fazer isso especificando o `shell` como `cmd`.
+Se você estiver executando um comando simples, você poderá executar um script do shell do comando no PowerShell sem alterações. No entanto, na maioria dos casos, você deverá atualizar seu script com sintaxe PowerShell ou instruir {% data variables.product.prodname_actions %} para executar o script com a shell de comando em vez de executar o PowerShell. Faça isso especificando `shell` como `cmd`.
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
@@ -155,13 +159,13 @@ jobs:
 </tr>
 </table>
 
-Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)".
+Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)".
 
 ## Migrar condicionais e sintaxe de expressão
 
-O Azure Pipelines e {% data variables.product.prodname_actions %} podem executar as etapas condicionalmente. No Azure Pipelines, expressões condicionais são especificadas usando a chave `condição`. Em {% data variables.product.prodname_actions %}, as expressões condicionais são especificadas usando a chave `se`.
+O Azure Pipelines e {% data variables.product.prodname_actions %} podem executar as etapas condicionalmente. No Azure Pipelines, as expressões condicionais são especificadas por meio da chave `condition`. No {% data variables.product.prodname_actions %}, as expressões condicionais são especificadas por meio da chave `if`.
 
-O Azure Pipelines usa funções dentro de expressões para executar as etapas condicionalmente. Em contrapartida, {% data variables.product.prodname_actions %} usa uma notação de infixo. Por exemplo, você deve substituir a função `eq` no Azure Pipelines pelo operador `==` em {% data variables.product.prodname_actions %}.
+O Azure Pipelines usa funções dentro de expressões para executar as etapas condicionalmente. Em contrapartida, {% data variables.product.prodname_actions %} usa uma notação de infixo. Por exemplo, você precisa substituir a função `eq` no Azure Pipelines pelo operador `==` no {% data variables.product.prodname_actions %}.
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
@@ -203,13 +207,13 @@ jobs:
 </tr>
 </table>
 
-Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+Para obter mais informações, confira "[Expressões](/actions/learn-github-actions/expressions)".
 
 ## Dependências entre trabalhos
 
-Tanto o Pipelines Azure quanto o {% data variables.product.prodname_actions %} permitem que você defina as dependências para um trabalho. Em ambos os sistemas, os trabalhos são executados em paralelo por padrão, mas as dependências do trabalho podem ser especificadas explicitamente. No Azure Pipelines, isso é feito com a chave `dependsOn`. Em {% data variables.product.prodname_actions %}, isso é feito com a chave `needs`.
+Tanto o Pipelines Azure quanto o {% data variables.product.prodname_actions %} permitem que você defina as dependências para um trabalho. Em ambos os sistemas, os trabalhos são executados em paralelo por padrão, mas as dependências do trabalho podem ser especificadas explicitamente. No Azure Pipelines, isso é feito com a chave `dependsOn`. No {% data variables.product.prodname_actions %}, isso é feito com a chave `needs`.
 
-Abaixo, há um exemplo da sintaxe para cada sistema. O fluxo de trabalho inicia um primeiro trabalho denominado `inicial` e, quando esse trabalho é concluído, dois trabalhos denominados `fanout1` e `fanout2` serão executados. Por fim, quando esses trabalhos forem concluídos, o trabalho `fanin` será executado.
+Abaixo, há um exemplo da sintaxe para cada sistema. Os fluxos de trabalho iniciam um primeiro trabalho chamado `initial` e, quando esse trabalho for concluído, dois trabalhos chamados `fanout1` e `fanout2` serão executados. Por fim, quando esses trabalhos forem concluídos, o trabalho `fanin` será executado.
 
 <table class="d-block">
 <tr>
@@ -280,11 +284,11 @@ jobs:
 </tr>
 </table>
 
-Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)".
+Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)".
 
 ## Migrar tarefas para ações
 
-O Azure Pipelines usa as _tarefas_, que são componentes do aplicativo que podem ser reutilizados em vários fluxos de trabalho. O {% data variables.product.prodname_actions %} usa as _ações_, que podem ser usadas para realizar tarefas e personalizar seu fluxo de trabalho. Em ambos os sistemas, é possível especificar o nome da tarefa ou ação a executar, junto com quaisquer entradas necessárias como pares chave/valor.
+O Azure Pipelines usa _tarefas_, que são componentes do aplicativo que podem ser reutilizados em vários fluxos de trabalho. O {% data variables.product.prodname_actions %} usa _ações_, que podem ser usadas para realizar tarefas e personalizar seu fluxo de trabalho. Em ambos os sistemas, é possível especificar o nome da tarefa ou ação a executar, junto com quaisquer entradas necessárias como pares chave/valor.
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
@@ -315,21 +319,21 @@ jobs:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.7'
           architecture: 'x64'
       - run: python script.py
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-Você pode encontrar ações que podem ser usadas em seu fluxo de trabalho em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) ou você pode criar suas próprias ações. Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
+Encontre ações que você pode usar no seu fluxo de trabalho no [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) ou crie suas ações. Para obter mais informações, confira "[Como criar ações](/actions/creating-actions)".

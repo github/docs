@@ -1,22 +1,27 @@
 ---
-title: Creating diagrams
-intro: Create diagrams to convey information through charts and graphs
+title: 创建关系图
+intro: 创建图表以通过图表和图形传达信息
 versions:
   feature: mermaid
 shortTitle: Create diagrams
+ms.openlocfilehash: 0e588fb771bd7992f75e364624576e216cf84000
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529733'
 ---
+## 关于创建关系图
 
-## About creating diagrams
+可以使用以下三种不同的语法在 Markdown 中创建关系图：mermaid、geoJSON 和 topoJSON、ASCII STL。 关系图可在以下项中呈现：{% data variables.product.prodname_github_issues %}、{% data variables.product.prodname_discussions %}、拉取请求、Wiki 和 Markdown 文件。
 
-You can create diagrams in Markdown using three different syntaxes: mermaid, geoJSON and topoJSON, and ASCII STL.
+## 创建 Mermaid 关系图
 
-## Creating Mermaid diagrams
+Mermaid 是一款受 Markdown 启发的工具，可将文本呈现为关系图。 例如，Mermaid 可以呈现流程图、序列图、饼图等。 有关详细信息，请参阅 [Mermaid 文档](https://mermaid-js.github.io/mermaid/#/)。
 
-Mermaid is a Markdown-inspired tool that renders text into diagrams. For example, Mermaid can render flow charts, sequence diagrams, pie charts and more. For more information, see the [Mermaid documentation](https://mermaid-js.github.io/mermaid/#/).
+若要创建 Mermaid 关系图，请使用 `mermaid` 语言标识符在围栏代码块中添加 Mermaid 语法。 有关创建代码块的详细信息，请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
-To create a Mermaid diagram, add Mermaid syntax inside a fenced code block with the `mermaid` language identifier. For more information about creating code blocks, see "[Creating and highlighting code blocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
-
-For example, you can create a flow chart:
+例如，可以创建流程图：
 
 <pre>
 Here is a simple flow chart:
@@ -30,44 +35,56 @@ graph TD;
 ```
 </pre>
 
-![Rendered Mermaid flow chart](/assets/images/help/writing/mermaid-flow-chart.png)
+![呈现的 Mermaid 流程图](/assets/images/help/writing/mermaid-flow-chart.png)
 
 {% note %}
 
-**Note:** You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on {% data variables.product.company_short %}.
+注意：如果在 {% data variables.product.company_short %} 上使用 Mermaid 语法时运行第三方 Mermaid 插件，你可能会发现出错。
 
 {% endnote %}
 
-## Creating geoJSON and topoJSON maps
+## 创建 GeoJSON 和 TopoJSON 地图
 
-You can use geo/topoJSON syntax to create interactive maps. To create a map, add geoJSON or topoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. 更多信息请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
+可使用 GeoJSON/TopoJSON 语法创建交互式地图。 若要创建地图，请使用 `geojson` 或 `topojson` 语法标识符在围栏代码块中添加 GeoJSON 或 TopoJSON。 有关详细信息，请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
-### Using geoJSON
+### 使用 GeoJSON
 
-For example, you can create a simple map:
+例如，可创建一个简单的地图：
 
 <pre>
 ```geojson
 {
-  "type": "Polygon",
-  "coordinates": [
-      [
-          [-90,30],
-          [-90,35],
-          [-90,35],
-          [-85,35],
-          [-85,30]
-      ]
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "ID": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+              [-90,35],
+              [-90,30],
+              [-85,30],
+              [-85,35],
+              [-90,35]
+          ]
+        ]
+      }
+    }
   ]
 }
 ```
 </pre>
 
-![Rendered map](/assets/images/help/writing/fenced-geojson-rendered-map.png)
+![呈现的地图](/assets/images/help/writing/fenced-geojson-rendered-map.png)
 
-### Using topoJSON
+### 使用 TopoJSON
 
-For example, you can create a simple topoJSON map:
+例如，可创建简单的 TopoJSON 地图：
 
 <pre>
 ```topojson
@@ -106,16 +123,16 @@ For example, you can create a simple topoJSON map:
 ```
 </pre>
 
-![Rendered topojson map](/assets/images/help/writing/fenced-topojson-rendered-map.png)
+![呈现的 topojson 地图](/assets/images/help/writing/fenced-topojson-rendered-map.png)
 
-For more information on working with `.geojson` and `.topojson` files, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+有关使用 `.geojson` 和 `.topojson` 文件的详细信息，请参阅“[使用非代码文件](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)”。
 
 
-## Creating STL 3D models
+## 创建 STL 3D 模型
 
-You can use ASCII STL syntax directly in markdown to create interactive 3D models. To display a model, add ASCII STL syntax inside a fenced code block with the `stl` syntax identifier. 更多信息请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
+可以直接在 Markdown 中使用 ASCII STL 语法来创建交互式 3D 模型。 若要显示模型，请使用 `stl` 语法标识符在围栏代码块中添加 ASCII STL 语法。 有关详细信息，请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
-For example, you can create a simple 3D model:
+例如，可创建简单的 3D 模型：
 
 <pre>
 ```stl
@@ -152,7 +169,7 @@ endsolid
 ```
 </pre>
 
-![Rendered 3D model](/assets/images/help/writing/fenced-stl-rendered-object.png)
+![呈现的 3D 模型](/assets/images/help/writing/fenced-stl-rendered-object.png)
 
-For more information on working with `.stl` files, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)."
+有关使用 `.stl` 文件的详细信息，请参阅“[使用非代码文件](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)”。
 

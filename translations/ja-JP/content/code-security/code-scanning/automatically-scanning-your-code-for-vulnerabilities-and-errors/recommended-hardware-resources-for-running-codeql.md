@@ -1,7 +1,7 @@
 ---
-title: Recommended hardware resources for running CodeQL
+title: CodeQL を実行するための推奨ハードウェア リソース
 shortTitle: Hardware resources for CodeQL
-intro: 'Recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis on self-hosted machines, based on the size of your codebase.'
+intro: 'コードベースのサイズに基づいて、セルフホステッド マシンで {% data variables.product.prodname_codeql %} 分析を実行するための推奨仕様 (RAM、CPU コア、ディスク)。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -15,18 +15,23 @@ topics:
   - Repositories
   - Integration
   - CI
+ms.openlocfilehash: 9f180e28a3207ef64a516a1e6cd6a8bbcf17ea53
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145117717'
 ---
+{% data variables.product.prodname_actions %} または外部 CI システムで {% data variables.product.prodname_codeql %} を設定できます。 {% data variables.product.prodname_codeql %} は {% data variables.product.prodname_actions %} の {% data variables.product.prodname_dotcom %} ホスト ランナーと完全に互換性があります。
 
-You can set up {% data variables.product.prodname_codeql %} on {% data variables.product.prodname_actions %} or on an external CI system. {% data variables.product.prodname_codeql %} is fully compatible with {% data variables.product.prodname_dotcom %}-hosted runners on {% data variables.product.prodname_actions %}.
+外部 CI システムを使用している場合、またはプライベート リポジトリの {% data variables.product.prodname_actions %} でセルフホスト ランナーを使用している場合は、独自のハードウェアを構成する必要があります。 {% data variables.product.prodname_codeql %} を実行するための最適なハードウェア構成は、コードベースのサイズと複雑さ、使用されているプログラミング言語とビルド システム、および CI ワークフローの設定によって異なる場合があります。
 
-If you're using an external CI system, or self-hosted runners on {% data variables.product.prodname_actions %} for private repositories, you're responsible for configuring your own hardware. The optimal hardware configuration for running {% data variables.product.prodname_codeql %} may vary based on the size and complexity of your codebase, the programming languages and build systems being used, and your CI workflow setup.
+次の表は、コードベースのサイズに基づいて {% data variables.product.prodname_codeql %} 分析を実行するための推奨されるハードウェア仕様を示しています。 ハードウェアまたは仮想マシンの選択を決定するための始点としてこれらを使用します。 リソースが多いマシンでは、分析パフォーマンスが向上する可能性がありますが、保守コストも高くなる可能性があります。
 
-The table below provides recommended hardware specifications for running {% data variables.product.prodname_codeql %} analysis, based on the size of your codebase. Use these as a starting point for determining your choice of hardware or virtual machine. A machine with greater resources may improve analysis performance, but may also be more expensive to maintain.
+| コードベース のサイズ | RAM | CPU |
+|--------|--------|--------|
+| 小 (<100 K のコード行) | 8 GB 以上 | 2 コア |
+| 中間 (100 K から 1 M のコード行) | 16 GB 以上 | 4 または 8 コア |
+| 大 (>1 M のコード行) | 64 GB 以上 | 8 コア |
 
-| Codebase size                       | RAM             | CPU          |
-| ----------------------------------- | --------------- | ------------ |
-| Small (<100 K lines of code)        | 8 GB or higher  | 2 cores      |
-| Medium (100 K to 1 M lines of code) | 16 GB or higher | 4 or 8 cores |
-| Large (>1 M lines of code)          | 64 GB or higher | 8 cores      |
-
-For all codebase sizes, we recommend using an SSD with 14 GB or more of disk space. There must be enough disk space to check out and build your code, plus additional space for data produced by {% data variables.product.prodname_codeql %}.
+すべてのコードベース サイズでは、ディスク領域が 14 GB 以上の SSD を使用することをお勧めします。 コードをチェックアウトしてビルドするのに十分なディスク領域と、{% data variables.product.prodname_codeql %} によって生成されるデータ用の追加の領域が必要です。

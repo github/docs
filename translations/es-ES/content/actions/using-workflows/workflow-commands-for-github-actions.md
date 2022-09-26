@@ -1,6 +1,6 @@
 ---
 title: Comandos de flujo de trabajo para Acciones de GitHub
-shortTitle: Comandos de flujo de trabajo
+shortTitle: Workflow commands
 intro: Puedes usar comandos de flujo de trabajo cuando ejecutas comandos de Shell en un flujo de trabajo o en el código de una acción.
 defaultTool: bash
 redirect_from:
@@ -16,23 +16,27 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 80f10d807cf7f8978173225c17ed4dc0eedeeb22
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147770901'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Acerca de los comandos de flujo
 
 Las acciones pueden comunicarse con la máquina del ejecutor para establecer variables de entorno, valores de salida utilizados por otras acciones, agregar mensajes de depuración a los registros de salida y otras tareas.
 
-La mayoría de los comandos de los flujos de trabajo utilizan el comando `echo` en un formato específico, mientras que otras se invocan si escribes a un archivo. Para obtener más información, consulta la sección ["Archivos de ambiente".](#environment-files)
+La mayoría de los comandos de flujo de trabajo usan el comando `echo` en un formato específico, mientras que otros se pueden invocar escribiendo en un archivo. Para más información, vea "[Archivos de entorno](#environment-files)".
 
 ### Ejemplo
 
 {% bash %}
 
 ```bash{:copy}
-echo ":: Workflow-Command Parameter1 ={data}, parameter2 ={data}::{command value}"
+echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 ```
 
 {% endbash %}
@@ -47,19 +51,19 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 {% note %}
 
-**Nota:** los nombres de comandos y parámetros de flujo de trabajo no distinguen mayúsculas de minúsculas.
+**Nota:** Los nombres de parámetros y comandos de flujo de trabajo no distinguen mayúsculas de minúsculas.
 
 {% endnote %}
 
 {% warning %}
 
-**Advertencia:** si estás usando el símbolo del sistema, omite los caracteres de comillas dobles (`"`) cuando uses comandos de flujo de trabajo.
+**Advertencia:** Si utiliza el símbolo del sistema, omita los caracteres de comillas dobles (`"`) al usar comandos de flujo de trabajo.
 
 {% endwarning %}
 
 ## Utilizar comandos de flujo de trabajo para acceder a las funciones de toolkit
 
-El [actions/toolkit](https://github.com/actions/toolkit) incluye varias funciones que se pueden ejecutar como comandos de flujo de trabajo. Utiliza la sintaxis `::` para ejecutar los comandos de flujo de trabajo dentro de tu archivo YAML; estos comandos se envían entonces a través de `stdout`. Por ejemplo, en vez de utilizar código para configurar una salida, como se muestra aquí:
+En [actions/toolkit](https://github.com/actions/toolkit) se incluye una serie de funciones que se pueden ejecutar como comandos de flujo de trabajo. Use la sintaxis `::` para ejecutar los comandos de flujo de trabajo dentro del archivo YAML; estos comandos se envían al ejecutor por medio de `stdout`. Por ejemplo, en vez de utilizar código para configurar una salida, como se muestra aquí:
 
 ```javascript{:copy}
 core.setOutput('SELECTED_COLOR', 'green');
@@ -67,7 +71,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 ### Ejemplo: Configurar un valor
 
-Puedes utilizar el comando `set-output` en tu flujo de trabajo para configurar el mismo valor:
+Puede usar el comando `set-output` en el flujo de trabajo para establecer el mismo valor:
 
 {% bash %}
 
@@ -99,25 +103,18 @@ Puedes utilizar el comando `set-output` en tu flujo de trabajo para configurar e
 
 La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles dentro de un flujo de trabajo:
 
-| Funcion del Toolkit   | Comando equivalente del flujo de trabajo                              |
-| --------------------- | --------------------------------------------------------------------- |
-| `core.addPath`        | Accesible utilizando el archivo de ambiente `GITHUB_PATH`             |
-| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
-| `core.notice`         | `notice` 
-{% endif %}
-| `core.error`          | `error`                                                               |
-| `core.endGroup`       | `endgroup`                                                            |
-| `core.exportVariable` | Accesible utilizando el archivo de ambiente `GITHUB_ENV`              |
-| `core.getInput`       | Accesible utilizando la variable de ambiente `INPUT_{NAME}`           |
-| `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`            |
-| `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG`           |
-| `core.saveState`      | `save-state`                                                          |
-| `core.setCommandEcho` | `echo`                                                                |
-| `core.setFailed`      | Utilizada como un atajo para `::error` y `exit 1`                     |
-| `core.setOutput`      | `set-output`                                                          |
-| `core.setSecret`      | `add-mask`                                                            |
-| `core.startGroup`     | `grupo`                                                               |
-| `core.warning`        | `advertencia`                                                         |
+| Funcion del Toolkit | Comando equivalente del flujo de trabajo |
+| ----------------- |  ------------- |
+| `core.addPath`    | Accesible mediante el archivo de entorno `GITHUB_PATH` |
+| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+| `core.notice`     | `notice` |{% endif %}
+| `core.error`      | `error` |
+| `core.endGroup`   | `endgroup` |
+| `core.exportVariable` | Accesible mediante el archivo de entorno `GITHUB_ENV` |
+| `core.getInput`   | Accesible mediante la variable de entorno `INPUT_{NAME}` |
+| `core.getState`   | Accesible mediante la variable de entorno `STATE_{NAME}` |
+| `core.isDebug`    |  Accesible mediante la variable de entorno `RUNNER_DEBUG` |
+{%- ifversion actions-job-summaries %} | `core.summary` | Accesible mediante la variable de entorno `GITHUB_STEP_SUMMARY` | {%- endif %} | `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Se usa como acceso directo para `::error` y `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
 
 ## Configurar un parámetro de salida
 
@@ -127,7 +124,7 @@ Establece un parámetro de salida de la acción.
 ::set-output name={name}::{value}
 ```
 
-Opcionalmente, también puedes declarar parámetros de salida en el archivo de metadatos de una acción. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)".
+Opcionalmente, también puedes declarar parámetros de salida en el archivo de metadatos de una acción. Para más información, vea "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)".
 
 ### Ejemplo;: Configurar un parámetro de salida
 
@@ -149,7 +146,7 @@ Write-Output "::set-output name=action_fruit::strawberry"
 
 ## Agregar un mensaje de depuración
 
-Imprime un mensaje de depuración para el registro. Debes crear un archivo `ACTIONS_STEP_DEBUG` designado secretamente con el valor `true` para ver los mensajes de depuración establecidos por este comando en el registro. Para obtener más información, consulta la sección "[Habilitar el registro de depuración](/actions/managing-workflow-runs/enabling-debug-logging)."
+Imprime un mensaje de depuración en el registro. Debe crear un secreto denominado `ACTIONS_STEP_DEBUG` con el valor `true` para ver los mensajes de depuración establecidos por este comando en el registro. Para más información, vea "[Habilitación del registro de depuración](/actions/managing-workflow-runs/enabling-debug-logging)".
 
 ```{:copy}
 ::debug::{message}
@@ -173,7 +170,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Configurar un mensaje de aviso
 
@@ -201,8 +198,7 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
-{% endpowershell %}
-{% endif %}
+{% endpowershell %} {% endif %}
 
 ## Configurar un mensaje de advertencia
 
@@ -233,7 +229,7 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 ## Configurar un mensaje de error
 
-Crea un mensaje de error e imprime el mensaje en el registro {% data reusables.actions.message-annotation-explanation %}
+Crea un mensaje de error e imprime el mensaje en el registro. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
@@ -261,7 +257,7 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 ## Agrupar líneas de las bitácoras
 
-Crea un grupo expansible en la bitácora. Para crear un grupo, utiliza el comando `group` y especifica un `title`. Todo lo que imprimas en la bitácora entre los comandos `group` y `endgroup` se anidará dentro de una entrada expansible en la misma.
+Crea un grupo expansible en la bitácora. Para crear un grupo, use el comando `group` y especifique `title`. Todo lo que imprima en el registro entre los comandos `group` y `endgroup` se anida dentro de una entrada expandible en el registro.
 
 ```{:copy}
 ::group::{title}
@@ -310,11 +306,11 @@ jobs:
 ::add-mask::{value}
 ```
 
-El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puedes usar una variable de entorno o cadena para el `valor` de la máscara. When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
+El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puede usar una variable de entorno o una cadena para el valor `value` de la máscara. Al enmascarar un valor, se trata como un secreto y se oculta en el ejecutor. Por ejemplo, después de enmascarar un valor, no podrá establecerlo como salida.
 
 ### Ejemplo: Enmascarar una secuencia
 
-Cuando imprimas `"Mona The Octocat"` en el registro, verás `"***"`.
+Al imprimir `"Mona The Octocat"` en el registro, verá `"***"`.
 
 {% bash %}
 
@@ -332,9 +328,15 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
+{% warning %}
+
+**Advertencia:** asegúrate de registrar el secreto con "add-mask" antes de generarlo en los registros de compilación o usarlo en cualquier otro comando de flujo de trabajo.
+
+{% endwarning %}
+
 ### Ejemplo: Enmascarar una variable de ambiente
 
-Cuando imprimes la variable `MY_NAME` o el valor `"Mona The Octocat"` en el registro, verás `"***"` en lugar de `"Mona The Octocat"`.
+Al imprimir la variable `MY_NAME` o el valor `"Mona The Octocat"` en el registro, verá `"***"` en lugar de `"Mona The Octocat"`.
 
 {% bash %}
 
@@ -374,11 +376,11 @@ Deja de procesar cualquier comando de flujo de trabajo. Este comando especial te
 ::stop-commands::{endtoken}
 ```
 
-Para parar el procesamiento de los comandos de flujo de trabajo, pasa un token único a `stop-commands`. Para resumir los comandos de flujo de trabajo de procesamiento, pasa el mismo token que utilizaste para detener los comandos de flujo de trabajo.
+Para detener el procesamiento de los comandos de flujo de trabajo, pase un token único a `stop-commands`. Para resumir los comandos de flujo de trabajo de procesamiento, pasa el mismo token que utilizaste para detener los comandos de flujo de trabajo.
 
 {% warning %}
 
-**Advertencia:** Asegúrate de que el token que estás utilizando se genere aleatoriamente y sea único para cada ejecución.
+**Advertencia:** Asegúrese de que el token que usa se genera aleatoriamente y es único para cada ejecución.
 
 {% endwarning %}
 
@@ -434,7 +436,7 @@ jobs:
 
 ## Hacer eco en las salidas de comando
 
-Habilita o inhabilita el hacer eco en los comandos de los flujos de trabajo. Por ejemplo, si utilizas el comando `set-output` en un flujo de trabajo, este configura un parámetro de salida pero la bitácora de la ejecución del flujo de trabajo no muestra al comando mismo. Si habilitas el eco del comando, entonces la bitácora lo mostrará, tal como en `::set-output name={name}::{value}`.
+Habilita o inhabilita el hacer eco en los comandos de los flujos de trabajo. Por ejemplo, si usa el comando `set-output` en un flujo de trabajo, establece un parámetro de salida pero el registro de la ejecución de flujo de trabajo no muestra el propio comando. Si habilita el eco de comandos, el registro muestra el comando, como `::set-output name={name}::{value}`.
 
 ```{:copy}
 ::echo::on
@@ -443,9 +445,9 @@ Habilita o inhabilita el hacer eco en los comandos de los flujos de trabajo. Por
 
 El eco de comando se encuentra inhabilitado predeterminadamente. Sin embargo, los comandos de flujo de trabajo hacen eco si existen errores para procesarlos.
 
-Los comandos `add-mask`, `debug`, `warning` y `error` no son compatibles con el eco porque sus salidas ya hicieron eco en la bitácora.
+Los comandos `add-mask`, `debug`, `warning` y `error` no admiten el eco, porque sus salidas ya se han reproducido en el registro.
 
-También puedes habilitar el eco de comandos globalmente si activas la generación de bitácoras de depuración de pasos utilizando el secreto `ACTIONS_STEP_DEBUG`. Para obtener más información, consulta la sección "[Habilitar el registro de depuración](/actions/managing-workflow-runs/enabling-debug-logging)". Como contraste, el comando de flujo de trabajo `echo` te permite habilitar el eco de comandos en un nivel más granular en vez de habilitarlo para cada flujo de trabajo en un repositorio.
+También puede habilitar el eco de comandos globalmente si activa el registro de depuración de pasos mediante el secreto `ACTIONS_STEP_DEBUG`. Para más información, vea "[Habilitación del registro de depuración](/actions/managing-workflow-runs/enabling-debug-logging)". Por el contrario, el comando de flujo de trabajo `echo` permite habilitar el eco de comandos en un nivel más granular, en vez de habilitarlo para cada flujo de trabajo en un repositorio.
 
 ### Ejemplo: Alternar el eco de comandos
 
@@ -492,23 +494,23 @@ El ejemplo anterior imprime las siguientes líneas en la bitácora:
 ::echo::off
 ```
 
-Únicamente el segundo comando `set-output` y el de `echo` se incluyen en la bitácora, ya que el eco de comandos solo se habilitó cuando se ejecutaron. Aunque no siempre hace eco, el parámetro de salida se configura en todos los casos.
+Solo los segundos comandos de flujo de trabajo `set-output` y `echo` se incluyen en el registro, porque el eco de comandos solo se ha habilitado al ejecutarlos. Aunque no siempre hace eco, el parámetro de salida se configura en todos los casos.
 
 ## Enviar valores a las acciones pre y post
 
-Puedes utilizar el comando `save-state` para crear variables de ambiente para compartir con tus acciones `pre:` o `post:` de flujo de trabajo. Por ejemplo, puedes crear un archivo con la acción `pre:`, pasar la ubicación del archivo a la acción `main:`, y después, utilizar la acción `post:` para borrar el archivo. Como alternativa, puedes crear un archivo con la acción `main:`, pasar la ubicación del archivo a la acción `post:`, y también utilizar la acción `post:` para borrar el archivo.
+Puede usar el comando `save-state` para crear variables de entorno a fin de compartirlas con las acciones `pre:` o `post:` del flujo de trabajo. Por ejemplo, puede crear un archivo con la acción `pre:`, pasar la ubicación del archivo a la acción `main:` y, después, usar la acción `post:` para eliminar el archivo. Como alternativa, podría crear un archivo con la acción `main:`, pasar la ubicación del archivo a la acción `post:` y también usar la acción `post:` para eliminar el archivo.
 
-Si tienes varias acciones `pre:` o `post:`, solo podrás acceder al valor que se guardó en la acción donde se utilizó `save-state`. Para obtener más información sobre la acción `post:`, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)".
+Si tiene varias acciones `pre:` o `post:`, solo puede acceder al valor guardado en la acción donde se ha usado `save-state`. Para más información sobre la acción `post:`, vea "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)".
 
-El comando `save-state` solo puede ejecutarse dentro de una acción y no está disponible para archivos YAML. El valor guardado se almacena en un valor de ambiente con el prefijo `STATE_`.
+El comando `save-state` solo se puede ejecutar dentro de una acción y no está disponible para los archivos YAML. El valor guardado se almacena como un valor de entorno con el prefijo `STATE_`.
 
-Este ejemplo utiliza JavaScript para ejecutar el comando `save-state`. La variable de ambiente resultante se nombra `STATE_processID` con el valor de `12345`:
+En este ejemplo se usa JavaScript para ejecutar el comando `save-state`. La variable de entorno resultante se denomina `STATE_processID` con el valor de `12345`:
 
 ```javascript{:copy}
 console.log('::save-state name=processID::12345')
 ```
 
-La variable `STATE_processID` se encontrará entonces exclusivamente disponible para el script de limpieza que se ejecuta bajo la acción `main`. Este ejemplo se ejecuta en `main` y utiliza JavaScript para mostrar el valor asignado a la variable de ambiente `STATE_processID`:
+Después, la variable `STATE_processID` está disponible exclusivamente para el script de limpieza que se ejecuta en la acción `main`. Este ejemplo se ejecuta en `main` y usa JavaScript para mostrar el valor asignado a la variable de entorno `STATE_processID`:
 
 ```javascript{:copy}
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
@@ -522,7 +524,7 @@ Durante la ejecución de un flujo de trabajo, el ejecutor genera archivos tempor
 
 {% note %}
 
-**Nota:** PowerShell versión 5.1 e inferiores (`shell: powershell`) no utiliza UTF-8 predeterminadamente, así que debes especificar el cifrado UTF-8. Por ejemplo:
+**Nota:** En las versiones 5.1 y posteriores de PowerShell (`shell: powershell`) no se usa UTF-8 de forma predeterminada, por lo que debe especificar la codificación UTF-8. Por ejemplo:
 
 ```yaml{:copy}
 jobs:
@@ -534,7 +536,7 @@ jobs:
           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Las versiones 6 y superior de PowerShell Core (`shell: pwsh`) utilizan UTF-8 predeterminadamente. Por ejemplo:
+En las versiones 6 y superiores de PowerShell Core (`shell: pwsh`) se usa UTF-8 de forma predeterminada. Por ejemplo:
 
 ```yaml{:copy}
 jobs:
@@ -550,7 +552,7 @@ jobs:
 
 {% endpowershell %}
 
-## Configurar una variable de ambiente
+## Configuración de una variable de entorno
 
 {% bash %}
 
@@ -563,18 +565,20 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 {% powershell %}
 
 - Utilizar PowerShell versión 6 y superior:
-```pwsh{:copy}
-"{environment_variable_name}={value}" >> $env:GITHUB_ENV
-```
+
+  ```pwsh{:copy}
+  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
+  ```
 
 - Utilizar PowerShell versión 5.1 e inferior:
-```powershell{:copy}
-"{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-```
+
+  ```powershell{:copy}
+  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+  ```
 
 {% endpowershell %}
 
-Puedes hacer que una variable de ambiente esté disponible en cualquier paso subsecuente de un job de un flujo de trabajo si defines o actualizas la variable de ambiente y escribes esto en el archivo de ambiente `GITHUB_ENV`. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. Los nombres de las variables de ambiente distinguen entre mayúsculas y minúsculas y puedes incluir signos de puntuación. Para obtener más información, consulta "[Variables del entorno](/actions/learn-github-actions/environment-variables)".
+Puede hacer que una variable de entorno esté disponible en cualquier paso posterior de un trabajo de un flujo de trabajo si define o actualiza la variable de entorno, y lo escribe en el archivo de entorno `GITHUB_ENV`. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. Los nombres de las variables de ambiente distinguen entre mayúsculas y minúsculas y puedes incluir signos de puntuación. Para más información, vea "[Variables de entorno](/actions/learn-github-actions/environment-variables)".
 
 ### Ejemplo
 
@@ -616,7 +620,7 @@ steps:
 
 ### Secuencias de línea múltiple
 
-Para las secuencias de lìnea mùltiple, puedes utilizar un delimitador con la siguiente sintaxis.
+Para las secuencias de lìnea mùltiple, puedes utilizar un delimitador con la siguiente sintaxis. 
 
 ```{:copy}
 {name}<<{delimiter}
@@ -624,9 +628,15 @@ Para las secuencias de lìnea mùltiple, puedes utilizar un delimitador con la s
 {delimiter}
 ```
 
+{% warning %}
+
+**Advertencia:** Asegúrate de que el delimitador que usas se genera aleatoriamente y es único para cada ejecución. Para más información, consulta "[Descripción del riesgo de las inyecciones de scripts](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+
+{% endwarning %}
+
 #### Ejemplo
 
-This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+En este ejemplo se usa `EOF` como delimitador y se establece la variable de entorno `JSON_RESPONSE` en el valor de la respuesta `curl`.
 
 {% bash %}
 
@@ -657,9 +667,153 @@ steps:
 
 {% endpowershell %}
 
+{% ifversion actions-job-summaries %}
+
+## Adición de un resumen de trabajos
+
+{% bash %}
+
+```bash{:copy}
+echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{markdown content}" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+Puedes establecer Markdown personalizado para cada trabajo de modo que se muestre en la página de resumen de una ejecución de flujo de trabajo. Puedes usar resúmenes de trabajos para mostrar y agrupar contenido único, como resúmenes de resultados de pruebas, de modo que alguien que vea el resultado de una ejecución de flujo de trabajo no necesite ir a los registros para ver información importante relacionada con la ejecución, como errores.
+
+Los resúmenes de trabajos admiten [Markdown de tipo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/) y puedes agregar el contenido de Markdown para un paso al archivo de entorno `GITHUB_STEP_SUMMARY`. `GITHUB_STEP_SUMMARY` es único para cada paso de un trabajo. Para obtener más información sobre el archivo por paso al que hace referencia `GITHUB_STEP_SUMMARY`, consulta "[Archivos de entorno](#environment-files)".
+
+Cuando un trabajo finaliza, los resúmenes de todos los pasos de un trabajo se agrupan en un único resumen de trabajo y se muestran en la página resumen de ejecución del flujo de trabajo. Si varios trabajos generan resúmenes, estos se ordenan según la hora de finalización del trabajo.
+
+### Ejemplo
+
+{% bash %}
+
+```bash{:copy}
+echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+![Ejemplo de resumen de Markdown](/assets/images/actions-job-summary-simple-example.png)
+
+### Contenido de Markdown multilínea
+
+En el caso de contenido de Markdown multilínea, puedes usar `>>` para anexar continuamente contenido al paso actual. Con cada operación de anexión, se agrega automáticamente un carácter de nueva línea.
+
+#### Ejemplo
+
+{% bash %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    echo "This is the lead in sentence for the list" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+    echo "- Lets add a bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- Lets add a second bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- How about a third one?" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    "This is the lead in sentence for the list" >> $env:GITHUB_STEP_SUMMARY
+    "" >> $env:GITHUB_STEP_SUMMARY # this is a blank line
+    "- Lets add a bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- Lets add a second bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- How about a third one?" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Sobrescritura de resúmenes de trabajos
+
+Para borrar todo el contenido del paso actual, puedes usar `>` para sobrescribir cualquier contenido agregado anteriormente.
+
+#### Ejemplo
+
+{% bash %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    echo "Adding some Markdown content" >> $GITHUB_STEP_SUMMARY
+    echo "There was an error, we need to clear the previous Markdown with some new content." > $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    "Adding some Markdown content" >> $env:GITHUB_STEP_SUMMARY
+    "There was an error, we need to clear the previous Markdown with some new content." > $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Eliminación de resúmenes de trabajos
+
+Para quitar completamente un resumen del paso actual, se puede eliminar el archivo al que hace referencia `GITHUB_STEP_SUMMARY`.
+
+#### Ejemplo
+
+{% bash %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    echo "Adding Markdown content that we want to remove before the step ends" >> $GITHUB_STEP_SUMMARY
+    rm $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    "Adding Markdown content that we want to remove before the step ends" >> $env:GITHUB_STEP_SUMMARY
+    rm $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+Una vez que se ha completado un paso, se cargan los resúmenes de trabajo y los pasos posteriores no pueden modificar el contenido de Markdown cargado anteriormente. Los resúmenes enmascaran automáticamente los secretos que podrían haberse agregado de forma accidental. Si un resumen de trabajo contiene información confidencial que se debe eliminar, puedes eliminar toda la ejecución del flujo de trabajo para quitar todos sus resúmenes de trabajo. Para obtener más información, consulta "[Eliminación de una ejecución de flujo de trabajo](/actions/managing-workflow-runs/deleting-a-workflow-run)".
+
+### Aislamiento y límites de pasos
+
+Los resúmenes de trabajo están aislados entre los pasos y cada paso está restringido a un tamaño máximo de 1 MiB. Se aplica aislamiento entre los pasos para que el Markdown que podría tener un formato incorrecto en un paso no pueda interrumpir la representación de Markdown para los pasos posteriores. Si se agrega más de 1 MiB de contenido a un paso, se producirá un error en la carga del paso y se creará una anotación de error. Los errores de carga de resúmenes de trabajos no afectan al estado general de un paso o un trabajo. Se muestra un máximo de 20 resúmenes de trabajos de los pasos por trabajo.
+
+{% endif %}
+
 ## Agregar una ruta de sistema
 
-Antepone un directorio a la variable de sistema `PATH` y la hace disponible automáticamente para todas las acciones subsecuentes en el job actual; la acción que se está ejecutando actualmente no puede acceder a la variable de ruta actualizada. Para ver las rutas definidas actualmente para tu job, puedes utilizar `echo "$PATH"` en un paso o en una acción.
+Antepone un directorio a la variable del sistema `PATH` y hace que esté disponible automáticamente para todas las acciones posteriores en el trabajo actual; la acción que está actualmente en ejecución no puede acceder a la variable de ruta actualizada. A fin de ver las rutas definidas actualmente para el trabajo, puede usar `echo "$PATH"` en un paso o una acción.
 
 {% bash %}
 
@@ -678,9 +832,9 @@ echo "{path}" >> $GITHUB_PATH
 
 ### Ejemplo
 
-Este ejemplo demuestra cómo agregar el directorio `$HOME/.local/bin` del usuario al `PATH`:
-
 {% bash %}
+
+En este ejemplo se muestra cómo agregar el directorio de usuario `$HOME/.local/bin` a `PATH`:
 
 ```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -688,10 +842,9 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% endbash %}
 
-
-This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
-
 {% powershell %}
+
+En este ejemplo se muestra cómo agregar el directorio de usuario `$env:HOMEPATH/.local/bin` a `PATH`:
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

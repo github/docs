@@ -17,8 +17,13 @@ versions:
 topics:
   - Repositories
 shortTitle: Email notifications for pushes
+ms.openlocfilehash: ee12b8f8270921abd1fe70c748449e46fd472e2c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132169'
 ---
-
 {% data reusables.notifications.outbound_email_tip %}
 
 リポジトリへのプッシュに対する各メール通知は、新しいコミットとそれらのコミットだけを含む diff へのリンクのリストを含みます。 このメール通知には以下が含まれます:
@@ -31,22 +36,18 @@ shortTitle: Email notifications for pushes
 - コミットの一部として変更されたファイル群
 - コミットメッセージ
 
-リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 詳細は、{% ifversion fpt or ghae or ghes or ghec %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」を参照してください。 プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
+リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 詳細については、「[通知の設定](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)」を参照してください。
 
 ## リポジトリへのプッシュに対するメール通知の有効化
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.sidebar-notifications %}
-5. 最大で 2 個まで、通知の送信先にしたいメールアドレスを空白で区切って入力します。 2 つを超える数のアカウントにメールを送信させたい場合は、メールアドレスの 1 つをグループメールアドレスにしてください。 ![メールアドレスのテキストボックス](/assets/images/help/settings/email_services_addresses.png)
-1. 自分のサーバーを運用している場合は、**Approved ヘッダ**を介してメールの整合性を確認できます。 **Approved ヘッダ**は、このフィールドに入力するトークンまたはシークレットであり、メールで送信されます。 メールが `Approved` ヘッダが、送信したトークンにマッチする場合、そのメールが {% data variables.product.product_name %} からのものであると信頼できます。 ![Approved ヘッダのテキストボックスをメールで送信](/assets/images/help/settings/email_services_approved_header.png)
-7. [**Setup notifications**] をクリックします。 ![設定通知ボタン](/assets/images/help/settings/setup_notifications_settings.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.sidebar-notifications %}
+5. 最大で 2 個まで、通知の送信先にしたいメールアドレスを空白で区切って入力します。 2 つを超える数のアカウントにメールを送信させたい場合は、メールアドレスの 1 つをグループメールアドレスにしてください。
+![メール アドレスのテキストボックス](/assets/images/help/settings/email_services_addresses.png)
+1. 独自のサーバーを運用している場合は、**Approved ヘッダー** でメールの整合性を確認できます。 **Approved ヘッダー** は、このフィールドに入力するトークンまたはシークレットであり、メールで送信されます。 メールの `Approved` ヘッダーがトークンと一致する場合、そのメールは {% data variables.product.product_name %} からのものであると信頼できます。
+![メールの Approved ヘッダーのテキストボックス](/assets/images/help/settings/email_services_approved_header.png)
+7. **[通知の設定]** をクリックします。
+![[通知の設定] ボタン](/assets/images/help/settings/setup_notifications_settings.png)
 
-## 参考リンク
-{% ifversion fpt or ghae or ghes or ghec %}
+## 参考資料
 - 「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」
-{% else %}
-- 「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」
-- [通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)
-- 「[メール通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)」
-- 「[Web 通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)」{% endif %}
+

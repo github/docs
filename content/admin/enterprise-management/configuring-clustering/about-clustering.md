@@ -18,7 +18,7 @@ topics:
 
 {% data variables.product.prodname_ghe_server %} is comprised of a set of services. In a cluster, these services run across multiple nodes and requests are load balanced between them. Changes are automatically stored with redundant copies on separate nodes. Most of the services are equal peers with other instances of the same service. The exceptions to this are the `mysql-server` and `redis-server` services. These operate with a single _primary_ node with one or more _replica_ nodes.
 
-Learn more about [services required for clustering](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering).
+Learn more about [services required for clustering](/enterprise/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering).
 
 ## Is clustering right for my organization?
 
@@ -26,7 +26,7 @@ Learn more about [services required for clustering](/enterprise/{{ currentVersio
 
 {% data variables.product.prodname_ghe_server %} requires low latency between nodes and is not intended for redundancy across geographic locations.
 
-Clustering provides redundancy, but it is not intended to replace a High Availability configuration. For more information, see [High Availability configuration](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability). A primary/secondary failover configuration is far simpler than clustering and will serve the needs of many organizations. For more information, see [Differences between Clustering and High Availability](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/).
+Clustering provides redundancy, but it is not intended to replace a High Availability configuration. For more information, see [High Availability configuration](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability). A primary/secondary failover configuration is far simpler than clustering and will serve the needs of many organizations. For more information, see [Differences between Clustering and High Availability](/enterprise/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/).
 
 {% data reusables.package_registry.packages-cluster-support %}
 

@@ -1,5 +1,5 @@
 ---
-title: Política do site
+title: Política do Site
 redirect_from:
   - /categories/61/articles
   - /categories/site-policy
@@ -17,5 +17,6 @@ children:
   - /content-removal-policies
   - /security-policies
   - /github-company-policies
+  - /site-policy-deprecated
 ---
 

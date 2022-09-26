@@ -1,6 +1,6 @@
 ---
 title: Documentación de GitHub Packages
-shortTitle: Registro del paquete de GitHub
+shortTitle: GitHub Packages
 intro: 'Aprende a publicar y consumir paquetes de forma segura, almacena tus paquetes junto con tu código y comparte tus paquetes de forma privada con tu equipo o de manera pública con la comunidad de código abierto. También puedes automatizar tus paquetes con {% data variables.product.prodname_actions %}.'
 introLinks:
   quickstart: /packages/quickstart
@@ -12,11 +12,13 @@ featuredLinks:
     - /packages/learn-github-packages/installing-a-package
   popular:
     - /packages/working-with-a-github-packages-registry/working-with-the-npm-registry
-    - '{% ifversion fpt or ghec%}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
+    - '{% ifversion docker-ghcr-enterprise-migration %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
     - /packages/learn-github-packages
     - /packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
   guideCards:
-    - '{% ifversion fpt or ghec %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
+    - '{% ifversion docker-ghcr-enterprise-migration %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.4 %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
+    - '{% ifversion packages-npm-v2 %}/packages/working-with-a-github-packages-registry/working-with-the-npm-registry{% endif %}'
     - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry
 changelog:
   label: packages
@@ -36,6 +38,11 @@ children:
   - /learn-github-packages
   - /working-with-a-github-packages-registry
   - /managing-github-packages-using-github-actions-workflows
+ms.openlocfilehash: 768e5ea20b7e4242afe7a8880982052ff818df63
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147704935'
 ---
-
 <!--This section is needed to determine the order of the left sidebar for now-->

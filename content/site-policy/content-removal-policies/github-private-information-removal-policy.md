@@ -23,7 +23,7 @@ For the purposes of this document, “private information” refers to content t
 - Access credentials, such as user names combined with passwords, access tokens, or other sensitive secrets that can grant access to your organization's server, network, or domain.
 - AWS tokens and other similar access credentials that grant access to a third party on your behalf. You must be able to show that the token does belong to you.
 - Documentation (such as network diagrams or architecture) that poses a specific security risk for an organization. 
-- [Information](/github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy) related to, and posing a security risk to, you as an individual (such as social security numbers or other government identification numbers).
+- [Information](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy) related to, and posing a security risk to, you as an individual (such as social security numbers or other government identification numbers).
 
 ### Private information removal requests are _not_ appropriate for:
 - Internal server names, IP addresses, and URLs, on their own. You must be able to show that their use in a particular file or piece of code poses a security threat.

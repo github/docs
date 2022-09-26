@@ -1,6 +1,6 @@
 ---
-title: Impersonating a user
-intro: 'You can impersonate users and perform actions on their behalf, for troubleshooting, unblocking, and other legitimate reasons.'
+title: Hacerse pasar por un usuario
+intro: 'Puedes hacerte pasar por usuarios y realizar acciones en su nombre, para solucionar problemas, hacer desbloqueos y otras razones legítimas.'
 permissions: Enterprise owners can impersonate users within their enterprise.
 versions:
   ghes: '>3.2'
@@ -11,30 +11,33 @@ topics:
   - Enterprise
   - User account
 shortTitle: Impersonate a user
+ms.openlocfilehash: 8e237c6ace7e7feb4badefcbd863b0974c983732
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145116266'
 ---
+## Acerca de hacerse pasar por un usuario
 
-## About user impersonation
+Si necesitas utilizar una cuenta de usuario temporalmente, por ejemplo, cuando solucionas problemas de usuario o cuando dicho usuario está indispuesto y se requiere tomar acción urgentemente, puedes comenzar una sesión de suplantación para actuar en su nombre.
 
-If you need to temporarily take over a user account, for example when troubleshooting a user problem, or when the user is unavailable and urgent action is required, you can start an impersonation session to act on their behalf.
+Para cada sesión de suplantación, necesitas proporcionar las razones por las cuales vas a hacerte pasar por el usuario. Una sesión tiene un límite de una hora y tendrás el mismo tipo de acceso que el usuario por el cual te harás pasar.
 
-For each impersonation session, you need to provide a reason for the impersonation. A session is limited to one hour, and you will have the same access as the user being impersonated.
+Las acciones que realices durante una sesión de suplantación se grabarán como eventos en la bitácora de auditoría de la empresa, así como en la bitácora de seguridad del usuario suplantado. La persona por la que te hagas pasar recibirá una notificación por correo electrónico cuando la sesión de suplantación inicie. Para más información, vea "[Eventos de registro de auditoría registro para la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" y "[Revisión del registro de seguridad](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)".
 
-Actions you perform during an impersonation session are recorded as events in the enterprise audit log, as well as the impersonated user's security log. The person being impersonated is sent an email notification when the impersonation session starts. For more information, see "[Audited actions](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions)" and "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+## Hacerse pasar por un usuario
 
-## Impersonating a user
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.search-user %} {% data reusables.enterprise_site_admin_settings.click-user %}
+4. En la esquina superior izquierda de la página, haga clic en **Información de usuario**.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.search-user %}
-{% data reusables.enterprise_site_admin_settings.click-user %}
-4. In the top left of the page, click **User info**.
+   ![Información de usuario](/assets/images/enterprise/stafftools/user-info.png)
+5. En "Zona de peligro", haga clic en **Iniciar sesión en GitHub como @username**
 
-   ![User info](/assets/images/enterprise/stafftools/user-info.png)
-5. Under "Danger Zone", click **Sign in to GitHub as @username**
+   ![Suplantar usuario](/assets/images/enterprise/stafftools/impersonate.png)
+6. Selecciona una razón del menú desplegable. Si selecciona **Otro**, tendrá que proporcionar contexto adicional en la sección **Notas**. Haga clic en **Comenzar suplantación** para iniciar la sesión.
 
-   ![Impersonate user](/assets/images/enterprise/stafftools/impersonate.png)
-6. Select a reason from the dropdown list. If you select **Other** you will need to provide additional context in the **Notes** section. Click **Begin impersonation** to begin the session.
+   ![Razón para la suplantación](/assets/images/enterprise/stafftools/impersonation-reason.png)
+7. Cuando esté listo para terminar la sesión de suplantación, haga clic en el banner **Regresar a la vida mundana como nombre de usuario** en la parte superior de la página.
 
-   ![Impersonation reason](/assets/images/enterprise/stafftools/impersonation-reason.png)
-7. When you are ready to end the impersonation session, click the **Return to your mundane life as username** banner at the top of the page.
-
-   ![End impersonation](/assets/images/enterprise/stafftools/end-impersonation.png)
+   ![Terminar con la suplantación](/assets/images/enterprise/stafftools/end-impersonation.png)

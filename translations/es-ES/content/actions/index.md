@@ -1,13 +1,14 @@
 ---
-title: GitHub Actions Documentation
+title: Documentación de GitHub Actions
 shortTitle: GitHub Actions
-intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
+intro: 'Automatiza, personaliza y ejecuta tus flujos de trabajo de desarrollo de software directamente en tu repositorio con {% data variables.product.prodname_actions %}. Puedes descubrir, crear y compartir acciones para realizar cualquier trabajo que quieras, incluido CI/CD, y combinar acciones en un flujo de trabajo completamente personalizado.'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
 featuredLinks:
   guides:
     - /actions/learn-github-actions
+    - /actions/examples
     - /actions/guides/about-continuous-integration
     - /actions/deployment/deploying-with-github-actions
     - /actions/guides/about-packaging-with-github-actions
@@ -19,6 +20,7 @@ featuredLinks:
   popular:
     - /actions/learn-github-actions/workflow-syntax-for-github-actions
     - /actions/learn-github-actions
+    - /actions/examples
     - /actions/learn-github-actions/events-that-trigger-workflows
     - /actions/learn-github-actions/contexts
     - /actions/learn-github-actions/expressions
@@ -50,6 +52,7 @@ versions:
 children:
   - /quickstart
   - /learn-github-actions
+  - /examples
   - /using-workflows
   - /using-jobs
   - /managing-workflow-runs
@@ -65,5 +68,11 @@ children:
   - /security-guides
   - /creating-actions
   - /guides
+ms.openlocfilehash: 4001c855ac5f80d36f93746693a247cdd15a1f60
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880657'
 ---
 

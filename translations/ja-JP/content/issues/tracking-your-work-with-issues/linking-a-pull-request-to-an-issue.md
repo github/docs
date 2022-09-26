@@ -1,6 +1,6 @@
 ---
-title: Pull RequestをIssueにリンクする
-intro: Pull RequestをIssueにリンクして、修正が進行中であることを示し、Pull RequestがマージされるときIssueを自動的にクローズすることができます。
+title: Linking a pull request to an issue
+intro: You can link a pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %}to an issue to show that a fix is in progress and to automatically close the issue when the pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %} is merged.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
   - /articles/closing-issues-via-commit-message
@@ -16,26 +16,25 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: IssueへのPRのリンク
+shortTitle: Link PR to issue
 ---
-
 {% note %}
 
-**注釈:** Pull Requestにおける特別なキーワードは、Pull Requestがリポジトリの*デフォルト* ブランチをターゲットするときに解釈されます。 ただし、PRのベースが*それ以外のブランチ*である場合、それらのキーワードは無視され、リンクは作成されません。PRのマージはこのIssueに対して何の効果も持ちません。 **キーワードの1つを使用してPull RequestをIssueにリンクしたい場合は、PRがデフォルトブランチ上になければなりません。**
+**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
 
 {% endnote %}
 
-## リンクされたIssueとPull Requestについて
+## About linked issues and pull requests
 
-{% ifversion fpt or ghes or ghae or ghec %}手動で、または{% endif %}Pull Requestの説明でサポートされているキーワードを使用して、IssueをPull Requestにリンクすることができます。
+You can link an issue to a pull request manually or using a supported keyword in the pull request description.
 
-Pull Requestが対処するIssueにそのPull Requestをリンクすると、コラボレータは、誰かがそのIssueに取り組んでいることを確認できます。
+When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
 
-リンクされたPull Requestをリポジトリのデフォルトブランチにマージすると、それにリンクされているIssueは自動的にクローズされます。 デフォルトブランチの詳細については、「[デフォルトブランチを変更する](/github/administering-a-repository/changing-the-default-branch)」を参照してください。
+When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
-## キーワードを使用してPull RequestをIssueにリンクする
+## Linking a pull request to an issue using a keyword
 
-Pull Requestの説明またはコミットメッセージで、サポートされているキーワードを使用すれば、Pull RequestをIssueにリンクできます (Pull Requestはデフォルトブランチになければなりません)。
+You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
 
 * close
 * closes
@@ -43,43 +42,64 @@ Pull Requestの説明またはコミットメッセージで、サポートさ�
 * fix
 * fixes
 * fixed
-* 解決
+* resolve
 * resolves
 * resolved
 
-他のPull RequestでPull Requestのコメントを参照するためにキーワードを使用すると、Pull Requestはリンクされます。 参照元のPull Requestをマージすると、参照先のPull Requestもクローズされます。
+If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
 
-クローズするキーワードの構文は、IssueがPull Requestと同じリポジトリにあるかどうかによって異なります。
+The syntax for closing keywords depends on whether the issue is in the same repository as the pull request.
 
-| リンクするIssue       | 構文                                            | サンプル                                                           |
-| ---------------- | --------------------------------------------- | -------------------------------------------------------------- |
-| Issueが同じリポジトリにある | *KEYWORD* #*ISSUE-NUMBER*                     | `Closes #10`                                                   |
-| Issueが別のリポジトリにある | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
-| 複数の Issue        | Issueごとに完全な構文を使用                              | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
+Linked issue | Syntax | Example
+--------------- | ------ | ------
+Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
+Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
+Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
-{% ifversion fpt or ghes or ghae or ghec %}手動でリンクを解除できるのは、手動でリンクされたPull Requestだけです。 キーワードを使用してリンクしたIssueのリンクを解除するには、Pull Requestの説明を編集してそのキーワードを削除する必要があります。{% endif %}
+Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
 
-クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされますが、そのコミットを含むPull Requestは、リンクされたPull Requestとしてリストされません。
+You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
 
+## Manually linking a pull request to an issue using the pull request sidebar
 
-{% ifversion fpt or ghes or ghae or ghec %}
-## 手動でPull RequestをIssueにリンクする
+Anyone with write permissions to a repository can manually link a pull request to an issue from the pull request sidebar.
 
-リポジトリへの書き込み権限があるユーザなら誰でも、手動でPull RequestをIssueにリンクできます。
-
-手動で1つのPull Requestごとに最大10個のIssueをリンクできます。 IssueとPull Requestは同じリポジトリになければなりません。
+You can manually link up to ten issues to each pull request. The issue and pull request must be in the same repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-3. Pull Requestのリストで、IssueにリンクしたいPull Requestをクリックします。
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6234 %}
-4. 右のサイドバーで、"Development（開発）"セクション内で{% octicon "gear" aria-label="The Gear icon" %}をクリックしてください。
+3. In the list of pull requests, click the pull request that you'd like to link to an issue.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
 {% else %}
-4. 右のサイドバーで、[**Linked issues**] をクリックします。 ![右サイドバーの [Linked issues]](/assets/images/help/pull_requests/linked-issues.png)
+4. In the right sidebar, click **Linked issues**.
+  ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
 {% endif %}
-5. Pull RequestにリンクするIssueをクリックします。 ![Issueをリンクするドロップダウン](/assets/images/help/pull_requests/link-issue-drop-down.png)
+5. Click the issue you want to link to the pull request.
+  ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
+
+{% ifversion link-existing-branches-to-issue %}
+
+## Manually linking a pull request or branch to an issue using the issue sidebar
+
+Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
+
+You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered 
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
+3. In the list of issues, click the issue that you'd like to link a pull request or branch to.
+4. In the right sidebar, click **Development**.
+  ![Development menu in the right sidebar](/assets/images/help/issues/development-menu.png)
+5. Click the repository containing the pull request or branch you want to link to the issue.
+  ![Drop down to select repository](/assets/images/help/issues/development-menu-select-repository.png)
+6. Click the pull request or branch you want to link to the issue.
+  ![Drop down to link pull request or branch](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
+7. Click **Apply**.
+  ![Apply](/assets/images/help/issues/development-menu-apply.png)
+
 {% endif %}
 
-## 参考リンク
+## Further reading
 
-- [自動リンクされた参照と URL](/articles/autolinked-references-and-urls/#issues-and-pull-requests)
+* "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"

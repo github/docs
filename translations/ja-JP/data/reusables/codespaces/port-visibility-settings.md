@@ -1,5 +1,13 @@
-There are three visibility settings:
+---
+ms.openlocfilehash: 4fc229f6627c578fc456e63ffef8857ad3bb696f
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145113070"
+---
+3 種類の可視性の設定があります。
 
-* `private` - Visible only to you. This is the default setting when you forward a port.
-* `org` - Visible to members of the organization that owns the repository.
-* `public` - Visible to anyone who knows the URL and port number.
+* `private` - 自分にのみ表示されます。 これはポートを転送するときの既定の設定です。
+* `org` - リポジトリを所有する組織のメンバーに表示されます。
+* `public` - URL とポート番号を知っているすべてのユーザーに表示されます。

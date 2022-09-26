@@ -1,5 +1,13 @@
-A merge queue can increase the rate at which pull requests are merged into a busy target branch while ensuring that all required branch protection checks pass.
+---
+ms.openlocfilehash: 9960ade469b1d52c0f880067e4dd449082b190c6
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145092815"
+---
+Una cola de combinación puede aumentar la velocidad a la que se combinan las solicitudes de incorporación de cambios en una rama de destino muy activa, a la vez que garantiza que se superen todas las comprobaciones de protección de rama necesarias.
 
-Once a pull request has passed all of the required branch protection checks, a user with write access to the repository can add that pull request to a merge queue.
+Una vez que una solicitud de incorporación de cambios ha superado todas las comprobaciones de protección de rama necesarias, un usuario con acceso de escritura al repositorio puede agregar esa solicitud de incorporación de cambios a una cola de combinación.
 
-A merge queue may use {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[{% data variables.product.prodname_actions %}](/actions/)".
+Un cola de combinación puede usar {% data variables.product.prodname_actions %}. Para más información, vea "[{% data variables.product.prodname_actions %}](/actions/)".

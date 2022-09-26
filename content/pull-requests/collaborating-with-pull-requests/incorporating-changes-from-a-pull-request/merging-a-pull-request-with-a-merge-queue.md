@@ -9,6 +9,7 @@ topics:
 shortTitle: Merge PR with merge queue
 redirect_from:
   - /pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
+  - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
 ---
 
 {% data reusables.pull_requests.merge-queue-beta %}
@@ -26,7 +27,7 @@ redirect_from:
 1. In the "Pull Requests" list, click the pull request you would like to add to a merge queue.
 
 1. Click **Merge when ready** to add the pull request to the merge queue. Alternatively, if you are an administrator, you can:
-   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met (administrators only)**, if allowed by branch protection settings, and follow the standard flow.
+   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow.
    ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
 
   {% tip %}
@@ -61,7 +62,7 @@ You can view the merge queue for a base branch in various places on {% data vari
 
   ![View merge queue on Pull requests page](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
 
-- On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click **the merge queue** link.
+- On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click the **merge queue** link.
 
   ![Merge queue link on pull request](/assets/images/help/pull_requests/merge-queue-link.png)
 

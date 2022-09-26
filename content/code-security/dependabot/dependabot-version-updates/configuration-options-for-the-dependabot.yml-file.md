@@ -33,35 +33,13 @@ You must store this file in the `.github` directory of your repository. When you
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
-The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key. The file must start with `version: 2`.
+The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
 
-## Configuration options for updates
+## Configuration options for the *dependabot.yml* file
 
 The top-level `updates` key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. You can use the following options.
 
-| Option | Required | Description |
-|:---|:---:|:---|
-| [`package-ecosystem`](#package-ecosystem)                     | **X** | Package manager to use                |
-| [`directory`](#directory)                                     | **X** | Location of package manifests         |
-| [`schedule.interval`](#scheduleinterval)                      | **X** | How often to check for updates        |
-| [`allow`](#allow)                                             | | Customize which updates are allowed         |
-| [`assignees`](#assignees)                                     | | Assignees to set on pull requests           |
-| [`commit-message`](#commit-message)                           | | Commit message preferences                  |
-| [`ignore`](#ignore)                                           | | Ignore certain dependencies or versions     |
-| [`insecure-external-code-execution`](#insecure-external-code-execution) | | Allow or deny code execution in manifest files |
-| [`labels`](#labels)                                           | | Labels to set on pull requests              |
-| [`milestone`](#milestone)                                     | | Milestone to set on pull requests           |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)       | | Limit number of open pull requests for version updates|
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) | | Change separator for pull request branch names |
-| [`rebase-strategy`](#rebase-strategy)                         | | Disable automatic rebasing                  |
-| [`registries`](#registries)                                   | | Private registries that {% data variables.product.prodname_dependabot %} can access|
-| [`reviewers`](#reviewers)                                     | | Reviewers to set on pull requests           |
-| [`schedule.day`](#scheduleday)                                | | Day of week to check for updates            |
-| [`schedule.time`](#scheduletime)                              | | Time of day to check for updates (hh:mm)    |
-| [`schedule.timezone`](#scheduletimezone)                      | | Timezone for time of day (zone identifier)  |
-| [`target-branch`](#target-branch)                             | | Branch to create pull requests against      |
-| [`vendor`](#vendor)                                           | | Update vendored or cached dependencies      |
-| [`versioning-strategy`](#versioning-strategy)                 | | How to update manifest version requirements |
+{% data reusables.dependabot.configuration-options %}
 
 These options fit broadly into the following categories.
 
@@ -302,6 +280,9 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
 
 ### `ignore`
 
@@ -321,7 +302,7 @@ For more information about the `@dependabot ignore` commands, see "[Managing pul
 
 You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
 
-- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`).
+- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
 - `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager (for example: `^1.0.0` for npm, or `~> 2.0` for Bundler).
 - `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
 
@@ -330,7 +311,7 @@ If `versions` and `update-types` are used together, {% data variables.product.pr
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# Use `ignore` to specify dependencies that should not be updated 
+# Use `ignore` to specify dependencies that should not be updated
 
 version: 2
 updates:
@@ -355,6 +336,15 @@ updates:
 
 
 {% endnote %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+{% note %}
+
+**Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+
+{% endnote %}
+
+{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -427,7 +417,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests, new requests are blocked until you merge or close some of the open requests, after which new pull requests can be opened on subsequent updates. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
+By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_dependabot %} will not open any new requests until some of those open requests are merged or closed. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
 
 This option has no impact on security updates, which have a separate, internal limit of ten open pull requests.
 
@@ -505,7 +495,7 @@ To allow {% data variables.product.prodname_dependabot %} to access a private pa
 To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
 
 ```yaml
-# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
+# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries
 # when updating dependency versions for this ecosystem
 
 {% raw %}
@@ -723,7 +713,7 @@ updates:
 
 ## Configuration options for private registries
 
-The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries. 
+The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
 
 {% note %}
 
@@ -739,7 +729,7 @@ The value of the `registries` key is an associative array, each element of which
 
 version: 2
 registries:
-  dockerhub: # Define access for a private registry 
+  dockerhub: # Define access for a private registry
     type: docker-registry
     url: registry.hub.docker.com
     username: octocat
@@ -769,7 +759,7 @@ You use the following options to specify access settings. Registry settings must
 
 Each configuration `type` requires you to provide particular settings. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
 
-### `composer-repository` 
+### `composer-repository`
 
 The `composer-repository` type supports username and password.
 
@@ -784,7 +774,17 @@ registries:
 ```
 {% endraw %}
 
-### `docker-registry` 
+### `docker-registry`
+
+{% data variables.product.prodname_dependabot %} works with container registries that implement the OCI container registry. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central service. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation.
+
+We currently support the container registries listed here:
+
+* Docker Hub
+* {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}
+* GCR (Google Cloud)
+* Private ECR (AWS) - public ECR support is tracked in [https://github.com/dependabot/dependabot-core/issues/4212](https://github.com/dependabot/dependabot-core/issues/4212).
+
 
 The `docker-registry` type supports username and password.
 
@@ -799,7 +799,7 @@ registries:
 ```
 {% endraw %}
 
-The `docker-registry` type can also be used to pull from Amazon ECR using static AWS credentials.
+The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
 
 {% raw %}
 ```yaml
@@ -812,7 +812,7 @@ registries:
 ```
 {% endraw %}
 
-### `git` 
+### `git`
 
 The `git` type supports username and password.
 
@@ -827,7 +827,7 @@ registries:
 ```
 {% endraw %}
 
-### `hex-organization` 
+### `hex-organization`
 
 The `hex-organization` type supports organization and key.
 
@@ -883,7 +883,7 @@ registries:
 ```
 {% endraw %}
 
-### `nuget-feed` 
+### `nuget-feed`
 
 The `nuget-feed` type supports username and password, or token.
 
@@ -904,11 +904,12 @@ registries:
   nuget-azure-devops:
     type: nuget-feed
     url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
 {% endraw %}
 
-### `python-index` 
+### `python-index`
 
 The `python-index` type supports username and password, or token.
 
@@ -930,7 +931,8 @@ registries:
   python-azure:
     type: python-index
     url: https://pkgs.dev.azure.com/octocat/_packaging/my-feed/pypi/example
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
     replaces-base: true
 ```
 {% endraw %}
@@ -973,3 +975,24 @@ registries:
     token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+## Enabling support for beta-level ecosystems
+
+### `enable-beta-ecosystems`
+
+By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+
+```yaml
+# Configure beta ecosystem
+
+version: 2
+enable-beta-ecosystems: true
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
+    directory: "/"
+    schedule:
+      interval: "daily"
+```
+{% endif %}

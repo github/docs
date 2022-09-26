@@ -5,7 +5,7 @@ redirect_from:
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
-intro: '{% data variables.product.prodname_dotcom %} 上で、人々、リポジトリ、Organization と関わることができます。 個人ダッシュボードから、他の人々がどんな作業をしていて、何とつながっているのかを見てください。'
+intro: '{% data variables.product.prodname_dotcom %} 上で、人々、リポジトリ、Organization と関わることができます。 個人用ダッシュボードから、他の人々がどんな作業をしていて、誰とつながっているのかを確認します。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
@@ -18,23 +18,30 @@ topics:
   - Issues
   - Notifications
   - Accounts
+ms.openlocfilehash: 8f57382a4eba028e9c83dda0c5780c240dc3860c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147692114'
 ---
-
-個人ダッシュボードへのアクセスについて学ぶには、「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。
+個人用ダッシュボードへのアクセスに関する詳細については、「[個人用ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。
 
 ## 人をフォローする
 
-{% data variables.product.prodname_dotcom %} 上で人をフォローすれば、その人のアクティビティについてパーソナルダッシュボードで通知を受けられます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
+{% data variables.product.prodname_dotcom %} でだれかをフォローすると、個人用ダッシュボードに、その人のパブリック アクティビティについて通知されます。 フォロー対象者が新しいリポジトリを作成したり、リポジトリに Star を付けたり、別のユーザーをフォローしたりすると、そのアクティビティがダッシュボードに表示されます。 
 
-人をフォローするには、その人のプロフィールページで [**Follow**] をクリックします。
+あるユーザーをフォローするには、そのユーザーのプロフィール ページで **[フォロー]** をクリックします。
 
 ![ユーザのフォローボタン](/assets/images/help/profile/follow-user-button.png)
 
+詳細については、「[人をフォローする](/get-started/exploring-projects-on-github/following-people)」を参照してください。
+
 ## リポジトリを Watch する
 
-リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 詳しい情報については、{% ifversion fpt or ghae or ghes or ghec %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[リポジトリを Watch および Watch 解除する](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}」を参照してください。
+リポジトリをサブスクライブして Watch し、その中のアクティビティの通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人用ダッシュボードで変更を確認できます。 詳細については、「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)」を参照してください。
 
-リポジトリを Watch するには、リポジトリの上部で [**Watch**] をクリックします。
+リポジトリを Watch するには、リポジトリの上部で **[Watch]** をクリックします。
 
 ![リポジトリの Watch ボタン](/assets/images/help/repository/repo-actions-watch.png)
 
@@ -42,40 +49,53 @@ topics:
 
 {% data reusables.support.ask-and-answer-forum %}
 
-## Communicating on {% data variables.product.product_name %}
+## {% data variables.product.product_name %} での通信
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+{% data variables.product.product_name %} にはコラボレーション可能なコミュニケーション ツールが用意されており、コミュニティと緊密にやりとりしながら、優れたソフトウェアをビルドできます。 たとえば、pull request を作成して別のユーザーのプロジェクトにコントリビューションを行う、issue を使用してバグを追跡する、リポジトリ内のアイデアを提案することができます。 また、チームでディスカッションして、新しいアイデアを出し合うこともできます。 
 
-## さらなる活動
+これらのツールの概要については、[{% data variables.product.prodname_dotcom %} でコミュニケーションするためのクイック スタート](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)に関するページを参照してください。
 
-### プルリクエストを作成する
+## Organization への参加
 
- 機能を追加したり、バグを修正したりして、他者のプロジェクトにコントリビュートしたいこともあるでしょう。 変更を行ったら、プルリクエストを送信してオリジナルの作者に知らせましょう。 詳しい情報については[プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)を参照してください。
+Organization は、企業とオープンソース プロジェクトが多数のプロジェクトにわたって一度にコラボレーションできる共有アカウントです。 オーナーや管理者は、特殊な権限を持つ Team を作ることができ、パブリックな Organization のプロフィールを持つことができ、Organization 内でのアクティビティを追跡することができます。 詳細については、「[Organization について](/articles/about-organizations/)」を参照してください。
 
- ![プルリクエストボタン](/assets/images/help/repository/repo-actions-pullrequest.png)
-
-### Issue を使用する
-
-リポジトリでコラボレーションする際に、Issue を使ってアイデア、拡張、タスク、バグを追跡してください。 詳細は「[Issues について](/articles/about-issues/)」を参照してください。
-
-![Issue ボタン](/assets/images/help/repository/repo-tabs-issues.png)
-
-### Organization への参加
-
-Organizationは、企業やオープンソースプロジェクトが多くのプロジェクトにわたって一度にコラボレーションできる共有アカウントです。 オーナーや管理者は、特殊な権限を持つ Team を作ることができ、パブリックな Organization のプロフィールを持つことができ、Organization 内でのアクティビティを追跡することができます。 詳細は「[Organization について](/articles/about-organizations/)」を参照してください。
+ダッシュボードから、ダッシュボードの左側にあるご自分のユーザー名のドロップダウン メニューをクリックします。 ここで、所属している Organization を表示し、簡単に切り替えることができます。
 
 ![アカウントのコンテキストの切り替えのドロップダウン](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-### {% data variables.product.prodname_dotcom %} 上の他のプロジェクトを調べる
+{% ifversion for-you-feed %}
 
-{% data variables.explore.explore_github %}、[リポジトリを調べる](https://github.com/explore)、そして {% data variables.explore.trending_page %} を使って、興味深いプロジェクトを見つけてください。 興味深いプロジェクトに Star を付け、後から戻っていってください。 {% data variables.explore.your_stars_page %} にアクセスすれば、Star を付けたすべてのプロジェクトを見ることができます。  詳細は「[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard/)」を参照してください。
+## 組織をフォローする
 
-## おめでとうございます
+{% data reusables.organizations.follow-organizations-beta %}
 
-これで、{% data variables.product.product_name %} コミュニティにつながりました。 次に何をしたいですか? ![プロジェクトに Star を付ける](/assets/images/help/stars/star-a-project.png)
+{% data reusables.organizations.about-following-organizations %}
 
+組織をフォローするには、組織のページのヘッダーで **[フォロー]** をクリックします。
 
-- To synchronize your {% data variables.product.product_name %} projects with your computer, you can set up Git. For more information see "[Set up Git](/articles/set-up-git)."
-- You can also create a repository, where you can put all your projects and maintain your workflows. For more information see, "[Create a repository](/articles/create-a-repo)."
-- You can fork a repository to make changes you want to see without affecting the original repository. For more information, see "[Fork a repository](/articles/fork-a-repo)."
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+![[フォロー] ボタンが強調表示されている組織ヘッダーのスクリーンショット](/assets/images/help/profile/organization-profile-following.png)
+
+詳しくは、「[組織をフォローする](/get-started/exploring-projects-on-github/following-organizations)」をご覧ください。
+
+{% endif %}
+
+## {% data variables.product.prodname_dotcom %} 上の他のプロジェクトを調べる
+
+{% data variables.product.prodname_dotcom %} の [探索] ページで新しい興味深いプロジェクトを探すことができます。 興味深いプロジェクトに Star を付けて、後で簡単に見つけられるようにできます。 Star 付きプロジェクトをすべて表示するには、ご自分の Star ページにアクセスします。 Star の詳細については、「[Star を付けてリポジトリを保存する](/get-started/exploring-projects-on-github/saving-repositories-with-stars)」を参照してください。
+
+ダッシュボード フィードには、Star を付けたリポジトリ、フォロー対象者、パブリック リポジトリへのコントリビューションなど、関心に基づいてプロジェクトが表示されます。 ダッシュボードから、注目のプロジェクトを確認する、トピックを表示する、コレクションをチェックアウトすることができます。 
+
+その他のプロジェクトについては、「{% data variables.explore.explore_github %}」を参照してください。
+
+## 次の手順
+これで、{% data variables.product.product_name %} コミュニティにつながりました。 {% data variables.product.product_name %} 内でやりとりしてビルドする方法は他にもあります。
+
+* {% data reusables.getting-started.set-up-git %}
+
+* {% data reusables.getting-started.create-a-repository %}
+
+* {% data reusables.getting-started.fork-a-repository %}
+
+* {% data reusables.getting-started.contributing-to-projects  %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

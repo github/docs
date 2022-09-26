@@ -65,10 +65,14 @@ The examples below demonstrate using the `fwal/setup-swift` action.
 
 ### Using multiple Swift versions
 
-You can configure your job to use a multiple versions of Swift in a build matrix.
+You can configure your job to use multiple versions of Swift in a matrix.
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 
 name: Swift
 

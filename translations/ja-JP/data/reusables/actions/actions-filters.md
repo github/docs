@@ -1,6 +1,14 @@
-Some events have filters that give you more control over when your workflow should run.
+---
+ms.openlocfilehash: c9db6ca4a418e5107cb3714b70c8112457b1868c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145114774"
+---
+一部のイベントには、ワークフローを実行するタイミングをより細かく制御できるフィルターがあります。
 
-For example, the `push` event has a `branches` filter that causes your workflow to run only when a push to a branch that matches the `branches` filter occurs, instead of when any push occurs.
+たとえば、`push` イベントの `branches` フィルターでは、プッシュが発生したときではなく、`branches` フィルターと同じブランチに対してプッシュが発生したときのみ、ワークフローを実行できます。
 
 ```yaml
 on:

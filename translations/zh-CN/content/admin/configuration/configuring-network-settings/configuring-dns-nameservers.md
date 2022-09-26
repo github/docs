@@ -14,10 +14,15 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: 配置 DNS 服务器
+shortTitle: Configure DNS servers
+ms.openlocfilehash: b01dc25b9002bf1feb672bbce597c8046b93f12f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147419711'
 ---
-
-指定的域名服务器必须解析 {% data variables.product.product_location %} 的主机名。
+指定的名称服务器必须解析 {% data variables.product.product_location %} 的主机名。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -31,16 +36,12 @@ shortTitle: 配置 DNS 服务器
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. 要编辑域名服务器，请输入：
+2. 要编辑名称服务器，请在可视模式下使用 `ghe-setup-network` 命令。 有关详细信息，请参阅“[命令行实用工具](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)”。
 
   ```shell
-  sudo vim /etc/resolvconf/resolv.conf.d/head
+  ghe-setup-network -v
   ```
 
-{% data reusables.enterprise_installation.preventing-nameservers-change %}
-
-3. 附加任何 `nameserver` 条目，然后保存文件。
-4. 验证变更后，请保存文件。
 5. 要向 {% data variables.product.product_location %} 添加新的域名服务器条目，请运行以下命令：
 
   ```shell

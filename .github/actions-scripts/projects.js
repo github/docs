@@ -59,7 +59,7 @@ export async function addItemsToProject(items, project) {
   `
 
   const newItems = await graphql(mutation, {
-    project: project,
+    project,
     headers: {
       authorization: `token ${process.env.TOKEN}`,
       'GraphQL-Features': 'projects_next_graphql',
@@ -221,40 +221,40 @@ export function generateUpdateProjectNextItemFieldMutation({
       $authorID: ID!
     ) {
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$statusID',
         value: '$statusValueID',
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$datePostedID',
         value: formatDateForProject(datePosted),
         literal: true,
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$reviewDueDateID',
         value: formatDateForProject(dueDate),
         literal: true,
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$contributorTypeID',
         value: '$contributorType',
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$sizeTypeID',
         value: '$sizeType',
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$featureID',
         value: feature,
         literal: true,
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$authorID',
         value: author,
         literal: true,

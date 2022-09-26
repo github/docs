@@ -7,16 +7,21 @@ versions:
 type: quick_start
 topics:
   - Open Source
-shortTitle: QuickStart
+shortTitle: Quickstart
+ms.openlocfilehash: 334d0b78547732480d0bcf708c1d2194eebbae17
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145095507'
 ---
-
 ## Explorar projetos de que você depende
 
-À medida que você considera onde encontrar contribuidores de código aberto para patrocinador, considere começar por https://github.com/patrocinadors/comunidade.
+Ao considerar onde encontrar colaboradores de código aberto para patrocinar, considere a possibilidade de começar em https://github.com/sponsors/community.
 
 Se você estiver conectado, os resultados dos patrocinadores começarão com dependências públicas das quais seus repositórios dependem.
 
-![O projeto de código aberto Babel com texto destacado que diz "4 dos seus repositórios dependem disso"](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
+![O projeto Babel de código aberto com um texto realçado que indica "Quatro dos seus repositórios dependem disto"](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
 
 Você também pode alternar qual de suas contas deseja ver os resultados, bem como outros filtros ou pesquisas.
 
@@ -40,14 +45,14 @@ Considere se você se beneficia do trabalho das contribuições de código abert
  - Responder às perguntas
  - Planejamento de evento
 
-Para obter mais informações sobre diferentes tipos de contribuições de código aberto, consulte o [guia de código aberto](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code).
+Para obter mais informações sobre diferentes tipos de contribuições de código aberto, confira o [Guia de código aberto](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code).
 
-Você pode conferir se os colaboradores dos quais você se beneficiou de ter perfis de {% data variables.product.prodname_sponsors %} usando a pesquisa em https://github.com/sponsors/community.
+Verifique se os colaboradores dos quais você se beneficiou têm perfis do {% data variables.product.prodname_sponsors %} usando a pesquisa em https://github.com/sponsors/community.
 
 ## Pesquisar por um projeto ou colaborador específico
 
-Em https://github.com/sponsors/community, você pode procurar pelo ecossistema mais usado, atualizado recentemente e muito mais. É possível filtrar os resultados da busca para a conta pessoal do usuário ou para as organizações das quais você é integrante.
+Em https://github.com/sponsors/community, você pode pesquisar por ecossistema, mais usado, atualizado recentemente, entre outros. É possível filtrar os resultados da busca para a sua conta pessoal ou para as organizações das quais você é membro.
 
 ## Próximas etapas
 
-Para obter mais informações sobre como iniciar o seu patrocínio, consulte "[Patrocinando um colaborador de código aberto](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)".
+Para obter mais informações sobre como iniciar seu patrocínio, confira "[Como patrocinar um colaborador de código aberto](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)".

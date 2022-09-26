@@ -48,9 +48,21 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 
   ![File filter drop-down menu](/assets/images/help/pull_requests/file-filter-menu.png)
 
+## Reasons diffs will not display
+- You've exceeded the total limit of files or certain file types. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
+- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[Customizing how changed files appear on GitHub](/articles/customizing-how-changed-files-appear-on-github)."
+
 ## Three-dot and two-dot Git diff comparisons
 
-By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff, or a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
+There are two comparison methods for the `git diff` command; two-dot (`git diff A..B`) and three-dot (`git diff A...B`). By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff.
+
+### Three-dot Git diff comparison 
+
+The three-dot comparison shows the difference between the latest common commit of both branches (merge base) and the most recent version of the topic branch.
+
+### Two-dot Git diff comparison
+
+The two-dot comparison shows the difference between the latest state of the base branch (for example, `main`) and the most recent version of the topic branch.
 
 To see two committish references in a two-dot diff comparison on {% data variables.product.prodname_dotcom %}, you can edit the URL of your repository's "Comparing changes" page. For more information, see the  [Git Glossary for "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) from the _Pro Git_ book site.
 
@@ -62,9 +74,17 @@ If you want to simulate a two-dot diff in a pull request and see a comparison be
 
 For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
-## Reasons diffs will not display
-- You've exceeded the total limit of files or certain file types. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
-- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[Customizing how changed files appear on GitHub](/articles/customizing-how-changed-files-appear-on-github)."
+## About three-dot comparison on {% data variables.product.prodname_dotcom %}
+
+Since the three-dot comparison compares with the merge base, it is focusing on "what a pull request introduces". 
+
+When you use a two-dot comparison, the diff changes when the base branch is updated, even if you haven't made any changes to the topic branch. Additionally, a two-dot comparison focuses on the base branch. This means that anything you add is displayed as missing from the base branch, as if it was a deletion, and vice versa. As a result, the changes the topic branch introduces become ambiguous.
+
+In contrast, by comparing the branches using the three-dot comparison, changes in the topic branch are always in the diff if the base branch is updated, because the diff shows all of the changes since the branches diverged.
+
+### Merging often
+
+To avoid getting confused, merge the base branch (for example, `main`) into your topic branch frequently. By merging the base branch, the diffs shown by two-dot and three-dot comparisons are the same. We recommend merging a pull request as soon as possible. This encourages contributors to make pull requests smaller, which is recommended in general.
 
 ## Further reading
 

@@ -11,7 +11,7 @@
 import rimraf from 'rimraf'
 import fs from 'fs'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 
 // Early Access details
 const earlyAccessRepo = 'docs-early-access'

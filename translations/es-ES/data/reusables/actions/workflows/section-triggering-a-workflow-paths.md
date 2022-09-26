@@ -1,15 +1,23 @@
+---
+ms.openlocfilehash: 621271104f28983cd2cc1319a302fc1654e54acb
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145069395"
+---
 
-Cuando utilices los eventos `push` y `pull_request`, puedes configurar un flujo de trabajo para que se ejecute con base en qué rutas de archivo cambiaron. Los filtros de ruta no se evalúan para subidas de etiquetas.
+Al usar los eventos `push` y `pull_request`, puedes configurar un flujo de trabajo para su ejecución en función de las rutas de acceso de archivo que se cambien. Los filtros de ruta no se evalúan para subidas de etiquetas.
 
-Utiliza el filtro `paths` cuando quieras incluir los patrones de ruta de archivo o cuando quieras tanto incluirlos como excluirlos. Use the `paths-ignore` filter when you only want to exclude file path patterns. You cannot use both the `paths` and `paths-ignore` filters for the same event in a workflow.
+Usa el filtro `paths` cuando quieras incluir patrones de ruta de acceso de archivos o cuando quieras tanto incluirlos como excluirlos. Usa el filtro `paths-ignore` cuando solo quieras excluir patrones de ruta de acceso de archivos. No puede usar los filtros `paths` y `paths-ignore` para el mismo evento de un flujo de trabajo.
 
-If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
+Si defines `branches`/`branches-ignore` y `paths`, el flujo de trabajo solo se ejecutará cuando se cumplan ambos filtros.
 
-The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. Para obtener más información, consulta "[Hoja de referencia de patrones de filtro](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
+Las palabras clave `paths` y `paths-ignore` aceptan patrones globales que usan los caracteres comodín `*` y `**` para coincidir con más de un nombre de ruta de acceso. Para obtener más información, consulta la "[Hoja de referencia de patrones de filtro](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 #### Ejemplo: Incluyendo rutas
 
-Si al menos una ruta coincide con un patrón del filtro de `rutas`, se ejecuta el flujo de trabajo. For example, the following workflow would run anytime you push a JavaScript file (`.js`).
+Si al menos una ruta de acceso coincide con un patrón en el filtro `paths`, se ejecuta el flujo de trabajo. Por ejemplo, el flujo de trabajo siguiente se ejecutaría cada vez que envíes cambios de un archivo JavaScript (`.js`).
 
 ```yaml
 on:
@@ -18,11 +26,17 @@ on:
       - '**.js'
 ```
 
-#### Example: Excluding paths
+{% note %}
 
-Cuando todos los nombres de ruta coincidan con los patrones en `paths-ignore`, el flujo de trabajo no se ejecutará. If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.
+**Nota:** Si se omite un flujo de trabajo debido a un [filtrado de ruta](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [filtrado de rama](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) o [mensaje de confirmación](/actions/managing-workflow-runs/skipping-workflow-runs), las comprobaciones asociadas a ese flujo de trabajo permanecerán en estado "Pendiente". Se bloqueará la fusión mediante combinación de una solicitud de incorporación de cambios que requiera esas comprobaciones para realizarse correctamente. Para obtener más información, consulta "[Control de comprobaciones omitidas pero necesarias](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)".
 
-Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
+{% endnote %}
+
+#### Ejemplo: Exclusión de rutas de acceso
+
+Cuando todos los nombres de ruta de acceso coincidan con los patrones de `paths-ignore`, el flujo de trabajo no se ejecutará. Si alguno de los nombres de ruta de acceso no coincide con los patrones de `paths-ignore`, aunque algunos nombres de ruta coincidan con estos, el flujo de trabajo se ejecutará.
+
+Un flujo de trabajo con el siguiente filtro de ruta de acceso solo se ejecutará en los eventos `push` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
 
 ```yaml
 on:
@@ -31,18 +45,18 @@ on:
       - 'docs/**'
 ```
 
-#### Example: Including and excluding paths
+#### Ejemplo: Inclusión y exclusión de rutas de acceso
 
-You can not use `paths` and `paths-ignore` to filter the same event in a single workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter along with the `!` character to indicate which paths should be excluded.
+No puedes usar `paths` y `paths-ignore` para filtrar el mismo evento en un único flujo de trabajo. Si quieres tanto incluir como excluir patrones de ruta de acceso para un solo evento, usa el filtro `paths` junto con el carácter `!` para indicar qué rutas de acceso se deben excluir.
 
-If you define a path with the `!` character, you must also define at least one path without the `!` character. If you only want to exclude paths, use `paths-ignore` instead.
+Si defines una ruta de acceso con el carácter `!`, también debes definir al menos una ruta de acceso sin el carácter `!`. Si solo quieres excluir rutas de acceso, usa `paths-ignore` en su lugar.
 
 El orden en que defines los patrones importa:
 
-- Una coincidencia de patrón negativo (con prefijo `!`) luego de una coincidencia positiva excluirá la ruta.
+- El tener una coincidencia de patrón negativo (con el prefijo `!`) después de una coincidencia positiva hará que se excluya la ruta de acceso.
 - Un patrón de coincidencia positiva luego de una coincidencia negativa excluirá nuevamente la ruta.
 
-Este ejemplo se ejecuta cada vez que el evento de `subida` incluye un archivo en el directorio `sub-project` o sus subdirectorios, a menos que el archivo esté en el directorio `sub-project/docs`. Por ejemplo, una subida que haya cambiado `sub-project/index.js` o `sub-project/src/index.js` desencadenará una ejecución de flujo de trabajo, pero una subida que cambie solo `sub-project/docs/readme.md` no lo hará.
+Este ejemplo se ejecuta cada vez que el evento `push` incluye un archivo en el directorio `sub-project` o sus subdirectorios, a menos que el archivo esté en el directorio `sub-project/docs`. Por ejemplo, una inserción que haya cambiado `sub-project/index.js` o `sub-project/src/index.js` desencadenará una ejecución de flujo de trabajo, pero una inserción que solo cambie `sub-project/docs/readme.md` no lo hará.
 
 ```yaml
 on:
@@ -56,17 +70,17 @@ on:
 
 {% note %}
 
-**Nota:** Si subes más de 1,000 confirmaciones o si {% data variables.product.prodname_dotcom %} no genera el diff debido a que se excedió el tiempo, el flujo de trabajo siempre se ejecutará.
+**Nota:** Si insertas más de 1000 confirmaciones o si {% data variables.product.prodname_dotcom %} no genera las diferencias debido a que se agota el tiempo de espera, el flujo de trabajo siempre se ejecutará.
 
 {% endnote %}
 
-El filtro determina si un flujo de trabajo se debe ejecutar al evaluar los archivos modificados y al ejecutarlos comparándolos con la lista de `paths-ignore` o `paths`. Si no hay archivos modificados, no se ejecutará el flujo de trabajo.
+El filtro determina si un flujo de trabajo debe ejecutarse al evaluar los archivos modificados y ejecutarlos en comparación con la lista de `paths-ignore` o `paths`. Si no hay archivos modificados, no se ejecutará el flujo de trabajo.
 
 {% data variables.product.prodname_dotcom %} genera la lista de archivos modificados usando diferencias de dos puntos para las subidas y de tres puntos para las solicitudes de extracción:
-- **Solicitudes de extracción:** las diferencias de tres puntos son una comparación entre la versión más reciente de la rama de tema y la confirmación, cuando la rama de tema se sincronizó por última vez con la rama base.
-- **Subidas a ramas existentes:** una diferencia de dos puntos compara las SHA de encabezado y de base directamente entre sí.
-- **Subidas a ramas nuevas:** una diferencia de dos puntos comparada con el padre del antepasado de la confirmación más profunda subida.
+- **Solicitudes de incorporación de cambios:** las diferencias de tres puntos son una comparación entre la versión más reciente de la rama de tema y la confirmación en la que la rama de tema se sincronizó por última vez con la rama base.
+- **Inserción en ramas existentes:** una diferencia de dos puntos compara los SHA base y principal directamente entre sí.
+- **Inserción en ramas nuevas:** una diferencia de dos puntos comparada con el elemento primario del antecesor de la confirmación insertada más profunda.
 
 Los diffs se limitan a 300 archivos. Si hay archivos que cambiaron y no se empataron en los primeros 300 archivos que devuelve el filtro, el flujo de trabajo no se ejecutará. Puede que necesites crear filtros más específicos para que el flujo de trabajo se ejecute automáticamente.
 
-Para obtener más información, consulta "[Acerca de comparar ramas en las solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)".
+Para obtener más información, consulta "[Acerca de la comparación de ramas en las solicitudes de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)".

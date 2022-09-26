@@ -11,9 +11,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
 versions:
   ghes: '*'
-  fpt: '*'
   ghec: '*'
-  ghae: issue-5378
 miniTocMaxHeadingLevel: 3
 type: how_to
 topics:
@@ -25,6 +23,10 @@ shortTitle: View Advanced Security usage
 ## About licenses for {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+
+{% ifversion ghas-committers-calculator %}
+You can calculate how many additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories with the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)."
+{% endif %}
 
 ## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
 
@@ -64,7 +66,7 @@ You can check how many seats your license includes and how many of them are curr
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5378 %}
+{% ifversion ghec or ghes > 3.3 %}
 
 ## Downloading {% data variables.product.prodname_GH_advanced_security %} license usage information
 
