@@ -1,6 +1,6 @@
 ---
-title: 管理存储库的安全和分析设置
-intro: '您可以控制功能以保护 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
+title: Managing security and analysis settings for your repository
+intro: 'You can control features that secure and analyze the code in your project on {% data variables.product.prodname_dotcom %}.'
 permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories
@@ -23,69 +23,103 @@ topics:
   - Secret scanning
   - Repositories
 shortTitle: Security & analysis
-ms.openlocfilehash: 95e0b3c0c8e03c8a903dad8220542502ce73bf5c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060336'
 ---
 {% ifversion fpt or ghec %}
-## 为公共仓库启用或禁用安全和分析功能
+## Enabling or disabling security and analysis features for public repositories
 
-您可以管理公共仓库的一部分安全和分析功能。 其他功能是永久启用的，包括依赖项图和密码扫描。
+You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and secret scanning.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. 在“代码安全和分析”下，单击该功能右侧的“禁用”或“启用” 。
-  ![公共存储库中“配置安全和分析”功能的“启用”或“禁用”按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-public.png) {% endif %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.
+  !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-public.png)
+{% endif %}
 
-## 为专用存储库启用或禁用安全和分析功能{% ifversion fpt or ghec %}{% endif %}
+## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}
 
-您可以管理{% ifversion fpt or ghec %}私有或内部 {% endif %}仓库的安全性和分析功能。{% ifversion ghes or ghec %} 如果您的组织属于拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证的企业，则额外选项可用。 {% data reusables.advanced-security.more-info-ghas %} {% elsif fpt %} 结合使用 {% data variables.product.prodname_ghe_cloud %} 与 {% data variables.product.prodname_advanced_security %} 的组织有额外选项可用。 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)。
+You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository.{% ifversion ghes or ghec %} If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
+{% elsif fpt %} Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} have extra options available. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
 {% endif %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %} {% ifversion fpt or ghes or ghec %}
-4. 在“代码安全和分析”下，单击该功能右侧的“禁用”或“启用” 。 {% ifversion not fpt %}如果你的企业没有 {% data variables.product.prodname_advanced_security %} 的可用许可证，“{% data variables.product.prodname_GH_advanced_security %}”的控件将处于禁用状态。{% endif %}{% ifversion fpt %}![“配置安全和分析”功能的“启用”或“禁用”按钮的屏幕截图](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}![“配置安全和分析”功能的“启用”或“禁用”按钮的屏幕截图](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.6 or ghae-issue-7044 %}<!--Insert screenshot for GHES 3.7 when available-->{% elsif ghes = 3.2 %}![“配置安全和分析”功能的“启用”或“禁用”按钮的屏幕截图](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% else %}![“配置安全和分析”功能的“启用”或“禁用”按钮的屏幕截图](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+{% ifversion fpt or ghes or ghec %}
+4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**. {% ifversion not fpt %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% endif %}{% ifversion fpt %}
+  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
+  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.6 or ghae > 3.6 %}<!--Insert screenshot for GHES 3.7 when available-->{% elsif ghes = 3.2 %}
+  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% else %}
+  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
   
-  {% ifversion not fpt %} {% note %}
+  {% ifversion not fpt %}
+  {% note %}
 
-  注意：如果你禁用 {% data variables.product.prodname_GH_advanced_security %}，{% ifversion ghec %}依赖项审核、{% endif %}{% data variables.product.prodname_secret_scanning %} 和 {% data variables.product.prodname_code_scanning %} 都将处于禁用状态。 任何工作流程、SARIF上传或 {% data variables.product.prodname_code_scanning %} 的 API 调用都将失败。
+  **Note:** If you disable {% data variables.product.prodname_GH_advanced_security %}, {% ifversion ghec %}dependency review, {% endif %}{% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
   {% endnote %}{% endif %}
 
   {% endif %}
 
   {% ifversion ghae %}
-4. 在“代码安全和分析”下，单击该功能右侧的“禁用”或“启用” 。 在启用“{% data variables.product.prodname_secret_scanning %}”之前，您可能需要先启用 {% data variables.product.prodname_GH_advanced_security %}。
-   ![为你的存储库启用或禁用 {% data variables.product.prodname_GH_advanced_security %} 或 {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png) {% endif %}
+4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**. Before you can enable "{% data variables.product.prodname_secret_scanning %}" for your repository, you may need to enable {% data variables.product.prodname_GH_advanced_security %}.
+   ![Enable or disable {% data variables.product.prodname_GH_advanced_security %} or {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
+  {% endif %}
 
-## 授予对安全警报的访问权限
+## Granting access to security alerts
 
-对存储库具有管理员访问权限的人员可以看到存储库的安全警报，如果存储库归组织所有，则组织所有者也可见。 您可以授予其他团队和人员访问警报。
+Security alerts for a repository are visible to people with admin access to the repository and, when the repository is owned by an organization, organization owners. You can give additional teams and people access to the alerts.
 
 {% note %}
 
-组织所有者和仓库管理员只能向具有仓库写入权限的人员授予安全警报的查看权限，如 {% data variables.product.prodname_secret_scanning %} 警报。
+Organization owners and repository administrators can only grant access to view security alerts, such as {% data variables.product.prodname_secret_scanning %} alerts, to people or teams who have write access to the repo.
 
 {% endnote %}
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. 在“Access to alerts（访问警报）”下，在搜索字段中开始键入您要查找的个人或团队的名称，然后单击匹配列表中的名称。
-   {% ifversion fpt or ghec or ghes > 3.2 %} ![用于授予人员或团队安全警报访问权限的搜索字段](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png) {% endif %} {% ifversion ghes < 3.3 %} ![用于授予人员或团队安全警报访问权限的搜索字段](/assets/images/enterprise/3.2/repository/security-and-analysis-security-alerts-person-or-team-search.png) {% endif %} {% ifversion ghae %} ![用于授予人员或团队安全警报访问权限的搜索字段](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-person-or-team-search-ghae.png) {% endif %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. Under "Access to alerts", in the search field, start typing the name of the person or team you'd like to find, then click a name in the list of matches.
+   {% ifversion fpt or ghec or ghes > 3.2 %}
+   ![Search field for granting people or teams access to security alerts](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
+   {% endif %}
+   {% ifversion ghes < 3.3 %}
+   ![Search field for granting people or teams access to security alerts](/assets/images/enterprise/3.2/repository/security-and-analysis-security-alerts-person-or-team-search.png)
+   {% endif %}
+   {% ifversion ghae %}
+   ![Search field for granting people or teams access to security alerts](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-person-or-team-search-ghae.png)
+   {% endif %}
    
-5. 单击“保存更改”。 
-   {% ifversion fpt or ghes > 3.2 or ghec %} ![用于更改安全警报设置的“保存更改”按钮](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png) {% endif %} {% ifversion ghes < 3.3 %} ![用于更改安全警报设置的“保存更改”按钮](/assets/images/enterprise/3.2/repository/security-and-analysis-security-alerts-save-changes.png) {% endif %} {% ifversion ghae %} ![用于更改安全警报设置的“保存更改”按钮](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-save-changes-ghae.png) {% endif %}
+5. Click **Save changes**.
+   {% ifversion fpt or ghes > 3.2 or ghec %}
+   !["Save changes" button for changes to security alert settings](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
+   {% endif %}
+   {% ifversion ghes < 3.3 %}
+   !["Save changes" button for changes to security alert settings](/assets/images/enterprise/3.2/repository/security-and-analysis-security-alerts-save-changes.png)
+   {% endif %}
+   {% ifversion ghae %}
+   !["Save changes" button for changes to security alert settings](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-save-changes-ghae.png)
+   {% endif %}
 
-## 删除对安全警报的访问权限
+## Removing access to security alerts
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. 在“Access to alerts（访问警报）”下，在要删除其访问权限的个人或团队的右侧，单击 {% octicon "x" aria-label="X symbol" %}。
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click {% octicon "x" aria-label="X symbol" %}.
    {% ifversion fpt or ghec or ghes > 3.2 %}  
-   ![“x”按钮，用于删除某人对你的存储库安全警报的访问权限](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png) {% endif %} {% ifversion ghes < 3.3 %} ![“x”按钮，用于删除某人对你的存储库安全警报的访问权限](/assets/images/enterprise/3.2/repository/security-and-analysis-security-alerts-username-x.png) {% endif %} {% ifversion ghae %} ![“x”按钮，用于删除某人对你的存储库安全警报的访问权限](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-username-x-ghae.png) {% endif %}
-  5. 单击“保存更改”。 
+   !["x" button to remove someone's access to security alerts for your repository](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
+   {% endif %}
+   {% ifversion ghes < 3.3 %}
+   !["x" button to remove someone's access to security alerts for your repository](/assets/images/enterprise/3.2/repository/security-and-analysis-security-alerts-username-x.png)
+   {% endif %}
+   {% ifversion ghae %}
+   !["x" button to remove someone's access to security alerts for your repository](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-username-x-ghae.png)
+   {% endif %}
+  5. Click **Save changes**.
 
-## 延伸阅读
+## Further reading
 
-- [保护存储库](/code-security/getting-started/securing-your-repository)
-- [管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
+- "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"

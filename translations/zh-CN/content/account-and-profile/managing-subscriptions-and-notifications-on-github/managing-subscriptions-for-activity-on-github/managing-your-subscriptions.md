@@ -1,6 +1,6 @@
 ---
-title: 管理订阅
-intro: 为帮助您有效地管理通知，提供了多种取消订阅的方法。
+title: Managing your subscriptions
+intro: 'To help you manage your notifications efficiently, there are several ways to unsubscribe.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,79 +12,73 @@ redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions
   - /github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions
 shortTitle: Manage your subscriptions
-ms.openlocfilehash: 750a3a9ad87ff9aa709b84a98f548d85d53072ee
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145087363'
 ---
-为了帮助了解订阅并决定是否取消订阅，请参阅“[查看订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”。
+To help you understand your subscriptions and decide whether to unsubscribe, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
 
 {% note %}
 
-注意：可以选择忽略存储库，而不是取消订阅。 如果忽略仓库，将不会收到任何通知。 不建议忽略存储库，因为如果你被 @mentioned，你将不会收到通知。 {% ifversion fpt or ghec %} 如果遇到滥用行为并想要忽略存储库，请联系 {% data variables.contact.contact_support %} 以获取帮助。 {% data reusables.policies.abuse %}{% endif %}
+**Note:** Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% ifversion fpt or ghec %}If you're experiencing abuse and want to ignore a repository, please contact {% data variables.contact.contact_support %} so we can help. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
-## 选择如何取消订阅
+## Choosing how to unsubscribe
 
-若要快速取消关注（或取消订阅）存储库，请导航至 [github.com/watching](https://github.com/watching)查看你所关注的所有存储库。 有关详细信息，请参阅“[取消关注存储库](#unwatching-repositories)”。
+To unwatch (or unsubscribe from) repositories quickly, navigate to [github.com/watching](https://github.com/watching) to see all the repositories you're following. For more information, see "[Unwatching repositories](#unwatching-repositories)."
 
-要同时取消订阅多个通知，您可以使用收件箱或订阅页面上取消订阅。 相比“Watched repositories（已关注仓库）”页面，这两个选项可提供有关您的订阅的更多上下文。
+To unsubscribe from multiple notifications at the same time, you can unsubscribe using your inbox or on the subscriptions page. Both of these options offer more context about your subscriptions than the "Watched repositories" page.
 
-### 从收件箱中取消订阅的优点
+### Benefits of unsubscribing from your inbox
 
-在收件箱中取消订阅通知时，您还有其他一些分类选项，并且可以按自定义过滤器和讨论类型来过滤通知。 有关详细信息，请参阅“[管理收件箱中的通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)”。
+When you unsubscribe from notifications in your inbox, you have several other triaging options and can filter your notifications by custom filters and discussion types. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)."
 
-### 从订阅页面取消订阅的优点
+### Benefits of unsubscribing from the subscriptions page
 
-在订阅页面上取消订阅通知时，您可以查看更多已订阅的通知，并且可以按“最多最近订阅”或“最少最近订阅”对它们进行排序。
+When you unsubscribe from notifications on the subscriptions page, you can see more of the notifications you're subscribed to and sort them by "Most recently subscribed" or "Least recently subscribed".
 
-订阅页将显示当前订阅的所有通知，包括在收件箱中标记为“完成”的通知。
+The subscriptions page shows you all of the notifications that you're currently subscribed to, including notifications that you have marked as **Done** in your inbox.
 
-您只能按仓库和接收通知的原因过滤订阅。
+You can only filter your subscriptions by repository and the reason you're receiving the notification.
 
-## 在收件箱中取消订阅通知
+## Unsubscribing from notifications in your inbox
 
-当您取消订阅收件箱中的通知时，它们将自动从您的收件箱中消失。
-
-{% data reusables.notifications.access_notifications %}
-1. 从通知收件箱中选择您想要取消订阅的通知。
-2. 单击“取消订阅”。
-  ![主收件箱中的“取消订阅”选项](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
-
-## 从订阅页面取消订阅通知
+When you unsubscribe from notifications in your inbox, they will automatically disappear from your inbox.
 
 {% data reusables.notifications.access_notifications %}
-1. 在左侧边栏存储库列表下的“管理通知”下拉菜单中单击“订阅”。
-  ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
+1. From the notifications inbox, select the notifications you want to unsubscribe to.
+2. Click **Unsubscribe.**
+  ![Unsubscribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
-2. 选择要取消订阅的通知。 单击右上角的“取消订阅”。
-  ![订阅页面](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
-
-## 取消关注仓库
-
-如果取消关注存储库，将取消订阅该存储库的未来更新，除非参与对话或被 @mentioned。
+## Unsubscribing from notifications on the subscriptions page
 
 {% data reusables.notifications.access_notifications %}
-1. 在左侧边栏存储库列表下的“管理通知”下拉菜单中单击“已关注的存储库”。
+1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click **Subscriptions**.
+  ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
-  ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
+2. Select the notifications you want to unsubscribe to. In the top right, click **Unsubscribe.**
+  ![Subscriptions page](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
 
-2. 在关注的仓库页面上，评估您关注的仓库后，选择是否：
+## Unwatching repositories
+
+When you unwatch a repository, you unsubscribe from future updates from that repository unless you participate in a conversation or are @mentioned.
+
+{% data reusables.notifications.access_notifications %}
+1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click **Watched repositories**.
+
+  ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
+
+2. On the watched repositories page, after you've evaluated the repositories you're watching, choose whether to:
    
-   - 取消关注仓库
-   - 忽略某仓库的所有通知
-   - 如有启用，请自定义接收通知的事件类型（{% data reusables.notifications-v2.custom-notification-types %}）
+   - Unwatch a repository
+   - Ignore all notifications for a repository
+   - If enabled, customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %})
    
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
-1. （可选）要取消订阅指定用户或组织拥有的所有存储库，请选择“全部取消关注”下拉列表，然后单击要取消订阅其存储库的组织 **​​**。 取消关注所有存储库的按钮仅在您正在关注超过 10 个存储库上的所有活动或自定义通知时才可用。
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+1. Optionally, to unsubscribe from all repositories owned by a given user or organization, select the **Unwatch all** dropdown and click the organization whose repositories you'd like to unsubscribe from. The button to unwatch all repositories is only available if you are watching all activity or custom notifications on over 10 repositories.
 
-   ![“全部取消关注”按钮的屏幕截图](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
+   ![Screenshot of the Unwatch All button.](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
 
-   - 单击“取消关注”以确认要取消关注所选用户或组织拥有的存储库，或单击“取消”以取消关注 。
+   - Click **Unwatch** to confirm that you want to unwatch the repositories owned by the selected user or organization, or click **Cancel** to cancel.
 
-   ![全部取消关注确认对话框的屏幕截图。](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
+   ![Screenshot of the unwatch all confirmation dialogue.](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
 
 {% endif %}

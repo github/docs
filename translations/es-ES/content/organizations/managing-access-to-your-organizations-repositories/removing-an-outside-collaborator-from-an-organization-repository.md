@@ -1,6 +1,6 @@
 ---
-title: Eliminar un colaborador externo de un repositorio de la organización
-intro: Los propietarios y los administradores del repositorio pueden eliminar el acceso a un repositorio de un colaborador externo.
+title: Removing an outside collaborator from an organization repository
+intro: Owners and repository admins can remove an outside collaborator's access to a repository.
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-repository
@@ -13,55 +13,57 @@ topics:
   - Organizations
   - Teams
 shortTitle: Remove collaborator
-ms.openlocfilehash: 71c8017b79425570e4ee7c2d2c7d3ac695c5c531
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145134964'
 ---
+
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Advertencia**:
-- Cuando se elimina un colaborador externo de un repositorio privado, el conteo de licencias pagadas no baja de categoría automáticamente. Para pagar menos licencias después de quitar usuarios de la organización, siga los pasos descritos en "[Cambio de los puestos de pago de la organización a una versión anterior](/articles/downgrading-your-organization-s-paid-seats)".
+**Warning:**
+- When removing an outside collaborator from a private repository, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[Downgrading your organization's paid seats](/articles/downgrading-your-organization-s-paid-seats)."
 
-- Eres responsable de asegurar que las personas que perdieron el acceso a un repositorio borren cualquier información confidencial o propiedad intelectual.
+- You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 
 {% endwarning %}
 
 {% endif %}
 
-Aunque se borren las bifurcaciones de los repositorios privados cuando se elimina un colaborador, la persona seguirá teniendo todos los clones locales de tu repositorio.
+While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
 
-## Eliminar colaboradores externos de todos los repositorios de una organización
+## Removing outside collaborators from all repositories in an organization
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.people_tab_outside_collaborators %}
-5. Selecciona el colaborador externo o los colaboradores externos que quieres eliminar de la organización.
-![Lista de colaboradores externos con dos colaboradores externos seleccionados](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
-6. Encima de la lista de colaboradores externos, use el menú desplegable y haga clic en **Quitar de todos los repositorios**.
-![Menú desplegable con la opción para quitar colaboradores externos](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
-7. Revise el colaborador o colaboradores externos que se van a quitar de la organización y, después, haga clic en **Quitar colaboradores externos**.
-  ![Lista de colaboradores externos que se eliminarán y botón Quitar colaboradores externos](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
+5. Select the outside collaborator or outside collaborators you'd like to remove from the organization.
+![List of outside collaborators with two outside collaborators selected](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
+6. Above the list of outside collaborators, use the drop-down menu, and click **Remove from all repositories**.
+![Drop-down menu with option to remove outside collaborators ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
+7. Review the outside collaborator or outside collaborators who will be removed from the organization, then click **Remove outside collaborators**.
+  ![List of outside collaborators who will be removed and Remove outside collaborators button](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
 
-## Eliminar un colaborador externo de un repositorio particular de una organización
+## Removing an outside collaborator from a particular repository in an organization
 
-Si solo quieres eliminar un colaborador externo de determinados repositorios de tu organización, puedes eliminar el acceso de esa persona a un repositorio específico por vez.
+If you only want to remove an outside collaborator from certain repositories in your organization, you can remove this person's access to one specific repository at a time.
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.people_tab_outside_collaborators %}
-5. A la derecha del nombre de la persona que quiera quitar, use el menú desplegable {% octicon "gear" aria-label="The Settings gear" %} y haga clic en **Administrar**.
-  ![Botón Administrar acceso](/assets/images/help/organizations/member-manage-access.png)
-6. A la derecha del repositorio del que quiera quitar al colaborador externo, haga clic en **Administrar acceso**.
-![Selección del botón Administrar acceso junto al repositorio al que tiene acceso el colaborador externo](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
-7. Para quitar por completo el acceso del colaborador externo al repositorio, en la esquina superior derecha, haga clic en **Quitar acceso a este repositorio**.
-![Botón Quitar acceso a este repositorio](/assets/images/help/organizations/remove-access-to-this-repository.png)
-8. Para confirmarlo, haga clic en **Quitar acceso**.
-![Confirmación del colaborador externo que se va a quitar del repositorio](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
+5. To the right of the username of the person you want to remove, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.
+  ![Manage access button](/assets/images/help/organizations/member-manage-access.png)
+6. To the right of the repository that you want to remove the outside collaborator from, click **Manage access**.
+![Select manage access button next to a repository the outside collaborator has access to](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
+7. To completely remove the outside collaborator's access to the repository, in the upper right corner, click **Remove access to this repository**.
+![Remove access to this repository button](/assets/images/help/organizations/remove-access-to-this-repository.png)
+8. To confirm, click **Remove access**.
+![Confirm outside collaborator who will be removed from the repository](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %} También puede quitar un colaborador externo de un repositorio en la información general de acceso de la configuración del repositorio. Para más información, vea "[Administración de equipos y personas con acceso al repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)".
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+You can also remove an outside collaborator from a repository in the access overview in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)."
 {% endif %}
-## Información adicional
+## Further reading
 
-- "[Adición de colaboradores externos a los repositorios en la organización](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
-- "[Conversión de un miembro de la organización en un colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
+- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"

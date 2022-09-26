@@ -3,7 +3,7 @@ title: タブ サイズのレンダリング設定を管理する
 intro: 個人アカウントでは、タブと同じ数のスペースを管理できます。
 versions:
   fpt: '*'
-  ghae: issue-5083
+  ghae: '>= 3.4'
   ghes: '>=3.4'
   ghec: '*'
 topics:
