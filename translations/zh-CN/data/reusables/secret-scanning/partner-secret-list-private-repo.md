@@ -36,6 +36,10 @@ CloudBees CodeShip | CloudBees CodeShip Credential | codeship_credential
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Contentful | Contentful Personal Access Token | contentful_personal_access_token{% endif %}
 Databricks | Databricks Access Token | databricks_access_token
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+DevCycle | DevCycle Client API Key | devcycle_client_api_key
+DevCycle | DevCycle Server API Key | devcycle_server_api_key
+DevCycle | DevCycle Mobile API Key | devcycle_mobile_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 DigitalOcean | DigitalOcean Personal Access Token | digitalocean_personal_access_token
 DigitalOcean | DigitalOcean OAuth Token | digitalocean_oauth_token
@@ -104,6 +108,9 @@ Linear | Linear API Key | linear_api_key
 Linear | Linear OAuth Access Token | linear_oauth_access_token
 Lob | Lob Live API Key | lob_live_api_key
 Lob | Lob Test API Key | lob_test_api_key
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+LogicMonitor | LogicMonitor Bearer Token | logicmonitor_bearer_token
+LogicMonitor | LogicMonitor LMV1 Access Key | logicmonitor_lmv1_access_key{% endif %}
 Mailchimp | Mailchimp API Key | mailchimp_api_key
 Mailgun | Mailgun API Key | mailgun_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}

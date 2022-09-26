@@ -533,6 +533,7 @@ translations/zh-CN/data/release-notes/enterprise-server/3-4/8.yml,rendering erro
 translations/zh-CN/data/release-notes/enterprise-server/3-5/0-rc1.yml,rendering error
 translations/zh-CN/data/release-notes/enterprise-server/3-5/4.yml,rendering error
 translations/zh-CN/data/release-notes/enterprise-server/3-6/0-rc1.yml,rendering error
+translations/zh-CN/data/release-notes/enterprise-server/3-6/1.yml,broken liquid tags
 translations/zh-CN/data/reusables/actions/about-actions-for-enterprises.md,rendering error
 translations/zh-CN/data/reusables/actions/actions-audit-events-workflow.md,rendering error
 translations/zh-CN/data/reusables/actions/actions-billing.md,broken liquid tags
