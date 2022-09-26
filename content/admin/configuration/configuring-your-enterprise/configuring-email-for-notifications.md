@@ -93,7 +93,7 @@ You can enforce TLS encryption for all incoming SMTP connections, which can help
 {%- ifversion ghes = 3.6 %}
 {% note %}
 
-**Note**: Enforcement of TLS for SMTP connections is unavailable in {% data variables.product.product_name %} 3.6.0. The feature will be available in an upcoming release.
+**Note**: Enforcement of TLS for SMTP connections is unavailable in {% data variables.product.product_name %} 3.6.0 and 3.6.1. The feature is available in 3.6.2 and later.
 
 {% endnote %}
 {%- endif %}

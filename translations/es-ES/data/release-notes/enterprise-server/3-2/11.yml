@@ -1,0 +1,44 @@
+date: '2022-04-04'
+sections:
+  security_fixes:
+    - 'MEDIA: Se ha identificado una vulnerabilidad de recorrido de ruta en la consola de administración de {% data variables.product.prodname_ghe_server %} que permitía la omisión de las protecciones contra CSRF. Esta vulnerabilidad afectó a todas las versiones de {% data variables.product.prodname_ghe_server %} anteriores a la 3.5 y se corrigió en las versiones 3.1.19, 3.2.11, 3.3.6 y 3.4.1. Esta vulnerabilidad se notificó a través del programa de recompensas de {% data variables.product.prodname_dotcom %} por la detección de errores y se le ha asignado CVE-2022-23732.'
+    - 'MEDIA: Se ha identificado una vulnerabilidad de desbordamiento de enteros en la rama 1.x y la rama 2.x de "yajil" que posteriormente provoca daños en la memoria de montón al tratar con entradas grandes (~2GB). Esta vulnerabilidad se notificó de forma interna y se le ha asignado CVE-2022-24795. '
+    - "Los conjuntos de soporte técnico podrían incluir archivos confidenciales si {% data variables.product.prodname_actions %} estuviera habilitada." 
+    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+  bugs:
+    - "Los procesos de MinIO tendrían un uso elevado de CPU si una opción de configuración anterior estuviera presente tras actualizar {% data variables.product.prodname_ghe_server %}." 
+    - "Se mostraron las opciones para habilitar \"TLS 1.0\" y \"TLS 1.1\" en la configuración de privacidad de la consola de administración, aunque la eliminación de esas versiones de protocolo se produjo en una versión anterior." 
+    - "En un entorno de alta disponibilidad, configurar la replicación de MSSQL podría requerir pasos manuales adicionales tras habilitar {% data variables.product.prodname_actions %} por primera vez."
+    - Un subconjunto de archivos de configuración interna se actualizan de forma más confiable tras una revisión en caliente. 
+    - "Habría ocasiones en las que el script \"ghe-run-migrations\" no generaría nombres de certificados temporales correctamente." 
+    - "En un entorno de clúster, podría producirse un error en las operaciones de Git LFS con llamadas API internas fallidas que cruzaran varios nodos web."
+    - "Se agotó el tiempo de espera de los enlaces de recepción previa que usaron \"gpg --import\" debido a la insuficiencia de privilegios \"syscall\"."
+    - "En algunas topologías de clúster, la información de entrega de webhook no estaba disponible." 
+    - "En las configuraciones de alta disponibilidad, no se anularía ninguna réplica si {% data variables.product.prodname_actions %} se hubiera habilitado anteriormente." 
+    - Las comprobaciones de estado de Elasticsearch no permitirían un estado del clúster amarillo al ejecutar migraciones. 
+    - Las organizaciones creadas como resultado de un usuario que transforma su cuenta de usuario en una organización no se agregaron a la cuenta empresarial global. 
+    - "Al usar \"ghe-migrator\" o exportar desde {% data variables.product.prodname_dotcom_the_website %}, se produciría un error en una exportación de larga duración al eliminarse los datos en mitad de la exportación." 
+    - "Se mostraría un error en el grafo de implementación de {% data variables.product.prodname_actions %} al representar un trabajo pendiente." 
+    - Los vínculos a páginas inaccesibles se han eliminado. 
+    - Salir de una comparación de dos confirmaciones en la interfaz de usuario web haría que la diferencia persistiera en otras páginas. 
+    - Al agregar un equipo como revisor a una solicitud de incorporación de cambios se mostraría en ocasiones el número incorrecto de miembros de ese equipo. 
+    - "El [Quitar la pertenencia a un equipo de un usuario](/rest/reference/teams#remove-team-membership-for-a-user) punto de conexión de API respondería con un error al intentar quitar un miembro administrado de forma externa por un grupo de SCIM." 
+    - "Un número elevado de usuarios inactivos podría hacer que se produjera un error en una configuración de {% data variables.product.prodname_github_connect %}." 
+    - La página de inscripciones a características y beta de la interfaz de usuario web de administración del sitio no estaba correctamente disponible. 
+    - El vínculo del modo de administrador del sitio del pie de página del sitio no cambió el estado al hacer clic. 
+    - 'Ya no se produce ningún error en el comando "spokesctl cache-policy rm" con el mensaje "error: failed to delete cache policy".'
+  changes:
+    - Los límites de conexión Memcached aumentaron para adaptarse mejor a topologías de clúster de gran tamaño. 
+    - Dependency Graph API se ejecutaba anteriormente con un puerto definido estáticamente. 
+    - Se han actualizado los recuentos de particiones predeterminados para la configuración de particiones de Elasticsearch relacionada con el clúster. 
+    - Los roles de evaluación de prioridades y de mantenimiento de los equipos se conservan durante las migraciones de repositorio. 
+    - Se ha mejorado el rendimiento de las solicitudes web realizadas por propietarios empresariales. 
+  known_issues:
+    - "En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con {% data variables.product.prodname_github_connect %}, las incidencias en los repositorios privados e internos no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de tiempo en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces de recepción previa podrían ocasionar errores en algunos de ellos.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

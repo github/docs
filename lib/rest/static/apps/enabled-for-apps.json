@@ -1136,6 +1136,18 @@
         "requestPath": "/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}"
       },
       {
+        "slug": "list-codeql-databases-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases"
+      },
+      {
+        "slug": "get-a-codeql-database-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
+      },
+      {
         "slug": "upload-an-analysis-as-sarif-data",
         "subcategory": "code-scanning",
         "verb": "post",
@@ -1396,6 +1408,24 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}"
+      },
+      {
+        "slug": "list-dependabot-alerts-for-a-repository",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts"
+      },
+      {
+        "slug": "get-a-dependabot-alert",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
+      },
+      {
+        "slug": "update-a-dependabot-alert",
+        "subcategory": "alerts",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
       },
       {
         "slug": "list-repository-secrets",
@@ -5167,6 +5197,24 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}"
+      },
+      {
+        "slug": "list-dependabot-alerts-for-a-repository",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts"
+      },
+      {
+        "slug": "get-a-dependabot-alert",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
+      },
+      {
+        "slug": "update-a-dependabot-alert",
+        "subcategory": "alerts",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
       },
       {
         "slug": "list-repository-secrets",

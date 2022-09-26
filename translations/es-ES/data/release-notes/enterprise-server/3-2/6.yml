@@ -1,0 +1,14 @@
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} **RIESGO CRÍTICO:** una vulnerabilidad de ejecución de código remoto en la biblioteca Log4j, identificada como [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228), afectaba a todas las versiones de {% data variables.product.prodname_ghe_server %} anteriores a 3.3.1. La biblioteca Log4j se utiliza en un servicio de código abierto que se ejecuta en instancias {% data variables.product.prodname_ghe_server %}. Esta vulnerabilidad se corrigió en las versiones 3.0.22, 3.1.14, 3.2.6 y 3.3.1 de {% data variables.product.prodname_ghe_server %}.  Para obtener más información, consulta [esta publicación](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/) en el blog de GitHub.'
+    - '**Actualización del 17 de diciembre de 2021**: las correcciones de esta versión también solucionan [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046), que también se publicó después de esta versión. No se requiere ninguna actualización adicional de {% data variables.product.prodname_ghe_server %} para mitigar CVE-2021-44228 y CVE-2021-45046.'
+  known_issues:
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
