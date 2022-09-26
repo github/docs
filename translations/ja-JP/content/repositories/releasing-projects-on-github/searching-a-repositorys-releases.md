@@ -7,7 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
-  ghae: issue-4974
+  ghae: '>= 3.4'
 topics:
   - Repositories
 ms.openlocfilehash: 193363cc5762db6cb030906a64dacb7bab6f5b7a

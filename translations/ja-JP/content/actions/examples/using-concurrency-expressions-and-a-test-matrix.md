@@ -5,7 +5,7 @@ intro: '継続的インテグレーション (CI) のために高度な {% data 
 versions:
   fpt: '*'
   ghes: '>= 3.5'
-  ghae: issue-4925
+  ghae: '>= 3.5'
   ghec: '*'
 type: how_to
 topics:
