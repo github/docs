@@ -40,6 +40,8 @@ When you create a policy, you choose whether it applies to all repositories in y
 
 If you add an organization-wide policy with a timeout constraint, you should set the timeout to the longest acceptable period. You can then add separate policies that set the maximum timeout to a shorter period for specific repositories in your organization.
 
+{% data reusables.codespaces.codespaces-org-policies-note %}
+
 ## Adding a policy to set a maximum idle timeout period
 
 {% data reusables.profile.access_org %}

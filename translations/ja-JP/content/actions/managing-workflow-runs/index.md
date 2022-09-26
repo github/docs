@@ -1,7 +1,7 @@
 ---
 title: ワークフロー実行を管理する
-shortTitle: ワークフロー実行を管理する
-intro: 'You can re-run or cancel a workflow, {% ifversion fpt or ghes or ghae %}review deployments, {% endif %}view billable job execution minutes, and download artifacts.'
+shortTitle: Managing workflow runs
+intro: 'ワークフローの再実行または取り消し、{% ifversion fpt or ghes or ghae %}デプロイの確認、{% endif %}課金対象のジョブ実行時間 (分) の表示、成果物のダウンロードを行うことができます。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/managing-a-workflow-run
@@ -24,7 +24,11 @@ children:
   - /deleting-a-workflow-run
   - /downloading-workflow-artifacts
   - /removing-workflow-artifacts
+ms.openlocfilehash: fe5f7c461fc03392bcc93713887b1cc1d4293207
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145117182'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}

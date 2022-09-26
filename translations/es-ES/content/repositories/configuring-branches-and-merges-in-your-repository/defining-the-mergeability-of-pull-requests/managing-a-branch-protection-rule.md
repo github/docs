@@ -50,7 +50,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5506 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 1. Optionally, enable required pull requests.
    - Under "Protect matching branches", select **Require a pull request before merging**.
      ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required-updated.png)
@@ -67,7 +67,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
      ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5611 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
    - Optionally, to allow specific actors to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request.
      ![Allow specific actors to bypass pull request requirements checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %}
 {% endif %}
@@ -99,8 +99,9 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
    ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
 {%- endif %}
-1. Optionally, select **Apply the rules above to administrators**.
-![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
+1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**.
+![Do not allow bypassing the above settings checkbox](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**Apply the rules above to administrators**.
+![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
 1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
@@ -110,7 +111,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Branch restriction search]{% ifversion restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
   ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
   Then, choose who can force push to the branch.
     - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
     - Select **Specify who can force push** to allow only specific actors to force push to the branch. Then, search for and select those actors.

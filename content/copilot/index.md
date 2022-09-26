@@ -19,7 +19,7 @@ featuredLinks:
     - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide
-    - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio
+    - /copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom
 layout: product-landing
 versions:
   feature: copilot

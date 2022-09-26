@@ -283,7 +283,7 @@ updates:
 If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
-   
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -417,7 +417,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests, new requests are blocked until you merge or close some of the open requests, after which new pull requests can be opened on subsequent updates. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
+By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_dependabot %} will not open any new requests until some of those open requests are merged or closed. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
 
 This option has no impact on security updates, which have a separate, internal limit of ten open pull requests.
 
@@ -776,6 +776,16 @@ registries:
 
 ### `docker-registry`
 
+{% data variables.product.prodname_dependabot %} works with container registries that implement the OCI container registry. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central service. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation.
+
+We currently support the container registries listed here:
+
+* Docker Hub
+* {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}
+* GCR (Google Cloud)
+* Private ECR (AWS) - public ECR support is tracked in [https://github.com/dependabot/dependabot-core/issues/4212](https://github.com/dependabot/dependabot-core/issues/4212).
+
+
 The `docker-registry` type supports username and password.
 
 {% raw %}
@@ -789,7 +799,7 @@ registries:
 ```
 {% endraw %}
 
-The `docker-registry` type can also be used to pull from Amazon ECR using static AWS credentials.
+The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
 
 {% raw %}
 ```yaml
@@ -894,7 +904,8 @@ registries:
   nuget-azure-devops:
     type: nuget-feed
     url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
 {% endraw %}
 
@@ -920,7 +931,8 @@ registries:
   python-azure:
     type: python-index
     url: https://pkgs.dev.azure.com/octocat/_packaging/my-feed/pypi/example
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
     replaces-base: true
 ```
 {% endraw %}
@@ -964,7 +976,7 @@ registries:
 ```
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %} 
+{% ifversion fpt or ghec or ghes > 3.4 %}
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`

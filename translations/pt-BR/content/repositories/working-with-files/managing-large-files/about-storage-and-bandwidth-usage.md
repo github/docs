@@ -10,9 +10,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: Armazenamento & banda
+shortTitle: Storage & bandwidth
+ms.openlocfilehash: 8a6dd01c62b5b1c69afe29536e3d4ba206e988e7
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883024'
 ---
-
 O {% data variables.large_files.product_name_short %} está disponível para cada repositório do {% data variables.product.product_name %}, sua conta ou organização tendo ou não uma assinatura paga.
 
 ## Rastrear o uso de armazenamento e largura de banda
@@ -24,36 +29,26 @@ Por exemplo:
 - Se você baixar um arquivo de 500 MB que é rastreado com o LFS, serão usados 500 MB da largura de banda alocada do proprietário do repositório. Se um colaborador fizer push de uma alteração no arquivo e você fizer pull da nova versão no repositório local, serão usados outros 500 MB de largura de banda, totalizando 1 GB de uso total da largura de banda para esses dois downloads.
 - Se {% data variables.product.prodname_actions %} fizer o download de um arquivo de 500 MB rastreado com LFS, ele usará 500 MB da largura de banda atribuída pelo proprietário do repositório.
 
-{% ifversion fpt or ghec %}
-Se {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) os objetos forem incluídos nos arquivos de código-fonte para o seu repositório, os downloads desses arquivos contarão para o uso de largura de banda para o repositório. Para obter mais informações, consulte "
-[Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)". </p> 
-
+{% ifversion fpt or ghec %} Se {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) os objetos forem incluídos nos arquivos de código-fonte para o seu repositório, os downloads desses arquivos contarão para o uso de largura de banda para o repositório. Para obter mais informações, confira "[Como gerenciar objetos do {% data variables.large_files.product_name_short %} nos arquivos do repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)".
 {% endif %}
 
 {% tip %}
 
 **Dicas**:
-
 - {% data reusables.large_files.owner_quota_only %}
 - {% data reusables.large_files.does_not_carry %}
 
 {% endtip %}
 
-
-
 ## Cota de armazenamento
 
-Se você usar mais de {% data variables.large_files.initial_storage_quota %} de armazenamento sem comprar um pacote de dados, ainda será possível clonar repositórios com ativos grandes, mas será possível recuperar apenas os arquivos de ponteiro, não sendo possível fazer push do backup de novos arquivos. Para obter mais informações sobre arquivos de ponteiro, consulte "[Sobre o {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)".
-
-
+Se você usar mais de {% data variables.large_files.initial_storage_quota %} de armazenamento sem comprar um pacote de dados, ainda será possível clonar repositórios com ativos grandes, mas será possível recuperar apenas os arquivos de ponteiro, não sendo possível fazer push do backup de novos arquivos. Para obter mais informações sobre arquivos de ponteiro, confira "[Sobre o {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)".
 
 ## Cota de largura de banda
 
 Se você usar mais de {% data variables.large_files.initial_bandwidth_quota %} de largura de banda por mês sem comprar um pacote de dados, o suporte do {% data variables.large_files.product_name_short %} será desabilitado na sua conta até o próximo mês.
 
+## Leitura adicional
 
-
-## Leia mais
-
-- "[Exibir o uso do {% data variables.large_files.product_name_long %}](/articles/viewing-your-git-large-file-storage-usage)"
-- "[Gerenciar cobrança do {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"
+- "[Como ver seu uso do {% data variables.large_files.product_name_long %}](/articles/viewing-your-git-large-file-storage-usage)"
+- "[Como gerenciar a cobrança do {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"

@@ -5,9 +5,9 @@ Detection of vulnerable calls is enabled on public repositories. This analysis i
 Detection of vulnerable calls is included in {% data variables.product.product_name %} for public repositories. To detect vulnerable calls in private repositories owned by organizations, your organization must have a license for {% data variables.product.prodname_GH_advanced_security %}.
 
 {%- elsif ghes > 3.5 %}
-Detection of vulnerable calls is available for organization-owned repositories in {% data variables.product.product_name %}. Esta característica requiere una licencia para la {% data variables.product.prodname_GH_advanced_security %}.
+Detection of vulnerable calls is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghae-issue-6076 %}
-La detección de llamadas vulnerables está disponible para los repositorios que pertenecen a organizaciones de {% data variables.product.product_name %}. Esta es una característica de la {% data variables.product.prodname_GH_advanced_security %} (gratuita durante el lanzamiento beta).
+{%- elsif ghae > 3.5 %}
+Detection of vulnerable calls is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
 
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

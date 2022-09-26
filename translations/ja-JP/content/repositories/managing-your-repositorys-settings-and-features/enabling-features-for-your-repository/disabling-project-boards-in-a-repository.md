@@ -1,6 +1,6 @@
 ---
-title: リポジトリ内のプロジェクトボードを無効化する
-intro: 自分や自分のチームが異なる方法で作業管理をしている場合、リポジトリの管理者はリポジトリのプロジェクトボードをオフにできます。
+title: 'リポジトリで {% data variables.projects.projects_v1_boards %} を無効にする'
+intro: 'ユーザーやチームが異なる方法で作業を管理している場合、リポジトリの管理者はリポジトリの {% data variables.projects.projects_v1_boards %} をオフにできます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-a-repository
   - /articles/disabling-project-boards-in-a-repository
@@ -13,13 +13,19 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: プロジェクトボードの無効化
+shortTitle: 'Disable {% data variables.projects.projects_v1_boards %}'
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 0407d6df39ae664474aa3fb5c99dc7998df1b951
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422661'
 ---
+{% data variables.projects.projects_v1_boards %} を無効にすると、タイムラインや[監査ログ](/articles/reviewing-your-security-log/)に {% data variables.projects.projects_v1_board %} の情報が表示されなくなります。
 
-プロジェクトボードを無効化すると、タイムラインや[監査ログ](/articles/reviewing-your-security-log/)でプロジェクトボード情報を見ることができなくなります。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. [機能] で、 **[プロジェクト]** チェックボックスをオフにします。
+  ![[プロジェクト] チェックボックスをオフ](/assets/images/help/projects/disable-projects-checkbox.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. [Features] の下で、[**Projects**] チェックボックスの選択を解除します。 ![[Projects] チェックボックスの選択を解除する](/assets/images/help/projects/disable-projects-checkbox.png)
-
-プロジェクトボードが無効化されると、既存のプロジェクトボードはそれまでの URL でアクセスできなくなります。 {% data reusables.organizations.disable_project_board_results %}
+{% data variables.projects.projects_v1_boards %} を無効にした後は、既存の {% data variables.projects.projects_v1_boards %} に以前の URL でアクセスできなくなります。 {% data reusables.organizations.disable_project_board_results %}

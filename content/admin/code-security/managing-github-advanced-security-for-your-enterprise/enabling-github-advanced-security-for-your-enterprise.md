@@ -27,7 +27,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 {% endif %}
 
 {% ifversion ghes %}
-For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying GitHub Advanced Security in your enterprise](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)."
+For guidance on a phased deployment of GitHub Advanced Security, see "[Introduction to adopting GitHub Advanced Security at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
 {% endif %}
 
 ## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}

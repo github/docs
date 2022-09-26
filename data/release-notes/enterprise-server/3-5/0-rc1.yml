@@ -291,7 +291,7 @@ sections:
           - `git.fetch`
           - `git.push`
           
-          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)" and "[Monitoring storage](/admin/enterprise-management/monitoring-your-appliance/recommended-alert-thresholds#monitoring-storage)."
+          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
 
     - heading: Improvements to CODEOWNERS
       notes:

@@ -1,6 +1,6 @@
 ---
-title: About pull request reviews
-intro: 'Reviews allow collaborators to comment on the changes proposed in pull requests, approve the changes, or request further changes before the pull request is merged. Repository administrators can require that all pull requests are approved before being merged.'
+title: Acerca de las revisiones de solicitudes de extracción
+intro: 'Las revisiones le permiten a los colaboradores comentar los cambios propuestos en las solicitudes de extracción, aprobar los cambios o solicitar más cambios antes de que se fusione la solicitud de extracción. Los administradores de repositorio pueden solicitar que todas las solicitudes de extracción sean aprobadas antes de ser fusionadas.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews
   - /articles/about-pull-request-reviews
@@ -14,54 +14,60 @@ versions:
 topics:
   - Pull requests
 shortTitle: About PR reviews
+ms.openlocfilehash: b68da308dc1e405f2b8fff5b0dd85dadbeabef80
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146179411'
 ---
-## About pull request reviews
+## Acerca de las revisiones de solicitudes de extracción
 
-After a pull request is opened, anyone with *read* access can review and comment on the changes it proposes. You can also suggest specific changes to lines of code, which the author can apply directly from the pull request. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+Después de abrir una solicitud de incorporación de cambios, cualquiera con acceso de *lectura* puede revisar y comentar los cambios propuestos. También puedes sugerir cambios específicos a las líneas de código que el autor puede aplicar directamente desde las solicitud de extracción. Para más información, vea "[Revisión de los cambios propuestos en una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)".
 
 {% ifversion pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
-Repository owners and collaborators can request a pull request review from a specific person. Organization members can also request a pull request review from a team with read access to the repository. For more information, see "[Requesting a pull request review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)." You can specify a subset of team members to be automatically assigned in the place of the whole team. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
+Los colaboradores y los propietarios del repositorio pueden solicitar la revisión de una solicitud de extracción por parte de una persona específica. Los miembros de la organización también pueden solicitar la revisión de una solicitud de extracción por parte de un equipo con acceso de lectura al repositorio. Para más información, vea "[Solicitud de la revisión de una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)". Puedes especificar un subconjunto de miembros del equipo que se asignarán automáticamente en lugar de todo el equipo. Para más información, consulta "[Administración de la configuración de revisión del código para el equipo](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)".
 
-Reviews allow for discussion of proposed changes and help ensure that the changes meet the repository's contributing guidelines and other quality standards. You can define which individuals or teams own certain types or areas of code in a CODEOWNERS file. When a pull request modifies code that has a defined owner, that individual or team will automatically be requested as a reviewer. For more information, see "[About code owners](/articles/about-code-owners/)."
+Las revisiones permiten el debate de los cambios propuestos y ayudan a asegurarse de que los cambios cumplen con las pautas de contribución del repositorio y otras normas de calidad. Puedes definir qué individuos o equipos poseen ciertos tipos o áreas de código en un archivo CODEOWNERS. Cuando una solicitud de extracción modifica un código que tiene un propietario definido, ese individuo o equipo será solicitado automáticamente como revisor. Para más información, vea "[Acerca de los propietarios del código](/articles/about-code-owners/)".
 
-{% ifversion fpt or ghec %}You can schedule reminders for pull requests that need to be reviewed. For more information, see "[Managing scheduled reminders for pull requests](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)."{% endif %}
+{% ifversion fpt or ghec %}Puede programar recordatorios para las solicitudes de incorporación de cambios que se deban revisar. Para más información, vea "[Administración de recordatorios programados para solicitudes de incorporación de cambios](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)".{% endif %}
 
-![Header of review requesting changes with line comments](/assets/images/help/pull_requests/review-header-with-line-comment.png)
+![Encabezado de revisión solicitando cambios con comentarios en la línea](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 
-A review has three possible statuses:
-- **Comment**: Submit general feedback without explicitly approving the changes or requesting additional changes.
-- **Approve**: Submit feedback and approve merging the changes proposed in the pull request.
-- **Request changes**: Submit feedback that must be addressed before the pull request can be merged.
+Un revisión tiene tres posibles estado:
+- **Comentario**: se envían comentarios generales sin aprobar de manera explícita los cambios ni solicitar cambios adicionales.
+- **Aprobar**: se envían comentarios y se aprueba la combinación de los cambios propuestos en la solicitud de incorporación de cambios.
+- **Solicitar cambios**: se envían comentarios que se deben abordar antes de que se pueda combinar la solicitud de incorporación de cambios.
 
-![Image of review statuses](/assets/images/help/pull_requests/pull-request-review-statuses.png)
+![Imagen de los estados de revisión](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
 {% data reusables.repositories.request-changes-tips %}
 
-You can view all of the reviews a pull request has received in the Conversation timeline, and you can see reviews by repository owners and collaborators in the pull request's merge box.
+Puedes ver todas las revisiones que ha recibido una solicitud de extracción en la cronología de conversaciones y puedes ver las revisiones realizadas por los colaboradores y los propietarios del repositorio en la casilla de fusión de la solicitud de extracción.
 
-![Image of reviews in a merge box](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
+![Imagen de las revisiones en una casilla de fusión](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
 
 {% data reusables.search.requested_reviews_search_tip %}
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-## Re-requesting a review
+## Volver a solicitar una revisión
 
 {% data reusables.pull_requests.re-request-review %}
 
-## Required reviews
+## Revisiones requeridas
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+{% data reusables.pull_requests.required-reviews-for-prs-summary %} Para más información, vea "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
 
 {% tip %}
 
-**Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
+**Sugerencia**: Si es necesario, los usuarios con acceso de *administrador* o *escritura* a un repositorio pueden descartar una revisión de solicitud de incorporación de cambios. Para más información, vea "[Descarte de la revisión de una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)".
 
 {% endtip %}
 
-## Further reading
+## Información adicional
 
-- "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
-- "[Viewing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
-- "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"
+- "[Revisión de los cambios propuestos en una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+- "[Visualización de una revisión de solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
+- "[Establecimiento de instrucciones para colaboradores del repositorio](/articles/setting-guidelines-for-repository-contributors)"

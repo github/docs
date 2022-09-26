@@ -34,14 +34,7 @@ versions:
   feature: 'meow'
 ```
 
-If you want a content file to apply to more than one feature, you can do this:
-
-```yaml
-versions:
-  fpt: '*'
-  ghes: '>3.1'
-  feature: ['meow', 'blorp']
-```
+You cannot use `feature:` to specify multiple concurrent versions, as this is not supported. Alternatively, you could create a new feature-based versioning file with the required versioning.
 
 ## Schema enforcement
 

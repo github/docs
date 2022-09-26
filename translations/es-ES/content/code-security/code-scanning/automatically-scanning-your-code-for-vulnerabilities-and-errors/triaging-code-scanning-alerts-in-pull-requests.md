@@ -33,8 +33,6 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 - The **Conversation** tab of the pull request, as part of a pull request review {% endif %} 
 - The **Files changed** tab of the pull request
 
-{% ifversion code-scanning-pr-conversations-tab %} {% endif %} 
-
 If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
 
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}
@@ -91,13 +89,13 @@ If you have write permission for the repository, some annotations contain links 
 
 To see more information about an alert, users with write permission can click the **Show more details** link shown in the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.code-scanning.alert-default-branch %}
 {% endif %}
 
 In the detailed view for an alert, some {% data variables.product.prodname_code_scanning %} tools, like {% data variables.product.prodname_codeql %} analysis, also include a description of the problem and a **Show more** link for guidance on how to fix your code.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 ![Alert description and link to show more information](/assets/images/help/repository/code-scanning-pr-alert.png)
 {% else %}
 ![Alert description and link to show more information](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
@@ -118,7 +116,7 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 
 An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, the **Dismiss** button is available in code annotations and in the alerts summary. When you click **Dismiss** you will be prompted to choose a reason for closing the alert.
 {% ifversion comment-dismissed-code-scanning-alert %}
-![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
+![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
 {% else %}
 ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 {% endif %}

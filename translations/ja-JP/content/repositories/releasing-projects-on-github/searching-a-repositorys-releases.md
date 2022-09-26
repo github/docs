@@ -1,32 +1,37 @@
 ---
-title: Searching a repository's releases
-intro: 'You can use keywords, tags, and other qualifiers to search for particular releases in a repository.'
+title: リポジトリのリリースの検索
+intro: キーワード、タグ、およびその他の修飾子を使って、リポジトリ内の特定のリリースを検索できます。
 permissions: Anyone with read access to a repository can search that repository's releases.
 shortTitle: Searching releases
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
-  ghae: issue-4974
+  ghae: '>= 3.4'
 topics:
   - Repositories
+ms.openlocfilehash: 193363cc5762db6cb030906a64dacb7bab6f5b7a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066187'
 ---
+## リポジトリ内のリリースの検索
 
-## Searching for releases in a repository
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+1. リポジトリのリリースを検索するには、[リリース] ページの上部にある検索フィールドにクエリを入力し、**Enter** キーを押します。
+![[リリース] 検索フィールド](/assets/images/help/releases/search-releases.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-1. To search the repository's releases, in the search field at the top of the Releases page, type your query and press **Enter**. ![Releases search field](/assets/images/help/releases/search-releases.png)
+## リポジトリ内のリリースを検索するための検索構文
 
-## Search syntax for searching releases in a repository
+検索クエリでは、リポジトリのリリースのタイトル、本文、タグと照合されるテキストを指定できます。 次の修飾子を組み合わせて、特定のリリースを対象にすることもできます。
 
-You can provide text in your search query which will be matched against the title, body, and tag of the repository's releases. You can also combine the following qualifiers to target specific releases.
-
-| 修飾子                       | サンプル                                                                                                                                                                                                                                    |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `draft:true`              | **draft:true** will only match draft releases.                                                                                                                                                                                          |
-| `draft:false`             | **draft:false** will only match published releases.                                                                                                                                                                                     |
-| `prerelease:true`         | **prerelease:true** will only match pre-releases.                                                                                                                                                                                       |
-| `prerelease:false`        | **prerelease:false** will only match releases that are not pre-releases.                                                                                                                                                                |
-| <code>tag:<em>TAG</em></code> | **tag:v1** matches a release with the v1 tag and any minor or patch versions within v1, such as v1.0, v1.2, and v1.2.5.                                                                                                                 |
-| <code>created:<em>DATE</em></code> | **created:2021** will match releases created during 2021. You can also provide date ranges. 詳しい情報については、「[検索構文を理解する](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)」を参照してください。 |
+| 修飾子        | 例
+| ------------- | -------------
+| `draft:true` | **draft:true** はドラフト リリースにのみ一致します。
+| `draft:false` | **draft:false** は公開済みリリースにのみ一致します。
+| `prerelease:true` | **prerelease:true** はプレリリースにのみ一致します。
+| `prerelease:false` | **prerelease:false** は、プレリリースではないリリースにのみ一致します。
+| <code>tag:<em>TAG</em></code> | **tag:v1** は、v1 タグを持つリリースと、v1.0、v1.2、v1.2.5 など、v1 内のマイナーまたはパッチ バージョンと一致します。
+| <code>created:<em>DATE</em></code> | **created:2021** は、2021 年中に作成されたリリースと一致します。 期間を指定することもできます。 詳細については、「[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)」 (検索構文の理解) を参照してください。

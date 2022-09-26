@@ -53,8 +53,8 @@ name: Create issue on commit
 on: [ push ]
 
 jobs:
-  create_commit:
-    runs-on: ubuntu-latest 
+  create_issue:
+    runs-on: ubuntu-latest
     permissions:
       issues: write 
     steps:
@@ -87,7 +87,7 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
 | packages      | read/write  | none | read |
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6187 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | pages         | read/write  | none | read |
 {%- endif %}
 | pull-requests | read/write  | none | read |

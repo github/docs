@@ -1,9 +1,19 @@
-## Habilitar ou desabilitar {% data variables.product.prodname_copilot %}
+---
+ms.openlocfilehash: ff848691b0400698d7db5b173c4a00417a15e387
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147079448"
+---
+## Como habilitar ou desabilitar o {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} from within {% data variables.product.prodname_vscode %}. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast with the color of the status bar.
+Você pode habilitar ou desabilitar o {% data variables.product.prodname_copilot %} de dentro do {% data variables.product.prodname_vscode %}. O ícone de status do {% data variables.product.prodname_copilot %} no painel inferior da janela do {% data variables.product.prodname_vscode %} indica se o {% data variables.product.prodname_copilot %} está habilitado ou desabilitado. Quando ele estiver habilitado, a cor da tela de fundo do ícone corresponderá à cor da barra de status. Quando ele estiver desabilitado, a cor da tela de fundo do ícone se contrastará com a cor da barra de status.
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window. ![Screenshot of the status icon in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/status-icon-visual-studio-code.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable suggestions globally, or for the language of the file you are currently editing.
+1. Para habilitar ou desabilitar o {% data variables.product.prodname_copilot %}, clique no ícone de status no painel inferior da janela do {% data variables.product.prodname_vscode %}.
+   ![Captura de tela do ícone de status no {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/status-icon-visual-studio-code.png)
+2. Quando você estiver desabilitando o {% data variables.product.prodname_copilot %}, será perguntado se deseja desabilitar as sugestões globalmente ou para a linguagem do arquivo em edição no momento.
 
-   - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Globally**.
-   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable for _LANGUAGE_**. ![Captura de tela da opção de desabilitar {% data variables.product.prodname_copilot %} globalmente ou para a linguagem atual](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
+   - Para desabilitar as sugestões do {% data variables.product.prodname_copilot %} globalmente, clique em **Desabilitar Globalmente**.
+   - Para desabilitar as sugestões do {% data variables.product.prodname_copilot %} para a linguagem especificada, clique em **Desabilitar para _LINGUAGEM_**.
+   ![Captura de tela da opção para desabilitar o {% data variables.product.prodname_copilot %} globalmente ou para a linguagem atual](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)

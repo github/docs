@@ -59,7 +59,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 |--------|-------------
 | `artifact.destroy`    | A workflow run artifact was manually deleted.
 
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 ## `audit_log_streaming` category actions
 
 | Action | Description
@@ -146,6 +146,9 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {%- ifversion ghec or ghes %}
 | `business.set_fork_pr_workflows_policy` | The policy for workflows on private repository forks was changed. For more information, see "{% ifversion ghec %}[Enforcing policies for {% data variables.product.prodname_actions %} in an enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Enabling workflows for private repository forks](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}."
 {%- endif %}
+{%- ifversion audit-log-sso-response-events %}
+|`business.sso_response` | A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your enterprise. This event is only available via audit log streaming and the REST API.
+{%- endif %}
 {%- ifversion ghes %}
 | `business.update_actions_settings` | An enterprise owner or site administrator updated {% data variables.product.prodname_actions %} policy settings for an enterprise. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 {%- endif %}
@@ -186,9 +189,9 @@ Action                        | Description
 | `codespaces.destroy` | A user [deleted a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).
 | `codespaces.allow_permissions` | A codespace using custom permissions from its `devcontainer.json` file was launched.
 | `codespaces.attempted_to_create_from_prebuild` | An attempt to create a codespace from a prebuild was made.
-| `codespaces.create_an_org_secret` | A user created an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
-| `codespaces.update_an_org_secret` | A user updated an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
-| `codespaces.remove_an_org_secret` | A user removed an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `codespaces.create_an_org_secret` | A user created an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
+| `codespaces.update_an_org_secret` | A user updated an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `codespaces.remove_an_org_secret` | A user removed an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
 | `codespaces.manage_access_and_security` | A user updated [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 {%- endif %}
 
@@ -392,8 +395,14 @@ Action                        | Description
 | `gist.destroy` | A gist is deleted.
 | `gist.visibility_change` | The visibility of a gist is changed.
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
+{% ifversion git-events-audit-log %}
 ## `git` category actions
+
+{% ifversion enable-git-events %}
+Before you'll see `git` category actions, you must enable Git events in the audit log. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+{% endif %}
+
+{% data reusables.audit_log.git-events-not-in-search-results %}
 
 | Action | Description
 |--------|-------------
@@ -630,8 +639,8 @@ Action                        | Description
 | `org.clear_members_can_invite_outside_collaborators` | An organization owner cleared the outside collaborators invitation policy for an organization. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)."
 | `org.clear_new_repository_default_branch_setting`    | An organization owner cleared the default branch name for new repositories setting for an organization. For more information, see "[Setting the default branch name](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization#setting-the-default-branch-name)."
 {%- ifversion fpt or ghec %}
-| `org.codespaces_trusted_repo_access_granted`         | {% data variables.product.prodname_codespaces %} was granted trusted repository access to all other repositories in an organization. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
-| `org.codespaces_trusted_repo_access_revoked`         | {% data variables.product.prodname_codespaces %} trusted repository access to all other repositories in an organization was revoked. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
+| `org.codespaces_trusted_repo_access_granted`         | {% data variables.product.prodname_github_codespaces %} was granted trusted repository access to all other repositories in an organization. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
+| `org.codespaces_trusted_repo_access_revoked`         | {% data variables.product.prodname_github_codespaces %} trusted repository access to all other repositories in an organization was revoked. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
 {%- endif %}                                                                                                             |
 | `org.config.disable_collaborators_only` | The interaction limit for collaborators only for an organization was disabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
 | `org.config.disable_contributors_only` | The interaction limit for prior contributors only for an organization was disabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
@@ -644,7 +653,7 @@ Action                        | Description
 {%- ifversion fpt or ghec or ghes %}
 | `org.create_actions_secret` | A {% data variables.product.prodname_actions %} secret was created for an organization. For more information, see "[Creating encrypted secrets for an organization](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."
 {%- endif %}
-| `org.create_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was created for an organization.
+| `org.create_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was created for an organization.
 | `org.delete`       | An organization was deleted by a user-initiated background job.
 | `org.disable_member_team_creation_permission` | An organization owner limited team creation to owners. For more information, see "[Setting team creation permissions in your organization](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."
 | `org.disable_reader_discussion_creation_permission` | An organization owner limited discussion creation to users with at least triage permission in an organization. {% ifversion fpt or ghec %}For more information, see "[Allowing or disallowing users with read access to create discussions](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."{% endif %}
@@ -685,7 +694,7 @@ Action                        | Description
 | `org.recreate` | An organization was restored.
 | `org.register_self_hosted_runner` | A new self-hosted runner was registered. For more information, see "[Adding a self-hosted runner to an organization](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)."
 | `org.remove_actions_secret` | A {% data variables.product.prodname_actions %} secret was removed.
-| `org.remove_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was removed from an organization.
+| `org.remove_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was removed from an organization.
 | `org.remove_billing_manager` | An owner removed a billing manager from an organization. {% ifversion fpt or ghec %}For more information, see "[Removing a billing manager from your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/removing-a-billing-manager-from-your-organization)"{% endif %}{% ifversion not ghae %} or when [two-factor authentication was required in an organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) and a billing manager didn't use 2FA or disabled 2FA.{% endif %}
 | `org.remove_member` | An [owner removed a member from an organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization){% ifversion not ghae %} or when [two-factor authentication was required in an organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) and an organization member doesn't use 2FA or disabled 2FA{% endif %}. Also an [organization member removed themselves](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization) from an organization.
 | `org.remove_outside_collaborator` | An owner removed an outside collaborator from an organization{% ifversion not ghae %} or when [two-factor authentication was required in an organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) and an outside collaborator didn't use 2FA or disabled 2FA{% endif %}.
@@ -724,8 +733,8 @@ Action                        | Description
 {%- ifversion fpt or ghec or ghes %}
 | `org.set_fork_pr_workflows_policy` | The policy for workflows on private repository forks was changed. For more information, see "[Enabling workflows for private repository forks](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks)."
 {%- endif %}
-{%- ifversion ghes %}
-| `org.sso_response` | A SAML single sign-on response was generated when a member attempted to authenticate with an organization.
+{%- ifversion ghes or audit-log-sso-response-events %}
+| `org.sso_response` | A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. This event is only available via audit log streaming and the REST API.
 {%- endif %}
 {%- ifversion not ghae %}
 | `org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."
@@ -734,7 +743,7 @@ Action                        | Description
 {%- ifversion fpt or ghec or ghes %}
 | `org.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated.
 {%- endif %}
-| `org.update_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was updated for an organization.
+| `org.update_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was updated for an organization.
 | `org.update_default_repository_permission` | An organization owner changed the default repository permission level for organization members.
 | `org.update_member` | An organization owner changed a person's role from owner to member or member to owner.
 | `org.update_member_repository_creation_permission` | An organization owner changed the create repository permission for organization members.
@@ -787,9 +796,9 @@ Action                        | Description
 
 | Action | Description
 |--------|-------------
-| `organization_projects_change.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for organization-wide project boards in an enterprise. For more information, see "[Enforcing a policy for organization-wide project boards](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
-| `organization_projects_change.disable` | Organization projects were disabled for all organizations in an enterprise. For more information, see "[Enforcing a policy for organization-wide project boards](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
-| `organization_projects_change.enable` | Organization projects were enabled for all organizations in an enterprise. For more information, see "[Enforcing a policy for organization-wide project boards](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
+| `organization_projects_change.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for organization-wide project boards in an enterprise. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
+| `organization_projects_change.disable` | Organization projects were disabled for all organizations in an enterprise. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
+| `organization_projects_change.enable` | Organization projects were enabled for all organizations in an enterprise. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
 {%- endif %}
 
 ## `packages` category actions
@@ -829,10 +838,10 @@ Action                        | Description
 
 | Action | Description
 |--------|-------------
-| `prebuild_configuration.create` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was created. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
-| `prebuild_configuration.destroy` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was deleted. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
-| `prebuild_configuration.run_triggered` | A user initiated a run of a {% data variables.product.prodname_codespaces %} prebuild configuration for a repository branch. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
-| `prebuild_configuration.update` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was edited. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
+| `prebuild_configuration.create` | A {% data variables.product.prodname_github_codespaces %} prebuild configuration for a repository was created. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.destroy` | A {% data variables.product.prodname_github_codespaces %} prebuild configuration for a repository was deleted. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.run_triggered` | A user initiated a run of a {% data variables.product.prodname_github_codespaces %} prebuild configuration for a repository branch. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.update` | A {% data variables.product.prodname_github_codespaces %} prebuild configuration for a repository was edited. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
 {%- endif %}
 
 {%- ifversion ghes %}
@@ -889,20 +898,20 @@ Action                        | Description
 | `project.update_team_permission` | A team's project board permission level was changed or when a team was added or removed from a project board. For more information, see "[Managing team access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)."
 | `project.update_user_permission` | An organization member or outside collaborator was added to or removed from a project board or had their permission level changed. For more information, see "[Managing an individual’s access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)."
 
-{%- ifversion fpt or ghec %}
+{%- ifversion projects-v2 %}
 ## `project_field` category actions
 
 | Action | Description
 |--------|-------------
-| `project_field.create` | A field was created in a project board. For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)."
-| `project_field.delete` | A field was deleted in a project board. For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)."
+| `project_field.create` | A field was created in a project board. For more information, see "[Understanding field types](/issues/planning-and-tracking-with-projects/understanding-field-types)."
+| `project_field.delete` | A field was deleted in a project board. For more information, see "[Deleting fields](/issues/planning-and-tracking-with-projects/understanding-field-types/deleting-fields)."
 
 ## `project_view` category actions
 
 | Action | Description
 |--------|-------------
-| `project_view.create` | A view was created in a project board. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#creating-a-project-view)."
-| `project_view.delete` | A view was deleted in a project board. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#deleting-a-saved-view)."
+| `project_view.create` | A view was created in a project board. For more information, see "[Managing your views](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
+| `project_view.delete` | A view was deleted in a project board. For more information, see "[Managing your views](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
 {%- endif %}
 
 ## `protected_branch` category actions
@@ -1016,7 +1025,7 @@ Action                        | Description
 {%- endif %}
 | `repo.create` | A repository was created.
 | `repo.create_actions_secret` | A {% data variables.product.prodname_actions %} secret was created for a repository. For more information, see "[Creating encrypted secrets for a repository](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
-| `repo.create_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was created for a repository.
+| `repo.create_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was created for a repository.
 | `repo.destroy` | A repository was deleted.
 {%- ifversion ghes %}
 | `repo.disk_archive`  | A repository was archived on disk. For more information, see "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)."
@@ -1033,7 +1042,7 @@ Action                        | Description
 | `repo.register_self_hosted_runner` | A new self-hosted runner was registered. For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
 | `repo.remove_self_hosted_runner` | A self-hosted runner was removed. For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."
 | `repo.remove_actions_secret` | A {% data variables.product.prodname_actions %} secret was deleted for a repository.
-| `repo.remove_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was deleted for a repository.
+| `repo.remove_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was deleted for a repository.
 | `repo.remove_member` | A collaborator was removed from a repository.
 | `repo.remove_topic` | A topic was removed from a repository.
 | `repo.rename` | A repository was renamed.
@@ -1053,7 +1062,7 @@ Action                        | Description
 | `repo.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated.
 | `repo.update_actions_access_settings` | The setting to control how a repository was used by {% data variables.product.prodname_actions %} workflows in other repositories was changed.
 | `repo.update_default_branch` | The default branch for a repository was changed.
-| `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_codespaces %} integration secret was updated for a repository.
+| `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_github_codespaces %} integration secret was updated for a repository.
 | `repo.update_member` | A user's permission to a repository was changed.
 
 {%- ifversion fpt or ghec %}
@@ -1104,7 +1113,7 @@ Action                        | Description
 
 | Action | Description
 |--------|-------------
-| `repository_projects_change.clear` | The repository projects policy was removed for an organization, or all organizations in the enterprise. Organization admins can now control their repository projects settings. For more information, see "[Enforcing project board policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise)."
+| `repository_projects_change.clear` | The repository projects policy was removed for an organization, or all organizations in the enterprise. Organization admins can now control their repository projects settings. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise)."
 | `repository_projects_change.disable` | Repository projects were disabled for a repository, all repositories in an organization, or all organizations in an enterprise.
 | `repository_projects_change.enable` | Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.
 

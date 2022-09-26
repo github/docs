@@ -1,7 +1,7 @@
 ---
-title: Contacting GitHub Support
-shortTitle: サポートへの連絡
-intro: 'You can use the {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} to contact GitHub Support for help troubleshooting issues you encounter while using GitHub.'
+title: GitHub Support へのお問い合わせ
+shortTitle: Contacting support
+intro: '{% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} を使って、GitHub の使用中に発生した問題のトラブルシューティングに関するヘルプを GitHub サポートに問い合わせることができます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,5 +15,11 @@ children:
   - creating-a-support-ticket
   - viewing-and-updating-support-tickets
   - providing-data-to-github-support
+ms.openlocfilehash: d3017f78749d9df022dd71e0c99f6274785d9885
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145140131'
 ---
 

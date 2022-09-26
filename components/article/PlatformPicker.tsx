@@ -5,7 +5,7 @@ import { sendEvent, EventType } from 'components/lib/events'
 import { useRouter } from 'next/router'
 
 import { useArticleContext } from 'components/context/ArticleContext'
-import parseUserAgent from 'components/lib/user-agent'
+import { parseUserAgent } from 'components/lib/user-agent'
 
 const platforms = [
   { id: 'mac', label: 'Mac' },

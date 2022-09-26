@@ -1,7 +1,7 @@
 ---
-title: Proporcionar datos al soporte de GitHub
+title: Cómo proporcionar datos al servicio de soporte técnico de GitHub
 intro: 'Ya que {% data variables.contact.github_support %} no cuenta con acceso a tu ambiente, algunas veces requerimos algo de información adicional de tu parte.'
-shortTitle: Proporcionar datos
+shortTitle: Providing data
 versions:
   ghes: '*'
 redirect_from:
@@ -13,8 +13,13 @@ redirect_from:
   - /admin/enterprise-support/receiving-help-from-github-support/providing-data-to-github-support
 topics:
   - Support
+ms.openlocfilehash: 56a90a9449a92577d08e068095e5b0dc5b443bb2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331916'
 ---
-
 ## Acerca de los archivos de diagnóstico y paquetes de soporte
 
 {% data variables.contact.github_support %} podría pedirte que proporciones datos adicionales en forma de archivos de bitácora sanitizados. Existen tres tipos de archivo de bitácora que se te podrían pedir.
@@ -48,27 +53,24 @@ Los archivos de diagnóstico son un resumen de los ajustes y ambiente de una ins
 - Arquitectura VM
 - Nombre de host, modo privado, entorno de SSL
 - Cargar y procesar listas
-- Parámetros de red
+- Configuración de red
 - Método y detalles de autenticación
 - Número de repositorios, usuarios y otros datos de instalación
 
-Puedes descargar el diagnóstico para tu instancia desde la {% data variables.enterprise.management_console %} o al ejecutar la utilidad de la línea de comando `ghe-diagnostics`.
+Puede descargar el diagnóstico para su instancia desde {% data variables.enterprise.management_console %} o ejecutando la utilidad de la línea de comandos `ghe-diagnostics`.
 
 ### Crear un archivo de diagnóstico desde {% data variables.enterprise.management_console %}
 
 Puedes usar este método si no tienes tu clave SSH fácilmente disponible.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.type-management-console-password %}
-{% data reusables.enterprise_management_console.support-link %}
-5. Haz clic en **Download diagnostics info** (Descargar información de diagnóstico).
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.type-management-console-password %} {% data reusables.enterprise_management_console.support-link %}
+5. Haga clic en **Download diagnostics info** (Descargar información de diagnóstico).
 
 ### Crear un archivo de diagnóstico mediante SSH
 
 Puedes usar este método sin iniciar sesión en {% data variables.enterprise.management_console %}.
 
-Usa la utilidad de la línea de comando [ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) para recuperar el diagnóstico para tu instancia.
+Use la utilidad de la línea de comandos [ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) para recuperar el diagnóstico de la instancia.
 
 ```shell
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
@@ -80,22 +82,22 @@ Después de que emites tu solicitud de soporte, podríamos pedirte que compartas
 
 - Registros relacionados con la autenticación que pueden resultar útiles al solucionar problemas de errores de autenticación, o configurar LDAP, CAS o SAML
 - Registro {% data variables.enterprise.management_console %}
-- `github-logs/exceptions.log`: Información sobre 500 errores encontrados en el sitio
-- `github-logs/audit.log`: registros de auditoría {% data variables.product.prodname_ghe_server %}
-- `babeld-logs/babeld.log`: registros proxy Git
-- `system-logs/haproxy.log`: registros HAProxy
-- `elasticsearch-logs/github-enterprise.log`: registros Elasticsearch
-- `configuration-logs/ghe-config.log`: registros de configuración {% data variables.product.prodname_ghe_server %}
-- `collectd/logs/collectd.log`: registros Collectd
-- `mail-logs/mail.log`: registros de entrega por correo electrónico SMTP
+- `github-logs/exceptions.log`: información sobre los 500 errores encontrados en el sitio
+- `github-logs/audit.log`: registros de auditoría de {% data variables.product.prodname_ghe_server %}
+- `babeld-logs/babeld.log`: registros de proxy de Git
+- `system-logs/haproxy.log`: registros de HAProxy
+- `elasticsearch-logs/github-enterprise.log`: registros de Elasticsearch
+- `configuration-logs/ghe-config.log`: registros de configuración de {% data variables.product.prodname_ghe_server %}
+- `collectd/logs/collectd.log`: registros recopilados
+- `mail-logs/mail.log`: registros de entrega de correo electrónico SMTP
 
-Para obtener más información, consulta la sección "[Acerca de las bitácoras de auditoría de tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)".
+Para obtener más información, vea "[Acerca del registro de auditoría para la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)".
 
-Los paquetes de soporte incluyen registros de los dos últimos días. Para obtener registros de los últimos siete días, puedes descargar un paquete de soporte extendido. Para obtener más información, consulta "[Crear y compartir paquete de soporte extendido](#creating-and-sharing-extended-support-bundles)".
+Los paquetes de soporte incluyen registros de los dos últimos días. Para obtener registros de los últimos siete días, puedes descargar un paquete de soporte extendido. Para obtener más información, vea "[Creación y uso compartido de conjuntos de productos de soporte extendido](#creating-and-sharing-extended-support-bundles)".
 
 {% tip %}
 
-**Sugerencias:** Cuando te comuniques con {% data variables.contact.github_support %}, recibirás un correo electrónico de confirmación con un enlace de referencia del ticket. Si {% data variables.contact.github_support %} te pide que cargues un paquete de soporte, puedes usar el enlace de referencia del ticket para cargar el paquete de soporte.
+**Sugerencia**: Cuando se ponga en contacto con {% data variables.contact.github_support %}, recibirá un correo electrónico de confirmación con un enlace de referencia del ticket. Si {% data variables.contact.github_support %} te pide que cargues un paquete de soporte, puedes usar el enlace de referencia del ticket para cargar el paquete de soporte.
 
 {% endtip %}
 
@@ -103,13 +105,9 @@ Los paquetes de soporte incluyen registros de los dos últimos días. Para obten
 
 Puedes usar estos pasos para crear y compartir un paquete de soporte si puedes acceder a la {% data variables.enterprise.management_console %} basada en la web y tienes acceso a internet de salida.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.type-management-console-password %}
-{% data reusables.enterprise_management_console.support-link %}
-5. Haz clic en **Download support bundle** (Descargar paquete de soporte).
-{% data reusables.enterprise_enterprise_support.sign-in-to-support %}
-{% data reusables.enterprise_enterprise_support.upload-support-bundle %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.type-management-console-password %} {% data reusables.enterprise_management_console.support-link %}
+5. Haga clic en **Download support bundle** (Descargar conjunto de soporte técnico).
+{% data reusables.enterprise_enterprise_support.sign-in-to-support %} {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
 ### Crear un paquete de soporte mediante SSH
 
@@ -121,25 +119,27 @@ Puedes utilizar estos pasos para crear y compartir un paquete de soporte si tien
   ```shell
   $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o' > support-bundle.tgz
   ```
-  Para obtener más información acerca del comando `ghe-support-bundle`, consulta "[Utilidades de la línea de comandos](/enterprise/admin/guides/installation/command-line-utilities#ghe-support-bundle)".
-{% data reusables.enterprise_enterprise_support.sign-in-to-support %}
-{% data reusables.enterprise_enterprise_support.upload-support-bundle %}
+  Para obtener más información sobre el comando `ghe-support-bundle`, vea "[Utilidades de la línea de comandos](/enterprise/admin/guides/installation/command-line-utilities#ghe-support-bundle)".
+{% data reusables.enterprise_enterprise_support.sign-in-to-support %} {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
 ### Cargar un paquete de soporte utilizando tu cuenta empresarial
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-3. En la barra lateral izquierda, da clic en **Licenciamiento empresarial**. ![Captura de pantalla que muestra el enlace de "Licencia empresarial" en la barra lateral de ajustes de cuenta empresarial.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Debajo de "Ayuda de {% data variables.product.prodname_enterprise %}", da clic en **Cargar un paquete de soporte**. ![Captura de pantalla que muestra "Cargar un enlace de paquete de soporte".](/assets/images/enterprise/support/upload-support-bundle.png)
-5. Debajo de "Selecciona una cuenta empresarial", selecciona la cuenta asociada al paquete de soporte del menú desplegable. ![Captura de pantalla que muestra el menú desplegable para seleccionar la cuenta empresarial del paquete de soporte.](/assets/images/enterprise/support/support-bundle-account.png)
-6. Debajo de "Cargar un paquete de soporte para {% data variables.contact.enterprise_support %}", para seleccionar tu paquete de soporte, da clic en **Elegir archivo**, o arrastra tu archivo de paquete de soporte hacia **Escoger archivo**. ![Captura de pantalla que muestra el botón "Elegir archivo" para cargar un archivo de paquete de soporte.](/assets/images/enterprise/support/choose-support-bundle-file.png)
-7. Da clic en **Cargar**.
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %}
+3. En la barra lateral izquierda, haga clic en **Enterprise licensing** (Licencias de Enterprise).
+  ![Captura de pantalla en la que se muestra el enlace de "Licencias de Enterprise" en la barra lateral de configuración de la cuenta empresarial.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+4. En "{% data variables.product.prodname_enterprise %} Help", haga clic en **Upload a support bundle** (Cargar un conjunto de soporte técnico).
+  ![Captura de pantalla en la que se muestra el vínculo para cargar un conjunto de soporte técnico.](/assets/images/enterprise/support/upload-support-bundle.png)
+5. Debajo de "Selecciona una cuenta empresarial", selecciona la cuenta asociada al paquete de soporte del menú desplegable.
+  ![Captura de pantalla en la que se muestra el menú desplegable para seleccionar la cuenta empresarial del conjunto de productos de soporte.](/assets/images/enterprise/support/support-bundle-account.png)
+6. En "Upload un paquete de soporte técnico para {% data variables.contact.enterprise_support %}", para seleccionar el lote de soporte técnico, haga clic en **Elegir archivo** o arrastre el archivo de lote de soporte técnico a **Elegir archivo**.
+  ![Captura de pantalla en la que se muestra el botón "Elegir archivo" para cargar un archivo de conjunto de productos de soporte.](/assets/images/enterprise/support/choose-support-bundle-file.png)
+7. Haga clic en **Cargar**.
 
 ### Cargar paquete de soporte mediante SSH
 
 Puedes cargar directamente un paquete de soporte a nuestro servidor si:
 - Tienes acceso de SSH a {% data variables.product.product_location %}.
-- Se permiten las conexiones HTTPS salientes por el puerto 443 TCP desde {% data variables.product.product_location %} hacia _enterprise-bundles.github.com_ y _esbtoolsproduction.blob.core.windows.net_.
+- Se permiten las conexiones HTTPS salientes por el puerto TCP 443 desde {% data variables.product.product_location %} hacia _enterprise-bundles.github.com_ y _esbtoolsproduction.blob.core.windows.net_.
 
 1. Cargar el paquete a nuestro servidor de paquete de soporte:
   ```shell
@@ -148,7 +148,7 @@ Puedes cargar directamente un paquete de soporte a nuestro servidor si:
 
 ## Crear y compartir paquetes de soporte extendido
 
-Los paquetes de soporte incluyen registros de los últimos dos días, mientras que los paquetes de soporte _extendidos_ incluyen registros de los últimos siete días. Si los eventos que {% data variables.contact.github_support %} estás investigando se produjeron hace más de dos días, es posible que te pidamos que compartas un paquete de soporte extendido. Deberás tener acceso a SSH para descargar un soporte extendido, no puedes descargar un paquete extendido desde {% data variables.enterprise.management_console %}.
+Los conjuntos de productos de soporte incluyen registros de los últimos dos días, mientras que los conjuntos de productos de soporte _extendido_ incluyen registros de los últimos siete días. Si los eventos que {% data variables.contact.github_support %} está investigando se produjeron hace más de dos días, es posible que te pidamos que compartas un paquete de soporte extendido. Deberás tener acceso a SSH para descargar un paquete extendido, no puedes descargar un paquete extendido desde {% data variables.enterprise.management_console %}.
 
 Para evitar que los paquetes sean demasiado grandes, solo pueden contener registros que no hayan sido rotados y comprimidos. La rotación de los registros en {% data variables.product.prodname_ghe_server %} se produce en diferentes frecuencias (diarias o semanales) para los diferentes archivos de registro, según el tamaño que pretendamos que tengan los registros.
 
@@ -156,25 +156,24 @@ Para evitar que los paquetes sean demasiado grandes, solo pueden contener regist
 
 Puedes utilizar estos pasos para crear y compartir un paquete de soporte extendido si tienes acceso de SSH a {% data variables.product.product_location %} y si tienes acceso externo a internet.
 
-1. Descarga el paquete de soporte extendido mediante SSH al agregar el marcador `-x` al comando `ghe-support-bundle`:
+1. Descargue el conjunto de productos de soporte extendido mediante SSH agregando la marca `-x` al comando `ghe-support-bundle`:
   ```shell
   $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o -x' > support-bundle.tgz
   ```
-{% data reusables.enterprise_enterprise_support.sign-in-to-support %}
-{% data reusables.enterprise_enterprise_support.upload-support-bundle %}
+{% data reusables.enterprise_enterprise_support.sign-in-to-support %} {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
 ### Cargar un paquete de soporte extendido directamente usando SSH
 
 Puedes cargar directamente un paquete de soporte a nuestro servidor si:
 - Tienes acceso de SSH a {% data variables.product.product_location %}.
-- Se permiten las conexiones HTTPS salientes por el puerto 443 TCP desde {% data variables.product.product_location %} hacia _enterprise-bundles.github.com_ y _esbtoolsproduction.blob.core.windows.net_.
+- Se permiten las conexiones HTTPS salientes por el puerto TCP 443 desde {% data variables.product.product_location %} hacia _enterprise-bundles.github.com_ y _esbtoolsproduction.blob.core.windows.net_.
 
 1. Cargar el paquete a nuestro servidor de paquete de soporte:
   ```shell
   $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u -x'
   ```
 
-## Leer más
+## Información adicional
 
-- "[Acerca del soporte de GitHub](/support/learning-about-github-support/about-github-support)"
-- "[Generar una alerta de salud para tu empresa](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"
+- "[Acerca del soporte técnico de GitHub](/support/learning-about-github-support/about-github-support)"
+- "[Generación de una comprobación de estado para su empresa](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

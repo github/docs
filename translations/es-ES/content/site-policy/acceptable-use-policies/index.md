@@ -1,5 +1,5 @@
 ---
-title: Políticas de uso aceptable
+title: Directivas de Uso Aceptable
 versions:
   fpt: '*'
 topics:

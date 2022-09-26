@@ -4,10 +4,10 @@ redirect_from:
   - /v4/mutation
   - /v4/reference/mutation
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: "*"
+  ghec: "*"
+  ghes: "*"
+  ghae: "*"
 topics:
   - API
 ---
@@ -18,5 +18,4 @@ Every GraphQL schema has a root type for both queries and mutations. The [mutati
 
 For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-mutations.json -->
+<!-- Content after this section is automatically generated -->

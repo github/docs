@@ -63,7 +63,7 @@ runs-on: [self-hosted, linux, x64, gpu]
 - `x64` - Only use a runner based on x64 hardware.
 - `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed. 
 
-These labels operate cumulatively, so a self-hosted runner’s labels must match all four to be eligible to process the job.
+These labels operate cumulatively, so a self-hosted runner must have all four labels to be eligible to process the job.
 
 ## Routing precedence for self-hosted runners
 

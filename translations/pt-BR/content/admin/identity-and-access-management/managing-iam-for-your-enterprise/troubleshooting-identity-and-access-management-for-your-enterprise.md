@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting identity and access management for your enterprise
+title: Solução de problemas de gerenciamento de identidade e acesso da empresa
 shortTitle: Troubleshoot IAM
-intro: Review common issues and solutions for identity and access management for your enterprise.
+intro: Examine os problemas e as soluções comuns para o gerenciamento de identidade e acesso da empresa.
 versions:
   ghec: '*'
   ghes: '*'
@@ -14,31 +14,35 @@ topics:
   - Security
   - SSO
   - Troubleshooting
+ms.openlocfilehash: 806db249c8ad083965136005843d30fd1a3f5015
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147093155'
 ---
+## Conflitos de nome de usuário
 
-## Username conflicts
-
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} normalizes an identifier provided by your identity provider (IdP) to create each person's username on {% data variables.product.prodname_dotcom %}. If multiple accounts are normalized into the same {% data variables.product.prodname_dotcom %} username, a username conflict occurs, and only the first user account is created. Para obter mais informações, consulte "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
-
-{% ifversion ghec %}
-## Errors when switching authentication configurations
-
-If you're experiencing problems while switching between different authentication configurations, such as changing your SAML SSO configuration from an organization to an enterprise account or migrating from SAML to OIDC for {% data variables.product.prodname_emus %}, ensure you're following our best practices for the change.
-
-- "[Switching your SAML configuration from an organization to an enterprise account](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)"
-- "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)"
-
-## Accessing your enterprise when SSO is not available
-
-When a configuration error or an issue with your identity provider IdP prevents you from using SSO, you can use a recovery code to access your enterprise. Para obter mais informações, consulte "[Acessar a sua conta corporativa se seu provedor de identidade estiver indisponível](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)".
-{% endif %}
-
-## SAML authentication errors
-
-If users are experiencing errors when attempting to authenticate with SAML, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication)."
+{% ifversion ghec %}Se a empresa usa {% data variables.product.prodname_emus %}, o {% endif %}{% data variables.product.product_name %} normaliza um identificador fornecido pelo IdP (provedor de identidade) para criar o nome de usuário de cada pessoa no {% data variables.product.prodname_dotcom %}. Se várias contas forem normalizadas com o mesmo nome de usuário do {% data variables.product.prodname_dotcom %}, apenas a primeira conta de usuário será criada. Para obter mais informações, confira "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
 {% ifversion ghec %}
-## Leia mais
+## Erros ao alternar as configurações de autenticação
 
-- "[Troubleshooting identity and access management for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)"
+Se você estiver com problemas ao alternar entre diferentes configurações de autenticação, como alterar a configuração de SSO do SAML de uma organização para uma conta empresarial ou migrar do SAML para o OIDC com {% data variables.product.prodname_emus %}, verifique se as práticas recomendadas para a alteração estão sendo seguidas.
+
+- "[Como alterar a configuração do SAML de uma organização para uma conta empresarial](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)"
+- "[Como migrar do SAML para o OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)"
+
+## Como acessar a empresa quando o SSO não estiver disponível
+
+Se um erro de configuração ou um problema com o IdP (provedor de identidade) impedir que você use o SSO, use um código de recuperação para acessar a empresa. Para obter mais informações, confira "[Como acessar sua conta corporativa se o seu provedor de identidade não estiver disponível](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)".
 {% endif %}
+
+## Erros de autenticação do SAML
+
+Se os usuários estiverem recebendo erros durante a tentativa de autenticação com o SAML, confira "[Solução de problemas de autenticação do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication)".
+
+{% ifversion ghec %}
+## Leitura adicional
+
+- "[Solução de problemas de gerenciamento de identidade e acesso da organização](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)" {% endif %}

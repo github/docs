@@ -199,7 +199,7 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 
 {% data reusables.package_registry.authenticate-step %}
 
-2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file, replacing the `OctokittenApp` package with your package dependency and `1.0.0` with the version you want to use:
+2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file. Replace the `OctokittenApp` value in `Include="OctokittenApp"` with your package dependency, and replace the `12.0.2` value in `Version="12.0.2"` with the version you want to use:
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -232,6 +232,8 @@ Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not s
 
 If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
 
+If you're using a `GITHUB_TOKEN` to authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, the token cannot access private repository-based packages in a different repository other than where the workflow is running in. To access packages associated with other repositories, instead generate a PAT with the `read:packages` scope and pass this token in as a secret.
+ 
 ## Further reading
 
 - "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"

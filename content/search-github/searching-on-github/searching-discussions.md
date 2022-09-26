@@ -2,8 +2,7 @@
 title: Searching discussions
 intro: 'You can search for discussions on {% data variables.product.product_name %} and narrow the results using search qualifiers.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - GitHub search
 redirect_from:

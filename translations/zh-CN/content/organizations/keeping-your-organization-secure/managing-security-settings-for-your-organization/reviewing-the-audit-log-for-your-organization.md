@@ -52,6 +52,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`discussion_post_reply`](#discussion_post_reply-category-actions) | Contains all activities related to replies to discussions posted to a team page.{% ifversion fpt or ghes or ghec %}
 | [`enterprise`](#enterprise-category-actions) | Contains activities related to enterprise settings. | {% endif %}
 | [`hook`](#hook-category-actions) | Contains all activities related to webhooks.
+| [`integration_installation`](#integration_installation-category-actions)  | Contains activities related to integrations installed in an account. |
 | [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |{% ifversion ghec or ghae %}
 | [`ip_allow_list`](#ip_allow_list-category-actions) | Contains activities related to enabling or disabling the IP allow list for an organization.
 | [`ip_allow_list_entry`](#ip_allow_list_entry-category-actions) | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.{% endif %}
@@ -233,9 +234,9 @@ An overview of some of the most common actions that are recorded as events in th
 | `create` | Triggered when a user [creates a codespace](/github/developing-online-with-codespaces/creating-a-codespace).
 | `resume` | Triggered when a user resumes a suspended codespace.
 | `delete` | Triggered when a user [deletes a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).
-| `create_an_org_secret` | Triggered when a user creates an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
-| `update_an_org_secret` | Triggered when a user updates an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
-| `remove_an_org_secret` | Triggered when a user removes an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `create_an_org_secret` | Triggered when a user creates an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
+| `update_an_org_secret` | Triggered when a user updates an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `remove_an_org_secret` | Triggered when a user removes an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
 | `manage_access_and_security` | Triggered when a user updates [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 {% endif %}
 
@@ -360,6 +361,21 @@ An overview of some of the most common actions that are recorded as events in th
 | `config_changed` | Triggered when an existing hook has its configuration altered.
 | `destroy` | Triggered when an existing hook was removed from a repository.
 | `events_changed` | Triggered when the events on a hook have been altered.
+
+### `integration_installation` category actions
+
+| Action | Description
+|--------|-------------
+| `contact_email_changed` | A contact email for an integration was changed.
+| `create` | An integration was installed.
+| `destroy` | An integration was uninstalled.
+| `repositories_added` | Repositories were added to an integration.
+| `repositories_removed` | Repositories were removed from an integration.
+{%- ifversion fpt or ghec %}
+| `suspend` | An integration was suspended.
+| `unsuspend` | An integration was unsuspended.
+{%- endif %}
+| `version_updated` | Permissions for an integration were updated.
 
 ### `integration_installation_request` category actions
 
@@ -724,7 +740,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | Action | Description
 |------------------|-------------------
 |`create` | Triggered when an organization owner creates a new custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`destroy` | Triggered when a organization owner deletes a custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+|`destroy` | Triggered when an organization owner deletes a custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 |`update` | Triggered when an organization owner edits an existing custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 
 {% endif %}
@@ -815,5 +831,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 {% data reusables.actions.actions-audit-events-workflow %}
 ## Further reading
 
-- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5146 %}
+- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec %}
 - "[Exporting member information for your organization](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
+{%- endif %}

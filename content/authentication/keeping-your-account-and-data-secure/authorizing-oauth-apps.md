@@ -68,7 +68,7 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 | Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
 | Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Apps can request access for either public or private repositories on a user-wide level. |
 | Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |{% ifversion projects-oauth-scope %}
-| Projects | Access to user and organization projects (beta). Apps can request either read/write or read only access. |{% endif %}
+| Projects | Access to user and organization {% data variables.projects.projects_v2 %}. Apps can request either read/write or read only access. |{% endif %}
 
 ## Requesting updated permissions
 
