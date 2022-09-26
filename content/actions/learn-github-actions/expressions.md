@@ -128,7 +128,7 @@ Returns `true` if `search` contains `item`. If `search` is an array, this functi
 #### Example using a string
 
 `contains('Hello world', 'llo')` returns `true`.
-`!contains('Hello world', 'llo')` returns `false.  Note: There must be no space between `!` and `contains()`.
+`!contains('Hello world', 'llo')` returns `false`.  Note: There must be no space between `!` and `contains()`.
 
 #### Example using an object filter
 
