@@ -56,6 +56,6 @@ We support these files:
 
 {% endnote %}{% endif %}
 
-Once you attached a file, it will be upload directly to GitHub (it will NOT wait for issue/PR/comment submission). Then, you can see the new URL attached to this file, with a URL like `https://user-images.githubusercontent.com/*random folder name*/*random identifications*.png`. This means that, even if you do NOT submit your issue/PR/comment, the file has _already_ been uploaded in GitHub servers, and can be reached through the [anonymized URL](https://github.com/github/docs/blob/main/github/authenticating-to-github/about-anonymized-urls).
+When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 ![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
