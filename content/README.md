@@ -1,47 +1,31 @@
-# Dns.Python.javascript
-
+# ##: #://POST \
+# Request : "Dns.Python.javascript":,''
 # bitore.sig
-
 # BITORE
-
 # Bitore.sigs
-
 # BITCORE
-
 # deno.xml
-
 # Test.yml
-
 # instal
-
-# intuit
-
-# unit
-
-# -quipp
-
-# dylan
-
-# besekeeper
-
+# intuit :
+# shaft :
+# quiver :
+# gphr
+# caddi
+# unit :
+# quip :
+# -dylan :
+# besekeeper :
 # workers'@bitore.sig
-
-Name :BITCORE :
-
-# GracezHopper
-
+# Name :BITCORE :
+# GracezHopper:
 # Content <!-- omit in toc -->
-
-
-
+# rangers :
 # The `/content` directory is where all the site's (English) Markdown content lives!
-
-
 # See the [markup reference guide](/contributing/content-markup-reference.md) for more information about supported Markdown features.
-
 # See the [contributing docs](/CONTRIBUTING.md) for general information about working with the docs.
-
-- [Frontmatter](#frontmatter)
+- [PATH](finder)
+- :Build:: :Script :scripts :prerequisite{installions:List("scripts)"}  :
   
   - [`versions`](#versions)
   
