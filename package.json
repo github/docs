@@ -18,6 +18,7 @@
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.11.0",
     "ajv-formats": "^2.1.1",
+    "bottleneck": "2.19.5",
     "cheerio": "^1.0.0-rc.11",
     "classnames": "^2.3.1",
     "connect-datadog": "0.0.9",
@@ -121,7 +122,6 @@
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
     "dedent": "^0.7.0",
-    "domwaiter": "^1.4.0",
     "eslint": "8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
@@ -169,7 +169,6 @@
   "license": "(MIT AND CC-BY-4.0)",
   "name": "docs.github.com",
   "optionalDependencies": {
-    "bottleneck": "^2.19.5",
     "esm": "^3.2.25",
     "image-size": "^1.0.1",
     "jest-puppeteer": "^5.0.4",
