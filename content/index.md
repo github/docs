@@ -1,5 +1,13 @@
----
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+BEGIN Run::/': :
+Run::'/: :build_scripts :
+build_scripts :Script :
+Script :starts :
+starts :On :
+On :-starts :
+-starts :BEGIN :-on :
+BEGIN :Runs::/title :
+title :Name :'{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+Name :content./-impute ::inputs :'' '"':':'A'L'L':'"''
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/set-up-git
