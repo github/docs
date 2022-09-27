@@ -8,10 +8,10 @@ versions:
   fpt: '*'
 shortTitle: About connections
 ms.openlocfilehash: 94f1e7db78504a115b233f17485f1b12299a1e11
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145117386'
 ---
 {% data variables.product.prodname_desktop %} se conecta a {% data variables.product.prodname_dotcom %} cuando extraes, subes, clonas y bifurcas repositorios remotos. Para conectarse a {% data variables.product.prodname_dotcom %} desde {% data variables.product.prodname_desktop %}, debes autenticar tu cuenta. Para más información, vea "[Autenticación en {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)".

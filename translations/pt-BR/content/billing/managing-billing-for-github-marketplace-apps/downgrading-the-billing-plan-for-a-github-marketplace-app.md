@@ -18,10 +18,10 @@ topics:
   - User account
 shortTitle: Downgrade billing plan
 ms.openlocfilehash: c50995729c266cbfdac13b81da4f0ffaa0b4ff85
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145083494'
 ---
 Quando você faz downgrade de um app, sua assinatura permanece ativa até o final do ciclo de cobrança atual. O downgrade entra em vigor na próxima data de cobrança. Para obter mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".

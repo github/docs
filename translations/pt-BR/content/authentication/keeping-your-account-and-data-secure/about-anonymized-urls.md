@@ -14,10 +14,10 @@ topics:
   - Identity
   - Access management
 ms.openlocfilehash: b96c01144d28d668d33e96e4067801395aaa8275
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145095800'
 ---
 Para hospedar suas imagens, o {% data variables.product.product_name %} usa o [projeto de código aberto Camo](https://github.com/atmos/camo). A Camo gera um proxy de URL anônimo para cada arquivo que oculta os detalhes do seu navegador e informações relacionadas de outros usuários. A URL começa com `https://<subdomain>.githubusercontent.com/`, com subdomínios diferentes, dependendo de como você carregou a imagem. 

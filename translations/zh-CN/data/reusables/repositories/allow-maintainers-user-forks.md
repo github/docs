@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 3c71b4f4d9bfae794b8325c01d85db55f91c2fa8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145099485"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882865"
 ---
 1. 在用户拥有的分支中，如果你希望允许对上游存储库具有推送访问权限的任何人更改你的拉取请求，请选择“允许维护员编辑”。
 

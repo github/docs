@@ -15,16 +15,16 @@ topics:
   - Open Source
   - Sponsors payments
 shortTitle: Sponsor a contributor
-ms.openlocfilehash: 446cea71c29cd2c6d94c67bdb638c3f0359c0d49
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: d006324c270d29b9ce87189751e75722da13a6ea
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145148724'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710295'
 ---
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-## <a name="about-sponsorships"></a>Acerca de los patrocinios
+## Acerca de los patrocinios
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -58,7 +58,7 @@ Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.prod
 
 {% endnote %}
 
-## <a name="tax-information"></a>Información fiscal
+## Información fiscal
 
 Como patrocinador, reconoces que podemos revelar al propietario de cada cuenta que patrocina la siguiente información limitada sobre tus pagos de patrocinio a la cuenta, desde el inicio del Programa de Patrocinadores:
 
@@ -69,7 +69,7 @@ Como patrocinador, reconoces que podemos revelar al propietario de cada cuenta q
 
 Esta información es necesaria para permitir el pago y la presentación de los impuestos derivados de dichos pagos de patrocinio.
 
-## <a name="sponsoring-an-account"></a>Patrocinar una cuenta
+## Patrocinar una cuenta
 
 Antes de que puedas patrocinar una cuenta, debes tener una dirección de correo electrónico verificada. Para obtener más información, vea "[Comprobar la dirección de correo electrónico](/github/getting-started-with-github/verifying-your-email-address)".
 

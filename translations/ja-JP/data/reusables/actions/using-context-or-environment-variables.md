@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c8e09d66bc8f0f35ca319e3650c6913174e59067
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145067826"
 ---
 {% data variables.product.prodname_actions %} には、 _コンテキスト_ と呼ばれる変数のコレクションと、 _既定の環境変数_ と呼ばれる同様の変数のコレクションが含まれます。 これらの変数は、ワークフロー中の様々な場所で利用されることを意図したものです。

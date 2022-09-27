@@ -9,13 +9,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 45dd8dbc7306e924a5d19d82b18082468cdff33c
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556482'
 ---
+
 我们理解，用户有时可能会无意或有意地将并非由您拥有的存储库中涉及版权、商标的内容或私人内容发布到 GitHub 上。 由于这些内容的性质各异，适用的法律也不同，因此我们的政策中对每个类别规定了各自不同的报告要求。
 
 如果您要请求从 GitHub 删除内容，请在提交报告之前花一些时间来熟悉这些政策及其各自的报告要求。 如果我们收到的报告不完整，我们会要求您进行澄清或修改，然后重新提交经修改的报告。

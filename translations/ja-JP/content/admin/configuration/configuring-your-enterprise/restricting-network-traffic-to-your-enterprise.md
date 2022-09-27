@@ -1,7 +1,7 @@
 ---
-title: Restricting network traffic to your enterprise
+title: Enterprise へのネットワークトラフィックを制限する
 shortTitle: Restricting network traffic
-intro: You can use an IP allow list to restrict access to your enterprise to connections from specified IP addresses.
+intro: IP 許可リストを使用して、Enterprise へのアクセスを指定された IP アドレスからの接続に制限できます。
 versions:
   ghae: '*'
 type: how_to
@@ -13,80 +13,65 @@ topics:
   - Security
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
+ms.openlocfilehash: 67c7067362ac94e5cbc64be4704ba0ec3f6606e0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147682853'
 ---
-## About IP allow lists
+## IP 許可リストについて
 
-By default, authorized users can access your enterprise from any IP address. Enterprise owners can restrict access to assets owned by organizations in an enterprise account by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+デフォルトでは、許可されたユーザは任意の IP アドレスから Enterprise にアクセスできます。 Enterprise のオーナーは、特定の IP アドレスに対する許可リストを設定することで、Enterprise アカウントの Organization が所有するアセットへのアクセスを制限できます。 {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
 
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
+許可 IP アドレスを、Organization ごとに設定することもできます。 詳しくは、「[Organization で許可される IP アドレスの管理](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
 
-By default, Azure network security group (NSG) rules leave all inbound traffic open on ports 22, 80, 443, and 25. Enterprise owners can contact {% data variables.contact.github_support %} to configure access restrictions for your instance.
+既定では、Azure ネットワークセキュリティグループ (NSG) ルールで、ポート 22、80、443、および 25 ですべてのインバウンドトラフィックが開いたままになります。 Enterprise オーナーは {% data variables.contact.github_support %} に問い合わせて、インスタンスのアクセス制限を設定できます。
 
-For instance-level restrictions using Azure NSGs, contact {% data variables.contact.github_support %} with the IP addresses that should be allowed to access your enterprise instance. Specify address ranges using the standard CIDR (Classless Inter-Domain Routing) format. {% data variables.contact.github_support %} will configure the appropriate firewall rules for your enterprise to restrict network access over HTTP, SSH, HTTPS, and SMTP. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+Azure NSG を使用したインスタンスレベルの制限については、Enterprise インスタンスへのアクセスを許可する必要がある IP アドレスを {% data variables.contact.github_support %} に問い合わせてください。 標準の CIDR (Classless Inter-Domain Routing) 形式を使用してアドレス範囲を指定します。 {% data variables.contact.github_support %} は、HTTP、SSH、HTTPS、SMTP を介したネットワークアクセスを制限するために、Enterprise に適切なファイアウォールルールを設定します。 詳細については、「[{% data variables.contact.github_support %} からのヘルプの受信](/admin/enterprise-support/receiving-help-from-github-support)」を参照してください。
 
-## Adding an allowed IP address
+## 許可 IP アドレスを追加する
 
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-add-description %} {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %} {% data reusables.identity-and-permissions.check-ip-address %}
 
-## Allowing access by {% data variables.product.prodname_github_apps %}
+## {% data variables.product.prodname_github_apps %}によるアクセスの許可
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-## Enabling allowed IP addresses
+## 許可 IP アドレスを有効化する
 
 {% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. [IP 許可リスト] で、 **[IP 許可リストを有効にする]** を選択します。
+  ![IP アドレスを許可するチェックボックス](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+4. **[保存]** をクリックします。
 
-## Editing an allowed IP address
+## 許可 IP アドレスを編集する
 
 {% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
+8. **[Update]** をクリックします。
 {% data reusables.identity-and-permissions.check-ip-address %}
 
 {% ifversion ip-allow-list-address-check %}
-## Checking if an IP address is permitted
+## IP アドレスが許可されているかどうかを確認する
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
-{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.check-ip-address-step %} {% endif %}
 
-## Deleting an allowed IP address
+## 許可 IP アドレスを削除する
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-## Using {% data variables.product.prodname_actions %} with an IP allow list
+## IP許可リストで {% data variables.product.prodname_actions %} を使用する
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}

@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 58e24cfcc52a49f2f80ca316d482e2f2caf1fe4d
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556432'
 ---
+
 Ao responder ao convite ou participar de um evento do GitHub, incluindo qualquer dos eventos ou atividades organizados pelo GitHub em associação com o evento do GitHub (coletivamente, o “Evento”), você indica que leu, entendeu e concorda com os seguintes Termos e Condições do Evento.
 
 ## <a name="1-basic-requirements-to-attend---including-the-event-code-of-conduct"></a>1. Requisitos básicos para participar – incluindo o [Código de Conduta do Evento](/articles/github-event-code-of-conduct)

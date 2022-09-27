@@ -1,6 +1,6 @@
 ---
-title: Enabling automatic access to GitHub.com actions using GitHub Connect
-intro: 'To allow {% data variables.product.prodname_actions %} in your enterprise to use actions from {% data variables.product.prodname_dotcom_the_website %}, you can connect your enterprise instance to {% data variables.product.prodname_ghe_cloud %}.'
+title: 使用 GitHub Connect 启用对 GitHub.com 操作的自动访问
+intro: '要允许企业中的 {% data variables.product.prodname_actions %} 使用来自 {% data variables.product.prodname_dotcom_the_website %} 的操作，您可以将企业实例连接到 {% data variables.product.prodname_ghe_cloud %}。'
 permissions: 'Enterprise owners can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
@@ -14,57 +14,60 @@ topics:
   - Enterprise
   - GitHub Connect
 shortTitle: Use GitHub Connect for actions
+ms.openlocfilehash: 85942d047f8bce5c2f58e8f92148b5fb85f5d871
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145099990'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 关于自动访问 {% data variables.product.prodname_dotcom_the_website %} 操作
 
-## About automatic access to {% data variables.product.prodname_dotcom_the_website %} actions
-
-By default, {% data variables.product.prodname_actions %} workflows on {% data variables.product.product_name %} cannot use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions). To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can use {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. 
+默认情况下，{% data variables.product.product_name %} 上的 {% data variables.product.prodname_actions %} 工作流不能直接使用 {% data variables.product.prodname_dotcom_the_website %} 或 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中的操作。 若要使 {% data variables.product.prodname_dotcom_the_website %} 中的所有操作在企业实例上可用，可以使用 {% data variables.product.prodname_github_connect %} 将 {% data variables.product.product_name %} 与 {% data variables.product.prodname_ghe_cloud %} 集成。 
 
 {% data reusables.actions.self-hosted-runner-networking-to-dotcom %}
 
-Alternatively, if you want stricter control over which actions are allowed in your enterprise, you can manually download and sync actions onto your enterprise instance using the `actions-sync` tool. For more information, see "[Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/manually-syncing-actions-from-githubcom)."
+或者，如果想要更严格地控制企业中允许哪些操作，则可以使用 `actions-sync` 工具手动下载操作并将其同步到企业实例中。 有关详细信息，请参阅“[从 {% data variables.product.prodname_dotcom_the_website %} 手动同步操作](/enterprise/admin/github-actions/manually-syncing-actions-from-githubcom)”。
 
-## About resolution for actions using {% data variables.product.prodname_github_connect %}
+## 关于使用 {% data variables.product.prodname_github_connect %} 的操作的解决方案
 
 {% data reusables.actions.github-connect-resolution %}
 
-If a user has already created an organization and repository in your enterprise that matches an organization and repository name on {% data variables.product.prodname_dotcom_the_website %}, the repository on your enterprise will be used instead of the {% data variables.product.prodname_dotcom_the_website %} repository. {% ifversion ghes < 3.3 or ghae %}A malicious user could take advantage of this behavior to run code as part of a workflow{% else %}For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
+如果用户在企业中创建的组织和仓库与 {% data variables.product.prodname_dotcom_the_website %} 上的组织和仓库名称匹配，则将使用企业上的仓库代替 {% data variables.product.prodname_dotcom_the_website %} 仓库。 {% ifversion ghes < 3.3 or ghae %}恶意用户可以利用此行为将代码作为工作流的一部分运行{% else %}有关详细信息，请参阅“[自动停用在 {% data variables.product.prodname_dotcom_the_website%} 上访问的操作的命名空间](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)”。
 {% endif %}
 
-## Enabling automatic access to all {% data variables.product.prodname_dotcom_the_website %} actions
+## 启用对所有 {% data variables.product.prodname_dotcom_the_website %} 操作的自动访问
 
-Before enabling access to all actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must{% ifversion ghes %}:
-- Configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
-- Enable{% else %} enable{% endif %} {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+在为企业启用对 {% data variables.product.prodname_dotcom_the_website %} 的所有操作的访问权限之前，必须{% ifversion ghes %}：
+- 配置 {% data variables.product.product_location %} 使用 {% data variables.product.prodname_actions %}。 有关详细信息，请参阅“[适用于 GitHub Enterprise Server 的 {% data variables.product.prodname_actions %} 入门](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)”。
+- 启用{% else %} 启用{% endif %} {% data variables.product.prodname_github_connect %}。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)”。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.github-connect-tab %}
-1. Under "Users can utilize actions from GitHub.com in workflow runs", use the drop-down menu and select **Enabled**.
-  ![Drop-down menu to actions from GitHub.com in workflows runs](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.github-connect-tab %}
+1. 在“用户在工作流运行中可以使用 GitHub.com 上的操作”下，使用下拉菜单选择“已启用”。
+  ![工作流运行中用于访问 GitHub.com 上操作的下拉菜单](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
 1. {% data reusables.actions.enterprise-limit-actions-use %}
 
 {% ifversion ghes > 3.2 or ghae %}
 
-## Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}
+## 自动停用在 {% data variables.product.prodname_dotcom_the_website %} 上访问的操作的命名空间
 
-When you enable {% data variables.product.prodname_github_connect %}, users see no change in behavior for existing workflows because {% data variables.product.prodname_actions %} searches {% data variables.product.product_location %} for each action before falling back to {% data variables.product.prodname_dotcom_the_website%}. This ensures that any custom versions of actions your enterprise has created are used in preference to their counterparts on {% data variables.product.prodname_dotcom_the_website%}.
+启用 {% data variables.product.prodname_github_connect %} 时，用户不会看到现有工作流程行为的变化，因为 {% data variables.product.prodname_actions %} 在回退到 {% data variables.product.prodname_dotcom_the_website%} 之前会搜索 {% data variables.product.product_location %} 上的每个操作。 这可确保企业创建的任何自定义版本的操作优先于 {% data variables.product.prodname_dotcom_the_website%} 上的对应版本。
 
-Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %} blocks the potential for a man-in-the-middle attack by a malicious user with access to {% data variables.product.product_location %}. When an action on {% data variables.product.prodname_dotcom_the_website %} is used for the first time, that namespace is retired in {% data variables.product.product_location %}. This blocks any user creating an organization and repository in your enterprise that matches that organization and repository name on {% data variables.product.prodname_dotcom_the_website %}. This ensures that when a workflow runs, the intended action is always run.
+自动停用在 {% data variables.product.prodname_dotcom_the_website %} 上访问的操作的命名空间，可阻止具有 {% data variables.product.product_location %} 访问权限的恶意用户进行中间人攻击的可能性。 首次使用对 {% data variables.product.prodname_dotcom_the_website %} 执行的操作时，该命名空间将在 {% data variables.product.product_location %} 中停用。 这将阻止任何用户在企业中创建与 {% data variables.product.prodname_dotcom_the_website %} 上的组织和存储库名称匹配的组织和存储库。 这可确保在工作流程运行时始终运行预期的操作。
 
-After using an action from {% data variables.product.prodname_dotcom_the_website %}, if you want to create an action in {% data variables.product.product_location %} with the same name, first you need to make the namespace for that organization and repository available.
+使用 {% data variables.product.prodname_dotcom_the_website %} 中的操作后，如果要在 {% data variables.product.product_location %} 中创建具有相同名称的操作，首先需要使该组织和存储库的命名空间可用。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. In the left sidebar, under **Site admin** click **Retired namespaces**.
-3. Locate the namespace that you want use in {% data variables.product.product_location %} and click **Unretire**.
-   ![Unretire namespace](/assets/images/enterprise/site-admin-settings/unretire-namespace.png)
-4. Go to the relevant organization and create a new repository.
+2. 在左侧边栏中的“站点管理员”下，单击“已停用的命名空间” 。
+3. 找到要在 {% data variables.product.product_location %} 中使用的命名空间，然后单击“取消停用”。
+   ![取消停用命名空间](/assets/images/enterprise/site-admin-settings/unretire-namespace.png)
+4. 转到相关组织并创建新的存储库。
 
    {% tip %}
 
-   **Tip:** When you unretire a namespace, always create the new repository with that name as soon as possible. If a workflow calls the associated action on {% data variables.product.prodname_dotcom_the_website %} before you create the local repository, the namespace will be retired again. For actions used in workflows that run frequently, you may find that a namespace is retired again before you have time to create the local repository. In this case, you can temporarily disable the relevant workflows until you have created the new repository.
+   **提示：** 取消停用命名空间时，请务必尽快使用该名称创建新存储库。 如果在创建本地存储库之前，工作流程在 {% data variables.product.prodname_dotcom_the_website %} 上调用关联的操作，则命名空间将再次停用。 对于频繁运行的工作流程中使用的操作，您可能会发现命名空间在您有时间创建本地存储库之前再次停用。 在这种情况下，您可以暂时禁用相关工作流程，直到创建新存储库。
 
    {% endtip %}
 

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 0e843d106ae2cdac0dbc2fc37baec5d035b6a3c2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145114166"
 ---
 この例では、`node-version` のマトリックス エントリはそれぞれ、環境変数 `site` と `datacenter` に異なる値を使用するように構成されています。 次に `Echo site details` ステップでは、{% raw %}`env: ${{ matrix.env }}`{% endraw %} を使用してカスタム変数を参照します。

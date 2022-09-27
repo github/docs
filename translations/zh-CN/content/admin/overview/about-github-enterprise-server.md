@@ -8,11 +8,11 @@ topics:
   - Enterprise
   - Fundamentals
 ms.openlocfilehash: 2622e3708cc31b24fe39929da68ba5dc8e864d88
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389857'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147877157'
 ---
 ## 关于 {% data variables.product.product_name %}
 

@@ -19,10 +19,10 @@ topics:
   - Pages
 shortTitle: Manage a custom domain
 ms.openlocfilehash: ad96d0be88614e8294e29de74fd7112cfed1bc46
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147710327'
 ---
 Las personas con permisos de administración para un repositorio pueden configurar un dominio personalizado para un sitio de {% data variables.product.prodname_pages %}.

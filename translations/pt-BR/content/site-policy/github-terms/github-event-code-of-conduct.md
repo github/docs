@@ -8,12 +8,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: c9e910ccec8e281359fb21feca5957c3360530bd
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556422'
 ---
 Os eventos do GitHub são eventos da comunidade destinados a networking e colaboração na comunidade de tecnologia.
 

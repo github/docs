@@ -10,13 +10,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 9ce642d1fad5502d7f38d72a4d12fbbb094a556c
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556746'
 ---
+
 世界中の何百万人もの開発者が、GitHub で何百万ものプロジェクト (オープン ソースとクローズド ソースの両方) をホストしています。 当社は、開発者コミュニティの日々のコラボレーションに貢献できて幸いに思います。これは軽々しく考えてはならない当社の責任です。 同時に、当社には誇りに思うことができるこのコミュニティを実現するための絶好の機会があります。
 
 ユーザーのベースが異なれば、その視点、アイデア、経験は異なります。先週、初めて「Hello World」プロジェクトを作った人から、世界で最も有名なソフトウェア開発者まで、さまざまなユーザーがいます。 当社は、開発者が最高の仕事をするための安全な場所を維持しながら、GitHub が当社のコミュニティで提供する必要があるさまざまな意見や視点に対応する環境になるように取り組んでいます。
@@ -44,7 +39,7 @@ GitHub コミュニティの主な目的は、ソフトウェア プロジェク
 * **期待を伝える** - 管理者は、リポジトリの README、[CONTRIBUTING ファイル](/articles/setting-guidelines-for-repository-contributors/)、または[専用の行動規範](/articles/adding-a-code-of-conduct-to-your-project/)など、ユーザーが自分のプロジェクトと対話する方法をユーザーが理解できるように、コミュニティ専用のガイドラインを設定できます。 コミュニティの構築に関する詳細については、[こちら](/communities)をご覧ください。
 
 
-* **コメントをモデレートする** - リポジトリの[書き込みアクセス権](/articles/repository-permission-levels-for-an-organization/)を持つユーザーは、コミット、プル リクエスト、およびイシューに関する[ユーザーのコメントを編集、削除、または非表示にする](/communities/moderating-comments-and-conversations/managing-disruptive-comments)ことができます。 リポジトリへの読み取りアクセス権を持つユーザーは、コメントの編集履歴を表示できます。 コメント作成者とリポジトリへの書き込みアクセス権を持つユーザーは、[コメントの編集履歴](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)から機密情報を削除することもできます。 多くのアクティビティがある場合、プロジェクトのモデレートは大きな作業のように感じるかもしれませんが、[コラボレーター](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)を追加してコミュニティの管理を支援することができます。
+* **コメントをモデレートする** - リポジトリの[書き込みアクセス権](/articles/repository-permission-levels-for-an-organization/)を持つユーザーは、コミット、プル リクエスト、およびイシューに関する[ユーザーのコメントを編集、削除、または非表示にする](/communities/moderating-comments-and-conversations/managing-disruptive-comments)ことができます。 リポジトリへの読み取りアクセス権を持つユーザーは、コメントの編集履歴を表示できます。 コメント作成者とリポジトリへの書き込みアクセス権を持つユーザーは、[コメントの編集履歴](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)から機密情報を削除することもできます。 多くのアクティビティがある場合、プロジェクトのモデレートは大きな作業のように感じるかもしれませんが、[コラボレーター](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)を追加してコミュニティの管理を支援することができます。
 
 * **会話をロックする**  - イシュー、プル リクエスト、またはコミットのディスカッションが手に負えなくなったり、トピックから外れたり、プロジェクトの行動規範や GitHub のポリシーに違反した場合、オーナー、コラボレーター、および書き込みアクセス権を持つその他のユーザーは、会話に一時的または恒久的な[ロック](/articles/locking-conversations/)をかけることができます。
 

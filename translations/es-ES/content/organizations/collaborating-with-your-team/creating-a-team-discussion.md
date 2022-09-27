@@ -14,10 +14,10 @@ topics:
   - Community
 shortTitle: Create a team discussion
 ms.openlocfilehash: 2d6c67fb81bcc61b6e9f1d85ff589e2167798a72
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145135205'
 ---
 {% data reusables.organizations.team-discussions-permissions %} Para obtener más información, vea "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)".

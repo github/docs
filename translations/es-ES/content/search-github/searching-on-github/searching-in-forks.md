@@ -13,10 +13,10 @@ versions:
 topics:
   - GitHub search
 ms.openlocfilehash: 6375fdecd7dba47447b37207467e008f0e7b3fc0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147785794'
 ---
 Para mostrar bifurcaciones en los resultados de [búsqueda del repositorio](/search-github/searching-on-github/searching-for-repositories), agrega `fork:true` o `fork:only` a la consulta.

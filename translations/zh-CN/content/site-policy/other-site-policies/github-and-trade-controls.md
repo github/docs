@@ -12,13 +12,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: e2e18667095ef8d9c30dc3d10384ede21f115456
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556462'
 ---
+
 GitHub.com、GitHub Enterprise Server 以及您上传至其中任一产品的信息都需遵守贸易管制法规，包括美国出口管理条例（Export Administration Regulations，EAR）。
 
 GitHub 的愿景是成为开发人员合作的全球平台，不管开发人员居住在哪里都可参与。 我们认真履行全面研究政府制裁的职责，以确保用户和客户不受法律以外因素的影响。 这包括保持公共存储库服务，其中包括提供开放源码项目并帮助用户访问，以支持受制裁区域开发人员的个人沟通。 这也意味着 GitHub 将提倡受制裁区域的开发人员享有更大的平台访问权，并充分进入全球开源社区。

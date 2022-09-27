@@ -15,11 +15,11 @@ topics:
 shortTitle: Remove outside collaborator
 allowTitleToDifferFromFilename: true
 ms.openlocfilehash: 2dfcc372565366328820e968d6c6384f97b0e2c1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147422888'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884201'
 ---
 {% data reusables.projects.project_boards_old %}
 

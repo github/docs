@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 0d73e17e61dc0848a42a18a7e1811b43e541b6a4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: "147061296"
 ---
 1. 在“运行器”下的列表中找到运行器。 如果您的运行器在一个组中，请单击 {% octicon "chevron-down" aria-label="The downwards chevron" %} 以展开列表。

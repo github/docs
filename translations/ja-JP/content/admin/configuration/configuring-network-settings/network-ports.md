@@ -1,5 +1,5 @@
 ---
-title: Network ports
+title: ネットワーク ポート
 redirect_from:
   - /enterprise/admin/articles/configuring-firewalls
   - /enterprise/admin/articles/firewall
@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
-intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
+intro: オープンするネットワークポートは、管理者、エンドユーザ、メールサポートへ公開する必要があるネットワークサービスに応じて選択してください。
 versions:
   ghes: '*'
 type: reference
@@ -17,52 +17,58 @@ topics:
   - Infrastructure
   - Networking
   - Security
+ms.openlocfilehash: eab2bed3f07c3e9e7ebad900047c1aa74a1d0bc1
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120757'
 ---
-## Administrative ports
+## 管理ポート
 
-Some administrative ports are required to configure {% data variables.product.product_location %} and run certain features. Administrative ports are not required for basic application use by end users.
+{% data variables.product.product_location %} を構成し、一部の機能を実行するためにはいくつかの管理ポートが必要です。 管理ポートは、エンドユーザが基本的なアプリケーションを利用するためには必要ありません。
 
-| Port | Service | Description |
+| Port | サービス | 説明 |
 |---|---|---|
-| 8443 | HTTPS | Secure web-based {% data variables.enterprise.management_console %}. Required for basic installation and configuration. |
-| 8080 | HTTP | Plain-text web-based {% data variables.enterprise.management_console %}. Not required unless TLS is disabled manually. |
-| 122 | SSH | Shell access for {% data variables.product.product_location %}. Required to be open to incoming connections between all nodes in a high availability configuration. The default SSH port (22) is dedicated to Git and SSH application network traffic. |
-| 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. Required to be open for communication between all nodes in the configuration.|
-| 123/UDP| NTP | Required for time protocol operation. |
-| 161/UDP | SNMP | Required for network monitoring protocol operation. |
+| 8443 | HTTPS | 安全な Web ベースの {% data variables.enterprise.management_console %}。 基本的なインストールと設定に必要です。 |
+| 8080 | HTTP | プレーンテキストの Web ベースの {% data variables.enterprise.management_console %}。 TLS を手動で無効にしない限り必要ありません。 |
+| 122 | SSH | {% data variables.product.product_location %} 用のシェル アクセス。 高可用性構成ではすべてのノード間の着信接続に対して開いている必要があります。 デフォルトの SSHポート (22) は Git と SSH のアプリケーションネットワークトラフィック専用です。 |
+| 1194/UDP | VPN | High Availability設定でのセキュアなレプリケーションネットワークトンネル。 構成内のすべてのノード間の通信のために開いている必要があります。|
+| 123/UDP| NTP | timeプロトコルの処理に必要。 |
+| 161/UDP | SNMP | ネットワークモニタリングプロトコルの処理に必要。 |
 
-## Application ports for end users
+## エンドユーザーのためのアプリケーションポート
 
-Application ports provide web application and Git access for end users.
+アプリケーションのポートは、エンドユーザーにWebアプリケーションとGitへのアクセスを提供します。
 
-| Port | Service | Description |
+| Port | サービス | 説明 |
 |---|---|---|
-| 443 | HTTPS | Access to the web application and Git over HTTPS. |
-| 80 | HTTP | Access to the web application. All requests are redirected to the HTTPS port if TLS is configured. |
-| 22 | SSH | Access to Git over SSH. Supports clone, fetch, and push operations to public and private repositories. |
-| 9418 | Git | Git protocol port supports clone and fetch operations to public repositories with unencrypted network communication. {% data reusables.enterprise_installation.when-9418-necessary %} |
+| 443 | HTTPS | WebアプリケーションとGit over HTTPSのアクセス。 |
+| 80 | HTTP | Web アプリケーションへのアクセス。 TLS が構成されている場合、すべての要求は HTTPS ポートにリダイレクトされます。 |
+| 22 | SSH | Git over SSH へのアクセス。 パブリックとプライベートリポジトリへの clone、fetch、push 操作をサポートします。 |
+| 9418 | Git | Gitプロトコルのポート。暗号化されないネットワーク通信でのパブリックなリポジトリへのclone及びfetch操作をサポートする。 {% data reusables.enterprise_installation.when-9418-necessary %} |
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## Email ports
+## メールのポート
 
-Email ports must be accessible directly or via relay for inbound email support for end users.
+メールのポートは直接あるいはエンドユーザ用のインバウンドメールサポートのリレーを経由してアクセスできなければなりません。
 
-| Port | Service | Description |
+| Port | サービス | 説明 |
 |---|---|---|
-| 25 | SMTP | Support for SMTP with encryption (STARTTLS). |
+| 25 | SMTP | 暗号化ありのSMTP（STARTTLS）のサポート。 |
 
-## {% data variables.product.prodname_actions %} ports
+## {% data variables.product.prodname_actions %} ポート
 
-{% data variables.product.prodname_actions %} ports must be accessible for self-hosted runners to connect to {% data variables.product.product_location %}. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-server)."
+セルフホステッド ランナーが {% data variables.product.product_location %} に接続するには、{% data variables.product.prodname_actions %} ポートにアクセスできる必要があります。 詳細については、[セルフホステッド ランナー](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-server)に関する記述をご覧ください。
 
-| Port | Service | Description |
+| Port | サービス | 説明 |
 |---|---|---|
-| 443 | HTTPS | Self-hosted runners connect to {% data variables.product.product_location %} to receive job assignments and to download new versions of the runner application. Required if TLS is configured.
-| 80 | HTTP | Self-hosted runners connect to {% data variables.product.product_location %} to receive job assignments and to download new versions of the runner application. Required if TLS is not configured.
+| 443 | HTTPS | セルフホステッド ランナーは {% data variables.product.product_location %} に接続してジョブの割り当てを受け取り、ランナー アプリケーションの新しいバージョンをダウンロードします。 TLS が構成されている場合は必須です。
+| 80 | HTTP | セルフホステッド ランナーは {% data variables.product.product_location %} に接続してジョブの割り当てを受け取り、ランナー アプリケーションの新しいバージョンをダウンロードします。 TLS が構成されていない場合は必須です。
 
-If you enable automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, {% data variables.product.prodname_actions %} will always search for an action on {% data variables.product.product_location %} first, via these ports, before checking {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#about-resolution-for-actions-using-github-connect)."
+{% data variables.product.prodname_dotcom_the_website %} アクションへの自動アクセスを有効にした場合、{% data variables.product.prodname_actions %} は {% data variables.product.prodname_dotcom_the_website %} をチェックする前に、これらのポートを介して常に {% data variables.product.product_location %} に対するアクションを最初に検索します。 詳細については、「[{% data variables.product.prodname_github_connect %} を使用した {% data variables.product.prodname_dotcom_the_website %} アクションへの自動アクセスの有効化](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#about-resolution-for-actions-using-github-connect)」を参照してください。
 
-## Further reading
+## 参考資料
 
-- "[Configuring TLS](/admin/configuration/configuring-network-settings/configuring-tls)"
+- 「[TLS の設定](/admin/configuration/configuring-network-settings/configuring-tls)」

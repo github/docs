@@ -13,10 +13,10 @@ redirect_from:
   - /developers/overview/viewing-deployment-history
   - /actions/deployment/viewing-deployment-history
 ms.openlocfilehash: 2941d8de6af3b7505a3c05a6b15436d32becea9b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145087316'
 ---
 您可以通过 {% data variables.product.prodname_actions %} 和环境或使用 REST API 和第三方应用交付部署。 {% ifversion fpt or ghae ghes > 3.0 or ghec %} 有关使用 {% data variables.product.prodname_actions %} 通过环境进行部署的详细信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。 {% endif %} 有关使用 REST API 进行部署的详细信息，请参阅“[存储库](/rest/reference/repos#deployments)”。

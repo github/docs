@@ -7,7 +7,6 @@ redirect_from:
   - /actions/deployment/security-hardening-your-deployments/using-oidc-with-your-reusable-workflows
 versions:
   fpt: '*'
-  ghae: issue-4757
   ghec: '*'
   ghes: '>=3.5'
 type: how_to
@@ -15,10 +14,10 @@ topics:
   - Workflows
   - Security
 ms.openlocfilehash: ecf00be738c711394bc4debf0088ca0cbe5a2d9c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147710279'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}

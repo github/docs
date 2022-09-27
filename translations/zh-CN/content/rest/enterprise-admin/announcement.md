@@ -8,11 +8,11 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ms.openlocfilehash: e3394dd67e06c362bb26c547f34124e8a7a198af
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060032'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883017'
 ---
 ## 公告
 

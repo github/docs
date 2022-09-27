@@ -13,10 +13,10 @@ topics:
   - Community
 shortTitle: Track comment changes
 ms.openlocfilehash: 7da6b53f9b98ade8ee73411a80aaf2ff3f412700
-ms.sourcegitcommit: 872c4751a3fc255671295a5dea6a2081c66b7b71
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084098'
 ---
 ## Visualizar detalhes do histórico de edição de um comentário

@@ -5,16 +5,16 @@ intro: 'Como usar recursos avançados do {% data variables.product.prodname_acti
 versions:
   fpt: '*'
   ghes: '>= 3.5'
-  ghae: issue-4925
+  ghae: '>= 3.5'
   ghec: '*'
 type: how_to
 topics:
   - Workflows
 ms.openlocfilehash: f4edac59fdbcc8f8825a51e25b737b94b17128b0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147496577'
 ---
 {% data reusables.actions.enterprise-github-hosted-runners %}

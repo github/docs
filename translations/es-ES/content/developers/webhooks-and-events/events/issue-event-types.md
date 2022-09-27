@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - Events
-ms.openlocfilehash: c777d321c0ad1b7c6774119707d15646b4e941c4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2459e4fbdcd4e857c603b7aa7354d4f2d5d6a062
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080828'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878379'
 ---
 Los eventos de incidencia se desencadenan mediante la actividad en incidencias y solicitudes de incorporación de cambios, y están disponibles en [Issue Events API](/rest/reference/issues#events) y [Timeline Events API](/rest/reference/issues#timeline). Cada tipo de evento especifica si éste está disponible en la API de Eventos de los Informes de Problemas o en la de Eventos de la Línea de tiempo.
 
@@ -235,7 +235,7 @@ Nombre | Tipo | Descripción
 `created_at` | `string` | La marca de tiempo que indica cuándo se agregó la referencia cruzada.
 `updated_at` | `string` | La marca de tiempo que indica cuándo se actualizó o creó la referencia cruzada en caso de que ésta jamás se haya actualizado.
 `source` | `object` | La solicitud de extracción o informe de problemas que agregó la referencia cruzada.
-`source[type]` | `string` | Este valor siempre será `"issue"` ya que las solicitudes de incorporación de cambios son de tipo incidencia. En la API de Eventos de la Línea de Tiempo solo se devolverán los eventos de referencia cruzada que se activen con informes de problemas o solicitudes de extracción. Para determinar si la incidencia que ha desencadenado el evento es una solicitud de incorporación de cambios, puede comprobar si existe el objeto `source[issue][pull_request`.
+`source[type]` | `string` | Este valor siempre será `"issue"` ya que las solicitudes de incorporación de cambios son de tipo incidencia. En la API de Eventos de la Línea de Tiempo solo se devolverán los eventos de referencia cruzada que se activen con informes de problemas o solicitudes de extracción. Para determinar si la incidencia que ha desencadenado el evento es una solicitud de incorporación de cambios, puede comprobar si existe el objeto `source[issue][pull_request]`.
 `source[issue]` | `object` | Objeto `issue` que ha agregado la referencia cruzada.
 `event` | `string` | El valor del evento es `"cross-referenced"`.
 

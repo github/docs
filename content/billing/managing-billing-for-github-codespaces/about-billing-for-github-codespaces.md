@@ -17,9 +17,9 @@ redirect_from:
 
 ## {% data variables.product.prodname_github_codespaces %} pricing
 
-{% data variables.product.prodname_github_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage. 
+{% data variables.product.prodname_github_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_github_codespaces %} usage. 
 
-{% data variables.product.prodname_codespaces %} usage is billed according to the units of measure in the following table:
+{% data variables.product.prodname_github_codespaces %} usage is billed according to the units of measure in the following table:
 
 | Product             | SKU      | Unit of measure | Price |
 | ------------------- | -------- | --------------- | ----- |
@@ -37,7 +37,7 @@ redirect_from:
 Your {% data variables.product.prodname_github_codespaces %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
 {% endif %}
 
 {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
@@ -52,7 +52,7 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
 
 {% data reusables.codespaces.exporting-changes %}
 
@@ -66,7 +66,7 @@ Organization owners can create a policy to restrict the machine types that are a
 
 ## How billing is handled for forked repositories
 
-{% data variables.product.prodname_codespaces %} can only be used in organizations where a billable owner has been defined. To incur charges to the organization, the user must be a member or collaborator, otherwise they cannot create a codespace. 
+{% data variables.product.prodname_github_codespaces %} can only be used in organizations where a billable owner has been defined. To incur charges to the organization, the user must be a member or collaborator, otherwise they cannot create a codespace. 
 
 For example, a user in a private organization can fork a repository within that organization, and can subsequently use a codespace billed to the organization; this is because the organization is the owner of the parent repository, which can remove the user's access, the forked repository, and the codespace.
   

@@ -12,10 +12,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: ddbe9552b1520f2238e531afca06e449ba2f2ff8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145093904'
 ---
 Nós tornamos o GitHub Services obsoletos em favor da integração com webhooks. Este guia ajuda você a fazer a transição para webhooks dos serviços do GitHub. Para obter mais informações sobre esse comunicado, confira a [postagem no blog](https://developer.github.com/changes/2018-10-01-denying-new-github-services).

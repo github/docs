@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: b2f91982841899ea65993a71edec22ee264e1aad
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065228"
 ---
 Você pode criar até dez camadas únicas de patrocínio e dez camadas mensais para os patrocinadores escolherem. Cada camada tem seu próprio valor de pagamento mensal em dólar e você pode escolher habilitar camadas para valores personalizados. Além disso, você pode optar por habilitar as camadas para quantidades personalizadas (mensais e únicas).

@@ -311,7 +311,18 @@ Anonymous Git read access is disabled by default.{% ifversion ghes = 3.4 or ghes
 The unauthenticated git protocol on port 9418 is no longer supported.
 ```
 
-If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
+{% ifversion ghes > 3.5 %}
+
+If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. Run the following commands after your upgrade:
+
+```ShellSession
+$ sudo ghe-config app.gitauth.git-protocol true
+$ sudo ghe-config-apply
+```
+
+{% endif %}
+
+Anonymous Git read access will be entirely removed in a future release of {% data variables.product.prodname_ghe_server %}. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. For more information about this change, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
 
 {% endif %}
 

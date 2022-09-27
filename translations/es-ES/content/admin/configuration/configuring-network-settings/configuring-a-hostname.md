@@ -13,16 +13,18 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
-ms.openlocfilehash: 120827f8eca8061d90d397a7e2a21d46ae33f243
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: a12955707c3ebcfbb65e5be8053ea0b62bc82072
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '146681321'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147723237'
 ---
 Si configura un nombre del host en lugar de una dirección IP codificada de forma rígida, podrá cambiar el hardware físico que ejecuta {% data variables.product.product_location %} sin que los usuarios ni el software cliente se vean afectados.
 
-La configuración del nombre de host en la {% data variables.enterprise.management_console %} debe ajustarse a un nombre de dominio adecuado y que cumpla con todos los requisitos (FQDN) el cual se pueda resolver en la internet o dentro de tu red interna. Por ejemplo, el valor de nombre de host podría ser `github.companyname.com.`. Las solicitudes web y de API se redirigirán automáticamente al nombre de host configurado en la {% data variables.enterprise.management_console %}. Ten en cuenta que `localhost` no es una configuración válida de nombre de host.
+La configuración del nombre de host en la {% data variables.enterprise.management_console %} debe ajustarse a un nombre de dominio adecuado y que cumpla con todos los requisitos (FQDN) el cual se pueda resolver en la internet o dentro de tu red interna. Por ejemplo, el valor de nombre de host podría ser `github.companyname.com.`. Las solicitudes web y de API se redirigirán automáticamente al nombre de host configurado en la {% data variables.enterprise.management_console %}. Ten en cuenta que `localhost` no es una configuración válida de nombre de host. 
+
+Los nombres de host deben tener menos de 63 caracteres según la [Sección 2.3.4 de la RFC de especificación de nombres](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4) de dominio.
 
 Después de que configuras un nombre de host, puedes habilitar el aislamiento de subdominios para incrementar la seguridad de {% data variables.product.product_location %} aún más. Para más información, vea "[Habilitación del aislamiento de subdominios](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)".
 

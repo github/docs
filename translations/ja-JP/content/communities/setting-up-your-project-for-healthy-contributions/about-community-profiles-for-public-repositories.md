@@ -12,10 +12,10 @@ topics:
   - Community
 shortTitle: Community profiles
 ms.openlocfilehash: 08a993bd20a63d21c156a80b0d46d19e1735d68b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145090219'
 ---
 コミュニティプロフィールチェックリストは、README、CODE_OF_CONDUCT、LICENSE、CONTRIBUTING といった推奨されるコミュニティ健全性ファイル群が、サポートされている場所でプロジェクトに含まれているかをチェックします。 詳細については、「[プロジェクトのコミュニティ プロファイルへのアクセス](/articles/accessing-a-project-s-community-profile)」を参照してください。

@@ -22,10 +22,10 @@ topics:
   - User account
 shortTitle: Locked account
 ms.openlocfilehash: e9b51d82dcd2f184003add575338625ea01fa1df
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145091620'
 ---
 Puedes desbloquear y acceder a tu cuenta si actualizas el método de pago de tu organización y el estado final del pago. No te pediremos que pagues el tiempo transcurrido en modo bloqueado.

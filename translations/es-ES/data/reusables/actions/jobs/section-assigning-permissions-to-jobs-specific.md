@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 7013bd204f8af1a27bbba837fda49eb7fbfe779b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145092089"
 ---
 Para un trabajo concreto, puede usar `jobs.<job_id>.permissions` para modificar los permisos predeterminados concedidos a `GITHUB_TOKEN` si se agrega o elimina el acceso según sea necesario, de forma que solo se permita el acceso mínimo necesario. Para más información, vea "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)".

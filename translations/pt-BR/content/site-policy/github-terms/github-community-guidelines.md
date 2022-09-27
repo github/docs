@@ -10,13 +10,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 9ce642d1fad5502d7f38d72a4d12fbbb094a556c
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556430'
 ---
+
 Milhões de desenvolvedores do mundo todo hospedam milhões de projetos – tanto de código aberto quanto fechado – no GitHub. Temos a sorte de poder desempenhar um papel em permitir a colaboração em toda a comunidade de desenvolvedores todos os dias, o que é uma responsabilidade que nós não tratamos levianamente. Juntos, todos nós temos a emocionante oportunidade de fazer desta comunidade algo do qual podemos nos orgulhar.
 
 Nossa base diversificada de usuários traz diferentes perspectivas, ideias e experiências e abrange desde pessoas que criaram seu primeiro projeto “Hello World” na semana passada até os desenvolvedores de software mais conhecidos do mundo. Estamos comprometidos em tornar o GitHub um ambiente que acolhe todas as diversas vozes e perspectivas que nossa comunidade tem a oferecer, mantendo um local seguro para os desenvolvedores fazerem seu melhor trabalho.
@@ -44,7 +39,7 @@ Embora algumas divergências possam ser resolvidas com uma comunicação direta 
 * **Comunique as expectativas** – Os mantenedores podem definir diretrizes específicas da comunidade para ajudar os usuários a entender como interagir com seus projetos, por exemplo, no README de um repositório, [arquivo CONTRIBUTING](/articles/setting-guidelines-for-repository-contributors/), ou [código de conduta específico](/articles/adding-a-code-of-conduct-to-your-project/). Você pode encontrar informações adicionais sobre como construir comunidades [aqui](/communities).
 
 
-* **Modere os comentários** – Usuários com [privilégios de acesso para gravação](/articles/repository-permission-levels-for-an-organization/) em um repositório podem [editar, excluir ou ocultar os comentários de qualquer pessoa](/communities/moderating-comments-and-conversations/managing-disruptive-comments) em commits, solicitações de pull e problemas. Qualquer pessoa com acesso de leitura em um repositório pode visualizar o histórico de edição de um comentário. Autores de comentários e pessoas com acesso para gravação em um repositório também podem excluir informações confidenciais de um [histórico de edições de comentários](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment). Moderar seus projetos pode parecer uma grande tarefa se houver muita atividade, mas você pode [adicionar colaboradores](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) para ajudar você a gerenciar a comunidade.
+* **Modere os comentários** – Usuários com [privilégios de acesso para gravação](/articles/repository-permission-levels-for-an-organization/) em um repositório podem [editar, excluir ou ocultar os comentários de qualquer pessoa](/communities/moderating-comments-and-conversations/managing-disruptive-comments) em commits, solicitações de pull e problemas. Qualquer pessoa com acesso de leitura em um repositório pode visualizar o histórico de edição de um comentário. Autores de comentários e pessoas com acesso para gravação em um repositório também podem excluir informações confidenciais de um [histórico de edições de comentários](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment). Moderar seus projetos pode parecer uma grande tarefa se houver muita atividade, mas você pode [adicionar colaboradores](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) para ajudar você a gerenciar a comunidade.
 
 * **Bloqueie as conversas**  – Se uma discussão sobre um problema, solicitação de pull ou commit sair de controle, fugir do assunto ou violar o código de conduta do projeto ou das políticas do GitHub, proprietários, colaboradores e qualquer outra pessoa com acesso para gravação podem colocar um [bloqueio](/articles/locking-conversations/) temporário ou permanente na conversa.
 

@@ -16,10 +16,10 @@ topics:
   - Ant
 shortTitle: Build & test Java & Ant
 ms.openlocfilehash: d1e73fdce7bf23bf1b86ec3eb4d0f8acd9b6d292
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145091897'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}

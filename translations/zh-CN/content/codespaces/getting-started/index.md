@@ -10,10 +10,10 @@ children:
   - /quickstart
   - /deep-dive
 ms.openlocfilehash: 072764dd2ec164cc97a0699fb7d8821e25b04aab
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147145119'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147887445'
 ---
 

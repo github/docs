@@ -11,10 +11,10 @@ topics:
   - Community
 shortTitle: Add a code of conduct
 ms.openlocfilehash: dcf1e589ae4f803017752f9e919aad304c570fbc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145086535'
 ---
 行为准则定义关于如何参与社区的标准。 它宣示一个尊重所有贡献的包容性环境。 还说明解决项目社区成员间问题的程序。 若要详细了解为何行为准则要定义有关如何参与社区的标准和期望，请参阅[开源指南](https://opensource.guide/code-of-conduct/)。

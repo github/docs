@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c7b1fff2c96137b3deec711f88676546c2cb1305
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145100275"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147876159"
 ---
 1. 在右侧，单击“添加域”。
   ![“页面设置”上的“添加域”按钮](/assets/images/help/pages/verify-add-domain.png)

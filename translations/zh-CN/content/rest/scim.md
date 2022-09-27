@@ -2,7 +2,6 @@
 title: SCIM
 intro: 可使用 SCIM API 控制和管理 GitHub 组织成员访问权限。
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API
@@ -10,11 +9,11 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/scim
 ms.openlocfilehash: 314ed9433ffeb1ef3f189795727a3b654c529c96
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147065120'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883041'
 ---
 ## 关于 SCIM API
 

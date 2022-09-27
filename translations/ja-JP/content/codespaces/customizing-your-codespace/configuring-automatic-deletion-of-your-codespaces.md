@@ -1,7 +1,7 @@
 ---
-title: codespace の自動削除を構成する
+title: Configuring automatic deletion of your codespaces
 shortTitle: Configure automatic deletion
-intro: 使われていない codespace は自動的に削除されます。 停止した codespace を保持する期間は、最大 30 日まで選ぶことができます。
+intro: 'Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,82 +9,78 @@ versions:
 topics:
   - Codespaces
 type: how_to
-ms.openlocfilehash: 886b9207c3637127c1abbe3f3088ae3e69e7a7e1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147110753'
 ---
-既定では、{% data variables.product.prodname_codespaces %} は、停止して、非アクティブな状態で 30 日間が過ぎると、自動的に削除されます。
 
-しかしながら、{% data variables.product.prodname_codespaces %} のストレージ料金が発生するため、{% data variables.product.prodname_github_codespaces %} の個人設定で既定の保持期間を変更して、期間を短縮することをお勧めします。 ストレージ料金の詳しい情報については、「[{% data variables.product.prodname_github_codespaces %} の課金について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)」をご覧ください。
+By default, {% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for 30 days.
+
+However, because {% data variables.product.prodname_github_codespaces %} incurs storage charges, you may prefer to reduce the retention period by changing your default period in your personal settings for {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 {% note %}
 
-**注**: 個人の codespace 保持期間を設定したかどうかにかかわらず、codespace は不要になったら削除することを習慣にすることをお勧めします。 詳細については、「[codespace の削除](/codespaces/developing-in-codespaces/deleting-a-codespace)」を参照してください。
+**Note**: Whether or not you have set a personal codespace retention period, it's a good idea to get into the habit of deleting codespaces that you no longer need. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
 
 {% endnote %}
 
-自動削除は、codespace にプッシュされていない変更が含まれているかどうかに関係なく行われます。 codespace の自動削除を防ぐには、codespace をもう一度開くだけです。 codespace に接続するたびに保持期間がリセットされ、codespace を停止すると、保持期間のカウントダウンが再開されます。
+Automatic deletion happens irrespective of whether a codespace contains unpushed changes. To prevent automatic deletion of a codespace, just open the codespace again. The retention period is reset every time you connect to a codespace, and the retention countdown restarts when the codespace is stopped.
 
-リポジトリが Organaization に属している場合、Organaization 管理者が Organaization 全体の保持期間を設定していることがあります。 この期間の方が個人設定の既定の保持期間より短い場合は、このリポジトリ用に作成した codespace には、Organaization の保持期間が適用されます。 詳しい情報については、「[codespace の保持期間を制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)」をご覧ください。
+If a repository belongs to an organization, the organization admin may have set a retention period for the whole organization. If this period is less than the default retention period in your personal settings then the organization retention period will apply to codespaces you create for this repository. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
-codespace ごとに独自の保持期間があります。 そのため、codespace によって保持期間が異なる場合があります。 たとえば、次の場合です。
-* codespace を作成した後、既定の保持期間を変更し、別の codespace を作成した。
-* codespace を {% data variables.product.prodname_cli %} を使って作成し、異なる保持期間を指定した。
-* Organaization 用の保持期間が構成されている Organaization が所有するリポジトリから codespace を作成した。
+Each codespace has its own retention period. You may, therefore, have codespaces with different rentention periods. For example, if:
+* You created a codespace, changed your default retention period, then created another codespace.
+* You created a codespace using {% data variables.product.prodname_cli %} and specified a different retention period.
+* You created a codespace from an organization-owned repository that has a retention period configured for the organization.
 
 {% note %}
 
-**注**: 保持期間は日数で指定します。 1 日とは、codespace を停止した時点から始まる 24 時間を意味します。
+**Note**: The retention period is specified in days. A day represents a 24-hour period, beginning at the time of day when you stop a codespace.
 
 {% endnote %}
 
 {% webui %}
 
-## codespace の既定の保持期間を設定する
+## Setting a default retention period for your codespaces
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
-1. [既定の保持期間] に、停止後に codespace を保持する既定の日数を入力します。 
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
+1. Under "Default retention period", enter the number of days for which you want your codespaces to be retained, by default, after they have been stopped. 
 
-   ![保持期間を選ぶ](/assets/images/help/codespaces/setting-default-retention.png)
+   ![Selecting your retention period](/assets/images/help/codespaces/setting-default-retention.png)
 
-   既定の保持期間は `0` から `30` 日の間で設定できます。 
+   You can set your default retention period between `0` and `30` days. 
 
    {% warning %}
 
-   **警告**: 期間を `0` に設定すると、codespace は、停止したとき、または非アクティブのためにタイムアウトしたとき、即座に削除されます。 詳しい情報については、「[{% data variables.product.prodname_github_codespaces %} のタイムアウト期間を設定する](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)」をご覧ください。
+   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
    {% endwarning %}
  
-1. **[保存]** をクリックします。
+1. Click **Save**.
 
-codespace を {% data variables.product.prodname_cli %} を使って作成する場合は、この既定値をオーバーライドできます。 より短い保持期間を指定する Organaization で codespace を作成した場合、個人設定は、Organaization レベルの値によってオーバーライドされます。
+When you create a codespace using {% data variables.product.prodname_cli %} you can override this default. If you create a codespace in an organization that specifies a shorter retention period, the organization-level value overrides your personal setting.
 
-1 日を超える保持期間を設定すると、削除の 1 日前にメール通知を受け取ります。 
+If you set a retention period of more than a day, you'll be sent an email notification one day prior to its deletion. 
 
-## 自動削除までの残り時間を確認する
+## Checking the remaining time until autodeletion
 
-codespace が間もなく自動的に削除される予定かどうかを確認できます。 
+You can check whether a codespace is due to be automatically deleted soon. 
 
-非アクティブな codespace の保持期間が終わりに近づくと、{% data variables.product.prodname_dotcom %} の codespace のリスト ([https://github.com/codespaces](https://github.com/codespaces)) にその旨が示されます。
+When an inactive codespace is approaching the end of its retention period, this is indicated in your list of codespaces on {% data variables.product.prodname_dotcom %} at [https://github.com/codespaces](https://github.com/codespaces).
 
-![{% data variables.product.prodname_dotcom %} の codespace リストに表示されている削除前のメッセージ](/assets/images/help/codespaces/retention-deletion-message.png)
+![The pre-deletion message in the codespaces list on {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/retention-deletion-message.png)
 
 {% endwebui %}
 
 {% cli %}
 
-## codespace の保持期間を設定する
+## Setting a retention period for a codespace
 
-codespace の作成時に codespace 保持期間を設定するには、`codespace create` サブコマンドで `--retention-period` フラグを使います。 期間を日数で指定します。 0 から 30 日の期間を指定してください。
+To set the codespace retention period when you create a codespace, use the `--retention-period` flag with the `codespace create` subcommand. Specify the period in days. The period must be between 0 and 30 days.
 
 ```shell
 gh codespace create --retention-period DAYS
 ```
 
-codespace の作成時に保持期間を指定しない場合は、既定の保持期間と Organaization の保有期間のどちらか短い方が使われます。 既定の保持期間の設定の詳しい情報については、このページの [Web ブラウザー] タブをクリックしてください。 
+If you don't specify a retention period when you create a codespace, then either your default retention period, or an organization retention period, will be used, depending on which is lower. For information about setting your default retention period, click the "Web browser" tab on this page. 
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -92,20 +88,20 @@ codespace の作成時に保持期間を指定しない場合は、既定の保�
 
 {% vscode %}
 
-## 保持期間を設定する
+## Setting the retention period
 
-既定の保持期間は、Web ブラウザー内の {% data variables.product.prodname_dotcom_the_website %} で設定できます。 また、codespace を {% data variables.product.prodname_cli %} を使って作成する場合は、その特定の codespace の保持期間を設定できます。 詳しい情報については、上記の該当するタブをクリックしてください。
+You can set your default retention period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a retention period for that particular codespace. For more information, click the appropriate tab above.
 
-## codespace が間もなく自動削除されるかどうかを確認する
+## Checking whether codespaces will be autodeleted soon
 
-{% data variables.product.prodname_vscode %} デスクトップ アプリケーションで、codespace が間もなく自動的に削除される予定かどうかを確認できます。
+You can check, in the {% data variables.product.prodname_vscode %} desktop application, whether a codespace is due to be automatically deleted soon.
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. まだ選んでいない場合は、リモート エクスプローラーの右上にあるドロップダウン メニューから **{% data variables.product.prodname_github_codespaces %}** を選びます。
-1. [GitHub Codespaces] の下で、目的の codespace の上にマウス ポインターを置きます。 codespace に関する情報を示すポップアップ ボックスが表示されます。
+1. Choose **{% data variables.product.prodname_github_codespaces %}** from the drop-down menu at the top right of the Remote Explorer, if it is not already selected.
+1. Under "GITHUB CODESPACES," position the mouse pointer over the codespace that you're interested in. A pop-up box is displayed showing you information about the codespace.
 
-   codespace の保持期間が終わりに近づいている場合は、codespace がいつ削除されるのかを通知する行が含まれます。
+   If the codespace is nearing the end of its retention period, a line is included telling you when the codespace will be deleted.
 
-   ![削除までの時間を示す codespace 情報](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
+   ![Codespace information showing the time until deletion](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
 
 {% endvscode %}

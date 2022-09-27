@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 130c705dad9367dbecb144ac281e8e58fa6d6cb7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145097387"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147880370"
 ---
 如果您使用允许列表，还可以选择将为企业中安装的 {% data variables.product.prodname_github_apps %} 配置的任何 IP 地址自动添加到允许列表中。 
 

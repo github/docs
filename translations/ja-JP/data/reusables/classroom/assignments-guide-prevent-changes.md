@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 8786abf5810480e3b42b2116a695cf6f4a117182
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145115789"
 ---
 自動採点のためのテストを含むファイルや、課題のリポジトリ中の他の重要なファイルを学生が変更できないようにすることができます。

@@ -8,13 +8,8 @@ topics:
 redirect_from:
   - /github/site-policy/github-government-takedown-policy
   - /github/site-policy/github-terms-and-other-site-policies/github-government-takedown-policy
-ms.openlocfilehash: e3d0c85171d649c94a7c2ab5934d58fdcfff6181
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556446'
 ---
+
 ## <a name="what-is-this"></a>O que é isso?
 De tempos em tempos, o GitHub recebe solicitações por parte de governos para remover conteúdo que foi declarado ilegal em sua jurisdição local. Embora nem sempre concordemos com essas leis, talvez seja necessário bloquear o conteúdo se recebermos uma solicitação completa de um funcionário do governo para que nossos usuários nessa jurisdição continuem a ter acesso ao GitHub para colaborar e criar software.
 

@@ -14,10 +14,10 @@ topics:
   - Sponsors profile
 shortTitle: Manage payment tiers
 ms.openlocfilehash: 4ff2d3731483075afc23da403e62f1682c6dd6c7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145130040'
 ---
 ## 关于赞助等级

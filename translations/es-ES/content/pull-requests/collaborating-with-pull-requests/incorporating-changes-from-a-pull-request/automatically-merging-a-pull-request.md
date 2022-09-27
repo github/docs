@@ -14,14 +14,14 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request
 shortTitle: Merge PR automatically
-ms.openlocfilehash: bdba774e193661f630dd35b034d0a4454ec5c1ee
-ms.sourcegitcommit: da73949b8f8bd71d40247f1f9c49f8f4c362ecd0
+ms.openlocfilehash: 07069657c870751849d3b7e80c7817f908c2bda5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2022
-ms.locfileid: '147431948'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147770917'
 ---
-## <a name="about-auto-merge"></a>Acerca de la fusión automática
+## Acerca de la fusión automática
 
 Si habilitas la fusión automática para una solicitud de cambios, ésta se fusionará automáticamente cuando se cumplan todas las revisiones requeridas y cuando todas las verificaciones de estado hayan pasado. La fusión automática te evita el esperar a que los requisitos se cumplan para que puedas continuar con otras tareas.
 
@@ -31,7 +31,7 @@ Después de que habilitas la fusión automática para una solicitud de cambios, 
 
 Puedes proporcionar comentarios sobre la combinación automática mediante un [debate de {% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/pull-requests).
 
-## <a name="enabling-auto-merge"></a>Habilitar la fusión automática
+## Habilitar la fusión automática
 
 {% data reusables.pull_requests.auto-merge-requires-branch-protection %}
 
@@ -53,7 +53,7 @@ Las personas con permisos de escritura en un repositorio pueden habilitar la fus
    ![Campos para introducir el mensaje y descripción de la confirmación](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png) {% endif %}
 1. Haga clic en **Confirm auto-merge** (Confirmar combinación automática).
 
-## <a name="disabling-auto-merge"></a>Inhabilitar la fusión automática
+## Inhabilitar la fusión automática
 
 Las personas con permisos de escritura en un repositorio y los autores de la solicitud de cambios pueden inhabilitar la fusión automática en estas solicitudes.
 

@@ -1,6 +1,6 @@
 ---
-title: 管理分支保护规则
-intro: 可创建分支保护规则，为一个或多个分支强制实施某些工作流，例如要求进行审批评审或通过状态检查来确保所有拉取请求都已合并到受保护的分支的。
+title: Managing a branch protection rule
+intro: 'You can create a branch protection rule to enforce certain workflows for one or more branches, such as requiring an approving review or passing status checks for all pull requests merged into the protected branch.'
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/configuring-protected-branches
@@ -27,102 +27,117 @@ permissions: People with admin permissions to a repository can manage branch pro
 topics:
   - Repositories
 shortTitle: Branch protection rule
-ms.openlocfilehash: aed3ab7599d8c74c16d95e4667e94aa3264c9491
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147614173'
 ---
-## 关于分支保护规则
+## About branch protection rules
 
 {% data reusables.repositories.branch-rules-example %}
 
-可以使用通配符语法 `*` 为存储库中所有当前和未来的分支创建规则。 由于 {% data variables.product.company_short %} 对 `File.fnmatch` 语法使用 `File::FNM_PATHNAME` 标志，因此通配符与目录分隔符 (`/`) 不匹配。 例如，`qa/*` 将匹配所有以 `qa/` 开头并包含单个斜杠的分支。 可以用 `qa/**/*` 包含多个斜杠，也可以用 `qa**/**/*` 扩展 `qa` 字符串，以使规则更具包容性。 有关分支规则语法选项的详细信息，请参阅 [fnmatch 文档](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch)。
+You can create a rule for all current and future branches in your repository with the wildcard syntax `*`. Because {% data variables.product.company_short %} uses the `File::FNM_PATHNAME` flag for the `File.fnmatch` syntax, the wildcard does not match directory separators (`/`). For example, `qa/*` will match all branches beginning with `qa/` and containing a single slash. You can include multiple slashes with `qa/**/*`, and you can extend the `qa` string with `qa**/**/*` to make the rule more inclusive. For more information about syntax options for branch rules, see the [fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
 
-如果仓库有多个影响相同分支的受保护分支规则，则包含特定分支名称的规则具有最高优先级。 如果有多个受保护分支规则引用相同的特定规则名称，则最先创建的分支规则优先级更高。
+If a repository has multiple protected branch rules that affect the same branches, the rules that include a specific branch name have the highest priority. If there is more than one protected branch rule that references the same specific branch name, then the branch rule created first will have higher priority.
 
-提及特殊字符的受保护分支规则，如 `*`、`?` 或 `]`，将按其创建的顺序应用，因此含有这些字符的规则创建时间越早，优先级越高。
+Protected branch rules that mention a special character, such as `*`, `?`, or `]`, are applied in the order they were created, so older rules with these characters have a higher priority.
 
-要创建对现有分支规则的例外，您可以创建优先级更高的新分支保护规则，例如针对特定分支名称的分支规则。
+To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name.
 
-有关每个可用分支保护设置的详细信息，请参阅“[关于受保护的分支](/github/administering-a-repository/about-protected-branches)”。
+For more information about each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
-## 创建分支保护规则
+## Creating a branch protection rule
 
-创建分支规则时，指定的分支不必是仓库中现有的分支。
+When you create a branch rule, the branch you specify doesn't have to exist yet in the repository.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %} {% data reusables.repositories.add-branch-protection-rules %} {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5506 %}
-1. （可选）启用所需的拉取请求。
-   - 在“保护匹配分支”下，选择“合并前需要拉取请求”。
-     ![拉取请求审阅限制复选框](/assets/images/help/repository/PR-reviews-required-updated.png)
-   - （可选）若需要在合并拉取请求之前审批，选择“需要审批”，单击“合并前所需的审批数”下拉菜单，然后选择希望分支上要求的审批审阅数 。
-     ![用于选择必需审阅审批数量的下拉菜单](/assets/images/help/repository/number-of-required-review-approvals-updated.png) {% else %}
-1. （可选）启用必需拉取请求审查。
-   - 在“保护匹配分支”下，选择“合并前需要拉取请求审阅”。
-     ![拉取请求审阅限制复选框](/assets/images/help/repository/PR-reviews-required.png)
-   - 单击“必需的审批审阅”下拉菜单，然后选择分支上要求的审批审阅数。 
-     ![用于选择必需审阅审批数量的下拉菜单](/assets/images/help/repository/number-of-required-review-approvals.png) {% endif %}
-   - （可选）若要在将代码修改提交推送到分支时关闭拉取请求审批审阅，选择“推送新提交时关闭旧拉取请求审批”。
-     ![“推送新提交时关闭旧拉取请求审批”复选框](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
-   - （可选）若要在拉取请求影响具有指定所有者的代码时要求代码所有者审阅，请选择“要求代码所有者审阅”。 有关详细信息，请参阅“[关于代码所有者](/github/creating-cloning-and-archiving-repositories/about-code-owners)”。
-     ![要求代码所有者审阅](/assets/images/help/repository/PR-review-required-code-owner.png) {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5611 %}
-   - （可选）若要让特定参与者在需要时将代码推送到分支而不创建拉取请求，选择“允许指定参与者绕过所需的拉取请求”。 然后，搜索并选择应被允许跳过创建拉取请求的参与者。
-     ![“允许特定参与者绕过拉取请求要求”复选框]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %} {% endif %}
-   - （可选）如果存储库是组织的一部分，选择“限制可以关闭拉取请求审阅的人员”。 然后，搜索并选择有权忽略拉取请求审查的参与者。 有关详细信息，请参阅“[关闭拉取请求审阅](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。
-     ![“限制可以关闭拉取请求审查的人员”复选框]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-review-required-dismissals-with-apps.png){% else %}(/assets/images/help/repository/PR-review-required-dismissals.png){% endif %}
-1. （可选）启用必需状态检查。 有关详细信息，请参阅“[关于状态检查](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”。
-   - 选择“合并前需要通过状态检查”。
-     ![必需状态检查选项](/assets/images/help/repository/required-status-checks.png)
-   - （可选）若要确保使用受保护分支上的最新代码测试拉取请求，选择“要求分支在合并前保持最新”。
-     ![宽松或严格的必需状态复选框](/assets/images/help/repository/protecting-branch-loose-status.png)
-   - 搜索状态检查，选择您想要求的检查。
-     ![可用状态检查的搜索界面，以及所需检查的列表](/assets/images/help/repository/required-statuses-list.png)
-1. （可选）选择“合并前需要对话解决”。
-  ![“合并前需要对话解决”选项](/assets/images/help/repository/require-conversation-resolution.png)
-1. （可选）选择“需要签名提交”。
-  ![需要签名提交选项](/assets/images/help/repository/require-signed-commits.png)
-1. （可选）选择“需要线性历史记录”。
-  ![需要线性历史记录选项](/assets/images/help/repository/required-linear-history.png) {%- ifversion fpt or ghec %}
-1. （可选）若要使用合并队列合并拉取请求，选择“需要合并队列”。 {% data reusables.pull_requests.merge-queue-references %} ![需要合并队列选项](/assets/images/help/repository/require-merge-queue.png) {% tip %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+1. Optionally, enable required pull requests.
+   - Under "Protect matching branches", select **Require a pull request before merging**.
+     ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required-updated.png)
+   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch.
+     ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
+{% else %}
+1. Optionally, enable required pull request reviews.
+   - Under "Protect matching branches", select **Require pull request reviews before merging**.
+     ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required.png)
+   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you would like to require on the branch. 
+     ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals.png)
+{% endif %}
+   - Optionally, to dismiss a pull request approval review when a code-modifying commit is pushed to the branch, select **Dismiss stale pull request approvals when new commits are pushed**.
+     ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
+   - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
+     ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+   - Optionally, to allow specific actors to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request.
+     ![Allow specific actors to bypass pull request requirements checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %}
+{% endif %}
+   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the actors who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
+     ![Restrict who can dismiss pull request reviews checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-review-required-dismissals-with-apps.png){% else %}(/assets/images/help/repository/PR-review-required-dismissals.png){% endif %}
+1. Optionally, enable required status checks. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+   - Select **Require status checks to pass before merging**.
+     ![Required status checks option](/assets/images/help/repository/required-status-checks.png)
+   - Optionally, to ensure that pull requests are tested with the latest code on the protected branch, select **Require branches to be up to date before merging**.
+     ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
+   - Search for status checks, selecting the checks you want to require.
+     ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
+1. Optionally, select **Require conversation resolution before merging**.
+  ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
+1. Optionally, select **Require signed commits**.
+  ![Require signed commits option](/assets/images/help/repository/require-signed-commits.png)
+1. Optionally, select **Require linear history**.
+  ![Required linear history option](/assets/images/help/repository/required-linear-history.png)
+{%- ifversion fpt or ghec %}
+1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
+  ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
+  {% tip %}
 
-  **提示：** 拉取请求合并队列功能目前为有限的公开 beta 版本，可能会发生更改。 组织所有者可以通过加入[候补名单](https://github.com/features/merge-queue/signup)来申请提前访问 beta 版。
+  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
 
-  {% endtip %} {%- endif %} {%- ifversion required-deployments %}
-1. （可选）若要选择在合并之前必须将更改成功部署到哪些环境，选择“需要在合并之前部署成功”，然后选择环境。
-   ![需要成功部署选项](/assets/images/help/repository/require-successful-deployment.png) {%- endif %}
-1. （可选）选择“{% ifversion bypass-branch-protections %}不允许绕过上述设置”。
-![“不允许绕过上述设置”复选框](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**会将上述规则应用于管理员**。
-![“将上述规则应用于管理员”复选框](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
-1. （可选）{% ifversion fpt or ghec %}如果你的存储库为使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 的组织所有，{% endif %}请启用分支限制。
-   - 选择“限制可推送到匹配分支的人员”。
-     ![“分支限制”复选框](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
-   - （可选）若要限制匹配分支的创建，请选择“限制创建匹配分支的推送”。
-     ![“分支创建限制”复选框](/assets/images/help/repository/restrict-branch-create.png){% endif %}
-   - 搜索并选择有权限推送到受保护分支或创建匹配分支的人员、团队或应用。
-     ![分支限制搜索]{% ifversion restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
-1. （可选）在“适用于包括管理员在内的所有人的规则”下，选择“允许强制推送”。
-  ![允许强制推送选项](/assets/images/help/repository/allow-force-pushes.png) {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %} 然后，选择可以强制推送到分支的人员。
-    - 选择“所有人”，允许至少具有存储库写入权限的人强制推送到分支，包括具有管理员权限的人员。
-    - 选择“指定可以强制推送的人员”，仅允许特定参与者强制推送到分支。 然后，搜索并选择这些参与者。
-      ![用于指定可以强制推送的人员的选项的屏幕截图]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/allow-force-pushes-specify-who-with-apps.png){% else %}(/assets/images/help/repository/allow-force-pushes-specify-who.png){% endif %} {% endif %}
+  {% endtip %}
+{%- endif %}
+{%- ifversion required-deployments %}
+1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
+   ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
+{%- endif %}
+1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**.
+![Do not allow bypassing the above settings checkbox](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**Apply the rules above to administrators**.
+![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
+1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
+   - Select **Restrict who can push to matching branches**.
+     ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
+   - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
+     ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
+   - Search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
+     ![Branch restriction search]{% ifversion restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
+1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
+  ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+  Then, choose who can force push to the branch.
+    - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+    - Select **Specify who can force push** to allow only specific actors to force push to the branch. Then, search for and select those actors.
+      ![Screenshot of the options to specify who can force push]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/allow-force-pushes-specify-who-with-apps.png){% else %}(/assets/images/help/repository/allow-force-pushes-specify-who.png){% endif %}
+{% endif %}
 
-    有关强制推送的详细信息，请参阅“[允许强制推送](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)”。
-1. （可选）选择“允许删除”。
-  ![允许分支删除选项](/assets/images/help/repository/allow-branch-deletions.png)
-1. 单击“创建”。
+    For more information about force pushes, see "[Allow force pushes](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)."
+1. Optionally, select **Allow deletions**.
+  ![Allow branch deletions option](/assets/images/help/repository/allow-branch-deletions.png)
+1. Click **Create**.
 
-## 编辑分支保护规则
+## Editing a branch protection rule
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %}
-1. 在要编辑的分支保护规则的右侧，单击“编辑”。
-  ![“编辑”按钮](/assets/images/help/repository/edit-branch-protection-rule.png)
-1. 对分支保护规则进行所需的更改。
-1. 单击“保存更改”。 
-  ![“保存更改”按钮](/assets/images/help/repository/save-branch-protection-rule.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+1. To the right of the branch protection rule you want to edit, click **Edit**.
+  ![Edit button](/assets/images/help/repository/edit-branch-protection-rule.png)
+1. Make your desired changes to the branch protection rule.
+1. Click **Save changes**.
+  ![Save changes button](/assets/images/help/repository/save-branch-protection-rule.png)
 
-## 删除分支保护规则
+## Deleting a branch protection rule
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %}
-1. 在要删除的分支保护规则的右侧，单击“删除”。
-    ![“删除”按钮](/assets/images/help/repository/delete-branch-protection-rule.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+1. To the right of the branch protection rule you want to delete, click **Delete**.
+    ![Delete button](/assets/images/help/repository/delete-branch-protection-rule.png)

@@ -17,10 +17,10 @@ topics:
   - Pages
 shortTitle: Add theme to Pages site
 ms.openlocfilehash: 33969695e96aa0629b2811e2742ca3093e58139a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147644792'
 ---
 Pessoas com permissões de gravação para um repositório podem adicionar um tema a um site do {% data variables.product.prodname_pages %} usando Jekyll.

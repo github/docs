@@ -18,10 +18,10 @@ topics:
   - User account
 shortTitle: Downgrade billing plan
 ms.openlocfilehash: c50995729c266cbfdac13b81da4f0ffaa0b4ff85
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145091684'
 ---
 Cuando bajas de categoría una app, tu suscripción permanece activa hasta el final de tu ciclo de facturación actual. El cambio entra en vigencia en tu próxima fecha de facturación. Para más información, vea "[Acerca de la facturación de {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".

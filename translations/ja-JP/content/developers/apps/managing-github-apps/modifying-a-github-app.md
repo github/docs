@@ -13,11 +13,11 @@ versions:
 topics:
   - GitHub Apps
 ms.openlocfilehash: 9038a938d26aa5f1e9ec3cdec6fcecd417f0baf8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146178504'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147885861'
 ---
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.github_apps %} {% data reusables.user-settings.modify_github_app %}
 5. 「Basic information（基本情報）」で、修正したいGitHub Appの情報を変更してください。

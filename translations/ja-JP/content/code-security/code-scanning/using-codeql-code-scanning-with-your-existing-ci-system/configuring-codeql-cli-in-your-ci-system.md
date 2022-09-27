@@ -55,7 +55,7 @@ You can display the command-line help for any command using the <nobr>`--help`</
 2. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see [Creating databases for non-compiled languages](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-non-compiled-languages) and [Creating databases for compiled languages](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-compiled-languages) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 3. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
 4. Run `codeql database create` from the checkout root of your repository and build the codebase.
-  
+
   ```shell
   # Single supported language - create one CodeQL databsae
   codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt;
@@ -64,7 +64,7 @@ You can display the command-line help for any command using the <nobr>`--help`</
   codeql database create &lt;database&gt; --command&lt;build&gt; \
         --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt;
   ```
-  
+
   {% note %}
 
   **Note:** If you use a containerized build, you need to run the {% data variables.product.prodname_codeql_cli %} inside the container where your build task takes place.
@@ -75,9 +75,9 @@ You can display the command-line help for any command using the <nobr>`--help`</
 |--------|:--------:|-----|
 | `<database>` | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed.|
 | <nobr>`--language`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: `{% data reusables.code-scanning.codeql-languages-keywords %}` (use `javascript` to analyze TypeScript code). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once.
-| <nobr>`--command`</nobr> | | Recommended. Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <nobr>`--source-root`</nobr>. Not needed for Python and JavaScript/TypeScript analysis. | 
+| <nobr>`--command`</nobr> | | Recommended. Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <nobr>`--source-root`</nobr>. Not needed for Python and JavaScript/TypeScript analysis. |
 | <nobr>`--db-cluster`</nobr> | | Optional. Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>.
-| <nobr>`--no-run-unnecessary-builds`</nobr> | | Recommended. Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript). 
+| <nobr>`--no-run-unnecessary-builds`</nobr> | | Recommended. Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript).
 | <nobr>`--source-root`</nobr> | | Optional. Use if you run the CLI outside the checkout root of the repository. By default, the `database create` command assumes that the current directory is the root directory for the source files, use this option to specify a different location. |{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | <nobr>`--codescanning-config`</nobr> | | Optional (Advanced). Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see "[Using a custom configuration file](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-a-custom-configuration-file)" and "[database create](https://codeql.github.com/docs/codeql-cli/manual/database-create/#cmdoption-codeql-database-create-codescanning-config)." |{% endif %}
 
@@ -275,6 +275,10 @@ If you want to download a {% data variables.product.prodname_codeql %} pack with
 ```shell
 echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download &lt;scope/name@version:path&gt; &lt;scope/name@version:path&gt; ...
 ```
+
+### Downloading {% data variables.product.prodname_codeql %} packs from multiple {% data variables.product.company_short %} container registries
+
+If your {% data variables.product.prodname_codeql %} packs reside on multiple container registries, then you must instruct the {% data variables.product.prodname_codeql_cli %} where to find each pack. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors#downloading-codeql-packs-from-github-enterprise-server)."
 {% endif %}
 
 ## Example CI configuration for {% data variables.product.prodname_codeql %} analysis
@@ -331,3 +335,4 @@ If you want to upload more than one set of results to the {% data variables.prod
 
 - [Creating CodeQL databases](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/)
 - [Analyzing databases with the CodeQL CLI](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/)
+- [Publishing and using CodeQL packs](https://codeql.github.com/docs/codeql-cli/publishing-and-using-codeql-packs/)

@@ -1,7 +1,7 @@
 ---
 title: Setting your timeout period for GitHub Codespaces
 shortTitle: Set the timeout
-intro: 'You can set your default timeout for {% data variables.product.prodname_codespaces %} in your personal settings page.'
+intro: 'You can set your default timeout for {% data variables.product.prodname_github_codespaces %} in your personal settings page.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

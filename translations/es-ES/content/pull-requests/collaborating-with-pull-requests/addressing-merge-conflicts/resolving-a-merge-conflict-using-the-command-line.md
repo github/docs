@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts in Git
 ms.openlocfilehash: 1d4ff97c2a93d3e5a7aebaa8752810e284203bc1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145137829'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883461'
 ---
 Los conflictos de fusión ocurren cuando se hacen cambios contrapuestos en la misma línea de un archivo o cuando una persona edita un archivo y otra persona borra el mismo archivo. Para más información, vea "[Acerca de los conflictos de combinación](/articles/about-merge-conflicts/)".
 

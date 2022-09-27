@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 9b90e569cabf47b836fd473161b38a362e54280f
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556475'
 ---
+
 **短版本：**_我们托管全球各地大量的协作项目，仅当用户能够诚信合作时，该协作才能正常进行。在使用服务时，您必须遵守我们的《可接受使用政策》，其中包括对 GitHub 上的内容和行为的一些限制，这些限制与用户安全、知识产权、隐私、真实性和其他限制有关。简言之，要善待彼此。_
 
 《可接受使用政策》中使用但未定义的重要术语具有我们的[服务条款](/articles/github-terms-of-service)、[公司服务条款](/articles/github-corporate-terms-of-service)和[隐私声明](/articles/github-privacy-statement)中赋予它们的含义。 对于受[公司服务条款](/articles/github-corporate-terms-of-service)约束的客户，“您”是指“客户”或“用户”。 “我们”是指“GitHub”。
@@ -86,19 +81,19 @@ ms.locfileid: '144556475'
 
 爬取是指通过自动化过程（如自动程序或网络爬虫）从我们的服务中提取数据。 爬取不是指通过我们的 API 收集信息。 有关我们的 API 条款，请参阅我们[服务条款](/articles/github-terms-of-service#h-api-terms)的第 H 节。 
 
-不得将服务中的信息（无论是爬取、通过我们的 API 收集还是以其他方式获取）用于垃圾邮件目的，包括向用户发送未经请求的电子邮件或出售用户个人信息（定义见 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)），例如向招聘人员、猎头或职介所出售此类信息。
+不得将服务中的信息（无论是爬取、通过我们的 API 收集还是以其他方式获取）用于垃圾邮件目的，包括向用户发送未经请求的电子邮件或出售个人信息，例如向招聘人员、猎头或职介所出售此类信息。
 
 对服务信息的使用必须遵守 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)。
 
 ## <a name="8-privacy"></a>8.隐私
-禁止滥用用户个人信息。
+禁止滥用个人信息。
 
-任何个人、实体或服务从服务收集数据都必须遵守 [GitHub 隐私声明](/articles/github-privacy-statement)，特别是收集用户个人信息时。 如果从服务收集任何用户个人信息，则您同意只将该用户个人信息用于该用户授权的用途。 您同意，您将合理保护从服务收集的任何用户个人信息，并且及时响应投诉、删除要求和“请勿联系”要求。
+任何个人、实体或服务从服务收集数据都必须遵守 [GitHub 隐私声明](/articles/github-privacy-statement)，特别是收集个人信息时。 如果从服务收集任何个人信息，则您同意只将该个人信息用于该用户授权的目的。 您同意将合理保护从服务收集的任何个人信息，并且及时响应投诉、删除要求和“请勿联系”要求。
 
 ## <a name="9-excessive-bandwidth-use"></a>9.过度带宽使用
 服务的带宽限制因您使用的功能而异。 如果我们确定您的带宽使用相对于其他功能类似的用户明显过多，我们有权利暂停您的帐户、限制您的文件托管或限制您的活动，直到您可以减少带宽的使用。 我们还保留在提前通知后删除我们认为对我们基础结构造成不当压力的存储库的权利。 如需获取针对可接受的存储库对象存储使用情况的指导，请参阅“[我的磁盘配额是多少？](/github/managing-large-files/what-is-my-disk-quota)”。 有关特定功能的带宽限制的更多详细信息，请参阅 [GitHub 附加产品条款](/github/site-policy/github-additional-product-terms)。
 
-## <a name="10-advertising-on-github"></a>10.GitHub 上的广告
+## <a name="10-advertising-on-github"></a>10. GitHub 上的广告
 **短版本：** *我们一般不禁止使用 GitHub 发布广告。但我们期望用户遵守某些限制，以免 GitHub 成为垃圾邮件避风港。没人希望那样。*
 
 我们理解，您可能想通过在帐户中发布支持者的姓名或徽标来推广您的内容，但在帐户中或通过帐户发布到服务的内容不应侧重于广告或促销。 这包括在页面、包、存储库和服务所有其他部分或者通过它们发布的内容。 您可在与您的帐户关联的自述文件中或项目说明部分包含静态图像、链接和宣传文本，但它们必须与您在 GitHub 上托管的项目相关。 您不能在其他用户的帐户中发布广告，例如在议题中发布货币化或过多的批量内容。
@@ -114,6 +109,6 @@ ms.locfileid: '144556475'
 
 ---
 
-**执行。** GitHub 保留完全酌情权，可针对违反这些政策的行为[采取行动](/github/site-policy/github-community-guidelines#what-happens-if-someone-violates-githubs-policies)，包括帐户暂停、帐户[终止](/github/site-policy/github-terms-of-service#3-github-may-terminate)或[删除内容](/github/site-policy/github-terms-of-service#2-github-may-remove-content)。 另请参阅我们的[社区准则](/site-policy/github-terms/github-community-guidelines)，了解当有人冒犯您时您可以采取的措施。
+**强制。** GitHub 保留完全酌情权，可针对违反这些政策的行为[采取行动](/github/site-policy/github-community-guidelines#what-happens-if-someone-violates-githubs-policies)，包括帐户暂停、帐户[终止](/github/site-policy/github-terms-of-service#3-github-may-terminate)或[删除内容](/github/site-policy/github-terms-of-service#2-github-may-remove-content)。 另请参阅我们的[社区准则](/site-policy/github-terms/github-community-guidelines)，了解当有人冒犯您时您可以采取的措施。
 
 **恢复和申诉。** 如果您的内容或帐户已被禁用或限制，而您希望恢复或提出申诉，请参阅我们的[申诉和恢复页面](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement)，了解流程信息，并使用我们的[申诉和恢复表单](https://support.github.com/contact/reinstatement)提交申请。

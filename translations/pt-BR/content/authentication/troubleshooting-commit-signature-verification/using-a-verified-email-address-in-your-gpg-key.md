@@ -15,10 +15,10 @@ topics:
   - Access management
 shortTitle: Use verified email in GPG key
 ms.openlocfilehash: bb9f4fbbfdb70ba55870ab068a33c566791fbaf2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145083566'
 ---
 {% ifversion fpt or ghec %} Caso precise verificar seu endereço de email do GitHub, confira "[Como verificar seu endereço de email](/articles/verifying-your-email-address/)". {% endif %}Caso precise atualizar ou adicionar um endereço de email à sua chave GPG, confira "[Como associar um email à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)".

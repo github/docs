@@ -11,10 +11,10 @@ topics:
   - Community
 shortTitle: Add a code of conduct
 ms.openlocfilehash: dcf1e589ae4f803017752f9e919aad304c570fbc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145092360'
 ---
 Un *código de conducta* define las normas para participar en una comunidad. Señala un entorno inclusivo que respeta todas las contribuciones. También describe los procedimientos para tratar problemas de tus proyectos entre los miembros de la comunidad. Para obtener más información sobre por qué un código de conducta define los estándares y las expectativas de participación en una comunidad, consulte la [Guía de código abierto](https://opensource.guide/code-of-conduct/).

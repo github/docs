@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: d48a18256fab3ba4064123ef7b7ff9cdba11b9e8
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556479'
 ---
+
 本承诺适用于 GitHub 对 Git、Linux 内核以及涵盖许可（具体定义请滚动到最后的定义部分）下其他程序的贡献。
 
 我们的声明基于公司[模板](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md)。 有关其他公司、个人和项目如何采用本承诺，请参阅 [GPL 合作承诺网站](https://gplcc.github.io/gplcc/)。

@@ -13,10 +13,10 @@ topics:
   - Marketplace
 shortTitle: Plan cancellations
 ms.openlocfilehash: 253506f1ac32f55649dd533559a7a16508cca98f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145083927'
 ---
 Para obter mais informações sobre o cancelamento no que diz respeito à cobrança, confira "[Cobrança de clientes no {% data variables.product.prodname_marketplace %}](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)".

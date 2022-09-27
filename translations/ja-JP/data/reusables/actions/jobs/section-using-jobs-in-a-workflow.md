@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 2bdab95a93e5eff4bc68d8da73fd9d7d9a93580a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145089439"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879704"
 ---
 ワークフロー実行は、既定で並列実行される 1 つ以上の `jobs` で構成されます。 ジョブを順番に実行するには、`jobs.<job_id>.needs` キーワードを使用して他のジョブへの依存関係を定義できます。
 

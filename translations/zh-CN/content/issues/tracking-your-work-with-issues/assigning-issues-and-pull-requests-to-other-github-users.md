@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Assign issues & PRs
 ms.openlocfilehash: 0e1f4029ddcd180e892e43257ae3a75d0046ce1d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 219fb805abddaef3e5547638bd798da890020bfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128748'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876007'
 ---
 ## 关于议题和拉取请求受理人
 

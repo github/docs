@@ -11,10 +11,10 @@ topics:
   - Community
 shortTitle: Unblock from your org
 ms.openlocfilehash: 0c7099c21e3342717605f59a94e0025a7949b1cc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145117665'
 ---
 Después de desbloquear un usuario desde tu organización, este podrá contribuir con los repositorios de tu organización.

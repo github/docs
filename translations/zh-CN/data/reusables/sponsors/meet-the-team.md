@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 5be40face9f4c5afa8f00161e518a8a8f1e1a8e8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145129514"
 ---
 1. （可选）选择在您的 {% data variables.product.prodname_sponsors %} 个人资料中突出显示的组织成员。

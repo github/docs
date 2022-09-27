@@ -1,5 +1,13 @@
-1. In {% data variables.product.prodname_vscode_shortname %}, in the left sidebar, click the Remote Explorer icon.
+---
+ms.openlocfilehash: 008615ba94fed6838f09aa137e6da23e89168573
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147682484"
+---
+1. Em {% data variables.product.prodname_vscode_shortname %}, na barra lateral esquerda, clique no ícone do Gerenciador Remoto.
 
-   ![The Remote Explorer icon in {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-remote-explorer-icon-vscode.png)
+   ![O ícone do Remote Explorer no {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-remote-explorer-icon-vscode.png)
 
 {% indented_data_reference reusables.codespaces.remote-explorer spaces=3 %}

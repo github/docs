@@ -1,54 +1,52 @@
 ---
-title: GitHub Copilot サブスクリプションの管理
-intro: '{% data variables.product.prodname_copilot %} 試用版を設定し、サブスクリプションを管理します。'
+title: Managing your GitHub Copilot subscription
+intro: 'Set up your {% data variables.product.prodname_copilot %} trial and manage your subscription.'
+product: '{% data reusables.gated-features.copilot-billing %}'
 versions:
   feature: copilot
 type: how_to
 topics:
   - Copilot
 shortTitle: Your GitHub Copilot subscription
-ms.openlocfilehash: 9cdd9e46dcbfe433f5d0b6ba25bda4c798dca06b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080260'
 ---
-## {% data variables.product.prodname_copilot %} の試用版の設定 
+
+## Setting up a trial of {% data variables.product.prodname_copilot %} 
 
 {% data reusables.copilot.signup-procedure %}
 
-## {% data variables.product.prodname_copilot %} サブスクリプションの変更
+## Modifying your {% data variables.product.prodname_copilot %} subscription
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
-1. [{% data variables.product.prodname_copilot %}] セクションで、 **[編集]** ドロップダウンを選びます。
-   - 月単位の請求サイクルを使用している場合は、 **[年間の支払いへの変更]** を選びます。
-   - 年単位の請求サイクルを使用している場合は、 **[月間の支払いへの変更]** を選びます。
-   ![[編集] ドロップダウンが強調された課金ページの GitHub Copilot セクションのスクリーンショット](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
+1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
+   - If you are on a monthly billing cycle, select **Change to yearly billing**.
+   - If you are on a yearly billing cycle, select **Change to monthly billing**.
+   ![Screenshot of GitHub Copilot section on billing page with edit dropdown emphasized](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
    
 
-## {% data variables.product.prodname_copilot %} サブスクリプションの取り消し
+## Canceling your {% data variables.product.prodname_copilot %} subscription
 
-{% data variables.product.prodname_copilot %} サブスクリプションはいつでも取り消すことができます。 60 日間の試用期間中に取り消す場合は、課金されません。 60 日間の試用期間が終了する前に {% data variables.product.prodname_copilot %} サブスクリプションを取り消さない場合は、試用版の設定時に選んだ請求サイクルに従って課金されます。
+You can cancel your {% data variables.product.prodname_copilot %} subscription at any time. If you cancel during your 60 day trial, you won't be charged. If you do not cancel your {% data variables.product.prodname_copilot %} subscription before the end of the 60 day trial, you will be charged according to the billing cycle you selected when setting up the trial.
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
-1. [{% data variables.product.prodname_copilot %}] セクションで、 **[編集]** ドロップダウンを選びます。
-   - 有料サブスクリプションをお持ちの場合は、 **[{% data variables.product.prodname_copilot %} の取り消し]** をクリックします。
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
+1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
+   - If you have a paid subscription, click **Cancel {% data variables.product.prodname_copilot %}**.
    
-   ![[GitHub Copilot の取り消し] オプションが強調された課金ページの GitHub Copilot セクションのスクリーンショット](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
+   ![Screenshot of GitHub Copilot section on billing page with cancel GitHub Copilot option emphasized](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
 
-   - 試用期間が 60 日以内の場合は、 **[試用版の取り消し]** をクリックします。
-   ![[試用版の取り消し] オプションが強調された課金ページの GitHub Copilot セクションのスクリーンショット](/assets/images/help/copilot/copilot-cancel-trial.png)
+   - If you are within your 60 day trial period, click **Cancel trial**.
+   ![Screenshot of GitHub Copilot section on billing page with cancel trial option emphasized](/assets/images/help/copilot/copilot-cancel-trial.png)
 
-2. [{% data variables.product.prodname_copilot %} の取り消し] モーダルで、 **[わかりました。{% data variables.product.prodname_copilot %} を取り消します]** をクリックします
+2. In the "Cancel {% data variables.product.prodname_copilot %}" modal, click **I understand, cancel {% data variables.product.prodname_copilot %}**
 
-   ![[わかりました。GitHub Copilot を取り消します] ボタンが強調された GitHub Copilot の取り消しモーダルのスクリーンショット](/assets/images/help/copilot/copilot-cancel-modal.png)
+   ![Screenshot of GitHub Copilot cancel modal with I understand, cancel GitHub Copilot button emphasized](/assets/images/help/copilot/copilot-cancel-modal.png)
 
-   - 試用期間が 60 日以内の場合は、 **[わかりました。{% data variables.product.prodname_copilot %} 試用版を取り消します]** をクリックします。
+   - If you are within your 60 day trial period, click **I understand, cancel {% data variables.product.prodname_copilot %} trial**.
 
-   ![[わかりました。GitHub Copilot を取り消します] ボタンが強調された GitHub Copilot の試用版の取り消しモーダルのスクリーンショット](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
+   ![Screenshot of GitHub Copilot cancel trial modal with I understand, cancel trial button emphasized](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
 
-## 参考資料
+## Further reading
 
-- [{% data variables.product.prodname_copilot %} について](/copilot/overview-of-github-copilot/about-github-copilot)
-- [{% data variables.product.prodname_copilot %} の概要](/copilot/getting-started-with-github-copilot)
+- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)
