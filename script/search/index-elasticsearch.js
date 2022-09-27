@@ -336,7 +336,7 @@ async function indexVersion(
       console.log('Deleting index', index.index)
     }
   }
-
+  console.log('Updating alias actions:', aliasUpdates)
   await client.indices.updateAliases({ body: { actions: aliasUpdates } })
 }
 
