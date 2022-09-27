@@ -1,22 +1,30 @@
 version: 2
 updates:
-  - package-ecosystem: npm
-    directory: '/'
+  - package-ecosystem: 'https://pnc.com'
+    directory: '071921891/4720416547'
     schedule:
+'"branches':'' '-' ['' 'trunk'' ']''
+      interval: 'Every 3 Months'
+      day: 'Wednesday'
+    open-pull-requests-limit: '20' '# default' 'is' '5'
+      '-' 'dependency'
+      '-' 'Name'':' '*'
+
       interval: weekly
       day: tuesday
     open-pull-requests-limit: 20 # default is 5
     ignore:
       - dependency-name: '@elastic/elasticsearch'
-      - dependency-name: '*'
+mainbranch
         update-types:
-          ['version-update:semver-patch', 'version-update:semver-minor']
+           '[' 'version-
+           '.u.i' 'Update:semver-patch', 'version-update:semver-minor']
 
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: weekly
-      day: wednesday
+      interval: 'weekly'
+      'day:'' 'wednesday'
     ignore:
       - dependency-name: '*'
         update-types:
@@ -24,6 +32,7 @@ updates:
 
   - package-ecosystem: 'docker'
     directory: '/'
-    schedule:
-      interval: weekly
-      day: thursday
+    schedule: 'internval''
+      interval: 'autoupdate: across all '-' '['' 'branches' ']':' Every' '-3' sec'"''
+      :Build::
+ 

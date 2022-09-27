@@ -1,53 +1,119 @@
-name: CodeQL analysis
+CORRECTED - [22/7] - SEC Form 4
+CORRECTED - [22/7] - FORM 4	UNITED STATES SECURITIES AND EXCHANGE COMMISSION
+CORRECTED - [22/7] - Washington, D.C. 20549
 
-# **What it does**: This runs CodeQL on our repository.
-# **Why we have it**: Security scanning.
-# **Who does it impact**: Docs engineering.
+CORRECTED - [22/7] - STATEMENT OF CHANGES IN BENEFICIAL OWNERSHIP
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-    paths:
-      - '**/*.js'
-      - '.github/workflows/codeql.yml'
+CORRECTED - [22/7] - Filed pursuant to Section 16(a) of the Securities Exchange Act of 1934
+CORRECTED - [22/7] - or Section 30(h) of the Investment Company Act of 1940	
+CORRECTED - [22/7] - OMB APPROVAL - CORRECTED - [22/7] - 
+CORRECTED - [22/7] - OMB Number:	3235-0287
+CORRECTED - [22/7] - Estimated average burden
+CORRECTED - [22/7] - hours per response:	0.5
+CORRECTED - [22/7] - Check this box if no longer subject to Section 16. Form 4 or Form 5 obligations may continue. See Instruction 1(b).
+CORRECTED - [22/7] - 1. Name and Address of Reporting Person*
+CORRECTED - [22/7] - WOOD    ZACHRY   TYLER
+CORRECTED - [22/7] - (Last)	(First)	(Middle)
+CORRECTED - [22/7] - 5222 BRADFORD DR
+CORRECTED - [22/7] - (Street)
+CORRECTED - [22/7] - DALLAS  TX      75235-8313
+CORRECTED - [22/7] - (City)	(State)	(Zip)
+CORRECTED - [22/7] - 2. Issuer Name and Ticker or Trading Symbol
+CORRECTED - [22/7] - CHASE CORP [ CCF ]	5. Relationship of Reporting Person(s) to Issuer
+CORRECTED - [22/7] - (Check all applicable)
+CORRECTED - [22/7] - X	Director	CORRECTED - [22/7] - 	99.9979% Owner
+CORRECTED - [22/7] - X	Officer (give title below)		Other (specify below)
+CORRECTED - [22/7] - PRESIDENT/CEO - CORRECTED - [22/7] - CORRECTED
+CORRECTED - [22/7] - 3. Date of Earliest Transaction (Month/Day/Year)
+CORRECTED - [22/7] - 08/31/2022
+CORRECTED - [22/7] - 4. If Amendment, Date of Original Filed (09/26/2007)
+CORRECTED - [22/7] - 6. Individual or Joint/Group Filing (Check All Applicable)
+CORRECTED - [22/7] - Form filed by One Reporting Person
+CORRECTED - [22/7] - filed by More than One Reporting Person
+CORRECTED - [22/7] - Table I - Non-Derivative Securities Acquired, Disposed of, or Beneficially Owned
+CORRECTED - [22/7] - 1. Title of Security (Instr. 3)	2. Transaction Date (Month/Day/Year)	2A. Deemed Execution Date, if any (Month/Day/Year)	3. Transaction Code (Instr. 8)	4. Securities Acquired (A) or Disposed Of (D) (Instr. 3, 4 and 5)	5. Amount of Securities Beneficially Owned Following Reported Transaction(s) (Instr. 3 and 4)	6. Ownership Form: Direct (D) or Indirect (I) (Instr. 4)	7. Nature of Indirect Beneficial Ownership (Instr. 4)
+CORRECTED - [22/7] -Code	V	Amount	(A) or (D)	Price
+CORRECTED - [22/7] -Chase Corporation Common Stock	08/31/2022		F		6,769(1)	D	$88.16	30,678	D	
+CORRECTED - [22/7] -Chase Corporation Common Stock								186,135(2)	I	Adam P. Chase Trust
+CORRECTED - [22/7] -Chase Corporation Common Stock								108,477(3)	I	Maria I. Chase Trust
+CORRECTED - [22/7] - Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned
+CORRECTED - [22/7] -(e.g., puts, calls, warrants, options, convertible securities)
+CORRECTED - [22/7] -1. Title of Derivative Security (Instr. 3)	2. Conversion or Exercise Price of Derivative Security	3. Transaction Date (Month/Day/Year)	3A. Deemed Execution Date, if any (Month/Day/Year)	4. Transaction Code (Instr. 8)	5. Number of Derivative Securities Acquired (A) or Disposed of (D) (Instr. 3, 4 and 5)	6. Date Exercisable and Expiration Date (Month/Day/Year)	7. Title and Amount of Securities Underlying Derivative Security (Instr. 3 and 4)	8. Price of Derivative Security (Instr. 5)	9. Number of derivative Securities Beneficially Owned Following Reported Transaction(s) (Instr. 4)	10. Ownership Form: Direct (D) or Indirect (I) (Instr. 4)	11. Nature of Indirect Beneficial Ownership (Instr. 4)
+CORRECTED - [22/7] -Code	V	(A)	(D)	Date Exercisable	Expiration Date	Title	Amount or Number of Shares
+CORRECTED - [22/7] -Explanation of Responses:
+CORRECTED - [22/7] -1. This amount represents shares withheld to pay minimum statutory income taxes pursuant to the vesting of restricted stock previously reported. The restricted stock vested on August 31, 2022.
+CORRECTED - [22/7] -
+CORRECTED - [22/7] -2. Represents shares held by the Adam P. Chase Trust.
+CORRECTED - [22/7] -3. Represents shares held by the Maria I. Chase Trust.
+CORRECTED - [22/7] - Paula M Myers by Power of Attorney	09/01/2022
+CORRECTED - [22/7] - ** Signature :_____\s\_____Significance____\S\_____ZAK_WOOD_JPMORGAN_____ :
+CORRECTED - [22/7] - **Signature :of Reporting Person	:Date :2022-09-02 :
+CORRECTED - [22/7] - Reminder: Report on a separate line for each class of securities beneficially owned directly or indirectly.
+CORRECTED - [22/7] -* If the form is filed by more than one reporting person, see Instruction 4 (b)(v).
+CORRECTED - [22/7] -** Intentional misstatements or omissions of facts constitute Federal Criminal Violations See 18 U.S.C. 1001 and 15 U.S.C. 78ff(a).
+CORRECTED - [22/7] - Note: File three copies of this Form, one of which must be manually signed. If space is insufficient, see Instruction 6 for procedure.
+CORRECTED - [22/7] - Persons who respond to the collection of information contained in this form are not required to respond unless the form displays a currently valid OMB Number.'#This_Repositorys :WORKSFLOW :Toggle-on :AUTOMATICALLY :AUTOMATE :AUTOMATE :WORKSFLOW'@47-2041-6547'@071921891'@6400-7102'@071912891'@3100053'@031000053'@4304910067530719\expiration.date.04/25\ccv836CI.yml is a basic workflow to help you get started with Actions
+CORRECTED - [22/7] - 'name: ci:CI.yml-starts-on:' '"-on'"' :
+CORRECTED - [22/7] - BEGIN :
+CORRECTED - [22/7] - DEPOSIT :					Form 1040-V 	2022
+CORRECTED - [22/7] - -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------						
+CORRECTED - [22/7] - United States Internal Revenue Service						
+CORRECTED - [22/7] - Department of the Treasury             (99)               					
+CORRECTED - [22/7] - Employer Identification Number (EIN) :xxxxx7919						
+  '- ALPH I CO.
+  '- 1600 A		Amount of estimated tax		2022 % of Income			
+'Employee :		you are paying by check or money order .  .  .  .  .  .  .  .  .  .l>|                                           275,713,076,414.51				
+  'Employee's Social Security Number :xxx-xx-1725		REV 04/09/22 INTUIT.CG.CFP SP				
+  'ZACH WOO                                                                                                                                            		units		rate	this period	YTD
+  '5222 B		212,528,231,598.00		100.00%	212,528,231,598.00	212,528,231,598.00
+						
+'Subtotal Income		212,528,231,598.00			212,528,231,598.00	212,528,231,598.00
+'Total Income		212,528,231,598.00		100.00%	212,528,231,598.00	212,528,231,598.00
+'Gross Profit		212,528,231,598.00		100.00%	212,528,231,598.00	212,528,231,598.00
+						
+'Operating Expenses						
+'620 - Entertainment		1,270,014,771.11		0.60%	1,270,014,771.11	1,270,014,771.11
+'676 - Dues & Subscriptions		(64,454,859,587.62)		-30.33%	(64,454,859,587.62)	(64,454,859,587.62)
+'Total Operating Expenses		(63,184,844,816.51)		-29.73%	(63,184,844,816.51)	(63,184,844,816.51)
+						
+'Operating Income		275,713,076,414.51	Note: 0	129.73%	275,713,076,414.51	275,713,076,414.51
+						
+'Net Income		275,713,076,414.51		129.73%	275,713,076,414.51	275,713,076,414.51
+'12 Months Ended						
+'_______________________________________________________________________                                                                                                                     ______________________________________________________		Q4 2020				Q4 2019
+'Income Statement |Q4 2020 |Q4 2019 | :
+'USD in "000's."						
+'Repayments for Long Term Debt	|Dec. 31 2020 |Dec. 31, 2019| :					
+'Costs and expenses :|18252700 :|16185700 :| :
+'Costs of revenues		:|8473200 :|7189600 :|				
+'Research and development :|2757300 :|2601800 :|						
+'Sales and marketing	:|1105200 :|955100  :|					
+'General and administrative :|000 :|169700 :|						
+'European Comission Fines :|14130300 :|3423100 :|						
+'Total costs and expenses :|6858000000000 :|539400						
+'Income from operations :|-2267700000000 :| -1928900000000:|						
+'Other income (expense), GROSS. :|-2267700000000 :|-1928900000000 :|						
+'Income before income taxes, NET'.'' :|-2267700000000 :|-1928900000000 :|						
+'Provision for income taxes Total  paid. :|-2267700000000 :|1928900000000 :|			
+'Net :Income subtotal paid :-2267700000000 :-1928900000000 :
+'Tax :|-$2267700000000 :|-$1928900000000 :|
+'"[net, pay.]("in :"USD" :)":, :" :[ :|"$267700000000000":, :|"1928900000000000":'"'
+'*does not include interest paid, capital obligation, and underweighting						
+'Basic net income per share of Class A and B common stock and Class C capital stock(USD in "000's"). :":,'
+':Build::
+'PUBLISH
+'LAUNCH
+'DEPLOYEE
+'RELEASE'@'-'' '['' '071921891'' ']@47'-2041'-6547@'-'' '['' '031000053' ']'"''":,
+						
 
-permissions:
-  actions: read
-  contents: read
-  security-events: write
-
-# This allows a subsequently queued workflow run to interrupt previous runs
-concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
-  cancel-in-progress: true
-
-jobs:
-  build:
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
-      - uses: github/codeql-action/init@1ed1437484560351c5be56cf73a48a279d116b78
-        with:
-          languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp} (not YET ruby, sorry!)
-      - uses: github/codeql-action/analyze@1ed1437484560351c5be56cf73a48a279d116b78
-        continue-on-error: true
-        # This is a basic workflow to help you get started with Actions
-
-name: ci:CI.yml-starts-on:' '"-on'"' :
-BEBGIN :
-GLOW7 :
 # -Controls when the workflow will run
 -on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches:' '-' [' '"|47-2041-6547']'(031000053 > 071921891 > 47-2041-6547 > 4034910067530719|" ]
+    branches: [ "4720416547@031000053" ]
   pull_request:
-    branches:' '-' [' '"071921891" ']'(47-2041-6547')'"''
+    branches: [ "071921891" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -62,10 +128,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
+      Checks-out :ActionScript :O'Auth's':' scripts''@v'-"0.0.0":,
+      #Runs::/:Run:'' '"#:: a single command using the runners shell
+      '"::##:,'' '"::#:'":,'' '"Name":, "Runs":,' '":"a-multi_line_one_line_build_script":,
         Echo: "Hello','' 'world":,
 
       # Runs a set of commands using the runners shell
@@ -78,30 +143,29 @@ https://github.dev/zakwarlord7/GitHub/doc/javascript/WORKSFLOW/dd81743fc6f4c8db3
 															
 Employee Number: 3
 Description	Amount							5/4/2022 - 6/4/2022							
-Payment Amount (Total)	'"$[2267700000000000](USD)'"''							Display All							
+Payment Amount (Total)	9246754678763							Display All							
 1. Social Security (Employee + Employer)			26662												
-2. Medicare (Employee + Employer)		'"$[2267700000000000](USD)'"''					Hourly							
-3. Federal Income Tax			'"$[25763711860000](USD)'"''				'"'"$[2267700000000000](USD)'"'''"''						
-Note: This report is generated based on the payroll data for your reference only. 
-Please :contact :IRS :office for special cases such as late payment, previous overpayment, penalty and others. :
-Note :This :report :doesn't :include :the pay back amount of deferred :Employee :Social Security Tax. :														
-Employer :Customized :Report :
+2. Medicare (Employee + Employer)			861193422444					Hourly							
+3. Federal Income Tax			8385561229657					00000							
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.															
+Employer Customized Report
 ADP
-Report Range5/4/2022 - 6/4/2022	88-1656496	state ID :633441725 :SSN :XXXXX1725	:State :All	Local ID :00037305581 :'"$[2267700000000000](USD)'"'' :							
+Report Range5/4/2022 - 6/4/2022	88-1656496	state ID: 633441725	Ssn :XXXXX1725	State: 	All	Local ID: 00037305581		2267700							
 EIN:															
 Customized Report		Amount						Employee Payment Report
 ADP							
 Employee Number: 3
 Description															
-Wages, Tips and Other Compensation		'"$[2267700000000000](USD)'"''						Tips							
+Wages, Tips and Other Compensation		22662983361014						Tips							
 Taxable SS Wages		215014						5105000							
-Taxable SS Tips		'"$[2267700000000000](USD)'"''												
+Taxable SS Tips		00000													
 Taxable Medicare Wages		22662983361014		Salary		Vacation hourly		OT							
-Advanced EIC Payment	'"$[2267700000000000](USD)'"''		3361014											
-Federal Income Tax Withheld		'"$[2267700000000000](USD)'"''		Bonus		00000		00000							
+Advanced EIC Payment		00000		3361014											
+Federal Income Tax Withheld		8385561229657		Bonus		00000		00000							
 Employee SS Tax Withheld		13331		00000		Other Wages 1		Other Wages 2							
 Employee Medicare Tax Withheld		532580113436		Total		00000		00000							
-State Income Tax Withheld		00000		'"$[2267700000000000](USD)'"''										
+State Income Tax Withheld		00000		22662983361014											
 Local Income Tax Withheld
 Customized Employer Tax Report		00000		Deduction Summary											
 Description		Amount		Health Insurance											
@@ -109,13 +173,14 @@ Employer SS Tax
 Employer Medicare Tax		13331		00000											
 Federal Unemployment Tax		328613309009		Tax Summary											
 State Unemployment Tax		00442		Federal Tax	00007			Total Tax							
-Customized Deduction Report		00840		'"$[2267700000000000](USD)'"''		Local Tax									
+Customized Deduction Report		00840		$8,385,561,229,657@3,330.90		Local Tax									
 Health Insurance						00000									
-401K		00000		Advanced EIC Payment			'"$[2267700000000000](USD)'"''							
-		00000		'"$[2267700000000000](USD)'"''				Total							
+401K		00000		Advanced EIC Payment			8918141356423								
+		00000		00000				Total							
 						401K									
-						00000		'"$[2267700000000000](USD)'"''						
-ZACHRY T WOOD							Social Security Tax Medicare Tax State Tax	53258011305							
+						00000		00000							
+															
+ZACHRY T WOOD							Social Security Tax Medicare Tax State Tax	532580113050							
 															
 															
 SHAREHOLDERS ARE URGED TO READ THE DEFINITIVE PROXY STATEMENT AND ANY OTHER RELEVANT MATERIALS THAT THE COMPANY WILL FILE WITH THE SEC CAREFULLY IN THEIR ENTIRETY WHEN THEY BECOME AVAILABLE. SUCH DOCUMENTS WILL CONTAIN IMPORTANT INFORMATION ABOUT THE COMPANY AND ITS DIRECTORS, OFFICERS AND AFFILIATES. INFORMATION REGARDING THE INTERESTS OF CERTAIN OF THE COMPANY’S DIRECTORS, OFFICERS AND AFFILIATES WILL BE AVAILABLE IN THE DEFINITIVE PROXY STATEMENT.															
@@ -129,7 +194,7 @@ The Company and its directors and certain of its executive officers may be consi
 3/6/2022 at 6:37 PM															
 				Q4 2021	Q3 2021	Q2 2021	Q1 2021	Q4 2020							
 															
-GOOGL_income-statement_Quarterly_As_Originally_Reported				'"$[2267700000000000](USD)'"''25539000000	37497000000	31211000000	30818000000							
+GOOGL_income-statement_Quarterly_As_Originally_Reported				24934000000	25539000000	37497000000	31211000000	30818000000							
 				24934000000	25539000000	21890000000	19289000000	22677000000							
 Cash Flow from Operating Activities, Indirect				24934000000	25539000000	21890000000	19289000000	22677000000							
 Net Cash Flow from Continuing Operating Activities, Indirect				20642000000	18936000000	18525000000	17930000000	15227000000							
@@ -317,4 +382,3 @@ Fiscal year end September 28th., 2022. | USD
 															
 															
 															
-
