@@ -376,7 +376,7 @@ When you add a link to an article, use the current filepath and article name.
 
 Index pages are the Table of Contents files for the docs site. Every product, category, and map topic subdirectory has an `index.md` that serves as the landing page. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic.
 
-**Important note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will 404.
+**Important note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, '#This build_scripts :path :will :TIERAFORMA"x"=>shapoeft"x"=>>"SHAPEshift"X"=4 is("03OK)":, "new=:":, "200OK":, :
 
 ### Homepage
 
