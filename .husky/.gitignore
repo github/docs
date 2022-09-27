@@ -1,1 +1,110 @@
 _
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@zakwarlord7 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+zakwarlord7
+/
+GitHub-doc
+Public
+forked from github/docs
+Code
+Pull requests
+Actions
+Projects
+Security
+1
+Insights
+Settings
+buster Link Checker: All English #7
+Summary
+Jobs
+check-links
+check-links
+succeeded on Jul 30 in 3m 25s
+Search logs
+2s
+Current runner version: '2.294.0'
+Operating System
+  Ubuntu
+  20.04.4
+  LTS
+Virtual Environment
+  Environment: ubuntu-20.04
+  Version: 20220724.1
+  Included Software: https://github.com/actions/virtual-environments/blob/ubuntu20/20220724.1/images/linux/Ubuntu2004-Readme.md
+  Image Release: https://github.com/actions/virtual-environments/releases/tag/ubuntu20%2F20220724.1
+Virtual Environment Provisioner
+  1.0.0.0-main-20220701-2
+GITHUB_TOKEN Permissions
+  Contents: read
+  Metadata: read
+  PullRequests: read
+Secret source: Actions
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748' (SHA:dcd71f646680f2efd8db4afa5ad64fdcba30e748)
+Download action repository 'actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048' (SHA:17f8bd926464a1afa4c6a11669539e9c1ba77048)
+Download action repository 'trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b' (SHA:a6ca26c14274c33b15e6499323aac178af06ad4b)
+19s
+Run actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+  with:
+    repository: zakwarlord7/docs
+    token: ***
+    ssh-strict: true
+    persist-credentials: true
+    clean: true
+    fetch-depth: 1
+    lfs: false
+    submodules: false
+Syncing repository: zakwarlord7/docs
+Getting Git version info
+  Working directory is '/home/runner/work/docs/docs'
+  /usr/bin/git version
+  git version 2.37.1
+Temporarily overriding HOME='/home/runner/work/_temp/b3af35c8-13b6-451b-a653-217721c576e1' before making global git config changes
+Adding working directory to the temporary git global config as a safe directory
+/usr/bin/git config --global --add safe.directory /home/runner/work/docs/docs
+Deleting the contents of '/home/runner/work/docs/docs'
+Initializing the repository
+  /usr/bin/git init /home/runner/work/docs/docs
+  hint: Using 'master' as the name for the initial branch. This default branch name
+  hint: is subject to change. To configure the initial branch name to use in all
+  hint: of your new repositories, which will suppress this warning, call:
+  hint: 
+  hint: 	git config --global init.defaultBranch <name>
+  hint: 
+  hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+  hint: 'development'. The just-created branch can be renamed via this command:
+  hint: 
+  hint: 	git branch -m <name>
+  Initialized empty Git repository in /home/runner/work/docs/docs/.git/
+  /usr/bin/git remote add origin https://github.com/zakwarlord7/docs
+Disabling automatic garbage collection
+  /usr/bin/git config --local gc.auto 0
+Setting up auth
+  /usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+  /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+  /usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+  /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+  /usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Fetching the repository
+  /usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +5354ea71f0daa04056bbdafb035d8500a4317299:refs/remotes/pull/3/merge
+  remote: Enumerating objects: 27116, done.        
+  remote: Counting objects:   0% (1/27116)        
+8s
+28s
+0s
+0s
+7s
+2m 15s
+0s
+0s
+0s
