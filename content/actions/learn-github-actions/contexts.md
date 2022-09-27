@@ -211,7 +211,7 @@ The `github` context contains information about the workflow run and the event t
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
 {%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`, `Dependabot`, or `Codespaces`. |
 {%- endif %}
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
