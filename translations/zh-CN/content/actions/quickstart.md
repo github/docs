@@ -27,32 +27,34 @@ The following example shows you how {% data variables.product.prodname_actions %
 ## Creating your first workflow
 
 1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
-2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
-3. Copy the following YAML contents into the `github-actions-demo.yml` file:
-    {% raw %}
-    ```yaml{:copy}
-    name: GitHub Actions Demo
-    on: [push]
-    jobs:
-      Explore-GitHub-Actions:
-        runs-on: ubuntu-latest
-        steps:
-          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-          - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."{% endraw %}
-          - name: Check out repository code
-            uses: {% data reusables.actions.action-checkout %}{% raw %}
-          - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-          - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-          - name: List files in the repository
-            run: |
-              ls ${{ github.workspace }}
-          - run: echo "🍏 This job's status is ${{ job.status }}."
+1. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+1. Copy the following YAML contents into the `github-actions-demo.yml` file:
 
-    ```
-    {% endraw %}
-3. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
-    ![Commit workflow file](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
+   ```yaml{:copy}
+   name: GitHub Actions Demo
+   {%- ifversion actions-run-name %}
+   run-name: {% raw %}${{ github.actor }}{% endraw %} is testing out GitHub Actions 🚀
+   {%- endif %}
+   on: [push]
+   jobs:
+     Explore-GitHub-Actions:
+       runs-on: ubuntu-latest
+       steps:
+         - run: echo "🎉 The job was automatically triggered by a {% raw %}${{ github.event_name }}{% endraw %} event."
+         - run: echo "🐧 This job is now running on a {% raw %}${{ runner.os }}{% endraw %} server hosted by GitHub!"
+         - run: echo "🔎 The name of your branch is {% raw %}${{ github.ref }}{% endraw %} and your repository is {% raw %}${{ github.repository }}{% endraw %}."
+         - name: Check out repository code
+           uses: {% data reusables.actions.action-checkout %}
+         - run: echo "💡 The {% raw %}${{ github.repository }}{% endraw %} repository has been cloned to the runner."
+         - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+         - name: List files in the repository
+           run: |
+             ls {% raw %}${{ github.workspace }}{% endraw %}
+         - run: echo "🍏 This job's status is {% raw %}${{ job.status }}{% endraw %}."
+   ```
+1. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
+
+   ![Commit workflow file](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
 Committing the workflow file to a branch in your repository triggers the `push` event and runs your workflow.
 
