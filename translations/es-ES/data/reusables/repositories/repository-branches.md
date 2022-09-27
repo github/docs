@@ -1,5 +1,6 @@
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. En la sección de "Código y automatización" de la barra lateral, haz clic en **Ramas {% octicon "git-branch" aria-label="The git-branch icon" %}**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+1. In the "Code and automation" section of the sidebar, click **{% octicon "git-branch" aria-label="The git-branch icon" %} Branches**.
 {% else %}
-1. En el menú izquierdo, da clic en **Ramas**. ![Sub-menú de opciones de repositorio](/assets/images/help/repository/repository-options-branch.png)
+1. In the left menu, click **Branches**.
+![Repository options sub-menu](/assets/images/help/repository/repository-options-branch.png)
 {% endif %}

@@ -13,9 +13,14 @@ topics:
   - High availability
   - Enterprise
   - Infrastructure
-shortTitle: 删除 HA 副本
+shortTitle: Remove a HA replica
+ms.openlocfilehash: 12fe196d38f93cb29bf49413ef9912028d662130
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099086'
 ---
-
 ## 暂时停止复制
 
 1. 如有必要，移除副本的 Geo DNS 条目，使 Geo-replication 副本停止提供用户流量。
@@ -23,7 +28,7 @@ shortTitle: 删除 HA 副本
   ```shell
   $ ghe-repl-stop
   ```
-3. 要再次开始复制，请运行 `ghe-repl-start`。
+3. 若要再次开始复制，请运行 `ghe-repl-start`。
   ```shell
   $ ghe-repl-start
   ```
@@ -31,19 +36,17 @@ shortTitle: 删除 HA 副本
 ## 永久移除复制
 
 1. 如有必要，移除副本的 Geo DNS 条目，使 Geo-replication 副本停止提供用户流量。
-2. 在您希望移除复制的副本上，运行 `ghe-repl-stop`。
+2. 在希望删除复制的副本上，运行 `ghe-repl-stop`。
   ```shell
   $ ghe-repl-stop
   ```
-3. 在副本上，要移除复制状态，请运行 `ghe-repl-teardown`。
+3. 在副本上，若要解除复制状态，请运行 `ghe-repl-teardown`。
   ```shell
   $ ghe-repl-teardown
   ```
 
-  {% ifversion ghes %}
-  {% note %}
-
-  **注：**如果您已启用 {% data variables.product.prodname_actions %} ，则应取消前一个副本服务器的功能，或更新其 {% data variables.product.prodname_actions %} 配置，以使用不同的外部存储。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的高可用性](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)”。
-
-  {% endnote %}
-  {% endif %}
+  {% ifversion ghes %} {% note %}
+  
+  注意：如果已启用 {% data variables.product.prodname_actions %}，则应停用前一个副本服务器，或更新其 {% data variables.product.prodname_actions %} 配置来使用其他外部存储。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的高可用性](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)”。
+  
+  {% endnote %} {% endif %}

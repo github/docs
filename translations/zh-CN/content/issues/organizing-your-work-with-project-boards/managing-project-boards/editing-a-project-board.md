@@ -1,6 +1,6 @@
 ---
-title: 'Editing a {% data variables.product.prodname_project_v1 %}'
-intro: 'You can edit the title and description of an existing {% data variables.projects.projects_v1_board %}.'
+title: '编辑 {% data variables.product.prodname_project_v1 %}'
+intro: '可以编辑现有 {% data variables.projects.projects_v1_board %} 的标题和说明。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
   - /articles/editing-a-project
@@ -12,23 +12,28 @@ versions:
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 23e4958654bd58de323e401ab4b47d1205aaa4ce
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422954'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[Creating a {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)."
+提示：有关在 {% data variables.projects.projects_v1_board %} 中添加、移除或编辑列的详细信息，请参阅“[创建 {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)”。
 
 {% endtip %}
 
-1. Navigate to the {% data variables.projects.projects_v1_board %} you want to edit.
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
-4. Modify the {% data variables.projects.projects_v1_board %} name and description as needed, then click **Save project**. ![带有项目板名称和说明的字段，以及保存项目按钮](/assets/images/help/projects/edit-project-board-save-button.png)
+1. 导航到要编辑的 {% data variables.projects.projects_v1_board %}。
+{% data reusables.project-management.click-menu %} {% data reusables.project-management.click-edit-sidebar-menu-project-board %} 
+4. 根据需要修改 {% data variables.projects.projects_v1_board %} 名称和说明，然后单击“保存项目”。
+![项目板名称和说明的对应字段，以及“保存项目”按钮](/assets/images/help/projects/edit-project-board-save-button.png)
 
 ## 延伸阅读
 
-- "[关于 {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Deleting a {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"
+- [关于 {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)
+- [向 {% data variables.product.prodname_project_v1 %} 添加问题和拉取请求](/articles/adding-issues-and-pull-requests-to-a-project-board)
+- [删除 {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)

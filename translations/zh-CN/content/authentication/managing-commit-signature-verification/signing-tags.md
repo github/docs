@@ -1,6 +1,6 @@
 ---
-title: 对标记签名
-intro: 'You can sign tags locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.'
+title: Signing tags
+intro: You can sign tags locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.
 redirect_from:
   - /articles/signing-tags-using-gpg
   - /articles/signing-tags
@@ -15,23 +15,22 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
-1. 要对标记签名，请将 `-s` 添加到您的 `git tag` 命令。
+1. To sign a tag, add `-s` to your `git tag` command.
   ```shell
   $ git tag -s <em>mytag</em>
   # Creates a signed tag
   ```
-2. 通过运行 `git tag -v [tag-name]` 验证您签名的标记。
+2. Verify your signed tag by running `git tag -v [tag-name]`.
   ```shell
   $ git tag -v <em>mytag</em>
   # Verifies the signed tag
   ```
 
-## 延伸阅读
+## Further reading
 
-- "[查看仓库的标记](/articles/viewing-your-repositorys-tags)"
-- "[向 Git 告知您的签名密钥](/articles/telling-git-about-your-signing-key)"
-- "[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)"
-- "[对提交签名](/articles/signing-commits)"
+- "[Viewing your repository's tags](/articles/viewing-your-repositorys-tags)"
+- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
+- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
+- "[Signing commits](/articles/signing-commits)"

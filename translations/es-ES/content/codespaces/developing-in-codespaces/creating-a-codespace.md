@@ -20,8 +20,7 @@ shortTitle: Create a codespace
 
 You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces are associated with a specific branch of a repository and the repository cannot be empty. {% data reusables.codespaces.concurrent-codespace-limit %}
-
+Codespaces are associated with a specific branch of a repository and the repository cannot be empty. You can create more than one codespace per repository or even per branch.
 
 When you create a codespace, a number of steps happen to create and connect you to your development environment:
 
@@ -57,7 +56,7 @@ Or both of these are true:
 * You are participating in the beta of {% data variables.product.prodname_codespaces %} for individual users.
 * Either you own the repository for which you want to create a codespace, or it is owned by an organization of which you are either a member or an outside collaborator.
 
-Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[About spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)."
+Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces#about-spending-limits-for-codespaces)."
 
 Organization owners can specify who can create and use codespaces at the organization's expense. Organization owners can also prevent any codespace usage being charged to the organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)."
 
@@ -149,3 +148,7 @@ Replace `machine-type` with a valid identifier for an available machine type. Id
 For full details of the options for this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}
+
+## Further reading
+- "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
+- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"

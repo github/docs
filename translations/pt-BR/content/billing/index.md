@@ -1,7 +1,7 @@
 ---
 title: Cobrança e pagamentos no GitHub
-shortTitle: Faturamento e pagamentos
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} oferece produtos grátis e pagos para cada conta. Você pode atualizar ou rebaixar a assinatura da sua conta e gerenciar suas configurações de faturamento a qualquer momento.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} cobra dos integrantes da sua empresa {% ifversion ghec or ghae %}uso de {% data variables.product.product_name %}{% elsif ghes %} estações de licença para {% data variables.product.product_name %}{% ifversion ghes %} e quaisquer serviços adicionais que você comprar{% endif %}{% endif %}. {% endif %}{% ifversion ghec %} Você pode visualizar a sua assinatura e gerenciar as suas configurações de cobrança a qualquer momento. {% endif %}{% ifversion fpt or ghec %} Você também pode visualizar uso e gerenciar limites de gastos para funcionalidades de {% data variables.product.product_name %} como {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, e {% data variables.product.prodname_github_codespaces %}.{% endif %}'
+shortTitle: Billing and payments
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} oferece produtos grátis e pagos para cada conta. Você pode atualizar ou rebaixar a assinatura da sua conta e gerenciar suas configurações de faturamento a qualquer momento.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} cobra dos integrantes da sua empresa {% ifversion ghec or ghae %}uso de {% data variables.product.product_name %}{% elsif ghes %} estações de licença para {% data variables.product.product_name %}{% ifversion ghes %} e quaisquer serviços adicionais que você comprar{% endif %}{% endif %}. {% endif %}{% ifversion ghec %} Você pode exibir a sua assinatura e gerenciar as suas configurações de cobrança a qualquer momento. {% endif %}{% ifversion fpt or ghec %} Você também pode visualizar uso e gerenciar limites de gastos para funcionalidades de {% data variables.product.product_name %} como {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, e {% data variables.product.prodname_github_codespaces %}.{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
@@ -54,5 +54,11 @@ children:
   - /managing-billing-for-github-marketplace-apps
   - /managing-billing-for-git-large-file-storage
   - /setting-up-paid-organizations-for-procurement-companies
+ms.openlocfilehash: 816bfb699135974a180ccf350aa04bc36dfbf25a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147110895'
 ---
 

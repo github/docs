@@ -44,7 +44,7 @@ topics:
 
 To produce more detailed logging output, you can enable step debug logging. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 
 ## Creating {% data variables.product.prodname_codeql %} debugging artifacts
 
@@ -66,7 +66,7 @@ You need to ensure that you select **Enable debug logging** . This option enable
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
 

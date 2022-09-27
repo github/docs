@@ -1,6 +1,6 @@
 ---
 title: Renaming a codespace
-intro: 'You can use the {% data variables.product.prodname_cli %} to change the codespace display name to one of your choice.'
+intro: You can use the {% data variables.product.prodname_cli %} to change the codespace display name to one of your choice.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -28,18 +28,18 @@ To find the display name of a codespace:
   ![Screenshot of the Remote Explorer in VS Code](/assets/images/help/codespaces/codespaces-remote-explorer.png)
 
 {% indented_data_reference reusables.codespaces.remote-explorer spaces=2 %}
-- In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
+- In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`. 
 
 ### Permanent codespace names
 
-In addition to the display name, when you create a codespace, a permanent name is also assigned to the codespace. The name is a combination of your {% data variables.product.company_short %} handle, the repository name, and some random characters. 例如： `octocat-myrepo-gmc7`。 You can't change this name.
+In addition to the display name, when you create a codespace, a permanent name is also assigned to the codespace. The name is a combination of your {% data variables.product.company_short %} handle, the repository name, and some random characters. For example: `octocat-myrepo-gmc7`. You can't change this name.
 
 To find the permanent name of a codespace:
 
-* On {% data variables.product.product_name %}, the permanent name is shown in a pop-up when you hover over the **Open in browser** option on https://github.com/codespaces.
+* On {% data variables.product.product_name %}, the permanent name is shown in a pop-up when you hover over the **Open in browser** option on https://github.com/codespaces. 
 
    ![Screenshot of the codespace name shown on hover over](/assets/images/help/codespaces/find-codespace-name-github.png)
-
+   
 * In a codespace, use this command in the terminal: `echo $CODESPACE_NAME`.
 * In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
 

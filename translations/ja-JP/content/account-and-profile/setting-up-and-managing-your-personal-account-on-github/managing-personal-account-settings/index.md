@@ -1,6 +1,6 @@
 ---
 title: ユーザ アカウント設定の管理
-intro: 'You can manage settings for your personal account, including your theme, username, default branch, accessibility, and security settings.'
+intro: テーマ、ユーザー名、既定のブランチ、アクセシビリティ、セキュリティ設定など、個人用アカウントの設定を管理できます。
 redirect_from:
   - /categories/29/articles
   - /categories/user-accounts
@@ -25,8 +25,15 @@ children:
   - /managing-the-default-branch-name-for-your-repositories
   - /managing-security-and-analysis-settings-for-your-personal-account
   - /managing-access-to-your-personal-accounts-project-boards
+  - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /integrating-jira-with-your-personal-projects
   - /what-does-the-available-for-hire-checkbox-do
 shortTitle: Personal account settings
+ms.openlocfilehash: fcb653fa2fd40c206deefdaf967bae6104393537
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760864'
 ---
 

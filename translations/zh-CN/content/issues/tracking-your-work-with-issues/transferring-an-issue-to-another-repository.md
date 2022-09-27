@@ -13,31 +13,38 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: 转移议题
+shortTitle: Transfer an issue
+ms.openlocfilehash: 4e4892468178e7440be7e0a730a948ce2465f1dc
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145128699'
 ---
-
-要将打开的议题转让给另一个仓库，必须对议题所在的仓库以及议题要转让到的仓库都有写入权限。 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
+要将打开的议题转让给另一个仓库，必须对议题所在的仓库以及议题要转让到的仓库都有写入权限。 有关详细信息，请参阅“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 {% note %}
 
-**注意**：您只能在同一用户或组织帐户拥有的仓库之间转移议题。 {% ifversion fpt or ghes or ghec %}私有存储库问题无法转移到公共存储库。{% endif %}
+注意：只能在同一用户或组织帐户拥有的存储库之间转移问题。 {% ifversion fpt or ghes or ghec %}私有存储库问题无法转移到公共存储库。{% endif %}
 
 {% endnote %}
 
-转让议题时，评论和受理人将保留。 Labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. 此议题将留在任何用户拥有或组织范围的项目板上，并从任何仓库项目板中删除。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。
+转让议题时，评论、标签和受理人将保留。 不会保留议题的里程碑。 此议题将留在任何用户拥有或组织范围的项目板上，并从任何仓库项目板中删除。 有关详细信息，请参阅“[关于项目板](/articles/about-project-boards)”。
 
 议题中提及的人员或团队将收到通知，告知他们该议题已转让给新仓库。 原来的 URL 会重定向到新议题的 URL。 在新仓库中没有读取权限的人员将看到一个横幅，告知他们该议题已转让给他们无法访问的新仓库。
 
-## 将开放的议题转让给其他仓库
+## <a name="transferring-an-open-issue-to-another-repository"></a>将开放的议题转让给其他仓库
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
 3. 在议题列表中，单击您想要转让的议题。
-4. 在右侧边栏中，单击 **Transfer issue（转让议题）**。 ![转让议题的按钮](/assets/images/help/repository/transfer-issue.png)
-5. 使用 **Choose a repository（选择仓库）**下拉菜单，并选择议题要转让到的仓库。 ![选择仓库选择](/assets/images/help/repository/choose-a-repository.png)
-6. 单击 **Transfer issue（转让议题）**。 ![转让议题按钮](/assets/images/help/repository/transfer-issue-button.png)
+4. 在右侧栏中，单击“转移问题”。
+![“转移问题”按钮](/assets/images/help/repository/transfer-issue.png)
+5. 使用“选择存储库”下拉菜单，并选择要将问题转移到的存储库。
+![“选择存储库”选项](/assets/images/help/repository/choose-a-repository.png)
+6. 单击“转移问题”。
+![“转移问题”按钮](/assets/images/help/repository/transfer-issue-button.png)
 
 {% endwebui %}
 
@@ -45,7 +52,7 @@ shortTitle: 转移议题
 
 {% data reusables.cli.cli-learn-more %}
 
-要转移议题，请使用 `gh issue transfer` 子命令。 将 `issue` 参数替换为议题的编号或 URL。 将 `{% ifversion ghes %}hostname/{% endif %}owner/repo` 参数替换为议题要转移到的仓库的 {% ifversion ghes %}URL{% else %}名称{% endif %}，例如 `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`。
+要转移问题，请使用 `gh issue transfer` 子命令。 将 `issue` 参数替换为问题的编号或 URL。 将 `{% ifversion ghes %}hostname/{% endif %}owner/repo` 参数替换为要将问题转移到的存储库的 {% ifversion ghes %}URL{% else %} 名称{% endif %}，例如 `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`。
 
 ```shell
 gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>
@@ -53,8 +60,8 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 {% endcli %}
 
-## 延伸阅读
+## <a name="further-reading"></a>延伸阅读
 
-- “[关于议题](/articles/about-issues)”
-- “[查看安全日志](/articles/reviewing-your-security-log)”
-- “[查看组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)”
+- [关于问题](/articles/about-issues)
+- [审查安全日志](/articles/reviewing-your-security-log)
+- [审查组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)

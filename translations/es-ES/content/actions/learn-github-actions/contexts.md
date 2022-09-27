@@ -38,7 +38,7 @@ You can access contexts using the expression syntax. For more information, see "
 | `github` | `object` | Information about the workflow run. For more information, see [`github` context](#github-context). |
 | `env` | `object` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context). |
 | `job` | `object` | Information about the currently running job. For more information, see [`job` context](#job-context). |
-{%- ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{%- ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 | `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |{% endif %}
 | `steps` | `object` | Information about the steps that have been run in the current job. For more information, see [`steps` context](#steps-context). |
 | `runner` | `object` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context). |
@@ -46,7 +46,7 @@ You can access contexts using the expression syntax. For more information, see "
 | `strategy` | `object` | Information about the matrix execution strategy for the current job. For more information, see [`strategy` context](#strategy-context). |
 | `matrix` | `object` | Contains the matrix properties defined in the workflow that apply to the current job. For more information, see [`matrix` context](#matrix-context). |
 | `needs` | `object` | Contains the outputs of all jobs that are defined as a dependency of the current job. For more information, see [`needs` context](#needs-context). |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
 
 As part of an expression, you can access context information using one of two syntaxes.
@@ -70,7 +70,7 @@ In addition, some functions may only be used in certain places. For example, the
 
 The following table indicates where each context and special function can be used within a workflow. Unless listed below, a function can be used anywhere.
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 
 | Workflow key | Context | Special functions |
 | ---- | ------- | ----------------- |
@@ -196,7 +196,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
 | `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |
 | `github.ref` | `string` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
 | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} |
 | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} |
@@ -208,7 +208,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
 | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
-{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
 {%- endif %}
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
@@ -406,7 +406,7 @@ jobs:
       - run: ./run-tests
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 
 ## `jobs` context
 
@@ -425,11 +425,11 @@ This example `jobs` context contains the result and outputs of a job from a reus
 
 ```json
 {
-  example_job: {
-    result: success,
-    outputs: {
-      output1: hello,
-      output2: world
+  "example_job": {
+    "result": "success",
+    "outputs": {
+      "output1": "hello",
+      "output2": "world"
     }
   }
 }
@@ -488,7 +488,7 @@ The `steps` context contains information about the steps in the current job that
 
 This example `steps` context shows two previous steps that had an [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) specified. The first step had the `id` named `checkout`, the second `generate_number`. The `generate_number` step had an output named `random_number`.
 
-```yaml
+```json
 {
   "checkout": {
     "outputs": {},
@@ -549,7 +549,7 @@ The `runner.workspace` property is purposefully not documented. It is an early A
 
 The following example context is from a Linux {% data variables.product.prodname_dotcom %}-hosted runner.
 
-```yaml
+```json
 {
   "os": "Linux",
   "arch": "X64",
@@ -606,7 +606,7 @@ The `secrets` context contains the names and values of secrets that are availabl
 
 The following example contents of the `secrets` context shows the automatic `GITHUB_TOKEN`, as well as two other secrets available to the workflow run.
 
-```yaml
+```json
 {
   "github_token": "***",
   "NPM_TOKEN": "***",
@@ -625,16 +625,16 @@ For workflows with a matrix, the `strategy` context contains information about t
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `strategy` | `object` | This context changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains all the properties listed below. |
-| `strategy.fail-fast` | `string` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
-| `strategy.job-index` | `string` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`. |
-| `strategy.job-total` | `string` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`. |
-| `strategy.max-parallel` | `string` | The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)." |
+| `strategy.fail-fast` | `boolean` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
+| `strategy.job-index` | `number` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`. |
+| `strategy.job-total` | `number` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`. |
+| `strategy.max-parallel` | `number` | The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)." |
 
 ### Example contents of the `strategy` context
 
 The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
 
-```yaml
+```json
 {
   "fail-fast": true,
   "job-index": 3,
@@ -683,7 +683,7 @@ There are no standard properties in the `matrix` context, only those which are d
 
 The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
 
-```yaml
+```json
 {
   "os": "ubuntu-latest",
   "node": 16
@@ -718,7 +718,7 @@ jobs:
 
 ## `needs` context
 
-The `needs` context contains outputs from all jobs that are defined as a dependency of the current job. For more information on defining job dependencies, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)."
+The `needs` context contains outputs from all jobs that are defined as a direct dependency of the current job. Note that this doesn't include implicitly dependent jobs (for example, dependent jobs of a dependent job). For more information on defining job dependencies, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
 | Property name | Type | Description |
 |---------------|------|-------------|
@@ -732,7 +732,7 @@ The `needs` context contains outputs from all jobs that are defined as a depende
 
 The following example contents of the `needs` context shows information for two jobs that the current job depends on.
 
-```yaml
+```json
 {
   "build": {
     "result": "success",
@@ -782,7 +782,7 @@ jobs:
       - run: ./debug
 ```
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 ## `inputs` context
 
 The `inputs` context contains input properties passed to a reusable workflow{% ifversion actions-unified-inputs %} or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
@@ -800,7 +800,7 @@ There are no standard properties in the `inputs` context, only those which are d
 
 The following example contents of the `inputs` context is from a workflow that has defined the `build_id`, `deploy_target`, and `perform_deploy` inputs.
 
-```yaml
+```json
 {
   "build_id": 123456768,
   "deploy_target": "deployment_sys_1a",

@@ -12,13 +12,18 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Cambiar los permisos de acceso
+shortTitle: Change access permissions
+ms.openlocfilehash: 51a9ec690f0bdad1be302592091565b65e5f9b9b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145092440'
 ---
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. En Características, anule la selección de **Restringir las modificaciones solo a los colaboradores**.
+   ![Edición de restricción de la wiki](/assets/images/help/wiki/wiki_restrict_editing.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. En Features (Características), quita la marca de selección de **Restrict edits to collaborators only** (Restringir ediciones a colaboradores solamente). ![Edición de restricción de wikis](/assets/images/help/wiki/wiki_restrict_editing.png)
+## Información adicional
 
-## Leer más
-
-- "[Inhabilitar wikis](/communities/documenting-your-project-with-wikis/disabling-wikis)"
+- "[Deshabilitación de wikis](/communities/documenting-your-project-with-wikis/disabling-wikis)"

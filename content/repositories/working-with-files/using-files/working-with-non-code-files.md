@@ -199,7 +199,7 @@ You can click {% octicon "file" aria-label="The paper icon" %} to see the change
 
 ![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ### Disabling Markdown rendering
 

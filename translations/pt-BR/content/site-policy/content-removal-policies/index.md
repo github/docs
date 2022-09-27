@@ -1,5 +1,5 @@
 ---
-title: Políticas de remoção de conteúdo
+title: Políticas de Remoção de Conteúdo
 versions:
   fpt: '*'
 topics:

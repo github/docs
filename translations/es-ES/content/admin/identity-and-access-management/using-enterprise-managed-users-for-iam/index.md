@@ -1,6 +1,6 @@
 ---
-title: Using Enterprise Managed Users for IAM
-shortTitle: Usuarios Administrados de Enterprise
+title: Uso de usuarios empresariales administrados para IAM
+shortTitle: Enterprise Managed Users
 product: '{% data reusables.gated-features.emus %}'
 intro: Puedes administrar la identidad y el acceso con tu proveedor de identidad y aprovisionar cuentas que solo puedan contribuir con tu empresa.
 redirect_from:
@@ -22,5 +22,11 @@ children:
   - /managing-team-memberships-with-identity-provider-groups
   - /about-support-for-your-idps-conditional-access-policy
   - /migrating-from-saml-to-oidc
+ms.openlocfilehash: 0d8cc71db11e7eb094b0771f8e03a690f449e380
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145955665'
 ---
 

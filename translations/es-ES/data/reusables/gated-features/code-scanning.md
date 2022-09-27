@@ -1,13 +1,13 @@
 {%- ifversion fpt %}
-El {% data variables.product.prodname_code_scanning_capc %} está disponible para todos los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %}. El {% data variables.product.prodname_code_scanning_capc %} también está disponible para los repositorios privados que pertenecen a organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} y tienen una licencia para {% data variables.product.prodname_GH_advanced_security %}.
+{% data variables.product.prodname_code_scanning_capc %} is available for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.prodname_code_scanning_capc %} is also available for private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
 
 {%- elsif ghec %}
-El {% data variables.product.prodname_code_scanning_capc %} está disponible para todos los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %}. Para utilizar el {% data variables.product.prodname_code_scanning %} en un repositorio privado que le pertenezca a una organización, debes tener una licencia para {% data variables.product.prodname_GH_advanced_security %}.
+{% data variables.product.prodname_code_scanning_capc %} is available for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. To use {% data variables.product.prodname_code_scanning %} in a private repository owned by an organization, you must have a license for {% data variables.product.prodname_GH_advanced_security %}.
 
 {%- elsif ghes %}
-El {% data variables.product.prodname_code_scanning_capc %} se encuentra disponible para repositorios que pertenecen a organizaciones de {% data variables.product.product_name %}. Esta característica requiere una licencia para la {% data variables.product.prodname_GH_advanced_security %}.
+{% data variables.product.prodname_code_scanning_capc %} is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
 
 {%- elsif ghae %}
-El {% data variables.product.prodname_code_scanning_capc %} se encuentra disponible para repositorios que pertenecen a organizaciones de {% data variables.product.product_name %}. Esta es una característica de la {% data variables.product.prodname_GH_advanced_security %} (gratuita durante el lanzamiento beta).
+{% data variables.product.prodname_code_scanning_capc %} is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
 
-{%- endif %} Para obtener más información, consulta "[Productos de GitHub](/articles/githubs-products)".
+{%- endif %} {% data reusables.advanced-security.more-info-ghas %}

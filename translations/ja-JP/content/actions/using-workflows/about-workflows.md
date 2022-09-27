@@ -1,7 +1,7 @@
 ---
-title: ワークフローについて
-shortTitle: ワークフローについて
-intro: 'Get a high level overview {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
+title: About workflows
+shortTitle: About workflows
+intro: 'Get a high-level overview of {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,7 +16,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## ワークフローについて
+## About workflows
 
 {% data reusables.actions.about-workflows-long %}
 
@@ -30,7 +30,7 @@ A workflow must contain the following basic components:
 
 For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
-![ワークフローの概要](/assets/images/help/images/overview-actions-simple.png)
+![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
 
 ## Triggering a workflow
 
@@ -38,7 +38,7 @@ For more information on these basic components, see "[Understanding GitHub Actio
 
 For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)", and for a full list of events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
 
-## ワークフロー構文
+## Workflow syntax
 
 Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
 
@@ -57,9 +57,9 @@ For more information on using and creating starter workflows, see "[Using starte
 
 This section briefly describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
 
-### シークレットを保存する
+### Storing secrets
 
-ワークフローでパスワードや証明書などの機密データを使用する場合は、これらを {% data variables.product.prodname_dotcom %} に _secrets_ として保存すると、ワークフローで環境変数として使用できます。 This means that you will be able to create and share workflows without having to embed sensitive values directly in the workflow's YAML source.
+If your workflows use sensitive data, such as passwords or certificates, you can save these in {% data variables.product.prodname_dotcom %} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the workflow's YAML source.
 
 This example job demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
 
@@ -79,11 +79,11 @@ jobs:
 
 For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
-### 依存ジョブを作成する
+### Creating dependent jobs
 
-デフォルトでは、ワークフロー内のジョブはすべて同時並行で実行されます。 If you have a job that must only run after another job has completed, you can use the `needs` keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; however, if you need the jobs to continue, you can define this using the `if` conditional statement.
+By default, the jobs in your workflow all run in parallel at the same time. If you have a job that must only run after another job has completed, you can use the `needs` keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; however, if you need the jobs to continue, you can define this using the `if` conditional statement.
 
-この例では、`setup`、`build`、および `test` ジョブが連続して実行され、`build` と `test` は、それらに先行するジョブが正常に完了したかどうかに依存します。
+In this example, the `setup`, `build`, and `test` jobs run in series, with `build` and `test` being dependent on the successful completion of the job that precedes them:
 
 ```yaml
 jobs:
@@ -125,11 +125,11 @@ jobs:
 For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% ifversion actions-caching %}
-### 依存関係のキャッシング
+### Caching dependencies
 
-If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. キャッシュが作成されると、同じリポジトリ内のすべてのワークフローで使用できるようになります。
+If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
 
-この例は、`~/.npm` ディレクトリをキャッシュする方法を示しています。
+This example demonstrates how to cache the ` ~/.npm` directory:
 
 ```yaml
 jobs:
@@ -146,12 +146,12 @@ jobs:
             {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
 ```
 
-詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
+For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 {% endif %}
 
-### データベースとサービスコンテナの利用
+### Using databases and service containers
 
-ジョブにデータベースまたはキャッシュサービスが必要な場合は、[`services`](/actions/using-jobs/running-jobs-in-a-container) キーワードを使用して、サービスをホストするための一時コンテナを作成できます。 この例は、ジョブが `services` を使用して `postgres` コンテナを作成し、`node` を使用してサービスに接続する方法を示しています。
+If your job requires a database or cache service, you can use the [`services`](/actions/using-jobs/running-jobs-in-a-container) keyword to create an ephemeral container to host the service; the resulting container is then available to all steps in that job and is removed when the job has completed. This example demonstrates how a job can use `services` to create a `postgres` container, and then use `node` to connect to the service.
 
 ```yaml
 jobs:
@@ -175,11 +175,11 @@ jobs:
 
 For more information, see "[Using containerized services](/actions/using-containerized-services)."
 
-### ラベルを使用してワークフローを転送する
+### Using labels to route workflows
 
-特定のタイプのランナーがジョブを処理することを確認したい場合は、ラベルを使用してジョブの実行場所を制御できます。 You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
+If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
 
-この例は、ワークフローがラベルを使用して必要なランナーを指定する方法を示しています。
+This example shows how a workflow can use labels to specify the required runner:
 
 ```yaml
 jobs:
@@ -195,11 +195,11 @@ To learn more about self-hosted runner labels, see "[Using labels with self-host
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ### Reusing workflows
 {% data reusables.actions.reusable-workflows %}
 {% endif %}
 
-### 環境の使用
+### Using environments
 
-You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 詳しい情報については「[デプロイメントの環境の利用](/actions/deployment/using-environments-for-deployment)」を参照してください。
+You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."

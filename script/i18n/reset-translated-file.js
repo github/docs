@@ -5,9 +5,6 @@
 // This is a convenience script for replacing the contents of translated
 // files with the English content from their corresponding source file.
 //
-// It's intended to be a workaround to temporarily bypass Crowdin parser bugs
-// while we wait for translators to fix them.
-//
 // Usage:
 // script/i18n/reset-translated-file.js <filename>
 //

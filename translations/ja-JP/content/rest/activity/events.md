@@ -1,6 +1,6 @@
 ---
-title: Events
-intro: 'The Events API is a read-only API to the {% data variables.product.prodname_dotcom %} events.'
+title: イベント
+intro: 'イベント API は、{% data variables.product.prodname_dotcom %} イベントへの読み取り専用 API です。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,13 +9,18 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 09ad462fe00e84344bd1f0a33f97380a3f03e656
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064307'
 ---
+これらのイベントは、サイト上のさまざまなアクティビティストリームを強化します。
 
-These events power the various activity streams on the site.
+イベント API は、{% data variables.product.product_name %} でのアクティビティによってトリガーされるさまざまなタイプのイベントを返すことができます。 イベント API から受け取ることができる特定のイベントに関する詳細については、「[{% data variables.product.prodname_dotcom %} イベントの種類](/developers/webhooks-and-events/github-event-types)」を参照してください。 リポジトリの問題のイベント API も使用できます。 詳細については、[issue イベント API](/rest/reference/issues#events) に関する記事を参照してください。
 
-The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{% data variables.product.prodname_dotcom %} Event types](/developers/webhooks-and-events/github-event-types)." An events API for repository issues is also available. For more information, see the "[Issue Events API](/rest/reference/issues#events)."
-
-Events are optimized for polling with the "ETag" header. If no new events have been triggered, you will see a "304 Not Modified" response, and your current rate limit will be untouched. There is also an "X-Poll-Interval" header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
+イベントは「ETag」ヘッダでポーリングするために最適化されています。 新しいイベントがトリガーされていない場合は、「304 Not Modified」というレスポンスが表示され、現在のレート制限は変更されません。 また、ポーリングを許可する頻度（秒単位）を指定する「X-Poll-Interval」ヘッダもあります。 サーバー負荷が高い場合、長時間かかることがあります。 ヘッダに従ってください。
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
@@ -30,4 +35,4 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > X-Poll-Interval: 60
 ```
 
-Only events created within the past 90 days will be included in timelines. Events older than 90 days will not be included (even if the total number of events in the timeline is less than 300).
+過去 90 日以内に作成されたイベントのみがタイムラインに含まれます。 90 日以上経過しているイベントは含まれません（タイムラインのイベントの総数が300 未満の場合でも）。

@@ -18,7 +18,7 @@ topics:
 
 ## Using the audit log API
 
-You can interact with the audit log using the GraphQL API{% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %} or the REST API{% endif %}. 
+You can interact with the audit log using the GraphQL API{% ifversion ghec or ghes > 3.2 or ghae %} or the REST API{% endif %}. 
 
 Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
 
@@ -106,7 +106,7 @@ This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) inter
 
 For more query examples, see the [platform-samples repository](https://github.com/github/platform-samples/blob/master/graphql/queries).
 
-{% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
+{% ifversion ghec or ghes > 3.2 or ghae %}
 ## Querying the audit log REST API
 
 To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log REST API to keep copies of your audit log data and monitor:

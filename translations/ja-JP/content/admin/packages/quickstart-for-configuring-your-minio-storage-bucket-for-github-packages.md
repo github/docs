@@ -1,6 +1,6 @@
 ---
-title: Quickstart for configuring your MinIO storage bucket for GitHub Packages
-intro: 'Configure your custom MinIO storage bucket for use with {% data variables.product.prodname_registry %}.'
+title: GitHub Packages の MinIO ストレージバケットを設定するためのクイックスタート
+intro: '{% data variables.product.prodname_registry %} で使用するためにカスタム MinIO ストレージバケットを設定します。'
 versions:
   ghes: '*'
 type: quick_start
@@ -9,52 +9,57 @@ topics:
   - Enterprise
   - Storage
 shortTitle: Quickstart for MinIO
+ms.openlocfilehash: 5e3da768643c3979380d3fb205518a7053c7360b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146688974'
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your third-party storage solution.
+{% data variables.product.product_location_enterprise %} で {% data variables.product.prodname_registry %} を有効にして設定する前に、サードパーティのストレージソリューションを準備する必要があります。
 
-MinIO offers object storage with support for the S3 API and {% data variables.product.prodname_registry %} on your enterprise.
+MinIO は、Enterprise で S3 API と {% data variables.product.prodname_registry %} をサポートするオブジェクトストレージを提供します。
 
-This quickstart shows you how to set up MinIO using Docker for use with {% data variables.product.prodname_registry %} but you have other options for managing MinIO besides Docker. For more information about MinIO, see the official [MinIO docs](https://docs.min.io/).
+このクイックスタートでは、Docker を使用して {% data variables.product.prodname_registry %} で使用するように MinIO をセットアップする方法を説明していますが、Docker 以外に MinIO を管理するオプションがあります。 MinIO の詳細については、公式の [MinIO ドキュメント](https://docs.min.io/)を参照してください。
 
-## 1. Choose a MinIO mode for your needs
+## 1. ニーズに合わせて MinIO モードを選択する
 
-| MinIO mode | Optimized for | Storage infrastructure required |
+| MinIO モード | 最適化の対象 | 必要なストレージインフラストラクチャ |
 |----|----|----|
-| Standalone MinIO (on a single host) | Fast setup |  N/A |
-| MinIO as a NAS gateway |  NAS (Network-attached storage)| NAS devices |
-| Clustered MinIO (also called Distributed MinIO)|  Data security | Storage servers running in a cluster |
+| スタンドアロン MinIO (シングルホスト) | 高速セットアップ |  該当なし |
+| NAS ゲートウェイとしての MinIO |  NAS (ネットワーク接続ストレージ)| NAS デバイス |
+| クラスタ型 MinIO (分散型 MinIO)|  データのセキュリティ | クラスタ内で実行中のストレージサーバー |
 
-For more information about your options, see the official [MinIO docs](https://docs.min.io/).
+オプションに関する詳細については、[MinIO ドキュメント](https://docs.min.io/)を参照してください。
 
 {% warning %}
 
-**Warning**: MinIO has announced removal of MinIO Gateways. Starting June 1st, 2022, support and bug fixes for the current MinIO NAS Gateway implementation will only be available for paid customers via their LTS support contract. If you want to continue using MinIO Gateways with {% data variables.product.prodname_registry %}, we recommend moving to MinIO LTS support. For more information, see [Scheduled removal of MinIO Gateway for GCS, Azure, HDFS](https://github.com/minio/minio/issues/14331) in the minio/minio repository.
+**警告**: MinIO は MinIO Gateway の削除を発表しています。 2022 年 6 月 1 日以降、現在の MinIO NAS Gateway 実装のサポートとバグ修正は、LTS サポート契約を結んだ有料のお客様のみが利用できるようになります。 {% data variables.product.prodname_registry %} で引き続き MinIO Gateway を使用する場合は、MinIO LTS のサポートに移行することをお勧めします。 詳細については、minio/minio リポジトリ内の [GCS、Azure、HDFS 用 MinIO Gateway のスケジュールされた削除](https://github.com/minio/minio/issues/14331)に関するページを参照してください。
 
-Other modes of MinIO remain available with standard support.
+MinIO の他のモードは、標準サポートで引き続き使用できます。
 
 {% endwarning %}
 
-## 2. Install, run, and sign in to MinIO
+## 2. MinIO をインストール、実行、サインインする
 
-1. Set up your preferred environment variables for MinIO.
+1. MinIO のお好みの環境変数を設定します。
 
-    These examples use `MINIO_DIR`:
+    これらの例では `MINIO_DIR` が使用されます。
     ```shell
     $ export MINIO_DIR=$(pwd)/minio
     $ mkdir -p $MINIO_DIR
     ```
 
-2. Install MinIO.
+2. MinIO をインストールします。
 
     ```shell
     $ docker pull minio/minio
     ```
-    For more information, see the official "[MinIO Quickstart Guide](https://docs.min.io/docs/minio-quickstart-guide)."
+    詳細については、公式の「[MinIO クイック スタート ガイド](https://docs.min.io/docs/minio-quickstart-guide)」を参照してください。
 
-3. Sign in to MinIO using your MinIO access key and secret.
+3. MinIO アクセスキーとシークレットを使用して MinIO にサインインします。
 
     {% linux %}
     ```shell
@@ -72,16 +77,16 @@ Other modes of MinIO remain available with standard support.
     ```
     {% endmac %}
 
-    You can access your MinIO keys using the environment variables:
+    環境変数を使用して MinIO キーにアクセスできます。
 
     ```shell
     $ echo $MINIO_ACCESS_KEY
     $ echo $MINIO_SECRET_KEY
     ```
 
-4. Run MinIO in your chosen mode.
+4. 選択したモードで MinIO を実行します。
 
-   * Run MinIO using Docker on a single host:
+   * 単一のホストで Docker を使用して MinIO を実行します。
 
      ```shell
      $ docker run -p 9000:9000 \
@@ -91,11 +96,11 @@ Other modes of MinIO remain available with standard support.
              minio/minio server /data
      ```
 
-     For more information, see "[MinIO Docker Quickstart guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html)."
+     詳細については、「[MinIO Docker クイックスタート ガイド](https://docs.min.io/docs/minio-docker-quickstart-guide.html)」を参照してください。
 
-   * Run MinIO using Docker as a NAS gateway:
+   * Docker を NAS ゲートウェイとして使用して MinIO を実行します。
 
-     This setup is useful for deployments where there is already a NAS you want to use as the backup storage for {% data variables.product.prodname_registry %}.
+     この設定は、{% data variables.product.prodname_registry %} のバックアップストレージとして使用する NAS がすでに存在するデプロイメントに役立ちます。
 
      ```shell
      $ docker run -p 9000:9000 \
@@ -105,40 +110,40 @@ Other modes of MinIO remain available with standard support.
              minio/minio gateway nas /data
      ```
 
-   * Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
+   * Docker をクラスタとして使用して MinIO を実行します。 この MinIO デプロイメントでは、複数のホストと MinIO のイレイジャーコーディングを使用して、最強のデータ保護を実現します。 クラスター モードで MinIO を実行するには、「[分散 MinIO クイック スタート ガイド](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)」を参照してください。
 
-## 3. Create your MinIO bucket for {% data variables.product.prodname_registry %}
+## 3. {% data variables.product.prodname_registry %} の MinIO バケットを作成する
 
-1. Install the MinIO client.  
+1. MinIO クライアントをインストールします。  
 
     ```shell
     $ docker pull minio/mc
     ```
 
-2. Create a bucket with a host URL that {% data variables.product.prodname_ghe_server %} can access.
+2. {% data variables.product.prodname_ghe_server %} がアクセスできるホスト URL を使用してバケットを作成します。
 
-   * Local deployments example:
+   * ローカルデプロイメントの例:
 
      ```shell
      $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
      $ docker run minio/mc <em>BUCKET-NAME</em>
      ```
 
-     This example can be used for MinIO standalone or MinIO as a NAS gateway.
+     この例は、MinIO スタンドアロンまたは NAS ゲートウェイとしての MinIO に使用できます。
 
-   * Clustered deployments example:
+   * クラスタ型デプロイメントの例:
 
      ```shell
      $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @minioclustername.example.com:9000"
      $ docker run minio/mc mb packages
      ```
 
-## Next steps
+## 次の手順
 
-To finish configuring storage for {% data variables.product.prodname_registry %}, you'll need to copy the MinIO storage URL:
+{% data variables.product.prodname_registry %} のストレージの設定を完了するには、MinIO ストレージ URL をコピーする必要があります。
 
   ```
   echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
   ```
 
-For the next steps, see "[Enabling {% data variables.product.prodname_registry %} with  MinIO](/admin/packages/enabling-github-packages-with-minio)."
+次の手順については、「[MinIO で {% data variables.product.prodname_registry %} を有効にする](/admin/packages/enabling-github-packages-with-minio)」を参照してください。

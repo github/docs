@@ -15,37 +15,39 @@ topics:
   - CI
   - PowerShell
 shortTitle: Build & test PowerShell
+ms.openlocfilehash: 572c2ee17c948f44a8f8e4006d3729498269a215
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146180216'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
 このガイドでは、CIのためのPowerShellの使用方法を示します。 Pesterの使い方、依存関係のインストール、モジュールのテスト、PowerShell Galleryへの公開について説明します。
 
-{% data variables.product.prodname_dotcom %}ホストランナーは、PowerShell及びPesterを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。
+{% data variables.product.prodname_dotcom %}ホストランナーは、PowerShell及びPesterを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %}最新のソフトウェアと、PowerShell および Pester のプレインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %} {% else %}最新のソフトウェアの完全な一覧および PowerShell と Pester のプレインストールされたバージョンについては、「[{% data variables.product.prodname_dotcom %} ホステッド ランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 {% endif %}
 
-## 必要な環境
+## 前提条件
 
-YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳しい情報については、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」を参照してください。
+YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳細については、「[{% data variables.product.prodname_actions %} について学ぶ](/actions/learn-github-actions)」を参照してください。
 
-PowerShell及びPesterの基本的な理解をしておくことをおすすめします。 詳しい情報については、以下を参照してください。
-- [PowerShellを使い始める](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
+PowerShell及びPesterの基本的な理解をしておくことをおすすめします。 詳細については、次を参照してください。
+- [PowerShell の概要](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
 - [Pester](https://pester.dev)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
 ## Pesterのワークフローの追加
 
-PowerShellとPesterでテストを自動化するには、変更がリポジトリにプッシュされるたびに実行されるワークフローを追加できます。 以下の例では、`resultsfile.log`というファイルがあるかをチェックするために`Test-Path`が使われます。
+PowerShellとPesterでテストを自動化するには、変更がリポジトリにプッシュされるたびに実行されるワークフローを追加できます。 次の例では、`resultsfile.log` というファイルが存在することを調べるために、`Test-Path` が使われます。
 
-以下の例のワークフローファイルは、リポジトリの`.github/workflows/`ディレクトリに追加しなければなりません。
+次のワークフロー ファイルの例を、リポジトリの `.github/workflows/` ディレクトリに追加する必要があります。
 
 ```yaml
 name: Test PowerShell on Ubuntu
@@ -67,15 +69,15 @@ jobs:
           Invoke-Pester Unit.Tests.ps1 -Passthru
 ```
 
-* `shell: pwsh` `run`コマンドの実行時にPowerShellを使うようにジョブを設定します。
-* `run: Test-Path resultsfile.log` - リポジトリのルートディレクトリに`resultsfile.log`というファイルが存在するかをチェックします。
-* `Should -Be $true` - Pesterを使って期待される結果を定義します。 結果が期待どおりではなかった場合、{% data variables.product.prodname_actions %}はこれを失敗したテストとしてフラグを立てます。 例:
+* `shell: pwsh` - `run` コマンドを実行するときに PowerShell を使うようにジョブを構成します。
+* `run: Test-Path resultsfile.log` - リポジトリのルート ディレクトリに `resultsfile.log` というファイルが存在するかどうかをチェックします。
+* `Should -Be $true` - Pester を使って期待される結果を定義します。 結果が期待どおりではなかった場合、{% data variables.product.prodname_actions %}はこれを失敗したテストとしてフラグを立てます。 次に例を示します。
 
-
+  
   ![失敗したPesterテスト](/assets/images/help/repository/actions-failed-pester-test-updated.png)
+  
 
-
-* `Invoke-Pester Unit.Tests.ps1 -Passthru` - Pesterを使って`Unit.Tests.ps1`というファイルに定義されたテストを実行します。 たとえば上記の同じテストを実行するには、`Unit.Tests.ps1`には以下を含めます。
+* `Invoke-Pester Unit.Tests.ps1 -Passthru` - Pester を使って、`Unit.Tests.ps1` というファイルで定義されているテストを実行します。 たとえば、上で説明したのと同じテストを実行するには、`Unit.Tests.ps1` の内容を次のようにします。
   ```
   Describe "Check results file is present" {
       It "Check results file is present" {
@@ -88,25 +90,25 @@ jobs:
 
 以下の表は、それぞれの{% data variables.product.prodname_dotcom %}ホストランナー内の様々なPowerShellモジュールの場所を示します。
 
-|                         | Ubuntu                                           | macOS                                             | Windows                                                      |
-| ----------------------- | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
-| **PowerShellシステムモジュール** | `/opt/microsoft/powershell/7/Modules/*`          | `/usr/local/microsoft/powershell/7/Modules/*`     | `C:\program files\powershell\7\Modules\*`              |
-| **PowerShellアドオンモジュール** | `/usr/local/share/powershell/Modules/*`          | `/usr/local/share/powershell/Modules/*`           | `C:\Modules\*`                                            |
-| **ユーザがインストールしたモジュール**   | `/home/runner/.local/share/powershell/Modules/*` | `/Users/runner/.local/share/powershell/Modules/*` | `C:\Users\runneradmin\Documents\PowerShell\Modules\*` |
+|| Ubuntu | macOS | Windows |
+|------|-------|------|----------|
+|**PowerShell システム モジュール** |`/opt/microsoft/powershell/7/Modules/*`|`/usr/local/microsoft/powershell/7/Modules/*`|`C:\program files\powershell\7\Modules\*`|
+|**PowerShell アドオン モジュール**|`/usr/local/share/powershell/Modules/*`|`/usr/local/share/powershell/Modules/*`|`C:\Modules\*`|
+|**ユーザーがインストールしたモジュール**|`/home/runner/.local/share/powershell/Modules/*`|`/Users/runner/.local/share/powershell/Modules/*`|`C:\Users\runneradmin\Documents\PowerShell\Modules\*`|
 
 ## 依存関係のインストール
 
-{% data variables.product.prodname_dotcom %}ホストランナーには、PowerShell 7とPesterがインストールされています。 コードのビルドとテストに先立って、`Install-Module`を使って追加の依存関係をPowerShell Galleryからインストールできます。
+{% data variables.product.prodname_dotcom %}ホストランナーには、PowerShell 7とPesterがインストールされています。 コードのビルドとテストの前に、`Install-Module` を使って追加の依存関係を PowerShell ギャラリーからインストールできます。
 
 {% note %}
 
-**ノート:** {% data variables.product.prodname_dotcom %}ホストランナーが使用するプリインストールされたパッケージ（Pesterなど）は定期的に更新され、重要な変更が行われることがあります。 そのため、`Install-Module`で`-MaximumVersion`を使って必要なパッケージのバージョンを常に指定しておくことをおすすめします。
+**注:** {% data variables.product.prodname_dotcom %} ホステッド ランナーによって使用されるプレインストールされたパッケージ (Pester など) は定期的に更新され、重要な変更が行われることがあります。 そのため、`Install-Module` で `-MaximumVersion` を使って必要なパッケージのバージョンを常に指定することをお勧めします。
 
 {% endnote %}
 
-{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% ifversion actions-caching %}ワークフローの速度を上げるために、依存関係をキャッシュすることもできます。 詳細については、「[依存関係をキャッシュしてワークフローのスピードを上げる](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。{% endif %}
 
-たとえば以下のジョブは、`SqlServer`及び`PSScriptAnalyzer`モジュールをインストールします。
+たとえば、次のジョブでは、`SqlServer` モジュールと `PSScriptAnalyzer` モジュールがインストールされます。
 
 ```yaml
 jobs:
@@ -124,7 +126,7 @@ jobs:
 
 {% note %}
 
-**ノート:** デフォルトでは、PowerShellはどのリポジトリも信頼しません。 PowerShell Galleryからモジュールをインストールする際には、`PSGallery`のインストールポリシーを明示的に`Trusted`に設定しなければなりません。
+**注:** 既定では、PowerShell によって信頼されるリポジトリはありません。 PowerShell ギャラリーからモジュールをインストールするときは、`PSGallery` のインストール ポリシーを `Trusted` に明示的に設定する必要があります。
 
 {% endnote %}
 
@@ -132,9 +134,9 @@ jobs:
 
 ### 依存関係のキャッシング
 
-You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
+一意のキーを使って PowerShell の依存関係をキャッシュすることができ、これにより将来のワークフローで [`cache`](https://github.com/marketplace/actions/cache) アクションによってその依存関係を復元できます。 詳細については、「[依存関係をキャッシュしてワークフローのスピードを上げる](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
-PowerShellは、ランナーのオペレーティングシステムによって依存関係を様々な場所にキャッシュします。 たとえば以下のUbuntuの例で使われる`path`の場所は、Windowsオペレーティングシステムの場合とは異なります。
+PowerShellは、ランナーのオペレーティングシステムによって依存関係を様々な場所にキャッシュします。 たとえば、次の Ubuntu の例で使われている `path` の場所は、Windows オペレーティング システムの場合は異なります。
 
 ```yaml
 steps:
@@ -161,7 +163,7 @@ steps:
 
 ### PSScriptAnalyzerを使ったコードの文法チェック
 
-以下の例は`PSScriptAnalyzer`をインストールし、それを使ってリポジトリ内のすべての`ps1`ファイルの文法チェックを行います。 詳しい情報については[GitHub上のPSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer)を参照してください。
+次の例では、`PSScriptAnalyzer` がインストールされ、それを使ってリポジトリ内のすべての `ps1` ファイルがリントされます。 詳細については、[GitHub の PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) を参照してください。
 
 ```yaml
   lint-with-PSScriptAnalyzer:
@@ -189,9 +191,9 @@ steps:
 
 ## 成果物としてのワークフローのデータのパッケージ化
 
-ワークフローの完了後に、成果物をアップロードして見ることができます。 たとえば、ログファイル、コアダンプ、テスト結果、スクリーンショットを保存する必要があるかもしれません。 詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
+ワークフローの完了後に、成果物をアップロードして見ることができます。 たとえば、ログファイル、コアダンプ、テスト結果、スクリーンショットを保存する必要があるかもしれません。 詳細については、「[アーティファクトを使用してワークフロー データを永続化する](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
 
-以下の例は、`upload-artifact`アクションを使って`Invoke-Pester`から受信したテスト結果をアーカイブする方法を示しています。 詳しい情報については[`upload-artifact`アクション](https://github.com/actions/upload-artifact)を参照してください。
+次の例では、`upload-artifact` アクションを使って、`Invoke-Pester` から受け取ったテスト結果をアーカイブする方法を示します。 詳細については、「[`upload-artifact` アクション](https://github.com/actions/upload-artifact)」を参照してください。
 
 ```yaml
 name: Upload artifact from Ubuntu
@@ -215,13 +217,13 @@ jobs:
     if: {% raw %}${{ always() }}{% endraw %}
 ```
 
-`always()`関数は、テストに失敗があっても継続するようにジョブを設定しています。 詳しい情報については「[ always](/actions/reference/context-and-expression-syntax-for-github-actions#always)」を参照してください。
+`always()` 関数では、テストにエラーがあっても処理を続行するようにジョブが構成されます。 詳細については、[always](/actions/reference/context-and-expression-syntax-for-github-actions#always) に関する説明を参照してください。
 
 ## PowerShell Galleryへの公開
 
-CIテストにパスしたら、PowerShellモジュールをPowerShell Galleryに公開するようにワークフローを設定できます。 パッケージを公開するのに必要なトークンや認証情報を保存するために、シークレットを使うことができます。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+CIテストにパスしたら、PowerShellモジュールをPowerShell Galleryに公開するようにワークフローを設定できます。 パッケージを公開するのに必要なトークンや認証情報を保存するために、シークレットを使うことができます。 詳細については、[暗号化されたシークレットの作成と使用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)に関するページを参照してください。
 
-以下の例は、パッケージを作成し、`Publish-Module`を使ってそのパッケージをPowerShell Galleryに公開します。
+次の例では、パッケージが作成され、`Publish-Module` を使ってそれが PowerShell ギャラリーに公開されます。
 
 ```yaml
 name: Publish PowerShell Module

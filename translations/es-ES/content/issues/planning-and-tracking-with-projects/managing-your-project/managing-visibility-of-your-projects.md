@@ -1,7 +1,7 @@
 ---
-title: 'Managing visibility of your {% data variables.projects.projects_v2 %}'
+title: 'Administración de la visibilidad de las instancias de {% data variables.projects.projects_v2 %}'
 shortTitle: 'Managing {% data variables.projects.project_v2 %} visibility'
-intro: 'Learn about setting your {% data variables.projects.project_v2 %} to private or public visibility.'
+intro: 'Obtén información sobre cómo establecer {% data variables.projects.project_v2 %} en visibilidad privada o pública.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -12,29 +12,35 @@ topics:
   - Projects
 allowTitleToDifferFromFilename: true
 permissions: Organization owners can manage the visibility of project boards in their organization. Organization owners can also allow collaborators with admin permissions to manage project visibility. Visibility of user projects can be managed by the owner of the project and collaborators with admin permissions.
+ms.openlocfilehash: 0fcd51dc996f28103179835f05fc74941eb1daee
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147854064'
 ---
-
 ## Acerca de la visibilidad de los proyectos
 
-Projects can be public or private. En el caso de los proyectos públicos, toda persona con acceso a internet puede verlos. Para el caso de los proyectos privados, solo podrán verlos los usuarios a los que se les otorgó por lo menos acceso de lectura.
+Los proyectos pueden ser públicos o privados. En el caso de los proyectos públicos, toda persona con acceso a internet puede verlos. Para el caso de los proyectos privados, solo podrán verlos los usuarios a los que se les otorgó por lo menos acceso de lectura.
 
 Solo se afecta la visibilidad del proyecto; para ver un elemento en el proyecto, alguien debe tener los permisos requeridos para el repositorio al cual pertenece este. Si tu proyecto incluye elementos de un repositorio privado, las personas que no sean colaboradores en el repositorio no podrán ver elementos de este.
 
 ![Proyecto con un elemento oculto](/assets/images/help/projects/hidden-items.png)
 
-Project admins and organization owners can control project visibility. Organization owners can restrict the ability to change project visibility to just organization owners.
+Los administradores de proyectos y los propietarios de la organización pueden controlar la visibilidad del proyecto. Los propietarios de la organización{% ifversion project-visibility-policy %} y los propietarios de empresa{% endif %} pueden restringir la capacidad de cambiar la visibilidad del proyecto solo a los propietarios de la organización.
 
-In public and private projects, insights are only visible to users with write permissions for the project.
+En proyectos públicos y privados, las conclusiones solo son visibles para los usuarios con permisos de escritura para el proyecto.
 
 En los proyectos privados que pertenecen a las organizaciones, los avatares de los usuarios que actualmente hacen actualizaciones al mismo se muestran en su IU.
 
-Los administradores de proyecto también pueden administrar el acceso administrativo y de escritura al mismo, así como controlar el acceso para los usuarios individuales. For more information, see "[Managing access to your projects](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
+Los administradores de proyecto también pueden administrar el acceso administrativo y de escritura al mismo, así como controlar el acceso para los usuarios individuales. Para más información, consulta "[Administración del acceso a los proyectos](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)".
 
 ## Cambiar la visibilidad de proyecto
 
 {% data reusables.projects.project-settings %}
-1. Next to **Visibility** in the "Danger zone", select **Private** or **Public**. ![Screenshot showing the visibility controls](/assets/images/help/projects-v2/visibility.png)
+1. Junto a **Visibilidad** en "Zona de peligro", selecciona **Privado** o **Público**.
+   ![Captura de pantalla en la que se muestran los controles de visibilidad](/assets/images/help/projects-v2/visibility.png)
 
-## Leer más
+## Información adicional
 
-- [Allowing project visibility changes in your organization](/organizations/managing-organization-settings/allowing-project-visibility-changes-in-your-organization)
+- [Cambios en la visibilidad del proyecto permitidos en la organización](/organizations/managing-organization-settings/allowing-project-visibility-changes-in-your-organization)

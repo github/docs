@@ -1,5 +1,6 @@
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. サイドバーの"Security（セキュリティ）"セクションで、**{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets（シークレット）**を選択し、続いて**{% data variables.product.prodname_dependabot %}**をクリックしてください。
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets**, then click **{% data variables.product.prodname_dependabot %}**.
 {% else %}
-1. サイドバーで**{% data variables.product.prodname_dependabot %}**をクリックしてください。 ![{% data variables.product.prodname_dependabot %}シークレットサイドバーオプション](/assets/images/enterprise/3.3/dependabot/dependabot-secrets.png)
+1. In the sidebar, click **{% data variables.product.prodname_dependabot %}**.
+   ![{% data variables.product.prodname_dependabot %} secrets sidebar option](/assets/images/enterprise/3.3/dependabot/dependabot-secrets.png)
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Enforcing policies for GitHub Actions in your enterprise
-intro: 'You can enforce policies for {% data variables.product.prodname_actions %} within your enterprise''s organizations, or allow policies to be set in each organization.'
+title: 在企业中为 GitHub Actions 实施策略
+intro: '您可以为企业组织内的 {% data variables.product.prodname_actions %} 执行策略，或者允许在每个组织中设置策略。'
 permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_actions %} in an enterprise.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -24,154 +24,127 @@ topics:
   - Enterprise
   - Policies
 shortTitle: GitHub Actions policies
+ms.openlocfilehash: 21b2cfa73ef84ba6635f05b9fc25bb48df2b87cb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147400336'
 ---
-
 {% data reusables.actions.enterprise-beta %}
 
-## About policies for {% data variables.product.prodname_actions %} in your enterprise
+## 关于企业中 {% data variables.product.prodname_actions %} 的策略
 
-{% data variables.product.prodname_actions %} helps members of your enterprise automate software development workflows on {% data variables.product.product_name %}. For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
+{% data variables.product.prodname_actions %} 可帮助您的企业成员在 {% data variables.product.product_name %} 上自动执行软件开发工作流程。 有关详细信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)”。
 
-{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.product.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+{% ifversion ghes %}如果启用 {% data variables.product.prodname_actions %}，则 {% data variables.product.product_location %} 上的任何{% else %}任何{% endif %} 组织都可以使用 {% data variables.product.prodname_actions %}。 你可以强制实施策略来控制 {% data variables.product.product_name %} 上的企业成员如何使用 {% data variables.product.prodname_actions %}。 默认情况下，组织所有者可以管理成员使用 {% data variables.product.prodname_actions %} 的方式。 有关详细信息，请参阅“[为组织禁用或限制 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)”。
 
-## Enforcing a policy to restrict the use of {% data variables.product.prodname_actions %} in your enterprise
+## 强制实施策略以限制企业中 {% data variables.product.prodname_actions %} 的使用
 
-You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your enterprise.
+您可以选择对企业中的所有组织禁用 {% data variables.product.prodname_actions %}，或只允许特定的组织。 还可以限制公共操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}的使用，让用户只能使用企业中现有的本地操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Policies", select your options.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. 在“Policies（策略）”下选择选项。
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
-   {%- ifversion ghes or ghae %}
-   {% note %}
+   {%- ifversion ghes or ghae %} {% note %}
 
-   **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.product.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
+   注意：若要启用对公共操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}的访问，首先必须配置 {% data variables.product.product_location %}，以连接到 {% data variables.product.prodname_dotcom_the_website %}。 有关详细信息，请参阅“[使用 GitHub Connect 启用对 GitHub.com 操作的自动访问](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)”。
 
-   {% endnote %}
-   {%- endif %}
-   {% ifversion actions-workflow-policy %}
-   ![Enable, disable, or limits actions for this enterprise account](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
-   {%- else %}
-   ![Enable, disable, or limits actions for this enterprise account](/assets/images/help/organizations/enterprise-actions-policy.png)
-   {%- endif %}
-1. Click **Save**.
+   {% endnote %} {%- endif %} {% ifversion actions-workflow-policy %}![启用、禁用或限制该企业帐户的操作](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png){%- else %}![启用、禁用或限制该企业帐户的操作](/assets/images/help/organizations/enterprise-actions-policy.png){%- endif %}
+1. 单击“ **保存**”。
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
-   {% ifversion actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes or ghae %}
-   ![Add actions to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
-   {%- elsif ghae %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
-   {%- endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. 在“策略”下，选择 {% data reusables.actions.policy-label-for-select-actions-workflows %} 并向列表添加所需操作{% ifversion actions-workflow-policy %}和可重用工作流{% endif %}。
+   {% ifversion actions-workflow-policy %}![将操作和可重用工作流添加到允许列表](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png){%- elsif ghes or ghae %}![将操作添加到允许列表](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png){%- elsif ghae %}![将操作添加到允许列表](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png){%- endif %}
 
-## Enforcing a policy for artifact and log retention in your enterprise
+## 在企业中实施构件和日志保留策略
 
-{% data variables.product.prodname_actions %} can store artifact and log files. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+{% data variables.product.prodname_actions %} 可以存储构件和日志文件。 有关详细信息，请参阅“[下载工作流工件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”。
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.actions.change-retention-period-for-artifacts-logs  %}
 
-## Enforcing a policy for fork pull requests in your enterprise
+## 在企业中实施复刻拉取请求的策略
 
-You can enforce policies to control how {% data variables.product.prodname_actions %} behaves for {% data variables.product.product_location %} when members of your enterprise{% ifversion ghec %} or outside collaborators{% endif %} run workflows from forks.
+您可以实施策略以控制当企业成员{% ifversion ghec %} 或外部协作者{% endif %}从复刻运行工作流程时 {% data variables.product.prodname_actions %} 对 {% data variables.product.product_location %} 的行为方式。
 
 {% ifversion ghec %}
 
-### Enforcing a policy for approval of pull requests from outside collaborators
+### 实施用于批准来自外部协作者的拉取请求的策略
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.actions.workflows-from-public-fork-setting %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
 
 {% endif %}
 
-### Enforcing a policy for fork pull requests in private repositories
+### 在私有仓库中实施复刻拉取请求的策略
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-If a policy is enabled for an enterprise, the policy can be selectively disabled in individual organizations or repositories. If a policy is disabled for an enterprise, individual organizations or repositories cannot enable it.
+如果为企业启用了某个策略，可以在单个组织或存储库中选择性禁用该策略。 如果为企业禁用了某个策略，则单个组织或存储库无法启用该策略。
 
 {% data reusables.actions.private-repository-forks-options %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.actions.private-repository-forks-configure %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.actions.private-repository-forks-configure %}
 
 {% ifversion ghec or ghes or ghae %}
 
-## Enforcing a policy for workflow permissions in your enterprise
+## 在企业中实施工作流程权限策略
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-You can set the default permissions for the `GITHUB_TOKEN` in the settings for your enterprise, organizations, or repositories. If you choose a restricted option as the default in your enterprise settings, this prevents the more permissive setting being chosen in the organization or repository settings.
+可以在企业、组织或存储库的设置中为 `GITHUB_TOKEN` 设置默认权限。 如果你在企业设置中选择受限制的选项作为默认值，这将防止在组织或存储库设置中选择更宽松的设置。
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
-### Configuring the default `GITHUB_TOKEN` permissions
+### 配置默认 `GITHUB_TOKEN` 权限
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-By default, when you create a new enterprise, `GITHUB_TOKEN` only has read access for the `contents` scope.
+{% ifversion allow-actions-to-approve-pr-with-ent-repo %}默认情况下，当你创建新企业时，`GITHUB_TOKEN` 仅对 `contents` 范围具有读取权限。
 {% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. 在“工作流权限”下，选择是要让 `GITHUB_TOKEN` 对所有范围具有读写访问权限，还是仅对 `contents` 范围具有读取访问。
 
-   ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise{% ifversion allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
-1. Click **Save** to apply the settings.
+   ![为此企业设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-enterprise{% ifversion allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
+1. 单击“保存”以应用设置。
 
 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
+### 阻止 {% data variables.product.prodname_actions %} 创建或批准拉取请求
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-By default, when you create a new enterprise, workflows are not allowed to create or approve pull requests.
+默认情况下，创建新的企业时，不允许工作流创建或批准拉取请求。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. 在“工作流权限”下，使用“允许 GitHub Actions 创建和批准拉取请求”设置配置 `GITHUB_TOKEN` 是否可以创建和批准拉取请求。
 
-   ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise-with-pr-approval.png)
-1. Click **Save** to apply the settings.
+   ![为此企业设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-enterprise-with-pr-approval.png)
+1. 单击“保存”以应用设置。
 
-{% endif %}
-{% endif %}
+{% endif %} {% endif %}
 
 {% ifversion actions-cache-policy-apis %}
 
-## Enforcing a policy for cache storage in your enterprise
+## 在企业中强制实施缓存存储策略
 
 {% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}
 
-However, you can set an enterprise policy to customize both the default total cache size for each repository, as well as the maximum total cache size allowed for a repository. For example, you might want the default total cache size for each repository to be 5 GB, but also allow repository administrators to configure a total cache size up to 15 GB if necessary.
+但是，可以设置企业策略来自定义每个存储库的默认总缓存大小，以及存储库允许的最大总缓存大小。 例如，你可能希望每个存储库的默认总缓存大小为 5 GB，但也允许存储库管理员根据需要配置最大 15 GB 的总缓存大小。
 
-People with admin access to a repository can set a total cache size for their repository up to the maximum cache size allowed by the enterprise policy setting.
+对存储库具有管理员访问权限的人员可以将其存储库的总缓存大小设置为企业策略设置允许的最大缓存大小。
 
-The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
+{% data variables.product.prodname_actions %} 缓存存储的策略设置目前只能使用 REST API 进行修改：
 
-* To view the current enterprise policy settings, see "[Get GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
-* To change the enterprise policy settings, see "[Set GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+* 若要查看当前企业策略设置，请参阅“[获取企业的 GitHub Actions 缓存使用策略](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)”。
+* 若要更改企业策略设置，请参阅“[设置企业的 GitHub Actions 缓存使用策略](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)”。
 
 {% data reusables.actions.cache-no-org-policy %}
 

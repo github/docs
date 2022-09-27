@@ -1,24 +1,29 @@
 ---
-title: Breaking changes
-intro: "Learn about recent and upcoming breaking changes to the {% data variables.product.prodname_dotcom %} GraphQL API."
+title: Cambios importantes
+intro: 'Aprende sobre los cambios sustanciales recientes y venideros a la API de GraphQL de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/breaking_changes
 versions:
-  fpt: "*"
-  ghec: "*"
-  ghes: "*"
-  ghae: "*"
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: ee38f60dfd12d00688e46c739fc41f328203daf5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147496656'
 ---
+## Acerca de los cambios sustanciales
 
-## About breaking changes
+Los cambios sustanciales son aquellos que pudieran necesitar que nuestros integradores realicen alguna acción al respecto. Dividimos estos cambios en dos categorías:
 
-Breaking changes are any changes that might require action from our integrators. We divide these changes into two categories:
+- **Importantes:** cambios que interrumpirán consultas existentes a GraphQL API. Por ejemplo, eliminar un campo sería un cambio sustancial.
+- **Peligrosos:** cambios que no interrumpirán las consultas existentes, pero que podrían afectar al comportamiento del tiempo de ejecución de los clientes. Agregar un valor de enumerador es un ejemplo de un cambio peligroso.
 
-- **Breaking:** Changes that will break existing queries to the GraphQL API. For example, removing a field would be a breaking change.
-- **Dangerous:** Changes that won't break existing queries but could affect the runtime behavior of clients. Adding an enum value is an example of a dangerous change.
+Nos esforzamos por proporcionar API estables para nuestros integradores. Cuando una característica nueva sigue en evolución, se publica detrás de una [versión preliminar del esquema](/graphql/overview/schema-previews).
 
-We strive to provide stable APIs for our integrators. When a new feature is still evolving, we release it behind a [schema preview](/graphql/overview/schema-previews).
-
-We'll announce upcoming breaking changes at least three months before making changes to the GraphQL schema, to give integrators time to make the necessary adjustments. Changes go into effect on the first day of a quarter (January 1st, April 1st, July 1st, or October 1st). For example, if we announce a change on January 15th, it will be made on July 1st.
+Anunciaremos los cambios sustanciales por venir por lo menos tres meses antes de aplicarlos al modelo de GraphQL, para proporcionar a los integradores tiempo para realizar los ajustes necesarios. Los cambios toman efecto en el primer día de un trimestre (1 de enero, 1 de abril, 1 de julio, o 1 de octubre). Por ejemplo, si anunciamos un cambio en el 15 de enero, se aplicará en el 1 de julio.

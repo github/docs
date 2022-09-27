@@ -15,9 +15,12 @@ children:
   - /quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
   - /configuring-package-ecosystem-support-for-your-enterprise
   - /migrating-your-enterprise-to-the-container-registry-from-the-docker-registry
-shortTitle: 管理 GitHub Packages
+shortTitle: Manage GitHub Packages
+ms.openlocfilehash: 257cd942e8f12c9a8c23883c9806fae43df1a8de
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408977'
 ---
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-  {% ifversion ghes %}
-  {% endif %}
+{% data reusables.package_registry.packages-ghes-release-stage %} {% ifversion ghes %} {% endif %}

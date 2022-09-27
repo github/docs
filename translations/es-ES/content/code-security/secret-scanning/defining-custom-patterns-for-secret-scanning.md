@@ -28,7 +28,7 @@ topics:
 You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
 
 You can define custom patterns for your enterprise, organization, or repository. {% data variables.product.prodname_secret_scanning_caps %} supports up to 
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-7297 %} 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
 {%- elsif ghes = 3.2 %} 20 custom patterns for each organization or enterprise account, and per repository.
 {%- else %} 100 custom patterns for each organization or enterprise account, and 20 per repository.
 {%- endif %}
