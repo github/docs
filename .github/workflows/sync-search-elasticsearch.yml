@@ -104,8 +104,7 @@ jobs:
       - name: Index into Elasticsearch
         run: |
           ./script/search/index-elasticsearch.js \
-            --language ${{ matrix.language }} \
-            --source-directory /tmp/records
+            --language ${{ matrix.language }} -- /tmp/records
 
       - name: Check created indexes and aliases
         run: |

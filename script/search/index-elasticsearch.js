@@ -49,12 +49,10 @@ const shortNames = Object.fromEntries(
 
 const allVersionKeys = Object.keys(shortNames)
 
-const DEFAULT_SOURCE_DIRECTORY = path.join('lib', 'search', 'indexes')
-
 program
   .description('Creates Elasticsearch index from records')
   .option('-v, --verbose', 'Verbose outputs')
-  .addOption(new Option('-V, --version <VERSION...>', 'Specific versions').choices(allVersionKeys))
+  .addOption(new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeys))
   .addOption(
     new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys)
   )
@@ -62,16 +60,17 @@ program
     new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys)
   )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
-  .option(
-    '-s, --source-directory <DIRECTORY>',
-    `Directory where records files are (default ${DEFAULT_SOURCE_DIRECTORY})`
-  )
   .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
+  .argument('<source-directory>', 'where the indexable files are')
   .parse(process.argv)
 
-main(program.opts())
+main(program.opts(), program.args)
 
-async function main(opts) {
+async function main(opts, args) {
+  if (!args.length) {
+    throw new Error('Must pass the source as the first argument')
+  }
+
   if (!opts.elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must passed the elasticsearch URL option or ' +
@@ -103,7 +102,7 @@ async function main(opts) {
   if (verbose) {
     console.log(`Connecting to ${chalk.bold(safeUrlDisplay(node))}`)
   }
-  const sourceDirectory = opts.sourceDirectory || DEFAULT_SOURCE_DIRECTORY
+  const sourceDirectory = args[0]
   try {
     await fs.stat(sourceDirectory)
   } catch (error) {
