@@ -74,6 +74,9 @@ The following table indicates where each context and special function can be use
 
 | Workflow key | Context | Special functions |
 | ---- | ------- | ----------------- |
+{%- ifversion actions-run-name %}
+| <code>run-name</code> | <code>github, inputs</code> | |
+{%- endif %}
 | <code>concurrency</code> | <code>github, inputs</code> | |
 | <code>env</code> | <code>github, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | |
