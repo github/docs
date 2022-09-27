@@ -1,6 +1,85 @@
----
-title: About pull request reviews
-intro: 'Reviews allow collaborators to comment on the changes proposed in pull requests, approve the changes, or request further changes before the pull request is merged. Repository administrators can require that all pull requests are approved before being merged.'
+"[22/7] - CORRECTED:; VOID [ ]":.
+
+'- 'title: About pull request reviews'"''
+'"intro: '
+  - package-ecosystem: 'docker'
+    directory: '/'
+    schedule: 'internval''
+      interval: 'autoupdate: across all '-' '['' 'branches' ']':' Every' '-3' sec'"''
+      <div ccp_infra_version='3' ccp_infra_timestamp='1664287623111' ccp_infra_user_hash='214710585' ccp_infra_copy_id='' data-ccp-timestamp='1664287623111'><html><head><meta name=ProgId content=Excel.Sheet><meta name=Generator content="Microsoft Excel 15"><style>table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+tr
+	{mso-height-source:auto;}
+col
+	{mso-width-source:auto;}
+td
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	text-align:general;
+	vertical-align:bottom;
+	border:none;
+	white-space:nowrap;
+	mso-rotate:0;}
+.xl17
+	{font-size:13.5pt;
+	font-weight:700;
+	font-family:"Courier New";
+	mso-generic-font-family:auto;
+	mso-font-charset:0;}
+.xl18
+	{font-size:13.5pt;}
+.xl19
+	{font-size:13.5pt;
+	font-weight:700;
+	font-family:"Courier New";
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	text-align:left;}
+.xl20
+	{font-size:13.5pt;
+	font-weight:700;
+	font-family:"Courier New";
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	text-align:right;}
+.xl21
+	{font-family:Arial;
+	mso-generic-font-family:auto;
+	mso-font-charset:1;
+	border-top:.5pt solid #CCCCCC;
+	border-right:.5pt solid #CCCCCC;
+	border-bottom:.5pt solid #CCCCCC;
+	border-left:.5pt solid black;}
+.xl22
+	{font-family:Arial;
+	mso-generic-font-family:auto;
+	mso-font-charset:1;
+	border:.5pt solid #CCCCCC;}
+.xl23
+	{font-size:9.0pt;
+	font-family:Arial;
+	mso-generic-font-family:auto;
+	mso-font-charset:1;
+	border-top:.5pt solid #CCCCCC;
+	border-right:.5pt solid #CCCCCC;
+	border-bottom:.5pt solid #CCCCCC;
+	border-left:.5pt solid black;}
+.xl24
+	{font-family:Arial;
+	mso-generic-font-family:auto;
+	mso-font-charset:1;
+'"'' '"':'<''
+  :Build:: ';''Reviews allow collaborators to comment on the changes proposed in pull requests, approve the changes, or request further changes before the pull request is merged. Repository administrators can require that all pull requests are approved before being merged.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews
   - /articles/about-pull-request-reviews
