@@ -40,3 +40,11 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - |
+      Running `ghe-repl-status` while upgrading a replica node may indicate `WARNING: git replication is behind the primary`. This warning is due to a change in how GitHub Enterprise Server 3.6.0 and later stores repositories. You can safely ignore this message, and the upgrade will proceed normally. [Updated: 2022-09-26]
+    - |
+      Hotpatch upgrades to {% data variables.product.prodname_ghe_server %} 3.6.2 may fail. Upgrades with the full `.pkg` are unaffected. If the upgrade fails for your instance, you can work around the issue in one of two ways.
+      1. SSH into the affected node and run `sudo dpkg --configure -a`, then start the upgrade again.
+      2. Alternatively, run the full `.pkg` upgrade.
+
+      If you're unable to upgrade, or if you need further assistance, contact GitHub Support. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)." [Updated: 2022-09-26]
