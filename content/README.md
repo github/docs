@@ -1,5 +1,7 @@
-# ##: #://POST \
-# Request : "Dns.Python.javascript":,''
+Request :Pull ::
+:Pull:: pulls_rquest :
+pulls_request'@Kite.u":,
+language :Dns.Python.javascript :
 # bitore.sig
 # BITORE
 # Bitore.sigs
