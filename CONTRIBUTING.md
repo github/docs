@@ -1,3 +1,16 @@
+##/POST \
+Request :
+pull requests :
+:Build ::\
+<<scripts>>
+# #:Bitore.sig
+# #:Bitore.sigs
+# #:BITORE_34173
+# #:((c)(r))
+::const :
+<<scripts>> :
+:Build:: 
+
 # Welcome to GitHub docs contributing guide <!-- omit in toc -->
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
