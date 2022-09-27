@@ -4,7 +4,7 @@ intro: 'Você pode facilitar o acesso dos usuários aos links específicos da em
 versions:
   ghec: '*'
   ghes: '>=3.4'
-  ghae: issue-5487
+  ghae: '>= 3.4'
 type: how_to
 topics:
   - Enterprise

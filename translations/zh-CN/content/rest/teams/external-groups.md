@@ -2,10 +2,9 @@
 title: 外部组
 intro: 外部组 API 允许查看可用于组织的外部标识提供者组，并管理组织中外部组和团队之间的连接。
 versions:
-  fpt: '*'
-  ghes: '>=3.6'
   ghae: '*'
   ghec: '*'
+  ghes: '>=3.6'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

@@ -17,7 +17,7 @@ redirect_from:
 
 ## About the {% data variables.product.prodname_vscode_command_palette %}
 
-The Command Palette is one of the focal features of {% data variables.product.prodname_vscode %} and is available for you to use in {% data variables.product.prodname_github_codespaces %}. The Command Palette allows you to access many commands for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information on using the {% data variables.product.prodname_vscode_command_palette_shortname %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+The {% data variables.product.prodname_vscode_command_palette_shortname %} is one of the focal features of {% data variables.product.prodname_vscode %} and is available for you to use in {% data variables.product.prodname_github_codespaces %}. The Command Palette allows you to access many commands for {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information on using the {% data variables.product.prodname_vscode_command_palette_shortname %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Accessing the {% data variables.product.prodname_vscode_command_palette_shortname %}
 
@@ -33,7 +33,7 @@ You can access the {% data variables.product.prodname_vscode_command_palette_sho
 
 ## Commands for {% data variables.product.prodname_codespaces %}
 
-To see all commands related to {% data variables.product.prodname_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "Codespaces".
+To see all commands related to {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "Codespaces".
 
 ![A list of all commands that relate to Codespaces](/assets/images/help/codespaces/codespaces-command-palette.png)
 
@@ -63,6 +63,6 @@ To rebuild your container, [access the {% data variables.product.prodname_vscode
 
 You can use the {% data variables.product.prodname_vscode_command_palette_shortname %} to access the codespace creation logs, or you can use it export all logs. 
 
-To retrieve the logs for {% data variables.product.prodname_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "log". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
+To retrieve the logs for {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "log". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_github_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
 
 ![Command to access logs](/assets/images/help/codespaces/codespaces-logs.png)

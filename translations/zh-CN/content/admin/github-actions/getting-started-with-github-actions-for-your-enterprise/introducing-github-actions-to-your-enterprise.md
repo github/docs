@@ -1,7 +1,7 @@
 ---
-title: 为企业引入 GitHub Actions
+title: Introducing GitHub Actions to your enterprise
 shortTitle: Introduce Actions
-intro: '您可以计划如何在企业中推出 {% data variables.product.prodname_actions %}。'
+intro: 'You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -10,125 +10,133 @@ type: how_to
 topics:
   - Actions
   - Enterprise
-ms.openlocfilehash: 8bb732deb2710ca54d173682703403ec6fa86326
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147717819'
 ---
-## 关于企业的 {% data variables.product.prodname_actions %}
 
-{% data reusables.actions.about-actions %} 借助 {% data variables.product.prodname_actions %}，您的企业可以自动化、自定义和执行软件开发工作流程，如测试和部署。 有关详细信息，请参阅“[关于企业的 {% data variables.product.prodname_actions %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)”。
+## About {% data variables.product.prodname_actions %} for enterprises
 
-![在自托管运行器上运行的作业的示意图](/assets/images/help/images/actions-enterprise-overview.png)
+{% data reusables.actions.about-actions %} With {% data variables.product.prodname_actions %}, your enterprise can automate, customize, and execute your software development workflows like testing and deployments. For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+
+![Diagram of jobs running on self-hosted runners](/assets/images/help/images/actions-enterprise-overview.png)
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-在为大型企业引入 {% data variables.product.prodname_actions %} 之前，首先需要规划采用情况，并决定企业将如何使用 {% data variables.product.prodname_actions %} 来最好地支持您的独特需求。
+Before you introduce {% data variables.product.prodname_actions %} to a large enterprise, you first need to plan your adoption and make decisions about how your enterprise will use {% data variables.product.prodname_actions %} to best support your unique needs.
 
-## 管理和符合性
+## Governance and compliance
 
-您应制定一个计划来管理企业对 {% data variables.product.prodname_actions %} 的使用，并履行合规性义务。
+You should create a plan to govern your enterprise's use of {% data variables.product.prodname_actions %} and meet your compliance obligations.
 
-确定允许开发人员使用的操作 {% ifversion actions-workflow-policy %}和可重用工作流 {% endif %}。 {% ifversion ghes %}首先，确定是否允许从实例外部访问操作{% ifversion actions-workflow-policy %}和可重用工作流 {% endif %}。 {% data reusables.actions.access-actions-on-dotcom %} 有关详细信息，请参阅“[关于在企业中使用操作](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)”。
+Determine which actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
 
-然后，{% else %}首先{% endif %}确定是否允许第三方操作 {% ifversion actions-workflow-policy %}和并非由 {% data variables.product.company_short %} 创建的可重用工作流{% endif %}。 可以配置允许在存储库、组织和企业级别运行的操作 {% ifversion actions-workflow-policy %}和可重用工作流 {% endif %}，并且可以选择仅允许由 {% data variables.product.company_short %} 创建的操作。 如果确实允许第三方操作 {% ifversion actions-workflow-policy %}和可重用工作流{% endif %}，则可以将允许的操作限制为由经过验证的创建者创建的操作，或者某个列表中的特定操作{% ifversion actions-workflow-policy %} 和可重用工作流{% endif %}。 有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)”、“[为组织禁用或限制 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)”和“[在企业中强制实施 {% data variables.product.prodname_actions %}](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-github-actions-in-your-enterprise)”。
+Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that were not created by {% data variables.product.company_short %}. You can configure the actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that are allowed to run at the repository, organization, and enterprise levels and can choose to only allow actions that are created by {% data variables.product.company_short %}. If you do allow third-party actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you can limit allowed actions to those created by verified creators or a list of specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)", "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)", and "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-github-actions-in-your-enterprise)."
 
-{% ifversion actions-workflow-policy %} ![{% data variables.product.prodname_actions %} 策略](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png) {%- else %} ![{% data variables.product.prodname_actions %} 策略屏幕截图](/assets/images/help/organizations/enterprise-actions-policy.png) {%- endif %}
+{% ifversion actions-workflow-policy %}
+![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
+{%- else %}
+![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy.png)
+{%- endif %}
 
-{% ifversion ghec or ghae-issue-4757 %} 考虑将 OpenID Connect (OIDC) 与可重用的工作流相结合，以在存储库、组织或企业中实施一致的部署。 为此，可以基于可重用工作流程在云角色上定义信任条件。 有关详细信息，请参阅“[将 OpenID Connect 与可重用工作流结合使用](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)”。
+{% ifversion ghec or ghes > 3.4 %}
+Consider combining OpenID Connect (OIDC) with reusable workflows to enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows. For more information, see "[Using OpenID Connect with reusable workflows](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."
 {% endif %}
 
-您可以在企业的审核日志中访问与 {% data variables.product.prodname_actions %} 相关的活动信息。 如果业务需要保留此信息的时间超过保留审核日志数据的时间，请规划如何导出此数据并存储在 {% data variables.product.prodname_dotcom %} 之外。 有关详细信息，请参阅{% ifversion ghec %}“[为企业导出审核日志活动](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)”和“[为企业流式传输审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)”。{% else %}{% ifversion audit-log-streaming %}“[为企业流式传输审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)”和{% endif %}“[日志转发](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)”。{% endif %}
+You can access information about activity related to {% data variables.product.prodname_actions %} in the audit logs for your enterprise. If your business needs require retaining this information longer than audit log data is retained, plan how you'll export and store this data outside of {% data variables.product.prodname_dotcom %}. For more information, see {% ifversion ghec %}"[Exporting audit log activity for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)" and "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."{% else %}{% ifversion audit-log-streaming %}"[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)" and {% endif %}"[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."{% endif %}
 
-![审核日志条目](/assets/images/help/repository/audit-log-entries.png)
+![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
 
-## 安全性
+## Security
 
-您应该规划 {% data variables.product.prodname_actions %} 的安全强化方法。
+You should plan your approach to security hardening for {% data variables.product.prodname_actions %}.
 
-### 加强单个工作流程和存储库的安全性
+### Security hardening individual workflows and repositories
 
-制定计划，为在企业中使用 {% data variables.product.prodname_actions %} 功能的用户强制实施良好的安全实践。 有关这些做法的详细信息，请参阅“[{% data variables.product.prodname_actions %} 的安全强化](/actions/security-guides/security-hardening-for-github-actions)”。
+Make a plan to enforce good security practices for people using {% data variables.product.prodname_actions %} features within your enterprise. For more information about these practices, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions)."
 
-您还可以鼓励重用已评估过安全性的工作流程。 有关详细信息，请参阅“[内包](#innersourcing)”。
+You can also encourage reuse of workflows that have already been evaluated for security. For more information, see "[Innersourcing](#innersourcing)."
 
-### 保护对机密和部署资源的访问
+### Securing access to secrets and deployment resources
 
-您应该计划将要存储机密的位置。 我们建议将机密存储在 {% data variables.product.prodname_dotcom %} 中，但您可以选择将机密存储在云提供商中。
+You should plan where you'll store your secrets. We recommend storing secrets in {% data variables.product.prodname_dotcom %}, but you might choose to store secrets in a cloud provider.
 
-在 {% data variables.product.prodname_dotcom %} 中，您可以在存储库或组织级别存储机密。 存储库级别的机密可限于某些环境中的工作流程，例如生产或测试。 有关详细信息，请参阅“[加密机密](/actions/security-guides/encrypted-secrets)”。
+In {% data variables.product.prodname_dotcom %}, you can store secrets at the repository or organization level. Secrets at the repository level can be limited to workflows in certain environments, such as production or testing. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
-![机密列表的屏幕截图](/assets/images/help/settings/actions-org-secrets-list.png) 你应该考虑为敏感环境添加手动批准保护，以便必须先批准工作流，然后才能访问环境的机密。 有关详细信息，请参阅“[使用环境进行部署](/actions/deployment/targeting-different-environments/using-environments-for-deployment)”。
+![Screenshot of a list of secrets](/assets/images/help/settings/actions-org-secrets-list.png)
+You should consider adding manual approval protection for sensitive environments, so that workflows must be approved before getting access to the environments' secrets. For more information, see "[Using environments for deployments](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
-### 第三方操作的安全注意事项
+### Security considerations for third-party actions
 
-从 {% data variables.product.prodname_dotcom %} 上的第三方存储库获取操作存在重大风险。 如果允许任何第三方操作，则应创建内部准则，鼓励团队遵循最佳做法，例如将操作固定到完整提交 SHA。 有关详细信息，请参阅“[使用第三方操作](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)”。
+There is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. If you do allow any third-party actions, you should create internal guidelines that encourage your team to follow best practices, such as pinning actions to the full commit SHA. For more information, see "[Using third-party actions](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)."
 
-## 内包
+## Innersourcing
 
-想一想您的企业如何使用 {% data variables.product.prodname_actions %} 的功能来实现内包自动化。 内包是一种将开源方法的优势融入内部软件开发周期的方法。 有关详细信息，请参阅 {% data variables.product.company_short %} 资源中的[内部资源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)。
+Think about how your enterprise can use features of {% data variables.product.prodname_actions %} to innersource automation. Innersourcing is a way to incorporate the benefits of open source methodologies into your internal software development cycle. For more information, see [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/) in {% data variables.product.company_short %} Resources.
 
 {% data reusables.actions.internal-actions-summary %}
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %} {% data reusables.actions.reusable-workflows-ghes-beta %} 使用可重用工作流，团队可以从一个工作流调用另一个工作流，避免重复。 可重用的工作流程通过帮助团队使用设计良好且经过测试的工作流程来促进最佳实践。 有关详细信息，请参阅“[重用工作流](/actions/learn-github-actions/reusing-workflows)”。
+{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
-要为开发人员构建新工作流程提供起点，可以使用入门工作流程。 这不仅为开发人员节省了时间，而且促进了整个企业的一致性和最佳实践。 有关详细信息，请参阅“[为组织创建入门工作流](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)”。
+To provide a starting place for developers building new workflows, you can use starter workflows. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
-{% ifversion not internal-actions %} 每当工作流开发人员想要使用存储在私有存储库中的操作时，他们必须将工作流配置为先克隆存储库。 要减少必须克隆的存储库的数量，请考虑将常用操作分组到单个存储库中。 有关详细信息，请参阅“[关于自定义操作](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action)”。
+{% ifversion not internal-actions %}
+Whenever your workflow developers want to use an action that's stored in a private repository, they must configure the workflow to clone the repository first. To reduce the number of repositories that must be cloned, consider grouping commonly used actions in a single repository. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action)."
 {% endif %}
 
-## 管理资源
+## Managing resources
 
-您应规划如何管理使用 {% data variables.product.prodname_actions %} 所需的资源。
+You should plan for how you'll manage the resources required to use {% data variables.product.prodname_actions %}.
 
 {% ifversion ghes %}
-### 硬件要求
+### Hardware requirements
 
-您可能需要升级 CPU 和内存资源，以便 {% data variables.product.product_location %} 处理来自 {% data variables.product.prodname_actions %} 的负载，而不会造成性能损失。 有关详细信息，请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 入门](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)”。
+You may need to upgrade the CPU and memory resources for {% data variables.product.product_location %} to handle the load from {% data variables.product.prodname_actions %} without causing performance loss. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
 {% endif %}
 
-### 运行程序
+### Runners
 
-{% data variables.product.prodname_actions %} 工作流程需要运行器。{% ifversion ghec %} 您可以选择使用 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管的运行器。 {% data variables.product.prodname_dotcom %} 托管的运行器很方便，因为它们由 {% data variables.product.company_short %} 管理，后者为您处理维护和升级。 但是，如果需要运行将访问防火墙后面的资源的工作流程，或者希望更好地控制运行器计算机的资源、配置或地理位置，则可能需要考虑自托管运行器。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners)”和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。{% else %}需要在自己的计算机上安装 {% data variables.product.prodname_actions %} 自托管运行器应用程序来托管自己的运行器。 有关详细信息，请参阅“[关于子托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。{% endif %}
+{% data variables.product.prodname_actions %} workflows require runners.{% ifversion ghec %} You can choose to use {% data variables.product.prodname_dotcom %}-hosted runners or self-hosted runners. {% data variables.product.prodname_dotcom %}-hosted runners are convenient because they are managed by {% data variables.product.company_short %}, who handles maintenance and upgrades for you. However, you may want to consider self-hosted runners if you need to run a workflow that will access resources behind your firewall or you want more control over the resources, configuration, or geographic location of your runner machines. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)" and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."{% else %} You will need to host your own runners by installing the {% data variables.product.prodname_actions %} self-hosted runner application on your own machines. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."{% endif %}
 
-{% ifversion ghec %}如果您使用的是自托管运行器，则必须决定是要使用物理机、虚拟机还是容器。{% else %}决定是要将物理机、虚拟机还是容器用于自托管运行器。{% endif %} 物理机将保留以前作业的残余部分，虚拟机也会保留，除非您为每个作业使用新映像或在每次作业运行后清理计算机。 如果选择容器，则应注意，运行器自动更新将关闭容器，这可能会导致工作流程失败。 您应该通过阻止自动更新或跳过命令来终止容器来为此提出解决方案。
+{% ifversion ghec %}If you are using self-hosted runners, you have to decide whether you want to use physical machines, virtual machines, or containers.{% else %}Decide whether you want to use physical machines, virtual machines, or containers for your self-hosted runners.{% endif %} Physical machines will retain remnants of previous jobs, and so will virtual machines unless you use a fresh image for each job or clean up the machines after each job run. If you choose containers, you should be aware that the runner auto-updating will shut down the container, which can cause workflows to fail. You should come up with a solution for this by preventing auto-updates or skipping the command to kill the container.
 
-您还必须决定在何处添加每个运行器。 您可以将自托管运行器添加到单个存储库，也可以使运行器可供整个组织或整个企业使用。 在组织或企业级别添加运行器允许共享运行器，这可能会减小运行器基础结构的大小。 您可以使用策略，通过将运行者组分配给特定存储库或组织，在组织和企业级别限制对自托管运行器的访问。 有关详细信息，请参阅“[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”和“[使用组管理对自托管运行器的访问权限](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
+You also have to decide where to add each runner. You can add a self-hosted runner to an individual repository, or you can make the runner available to an entire organization or your entire enterprise. Adding runners at the organization or enterprise levels allows sharing of runners, which might reduce the size of your runner infrastructure. You can use policies to limit access to self-hosted runners at the organization and enterprise levels by assigning groups of runners to specific repositories or organizations. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)" and "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
 
-{% ifversion ghec or ghes > 3.2 %} 应考虑使用自动缩放来自动增加或减少可用的自托管运行器的数量。 有关详细信息，请参阅“[使用自托管运行器进行自动缩放](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)”。
+{% ifversion ghec or ghes > 3.2 %}
+You should consider using autoscaling to automatically increase or decrease the number of available self-hosted runners. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
 {% endif %}
 
-最后，您应该考虑对自托管运行器进行安全强化。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的安全强化](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)”。
+Finally, you should consider security hardening for self-hosted runners. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
-### 存储
+### Storage
 
-{% data reusables.actions.about-artifacts %} 有关详细信息，请参阅“[将工作流数据存储为工件](/actions/advanced-guides/storing-workflow-data-as-artifacts)”。 
+{% data reusables.actions.about-artifacts %} For more information, see "[Storing workflow data as artifacts](/actions/advanced-guides/storing-workflow-data-as-artifacts)." 
 
-{% ifversion actions-caching %}{% data variables.product.prodname_actions %} 还有一个缓存系统，可用于缓存依赖项来加快工作流运行速度。 有关详细信息，请参阅“[缓存依赖项以加快工作流](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
+{% ifversion actions-caching %}{% data variables.product.prodname_actions %} also has a caching system that you can use to cache dependencies to speed up workflow runs. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
-{% ifversion ghes %} 必须为工作流项目{% ifversion actions-caching %}、缓存、{% endif %} 和其他工作流日志配置外部 Blob 存储。 确定您的企业将使用哪个受支持的存储提供商。 有关详细信息，请参阅“[{% data variables.product.product_name %} 的 {% data variables.product.prodname_actions %} 入门](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)”。
+{% ifversion ghes %}
+You must configure external blob storage for workflow artifacts{% ifversion actions-caching %}, caches,{% endif %} and other workflow logs. Decide which supported storage provider your enterprise will use. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)."
 {% endif %}
 
 {% ifversion ghec or ghes %}
 
-可以使用 {% data variables.product.prodname_actions %} 的策略设置来自定义工作流工件的存储{% ifversion actions-caching %}、缓存、{% endif %} 和日志保留。 有关详细信息，请参阅“[在企业中强制实施 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)”。
+You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts{% ifversion actions-caching %}, caches,{% endif %} and log retention. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 {% endif %}
 
-{% ifversion ghec %} 某些存储包含在订阅中，但额外的存储将影响计费。 您应该为此费用做好计划。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
+{% ifversion ghec %}
+Some storage is included in your subscription, but additional storage will affect your bill. You should plan for this cost. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 {% endif %}
 
-## 跟踪用法
+## Tracking usage
 
-您应考虑制定计划来跟踪企业对 {% data variables.product.prodname_actions %} 的使用，例如工作流程的运行频率、这些运行中有多少次通过和失败，以及哪些存储库正在使用哪些工作流程。
+You should consider making a plan to track your enterprise's usage of {% data variables.product.prodname_actions %}, such as how often workflows are running, how many of those runs are passing and failing, and which repositories are using which workflows.
 
-{% ifversion ghec %} 可以通过计费设置查看企业中每个组织的 {% data variables.product.prodname_actions %} 的存储和数据传输使用情况的基本详细信息。 有关详细信息，请参阅“[查看 {% data variables.product.prodname_actions %} 使用情况](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-enterprise-account)”。
+{% ifversion ghec %}
+You can see basic details of storage and data transfer usage of {% data variables.product.prodname_actions %} for each organization in your enterprise via your billing settings. For more information, see "[Viewing your {% data variables.product.prodname_actions %} usage](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-enterprise-account)."
 
-有关更详细的使用数据，{% else %}您{% endif %} 可以使用 web 挂钩订阅有关工作流程作业和工作流程运行的信息。 有关详细信息，请参阅“[关于 Webhook](/developers/webhooks-and-events/webhooks/about-webhooks)”。
+For more detailed usage data, you{% else %}You{% endif %} can use webhooks to subscribe to information about workflow jobs and workflow runs. For more information, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)."
 
-制定一个计划，说明您的企业如何将信息从这些 web 挂钩传递到数据归档系统中。 您可以考虑使用开源工具“CEDAR.GitHub.Collector”来收集和处理来自 {% data variables.product.prodname_dotcom %} 的 web 挂钩数据。 有关详细信息，请参阅[`Microsoft/CEDAR.GitHub.Collector`存储库](https://github.com/microsoft/CEDAR.GitHub.Collector/)。
+Make a plan for how your enterprise can pass the information from these webhooks into a data archiving system. You can consider using "CEDAR.GitHub.Collector", an open source tool that collects and processes webhook data from {% data variables.product.prodname_dotcom %}. For more information, see the [`Microsoft/CEDAR.GitHub.Collector` repository](https://github.com/microsoft/CEDAR.GitHub.Collector/).
 
-您还应该规划如何让您的团队从存档系统获取所需的数据。
+You should also plan how you'll enable your teams to get the data they need from your archiving system.

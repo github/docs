@@ -1,0 +1,27 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 解锁存储库以进行临时访问后，站点管理员无法管理存储库中安全产品的设置。 
+    - 管理控制台和 `/home/admin/.ssh/authorized_keys` 文件中可能会出现重复的管理 SSH 密钥。
+    - "<code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> 的个人用户的站点管理员页面包含不适用于 GitHub Enterprise Server 的功能。"  
+    - 在某些情况下，运行 `ghe-cluster-config-apply` 可以将空配置复制到群集中的现有节点。 
+    - 在某些情况下，以 `ghe-config-apply` 开始的配置运行未完成，或返回了 `Container count mismatch` 错误。 
+    - 在 GitHub Enterprise Server 实例上更新自签名 TLS 证书后，Web 界面中某些页面上的 UI 元素没有显示。 
+    - Web 界面顶部的站点管理员栏包含指向当前正在运行的应用程序版本的 SHA 的断开链接。 
+    - 在某些情况下，尽管不是线程安全的，但由于同时使用的库，可能会导致后台任务停止。
+    - 如果站点管理员没有直接升级到 GitHub Enterprise Server 3.4，则 Web UI 和 REST API 中缺少来自 GitHub Advanced Security 客户的机密扫描的警报。警报现在可见。
+    - 当用户将存储库分叉到组织中时，一长串组织将无法正确呈现。
+  changes:
+    - "由于并行日志清理，支持包的生成速度更快。有关支持包的详细信息，请参阅“[将数据提供给 GitHub 支持](/support/contacting-github-support/providing-data-to-github-support)”。"
+    - "包含 `organization` 或 `org` 路由的 API 现在接受组织的 slug 或 ID。以前，API 只接受 slug，这导致 GitHub Advanced Security 终结点的 `Link` 标头无法访问。有关详细信息，请参阅 REST API 文档中的“[组织](https://docs.github.com/rest/orgs/orgs)”。" 
+    - "企业审核日志现在包含更多用户生成的事件，例如 `project.create`。REST API 还返回其他用户生成的事件，例如 `repo.create`。有关详细信息，请参阅“[访问企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for -your-enterprise)”和“[使用企业的审核日志 API](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit- log-api-for-your-enterprise#querying-the-audit-log-rest-api)”。"
+    - "在某些情况下，缓存副本可能会拒绝对最近更新的存储库的某些 Git 操作。有关存储库缓存的详细信息，请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。" 
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含指向同一存储库中 Blob 的永久链接，且 Blob 的文件路径长度超过 255 个字符，则无法关闭问题。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。"
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
+    - 从不同主机上的备份恢复设备后，需要重新启动操作服务。

@@ -1,7 +1,7 @@
 ---
-title: Sobre o faturamento do GitHub Codespaces
+title: About billing for GitHub Codespaces
 shortTitle: About billing
-intro: 'Veja os preços e veja como gerenciar o faturamento de {% data variables.product.prodname_github_codespaces %} para sua organização.'
+intro: 'View pricing and see how to manage {% data variables.product.prodname_github_codespaces %} billing for your organization.'
 permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
@@ -13,71 +13,67 @@ topics:
   - Billing
 redirect_from:
   - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
-ms.openlocfilehash: 51ecb4ca1811419cdaeba16865864c5f303bcc7e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147431581'
 ---
-## Preços do {% data variables.product.prodname_github_codespaces %}
 
-O uso de {% data variables.product.prodname_github_codespaces %} é cobrado para todas as contas corporativas e da organização em {% data variables.product.prodname_team %} e {% data variables.product.prodname_enterprise %}, que não incluem minutos ou armazenamento gratuito. No momento, as contas pessoais não são cobradas pelo uso do {% data variables.product.prodname_codespaces %}. 
+## {% data variables.product.prodname_github_codespaces %} pricing
 
-O uso de {% data variables.product.prodname_codespaces %} é cobrado de acordo com as unidades de medida na tabela a seguir:
+{% data variables.product.prodname_github_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_github_codespaces %} usage. 
 
-| Produto             | SKU      | Unidade de medida | Preço |
+{% data variables.product.prodname_github_codespaces %} usage is billed according to the units of measure in the following table:
+
+| Product             | SKU      | Unit of measure | Price |
 | ------------------- | -------- | --------------- | ----- |
-| Cálculo de codespace  |  Dois núcleos  | 1 hora          | $ 0,18 |
-|                     |  Quatro núcleos  | 1 hora          | $ 0,36 |
-|                     |  Oito núcleos  | 1 hora          | $ 0,72 |
-|                     |  16 núcleos | 1 hora          | $ 1,44 |
-|                     |  32 núcleos | 1 hora          | $ 2,88 |
-| Armazenamento de codespaces  |  Armazenamento | 1 GB por mês      | US$ 0,07 |
+| Codespaces Compute  |  2 core  | 1 hour          | $0.18 |
+|                     |  4 core  | 1 hour          | $0.36 |
+|                     |  8 core  | 1 hour          | $0.72 |
+|                     |  16 core | 1 hour          | $1.44 |
+|                     |  32 core | 1 hour          | $2.88 |
+| Codespaces Storage  |  Storage | 1 GB-month      | $0.07 |
 
-## Sobre a cobrança do {% data variables.product.prodname_codespaces %}
+## About billing for {% data variables.product.prodname_codespaces %}
 
 {% data reusables.codespaces.codespaces-billing %}
 
-Seu uso de {% data variables.product.prodname_github_codespaces %} compartilha a data de cobrança, forma de pagamento e o recibo existentes em sua conta. {% data reusables.dotcom_billing.view-all-subscriptions %}
+Your {% data variables.product.prodname_github_codespaces %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% ifversion ghec %} Se você comprou o {% data variables.product.prodname_enterprise %} por meio de um Contrato Enterprise da Microsoft, conecte sua ID de Assinatura do Azure à sua conta corporativa para habilitar e pagar pelo uso do {% data variables.product.prodname_codespaces %}. Para obter mais informações, confira "[Como conectar uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
+{% ifversion ghec %}
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
 {% endif %}
 
 {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
 
-### Cobrnça para pré-compilações de {% data variables.product.prodname_codespaces %}
+### Billing for {% data variables.product.prodname_codespaces %} prebuilds
 
 {% data reusables.codespaces.billing-for-prebuilds-default %} 
 
 {% data reusables.codespaces.billing-for-prebuilds-reducing %} 
 
-## Definindo um limite de gastos
+## Setting a spending limit
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
-Para obter informações sobre como gerenciar e alterar o limite de gastos da sua conta, confira "[Como gerenciar seu limite de gastos do {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
 
 {% data reusables.codespaces.exporting-changes %}
 
-## Limitando a escolha dos tipos de máquina
+## Limiting the choice of machine types
 
-Por padrão, o tipo de computador com os recursos válidos mais baixos é usado quando um codespace é criado. No entanto, os usuários podem escolher um tipo de computador com mais recursos. Eles podem fazer isso ao criar um codespace ou podem alterar o tipo de computador de um codespace existente. Para obter mais informações, confira "[Como criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)" e "[Como alterar o tipo de computador do seu codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)".
+By default the machine type with the lowest valid resources is used when a codespace is created. However, users may be able to choose a machine type with more resources. They can do this either when they create a codespace, or they can change the machine type of an existing codespace. For more information, see "[Creating a codespace"](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)" and "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
 
-Se um tipo de computador com mais recursos for escolhido, isso afetará a cobrança por minuto desse codespace, conforme mostrado acima. 
+If a machine type that has more resources is chosen, this will affect the per-minute charge for that codespace, as shown above. 
 
-Os proprietários da organização podem criar uma política para restringir os tipos de máquina disponíveis para os usuários. Para obter mais informações, confira "[Como restringir o acesso aos tipos de computadores](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
+Organization owners can create a policy to restrict the machine types that are available to users. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
-## Como a cobrança é administrada para repositórios bifurcados
+## How billing is handled for forked repositories
 
-{% data variables.product.prodname_codespaces %} só pode ser usado em organizações em que um proprietário cobrável tenha sido definido. Para incorrer em encargos com a organização, o usuário deve ser integrante ou colaborador. Caso contrário, não poderá criar um codespace. 
+{% data variables.product.prodname_github_codespaces %} can only be used in organizations where a billable owner has been defined. To incur charges to the organization, the user must be a member or collaborator, otherwise they cannot create a codespace. 
 
-Por exemplo, um usuário em uma organização privada pode bifurcar um repositório dentro dessa organização e, consequentemente, usar um codespace cobrado para a organização. Isto porque a organização é proprietária do repositório principal, que pode remover o acesso do usuário, o repositório bifurcado e o codespace.
+For example, a user in a private organization can fork a repository within that organization, and can subsequently use a codespace billed to the organization; this is because the organization is the owner of the parent repository, which can remove the user's access, the forked repository, and the codespace.
   
-## Como o faturamento é adminisrado quando um repositório é transferido
+## How billing is handled when a repository is transferred
 
-O uso é cobrado e informado a cada hora. Como tal, você paga qualquer uso quando um repositório está dentro da sua organização. Quando um repositório é transferido para fora da sua organização, todos os codespaces do repositório são removidos como parte do processo de transferência.
+Usage is billed and reported on every hour. As such, you pay for any usage when a repository is within your organization. When a repository is transferred out of your organization, any codespaces in that repository are removed as part of the transfer process.
 
-## O que acontece quando os usuários são removidos
+## What happens when users are removed
 
-Se um usuário for removido de uma organização ou repositório, seus codespaces serão automaticamente excluídos. 
+If a user is removed from an organization or repository, their codespaces are automatically deleted. 

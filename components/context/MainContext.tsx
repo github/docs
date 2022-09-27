@@ -27,9 +27,9 @@ type VersionItem = {
   currentRelease: string
   latestVersion: string
   shortName: string
-  // api.github.com, ghes-3.3, github.ae
+  // api.github.com, ghec, ghes-3.3, github.ae
   openApiVersionName: string
-  // api.github.com, ghes-, github.ae
+  // api.github.com, ghec, ghes-, github.ae
   openApiBaseName: string
 }
 

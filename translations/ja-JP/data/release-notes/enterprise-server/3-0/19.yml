@@ -1,0 +1,23 @@
+date: '2021-11-09'
+sections:
+  security_fixes:
+    - "{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_pages %} のビルドで、攻撃者によるシステム ファイルの読み取りを可能にするパス トラバーサルの脆弱性が見つかりました。攻撃者がこの脆弱性を悪用するには、{% data variables.product.prodname_ghe_server %} インスタンス上に {% data variables.product.prodname_pages %} サイトを作成してビルドするためのアクセス許可が必要です。{% data variables.product.prodname_ghe_server %} の 3.3 より前のすべてのバージョンがこの脆弱性による影響を受け、バージョン 3.0.19、3.1.11、3.2.3 で修正されました。この脆弱性は、{% data variables.product.company_short %} Bug Bounty プログラムによって報告され、CVE-2021-22870 を割り当てられました。"
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - "HAProxy の構成のため、{% data variables.product.prodname_ghe_server %} 3.x クラスターをアップグレードした後、Git の一部の操作が失敗しました。"
+    - クラスタリング モードでは、Unicorn ワーカーの数が正しく設定されないことがありました。
+    - クラスタリング モードでは、Resqued ワーカーの数が正しく設定されないことがありました。
+    - Ubuntu の Uncomplicated Firewall (UFW) の状態が非アクティブの場合、クライアントはそのことをログに明確に表示できませんでした。
+    - 特定のクラスター構成のクラスター モードでは、一部のページおよび Git 関連のバックグラウンド ジョブが実行しない場合がありました。
+    - "Enterprise の監査ログのページに、{% data variables.product.prodname_secret_scanning %} の監査イベントが表示されませんでした。"
+    - 'ユーザーがファイルを表示するとき、危険性がある双方向 Unicode 文字に関する警告が表示されませんでした。詳しくは、{% data variables.product.prodname_blog %} の「[双方向 Unicode テキストに関する警告](https://github.co/hiddenchars)」をご覧ください。'
+    - Hookshot Go が、Collectd で処理できない分散の種類のメトリックを送信しており、解析のバルーニング エラーが発生しました。
+    - "パブリック リポジトリで、{% data variables.product.prodname_secret_scanning %} から \"不明トークン\" の種類で予期しない結果が表示されました。"
+  known_issues:
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーの原因となる場合があります。
