@@ -2403,21 +2403,9 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
-        "slug": "create-a-github-pages-site",
-        "subcategory": "pages",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
         "slug": "update-information-about-a-github-pages-site",
         "subcategory": "pages",
         "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
-        "slug": "delete-a-github-pages-site",
-        "subcategory": "pages",
-        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -6210,21 +6198,9 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
-        "slug": "create-a-github-enterprise-cloud-pages-site",
-        "subcategory": "pages",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
         "slug": "update-information-about-a-github-enterprise-cloud-pages-site",
         "subcategory": "pages",
         "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
-        "slug": "delete-a-github-enterprise-cloud-pages-site",
-        "subcategory": "pages",
-        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -9480,21 +9456,9 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
-        "slug": "create-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
-        "slug": "delete-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -12592,21 +12556,9 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
-        "slug": "create-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
-        "slug": "delete-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -15901,21 +15853,9 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
-        "slug": "create-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
-        "slug": "delete-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -19324,21 +19264,9 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
-        "slug": "create-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
-        "slug": "delete-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -22862,21 +22790,9 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
-        "slug": "create-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
-        "slug": "delete-a-github-enterprise-server-pages-site",
-        "subcategory": "pages",
-        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -25883,21 +25799,9 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
-        "slug": "create-a-github-ae-pages-site",
-        "subcategory": "pages",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
         "slug": "update-information-about-a-github-ae-pages-site",
         "subcategory": "pages",
         "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/pages"
-      },
-      {
-        "slug": "delete-a-github-ae-pages-site",
-        "subcategory": "pages",
-        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {

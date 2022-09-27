@@ -509,6 +509,7 @@ translations/ja-JP/data/release-notes/enterprise-server/3-4/8.yml,rendering erro
 translations/ja-JP/data/release-notes/enterprise-server/3-5/0-rc1.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-5/4.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/3-6/0-rc1.yml,rendering error
+translations/ja-JP/data/release-notes/enterprise-server/3-6/1.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/actions-audit-events-workflow.md,rendering error
 translations/ja-JP/data/reusables/actions/artifact-log-retention-statement.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/changing-the-access-policy-of-a-runner-group.md,rendering error
