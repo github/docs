@@ -8,10 +8,14 @@ export const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 const isDevMode = process.env.NODE_ENV !== 'production'
 
 function getClient() {
+  if (!ELASTICSEARCH_URL) {
+    throw new Error(`$ELASTICSEARCH_URL is not set`)
+  }
   return new Client({
     node: ELASTICSEARCH_URL,
   })
 }
+
 // The true work horse that actually performs the Elasticsearch query
 export async function getSearchResults({
   indexName,
