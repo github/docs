@@ -121,7 +121,7 @@ Next, the script gets the current time and sets it as an output variable that ac
   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 
-3. Make your `entrypoint.sh` file executable by following the below commands on your system.
+1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
 Git provides a way to explicitly change the permission mode of a file so that it doesn't get reset every time there is a clone/fork.
 <br>The command works as below.
