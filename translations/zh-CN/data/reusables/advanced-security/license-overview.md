@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 5d75f2a8b4c2c9bfdf7b491d23f76f4f820b98e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145087215"
 ---
 {% data variables.product.prodname_GH_advanced_security %} 的每个许可证都规定了可以使用这些功能的最大帐户或席位数量。 至少一个启用了该功能的仓库的每个活跃提交者将使用一个席位。 如果提交者的一个提交在过去 90 天内被推送到存储库，则提交者被视为处于活跃状态，无论最初创作的时间如何。

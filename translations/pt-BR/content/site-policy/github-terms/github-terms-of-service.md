@@ -1,5 +1,5 @@
 ---
-title: Termos de Serviço do GitHub
+title: Termos de serviço do GitHub
 redirect_from:
   - /tos
   - /terms
@@ -12,13 +12,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: bea0673f07e3acc48d0877d3319fce0be5737601
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556444'
 ---
+
 Agradecemos pelo uso do GitHub! Estamos felizes por você estar aqui. Leia este contrato de Termos de Serviço com atenção antes de acessar ou usar o GitHub. Por ser um contrato tão importante entre nós e nossos usuários, tentamos deixá-lo o mais claro possível. Para sua conveniência, apresentamos estes termos em um breve resumo não vinculativo, seguido dos termos legais completos.
 
 ## <a name="summary"></a>Resumo
@@ -39,7 +34,7 @@ Agradecemos pelo uso do GitHub! Estamos felizes por você estar aqui. Leia este 
 | [L. Cancelamento e Rescisão](#l-cancellation-and-termination) | Você pode cancelar este contrato e encerrar sua Conta a qualquer momento. |
 | [M. Comunicações com o GitHub](#m-communications-with-github) | Usamos email e outros meios eletrônicos apenas para manter contato com nossos usuários. Não fornecemos suporte por telefone. |
 | [N. Isenção de Garantias](#n-disclaimer-of-warranties) | Fornecemos nosso serviço no estado em que se encontra e não fazemos promessas nem fornecemos garantias sobre este serviço. **Leia atentamente esta seção; você deve entender o que esperar.** |
-| [O. Limitação de Responsabilidade](#o-limitation-of-liability) | Não seremos responsáveis por danos nem perdas decorrentes do uso ou da incapacidade de usar o serviço ou de outra forma decorrentes deste contrato. **Leia atentamente esta seção; ela limita nossas obrigações perante você.** |
+| [O. Limitação de responsabilidade](#o-limitation-of-liability) | Não seremos responsáveis por danos nem perdas decorrentes do uso ou da incapacidade de usar o serviço ou de outra forma decorrentes deste contrato. **Leia atentamente esta seção; ela limita nossas obrigações perante você.** |
 | [P. Liberação e Indenização](#p-release-and-indemnification) | Você é totalmente responsável pelo uso do serviço. |
 | [Q. Alterações a estes Termos de Serviço](#q-changes-to-these-terms) | Podemos modificar este contrato, mas notificaremos você com 30 dias de antecedência sobre alterações substanciais. |
 | [R. Disposições Gerais](#r-miscellaneous) | Consulte esta seção para obter detalhes legais, inclusive nossa escolha da legislação aplicável. |
@@ -68,7 +63,7 @@ Data de início de vigência: 16 de novembro de 2020
 
 - Organizações. O “proprietário” de uma Organização que foi criada de acordo com estes Termos tem o controle administrativo definitivo sobre essa Organização e o Conteúdo dela. No Serviço, um proprietário pode gerenciar o acesso do Usuário aos dados e aos projetos da Organização. Uma Organização pode ter vários proprietários, mas deve haver pelo menos uma Conta Pessoal designada como proprietária de uma Organização. Se você for o proprietário de uma Organização de acordo com estes Termos, nós o consideraremos responsável pelas ações realizadas nessa Organização ou por meio dela.
 
-### <a name="2-required-information"></a>2. Informações Necessárias
+### <a name="2-required-information"></a>2. Informações necessárias
 Você deve fornecer um endereço de email válido para concluir o processo de inscrição. Qualquer outra informação solicitada, como seu nome real, é opcional, a menos que você aceite estes termos em nome de uma pessoa jurídica (nesse caso, precisamos de mais informações sobre a pessoa jurídica) ou se você optar por uma [Conta paga](#k-payment), caso em que informações adicionais serão necessárias para fins de cobrança.
 
 ### <a name="3-account-requirements"></a>3. Requisitos da Conta
@@ -93,14 +88,14 @@ Se você for usuário do governo ou acessar ou usar qualquer Serviço do GitHub 
 
 Se você se inscreveu no GitHub Enterprise Cloud, o [Adendo do Enterprise Cloud](/articles/github-enterprise-cloud-addendum/) se aplica a você, e você concorda com suas disposições.
 
-## <a name="c-acceptable-use"></a>C. Uso Aceitável
+## <a name="c-acceptable-use"></a>C. Uso aceitável
 **Versão curta:** *O GitHub hospeda uma ampla variedade de projetos colaborativos do mundo todo, e essa colaboração só funciona quando nossos usuários são capazes de trabalhar juntos de boa-fé. Ao usar o serviço, você deve seguir os termos desta seção, que incluem algumas restrições sobre o conteúdo que você pode publicar, conduzir no serviço e outras limitações. Resumindo, sejam excelentes uns com os outros.*
 
 O uso que você faz do Site e do Serviço não deve violar nenhuma lei aplicável, incluindo leis de direitos autorais ou marcas registradas, leis de controle de exportação, sanções ou outras leis em sua jurisdição. Você é responsável por garantir que o uso feito do Serviço esteja em conformidade com as leis e todos os regulamentos aplicáveis.
 
 Você concorda em não violar em nenhuma circunstância nossas [Políticas de Uso Aceitável](/articles/github-acceptable-use-policies) nem as [Diretrizes da Comunidade](/articles/github-community-guidelines).
 
-## <a name="d-user-generated-content"></a>D. Conteúdo Gerado pelo Usuário
+## <a name="d-user-generated-content"></a>D. Conteúdo gerado pelo usuário
 **Versão curta:** *O conteúdo que você cria é sua propriedade, mas você nos concede determinados direitos sobre ele, para que possamos exibir e compartilhar o conteúdo publicado. Você ainda tem controle sobre seu conteúdo e responsabilidade por ele, e os direitos que você nos concede são limitados àqueles que precisamos para fornecer o serviço. Temos o direito de remover conteúdo ou fechar Contas, se necessário.*
 
 ### <a name="1-responsibility-for-user-generated-content"></a>1. Responsabilidade pelo Conteúdo Gerado pelo Usuário
@@ -170,7 +165,7 @@ Se quiser usar as marcas registradas do GitHub, deverá seguir todas as nossas d
 ### <a name="3-license-to-github-policies"></a>3. Políticas de Licença do GitHub
 Este Contrato é licenciado de acordo com a [Licença Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/). Para obter detalhes, consulte o [repositório de políticas do site](https://github.com/github/site-policy#license).
 
-## <a name="h-api-terms"></a>H. Termos do API
+## <a name="h-api-terms"></a>H. Termos da API
 **Versão curta:** *Você concorda com estes Termos de Serviço, além desta Seção H, ao usar qualquer uma das APIs do GitHub (Application Provider Interface), incluindo o uso da API por meio de um produto de terceiros que acesse o GitHub.*
 
 Abuso ou solicitações excessivamente frequentes ao GitHub por meio da API podem ocasionar a suspensão temporária ou permanente do acesso de sua conta à API. O GitHub, a nosso exclusivo critério, determinará abuso ou uso excessivo da API. Faremos uma tentativa razoável de avisar você por email antes da suspensão.
@@ -191,7 +186,7 @@ Alguns recursos do Serviço podem estar sujeitos a termos adicionais específico
 ## <a name="j-beta-previews"></a>J. Visualizações Beta
 **Versão curta:** *as Visualizações Beta podem não ser compatíveis ou podem ser alteradas a qualquer momento. Você pode receber informações confidenciais por meio desses programas que devem permanecer confidenciais enquanto o programa for privado. Seu feedback é bem-vindo para melhorar nossas Visualizações Beta.*
 
-### <a name="1-subject-to-change"></a>1. Sujeito a Alteração
+### <a name="1-subject-to-change"></a>1. Sujeito a alterações
 
 As Visualizações Beta podem não ser compatíveis e podem ser alteradas a qualquer momento sem notificação prévia. Além disso, as Visualizações Beta não estão sujeitas às mesmas medidas de segurança e auditoria às quais o Serviço esteve e está sujeito. **Ao usar uma Visualização Beta, você a usa por sua conta e risco.**
 
@@ -263,14 +258,14 @@ As comunicações feitas por email ou sistema de mensagens de Suporte do GitHub 
 ### <a name="3-no-phone-support"></a>3. Inexistência de suporte por telefone
 O GitHub oferece suporte apenas por email, comunicações do Serviço e mensagens eletrônicas. Não oferecemos suporte por telefone.
 
-## <a name="n-disclaimer-of-warranties"></a>N. Isenção de garantias
+## <a name="n-disclaimer-of-warranties"></a>N. Aviso de isenção de responsabilidade de garantias
 **Versão curta:** *Fornecemos nosso serviço no estado em que se encontra e não fazemos promessas nem fornecemos garantias sobre este serviço. Leia atentamente esta seção; você deve entender o que esperar.*
 
 O GitHub fornece o Site e o Serviço “no estado em que se encontram” e “mediante disponibilidade”, sem garantia de nenhuma natureza. Não obstante, nos isentamos expressamente de todas as garantias, sejam contratuais, legais ou estatutárias, em relação ao Site e ao Serviço, incluindo, entre outros, qualquer garantia de padrões de comercialização, adequação a uma finalidade específica, titularidade de direito, segurança, precisão e não violação.
 
 O GitHub não garante que o Serviço atenderá aos seus requisitos; que o Serviço será ininterrupto, oportuno, seguro ou sem erros; que as informações fornecidas por meio do Serviço serão precisas, confiáveis ou corretas; que quaisquer falhas ou erros serão corrigidos; que o Serviço estará disponível em qualquer horário ou local específico; nem que o Serviço estará isento de vírus ou outros componentes prejudiciais. Você assume total responsabilidade e risco de perda resultante do download e/ou uso de arquivos, informações, conteúdo ou outro material obtido do Serviço.
 
-## <a name="o-limitation-of-liability"></a>O. Limitação de Responsabilidade
+## <a name="o-limitation-of-liability"></a>O. Limitação de responsabilidade
 **Versão curta:** *não seremos responsáveis por danos nem perdas decorrentes do uso ou da incapacidade de usar o serviço ou de outra forma decorrentes deste contrato. Leia atentamente esta seção; ela limita nossas obrigações perante você.*
 
 Você entende e concorda que não seremos responsáveis perante você nem qualquer terceiro por lucros cessantes, perda de uso, reputação ou dados, nem por quaisquer danos incidentais, indiretos, especiais, consequenciais ou exemplares, independentemente de como surjam, que resultem
@@ -318,4 +313,4 @@ Se qualquer parte deste Contrato for considerada inválida ou inexequível, essa
 Este Contrato só pode ser modificado por um aditamento por escrito assinado por um representante autorizado do GitHub ou pela publicação pelo GitHub de uma versão revisada de acordo com a [Seção Q. Alterações nestes Termos](#q-changes-to-these-terms). Estes Termos de Serviço, juntamente com a Política de Privacidade do GitHub, representam a declaração completa e exclusiva do acordo entre você e nós. Este Contrato substitui qualquer proposta ou contrato prévio, verbal ou por escrito, e quaisquer outras comunicações entre você e o GitHub relacionadas ao objeto destes termos, incluindo quaisquer contratos de confidencialidade ou não divulgação.
 
 ### <a name="6-questions"></a>6. Dúvidas
-Dúvidas sobre os Termos de Serviço? [Entre em contato conosco](https://support.github.com/contact?tags=docs-policy).
+Dúvidas sobre os Termos de Serviço? [ Entre em contato conosco](https://support.github.com/contact?tags=docs-policy).

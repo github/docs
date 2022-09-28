@@ -12,13 +12,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: e2e18667095ef8d9c30dc3d10384ede21f115456
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556530'
 ---
+
 GitHub.com、GitHub Enterprise Server、およびいずれかの製品にアップロードする情報には、米国輸出管理規則 (EAR) を含む貿易管理規制が適用されます。
 
 GitHub のビジョンは、開発者がどこに居住していようと、開発者コラボレーション用のグローバル プラットフォームになることです。 当社は、政府の制裁をくまなく調べて、ユーザーと顧客が法律により義務付けられる以上の影響を受けないようにする責任を真剣に受け止めています。 責任には、オープン ソース プロジェクト用も含めて、パブリック リポジトリ サービスを利用可能かつアクセス可能にして、制裁対象地域の開発者にかかわる個人的な通信をサポートすることも含まれています。 また、GitHub が制裁対象地域の開発者の仲介役となって、プラットフォームへのアクセスとグローバル オープン ソース コミュニティへの完全なアクセスを実現することも意味します。
@@ -53,7 +48,7 @@ GitHub Enterprise Server は、Country Group E:1 in Supplement No. 1 to part 740
 
 ### <a name="on-which-countries-and-territories-are-us-government-sanctions-applied"></a>米国政府が制裁を適用しているのはどの国および地域ですか?
 
-クリミア、ドネツクおよびルハーンスクの分離主義者地域、キューバ、イラン、北朝鮮、およびシリア。 ただし、イランに関しては、GitHub は、イランに拠点を置くか居住する開発者にクラウド サービスを提供する米国財務省海外資産管理局 (OFAC) の許可を得ています。 GitHub クラウド サービスも、有料と無料の両方で、キューバを居住地とする開発者に一般に提供されています。
+クリミア、ドネツクおよびルハーンスクの分離主義者地域、キューバ、イラン、北朝鮮、およびシリアです。 ただし、イランに関しては、GitHub は、イランに拠点を置くか居住する開発者にクラウド サービスを提供する米国財務省海外資産管理局 (OFAC) の許可を得ています。 GitHub クラウド サービスも、有料と無料の両方で、キューバを居住地とする開発者に一般に提供されています。
 
 ### <a name="how-is-github-ensuring-that-folks-not-living-in-andor-having-professional-links-to-the-sanctioned-countries-and-territories-still-have-access-or-ability-to-appeal"></a>GitHub は、制裁対象の国および地域に居住していなかったり、専門リンクがない場合でも、どのようにしてアクセスまたは異議申し立てできるようにしているのですか?
 

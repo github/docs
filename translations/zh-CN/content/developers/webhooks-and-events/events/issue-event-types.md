@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - Events
-ms.openlocfilehash: c777d321c0ad1b7c6774119707d15646b4e941c4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2459e4fbdcd4e857c603b7aa7354d4f2d5d6a062
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080822'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875988'
 ---
 问题事件由问题和拉取请求中的活动触发，在[问题事件 API](/rest/reference/issues#events) 和[时间线事件 API](/rest/reference/issues#timeline) 中可用。 每个事件类型指定事件是否可用于议题事件或时间表事件 API。
 
@@ -235,7 +235,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 `created_at` | `string` | 指示交叉引用添加时间的时间戳。
 `updated_at` | `string` | 指示交叉引用更新或创建（如果从未更新）时间的时间戳。
 `source` | `object` | 添加交叉引用的议题或拉取请求。
-`source[type]` | `string` | 该值始终为 `"issue"`，因为拉取请求属于类型问题。 在时间表事件 API 中仅返回由议题或拉取请求触发的交叉引用事件。 若要确定触发事件的问题是否为拉取请求，可以检查 `source[issue][pull_request` 对象是否存在。
+`source[type]` | `string` | 该值始终为 `"issue"`，因为拉取请求属于类型问题。 在时间表事件 API 中仅返回由议题或拉取请求触发的交叉引用事件。 若要确定触发事件的问题是否为拉取请求，可以检查 `source[issue][pull_request]` 对象是否存在。
 `source[issue]` | `object` | 添加交叉引用的 `issue` 对象。
 `event` | `string` | 事件值为 `"cross-referenced"`。
 

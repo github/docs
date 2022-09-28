@@ -18,11 +18,11 @@ topics:
   - Fundamentals
 miniTocMaxHeadingLevel: 3
 ms.openlocfilehash: 5458d7b14ff59bf7059f093ee47ee92034b9319f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145125877'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878687'
 ---
 ## はじめに
 

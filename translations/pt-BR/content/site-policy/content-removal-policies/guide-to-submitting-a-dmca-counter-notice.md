@@ -10,13 +10,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 6bc5091c47401b3d55ef7ccd681d6c9eba48fd1a
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556417'
 ---
+
 Este guia descreve as informações de que o GitHub precisa para processar uma contranotificação a uma solicitação de remoção da DMCA. Se você tiver dúvidas mais gerais sobre o que é a DMCA ou como o GitHub processa solicitações de remoção da DMCA, consulte nossa [Política de Remoção da DMCA](/articles/dmca-takedown-policy).
 
 Se você acredita que seu conteúdo no GitHub foi desativado por engano por uma solicitação de remoção da DMCA, você tem o direito de contestar a remoção enviando uma contranotificação. Nesse caso, aguardaremos de 10 a 14 dias e, em seguida, reativaremos seu conteúdo, a menos que o proprietário dos direitos autorais inicie uma ação legal contra você antes disso. Nosso formulário de contranotificação apresentado abaixo é consistente com o formulário sugerido pelo estatuto da DMCA, que pode ser encontrado no site oficial do US Copyright Office: <https://www.copyright.gov>.
@@ -28,7 +23,7 @@ Como em todas as questões jurídicas, é sempre melhor consultar um profissiona
 ***Diga a verdade.***
 A DMCA exige que você faça um juramento em relação à sua contranotificação *sob pena de perjúrio*. É crime federal mentir intencionalmente em uma declaração juramentada. (*Consulte o* [Código dos EUA, Título 18, Seção 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) O envio de informações falsas também pode ocasionar responsabilidade civil, ou seja, você pode ser processado por danos financeiros.
 
-***Investigue.***
+***Investigar.***
 O envio de uma contranotificação da DMCA pode ter consequências legais reais. Se a parte reclamante discordar de que o aviso de remoção foi incorreto, ela poderá decidir entrar com uma ação judicial contra você para manter o conteúdo desativado. Você deve realizar uma investigação completa sobre as alegações feitas na notificação de remoção e provavelmente conversar com um advogado antes de enviar uma contranotificação.
 
 ***Você deve ter um bom motivo para enviar uma contranotificação.***

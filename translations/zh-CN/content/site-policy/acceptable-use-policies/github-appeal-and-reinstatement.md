@@ -5,12 +5,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 6da03add539f84a02d919fb777690468bb10a22a
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556478'
 ---
 ## <a name="appeal-and-reinstatement"></a>申诉和恢复
 

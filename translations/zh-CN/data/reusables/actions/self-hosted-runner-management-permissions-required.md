@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 324332325762999d6daaf4241ec0f9e291ce98a8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145065861"
 ---
 自托管运行器可位于存储库、组织或 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} 上的企业帐户设置{% elsif ghes or ghae %} {% data variables.product.product_location %} 上的企业设置{% endif %}中。 要管理自托管运行器，您必须拥有以下权限，具体取决于添加自托管运行器的位置：

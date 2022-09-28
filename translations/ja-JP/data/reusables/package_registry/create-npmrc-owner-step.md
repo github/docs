@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 4edd3d2abea48d816827ab4eede21805ce06d8e0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145121989"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879216"
 ---
 2. `package.json` ファイルと同じディレクトリで、`.npmrc` ファイルを作成するか編集し、{% data variables.product.prodname_registry %} URL とアカウント所有者を指定する行を含めます。 `OWNER` を、プロジェクトを含むリポジトリを所有しているユーザーもしくは組織アカウント名で置換します。
 

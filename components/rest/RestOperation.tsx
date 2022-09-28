@@ -8,7 +8,7 @@ import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
 import styles from './RestOperation.module.scss'
-import { RestParameterTable } from './RestParameterTable'
+import { ParameterTable } from 'components/parameter-table/ParameterTable'
 import { RestCodeSamples } from './RestCodeSamples'
 import { RestStatusCodes } from './RestStatusCodes'
 import { Operation } from './types'
@@ -17,11 +17,20 @@ type Props = {
   operation: Operation
 }
 
+// all REST operations have this accept header by default
+const DEFAULT_ACCEPT_HEADER = {
+  name: 'accept',
+  type: 'string',
+  description: `<p>Setting to <code>application/vnd.github+json</code> is recommended.</p>`,
+  isRequired: false,
+}
+
 export function RestOperation({ operation }: Props) {
   const slug = slugger.slug(operation.title)
   const { t } = useTranslation('products')
   const router = useRouter()
 
+  const headers = [DEFAULT_ACCEPT_HEADER]
   const numPreviews = operation.previews.length
   const hasStatusCodes = operation.statusCodes.length > 0
   const hasCodeSamples = operation.codeExamples.length > 0
@@ -54,9 +63,11 @@ export function RestOperation({ operation }: Props) {
           />
 
           {hasParameters && (
-            <RestParameterTable
+            <ParameterTable
               slug={slug}
               numPreviews={numPreviews}
+              heading={t('rest.reference.parameters')}
+              headers={headers}
               parameters={operation.parameters}
               bodyParameters={operation.bodyParameters}
             />

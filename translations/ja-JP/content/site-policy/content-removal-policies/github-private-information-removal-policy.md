@@ -9,13 +9,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 3fd74896cbc5a9c6d841fd94a75c99c7ed77ad86
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556583'
 ---
+
 当社は、この個人情報削除プロセスを、アクセス認証情報が暴露されることによりセキュリティが危険にさらされているなど、[GitHub のサービス条件](/github/site-policy/github-acceptable-use-policies#3-conduct-restrictions)に違反する高リスク コンテンツに限定して例外的なサービスとして提供しています。 このガイドでは、リポジトリから個人情報を削除する要求を GitHub が処理するために必要な情報について説明します。
 
 ## <a name="what-is-private-information"></a>個人情報とは
@@ -28,9 +23,9 @@ ms.locfileid: '144556583'
 - アクセス資格情報 (組織のサーバー、ネットワーク、またはドメインにアクセスするための、ユーザー名とパスワード、アクセス トークン、または機密情報を組み合わせたものなど)。
 - 第三者にお客様の代理でアクセスするための AWS トークンおよびその他の同様のアクセス資格情報。 お客様は、このトークンが自分のものでないことを示すことができなければなりません。
 - 組織に特定のセキュリティ リスクをもたらす文書 (ネットワーク図やアーキテクチャなど)。 
-- お客様個人に関するものであり、セキュリティ リスクをもたらす[情報](/github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy) (社会保障番号、自治体 ID 番号など)。
+- お客様個人に関するものであり、セキュリティ リスクをもたらす[情報](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy) (社会保障番号、自治体 ID 番号など)。
 
-### <a name="private-information-removal-requests-are-_not_-appropriate-for"></a>個人情報の削除要求が _適さない_ 場合
+### <a name="private-information-removal-requests-are-_not_-appropriate-for"></a>個人情報の削除要求が "適さない" 場合__
 - 内部サーバーの名前、IP アドレス、および URL 自体。 特定のファイルまたはコードの一部でそれらを使用することがセキュリティ上の脅威になることを示す必要があります。
 - GitHub のファイル内で会社の ID、会社名、ブランド、ドメイン名、その他を単に言及している場合。 会社の ID を使用することがその会社のセキュリティ態勢に対する脅威となる理由を明確に示す必要があります。
 - 特定のセキュリティ リスクをもたらすことはないが、それ以外の理由で好ましくないと考えられるファイルやリポジトリ全体。
@@ -39,7 +34,7 @@ ms.locfileid: '144556583'
 - プライバシーに関する苦情。 GitHub 上の個人情報についてアクセス、移転、変更、削除を求める場合は、[プライバシー連絡フォーム](https://github.com/contact/privacy)で連絡ください。 
 - マルウェアや汎用ツールなど、当社の [コミュニティ ガイドライン](/articles/github-community-guidelines/)で管理されるコンテンツ。 コミュニティ ガイドラインについて質問がある場合や、GitHub のコンテンツがガイドラインに違反する可能性があると思われる場合は、{% data variables.contact.report_content %}を使用して当社までご報告ください。
 
-## <a name="things-to-know"></a>知っておくべきこと
+## <a name="things-to-know"></a>注意事項
 
 **まずは丁寧にお願いしてください。** 当社にデータ削除要求を送信する前に、まず、ユーザーに直接連絡することが重要です。 ユーザーの連絡先情報は、そのユーザーの公開プロファイル ページやリポジトリの README または Support ファイルに記載されている場合があります。または、イシューを作成して連絡するか、リポジトリでプル リクエストを発行して連絡することもできます。 これは厳密には必須ではありませんが、印象の良い方法と言えるでしょう。
 

@@ -10,10 +10,10 @@ topics:
 redirect_from:
   - /developers/github-marketplace/customer-experience-best-practices-for-apps
 ms.openlocfilehash: f45e3f88e7fdeb4c1d82264abb4e59c1057fe711
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084992'
 ---
 遵循这些最佳实践将有助于您提供良好的客户体验。

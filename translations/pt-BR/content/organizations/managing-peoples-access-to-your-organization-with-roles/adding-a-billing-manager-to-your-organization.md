@@ -13,10 +13,10 @@ topics:
   - Billing
 shortTitle: Add a billing manager
 ms.openlocfilehash: f7b4e6d17ff0e6680fdf9509b467f314b1a9e4ec
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145095605'
 ---
 Os membros da equipe Proprietários da sua organização podem conceder permissões de *gerente de cobrança* para as pessoas. Depois que uma pessoa aceita o convite deles para se tornar um gerente de cobrança da sua organização, ela poderá convidar mais pessoas para serem gerentes de cobrança.

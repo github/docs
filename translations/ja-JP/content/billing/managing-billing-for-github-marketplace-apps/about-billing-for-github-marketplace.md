@@ -13,10 +13,10 @@ topics:
   - Marketplace
 shortTitle: Billing for GitHub Marketplace
 ms.openlocfilehash: 815303fa5c0c1a006a0bd4bd017039cf1e035f15
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145088044'
 ---
 {% data variables.product.prodname_marketplace %}には、無料及び有料の価格プランのアプリケーションが含まれます。 アプリケーションを購入してインストールした後、アップグレード、ダウングレード、キャンセルはいつでもできます。

@@ -8,12 +8,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 52d7b272455ad0cef74ae07a7f4694afd66c055f
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556412'
 ---
 O GitHub mantém nosso compromisso com práticas comerciais éticas, inclusive proibindo suborno e corrupção. Como a [Transparência Internacional](https://www.transparency.org/what-is-corruption#costs-of-corruption) explica, os custos da corrupção são
 - **políticos**, colocando um grande obstáculo à democracia e ao estado de direito

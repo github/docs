@@ -11,10 +11,10 @@ redirect_from:
   - /admin/github-actions/using-actions-in-github-ae
 shortTitle: Use actions
 ms.openlocfilehash: a8439a08f73667b7d048b31e2c9eb3968ba2e957
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145095891'
 ---
 Os fluxos de trabalho do {% data variables.product.prodname_actions %} podem usar _ações_, que são tarefas individuais que podem ser combinadas para criar trabalhos e personalizar seu fluxo de trabalho. Você pode criar suas próprias ações ou usar e personalizar ações compartilhadas pela comunidade {% data variables.product.prodname_dotcom %}.

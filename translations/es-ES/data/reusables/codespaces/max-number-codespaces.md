@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 7e31c324900e21824e8214e6dcd453aa95ee85eb
-ms.sourcegitcommit: 81faf43a57101e75d40b5f8f77b9b129699e5d41
+ms.openlocfilehash: f2d4527cb962dc9dc65d1aa1cc150f048814a917
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2022
-ms.locfileid: "147865215"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878644"
 ---
-Puedes tener hasta 10 codespaces a la vez. Una vez que tengas 10 codespaces, deberás borrar alguno antes de que puedas crear uno nuevo.
+Hay límites para el número de codespaces que puede crear y el número de codespaces que puede ejecutar al mismo tiempo. Estos límites varían en función de varios factores. Si alcanza el número máximo de codespaces e intenta crear otro, se muestra un mensaje que indica que debe quitar un codespace existente para poder crear uno nuevo.

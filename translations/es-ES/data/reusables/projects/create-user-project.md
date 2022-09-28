@@ -4,7 +4,7 @@ ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/11/2022
-ms.locfileid: "147423240"
+ms.locfileid: "147882831"
 ---
 {% data reusables.profile.access_profile %}
 1. En tu perfil, haz clic en {% octicon "table" aria-label="The project icon" %} **Proyectos**.

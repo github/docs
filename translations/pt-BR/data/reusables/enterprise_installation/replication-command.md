@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 0ee285efb8b386c47d2782151fdf6a2bb24589fc
-ms.sourcegitcommit: 872c4751a3fc255671295a5dea6a2081c66b7b71
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2022
-ms.locfileid: "145093667"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147875658"
 ---
 1. Para iniciar a replicação dos armazenamentos de dados, use o comando `ghe-repl-start`.
   ```shell

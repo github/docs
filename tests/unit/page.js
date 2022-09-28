@@ -742,7 +742,8 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError('versions')
   })
 
-  test('invalid versions frontmatter', async () => {
+  // TODO - UNSKIP WHEN GHAE IS UPDATED WITH SEMVER VERSIONING
+  test.skip('invalid versions frontmatter', async () => {
     async function getPage() {
       return await Page.init({
         relativePath: 'page-with-invalid-product-version.md',

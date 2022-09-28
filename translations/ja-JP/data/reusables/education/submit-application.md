@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: bd7874652702ab4b0b337910d9093486ea35dfe0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145124237"
 ---
 8. アプリケーションの詳細を確認し、 **[情報を送信する]** をクリックします。

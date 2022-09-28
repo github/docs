@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 0e0eae030624b3b465c321690d9d9e08c6483bed
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556505'
 ---
+
 这些 GitHub 开源应用程序条款和条件（“应用程序条款”）是您（作为个人或代表实体）与 GitHub, Inc. 之间关于您使用诸如 GitHub Desktop™ 等 GitHub 应用程序及相关文档（“软件”）的法律协议。 这些应用程序条款适用于软件的可执行代码版本。 软件源代码根据开源软件许可协议单独免费提供。 如果您不同意这些应用程序条款中的所有条款，请不要下载、安装、使用或复制软件。
 
 ## <a name="connecting-to-github"></a>连接到 GitHub

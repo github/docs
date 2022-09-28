@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: bd2ea7e2ff0c8e9f60c3d011ee30573e3702cbed
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145083910"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147875606"
 ---
 {% ifversion ghae %} Para permitir que os executores auto-hospedados se comuniquem com o {% data variables.product.prodname_dotcom %}, adicione o endereço IP ou o intervalo de endereços IP dos seus executores auto-hospedados à lista de IPs permitidos. Para obter mais informações, confira "[Como adicionar um endereço IP permitido](#adding-an-allowed-ip-address)".
 {% else %} {% warning %}

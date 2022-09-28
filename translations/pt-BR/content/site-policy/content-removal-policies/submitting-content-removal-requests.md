@@ -9,13 +9,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 45dd8dbc7306e924a5d19d82b18082468cdff33c
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556413'
 ---
+
 Entendemos que conteúdo privado, protegido por direitos autorais ou marca registrada pode ser publicado no GitHub, acidentalmente ou de forma deliberada, às vezes em repositórios que não são de sua propriedade. Como a natureza desse conteúdo varia e em virtude das diferentes leis aplicáveis, cada categoria tem seus próprios requisitos de denúncia distintos descritos em nossas políticas.
 
 Se você quiser solicitar que o conteúdo seja removido do GitHub, reserve um tempo para conhecer cada uma dessas políticas e seus respectivos requisitos de denúncia antes de enviar uma denúncia. Se recebermos uma denúncia incompleta, precisaremos solicitar esclarecimentos ou revisões e você precisará reenviar uma denúncia revisada.

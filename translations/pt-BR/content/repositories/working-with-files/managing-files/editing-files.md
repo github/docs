@@ -18,10 +18,10 @@ topics:
   - Repositories
 shortTitle: Edit files
 ms.openlocfilehash: 515b773aaa9dd2a93d6c0b4b70adb3ef10afe082
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145126977'
 ---
 ## Editar arquivos no seu repositório

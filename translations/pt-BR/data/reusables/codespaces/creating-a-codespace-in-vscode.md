@@ -1,42 +1,34 @@
----
-ms.openlocfilehash: 68c33e94d3ccd97315cfff7461566d418872e218
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147521479"
----
-Depois de conectar sua conta no {% data variables.product.product_location %} à extensão do {% data variables.product.prodname_github_codespaces %}, você poderá criar um codespace. Para obter mais informações sobre a extensão {% data variables.product.prodname_github_codespaces %}, veja o [marketplace {% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+After you connect your account on {% data variables.product.product_location %} to the {% data variables.product.prodname_github_codespaces %} extension, you can create a new codespace. For more information about the {% data variables.product.prodname_github_codespaces %} extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
 {% note %}
 
-**Observação**: atualmente, o {% data variables.product.prodname_vscode_shortname %} não permite que você escolha uma configuração de contêiner de desenvolvimento ao criar um codespace. Se você quiser escolher uma configuração de contêiner de desenvolvimento específica, use a interface da Web do {% data variables.product.prodname_dotcom %} para criar o codespace. Para obter mais informações, clique na guia **Navegador da Web** na parte superior desta página.
+**Note**: Currently, {% data variables.product.prodname_vscode_shortname %} doesn't allow you to choose a dev container configuration when you create a codespace. If you want to choose a specific dev container configuration, use the {% data variables.product.prodname_dotcom %} web interface to create your codespace. For more information, click the **Web browser** tab at the top of this page.
 
 {% endnote %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Clique no ícone de Adição: {% octicon "plus" aria-label="The plus icon" %}.
+2. Click the Add icon: {% octicon "plus" aria-label="The plus icon" %}.
 
-   ![A opção "Criar novo codespace" em {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/create-codespace-vscode.png)
+   ![The Create new Codespace option in {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/create-codespace-vscode.png)
 
-3. Digite o nome do repositório no qual você deseja desenvolver e selecione-o.
+3. Type the name of the repository you want to develop in, then select it.
 
-   ![Pesquisar um repositório para criar um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-repository-vscode.png)
+   ![Searching for repository to create a new codespace](/assets/images/help/codespaces/choose-repository-vscode.png)
 
-4. Clique no branch que você deseja desenvolver.
+4. Click the branch you want to develop on.
 
-   ![Pesquisar um branch para criar um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-branch-vscode.png)
+   ![Searching for a branch to create a new codespace](/assets/images/help/codespaces/choose-branch-vscode.png)
 
-5. Se solicitado a escolher um arquivo de configuração de contêiner de desenvolvimento, escolha um arquivo na lista.
+5. If prompted to choose a dev container configuration file, choose a file from the list.
 
-   ![Como escolher um arquivo de configuração do contêiner de desenvolvimento para {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
+   ![Choosing a dev container configuration file for {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
 
-6. Clique no tipo de computador que você quer usar.
+6. Click the machine type you want to use.
 
-   ![Tipos de instância para um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-sku-vscode.png)
+   ![Instance types for a new codespace](/assets/images/help/codespaces/choose-sku-vscode.png)
 
    {% note %}
 
-   **Observação**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+   **Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
 
    {% endnote %}

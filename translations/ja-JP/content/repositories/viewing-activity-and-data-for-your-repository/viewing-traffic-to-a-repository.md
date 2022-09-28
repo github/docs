@@ -13,10 +13,10 @@ topics:
   - Repositories
 shortTitle: View repository traffic
 ms.openlocfilehash: 75b4900893a0874e42b076962d25babcb4c09233
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145132007'
 ---
 特定のパスが参照されていたリンクから、検索エンジンと {% data variables.product.product_name %} 自体を除く、参照元サイトに移動できます。 人気のあるコンテンツは、トラフィックを発生させた特定のコンテンツにリンクしています。

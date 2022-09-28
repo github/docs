@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 48c28509a3d2ed248cec80b27621fd99bb7141b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147064568"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147876073"
 ---
 ### 使用单个事件
 

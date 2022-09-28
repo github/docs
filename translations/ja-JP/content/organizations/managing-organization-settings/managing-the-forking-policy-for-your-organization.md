@@ -16,10 +16,10 @@ topics:
   - Teams
 shortTitle: Manage forking policy
 ms.openlocfilehash: 11aad8ee3c08b62f6bc352f91b6d804f35eee6e6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145119301'
 ---
 既定では、新しい組織はプライベート{% ifversion ghes or ghec or ghae %}および内部{% endif %}リポジトリのフォークを禁止するように構成されます。

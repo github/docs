@@ -11,6 +11,7 @@ children:
   - /managing-access-to-your-projects
   - /closing-and-deleting-your-projects
   - /adding-your-project-to-a-repository
+  - /adding-your-project-to-a-team
 allowTitleToDifferFromFilename: true
 ms.openlocfilehash: ca7c42e8dcb3daf477c70248eb79d12ca9670052
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5

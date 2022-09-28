@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ccccce25b53675ad01a9246d3f99c9311d4e4507
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145121534"
 ---
 1. DNS 構成が更新されたことを確認したら、ドメインを確認できます。 変更がすぐに行われず、前のページから移動した場合は、最初のいくつかの手順に従ってページ設定に戻り、ドメインの右側にある [{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}] をクリックし、 **[確認を続行]** をクリックします。

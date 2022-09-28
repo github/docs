@@ -1,6 +1,6 @@
 ---
-title: Enabling Dependabot for your enterprise
-intro: 'You can allow users of {% data variables.product.product_location %} to find and fix vulnerabilities in code dependencies by enabling {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes > 3.2 %} and {% data variables.product.prodname_dependabot_updates %}{% endif %}.'
+title: 为企业启用 Dependabot
+intro: '可以通过启用 {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes > 3.2 %} 和 {% data variables.product.prodname_dependabot_updates %}{% endif %} 允许 {% data variables.product.product_location %} 的用户查找并修复其代码依赖项中的漏洞。'
 miniTocMaxHeadingLevel: 3
 shortTitle: Dependabot
 redirect_from:
@@ -22,112 +22,107 @@ topics:
   - Security
   - Dependency graph
   - Dependabot
+ms.openlocfilehash: 271e0ad3a81ea8c8cefac9c4a4db6e18ecad5069
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '146455571'
 ---
+## 关于 {% data variables.product.product_name %} 的 {% data variables.product.prodname_dependabot %}
 
-## About {% data variables.product.prodname_dependabot %} for {% data variables.product.product_name %}
+{% data variables.product.prodname_dependabot %} 有助于 {% data variables.product.product_location %} 的用户查找和修复其依赖项中的漏洞。{% ifversion ghes > 3.2 %}可启用 {% data variables.product.prodname_dependabot_alerts %} 以通知用户漏洞依赖项，启用 {% data variables.product.prodname_dependabot_updates %} 以修复漏洞并将依赖项更新到最新版本。
 
-{% data variables.product.prodname_dependabot %} helps users of {% data variables.product.product_location %} find and fix vulnerabilities in their dependencies.{% ifversion ghes > 3.2 %} You can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
-
-### About {% data variables.product.prodname_dependabot_alerts %}
+### 关于 {% data variables.product.prodname_dependabot_alerts %}
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifies insecure dependencies in repositories and creates alerts on {% data variables.product.product_location %}, using data from the {% data variables.product.prodname_advisory_database %} and the dependency graph service.
+使用 {% data variables.product.prodname_dependabot_alerts %}，{% data variables.product.prodname_dotcom %} 可识别存储库中不安全的依赖项，并使用来自 {% data variables.product.prodname_advisory_database %} 和依赖项关系图服务的数据在 {% data variables.product.product_location %} 上创建警报。
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-After you enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. Only {% data variables.product.company_short %}-reviewed advisories are synchronized. {% data reusables.security-advisory.link-browsing-advisory-db %} 
+为企业启用 {% data variables.product.prodname_dependabot_alerts %} 后，漏洞数据会每小时一次从 {% data variables.product.prodname_advisory_database %} 同步到你的实例。 仅同步 {% data variables.product.company_short %} 审核的公告。 {% data reusables.security-advisory.link-browsing-advisory-db %} 
 
-You can also choose to manually sync vulnerability data at any time. For more information, see "[Viewing the vulnerability data for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise)."
+您还可以随时选择手动同步漏洞数据。 有关详细信息，请参阅“[查看企业的漏洞数据](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise)”。
 
 {% note %}
 
-**Note:** When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}. 
+注意：启用 {% data variables.product.prodname_dependabot_alerts %} 时，不会将来自 {% data variables.product.product_location %} 的代码或有关代码的信息上传到 {% data variables.product.prodname_dotcom_the_website %}。 
 
 {% endnote %}
 
-When {% data variables.product.product_location %} receives information about a vulnerability, it identifies repositories in  {% data variables.product.product_location %} that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. You can choose whether or not to notify users automatically about new {% data variables.product.prodname_dependabot_alerts %}. 
+当 {% data variables.product.product_location %} 接收到有关漏洞的信息时，它将识别 {% data variables.product.product_location %} 中使用受影响依赖项版本的存储库，并生成 {% data variables.product.prodname_dependabot_alerts %}。 可选择是否自动通知用户有关新的 {% data variables.product.prodname_dependabot_alerts %}。 
 
-For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning is triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added to {% data variables.product.product_location %}, {% data variables.product.product_name %} scans all existing repositories on {% data variables.product.product_location %} and generates alerts for any repository that is vulnerable. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+对于启用了 {% data variables.product.prodname_dependabot_alerts %} 的存储库，扫描会在任何推送到包含清单文件或锁定文件的默认分支时触发。 此外，当向 {% data variables.product.product_location %} 添加新漏洞记录时，{% data variables.product.product_name %} 会扫描 {% data variables.product.product_location %} 上的所有现有存储库并对任何易受攻击的存储库生成警报。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 
 {% ifversion ghes > 3.2 %}
-### About {% data variables.product.prodname_dependabot_updates %}
+### 关于 {% data variables.product.prodname_dependabot_updates %}
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-After you enable {% data variables.product.prodname_dependabot_alerts %}, you can choose to enable {% data variables.product.prodname_dependabot_updates %}. When {% data variables.product.prodname_dependabot_updates %} are enabled for {% data variables.product.product_location %}, users can configure repositories so that their dependencies are updated and kept secure automatically. 
+启用 {% data variables.product.prodname_dependabot_alerts %} 之后，可选择启用 {% data variables.product.prodname_dependabot_updates %}。 为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_dependabot_updates %} 之后，用户可以配置存储库，以便它们的依赖项自动进行更新并保持安全。 
 
 {% note %} 
 
-**Note:** {% data variables.product.prodname_dependabot_updates %} on {% data variables.product.product_name %} requires {% data variables.product.prodname_actions %} with self-hosted runners.
+注意：{% data variables.product.product_name %} 上的 {% data variables.product.prodname_dependabot_updates %} 需要带自托管运行器的 {% data variables.product.prodname_actions %}。
 
 {% endnote %}
 
-By default, {% data variables.product.prodname_actions %} runners used by {% data variables.product.prodname_dependabot %} need access to the internet, to download updated packages from upstream package managers. For {% data variables.product.prodname_dependabot_updates %} powered by {% data variables.product.prodname_github_connect %}, internet access provides your runners with a token that allows access to dependencies and advisories hosted on {% data variables.product.prodname_dotcom_the_website %}.
+默认情况下，{% data variables.product.prodname_dependabot %} 使用的 {% data variables.product.prodname_actions %} 运行器需要访问 Internet，以便从上游包管理器下载更新的包。 对于由 {% data variables.product.prodname_github_connect %} 提供支持的 {% data variables.product.prodname_dependabot_updates %}，Internet 访问权限为运行器提供了一个令牌，允许访问托管在 {% data variables.product.prodname_dotcom_the_website %} 上的依赖项和公告。
 
-With {% data variables.product.prodname_dependabot_updates %}, {% data variables.product.company_short %} automatically creates pull requests to update dependencies in two ways.
+使用 {% data variables.product.prodname_dependabot_updates %}，{% data variables.product.company_short %} 将自动创建拉取请求，以两种方式更新依赖项。
 
-- **{% data variables.product.prodname_dependabot_version_updates %}**: Users add a {% data variables.product.prodname_dependabot %} configuration file to the repository to enable {% data variables.product.prodname_dependabot %} to create pull requests when a new version of a tracked dependency is released. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)."
-- **{% data variables.product.prodname_dependabot_security_updates %}**: Users toggle a repository setting to enable {% data variables.product.prodname_dependabot %} to create pull requests when {% data variables.product.prodname_dotcom %} detects a vulnerability in one of the dependencies of the dependency graph for the repository. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+- **{% data variables.product.prodname_dependabot_version_updates %}** ：用户将 {% data variables.product.prodname_dependabot %} 配置文件添加到存储库，启用 {% data variables.product.prodname_dependabot %} 在发布跟踪依赖项的新版本时创建拉取请求。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)”。
+- **{% data variables.product.prodname_dependabot_security_updates %}** ：当 {% data variables.product.prodname_dotcom %} 检测到存储库的依赖项关系图的依赖项之一存在漏洞时，用户切换存储库设置以启用 {% data variables.product.prodname_dependabot %} 来创建拉取请求。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)”和“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)”。
 {% endif %}
 
-## Enabling {% data variables.product.prodname_dependabot_alerts %}
+## 启用 {% data variables.product.prodname_dependabot_alerts %}
 
-Before you can enable {% data variables.product.prodname_dependabot_alerts %}:
-- You must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."{% ifversion ghes %}
-- You must enable the dependency graph. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
+在启用 {% data variables.product.prodname_dependabot_alerts %} 之前：
+- 必须启用 {% data variables.product.prodname_github_connect %}。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)”。{% ifversion ghes %}
+- 您必须启用依赖关系图。 有关详细信息，请参阅“[为企业启用依赖项关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)”。{% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.github-connect-tab %}
-{%- ifversion dependabot-updates-github-connect %}
-1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Users can receive vulnerability alerts for open source code dependencies", select the dropdown menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.github-connect-tab %} {%- ifversion dependabot-updates-github-connect %}
+1. 在“{% data variables.product.prodname_dependabot %}”下，在“用户可以接收开放源代码依赖项的漏洞警报”右侧，选择下拉菜单并单击“启用但不通知”。 （可选）要启用警报和通知，请单击“启用并通知”。
 
-   ![Screenshot of the dropdown menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/dependabot-alerts-dropdown.png)
+   ![用于启用扫描存储库有无漏洞的下拉菜单屏幕截图](/assets/images/enterprise/site-admin-settings/dependabot-alerts-dropdown.png)
 
 {%- else %}
-1. Under "Repositories can be scanned for vulnerabilities", select the drop-down menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
-   ![Drop-down menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
-{%- endif %}
-   {% tip %}
+1. 在“可扫描存储库有无漏洞”下，使用下拉菜单，并单击“启用但不通知”。 （可选）要启用警报和通知，请单击“启用并通知”。
+   ![用于启用扫描存储库有无漏洞的下拉菜单](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png) {%- endif %} {% tip %}
 
-   **Tip**: We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
+   提示：我们建议将 {% data variables.product.prodname_dependabot_alerts %} 配置为在前几天发出警报但不通知，以避免电子邮件过载。 几天后，可以启用通知，像往常一样接收 {% data variables.product.prodname_dependabot_alerts %}。
 
    {% endtip %}
 
 {% ifversion dependabot-updates-github-connect %}
-## Enabling {% data variables.product.prodname_dependabot_updates %}
+## 启用 {% data variables.product.prodname_dependabot_updates %}
 
-After you enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise, you can enable {% data variables.product.prodname_dependabot_updates %}.
+为企业启用 {% data variables.product.prodname_dependabot_alerts %} 之后，可启用 {% data variables.product.prodname_dependabot_updates %}。
 
-{% ifversion ghes %}
-Before you enable {% data variables.product.prodname_dependabot_updates %}, you must configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+{% ifversion ghes %}启用 {% data variables.product.prodname_dependabot_updates %} 之前，必须配置 {% data variables.product.product_location %} 以使用带自托管运行器的 {% data variables.product.prodname_actions %}。 有关详细信息，请参阅“[适用于 GitHub Enterprise Server 的 {% data variables.product.prodname_actions %} 的使用入门](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)。”
 
-{% data variables.product.prodname_dependabot_updates %} are not supported on {% data variables.product.product_name %} if your enterprise uses clustering.
+如果企业使用聚类分析，{% data variables.product.product_name %} 上不支持 {% data variables.product.prodname_dependabot_updates %}。
 {% endif %}
 
-{% data reusables.enterprise_site_admin_settings.sign-in %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security", select **{% data variables.product.prodname_dependabot_security_updates %}**.
+{% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
+1. 在“安全”下，选择 {% data variables.product.prodname_dependabot_security_updates %}。
 
-   ![Screenshot of the checkbox to enable or disable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/enterprise/management-console/enable-dependabot-updates.png)
+   ![用于启用或禁用 {% data variables.product.prodname_dependabot_security_updates %} 的复选框屏幕截图](/assets/images/enterprise/management-console/enable-dependabot-updates.png)
 
 {% data reusables.enterprise_management_console.save-settings %}
-1. Click **Visit your instance**.
-1. Configure self-hosted runners to create the pull requests that will update dependencies. For more information, see "[Managing self-hosted runners for {% data variables.product.prodname_dependabot_updates %} on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)."
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.github-connect-tab %}
-1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Users can easily upgrade to non-vulnerable open source code dependencies", click **Enable**.
+1. 单击“访问实例”。
+1. 配置自托管运行器以创建将更新依赖项的拉取请求。 有关详细信息，请参阅“[为企业中的 {% data variables.product.prodname_dependabot_updates %} 管理自托管运行器](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)”。
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.github-connect-tab %}
+1. 在“{% data variables.product.prodname_dependabot %}”下，在“用户可以轻松升级到非易受攻击的开源代码依赖项”右侧，单击“启用”。
 
-   ![Screenshot of the dropdown menu to enable updating vulnerable dependencies](/assets/images/enterprise/site-admin-settings/dependabot-updates-button.png)
+   ![用于启用更新易受攻击的依赖项下拉菜单屏幕截图](/assets/images/enterprise/site-admin-settings/dependabot-updates-button.png)
 
-{% endif %}
-{% ifversion ghes > 3.2 %}
+{% endif %} {% ifversion ghes > 3.2 %}
 
-When you enable {% data variables.product.prodname_dependabot_alerts %}, you should consider also setting up {% data variables.product.prodname_actions %} for {% data variables.product.prodname_dependabot_security_updates %}. This feature allows developers to fix vulnerabilities in their dependencies. For more information, see "[Managing self-hosted runners for {% data variables.product.prodname_dependabot_updates %} on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)."
+启用 {% data variables.product.prodname_dependabot_alerts %} 时，还应考虑为 {% data variables.product.prodname_dependabot_security_updates %} 设置 {% data variables.product.prodname_actions %}。 此功能使开发人员可以修复其依赖项中的漏洞。 有关详细信息，请参阅“[为企业中的 {% data variables.product.prodname_dependabot_updates %} 管理自托管运行器](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)”。
 
-If you need enhanced security, we recommend configuring {% data variables.product.prodname_dependabot %} to use private registries. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_dependabot %}](/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot)."
+如果需要增强安全性，建议将 {% data variables.product.prodname_dependabot %} 配置为使用专用注册表。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_dependabot %} 的加密机密](/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot)”。
 
 {% endif %}

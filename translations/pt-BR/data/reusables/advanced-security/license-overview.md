@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 5d75f2a8b4c2c9bfdf7b491d23f76f4f820b98e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145085242"
 ---
 Cada licença de {% data variables.product.prodname_GH_advanced_security %} especifica um número máximo de contas, ou estações, que podem usar essas funcionalidades. Cada committer ativo para, pelo menos, um repositório com o recurso habilitado utiliza uma estação. Um autor de commit será considerado ativo se um dos commits dele tiver sido enviado por push para o repositório nos últimos 90 dias, independentemente de quando ele foi originalmente criado.

@@ -13,10 +13,10 @@ children:
   - /configuring-github-copilot-in-a-jetbrains-ide
   - /configuring-github-copilot-in-neovim
 ms.openlocfilehash: e98ac2a1ac8c884776db54e3b8d2a1ea51fbebee
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079749'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147887405'
 ---
 

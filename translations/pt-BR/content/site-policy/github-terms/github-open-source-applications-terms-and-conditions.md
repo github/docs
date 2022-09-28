@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 0e0eae030624b3b465c321690d9d9e08c6483bed
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556441'
 ---
+
 Estes Termos e Condições dos Aplicativos de Software Livre do GitHub (“Termos do Aplicativo”) representam um acordo legal celebrado entre você (como pessoa física ou em nome de uma pessoa jurídica) e a GitHub, Inc. em relação ao uso que você faz dos aplicativos do GitHub, como GitHub Desktop™ e a documentação associada (“Software”). Estes Termos do Aplicativo aplicam-se à versão de código executável do Software. O código-fonte do Software está disponível separada e gratuitamente de acordo com os termos dos contratos de licença de software livre. Se você não concordar com todos os termos destes Termos do Aplicativo, não baixe, instale, use nem copie o Software.
 
 ## <a name="connecting-to-github"></a>Como conectar-se ao GitHub
@@ -41,7 +36,7 @@ Os nomes GitHub, GitHub Desktop, GitHub for Mac, GitHub for Windows, Atom, Octoc
 
 O Software pode coletar minhas informações pessoais. Você pode controlar quais informações o Software coleta no painel de configurações. Se o Software coletar informações pessoais em nome do GitHub, o GitHub processará essas informações de acordo com a [Política de Privacidade do GitHub](/articles/github-privacy-statement/).
 
-## <a name="additional-services"></a>Serviços Adicionais
+## <a name="additional-services"></a>Serviços adicionais
 
 **Serviços de Atualização Automática**
 
@@ -63,10 +58,10 @@ O GitHub reserva para si o direito de, a qualquer momento e periodicamente, modi
 
 3. Lei Aplicável. Você concorda que estes Termos do Aplicativo e seu uso do Software serão regidos pela lei da Califórnia e qualquer controvérsia relacionada ao Software deverá ser levada a um juiz competente localizado ou próximo a São Francisco, Califórnia.
 
-4. Pacotes de Terceiros. O Software é compatível com “Pacotes” de terceiros que podem modificar, adicionar, remover ou alterar a funcionalidade do Software.  Esses Pacotes não são cobertos por estes Termos do Aplicativo e podem incluir sua própria licença que rege o uso desse pacote específico.
+4. Pacotes de terceiros. O Software é compatível com “Pacotes” de terceiros que podem modificar, adicionar, remover ou alterar a funcionalidade do Software.  Esses Pacotes não são cobertos por estes Termos do Aplicativo e podem incluir sua própria licença que rege o uso desse pacote específico.
 
 5. Ausência de Modificações; Acordo Completo. Estes Termos do Aplicativo só podem ser modificados por uma emenda por escrito assinada por um representante autorizado do GitHub ou pela publicação feita pelo GitHub de uma versão revisada. Estes Termos do Aplicativo, juntamente com quaisquer Notificações e Licenças de Software Livre aplicáveis e a Política de Privacidade do GitHub, representam a declaração completa e exclusiva do contrato entre você e nós. Estes Termos do Aplicativo substituem qualquer proposta ou contrato anterior verbal ou por escrito e quaisquer outras comunicações entre você e o GitHub relacionadas ao assunto destes termos.
 
 6. Políticas de Licença do GitHub. Estes Termos do Aplicativo são licenciados segundo esta [Licença Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/). Para obter detalhes, consulte o [repositório de políticas do site](https://github.com/github/site-policy#license).
 
-7. Entre em contato conosco. Dúvidas sobre os Termos de Serviço? [Entre em contato conosco](https://support.github.com/contact?tags=docs-policy).
+7. Entre em contato conosco. Dúvidas sobre os Termos de Serviço? [ Entre em contato conosco](https://support.github.com/contact?tags=docs-policy).

@@ -15,10 +15,10 @@ versions:
 topics:
   - GitHub Apps
 ms.openlocfilehash: 9f8c392906f494b41aaa216ef5f6b58f7968f32a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084018'
 ---
 Os aplicativos no {% data variables.product.prodname_dotcom %} permitem que você automatize e melhore seu fluxo de trabalho. Crie aplicativos para aprimorar seu fluxo de trabalho.{% ifversion fpt or ghec %} Você também pode compartilhar ou vender aplicativos no [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Para saber como listar um aplicativo no {% data variables.product.prodname_marketplace %}, confira "[Introdução ao GitHub Marketplace](/marketplace/getting-started/)".{% endif %}

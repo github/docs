@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 7bdf0b97071eb1a71dc40cc57b12208080382481
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556411'
 ---
+
 O GitHub reconhece que nossos negócios se baseiam em relações positivas e transparentes. Embora as interações informais e a troca de presentes possam fazer parte do desenvolvimento dessas relações e possam até ser consideradas costumeiras em alguns países, precisamos garantir que estamos seguindo as leis antissuborno. Temos a obrigação legal de nos comportarmos de forma ética, inclusive não usando tais interações para criar uma vantagem especial nem influenciar uma negociação.
 
 ## <a name="company-policies"></a>Políticas da empresa
@@ -34,22 +29,22 @@ Então, o que significa “de valor”? Tenha em mente que os funcionários do g
 
 Quanto a outros clientes ou possíveis clientes, determinadas coisas podem parecer triviais, mas têm grande valor para outra pessoa. Por exemplo, embora possa não parecer grande coisa para você contratar a filha de seu amigo como estagiária, pode ser de grande valor para eles. Mas se ela não for qualificada e você mexer os pauzinhos para que isso aconteça, isso não está correto. Além disso, se a intenção for influenciar indevidamente, qualquer coisa, por menor que seja, pode ser considerada “de valor”.
 
-?? _Aqui estão alguns outros atos que não estão corretos:_
+🙅 _Veja algumas outras ações que não são permitidas:_
 
-- Passagem aérea de primeira classe para os executivos do GitHub para Resumos Executivos ✈️+??
-- Passeios em vinícolas??
-- Recomendar o filho de um amigo para ingressar em uma escola particular de prestígio??
-- Ingressos para a Disneylândia??, a Copa do Mundo??, as Olimpíadas??
+- Passagem aérea de primeira classe para os executivos do GitHub para resumos executivos ✈️+🍾
+- Passeios de vinícola 🍷
+- Recomendar o filho de um amigo para ingressar em uma escola particular de prestígio 🎓
+- Ingressos para a Disneylândia 👸, a Copa do Mundo 🥅, as Olimpíadas 🏅
 - Um ⚽️ de futebol autografado por um jogador famoso
 - Uma contribuição para uma instituição de caridade
 
-?? _Aqui estão alguns exemplos que são realmente bons para clientes ou clientes em potencial:_
+🙆 _Aqui estão alguns exemplos que são realmente bons para clientes ou clientes em potencial:_
 
 - Tecido
 - Passagem aérea na classe econômica para os executivos do GitHub para Resumos Executivos ✈️
 - Ingressos na arquibancada para um evento esportivo ⚾️
-- Um jantar com preços razoáveis na cidade??
-- Uma caixinha de chocolates como agradecimento no final de ano??
+- Um jantar com preços razoáveis na cidade 🍽
+- Uma caixinha de chocolates como agradecimento no final de ano 🍫
 
 Todos os itens acima também se aplicam a _receber_ propinas. Portanto, se um fornecedor ou fornecedor em potencial lhe enviar algo “de valor”, não aceite — ou no mínimo envie-o por meio do Departamento Jurídico antes de fazê-lo.
 

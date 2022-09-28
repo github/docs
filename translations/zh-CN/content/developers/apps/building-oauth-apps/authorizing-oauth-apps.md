@@ -17,10 +17,10 @@ versions:
 topics:
   - OAuth Apps
 ms.openlocfilehash: 10aa111156377c08f0dc4ad0210cf8ad30b8a3ac
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147717787'
 ---
 {% data variables.product.product_name %} 的 OAuth 实现支持标准[授权代码授权类型](https://tools.ietf.org/html/rfc6749#section-4.1)和对无权访问 Web 浏览器的应用的 OAuth 2.0 [设备授权](https://tools.ietf.org/html/rfc8628)。

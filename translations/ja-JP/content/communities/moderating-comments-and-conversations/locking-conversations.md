@@ -12,10 +12,10 @@ versions:
 topics:
   - Community
 ms.openlocfilehash: 986d23cb4fe9850cb6c6824e9a3f2c256b6fd4e4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145090243'
 ---
 会話全体が建設的でない場合や、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、会話をロックするのが適切です。 会話をロックするとき、理由を指定することもできます。これは誰にでも見ることができます。

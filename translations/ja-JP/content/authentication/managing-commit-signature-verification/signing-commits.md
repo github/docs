@@ -1,6 +1,6 @@
 ---
-title: Signing commits
-intro: You can sign commits locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.
+title: コミットに署名する
+intro: 'GPG、{% ifversion ssh-commit-verification %}SSH、{% endif %}S/MIME のいずれかを使って、ローカル環境でコミットに署名できます。'
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg
   - /articles/signing-commits-using-gpg
@@ -15,42 +15,48 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: 9b37417ab81bf51e39e41fcbed3a9b64cb4fe7bc
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147653227'
 ---
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
-**Tips:**
+**ヒント:**
 
-To configure your Git client to sign commits by default for a local repository, in Git versions 2.0.0 and above, run `git config commit.gpgsign true`. To sign all commits by default in any local repository on your computer, run `git config --global commit.gpgsign true`.
+Git バージョン 2.0.0 以降で、ローカル リポジトリ用に既定でコミットに署名するように Git クライアントを設定するには、`git config commit.gpgsign true` を実行します。 コンピューター上の任意のローカル リポジトリで、既定ですべてのコミットに署名するには、`git config --global commit.gpgsign true` を実行します。
 
-To store your GPG key passphrase so you don't have to enter it every time you sign a commit, we recommend using the following tools:
-  - For Mac users, the [GPG Suite](https://gpgtools.org/) allows you to store your GPG key passphrase in the Mac OS Keychain.
-  - For Windows users, the [Gpg4win](https://www.gpg4win.org/) integrates with other Windows tools.
+コミットに署名するたびに入力する必要をなくすために GPG キーパスフレーズを保管するには、次のツールの使用をおすすめします:
+  - Mac ユーザーは、[GPG スイート](https://gpgtools.org/)により、Mac OS キーチェーンに GPG キー パスフレーズを保管できます。
+  - Windows ユーザーの場合、[Gpg4win](https://www.gpg4win.org/) は他の Windows ツールと統合されます。
 
-You can also manually configure [gpg-agent](http://linux.die.net/man/1/gpg-agent) to save your GPG key passphrase, but this doesn't integrate with Mac OS Keychain like ssh-agent and requires more setup.
+また、GPG キー パスフレーズを保管しておくために [gpg-agent](http://linux.die.net/man/1/gpg-agent) を手動で設定できますが、これは ssh-agent のように Mac OS キーチェーンでは統合されず、さらに設定が必要です。
 
 {% endtip %}
 
-If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/articles/telling-git-about-your-signing-key).
+複数のキーを持っている場合、または、コミッターの ID にマッチしないキーでコミットやタグに署名しようとする場合、[サインインのキーを Git に伝える](/articles/telling-git-about-your-signing-key)必要があります。
 
-1. When committing changes in your local branch, add the -S flag to the git commit command:
+1. ローカルブランチに変更をコミットする場合、 -S フラグをGitコミットコマンドに追加します。
   ```shell
   $ git commit -S -m <em>"your commit message"</em>
   # Creates a signed commit
   ```
-2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/articles/generating-a-new-gpg-key).
-3. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.product_name %}:
+2. GPG を使用している場合は、コミットを作成した後、[GPG キーを生成](/articles/generating-a-new-gpg-key)したときに設定したパスフレーズを指定します。
+3. ローカルでのコミット作成が完了したら、{% data variables.product.product_name %} 上のリモートリポジトリにプッシュします。
   ```shell
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. On {% data variables.product.product_name %}, navigate to your pull request.
+4. {% data variables.product.product_name %}上で、プルリクエストに移動します。
 {% data reusables.repositories.review-pr-commits %}
-5. To view more detailed information about the verified signature, click Verified.
-![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+5. ベリファイされた署名の詳しい情報を見るには、Verifiedをクリックします。
+![署名されたコミット](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
-## Further reading
+## 参考資料
 
-* "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-* "[Signing tags](/articles/signing-tags)"
+* 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
+* [タグに署名する](/articles/signing-tags)

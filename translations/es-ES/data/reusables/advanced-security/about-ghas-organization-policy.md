@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: a9edfbc5b5f3c0f50ae1e476d393e658751a5079
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145114017"
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147888578"
 ---
 {% data variables.product.company_short %} cobra por la {% data variables.product.prodname_advanced_security %} por cada confirmante. {% ifversion fpt or ghec %}Para obtener más información, consulte "[Administrar la facturación de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security)."{% elsif ghes %}Para obtener más información, consulte "[Administrar {% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security)."{% endif %}
 

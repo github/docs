@@ -14,10 +14,10 @@ topics:
   - Profiles
 shortTitle: Pin items
 ms.openlocfilehash: 131bdb1ed57383e0b420308a96742a573dd9aa14
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145066999'
 ---
 您可以嵌入您拥有的或者对其做出了贡献的公共仓库。 对复刻的提交不计为贡献，因此不能嵌入非自己所有的复刻。 有关详细信息，请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”

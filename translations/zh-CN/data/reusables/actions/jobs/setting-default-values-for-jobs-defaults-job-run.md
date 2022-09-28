@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: dae1f0d42b9b0b2e122bfcfc2a096d062efd8ee0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145098439"
 ---
 使用 `jobs.<job_id>.defaults.run` 为作业中的所有 `run` 步骤提供默认的 `shell` 和 `working-directory`。 此部分不允许上下文和表达式。

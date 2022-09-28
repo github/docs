@@ -10,13 +10,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 55225fc4c60503e4cb9dbce4d41e51a13926d79e
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556817'
 ---
+
 GitHub アカウント名は、即時かつ実際に使用されることを目的として先着順で提供されています。
 
 ## <a name="what-if-the-username-i-want-is-already-taken"></a>使用したいユーザー名が既に他者に取得されている場合

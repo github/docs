@@ -13,11 +13,11 @@ topics:
   - Issues
   - Project management
 ms.openlocfilehash: 71cf84e26bdbed717fd5b434e92f071550764cdc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423969'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880034'
 ---
 可使用 {% data variables.product.prodname_projects_v2 %} 来管理你在 {% data variables.product.company_short %} 上的工作，其中包括问题和拉取请求。 阅读提示以便高效和有效地管理您的项目。 有关 {% data variables.product.prodname_projects_v2 %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)”。
 

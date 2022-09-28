@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: a6a1c65e6cd8e475eda09d96a8e23873374f3216
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.openlocfilehash: 7ef928cc8f56a997197c06b1aa3bbfa5e718a174
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: "145113309"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147785207"
 ---
   | クエリ スイート | 説明 |
   | :- | :- |
-  | `security-extended` | 既定のクエリよりも重大度および精度が低いクエリ |
+  | `security-extended` | 既定のスイートからのクエリ、および重要度と精度の低いクエリ |
   | `security-and-quality` | `security-extended` からのクエリに加え、保守性および信頼性のクエリ。 |

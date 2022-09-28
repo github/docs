@@ -9,10 +9,10 @@ versions:
   fpt: '*'
   ghec: '*'
 ms.openlocfilehash: a976ad099b80297d0d1e006a020b77b6406989eb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099766'
 ---
 您可以在您的个人帐户或拥有的组织中安装集成， 也可从您具有管理员权限或者您的组织所拥有的特定仓库中的第三方安装 {% data variables.product.prodname_github_apps %}。

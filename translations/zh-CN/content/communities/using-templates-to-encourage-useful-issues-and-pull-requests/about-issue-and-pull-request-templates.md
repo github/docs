@@ -13,10 +13,10 @@ topics:
   - Community
 shortTitle: About templates
 ms.openlocfilehash: b95b31ae4171a54d9261fab6cbe93c43361296ab
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145099290'
 ---
 在仓库中创建议题和拉取请求后，贡献者可以根据仓库的参与指南使用模板打开议题或描述其拉取请求中提议的更改。 有关将贡献指南添加到存储库的详细信息，请参阅“[为存储库贡献者设置准则](/articles/setting-guidelines-for-repository-contributors)”。

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: dd25f74bf039724130494c7bd4d55e44760f620b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145094355"
 ---
 Use `jobs.<job_id>` para fornecer ao seu trabalho um identificador exclusivo. A chave `job_id` é uma cadeia de caracteres, e o valor dela é um mapa dos dados de configuração do trabalho. Você precisa substituir `<job_id>` por uma cadeia de caracteres exclusiva para o objeto `jobs`. A `<job_id>` precisa começar com uma letra ou `_` e conter apenas caracteres alfanuméricos, `-` ou `_`.

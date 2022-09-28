@@ -23,10 +23,10 @@ topics:
   - Upgrades
 shortTitle: About billing
 ms.openlocfilehash: a17f487d707949885a3cb8f0585feac21708bac1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145083473'
 ---
 Para obter mais informações sobre os produtos disponíveis para sua conta, confira "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)". Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. O {% data variables.product.product_name %} não oferece assinaturas nem produtos personalizados.  

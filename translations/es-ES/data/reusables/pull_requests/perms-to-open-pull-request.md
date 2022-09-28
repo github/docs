@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: b36f385f08632181d3a4cc7150e655683bc016f1
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145118553"
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147887162"
 ---
 {% ifversion fpt or ghec %}
 

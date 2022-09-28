@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: d48a18256fab3ba4064123ef7b7ff9cdba11b9e8
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556558'
 ---
+
 このコミットメントは、対象ライセンス (定義については、下までスクロールしてください) に従って Git、Linux カーネル、およびその他のプログラムへの GitHub のコントリビューションに関するものです。
 
 この声明は、企業向け[テンプレート](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md)に基づいて作成しました。 他の企業、個人、およびプロジェクトがこのコミットメントを適用する方法については、[「GPL Cooperation Commitment」のサイト](https://gplcc.github.io/gplcc/)をご覧ください。

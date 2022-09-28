@@ -21,7 +21,7 @@ ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/11/2022
-ms.locfileid: '145115193'
+ms.locfileid: '147884257'
 ---
 Cada equipo tiene sus propios [permisos de acceso para los repositorios que pertenecen a su organización](/articles/permission-levels-for-an-organization) definidos individualmente.
 

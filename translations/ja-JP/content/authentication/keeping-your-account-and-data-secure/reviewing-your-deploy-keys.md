@@ -1,6 +1,6 @@
 ---
-title: デプロイ キーをレビューする
-intro: デプロイ キーをレビューして、許可されていない (あるいは侵害された可能性のある) キーがないことを確認してください。 有効な既存のデプロイ キーを承認することもできます。
+title: Reviewing your deploy keys
+intro: You should review deploy keys to ensure that there aren't any unauthorized (or possibly compromised) keys. You can also approve existing deploy keys that are valid.
 redirect_from:
   - /articles/reviewing-your-deploy-keys
   - /github/authenticating-to-github/reviewing-your-deploy-keys
@@ -14,22 +14,19 @@ topics:
   - Identity
   - Access management
 shortTitle: Deploy keys
-ms.openlocfilehash: 964ec4cbc91745c041dd973e4e950b605c5c0233
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145088409'
 ---
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-3. サイドバーの [Security]\(セキュリティ\) セクションで、 **[{% octicon "key" aria-label="The key icon" %} Deploy keys]\(キーのデプロイ\)** をクリックします。
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+3. In the "Security" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Deploy keys**.
 {% else %}
-3. 左サイドバーにある **[Deploy keys]\(キーのデプロイ\)** をクリックします。
-![[Deploy keys]\(キーのデプロイ\) 設定](/assets/images/help/settings/settings-sidebar-deploy-keys.png) {% endif %}
-4. [Deploy keys] ページで、自分のアカウントに関連付けられているデプロイ キーを書き留めます。 認識していないもの、または古いものについては、 **[Delete]\(削除\)** をクリックします。 残しておきたい有効なデプロイ キーがある場合は、 **[Approve]\(承認\)** をクリックします。
-    ![デプロイ キー リスト](/assets/images/help/settings/settings-deploy-key-review.png)
+3. In the left sidebar, click **Deploy keys**.
+![Deploy keys setting](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
+{% endif %}
+4. On the Deploy keys page, take note of the deploy keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid deploy keys you'd like to keep, click **Approve**.
+	![Deploy key list](/assets/images/help/settings/settings-deploy-key-review.png)
 
-詳細については、「[デプロイ キーの管理](/guides/managing-deploy-keys)」を参照してください。
+For more information, see "[Managing deploy keys](/guides/managing-deploy-keys)."
 
-## 参考資料
-- [通知の構成](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## Further reading
+- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
