@@ -108,29 +108,33 @@ router.get(
     )}-${language}`
 
     const hits = []
-    const timed = statsd.asyncTimer(getSearchResults, 'api.search', ['version:legacy'])
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
+      'version:legacy',
+      `indexName:${indexName}`,
+    ])
+    const options = {
+      indexName,
+      query,
+      page: 1,
+      sort: 'best',
+      size: limit,
+      debug: true,
+      includeTopics: true,
+      // The legacy search is used as an autocomplete. In other words,
+      // a debounce that sends the query before the user has had a
+      // chance to fully submit the search. That means if the user
+      // send the query 'google cl' they hope to find 'Google Cloud'
+      // even though they didn't type that fully.
+      usePrefixSearch: true,
+    }
     try {
-      const searchResults = await timed({
-        indexName,
-        query,
-        page: 1,
-        sort: 'best',
-        size: limit,
-        debug: true,
-        includeTopics: true,
-        // The legacy search is used as an autocomplete. In other words,
-        // a debounce that sends the query before the user has had a
-        // chance to fully submit the search. That means if the user
-        // send the query 'google cl' they hope to find 'Google Cloud'
-        // even though they didn't type that fully.
-        usePrefixSearch: true,
-      })
+      const searchResults = await timed(options)
       hits.push(...searchResults.hits)
-    } catch (err) {
+    } catch (error) {
       // If we don't catch here, the `catchMiddlewareError()` wrapper
       // will take any thrown error and pass it to `next()`.
-      console.error('Error wrapping getSearchResults()', err)
-      return res.status(500).json([])
+      await handleGetSearchResultsError(req, res, error, options)
+      return
     }
 
     // The legacy search just returned an array
@@ -244,10 +248,14 @@ router.get(
     // This measurement then combines both the Node-work and the total
     // network-work but we know that roughly 99.5% of the total time is
     // spent in the network-work time so this primarily measures that.
-    const timed = statsd.asyncTimer(getSearchResults, 'api.search', ['version:v1'])
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
+      'version:v1',
+      `indexName:${indexName}`,
+    ])
 
+    const options = { indexName, query, page, size, debug, sort }
     try {
-      const { meta, hits } = await timed({ indexName, query, page, size, debug, sort })
+      const { meta, hits } = await timed(options)
 
       if (process.env.NODE_ENV !== 'development') {
         // The assumption, at the moment is that searches are never distinguished
@@ -265,27 +273,26 @@ router.get(
       // If getSearchResult() throws an error that might be 404 inside
       // elasticsearch, if we don't capture that here, it will propgate
       // to the next middleware.
-      if (process.env.NODE_ENV === 'development') {
-        console.error('Error calling getSearchResults()', error)
-      } else {
-        const reports = FailBot.report(error, {
-          url: req.url,
-          indexName,
-          query,
-          page,
-          size,
-          debug,
-          sort,
-        })
-        // It might be `undefined` if no backends are configured which
-        // is likely when using production NODE_ENV on your laptop
-        // where you might not have a HATSTACK_URL configured.
-        if (reports) await Promise.all(reports)
-      }
-      res.status(500).send(error.message)
+      await handleGetSearchResultsError(req, res, error, options)
     }
   })
 )
+
+// We have more than one place where we do `try{...} catch error( THIS )`
+// which is slightly different depending on the "sub-version" (e.g. /legacy)
+// This function is a single place to take care of all of these error handlings
+async function handleGetSearchResultsError(req, res, error, options) {
+  if (process.env.NODE_ENV === 'development') {
+    console.error(`Error calling getSearchResults(${options})`, error)
+  } else {
+    const reports = FailBot.report(error, Object.assign({ url: req.url }, options))
+    // It might be `undefined` if no backends are configured which
+    // is likely when using production NODE_ENV on your laptop
+    // where you might not have a HATSTACK_URL configured.
+    if (reports) await Promise.all(reports)
+  }
+  res.status(500).send(error.message)
+}
 
 // Alias for the latest version
 router.get('/', (req, res) => {

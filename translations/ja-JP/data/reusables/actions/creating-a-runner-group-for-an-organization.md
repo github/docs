@@ -1,36 +1,38 @@
----
-ms.openlocfilehash: 9fc8c5a87be98ad66b69d401abe1f372dcb56dc7
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147764008"
----
 {% comment %} 
 
-この手順にかかわらず、セキュリティ上の忠告は常に含めてください。 これは、コンテキストがセルフホステッド ランナーか、より大きなランナーであるかに応じて、次のいずれかとなります。
+Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
 
-{% data reusables.actions.self-hosted-runner-security-admonition %} {% data reusables.actions.hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %}
+{% data reusables.actions.hosted-runner-security-admonition %}
  
 {% endcomment %}
 
-すべての Organization には、単一の既定のランナー グループがあります。 Enterprise アカウント内の Organization を使うと、追加のグループを作成できます。 Organization の管理者は、個々のリポジトリにランナーグループへのアクセスを許可できます。 REST API を使ってランナー グループを作成する方法について詳しくは、「[セルフホスト ランナー グループ](/rest/reference/actions#self-hosted-runner-groups)」をご覧ください。
+All organizations have a single default runner group. Organizations within an enterprise account can create additional groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a runner group with the REST API, see "[Self-hosted runner groups](/rest/reference/actions#self-hosted-runner-groups)."
 
-ランナーは、作成時に既定のグループに自動的に割り当てられます。一度に 1 つのグループでのみメンバーになることができます。 ランナーはデフォルトグループから作成した任意のグループに移動できます。
+Runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
 
-グループを作成するときは、ランナー グループにアクセスできるリポジトリ{% ifversion restrict-groups-to-workflows %}とワークフロー{% endif %}が定義されているポリシーを選ぶ必要があります。
+When creating a group, you must choose a policy that defines which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group.
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. "ランナー グループ" セクションで、 **[新しいランナー グループ]** をクリックします。
-1. ランナー グループの名前を入力します。
- {% data reusables.actions.runner-group-assign-policy-repo %} {% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} Organization が所有するランナー グループは、Enterprise 内の別の Organization からのワークフローにはアクセスできません。代わりに、Enterprise が所有するランナー グループを作成する必要があります。{% endif %} {% data reusables.actions.create-runner-group %} {% elsif ghae or ghes < 3.4 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. {% ifversion ghes or ghae %}[ランナー] で、{% endif %} **[新規追加]** をクリックし、 **[新しいグループ]** をクリックします。
+{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
+1. In the "Runner groups" section, click **New runner group**.
+1. Enter a name for your runner group.
+ {% data reusables.actions.runner-group-assign-policy-repo %}
+{% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.{% endif %}
+{% data reusables.actions.create-runner-group %}
+{% elsif ghae < 3.4 or ghes < 3.4 %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
+1. Under {% ifversion ghes or ghae %}"Runners"{% endif %}, click **Add new**, and then **New group**.
 
-    ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
-1. ランナーグループの名前を入力し、リポジトリアクセスのポリシーを割り当てます。
+    ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
+1. Enter a name for your runner group, and assign a policy for repository access.
 
-   リポジトリの特定のリストまたは組織内のすべてのリポジトリにアクセス可能なランナー グループを設定できます。{% ifversion ghec or ghes %}既定では、プライベート リポジトリのみがランナー グループ内のランナーにアクセスできますが、これをオーバーライドできます。 エンタープライズによって共有された組織のランナー グループを構成する場合、この設定をオーバーライドすることはできません。{% endif %}
+   You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
    
-   ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-org-add-runner-group-options.png)
-1. **[グループの保存]** をクリックしてグループを作成し、ポリシーを適用します。
+   ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+1. Click **Save group** to create the group and apply the policy.
 {% endif %}

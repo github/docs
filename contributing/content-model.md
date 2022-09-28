@@ -56,8 +56,8 @@ Map topics contain at least three articles. When map topics have more than eight
 - General or high-level enough to scale with future additions to the product
 - Map topic titles must be 63 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 30 characters
 - Examples
-  - [Securing your account with two-factor authentication](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)
-  - [Setting policies for organizations in your enterprise account](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)
+  - [Understanding your software supply chain](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain)
+  - [Managing users in your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise)
 
 #### Intros for map topics
 All map topics have intros. Keep the intros one sentence long, and general or high-level enough to scale with future product changes without having to remember to update the intro. If you add or remove articles in a map topic, check its intro for needed updates.

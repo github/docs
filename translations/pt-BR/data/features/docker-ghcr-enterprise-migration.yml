@@ -1,0 +1,4 @@
+# Reference: #7360
+# Documentation for migration from Docker registry to Container registry for enterprise products
+versions:
+  ghes: '>= 3.6'

@@ -4,7 +4,7 @@ intro: 可以创建一个分支以直接从问题页面处理问题，方便快�
 versions:
   fpt: '*'
   ghes: '>=3.5'
-  ghae: issue-6234
+  ghae: '>= 3.5'
   ghec: '*'
 allowTitleToDifferFromFilename: true
 topics:
