@@ -70,6 +70,14 @@ After you extract the {% data variables.product.prodname_codeql_cli %} bundle, y
 - By executing `/<extraction-root>/codeql/codeql`, where `<extraction-root>` is the folder where you extracted the {% data variables.product.prodname_codeql_cli %} bundle.
 - By adding `/<extraction-root>/codeql` to your `PATH`, so that you can run the executable as just `codeql`.
 
+{% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+{% note %}
+
+If you use the {% data variables.product.prodname_codeql_cli %} to analyze code written in Python, you must make sure that your CI system has Python 3 installed.
+
+{% endnote %}
+{% endif %}
+
 ## Testing the {% data variables.product.prodname_codeql_cli %} set up
 
 After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly set up to create and analyze databases.
