@@ -44639,6 +44639,16 @@ type SponsorsListing implements Node {
   createdAt: DateTime!
 
   """
+  The HTTP path for the Sponsors dashboard for this Sponsors listing.
+  """
+  dashboardResourcePath: URI!
+
+  """
+  The HTTP URL for the Sponsors dashboard for this Sponsors listing.
+  """
+  dashboardUrl: URI!
+
+  """
   The full description of the listing.
   """
   fullDescription: String!
@@ -44663,6 +44673,11 @@ type SponsorsListing implements Node {
   A future date on which this listing is eligible to receive a payout.
   """
   nextPayoutDate: Date
+
+  """
+  The HTTP path for this Sponsors listing.
+  """
+  resourcePath: URI!
 
   """
   The short description of the listing.
@@ -44708,6 +44723,11 @@ type SponsorsListing implements Node {
     """
     orderBy: SponsorsTierOrder = {field: MONTHLY_PRICE_IN_CENTS, direction: ASC}
   ): SponsorsTierConnection
+
+  """
+  The HTTP URL for this Sponsors listing.
+  """
+  url: URI!
 }
 
 """

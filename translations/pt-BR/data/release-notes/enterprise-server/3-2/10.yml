@@ -1,0 +1,16 @@
+date: '2022-03-01'
+sections:
+  security_fixes:
+    - "ALTO: Foi identificada uma vulnerabilidade de estouro de número inteiro no analisador markdown do GitHub que poderia levar a vazamentos de informações e RCE. Essa vulnerabilidade foi relatada pelo Programa de Recompensas por Bugs do GitHub por Felix Wilhelm do Project Zero da Google e foi designada CVE-2022-24724."
+  bugs:
+    - As atualizações podem às vezes falhar se o relógio de uma réplica de alta disponibilidade estiver fora de sincroniza com o relógio principal. 
+    - "Aplicativos OAuth criados após 1º de setembro, 2020 não puderam de usar o Ponto de extremidade API [Verificar uma Autorização](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization)." 
+  known_issues:
+    - "Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo blob's é maior que 255 caracteres."
+    - "Quando \"Usuários podem pesquisar pelo GitHub.com\" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com."
+    - "O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes."
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
