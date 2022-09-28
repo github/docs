@@ -2,7 +2,7 @@ import { languageKeys } from '../../lib/languages.js'
 import { get } from '../helpers/e2etest.js'
 import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
-const langs = languageKeys.filter(lang => lang !== 'en')
+const langs = languageKeys.filter((lang) => lang !== 'en')
 
 describe('redirects', () => {
   test.each(langs)('redirects to %s if accept-language', async (lang) => {

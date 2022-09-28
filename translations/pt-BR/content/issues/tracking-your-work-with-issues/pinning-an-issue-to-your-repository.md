@@ -14,12 +14,17 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Fixar um problema
+shortTitle: Pin an issue
+ms.openlocfilehash: fd02bb1102e9da35fb534e95fce954ff5c11ec57
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126593'
 ---
-
 ![Problemas fixos](/assets/images/help/issues/pinned-issues.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
 1. Na lista de problemas, clique no problema que deseja fixar.
-2. Na barra lateral direita, clique em **Pin issue** (Fixar problema). ![Botão para fixar problema](/assets/images/help/repository/pin-issue.png)
+2. Na barra lateral direita, clique em **Fixar problema**.
+  ![Botão usado para fixar um problema](/assets/images/help/repository/pin-issue.png)

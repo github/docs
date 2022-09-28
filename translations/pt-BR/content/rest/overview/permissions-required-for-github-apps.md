@@ -1,6 +1,6 @@
 ---
-title: Permissões necessárias para os aplicativos GitHub
-intro: 'Você pode encontrar as permissões necessárias para cada ponto de extremidade compatível com {% data variables.product.prodname_github_app %}.'
+title: Permissions required for GitHub Apps
+intro: 'You can find the required permissions for each {% data variables.product.prodname_github_app %}-compatible endpoint.'
 redirect_from:
   - /v3/apps/permissions
   - /rest/reference/permissions-required-for-github-apps
@@ -12,16 +12,16 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-shortTitle: Permissões do aplicativo GitHub
+shortTitle: GitHub App permissions
 ---
 
-### Sobre as permissões de {% data variables.product.prodname_github_app %}
+## About {% data variables.product.prodname_github_app %} permissions
 
-{% data variables.product.prodname_github_apps %} são criadas com um conjunto de permissões. As permissões definem quais recursos o {% data variables.product.prodname_github_app %} pode acessar através da API. Para obter mais informações, consulte "[Configurações de permissões para os aplicativos GitHub](/apps/building-github-apps/setting-permissions-for-github-apps/)".
+{% data variables.product.prodname_github_apps %} are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[Setting permissions for GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)."
 
-### Permissões de metadados
+## Metadata permissions
 
-Os aplicativos GitHub têm a permissão de metadados `Read-only` por padrão. A permissão de metadados fornece acesso a uma coleção de pontos de extremidade somente leitura com metadados para vários recursos. Esses pontos de extremidade não vazam informações privadas sobre repositórios.
+GitHub Apps have the `Read-only` metadata permission by default. The metadata permission provides access to a collection of read-only endpoints with metadata for various resources. These endpoints do not leak sensitive private repository information.
 
 {% data reusables.apps.metadata-permissions %}
 
@@ -73,17 +73,17 @@ Os aplicativos GitHub têm a permissão de metadados `Read-only` por padrão. A 
 - [`GET /users/:username/repos`](/rest/reference/repos#list-repositories-for-a-user)
 - [`GET /users/:username/subscriptions`](/rest/reference/activity#list-repositories-watched-by-a-user)
 
-_Colaboradores_
+### Collaborators
 - [`GET /repos/:owner/:repo/collaborators`](/rest/reference/collaborators#list-repository-collaborators)
 - [`GET /repos/:owner/:repo/collaborators/:username`](/rest/reference/collaborators#check-if-a-user-is-a-repository-collaborator)
 
-_Comentários de commit_
+### Commit comments
 - [`GET /repos/:owner/:repo/comments`](/rest/reference/commits#list-commit-comments-for-a-repository)
 - [`GET /repos/:owner/:repo/comments/:comment_id`](/rest/reference/commits#get-a-commit-comment)
 - [`GET /repos/:owner/:repo/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 - [`GET /repos/:owner/:repo/commits/:sha/comments`](/rest/reference/commits#list-commit-comments)
 
-_Eventos_
+### Events
 - [`GET /events`](/rest/reference/activity#list-public-events)
 - [`GET /networks/:owner/:repo/events`](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
 - [`GET /orgs/:org/events`](/rest/reference/activity#list-public-organization-events)
@@ -92,20 +92,20 @@ _Eventos_
 - [`GET /users/:username/events`](/rest/reference/activity#list-events-for-the-authenticated-user)
 - [`GET /users/:username/events/public`](/rest/reference/activity#list-public-events-for-a-user)
 
-_Git_
+### Git
 - [`GET /gitignore/templates`](/rest/reference/gitignore#get-all-gitignore-templates)
 - [`GET /gitignore/templates/:key`](/rest/reference/gitignore#get-a-gitignore-template)
 
-_Chaves_
+### Keys
 - [`GET /users/:username/keys`](/rest/reference/users#list-public-keys-for-a-user)
 
-_Integrantes da organização_
+### Organization members
 - [`GET /orgs/:org/members`](/rest/reference/orgs#list-organization-members)
 - [`GET /orgs/:org/members/:username`](/rest/reference/orgs#check-organization-membership-for-a-user)
 - [`GET /orgs/:org/public_members`](/rest/reference/orgs#list-public-organization-members)
 - [`GET /orgs/:org/public_members/:username`](/rest/reference/orgs#check-public-organization-membership-for-a-user)
 
-_Pesquisar_
+### Search
 - [`GET /search/code`](/rest/reference/search#search-code)
 - [`GET /search/commits`](/rest/reference/search#search-commits)
 - [`GET /search/issues`](/rest/reference/search#search-issues-and-pull-requests)
@@ -115,7 +115,7 @@ _Pesquisar_
 - [`GET /search/users`](/rest/reference/search#search-users)
 
 {% ifversion fpt or ghes or ghec %}
-### Permissão em "ações"
+## Permission on "actions"
 
 - [`GET /repos/:owner/:repo/actions/artifacts`](/rest/reference/actions#list-artifacts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#get-an-artifact) (:read)
@@ -142,7 +142,7 @@ _Pesquisar_
 - [`GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs`](/rest/reference/actions#list-workflow-runs) (:read)
 {% endif %}
 
-### Permissão em "administração"
+## Permission on "administration"
 
 - [`POST /orgs/:org/repos`](/rest/reference/repos#create-an-organization-repository) (:write)
 - [`PATCH /repos/:owner/:repo`](/rest/reference/repos#update-a-repository) (:write)
@@ -196,7 +196,7 @@ _Pesquisar_
 - [`PATCH /user/repository_invitations/:invitation_id`](/rest/reference/collaborators#accept-a-repository-invitation) (:write)
 - [`DELETE /user/repository_invitations/:invitation_id`](/rest/reference/collaborators#decline-a-repository-invitation) (:write)
 
-_Branches_
+### Branches
 - [`GET /repos/:owner/:repo/branches/:branch/protection`](/rest/reference/branches#get-branch-protection) (:read)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection`](/rest/reference/branches#update-branch-protection) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection`](/rest/reference/branches#delete-branch-protection) (:write)
@@ -228,28 +228,28 @@ _Branches_
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/branches#remove-user-access-restrictions) (:write)
 - [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/branches#rename-a-branch) (:write)
 
-_Colaboradores_
+### Collaborators
 - [`PUT /repos/:owner/:repo/collaborators/:username`](/rest/reference/collaborators#add-a-repository-collaborator) (:write)
 - [`DELETE /repos/:owner/:repo/collaborators/:username`](/rest/reference/collaborators#remove-a-repository-collaborator) (:write)
 
-_Convites_
+### Invitations
 - [`GET /repos/:owner/:repo/invitations`](/rest/reference/collaborators#list-repository-invitations) (:read)
 - [`PATCH /repos/:owner/:repo/invitations/:invitation_id`](/rest/reference/collaborators#update-a-repository-invitation) (:write)
 - [`DELETE /repos/:owner/:repo/invitations/:invitation_id`](/rest/reference/collaborators#delete-a-repository-invitation) (:write)
 
-_Chaves_
+### Keys
 - [`GET /repos/:owner/:repo/keys`](/rest/reference/deployments#list-deploy-keys) (:read)
 - [`POST /repos/:owner/:repo/keys`](/rest/reference/deployments#create-a-deploy-key) (:write)
 - [`GET /repos/:owner/:repo/keys/:key_id`](/rest/reference/deployments#get-a-deploy-key) (:read)
 - [`DELETE /repos/:owner/:repo/keys/:key_id`](/rest/reference/deployments#delete-a-deploy-key) (:write)
 
-_Equipes_
+### Teams
 - [`GET /repos/:owner/:repo/teams`](/rest/reference/repos#list-repository-teams) (:read)
 - [`PUT /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#add-or-update-team-repository-permissions) (:write)
 - [`DELETE /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#remove-a-repository-from-a-team) (:write)
 
 {% ifversion fpt or ghec %}
-_Tráfego_
+### Traffic
 - [`GET /repos/:owner/:repo/traffic/clones`](/rest/reference/repository-metrics#get-repository-clones) (:read)
 - [`GET /repos/:owner/:repo/traffic/popular/paths`](/rest/reference/repository-metrics#get-top-referral-paths) (:read)
 - [`GET /repos/:owner/:repo/traffic/popular/referrers`](/rest/reference/repository-metrics#get-top-referral-sources) (:read)
@@ -257,7 +257,7 @@ _Tráfego_
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### Permissão em "bloqueio"
+## Permission on "blocking"
 
 - [`GET /user/blocks`](/rest/reference/users#list-users-blocked-by-the-authenticated-user) (:read)
 - [`GET /user/blocks/:username`](/rest/reference/users#check-if-a-user-is-blocked-by-the-authenticated-user) (:read)
@@ -265,7 +265,7 @@ _Tráfego_
 - [`DELETE /user/blocks/:username`](/rest/reference/users#unblock-a-user) (:write)
 {% endif %}
 
-### Permissão em "verificações"
+## Permission on "checks"
 
 - [`POST /repos/:owner/:repo/check-runs`](/rest/reference/checks#create-a-check-run) (:write)
 - [`GET /repos/:owner/:repo/check-runs/:check_run_id`](/rest/reference/checks#get-a-check-run) (:read)
@@ -280,11 +280,11 @@ _Tráfego_
 - [`GET /repos/:owner/:repo/commits/:sha/check-suites`](/rest/reference/checks#list-check-suites-for-a-git-reference) (:read)
 
 {% ifversion fpt or ghec %}
-### Permissão em "codespaces"
+## Permission on "codespaces"
 
 - [`GET /repos/:owner/:repo/codespaces/machines`](/rest/reference/codespaces#list-available-machine-types-for-a-repository)
 {% endif %}
-### Permissão em "conteúdo"
+## Permission on "contents"
 
 - [`GET /repos/:owner/:repo/:archive_format/:ref`](/rest/reference/repos#download-a-repository-archive) (:read)
 {% ifversion fpt or ghec -%}
@@ -371,7 +371,7 @@ _Tráfego_
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/merge`](/rest/reference/pulls#merge-a-pull-request) (:write)
 - [`GET /repos/:owner/:repo/readme(?:/(.*))?`](/rest/reference/repos#get-a-repository-readme) (:read)
 
-_Branches_
+### Branches
 - [`GET /repos/:owner/:repo/branches`](/rest/reference/branches#list-branches) (:read)
 - [`GET /repos/:owner/:repo/branches/:branch`](/rest/reference/branches#get-a-branch) (:read)
 - [`GET /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/repos#list-apps-with-access-to-the-protected-branch) (:write)
@@ -380,13 +380,13 @@ _Branches_
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/branches#remove-user-access-restrictions) (:write)
 - [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/branches#rename-a-branch) (:write)
 
-_Comentários de commit_
+### Commit comments
 - [`PATCH /repos/:owner/:repo/comments/:comment_id`](/rest/reference/commits#update-a-commit-comment) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id`](/rest/reference/commits#delete-a-commit-comment) (:write)
 - [`POST /repos/:owner/:repo/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-a-commit-comment) (:write)
 - [`POST /repos/:owner/:repo/commits/:sha/comments`](/rest/reference/commits#create-a-commit-comment) (:write)
 
-_Git_
+### Git
 - [`POST /repos/:owner/:repo/git/blobs`](/rest/reference/git#create-a-blob) (:write)
 - [`GET /repos/:owner/:repo/git/blobs/:sha`](/rest/reference/git#get-a-blob) (:read)
 - [`POST /repos/:owner/:repo/git/commits`](/rest/reference/git#create-a-commit) (:write)
@@ -402,7 +402,7 @@ _Git_
 - [`GET /repos/:owner/:repo/git/trees/:sha`](/rest/reference/git#get-a-tree) (:read)
 
 {% ifversion fpt or ghec %}
-_importar_
+### Import
 - [`GET /repos/:owner/:repo/import`](/rest/reference/migrations#get-an-import-status) (:read)
 - [`PUT /repos/:owner/:repo/import`](/rest/reference/migrations#start-an-import) (:write)
 - [`PATCH /repos/:owner/:repo/import`](/rest/reference/migrations#update-an-import) (:write)
@@ -413,7 +413,7 @@ _importar_
 - [`PATCH /repos/:owner/:repo/import/lfs`](/rest/reference/migrations#update-git-lfs-preference) (:write)
 {% endif %}
 
-_Reações_
+### Reactions
 
 - [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-commit-comment-reaction) (:write)
@@ -423,7 +423,7 @@ _Reações_
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
 
-_Versões_
+### Releases
 - [`GET /repos/:owner/:repo/releases`](/rest/reference/repos/#list-releases) (:read)
 - [`POST /repos/:owner/:repo/releases`](/rest/reference/repos/#create-a-release) (:write)
 - [`GET /repos/:owner/:repo/releases/:release_id`](/rest/reference/repos/#get-a-release) (:read)
@@ -436,7 +436,7 @@ _Versões_
 - [`GET /repos/:owner/:repo/releases/latest`](/rest/reference/repos/#get-the-latest-release) (:read)
 - [`GET /repos/:owner/:repo/releases/tags/:tag`](/rest/reference/repos/#get-a-release-by-tag-name) (:read)
 
-### Permissão em "implantações"
+## Permission on "deployments"
 
 - [`GET /repos/:owner/:repo/deployments`](/rest/reference/deployments#list-deployments) (:read)
 - [`POST /repos/:owner/:repo/deployments`](/rest/reference/deployments#create-a-deployment) (:write)
@@ -447,7 +447,7 @@ _Versões_
 - [`GET /repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id`](/rest/reference/deployments#get-a-deployment-status) (:read)
 
 {% ifversion fpt or ghes or ghec %}
-### Permissão em "e-mails"
+## Permission on "emails"
 
 {% ifversion fpt or ghec -%}
 - [`PATCH /user/email/visibility`](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user) (:write)
@@ -458,7 +458,7 @@ _Versões_
 - [`GET /user/public_emails`](/rest/reference/users#list-public-email-addresses-for-the-authenticated-user) (:read)
 {% endif %}
 
-### Permissão em "seguidores"
+## Permission on "followers"
 
 - [`GET /user/followers`](/rest/reference/users#list-followers-of-a-user) (:read)
 - [`GET /user/following`](/rest/reference/users#list-the-people-a-user-follows) (:read)
@@ -466,7 +466,7 @@ _Versões_
 - [`PUT /user/following/:username`](/rest/reference/users#follow-a-user) (:write)
 - [`DELETE /user/following/:username`](/rest/reference/users#unfollow-a-user) (:write)
 
-### Permissão em "chaves gpg"
+## Permission on "gpg keys"
 
 - [`GET /user/gpg_keys`](/rest/reference/users#list-gpg-keys-for-the-authenticated-user) (:read)
 - [`POST /user/gpg_keys`](/rest/reference/users#create-a-gpg-key-for-the-authenticated-user) (:write)
@@ -474,16 +474,16 @@ _Versões_
 - [`DELETE /user/gpg_keys/:gpg_key_id`](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user) (:write)
 
 {% ifversion fpt or ghec %}
-### Permissão em "limites de interação"
+## Permission on "interaction limits"
 
 - [`GET /user/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-your-public-repositories) (:read)
 - [`PUT /user/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-your-public-repositories) (:write)
 - [`DELETE /user/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-from-your-public-repositories) (:write)
 {% endif %}
 
-### Permissão em "problemas"
+## Permission on "issues"
 
-Problemas e pull requests estão estreitamente relacionados. Para obter mais informações, consulte "[Lista de problemas atribuídos ao usuário autenticado](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)". Se seu aplicativo GitHub tiver permissões em problemas e não em pull requests, esses pontos de extremidade irão limitar-se a problemas. Pontos de extremidade que retornam problemas e pull requests serão filtrados. Os pontos de extremidade que permitem operações em ambos problemas e pull requests estarão restritos a problemas.
+Issues and pull requests are closely related. For more information, see "[List issues assigned to the authenticated user](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)." If your GitHub App has permissions on issues but not on pull requests, these endpoints will be limited to issues. Endpoints that return both issues and pull requests will be filtered. Endpoints that allow operations on both issues and pull requests will be restricted to issues.
 
 - [`GET /repos/:owner/:repo/issues`](/rest/reference/issues#list-repository-issues) (:read)
 - [`POST /repos/:owner/:repo/issues`](/rest/reference/issues#create-an-issue) (:write)
@@ -503,17 +503,17 @@ Problemas e pull requests estão estreitamente relacionados. Para obter mais inf
 - [`GET /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-an-issue-comment) (:read)
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
 
-_Responsáveis_
+### Assignees
 - [`GET /repos/:owner/:repo/assignees`](/rest/reference/issues#list-assignees) (:read)
 - [`GET /repos/:owner/:repo/assignees/:username`](/rest/reference/issues#check-if-a-user-can-be-assigned) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#add-assignees-to-an-issue) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#remove-assignees-from-an-issue) (:write)
 
-_Eventos_
+### Events
 - [`GET /repos/:owner/:repo/issues/:issue_number/events`](/rest/reference/issues#list-issue-events) (:read)
 - [`GET /repos/:owner/:repo/issues/events/:event_id`](/rest/reference/issues#get-an-issue-event) (:read)
 
-_Etiquetas_
+### Labels
 - [`GET /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#list-labels-for-an-issue) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#add-labels-to-an-issue) (:write)
 - [`PUT /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#set-labels-for-an-issue) (:write)
@@ -525,7 +525,7 @@ _Etiquetas_
 - [`PATCH /repos/:owner/:repo/labels/:name`](/rest/reference/issues#update-a-label) (:write)
 - [`DELETE /repos/:owner/:repo/labels/:name`](/rest/reference/issues#delete-a-label) (:write)
 
-_Marcos_
+### Milestones
 - [`GET /repos/:owner/:repo/milestones`](/rest/reference/issues#list-milestones) (:read)
 - [`POST /repos/:owner/:repo/milestones`](/rest/reference/issues#create-a-milestone) (:write)
 - [`GET /repos/:owner/:repo/milestones/:milestone_number`](/rest/reference/issues#get-a-milestone) (:read)
@@ -533,7 +533,7 @@ _Marcos_
 - [`DELETE /repos/:owner/:repo/milestones/:milestone_number`](/rest/reference/issues#delete-a-milestone) (:write)
 - [`GET /repos/:owner/:repo/milestones/:milestone_number/labels`](/rest/reference/issues#list-labels-for-issues-in-a-milestone) (:read)
 
-_Reações_
+### Reactions
 - [`GET /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-an-issue-comment) (:read)
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
 - [`GET /repos/:owner/:repo/issues/:issue_number/reactions`](/rest/reference/reactions#list-reactions-for-an-issue) (:read)
@@ -546,15 +546,15 @@ _Reações_
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
 
-### Permissão em "chaves"
+## Permission on "keys"
 
-_Chaves_
+### Keys
 - [`GET /user/keys`](/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user) (:read)
 - [`POST /user/keys`](/rest/reference/users#create-a-public-ssh-key-for-the-authenticated-user) (:write)
 - [`GET /user/keys/:key_id`](/rest/reference/users#get-a-public-ssh-key-for-the-authenticated-user) (:read)
 - [`DELETE /user/keys/:key_id`](/rest/reference/users#delete-a-public-ssh-key-for-the-authenticated-user) (:write)
 
-### Permissão em "integrantes"
+## Permission on "members"
 
 {% ifversion fpt or ghec -%}
 - [`GET /organizations/:org_id/team/:team_id/team-sync/group-mappings`](/rest/reference/teams#list-idp-groups-for-a-team) (:write)
@@ -589,14 +589,14 @@ _Chaves_
 {% endif %}
 
 {% ifversion fpt or ghec %}
-_Convites_
+### Invitations
 - [`GET /orgs/:org/invitations`](/rest/reference/orgs#list-pending-organization-invitations) (:read)
 - [`POST /orgs/:org/invitations`](/rest/reference/orgs#create-an-organization-invitation) (:write)
 - [`GET /orgs/:org/invitations/:invitation_id/teams`](/rest/reference/orgs#list-organization-invitation-teams) (:read)
 - [`GET /teams/:team_id/invitations`](/rest/reference/teams#list-pending-team-invitations) (:read)
 {% endif %}
 
-_Integrantes da organização_
+### Organization members
 - [`DELETE /orgs/:org/members/:username`](/rest/reference/orgs#remove-an-organization-member) (:write)
 - [`GET /orgs/:org/memberships/:username`](/rest/reference/orgs#get-organization-membership-for-a-user) (:read)
 - [`PUT /orgs/:org/memberships/:username`](/rest/reference/orgs#set-organization-membership-for-a-user) (:write)
@@ -607,13 +607,13 @@ _Integrantes da organização_
 - [`GET /user/memberships/orgs/:org`](/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user) (:read)
 - [`PATCH /user/memberships/orgs/:org`](/rest/reference/orgs#update-an-organization-membership-for-the-authenticated-user) (:write)
 
-_Integrantes da equipe_
+### Team members
 - [`GET /teams/:team_id/members`](/rest/reference/teams#list-team-members) (:read)
 - [`GET /teams/:team_id/memberships/:username`](/rest/reference/teams#get-team-membership-for-a-user) (:read)
 - [`PUT /teams/:team_id/memberships/:username`](/rest/reference/teams#add-or-update-team-membership-for-a-user) (:write)
 - [`DELETE /teams/:team_id/memberships/:username`](/rest/reference/teams#remove-team-membership-for-a-user) (:write)
 
-_Equipes_
+### Teams
 - [`GET /orgs/:org/teams`](/rest/reference/teams#list-teams) (:read)
 - [`POST /orgs/:org/teams`](/rest/reference/teams#create-a-team) (:write)
 - [`GET /orgs/:org/teams/:team_slug`](/rest/reference/teams#get-a-team-by-name) (:read)
@@ -629,7 +629,7 @@ _Equipes_
 - [`DELETE /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#remove-a-repository-from-a-team) (:write)
 - [`GET /teams/:team_id/teams`](/rest/reference/teams#list-child-teams) (:read)
 
-### Permissão em "administração da organização"
+## Permission on "organization administration"
 
 - [`PATCH /orgs/:org`](/rest/reference/orgs#update-an-organization) (:write)
 {% ifversion actions-cache-management -%}
@@ -646,11 +646,11 @@ _Equipes_
 - [`DELETE /orgs/:org/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization) (:write)
 {% endif %}
 
-### Permissão em "eventos de organização"
+## Permission on "organization events"
 
 - [`GET /users/:username/events/orgs/:org`](/rest/reference/activity#list-organization-events-for-the-authenticated-user) (:read)
 
-### Permissão em "hooks da organização"
+## Permission on "organization hooks"
 
 - [`GET /orgs/:org/hooks`](/rest/reference/orgs#webhooks/#list-organization-webhooks) (:read)
 - [`POST /orgs/:org/hooks`](/rest/reference/orgs#webhooks/#create-an-organization-webhook) (:write)
@@ -659,11 +659,11 @@ _Equipes_
 - [`DELETE /orgs/:org/hooks/:hook_id`](/rest/reference/orgs#webhooks/#delete-an-organization-webhook) (:write)
 - [`POST /orgs/:org/hooks/:hook_id/pings`](/rest/reference/orgs#webhooks/#ping-an-organization-webhook) (:write)
 
-_Equipes_
+### Teams
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (:read)
 
 {% ifversion ghes %}
-### Permissão em "hooks pre-receive da organização"
+## Permission on "organization pre receive hooks"
 
 - [`GET /orgs/:org/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization) (:read)
 - [`GET /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization) (:read)
@@ -671,7 +671,7 @@ _Equipes_
 - [`DELETE /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization) (:write)
 {% endif %}
 
-### Permissão em "projetos da organização"
+## Permission on "organization projects"
 
 - [`POST /orgs/:org/projects`](/rest/reference/projects#create-an-organization-project) (:write)
 - [`GET /projects/:project_id`](/rest/reference/projects#get-a-project) (:read)
@@ -692,7 +692,7 @@ _Equipes_
 - [`POST /projects/columns/cards/:card_id/moves`](/rest/reference/projects#move-a-project-card) (:write)
 
 {% ifversion fpt or ghec %}
-### Permissão em "bloqueio de usuários da organização"
+## Permission on "organization user blocking"
 
 - [`GET /orgs/:org/blocks`](/rest/reference/orgs#list-users-blocked-by-an-organization) (:read)
 - [`GET /orgs/:org/blocks/:username`](/rest/reference/orgs#check-if-a-user-is-blocked-by-an-organization) (:read)
@@ -700,12 +700,12 @@ _Equipes_
 - [`DELETE /orgs/:org/blocks/:username`](/rest/reference/orgs#unblock-a-user-from-an-organization) (:write)
 {% endif %}
 
-### Permissão em "páginas"
+## Permission on "pages"
+
+GitHub Pages can only be created or unpublished by a repository owner or administrator.
 
 - [`GET /repos/:owner/:repo/pages`](/rest/reference/pages#get-a-github-pages-site) (:read)
-- [`POST /repos/:owner/:repo/pages`](/rest/reference/pages#create-a-github-pages-site) (:write)
 - [`PUT /repos/:owner/:repo/pages`](/rest/reference/pages#update-information-about-a-github-pages-site) (:write)
-- [`DELETE /repos/:owner/:repo/pages`](/rest/reference/pages#delete-a-github-pages-site) (:write)
 - [`GET /repos/:owner/:repo/pages/builds`](/rest/reference/pages#list-github-pages-builds) (:read)
 - [`POST /repos/:owner/:repo/pages/builds`](/rest/reference/pages#request-a-github-pages-build) (:write)
 - [`GET /repos/:owner/:repo/pages/builds/:build_id`](/rest/reference/pages#get-github-pages-build) (:read)
@@ -715,9 +715,9 @@ _Equipes_
 - [`POST /repos/:owner/:repo/pages/deployment`](/rest/reference/repos#create-a-github-pages-deployment) (:write)
 {% endif %}
 
-### Permissão em "pull requests"
+## Permission on "pull requests"
 
-Pull requests and issues are closely related. If your GitHub App has permissions on pull requests but not on issues, these endpoints will be limited to pull requests. Os pontos de extremidade que retornam pull requests e problemas serão filtrados. Os pontos de extremidade que permitem operações em pull requests e problemas serão restritos a pull requests.
+Pull requests and issues are closely related. If your GitHub App has permissions on pull requests but not on issues, these endpoints will be limited to pull requests. Endpoints that return both pull requests and issues will be filtered. Endpoints that allow operations on both pull requests and issues will be restricted to pull requests.
 
 - [`PATCH /repos/:owner/:repo/issues/:issue_number`](/rest/reference/issues#update-an-issue) (:write)
 - [`GET /repos/:owner/:repo/issues/:issue_number/comments`](/rest/reference/issues#list-issue-comments) (:read)
@@ -743,18 +743,18 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 - [`PATCH /repos/:owner/:repo/pulls/comments/:comment_id`](/rest/reference/pulls#update-a-review-comment-for-a-pull-request) (:write)
 - [`DELETE /repos/:owner/:repo/pulls/comments/:comment_id`](/rest/reference/pulls#delete-a-review-comment-for-a-pull-request) (:write)
 
-_Responsáveis_
+### Assignees
 - [`GET /repos/:owner/:repo/assignees`](/rest/reference/issues#list-assignees) (:read)
 - [`GET /repos/:owner/:repo/assignees/:username`](/rest/reference/issues#check-if-a-user-can-be-assigned) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#add-assignees-to-an-issue) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/assignees`](/rest/reference/issues#remove-assignees-from-an-issue) (:write)
 
-_Eventos_
+### Events
 - [`GET /repos/:owner/:repo/issues/:issue_number/events`](/rest/reference/issues#list-issue-events) (:read)
 - [`GET /repos/:owner/:repo/issues/events/:event_id`](/rest/reference/issues#get-an-issue-event) (:read)
 - [`POST /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/events`](/rest/reference/pulls#submit-a-review-for-a-pull-request) (:write)
 
-_Etiquetas_
+### Labels
 - [`GET /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#list-labels-for-an-issue) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#add-labels-to-an-issue) (:write)
 - [`PUT /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#set-labels-for-an-issue) (:write)
@@ -766,7 +766,7 @@ _Etiquetas_
 - [`PATCH /repos/:owner/:repo/labels/:name`](/rest/reference/issues#update-a-label) (:write)
 - [`DELETE /repos/:owner/:repo/labels/:name`](/rest/reference/issues#delete-a-label) (:write)
 
-_Marcos_
+### Milestones
 - [`GET /repos/:owner/:repo/milestones`](/rest/reference/issues#list-milestones) (:read)
 - [`POST /repos/:owner/:repo/milestones`](/rest/reference/issues#create-a-milestone) (:write)
 - [`GET /repos/:owner/:repo/milestones/:milestone_number`](/rest/reference/issues#get-a-milestone) (:read)
@@ -774,7 +774,7 @@ _Marcos_
 - [`DELETE /repos/:owner/:repo/milestones/:milestone_number`](/rest/reference/issues#delete-a-milestone) (:write)
 - [`GET /repos/:owner/:repo/milestones/:milestone_number/labels`](/rest/reference/issues#list-labels-for-issues-in-a-milestone) (:read)
 
-_Reações_
+### Reactions
 - [`POST /repos/:owner/:repo/issues/:issue_number/reactions`](/rest/reference/reactions#create-reaction-for-an-issue) (:write)
 - [`GET /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-an-issue-comment) (:read)
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
@@ -788,12 +788,12 @@ _Reações_
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
 
-_Revisores solicitados_
+### Requested reviewers
 - [`GET /repos/:owner/:repo/pulls/:pull_number/requested_reviewers`](/rest/reference/pulls#list-requested-reviewers-for-a-pull-request) (:read)
 - [`POST /repos/:owner/:repo/pulls/:pull_number/requested_reviewers`](/rest/reference/pulls#request-reviewers-for-a-pull-request) (:write)
 - [`DELETE /repos/:owner/:repo/pulls/:pull_number/requested_reviewers`](/rest/reference/pulls#remove-requested-reviewers-from-a-pull-request) (:write)
 
-_Revisões_
+### Reviews
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews`](/rest/reference/pulls#list-reviews-for-a-pull-request) (:read)
 - [`POST /repos/:owner/:repo/pulls/:pull_number/reviews`](/rest/reference/pulls#create-a-review-for-a-pull-request) (:write)
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id`](/rest/reference/pulls#get-a-review-for-a-pull-request) (:read)
@@ -802,11 +802,11 @@ _Revisões_
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/comments`](/rest/reference/pulls#list-comments-for-a-pull-request-review) (:read)
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/dismissals`](/rest/reference/pulls#dismiss-a-review-for-a-pull-request) (:write)
 
-### Permissão em "perfil"
+## Permission on "profile"
 
 - [`PATCH /user`](/rest/reference/users#update-the-authenticated-user) (:write)
 
-### Permissão em "hooks de repositório"
+## Permission on "repository hooks"
 
 - [`GET /repos/:owner/:repo/hooks`](/rest/reference/webhooks#list-repository-webhooks) (:read)
 - [`POST /repos/:owner/:repo/hooks`](/rest/reference/webhooks#create-a-repository-webhook) (:write)
@@ -817,7 +817,7 @@ _Revisões_
 - [`POST /repos/:owner/:repo/hooks/:hook_id/tests`](/rest/reference/repos#test-the-push-repository-webhook) (:read)
 
 {% ifversion ghes %}
-### Permission on "repository pre receive hooks"
+## Permission on "repository pre receive hooks"
 
 - [`GET /repos/:owner/:repo/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-a-repository) (:read)
@@ -825,7 +825,7 @@ _Revisões_
 - [`DELETE /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository) (:write)
 {% endif %}
 
-### Permissão em "projetos de repositório"
+## Permission on "repository projects"
 
 - [`GET /projects/:project_id`](/rest/reference/projects#get-a-project) (:read)
 - [`PATCH /projects/:project_id`](/rest/reference/projects#update-a-project) (:write)
@@ -846,11 +846,11 @@ _Revisões_
 - [`GET /repos/:owner/:repo/projects`](/rest/reference/projects#list-repository-projects) (:read)
 - [`POST /repos/:owner/:repo/projects`](/rest/reference/projects#create-a-repository-project) (:write)
 
-_Equipes_
+### Teams
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (:read)
 
 {% ifversion fpt or ghec %}
-### Permissão em "segredos"
+## Permission on "secrets"
 
 - [`GET /repos/:owner/:repo/actions/secrets/public-key`](/rest/reference/actions#get-a-repository-public-key) (:read)
 - [`GET /repos/:owner/:repo/actions/secrets`](/rest/reference/actions#list-repository-secrets) (:read)
@@ -869,7 +869,7 @@ _Equipes_
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3%}
-### Permissão em "dependabot_secrets"
+## Permission on "dependabot_secrets"
 - [`GET /repos/:owner/:repo/dependabot/secrets/public-key`](/rest/reference/dependabot#get-a-repository-public-key) (:read)
 - [`GET /repos/:owner/:repo/dependabot/secrets`](/rest/reference/dependabot#list-repository-secrets) (:read)
 - [`GET /repos/:owner/:repo/dependabot/secrets/:secret_name`](/rest/reference/dependabot#get-a-repository-secret) (:read)
@@ -887,7 +887,7 @@ _Equipes_
 {% endif %}
 
 {% ifversion ghes or ghec %}
-### Permissão em "alertas de varredura de segredo"
+## Permission on "secret scanning alerts"
 
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/secret-scanning/alerts/:alert_number`](/rest/reference/secret-scanning#get-a-secret-scanning-alert) (:read)
@@ -895,7 +895,7 @@ _Equipes_
 - [`GET /repos/:owner/:repo/secret-scanning/alerts/:alert_number/locations`](/rest/reference/secret-scanning#list-locations-for-a-secret-scanning-alert) (:read)
 {% endif %}
 
-### Permissão em "eventos de segurança"
+## Permission on "security events"
 
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#get-a-code-scanning-alert) (:read)
@@ -914,12 +914,12 @@ _Equipes_
 {% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif -%}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 -%}
 - [`GET /orgs/:org/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization) (:read)
 {% endif -%}
 
 {% ifversion fpt or ghes or ghec %}
-### Permissão em "executores auto-hospedados"
+## Permission on "self-hosted runners"
 - [`GET /orgs/:org/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-an-organization) (:read)
 - [`POST /orgs/:org/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-an-organization) (:write)
 - [`GET /orgs/:org/actions/runners`](/rest/reference/actions#list-self-hosted-runners-for-an-organization) (:read)
@@ -933,25 +933,25 @@ _Equipes_
 - [`DELETE /orgs/:org/actions/runners/:runner_id/labels/:name`](/rest/reference/actions#remove-a-custom-label-from-a-self-hosted-runner-for-an-organization) (:write)
 {% endif %}
 
-### Permissão em "arquivo único"
+## Permission on "single file"
 
 - [`GET /repos/:owner/:repo/contents/:path`](/rest/reference/repos#get-repository-content) (:read)
 - [`PUT /repos/:owner/:repo/contents/:path`](/rest/reference/repos#create-or-update-file-contents) (:write)
 - [`DELETE /repos/:owner/:repo/contents/:path`](/rest/reference/repos#delete-a-file) (:write)
 
-### Permissão em "marcar com uma estrela"
+## Permission on "starring"
 
 - [`GET /user/starred/:owner/:repo`](/rest/reference/activity#check-if-a-repository-is-starred-by-the-authenticated-user) (:read)
 - [`PUT /user/starred/:owner/:repo`](/rest/reference/activity#star-a-repository-for-the-authenticated-user) (:write)
 - [`DELETE /user/starred/:owner/:repo`](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user) (:write)
 
-### Permissão em "status"
+## Permission on "statuses"
 
 - [`GET /repos/:owner/:repo/commits/:ref/status`](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) (:read)
 - [`GET /repos/:owner/:repo/commits/:ref/statuses`](/rest/reference/commits#list-commit-statuses-for-a-reference) (:read)
 - [`POST /repos/:owner/:repo/statuses/:sha`](/rest/reference/commits#create-a-commit-status) (:write)
 
-### Permissão em "discussões em equipe"
+## Permission on "team discussions"
 
 - [`GET /teams/:team_id/discussions`](/rest/reference/teams#list-discussions) (:read)
 - [`POST /teams/:team_id/discussions`](/rest/reference/teams#create-a-discussion) (:write)

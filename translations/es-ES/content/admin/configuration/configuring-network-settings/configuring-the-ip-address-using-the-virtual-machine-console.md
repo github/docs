@@ -13,16 +13,22 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: Configurar la IP utilizando la consola
+shortTitle: Set the IP using the console
+ms.openlocfilehash: db183677409757e516515a5ac7def5a70affd01f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120770'
 ---
-
 {% note %}
 
-**Nota:** No tenemos compatibilidad para agregar adaptadores de red adicionales a {% data variables.product.prodname_ghe_server %}.
+**Nota:** No se admite la adición de otros adaptadores de red a {% data variables.product.prodname_ghe_server %}.
 
 {% endnote %}
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
-3. Para configurar, elige el protocolo `IPv4` o `IPv6`. ![Opciones para elegir el protocolo IPv4 o el IPv6](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
-4. Configura las opciones para el protocolo que elegiste. ![Menú con opciones de protocolo IP](/assets/images/enterprise/network-configuration/network-settings-selection.png)
-{% data reusables.enterprise_installation.vm-console-done %}
+3. Elija configurar el protocolo `IPv4` o `IPv6`.
+  ![Opciones para elegir el protocolo IPv4 o el IPv6](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
+4. Configura las opciones para el protocolo que elegiste.
+  ![Menú con opciones de protocolo IP](/assets/images/enterprise/network-configuration/network-settings-selection.png) {% data reusables.enterprise_installation.vm-console-done %}

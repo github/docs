@@ -1,6 +1,6 @@
 ---
 title: Buscar archivos en GitHub
-intro: 'Puedes buscar un archivo en un repositorio utilizando el buscador de archivos. Para buscar un archivo en varios repositorios de {% data variables.product.product_name %}, utiliza el [calificador de búsqueda de código `filename`](/search-github/searching-on-github/searching-code#search-by-filename).'
+intro: 'Puedes buscar un archivo en un repositorio utilizando el buscador de archivos. Para buscar un archivo en varios repositorios en {% data variables.product.product_name %}, usa el [calificador de búsqueda de código `filename`](/search-github/searching-on-github/searching-code#search-by-filename).'
 redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
@@ -12,29 +12,36 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
+ms.openlocfilehash: 7cecdfd58ecf56cac251bd77af3a4e1a7fcfd607
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880200'
 ---
-
 {% tip %}
 
-**Tips:**
+**Sugerencias:**
 
-- Predeterminadamente, los resultados del buscador de archivos excluyen a algunos directorios como `build`, `log`, `tmp` y `vendor`. Para buscar archivos en estos directorios, utiliza el [calificador de búsqueda de código `filename`](/search-github/searching-on-github/searching-code#search-by-filename).{% ifversion file-finder-exclusion-controls %} Como alternativa, puedes personalizar qué directorios se excluyen predeterminadamente [utilizando un archivo `.gitattributes`](#customizing-excluded-files).{% endif %}
-- También puedes abrir el buscador de archivos presionando `t` en tu teclado. Para obtener más información, consulta "[Atajos del teclado](/articles/keyboard-shortcuts/#comments)".
+- De manera predeterminada, los resultados del buscador de archivos excluyen algunos directorios como `build`, `log`, `tmp` y `vendor`. Para buscar archivos en estos directorios, usa el [calificador de búsqueda de código `filename`](/search-github/searching-on-github/searching-code#search-by-filename).{% ifversion file-finder-exclusion-controls %} Como alternativa, puedes personalizar qué directorios se excluyen de forma predeterminada [mediante un archivo `.gitattributes`](#customizing-excluded-files).{% endif %}
+- También puede abrir el buscador de archivos si pulsa `t` en el teclado. Para obtener más información, consulte "[Métodos abreviados de teclado](/articles/keyboard-shortcuts)".
 
 {% endtip %}
 
-## Utilizar el buscador de archivos
+## Uso del buscador de archivos
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Sobre la lista de archivos, da clic en **Ir al archivo**. ![Botón Buscar archivo](/assets/images/help/search/find-file-button.png)
-3. En el campo de búsqueda, escribe el nombre del archivo que deseas buscar. ![Campo de búsqueda Buscar archivo](/assets/images/help/search/find-file-search-field.png)
+2. Encima de la lista de archivos, haga clic en **Go to file**.
+![Botón Find file](/assets/images/help/search/find-file-button.png)
+3. En el campo de búsqueda, escribe el nombre del archivo que deseas buscar.
+![Campo de búsqueda para buscar archivos](/assets/images/help/search/find-file-search-field.png)
 4. En la lista de resultados, haz clic en el archivo que deseas buscar.
 
 {% ifversion file-finder-exclusion-controls %}
 
-## Personalizar los archivos excluidos
+## Personalización de archivos excluidos
 
-Predeterminadamente, los resultados del buscador de archivos no incluyen aquellos en los siguientes directorios si es que existen en la raíz de tu repositorio:
+De forma predeterminada, los resultados del buscador de archivos no incluyen archivos en los directorios siguientes si existen en la raíz del repositorio:
 
  - `.git`
  - `.hg`
@@ -46,22 +53,22 @@ Predeterminadamente, los resultados del buscador de archivos no incluyen aquello
  - `tmp`
  - `vendor`
 
-Puedes anular estas exclusiones predeterminadas utilizando un archivo `.gitattributes`.
+Puedes invalidar estas exclusiones predeterminadas mediante un archivo `.gitattributes`.
 
-Para hacerlo, crea o actualiza un archivo llamado `.gitattributes` en la raíz de tu repositorio, ajustando el atributo [`linguist-generated`](https://github.com/github/linguist/blob/master/docs/overrides.md) en `false` para cada directorio que deba incluirse en los resultados del buscador de archivos.
+Para ello, crea o actualiza un archivo llamado `.gitattributes` en la raíz del repositorio, y establece el atributo [`linguist-generated`](https://github.com/github/linguist/blob/master/docs/overrides.md) en `false` para cada directorio que se deba incluir en los resultados del buscador de archivos.
 
-Por ejemplo, el siguiente archivo `.gitattributes` ocasionaría que los archivos en el directorio `build/` estén disponibles para el buscador de archivos:
+Por ejemplo, el siguiente archivo `.gitattributes` hará que los archivos del directorio `build/` estén disponibles para el buscador de archivos:
 
 ```
 build/** linguist-generated=false
 ```
 
-Toma en cuenta que esta anulación requiere utilizar el patrón de glob recursivo (`**`). Para obtener más información, consulta la sección "[formato de patrón](https://git-scm.com/docs/gitignore#_pattern_format)" en la documentación de Git. No hay compatibilidad para anulaciones más complejas de subdirectorios dentro de los directorios que se excluyen predeterminadamente.
+Ten en cuenta que para esta invalidación es necesario usar el patrón global recursivo (`**`). Para más información, consulta "[formato de patrón](https://git-scm.com/docs/gitignore#_pattern_format)" en la documentación de Git. No se admiten invalidaciones más complejas de subdirectorios dentro de directorios excluidos de forma predeterminada.
 
 {% endif %}
 
-## Leer más
+## Información adicional
 
-- "[Acerca de buscar en GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"{% ifversion file-finder-exclusion-controls %}
-- "[Personalizar cómo se muestran los archivos cambiados en GitHub](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)"
+- "[Acerca de la búsqueda en GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"{% ifversion file-finder-exclusion-controls %}
+- "[Personalización de cómo aparecen los archivos cambiados en GitHub](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)"
 - [`.gitattributes`](https://git-scm.com/docs/gitattributes) en la documentación de Git{% endif %}

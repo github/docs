@@ -1,6 +1,6 @@
 ---
 title: Guías de GitHub Sponsors
-shortTitle: Guías
+shortTitle: Guides
 intro: 'Aprende a sacar el mayor provecho de {% data variables.product.prodname_sponsors %}.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
@@ -15,5 +15,11 @@ includeGuides:
   - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account
   - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization
   - /sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
+ms.openlocfilehash: 334f25f2ee44fb7a69c13745f3b0d883ed499fbc
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145139781'
 ---
 

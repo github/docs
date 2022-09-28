@@ -1,6 +1,5 @@
----
-#Issue 4722
-#Re-running failed jobs in an Actions workflow
+# Issue 4722
+# Re-running failed jobs in an Actions workflow
 versions:
   fpt: '*'
   ghec: '*'

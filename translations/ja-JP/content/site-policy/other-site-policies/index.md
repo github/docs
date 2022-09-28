@@ -1,5 +1,5 @@
 ---
-title: Other Site Policies
+title: その他のサイト ポリシー
 versions:
   fpt: '*'
 topics:

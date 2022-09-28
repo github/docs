@@ -22,7 +22,7 @@ npm run build
 npm start
 ```
 
-You should now have a running server! Visit [localhost:4000](http://localhost:4000) in your browser. It will automatically restart as you make changes to site content.
+You should now have a running server! Visit [localhost:4000](http://localhost:4000) in your browser.
 
 When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> in your terminal window.
 

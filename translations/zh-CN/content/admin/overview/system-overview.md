@@ -1,6 +1,6 @@
 ---
-title: 系统概述
-intro: '详细了解 {% data variables.product.product_name %} 的系统内部、功能和安全性。'
+title: 系统概览
+intro: '详细了解 {% data variables.product.product_name %} 的系统内部结构、功能和安全性。'
 redirect_from:
   - /enterprise/admin/installation/system-overview
   - /enterprise/admin/overview/system-overview
@@ -13,30 +13,35 @@ topics:
   - Infrastructure
   - Security
   - Storage
+ms.openlocfilehash: 656d68b267b4a739812b10e9409609f61cacdd5e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066936'
 ---
-
 ## 关于 {% data variables.product.product_name %}
 
-{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} {% data reusables.enterprise.github-distributes-ghes %} 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)”。
+{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} {% data reusables.enterprise.github-distributes-ghes %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)”。
 
-## 存储架构
+## 存储体系结构
 
-{% data variables.product.product_name %} 需要两个存储卷，一个安装在*根文件系统*路径下 (`/`)，另一个安装在*用户文件系统*路径下 (`/data/user`)。 这种架构将运行软件环境与持久应用程序数据分离，从而可以简化升级、回滚和恢复程序。
+{% data variables.product.product_name %} 需要两个存储卷，一个装载到根文件系统路径 (`/`) 下，另一个装载到用户文件系统路径 (`/data/user`) 下 。 这种架构将运行软件环境与持久应用程序数据分离，从而可以简化升级、回滚和恢复程序。
 
 根文件系统包含在分布式机器映像中。 它包含基本操作系统和 {% data variables.product.product_name %} 应用程序环境。 根文件系统应被视为临时性的。 升级到今后的 {% data variables.product.product_name %} 版本时，根文件系统中的所有数据都将被替代。
 
-根存储量分成两个相同大小的分区。 其中一个分区将被挂载为根文件系统 (`/`)。 另一个分区仅在升级和升级的回滚过程中作为 `/mnt/upgrade` 安装，以便在必要时更容易行回滚。 例如，如果分配了 200GB 根卷，將有 100GB 分配到根文件系统，100GB 用于升级和回滚。
+根存储量分成两个相同大小的分区。 其中一个分区将装载为根文件系统 (`/`)。 另一个分区仅在升级和升级的回退过程中作为 `/mnt/upgrade` 装载，以便在必要时更容易回退。 例如，如果分配了 200GB 根卷，將有 100GB 分配到根文件系统，100GB 用于升级和回滚。
 
-根文件系统包含存储以下信息的文件。 此列表并非详尽无遗。
+根文件系统包含存储以下信息的文件。 此列表并未囊括所有方式。
 
-- 自定义证书颁发机构 (CA) 证书（`/usr/local/share/ca-certificates` 中）
+- 自定义证书颁发机构 (CA) 证书（在 `/usr/local/share/ca-certificates*` 中）
 - 自定义网络配置
 - 自定义防火墙配置
 - 复制状态
 
-用户文件系统包含存储以下配置和数据的文件。 此列表并非详尽无遗。
+用户文件系统包含存储以下配置和数据的文件。 此列表并未囊括所有方式。
 
-- Git 仓库
+- Git 存储库
 - 数据库
 - 搜索索引
 - 在 {% data variables.product.prodname_pages %} 站点上发布的内容
@@ -45,32 +50,32 @@ topics:
 
 ## 部署拓扑
 
-可以在各种拓扑（如高可用性对）中部署 {% data variables.product.product_name %}。 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server#about-deployment-topologies)”。
+可以在各种拓扑（例如高可用性对）中部署 {% data variables.product.product_name %}。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server#about-deployment-topologies)”。
 
 ## 数据保留和数据中心冗余
 
 {% warning %}
 
-**警告**：在生产环境中使用 {% data variables.product.product_name %} 之前，我们强烈建议您设置备份和灾难恢复计划。
+**警告**：在生产环境中使用 {% data variables.product.product_name %} 之前，我们强烈建议你设置备份和灾难恢复计划。
 
 {% endwarning %}
 
-{% data variables.product.product_name %} 支持通过 {% data variables.product.prodname_enterprise_backup_utilities %} 进行在线和增量备份。 您可以通过安全网络链接（SSH 管理端口）远距离为场外或地理上分散的存储生成增量快照。 在主数据中心发生灾难时，您可以在恢复时通过网络将快照恢复到新预配的实例中。
+{% data variables.product.product_name %} 包括支持通过 {% data variables.product.prodname_enterprise_backup_utilities %} 进行联机和增量备份。 您可以通过安全网络链接（SSH 管理端口）远距离为场外或地理上分散的存储生成增量快照。 在主数据中心发生灾难时，你可以在恢复时通过网络将快照恢复到新预配的实例中。
 
 除网络备份外，在实例处于离线或维护模式时，还支持用户存储卷的 AWS (EBS) 和 VMware 磁盘快照。 如果您的服务级别要求允许定期离线维护，可以将定期卷快照用作低成本、低复杂性的方案，代替通过 {% data variables.product.prodname_enterprise_backup_utilities %} 进行网络备份。
 
-更多信息请参阅“[在设备上配置备份](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)”。
+有关详细信息，请参阅“[在设备上配置备份](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)”。
 
-## 安全
+## 安全性
 
 {% data reusables.enterprise.ghes-runs-on-your-infrastructure %}
 
 {% data variables.product.product_name %} 还包含额外的安全功能。
 
 - [操作系统、软件和补丁](#operating-system-software-and-patches)
-- [网络安全性](#network-security)
+- [网络安全](#network-security)
 - [应用程序安全性](#application-security)
-- [外部服务和支持](#external-services-and-support-access)
+- [外部服务和支持访问](#external-services-and-support-access)
 - [加密通信](#encrypted-communication)
 - [用户和访问权限](#users-and-access-permissions)
 - [身份验证](#authentication)
@@ -78,37 +83,37 @@ topics:
 
 ### 操作系统、软件和补丁
 
-{% data variables.product.product_name %} 运行自定义的 Linux 操作系统，其中只包含必要的应用程序和服务。 {% data variables.product.company_short %} 在其标准产品发布周期中分发实例核心操作系统的补丁。 补丁解决 {% data variables.product.product_name %} 的功能、稳定性和非关键性安全问题。 {% data variables.product.company_short %} 还根据需要在常规发布周期之外提供重要的安全补丁。
+{% data variables.product.product_name %} 运行自定义的 Linux 操作系统，其中只包含必要的应用程序和服务。 {% data variables.product.company_short %} 将实例核心操作系统的补丁作为其标准产品发布周期的一部分进行分发。 补丁可解决 {% data variables.product.product_name %} 的功能、稳定性和非关键性安全问题。 {% data variables.product.company_short %} 还根据需要在常规发布周期之外提供重要的安全补丁。
 
-{% data variables.product.product_name %} 作为一种设备提供，许多操作系统包与通常的 Debian 分发相比进行了修改。 因此，我们不支持修改基础操作系统（包括操作系统升级），与 [{% data variables.product.prodname_ghe_server %} 许可和支持协议](https://enterprise.github.com/license)第 11.3“除外条款”保持一致。
+{% data variables.product.product_name %} 作为一种设备提供，许多操作系统包与通常的 Debian 分发相比进行了修改。 因此，我们不支持修改基础操作系统（包括操作系统升级），与 [{% data variables.product.prodname_ghe_server %} 许可证和支持协议](https://enterprise.github.com/license)第 11.3 除外条款保持一致。
 
-目前，{% data variables.product.product_name %} 的基本操作系统是 Debian 9 (Stretch)，它在 Debian 长期支持计划下获得支持。  计划在 Stretch 的 Debian LTS 期间结束前迁移到更新的基础操作系统。
+目前，{% data variables.product.product_name %} 的基础操作系统是 Debian 9 (Stretch)，并接受 Debian 长期支持计划的支持。  计划在 Stretch 的 Debian LTS 期间结束前迁移到更新的基础操作系统。
 
-定期补丁更新发布在 {% data variables.product.product_name %} [发行](https://enterprise.github.com/releases)页面上，[发行说明](/admin/release-notes)页面提供详细信息。 这些补丁一般含有经过测试并且质量经过我们工程团队批准的上游供应商和项目安全补丁。 从上游更新发布到测试以及捆绑于即将发布的 {% data variables.product.product_name %} 补丁版本中时，可能稍有延迟。
+定期补丁更新发布在 {% data variables.product.product_name %} [发行](https://enterprise.github.com/releases)页面上，[发行说明](/admin/release-notes)页面提供了详细信息。 这些补丁一般含有经过测试并且质量经过我们工程团队批准的上游供应商和项目安全补丁。 从上游更新发布到测试以及捆绑于即将发布的 {% data variables.product.product_name %} 补丁版本中时，可能稍有延迟。
 
 ### 网络安全性
 
-{% data variables.product.product_name %} 的内部防火墙限制对实例服务的网络访问。 网络上仅提供设备正常运行所需的服务。 更多信息请参阅“[网络端口](/admin/configuration/configuring-network-settings/network-ports)”。
+{% data variables.product.product_name %} 的内部防火墙限制对实例服务的网络访问。 网络上仅提供设备正常运行所需的服务。 有关详细信息，请参阅“[网络端口](/admin/configuration/configuring-network-settings/network-ports)”。
 
 ### 应用程序安全性
 
-{% data variables.product.company_short %} 的应用程序安全团队全时关注 {% data variables.product.company_short %} 产品（包括 {% data variables.product.product_name %}）的漏洞评估、渗透测试和代码审查。 {% data variables.product.company_short %} 还与外部安全公司签约，要求他们对 {% data variables.product.company_short %} 产品定期进行安全性评估。
+{% data variables.product.company_short %} 的应用程序安全团队全时关注 {% data variables.product.company_short %} 产品（包括 {% data variables.product.product_name %}）的漏洞评估、渗透测试和代码评审。 {% data variables.product.company_short %} 还与外部安全公司签约，要求他们对 {% data variables.product.company_short %} 产品定期进行安全性评估。
 
 ### 外部服务和支持
 
-{% data variables.product.product_name %} 无需从网络访问外部服务也可以正常运行。 您可以选择集成外部服务，以提供电子邮件传送、外部监控和日志转发等功能。 更多信息请参阅“[配置电子邮件通知](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)”、“[设置外部监控](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring)”和“[日志转发](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)”。
+{% data variables.product.product_name %} 无需从网络访问外部服务也可以正常运行。 您可以选择集成外部服务，以提供电子邮件传送、外部监控和日志转发等功能。 有关详细信息，请参阅“[配置电子邮件通知](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)”、“[设置外部监视](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring)”和“[日志转发](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)”。
 
-您可以手动收集故障排除数据并发送至 {% data variables.contact.github_support %}。 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support)”。
+您可以手动收集故障排除数据并发送至 {% data variables.contact.github_support %}。 有关详细信息，请参阅“[向 {% data variables.contact.github_support %} 提供数据](/support/contacting-github-support/providing-data-to-github-support)”。
 
 ### 加密通信
 
-{% data variables.product.company_short %} 将 {% data variables.product.product_name %} 设计为在公司防火墙后面运行。 为确保线路通信安全，我们建议您启用传输层安全协议 (TLS)。 {% data variables.product.product_name %} 在 HTTPS 流量方面支持 2048 位和更高的商业 TLS 证书。 更多信息请参阅“[配置 TLS](/admin/configuration/configuring-network-settings/configuring-tls)”。
+{% data variables.product.company_short %} 将 {% data variables.product.product_name %} 设计为在公司防火墙后面运行。 为确保线路通信安全，我们建议您启用传输层安全协议 (TLS)。 {% data variables.product.product_name %} 在 HTTPS 流量方面支持 2048 位和更高的商业 TLS 证书。 有关详细信息，请参阅“[配置 TLS](/admin/configuration/configuring-network-settings/configuring-tls)”。
 
-默认情况下，实例还为使用 Git 的仓库访问和管理目的提供安全 Shell (SSH) 访问。 更多信息请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”和“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)“。
+默认情况下，该实例还为使用 Git 的仓库访问和管理目的提供安全外壳 (SSH) 访问。 有关详细信息，请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”和“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)”。
 
 {% ifversion ghes > 3.3 %}
 
-如果您为 {% data variables.product.product_location %} 配置 SAML 身份验证，则可以在实例和 SAML IdP 之间启用加密断言。 更多信息请参阅“[使用 SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)”。
+如果您为 {% data variables.product.product_location %} 配置 SAML 身份验证，则可以在实例和 SAML IdP 之间启用加密断言。 有关详细信息，请参阅“[使用 SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)”。
 
 {% endif %}
 
@@ -116,24 +121,24 @@ topics:
 
 {% data variables.product.product_name %} 提供三种类型的帐户。
 
-- `管理员` Linux 用户帐户已控制对基础操作系统的访问，包括对直接文件系统和数据库的访问。 一小部分受信任的管理员应该有权访问此帐户，他们可以通过 SSH 访问。 更多信息请参阅“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)。”
+- `admin` Linux 用户帐户已控制对基础操作系统的访问，包括对直接文件系统和数据库的访问。 一小部分受信任的管理员应该有权访问此帐户，他们可以通过 SSH 访问。 有关详细信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)”。
 - 实例 Web 应用程序中的用户帐户对自己的数据以及其他用户或组织明确授予权限的任何数据具有完全访问权限。
 - 实例 Web 应用程序中的站点管理员是可以管理高级 Web 应用程序和实例设置、用户和组织帐户设置以及仓库数据的用户帐户。
 
-关于 {% data variables.product.product_name %} 用户权限的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/get-started/learning-about-github/access-permissions-on-github)”。
+有关 {% data variables.product.product_name %} 用户权限的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/get-started/learning-about-github/access-permissions-on-github)”。
 
 ### 身份验证
 
 {% data variables.product.product_name %} 提供四种身份验证方法。
 
-- SSH 公钥身份验证提供使用 Git 的仓库访问权限和管理 shell 的访问权限。 更多信息请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”和“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)“。
-- 使用 HTTP cookie 的用户名和密码身份验证提供 Web 应用程序访问和会话管理权限，可选择双重身份验证 (2FA)。 更多信息请参阅“[使用内置身份验证](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication)”。
-- 使用 LDAP 服务、SAML 身份提供程序 (IdP) 或其他兼容服务的外部 LDAP、SAML 或 CAS 身份验证提供对 Web 应用程序的访问权限。 更多信息请参阅“[管理企业的 IAM](/admin/identity-and-access-management/managing-iam-for-your-enterprise)”。
-- OAuth 和个人访问令牌为外部客户端和服务提供对 Git 仓库数据和 API 的访问权限。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+- SSH 公钥身份验证提供使用 Git 的仓库访问权限和管理 shell 的访问权限。 有关详细信息，请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”和“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)”。
+- 使用 HTTP cookie 的用户名和密码身份验证提供 Web 应用程序访问和会话管理权限，可选择双重身份验证 (2FA)。 有关详细信息，请参阅“[使用内置身份验证](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication)”。
+- 使用 LDAP 服务、SAML 身份提供程序 (IdP) 或其他兼容服务的外部 LDAP、SAML 或 CAS 身份验证提供对 Web 应用程序的访问权限。 有关详细信息，请参阅“[管理企业的 IAM](/admin/identity-and-access-management/managing-iam-for-your-enterprise)”。
+- OAuth 和个人访问令牌为外部客户端和服务提供对 Git 仓库数据和 API 的访问权限。 有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
 ### 审核和访问日志记录
 
-{% data variables.product.product_name %} 存储传统的操作系统日志和应用程序日志。 应用程序还会编写详细的审核和安全日志，永久存储在 {% data variables.product.product_name %} 上。 您可以通过 `syslog-ng` 协议将两种类型的日志实时转发到多个目标。 更多信息请参阅“[关于企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)”和“[日志转发](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)”。
+{% data variables.product.product_name %} 存储传统的操作系统日志和应用程序日志。 应用程序还会编写详细的审核和安全日志，永久存储在 {% data variables.product.product_name %} 上。 可通过 `syslog-ng` 协议将两种类型的日志实时转发到多个目标。 有关详细信息，请参阅“[关于你企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)”和“[日志转发](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)”。
 
 访问和审核日志包括如下信息。
 
@@ -152,16 +157,16 @@ topics:
 
 ## {% data variables.product.product_name %} 的开源依赖项
 
-要查看您的实例 {% data variables.product.product_name %} 版本中依赖项的完整列表以及每个项目的许可，请访问 `http(s)://HOSTNAME/site/credits`。
+若要查看实例的 {% data variables.product.product_name %} 版本中依赖项的完整列表以及每个项目的许可证，请访问 `http(s)://HOSTNAME/site/credits`。
 
-您的实例上提供包含依赖项和关联元数据完整列表的 tarball：
+你的实例上提供包含依赖项和关联元数据完整列表的 tarball。
 
-- 要查看所有平台通用的依赖项，请访问 `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`
-- 要查看平台特有的依赖项，请访问 `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`
+- 对于所有平台通用的依赖项，请访问 `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`
+- 对于特定于平台的依赖项，请访问 `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`
 
-还提供包含依赖项和元数据完整列表的 tarball，地址为 `https://enterprise.github.com/releases/<version>/download.html`。
+还在 `https://enterprise.github.com/releases/<version>/download.html` 处提供包含依赖项和元数据完整列表的 tarball。
 
 ## 延伸阅读
 
-- “[设置 {% data variables.product.prodname_ghe_server %} 的试用版](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)”
-- “[设置 {% data variables.product.prodname_ghe_server %} 实例](/admin/installation/setting-up-a-github-enterprise-server-instance)”
+- [设置 {% data variables.product.prodname_ghe_server %} 的试用版](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)
+- [设置 {% data variables.product.prodname_ghe_server %} 实例](/admin/installation/setting-up-a-github-enterprise-server-instance)

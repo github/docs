@@ -463,10 +463,23 @@ function ShowSearchResults({
         </p>
 
         <ActionList variant="full">
-          {results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
+          {results.map(({ url, breadcrumbs, title, content, score, popularity }, index) => {
             return (
               <ActionList.Item className="width-full" key={url}>
-                <Link href={url} className="no-underline color-fg-default">
+                <Link
+                  href={url}
+                  className="no-underline color-fg-default"
+                  onClick={() => {
+                    sendEvent({
+                      type: EventType.searchResult,
+                      search_result_query: Array.isArray(query) ? query[0] : query,
+                      search_result_index: index,
+                      search_result_total: results.length,
+                      search_result_rank: (results.length - index) / results.length,
+                      search_result_url: url,
+                    })
+                  }}
+                >
                   <div
                     data-testid="search-result"
                     className={cx('list-style-none', styles.resultsContainer)}

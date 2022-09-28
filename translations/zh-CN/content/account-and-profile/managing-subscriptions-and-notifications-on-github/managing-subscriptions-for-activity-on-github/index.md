@@ -13,6 +13,12 @@ topics:
 children:
   - /viewing-your-subscriptions
   - /managing-your-subscriptions
-shortTitle: 管理订阅
+shortTitle: Manage subscriptions
+ms.openlocfilehash: e1457283f0027dd2b668d6096e2f04273e920a71
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145084666'
 ---
 

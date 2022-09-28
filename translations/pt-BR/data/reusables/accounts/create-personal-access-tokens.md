@@ -1,1 +1,0 @@
-1. Para cada uma das suas contas, crie um PAT dedicado com o escopo `repo`. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."

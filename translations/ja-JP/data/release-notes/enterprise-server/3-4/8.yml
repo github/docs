@@ -1,26 +1,26 @@
 date: '2022-08-30'
 sections:
   bugs:
-    - リポジトリを一時的なアクセスのためにロック解除したあと、サイト管理者はそのリポジトリ中のセキュリティ製品の設定を管理できませんでした。
-    - 重複したSSHキーがManagement Consoleと`/home/admin/.ssh/authorized_keys`ファイルの両方に現れることがあります。
-    - <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code>にある個人ユーザのためのサイトアドミンページに、GitHub Enterprise Serverのためのものではない機能が含まれていました。
-    - '`ghe-cluster-config-apply`を実行すると、クラスタ内の既存ノードに空の設定がレプリケーションされることがありました。'
-    - '`ghe-config-apply`で開始された設定の実行か完了しなかったり、あるいは`Container count mismatch`エラーを返したりすることがありました。'
-    - GitHub Enterprise Serverインスタンス上の自己署名TLS署名書を更新したあと、Webインターフェースの一部のページのUI要素が表示されませんでした。
-    - スレッドセーフではないにもかかわらず並行に使われたライブラリのために、バックグラウンドタスクが停止する場合があります。
+    - After unlocking a repository for temporary access, a site administrator was unable to manage settings for security products in the repository. 
+    - Duplicate administrative SSH keys could appear in both the Management Console and the `/home/admin/.ssh/authorized_keys` file.
+    - The site admin page for individual users at <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> contained functionality not intended for GitHub Enterprise Server.  
+    - In some cases, running `ghe-cluster-config-apply` could replicate an empty configuration to existing nodes in a cluster. 
+    - In some cases, configuration runs started with `ghe-config-apply` did not complete, or returned a `Container count mismatch` error. 
+    - After updating a self-signed TLS certificate on a GitHub Enterprise Server instance, UI elements on some pages in the web interface did not appear. 
+    - In some cases, background tasks could stall due to a library that was used concurrently despite not being thread-safe.
   changes:
-    - 並列化されたログのサニタイズの結果、Support Bundleの生成が速くなりました。Support Bundleに関する詳しい情報については「[GitHub Supportへのデータ提供](/support/contacting-github-support/providing-data-to-github-support)」を参照してください。
-    - '`organization`または`org`ルートを含むAPIは、OrganizationのスラグもしくはIDのいずれかを受け付けるようになりました。以前はAPIはスラグだけを受け付け、そのためにGitHub Advanced Securityのエンドポイントの`Link`ヘッダにはアクセスできなくなっていました。詳しい情報についてはREST APIドキュメンテーションの「[Organizations](https://docs.github.com/rest/orgs/orgs)」を参照してください。'
-    - 'Enterprise Audit logには、`project.create`といったより多くのユーザ生成イベントが含まれるようになりました。REST APIも、`repo.create`といった追加のユーザ生成イベントを返します。詳しい情報については「[EnterpriseのAudit logへのアクセス](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)」及び「[EnterpriseでのAudit log APIの利用](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)」を参照してください。'
+    - Generation of support bundles is faster as a result of parallelized log sanitization. For more information about support bundles, see "[Providing data to GitHub Support](/support/contacting-github-support/providing-data-to-github-support)."
+    - APIs that contain the `organization` or `org` route now accept either the organization's slug or ID. Previously, the APIs only accepted slugs, which caused `Link` headers for GitHub Advanced Security endpoints to be inaccessible. For more information, see "[Organizations](https://docs.github.com/rest/orgs/orgs)" in the REST API documentation. 
+    - The enterprise audit log now includes more user-generated events, such as `project.create`. The REST API also returns additional user-generated events, such as `repo.create`. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."
   known_issues:
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - '{% data variables.product.prodname_github_connect %}で"Users can search GitHub.com（ユーザはGitHub.comの検索が可能）" が有効化されたとき、プライベート及びインターナルリポジトリのIssueが{% data variables.product.prodname_dotcom_the_website %}の検索結果に含まれません。'
-    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - |
-      セルフホストランナーを--ephemeral`パラメータ付きで複数レベル（たとえばEnterpriseとOrganizationというように）に登録したあと、ランナーがアイドル状態で停止し、再登録が必要になることがあります。[更新: 2022年6月17日]
-    - '{% data variables.product.prodname_ghe_server %} 3.4にアップグレードしたあと、リリースがリポジトリから失われたように見えることがあります。これは、必要なElasticsearchのインデックスの移行が成功終了していない場合に起こります。'
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

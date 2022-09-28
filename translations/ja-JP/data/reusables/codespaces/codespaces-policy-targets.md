@@ -1,11 +1,11 @@
-1. "Change policy target（ポリシーターゲットの変更）"のエリアで、ドロップダウンボタンをクリックしてください。
-1. **All repositories（すべてのリポジトリ）**もしくは**Selected repositories（選択したリポジトリ）**を選択し、ポリシーを適用するリポジトリを決定してください。
-1. [**Selected repositories**] を選択した場合、以下の手順に従います。
-   1. {% octicon "gear" aria-label="The settings icon" %} をクリックします。
+1. In the "Change policy target" area, click the dropdown button.
+1. Choose either **All repositories** or **Selected repositories** to determine which repositories this policy will apply to.
+1. If you chose **Selected repositories**:
+   1. Click {% octicon "gear" aria-label="The settings icon" %}.
 
-      ![ポリシー設定の編集](/assets/images/help/codespaces/policy-edit.png)
+      ![Edit the settings for the policy](/assets/images/help/codespaces/policy-edit.png)
 
-   2. ポリシーを適用したいリポジトリを選択してください。
-   3. リポジトリリストの下部で、**Select repositories（リポジトリの選択）**をクリックしてください。
+   2. Select the repositories you want this policy to apply to.
+   3. At the bottom of the repository list, click **Select repositories**.
 
-      ![このポリシーのリポジトリを選択](/assets/images/help/codespaces/policy-select-repos.png)
+      ![Select repositories for this policy](/assets/images/help/codespaces/policy-select-repos.png)

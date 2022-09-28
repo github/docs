@@ -13,55 +13,59 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/setup-moodle
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
 shortTitle: Connect an LMS
+ms.openlocfilehash: e97a90ee822e779ecdf6ca94b7d35c29ddab5e5e
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717830'
 ---
-
 ## LMSの設定について
 
 学習管理システム (LMS) を{% data variables.product.prodname_classroom %}に接続でき、{% data variables.product.prodname_classroom %}はLMSから学生の名簿をインポートできます。 LMSを{% data variables.product.prodname_classroom %}に接続するには、LMSで{% data variables.product.prodname_classroom %}の構成認証情報を入力する必要があります。
 
-## 必要な環境
+## 前提条件
 
-LMSを{% data variables.product.prodname_classroom %}に接続するよう構成するには、まずクラスルームを作成する必要があります。 詳しい情報については、「[クラスルームの管理](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)」を参照してください。
+LMSを{% data variables.product.prodname_classroom %}に接続するよう構成するには、まずクラスルームを作成する必要があります。 詳細については、「[Classroom の管理](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)」を参照してください。
 
 ## サポートするLMS
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_classroom %} previously supported import of roster data from LMSes that implement Learning Tools Interoperability (LTI) versions 1.0 and 1.1. On June 30, 2022, the Instructional Management System (IMS) Global Learning Consortium [ended support for LTI versions 1.0 and 1.1](https://www.imsglobal.org/lti-security-announcement-and-deprecation-schedule). In the interest of keeping sensitive student information safe and secure, {% data variables.product.company_short %} has temporarily disabled importing roster data from LTI-compliant LMSes.<br><br>
+**注:** {% data variables.product.prodname_classroom %} では、以前、Learning Tools Interoperability (LTI) バージョン 1.0 および 1.1 を実装する LMS からの名簿データのインポートがサポートされていました。 2022 年 6 月 30 日、教育管理システム (IMS) グローバル ラーニング コンソーシアムでは、[LTI バージョン 1.0 と 1.1 のサポートを終了しました](https://www.imsglobal.org/lti-security-announcement-and-deprecation-schedule)。 機密性の高い学生情報の安全とセキュリティを保つために、{% data variables.product.company_short %} では、LTI 準拠の LMS からの名簿データのインポートを一時的に無効にしています。<br><br>
 
-Support for the latest version of Learning Tools Interoperability, [LTI 1.3](https://www.imsglobal.org/activity/learning-tools-interoperability), is currently being worked on and will be made available in {% data variables.product.prodname_classroom %} very soon.
+最新バージョンの Learning Tools 相互運用性 [(LTI 1.3](https://www.imsglobal.org/activity/learning-tools-interoperability)) のサポートが現在進行中であり、すぐに {% data variables.product.prodname_classroom %} で利用できるようになります。
 
 {% endnote %}
 
-LTIは業界標準のプロトコルであり、GitHub ClassroomによるLTIの使用は、教育管理システム (IMS) グローバル・ラーニング・コンソーシアムにより認定されています。 詳しい情報については、IMSグローバル・ラーニング・コンソーシアムのウェブサイト上にある[Learning Tools Interoperability (学習ツールの相互運用性) ](https://www.imsglobal.org/activity/learning-tools-interoperability)および[About IMS Global Learning Consortium (IMSグローバル・ラーニング・コンソーシアムについて) ](http://www.imsglobal.org/aboutims.html)を参照してください。
+LTIは業界標準のプロトコルであり、GitHub ClassroomによるLTIの使用は、教育管理システム (IMS) グローバル・ラーニング・コンソーシアムにより認定されています。 詳細については、IMS Global Learning Consortium の Web サイトで、「[学習ツールの相互運用性](https://www.imsglobal.org/activity/learning-tools-interoperability)」と「[IMS Global Learning Consortium について](http://www.imsglobal.org/aboutims.html)」を参照してください。
 
 {% data variables.product.company_short %}は、以下のLMSから{% data variables.product.prodname_classroom %}への名簿のインポートを確認しています。
 
 - Google Classroom
 
 
-## Connecting to Google Classroom
+## Google Classroom への接続
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-students %}
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-students %}
 1. クラスルームに既に名簿がある場合は、その名簿を更新するか、その名簿を削除して新しい名簿を作成できます。
-    - 名簿の削除や作成に関する詳細については、「[クラスルームの名簿を削除する](/education/manage-coursework-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)」および「[クラスルームの名簿を作成する](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)」を参照してください。
-    - 名簿の更新に関する詳細については、「[クラスルームの名簿に学生を追加する](/education/manage-coursework-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)」を参照してください。
-1. In the list of LMSes, click Google Classroom. ![Google Classroom](/assets/images/help/classroom/classroom-settings-click-google-classroom.png)
-1. Sign in to Google, then select the Classroom to link to.
+    - 名簿の削除と作成の詳細については、「[クラスルームの名簿を削除する](/education/manage-coursework-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)」および「[クラスルームの名簿を作成する](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)」を参照してください。
+    - 名簿の更新の詳細については、「[クラスルームの名簿に学生を追加する](/education/manage-coursework-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)」を参照してください。
+1. LMS のリストの中から、[Google Classroom] をクリックします。
+  ![Google Classroom](/assets/images/help/classroom/classroom-settings-click-google-classroom.png)
+1. Google にサインインして、リンク先の Classroom を選びます。
 
 
-## Connecting to Canvas, Moodle, Sakai, and other LMSes
+## Canvas、Moodle、Sakai などの LMS に接続する
 
-Connecting to other LMSes is temporarily unavailable as {% data variables.product.company_short %} updates to Learning Tools Interoperability (LTI) version 1.3. For more information, see "[Supported LMSes](#supported-lmses)."
+他の LMS への接続は、{% data variables.product.company_short %} が Learning Tools 相互運用性 (LTI) バージョン 1.3 に更新されるため、一時的に使用できません。 詳しくは、「[サポートされている LMS](#supported-lmses)」を参照してください。
 
-In the meantime, you may manually input your roster for your class. For more information about manually importing the roster from your LMS into {% data variables.product.prodname_classroom %}, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
+それまでは、クラスの名簿を手動で入力できます。 LMS から {% data variables.product.prodname_classroom %} に名簿を手動でインポートする方法について詳しくは、「[クラスルームの管理](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)」を参照してください。
 
 ## LMSを切断する
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-settings %}
-1. [Connect to a learning management system (LMS)] の下にある、[**Connection Settings**] をクリックします。 ![クラスルーム設定の [Connection settings]](/assets/images/help/classroom/classroom-settings-click-connection-settings.png)
-1. [Delete Connection to your learning management system] の下にある、[**Disconnect from your learning management system**] をクリックします。 ![クラスルームへの接続設定にある [Disconnect from your learning management system] ボタン](/assets/images/help/classroom/classroom-settings-click-disconnect-from-your-lms-button.png)
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-settings %}
+1. [学習管理システム (LMS) に接続する] で、 **[接続の設定]** をクリックします。
+  ![クラスルームの設定の [接続の設定] リンク](/assets/images/help/classroom/classroom-settings-click-connection-settings.png)
+1. [学習管理システムへの接続の削除] の下にある **[学習管理システムから切断する]** をクリックします。
+  ![クラスルームの接続設定にある [学習管理システムから切断する] ボタン](/assets/images/help/classroom/classroom-settings-click-disconnect-from-your-lms-button.png)

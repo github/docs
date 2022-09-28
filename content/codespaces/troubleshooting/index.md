@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Codespaces
+title: Troubleshooting GitHub Codespaces
 shortTitle: Troubleshooting
 product: '{% data reusables.gated-features.codespaces %}'
 intro: 'These guides provide information for troubleshooting {% data variables.product.prodname_github_codespaces %}'

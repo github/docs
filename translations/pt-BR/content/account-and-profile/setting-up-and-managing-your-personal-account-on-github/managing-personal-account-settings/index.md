@@ -1,6 +1,6 @@
 ---
 title: Gerenciar configurações de conta de usuário
-intro: 'Você pode gerenciar configurações para sua conta pessoal, incluindo seu tema, nome de usuário, branchpadrão, acessibilidade e configurações de segurança.'
+intro: 'Você pode alterar várias configurações de sua conta pessoal, inclusive alterar seu nome de usuário e excluir sua conta.'
 redirect_from:
   - /categories/29/articles
   - /categories/user-accounts
@@ -28,6 +28,12 @@ children:
   - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /integrating-jira-with-your-personal-projects
   - /what-does-the-available-for-hire-checkbox-do
-shortTitle: Configurações de conta pessoal
+shortTitle: Personal account settings
+ms.openlocfilehash: 4ec9ec2df1f75c30a0fe9827adcdd6694043d6b1
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145164613'
 ---
 

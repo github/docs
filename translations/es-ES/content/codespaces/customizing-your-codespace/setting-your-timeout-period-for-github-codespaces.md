@@ -1,7 +1,7 @@
 ---
 title: Setting your timeout period for GitHub Codespaces
-shortTitle: Configurar el tiempo de inactividad
-intro: 'Puedes configurar tu periodo de inactividad predeterminado para los {% data variables.product.prodname_codespaces %} en tu página de ajustes personales.'
+shortTitle: Set the timeout
+intro: 'You can set your default timeout for {% data variables.product.prodname_github_codespaces %} in your personal settings page.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -13,46 +13,47 @@ redirect_from:
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
 ---
 
-Un codespace dejará de ejecutarse después de un periodo de inactividad. Puedes especificar la longitud de este periodo. El ajuste actualizado se aplicará a cualquier codespace recién creado.
+A codespace will stop running after a period of inactivity. You can specify the length of this timeout period. The updated setting will apply to any newly created codespace.
 
-Algunas organizaciones podrían tener una política de tiempo de inactividad máximo. Si una política de organización configura un tiempo de inactividad máximo, el cual sea menos que el predeterminado que ya hayas configurado, el tiempo de espera de la organización se utilizará en vez de tu ajuste y se te notificará de esto después de que se haya creado el codespace. Para obtener más información, consulta la sección "[Restringir el periodo de tiempo de inactividad](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)".
+Some organizations may have a maximum idle timeout policy. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting, and you will be notified of this after the codespace is created. For more information, see "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
 
 {% warning %}
 
-**Advertencia**: Los Coespaces se facturan por minuto. Si no estás utilizando un codespace activamente, pero este no ha llegado a su tiempo de inactividad, se te cobrará por el tiempo durante el cual este se ejecute de todos modos. Para obtener más información, consulta la sección "[Acerca de la facturación para el {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)".
+**Warning**: Codespaces are billed per minute. If you are not actively using a codespace but the codespace has not yet timed out, you are still billed for the time that the codespace is running. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 {% endwarning %}
 
 {% webui %}
 
-## Configurar tu periodo predeterminado de tiempo de inactividad
+## Setting your default timeout period
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
-1. Debajo de "Tiempo de inactividad predeterminado", ingresa el tiempo que quieras y luego haz clic en **Guardar**. El tiempo debe ser de entre 5 minutos y 240 minutos (4 horas). ![Seleccionar tu tiempo de inactividad](/assets/images/help/codespaces/setting-default-timeout.png)
+1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours).
+   ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 
 {% cli %}
 
-## Configurar el periodo de tiempo de inactividad para un codespace
+## Setting the timeout period for a codespace
 
 {% data reusables.cli.cli-learn-more %}
 
-Para configurar el periodo de inactividad cuando creas un codespace, utiliza el argumento `idle-timeout` con el subcomando `codespace create`. Especifica el tiempo en minutos, seguido de `m`. El tiempo debe ser de entre 5 minutos y 240 minutos (4 horas).
+To set the timeout period when you create a codespace, use the `idle-timeout` argument with the `codespace create` subcommand. Specify the time in minutes, followed by `m`. The time must be between 5 minutes and 240 minutes (4 hours).
 
 ```shell
 gh codespace create --idle-timeout 90m
 ```
 
-Si no especificas un periodo de inactividad cuando creas un codespace, entonces se utilizará el predeterminado. Para obtener más información sobre un periodo de inactividad predeterminado, haz clic en la pestaña de "Buscador web" en esta página. Actualmente, no puedes especificar un periodo de inactividad predeterminado a través del {% data variables.product.prodname_cli %}.
+If you don't specify a timeout period when you create a codespace, then the default timeout period will be used. For information about setting a default timeout period, click the "Web browser" tab on this page. You can't currently specify a default timeout period through {% data variables.product.prodname_cli %}.
 
 {% endcli %}
 
 {% vscode %}
 
-## Configurar un periodo de tiempo de inactividad
+## Setting a timeout period
 
-Puedes configurar tu periodo predeterminado de tiempo de inactividad en tu buscador web, en {% data variables.product.prodname_dotcom_the_website %}. Como alternativa, si utilizas el {% data variables.product.prodname_cli %} para crear un codespace, puedes configurar un periodo de tiempo de inactividad para ese codespace en particular. Para obtener más información, haz clic en la pestaña adecuada arriba.
+You can set your default timeout period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a timeout period for that particular codespace. For more information, click the appropriate tab above.
 
 {% endvscode %}

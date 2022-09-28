@@ -1,5 +1,5 @@
 ---
-title: GitHubのサブプロセッサとCookie
+title: GitHub Subprocessors and Cookies
 redirect_from:
   - /subprocessors
   - /github-subprocessors
@@ -17,20 +17,20 @@ topics:
 Effective date: **September 1, 2022**
 
 
-GitHubは、お客様のデータを当社が利用する方法、お客様のデータを当社が収集する方法、およびお客様のデータを共有する対象について、高い透明性を提供します。 この目的のため、[当社のサブプロセッサ](#github-subprocessors)および[クッキー](#cookies-on-github)の使用方法ついて説明するページをご用意しました。
+GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
-## GitHubのサブプロセッサ
+## GitHub Subprocessors
 
-当社がお客様の情報を、ベンダーやサービスプロバイダなどのサードパーティーのサブプロセッサと共有する場合、それについては当社が責任を負います。 新たなベンダーとのやり取りを行う際に、当社はお客様の信頼を維持するため努力し、全てのベンダーに対して、 ユーザの個人情報 ([プライバシーについての声明](/articles/github-privacy-statement/)の定義による) に関する取り扱いを制限する、データ保護契約を締結するよう要求しています。
+When we share your information with third party subprocessors, such as our vendors and service providers, we remain responsible for it. We work very hard to maintain your trust when we bring on new vendors, and we require all vendors to enter into data protection agreements with us that restrict their processing of Users' Personal Information (as defined in the [Privacy Statement](/articles/github-privacy-statement/)).
 
 When we bring on a new subprocessor who handles our Users' Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update the list of subprocessors. You can view the current list of subprocessors, and sign up to receive subprocessor list updates, at [https://www.github.com/privacy/subprocessors](https://www.github.com/privacy/subprocessors).
 
-新たなサブプロセッサについての質問や懸念がある場合は、 {% data variables.contact.contact_privacy %}からお気軽にお問い合わせください。
+If you have questions or concerns about a new subprocessor, we'd be happy to help. Please contact us via {% data variables.contact.contact_privacy %}.
 
-## GitHubのCookie
+## Cookies on GitHub
 
-ウェブサイトを提供および保護し、ウェブサイトの利用状況を分析して優れたユーザエクスペリエンスを提供するために、GitHubはクッキーを使用します。 クッキーに関する詳細な情報や、その使用方法と理由について知りたい場合は、当社の[プライバシーについての声明](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking)を参照してください。
-
+GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them. 
+ 
 You can view the current list of cookies on GitHub, and sign up to receive cookie list updates, at [https://github.com/privacy/cookies](https://github.com/privacy/cookies).
 
-(!) 当社は第三者によるクッキーの使用を、外部コンテンツをレンダリングする際に必要な外部機能を提供するために必要なものに限って使用していますが、当社の特定のページにおいては第三者によるその他のクッキーが設置される場合があります。 たとえば、クッキーを設定するサイトから、動画などのコンテンツを埋め込むことがあります。 第三者のクッキーは最小限に保つよう努めていますが、当社は第三者のコンテンツが設定するクッキーを常に管理できるわけではありません。
+(!) Please note while we limit our use of third party cookies to those necessary to provide external functionality when rendering external content, certain pages on our website may set other third party cookies. For example, we may embed content, such as videos, from another site that sets a cookie. While we try to minimize these third party cookies, we can’t always control what cookies this third party content sets.

@@ -12,10 +12,15 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: 启动故障转移到设备
+shortTitle: Initiate failover to appliance
+ms.openlocfilehash: 65e522d2a7b466c4f75cea087760ecb3001317a7
+ms.sourcegitcommit: 3ea3ccb5af64bd7d9e4699757db38fdd8f98cde7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/12/2022
+ms.locfileid: '147076701'
 ---
-
-故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 20-30 分钟。
+故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
@@ -23,44 +28,44 @@ shortTitle: 启动故障转移到设备
 
     - 将设备置于维护模式。
 
-       - 要使用 Management Console，请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。
+       - 若要使用管理控制台，请参阅“[启用和安排维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”
 
-       - 您也可以使用 `ghe-maintenance -s` 命令。
+       - 也可使用 `ghe-maintenance -s` 命令。
          ```shell
          $ ghe-maintenance -s
          ```
 
-   - 当活动 Git 操作、MySQL 查询和 Resque 作业数量达到零时，等待 30 秒。
+   - 当活动 Git 操作、MySQL 查询和 Resque 作业数量达到零时，等待 30 秒。 
 
       {% note %}
 
-      **注意：** Nomad 将始终有作业在运行，即使是在维护模式下，因此您可以安全地忽略这些作业。
-
+      注意：Nomad 将始终有作业在运行，即使是在维护模式下，因此你可以安全地忽略这些作业。
+    
       {% endnote %}
 
-   - 要验证所有复制通道均报告 `OK`，请使用 `ghe-repl-status -vv` 命令。
+   - 若要验证所有复制通道均报告 `OK`，请使用 `ghe-repl-status -vv` 命令。
 
       ```shell
       $ ghe-repl-status -vv
       ```
 
-4. 在副本设备上，要停止复制并将副本设备提升为主状态，请使用 `ghe-repl-promote` 命令。 此操作还会自动将主节点（若可到达）置于维护模式。
+4. 在副本设备上，要停止复制并将副本设备提升为主状态，请使用 `ghe-repl-promote` 命令。 如果可访问，此节点也会自动将主节点置于维护节点中。
   ```shell
   $ ghe-repl-promote
   ```
 5. 将 DNS 记录更新为指向副本的 IP 地址。 流量会在经过 TTL 周期后定向到副本。 如果您要使用负载均衡器，请务必将其配置为向副本发送流量。
 6. 通知用户他们可以恢复正常操作。
-7. 如有需要，请设置从新的主设备复制到现有设备和之前的主设备。 更多信息请参阅“[关于高可用性配置](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”。
+7. 如有需要，请设置从新的主设备复制到现有设备和之前的主设备。 有关详细信息，请参阅“[关于高可用性配置](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”。
 8. 您不打算在故障转移之前将复制设置为高可用性配置一部分的设备需由 UUID 从高可用性配置中删除。
     - 在以前的设备上，通过 `cat /data/user/common/uuid` 获取其 UUID。
       ```shell
       $ cat /data/user/common/uuid
       ```
-    - 在新的主设备上，使用 `ghe-repl-teardown` 删除 UUID。 请将 *`UUID`* 替换为您在上一步中检索到的 UUID。
+    - 在新的主设备上，使用 `ghe-repl-teardown` 删除 UUID。 请将 `UUID` 替换为你在上一步中检索到的 UUID。
       ```shell
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-## 延伸阅读
+## <a name="further-reading"></a>延伸阅读
 
-- "[用于复制管理的实用程序](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- “[用于复制管理的实用程序](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”

@@ -33,7 +33,7 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 
 {% data reusables.code-scanning.enabling-options %}
 
-{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
 {% data reusables.code-scanning.about-analysis-origins-link %}
 {% endif %}
 
@@ -153,7 +153,7 @@ The names of the {% data variables.product.prodname_code_scanning %} analysis ch
 
 When the {% data variables.product.prodname_code_scanning %} jobs complete, {% data variables.product.prodname_dotcom %} works out whether any alerts were added by the pull request and adds the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" entry to the list of checks. After {% data variables.product.prodname_code_scanning %} has been performed at least once, you can click **Details** to view the results of the analysis.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-7095  %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4  %}
 <!--Troubleshooting section no longer relevant-->
 {% elsif ghes < 3.5 or ghae %}
 If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see {% ifversion ghes > 3.2 or ghae %}an "Analysis not found"{% elsif ghes = 3.2 %}a "Missing analysis"{% endif %} message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.

@@ -1,6 +1,6 @@
 ---
-title: Why wasn't my application to Global Campus for teachers approved?
-intro: 'Review common reasons that applications for {% data variables.product.prodname_global_campus %} are not approved and learn tips for reapplying successfully.'
+title: 学生向け Global Campus への応募が承認されなかったのはどうしてですか?
+intro: '{% data variables.product.prodname_global_campus %} への応募が承認されない場合のよくある理由を確認して、次回の応募で承認されるようにするヒントについて学びます。'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -12,8 +12,13 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Application not approved
+ms.openlocfilehash: 86d1f0c3bc1bfe451be611ce47cc3f715fd8ba92
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574245'
 ---
-
 {% tip %}
 
 **ヒント:** {% data reusables.education.about-github-education-link %}
@@ -42,8 +47,8 @@ shortTitle: Application not approved
 
 ## 学生以外が Student Developer Pack を申請する
 
-Teachers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). 再度申し込む際には、ご自身の学術ステータスを説明するものとして必ず [**Faculty**] (教職員) を選択してください。
+教師は、[{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) に付属のパートナー オファーの対象にはなりません。 再申請する場合は、必ず **[教職員]** を選択して教育機関の状態を記述してください。
 
-## 参考リンク
+## 参考資料
 
-- "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"
+- 「[教師として {% data variables.product.prodname_global_campus %} に応募する](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)」

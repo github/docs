@@ -1,5 +1,5 @@
 ---
-title: GitHub Company Policies
+title: GitHub の会社ポリシー
 versions:
   fpt: '*'
 topics:

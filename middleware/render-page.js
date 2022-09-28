@@ -34,7 +34,7 @@ async function buildMiniTocItems(req) {
   return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '')
 }
 
-export default async function renderPage(req, res, next) {
+export default async function renderPage(req, res) {
   const { context } = req
 
   // This is a contextualizing the request so that when this `req` is

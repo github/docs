@@ -1,7 +1,7 @@
 ---
-title: Managing code security for your enterprise
+title: Enterprise のコード セキュリティの管理
 shortTitle: Manage code security
-intro: 'You can build security into your developers'' workflow with features that keep secrets and vulnerabilities out of your codebase, and that maintain your software supply chain.'
+intro: コードベースからシークレットと脆弱性を排除し、ソフトウェア サプライ チェーンを維持する機能を使用して、開発者のワークフローにセキュリティを組み込むことができます。
 versions:
   ghes: '*'
   ghae: '*'
@@ -10,5 +10,11 @@ topics:
 children:
   - /managing-github-advanced-security-for-your-enterprise
   - /managing-supply-chain-security-for-your-enterprise
+ms.openlocfilehash: 947ce1b6bd892ba93f57d38b0e8face9606124a5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145293'
 ---
 

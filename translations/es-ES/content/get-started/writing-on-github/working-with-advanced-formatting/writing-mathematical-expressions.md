@@ -12,7 +12,7 @@ To enable clear communication of mathematical expressions, {% data variables.pro
 
 {% data variables.product.company_short %}'s math rendering capability uses MathJax; an open source, JavaScript-based display engine. MathJax supports a wide range of LaTeX macros, and several useful accessibility extensions. For more information, see [the MathJax documentation](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) and [the MathJax Accessibility Extensions Documentation](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide).
 
-Mathematical expressions rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, {% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}wikis, {% endif %}and Markdown files.
+Mathematical expressions rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, {% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}wikis, {% endif %}and Markdown files.
 
 ## Writing inline expressions
 
@@ -47,17 +47,24 @@ Alternatively, you can use the <code>\`\`\`math</code> code block syntax to disp
 \sqrt{3}
 ```
 ````
+
 ![Math expression in a fenced code block](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
+
 {% endif %}
+
 ## Writing dollar signs in line with and within mathematical expressions
+
 To display a dollar sign as a character in the same line as a mathematical expression, you need to escape the non-delimiter `$` to ensure the line renders correctly.
-- Within a math expression, add a `\` symbol before the explicit `$`.
+  
+  - Within a math expression, add a `\` symbol before the explicit `$`.
 
   ```
   This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
   ```
-![Dollar sign within math expression](/assets/images/help/writing/dollar-sign-within-math-expression.png)
-- Outside a math expression, but on the same line, use span tags around the explicit `$`.
+
+  ![Dollar sign within math expression](/assets/images/help/writing/dollar-sign-within-math-expression.png)
+
+  - Outside a math expression, but on the same line, use span tags around the explicit `$`.
 
   ```
   To split <span>$</span>100 in half, we calculate $100/2$
@@ -65,8 +72,8 @@ To display a dollar sign as a character in the same line as a mathematical expre
 
   ![Dollar sign inline math expression](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
 
-## Leer más
+## Further reading
 
 * [The MathJax website](http://mathjax.org)
-* [Introducción a la escritura y el formato en GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
+* [Getting started with writing and formatting on GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
 * [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)

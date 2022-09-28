@@ -4,6 +4,7 @@ import searchVersions from '../../lib/search/versions.js'
 import FailBot from '../../lib/failbot.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
+import statsd from '../../lib/statsd.js'
 import { defaultCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
 import { getSearchResults, ELASTICSEARCH_URL } from './es-search.js'
@@ -39,7 +40,7 @@ const legacyEnterpriseServerVersions = Object.fromEntries(
     .filter(([fullName]) => {
       return fullName.startsWith('enterprise-server@')
     })
-    .map(([_, shortName]) => {
+    .map(([, shortName]) => {
       return [shortName, `ghes-${shortName}`]
     })
 )
@@ -86,7 +87,7 @@ function notConfiguredMiddleware(req, res, next) {
 router.get(
   '/legacy',
   notConfiguredMiddleware,
-  catchMiddlewareError(async function legacySearch(req, res, next) {
+  catchMiddlewareError(async function legacySearch(req, res) {
     const { query, version, language, filters, limit: limit_ } = req.query
     if (filters) {
       throw new Error('not implemented yet')
@@ -107,28 +108,33 @@ router.get(
     )}-${language}`
 
     const hits = []
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
+      'version:legacy',
+      `indexName:${indexName}`,
+    ])
+    const options = {
+      indexName,
+      query,
+      page: 1,
+      sort: 'best',
+      size: limit,
+      debug: true,
+      includeTopics: true,
+      // The legacy search is used as an autocomplete. In other words,
+      // a debounce that sends the query before the user has had a
+      // chance to fully submit the search. That means if the user
+      // send the query 'google cl' they hope to find 'Google Cloud'
+      // even though they didn't type that fully.
+      usePrefixSearch: true,
+    }
     try {
-      const searchResults = await getSearchResults({
-        indexName,
-        query,
-        page: 1,
-        sort: 'best',
-        size: limit,
-        debug: true,
-        includeTopics: true,
-        // The legacy search is used as an autocomplete. In other words,
-        // a debounce that sends the query before the user has had a
-        // chance to fully submit the search. That means if the user
-        // send the query 'google cl' they hope to find 'Google Cloud'
-        // even though they didn't type that fully.
-        usePrefixSearch: true,
-      })
+      const searchResults = await timed(options)
       hits.push(...searchResults.hits)
-    } catch (err) {
+    } catch (error) {
       // If we don't catch here, the `catchMiddlewareError()` wrapper
       // will take any thrown error and pass it to `next()`.
-      console.error('Error wrapping getSearchResults()', err)
-      return res.status(500).json([])
+      await handleGetSearchResultsError(req, res, error, options)
+      return
     }
 
     // The legacy search just returned an array
@@ -233,10 +239,23 @@ router.get(
   '/v1',
   validationMiddleware,
   notConfiguredMiddleware,
-  catchMiddlewareError(async function search(req, res, next) {
+  catchMiddlewareError(async function search(req, res) {
     const { indexName, query, page, size, debug, sort } = req.search
+
+    // The getSearchResults() function is a mix of preparing the search,
+    // sending & receiving it, and post-processing the response from the
+    // network (i.e. Elasticsearch).
+    // This measurement then combines both the Node-work and the total
+    // network-work but we know that roughly 99.5% of the total time is
+    // spent in the network-work time so this primarily measures that.
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
+      'version:v1',
+      `indexName:${indexName}`,
+    ])
+
+    const options = { indexName, query, page, size, debug, sort }
     try {
-      const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
+      const { meta, hits } = await timed(options)
 
       if (process.env.NODE_ENV !== 'development') {
         // The assumption, at the moment is that searches are never distinguished
@@ -254,30 +273,29 @@ router.get(
       // If getSearchResult() throws an error that might be 404 inside
       // elasticsearch, if we don't capture that here, it will propgate
       // to the next middleware.
-      if (process.env.NODE_ENV === 'development') {
-        console.error('Error calling getSearchResults()', error)
-      } else {
-        const reports = FailBot.report(error, {
-          url: req.url,
-          indexName,
-          query,
-          page,
-          size,
-          debug,
-          sort,
-        })
-        // It might be `undefined` if no backends are configured which
-        // is likely when using production NODE_ENV on your laptop
-        // where you might not have a HATSTACK_URL configured.
-        if (reports) await Promise.all(reports)
-      }
-      res.status(500).send(error.message)
+      await handleGetSearchResultsError(req, res, error, options)
     }
   })
 )
 
+// We have more than one place where we do `try{...} catch error( THIS )`
+// which is slightly different depending on the "sub-version" (e.g. /legacy)
+// This function is a single place to take care of all of these error handlings
+async function handleGetSearchResultsError(req, res, error, options) {
+  if (process.env.NODE_ENV === 'development') {
+    console.error(`Error calling getSearchResults(${options})`, error)
+  } else {
+    const reports = FailBot.report(error, Object.assign({ url: req.url }, options))
+    // It might be `undefined` if no backends are configured which
+    // is likely when using production NODE_ENV on your laptop
+    // where you might not have a HATSTACK_URL configured.
+    if (reports) await Promise.all(reports)
+  }
+  res.status(500).send(error.message)
+}
+
 // Alias for the latest version
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   // At the time of writing, the latest version is v1. (July 2022)
   // Use `req.originalUrl` because this router is "self contained"
   // which means that `req.url` will be `/` in this context.

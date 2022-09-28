@@ -1,6 +1,6 @@
 ---
-title: Managing your cookie preferences for GitHub's enterprise marketing pages
-intro: 'You can control how {% data variables.product.company_short %} uses information from non-essential tracking cookies for enterprise marketing pages.'
+title: Administración de las preferencias de cookies para las páginas de marketing empresarial de GitHub
+intro: 'Puedes controlar cómo {% data variables.product.company_short %} usa información de cookies de seguimiento no esenciales para páginas de marketing empresariales.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,25 +9,30 @@ versions:
 topics:
   - Accounts
 shortTitle: Manage cookie preferences
+ms.openlocfilehash: f2fdbcf8bd552902e7db491aa1b3c6622c5673ab
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760930'
 ---
+## Acerca de las preferencias de cookies en las páginas de marketing empresarial
 
-## About cookie preferences on enterprise marketing pages
+{% data variables.product.company_short %} puede usar cookies no esenciales en algunas páginas de marketing empresariales. Puedes personalizar cómo se comportan estas cookies. Para obtener más información sobre cómo {% data variables.product.company_short %} usa cookies, consulta la "[declaración de privacidad de {% data variables.product.company_short %}](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)".
 
-{% data variables.product.company_short %} may use non-essential cookies on some enterprise marketing pages. You can customize how these cookies behave. For more information about how {% data variables.product.company_short %} uses cookies, see "[{% data variables.product.company_short %} Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)."
+## Cambio de tus preferencias de cookies
 
-## Changing your cookie preferences
+Puedes personalizar cómo se comportan las cookies no esenciales en cualquier página de marketing empresarial {% data variables.product.company_short %}.
 
-You can customize how non-essential cookies behave on any {% data variables.product.company_short %} enterprise marketing page.
+1. Ve a la página de marketing empresarial {% data variables.product.company_short %} donde deseas cambiar tus preferencias de cookies. Por ejemplo, ve a [ Recursos de {% data variables.product.company_short %}](https://resources.github.com/).
+1. Desplázate hasta la parte inferior de la página y, después, haz clic en **Gestionar cookies**.
 
-1. Navigate to the {% data variables.product.company_short %} enterprise marketing page where you'd like to change your cookie preferences. For example, navigate to [{% data variables.product.company_short %} Resources](https://resources.github.com/).
-1. Scroll to the bottom of the page, then click **Manage Cookies**.
+   ![Captura de pantalla del botón para administrar la configuración de cookies.](/assets/images/help/settings/cookie-settings-manage.png)
 
-   ![Screenshot of button to manage cookie settings.](/assets/images/help/settings/cookie-settings-manage.png)
+1. En "Administrar preferencias de cookies", para aceptar o rechazar cada cookie no esencial, haz clic en **Aceptar** o **Rechazar**.
 
-1. Under "Manage cookie preferences," to accept or reject each non-essential cookie, click **Accept** or **Reject**.
+   ![Captura de pantalla de los botones de radio para elegir "Aceptar" o "Rechazar" para cookies no esenciales.](/assets/images/help/settings/cookie-settings-accept-or-reject.png)
 
-   ![Screenshot of radio buttons to choose "Accept" or "Reject" for non-essential cookies.](/assets/images/help/settings/cookie-settings-accept-or-reject.png)
+1. Haga clic en **Guardar cambios**.
 
-1. Haz clic en **Guardar cambios**.
-
-   ![Screenshot of button to save changes.](/assets/images/help/settings/cookie-settings-save.png)
+   ![Captura de pantalla del botón para guardar los cambios.](/assets/images/help/settings/cookie-settings-save.png)

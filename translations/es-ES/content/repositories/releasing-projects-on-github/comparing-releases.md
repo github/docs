@@ -1,6 +1,6 @@
 ---
-title: Comparar lanzamientos
-intro: Puedes comparar etiquetas de lanzamiento para ver los cambios en tu repositorio entre diferentes lanzamientos.
+title: Comparing releases
+intro: You can compare release tags to see changes to your repository between different releases.
 permissions: People with read access to a repository can view and compare releases.
 versions:
   fpt: '*'
@@ -13,18 +13,17 @@ redirect_from:
   - /github/administering-a-repository/comparing-releases
   - /github/administering-a-repository/releasing-projects-on-github/comparing-releases
 ---
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Da clic en **Comparar** a un costado del lanzamiento que deseas utilizar como tu base.
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-  ![Menú de comparación de etiquetas de lanzamiento](/assets/images/help/releases/refreshed-compare-tags.png)
+3. Next to the release you want to use as your base, click **Compare**.
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
+  ![Compare release tags menu](/assets/images/help/releases/refreshed-compare-tags.png)
   {% else %}
-  ![Menú de comparación de etiquetas de lanzamiento](/assets/images/help/releases/compare-tags-menu.png)
+  ![Compare release tags menu](/assets/images/help/releases/compare-tags-menu.png)
   {% endif %}
-4. Utiliza el menú desplegable "Comparar" y selecciona las etiquetas que quieras comparar.
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-  ![Menú de comparación de etiquetas de lanzamiento](/assets/images/help/releases/refreshed-compare-tags-menu-options.png)
+4. Use the "Compare" drop-down menu and select the tags you want to compare.
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
+  ![Compare release tags menu](/assets/images/help/releases/refreshed-compare-tags-menu-options.png)
   {% else %}
-  ![Opciones del menú de comparación de etiquetas de lanzamiento](/assets/images/help/releases/compare-tags-menu-options.png)
+  ![Compare release tags menu options](/assets/images/help/releases/compare-tags-menu-options.png)
   {% endif %}
