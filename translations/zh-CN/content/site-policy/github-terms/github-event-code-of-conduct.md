@@ -8,12 +8,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: c9e910ccec8e281359fb21feca5957c3360530bd
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556491'
 ---
 GitHub 活动是旨在加强技术社区中的交往和协作的社区活动。
 
@@ -21,7 +15,7 @@ GitHub 活动是旨在加强技术社区中的交往和协作的社区活动。
 
 为了明确要求，对于在 GitHub 环境中进行的任何活动，所有参与者、发言者、参展者、组织者和志愿者都必须遵守以下行为准则。 组织者将在整个活动中贯彻执行本准则。
 
-## 行为准则
+## <a name="code-of-conduct"></a>行为准则
 
 GitHub 致力于为每个人提供愉悦、无骚扰的活动体验，无论其年龄、性别、性别认同和表达、性取向、残疾状态、外貌、体型、民族、种族、宗教、国籍或经验水平如何。 我们不容忍以任何形式骚扰活动参与者，也不容忍任何理论上会导致其他活动参与者感到不安全或担心其身心健康的行为。 所有交流都应适合各种不同背景的专业受众。
 
@@ -47,12 +41,12 @@ GitHub 致力于为每个人提供愉悦、无骚扰的活动体验，无论其�
 
 感谢您帮助营造这个对所有人热情友好的环境。
 
-### 事件举报
+### <a name="reporting-an-incident"></a>事件举报
 
 如果您受到骚扰、发现其他人被骚扰或者有任何其他顾虑，请通过电子邮件 (events@github.com) 或电话/短信 (+1 415 842 2837) 联系组织者，或者告诉其他 GitHub 员工或安全官员。
 
 GitHub 相关人员乐于帮助参与者联系安全部门或当地执法机构、护送他们到安全的地方或者以其他方式帮助受骚扰者在会议期间感到安全。 我们重视你的参与。
 
-## 鸣谢
+## <a name="credit"></a>鸣谢
 
 本行为准则的部分内容基于 Geek Feminism wiki 的[典型反骚扰政策](https://geekfeminism.wikia.org/wiki/Conference_anti-harassment/Policy)，这些政策由 Ada Initiative 和其他志愿者在知识共享零许可原则下编制。

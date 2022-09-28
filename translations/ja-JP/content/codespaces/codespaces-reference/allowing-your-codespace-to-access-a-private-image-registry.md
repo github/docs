@@ -1,6 +1,6 @@
 ---
-title: codespace がプライベートイメージレジストリにアクセスできるようにする
-intro: 'シークレットを使用して、{% data variables.product.prodname_github_codespaces %} がプライベート イメージ レジストリにアクセスできるようにすることができます'
+title: Allowing your codespace to access a private image registry
+intro: 'You can use secrets to allow {% data variables.product.prodname_github_codespaces %} to access a private image registry'
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,70 +8,65 @@ topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Private image registry
-ms.openlocfilehash: b5604ceb890912fdc05c2d539106df1969105916
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147705036'
 ---
-## プライベート イメージ レジストリと {% data variables.product.prodname_github_codespaces %} について
 
-レジストリは、プライベート コンテナー イメージを保存、管理、フェッチするためのセキュリティで保護された領域です。 1 つ以上の画像を保存するために使用できます。 レジストリには、{% data variables.product.prodname_container_registry %}、{% data variables.product.prodname_npm_registry %}、Azure Container Registry または DockerHub など多くの例があります。
+## About private image registries and {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_ghcr_and_npm_registry %} は、認証資格情報を指定する必要なく、codespace の作成時にコンテナー イメージを {% data variables.product.prodname_github_codespaces %} にシームレスにプルできるように構成できます。 その他のイメージ レジストリの場合は、アクセスの詳細を保存するために、{% data variables.product.prodname_dotcom %} にシークレットを作成する必要があります。これにより、{% data variables.product.prodname_codespaces %} はそのレジストリに保存されているイメージにアクセスできます。
+A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more images. There are many examples of registries, such as {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_npm_registry %}, Azure Container Registry, or DockerHub.
 
-## {% data variables.product.prodname_ghcr_and_npm_registry %} に保存されているイメージへのアクセス
+{% data variables.product.prodname_ghcr_and_npm_registry %} can be configured to allow container images to be pulled seamlessly into {% data variables.product.prodname_github_codespaces %} during codespace creation, without having to provide any authentication credentials. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_github_codespaces %} to access images stored in that registry.
 
-{% data variables.product.prodname_ghcr_and_npm_registry %} により、{% data variables.product.prodname_codespaces %} が dev container コンテナー イメージを使用する最も簡単な方法が提供されます。
+## Accessing images stored in {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-詳しくは、「[コンテナー レジストリの操作](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)」と「[npm レジストリの操作](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)」をご覧ください。
+{% data variables.product.prodname_ghcr_and_npm_registry %} provide the easiest way for {% data variables.product.prodname_github_codespaces %} to consume dev container images.
 
-### codespace と同じリポジトリに公開されたイメージへのアクセス
+For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)" and "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)".
 
-codespace が起動されたのと同じリポジトリ内のコンテナー イメージを {% data variables.product.prodname_ghcr_or_npm_registry %} に公開すると、codespace の作成時にそのイメージを自動的にフェッチできるようになります。 コンテナー イメージの公開時に **[リポジトリからアクセス権を継承する]** オプションの選択を解除したのでない限り、追加の資格情報を指定する必要はありません。
+### Accessing an image published to the same repository as the codespace
 
-#### イメージ公開元リポジトリからのアクセス権の継承
+If you publish a container image to {% data variables.product.prodname_ghcr_or_npm_registry %} in the same repository that the codespace is being launched in, you will automatically be able to fetch that image on codespace creation. You won't have to provide any additional credentials, unless the **Inherit access from repo** option was unselected when the container image was published.
 
-既定では、コンテナー イメージを {% data variables.product.prodname_ghcr_or_npm_registry %} に公開すると、そのイメージはイメージの公開元リポジトリのアクセス設定を継承します。 たとえば、リポジトリがパブリックの場合、イメージもパブリックになります。 リポジトリがプライベートの場合、イメージもプライベートですが、リポジトリからアクセスできます。
+#### Inheriting access from the repository from which an image was published
 
-この動作は、 **[リポジトリからアクセス権を継承する]** オプションによって制御されます。 **[リポジトリからアクセス権を継承する]** は、{% data variables.product.prodname_actions %} を使用して公開する場合は既定で選択されますが、個人用アクセス トークン (PAT) を使用して {% data variables.product.prodname_ghcr_or_npm_registry %} に直接公開する場合は選択されません。
+By default, when you publish a container image to {% data variables.product.prodname_ghcr_or_npm_registry %}, the image inherits the access setting of the repository from which the image was published. For example, if the repository is public, the image is also public. If the repository is private, the image is also private, but is accessible from the repository.
 
-イメージの公開時に **[リポジトリからアクセス権を継承する]** オプションを選択しなかった場合は、公開されたコンテナー イメージのアクセス制御にリポジトリを手動で追加できます。 詳細については、「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)」を参照してください。
+This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.product.prodname_ghcr_or_npm_registry %} using a Personal Access Token (PAT).
 
-### codespace が起動される Organization に公開されたイメージへのアクセス
+If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)."
 
-Organization 内のすべての codespace からコンテナー イメージにアクセスできるようにする場合は、内部可視性を設定したコンテナー イメージを公開することをお勧めします。 これにより、codespace を起動するリポジトリがパブリックである場合以外は、Organization 内のすべての codespace にイメージが自動的に表示されます。
+### Accessing an image published to the organization a codespace will be launched in
 
-内部またはプライベートのイメージを参照するパブリック リポジトリから codespace を起動する場合は、パブリック リポジトリに内部コンテナー イメージへのアクセスを手動で許可する必要があります。 これにより、内部イメージが誤って公開されるのを防ぐことができます。 詳細については、「[パッケージへの Codespaces アクセスの確保](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)」を参照してください。
+If you want a container image to be accessible to all codespaces in an organization, we recommend that you publish the container image with internal visibility. This will automatically make the image visible to all codespaces within the organization, unless the repository the codespace is launched from is public.
 
-### Organization 内のリポジトリのサブセットからプライベート コンテナーにアクセスする
+If the codespace is being launched from a public repository referencing an internal or private image, you must manually allow the public repository access to the internal container image. This prevents the internal image from being accidentally leaked publicly. For more information, see "[Ensuring Codespaces access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)."
 
-Organization のリポジトリのサブセットがコンテナー イメージにアクセスできるようにする場合、またはパブリック リポジトリで起動された codespace から内部またはプライベートのイメージへのアクセスを許可する場合は、コンテナー <span class="x x-first x-last">イメージの</span>アクセス設定にリポジトリを手動で追加できます。 詳細については、「[パッケージへの Codespaces アクセスの確保](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)<span class="x x-first x-last"></span>」を参照してください。
+### Accessing a private container from a subset of repositories in an organization
 
-### codespace からのコンテナー イメージの公開
+If you want to allow a subset of an organization's repositories to access a container image, or allow an internal or private image to be accessed from a codespace launched in a public repository, you can manually add repositories to a container <span class="x x-first x-last">image's</span> access settings. For more information, see "[Ensuring Codespaces access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)<span class="x x-first x-last">.</span>"
 
-codespace から {% data variables.product.prodname_ghcr_or_npm_registry %} へのシームレスなアクセスは、コンテナー イメージのプルに制限されています。 codespace 内からコンテナー イメージを公開する場合は、`write:packages` スコープの個人用アクセス トークン (PAT) を使用する必要があります。
+### Publishing a container image from a codespace
 
-{% data variables.product.prodname_actions %} を使用してイメージを公開することをお勧めします。 詳しくは、「[Docker イメージの発行](/actions/publishing-packages/publishing-docker-images)」と「[Node.js パッケージの発行](/actions/publishing-packages/publishing-nodejs-packages)」をご覧ください。
+Seamless access from a codespace to {% data variables.product.prodname_ghcr_or_npm_registry %} is limited to pulling container images. If you want to publish a container image from inside a codespace, you must use a personal access token (PAT) with the `write:packages` scope.
 
-## 他のコンテナー レジストリに保存されているイメージへのアクセス
+We recommend publishing images via {% data variables.product.prodname_actions %}. For more information, see "[Publishing Docker images](/actions/publishing-packages/publishing-docker-images)" and "[Publishing Node.js packages](/actions/publishing-packages/publishing-nodejs-packages)."
 
-{% data variables.product.prodname_ghcr_or_npm_registry %} ではないレジストリからコンテナー イメージにアクセスする場合、{% data variables.product.prodname_codespaces %} で、コンテナー レジストリのサーバー名、ユーザー名、個人用アクセス トークン (PAT) を定義する 3 つのシークレットが存在するかどうかが確認されます。 これらのシークレットが見つかった場合、{% data variables.product.prodname_github_codespaces %} はレジストリを codespace 内で使用できるようにします。
+## Accessing images stored in other container registries
+
+If you are accessing a container image from a registry that isn't {% data variables.product.prodname_ghcr_or_npm_registry %}, {% data variables.product.prodname_github_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_github_codespaces %} will make the registry available inside your codespace.
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
 - `<*>_CONTAINER_REGISTRY_PASSWORD`
 
-シークレットは、ユーザ、リポジトリ、または Organization レベルで保存できるため、異なる Codespaces 間で安全に共有できます。 プライベート イメージ レジストリのシークレットのセットを作成するときは、名前の "<*>" を一貫した識別子に置き換える必要があります。 詳しくは、「[codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」および「[リポジトリの暗号化されたシークレットと {% data variables.product.prodname_github_codespaces %} の Organization を管理する](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)」をご覧ください。
+You can store secrets at the user, repository, or organization-level, allowing you to share them securely between different codespaces. When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" and "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)."
 
-ユーザーまたは Organization のレベルでシークレットを設定する場合は、ドロップダウン リストからアクセス ポリシーを選択して、codespace を作成するリポジトリにシークレットを割り当てるようにしてください。  
+If you are setting the secrets at the user or organization level, make sure to assign those secrets to the repository you'll be creating the codespace in by choosing an access policy from the dropdown list.  
 
-![イメージ レジストリ シークレットの例](/assets/images/help/codespaces/secret-repository-access.png)
+![Image registry secret example](/assets/images/help/codespaces/secret-repository-access.png)
 
-### シークレットの例
+### Example secrets
 
-Azure のプライベート イメージ レジストリの場合は、次のシークレットを作成できます。
+For a private image registry in Azure, you could create the following secrets:
 
 ```
 ACR_CONTAINER_REGISTRY_SERVER = mycompany.azurecr.io
@@ -79,15 +74,15 @@ ACR_CONTAINER_REGISTRY_USER = acr-user-here
 ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
 ```
 
-一般的なイメージ レジストリの詳細については、「[一般的なイメージ レジストリ サーバー](#common-image-registry-servers)」を参照してください。 AWS Elastic Container Registry (ECR) へのアクセスは異なることに注意してください。
+For information on common image registries, see "[Common image registry servers](#common-image-registry-servers)." Note that accessing AWS Elastic Container Registry (ECR) is different.
 
-![イメージ レジストリ シークレットの例](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
+![Image registry secret example](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
 
-シークレットを追加したら、新しい環境変数をコンテナーに渡すために、現在の codespace を停止してから開始することが必要になる場合があります。 詳細については、「[codespace の一時停止または停止](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)」を参照してください。
+Once you've added the secrets, you may need to stop and then start the codespace you are in for the new environment variables to be passed into the container. For more information, see "[Suspending or stopping a codespace](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
 
-#### AWS Elastic Container Registry へのアクセス
+#### Accessing AWS Elastic Container Registry
 
-AWS Elastic Container Registry (ECR) にアクセスするには、AWS アクセス キー ID と秘密鍵を指定することで、{% data variables.product.prodname_dotcom %} がユーザーに代わってアクセス トークンを取得してログインできるようになります。
+To access AWS Elastic Container Registry (ECR),  you can provide an AWS access key ID and secret key, and {% data variables.product.prodname_dotcom %}  can retrieve an access token for you and log in on your behalf.
 
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
@@ -95,9 +90,9 @@ AWS Elastic Container Registry (ECR) にアクセスするには、AWS アクセ
 *_CONTAINER_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
 ```
 
-また、資格情報のスワップ (例: `sts:GetServiceBearerToken`) と ECR 読み取り操作 (`AmazonEC2ContainerRegistryFullAccess` または `ReadOnlyAccess`) を実行するための適切な AWS IAM アクセス許可があることを確認する必要があります。
+You must also ensure you have the appropriate AWS IAM permissions to perform the credential swap (e.g. `sts:GetServiceBearerToken`) as well as the ECR read operation (either `AmazonEC2ContainerRegistryFullAccess` or `ReadOnlyAccess`).
 
-または、GitHub でユーザーに代わって資格情報のスワップが実行されないようにする場合は、AWS の API または CLI を使用してフェッチされた承認トークンを指定できます。
+Alternatively, if you don't want GitHub to perform the credential swap on your behalf, you can provide an authorization token fetched via AWS's APIs or CLI.
 
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
@@ -105,22 +100,22 @@ AWS Elastic Container Registry (ECR) にアクセスするには、AWS アクセ
 *_CONTAINER_REGISTRY_PASSWORD = <TOKEN>
 ```
 
-これらのトークンは有効期間が短く、定期的に更新する必要があるため、アクセス キー ID とシークレットを指定することをお勧めします。
+Since these tokens are short lived and need to be refreshed periodically, we recommend providing an access key ID and secret.
 
-`*_CONTAINER_REGISTRY_SERVER` が ECR URL である限り、これらのシークレットには任意の名前を付けることができますが、複数の ECR レジストリを扱う場合を除き、`ECR_CONTAINER_REGISTRY_*` を使用することをお勧めします。
+While these secrets can have any name, so long as the `*_CONTAINER_REGISTRY_SERVER` is an ECR URL, we recommend using `ECR_CONTAINER_REGISTRY_*` unless you are dealing with multiple ECR registries.
 
-詳細については、AWS ECR の[プライベート レジストリの認証に関するドキュメント](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)を参照してください。
+For more information, see AWS ECR's "[Private registry authentication documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)."
 
-### 一般的なイメージ レジストリ サーバー
+### Common image registry servers
 
-一般的なイメージ レジストリ サーバーの一部を次に示します。
+Some of the common image registry servers are listed below:
 
 - [DockerHub](https://docs.docker.com/engine/reference/commandline/info/) - `https://index.docker.io/v1/`
 - [GitHub Container Registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry) - `ghcr.io`
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) - `<registry name>.azurecr.io`
 - [AWS Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) - `<aws_account_id>.dkr.ecr.<region>.amazonaws.com`
-- [Google Cloud Container Registry](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (米国)、`eu.gcr.io` (ヨーロッパ)、`asia.gcr.io` (アジア)
+- [Google Cloud Container Registry](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (US), `eu.gcr.io` (EU), `asia.gcr.io` (Asia)
 
-## プライベート イメージ レジストリ アクセスのデバッグ
+## Debugging private image registry access
 
-プライベート イメージ レジストリからイメージをプルするときに問題が発生した場合は、上記で定義したシークレットの値を使用して、`docker login -u <user> -p <password> <server>` を実行できることを確認してください。 ログインに失敗した場合は、ログイン資格情報が有効であること、およびコンテナー イメージをフェッチするためのサーバーに対する適切なアクセス許可があることを確認します。 ログインに成功した場合は、ユーザー、リポジトリ、または Organization のレベルで、これらの値が正しい {% data variables.product.prodname_codespaces %} シークレットに適切にコピーされていることを確認し、もう一度やり直してください。
+If you are having trouble pulling an image from a private image registry, make sure you are able to run `docker login -u <user> -p <password> <server>`, using the values of the secrets defined above. If login fails, ensure that the login credentials are valid and that you have the apprioriate permissions on the server to fetch a container image. If login succeeds, make sure that these values are copied appropriately into the right {% data variables.product.prodname_github_codespaces %} secrets, either at the user, repository, or organization level and try again.

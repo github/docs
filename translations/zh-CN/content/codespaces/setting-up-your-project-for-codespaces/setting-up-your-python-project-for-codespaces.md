@@ -1,7 +1,8 @@
 ---
-title: 为代码空间设置 Python 项目
+title: Setting up your Python project for GitHub Codespaces
+allowTitleToDifferFromFilename: true
 shortTitle: Setting up your Python project
-intro: '通过创建自定义开发容器，开始在 {% data variables.product.prodname_codespaces %} 中使用 Python 项目。'
+intro: 'Get started with your Python project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -15,119 +16,115 @@ topics:
   - Python
 hasExperimentalAlternative: true
 hidden: true
-ms.openlocfilehash: 8c782d24c6b352797cf5947f10a49dfbe82929cd
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147063224'
 ---
-## 简介
 
-本指南介绍如何在 {% data variables.product.prodname_codespaces %} 中设置 Python 项目。 它将演示在代码空间中打开项目以及从模板添加和修改开发容器配置的示例。
+## Introduction
 
-### 先决条件
+This guide shows you how to set up your Python project in {% data variables.product.prodname_github_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
 
-- 您应该在 {% data variables.product.prodname_dotcom_the_website %} 的仓库中有现有的 Python 项目。 如果没有项目，可以使用以下示例尝试本教程： https://github.com/2percentsilk/python-quickstart 。
-- 您必须为组织启用 {% data variables.product.prodname_codespaces %} 。
+### Prerequisites
 
-## 步骤 1：在代码空间中打开项目
+- You should have an existing Python project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/python-quickstart.
+- You must have {% data variables.product.prodname_github_codespaces %} enabled for your organization.
 
-1. 在存储库名称下，使用“{% octicon "code" aria-label="The code icon" %} 代码”下拉菜单，然后在“Codespaces”选项卡中，单击“基于主函数创建 codespace”  。
+## Step 1: Open your project in a codespace
 
-  ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
-  如果您看不到此选项，则表示 {% data variables.product.prodname_codespaces %} 不适用于您的项目。 有关详细信息，请参阅 [访问 {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)。
+  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-创建代码空间时，您的项目是在专用于您的远程 VM 上创建的。 默认情况下，代码空间的容器有许多语言和运行时，包括 Node.js、JavaScript、Typescript、nvm、npm 和 yarn。 它还包括一套常见的工具，例如 git、wget、rsync、openssh 和 nano。
+  If you don’t see this option, {% data variables.product.prodname_github_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-github-codespaces) for more information.
+
+When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
-## 步骤 2：从模板将开发容器配置添加到存储库
+## Step 2: Add a dev container configuration to your repository from a template
 
-{% data variables.product.prodname_github_codespaces %} 的默认开发容器预先安装了最新的 Python 版本、包管理器（pip、Miniconda）和其他常用工具。 但是，我们建议配置自己的开发容器，以包含项目所需的所有工具和脚本。 这将确保存储库中的所有 {% data variables.product.prodname_github_codespaces %} 用户都拥有完全可复制的环境。
+The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} comes with the latest Python version, package managers (pip, Miniconda), and other common tools preinstalled. However, we recommend that you configure your own dev container to include all of the tools and scripts that your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_github_codespaces %} users in your repository.
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-1. 对于本示例，请单击“Python 3”。 如果需要其他功能，您可以选择任何特定于 Python 或工具（如 Python 3 和 PostgreSQL）组合的容器。
-  ![从列表中选择 Python 选项](/assets/images/help/codespaces/add-python-prebuilt-container.png)
-1. 单击推荐的 Python 版本。
-  ![Python 版本选择](/assets/images/help/codespaces/add-python-version.png)
-1. 接受默认选项，将 Node.js 添加到您的自定义中。
-  ![添加 Node.js 选择](/assets/images/help/codespaces/add-nodejs-selection.png) {% data reusables.codespaces.rebuild-command %}
+1. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgreSQL.
+  ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
+1. Click the recommended version of Python.
+  ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
+1. Accept the default option to add Node.js to your customization.
+  ![Add Node.js selection](/assets/images/help/codespaces/add-nodejs-selection.png)
+{% data reusables.codespaces.rebuild-command %}
 
-### 开发容器的剖析
+### Anatomy of your dev container
 
-添加 Python 开发容器模板会将 `.devcontainer` 目录添加到项目存储库的根目录中，其中包含以下文件：
+Adding the Python dev container template adds a `.devcontainer` directory to the root of your project's repository with the following files:
 
 - `devcontainer.json`
 - Dockerfile
 
-新添加的 `devcontainer.json` 文件定义了在示例之后描述的几个属性。
+The newly added `devcontainer.json` file defines a few properties that are described after the sample.
 
 #### devcontainer.json
 
 ```json
 {
-    "name": "Python 3",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": "..",
-        "args": {
-            // Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
-            "VARIANT": "3",
-            // Options
-            "INSTALL_NODE": "true",
-            "NODE_VERSION": "lts/*"
-        }
-    },
+	"name": "Python 3",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {
+			// Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
+			"VARIANT": "3",
+			// Options
+			"INSTALL_NODE": "true",
+			"NODE_VERSION": "lts/*"
+		}
+	},
 
-    // Set *default* container specific settings.json values on container create.
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash",
-        "python.pythonPath": "/usr/local/bin/python",
-        "python.linting.enabled": true,
-        "python.linting.pylintEnabled": true,
-        "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-        "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-        "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-        "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-        "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-        "python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
-        "python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
-        "python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-        "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
-    },
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.pythonPath": "/usr/local/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true,
+		"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+		"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+		"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+		"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+		"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+		"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+		"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
+		"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+		"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
+	},
 
-    // Add the IDs of extensions you want installed when the container is created.
-    "extensions": [
-        "ms-python.python"
-    ],
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python"
+	],
 
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    // "forwardPorts": [],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
 
-    // Use 'postCreateCommand' to run commands after the container is created.
-    // "postCreateCommand": "pip3 install --user -r requirements.txt",
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "pip3 install --user -r requirements.txt",
 
-    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-    "remoteUser": "vscode"
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
 }
 ```
 
-- name - 可以将开发容器命名为任何名称，这只是默认名称。
-- build - 生成属性。
-  - dockerfile - 在 `build` 对象中，`dockerfile` 包含 Dockerfile 的路径，该文件也是从模板中添加的。
+- **name** - You can name our dev container anything, this is just the default.
+- **build** - The build properties.
+  - **dockerfile** - In the `build` object, `dockerfile` contains the path to the Dockerfile that was also added from the template.
   - **args**
-    - variant：此文件仅包含一个生成参数，即我们要使用并传递到 Dockerfile 的节点变体。
-- settings - 这些是 {% data variables.product.prodname_vscode %} 设置。
-  - terminal.integrated.shell.linux - 虽然 bash 是此处的默认设置，但你可以通过修改它来使用其他终端 shell。
-- extensions - 这些是默认包含的扩展。
-  - **ms-python.python** - Microsoft Python 扩展为 Python 语言提供丰富的支持（对于所有有效支持的语言版本：>=3.6），包括 IntelliSense、linting、调试、代码导航、代码格式化、重构、变量资源管理器、测试资源管理器等功能。
-- **forwardPorts** - 此处列出的任何端口都将自动转发。 有关详细信息，请参阅“[在 codespace 中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)。”
-- postCreateCommand - 使用此方法在创建 codespace 后，运行未在 Dockerfile 中定义的命令，例如 `pip3 install -r requirements`。
-- **remoteUser** - 默认情况下以 `vscode` 用户身份运行，但可以选择将其设置为 `root`。
+    - **variant**: This file only contains one build argument, which is the node variant we want to use that is passed into the Dockerfile.
+- **settings** - These are {% data variables.product.prodname_vscode %} settings.
+  - **terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
+- **extensions** - These are extensions included by default.
+  - **ms-python.python** - The Microsoft Python extension provides rich support for the Python language (for all actively supported versions of the language: >=3.6), including features such as IntelliSense, linting, debugging, code navigation, code formatting, refactoring, variable explorer, test explorer, and more.
+- **forwardPorts** - Any ports listed here will be forwarded automatically. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+- **postCreateCommand** - Use this to run commands that aren't defined in the Dockerfile, like `pip3 install -r requirements`, after your codespace is created.
+- **remoteUser** - By default, you’re running as the `vscode` user, but you can optionally set this to `root`.
 
 #### Dockerfile
 
@@ -154,27 +151,27 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/l
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
-您可以使用 Dockerfile 添加其他容器层，以指定要包含在容器中的操作系统包、节点版本或全局包。
+You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our container.
 
-## 步骤 3：修改 devcontainer.json 文件
+## Step 3: Modify your devcontainer.json file
 
-添加了开发容器配置并基本了解所有功能之后，现在可以进行更改以进一步自定义你的环境。 在此示例中，您将在代码空间启动时添加属性以安装扩展和项目依赖项。
+With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties to install extensions and your project dependencies when your codespace launches.
 
-1. 在资源管理器中，展开 `.devcontainer` 文件夹，然后从树中选择 `devcontainer.json` 文件以将其打开。
+1. In the Explorer, expand the `.devcontainer` folder and select the `devcontainer.json` file from the tree to open it.
 
-  ![Explorer 中的 devcontainer.json 文件](/assets/images/help/codespaces/devcontainers-options.png)
+  ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. 更新 `devcontainer.json` 文件中的 `extensions` 列表，以添加一些在处理项目时有用的扩展。
+2. Update the `extensions` list in your `devcontainer.json` file to add a few extensions that are useful when working with your project.
 
   ```json{:copy}
   "extensions": [
-          "ms-python.python",
-          "cstrap.flask-snippets",
-          "streetsidesoftware.code-spell-checker"
-      ],
+		  "ms-python.python",
+		  "cstrap.flask-snippets",
+		  "streetsidesoftware.code-spell-checker"
+	  ],
   ```
 
-3. 在代码空间设置过程中取消注释 `postCreateCommand` 以自动安装要求。
+3. Uncomment the `postCreateCommand` to auto-install requirements as part of the codespaces setup process.
 
   ```json{:copy}
   // Use 'postCreateCommand' to run commands after the container is created.
@@ -185,26 +182,26 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/l
 
    {% data reusables.codespaces.rebuild-reason %}
 
-5. 通过验证是否安装了 Code Spell Checker 和 Flask Snippet 扩展，检查更改是否成功应用。
+5. Check your changes were successfully applied by verifying the Code Spell Checker and Flask Snippet extensions were installed.
 
-   ![扩展列表](/assets/images/help/codespaces/python-extensions.png)
+   ![Extensions list](/assets/images/help/codespaces/python-extensions.png)
 
-## 步骤 4：运行应用程序
+## Step 4: Run your application
 
-在上一部分中，你使用 `postCreateCommand` 通过 pip3 安装了一组包。 现已安装您的依赖项，您可以运行应用程序。
+In the previous section, you used the `postCreateCommand` to install a set of packages via pip3. With your dependencies now installed, you can run your application.
 
-1. 通过按 `F5` 或在 codespace 终端中输入 `python -m flask run` 来运行你的应用程序。
+1. Run your application by pressing `F5` or entering `python -m flask run` in the codespace terminal.
 
-2. 项目启动时，您应该在右下角看到一个信息框，提示您连接到项目使用的端口。
+2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
 
-  ![端口转发信息框](/assets/images/help/codespaces/python-port-forwarding.png)
+  ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
 
-## 步骤 5：提交更改
+## Step 5: Commit your changes
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-## 后续步骤
+## Next steps
 
-现在，您应该准备开始在 {% data variables.product.prodname_codespaces %} 中开发您的 Python 项目。 以下是用于更高级场景的一些额外资源。
+You should now be ready start developing your Python project in {% data variables.product.prodname_github_codespaces %}. Here are some additional resources for more advanced scenarios.
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

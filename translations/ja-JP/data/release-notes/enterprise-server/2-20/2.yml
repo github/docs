@@ -1,0 +1,28 @@
+date: '2020-03-10'
+sections:
+  security_fixes:
+    - 'パッケージが最新のセキュリティ バージョンに更新されました。 {% comment %} https://github.com/github/enterprise2/pull/19204, https://github.com/github/enterprise2/pull/19187 {% endcomment %}'
+  bugs:
+    - '主に audit.log で、転送されたログ エントリが切り捨てられる場合がありました。 {% comment %} https://github.com/github/enterprise2/pull/19244, https://github.com/github/enterprise2/pull/19192, https://github.com/github/enterprise2/issues/16655 {% endcomment %}'
+    - '一部の有効なライセンスに対して `ghe-license-check` コマンド ライン ユーティリティが "無効なライセンス ファイル" エラーを返し、構成変更が失敗することがありました。 {% comment %} https://github.com/github/enterprise2/pull/19249, https://github.com/github/enterprise2/pull/19185, https://github.zendesk.com/agent/tickets/549903 {% endcomment %}'
+    - 'Alambic 例外ログが syslog によって転送されませんでした。 {% comment %} https://github.com/github/enterprise2/pull/19263, https://github.com/github/enterprise2/pull/19123, https://github.com/github/enterprise2/issues/18734 {% endcomment %}'
+    - '[`org_block event`](https://developer.github.com/v3/activity/events/types/#orgblockevent) が利用できないのに、GitHub Enterprise Server 上の GitHub Apps に表示されていました。 {% comment %} https://github.com/github/github/pull/136227, https://github.com/github/github/pull/135640, https://github.com/github/ecosystem-apps/issues/693 {% endcomment %}'
+    - 'GraphQL のクエリ応答で `ProtectedBranch` オブジェクトの一致しないノード識別子が返されることがあります。 {% comment %} https://github.com/github/github/pull/136376, https://github.com/github/github/pull/136214, https://github.com/github/github/issues/135407 {% endcomment %}'
+    - 'GitHub Connect が使用する GitHub App の認証情報が、期限切れ直後の更新に失敗しました。 {% comment %} https://github.com/github/github/pull/136384, https://github.com/github/github/pull/136259 {% endcomment %}'
+    - 'pull request コメントに対する返信としてコメントを残すと、保留された pull request レビューが作成されてしまうことがありました。 {% comment %} https://github.com/github/github/pull/136454, https://github.com/github/github/pull/133697, https://github.com/github/github/issues/127401 {% endcomment %}'
+    - 'ghe-migrator を使って GitHub.com からエクスポートすると、画像以外の添付ファイルのエクスポートが通知なしに失敗します。 {% comment %} https://github.com/github/github/pull/136487, https://github.com/github/github/pull/134524, https://github.com/github/github/issues/134358 {% endcomment %}'
+    - 'UTF-8 文字があると、pre-receive フックが Web UI で 500 エラーを返しました。 {% comment %} https://github.com/github/github/pull/136699, https://github.com/github/github/pull/136014, https://github.com/github/github/issues/133501 {% endcomment %}'
+  changes:
+    - '` ghe-license-usage  ` コマンド ライン ユーティリティには、新たな `--unencrypted` オプションによるエクスポートされたライセンス利用ファイルの可視化の提供が含まれます。 {% comment %} https://github.com/github/github/pull/136134, https://github.com/github/github/pull/136000 {% endcomment %}'
+  known_issues:
+    - '新たにセットアップされ、ユーザーがいない GitHub Enterprise Server では、攻撃者が最初の管理者ユーザーを作成することができました。 {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタム ファイアウォール規則は、アップグレード中維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 追跡ファイル [Web インターフェイスからアップロードされたファイル](https://github.com/blog/2105-upload-files-to-your-repositories)が誤ってリポジトリに直接追加されます。 {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '同じリポジトリ内の BLOB への固定リンクが含まれ、ファイル パスが 255 文字を超える場合、issue をクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'gist にプッシュするとき、post-receive フックの間に例外がトリガーされることがありました。 {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'バックグラウンド ワーカーの構成がカスタマイズされていると、アップグレードおよび設定の更新が失敗します。 {% comment %} https://github.com/github/enterprise2/issues/19119 {% endcomment %}'
+    - 'GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。 {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '以前のバージョンからのアップグレードのとき、バックグラウンド ジョブ ワーカーが生成されず、pull request のマージなどの重要な機能が動作しないことがあります。(2020-04-07 更新) {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'コマンド ラインでリポジトリにプッシュするとき、セキュリティ アラートが報告されません。(2020-06-23 更新) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '複数の Redis ノードを含むクラスター構成にデプロイすると、依存関係グラフで依存関係が検出されません。(2020-06-30 更新) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - '高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低減される可能性があります。'

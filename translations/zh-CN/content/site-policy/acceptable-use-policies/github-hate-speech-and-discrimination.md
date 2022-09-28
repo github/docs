@@ -9,13 +9,8 @@ topics:
 redirect_from:
   - /github/site-policy/github-hate-speech-and-discrimination
   - /github/site-policy/github-community-guidelines#hate-speech-and-discrimination
-ms.openlocfilehash: f05e10bb8938ed47a6f05ab555c05edd4fab47f0
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556470'
 ---
+
 GitHub 不容忍基于个人或群体的特征（包括年龄、体型、能力、民族、性别认同和表达、经验水平、国籍、个人外表、种族、宗教、性身份或性取向）攻击或宣扬对个人或群体的仇恨言论。 其中包括：
 
 - 基于个人或团体的信仰或上述特征，嘲笑、攻击或排斥他们

@@ -7,6 +7,7 @@
 // [end-readme]
 
 import { stat, readFile, writeFile, readdir } from 'fs/promises'
+import { existsSync, mkdirSync } from 'fs'
 import path from 'path'
 import { program } from 'commander'
 import { execSync } from 'child_process'
@@ -16,13 +17,14 @@ import yaml from 'js-yaml'
 import slugger from 'github-slugger'
 
 import { categoriesWithoutSubcategories } from '../../lib/rest/index.js'
-import getOperations from './utils/get-operations.js'
+import getOperations, { getWebhooks } from './utils/get-operations.js'
 
 const tempDocsDir = path.join(process.cwd(), 'openapiTmp')
 const githubRepoDir = path.join(process.cwd(), '../github')
 const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
 const appsStaticPath = path.join(process.cwd(), 'lib/rest/static/apps')
-const decoratedPath = path.join(process.cwd(), 'lib/rest/static/decorated')
+const restDecoratedPath = path.join(process.cwd(), 'lib/rest/static/decorated')
+const webhooksDecoratedPath = path.join(process.cwd(), 'lib/webhooks/static/decorated')
 const openApiReleasesDir = `${githubRepoDir}/app/api/description/config/releases`
 
 program
@@ -173,10 +175,12 @@ async function decorate() {
 
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
     try {
-      // get all of the operations for a particular version of the openapi
+      // get all of the operations and wehbooks for a particular version of the openapi
       const operations = await getOperations(schema)
-      // process each operation, asynchronously rendering markdown and stuff
+      const webhooks = await getWebhooks(schema)
+      // process each operation and webhook, asynchronously rendering markdown and stuff
       await Promise.all(operations.map((operation) => operation.process()))
+      await Promise.all(webhooks.map((webhook) => webhook.process()))
 
       // For each rest operation that doesn't have an override defined
       // in script/rest/utils/rest-api-overrides.json,
@@ -273,10 +277,64 @@ async function decorate() {
         })
       })
 
-      const filename = path.join(decoratedPath, `${schemaName}.json`).replace('.deref', '')
+      // Create a map of webhooks (e.g. check_run, issues, release) to the
+      // webhook's actions (e.g. created, deleted, etc.).
+      //
+      // Some webhooks like the ping webhook have no action types -- in cases
+      // like this we set a default action of 'default'.
+      //
+      // Example:
+      /*
+        {
+        'branch-protection-rule': {
+          created: Webhook {
+            descriptionHtml: '<p>A branch protection rule was created.</p>',
+            summaryHtml: '<p>This event occurs when there is activity relating to branch protection rules. For more information, see "<a href="https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches">About protected branches</a>." For information about the Branch protection APIs, see <a href="https://docs.github.com/graphql/reference/objects#branchprotectionrule">the GraphQL documentation</a> and <a href="https://docs.github.com/rest/branches/branch-protection">the REST API documentation</a>.</p>\n' +
+              '<p>In order to install this event on a GitHub App, the app must have <code>read-only</code> access on repositories administration.</p>',
+            bodyParameters: [Array],
+            availability: [Array],
+            action: 'created',
+            category: 'branch-protection-rule'
+          },
+          deleted: Webhook {
+            descriptionHtml: '<p>A branch protection rule was deleted.</p>',
+            summaryHtml: '<p>This event occurs when there is activity relating to branch protection rules. For more information, see "<a href="https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches">About protected branches</a>." For information about the Branch protection APIs, see <a href="https://docs.github.com/graphql/reference/objects#branchprotectionrule">the GraphQL documentation</a> and <a href="https://docs.github.com/rest/branches/branch-protection">the REST API documentation</a>.</p>\n' +
+              '<p>In order to install this event on a GitHub App, the app must have <code>read-only</code> access on repositories administration.</p>',
+            bodyParameters: [Array],
+            availability: [Array],
+            action: 'deleted',
+            category: 'branch-protection-rule'
+          },
+          ...
+        }
+      */
+      const categorizedWebhooks = {}
+
+      webhooks.forEach((webhook) => {
+        if (!webhook.action) categorizedWebhooks[webhook.category] = { default: webhook }
+        else if (categorizedWebhooks[webhook.category]) {
+          categorizedWebhooks[webhook.category][webhook.action] = webhook
+        } else {
+          categorizedWebhooks[webhook.category] = {}
+          categorizedWebhooks[webhook.category][webhook.action] = webhook
+        }
+      })
+
+      const webhooksFilename = path
+        .join(webhooksDecoratedPath, `${schemaName}.json`)
+        .replace('.deref', '')
+      const restFilename = path.join(restDecoratedPath, `${schemaName}.json`).replace('.deref', '')
+
       // write processed operations to disk
-      await writeFile(filename, JSON.stringify(operationsByCategory, null, 2))
-      console.log('Wrote', path.relative(process.cwd(), filename))
+      await writeFile(restFilename, JSON.stringify(operationsByCategory, null, 2))
+      console.log('Wrote', path.relative(process.cwd(), restFilename))
+      if (Object.keys(categorizedWebhooks).length > 0) {
+        if (!existsSync(webhooksDecoratedPath)) {
+          mkdirSync(webhooksDecoratedPath)
+        }
+        await writeFile(webhooksFilename, JSON.stringify(categorizedWebhooks, null, 2))
+        console.log('Wrote', path.relative(process.cwd(), webhooksFilename))
+      }
 
       // Create the enabled-for-apps.json file used for
       // https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps

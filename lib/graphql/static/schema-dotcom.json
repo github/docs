@@ -58043,6 +58043,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "failureReason",
           "description": "<p>The reason the migration failed.</p>",
           "type": "String",
@@ -60714,6 +60722,22 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "dashboardResourcePath",
+          "description": "<p>The HTTP path for the Sponsors dashboard for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "dashboardUrl",
+          "description": "<p>The HTTP URL for the Sponsors dashboard for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
           "name": "fullDescription",
           "description": "<p>The full description of the listing.</p>",
           "type": "String!",
@@ -60752,6 +60776,14 @@
           "id": "date",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
         },
         {
           "name": "shortDescription",
@@ -60836,6 +60868,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
         }
       ]
     },
@@ -71213,6 +71253,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "failureReason",

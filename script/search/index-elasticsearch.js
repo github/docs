@@ -18,6 +18,7 @@ import dotenv from 'dotenv'
 import { languageKeys } from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { decompress } from '../../lib/search/compress.js'
+import statsd from '../../lib/statsd.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()
@@ -48,12 +49,10 @@ const shortNames = Object.fromEntries(
 
 const allVersionKeys = Object.keys(shortNames)
 
-const DEFAULT_SOURCE_DIRECTORY = path.join('lib', 'search', 'indexes')
-
 program
   .description('Creates Elasticsearch index from records')
   .option('-v, --verbose', 'Verbose outputs')
-  .addOption(new Option('-V, --version <VERSION...>', 'Specific versions').choices(allVersionKeys))
+  .addOption(new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeys))
   .addOption(
     new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys)
   )
@@ -61,16 +60,17 @@ program
     new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys)
   )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
-  .option(
-    '-s, --source-directory <DIRECTORY>',
-    `Directory where records files are (default ${DEFAULT_SOURCE_DIRECTORY})`
-  )
   .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
+  .argument('<source-directory>', 'where the indexable files are')
   .parse(process.argv)
 
-main(program.opts())
+main(program.opts(), program.args)
 
-async function main(opts) {
+async function main(opts, args) {
+  if (!args.length) {
+    throw new Error('Must pass the source as the first argument')
+  }
+
   if (!opts.elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must passed the elasticsearch URL option or ' +
@@ -102,7 +102,7 @@ async function main(opts) {
   if (verbose) {
     console.log(`Connecting to ${chalk.bold(safeUrlDisplay(node))}`)
   }
-  const sourceDirectory = opts.sourceDirectory || DEFAULT_SOURCE_DIRECTORY
+  const sourceDirectory = args[0]
   try {
     await fs.stat(sourceDirectory)
   } catch (error) {
@@ -285,7 +285,16 @@ async function indexVersion(
     return [{ index: { _index: thisAlias } }, record]
   })
 
-  const bulkResponse = await client.bulk({ refresh: true, body: operations })
+  // It's important to use `client.bulk.bind(client)` here because
+  // `client.bulk` is a meta-function that is attached to the Client
+  // class. Internally, it depends on `this.` even though it's a
+  // free-standing function. So if called indirectly by the `statsd.asyncTimer`
+  // the `this` becomes undefined.
+  const timed = statsd.asyncTimer(client.bulk.bind(client), 'search.bulk_index', [
+    `version:${version}`,
+    `language:${language}`,
+  ])
+  const bulkResponse = await timed({ refresh: true, body: operations })
 
   if (bulkResponse.errors) {
     // Some day, when we're more confident how and why this might happen
@@ -326,7 +335,7 @@ async function indexVersion(
       console.log('Deleting index', index.index)
     }
   }
-
+  console.log('Updating alias actions:', aliasUpdates)
   await client.indices.updateAliases({ body: { actions: aliasUpdates } })
 }
 

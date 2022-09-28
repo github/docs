@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions のメタデータ構文
+title: Metadata syntax for GitHub Actions
 shortTitle: Metadata syntax
-intro: リポジトリでタスクを実行するアクションを作成できます。 アクションには、YAML 構文を使うメタデータ ファイルが必要です。
+intro: You can create actions to perform tasks in your repository. Actions require a metadata file that uses YAML syntax.
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -14,40 +14,36 @@ versions:
   ghec: '*'
 type: reference
 miniTocMaxHeadingLevel: 4
-ms.openlocfilehash: 092b88ee6f5ff876a32d1a179fb8dc9bc1018e2b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147643918'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## {% data variables.product.prodname_actions %}のYAML構文について
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-すべてのアクションにメタデータ ファイルが必要です。 メタデータ ファイル名は、`action.yml` または `action.yaml` である必要があります。 メタデータ ファイル内のデータにより、アクションの入力、出力、実行の構成を定義されます。
+## About YAML syntax for {% data variables.product.prodname_actions %}
 
-アクションのメタデータファイルはYAML構文を使います。 YAML を初めて使用する場合は、「[5 分で学ぶ YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」を参照してください。
+All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
+
+Action metadata files use YAML syntax. If you're new to YAML, you can read "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
 ## `name`
 
-**必須** アクションの名前。 {% data variables.product.prodname_dotcom %} の **[アクション]** タブには `name` が表示され、各ジョブのアクションを視覚的に特定するのに役立ちます。
+**Required** The name of your action. {% data variables.product.prodname_dotcom %} displays the `name` in the **Actions** tab to help visually identify actions in each job.
 
 ## `author`
 
-**省略可能** アクションの作成者の名前。
+**Optional** The name of the action's author.
 
 ## `description`
 
-**必須** アクションの簡単な説明。
+**Required** A short description of the action.
 
 ## `inputs`
 
-**省略可能** 入力パラメーターでは、実行時にアクションで使用するデータを指定できます。 {% data variables.product.prodname_dotcom %}は、inputsパラメータを環境変数として保存します。 大文字が使われているInputsのidは、実行時に小文字に変換されます。 inputsのidには小文字を使うことをおすすめします。
+**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommended using lowercase input ids.
 
-### 例: 入力の指定
+### Example: Specifying inputs
 
-この例では、numOctocatsとoctocatEyeColorという 2つの入力を設定しています。 入力のnumOctocatsは必須ではなく、デフォルトの値は'1'になっています。 入力のoctocatEyeColorは必須であり、デフォルト値を持ちません。 このアクションを使用するワークフロー ファイルでは、`with` キーワードを使って octocatEyeColor の入力値を設定する必要があります。 `with` 構文の詳細については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)」を参照してください。
+This example configures two inputs: numOctocats and octocatEyeColor. The numOctocats input is not required and will default to a value of '1'. The octocatEyeColor input is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for octocatEyeColor. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
 
 ```yaml
 inputs:
@@ -60,43 +56,43 @@ inputs:
     required: true
 ```
 
-ワークフロー ファイル内で入力を指定するか、既定の入力値を使用すると、{% data variables.product.prodname_dotcom %} により、その入力に対して、`INPUT_<VARIABLE_NAME>` という名前の環境変数が作成されます。 作成された環境変数では、入力名を大文字に変換し、空白を `_` 文字に置き換えます。
+When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-アクションが [composite](/actions/creating-actions/creating-a-composite-action) を使用して書き込まれている場合は、自動的に `INPUT_<VARIABLE_NAME>` が取得されません。 変換されない場合は、これらの入力を手動で変更できます。 
+If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually. 
 
-Docker コンテナー アクションの環境変数にアクセスするには、アクション メタデータ ファイルで `args` キーワードを使用して入力を渡す必要があります。 Docker コンテナー アクションのアクション メタデータ ファイルについて詳しくは、「[Docker コンテナー アクションの作成](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)」を参照してください。
+To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[Creating a Docker container action](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)."
 
-たとえば、ワークフローで `numOctocats` および `octocatEyeColor` 入力が定義されている場合は、アクション コードで、`INPUT_NUMOCTOCATS` および `INPUT_OCTOCATEYECOLOR` 環境変数を使用して入力の値を読み取ることができます。
+For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
 
 ### `inputs.<input_id>`
 
-**必須** 入力に関連付ける `string` 識別子。 `<input_id>` の値は、入力のメタデータのマップです。 `<input_id>` は、`inputs` オブジェクト内の一意識別子である必要があります。 `<input_id>` は文字または `_` で始まり、英数字、`-`、あるいは `_` のみを含める必要があります。
+**Required** A `string` identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the `inputs` object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 ### `inputs.<input_id>.description`
 
-**必須** 入力パラメーターの `string` の説明。
+**Required** A `string` description of the input parameter.
 
 ### `inputs.<input_id>.required`
 
-**省略可能** アクションに入力パラメーターが必要かどうかを示す `boolean`。 パラメーターが必要な場合は、`true` に設定します。
+**Optional** A `boolean` to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.
 
 ### `inputs.<input_id>.default`
 
-**省略可能** 既定値を表す `string`。 デフォルト値は、入力パラメーターがワークフローファイルで指定されなかった場合に使われます。
+**Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
 
 ### `inputs.<input_id>.deprecationMessage`
 
-**省略可能** 入力パラメーターが使用されている場合、この `string` は警告メッセージとしてログに記録されます。 この警告で入力が非推奨であることをユーザに通知し、その他の方法を知らせることができます。
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
 
-## Docker コンテナーと JavaScript アクションの `outputs`
+## `outputs` for Docker container and JavaScript actions
 
-**省略可能** 出力パラメーターを使用すると、アクションで設定されるデータを宣言できます。 ワークフローで後に実行されるアクションは、先行して実行されたアクションが設定した出力データを利用できます。  たとえば、2つの入力を加算(x + y = z)するアクションがあれば、そのアクションは他のアクションが入力として利用できる合計値(z)を出力できます。
+**Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
 
 {% data reusables.actions.output-limitations %}
 
-メタデータファイル中でアクション内の出力を宣言しなくても、出力を設定してワークフロー中で利用することはできます。 アクションでの出力の設定については詳しくは、「[{% data variables.product.prodname_actions %} のワークフロー コマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)」を参照してください。
+If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
 
-### 例: Docker コンテナーと JavaScript アクションの出力の宣言
+### Example: Declaring outputs for Docker container and JavaScript actions
 
 ```yaml
 outputs:
@@ -106,19 +102,19 @@ outputs:
 
 ### `outputs.<output_id>`
 
-**必須** 出力に関連付ける `string` 識別子。 `<output_id>` の値は、出力のメタデータのマップです。 `<output_id>` は、`outputs` オブジェクト内の一意識別子である必要があります。 `<output_id>` は文字または `_` で始まり、英数字、`-`、あるいは `_` のみを含める必要があります。
+**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 ### `outputs.<output_id>.description`
 
-**必須** 出力パラメーターの `string` の説明。
+**Required** A `string` description of the output parameter.
 
-## 複合アクションの `outputs`
+## `outputs` for composite actions
 
-**省略可能** `outputs` では `outputs.<output_id>` および `outputs.<output_id>.description` と同じパラメーターが使用されます (「[Docker コンテナーと JavaScript アクションの `outputs`](#outputs-for-docker-container-and-javascript-actions)」を参照) が、`value` トークンも含まれます。
+**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
 
 {% data reusables.actions.output-limitations %}
 
-### 例: 複合アクションの出力の宣言
+### Example: Declaring outputs for composite actions
 
 {% raw %}
 ```yaml
@@ -137,46 +133,46 @@ runs:
 
 ### `outputs.<output_id>.value`
 
-**必須** 出力パラメーターがマップされる値。 これは、`string` またはコンテキスト付きの式に設定できます。 たとえば、`steps` コンテキストを使用して、出力の `value` をステップの出力値に設定できます。
+**Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
 
-コンテキスト構文の使用方法について詳しくは、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
+For more information on how to use context syntax, see "[Contexts](/actions/learn-github-actions/contexts)."
 
 ## `runs`
 
-**必須** これが JavaScript アクション、複合アクション、Docker コンテナー アクションのいずれであるか、およびアクションの実行方法を指定します。
+**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
 
-## JavaScript のアクションの `runs`
+## `runs` for JavaScript actions
 
-**必須** アクションのコードへのパスと、コードの実行に使用されるランタイムを構成します。
+**Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### 例: Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %} の使用
+### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'main.js'
 ```
 
 ### `runs.using`
 
-**必須** [`main`](#runsmain) で指定されたコードを実行するために使用されるランタイム。  
+**Required** The runtime used to execute the code specified in [`main`](#runsmain).  
 
-- Node.js v12{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %} では `node12` を使用。
-- Node.js v16{% endif %} では `node16` を使用。
+- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+- Use `node16` for Node.js v16.{% endif %}
 
 ### `runs.main`
 
-**必須** アクション コードを含むファイル。 [`using`](#runsusing) で指定されたランタイムでこのファイルが実行されます。
+**Required** The file that contains your action code. The runtime specified in [`using`](#runsusing) executes this file.
 
 ### `runs.pre`
 
-**省略可能** `main:` アクションが開始される前に、ジョブの開始時にスクリプトを実行できます。 たとえば、`pre:` を使って必要なセットアップ スクリプトを実行できます。 [`using`](#runsusing) 構文で指定されたランタイムによりこのファイルが実行されます。 `pre:` アクションは常に既定で実行されますが、[`runs.pre-if`](#runspre-if) を使用してこれをオーバーライドすることはできます。
+**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
-この例では、`pre:` アクションによって `setup.js` というスクリプトが実行されます。
+In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -184,11 +180,11 @@ runs:
 
 ### `runs.pre-if`
 
-**省略可能** `pre:` アクションの実行条件を定義できます。 `pre:` アクションは、`pre-if` 内の条件が満たされた場合にのみ実行されます。 設定されていない場合、`pre-if` は既定で `always()` に設定されます。 `pre-if` では、ステータス チェック関数は、アクション自体の状態ではなく、ジョブの状態に対して評価されます。
+**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`. In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
 
-まだステップが実行されていないので、`step` コンテキストは利用できないことに注意してください。
+Note that the `step` context is unavailable, as no steps have run yet.
 
-以下の例では、`cleanup.js` は Linux ベースのランナーでのみ実行されます。
+In this example, `cleanup.js` only runs on Linux-based runners:
 
 ```yaml
   pre: 'cleanup.js'
@@ -197,47 +193,53 @@ runs:
 
 ### `runs.post`
 
-**省略可能** `main:` アクションが完了したら、ジョブの終了時にスクリプトを実行できます。 たとえば、`post:` を使って特定のプロセスを終了させたり、不要なファイルを削除したりできます。 [`using`](#runsusing) 構文で指定されたランタイムによりこのファイルが実行されます。
+**Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
-この例では、`post:` アクションによって `cleanup.js` というスクリプトが実行されます。
+In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
   post: 'cleanup.js'
 ```
 
-`post:` アクションは常に既定で実行されますが、`post-if` を使用してこれをオーバーライドすることはできます。
+The `post:` action always runs by default but you can override this using `post-if`.
 
 ### `runs.post-if`
 
-**省略可能** `post:` アクションの実行条件を定義できます。 `post:` アクションは、`post-if` 内の条件が満たされた場合にのみ実行されます。 設定されていない場合、`post-if` は既定で `always()` に設定されます。 `post-if` では、ステータス チェック関数は、アクション自体の状態ではなく、ジョブの状態に対して評価されます。
+**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`. In `post-if`, status check functions evaluate against the job's status, not the action's own status.
 
-たとえば、この `cleanup.js` は Linux ベースのランナーでのみ実行されます。
+For example, this `cleanup.js` will only run on Linux-based runners:
 
 ```yaml
   post: 'cleanup.js'
   post-if: runner.os == 'linux'
 ```
 
-## 複合アクションの `runs`
+## `runs` for composite actions
 
-**必須** 複合アクションへのパスを構成します。
+**Required** Configures the path to the composite action.
 
 ### `runs.using`
 
-**必須** この値を `'composite'` に設定する必要があります。
+**Required** You must set this value to `'composite'`.
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %} **必須** このアクションで実行する予定のステップ。 これらは、`run` ステップまたは `uses` ステップにすることができます。
-{% else %} **必須** このアクションで実行する予定のステップ。
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+**Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
+{% else %}
+**Required** The steps that you plan to run in this action.
 {% endif %}
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %} **省略可能** 実行するコマンド。 これはインライン、またはアクション リポジトリ内のスクリプトにすることができます。{% else %} **必須** 実行するコマンド。 これはインライン、またはアクション リポジトリ内のスクリプトにすることができます。{% endif %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+**Optional** The command you want to run. This can be inline or a script in your action repository:
+{% else %}
+**Required** The command you want to run. This can be inline or a script in your action repository:
+{% endif %}
 
 {% raw %}
 ```yaml
@@ -249,7 +251,7 @@ runs:
 ```
 {% endraw %}
 
-`$GITHUB_ACTION_PATH` を使用することもできます。
+Alternatively, you can use `$GITHUB_ACTION_PATH`:
 
 ```yaml
 runs:
@@ -259,24 +261,26 @@ runs:
       shell: bash
 ```
 
-詳細については、[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) を参照してください。
+For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %} **省略可能** コマンドを実行するシェル。 [ここに](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)一覧表示されているシェルのいずれかを使用できます。 `run` が設定されている場合は必須です。
-{% else %} **必須** コマンドを実行するシェル。 [ここに](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)一覧表示されているシェルのいずれかを使用できます。 `run` が設定されている場合は必須です。
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
+{% else %}
+**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 #### `runs.steps[*].if`
 
-**省略可能** `if` 条件文を使って、条件が満たされなければ、ステップを実行しないようにすることができます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
+**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{% data reusables.actions.expression-syntax-if %} 詳細については、「[式](/actions/learn-github-actions/expressions)」を参照してください。
+{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-**例: コンテキストの使用**
+**Example: Using contexts**
 
- このステップは、イベントの種類が `pull_request` で、イベント アクションが `unassigned` である場合にのみ実行されます。
+ This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
 
  ```yaml
 steps:
@@ -284,9 +288,9 @@ steps:
     if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
 ```
 
-**例: ステータス チェック関数の使用**
+**Example: Using status check functions**
 
-複合アクションの前のステップが失敗した場合にのみ、`my backup step` が実行されます。 詳細については、「[式](/actions/learn-github-actions/expressions#status-check-functions)」を参照してください。
+The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
 
 ```yaml
 steps:
@@ -300,31 +304,31 @@ steps:
 
 #### `runs.steps[*].name`
 
-**省略可能** 複合ステップの名前。
+**Optional** The name of the composite step.
 
 #### `runs.steps[*].id`
 
-**省略可能** ステップの一意識別子。 `id` を使って、コンテキストのステップを参照することができます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
+**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
 
 #### `runs.steps[*].env`
 
-**省略可能** そのステップのみの環境変数の `map` を設定します。 ワークフローに格納されている環境変数を変更する場合は、複合ステップで `echo "{name}={value}" >> $GITHUB_ENV` を使用します。
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
 
 #### `runs.steps[*].working-directory`
 
-**省略可能** コマンドが実行される作業ディレクトリを指定します。
+**Optional**  Specifies the working directory where the command is run.
 
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 #### `runs.steps[*].uses`
 
-**省略可能** ジョブでステップの一部として実行されるアクションを選択します。 アクションとは、再利用可能なコードの単位です。 ワークフローと同じリポジトリ、パブリック リポジトリ、または[公開されている Docker コンテナー イメージ](https://hub.docker.com/)で定義されているアクションを使用できます。
+**Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
-Git ref、SHA、またはDockerタグ番号を指定して、使用しているアクションのバージョンを含めることを強く推奨します。 バージョンを指定しないと、アクションのオーナーがアップデートを公開したときに、ワークフローが中断したり、予期せぬ動作をしたりすることがあります。
-- リリースされたアクションバージョンのコミットSHAを使用するのが、安定性とセキュリティのうえで最も安全です。
-- 特定のメジャーアクションバージョンを使用すると、互換性を維持したまま重要な修正とセキュリティパッチを受け取ることができます。 ワークフローが引き続き動作することも保証できます。
-- アクションのデフォルトブランチを使用すると便利なこともありますが、別のユーザが破壊的変更を加えた新しいメジャーバージョンをリリースすると、ワークフローが動作しなくなる場合があります。
+We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
+- Using the commit SHA of a released action version is the safest for stability and security.
+- Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
+- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
-一部のアクションでは、[`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) キーワードを使用して設定する必要がある入力が必要です。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
+Some actions require inputs that you must set using the [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
 ```yaml
 runs:
@@ -350,7 +354,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**省略可能** アクションによって定義される入力パラメーターの `map`。 各入力パラメータはキー/値ペアです。 詳しくは、「[例: 入力の指定](#example-specifying-inputs)」をご覧ください。
+**Optional**  A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. For more information, see [Example: Specifying inputs](#example-specifying-inputs).
 
 ```yaml
 runs:
@@ -365,19 +369,19 @@ runs:
 ```
 {% endif %}
 
-{% ifversion ghes > 3.5 or ghae-issue-6573 %}
+{% ifversion ghes > 3.5 or ghae > 3.5 %}
 
 #### `runs.steps[*].continue-on-error`
 
-**省略可能** ステップが失敗したときにアクションが失敗しないようにします。 `true` に設定すれば、このステップが失敗したときにアクションを成功させることができます。
+**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
 
 {% endif %}
 
-## Docker コンテナー アクションの `runs`
+## `runs` for Docker container actions
 
-**必須** Docker コンテナー アクションに使用されるイメージを構成します。
+**Required** Configures the image used for the Docker container action.
 
-### 例: リポジトリでの Dockerfile の使用
+### Example: Using a Dockerfile in your repository
 
 ```yaml
 runs:
@@ -385,7 +389,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### 例: パブリック Docker レジストリ コンテナーの使用
+### Example: Using public Docker registry container
 
 ```yaml
 runs:
@@ -395,15 +399,15 @@ runs:
 
 ### `runs.using`
 
-**必須** この値を `'docker'` に設定する必要があります。
+**Required** You must set this value to `'docker'`.
 
 ### `runs.pre-entrypoint`
 
-**省略可能** `entrypoint` アクションが開始される前にスクリプトを実行できます。 たとえば、`pre-entrypoint:` を使って必要なセットアップ スクリプトを実行できます。 {% data variables.product.prodname_actions %} では `docker run` を使ってこのアクションを起動し、同じベース イメージを使用する新しいコンテナー内でスクリプトを実行します。 つまり、ランタイムの状態はメインの `entrypoint` コンテナーとは異なり、必要な状態はワークスペース、`HOME` で、または `STATE_` 変数としてアクセスされる必要があります。 `pre-entrypoint:` アクションは常に既定で実行されますが、[`runs.pre-if`](#runspre-if) を使用してこれをオーバーライドすることはできます。
+**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
-[`using`](#runsusing) 構文で指定されたランタイムによりこのファイルが実行されます。
+The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
-この例では、`pre-entrypoint:` アクションによって `setup.sh` というスクリプトが実行されます。
+In this example, the `pre-entrypoint:` action runs a script called `setup.sh`:
 
 ```yaml
 runs:
@@ -417,21 +421,21 @@ runs:
 
 ### `runs.image`
 
-**必須** アクションを実行するコンテナーとして使用する Docker イメージ。 値は、Docker のベース イメージ名、ご自分のリポジトリ内のローカル `Dockerfile`、または Docker Hub あるいは別のレジストリ内のパブリック イメージにすることができます。 ご自分のリポジトリにローカルな `Dockerfile` を参照するには、ファイルに `Dockerfile` という名前を付ける必要があり、アクション メタデータ ファイルに対する相対パスを使用する必要があります。 `docker` アプリケーションによってこのファイルが実行されます。
+**Required** The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` local to your repository, the file must be named `Dockerfile` and you must use a path relative to your action metadata file. The `docker` application will execute this file.
 
 ### `runs.env`
 
-**省略可能** コンテナー環境で設定する環境変数のキー/値のマップを指定します。
+**Optional** Specifies a key/value map of environment variables to set in the container environment.
 
 ### `runs.entrypoint`
 
-**省略可能** `Dockerfile` 内の Docker の `ENTRYPOINT` をオーバーライドするか、まだ指定されていない場合は設定します。 `Dockerfile` で `ENTRYPOINT` が指定されていない場合や、`ENTRYPOINT` 命令をオーバーライドする場合は `entrypoint` を使用します。 `entrypoint` を省略すると、Docker の `ENTRYPOINT` 命令で指定したコマンドが実行されます。 Docker の `ENTRYPOINT` 命令には、_shell_ 形式と _exec_ 形式があります。 Docker の `ENTRYPOINT` ドキュメントでは、`ENTRYPOINT` 命令の _exec_ 形式を使用することが推奨されています。
+**Optional** Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Use `entrypoint` when the `Dockerfile` does not specify an `ENTRYPOINT` or you want to override the `ENTRYPOINT` instruction. If you omit `entrypoint`, the commands you specify in the Docker `ENTRYPOINT` instruction will execute. The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction.
 
-`entrypoint` の実行方法について詳しくは、「[{% data variables.product.prodname_actions %} のための Dockerfile サポート](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)」を参照してください。
+For more information about how the `entrypoint` executes, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)."
 
 ### `runs.post-entrypoint`
 
-**省略可能** `runs.entrypoint` アクションが完了したら、クリーンアップ スクリプトを実行できます。 {% data variables.product.prodname_actions %} では `docker run` を使用して、このアクションを起動します。 {% data variables.product.prodname_actions %} ではスクリプトを同じベース イメージを使って新しいコンテナー内で実行するため、ランタイムの状態はメインの `entrypoint` コンテナーとは異なります。 ワークスペース、`HOME` で、または `STATE_` 変数として必要な任意の状態にアクセスできます。 `post-entrypoint:` アクションは常に既定で実行されますが、[`runs.post-if`](#runspost-if) を使用してこれをオーバーライドすることはできます。
+**Optional**  Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because  {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
 
 ```yaml
 runs:
@@ -445,17 +449,17 @@ runs:
 
 ### `runs.args`
 
-**省略可能** Docker コンテナーの入力を定義する文字列の配列。 入力には、ハードコードされた文字列を含めることができます。 {% data variables.product.prodname_dotcom %} により、コンテナーの起動時に `args` がコンテナーの`ENTRYPOINT` に渡されます。
+**Optional** An array of strings that define the inputs for a Docker container. Inputs can include hardcoded strings. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up.
 
-`args` は、`Dockerfile` 内の `CMD` 命令の代わりに使用されます。 ご自分の `Dockerfile` で `CMD` を使用する場合は、以下の優先順のガイドラインを使用してください。
+The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
 
 {% data reusables.actions.dockerfile-guidelines %}
 
-環境変数をアクションに渡す必要がある場合は、変数置換を行えるようアクションがコマンドシェルで実行されていることを確認してください。 たとえば、`entrypoint` 属性が `"sh -c"` に設定されている場合は、`args` がコマンド シェルで実行されます。 あるいは、`Dockerfile` で `ENTRYPOINT` を使用して同じコマンド (`"sh -c"`) を実行する場合は、`args` がコマンド シェルで実行されます。
+If you need to pass environment variables into an action, make sure your action runs a command shell to perform variable substitution. For example, if your `entrypoint` attribute is set to `"sh -c"`, `args` will be run in a command shell. Alternatively, if your `Dockerfile` uses an `ENTRYPOINT` to run the same command (`"sh -c"`), `args` will execute in a command shell.
 
-{% data variables.product.prodname_actions %} での `CMD` 命令の使用について詳しくは、「[{% data variables.product.prodname_actions %} のための Dockerfile サポート](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)」を参照してください。
+For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)."
 
-#### 例: Docker コンテナーの引数の定義
+#### Example: Defining arguments for the Docker container
 
 {% raw %}
 ```yaml
@@ -471,9 +475,9 @@ runs:
 
 ## `branding`
 
-**省略可能**: アクションをパーソナライズして見分けられるようにするために、カラーと [Feather](https://feathericons.com/) アイコンを使ってバッジを作成することができます。 バッジは、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) のアクション名の横に表示されます。
+**Optional** You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. Badges are shown next to your action name in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
-### 例: アクションのブランド化の構成
+### Example: Configuring branding for an action
 
 ```yaml
 branding:
@@ -483,16 +487,16 @@ branding:
 
 ### `branding.color`
 
-バッジの背景カラー。 `white`、`yellow`、`blue`、`green`、`orange`、`red`、`purple`、`gray-dark` のいずれかにすることができます。
+The background color of the badge. Can be one of: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, or `gray-dark`.
 
 ### `branding.icon`
 
-使用する v4.28.0 [Feather](https://feathericons.com/) アイコンの名前。 ブランド アイコンと以下のものは省略されます。
+The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand icons are omitted as well as the following:
 
 <table>
 <tr>
-<td>コーヒー</td>
-<td>列</td>
+<td>coffee</td>
+<td>columns</td>
 <td>divide-circle</td>
 <td>divide-square</td>
 </tr>
@@ -506,7 +510,7 @@ branding:
 <td>meh</td>
 <td>mouse-pointer</td>
 <td>smile</td>
-<td>ツール (tool)</td>
+<td>tool</td>
 </tr>
 <tr>
 <td>x-octagon</td>
@@ -516,7 +520,7 @@ branding:
 </tr>
 </table>
 
-現在サポートされているすべてのアイコンの完全なリストを以下に示します。
+Here is an exhaustive list of all currently supported icons:
 
 <!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
@@ -538,9 +542,9 @@ branding:
 </tr>
 <tr>
 <td>align-right</td>
-<td>アンカー</td>
+<td>anchor</td>
 <td>aperture</td>
-<td>アーカイブ</td>
+<td>archive</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -569,30 +573,30 @@ branding:
 <tr>
 <td>battery-charging</td>
 <td>battery</td>
-<td>battery</td>
-<td>ベル</td>
+<td>bell-off</td>
+<td>bell</td>
 </tr>
 <tr>
-<td>Bluetooth</td>
-<td>太字</td>
+<td>bluetooth</td>
+<td>bold</td>
 <td>book-open</td>
 <td>book</td>
 </tr>
 <tr>
-<td>ブックマーク (bookmark)</td>
+<td>bookmark</td>
 <td>box</td>
 <td>briefcase</td>
-<td>カレンダー</td>
+<td>calendar</td>
 </tr>
 <tr>
 <td>camera-off</td>
-<td>カメラ</td>
-<td>キャスト</td>
+<td>camera</td>
+<td>cast</td>
 <td>check-circle</td>
 </tr>
 <tr>
 <td>check-square</td>
-<td>チェック</td>
+<td>check</td>
 <td>chevron-down</td>
 <td>chevron-left</td>
 </tr>
@@ -606,7 +610,7 @@ branding:
 <td>chevrons-right</td>
 <td>chevrons-up</td>
 <td>circle</td>
-<td>クリップボード</td>
+<td>clipboard</td>
 </tr>
 <tr>
 <td>clock</td>
@@ -629,7 +633,7 @@ branding:
 <tr>
 <td>corner-down-right</td>
 <td>corner-left-down</td>
-<td>corner-left-down</td>
+<td>corner-left-up</td>
 <td>corner-right-down</td>
 </tr>
 <tr>
@@ -657,7 +661,7 @@ branding:
 <td>edit-3</td>
 </tr>
 <tr>
-<td>編集</td>
+<td>edit</td>
 <td>external-link</td>
 <td>eye-off</td>
 <td>eye</td>
@@ -695,7 +699,7 @@ branding:
 <tr>
 <td>hash</td>
 <td>headphones</td>
-<td>ハート</td>
+<td>heart</td>
 <td>help-circle</td>
 </tr>
 <tr>
@@ -705,9 +709,9 @@ branding:
 <td>info</td>
 </tr>
 <tr>
-<td>斜体</td>
-<td>レイヤー</td>
-<td>レイアウト</td>
+<td>italic</td>
+<td>layers</td>
+<td>layout</td>
 <td>life-buoy</td>
 </tr>
 <tr>
@@ -729,7 +733,7 @@ branding:
 <td>maximize</td>
 </tr>
 <tr>
-<td>メニュー</td>
+<td>menu</td>
 <td>message-circle</td>
 <td>message-square</td>
 <td>mic-off</td>
@@ -743,26 +747,26 @@ branding:
 <tr>
 <td>minus-square</td>
 <td>minus</td>
-<td>監視</td>
+<td>monitor</td>
 <td>moon</td>
 </tr>
 <tr>
 <td>more-horizontal</td>
 <td>more-vertical</td>
-<td>移動</td>
+<td>move</td>
 <td>music</td>
 </tr>
 <tr>
 <td>navigation-2</td>
-<td>ナビゲーション</td>
+<td>navigation</td>
 <td>octagon</td>
-<td>パッケージ</td>
+<td>package</td>
 </tr>
 <tr>
 <td>paperclip</td>
 <td>pause-circle</td>
 <td>pause</td>
-<td>パーセント</td>
+<td>percent</td>
 </tr>
 <tr>
 <td>phone-call</td>
@@ -801,16 +805,16 @@ branding:
 <td>rss</td>
 </tr>
 <tr>
-<td>[保存]</td>
+<td>save</td>
 <td>scissors</td>
-<td>検索</td>
-<td>[Send]</td>
+<td>search</td>
+<td>send</td>
 </tr>
 <tr>
 <td>server</td>
 <td>settings</td>
 <td>share-2</td>
-<td>共有</td>
+<td>share</td>
 </tr>
 <tr>
 <td>shield-off</td>
@@ -819,31 +823,31 @@ branding:
 <td>shopping-cart</td>
 </tr>
 <tr>
-<td>シャッフル</td>
-<td>サイド バー●さいどばー○</td>
+<td>shuffle</td>
+<td>sidebar</td>
 <td>skip-back</td>
 <td>skip-forward</td>
 </tr>
 <tr>
 <td>slash</td>
-<td>スライダー</td>
+<td>sliders</td>
 <td>smartphone</td>
-<td>スピーカー</td>
+<td>speaker</td>
 </tr>
 <tr>
 <td>square</td>
-<td>星</td>
+<td>star</td>
 <td>stop-circle</td>
 <td>sun</td>
 </tr>
 <tr>
 <td>sunrise</td>
 <td>sunset</td>
-<td>タブレット</td>
-<td>タグ</td>
+<td>tablet</td>
+<td>tag</td>
 </tr>
 <tr>
-<td>ターゲット (target)</td>
+<td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
 <td>thumbs-down</td>
@@ -864,11 +868,11 @@ branding:
 <td>truck</td>
 <td>tv</td>
 <td>type</td>
-<td>傘</td>
+<td>umbrella</td>
 </tr>
 <tr>
-<td>下線</td>
-<td>ロック解除</td>
+<td>underline</td>
+<td>unlock</td>
 <td>upload-cloud</td>
 <td>upload</td>
 </tr>
@@ -879,7 +883,7 @@ branding:
 <td>user-x</td>
 </tr>
 <tr>
-<td>ユーザー</td>
+<td>user</td>
 <td>users</td>
 <td>video-off</td>
 <td>video</td>
@@ -891,7 +895,7 @@ branding:
 <td>volume-x</td>
 </tr>
 <tr>
-<td>ボリューム</td>
+<td>volume</td>
 <td>watch</td>
 <td>wifi-off</td>
 <td>wifi</td>
