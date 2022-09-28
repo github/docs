@@ -130,10 +130,7 @@ Next, the script gets the current time and sets it as an output variable that ac
   $ git ls-files --stage entrypoint.sh
   ```
 
-If you receive an output like this- <br>
-`100755 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       entrypoint.sh`
-
-it means that the file has the executable permission. (Here `755` denotes the executable permission)
+   An output like `100755 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       entrypoint.sh` means the file has the executable permission. In this example, `755` denotes the executable permission.
 
 ## Creating a README
 
