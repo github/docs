@@ -125,6 +125,9 @@ Next, the script gets the current time and sets it as an output variable that ac
 
   ```shell{:copy}
   $ git update-index —chmod=+x entrypoint.sh
+  ```
+  
+1. Optionally, to check the permission mode of the file in the git index, run the following command.
 
   ```shell{:copy}
   $ git ls-files --stage entrypoint.sh
