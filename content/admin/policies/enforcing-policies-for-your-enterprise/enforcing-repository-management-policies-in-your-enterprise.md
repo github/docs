@@ -108,8 +108,11 @@ If you allow members to create repositories in your organizations, you can choos
   ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
 
 ## Enforcing a policy for forking private or internal repositories
-
 Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
+
+{% ifversion org-owners-limit-forks-creation %}
+People with admin permissions can set a more granular forking policy. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+{% endif %}
 
 {% ifversion enterprise-namespace-repo-setting %}
 {% note %}
@@ -122,8 +125,8 @@ Across all organizations owned by your enterprise, you can allow people with acc
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-3. Under "Repository forking", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Under "Repository forking", use the drop-down menu and choose a policy.
+1. Under "Repository forking", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+2. Under "Repository forking", use the dropdown menu and choose a policy.
 
   ![Drop-down menu with repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
 5. If forking is enabled, you can specify where users are allowed to fork repositories. Review the information about changing the setting and choose a policy.

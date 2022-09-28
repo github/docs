@@ -284,6 +284,7 @@ translations/pt-BR/content/actions/using-workflows/triggering-a-workflow.md,rend
 translations/pt-BR/content/actions/using-workflows/workflow-commands-for-github-actions.md,rendering error
 translations/pt-BR/content/actions/using-workflows/workflow-syntax-for-github-actions.md,rendering error
 translations/pt-BR/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
+translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,rendering error
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise.md,broken liquid tags
@@ -340,6 +341,7 @@ translations/pt-BR/content/code-security/dependabot/dependabot-alerts/editing-se
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,rendering error
+translations/pt-BR/content/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates.md,broken liquid tags
 translations/pt-BR/content/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates.md,rendering error
 translations/pt-BR/content/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions.md,rendering error
@@ -354,6 +356,7 @@ translations/pt-BR/content/code-security/security-overview/about-the-security-ov
 translations/pt-BR/content/code-security/security-overview/viewing-the-security-overview.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
+translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/pt-BR/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-github-codespaces.md,broken liquid tags
@@ -408,10 +411,16 @@ translations/pt-BR/content/codespaces/troubleshooting/troubleshooting-prebuilds.
 translations/pt-BR/content/codespaces/troubleshooting/troubleshooting-your-connection-to-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/troubleshooting/working-with-support-for-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
+translations/pt-BR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
+translations/pt-BR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
+translations/pt-BR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
+translations/pt-BR/content/copilot/quickstart.md,broken liquid tags
 translations/pt-BR/content/developers/apps/building-github-apps/authenticating-with-github-apps.md,rendering error
 translations/pt-BR/content/developers/apps/building-github-apps/managing-allowed-ip-addresses-for-a-github-app.md,rendering error
 translations/pt-BR/content/developers/overview/about-githubs-apis.md,broken liquid tags
 translations/pt-BR/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
+translations/pt-BR/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
+translations/pt-BR/content/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion.md,broken liquid tags
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom.md,broken liquid tags
@@ -432,7 +441,7 @@ translations/pt-BR/content/issues/tracking-your-work-with-issues/filtering-and-s
 translations/pt-BR/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-your-organizations-installed-integrations.md,rendering error
-translations/pt-BR/content/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board.md,broken liquid tags
+translations/pt-BR/content/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository.md,rendering error
@@ -442,6 +451,7 @@ translations/pt-BR/content/organizations/managing-access-to-your-organizations-r
 translations/pt-BR/content/organizations/managing-organization-settings/allowing-project-visibility-changes-in-your-organization.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-organization-settings/disabling-project-boards-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-organization-settings/integrating-jira-with-your-organization-project-board.md,rendering error
+translations/pt-BR/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
@@ -543,6 +553,7 @@ translations/pt-BR/data/reusables/actions/actions-audit-events-workflow.md,rende
 translations/pt-BR/data/reusables/actions/actions-billing.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/actions-do-not-trigger-workflows.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/create-runner-group.md,rendering error
+translations/pt-BR/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/jobs/section-running-jobs-in-a-container.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/ref_name-description.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/reusable-workflow-artifacts.md,rendering error
@@ -609,6 +620,7 @@ translations/pt-BR/data/reusables/pull_requests/resolving-conversations.md,broke
 translations/pt-BR/data/reusables/release-notes/ghas-3.4-secret-scanning-known-issue.md,rendering error
 translations/pt-BR/data/reusables/repositories/changed-files.md,broken liquid tags
 translations/pt-BR/data/reusables/repositories/navigate-to-code-security-and-analysis.md,rendering error
+translations/pt-BR/data/reusables/repositories/navigate-to-commit-page.md,broken liquid tags
 translations/pt-BR/data/reusables/repositories/repository-branches.md,rendering error
 translations/pt-BR/data/reusables/repositories/sidebar-notifications.md,rendering error
 translations/pt-BR/data/reusables/repositories/suggest-changes.md,broken liquid tags

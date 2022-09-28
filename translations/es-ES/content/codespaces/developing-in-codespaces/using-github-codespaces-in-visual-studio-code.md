@@ -78,28 +78,15 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 
 {% data reusables.codespaces.codespaces-machine-types %} You can change the machine type of your codespace at any time.
 
-1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette (`shift command P` / `shift control P`).
-1. Search for and select "Codespaces: Change Machine Type."
+{% note %}
 
-   ![Searching for a branch to create a new {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/vscode-change-machine-type-option.png)
+**Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
 
-1. Click the codespace that you want to change.
+{% endnote %}
 
-   ![Searching for a branch to create a new {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/vscode-change-machine-choose-repo.png)
+{% data reusables.codespaces.changing-machine-type-in-vscode %}
 
-1. Choose the machine type you want to use. 
-
-   {% note %}
-
-   **Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-   {% endnote %}
-
-1. If the codespace is currently running, a message is displayed asking if you would like to restart and reconnect to your codespace now.
-
-   Click **Yes** if you want to change the machine type used for this codespace immediately.
-   
-   If you click **No**, or if the codespace is not currently running, the change will take effect the next time the codespace restarts.
+{% data reusables.codespaces.about-changing-storage-size %}
 
 ## Deleting a codespace in {% data variables.product.prodname_vscode_shortname %}
 

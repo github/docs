@@ -10,7 +10,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import { Client } from '@elastic/elasticsearch'
+import { Client, errors } from '@elastic/elasticsearch'
 import { program, Option } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
@@ -71,13 +71,15 @@ async function main(opts, args) {
     throw new Error('Must pass the source as the first argument')
   }
 
-  if (!opts.elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
+  const { verbose, language, notLanguage, elasticsearchUrl } = opts
+
+  if (!elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must passed the elasticsearch URL option or ' +
         'set the environment variable ELASTICSEARCH_URL'
     )
   }
-  let node = opts.elasticsearchUrl || process.env.ELASTICSEARCH_URL
+  let node = elasticsearchUrl || process.env.ELASTICSEARCH_URL
 
   // Allow the user to lazily set it to `localhost:9200` for example.
   if (!node.startsWith('http') && !node.startsWith('://') && node.split(':').length === 2) {
@@ -89,9 +91,8 @@ async function main(opts, args) {
     if (!parsed.hostname) throw new Error('no valid hostname')
   } catch (err) {
     console.error(chalk.bold('URL for Elasticsearch not a valid URL', err))
+    throw err
   }
-
-  const { verbose, language, notLanguage } = opts
 
   // The notLanguage is useful you want to, for example, index all languages
   // *except* English.
@@ -112,19 +113,41 @@ async function main(opts, args) {
     throw error
   }
 
+  try {
+    await indexAll(node, sourceDirectory, opts)
+  } catch (error) {
+    // If any error is thrown from within the SDK, that error object will
+    // contain a `Connection` object which, when printed, can reveal the
+    // username/password or the base64 Basic auth credentials.
+    // So we want to carefully re-throw it so it only contains the minimal
+    // information for debugging without exposing the Connection credentials
+    // in Actions logs.
+    if (error instanceof errors.ElasticsearchClientError) {
+      // All ElasticsearchClientError error subclasses have a `name` and
+      // `message` but only some have a `meta`.
+      if (error.meta) console.error(error.meta)
+      throw new Error(error.message)
+    }
+    // If any other error happens that isn't from the elasticsearch SDK,
+    // let it bubble up.
+    throw error
+  }
+}
+async function indexAll(node, sourceDirectory, opts) {
   const client = new Client({ node })
+
+  const { version, language, verbose, notLanguage, indexPrefix } = opts
 
   // This will throw if it can't ping
   await client.ping()
 
-  const versionKeys = opts.version || allVersionKeys
+  const versionKeys = version || allVersionKeys
   const languages =
-    opts.language || languageKeys.filter((lang) => !notLanguage || !notLanguage.includes(lang))
+    language || languageKeys.filter((lang) => !notLanguage || !notLanguage.includes(lang))
   if (verbose) {
     console.log(`Indexing on languages ${chalk.bold(languages.join(', '))}`)
   }
 
-  const { indexPrefix } = opts
   const prefix = indexPrefix ? `${indexPrefix}_` : ''
 
   for (const language of languages) {
