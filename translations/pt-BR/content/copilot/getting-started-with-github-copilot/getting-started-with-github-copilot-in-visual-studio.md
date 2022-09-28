@@ -1,83 +1,82 @@
 ---
-title: Introdução ao GitHub Copilot no Visual Studio
+title: Getting started with GitHub Copilot in Visual Studio
 shortTitle: Visual Studio
 product: '{% data reusables.gated-features.copilot %}'
-intro: 'Saiba como instalar o {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vs %},e passar a ver sugestões enquanto escreve comentários e códigos.'
+intro: 'Learn how to install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, and start seeing suggestions as you write comments and code.'
 versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: 1d3c65cf1709ece9ea7b0eae9e6fadaa0df0c7f0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147098022'
 ---
-## Sobre o {% data variables.product.prodname_copilot %} e o Visual Studio
+
+## About {% data variables.product.prodname_copilot %} and Visual Studio
 
 {% data reusables.copilot.procedural-intro %}
 
-Usando o {% data variables.product.prodname_vs %}, você pode ver e incorporar sugestões do {% data variables.product.prodname_copilot %} diretamente no editor. Este guia demonstra como usar o {% data variables.product.prodname_copilot %} dentro do {% data variables.product.prodname_vs %} para Windows.
+If you use {% data variables.product.prodname_vs %}, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor. This guide demonstrates how to use {% data variables.product.prodname_copilot %} within {% data variables.product.prodname_vs %} for Windows.
 
-## Pré-requisitos
+## Prerequisites
 
-Para usar o {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vs %}, você deverá ter o {% data variables.product.prodname_vs %} 2022 17.2 ou posterior instalado. Para obter mais informações, confira a documentação do [IDE do Visual Studio](https://visualstudio.microsoft.com/vs/).
+To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.2 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
 
 {% note %}
 
-**Observação**: o {% data variables.product.prodname_copilot %} não está disponível no momento para uso com Visual Studio para Mac.
+**Note**: {% data variables.product.prodname_copilot %} is not currently available for use with Visual Studio for Mac.
 
 {% endnote %}
 
-## Como instalar a extensão {% data variables.product.prodname_vs %}
+## Installing the {% data variables.product.prodname_vs %} extension
 
-Para usar o {% data variables.product.prodname_copilot %}, você primeiro deve instalar a extensão {% data variables.product.prodname_vs %}.
-1. Na barra de ferramentas do Visual Studio, clique em **Extensões** e em **Gerenciar Extensões**.
-   ![Captura de tela da barra de ferramentas do Visual Studio](/assets/images/help/copilot/visual-studio-toolbar.png)
-1. Na janela "Gerenciar Extensões", clique no **Visual Studio Marketplace**, pesquise a extensão do {% data variables.product.prodname_copilot %} e clique em **Baixar**.
-   ![Captura de tela da extensão do GitHub Copilot para Visual Studio com o botão de download enfatizado](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
-1. Feche a janela "Gerenciar Extensões", saia e inicie {% data variables.product.prodname_vs %}.
-1. Opcionalmente, para verificar se o {% data variables.product.prodname_copilot %} está instalado e habilitado, volte para **Gerenciar Extensões**, clique em **Instalado** para exibir suas extensões instaladas no momento e clique em **{% data variables.product.prodname_copilot %}** para ver informações de status.
-  ![Captura de tela das extensões instaladas no Visual Studio com o GitHub Copilot destacado](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
-1. Abra ou crie um novo projeto no {% data variables.product.prodname_vs %}. 
-1. Na caixa de diálogo "Microsoft {% data variables.product.prodname_vs %}", para copiar o código de ativação do dispositivo, clique em **OK**.
-   ![Captura de tela da caixa de diálogo Microsoft {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-auth-dialogue.png)
-1. Uma janela de ativação do dispositivo será aberta no navegador. Cole o código do dispositivo e clique em **Continuar**.
+To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vs %} extension.
+1. In the Visual Studio toolbar, click **Extensions**, then click **Manage Extensions**.
+   ![Screenshot of the Visual Studio toolbar](/assets/images/help/copilot/visual-studio-toolbar.png)
+1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
+   ![Screenshot of GitHub Copilot extension for Visual Studio with the download button emphasized](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
+1. Close the "Manage Extensions" window, then exit and relaunch {% data variables.product.prodname_vs %}.
+1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information.
+  ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
+1. Open or create a new project in {% data variables.product.prodname_vs %}. 
+1. In the "Microsoft {% data variables.product.prodname_vs %}" dialog box, to copy your device activation code, click **OK**.
+   ![Screenshot of the Microsoft {% data variables.product.prodname_vs %} dialogue box](/assets/images/help/copilot/vs-auth-dialogue.png)
+1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
 
-   - Para colar o código no Windows ou Linux, pressione <kbd>Ctrl</kbd>+<kbd>v</kbd>.
-   - Pra colar o código no macOS, pressione <kbd>comando</kbd>+<kbd>v</kbd>.
-1. O {% data variables.product.prodname_dotcom %} solicitará as permissões necessárias para o {% data variables.product.prodname_copilot %}. Para aprovar essas permissões, clique em **Autorizar o plugin do {% data variables.product.prodname_copilot %}** .
-1. Depois de aprovar as permissões, o {% data variables.product.prodname_vs %} mostrará uma confirmação.
-   ![Captura de tela da confirmação de permissões do {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-confirmation.png)
+   - To paste the code in Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>v</kbd>.
+   - To paste the code in macOS, press <kbd>command</kbd>+<kbd>v</kbd>.
+1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
+1. After you approve the permissions, {% data variables.product.prodname_vs %} will show a confirmation.
+   ![Screenshot of {% data variables.product.prodname_vs %} permissions confirmation](/assets/images/help/copilot/vs-confirmation.png)
 
-## Como ver a primeira sugestão
-{% data reusables.copilot.supported-languages %} Os exemplos a seguir estão em C#, mas as outras linguagens funcionarão da mesma forma.
+## Seeing your first suggestion
+
+{% data reusables.copilot.code-examples-limitations %}
+{% data reusables.copilot.supported-languages %} The following samples are in C#, but other languages will work similarly.
 
 {% data reusables.copilot.create-c-file %}
-1. No arquivo #C, digite a seguinte assinatura de função. O {% data variables.product.prodname_copilot %} sugerirá automaticamente um corpo inteiro da função em texto esmaecido, como é mostrado abaixo. A sugestão exata pode variar.
+1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
   ```csharp{:copy}
   int CalculateDaysBetweenDates(
   ```
-  ![Captura de tela de uma primeira sugestão do Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png) {% data reusables.copilot.accept-suggestion %}
+  ![Screenshot of a first suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png)
+{% data reusables.copilot.accept-suggestion %}
  
-## Como ver sugestões alternativas
-{% data reusables.copilot.alternative-suggestions %} {% data reusables.copilot.create-c-file %}
-1. No arquivo #C, digite a seguinte assinatura de função. {% data variables.product.prodname_copilot %} will show you a suggestion.
+## Seeing alternative suggestions
+{% data reusables.copilot.alternative-suggestions %}
+{% data reusables.copilot.create-c-file %}
+1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will show you a suggestion.
 
    ```csharp{:copy}
    int CalculateDaysBetweenDates(
    ```
-1. Se sugestões alternativas estiverem disponíveis, você poderá ver essas alternativas pressionando <kbd>Alt</kbd>+<kbd>]</kbd> (ou <kbd>Alt</kbd>+<kbd>[</kbd>).
-1. Como opção, você pode focalizar a sugestão para ver a paleta de comandos do {% data variables.product.prodname_copilot %} e escolher sugestões.
+1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
+1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
-## Gerar sugestões de código por meio de comentários
+## Generating code suggestions from comments
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-c-file %}
-1. No arquivo C#, digite o comentário a seguir. O {% data variables.product.prodname_copilot %} sugerirá uma implementação da função.
+1. In the C# file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
    ```csharp{:copy}
    using System.Xml.Linq;
 
@@ -90,6 +89,6 @@ Para usar o {% data variables.product.prodname_copilot %}, você primeiro deve i
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
-## Leitura adicional
+## Further reading
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
