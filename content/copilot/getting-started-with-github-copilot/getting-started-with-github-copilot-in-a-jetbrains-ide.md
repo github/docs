@@ -43,6 +43,8 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 
 ## Seeing your first suggestion
 
+{% data reusables.copilot.code-examples-limitations %}
+
 {% data reusables.copilot.supported-languages %} The following samples are in Java, but other languages will work similarly.
 
 {% data reusables.copilot.create-java-file %}
