@@ -489,7 +489,7 @@ The following example will add a draft issue to your project. Replace `PROJECT_I
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer <em>TOKEN</em>' \
-  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: "<em>PROJECT_ID</em>" title: "<em>TITLE</em>" body: "<em>BODY</em>"}) {projectItem {id}}}"}'
+  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: \"<em>PROJECT_ID</em>\" title: \"<em>TITLE</em>\" body: \"<em>BODY</em>\"}) {projectItem {id}}}"}'
 ```
 {% endcurl %}
 
