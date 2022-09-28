@@ -28,7 +28,6 @@ If you use a Neovim, you can view and incorporate suggestions from {% data varia
 {% data reusables.copilot.install-copilot-in-neovim %}
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Terminal.
 
-         mkdir -p ~/.config/nvim/pack/github/start
          git clone https://github.com/github/copilot.vim \
             ~/.config/nvim/pack/github/start/copilot.vim
 
@@ -42,9 +41,8 @@ If you use a Neovim, you can view and incorporate suggestions from {% data varia
 {% data reusables.copilot.install-copilot-in-neovim %}
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Git Bash.
 
-         mkdir -p ~/.config/nvim/pack/github/start
-         git clone https://github.com/github/copilot.vim \
-            ~/.config/nvim/pack/github/start/copilot.vim
+           git clone https://github.com/github/copilot.vim.git `
+            $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
 
 {% data reusables.copilot.config-enable-copilot-in-neovim %}
 
@@ -56,7 +54,6 @@ If you use a Neovim, you can view and incorporate suggestions from {% data varia
 {% data reusables.copilot.install-copilot-in-neovim %}
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command:
 
-         mkdir -p ~/.config/nvim/pack/github/start
          git clone https://github.com/github/copilot.vim \
             ~/.config/nvim/pack/github/start/copilot.vim
 
