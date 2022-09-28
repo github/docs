@@ -331,6 +331,7 @@
   "/rest/orgs#unblock-a-user-from-an-organization": "/rest/orgs/blocking#unblock-a-user-from-an-organization",
   "/rest/codespaces#list-in-organization": "/rest/codespaces/organizations#list-in-organization",
   "/rest/codespaces#organizations": "/rest/codespaces/organizations",
+  "/rest/codespaces#set-codespaces-billing": "/rest/codespaces/organizations#set-codespaces-billing",
   "/rest/orgs#create-a-custom-role": "/rest/orgs/custom-roles#create-a-custom-role",
   "/rest/orgs#update-a-custom-role": "/rest/orgs/custom-roles#update-a-custom-role",
   "/rest/orgs#delete-a-custom-role": "/rest/orgs/custom-roles#delete-a-custom-role",

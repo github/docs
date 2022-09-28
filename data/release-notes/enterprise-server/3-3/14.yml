@@ -29,3 +29,4 @@ sections:
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+    - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'

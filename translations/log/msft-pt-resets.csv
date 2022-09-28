@@ -269,6 +269,7 @@ translations/pt-BR/content/actions/learn-github-actions/understanding-github-act
 translations/pt-BR/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
 translations/pt-BR/content/actions/publishing-packages/publishing-docker-images.md,rendering error
 translations/pt-BR/content/actions/publishing-packages/publishing-nodejs-packages.md,broken liquid tags
+translations/pt-BR/content/actions/quickstart.md,broken liquid tags
 translations/pt-BR/content/actions/security-guides/automatic-token-authentication.md,rendering error
 translations/pt-BR/content/actions/security-guides/encrypted-secrets.md,rendering error
 translations/pt-BR/content/actions/security-guides/security-hardening-for-github-actions.md,rendering error
@@ -425,11 +426,13 @@ translations/pt-BR/content/get-started/writing-on-github/working-with-advanced-f
 translations/pt-BR/content/graphql/guides/migrating-from-rest-to-graphql.md,broken liquid tags
 translations/pt-BR/content/graphql/overview/about-the-graphql-api.md,broken liquid tags
 translations/pt-BR/content/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects.md,broken liquid tags
+translations/pt-BR/content/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects.md,broken liquid tags
 translations/pt-BR/content/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects.md,broken liquid tags
 translations/pt-BR/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,rendering error
 translations/pt-BR/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-your-organizations-installed-integrations.md,rendering error
+translations/pt-BR/content/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository.md,rendering error
 translations/pt-BR/content/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository.md,rendering error
@@ -485,8 +488,9 @@ translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account.md,broken liquid tags
 translations/pt-BR/content/support/learning-about-github-support/about-github-support.md,rendering error
 translations/pt-BR/data/glossaries/external.yml,broken liquid tags
-translations/pt-BR/data/learning-tracks/code-security.yml,broken liquid tags
 translations/pt-BR/data/release-notes/enterprise-server/2-20/13.yml,broken liquid tags
+translations/pt-BR/data/release-notes/enterprise-server/2-20/15.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/2-21/17.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/2-21/4.yml,broken liquid tags
 translations/pt-BR/data/release-notes/enterprise-server/2-21/6.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/2-22/0.yml,rendering error
@@ -501,6 +505,7 @@ translations/pt-BR/data/release-notes/enterprise-server/3-0/1.yml,rendering erro
 translations/pt-BR/data/release-notes/enterprise-server/3-0/2.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/3-0/22.yml,broken liquid tags
 translations/pt-BR/data/release-notes/enterprise-server/3-0/3.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-1/0.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/3-1/1.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/3-1/14.yml,broken liquid tags
 translations/pt-BR/data/release-notes/enterprise-server/3-1/19.yml,broken liquid tags
@@ -508,8 +513,32 @@ translations/pt-BR/data/release-notes/enterprise-server/3-1/2.yml,rendering erro
 translations/pt-BR/data/release-notes/enterprise-server/3-1/20.yml,broken liquid tags
 translations/pt-BR/data/release-notes/enterprise-server/3-1/4.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/3-2/0-rc1.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-2/0.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-2/12.yml,broken liquid tags
+translations/pt-BR/data/release-notes/enterprise-server/3-2/13.yml,broken liquid tags
+translations/pt-BR/data/release-notes/enterprise-server/3-2/14.yml,broken liquid tags
+translations/pt-BR/data/release-notes/enterprise-server/3-2/17.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/3-3/0-rc1.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-3/0.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-3/1.yml,broken liquid tags
+translations/pt-BR/data/release-notes/enterprise-server/3-3/11.yml,broken liquid tags
+translations/pt-BR/data/release-notes/enterprise-server/3-3/12.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-3/6.yml,broken liquid tags
+translations/pt-BR/data/release-notes/enterprise-server/3-3/7.yml,broken liquid tags
+translations/pt-BR/data/release-notes/enterprise-server/3-3/9.yml,broken liquid tags
 translations/pt-BR/data/release-notes/enterprise-server/3-4/0-rc1.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-4/0.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-4/1.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-4/2.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-4/3.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-4/4.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-4/5.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-4/6.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-4/7.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-4/8.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-5/0-rc1.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-5/4.yml,rendering error
+translations/pt-BR/data/release-notes/enterprise-server/3-6/0-rc1.yml,rendering error
 translations/pt-BR/data/reusables/actions/actions-audit-events-workflow.md,rendering error
 translations/pt-BR/data/reusables/actions/actions-billing.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/actions-do-not-trigger-workflows.md,broken liquid tags
@@ -526,6 +555,7 @@ translations/pt-BR/data/reusables/actions/settings-ui/settings-actions-runner-gr
 translations/pt-BR/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/pt-BR/data/reusables/actions/sidebar-secret.md,rendering error
 translations/pt-BR/data/reusables/actions/usage-workflow-run-time.md,rendering error
+translations/pt-BR/data/reusables/actions/workflow-basic-example-and-explanation.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/workflow-dispatch-inputs.md,rendering error
 translations/pt-BR/data/reusables/advanced-security/secret-scanning-add-custom-pattern-details.md,rendering error
 translations/pt-BR/data/reusables/advanced-security/secret-scanning-create-custom-pattern.md,rendering error
@@ -598,3 +628,4 @@ translations/pt-BR/data/reusables/user-settings/security-analysis.md,rendering e
 translations/pt-BR/data/reusables/user-settings/security.md,rendering error
 translations/pt-BR/data/reusables/user-settings/ssh.md,rendering error
 translations/pt-BR/data/variables/migrations.yml,broken liquid tags
+translations/pt-BR/data/variables/notifications.yml,broken liquid tags

@@ -73,6 +73,10 @@ The Search API does not support queries that:
 
 These search queries will return a "Validation failed" error message.
 
+### Search scope limits
+
+To keep the Search API fast for everyone, we limit the number of repositories a query will search through. The Search API will find up to 4,000 repositories that match your filters and return results from those repositories.
+
 ### Timeouts and incomplete results
 
 To keep the Search API fast for everyone, we limit how long any individual query

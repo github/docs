@@ -283,6 +283,7 @@ translations/es-ES/content/actions/learn-github-actions/understanding-github-act
 translations/es-ES/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
 translations/es-ES/content/actions/publishing-packages/publishing-docker-images.md,rendering error
 translations/es-ES/content/actions/publishing-packages/publishing-nodejs-packages.md,broken liquid tags
+translations/es-ES/content/actions/quickstart.md,broken liquid tags
 translations/es-ES/content/actions/security-guides/automatic-token-authentication.md,rendering error
 translations/es-ES/content/actions/security-guides/encrypted-secrets.md,rendering error
 translations/es-ES/content/actions/security-guides/security-hardening-for-github-actions.md,rendering error
@@ -424,11 +425,13 @@ translations/es-ES/content/get-started/writing-on-github/working-with-advanced-f
 translations/es-ES/content/graphql/guides/migrating-from-rest-to-graphql.md,broken liquid tags
 translations/es-ES/content/graphql/overview/about-the-graphql-api.md,broken liquid tags
 translations/es-ES/content/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects.md,broken liquid tags
+translations/es-ES/content/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects.md,broken liquid tags
 translations/es-ES/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,rendering error
 translations/es-ES/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
 translations/es-ES/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,broken liquid tags
 translations/es-ES/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/es-ES/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-your-organizations-installed-integrations.md,rendering error
+translations/es-ES/content/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board.md,broken liquid tags
 translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization.md,rendering error
 translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository.md,rendering error
 translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository.md,rendering error
@@ -544,6 +547,7 @@ translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runner-gr
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/es-ES/data/reusables/actions/sidebar-secret.md,rendering error
 translations/es-ES/data/reusables/actions/usage-workflow-run-time.md,rendering error
+translations/es-ES/data/reusables/actions/workflow-basic-example-and-explanation.md,broken liquid tags
 translations/es-ES/data/reusables/actions/workflow-dispatch-inputs.md,rendering error
 translations/es-ES/data/reusables/advanced-security/secret-scanning-add-custom-pattern-details.md,rendering error
 translations/es-ES/data/reusables/advanced-security/secret-scanning-create-custom-pattern.md,rendering error
