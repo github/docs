@@ -1,17 +1,11 @@
----
-ms.openlocfilehash: bd2ea7e2ff0c8e9f60c3d011ee30573e3702cbed
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147875606"
----
-{% ifversion ghae %} Para permitir que os executores auto-hospedados se comuniquem com o {% data variables.product.prodname_dotcom %}, adicione o endereço IP ou o intervalo de endereços IP dos seus executores auto-hospedados à lista de IPs permitidos. Para obter mais informações, confira "[Como adicionar um endereço IP permitido](#adding-an-allowed-ip-address)".
-{% else %} {% warning %}
+{% ifversion ghae %}
+To allow your self-hosted runners to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your self-hosted runners to the IP allow list. For more information, see "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
+{% else %}
+{% warning %}
 
-**Aviso**: se você usar uma lista de IPs permitidos e desejar usar o {% data variables.product.prodname_actions %}, use executores auto-hospedados. Para obter mais informações, confira ["Como hospedar seus executores](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
+**Warning**: If you use an IP allow list and would also like to use {% data variables.product.prodname_actions %}, you must use self-hosted runners{% ifversion actions-hosted-runners %} or {% data variables.product.prodname_dotcom %}-hosted larger runners with a static IP address range{% endif %}. For more information, see "[Hosting your own runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)" {% ifversion actions-hosted-runners %} or "[Using larger runners](/actions/using-github-hosted-runners/using-larger-runners)"{% endif %}.
 
 {% endwarning %}
 
-Para permitir que seus executores auto-hospedados se comuniquem com {% data variables.product.prodname_dotcom %}, adicione o endereço IP ou o intervalo de endereços IP dos seus executores auto-hospedados para à lista de permitir IP. Para obter mais informações, confira "[Como adicionar um endereço IP permitido](#adding-an-allowed-ip-address)".
+To allow your self-hosted {% ifversion actions-hosted-runners %}or larger hosted{% endif %} runners to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your runners to the IP allow list. For more information, see "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
 {% endif %}
