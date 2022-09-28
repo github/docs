@@ -26,6 +26,8 @@ For more information about user accounts on {% data variables.product.product_na
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
+3. Under "Which best describes your academic status?", select **Teacher**.
+  ![Select academic status](/assets/images/help/education/academic-status-teacher.png)
 {% data reusables.education.select-email-address %}
 {% data reusables.education.upload-proof-status %}
 {% data reusables.education.school-name %}
