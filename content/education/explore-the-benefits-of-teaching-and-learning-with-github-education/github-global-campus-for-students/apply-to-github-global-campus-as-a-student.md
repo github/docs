@@ -21,7 +21,7 @@ To be eligible for {% data variables.product.prodname_global_campus %}, includin
 - Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)
 - Be at least 13 years old
 
-Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
+Documents that prove your current student status include a picture of your school ID with current enrollment date, passing year ,class schedule, transcript, and affiliation or enrollment verification letter.
 
 During your tenure as a student, you may be prompted to periodically re-verify your current academic status.
 
