@@ -1,4 +1,4 @@
----
+-#8333--
 title: Essential features of GitHub Actions
 shortTitle: Essential features
 intro: '{% data variables.product.prodname_actions %} are designed to help you build robust and dynamic automations. This guide will show you how to craft {% data variables.product.prodname_actions %} workflows that include environment variables, customized scripts, and more.'
@@ -91,12 +91,12 @@ jobs:
         uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: output-log-file
-```
+```#8333/#8334
 
 To download an artifact from the same workflow run, your download job should specify `needs: upload-job-name` so it doesn't start until the upload job finishes.
 
 For more information about artifacts, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
 
-## Next steps
+## Next steps / label 1 / sep.29,2022
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."
