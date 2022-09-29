@@ -87,7 +87,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Request [pull request reviews](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review) | | **✔️** | **✔️** | **✔️** | **✔️** |
 | Merge a [pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges) | | | **✔️** | **✔️** | **✔️** |
 | Push to (write) the person or team's assigned repositories | | | **✔️** | **✔️** | **✔️** |
-| Edit and delete anyone's comments on commits, pull requests, and issues | | | **✔️** | **✔️** | **✔️** |
+| Edit and delete anyone's comments on commits, pull requests, and issues | | | | **✔️** | **✔️** |
 | [Hide anyone's comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments) | | | **✔️** | **✔️** | **✔️** |
 | [Lock conversations](/communities/moderating-comments-and-conversations/locking-conversations) | | | **✔️** | **✔️** | **✔️** |
 | Transfer issues (see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)" for details) |  | | **✔️** | **✔️** | **✔️** |
