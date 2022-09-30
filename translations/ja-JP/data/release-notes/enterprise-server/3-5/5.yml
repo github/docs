@@ -1,27 +1,27 @@
 date: '2022-08-30'
 sections:
   bugs:
-    - リポジトリを一時的なアクセスのためにロック解除したあと、サイト管理者はそのリポジトリ中のセキュリティ製品の設定を管理できませんでした。
-    - 重複したSSHキーがManagement Consoleと`/home/admin/.ssh/authorized_keys`ファイルの両方に現れることがあります。
-    - <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code>にある個人ユーザのためのサイトアドミンページに、GitHub Enterprise Serverのためのものではない機能が含まれていました。
-    - '`ghe-cluster-config-apply`を実行すると、クラスタ内の既存ノードに空の設定がレプリケーションされることがありました。'
-    - '`ghe-config-apply`で開始された設定の実行か完了しなかったり、あるいは`Container count mismatch`エラーを返したりすることがありました。'
-    - GitHub Enterprise Serverインスタンス上の自己署名TLS署名書を更新したあと、Webインターフェースの一部のページのUI要素が表示されませんでした。
-    - Webインターフェースの上部のサイトアドミンバーが、実行中のアプリケーションのバージョンのSHAへの壊れたリンクを含んでいました。
-    - スレッドセーフではないにもかかわらず並行に使われたライブラリのために、バックグラウンドタスクが停止する場合があります。
-    - サイト管理者がGitHub Enterprise Server 3.4に直接アップグレードしていない場合、GitHub Advanced Securityのお客様に対するSecret scanningのアラートがWeb UI及びREST APIから欠落していました。これらのアラートは表示されるようになりました。
-    - ユーザがOrganizationにリポジトリをフォークしたとき、Organizationの長いリストは正しく表示されません。
+    - 一時的なアクセスのためにリポジトリのロックを解除した後、サイト管理者はリポジトリのセキュリティ製品の設定を管理できませんでした。 
+    - 管理コンソールと `/home/admin/.ssh/authorized_keys` ファイルの両方に、重複する管理 SSH キーが表示されることがありました。
+    - "<code>http(s)://<ホスト名>/stafftools/users/<ユーザー名>/admin</code> の個人ユーザー向けサイト管理者ページに、GitHub Enterprise Server には意図されていない機能が含まれました。"  
+    - 場合によっては、`ghe-cluster-config-apply` を実行して空の構成をクラスターの既存のノードにレプリケートできました。 
+    - "`ghe-config-apply` で開始された構成の実行が、完了しないこと、または`Container count mismatch` エラーを返すことがありました。" 
+    - GitHub Enterprise Server インスタンス上の自己署名 TLS 証明書を更新した後、Web インターフェイスの一部のページの UI 要素が表示されませんでした。 
+    - Web インターフェイスの上部のサイト管理者バーに含まれる、現在実行中のアプリケーションのバージョンに対する SHA へのリンクが、壊れていました。 
+    - 場合によっては、スレッドセーフではないにも関わらず同時に使われたライブラリのため、バックグラウンド タスクが停止することがありました。
+    - サイト管理者が GitHub Enterprise Server 3.4 に直接アップグレードしなかった場合、GitHub Advanced Security のお客様に対するシークレット スキャンからのアラートが、Web UI と REST API に表示されませんでした。現在は、アラートが表示されます。
+    - ユーザーがリポジトリを Organization にフォークするとき、Organization の長い一覧が正しくレンダリングされませんでした。
   changes:
-    - 並列化されたログのサニタイズの結果、Support Bundleの生成が速くなりました。Support Bundleに関する詳しい情報については「[GitHub Supportへのデータ提供](/support/contacting-github-support/providing-data-to-github-support)」を参照してください。
-    - '`organization`または`org`ルートを含むAPIは、OrganizationのスラグもしくはIDのいずれかを受け付けるようになりました。以前はAPIはスラグだけを受け付け、そのためにGitHub Advanced Securityのエンドポイントの`Link`ヘッダにはアクセスできなくなっていました。詳しい情報についてはREST APIドキュメンテーションの「[Organizations](https://docs.github.com/rest/orgs/orgs)」を参照してください。'
-    - 'Enterprise Audit logには、`project.create`といったより多くのユーザ生成イベントが含まれるようになりました。REST APIも、`repo.create`といった追加のユーザ生成イベントを返します。詳しい情報については「[EnterpriseのAudit logへのアクセス](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)」及び「[EnterpriseでのAudit log APIの利用](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)」を参照してください。'
-    - 最近更新されたリポジトリで、キャッシュレプリカが一部のGit操作を拒否することがありました。リポジトリキャッシングに関する詳しい情報については「[リポジトリキャッシングについて](/admin/enterprise-management/caching-repositories/about-repository-caching)」を参照してください。
+    - "並列化されたログ サニタイズの結果、サポート バンドルの生成が速くなっています。サポート バンドルについて詳しくは、「[GitHub Support へのデータの提供](/support/contacting-github-support/providing-data-to-github-support)」をご覧ください。"
+    - "`organization` または `org` ルートを含む API が、Organization のスラッグまたは ID を受け取るようになりました。以前の API はスラッグのみを受け取っており、そのために GitHub Advanced Security エンドポイントの `Link` ヘッダーにアクセスできませんでした。詳しくは、REST API のドキュメントの「[組織](https://docs.github.com/rest/orgs/orgs)」をご覧ください。" 
+    - "Enterprise の監査ログに含まれるユーザー生成イベントが増えました (`project.create` など)。REST API からも、追加のユーザー生成イベントが返されます (`repo.create` など)。詳しくは、「[企業の監査ログにアクセスする](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)」と「[Enterprise 用の監査ログ API の使用](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)」をご覧ください。"
+    - "キャッシュ レプリカが、最近更新されたリポジトリでの一部の Git 操作を拒否することがありました。リポジトリのキャッシュについて詳しくは、「[リポジトリのキャッシュについて](/admin/enterprise-management/caching-repositories/about-repository-caching)」をご覧ください。" 
   known_issues:
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
-    - 別のホスト上で取られたバックアップからのアプライアンスのリストア後、Actionsサービスを再起動する必要があります。
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue はクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリのイシューが GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - 別のホストで作成されたバックアップからアプライアンスを復元した後、Actions のサービスを再起動する必要があります。

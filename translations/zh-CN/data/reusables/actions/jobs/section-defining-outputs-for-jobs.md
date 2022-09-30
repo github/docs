@@ -1,10 +1,18 @@
-您可以使用 `jobs.<job_id>.outputs` 为作业创建输出 `map`。 作业输出可用于所有依赖此作业的下游作业。 有关定义作业依赖项的更多信息，请参阅 [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)。
+---
+ms.openlocfilehash: 446bc8429d81d54d38eeaf2852a61d25db17da68
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145186074"
+---
+可以使用 `jobs.<job_id>.outputs` 为作业创建输出的 `map`。 作业输出可用于所有依赖此作业的下游作业。 有关定义作业依赖项的详细信息，请参阅 [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)。
 
 {% data reusables.actions.output-limitations %}
 
-当每个作业结束时，在运行器上评估包含表达式的作业输出。 包含密码的输出在运行器上编辑，不会发送至 {% data variables.product.prodname_actions %}。
+当每个作业结束时，会在运行器上评估包含表达式的作业输出。 包含密码的输出在运行器上编辑，不会发送至 {% data variables.product.prodname_actions %}。
 
-要在依赖的作业中使用作业输出, 您可以使用 `needs` 上下文。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#needs-context)”。
+要在依赖的作业中使用作业输出, 可以使用 `needs` 上下文。 有关详细信息，请参阅“[上下文](/actions/learn-github-actions/contexts#needs-context)”。
 
 ### 示例：定义作业的输出
 

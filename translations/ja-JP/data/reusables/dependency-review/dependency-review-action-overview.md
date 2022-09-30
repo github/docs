@@ -1,3 +1,11 @@
-{% data variables.product.prodname_dependency_review_action %}はPull Requestをスキャンして依存関係の変更を探し、脆弱性があることが知られている新しい依存関係があればエラーを発生させます。 このアクションは、2つのリビジョン間で依存関係を比較し、差異があれば報告するAPIエンドポイントによってサポートされています。
+---
+ms.openlocfilehash: 7e62876e5b30bfe98ea0f74229caf91a8328f4a4
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147773211"
+---
+{% data variables.product.prodname_dependency_review_action %} では、pull request で依存関係の変更をスキャンし、新しい依存関係に既知の脆弱性がある場合にエラーを発生させます。 このアクションは、2 つのリビジョン間の依存関係を比較し、相違点を報告する API エンドポイントによってサポートされます。
 
-For more information about the action and the API endpoint, see the [`dependency-review-action`](https://github.com/actions/dependency-review-action) documentation, and "[Dependency review](/rest/dependency-graph/dependency-review)" in the API documentation.
+アクションと API エンドポイントについて詳しくは、[`dependency-review-action`](https://github.com/actions/dependency-review-action) のドキュメントと、API のドキュメントで「[依存関係の確認](/rest/dependency-graph/dependency-review)」をご覧ください。

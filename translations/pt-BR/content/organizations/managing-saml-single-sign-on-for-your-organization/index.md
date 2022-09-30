@@ -22,7 +22,12 @@ children:
   - /managing-team-synchronization-for-your-organization
   - /accessing-your-organization-if-your-identity-provider-is-unavailable
   - /troubleshooting-identity-and-access-management-for-your-organization
-shortTitle: Gerenciar logon único SAML
+shortTitle: Manage SAML single sign-on
+ms.openlocfilehash: fbceb30af76af31bc3b0ae1361da7c8766971563
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147093123'
 ---
-
 {% data reusables.saml.ghec-only %}

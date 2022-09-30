@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions 的工作流程命令
-shortTitle: 工作流程命令
-intro: 您可以在工作流程或操作代码中运行 shell 命令时使用工作流程命令。
+title: Workflow commands for GitHub Actions
+shortTitle: Workflow commands
+intro: You can use workflow commands when running shell commands in a workflow or in an action's code.
 defaultTool: bash
 redirect_from:
   - /articles/development-tools-for-github-actions
@@ -21,13 +21,13 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 关于工作流程命令
+## About workflow commands
 
-操作可以与运行器机器进行通信，以设置环境变量，其他操作使用的输出值，将调试消息添加到输出日志和其他任务。
+Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
-大多数工作流程命令使用特定格式的 `echo` 命令，而其他工作流程则通过写入文件被调用。 For more information, see "[Environment files](#environment-files)."
+Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see "[Environment files](#environment-files)."
 
-### 示例
+### Example
 
 {% bash %}
 
@@ -47,27 +47,27 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 {% note %}
 
-**注意：**工作流程命令和参数名称不区分大小写。
+**Note:** Workflow command and parameter names are not case-sensitive.
 
 {% endnote %}
 
 {% warning %}
 
-**警告：**如果您使用命令提示符，则使用工作流程命令时忽略双引号字符 (`"`)。
+**Warning:** If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
 
 {% endwarning %}
 
-## 使用工作流程命令访问工具包函数
+## Using workflow commands to access toolkit functions
 
-[actions/toolkit](https://github.com/actions/toolkit) 包括一些可以作为工作流程命令执行的功能。 使用 `::` 语法来运行您的 YAML 文件中的工作流程命令；然后，通过 `stdout` 将这些命令发送给运行器。 例如，不使用代码来设置环境变量，如下所示：
+The [actions/toolkit](https://github.com/actions/toolkit) includes a number of functions that can be executed as workflow commands. Use the `::` syntax to run the workflow commands within your YAML file; these commands are then sent to the runner over `stdout`. For example, instead of using code to set an output, as below:
 
 ```javascript{:copy}
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-### 示例：设置值
+### Example: Setting a value
 
-您可以在工作流程中使用 `set-output` 命令来设置相同的值：
+You can use the `set-output` command in your workflow to set the same value:
 
 {% bash %}
 
@@ -97,36 +97,41 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 {% endpowershell %}
 
-下表显示了在工作流程中可用的工具包功能：
+The following table shows which toolkit functions are available within a workflow:
 
-| 工具包函数                 | 等效工作流程命令                                                   |
-| --------------------- | ---------------------------------------------------------- |
-| `core.addPath`        | 可使用环境文件 `GITHUB_PATH` 访问                                   |
-| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-| `core.notice`         | `notice` 
-{% endif %}
-| `core.error`          | `error`                                                    |
-| `core.endGroup`       | `endgroup`                                                 |
-| `core.exportVariable` | 可使用环境文件 `GITHUB_ENV` 访问                                    |
-| `core.getInput`       | 可使用环境变量 `INPUT_{NAME}` 访问                                  |
-| `core.getState`       | 可使用环境变量 `STATE_{NAME}` 访问                                  |
-| `core.isDebug`        | 可使用环境变量 `RUNNER_DEBUG` 访问                                  |
+| Toolkit function | Equivalent workflow command |
+| ----------------- |  ------------- |
+| `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
+| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+| `core.notice`     | `notice` |{% endif %}
+| `core.error`      | `error` |
+| `core.endGroup`   | `endgroup` |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV` |
+| `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
+| `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
+| `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
 {%- ifversion actions-job-summaries %}
-| `core.summary` | 可使用环境变量 `GITHUB_STEP_SUMMARY` 访问 |
+| `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
 {%- endif %}
-| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
+| `core.saveState`  | `save-state` |
+| `core.setCommandEcho` | `echo` |
+| `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
+| `core.setOutput`  | `set-output` |
+| `core.setSecret`  | `add-mask` |
+| `core.startGroup` | `group` |
+| `core.warning`    | `warning` |
 
-## 设置输出参数
+## Setting an output parameter
 
-设置操作的输出参数。
+Sets an action's output parameter.
 
 ```{:copy}
 ::set-output name={name}::{value}
 ```
 
-（可选）您也可以在操作的元数据文件中声明输出参数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)”。
+Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
 
-### 示例：设置输出参数
+### Example: Setting an output parameter
 
 {% bash %}
 
@@ -144,15 +149,15 @@ Write-Output "::set-output name=action_fruit::strawberry"
 
 {% endpowershell %}
 
-## 设置调试消息
+## Setting a debug message
 
-将调试消息打印到日志。 您可以创建名为 `ACTIONS_STEP_DEBUG`、值为 `true` 的密码，才能在日志中查看通过此命令设置的调试消息。 更多信息请参阅“[启用调试日志记录](/actions/managing-workflow-runs/enabling-debug-logging)”。
+Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
 
 ```{:copy}
 ::debug::{message}
 ```
 
-### 示例：设置调试消息
+### Example: Setting a debug message
 
 {% bash %}
 
@@ -172,9 +177,9 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
-## 设置通知消息
+## Setting a notice message
 
-创建通知消息并将该消息打印到日志。 {% data reusables.actions.message-annotation-explanation %}
+Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
@@ -182,7 +187,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% data reusables.actions.message-parameters %}
 
-### 示例：设置通知消息
+### Example: Setting a notice message
 
 {% bash %}
 
@@ -201,9 +206,9 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 {% endpowershell %}
 {% endif %}
 
-## 设置警告消息
+## Setting a warning message
 
-创建警告消息并将该消息打印到日志。 {% data reusables.actions.message-annotation-explanation %}
+Creates a warning message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::warning file={name},line={line},endLine={endLine},title={title}::{message}
@@ -211,7 +216,7 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% data reusables.actions.message-parameters %}
 
-### 示例：设置警告消息
+### Example: Setting a warning message
 
 {% bash %}
 
@@ -228,9 +233,9 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% endpowershell %}
 
-## 设置错误消息
+## Setting an error message
 
-创建错误消息并将该消息打印到日志。 {% data reusables.actions.message-annotation-explanation %}
+Creates an error message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
@@ -238,7 +243,7 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% data reusables.actions.message-parameters %}
 
-### 示例：设置错误消息
+### Example: Setting an error message
 
 {% bash %}
 
@@ -256,16 +261,16 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% endpowershell %}
 
-## 对日志行分组
+## Grouping log lines
 
-在日志中创建一个可扩展的组。 要创建组，请使用 `group` 命令并指定 `title`。 打印到 `group` 与 `endgroup` 命令之间日志的任何内容都会嵌套在日志中可扩展的条目内。
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
 ```{:copy}
 ::group::{title}
 ::endgroup::
 ```
 
-### 示例：对日志行进行分组
+### Example: Grouping log lines
 
 {% bash %}
 
@@ -299,19 +304,19 @@ jobs:
 
 {% endpowershell %}
 
-![工作流运行日志中的可折叠组](/assets/images/actions-log-group.png)
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
 
-## 在日志中屏蔽值
+## Masking a value in log
 
 ```{:copy}
 ::add-mask::{value}
 ```
 
-屏蔽值可阻止在日志中打印字符串或变量。 用空格分隔的每个屏蔽的词均替换为 `*` 字符。 您可以使用环境变量或字符串作为屏蔽的 `value`。 当您屏蔽某个值时，该值将被视为机密，并将在运行器上进行编辑。 例如，屏蔽某个值后，便无法将该值设置为输出。
+Masking a value prevents a string or variable from being printed in the log. Each masked word separated by whitespace is replaced with the `*` character. You can use an environment variable or string for the mask's `value`. When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
 
-### 示例：屏蔽字符串
+### Example: Masking a string
 
-当您在日志中打印 `"Mona The Octocat"` 时，您将看到 `"***"`。
+When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 
 {% bash %}
 
@@ -335,9 +340,9 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endwarning %}
 
-### 示例：屏蔽环境变量
+### Example: Masking an environment variable
 
-当您在日志中打印变量 `MY_NAME` 或值 `"Mona The Octocat"` 时，您将看到 `"***"` 而不是 `"Mona The Octocat"`。
+When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
 
 {% bash %}
 
@@ -369,19 +374,19 @@ jobs:
 
 {% endpowershell %}
 
-## 停止和启动工作流程命令
+## Stopping and starting workflow commands
 
-停止处理任何工作流程命令。 此特殊命令可让您记录任何内容而不会意外运行工作流程命令。 例如，您可以停止记录以输出带有注释的整个脚本。
+Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
 ```{:copy}
 ::stop-commands::{endtoken}
 ```
 
-要停止处理工作流程命令，请将唯一的令牌传递给 `stop-commands`。 要继续处理工作流程命令，请传递用于停止工作流程命令的同一令牌。
+To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
 {% warning %}
 
-**警告：** 请确保您使用的令牌是随机生成的，且对每次运行唯一。
+**Warning:** Make sure the token you're using is randomly generated and unique for each run.
 
 {% endwarning %}
 
@@ -389,7 +394,7 @@ jobs:
 ::{endtoken}::
 ```
 
-### 示例：停止和启动工作流程命令
+### Example: Stopping and starting workflow commands
 
 {% bash %}
 
@@ -435,22 +440,22 @@ jobs:
 
 {% endpowershell %}
 
-## 回显命令输出
+## Echoing command outputs
 
-启用或禁用工作流程命令的回显。 例如，如果在工作流程中使用 `set-output` 命令，则会设置输出参数，但工作流程运行的日志不会显示命令本身。 如果启用命令回显，则日志将显示该命令，例如 `::set-output name={name}::{value}`。
+Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
 ```{:copy}
 ::echo::on
 ::echo::off
 ```
 
-默认情况下，命令回显处于禁用状态。 但是，如果处理工作流命令时出现任何错误，则会回显该命令。
+Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
 
-`add-mask`、`debug`、`warning` 和 `error` 命令不支持回显，因为它们的输出已经回显到日志。
+The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
 
-还可以通过使用 `ACTIONS_STEP_DEBUG` 密钥打开步骤调试日志记录来启用命令全局回显。 更多信息请参阅“[启用调试日志记录](/actions/managing-workflow-runs/enabling-debug-logging)”。 相比之下，`echo` 工作流程命令允许您在更精细的级别启用命令回显，而不是为存储库中的每个工作流程启用它。
+You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
 
-### 示例：切换命令回显
+### Example: Toggling command echoing
 
 {% bash %}
 
@@ -488,44 +493,44 @@ jobs:
 
 {% endpowershell %}
 
-上面的示例将以下行打印到日志中：
+The example above prints the following lines to the log:
 
 ```{:copy}
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
 
-日志中仅包含第二个 `set-output` 和 `echo` 工作流程命令，因为命令回显仅在运行时启用。 即使它并不总是回显，输出参数在所有情况下都会被设置。
+Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
 
-## 将值发送到 pre 和 post 操作
+## Sending values to the pre and post actions
 
-您可以使用 `save-state` 命令来创建环境变量，以便与工作流程的 `pre:` 或 `post:` 操作共享。 例如，您可以使用 `pre:` 操作创建文件，将该文件位置传给 `main:` 操作，然后使用 `post:` 操作删除文件。 或者，您可以使用 `main:` 操作创建文件，将该文件位置传给 `post:` 操作，然后使用 `post:` 操作删除文件。
+You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
-如果您有多个 `pre:` 或 `post:` 操作，则只能访问使用了 `save-state` 的操作中的已保存值。 有关 `post:` 操作的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)”。
+If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where `save-state` was used. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
 
-`save-state` 命令只能在操作内运行，并且对 YAML 文件不可用。 保存的值将作为环境值存储，带 `STATE_` 前缀。
+The `save-state`  command can only be run within an action, and is not available to YAML files. The saved value is stored as an environment value with the `STATE_` prefix.
 
-此示例使用 JavaScript 运行 `save-state` 命令。 由此生成的环境变量被命名为 `STATE_processID`，带 `12345` 的值：
+This example uses JavaScript to run the `save-state` command. The resulting environment variable is named `STATE_processID` with the value of `12345`:
 
 ```javascript{:copy}
 console.log('::save-state name=processID::12345')
 ```
 
-然后，`STATE_processID` 变量将仅可被用于 `main` 操作下运行的清理脚本。 此示例在 `main` 中运行，并使用 JavaScript 显示分配给 `STATE_processID` 环境变量的值：
+The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
 
 ```javascript{:copy}
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## 环境文件
+## Environment files
 
-在工作流程执行期间，运行器生成可用于执行某些操作的临时文件。 这些文件的路径通过环境变量显示。 写入这些文件时，您需要使用 UTF-8 编码，以确保正确处理命令。 多个命令可以写入同一个文件，用换行符分隔。
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 
 {% powershell %}
 
 {% note %}
 
-**注意：** PowerShell 版本 5.1 及更低版本 (`shell: powershell`) 默认情况下不使用 UTF-8，因此必须指定 UTF-8 编码。 例如：
+**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. For example:
 
 ```yaml{:copy}
 jobs:
@@ -537,7 +542,7 @@ jobs:
           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-PowerShell Core 版本 6 及更高版本 (`shell: pwsh`) 默认使用 UTF-8。 例如：
+PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
 
 ```yaml{:copy}
 jobs:
@@ -553,7 +558,7 @@ jobs:
 
 {% endpowershell %}
 
-## 设置环境变量
+## Setting an environment variable
 
 {% bash %}
 
@@ -565,13 +570,13 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% powershell %}
 
-- 使用 PowerShell 版本 6 及更高版本：
+- Using PowerShell version 6 and higher:
 
   ```pwsh{:copy}
   "{environment_variable_name}={value}" >> $env:GITHUB_ENV
   ```
 
-- 使用 PowerShell 版本 5.1 及更低版本：
+- Using PowerShell version 5.1 and below:
 
   ```powershell{:copy}
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
@@ -579,9 +584,9 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% endpowershell %}
 
-通过定义或更新环境变量并将其写入 `GITHUB_ENV` 环境文件，可以使环境变量用于工作流程作业中的任何后续步骤。 创建或更新环境变量的步骤无法访问新值，但在作业中的所有后续步骤均可访问。 环境变量的名称区分大小写，您可以包含标点符号。 更多信息请参阅“[环境变量](/actions/learn-github-actions/environment-variables)”。
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables)."
 
-### 示例
+### Example
 
 {% bash %}
 
@@ -619,9 +624,9 @@ steps:
 
 {% endpowershell %}
 
-### 多行字符串
+### Multiline strings
 
-对于多行字符串，您可以使用具有以下语法的分隔符。
+For multiline strings, you may use a delimiter with the following syntax. 
 
 ```{:copy}
 {name}<<{delimiter}
@@ -635,9 +640,9 @@ steps:
 
 {% endwarning %}
 
-#### 示例
+#### Example
 
-此示例使用 `EOF` 作为分隔符，并将 `JSON_RESPONSE` 环境变量设置为 `curl` 响应的值。
+This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
 {% bash %}
 
@@ -670,7 +675,7 @@ steps:
 
 {% ifversion actions-job-summaries %}
 
-## 添加作业摘要
+## Adding a job summary
 
 {% bash %}
 
@@ -688,13 +693,13 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-您可以为每个作业设置一些自定义 Markdown，以便将其显示在工作流程运行的摘要页面上。 可以使用作业摘要来显示和分组唯一内容（如测试结果摘要），以便查看工作流程运行结果的用户无需进入日志即可查看与运行相关的重要信息（如失败）。
+You can set some custom Markdown for each job so that it will be displayed on the summary page of a workflow run. You can use job summaries to display and group unique content, such as test result summaries, so that someone viewing the result of a workflow run doesn't need to go into the logs to see important information related to the run, such as failures.
 
-作业摘要支持 [{% data variables.product.prodname_dotcom %} 样式的 Markdown](https://github.github.com/gfm/)，您可以将某个步骤的 Markdown 内容添加到 `GITHUB_STEP_SUMMARY` 环境文件中。 `GITHUB_STEP_SUMMARY` 对于作业中的每个步骤都是唯一的。 有关 `GITHUB_STEP_SUMMARY` 引用的每个步骤的文件的详细信息，请参阅“[环境文件](#environment-files)”。
+Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` is unique for each step in a job. For more information about the per-step file that `GITHUB_STEP_SUMMARY` references, see "[Environment files](#environment-files)."
 
-作业完成后，作业中所有步骤的摘要将组合到单个作业摘要中，并显示在工作流程运行摘要页上。 如果多个作业生成摘要，则作业摘要按作业完成时间排序。
+When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
 
-### 示例
+### Example
 
 {% bash %}
 
@@ -712,13 +717,13 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-![Markdown 摘要示例](/assets/images/actions-job-summary-simple-example.png)
+![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
 
-### 多行 Markdown 内容
+### Multiline Markdown content
 
-对于多行 Markdown 内容，可以使用 `>>` 连续附加当前步骤的内容。 每个附加操作都会自动添加换行符。
+For multiline Markdown content, you can use `>>` to continuously append content for the current step. With every append operation, a newline character is automatically added.
 
-#### 示例
+#### Example
 
 {% bash %}
 
@@ -748,11 +753,11 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-### 覆盖作业摘要
+### Overwriting job summaries
 
-要清除当前步骤的所有内容，可以使用 `>` 覆盖以前添加的任何内容。
+To clear all content for the current step, you can use `>` to overwrite any previously added content.
 
-#### 示例
+#### Example
 
 {% bash %}
 
@@ -776,11 +781,11 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-### 删除作业摘要
+### Removing job summaries
 
-要完全删除当前步骤的摘要，可以删除 `GITHUB_STEP_SUMMARY` 引用的文件。
+To completely remove a summary for the current step, the file that `GITHUB_STEP_SUMMARY` references can be deleted.
 
-#### 示例
+#### Example
 
 {% bash %}
 
@@ -804,17 +809,17 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-步骤完成后，将上传作业摘要，后续步骤无法修改以前上传的 Markdown 内容。 摘要会自动屏蔽可能意外添加的任何机密。 如果作业摘要包含必须删除的敏感信息，则可以删除整个工作流程运行以删除其所有作业摘要。 更多信息请参阅“[删除工作流程运行](/actions/managing-workflow-runs/deleting-a-workflow-run)”。
+After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
 
-### 步骤分隔和限制
+### Step isolation and limits
 
-作业摘要在步骤之间分隔，每个步骤的最大大小限制为 1MiB。 在步骤之间执行分隔，以便单个步骤中可能格式错误的 Markdown 无法破坏后续步骤的 Markdown 呈现。 如果为某个步骤添加的内容超过 1MiB，则该步骤的上传将失败，并且会创建错误注释。 作业摘要的上传失败不影响步骤或作业的整体状态。 每个作业最多显示 20 个步骤中的作业摘要。
+Job summaries are isolated between steps and each step is restricted to a maximum size of 1MiB. Isolation is enforced between steps so that potentially malformed Markdown from a single step cannot break Markdown rendering for subsequent steps. If more than 1MiB of content is added for a step, then the upload for the step will fail and an error annotation will be created. Upload failures for job summaries do not affect the overall status of a step or a job. A maximum of 20 job summaries from steps are displayed per job.
 
 {% endif %}
 
-## 添加系统路径
+## Adding a system path
 
-为系统 `PATH` 变量预先设置一个目录，并自动使其可用于当前作业中的所有后续操作；当前运行的操作无法访问更新的路径变量。 要查看作业的当前定义路径，您可以在步骤或操作中使用 `echo "$PATH"`。
+Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 {% bash %}
 
@@ -831,11 +836,11 @@ echo "{path}" >> $GITHUB_PATH
 
 {% endpowershell %}
 
-### 示例
+### Example
 
 {% bash %}
 
-此示例演示如何将用户 `$HOME/.local/bin` 目录添加到 `PATH`：
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
 
 ```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -845,7 +850,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% powershell %}
 
-此示例演示如何将用户 `$env:HOMEPATH/.local/bin` 目录添加到 `PATH`：
+This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

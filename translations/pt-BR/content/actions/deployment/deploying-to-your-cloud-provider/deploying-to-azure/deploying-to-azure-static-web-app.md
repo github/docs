@@ -1,6 +1,6 @@
 ---
-title: Fazendo a implantação no Azure Static Web App
-intro: Você pode fazer a implantação do seu aplicativo web para o Azure Static Web App como parte dos fluxos de trabalho de implantação contínua (CD).
+title: Deploying to Azure Static Web App
+intro: You can deploy your web app to Azure Static Web App as part of your continuous deployment (CD) workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,40 +16,40 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
-## Introdução
+## Introduction
 
-Este guia explica como usar {% data variables.product.prodname_actions %} para criar e implantar um aplicativo web nos [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).
+This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a web app to [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
-**Observação**: {% data reusables.actions.about-oidc-short-overview %} e "[Configurando OpenID Connect no Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 
 {% endif %}
 
-## Pré-requisitos
+## Prerequisites
 
-Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actions %}, primeiro você precisa concluir as etapas de configuração a seguir:
+Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
 
-1. Crie um Azure Static Web App usando a opção "Outro" para fonte de implantação. Para obter mais informações, consulte "[Início rápido: Criando o seu primeiro site estático no portal do Azure](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)" na documentação do Azure.
+1. Create an Azure Static Web App using the 'Other' option for deployment source. For more information, see "[Quickstart: Building your first static site in the Azure portal](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)" in the Azure documentation. 
 
-2. Crie um segredo chamado `AZURE_STATIC_WEB_APPS_API_TOKEN` com o valor do seu token estático de implantação do aplicativo web. Para mais informações sobre como encontrar seu token de implantação, consulte "[tokens de redefinição de deploy nos Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)" na documentação do Azure.
+2. Create a secret called `AZURE_STATIC_WEB_APPS_API_TOKEN` with the value of your static web app deployment token. For more information about how to find your deployment token, see "[Reset deployment tokens in Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)" in the Azure documentation.
 
-## Criar o fluxo de trabalho
+## Creating the workflow
 
-Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
+Once you've completed the prerequisites, you can proceed with creating the workflow.
 
-O fluxo de trabalho a seguir demonstra como construir e implantar um aplicativo estático do Azure quando há um push para o branch `principal` ou quando um pull request que direciona o `principal` é aberto, sincronizado ou reaberto. O fluxo de trabalho também desativa a implantação de pré-produção correspondente quando um pull request que aponta para o `principal` é fechado.
+The following example workflow demonstrates how to build and deploy an Azure static web app when there is a push to the `main` branch or when a pull request targeting `main` is opened, synchronized, or reopened. The workflow also tears down the corresponding pre-production deployment when a pull request targeting `main` is closed.
 
-Na chave do fluxo de trabalho `env`, altere os seguintes valores:
-- `APP_LOCATION` para o local do seu código de cliente
-- `API_LOCATION` para o local do seu código-fonte da API. Se `API_LOCATION` não é relevante. Você pode excluir a variável e as linhas onde ele é usado.
-- `APP_ARTIFACT_LOCATION` para a localização da saída da compilação do seu código de cliente
+Under the workflow `env` key, change the following values:
+- `APP_LOCATION` to the location of your client code
+- `API_LOCATION` to the location of your API source code. If `API_LOCATION` is not relevant, you can delete the variable and the lines where it is used.
+- `APP_ARTIFACT_LOCATION` to the location of your client code build output
 
-Para obter mais informações sobre esses valores, consulte "[Criar configuração para os Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" na documentação do Azure.
+For more information about these values, see "[Build configuration for Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" in the Azure documentation.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -107,10 +107,10 @@ jobs:
           action: "close"
 ```
 
-## Recursos adicionais
+## Additional resources
 
-Os seguintes recursos também podem ser úteis:
+The following resources may also be useful:
 
-* Para o fluxo de trabalho inicial original, consulte [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) no repositório `starter-workflows` de {% data variables.product.prodname_actions %}.
-* A ação usada para implantar o aplicativo web é a ação oficial do Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy).
-* Para obter mais exemplos de fluxos de trabalho do GitHub Action que fazem a implantação no Azure, consulte o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
+* For the original starter workflow, see [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* The action used to deploy the web app is the official Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) action.
+* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

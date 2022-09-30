@@ -1,33 +1,45 @@
 ---
-title: About single select fields
-shortTitle: Acerca de los campos de selección simple
-intro: You can create single select fields with defined options that can be selected from a dropdown menu.
+title: Acerca de los campos de selección única
+shortTitle: About single select fields
+intro: Puedes crear campos de selección única con opciones definidas que se pueden seleccionar en un menú desplegable.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
   - Projects
+ms.openlocfilehash: 50251608201f6a5e199c235cb0c715449bc99882
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147424335'
 ---
+Puedes filtrar por los campos de selección única si especificas la opción, por ejemplo: `fieldname:option`. Puedes filtrar por varios valores si proporcionas una lista de opciones separadas por comas, por ejemplo: `fieldname:option,option`. Para obtener más información, consulta "[Filtrar proyectos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
 
-You can filter by your single select fields by specifying the option, for example: `fieldname:option`. You can filter for multiple values by providing a comma-separated list of options, for example: `fieldname:option,option`. Para obtener más información, consulta la sección "[Filtrar proyectos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
+Los campos de selección única pueden contener hasta 50 opciones. 
 
-Single select fields can contain up to 50 options.
-
-## Adding a single select field
+## Adición de un campo de selección única
 
 {% data reusables.projects.new-field %}
-1. Select **Single select** ![Screenshot showing the single select option](/assets/images/help/projects-v2/new-field-single-select.png)
-1. Below "Options", type the first option. ![Captura de pantalla que muestra la opción de selección simple](/assets/images/help/projects-v2/single-select-create-with-options.png)
-   - To add additional options, click **Add option**.
-1. Haz clic en **Save ** (guardar). ![Captura de pantalla que muestra el botón de guardar](/assets/images/help/projects-v2/new-field-save.png)
+1. Selecciona **Selección única**
+   ![Captura de pantalla en la que se muestra la opción de selección única](/assets/images/help/projects-v2/new-field-single-select.png)
+1. Debajo de "Opciones", escribe la primera opción.
+   ![Captura de pantalla en la que se muestra la opción de selección única](/assets/images/help/projects-v2/single-select-create-with-options.png)
+   - Para agregar opciones adicionales, haz clic en **Agregar opción**.
+1. Haga clic en **Save**(Guardar).
+   ![Captura de pantalla en la que se muestra el botón Guardar](/assets/images/help/projects-v2/new-field-save.png)
 
-Como alternativa, abre la paleta de comandos del proyecto presionando {% data variables.projects.command-palette-shortcut %} y comienza a escribir "Create new field".
+Como alternativa, presiona {% data variables.projects.command-palette-shortcut %} para abrir la paleta de comandos del proyecto y empieza a escribir "Crear campo".
 
-## Editing a single select field
+## Edición de un campo de selección única
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the single select field you want to adjust. ![Screenshot showing an single select field](/assets/images/help/projects-v2/select-single-select.png)
-1. Edit existing options or click **Add option**. ![Screenshot showing single select options](/assets/images/help/projects-v2/single-select-edit-options.png)
-1. Optionally, to delete an option, click {% octicon "x" aria-label="The x icon" %}. ![Screenshot showing delete button](/assets/images/help/projects-v2/single-select-delete.png)
-1. Click **Save options**. ![Captura de pantalla que muestra el botón de guardar](/assets/images/help/projects-v2/save-options.png)
+1. Haz clic en el nombre del campo de selección única que quieras ajustar.
+   ![Captura de pantalla en la que se muestra un campo de selección única](/assets/images/help/projects-v2/select-single-select.png)
+1. Edita las opciones existentes o haz clic en **Agregar opción**.
+   ![Captura de pantalla en la que se muestran las opciones de selección única](/assets/images/help/projects-v2/single-select-edit-options.png)
+1. Opcionalmente, para eliminar una opción, haz clic en {% octicon "x" aria-label="The x icon" %}.
+   ![Captura de pantalla en la que se muestra el botón Eliminar](/assets/images/help/projects-v2/single-select-delete.png)
+1. Haz clic en **Guardar opciones**.
+   ![Captura de pantalla en la que se muestra el botón Guardar](/assets/images/help/projects-v2/save-options.png)

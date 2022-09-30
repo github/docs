@@ -24,6 +24,7 @@ children:
   - /promoting-or-demoting-a-site-administrator
   - /managing-support-entitlements-for-your-enterprise
   - /viewing-people-in-your-enterprise
+  - /exporting-membership-information-for-your-enterprise
   - /viewing-and-managing-a-users-saml-access-to-your-enterprise
   - /auditing-users-across-your-enterprise
   - /impersonating-a-user
@@ -35,5 +36,11 @@ children:
   - /customizing-user-messages-for-your-enterprise
   - /rebuilding-contributions-data
 shortTitle: Manage users
+ms.openlocfilehash: 9ec6d7dc6822e71ff72542dd6b67ded031a1c44d
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878519'
 ---
 

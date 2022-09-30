@@ -1,6 +1,6 @@
 ---
-title: 对提交签名
-intro: 'You can sign commits locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.'
+title: Signing commits
+intro: You can sign commits locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg
   - /articles/signing-commits-using-gpg
@@ -16,41 +16,41 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
-**提示：**
+**Tips:**
 
-要将您的 Git 客户端配置为默认对本地仓库的提交签名，请在 Git 版本 2.0.0 及更高版本中，运行 `git config commit.gpgsign true`。 要在计算机上的任何本地仓库中默认对所有提交签名，请运行 `git config --global commit.gpgsign true`。
+To configure your Git client to sign commits by default for a local repository, in Git versions 2.0.0 and above, run `git config commit.gpgsign true`. To sign all commits by default in any local repository on your computer, run `git config --global commit.gpgsign true`.
 
-要存储 GPG 密钥密码，以便无需在每次对提交签名时输入该密码，我们建议使用以下工具：
-  - 对于 Mac 用户，[GPG Suite](https://gpgtools.org/) 允许您在 Mac OS 密钥链中存储 GPG 密钥密码。
-  - 对于 Windows 用户，[Gpg4win](https://www.gpg4win.org/) 将与其他 Windows 工具集成。
+To store your GPG key passphrase so you don't have to enter it every time you sign a commit, we recommend using the following tools:
+  - For Mac users, the [GPG Suite](https://gpgtools.org/) allows you to store your GPG key passphrase in the Mac OS Keychain.
+  - For Windows users, the [Gpg4win](https://www.gpg4win.org/) integrates with other Windows tools.
 
-您也可以手动配置 [gpg-agent](http://linux.die.net/man/1/gpg-agent) 以保存 GPG 密钥密码，但这不会与 Mac OS 密钥链（如 ssh 代理）集成，并且需要更多设置。
+You can also manually configure [gpg-agent](http://linux.die.net/man/1/gpg-agent) to save your GPG key passphrase, but this doesn't integrate with Mac OS Keychain like ssh-agent and requires more setup.
 
 {% endtip %}
 
-如果您有多个密钥或尝试使用与您的提交者身份不匹配的密钥对提交或标记签名，应[将您的签名密钥告诉 Git](/articles/telling-git-about-your-signing-key)。
+If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/articles/telling-git-about-your-signing-key).
 
-1. 当本地分支中的提交更改时，请将 S 标志添加到 git commit 命令：
+1. When committing changes in your local branch, add the -S flag to the git commit command:
   ```shell
   $ git commit -S -m <em>"your commit message"</em>
   # Creates a signed commit
   ```
-2. 如果您使用 GPG，则创建提交后，提供您[生成 GPG 密钥](/articles/generating-a-new-gpg-key)时设置的密码。
-3. 在本地完成创建提交后，将其推送到 {% data variables.product.product_name %} 上的远程仓库：
+2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/articles/generating-a-new-gpg-key).
+3. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.product_name %}:
   ```shell
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. 在 {% data variables.product.product_name %} 上，导航到您的拉取请求。
+4. On {% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
-5. 要查看关于已验证签名的更多详细信息，请单击 Verified（已验证）。 ![已签名提交](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+5. To view more detailed information about the verified signature, click Verified.
+![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
-## 延伸阅读
+## Further reading
 
-* "[向 Git 告知您的签名密钥](/articles/telling-git-about-your-signing-key)"
-* "[对标记签名](/articles/signing-tags)"
+* "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
+* "[Signing tags](/articles/signing-tags)"

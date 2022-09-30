@@ -66,18 +66,34 @@ POST / HTTP/2
 Host: HOST
 Accept: */*
 Content-Type: application/json
-GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
-Content-Length: 0123
+GITHUB-PUBLIC-KEY-IDENTIFIER: f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d
+GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIQDfLvT8/zM8F1aB3cM0ZwyeWF1m5YR6IhcUIv1OKQYL0wIgBZ5lVXB3gHK+dT8+xt0WgRVLqvsTPFiDO9QP/7eJ4yE=
+Content-Length: 187
 
-[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt"}]
+[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt","source":"content"}]
 ```
 
 The message body is a JSON array that contains one or more objects with the following contents. When multiple matches are found, {% data variables.product.prodname_dotcom %}  may send a single message with more than one secret match. Your endpoint should be able to handle requests with a large number of matches without timing out.
 
-* **Token**: The value of the secret match.
-* **Type**: The unique name you provided to identify your regular expression.
-* **URL**: The public commit URL where the match was found.
+* **token**: The value of the secret match.
+* **type**: The unique name you provided to identify your regular expression.
+* **url**: The public URL where the match was found (may be empty)
+* **source**: Where the token was found on GitHub.
+
+The list of valid values for `source` are:
+
+* content
+* commit
+* pull_request_description
+* pull_request_comment
+* issue_description
+* issue_comment
+* discussion_body
+* discussion_comment
+* commit_comment
+* gist_content
+* gist_comment
+* unknown
 
 ### Implement signature verification in your secret alert service
 
@@ -106,11 +122,11 @@ POST / HTTP/2
 Host: HOST
 Accept: */*
 content-type: application/json
-GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc=
-Content-Length: 0000
+GITHUB-PUBLIC-KEY-IDENTIFIER: f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d
+GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY=
+Content-Length: 83
 
-[{"token":"some_token","type":"some_type","url":"some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
 ```
 
 **Validation sample in Go**
@@ -133,11 +149,11 @@ import (
 )
 
 func main() {
-  payload := `[{"token":"some_token","type":"some_type","url":"some_url"}]`
+  payload := `[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]`
 
-  kID := "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
+  kID := "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
 
-  kSig := "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
+  kSig := "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
 
   // Fetch the list of GitHub Public Keys
   req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/secret_scanning", nil)
@@ -252,14 +268,14 @@ require 'json'
 require 'base64'
 
 payload = <<-EOL
-[{"token":"some_token","type":"some_type","url":"some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
 EOL
 
 payload = payload
 
-signature = "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
+signature = "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
 
-key_id = "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
+key_id = "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
 
 url = URI.parse('https://api.github.com/meta/public_keys/secret_scanning')
 

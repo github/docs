@@ -1,6 +1,6 @@
 ---
 title: Configurar permisos para agregar colaboradores externos
-intro: 'Para proteger los datos de tu organización y la cantidad de licencias de pago que se utilizan en ella, puedes configurar quién puede agregar colaboradores externos a los repositorios organizacionales.'
+intro: 'Para proteger los datos de tu organización y la cantidad de licencias pagadas que se utilizan en ella, puedes configurar quién puede agregar colaboradores externos a los repositorios que le pertenezcan.'
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
   - /articles/setting-permissions-for-adding-outside-collaborators
@@ -12,26 +12,29 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Configurar la política de colaboradores
+shortTitle: Set collaborator policy
+ms.openlocfilehash: eadf4f805775a99f763ec4df211fe6ea9735dabc
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145119242'
 ---
+Predeterminadamente, cualquiera con acceso administrativo en un repositorio puede invitar a los colaboradores externos a trabajar en el repositorio. Puedes elegir restringir la posibilidad de agregar colaboradores externos solo a los propietarios de la organización.
 
-Predeterminadamente, cualquiera con acceso administrativo en un repositorio puede invitar a los colaboradores externos a trabajar en el repositorio. Puedes elegir restringir la capacidad para agregar colaboradores externos para que solo lo puedan hacer los propietarios de la organización.
+{% ifversion ghec %} {% note %}
 
-{% ifversion ghec %}
-{% note %}
+**Nota:** Solo las organizaciones que usan {% data variables.product.prodname_ghe_cloud %} pueden restringir la capacidad de invitar a colaboradores externos para que sean propietarios de la organización. {% data reusables.enterprise.link-to-ghec-trial %}
 
-**Nota:** Solo las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} pueden restringir la capacidad de invitar colaboradores externos para que solo sean los propietarios de organizaciones. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
-
-{% ifversion ghec %}Si tu organización el pertenece a una cuenta empresarial, no podrás{% else %}No podrás{% endif %}configurar este ajuste para ella en caso de que un propietario de empresa haya configurado una política a nivel empresarial. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}".
+{% ifversion ghec %}Si tu organización es propiedad de una cuenta de empresa y el propietario de la cuenta de empresa ha establecido una directiva en el nivel de empresa, es posible que{% else %}no puedas{% endif %} configurar este valor para tu organización. Para más información, consulta "[Aplicación de directivas de administración de repositorios en tu empresa]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}."
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}{% ifversion ghes < 3.3 %}
-5. En "Repository invitations" (Invitaciones al repositorio), selecciona **Allow members to invite outside collaborators to repositories for this organization** (Permitir que los miembros inviten colaboradores externos a los repositorios para esta organización). ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-old.png){% else %}
-5. Debajo de "Colaboradores externos del repositorio", deselecciona la opción **Permitir que los administradores del repositorio inviten colaboradores externos a los repositorios de esta organización**. ![Checkbox to allow repository administrators to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% endif %}
-6. Haz clic en **Save ** (guardar).
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}{% ifversion ghes < 3.3 %}
+5. En "Invitaciones al repositorio", seleccione **Permitir que los miembros inviten a colaboradores externos a los repositorios para esta organización**.
+   ![Casilla para permitir que los miembros inviten a colaboradores externos a repositorios de la organización](/assets/images/help/organizations/repo-invitations-checkbox-old.png){% else %}
+5. En "Colaboradores externos del repositorio", desactiva **Permitir que los administradores del repositorio inviten a colaboradores externos a repositorios de esta organización**.
+  ![Casilla para permitir que los administradores del repositorio inviten a colaboradores externos a repositorios de la organización](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% endif %}
+6. Haga clic en **Save**(Guardar).

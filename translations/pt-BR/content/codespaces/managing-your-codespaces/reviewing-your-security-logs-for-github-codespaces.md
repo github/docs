@@ -1,7 +1,7 @@
 ---
-title: Revisando seus registros de segurança para o GitHub Codespaces
-shortTitle: Logs de segurança
-intro: 'Você pode usar o log de segurança para revisar todas as ações relacionadas a {% data variables.product.prodname_github_codespaces %}.'
+title: Reviewing your security logs for GitHub Codespaces
+shortTitle: Security logs
+intro: 'You can use the security log to review all actions related to {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -16,14 +16,14 @@ redirect_from:
 
  
 
-## Sobre os logs de segurança de {% data variables.product.prodname_github_codespaces %}
+## About security logs for {% data variables.product.prodname_github_codespaces %}
 
-Quando você executar uma ação relacionada a {% data variables.product.prodname_github_codespaces %} em repositórios pertencentes à sua conta pessoal, você poderá revisar as ações no log de segurança. Para obter informações sobre acesso ao registro, consulte "[Revisar seu log de segurança](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
+When you perform an action related to {% data variables.product.prodname_github_codespaces %} in repositories owned by your personal account, you can review the actions in the security log. For information about accessing the log, see "[Reviewing your security log](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)."
 
-![log de segurança com informações de codespaces](/assets/images/help/settings/codespaces-audit-log.png)
+![security log with Codespaces information](/assets/images/help/settings/codespaces-audit-log.png)
 
-O log de segurança inclui detalhes sobre a ação que ocorreu e quando você aexecutou. Para obter informações sobre ações de {% data variables.product.prodname_codespaces %}, consulte "[ações de categoria de {% data variables.product.prodname_codespaces %}](/github/authenticating-to-github/reviewing-your-security-log#codespaces-category-actions)".
+The security log includes details on what action occurred and when you performed it. For information about {% data variables.product.prodname_github_codespaces %} actions, see "[{% data variables.product.prodname_codespaces %} category actions](/github/authenticating-to-github/reviewing-your-security-log#codespaces-category-actions)".
 
-## Leia mais
+## Further reading
 
-- "[Revisando os logs de auditoria da sua organização para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
+- "[Reviewing your organization's audit logs for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"

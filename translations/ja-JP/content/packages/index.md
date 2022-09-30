@@ -38,6 +38,11 @@ children:
   - /learn-github-packages
   - /working-with-a-github-packages-registry
   - /managing-github-packages-using-github-actions-workflows
+ms.openlocfilehash: 768e5ea20b7e4242afe7a8880982052ff818df63
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147704932'
 ---
-
 <!--This section is needed to determine the order of the left sidebar for now-->

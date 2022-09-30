@@ -1,4 +1,4 @@
-{%- ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
+{%- ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}

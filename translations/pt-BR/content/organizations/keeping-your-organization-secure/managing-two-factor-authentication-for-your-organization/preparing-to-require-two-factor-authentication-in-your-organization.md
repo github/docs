@@ -12,15 +12,20 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Prepare-se para exigir 2FA
+shortTitle: Prepare to require 2FA
+ms.openlocfilehash: 67083113143145a6de7bba5412568609414f12a8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126492'
 ---
-
-Recomendamos que você notifique os {% ifversion fpt or ghec %}integrantes, colaboradores externos e gerentes de cobrança da organização{% else %}integrantes e colaboradores externos da organização{% endif %} no mínimo uma semana antes de você exigir a 2FA na organização.
+Recomendamos que você notifique {% ifversion fpt or ghec %}os membros da organização, os colaboradores externos e os gerentes de cobrança{% else %}os membros da organização e os colaboradores externos{% endif %} pelo menos uma semana antes de exigir a 2FA na sua organização.
 
 Se você exigir o uso da autenticação de dois fatores na organização, os integrantes, colaboradores externos e gerentes de cobrança (inclusive contas bots) que não usam 2FA serão removidos da organização e perderão acesso aos repositórios dela. Eles também perderão acesso às bifurcações dos repositórios privados da organização.
 
 Antes de exigir 2FA na organização, recomendamos que você:
-  - [Habilite a 2FA](/articles/securing-your-account-with-two-factor-authentication-2fa/) em sua conta pessoal
+  - [Habilite a 2FA](/articles/securing-your-account-with-two-factor-authentication-2fa/) na sua conta pessoal
   - Solicite às pessoas da organização para configurar 2FA na conta delas
-  - Verifique se [os usuários na organização têm a 2FA habilitada](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled/)
+  - Veja se [os usuários da sua organização têm a 2FA habilitada](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled/)
   - Alerte os usuários que assim que a 2FA estiver habilitada, aqueles que não a tiverem habilitado serão automaticamente removidos da organização

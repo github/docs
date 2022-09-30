@@ -1,6 +1,6 @@
 ---
-title: 将学习管理系统连接到 GitHub Classroom
-intro: '您可以配置 LTI 兼容的学习管理系统 (LMS) 连接到 {% data variables.product.prodname_classroom %}，以便导入用于课堂的名册。'
+title: Connect a learning management system to GitHub Classroom
+intro: 'You can configure an LTI-compliant learning management system (LMS) to connect to {% data variables.product.prodname_classroom %} so that you can import a roster for your classroom.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}. {% data reusables.classroom.classroom-admins-link %}'
@@ -12,18 +12,17 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/setup-generic-lms
   - /education/manage-coursework-with-github-classroom/setup-moodle
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
-shortTitle: 连接 LMS
+shortTitle: Connect an LMS
 ---
+## About configuration of your LMS
 
-## 关于 LMS 的配置
+You can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %}, and {% data variables.product.prodname_classroom %} can import a roster of student identifiers from the LMS. To connect your LMS to {% data variables.product.prodname_classroom %}, you must enter configuration credentials for {% data variables.product.prodname_classroom %} in your LMS.
 
-您可以将学习管理系统 (LMS) 连接到 {% data variables.product.prodname_classroom %}，然后 {% data variables.product.prodname_classroom %} 可以从 LMS 导入学生标识符名册。 若要将 LMS 连接到 {% data variables.product.prodname_classroom %}，必须在 LMS 中输入 {% data variables.product.prodname_classroom %} 的配置凭据。
+## Prerequisites
 
-## 基本要求
+To configure an LMS to connect to {% data variables.product.prodname_classroom %}, you must first create a classroom. For more information, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)."
 
-要配置 LMS 连接到 {% data variables.product.prodname_classroom %}，您必须先创建一个教室。 更多信息请参阅“[管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)”。
-
-## 支持的 LMSes
+## Supported LMSes
 
 {% note %}
 
@@ -33,9 +32,9 @@ Support for the latest version of Learning Tools Interoperability, [LTI 1.3](htt
 
 {% endnote %}
 
-LTI 是一个行业标准协议，GitHub Classroom 对 LTI 的使用得到了教学管理系统 (IMS) 全球学习联盟的认证。 更多信息请参阅[学习工具互操作性](https://www.imsglobal.org/activity/learning-tools-interoperability)和 IMS 全球学习联盟网站上的[关于 IMS 全球学习联盟](http://www.imsglobal.org/aboutims.html)。
+LTI is an industry-standard protocol and GitHub Classroom's use of LTI is certified by the Instructional Management System (IMS) Global Learning Consortium. For more information, see [Learning Tools Interoperability](https://www.imsglobal.org/activity/learning-tools-interoperability) and [About IMS Global Learning Consortium](http://www.imsglobal.org/aboutims.html) on the IMS Global Learning Consortium website.
 
-{% data variables.product.company_short %} 测试了名册数据从以下 LMS 到 {% data variables.product.prodname_classroom %} 的导入。
+{% data variables.product.company_short %} has tested import of roster data from the following LMSes into {% data variables.product.prodname_classroom %}.
 
 - Google Classroom
 
@@ -45,10 +44,11 @@ LTI 是一个行业标准协议，GitHub Classroom 对 LTI 的使用得到了教
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
-1. 如果您的教室已有名册，您可以更新名册或删除名册并创建新的名册。
-    - 有关删除和创建名册的更多信息，请参阅“[删除教室名册](/education/manage-coursework-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)”和“[创建教室名册](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)”。
-    - 有关更新名册的更多信息，请参阅“[将学生添加到教室的名册](/education/manage-coursework-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)”。
-1. In the list of LMSes, click Google Classroom. ![Google Classroom](/assets/images/help/classroom/classroom-settings-click-google-classroom.png)
+1. If your classroom already has a roster, you can either update the roster or delete the roster and create a new roster.
+    - For more information about deleting and creating a roster, see "[Deleting a roster for a classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)" and "[Creating a roster for your classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
+    - For more information about updating a roster, see "[Adding students to the roster for your classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)."
+1. In the list of LMSes, click Google Classroom.
+  ![Google Classroom](/assets/images/help/classroom/classroom-settings-click-google-classroom.png)
 1. Sign in to Google, then select the Classroom to link to.
 
 
@@ -58,10 +58,12 @@ Connecting to other LMSes is temporarily unavailable as {% data variables.produc
 
 In the meantime, you may manually input your roster for your class. For more information about manually importing the roster from your LMS into {% data variables.product.prodname_classroom %}, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
 
-## 断开 LMS 连接
+## Disconnecting your LMS
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-settings %}
-1. 在“Connect to a learning management system (LMS)（连接到学习管理系统 [LMS]）”下，单击 **Connection Settings（连接设置）**。 ![教室设置中的"连接设置"链接](/assets/images/help/classroom/classroom-settings-click-connection-settings.png)
-1. 在“Delete Connection to your learning management system（删除与学习管理系统的连接）”下，单击 **Disconnect from your learning management system（断开与学习管理系统的连接）**。 ![教室连接设置中的"从学习管理系统断开连接"按钮](/assets/images/help/classroom/classroom-settings-click-disconnect-from-your-lms-button.png)
+1. Under "Connect to a learning management system (LMS)", click **Connection Settings**.
+  !["Connection settings" link in classroom settings](/assets/images/help/classroom/classroom-settings-click-connection-settings.png)
+1. Under "Delete Connection to your learning management system", click **Disconnect from your learning management system**.
+  !["Disconnect from your learning management system" button in connection settings for classroom](/assets/images/help/classroom/classroom-settings-click-disconnect-from-your-lms-button.png)

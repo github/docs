@@ -1,6 +1,6 @@
 ---
-title: Roles in an organization
-intro: Organization owners can assign roles to individuals and teams giving them different sets of permissions in the organization.
+title: Roles en una organización
+intro: 'Los propietarios de las organizaciones pueden asignar roles a los individuos y equipos, otorgándoles diferentes conjuntos de permisos en la organización.'
 redirect_from:
   - /articles/permission-levels-for-an-organization-early-access-program
   - /articles/permission-levels-for-an-organization
@@ -15,220 +15,223 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
+ms.openlocfilehash: d8d07ff40026de0d12fce2e11479c424b781680a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147061742'
 ---
-## About roles
+## Acerca de los roles
 {% data reusables.organizations.about-roles %}
 
-Repository-level roles give organization members, outside collaborators and teams of people varying levels of access to repositories. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Los roles a nivel de repositorio otorgan a los miembros de las organizaciones, colaboradores externos y equipos de personas niveles variables de acceso a dichos repositorios. Para más información, vea "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
-Team-level roles are roles that give permissions to manage a team. You can give any individual member of a team the team maintainer role, which gives the member a number of administrative permissions over a team. For more information, see "[Assigning the team maintainer role to a team member](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)."
+Los roles a nivel de equipo son roles que otorgan permisos para administrar a un equipo. Puedes otorgar el rol de mantenedor de equipo a cualquier miembro individual de uno de ellos, lo cual les otorga cierto número de permisos administrativos sobre dicho equipo. Para más información, vea "[Asignación del rol de mantenedor de equipo a un miembro del equipo](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)".
 
-Organization-level roles are sets of permissions that can be assigned to individuals or teams to manage an organization and the organization's repositories, teams, and settings. For more information about all the roles available at the organization level, see "[About organization roles](#about-organization-roles)."
+Los roles a nivel de organización son conjuntos de permisos que se pueden asignar a individuos o equipos para que administren una organización y los ajustes, equipos y repositorios en ella. Para obtener más información sobre todos los roles disponibles a nivel organizacional, vea "[Acerca de los roles de organización](#about-organization-roles)".
 
-## About organization roles
+## Acerca de los roles en las organizaciones
 
-You can assign individuals or teams to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
+Puedes asignar personas o equipos a diversos roles a nivel de una organización para controlar el acceso de estos a la misma y a sus recursos. Para obtener más detalles sobre los permisos individuales que se incluyen en cada rol, consulte "[Permisos para los roles organizacionales](#permissions-for-organization-roles)".
 
-{% ifversion enterprise-owner-join-org %}
-If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+{% ifversion enterprise-owner-join-org %} Si tu organización es propiedad de una cuenta empresarial, los propietarios de la empresa pueden elegir unirse a la organización con cualquier rol. Para obtener más información, consulte "[Administración de su rol en una organización que pertenece a su empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
 {% endif %}
 
-### Organization owners
-Organization owners have complete administrative access to your organization. This role should be limited, but to no less than two people, in your organization. For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
+### Propietarios de la organización
+Los propietarios de las organizaciones tienen acceso administrativo integral en tu organización. Este rol debe limitarse a dos personas, por lo mucho, en tu organización. Para obtener más información, consulte "[Mantenimiento de la continuidad de la propiedad para la organización](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)".
 
-### Organization members
-The default, non-administrative role for people in an organization is the organization member. By default, organization members have a number of permissions, including the ability to create repositories and project boards.
+### Miembros de la organización
+El rol no administrativo predeterminado para las personas en una organización es el miembro de la misma. Predeterminadamente, los miembros de las organizaciones tienen varios permisos, incluyendo la capacidad de crear repositorios y tableros de proyecto.
 
 {% ifversion fpt or ghec %}
-### Organization moderators
-Moderators are organization members who, in addition to their permissions as members, are allowed to block and unblock non-member contributors, set interaction limits, and hide comments in public repositories owned by the organization. For more information, see "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)."
+### Moderadores de la organización
+Los moderadores son miembros de la organización que, además de sus permisos como miembros, pueden bloquear y desbloquear a colaboradores que no son miembros, establecer límites de interacción y ocultar comentarios en repositorios públicos que son propiedad de la organización. Para obtener más información, consulte "[Administración de moderadores en la organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)".
 
-### Billing managers
-Billing managers are users who can manage the billing settings for your organization, such as payment information. This is a useful option if members of your organization don't usually have access to billing resources. For more information, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+### Gerentes de facturación
+Los gerentes de facturación son usuarios que pueden administrar los ajustes de facturación de tu organización, tales como la información de pago. Esta es una opción útil si los miembros de tu organización normalmente no tienen acceso a los recursos de facturación. Para obtener más información, consulte "[Adición de un administrador de facturación a la organización](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)".
 
 {% endif %}
 
 {% ifversion security-managers %}
-### Security managers
+### Administradores de seguridad
 
 {% data reusables.organizations.security-manager-beta-note %}
 
 {% data reusables.organizations.about-security-managers %}
 
-If your organization has a security team, you can use the security manager role to give members of the team the least access they need to the organization. For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+Si tu organización tiene un equipo de seguridad, puedes utilizar el rol de administrador de seguridad para otorgar a los miembros del equipo el menor acceso posible a la organización necesario. Para obtener más información, consulte "[Administración de los administradores de seguridad en la organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)".
 {% endif %}
-### {% data variables.product.prodname_github_app %} managers
-By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
+### {% data variables.product.prodname_github_app %} administadores
+Predeterminadamente, solo los propietarios de la organización pueden administrar la configuración de las {% data variables.product.prodname_github_apps %} que pertenezcan a una organización. Para permitir que más usuarios administren las {% data variables.product.prodname_github_apps %} que le pertenecen a una organización, un propietario puede otorgarles permisos de administrador de {% data variables.product.prodname_github_app %}.
 
-When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_apps %} owned by the organization. For more information, see:
+Cuando designas un usuario como administrador de {% data variables.product.prodname_github_app %} en tu organización, puedes otorgarle acceso para administrar las configuraciones de algunas o todas las {% data variables.product.prodname_github_apps %} que le pertenecen a la organización. Para más información, consulte:
 
-- "[Adding GitHub App managers in your organization](/articles/adding-github-app-managers-in-your-organization)"
-- "[Removing GitHub App managers from your organization](/articles/removing-github-app-managers-from-your-organization)"
+- "[Adición de administradores de aplicaciones de GitHub en la organización](/articles/adding-github-app-managers-in-your-organization)"
+- "[Eliminación de administradores de aplicaciones de GitHub de la organización](/articles/removing-github-app-managers-from-your-organization)"
 
-### Outside collaborators
-To keep your organization's data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
+### Colaboradores externos
+Para mantener seguros los datos de su organización y, al mismo tiempo, permitir el acceso a los repositorios, puede agregar *colaboradores externos*. {% data reusables.organizations.outside_collaborators_description %}
 
-## Permissions for organization roles
+## Permisos para los roles organizacionales
 
-{% ifversion fpt %}
-Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
-{% endif %}
+{% ifversion fpt %} Algunas de las características siguientes se limitan a las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %} {% endif %}
 
 {% ifversion fpt or ghec %}
 <!-- Free/Pro/Team and GHEC versions have extra columns for Moderators and Billing managers-->
 
-| Organization permission | Owners | Members | Moderators | Billing managers | Security managers |
+| Permiso organizacional | Propietarios | Miembros | Moderadores | Gerentes de facturación | Administradores de seguridad |
 |:------------------------|:------:|:-------:|:----------:|:----------------:|:-----------------:|
-| Create repositories (see "[Restricting repository creation in your organization](/articles/restricting-repository-creation-in-your-organization)") | **X** | **X** | **X** |  | **X**  |
-| View and edit billing information | **X** |  |  | **X** |  |
-| Invite people to join the organization | **X** |  |  |  |  |
-| Edit and cancel invitations to join the organization | **X** |  |  |  |  |
-| Remove members from the organization | **X** |  |  |  |  |
-| Reinstate former members to the organization | **X** |  |  |  |  |
-| Add and remove people from **all teams** | **X** |  |  |  |  |
-| Promote organization members to *team maintainer* | **X** |  |  |  |  |
-| Configure code review assignments (see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)") | **X** |  |  |  |  |
-| Set scheduled reminders (see "[Managing scheduled reminders for pull requests](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)") | **X** |  |  |  |  |
-| Add collaborators to **all repositories** | **X** |  |  |  |  |
-| Access the organization audit log | **X** |  |  |  |  |
-| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |  |  |{% ifversion ghec %}
-| Verify the organization's domains (see "[Verifying your organization's domain](/articles/verifying-your-organization-s-domain)") | **X** |  |  |  |  |
-| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |  |  |  |{% endif %}
-| Delete **all teams** | **X** |  |  |  |  |
-| Delete the organization account, including all repositories | **X** |  |  |  |  |
-| Create teams (see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)") | **X** | **X** | **X** |  | **X**  |
-| [Move teams in an organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** |  |  |  |  |
-| Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |  | **X**  |
-| See all organization members and teams | **X** | **X** | **X** |  | **X**  |
-| @mention any visible team | **X** | **X** | **X** |  | **X**  |
-| Can be made a *team maintainer* | **X** | **X** | **X** |  | **X** |{% ifversion ghec %}
-| View organization insights (see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization)") | **X** | **X** | **X** |  | **X**  |{% endif %}
-| View and post public team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** | **X** | **X** |  | **X**  |
-| View and post private team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** |  |  |  |  |
-| Edit and delete team discussions in **all teams** (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)") | **X** |  |  |  |  |
-| Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)") | **X** |  |  |  |  |
-| Hide comments on writable commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X** |  | **X** |
-| Hide comments on _all_ commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** |  | **X** |  | **X** |
-| Block and unblock non-member contributors (see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)") | **X** |  | **X** |  |  |
-| Limit interactions for certain users in public repositories (see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)") | **X** |  | **X** |  |  |{% ifversion ghec %}
-| Manage viewing of organization dependency insights (see "[Changing the visibility of your organization's dependency insights](/articles/changing-the-visibility-of-your-organizations-dependency-insights)") | **X** |  |  |  |  |{% endif %}
-| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |  |  |
-| Sponsor accounts and manage the organization's sponsorships (see "[Sponsoring open-source contributors](/sponsors/sponsoring-open-source-contributors)") | **X** |  |  | **X** | **X**  |
-| Manage email updates from sponsored accounts (see "[Managing updates from accounts your organization's sponsors](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)") | **X** |  |  |  |  |
-| Attribute your sponsorships to another organization (see "[Attributing sponsorships to your organization](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)" for details ) | **X** |  |  |  |  |
-| Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** |  |  |  |  |
-| Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** |  |  |  | **X** |
-| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)") | **X** |  |  |  | **X** |{% ifversion ghec %}
-| Enable and enforce [SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |  |
-| [Manage a user's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
-| Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |  |  |{% endif %}
-| Transfer repositories | **X** |  |  |   |  |
-| Purchase, install, manage billing for, and cancel {% data variables.product.prodname_marketplace %} apps | **X** |  |  |  |  |
-| List apps in {% data variables.product.prodname_marketplace %} | **X** |  |  |  |  |
-| Receive [{% data variables.product.prodname_dependabot_alerts %} about insecure dependencies](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) for all of an organization's repositories | **X** |  |  |  | **X** |
-| Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** |  |  |  | **X** |
-| [Manage the forking policy](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) | **X** |  |  |  |  |
-| [Limit activity in public repositories in an organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization) | **X** |  |  |  |  |
-| Pull (read) *all repositories* in the organization | **X** |  |  |  | **X** |
-| Push (write) and clone (copy) *all repositories* in the organization | **X** |  |  |  |  |
-| Convert organization members to [outside collaborators](#outside-collaborators) | **X** |  |  |  |  |
-| [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** |  |  |  |  |{% ifversion ghec %}
-| [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** |  |  |  |  |{% endif %}
-| Manage the default branch name (see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)") | **X** |  |  |  |  |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** |  |  |  |  |{% ifversion ghec %}
-| Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)") | **X** |  |  |  |  |{% endif %}
-| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  |  |  |  |
+| Crear repositorios (consulte "[Restricción de la creación de repositorios en la organización](/articles/restricting-repository-creation-in-your-organization)") | **X** | **X** | **X** |  | **X**  |
+| Ver y editar la información de facturación | **X** |  |  | **X** |  |
+| Invitar personas para que se unan a la organización | **X** |  |  |  |  |
+| Editar y cancelar invitaciones para unirse a la organización | **X** |  |  |  |  |
+| Eliminar miembros de la organización | **X** |  |  |  |  |
+| Reinstalar antiguos miembros a la organización | **X** |  |  |  |  |
+| Agregar o quitar personas de **todos los equipos** | **X** |  |  |  |  |
+| Promover a miembros de la organización a *mantenedores del equipo* | **X** |  |  |  |  |
+| Configurar asignaciones de revisión del código (consulte "[Administración de las asignaciones de revisión del código del equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)") | **X** |  |  |  |  |
+| Configurar recordatorios programados (consulte "[Administración de recordatorios programados para solicitudes de incorporación de cambios](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)") | **X** |  |  |  |  |
+| Agregar colaboradores a **todos los repositorios** | **X** |  |  |  |  |
+| Acceder al registro de auditoría de la organización | **X** |  |  |  |  |
+| Editar la página de perfil de la organización (consulte "[Acerca del perfil de la organización](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |  |  |{% ifversion ghec %}
+| Comprobar los dominios de la organización (consulte "[Comprobación del dominio de la organización](/articles/verifying-your-organization-s-domain)") | **X** |  |  |  |  |
+| Restringir las notificaciones por correo electrónico para los dominios verificados o aprobados (consulte "[Restricción de las notificaciones por correo electrónico para la organización](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |  |  |  |{% endif %}
+| Eliminar **todos los equipos** | **X** |  |  |  |  |
+| Eliminar la cuenta de la organización, incluidos todos los repositorios | **X** |  |  |  |  |
+| Crear equipos (consulte "[Configuración de permisos de creación de equipos en la organización](/articles/setting-team-creation-permissions-in-your-organization)") | **X** | **X** | **X** |  | **X**  |
+| [Mover equipos en la jerarquía de una organización](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** |  |  |  |  |
+| Crear paneles de proyecto (consulte "[Permisos de panel de proyecto para una organización](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |  | **X**  |
+| Ver todos los miembros y equipos de la organización | **X** | **X** | **X** |  | **X**  |
+| @mention cualquier equipo visible | **X** | **X** | **X** |  | **X**  |
+| Puede ser *mantenedor de equipo* | **X** | **X** | **X** |  | **X** |{% ifversion ghec %}
+| Ver información de la organización (consulte "[Visualización de información de la organización](/articles/viewing-insights-for-your-organization)") | **X** | **X** | **X** |  | **X**  |{% endif %}
+| Ver y publicar debates de equipo públicos en **todos los equipos** (consulte "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** | **X** | **X** |  | **X**  |
+| Ver y publicar debates de equipo privados en **todos los equipos** (consulte "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** |  |  |  |  |
+| Editar y eliminar debates de equipo en **todos los equipos** (consulte "[Administración de comentarios negativos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)") | **X** |  |  |  |  |
+| Deshabilitar los debates de equipo para una organización (consulte "[Deshabilitación de los debates de equipo para la organización](/articles/disabling-team-discussions-for-your-organization)") | **X** |  |  |  |  |
+| Ocultar comentarios sobre las confirmaciones grabables, las solicitudes de incorporación de cambios y las incidencias (consulte "[Administración de comentarios negativos](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X** |  | **X** |
+| Ocultar comentarios sobre _todas_ las confirmaciones, las solicitudes de incorporación de cambios y las incidencias (consulte "[Administración de comentarios negativos](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** |  | **X** |  | **X** |
+| Bloquear y desbloquear a colaboradores que no son miembros (consulte "[Bloqueo de usuarios de la organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)") | **X** |  | **X** |  |  |
+| Limitar las interacciones de determinados usuarios en repositorios públicos (consulte "[Limitación de las interacciones en la organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)") | **X** |  | **X** |  |  |{% ifversion ghec %}
+| Administrar la visualización de la información de dependencia de la organización (consulte "[Cambio de la visibilidad de la información de dependencia de la organización](/articles/changing-the-visibility-of-your-organizations-dependency-insights)") | **X** |  |  |  |  |{% endif %}
+| Establecer una imagen de perfil para el equipo en **todos los equipos** (consulte "[Establecimiento de la imagen de perfil del equipo](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |  |  |
+| Patrocinar cuentas y administrar los patrocinios de la organización (consulte "[Patrocinio de colaboradores de código abierto](/sponsors/sponsoring-open-source-contributors)") | **X** |  |  | **X** | **X**  |
+| Administrar las actualizaciones de correo electrónico de las cuentas patrocinadas (consulte "[Administración de actualizaciones de las cuentas de los patrocinadores de la organización](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)") | **X** |  |  |  |  |
+| Atribuir los patrocinios a otra organización (consulte "[Atribución de patrocinios a la organización](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)" para obtener más información) | **X** |  |  |  |  |
+| Administrar la publicación de sitios de {% data variables.product.prodname_pages %} desde los repositorios de la organización (consulte "[Administración de la publicación de sitios de {% data variables.product.prodname_pages %} para la organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** |  |  |  |  |
+| Administrar la configuración de seguridad y análisis (consulte "[Administración de la configuración de seguridad y análisis de la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** |  |  |  | **X** |
+| Consultar la información general sobre seguridad de la organización (consulte "[Acerca de la información general sobre seguridad](/code-security/security-overview/about-the-security-overview)") | **X** |  |  |  | **X** |{% ifversion ghec %}
+| Habilitar y aplicar el [inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |  |
+| [Administrar el acceso de SAML de un usuario a la organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
+| Administrar las entidades de certificación SSH de una organización (consulte "[Administración de las entidades de certificación SSH de la organización](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |  |  |{% endif %}
+| Transferir repositorios | **X** |  |  |   |  |
+| Comprar, instalar, administrar la facturación y cancelar aplicaciones {% data variables.product.prodname_marketplace %} | **X** |  |  |  |  |
+| Enumerar aplicaciones en {% data variables.product.prodname_marketplace %} | **X** |  |  |  |  |
+| Recibir [{% data variables.product.prodname_dependabot_alerts %} sobre las dependencias no seguras](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) de todos los repositorios de una organización | **X** |  |  |  | **X** |
+| Administrar las {% data variables.product.prodname_dependabot_security_updates %} (consulte ["Acerca de {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** |  |  |  | **X** |
+| [Administrar la directiva de bifurcación](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) | **X** |  |  |  |  |
+| [Limitar la actividad en los repositorios públicos de una organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization) | **X** |  |  |  |  |
+| Extraer (leer) *todos los repositorios* de la organización | **X** |  |  |  | **X** |
+| Insertar (escribir) y clonar (copiar) *todos los repositorios* de la organización | **X** |  |  |  |  |
+| Convertir a miembros de la organización en [colaboradores externos](#outside-collaborators) | **X** |  |  |  |  |
+| [Ver las personas que tienen acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository) | **X** |  |  |  |  |{% ifversion ghec %}
+| [Exportar una lista de personas con acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** |  |  |  |  |{% endif %}
+| Administrar el nombre de la rama predeterminada (consulte "[Administración del nombre de la rama predeterminada para los repositorios de la organización](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)") | **X** |  |  |  |  |
+| Administrar etiquetas predeterminadas (consulte "[Administración de etiquetas predeterminadas para los repositorios de la organización](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** |  |  |  |  |{% ifversion ghec %}
+| Habilitar la sincronización de equipos (consulte "[Administración de la sincronización de equipos para la organización](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)") | **X** |  |  |  |  |{% endif %}
+| Administrar revisiones de solicitudes de incorporación de cambios en la organización (consulte "[Administración de revisiones de solicitudes de incorporación de cambios en la organización](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  |  |  |  |
 
 {% elsif ghes > 3.2 or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
-| Organization action | Owners | Members | Security managers |
+| Acción de la organización | Propietarios | Miembros | Administradores de seguridad |
 |:--------------------|:------:|:-------:|:-------:|
-| Invite people to join the organization | **X** |  |  |
-| Edit and cancel invitations to join the organization | **X** |  |  |
-| Remove members from the organization | **X** | | |  |
-| Reinstate former members to the organization | **X** | | |  |
-| Add and remove people from **all teams** | **X** |  |  |
-| Promote organization members to *team maintainer* | **X** |  |  |
-| Configure code review assignments (see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)") | **X** |  |  |
-| Add collaborators to **all repositories** | **X** |  |  |
-| Access the organization audit log | **X** |  |  |
-| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |{% ifversion ghes %}
-| Verify the organization's domains (see "[Verifying your organization's domain](/articles/verifying-your-organization-s-domain)") | **X** |  |  |
-| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |  |{% endif %}
-| Delete **all teams** | **X** |  |  |
-| Delete the organization account, including all repositories | **X** |  |  |
-| Create teams (see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)") | **X** | **X** | **X**  |
-| See all organization members and teams | **X** | **X** | **X**  |
-| @mention any visible team | **X** | **X** | **X**  |
-| Can be made a *team maintainer* | **X** | **X** | **X**  |
-| Transfer repositories | **X** | |  |
-| Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** | | **X** |{% ifversion ghes %}
-| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes > 3.2 %}
-| Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
-| Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |
-| Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |
-| View and post public team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** | **X** | **X**  |
-| View and post private team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** |  |  |
-| Edit and delete team discussions in **all teams** (for more information, see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | **X** |  |  |  |
-| Hide comments on commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X**  |
-| Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)") | **X** |  |  |
-| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |{% ifversion ghes %}
-| Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** | |  |{% endif %}
-| [Move teams in an organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** | | |
-| Pull (read) *all repositories* in the organization | **X** | | **X** |
-| Push (write) and clone (copy) *all repositories* in the organization | **X** | |  |
-| Convert organization members to [outside collaborators](#outside-collaborators) | **X** | |  |
-| [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |  |
-| [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
-| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
+| Invitar personas para que se unan a la organización | **X** |  |  |
+| Editar y cancelar invitaciones para unirse a la organización | **X** |  |  |
+| Eliminar miembros de la organización | **X** | | |  |
+| Reinstalar antiguos miembros a la organización | **X** | | |  |
+| Agregar o quitar personas de **todos los equipos** | **X** |  |  |
+| Promover a miembros de la organización a *mantenedores del equipo* | **X** |  |  |
+| Configurar asignaciones de revisión del código (consulte "[Administración de las asignaciones de revisión del código del equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)") | **X** |  |  |
+| Agregar colaboradores a **todos los repositorios** | **X** |  |  |
+| Acceder al registro de auditoría de la organización | **X** |  |  |
+| Editar la página de perfil de la organización (consulte "[Acerca del perfil de la organización](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |{% ifversion ghes %}
+| Comprobar los dominios de la organización (consulte "[Comprobación del dominio de la organización](/articles/verifying-your-organization-s-domain)") | **X** |  |  |
+| Restringir las notificaciones por correo electrónico para los dominios verificados o aprobados (consulte "[Restricción de las notificaciones por correo electrónico para la organización](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |  |{% endif %}
+| Eliminar **todos los equipos** | **X** |  |  |
+| Eliminar la cuenta de la organización, incluidos todos los repositorios | **X** |  |  |
+| Crear equipos (consulte "[Configuración de permisos de creación de equipos en la organización](/articles/setting-team-creation-permissions-in-your-organization)") | **X** | **X** | **X**  |
+| Ver todos los miembros y equipos de la organización | **X** | **X** | **X**  |
+| @mention cualquier equipo visible | **X** | **X** | **X**  |
+| Puede ser *mantenedor de equipo* | **X** | **X** | **X**  |
+| Transferir repositorios | **X** | |  |
+| Administrar la configuración de seguridad y análisis (consulte "[Administración de la configuración de seguridad y análisis de la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** | | **X** |{% ifversion ghes %}
+| Consultar la información general sobre seguridad de la organización (consulte "[Acerca de la información general sobre seguridad](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes > 3.2 %}
+| Administrar las {% data variables.product.prodname_dependabot_security_updates %} (consulte ["Acerca de {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
+| Administrar las entidades de certificación SSH de una organización (consulte "[Administración de las entidades de certificación SSH de la organización](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |
+| Crear paneles de proyecto (consulte "[Permisos de panel de proyecto para una organización](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |
+| Ver y publicar debates de equipo públicos en **todos los equipos** (consulte "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** | **X** | **X**  |
+| Ver y publicar debates de equipo privados en **todos los equipos** (consulte "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** |  |  |
+| Editar y eliminar debates de equipo en **todos los equipos** (para obtener más información, consulte "[Administración de comentarios negativos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)") | **X** |  |  |  |
+| Ocultar comentarios sobre las confirmaciones, las solicitudes de incorporación de cambios y las incidencias (consulte "[Administración de comentarios negativos](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X**  |
+| Deshabilitar los debates de equipo para una organización (consulte "[Deshabilitación de los debates de equipo para la organización](/articles/disabling-team-discussions-for-your-organization)") | **X** |  |  |
+| Establecer una imagen de perfil para el equipo en **todos los equipos** (consulte "[Establecimiento de la imagen de perfil del equipo](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |{% ifversion ghes %}
+| Administrar la publicación de sitios de {% data variables.product.prodname_pages %} desde los repositorios de la organización (consulte "[Administración de la publicación de sitios de {% data variables.product.prodname_pages %} para la organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** | |  |{% endif %}
+| [Mover equipos en la jerarquía de una organización](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** | | |
+| Extraer (leer) *todos los repositorios* de la organización | **X** | | **X** |
+| Insertar (escribir) y clonar (copiar) *todos los repositorios* de la organización | **X** | |  |
+| Convertir a miembros de la organización en [colaboradores externos](#outside-collaborators) | **X** | |  |
+| [Ver las personas que tienen acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository) | **X** | |  |
+| [Exportar una lista de personas con acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
+| Administrar etiquetas predeterminadas (consulte "[Administración de etiquetas predeterminadas para los repositorios de la organización](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
+| Administrar revisiones de solicitudes de incorporación de cambios en la organización (consulte "[Administración de revisiones de solicitudes de incorporación de cambios en la organización](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
+{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
 
-| Organization action | Owners | Members |
+| Acción de la organización | Propietarios | Miembros |
 |:--------------------|:------:|:-------:|
-| Invite people to join the organization | **X** |  |
-| Edit and cancel invitations to join the organization | **X** |  |
-| Remove members from the organization | **X** | | |
-| Reinstate former members to the organization | **X** | | |
-| Add and remove people from **all teams** | **X** |  |  
-| Promote organization members to *team maintainer* | **X** |  |
-| Configure code review assignments (see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)")) | **X** |  |
-| Add collaborators to **all repositories** | **X** |  |
-| Access the organization audit log | **X** |  |
-| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |{% ifversion ghes %}
-| Verify the organization's domains (see "[Verifying your organization's domain](/articles/verifying-your-organization-s-domain)") | **X** |  |
-| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |{% endif %}
-| Delete **all teams** | **X** |  |
-| Delete the organization account, including all repositories | **X** |  |
-| Create teams (see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)") | **X** | **X** |
-| See all organization members and teams | **X** | **X** |
-| @mention any visible team | **X** | **X** |
-| Can be made a *team maintainer* | **X** | **X** |
-| Transfer repositories | **X** | |
-| Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |
-| Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | |
-| View and post public team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** | **X** |  |
-| View and post private team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** |  |  |
-| Edit and delete team discussions in **all teams** (for more information, see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | **X** |  |  |
-| Hide comments on commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X** |
-| Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)") | **X** |  |  |
-| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |{% ifversion ghes %}
-| Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** | |{% endif %}
-| [Move teams in an organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** | | |
-| Pull (read), push (write), and clone (copy) *all repositories* in the organization | **X** | |
-| Convert organization members to [outside collaborators](#outside-collaborators) | **X** | |
-| [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |
-| [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |
-{% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
+| Invitar personas para que se unan a la organización | **X** |  |
+| Editar y cancelar invitaciones para unirse a la organización | **X** |  |
+| Eliminar miembros de la organización | **X** | | |
+| Reinstalar antiguos miembros a la organización | **X** | | |
+| Agregar o quitar personas de **todos los equipos** | **X** |  |  
+| Promover a miembros de la organización a *mantenedores del equipo* | **X** |  |
+| Configurar asignaciones de revisión del código (consulte "[Administración de la configuración de revisión del código del equipo](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)") | **X** |  |
+| Agregar colaboradores a **todos los repositorios** | **X** |  |
+| Acceder al registro de auditoría de la organización | **X** |  |
+| Editar la página de perfil de la organización (consulte "[Acerca del perfil de la organización](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |{% ifversion ghes %}
+| Comprobar los dominios de la organización (consulte "[Comprobación del dominio de la organización](/articles/verifying-your-organization-s-domain)") | **X** |  |
+| Restringir las notificaciones por correo electrónico para los dominios verificados o aprobados (consulte "[Restricción de las notificaciones por correo electrónico para la organización](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |{% endif %}
+| Eliminar **todos los equipos** | **X** |  |
+| Eliminar la cuenta de la organización, incluidos todos los repositorios | **X** |  |
+| Crear equipos (consulte "[Configuración de permisos de creación de equipos en la organización](/articles/setting-team-creation-permissions-in-your-organization)") | **X** | **X** |
+| Ver todos los miembros y equipos de la organización | **X** | **X** |
+| @mention cualquier equipo visible | **X** | **X** |
+| Puede ser *mantenedor de equipo* | **X** | **X** |
+| Transferir repositorios | **X** | |
+| Administrar las entidades de certificación SSH de una organización (consulte "[Administración de las entidades de certificación SSH de la organización](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |
+| Crear paneles de proyecto (consulte "[Permisos de panel de proyecto para una organización](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | |
+| Ver y publicar debates de equipo públicos en **todos los equipos** (consulte "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** | **X** |  |
+| Ver y publicar debates de equipo privados en **todos los equipos** (consulte "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** |  |  |
+| Editar y eliminar debates de equipo en **todos los equipos** (para obtener más información, consulte "[Administración de comentarios negativos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)") | **X** |  |  |
+| Ocultar comentarios sobre las confirmaciones, las solicitudes de incorporación de cambios y las incidencias (consulte "[Administración de comentarios negativos](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X** |
+| Deshabilitar los debates de equipo para una organización (consulte "[Deshabilitación de los debates de equipo para la organización](/articles/disabling-team-discussions-for-your-organization)") | **X** |  |  |
+| Establecer una imagen de perfil para el equipo en **todos los equipos** (consulte "[Establecimiento de la imagen de perfil del equipo](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |{% ifversion ghes %}
+| Administrar la publicación de sitios de {% data variables.product.prodname_pages %} desde los repositorios de la organización (consulte "[Administración de la publicación de sitios de {% data variables.product.prodname_pages %} para la organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** | |{% endif %}
+| [Mover equipos en la jerarquía de una organización](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** | | |
+| Extraer (leer), insertar (escribir) y clonar (copiar) *todos los repositorios* de la organización | **X** | |
+| Convertir a miembros de la organización en [colaboradores externos](#outside-collaborators) | **X** | |
+| [Ver las personas que tienen acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository) | **X** | |
+| [Exportar una lista de personas con acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
+| Administrar etiquetas predeterminadas (consulte "[Administración de etiquetas predeterminadas para los repositorios de la organización](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |
+{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
 
 {% endif %}
 
-## Further reading
+## Información adicional
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
-- "[Project board permissions for an organization](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+- "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Permisos de panel de proyecto para una organización](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"

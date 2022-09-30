@@ -1,6 +1,6 @@
 ---
 title: Guias de problemas
-shortTitle: Guias
+shortTitle: Guides
 intro: 'Saiba como usar {% data variables.product.prodname_github_issues %} para planejar e acompanhar seu trabalho.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
@@ -24,5 +24,11 @@ includeGuides:
   - /issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board
   - /issues/using-labels-and-milestones-to-track-work/managing-labels
   - /issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests
+ms.openlocfilehash: 526d3f43c110b76fb1a0c20b5937ce2056804c81
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423577'
 ---
 

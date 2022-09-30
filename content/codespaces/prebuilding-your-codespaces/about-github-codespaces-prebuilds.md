@@ -1,7 +1,7 @@
 ---
 title: About GitHub Codespaces prebuilds
 shortTitle: About prebuilds
-intro: Codespaces prebuilds help to speed up the creation of new codespaces for large or complex repositories.
+intro: '{% data variables.product.prodname_github_codespaces %} prebuilds help to speed up the creation of new codespaces for large or complex repositories.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -32,7 +32,7 @@ When you create a codespace from a prebuild, {% data variables.product.prodname_
 
 ## About billing for {% data variables.product.prodname_codespaces %} prebuilds
 
-{% data reusables.codespaces.billing-for-prebuilds-default %} For details of {% data variables.product.prodname_codespaces %} storage pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)." 
+{% data reusables.codespaces.billing-for-prebuilds-default %} For details of {% data variables.product.prodname_github_codespaces %} storage pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)." 
 
 {% data reusables.codespaces.billing-for-prebuilds-reducing %} 
 

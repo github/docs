@@ -1,8 +1,8 @@
 ---
-title: 对 IAM 使用企业托管用户
-shortTitle: 企业托管用户
+title: 针对 IAM 使用 Enterprise 托管用户
+shortTitle: Enterprise Managed Users
 product: '{% data reusables.gated-features.emus %}'
-intro: 您可以使用身份提供程序管理身份和访问权限，并预配只能参与您的企业的帐户。
+intro: 可使用标识提供者管理标识和访问，并预配只能为你的企业做出贡献的帐户。
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider
   - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider
@@ -22,5 +22,11 @@ children:
   - /managing-team-memberships-with-identity-provider-groups
   - /about-support-for-your-idps-conditional-access-policy
   - /migrating-from-saml-to-oidc
+ms.openlocfilehash: 0d8cc71db11e7eb094b0771f8e03a690f449e380
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145955537'
 ---
 

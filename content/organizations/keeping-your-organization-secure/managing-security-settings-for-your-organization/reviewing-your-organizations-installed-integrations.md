@@ -19,7 +19,7 @@ shortTitle: Review installed integrations
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 1. In the "Integrations" section of the sidebar, click **{% octicon "apps" aria-label="The apps icon" %} {% data variables.product.prodname_github_apps %}**.
 {% else %}
 1. In the left sidebar, click **Installed {% data variables.product.prodname_github_apps %}**.

@@ -1,23 +1,23 @@
 date: '2021-08-24'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions.
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - Attaching very large images or animated GIFs to images or pull requests would fail.
-    - Journald messages related to automatic updates (`Adding h/m/s random time.`) were logged to syslog.
-    - Custom pre-receive hooks that created named pipes (FIFOs) would crash or hang, resulting in a timeout error.
-    - Adding filters to the audit log advanced search page did not populate the query text box in real-time with the correct facet prefix and value.
-    - Git hooks to the internal API that result in failing requests returned the exception `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.
-    - When an integration was removed, it was possible for an unrelated OAuth application or integration to also be removed.
-    - When a mandatory message containing an emoji character was added, attempting to view or change the message would return a 500 Internal Server Error.
+    - 画像または pull request に非常に大きな画像もしくはアニメーション GIF を添付すると失敗します。
+    - 自動更新に関連する Journald メッセージ (`h/m/s ランダム時間の追加。`) が、syslog に記録されました。
+    - 名前付きパイプ (FIFO) を作成したカスタムの pre-receive フックがクラッシュまたはハングし、タイムアウト エラーが発生します。
+    - 監査ログの高度な検索ページにフィルターを追加しても、適切なファセット プレフィックスと値を持つクエリ テキスト ボックスがリアルタイムで設定されませんでした。
+    - "要求に失敗する内部 API への Git フックが、明示的な `nil` を返す代わりに `\"success\" に対して定義されていないメソッド本文:String (NoMethodError)` という例外を返しました。"
+    - 統合が削除されると、関連のない OAuth アプリケーションまたは統合も削除されてしまう可能性がありました。
+    - 絵文字を含む必須のメッセージが追加された場合、そのメッセージを表示あるいは変更しようとすると 500 内部サーバー エラーが返されます。
   changes:
-    - Adds `triage` and `maintain` to the list of permissions returned by the REST API.
+    - REST API が返すアクセス許可一覧に `triage` と `maintain` を追加しました。
   known_issues:
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} を設定したばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で \"ユーザーが GitHub.com を検索できる\" が有効にされている場合、プライベートおよび内部リポジトリの issue が GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

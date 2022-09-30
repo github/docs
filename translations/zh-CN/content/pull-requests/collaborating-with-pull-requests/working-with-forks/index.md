@@ -18,5 +18,11 @@ children:
   - /syncing-a-fork
   - /allowing-changes-to-a-pull-request-branch-created-from-a-fork
   - /what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
+ms.openlocfilehash: 79d8346fdd63366e5987def43164932503104332
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '146683659'
 ---
 
