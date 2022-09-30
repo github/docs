@@ -148,11 +148,12 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
   ```
   {% note %}
 
-  **Note:** The `--apple-use-keychain` option is in Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `--apple-use-keychain` option.
+   **Note:** The `--apple-use-keychain` option stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `--apple-use-keychain` option.
 
-  If you don't have Apple's standard version of `ssh-add` installed, you may receive an error. For more information on resolving this error, see "[Error: ssh-add: illegal option -- apple-use-keychain](/articles/error-ssh-add-illegal-option-k)."
+   The `--apple-use-keychain` option is in Apple's standard version of `ssh-add`. In MacOS versions prior to Monterey (12.0), the `--apple-use-keychain` and `--apple-load-keychain` flags used the syntax `-K` and `-A`, respectively.
 
-  In MacOS versions prior to Monterey (12.0), the `--apple-use-keychain` and `--apple-load-keychain` flags used the syntax `-K` and `-A`, respectively.
+  If you don't have Apple's standard version of `ssh-add` installed, you may receive an error. For more information, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
+
 
    {% endnote %}
 
