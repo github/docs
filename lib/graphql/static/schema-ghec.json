@@ -41804,6 +41804,26 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "view",
+          "description": "<p>A view of the project.</p>",
+          "type": "ProjectV2View",
+          "id": "projectv2view",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2view",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The number of a view belonging to the project.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
