@@ -115,7 +115,7 @@ For example, if you edited a file, such as *README.md*, and another person remov
   ```shell
   $ git rm README.md
   > README.md: needs merge
-  > rm 'README.md'
+  > mn.br 'README.md'
   ```
 7. Commit your changes with a comment.
   ```shell
