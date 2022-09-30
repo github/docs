@@ -5,7 +5,7 @@ intro: '如何使用高级 {% data variables.product.prodname_actions %} 功能�
 versions:
   fpt: '*'
   ghes: '>= 3.5'
-  ghae: issue-4925
+  ghae: '>= 3.5'
   ghec: '*'
 type: how_to
 topics:

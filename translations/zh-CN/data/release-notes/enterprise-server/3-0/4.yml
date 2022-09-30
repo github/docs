@@ -1,0 +1,27 @@
+date: '2021-04-01'
+intro: "对于 {% data variables.product.prodname_ghe_server %} 3.0+，最低基础结构要求已经增加。有关详细信息，请参阅“[关于 GitHub Enterprise Server 3.0 及更高版本的最低要求](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)”。"
+sections:
+  security_fixes:
+    - "**高：**在 GitHub Enterprise Server 中发现了一个不适当的访问控制漏洞，该漏洞允许根据 GitHub 应用的 [Web 身份验证流](https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow)生成的访问令牌通过 REST API 读取专用存储库元数据，而无需获取适当的权限。若要利用这个漏洞，攻击者需要在实例上创建 GitHub 应用，并让用户通过 Web 身份验证流对应用程序进行授权。返回的专用存储库元数据将仅限于令牌标识的用户拥有的存储库。此漏洞影响 GitHub Enterprise Server 3.0.4 之前的所有版本，并在 3.0.4、2.22.10 和 2.21.18 版本中得到了修复。此漏洞编号为 CVE-2021-22865，并通过 [GitHub Bug 赏金计划](https://bounty.github.com)报告。"
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 启用维护模式时，尽管某些服务应该运行但不应列出，它们仍被列为“活动进程”。
+    - 在启用 GitHub Actions 的情况下从 2.22.x 升级到 3.0.x 后，自承载运行器版本没有更新，也没有自承载更新。
+    - 旧 GitHub Pages 版本未进行清理，导致磁盘使用量增加。
+    - '`memcached` 未在活动的副本上运行。'
+    - 在启用 GitHub Actions 的情况下更新文件权限时升级失败。
+    - 某些默认采用 UTC 时间的服务未使用在 GitHub Enterprise 11.10.x 或更早版本上设置的时区。
+    - 服务未在日志轮换过程中转换到新的日志文件，导致磁盘使用量增加。
+    - "`ghe-saml-mapping-csv` 命令行实用工具生成了一条警告消息。"
+    - 内部存储库搜索结果上的标签显示为“专用”而不是“内部”。
+  known_issues:
+    - 在没有任何用户的新建 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。
+    - 在升级期间不会维护自定义防火墙规则。
+    - "Git LFS 跟踪的[通过 Web 界面上传的](https://github.com/blog/2105-upload-files-to-your-repositories)文件被错误地直接添加到存储库。"
+    - 如果问题包含同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - 如果笔记本包含非 ASCII UTF-8 字符，则 Web UI 中的 Jupyter Notebook 渲染可能会失败。
+    - Web UI 中的 reStructuredText (RST) 渲染可能会失败，并显示原始 RST 标记文本。
+    - 在合并拉取请求后删除分支时，尽管分支删除成功，但仍会出现错误消息。
+    - "当副本节点在高可用性配置下脱机时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到脱机节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。"
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。

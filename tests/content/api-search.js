@@ -170,4 +170,17 @@ describeIfElasticsearchURL('search middleware', () => {
       expect(JSON.parse(res.text).error).toMatch('sort')
     }
   })
+
+  test('basic legacy search', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('language', 'en')
+    sp.set('version', 'dotcom')
+    const res = await get('/api/search/legacy?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(Array.isArray(results)).toBeTruthy()
+    const foundURLS = results.map((result) => result.url)
+    expect(foundURLS.includes('/en/foo')).toBeTruthy()
+  })
 })

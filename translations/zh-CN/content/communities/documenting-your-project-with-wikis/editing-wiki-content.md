@@ -1,6 +1,6 @@
 ---
-title: 编辑 wiki 内容
-intro: 您可以将图片和内容链接添加到您的 wiki，并使用某些受支持的 MediaWiki 格式。
+title: Editing wiki content
+intro: 'You can add images and links to content in your wiki, and use some supported MediaWiki formats.'
 redirect_from:
   - /articles/adding-links-to-wikis
   - /articles/how-do-i-add-links-to-my-wiki
@@ -19,51 +19,47 @@ versions:
   ghec: '*'
 topics:
   - Community
-ms.openlocfilehash: 0afae4335dbf6ff78c0b0e1a2bef4cebed637a5e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147578938'
 ---
-## 添加链接
 
-您可以使用页面支持的标准标记或使用 MediaWiki 语法在 wiki 中创建链接。 例如：
+## Adding links
 
-- 如果页面使用 Markdown 呈现，则链接语法为 `[Link Text](full-URL-of-wiki-page)`。
-- 使用 MediaWiki 语法时，链接语法为 `[[nameofwikipage|Link Text]]`。
+You can create links in wikis using the standard markup supported by your page, or using MediaWiki syntax. For example:
 
-## 添加图像
+- If your pages are rendered with Markdown, the link syntax is `[Link Text](full-URL-of-wiki-page)`.
+- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
 
-Wikis 可显示 PNG、JPEG 和 GIF 图片。
+## Adding images
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
-3. 使用 Wiki 边栏，导航到要更改的页面，然后单击“编辑”。
-4. 在 Wiki 工具栏上，单击“图像”。
-   ![Wiki“添加图像”按钮](/assets/images/help/wiki/wiki_add_image.png)
-5. 在“Insert Image”（插入图像）对话框，输入 URL 和 alt 文本（由搜索引擎和屏幕阅读器使用）。
-6. 单击" **确定**"。
+Wikis can display PNG, JPEG, and GIF images.
 
-### 链接到仓库中的图片
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
+3. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
+4. On the wiki toolbar, click **Image**.
+   ![Wiki Add image button](/assets/images/help/wiki/wiki_add_image.png)
+5. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
+6. Click **OK**.
 
-您可以通过在浏览器中复制链接并将其用作图像路径，链接到 {% data variables.product.product_name %} 上仓库中的图像。 例如，使用 Markdown 在 wiki 中嵌入图像可能如下所示：
+### Linking to images in a repository
+
+You can link to an image in a repository on {% data variables.product.product_name %} by copying the URL in your browser and using that as the path to the image. For example, embedding an image in your wiki using Markdown might look like this:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
-## 添加数学表达式和关系图{% endif %}
+{% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
+## Adding mathematical expressions and diagrams{% endif %}
 
 {% data reusables.getting-started.math-and-diagrams %}
 
-## 受支持的 MediaWiki 格式
+## Supported MediaWiki formats
 
-无论您的 wiki 页面以哪种标记语言编写，始终可使用某些 MediaWiki 语法。
-- 链接（[AsciiDoc 除外](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b)）
-- 借助于 `---` 的水平规则
-- 简明符号实体（例如 `&delta;` 或者 `&euro;`）
+No matter which markup language your wiki page is written in, certain MediaWiki syntax will always be available to you.
+- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Horizontal rules via `---`
+- Shorthand symbol entities (such as `&delta;` or `&euro;`)
 
-出于安全和性能原因，某些语法不受支持。
-- [嵌入包含](https://www.mediawiki.org/wiki/Transclusion)
-- 定义列表
-- 缩进
-- 目录
+For security and performance reasons, some syntaxes are unsupported.
+- [Transclusion](https://www.mediawiki.org/wiki/Transclusion)
+- Definition lists
+- Indentation
+- Table of contents

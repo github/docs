@@ -5,7 +5,7 @@ intro: Puedes configurar reglas de protección de etiquetas para el repositorio 
 product: '{% data reusables.gated-features.tag-protection-rules %}'
 versions:
   fpt: '*'
-  ghae: issue-6337
+  ghae: '>= 3.5'
   ghec: '*'
   ghes: '>3.4'
 ms.openlocfilehash: 3b7b84cb26d8994c89222b2e4f642592fd45b72f

@@ -1,6 +1,6 @@
 ---
-title: 从组织仓库中删除外部协作者
-intro: 所有者和仓库管理员可以删除外部协作者对仓库的访问权限。
+title: Removing an outside collaborator from an organization repository
+intro: Owners and repository admins can remove an outside collaborator's access to a repository.
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-repository
@@ -13,55 +13,57 @@ topics:
   - Organizations
   - Teams
 shortTitle: Remove collaborator
-ms.openlocfilehash: 71c8017b79425570e4ee7c2d2c7d3ac695c5c531
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145127466'
 ---
+
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**警告：**
-- 从私有仓库删除外部协作者后，付费许可数不会自动降级。 要在从组织中删除用户后减少付费的许可证数，请按照“[降级组织的付费席位](/articles/downgrading-your-organization-s-paid-seats)”中的步骤操作。
+**Warning:**
+- When removing an outside collaborator from a private repository, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[Downgrading your organization's paid seats](/articles/downgrading-your-organization-s-paid-seats)."
 
-- 您负责确保无法访问仓库的人员删除任何机密信息或知识产权。
+- You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 
 {% endwarning %}
 
 {% endif %}
 
-尽管删除协作者时将删除私有仓库的复刻，但此人员将仍保留您仓库的任何本地克隆。
+While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
 
-## 从组织中的所有仓库删除外部协作者
+## Removing outside collaborators from all repositories in an organization
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.people_tab_outside_collaborators %}
-5. 选择您想要从组织中删除的一个或多个外部协作者。
-![外部协作者列表，其中已选择两个外部协作者](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
-6. 在外部协作者列表上方，使用下拉菜单，然后单击“从所有存储库中删除”。
-![包含删除外部协作者选项的下拉菜单](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
-7. 查看将从组织中删除的一个或多个外部协作者，然后单击“删除外部协作者”。
-  ![将删除的外部协作者的列表和“删除外部协作者”按钮](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
+5. Select the outside collaborator or outside collaborators you'd like to remove from the organization.
+![List of outside collaborators with two outside collaborators selected](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
+6. Above the list of outside collaborators, use the drop-down menu, and click **Remove from all repositories**.
+![Drop-down menu with option to remove outside collaborators ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
+7. Review the outside collaborator or outside collaborators who will be removed from the organization, then click **Remove outside collaborators**.
+  ![List of outside collaborators who will be removed and Remove outside collaborators button](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
 
-## 从组织的特定仓库中删除外部协作者
+## Removing an outside collaborator from a particular repository in an organization
 
-如果只是想要从组织的特定仓库中删除外部协作者，则可以一次删除此人员对一个特定仓库的访问权限。
+If you only want to remove an outside collaborator from certain repositories in your organization, you can remove this person's access to one specific repository at a time.
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.people_tab_outside_collaborators %}
-5. 在想要删除的人员用户名右侧，使用 {% octicon "gear" aria-label="The Settings gear" %} 下拉菜单，并单击“管理”。
-  ![“管理访问权限”按钮](/assets/images/help/organizations/member-manage-access.png)
-6. 在想要从中删除外部协作者的存储库的右侧，单击“管理访问权限”。
-![选择外部协作者具有访问权限的存储库旁边的“管理访问权限”按钮](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
-7. 若要完全删除外部协作者对存储库的访问权限，请在右上角单击“删除对此存储库的访问权限”。
-![“删除对此存储库的访问权限”按钮](/assets/images/help/organizations/remove-access-to-this-repository.png)
-8. 若要确认，请单击“删除访问权限”。
-![确认将从存储库中删除的外部协作者](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
+5. To the right of the username of the person you want to remove, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.
+  ![Manage access button](/assets/images/help/organizations/member-manage-access.png)
+6. To the right of the repository that you want to remove the outside collaborator from, click **Manage access**.
+![Select manage access button next to a repository the outside collaborator has access to](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
+7. To completely remove the outside collaborator's access to the repository, in the upper right corner, click **Remove access to this repository**.
+![Remove access to this repository button](/assets/images/help/organizations/remove-access-to-this-repository.png)
+8. To confirm, click **Remove access**.
+![Confirm outside collaborator who will be removed from the repository](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %} 还可以在存储库设置的访问概述中从存储库中删除外部协作者。 有关详细信息，请参阅“[管理有权访问存储库的团队和人员](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)”。
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+You can also remove an outside collaborator from a repository in the access overview in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)."
 {% endif %}
-## 延伸阅读
+## Further reading
 
-- [将外部协作者添加到组织中的存储库](/articles/adding-outside-collaborators-to-repositories-in-your-organization)
-- [将组织成员转换为外部协作者](/articles/converting-an-organization-member-to-an-outside-collaborator)
+- "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
+- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"

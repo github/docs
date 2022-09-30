@@ -101,7 +101,7 @@ You can create a runner group to manage access to the runner that you added to y
    {% endwarning %}
 {%- endif %}
 {% data reusables.actions.create-runner-group %}
-{%- ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
+{%- ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.
 1. Click **Edit**.

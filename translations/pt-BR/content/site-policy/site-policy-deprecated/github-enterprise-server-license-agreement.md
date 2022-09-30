@@ -7,13 +7,8 @@ redirect_from:
   - /github/site-policy-deprecated/github-enterprise-server-license-agreement
 versions:
   fpt: '*'
-ms.openlocfilehash: 46e22d433532263ebef0599c92f7563b96257d1b
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099246'
 ---
+
 _Esses termos se aplicam aos clientes que executaram contratos em vigor referenciando-os. Todos os outros clientes corporativos são direcionados para https://www.github.com/customer-terms a fim de consultar os termos atuais._
 
 Este Contrato se aplica às seguintes ofertas do GitHub, conforme definido abaixo (coletivamente, **“Produtos”**):

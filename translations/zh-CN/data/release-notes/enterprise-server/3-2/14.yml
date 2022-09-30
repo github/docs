@@ -1,0 +1,23 @@
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - 包已更新到最新的安全版本。 
+  bugs:
+    - "如果主机名字符串以“.”开头（句点字符），则 {% data variables.product.prodname_ghe_server %} 配置文件中用于验证主机名的内部脚本将返回错误。" 
+    - 在主节点的主机名超过 60 个字符的 HA 配置中，MySQL 将无法配置。
+    - "`--gateway` 参数已添加到 `ghe-setup-network` 命令，以允许使用命令行配置网络设置时传递网关地址。"
+    - 删除的图像附件将返回 `500 内部服务器错误` 而非 `404 未找到` 错误。
+    - 站点管理员仪表板中报告的“跨整个实例的最大提交者”的计算不正确。
+    - "使用 {% data variables.product.prodname_enterprise_backup_utilities %} 执行还原时，存储库复制的数据库输入不正确导致数据库损坏。"
+  changes:
+    - 优化了生成群集支持包时包含的指标。 
+    - 在 Elasticsearch 报告有效的标黄状态的 HA 配置中，之前修复中引入的更改将阻止 `ghe-repl-stop` 命令，并且不允许停止复制。当服务处于正常或有效标黄状态时，使用 `ghe-repo-stop --force` 将强制 Elasticsearch 停止运行。
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 Blob 的永久链接，则问题无法关闭。
+    - "对 {% data variables.product.prodname_github_connect %} 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。"
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

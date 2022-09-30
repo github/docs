@@ -2,7 +2,6 @@
 title: Team synchronization
 intro: 'The Team synchronization API allows you to manage connections between {% data variables.product.product_name %} teams and external identity provider (IdP) groups.'
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API
