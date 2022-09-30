@@ -1,6 +1,6 @@
 ---
-title: Solicitar aprovação da organização para apps OAuth
-intro: 'Os integrantes da organização podem solicitar a um proprietário a aprovação do acesso aos recursos da organização para {% data variables.product.prodname_oauth_app %}.'
+title: Requesting organization approval for OAuth Apps
+intro: 'Organization members and outside collaborators can request that an owner approve access to organization resources for {% data variables.product.prodname_oauth_apps %}.'
 redirect_from:
   - /articles/requesting-organization-approval-for-third-party-applications
   - /articles/requesting-organization-approval-for-your-authorized-applications
@@ -14,23 +14,24 @@ versions:
 topics:
   - Accounts
 shortTitle: Request OAuth App approval
-ms.openlocfilehash: 250de09ddc116aca7f4cdb8d07b6b267b7789dcf
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145164592'
 ---
-## Solicitar aprovação da organização para um {% data variables.product.prodname_oauth_app %} que você já autorizou na sua conta pessoal
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %} {% data reusables.user-settings.access_authorized_oauth_apps %}
-3. Na lista de aplicativos, clique no nome do {% data variables.product.prodname_oauth_app %} para o qual deseja solicitar o acesso.
-![Botão Exibir aplicativo](/assets/images/help/settings/settings-third-party-view-app.png)
-4. Ao lado da organização que você deseja que o {% data variables.product.prodname_oauth_app %} acesse, clique em **Solicitar acesso**.
-![Botão Solicitar acesso](/assets/images/help/settings/settings-third-party-request-access.png)
-5. Depois de revisar as informações sobre como solicitar acesso ao {% data variables.product.prodname_oauth_app %}, clique em **Solicitar aprovação dos proprietários**.
-![Botão Solicitar aprovação](/assets/images/help/settings/oauth-access-request-approval.png)
+## About requesting organization approval for an {% data variables.product.prodname_oauth_app %}
 
-## Leitura adicional
+Organization members can always request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use, and organization owners receive a notification of pending requests.{% ifversion limit-app-access-requests %} Outside collaborators can request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use if integration access requests are enabled. For more information, see "[Limiting OAuth App and GitHub App access requests](/organizations/managing-organization-settings/limiting-oauth-app-and-github-app-access-requests)."{% endif %}
 
-- "[Sobre as restrições de acesso do {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)"
+## Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
+{% data reusables.user-settings.access_authorized_oauth_apps %}
+3. In the list of applications, click the name of the {% data variables.product.prodname_oauth_app %} you'd like to request access for.
+![View application button](/assets/images/help/settings/settings-third-party-view-app.png)
+4. Next to the organization you'd like the {% data variables.product.prodname_oauth_app %} to access, click **Request access**.
+![Request access button](/assets/images/help/settings/settings-third-party-request-access.png)
+5. After you review the information about requesting {% data variables.product.prodname_oauth_app %} access, click **Request approval from owners**.
+![Request approval button](/assets/images/help/settings/oauth-access-request-approval.png)
+
+## Further reading
+
+- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
