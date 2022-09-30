@@ -252,4 +252,6 @@ Puedes probar un script de gancho de pre-recepción localmente antes de que lo c
    Observa que la subida fue rechazada después de ejecutar el ganchos de pre-recepción y de hace eco la salida del script.
 
 ## Información adicional
- - "[Personalización de Git: ejemplo de directiva de Git-Enforced](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" del *sitio web de Pro Git*
+ - "[Personalización de Git: ejemplo
+ de directiva de Git-Enforced](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" del *sitio web de Pro Git*
+Cliwontea
