@@ -1,9 +1,9 @@
 ---
-title: Codespaces 用に C# (.NET) プロジェクトを設定する
+title: Setting up your C# (.NET) project for GitHub Codespaces
 shortTitle: Setting up your C# (.NET) project
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
-intro: 'カスタム開発コンテナを作成して、{% data variables.product.prodname_codespaces %} で C# (.NET) プロジェクトを始めます。'
+intro: 'Get started with your C# (.NET) project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
 versions:
@@ -13,130 +13,126 @@ topics:
   - Codespaces
 hasExperimentalAlternative: true
 hidden: true
-ms.openlocfilehash: cae2c48e258cf2f9b8a8cce721d52e3772467430
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147063251'
 ---
-## はじめに
 
-このガイドでは、{% data variables.product.prodname_codespaces %} で C# (.NET) プロジェクトを設定する方法を説明します。 codespace でプロジェクトを開き、テンプレートから開発コンテナ設定を追加および変更する例を紹介します。
+## Introduction
 
-### 前提条件
+This guide shows you how to set up your C# (.NET) project in {% data variables.product.prodname_github_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
 
-- {% data variables.product.prodname_dotcom_the_website %} のリポジトリに既存の C# (.NET) プロジェクトがある必要があります。 プロジェクトがない場合は、次の例を使用してこのチュートリアルを試すことができます: https://github.com/2percentsilk/dotnet-quickstart 。
-- Organization で {% data variables.product.prodname_codespaces %} を有効にする必要があります。
+### Prerequisites
 
-## ステップ 1: codespace でプロジェクトを開く
+- You should have an existing C# (.NET) project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/dotnet-quickstart.
+- You must have {% data variables.product.prodname_github_codespaces %} enabled for your organization.
 
-1. リポジトリ名の下で **[{% octicon "code" aria-label="The code icon" %} コード]** ドロップダウン メニューを使い、 **[Codespaces]** タブで **[メインで新しい codespace を作成する]** をクリックします。
+## Step 1: Open your project in a codespace
 
-  ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
-  このオプションが表示されない場合、{% data variables.product.prodname_codespaces %} をプロジェクトで利用することはできません。 詳細については、[{% data variables.product.prodname_codespaces %} へのアクセス](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)に関するページを参照してください。
+  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-codespace を作成すると、プロジェクトは専用のリモート VM 上に作成されます。 デフォルト設定では、codespace のコンテナには、.NET を含む多くの言語とランタイムがあります。 また、git、wget、rsync、openssh、nano などの一般的なツールセットも含まれています。
+  If you don’t see this option, {% data variables.product.prodname_github_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-github-codespaces) for more information.
+
+When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including .NET. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
-## ステップ 2: テンプレートからリポジトリに開発コンテナーの構成を追加する
+## Step 2: Add a dev container configuration to your repository from a template
 
-{% data variables.product.prodname_github_codespaces %} の既定の開発コンテナー ("開発コンテナー") には、.NET の最新バージョンと一般的なツールがプレインストールされています。 ただし、独自の開発コンテナーを構成して、プロジェクトに必要なすべてのツールとスクリプトを含めることをお勧めします。 これにより、リポジトリのすべての {% data variables.product.prodname_github_codespaces %} ユーザーに対して、完全に再現可能な環境が保証されます。
+The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} comes with the latest .NET version and common tools preinstalled. However, we recommend that you configure your own dev container to include all of the tools and scripts that your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_github_codespaces %} users in your repository.
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-1. この例では、 **[C# (.NET)]** をクリックします。 追加機能が必要な場合は、C# (.NET) に固有の任意のコンテナ、または C# (.NET) や MSSQL などのツールの組み合わせを選択できます。
-  ![リストから [C# (.NET)] オプションを選択します](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
-1. .NET の推奨バージョンをクリックします。
-  ![.NET のバージョンの選択](/assets/images/help/codespaces/add-dotnet-version.png)
-1. デフォルトのオプションを使用して、Node.js をカスタマイズに追加します。
-  ![Node.js の選択に追加](/assets/images/help/codespaces/dotnet-options.png) {% data reusables.codespaces.rebuild-command %}
+1. For this example, click **C# (.NET)**. If you need additional features you can select any container that’s specific to C# (.NET) or a combination of tools such as C# (.NET) and MS SQL.
+  ![Select C# (.NET) option from the list](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
+1. Click the recommended version of .NET.
+  ![.NET version selection](/assets/images/help/codespaces/add-dotnet-version.png)
+1. Accept the default option to add Node.js to your customization.
+  ![Add Node.js selection](/assets/images/help/codespaces/dotnet-options.png)
+{% data reusables.codespaces.rebuild-command %}
 
-### 開発コンテナの構造
+### Anatomy of your dev container
 
-C# (.NET) 開発コンテナー テンプレートを追加すると、`.devcontainer` フォルダーが、次のファイルを含むプロジェクトのリポジトリのルートに追加されます。
+Adding the C# (.NET) dev container template adds a `.devcontainer` folder to the root of your project's repository with the following files:
 
 - `devcontainer.json`
 - Dockerfile
 
-新しく追加された `devcontainer.json` ファイルでは、サンプルの後に説明されるいくつかのプロパティを定義します。
+The newly added `devcontainer.json` file defines a few properties that are described after the sample.
 
 #### devcontainer.json
 
 ```json
 {
-    "name": "C# (.NET)",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "args": {
-            // Update 'VARIANT' to pick a .NET Core version: 2.1, 3.1, 5.0
-            "VARIANT": "5.0",
-            // Options
-            "INSTALL_NODE": "true",
-            "NODE_VERSION": "lts/*",
-            "INSTALL_AZURE_CLI": "false"
-        }
-    },
+	"name": "C# (.NET)",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// Update 'VARIANT' to pick a .NET Core version: 2.1, 3.1, 5.0
+			"VARIANT": "5.0",
+			// Options
+			"INSTALL_NODE": "true",
+			"NODE_VERSION": "lts/*",
+			"INSTALL_AZURE_CLI": "false"
+		}
+	},
 
-    // Set *default* container specific settings.json values on container create.
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
-    },
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
 
-    // Add the IDs of extensions you want installed when the container is created.
-    "extensions": [
-        "ms-dotnettools.csharp"
-    ],
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-dotnettools.csharp"
+	],
 
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    // "forwardPorts": [5000, 5001],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [5000, 5001],
 
-    // [Optional] To reuse of your local HTTPS dev cert:
-    //
-    // 1. Export it locally using this command:
-    //    * Windows PowerShell:
-    //        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-    //    * macOS/Linux terminal:
-    //        dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-    //
-    // 2. Uncomment these 'remoteEnv' lines:
-    //    "remoteEnv": {
-    //        "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
-    //        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
-    //    },
-    //
-    // 3. Do one of the following depending on your scenario:
-    //    * When using GitHub Codespaces and/or Remote - Containers:
-    //      1. Start the container
-    //      2. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer
-    //      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
-    //
-    //    * If only using Remote - Containers with a local container, uncomment this line instead:
-    //      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
+	// [Optional] To reuse of your local HTTPS dev cert:
+	//
+	// 1. Export it locally using this command:
+	//    * Windows PowerShell:
+	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
+	//    * macOS/Linux terminal:
+	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
+	//
+	// 2. Uncomment these 'remoteEnv' lines:
+	//    "remoteEnv": {
+	// 	      "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
+	//        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
+	//    },
+	//
+	// 3. Do one of the following depending on your scenario:
+	//    * When using GitHub Codespaces and/or Remote - Containers:
+	//      1. Start the container
+	//      2. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer
+	//      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
+	//
+	//    * If only using Remote - Containers with a local container, uncomment this line instead:
+	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
 
-    // Use 'postCreateCommand' to run commands after the container is created.
-    // "postCreateCommand": "dotnet restore",
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "dotnet restore",
 
-    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-    "remoteUser": "vscode"
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
 }
 ```
 
-- **name** - 開発コンテナーには任意の名前を付けることができます。これは既定値です。
-- **build** - ビルドのプロパティ。
-  - **dockerfile** - `build` オブジェクトの `dockerfile` には、やはりテンプレートから追加された Dockerfile へのパスが含まれます。
+- **name** - You can name our dev container anything, this is just the default.
+- **build** - The build properties.
+  - **dockerfile** - In the `build` object, `dockerfile` contains the path to the Dockerfile that was also added from the template.
   - **args**
-    - **variant**: このファイルには、使う .NET Core バージョンであるビルド引数が 1 つだけ含まれています。
-- **settings** - これらは {% data variables.product.prodname_vscode %} 設定です。
-  - **terminal.integrated.shell.linux** - ここでは bash が既定値ですが、これを変更すると他のターミナル シェルを使用できます。
-- **extensions** - これらは既定で含まれる拡張機能です。
-  - **ms-dotnettools.csharp** - Microsoft C# 機能拡張は、IntelliSense、リンティング、デバッグ、コード ナビゲーション、コード形式、リファクタリング、変数エクスプローラー、テスト エクスプローラーなどの機能を含み、C# での開発に豊富なサポートを提供します。
-- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 詳細については、「[codespace でのポートの転送](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)」を参照してください。
-- **postCreateCommand** - codespace が作成された後に、Dockerfile で定義されていないコマンドを実行するには、これを使います。
-- **remoteUser** - 既定では、vscode ユーザーとして実行されていますが、必要に応じてこれを root に設定することができます。
+    - **variant**: This file only contains one build argument, which is the .NET Core version that we want to use.
+- **settings** - These are {% data variables.product.prodname_vscode %} settings.
+  - **terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
+- **extensions** - These are extensions included by default.
+  - **ms-dotnettools.csharp** - The Microsoft C# extension provides rich support for developing in C#, including features such as IntelliSense, linting, debugging, code navigation, code formatting, refactoring, variable explorer, test explorer, and more.
+- **forwardPorts** - Any ports listed here will be forwarded automatically. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+- **postCreateCommand** - Use this to run commands that aren't defined in the Dockerfile, after your codespace is created.
+- **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
 
 #### Dockerfile
 
@@ -164,26 +160,26 @@ RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then bash /tmp/library-scripts/azcli-d
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
-Dockerfile を使用して、コンテナレイヤーを追加し、コンテナに含める OS パッケージ、ノードバージョン、またはグローバルパッケージを指定できます。
+You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our container.
 
-## ステップ 3: devcontainer.json ファイルを変更する
+## Step 3: Modify your devcontainer.json file
 
-開発コンテナーの構成を追加し、すべての機能を基本的に理解したので、変更を行って環境をさらにカスタマイズできます。 この例では、コードスペースの起動時に拡張機能とプロジェクトの依存関係をインストールするためのプロパティを追加します。
+With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties to install extensions and your project dependencies when your codespace launches.
 
-1. エクスプローラーで、ツリーから `devcontainer.json` ファイルを選択してそれを開きます。 表示するには、`.devcontainer` フォルダーを展開する必要がある場合があります。
+1. In the Explorer, select the `devcontainer.json` file from the tree to open it. You might have to expand the `.devcontainer` folder to see it.
 
-   ![エクスプローラーの devcontainer.json ファイル](/assets/images/help/codespaces/devcontainers-options.png)
+   ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. `devcontainer.json` ファイル内の `extensions` リストを更新して、プロジェクトを操作する際に役立つ拡張機能をいくつか追加します。
+2. Update your the `extensions` list in your `devcontainer.json` file to add a few extensions that are useful when working with your project.
 
    ```json{:copy}
    "extensions": [
-          "ms-dotnettools.csharp",
-          "streetsidesoftware.code-spell-checker",
-      ],
+ 		  "ms-dotnettools.csharp",
+ 		  "streetsidesoftware.code-spell-checker",
+ 	  ],
    ```
 
-3. codespace 設定プロセスの一部として依存関係を復元するには、`postCreateCommand` のコメントを解除します。
+3. Uncomment the `postCreateCommand` to restore dependencies as part of the codespace setup process.
 
    ```json{:copy}
    // Use 'postCreateCommand' to run commands after the container is created.
@@ -196,26 +192,26 @@ Dockerfile を使用して、コンテナレイヤーを追加し、コンテナ
 
    {% data reusables.codespaces.rebuild-reason %}
 
-5. 「Code Spell Checker」機能拡張がインストールされていることを確認して、変更が正常に適用されたことを確認します。
+5. Check your changes were successfully applied by verifying the "Code Spell Checker" extension was installed.
 
-    ![機能拡張のリスト](/assets/images/help/codespaces/dotnet-extensions.png)
+    ![Extensions list](/assets/images/help/codespaces/dotnet-extensions.png)
 
-## 手順 4:アプリケーションを実行する
+## Step 4: Run your application
 
-前のセクションでは、`postCreateCommand` を使用して、一連のパッケージを `dotnet restore` コマンドを使ってインストールしました。 依存関係がインストールされているため、アプリケーションを実行できます。
+In the previous section, you used the `postCreateCommand` to install a set of packages via the `dotnet restore` command. With our dependencies now installed, we can run our application.
 
-1. ターミナルで `F5` を押すか、`dotnet watch run` を入力してアプリケーションを実行します。
+1. Run your application by pressing `F5` or entering `dotnet watch run` in your terminal.
 
-2. プロジェクトが開始されると、プロジェクトが使用するポートに接続するためのプロンプトが表示されたトーストが右下隅に表示されます。
+2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
 
-   ![ポートフォワーディングトースト](/assets/images/help/codespaces/python-port-forwarding.png)
+   ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
 
-## ステップ 5: 変更をコミットする
+## Step 5: Commit your changes
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-## 次のステップ
+## Next steps
 
-これで、C# (.NET) で {% data variables.product.prodname_codespaces %} プロジェクトの開発を始める準備ができました。 より高度なシナリオ向けの追加のリソースは次のとおりです。
+You should now be ready start developing your C# (.NET) project in {% data variables.product.prodname_github_codespaces %}. Here are some additional resources for more advanced scenarios.
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

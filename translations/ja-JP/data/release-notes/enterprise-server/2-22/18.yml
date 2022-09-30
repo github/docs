@@ -1,0 +1,16 @@
+date: '2021-07-27'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - 依存関係グラフが有効にされておらず、コンテンツ分析が有効にされている場合、スケジュール ジョブで GitHub.com と脆弱性を同期しようとすると、大量の 503 エラーが発生していました。
+    - HTTP プロキシを使用するユーザーでは、ページ コンテナーのビルドの認証されていない HTTP プロキシはサポートされていませんでした。
+  changes:
+    - "`babeld` のログには、ネゴシエーション要求時に含まれるだけでなく、HTTP 参照アドバタイズ要求にも `cmd` フィールドが含まれるようになりました。"
+  known_issues:
+    - "ユーザーが存在していない、セットアップしたばかりの {% data variables.product.prodname_ghe_server %} では、攻撃者が最初の管理者ユーザーを作成することができました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue はクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低減される可能性があります。"

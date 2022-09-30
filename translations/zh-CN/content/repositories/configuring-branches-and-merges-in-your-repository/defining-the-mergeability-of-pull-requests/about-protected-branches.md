@@ -1,6 +1,6 @@
 ---
-title: 关于受保护分支
-intro: 您可以通过设置分支保护规则来保护重要分支，这些规则定义协作者是否可以删除或强制推送到分支以及设置任何分支推送要求，例如通过状态检查或线性提交历史记录。
+title: About protected branches
+intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
@@ -24,166 +24,177 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: 14a0875de13a453824dd692c2eea02c1ff585883
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147614333'
 ---
-## 关于分支保护规则
+## About branch protection rules
 
-您可以通过创建分支保护规则，实施某些工作流程或要求，以规定协作者如何向您仓库中的分支推送更改，包括将拉取请求合并到分支。
+You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule.
 
-默认情况下，每个分支保护规则都禁止强制推送到匹配的分支并阻止删除匹配的分支。 您可以选择禁用这些限制并启用其他分支保护设置。
+By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
 
-{% ifversion bypass-branch-protections %} 默认情况下，分支保护规则的限制不适用于对存储库具有管理员权限的人员或具有“绕过分支保护”权限的自定义角色。 也可以选择将限制应用于具有“绕过分支保护”权限的管理员和角色。 有关详细信息，请参阅“[管理组织的自定义存储库角色](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
-{% else %} 默认情况下，分支保护规则的限制不适用于对仓库具有管理员权限的人。 还可以选择包括管理员。{% endif %}
+{% ifversion bypass-branch-protections %}
+By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% else %} 
+By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.{% endif %}
 
-{% data reusables.repositories.branch-rules-example %} 有关分支名称模式的详细信息，请参阅“[管理分支保护规则](/github/administering-a-repository/managing-a-branch-protection-rule)”。
+{% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
 
 {% data reusables.pull_requests.you-can-auto-merge %}
 
-## 关于分支保护设置
+## About branch protection settings
 
-对于每个分支保护规则，您可以选择启用或禁用以下设置。
-- [在合并前需要拉取请求审查](#require-pull-request-reviews-before-merging)
-- [合并前必需状态检查](#require-status-checks-before-merging)
-- [合并前需要对话解决](#require-conversation-resolution-before-merging)
-- [需要签名提交](#require-signed-commits)
-- [需要线性历史记录](#require-linear-history) {% ifversion fpt or ghec %}
-- [需要合并队列](#require-merge-queue) {% endif %} {%- ifversion required-deployments %}
-- [合并前要求部署成功](#require-deployments-to-succeed-before-merging) {%- endif %} {% ifversion bypass-branch-protections %}- [不允许绕过上述设置](#do-not-allow-bypassing-the-above-settings){% else %}- [包括管理员](#include-administrators){% endif %}
-- [限制可推送到匹配分支的人员](#restrict-who-can-push-to-matching-branches)
-- [允许强制推送](#allow-force-pushes)
-- [允许删除](#allow-deletions)
+For each branch protection rule, you can choose to enable or disable the following settings.
+- [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
+- [Require status checks before merging](#require-status-checks-before-merging)
+- [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
+- [Require signed commits](#require-signed-commits)
+- [Require linear history](#require-linear-history)
+{% ifversion fpt or ghec %}
+- [Require merge queue](#require-merge-queue)
+{% endif %}
+{%- ifversion required-deployments %}
+- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
+{%- endif %}
+{% ifversion bypass-branch-protections %}- [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings){% else %}- [Include administrators](#include-administrators){% endif %}
+- [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
+- [Allow force pushes](#allow-force-pushes)
+- [Allow deletions](#allow-deletions)
 
-有关如何设置分支保护的详细信息，请参阅“[管理分支保护规则](/github/administering-a-repository/managing-a-branch-protection-rule)”。
+For more information on how to set up branch protection, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
 
-### 合并前必需拉取请求审查
+### Require pull request reviews before merging
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
-如果启用必需审查，则协作者只能通过由所需数量的具有写入权限之审查者批准的拉取请求向受保护分支推送更改。
+If you enable required reviews, collaborators can only push changes to a protected branch via a pull request that is approved by the required number of reviewers with write permissions.
 
-如果某个具有管理员权限的人员在审查中选择“请求更改”选项，则拉取请求必须经此人批准后才可合并。 如果申请更改拉取请求的审查者没有空，则具有仓库写入权限的任何人都可忽略阻止审查。
+If a person with admin permissions chooses the **Request changes** option in a review, then that person must approve the pull request before the pull request can be merged. If a reviewer who requests changes on a pull request isn't available, anyone with write permissions for the repository can dismiss the blocking review.
 
 {% data reusables.repositories.review-policy-overlapping-commits %}
 
-如果协作者尝试将待处理或被拒绝审查的拉取请求合并到受保护分支，则该协作者将收到错误消息。
+If a collaborator attempts to merge a pull request with pending or rejected reviews into the protected branch, the collaborator will receive an error message.
 
 ```shell
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Changes have been requested.
 ```
 
-（可选）您可以选择在推送提交时忽略旧拉取请求批准。 如果有人将修改代码的提交推送到已批准的拉取请求，则该批准将被忽略，拉取请求无法合并。 这不适用于协作者推送不修改代码的提交，例如将基础分值合并到拉取请求的分支。 有关基分支的信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
+Optionally, you can choose to dismiss stale pull request approvals when commits are pushed. If anyone pushes a commit that modifies code to an approved pull request, the approval will be dismissed, and the pull request cannot be merged. This doesn't apply if the collaborator pushes commits that don't modify code, like merging the base branch into the pull request's branch. For information about the base branch, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
-（可选）您可以限制特定人员或团队忽略拉取请求审查的权限。 有关详细信息，请参阅“[消除拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。
+Optionally, you can restrict the ability to dismiss pull request reviews to specific people or teams. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 
-（可选）您可以选择要求代码所有者进行审查。 如果这样做，则任何影响代码的拉取请求都必须得到代码所有者的批准，才能合并到受保护分支。
+Optionally, you can choose to require reviews from code owners. If you do, any pull request that affects code with a code owner must be approved by that code owner before the pull request can be merged into the protected branch.
 
-### 合并前必需状态检查
+### Require status checks before merging
 
-必需状态检查确保在协作者可以对受保护分支进行更改前，所有必需的 CI 测试都已通过。 更多信息请参阅“<a href="/articles/configuring-protected-branches/">配置受保护分支</a>”和“<a href="/articles/enabling-required-status-checks">启用必需状态检查</a>”。 有关详细信息，请参阅“[关于状态检查](/github/collaborating-with-issues-and-pull-requests/about-status-checks)”。
+Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)."
 
-必须配置仓库使用状态 API 后才可启用必需状态检查。 有关详细信息，请参阅 REST 文档中的“[存储库](/rest/reference/commits#commit-statuses)”。
+Before you can enable required status checks, you must configure the repository to use the status API. For more information, see "[Repositories](/rest/reference/commits#commit-statuses)" in the REST documentation.
 
-启用必需状态检查后，必须通过所有必需状态检查，协作者才能将更改合并到受保护分支。 所有必需状态检查通过后，必须将任何提交推送到另一个分支，然后合并或直接推送到受保护分支。
+After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the protected branch.
 
-任何对存储库具有写入权限的人员或集成都可以在存储库中设置任何状态检查的状态{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}，但在某些情况下，你可能只想接受来自特定 {% data variables.product.prodname_github_app %} 的状态检查。 添加所需的状态检查时，可以选择最近将此检查设置为预期状态更新源的应用。{% endif %} 如果状态由任何其他人员或集成设置，则不允许合并。 如果选择“任何来源”，您仍然可以手动验证合并框中列出的每个状态的作者。
+Any person or integration with write permissions to a repository can set the state of any status check in the repository{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates.{% endif %} If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
 
-您可以将必需状态检查设置为“宽松”或“严格”。 您选择的必需状态检查类型确定合并之前是否需要使用基础分支将您的分支保持最新状态。
+You can set up required status checks to either be "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up to date with the base branch before merging.
 
-| 必需状态检查的类型 | 设置 | 合并要求 | 注意事项 |
+| Type of required status check | Setting | Merge requirements | Considerations |
 | --- | --- | --- | --- |
-| **Strict** | 选中“合并前要求分支保持最新状态”复选框。 | 在合并之前，必须利用基分支使分支保持最新状态。 | 这是必需状态检查的默认行为。 可能需要更多构建，因为在其他协作者将拉取请求合并到受保护基础分支后，您需要使头部分支保持最新状态。|
-| 宽松 | 未选中“合并前要求分支保持最新状态”复选框 。 | 在合并之前，不必利用基分支使分支保持最新状态。 | 您将需要更少的构建，因为在其他协作者合并拉取请求后，您不需要使头部分支保持最新状态。 如果存在与基础分支不兼容的变更，则在合并分支后，状态检查可能会失败。 |
-| **已禁用** | 未选中“合并前要求通过状态检查”复选框 。 | 分支没有合并限制。 | 如果未启用必需状态检查，协作者可以随时合并分支，无论它是否使用基础分支保持最新状态。 这增加了不兼容变更的可能性。
+| **Strict** | The **Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators merge pull requests to the protected base branch.|
+| **Loose** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
+| **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
-有关故障排除信息，请参阅“[对所需状态检查进行故障排除](/github/administering-a-repository/troubleshooting-required-status-checks)”。
+For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
 
-### 合并前需要对话解决
+### Require conversation resolution before merging
 
-在合并到受保护的分支之前，所有对拉取请求的评论都需要解决。 这确保所有评论在合并前都得到解决或确认。
+Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
 
-### 要求签名提交
+### Require signed commits
 
-如果你在分支上启用所需的提交签名，参与者{% ifversion fpt or ghec %}和机器人{% endif %}只能将已签名和验证的提交推送到分支。 有关详细信息，请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”。
+When you enable required commit signing on a branch, contributors {% ifversion fpt or ghec %}and bots{% endif %} can only push commits that have been signed and verified to the branch. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)."
 
 {% note %}
 
-{% ifversion fpt or ghec %} 注意： 
+{% ifversion fpt or ghec %}
+**Notes:** 
 
-* 如果您已经启用了警戒模式，这表明您的提交总是会签名，允许在需要签名提交的分支上提交 {% data variables.product.prodname_dotcom %} 识别为“部分验证”的任何提交。 有关警戒模式的详细信息，请参阅“[显示所有提交的验证状态](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)”。
-* 如果协作者将未签名的提交推送到要求提交签名的分支，则协作者需要变基提交以包含验证的签名，然后将重写的提交强制推送到分支。
+* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
+* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 
-{% else %} 注意：如果协作者将未签名的提交推送到要求提交签名的分支，则协作者需要变基提交以包含验证的签名，然后将重写的提交强制推送到分支。
+{% else %}
+**Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 {% endif %}
 
 {% endnote %}
 
-如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% ifversion fpt or ghec %}你也可以使用 {% data variables.product.product_name %} 上的拉取请求将已签名和验证的提交合并到分支。 但除非你是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 上的分支。{% else %} 但你不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 你可以在本地{% ifversion fpt or ghec %}压缩和{% endif %}合并拉取请求。 有关详细信息，请参阅“[在本地签出拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)”。
+You can always push local commits to the branch if the commits are signed and verified. {% ifversion fpt or ghec %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% ifversion fpt or ghec %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
 
-{% ifversion fpt or ghec %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的合并方法](/github/administering-a-repository/about-merge-methods-on-github)”。{% endif %}
+{% ifversion fpt or ghec %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
 
-### 需要线性历史记录
+### Require linear history
 
-强制实施线性提交历史记录可阻止协作者将合并提交推送到分支。 这意味着合并到受保护分支的任何拉取请求都必须使用压缩合并或变基合并。 严格的线性提交历史记录可以帮助团队更容易回溯更改。 有关合并方法的详细信息，请参阅“[关于拉取请求合并](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)”。
+Enforcing a linear commit history prevents collaborators from pushing merge commits to the branch. This means that any pull requests merged into the protected branch must use a squash merge or a rebase merge. A strictly linear commit history can help teams reverse changes more easily. For more information about merge methods, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)."
 
-在需要线性提交历史记录之前，仓库必须允许压缩合并或变基合并。 有关详细信息，请参阅“[配置拉取请求合并](/github/administering-a-repository/configuring-pull-request-merges)”。
+Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[Configuring pull request merges](/github/administering-a-repository/configuring-pull-request-merges)."
 
 {% ifversion fpt or ghec %}
-### 需要合并队列
+### Require merge queue
 
-{% data reusables.pull_requests.merge-queue-beta %} {% data reusables.pull_requests.merge-queue-overview %}
+{% data reusables.pull_requests.merge-queue-beta %}
+{% data reusables.pull_requests.merge-queue-overview %}
  
-{% data reusables.pull_requests.merge-queue-merging-method %} {% data reusables.pull_requests.merge-queue-references %}
+{% data reusables.pull_requests.merge-queue-merging-method %}
+{% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
 
-### 在合并前要求部署成功
+### Require deployments to succeed before merging
 
-在合并分支之前，可以要求将更改成功部署到特定环境。 例如，可以使用此规则确保在更改合并到默认分支之前成功部署到过渡环境。
+You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
 
-{% ifversion bypass-branch-protections %}### 不允许绕过上述设置{% else %}
-### 包括管理员{% endif %}
+{% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
+### Include administrators{% endif %}
 
-{% ifversion bypass-branch-protections %} 默认情况下，分支保护规则的限制不适用于对存储库具有管理员权限的人员或在存储库中具有“绕过分支保护”权限的自定义角色。 
+{% ifversion bypass-branch-protections %}
+By default, the restrictions of a branch protection rule do not apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission in a repository. 
 
-也可以启用此设置以将限制应用于具有“绕过分支保护”权限的管理员和角色。  有关详细信息，请参阅“[管理组织的自定义存储库角色](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
-{% else %} 默认情况下，受保护分支规则不适用于对仓库具有管理员权限的人。 可以启用此设置将管理员纳入受保护分支规则。{% endif %}
+You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[Managing custom repository roles for an organization](/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+{% else %}
+By default, protected branch rules do not apply to people with admin permissions to a repository. You can enable this setting to include administrators in your protected branch rules.{% endif %}
 
-### 限制谁可以推送到匹配的分支
+### Restrict who can push to matching branches
 
-{% ifversion fpt or ghec %} 如果你的存储库为使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 的组织所有，你可以启用分支限制。
+{% ifversion fpt or ghec %}
+You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。 当需要状态检查时，如果所需的检查失败，仍会阻止有权推送到受保护分支的人员、团队和应用合并为一个分支。 当需要拉取请求时，有权推送到受保护分支的人员、团队和应用仍需要创建拉取请求。
+When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings. When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging into the branch when the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
 
-{% ifversion restrict-pushes-create-branch %}（可选）可以将相同的限制应用于创建与规则匹配的分支。 例如，如果创建一个仅允许特定团队推送到包含单词 `release` 的任何分支的规则，则只有该团队的成员才能创建包含单词 `release` 的新分支。
+{% ifversion restrict-pushes-create-branch %}
+Optionally, you can apply the same restrictions to the creation of branches that match the rule. For example, if you create a rule that only allows a certain team to push to any branches that contain the word `release`, only members of that team would be able to create a new branch that contains the word `release`.
 {% endif %}
 
-只能向对存储库具有写入权限的用户、团队或已安装的 {% data variables.product.prodname_github_apps %} 授予推送到受保护分支或创建匹配分支的权限。 对存储库具有管理员权限的人员和应用程序始终能够推送到受保护分支或创建匹配分支。
+You can only give push access to a protected branch, or give permission to create a matching branch, to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch or create a matching branch.
 
-### 允许强制推送
+### Allow force pushes
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %} 默认情况下，{% data variables.product.product_name %} 会阻止对所有受保护分支的强制推送。 启用强制推送到受保护分支时，可以选择两个可以强制推送的组之一：
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
 
-1. 允许至少具有存储库写入权限的每个人强制推送到分支，包括具有管理员权限的人员。
-1. 仅允许特定人员或团队强制推送到分支。
+1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+1. Allow only specific people or teams to force push to the branch.
 
-如果有人强制推送到分支，则强制推送可能会覆盖其他协作者基于其工作的承诺。 用户可能有合并冲突或损坏的拉取请求。
+If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
 
-{% else %} 默认情况下，{% data variables.product.product_name %} 会阻止对所有受保护分支的强制推送。 对受保护分支启用强制推送时，只要具有仓库写入权限，任何人（包括具有管理员权限的人）都可以强制推送到该分支。 如果有人强制推送到分支，则强制推送可能会覆盖其他协作者基于其工作的承诺。 用户可能有合并冲突或损坏的拉取请求。
+{% else %}
+By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, anyone with at least write permissions to the repository can force push to the branch, including those with admin permissions. If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
 {% endif %}
 
-启用强制推送不会覆盖任何其他分支保护规则。 例如，如果分支需要线性提交历史记录，则无法强制推送合并提交到该分支。
+Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
-{% ifversion ghes or ghae %}如果站点管理员阻止了强制推送到存储库中的所有分支，则你无法对受保护分支启用强制推送。 有关详细信息，请参阅“[阻止对个人帐户或组织拥有的存储库进行强制推送](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
+{% ifversion ghes or ghae %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a personal account or organization](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
-如果站点管理员只阻止强制推送到默认分支，您仍然可以为任何其他受保护分支启用强制推送。{% endif %}
+If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
 
-### 允许删除
+### Allow deletions
 
-默认情况下，您不能删除受保护的分支。 启用删除受保护分支后，任何对仓库至少拥有写入权限的人都可以删除分支。
+By default, you cannot delete a protected branch. When you enable deletion of a protected branch, anyone with at least write permissions to the repository can delete the branch.

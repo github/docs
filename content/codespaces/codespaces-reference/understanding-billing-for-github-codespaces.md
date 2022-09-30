@@ -21,11 +21,11 @@ This article explains how billing works for your codespaces, and explains how yo
 
 ## Getting access to {% data variables.product.prodname_github_codespaces %}
 
-Your organization's administrator might limit {% data variables.product.prodname_github_codespaces %} usage to only specific personal accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access and security for your codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)."
+Your organization's administrator might limit {% data variables.product.prodname_github_codespaces %} usage to only specific personal accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
 
 ## How much it costs to use {% data variables.product.prodname_codespaces %}
 
-To see the pricing for {% data variables.product.prodname_codespaces %} usage, see "[{% data variables.product.prodname_codespaces %} pricing](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+To see the pricing for {% data variables.product.prodname_github_codespaces %} usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
 
 ## How your codespace usage is billed
 
@@ -41,7 +41,7 @@ For {% data variables.product.prodname_github_codespaces %}, storage is defined 
 
 ## How spending limits work
 
-Before your organization can use {% data variables.product.prodname_codespaces %}, your billing manager will need to set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)." 
+Before your organization can use {% data variables.product.prodname_github_codespaces %}, your billing manager will need to set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)." 
 
 ## Exporting changes when you have reached your spending limit
 

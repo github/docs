@@ -7,13 +7,8 @@ redirect_from:
   - /github/site-policy-deprecated/github-enterprise-server-license-agreement
 versions:
   fpt: '*'
-ms.openlocfilehash: 46e22d433532263ebef0599c92f7563b96257d1b
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '147099291'
 ---
+
 _本契約は、本契約を参照する契約を締結したお客様に適用されます。その他の法人のお客様は、 https://www.github.com/customer-terms にアクセスして最新の契約条件をご確認ください。_
 
 本契約は、以下にさらに定義する以下の GitHub サービス (以下総称して **「製品」** といいます) に適用されます。

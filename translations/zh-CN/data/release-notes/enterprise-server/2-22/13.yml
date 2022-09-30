@@ -1,0 +1,20 @@
+date: '2021-05-13'
+sections:
+  security_fixes:
+    - "**高：**在 GitHub Enterprise Server 中发现 UI 表述错误漏洞，在审批阶段，该问题会导致在 GitHub 应用用户授权 Web 流中授予超过 UI 显示的权限。要利用这个漏洞，攻击者需要在实例上创建 GitHub 应用，并让用户通过 Web 身份验证流对应用程序进行授权。所有被授予的权限将在第一次授权时正确显示，但在某些情况下，如果用户在 GitHub 应用已配置额外的用户级别权限后重新访问授权流，这些额外的权限可能不会显示，这样会导致授予可能超过用户初衷的权限。此漏洞影响 GitHub Enterprise Server 3.0.x 到 3.0.7 版本以及 2.22.x 到 2.22.13 版本。3.0.7 和 2.22.13 版本中修复了该问题。该漏洞编号为 CVE-2021-22866，通过 [GitHub Bug 赏金计划](https://bounty.github.com/) 报告。"
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 在配置应用阶段可以启用 Orchestrator 自动故障转移。
+    - 具有存储库维护员权限的用户会收到电子邮件验证警告，而不是在存储库 Pages 设置页面上构建成功的页面。
+    - 通配符规则的代码所有者将被错误地添加到代码所有者徽章的所有者列表中，即使该路径优先使用较新的规则。
+    - OpenAPI 文档引用了无效的标头。
+  changes:
+    - 添加了 HAProxy 重载时配置更改的日志记录。
+    - 添加了仓库创建的日志记录。
+  known_issues:
+    - 在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。
+    - 在升级期间不会维护自定义防火墙规则。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 问题若是包含同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。"

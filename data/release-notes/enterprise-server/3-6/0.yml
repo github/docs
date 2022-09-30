@@ -30,7 +30,7 @@ sections:
         - |
           You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#enforcing-tls-for-smtp-connections)."
           
-          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0. The feature will be available in an upcoming release. [Updated: 2022-08-26]
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0 and 3.6.1. The feature is available in the 3.6.2 release. [Updated: 2022-09-22]
 
     - heading: Audit logs
       notes:
@@ -296,3 +296,5 @@ sections:
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+    - |
+      Running `ghe-repl-status` while upgrading a replica node may indicate `WARNING: git replication is behind the primary`. This warning is due to a change in how GitHub Enterprise Server 3.6.0 and later stores repositories. You can safely ignore this message, and the upgrade will proceed normally. [Updated: 2022-09-26]

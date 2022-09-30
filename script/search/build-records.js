@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-import domwaiter from 'domwaiter'
 import eventToPromise from 'event-to-promise'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 import parsePageSectionsIntoRecords from './parse-page-sections-into-records.js'
 import getPopularPages from './popular-pages.js'
 import languages from '../../lib/languages.js'
+import domwaiter from '../domwaiter.js'
+
 const pageMarker = chalk.green('|')
 const recordMarker = chalk.grey('.')
 const port = 4002

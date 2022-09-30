@@ -1330,7 +1330,7 @@ Key | Type | Description
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
-{% ifversion ghes > 3.4 or ghec or ghae-issue-6581 %}
+{% ifversion ghes > 3.4 or ghec or ghae > 3.4 %}
 ## secret_scanning_alert_location
 
 {% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}

@@ -60,3 +60,12 @@ If a team's access to a {% data variables.projects.projects_v1_board %} is inher
   ![The team repositories tab](/assets/images/help/organizations/team-project-board-button.png)
 5. To change permissions levels, to the right of the {% data variables.projects.projects_v1_board %} you want to update, use the drop-down. To remove a {% data variables.projects.projects_v1_board %}, click **{% octicon "trash" aria-label="The trash icon" %}**.
   ![Remove a project board from your team trash button](/assets/images/help/organizations/trash-button.png)
+
+{% ifversion projects-v2-add-to-team %}
+
+## Further reading
+
+- [Adding your project to a team](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)
+
+
+{% endif %}

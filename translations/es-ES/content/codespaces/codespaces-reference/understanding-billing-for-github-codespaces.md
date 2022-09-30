@@ -1,6 +1,6 @@
 ---
-title: Administración de la facturación para GitHub Codespaces
-intro: 'Aprende cómo se factura el uso de {% data variables.product.prodname_github_codespaces %}.'
+title: Understanding billing for GitHub Codespaces
+intro: 'Learn how your {% data variables.product.prodname_github_codespaces %} usage is billed.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,54 +15,49 @@ topics:
   - Billing
 product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Understanding billing
-ms.openlocfilehash: 2dfec9e452360db117bdee7954fbe4fad2ad1c56
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147111687'
 ---
-Este artículo te explica cómo funciona la facturación para tus codespaces y cómo el gerente de facturación de tu empresa puede ayudar.
 
-## Acceso a {% data variables.product.prodname_github_codespaces %}
+This article explains how billing works for your codespaces, and explains how your organization's billing manager can help.
 
-El administrador de la organización puede limitar el uso de {% data variables.product.prodname_github_codespaces %} solo a cuentas personales específicas. Para obtener acceso, necesitarás contactar a tu gerente de facturación. Para más información, vea "[Administración del acceso y la seguridad de los codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)".
+## Getting access to {% data variables.product.prodname_github_codespaces %}
 
-## Cuánto cuesta utilizar {% data variables.product.prodname_codespaces %}
+Your organization's administrator might limit {% data variables.product.prodname_github_codespaces %} usage to only specific personal accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
 
-Para ver los precios del uso de {% data variables.product.prodname_codespaces %}, vea "[Precios de {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
+## How much it costs to use {% data variables.product.prodname_codespaces %}
 
-## Cómo se factura tu uso de codespaces
+To see the pricing for {% data variables.product.prodname_github_codespaces %} usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
 
-Tu codespace se cobra de acuerdo con sus minutos de cálculo y con la cantidad de almacenamiento que utiliza en disco.
+## How your codespace usage is billed
 
-Si habilitas la precompilación de los codespaces, esto ameritará cargos adicionales. Para más información, consulta "[Acerca de las precompilaciones de {% data variables.product.prodname_github_codespaces %}](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)".
+Your codespace is billed for its compute minutes and for the amount of storage it uses on disk.
 
-### Entender qué son los minutos de cálculo
-Tu codespace se cobra de acuerdo con la cantidad de minutos durante los cuales está activo. Si tu ventana de codespaces está inactiva durante 30 minutos, se cerrará automáticamente y la facturación por cálculo terminará hasta que lo inicies nuevamente.
+If you enable prebuilding of codespaces this will incur additional charges. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)."
 
-### Entender cómo se factura el almacenamiento de un codespace
-En {% data variables.product.prodname_github_codespaces %}, se define el almacenamiento para incluir cualquier archivo que se relacione con el codespace, como el repositorio clonado, los archivos de configuración y las extensiones, entre otros. Este almacenamiento se factura mientras tu codespace está cerrado. La facturación de almacenamiento de un codespace finaliza cuando se elimina manualmente de https://github.com/codespaces.
+### Understanding what compute minutes are
+Your codespace is billed for the number of minutes that it's active. If your codespaces window is left idle for 30 minutes, it will automatically shutdown, and compute billing for the codespace will end until you start the codespace again.
 
-## Cómo funcionan los límites de gastos
+### Understanding how codespace storage is billed
+For {% data variables.product.prodname_github_codespaces %}, storage is defined to include any files relating to your codespace, such as the cloned repository, configuration files, and extensions, among others. This storage is billed while your codespace is shutdown. The storage billing for a codespace ends when you manually delete it from https://github.com/codespaces.
 
-Antes de que tu organización pueda utilizar los {% data variables.product.prodname_codespaces %}, tu gerente de facturación necesitará configurar un límite de gastos. Para más información, consulta "[Administración de los límites de gasto para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)". 
+## How spending limits work
 
-## Exportar cambios cuando llegaste a tu límite de gastos
+Before your organization can use {% data variables.product.prodname_github_codespaces %}, your billing manager will need to set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)." 
+
+## Exporting changes when you have reached your spending limit
 
 {% data reusables.codespaces.exporting-changes %}
 
-## Verificar tu uso y límites actuales
-Si necesitas verificar tu uso o límite de gastos actuales, contacta al gerente de facturación de tu organización. Para más información, consulta "[Visualización del uso de {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)".
+## Checking your current usage and limits
+If you need to check your current usage or spending limit, contact your organization's billing manager. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
-## Los codespaces pueden borrarse automáticamente
+## Codespaces can be automatically deleted
 
-Tu codespace se borrará automáticamente cuando lo elimines de un repositorio u organización.
+Your codespace will be automatically deleted when you are removed from an organization or repository.
 
-## Borrar tus codespaces sin utilizar
+## Deleting your unused codespaces
 
-Puede eliminar manualmente los codespaces en https://github.com/codespaces y desde dentro de {% data variables.product.prodname_vscode %}. Para reducir el tamaño de un codespace, puedes borrar los archivos manualmente utilizando la terminal o desde dentro de {% data variables.product.prodname_vscode %}.
+You can manually delete your codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, you can manually delete files using the terminal or from within {% data variables.product.prodname_vscode %}.
 
-## Información adicional
+## Further reading
 
-- "[Administración de la facturación para {% data variables.product.prodname_github_codespaces %} en la organización](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"

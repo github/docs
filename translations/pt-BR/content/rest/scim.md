@@ -2,7 +2,6 @@
 title: SCIM
 intro: Você pode controlar e gerenciar o acesso de membros da organização do GitHub usando a API SCIM.
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API
