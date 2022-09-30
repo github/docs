@@ -49,6 +49,8 @@ type: how_to
 
 ## Filtering issues and pull requests
 
+Please note that currently there is no way to filter issues without having keyboard plugged into your computer. Issues do not provide filter button. If you are mouse-only user you can not use filters.
+
 Issues and pull requests come with a set of default filters you can apply to organize your listings.
 
 {% data reusables.search.requested_reviews_search %}
