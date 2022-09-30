@@ -120,7 +120,11 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
 
-   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository{% ifversion allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
+   {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
+   {% else %}
+   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+   {% endif %}
 
 1. Click **Save** to apply the settings.
 
