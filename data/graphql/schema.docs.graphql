@@ -29729,6 +29729,16 @@ type ProjectV2 implements Closable & Node & Updatable {
   url: URI!
 
   """
+  A view of the project
+  """
+  view(
+    """
+    The number of a view belonging to the project
+    """
+    number: Int!
+  ): ProjectV2View
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
