@@ -248,10 +248,12 @@ translations/ja-JP/data/reusables/server-statistics/release-phase.md,file delete
 translations/ja-JP/content/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions.md,rendering error
 translations/ja-JP/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,rendering error
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile.md,rendering error
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository.md,rendering error
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository.md,rendering error
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository.md,rendering error
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username.md,rendering error
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps.md,broken liquid tags
 translations/ja-JP/content/actions/automating-builds-and-tests/about-continuous-integration.md,rendering error
 translations/ja-JP/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
 translations/ja-JP/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
@@ -304,9 +306,11 @@ translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-e
 translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,rendering error
 translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise.md,rendering error
 translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise.md,rendering error
+translations/ja-JP/content/admin/overview/accessing-compliance-reports-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,rendering error
 translations/ja-JP/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
+translations/ja-JP/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
 translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys.md,rendering error
 translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log.md,rendering error
@@ -342,6 +346,7 @@ translations/ja-JP/content/code-security/dependabot/dependabot-version-updates/a
 translations/ja-JP/content/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file.md,rendering error
 translations/ja-JP/content/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates.md,rendering error
 translations/ja-JP/content/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions.md,rendering error
+translations/ja-JP/content/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors.md,rendering error
 translations/ja-JP/content/code-security/getting-started/github-security-features.md,rendering error
 translations/ja-JP/content/code-security/getting-started/securing-your-organization.md,rendering error
@@ -378,6 +383,7 @@ translations/ja-JP/content/codespaces/developing-in-codespaces/using-github-code
 translations/ja-JP/content/codespaces/getting-started/deep-dive.md,broken liquid tags
 translations/ja-JP/content/codespaces/getting-started/quickstart.md,broken liquid tags
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization.md,broken liquid tags
+translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types.md,rendering error
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period.md,rendering error
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces.md,rendering error
@@ -410,6 +416,7 @@ translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-s
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
 translations/ja-JP/content/copilot/quickstart.md,broken liquid tags
 translations/ja-JP/content/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github.md,rendering error
+translations/ja-JP/content/developers/apps/getting-started-with-apps/differences-between-github-apps-and-oauth-apps.md,broken liquid tags
 translations/ja-JP/content/developers/overview/about-githubs-apis.md,broken liquid tags
 translations/ja-JP/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/ja-JP/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
@@ -439,13 +446,15 @@ translations/ja-JP/content/organizations/managing-access-to-your-organizations-r
 translations/ja-JP/content/organizations/managing-access-to-your-organizations-repositories/removing-an-outside-collaborator-from-an-organization-repository.md,rendering error
 translations/ja-JP/content/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization.md,rendering error
 translations/ja-JP/content/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository.md,rendering error
-translations/ja-JP/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,broken liquid tags
+translations/ja-JP/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,rendering error
 translations/ja-JP/content/organizations/managing-organization-settings/disabling-project-boards-in-your-organization.md,rendering error
 translations/ja-JP/content/organizations/managing-organization-settings/integrating-jira-with-your-organization-project-board.md,rendering error
 translations/ja-JP/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization.md,rendering error
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/ja-JP/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
+translations/ja-JP/content/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions.md,broken liquid tags
+translations/ja-JP/content/organizations/restricting-access-to-your-organizations-data/approving-oauth-apps-for-your-organization.md,broken liquid tags
 translations/ja-JP/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,rendering error
 translations/ja-JP/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,rendering error
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
@@ -564,6 +573,7 @@ translations/ja-JP/data/reusables/codespaces/codespaces-spending-limit-requireme
 translations/ja-JP/data/reusables/codespaces/creating-a-codespace-in-vscode.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/customize-vcpus-and-ram.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/links-to-get-started.md,broken liquid tags
+translations/ja-JP/data/reusables/codespaces/more-info-devcontainer.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/next-steps-adding-devcontainer.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/prebuilds-crossreference.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/secrets-on-start.md,broken liquid tags
@@ -572,7 +582,6 @@ translations/ja-JP/data/reusables/codespaces/your-codespaces-procedure-step.md,b
 translations/ja-JP/data/reusables/dependabot/beta-security-and-version-updates.md,rendering error
 translations/ja-JP/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/ja-JP/data/reusables/dependabot/dependabot-alerts-filters.md,rendering error
-translations/ja-JP/data/reusables/dependabot/dependabot-secrets-button.md,rendering error
 translations/ja-JP/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/ja-JP/data/reusables/desktop/get-an-account.md,rendering error
 translations/ja-JP/data/reusables/dotcom_billing/actions-packages-report-download-org-account.md,broken liquid tags

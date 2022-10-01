@@ -230,12 +230,14 @@ translations/zh-CN/data/reusables/server-statistics/release-phase.md,file delete
 translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions.md,rendering error
 translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile.md,rendering error
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/index.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username.md,rendering error
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps.md,broken liquid tags
 translations/zh-CN/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
 translations/zh-CN/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
 translations/zh-CN/content/actions/deployment/about-deployments/about-continuous-deployment.md,rendering error
@@ -282,7 +284,7 @@ translations/zh-CN/content/actions/using-workflows/workflow-commands-for-github-
 translations/zh-CN/content/actions/using-workflows/workflow-syntax-for-github-actions.md,rendering error
 translations/zh-CN/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
-translations/zh-CN/content/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise.md,broken liquid tags
+translations/zh-CN/content/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,rendering error
@@ -303,9 +305,11 @@ translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/reviewin
 translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,rendering error
 translations/zh-CN/content/admin/overview/about-github-for-enterprises.md,rendering error
+translations/zh-CN/content/admin/overview/accessing-compliance-reports-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
+translations/zh-CN/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/about-ssh.md,broken liquid tags
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,rendering error
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
@@ -349,10 +353,11 @@ translations/zh-CN/content/code-security/dependabot/dependabot-alerts/editing-se
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts.md,rendering error
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,rendering error
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,rendering error
-translations/zh-CN/content/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates.md,broken liquid tags
+translations/zh-CN/content/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates.md,rendering error
 translations/zh-CN/content/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file.md,rendering error
 translations/zh-CN/content/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates.md,rendering error
 translations/zh-CN/content/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions.md,rendering error
+translations/zh-CN/content/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot.md,broken liquid tags
 translations/zh-CN/content/code-security/getting-started/github-security-features.md,rendering error
 translations/zh-CN/content/code-security/getting-started/securing-your-repository.md,rendering error
 translations/zh-CN/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
@@ -365,7 +370,7 @@ translations/zh-CN/content/code-security/security-overview/viewing-the-security-
 translations/zh-CN/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
-translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
+translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/zh-CN/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
 translations/zh-CN/content/codespaces/codespaces-reference/disaster-recovery-for-github-codespaces.md,broken liquid tags
@@ -392,6 +397,7 @@ translations/zh-CN/content/codespaces/getting-started/deep-dive.md,broken liquid
 translations/zh-CN/content/codespaces/getting-started/quickstart.md,broken liquid tags
 translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization.md,broken liquid tags
+translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types.md,broken liquid tags
 translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period.md,broken liquid tags
 translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces.md,broken liquid tags
@@ -427,6 +433,7 @@ translations/zh-CN/content/copilot/quickstart.md,broken liquid tags
 translations/zh-CN/content/developers/apps/building-github-apps/authenticating-with-github-apps.md,rendering error
 translations/zh-CN/content/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps.md,rendering error
 translations/zh-CN/content/developers/apps/building-github-apps/managing-allowed-ip-addresses-for-a-github-app.md,rendering error
+translations/zh-CN/content/developers/apps/getting-started-with-apps/differences-between-github-apps-and-oauth-apps.md,broken liquid tags
 translations/zh-CN/content/developers/overview/about-githubs-apis.md,broken liquid tags
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
@@ -458,12 +465,14 @@ translations/zh-CN/content/organizations/managing-access-to-your-organizations-r
 translations/zh-CN/content/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/allowing-project-visibility-changes-in-your-organization.md,broken liquid tags
-translations/zh-CN/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,broken liquid tags
+translations/zh-CN/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/disabling-project-boards-in-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/integrating-jira-with-your-organization-project-board.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/zh-CN/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
+translations/zh-CN/content/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions.md,broken liquid tags
+translations/zh-CN/content/organizations/restricting-access-to-your-organizations-data/approving-oauth-apps-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
 translations/zh-CN/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,rendering error
 translations/zh-CN/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,rendering error
@@ -586,6 +595,7 @@ translations/zh-CN/data/reusables/codespaces/codespaces-spending-limit-requireme
 translations/zh-CN/data/reusables/codespaces/creating-a-codespace-in-vscode.md,broken liquid tags
 translations/zh-CN/data/reusables/codespaces/customize-vcpus-and-ram.md,broken liquid tags
 translations/zh-CN/data/reusables/codespaces/links-to-get-started.md,broken liquid tags
+translations/zh-CN/data/reusables/codespaces/more-info-devcontainer.md,broken liquid tags
 translations/zh-CN/data/reusables/codespaces/next-steps-adding-devcontainer.md,broken liquid tags
 translations/zh-CN/data/reusables/codespaces/prebuilds-crossreference.md,broken liquid tags
 translations/zh-CN/data/reusables/codespaces/rebuild-command.md,broken liquid tags
@@ -594,7 +604,6 @@ translations/zh-CN/data/reusables/codespaces/use-chrome.md,broken liquid tags
 translations/zh-CN/data/reusables/codespaces/your-codespaces-procedure-step.md,broken liquid tags
 translations/zh-CN/data/reusables/dependabot/beta-security-and-version-updates.md,rendering error
 translations/zh-CN/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
-translations/zh-CN/data/reusables/dependabot/dependabot-secrets-button.md,rendering error
 translations/zh-CN/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/zh-CN/data/reusables/dotcom_billing/actions-packages-report-download-org-account.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/actions-packages-report-download-enterprise-accounts.md,broken liquid tags
