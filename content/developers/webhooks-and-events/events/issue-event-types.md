@@ -214,6 +214,10 @@ The issue was created by converting a note in a project board to an issue. {% da
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
 
+## converted_to_discussion
+
+The issue was converted to a discussion.
+
 ## cross-referenced
 
 The issue or pull request was referenced from another issue or pull request.
