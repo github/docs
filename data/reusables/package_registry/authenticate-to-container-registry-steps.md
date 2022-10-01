@@ -22,3 +22,12 @@
   > Login Succeeded
   ```
   {% endraw %}
+
+  The `~/.docker/config.json` credential file can be also manually created without using the `docker` CLI:
+  {% raw %}
+  ```shell
+  $ mkdir -p ~/.docker
+  $ echo "{\"auths\":{\"ghcr.io\":{\"auth\":\"$(echo -n $USERNAME:$CR_PAT | base64)\"}}}" >~/.docker/config.json
+  ```
+  {% endraw %}
+  This is useful for third-party container tools that recognize `~/.docker/config.json`.
