@@ -70,7 +70,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
  ```shell
  $ git checkout --orphan gh-pages
  # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
- $ git rm -rf 
+ $ git rm -rf .
  # Removes the contents from your default branch from the working directory
  ```
 1. To create a new Jekyll site, use the `jekyll new` command:
