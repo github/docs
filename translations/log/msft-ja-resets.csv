@@ -458,7 +458,7 @@ translations/ja-JP/content/organizations/restricting-access-to-your-organization
 translations/ja-JP/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,rendering error
 translations/ja-JP/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,rendering error
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
-translations/ja-JP/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,broken liquid tags
+translations/ja-JP/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,rendering error
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,broken liquid tags
