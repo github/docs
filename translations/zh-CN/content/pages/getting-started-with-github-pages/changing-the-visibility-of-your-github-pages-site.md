@@ -8,10 +8,10 @@ redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
 shortTitle: Change visibility of site
 ms.openlocfilehash: f80ec04f0f16413414a4334e02ee3b45f534b46c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145282855'
 ---
 ## 关于 {% data variables.product.prodname_pages %} 站点的访问控制

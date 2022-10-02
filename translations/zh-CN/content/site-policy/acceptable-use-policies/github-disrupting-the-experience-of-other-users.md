@@ -9,13 +9,8 @@ topics:
 redirect_from:
   - /github/site-policy/github-disrupting-the-experience-of-other-users
   - /github/site-policy/github-community-guidelines#disrupting-the-experience-of-other-users
-ms.openlocfilehash: f036077bfebf251befd048cf327663fc90375c89
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556477'
 ---
+
 成为社区的一部分包括认识到您的行为如何影响他人，并与他人及其依赖的平台进行有意义和富有成效的互动。 
 
 我们不允许严重或持续破坏其他用户之体验的行为。 其中包括： 

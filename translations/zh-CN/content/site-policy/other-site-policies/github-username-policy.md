@@ -10,13 +10,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 55225fc4c60503e4cb9dbce4d41e51a13926d79e
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556511'
 ---
+
 GitHub 帐户名按先到先得的原则提供，旨在供用户立即并积极使用。
 
 ## <a name="what-if-the-username-i-want-is-already-taken"></a>如果我想要的用户名已被占用怎么办？

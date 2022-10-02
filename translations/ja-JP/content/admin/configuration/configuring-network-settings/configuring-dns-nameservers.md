@@ -16,10 +16,10 @@ topics:
   - Networking
 shortTitle: Configure DNS servers
 ms.openlocfilehash: b01dc25b9002bf1feb672bbce597c8046b93f12f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147419714'
 ---
 指定するネームサーバは、{% data variables.product.product_location %} のホスト名を解決する必要があります。

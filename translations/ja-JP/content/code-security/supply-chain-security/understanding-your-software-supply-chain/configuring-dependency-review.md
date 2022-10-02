@@ -14,22 +14,22 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Pull requests
-ms.openlocfilehash: d032179f1d130509eb81e4629854dada7fd98b4c
-ms.sourcegitcommit: b19e5a6ac3fdc0a72c341f9a09e7a24aac060be9
+ms.openlocfilehash: 4cd61fd08db21c1de764a0ffe38d80a95d28036e
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/27/2022
-ms.locfileid: '147424689'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147773171'
 ---
 {% data reusables.dependency-review.beta %}
 
-## <a name="about-dependency-review"></a>依存関係の確認について
+## 依存関係の確認について
 
 {% data reusables.dependency-review.feature-overview %}   
 
 詳細については、「[依存関係レビューについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)」と「[pull request 内の依存関係の変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。
 
-## <a name="about-configuring-dependency-review"></a>依存関係レビューの構成について
+## 依存関係レビューの構成について
 
 {% ifversion fpt %}依存関係レビューは、すべての製品のすべてのパブリック リポジトリで使用できます。また、無効にすることはできません。 依存関係レビューは、GitHub Enterprise Cloud を使い、[{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) のライセンスを持つ組織が所有するプライベート リポジトリで利用できます。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)を参照してください。
 
@@ -41,7 +41,7 @@ ms.locfileid: '147424689'
 
 {% elsif ghes %}依存関係レビューを使用できるのは、{% data variables.product.product_location %} に対して依存関係グラフが有効であり、組織またはリポジトリに対して {% data variables.product.prodname_advanced_security %} が有効である場合です。 詳細については、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} の有効化](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)」を参照してください。
 
-### <a name="checking-if-the-dependency-graph-is-enabled"></a>依存関係グラフが有効になっているかどうかを確認する
+### 依存関係グラフが有効になっているかどうかを確認する
 
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
@@ -49,7 +49,7 @@ ms.locfileid: '147424689'
 1. 依存関係グラフが有効である場合は、"{% data variables.product.prodname_GH_advanced_security %}" の横にある **[Enable]\(有効にする\)** をクリックして、依存関係レビューを含む {% data variables.product.prodname_advanced_security %} を有効にします。 エンタープライズに {% data variables.product.prodname_advanced_security %} に使用できるライセンスがない場合、[Enable]\(有効にする\) ボタンは無効です。{% ifversion ghes < 3.3 %}![[Code security and analysis]\(コードのセキュリティと分析\) 機能のスクリーンショット"](/assets/images/enterprise/3.2/repository/code-security-and-analysis-enable-ghas-3.2.png){% endif %}{% ifversion ghes > 3.2 %}![[Code security and analysis]\(コードのセキュリティと分析\) 機能のスクリーンショット"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %} {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## <a name="configuring-the--data-variablesproductprodname_dependency_review_action-"></a>{% data variables.product.prodname_dependency_review_action %} の構成
+## {% data variables.product.prodname_dependency_review_action %} の構成
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %} {% data reusables.dependency-review.dependency-review-action-overview %}
 
@@ -66,7 +66,7 @@ ms.locfileid: '147424689'
 
 {% endtip %} {% endif %}
 
-この {% data variables.product.prodname_dependency_review_action %} サンプル ファイルは、これらの構成オプションを使用する方法を示しています。
+この {% data variables.product.prodname_dependency_review_action %} サンプル ファイルは、これらの構成オプションを使用する方法を示しています。 この例では、アクションに対して、semver リリース番号 (`v2.0.8` など) ではなく、短いバージョン番号 (`v2`) が使われています。 これにより、アクションの最新のマイナー バージョンを使うことができます。
 
 ```yaml{:copy}
 name: 'Dependency Review'

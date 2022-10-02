@@ -9,10 +9,10 @@ versions:
   ghes: '*'
 shortTitle: Anonymous Git read access
 ms.openlocfilehash: b289f2e70096775e567be0c925675e9986424821
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145132157'
 ---
 次の場合に、リポジトリの管理者は、特定のリポジトリに対する匿名 Git 読み取りアクセスの設定を変更できます。

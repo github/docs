@@ -447,7 +447,6 @@ describe('redirects', () => {
         'rate-limit',
         'reactions',
         'repos',
-        'scim',
         'search',
         'teams',
         'users',

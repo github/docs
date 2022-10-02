@@ -11,11 +11,11 @@ versions:
   ghae: '*'
   ghec: '*'
 ms.openlocfilehash: 33dce77111812ba9cf5b05a170bc713c3506c00e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060675'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147888599'
 ---
 ## アクセス許可 API について
 

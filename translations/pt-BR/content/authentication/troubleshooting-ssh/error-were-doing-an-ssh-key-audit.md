@@ -15,10 +15,10 @@ topics:
   - SSH
 shortTitle: SSH key audit
 ms.openlocfilehash: 8683f5506fc2a026c11f22f2086de2308d096906
-ms.sourcegitcommit: 872c4751a3fc255671295a5dea6a2081c66b7b71
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145083539'
 ---
 Ao usar uma chave não verificada para operações no Git, será solicitada uma auditoria de suas chaves SSH.

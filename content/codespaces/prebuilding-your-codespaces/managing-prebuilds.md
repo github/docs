@@ -29,7 +29,7 @@ The settings in the prebuild configuration determine which events automatically 
 People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations. 
 
 ### Viewing the progress of prebuilds
-You can view the current status of the latest workflow run for each prebuild configuration you've set up on the {% data variables.product.prodname_codespaces %} page of your repository settings. For example, "Currently running" or "Last run 1 hour ago."
+You can view the current status of the latest workflow run for each prebuild configuration you've set up on the {% data variables.product.prodname_github_codespaces %} page of your repository settings. For example, "Currently running" or "Last run 1 hour ago."
 
 To see the log output for the latest prebuild workflow run, click **See output**.
 

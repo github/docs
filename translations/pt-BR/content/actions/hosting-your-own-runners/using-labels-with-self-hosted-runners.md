@@ -1,6 +1,6 @@
 ---
-title: Usar rótulos com os executores auto-hospedados
-intro: Você pode usar etiquetas para organizar os seus executores auto-hospedados com base em suas características.
+title: Using labels with self-hosted runners
+intro: You can use labels to organize your self-hosted runners based on their characteristics.
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,53 +8,75 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Label runners
-ms.openlocfilehash: 7808c49e29b0d89db747f185545c273a6a78f403
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145065587'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Para obter informações sobre como usar rótulos para encaminhar trabalhos para tipos específicos de executores auto-hospedados, confira "[Como usar executores auto-hospedados em um fluxo de trabalho](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)".
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+
+For information on how to use labels to route jobs to specific types of self-hosted runners, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
-## Criar etiquetas personalizadas
+## Creating a custom label
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %}
- 1. Na seção "Etiquetas", clique em {% octicon "gear" aria-label="The Gear icon" %}.
- 1. No campo "Localizar ou criar um rótulo", digite o nome do novo rótulo e clique em **Criar rótulo**.
- O rótulo personalizado é criado e atribuído ao executor auto-hospedado. É possível remover as etiquetas personalizadas dos executores auto-hospedados, mas não é possível excluí-las manualmente. {% data reusables.actions.actions-unused-labels %} {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
-1. No campo "Filtrar rótulos", digite o nome do novo rótulo e clique em **Criar rótulo**.
-    ![Adição de rótulo do executor](/assets/images/help/settings/actions-add-runner-label.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+ {% data reusables.actions.settings-sidebar-actions-runner-selection %}
+ 1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
+ 1. In the "Find or create a label" field, type the name of your new label and click **Create new label**.
+ The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.actions.actions-unused-labels %}
+{% elsif ghae or ghes < 3.4 %}
+{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-list %}
+{% data reusables.actions.self-hosted-runner-list-group %}
+{% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. In the "Filter labels" field, type the name of your new label, and click **Create new label**.
+    ![Add runner label](/assets/images/help/settings/actions-add-runner-label.png)
     
-O rótulo personalizado é criado e atribuído ao executor auto-hospedado. É possível remover as etiquetas personalizadas dos executores auto-hospedados, mas não é possível excluí-las manualmente. {% data reusables.actions.actions-unused-labels %} {% endif %}
+The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.actions.actions-unused-labels %}
+{% endif %}
 
-## Atribuir uma etiqueta a um executor auto-hospedado
+## Assigning a label to a self-hosted runner
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.runner-label-settings %}
-  1. Para atribuir uma etiqueta ao executor auto-hospedado, no campo "Localizar ou criar uma etiqueta", clique na etiqueta. {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
-1. Clique em uma etiqueta a ser atribuída ao seu executor auto-hospedado. {% endif %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.settings-sidebar-actions-runner-selection %}
+{% data reusables.actions.runner-label-settings %}
+  1. To assign a label to your self-hosted runner, in the "Find or create a label" field, click the label. 
+{% elsif ghae or ghes < 3.4 %}
+{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-list %}
+{% data reusables.actions.self-hosted-runner-list-group %}
+{% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. Click on a label to assign it to your self-hosted runner. 
+{% endif %}
 
-## Remover uma etiqueta personalizada de um executor auto-hospedado
+## Removing a custom label from a self-hosted runner
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.runner-label-settings %}
-  1. No campo "Localizar ou criar um rótulo", os rótulos atribuídos são marcados com o ícone {% octicon "check" aria-label="The Check icon" %}. Clique em uma etiqueta marcada para cancelar a atribuição do seu executor auto-hospedado. {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
-1. Clique na etiqueta atribuída para removê-la do seu executor auto-hospedado. {% data reusables.actions.actions-unused-labels %} {% endif %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.settings-sidebar-actions-runner-selection %}
+{% data reusables.actions.runner-label-settings %}
+  1. In the "Find or create a label" field, assigned labels are marked with the {% octicon "check" aria-label="The Check icon" %} icon. Click on a marked label to unassign it from your self-hosted runner. 
+{% elsif ghae or ghes < 3.4 %}
+{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-list %}
+{% data reusables.actions.self-hosted-runner-list-group %}
+{% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. Click on the assigned label to remove it from your self-hosted runner. {% data reusables.actions.actions-unused-labels %}
+{% endif %}
 
-## Usar o script de configuração para criar e atribuir rótulos
+## Using the configuration script to create and assign labels
 
-Você pode usar o script de configuração no executor auto-hospedado para criar e atribuir etiquetas personalizadas. Por exemplo, este comando atribui um rótulo chamado `gpu` ao executor auto-hospedado. 
+You can use the configuration script on the self-hosted runner to create and assign custom labels. For example, this command assigns a label named `gpu` to the self-hosted runner. 
 
 ```shell
 ./config.sh --labels gpu
 ```
 
-Caso não exista, a etiqueta será criada. Use também essa abordagem para atribuir os rótulos padrão aos executores, como `x64` ou `linux`. Quando as etiquetas-padrão são atribuídas usando o script de configuração, {% data variables.product.prodname_actions %} aceita-as como dadas e não valida que o executor está realmente usando esse sistema operacional ou arquitetura.
+The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
 
-Você pode usar a separação por vírgula para atribuir múltiplas etiquetas. Por exemplo:
+You can use comma separation to assign multiple labels. For example:
 
 ```shell
 ./config.sh --labels gpu,x64,linux
@@ -62,6 +84,6 @@ Você pode usar a separação por vírgula para atribuir múltiplas etiquetas. P
 
 {% note %}
 
-** Observação:** Se você substituir um executor existente, você deverá reatribuir quaisquer etiquetas personalizadas.
+** Note:** If you replace an existing runner, then you must reassign any custom labels.
 
 {% endnote %}

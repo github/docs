@@ -7,13 +7,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: e44ea086e183f7d7f6577876ce6aa3b76fd47152
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556420'
 ---
+
 ## <a name="summary"></a>Resumo
 1. Queremos que você coordene a divulgação por meio do nosso programa de recompensas por bugs e não queremos que os pesquisadores criem consequências legais devido às suas tentativas de boa-fé de cumprir nossa política de recompensas por bugs. Não podemos vincular terceiros, portanto não suponha que esta proteção inclui terceiros. Em caso de dúvida, consulte-nos antes de se envolver em ações específicas que _possam_ ultrapassar os limites de nossa política.
 2. Informações de identificação e não identificadoras podem colocar um pesquisador em risco, portanto, limitamos o que compartilhamos com terceiros. Poderemos fornecer informações substanciais não identificadoras de seu relatório a um terceiro afetado, mas somente depois de notificar você e receber o compromisso de que o terceiro não moverá um processo contra você. Apenas compartilharemos informações de identificação (nome, endereço de email, número de telefone, etc.) com um terceiro mediante sua autorização por escrito.

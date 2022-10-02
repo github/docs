@@ -1,0 +1,18 @@
+date: '2020-11-17'
+sections:
+  security_fixes:
+    - "パッケージが最新のセキュリティ バージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/23845, https://github.com/github/enterprise2/pull/23712 {% endcomment %}"
+
+  bugs:
+    - "baneld ログの秒とマイクロ秒の間に区切り記号がありませんでした。{% comment %} https://github.com/github/babeld/pull/1006, https://github.com/github/babeld/pull/1002 {% endcomment %}"
+    - "ホットパッチで GHES をアップグレードした後、\"ghe-actions-precheck\" と \"ghe-packages-precheck\" コマンドが、\"\"docker load\" の引数が指定されていません\" というエラーで失敗しました。{% comment %} https://github.com/github/enterprise2/pull/23760, https://github.com/github/enterprise2/pull/23745 {% endcomment %}"
+    - "Enterprise アカウントの \"リポジトリ可視性変更\" ポリシーが \"有効\" に設定されていると、Organization の所有者が Organization 内のリポジトリの可視性を変更できませんでした。{% comment %} https://github.com/github/github/pull/160920, https://github.com/github/github/pull/160773 {% endcomment %}"
+    - "監査ログが、実際のソース IP アドレスではなく、127.0.0.1 に関連付けられている場合がありました。{% comment %} https://github.com/github/github/pull/162438, https://github.com/github/github/pull/161215 {% endcomment %}"
+
+  known_issues:
+    - "新しくセットアップされたユーザーのいない GitHub Enterprise Server で、攻撃者が最初の管理者ユーザーを作成できました。 {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "カスタム ファイアウォール規則は、アップグレード中維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Git LFS 追跡ファイル (\"Web インターフェイスからアップロードされたファイル\" (https://github.com/blog/2105-upload-files-to-your-repositories)) が誤ってリポジトリに直接追加されます。 {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "同じリポジトリ内の BLOB へのパーマリンクが含まれ、ファイル パスが 255 文字を超える場合、issue をクローズできません。{% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。 {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"

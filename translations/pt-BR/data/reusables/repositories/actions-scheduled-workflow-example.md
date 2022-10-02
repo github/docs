@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: d17a60d7bf330c0c7fd3acfacd7652a054cf7c86
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145084282"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147885016"
 ---
 Você pode agendar um fluxo de trabalho para ser executado em horários UTC específicos usando a [sintaxe cron POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). Fluxos de trabalho agendados executados no último commit no branch padrão ou branch de base. O intervalo mais curto que você pode executar fluxos de trabalho agendados é a cada 5 minutos.
 

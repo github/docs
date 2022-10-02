@@ -9,10 +9,10 @@ redirect_from:
   - /github/searching-for-information-on-github/searching-discussions
   - /github/searching-for-information-on-github/searching-on-github/searching-discussions
 ms.openlocfilehash: 4a1224d05cd78a0b701e7bc2a9e93a1c5a837bcd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147410449'
 ---
 ## 关于搜索讨论

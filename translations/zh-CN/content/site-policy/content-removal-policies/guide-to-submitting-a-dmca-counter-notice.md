@@ -10,13 +10,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 6bc5091c47401b3d55ef7ccd681d6c9eba48fd1a
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556486'
 ---
+
 本指南说明了 GitHub 处理 DMCA 下架请求抗辩通知所需的信息。 如果您对 DMCA 是什么或 GitHub 如何处理 DMCA 下架请求有更多常规问题，请参阅我们的 [DMCA 下架政策](/articles/dmca-takedown-policy)。
 
 如果您认为 DMCA 下架请求错误禁用了您在 GitHub 上的内容，您有权通过提交抗辩通知来反对下架。 如果您这样做，我们将等待 10-14 天，然后重新启用您的内容，除非版权所有者在此之前对您提起法律诉讼。 下述抗辩通知形式与 DMCA 法规建议的形式一致，您可以登录美国版权局官方网站<https://www.copyright.gov> 查看该法规。
@@ -26,9 +21,9 @@ ms.locfileid: '144556486'
 ## <a name="before-you-start"></a>开始前
 
 ***说实话。***
-DMCA 要求您对自己的抗辩通知宣誓，如有不实会 *受到伪证处罚*。 在宣誓声明中故意说谎是一种联邦罪行。 （*请参阅* [美国法典，第 18 章，第 1621 节](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。）提交虚假信息还可能导致民事责任，即您可能会因经济损失被提起诉讼。
+DMCA 要求您对自己的抗辩通知宣誓，如有不实会*受到伪证处罚*。 在宣誓声明中故意说谎是一种联邦罪行。 （*请参阅* [美国法典，第 18 章，第 1621 节](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。）提交虚假信息还可能导致民事责任，即您可能会因经济损失被提起诉讼。
 
-***调查。***
+调查。
 提交 DMCA 抗辩通知可能会产生现实的法律后果。 如果投诉方不同意其下架通知有误，他们可自行决定对您提起诉讼以求继续禁用内容。 在提交抗辩通知之前，您应该对下架通知中的指控进行彻底的调查，并在必要时咨询律师。
 
 ***必须有充分的理由提交抗辩通知。***
@@ -38,7 +33,7 @@ DMCA 要求您对自己的抗辩通知宣誓，如有不实会 *受到伪证处�
 有时，下架通知可能以比较奇怪或间接的方式指控侵权。 著作权法很复杂，可能会导致一些意想不到的结果。 在某些情况下，下架通知可能基于您的源代码在进行编译和运行后能够执行的操作而指控它侵权。 例如：
   - 通知可能声称您的软件用于[规避版权作品的访问控制](https://www.copyright.gov/title17/92chap12.html)。
   - [有时](https://www.copyright.gov/docs/mgm/)，如果您诱使最终用户使用分发软件侵害版权作品的权益，则分发软件也可能侵犯版权。
-  - 版权投诉还可能基于软件中 [非完全复制](https://en.wikipedia.org/wiki/Substantial_similarity)的设计元素，而不是源代码，换句话说，有人可能会发出通知称他们认为您的 *设计* 与他们的设计非常相似。
+  - 版权投诉还可能基于软件中[非完全复制](https://en.wikipedia.org/wiki/Substantial_similarity)的设计元素，而不是源代码，换句话说，有人可能会发出通知称他们认为您的 *设计* 与他们的设计非常相似。
 
 这些只是体现著作权法复杂性的部分示例。 由于在这些类型的案例中，法律有许多微妙之处，还有一些悬而未决的问题，因此，在侵权指控看起来不那么直接的情况下，寻求专业意见尤为重要。
 
@@ -51,7 +46,7 @@ DMCA 要求您对自己的抗辩通知宣誓，如有不实会 *受到伪证处�
 ***GitHub 不是法官。***
 除了确定通知是否符合 DMCA 的最低要求外，GitHub 在此过程中几乎不行使酌处权。 当事方（及其律师）应负责评估其投诉的合理性，并注意，此类通知受伪证处罚条款约束。
 
-***其他资源。***
+其他资源。
 如果您需要其他帮助，可以找到许多在线自助资源。 Lumen 有一套内容丰富的[版权](https://www.lumendatabase.org/topics/5)和 [DMCA 安全港](https://www.lumendatabase.org/topics/14)指南。 如果您正在参与开源项目，需要寻求法律意见，您可以联系[软件自由法律中心](https://www.softwarefreedom.org/about/contact/)。 如果您认为自己的案例特别棘手，[电子前沿基金会](https://www.eff.org/pages/legal-assistance)等非营利组织可能也愿意直接提供帮助，或将您推荐给律师。
 
 ## <a name="your-counter-notice-must"></a>您的抗辩通知必须...
@@ -76,7 +71,7 @@ DMCA 要求您对自己的抗辩通知宣誓，如有不实会 *受到伪证处�
 
 得到回复的最快方式是在我们的 {% data variables.contact.contact_dmca %} 中输入您的信息并回答所有问题。
 
-您也可以发送电子邮件通知到 <copyright@github.com>。 您可以包含附件（如果您愿意），但在邮件正文中也应包含邮件的纯文本版本。
+你也可以发送电子邮件通知到 <copyright@github.com>。 您可以包含附件（如果您愿意），但在邮件正文中也应包含邮件的纯文本版本。
 
 如果必须通过邮政邮件发送通知，也可以，但我们接收和回复通知的时间会 *大大* 延长，并且 10-14 天的等待期将从我们 *收到* 您的抗辩通知时开始。 接收纯文本电子邮件通知比接收 PDF 附件或邮政邮件要快得多。 如果您仍希望通过邮寄方式发送通知，我们的邮寄地址是：
 

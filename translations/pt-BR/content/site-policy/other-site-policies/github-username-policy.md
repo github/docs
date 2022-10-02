@@ -10,13 +10,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 55225fc4c60503e4cb9dbce4d41e51a13926d79e
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556447'
 ---
+
 Os nomes de conta do GitHub estão disponíveis por ordem de chegada e destinam-se ao uso imediato e ativo.
 
 ## <a name="what-if-the-username-i-want-is-already-taken"></a>E se o nome de usuário que eu quero já estiver em uso?

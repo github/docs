@@ -91,7 +91,11 @@ function formatErrors(differences) {
       errorMessage += '---\n'
     }
   }
-  errorMessage +=
-    'If you have made changes to the categories or subcategories in the content/rest directory, either in the frontmatter or the structure of the directory, you will need to ensure that it matches the operations in the OpenAPI description. For example, if an operation is available in GHAE, the frontmatter versioning in the relevant docs category and subcategory files also need to be versioned for GHAE. If you are adding category or subcategory files to the content/rest directory, the OpenAPI dereferenced files must have at least one operation that will be shown for the versions in the category or subcategory files. If this is the case, it is likely that the description files have not been updated from github/github yet. Please contact  #docs-engineering or #docs-apis-and-events if you need help.\n'
+  errorMessage += `
+This test checks that the categories and subcategories in the content/rest directory matches the decorated schemas in lib/rest/static/decorated for each version of the REST API.
+
+If you have made changes to the categories or subcategories in the content/rest directory, either in the frontmatter or the structure of the directory, you will need to ensure that it matches the operations in the OpenAPI description. For example, if an operation is available in GHAE, the frontmatter versioning in the relevant docs category and subcategory files also need to be versioned for GHAE. If you are adding category or subcategory files to the content/rest directory, the OpenAPI dereferenced files must have at least one operation that will be shown for the versions in the category or subcategory files. If this is the case, it is likely that the description files have not been updated from github/github yet.
+
+Please contact  #docs-engineering or #docs-apis-and-events if you need help.`
   return errorMessage
 }

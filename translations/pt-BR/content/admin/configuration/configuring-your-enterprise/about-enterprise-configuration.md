@@ -13,10 +13,10 @@ redirect_from:
   - /admin/configuration/about-enterprise-configuration
 shortTitle: About configuration
 ms.openlocfilehash: 86012c1fc7b56367d171fd271c5f3d12125cf461
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145094021'
 ---
 {% ifversion ghes %} {% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} Para obter mais informações, confira "[Painel de administração do site](/admin/configuration/site-admin-dashboard)".

@@ -11,10 +11,10 @@ versions:
   ghae: '*'
 shortTitle: Integrate Jira with projects
 ms.openlocfilehash: bc88d865cd9c1c88caf5498eab330b6f11cd2ec0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145164589'
 ---
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.oauth_apps %}

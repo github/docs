@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: a9edfbc5b5f3c0f50ae1e476d393e658751a5079
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145094302"
 ---
 {% data variables.product.company_short %} contas para {% data variables.product.prodname_advanced_security %} com base no committer. {% ifversion fpt or ghec %}Para obter mais informações, confira "[Como gerenciar o licenciamento do {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security)".{% elsif ghes %}Para obter mais informações, confira "[Como gerenciar o {% data variables.product.prodname_GH_advanced_security %} para sua empresa](/admin/advanced-security)".{% endif %}

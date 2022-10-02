@@ -1,6 +1,6 @@
 ---
-title: Managing labels
-intro: 'You can classify {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.'
+title: 管理标签
+intro: '可以通过创建、编辑、应用和删除标签，对 {% ifversion fpt or ghec %}问题、拉取请求和讨论{% else %}问题和拉取请求{% endif %}进行分类。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
@@ -30,82 +30,72 @@ topics:
   - Issues
   - Project management
 type: how_to
+ms.openlocfilehash: 42feddd5ebbdee81140d3aab48b81f83a2c6e69f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145128619'
 ---
-## About labels
+## 关于标签
 
-You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
+可以通过创建标签来分类{% ifversion fpt or ghec %}问题、拉取请求和讨论{% else %}问题和拉取请求{% endif %}，以便管理 {% data variables.product.product_name %} 上的工作。 您可以在创建标签的仓库中应用标签。 创建标签后，可以在该存储库中的任何{% ifversion fpt or ghec %}问题、拉取请求或讨论{% else %}问题或拉取请求{% endif %}上使用标签。
 
-## About default labels
+## 关于默认标签
 
-{% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
+{% data variables.product.product_name %} 在每个新仓库中提供默认标签。 您可以使用这些默认标签帮助在仓库中创建标准工作流程。
 
-Label | Description
+Label | 说明
 ---  | ---
-`bug` | Indicates an unexpected problem or unintended behavior{% ifversion fpt or ghes or ghec %}
-`documentation` | Indicates a need for improvements or additions to documentation{% endif %}
-`duplicate` | Indicates similar {% ifversion fpt or ghec %}issues, pull requests, or discussions{% else %}issues or pull requests{% endif %}
-`enhancement` | Indicates new feature requests
-`good first issue` | Indicates a good issue for first-time contributors
-`help wanted` | Indicates that a maintainer wants help on an issue or pull request
-`invalid` | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} is no longer relevant
-`question` | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} needs more information
-`wontfix` | Indicates that work won't continue on an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}
+`bug` | 表示意外的问题或意外的行为{% ifversion fpt or ghes or ghec %}
+`documentation` | 表示文档需要改进或补充{% endif %}
+`duplicate` | 表示类似的{% ifversion fpt or ghec %}问题、拉动请求或讨论{% else %}问题或拉动请求{% endif %}
+`enhancement` | 表示新功能申请
+`good first issue` | 表示适用首次贡献者的议题
+`help wanted` | 表示维护员需要议题或拉取请求方面的帮助
+`invalid` | 表示{% ifversion fpt or ghec %}问题、拉动请求或讨论{% else %}问题或拉动请求{% endif %}已不再相关
+`question` | 表示{% ifversion fpt or ghec %}问题、拉动请求或讨论{% else %}问题或拉动请求{% endif %}需要更多的信息
+`wontfix` | 表示不会再继续处理某个{% ifversion fpt or ghec %}问题、拉动请求或讨论{% else %}问题或拉动请求{% endif %}
 
-Default labels are included in every new repository when the repository is created, but you can edit or delete the labels later.
+创建仓库时，每个新仓库中均包含默认标签，但您稍后可以编辑或删除标签。
 
-Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute). 
+带有 `good first issue` 标签的问题用于填充存储库的 `contribute` 页面。 有关 `contribute` 页面的示例，请参阅 [github/docs/contribute](https://github.com/github/docs/contribute)。 
 
-{% ifversion fpt or ghes or ghec %}
-Organization owners can customize the default labels for repositories in their organization. For more information, see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)."
+{% ifversion fpt or ghes or ghec %} 组织所有者可以为其组织中的存储库定制默认标签。 有关详细信息，请参阅“[管理组织中存储库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”。
 {% endif %}
 
-## Creating a label
+## 创建标签
 
-Anyone with write access to a repository can create a label.
+对存储库具有写入访问权限的任何人都可以创建标签。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.labels %}
-4. To the right of the search field, click **New label**.
-{% data reusables.project-management.name-label %}
-{% data reusables.project-management.label-description %}
-{% data reusables.project-management.label-color-randomizer %}
-{% data reusables.project-management.create-label %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.labels %}
+4. 在搜索字段右侧，单击“新建标签”。
+{% data reusables.project-management.name-label %} {% data reusables.project-management.label-description %} {% data reusables.project-management.label-color-randomizer %} {% data reusables.project-management.create-label %}
 
-## Applying a label
+## 应用标记
 
-Anyone with triage access to a repository can apply and dismiss labels.
+对存储库具有分类访问权限的任何人都可以应用和忽略标签。
 
-1. Navigate to the {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}.
-1. In the right sidebar, to the right of "Labels", click {% octicon "gear" aria-label="The gear icon" %}, then click a label.
-  !["Labels" drop-down menu](/assets/images/help/issues/labels-drop-down.png)
+1. 导航到{% ifversion fpt or ghec %}问题、拉取请求或讨论{% else %}问题或拉取请求{% endif %}。
+1. 在右侧边栏中“Labels（标签）”的右侧，单击 {% octicon "gear" aria-label="The gear icon" %}，然后单击标签。
+  ![“标签”下拉菜单](/assets/images/help/issues/labels-drop-down.png)
 
-## Editing a label
+## 编辑标签
 
-Anyone with write access to a repository can edit existing labels.
+对存储库具有写入权限的任何人都可以编辑现有标签。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.labels %}
-{% data reusables.project-management.edit-label %}
-{% data reusables.project-management.name-label %}
-{% data reusables.project-management.label-description %}
-{% data reusables.project-management.label-color-randomizer %}
-{% data reusables.project-management.save-label %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.labels %} {% data reusables.project-management.edit-label %} {% data reusables.project-management.name-label %} {% data reusables.project-management.label-description %} {% data reusables.project-management.label-color-randomizer %} {% data reusables.project-management.save-label %}
 
-## Deleting a label
+## 删除标签
 
-Anyone with write access to a repository can delete existing labels.
+对存储库具有写入权限的任何人都可以删除现有标签。
 
-Deleting a label will remove the label from issues and pull requests.
+删除标签将从议题和拉取请求中删除标签。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.labels %}
-{% data reusables.project-management.delete-label %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.labels %} {% data reusables.project-management.delete-label %}
 
-## Further reading
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
-- "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
-- "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
-- "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)"
+## 延伸阅读
+- [筛选和搜索问题和拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests){% ifversion fpt or ghes or ghec %}
+- [管理组织中存储库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization){% endif %}{% ifversion fpt or ghec %}
+- [使用标签鼓励对项目做出有益的贡献](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels){% endif %}
+- [基本撰写和格式设置语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)

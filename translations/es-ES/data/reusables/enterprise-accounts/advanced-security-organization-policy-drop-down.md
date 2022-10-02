@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ddf4c16f9ad5399acbfc05a58412a15e1bc5dd4b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145124129"
 ---
 1. Debajo de "GitHub Advanced Security", selecciona el menú desplegable y haz clic en una política para las organizaciones que pertenecen a tu empresa.

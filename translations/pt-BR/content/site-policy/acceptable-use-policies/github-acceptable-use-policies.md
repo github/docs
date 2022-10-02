@@ -1,5 +1,5 @@
 ---
-title: Políticas de Uso Aceitável do GitHub
+title: Políticas de uso aceitável do GitHub
 redirect_from:
   - /articles/github-acceptable-use-policies
   - /github/site-policy/github-acceptable-use-policies
@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 9b90e569cabf47b836fd473161b38a362e54280f
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556406'
 ---
+
 **Versão curta:** _Hospedamos uma ampla variedade de projetos colaborativos do mundo todo, e essa colaboração só funciona quando nossos usuários são capazes de trabalhar juntos de boa-fé. Ao usar o Serviço, você deve cumprir nossas Políticas de Uso Aceitável, que incluem algumas restrições de conteúdo e conduta no GitHub relacionadas à segurança do usuário, propriedade intelectual, privacidade, autenticidade e outras limitações. Resumindo, sejam excelentes uns com os outros._
 
 Os termos em letras maiúsculas usados, mas não definidos, nestas Políticas de Uso Aceitável têm os significados atribuídos a eles em nossos [Termos de Serviço](/articles/github-terms-of-service), [Termos de Serviços Corporativos](/articles/github-corporate-terms-of-service) e [Política de Privacidade](/articles/github-privacy-statement). Para clientes sujeitos aos [Termos de Serviços Corporativos](/articles/github-corporate-terms-of-service), "você" e "seu" referem-se a "Cliente" ou "Usuários". "Nós", "nos", "nosso" referem-se ao "GitHub".
@@ -86,14 +81,14 @@ Você pode usar informações de nosso Serviço pelos seguintes motivos, indepen
 
 Extração significa extrair informações do nosso Serviço por meio de um processo automatizado, como um bot ou rastreador da Web. A extração não se refere à coleta de informações por meio de nossa API. Consulte a Seção H dos nossos [Termos de Serviço](/articles/github-terms-of-service#h-api-terms) para nossos Termos de API. 
 
-Você não pode usar informações do Serviço (extraídas, coletadas por meio de nossa API ou obtidas de outra forma) para fins de spam, inclusive para envio de emails não solicitados a usuários ou venda de Informações Pessoais do Usuário (conforme definido na [Política de Privacidade do GitHub](/github/site-policy/github-privacy-statement)), como para recrutadores, headhunters e quadros de empregos.
+Você não pode usar informações do Serviço (extraídas, coletadas por meio de nossa API ou obtidas de outra forma) para fins de spam, inclusive para envio de emails não solicitados a usuários ou para venda de informações pessoais, como para recrutadores, headhunters e quadros de empregos.
 
 O uso que você faz das informações do Serviço deve estar em conformidade com a [Política de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
 
 ## <a name="8-privacy"></a>8. Privacidade
-O uso indevido de informações pessoais do usuário é proibido.
+O uso indevido de informações pessoais é proibido.
 
-Qualquer pessoa, entidade ou serviço que coleta dados do Serviço deve cumprir a [Política de Privacidade do GitHub](/articles/github-privacy-statement), especialmente no que diz respeito à coleta de Informações Pessoais do Usuário. Se você coletar quaisquer Informações Pessoais do Usuário do Serviço, você concorda que só usará essas Informações Pessoais do Usuário para a finalidade para a qual o Usuário as autorizou. Você concorda que protegerá razoavelmente quaisquer Informações Pessoais do Usuário que tenha coletado do Serviço e responderá prontamente a reclamações, solicitações de remoção e solicitações para "não entrar em contato" feitas por nós ou por outros usuários.
+Qualquer pessoa, entidade ou serviço que coleta dados do Serviço deve cumprir a [Política de Privacidade do GitHub](/articles/github-privacy-statement), especialmente no que diz respeito à coleta de informações pessoais. Se você coletar quaisquer informações pessoais do Serviço, você concorda que só usará essas informações pessoais para a finalidade para a qual o Usuário as autorizou. Você concorda que protegerá razoavelmente quaisquer informações pessoais que tenha coletado do Serviço e responderá prontamente a reclamações, solicitações de remoção e solicitações para "não entrar em contato" feitas por nós ou por outros usuários.
 
 ## <a name="9-excessive-bandwidth-use"></a>9. Uso excessivo de largura de banda
 As limitações de largura de banda do Serviço variam de acordo com os recursos que você usa. Se nós determinarmos que o uso que você faz da largura de banda é significativamente excessivo em relação a outros usuários de recursos semelhantes, reservaremos o direito de suspender sua conta, limitar sua hospedagem de arquivos ou limitar sua atividade até que você possa reduzir o consumo de largura de banda. Também nós reservamos o direito – após fornecer uma notificação prévia – de excluir repositórios que determinamos estar sobrecarregando indevidamente a infraestrutura. Para obter orientação sobre o uso aceitável do armazenamento de objetos em repositórios, consulte "[Qual é minha cota de disco?](/github/managing-large-files/what-is-my-disk-quota)". Para obter mais detalhes sobre as limitações de largura de banda de recursos específicos, consulte os [Termos Adicionais do Produto GitHub](/github/site-policy/github-additional-product-terms).

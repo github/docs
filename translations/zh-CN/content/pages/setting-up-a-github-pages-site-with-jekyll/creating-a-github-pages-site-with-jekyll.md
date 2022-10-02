@@ -15,10 +15,10 @@ topics:
   - Pages
 shortTitle: Create site with Jekyll
 ms.openlocfilehash: 409b2d1e21f89471e7ad92f790bc7ac67e903a62
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145129667'
 ---
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}

@@ -14,11 +14,11 @@ topics:
   - Troubleshooting
 shortTitle: Declined credit card charge
 ms.openlocfilehash: 44ed836d24e23ceb7e805cccdad6e70203381bf5
-ms.sourcegitcommit: 872c4751a3fc255671295a5dea6a2081c66b7b71
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2022
-ms.locfileid: '145083431'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884218'
 ---
 Se o seu cartão for recusado, nós enviaremos um e-mail para você informando o motivo da recusa do pagamento. Você terá alguns dias para resolver o problema antes que tentemos fazer a cobrança novamente.
 

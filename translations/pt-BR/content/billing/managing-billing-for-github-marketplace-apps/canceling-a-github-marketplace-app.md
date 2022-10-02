@@ -19,10 +19,10 @@ topics:
   - User account
 shortTitle: Cancel a Marketplace app
 ms.openlocfilehash: 9295f8ab1c5d9f4f3bef027dd6def79fcaa51df4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145083496'
 ---
 Quando você cancela um app, sua assinatura permanece ativa até o fim do ciclo de cobrança atual. O cancelamento entra em vigor na próxima data de cobrança. Para obter mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".

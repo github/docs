@@ -18,10 +18,10 @@ topics:
   - Health
 shortTitle: Add a security policy
 ms.openlocfilehash: f081d6e6bd99f604e7e86bc094f76de9041adf4b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084382'
 ---
 ## 关于安全政策

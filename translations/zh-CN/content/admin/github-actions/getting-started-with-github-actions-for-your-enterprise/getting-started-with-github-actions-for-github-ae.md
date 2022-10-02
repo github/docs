@@ -1,7 +1,7 @@
 ---
-title: Getting started with GitHub Actions for GitHub AE
+title: GitHub Actions for GitHub AE 使用入门
 shortTitle: Get started
-intro: 'Learn about configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_managed %}.'
+intro: '了解在 {% data variables.product.prodname_ghe_managed %} 上配置 {% data variables.product.prodname_actions %}。'
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   ghae: '*'
@@ -12,23 +12,27 @@ topics:
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-github-ae
   - /admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae
+ms.openlocfilehash: c6d6767e95e6f5d27c311e46f5042c79717ab97e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145099068'
 ---
+## 关于 {% data variables.product.prodname_ghe_managed %} 上的 {% data variables.product.prodname_actions %}
 
-
-## About {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_managed %}
-
-{% data variables.product.prodname_actions %} is enabled for {% data variables.product.product_name %} by default. To get started using {% data variables.product.prodname_actions %} within your enterprise, you need to manage access permissions for {% data variables.product.prodname_actions %} and add runners to run workflows.
+默认情况下，{% data variables.product.prodname_actions %} 为 {% data variables.product.product_name %} 启用。 若要开始在企业内使用 {% data variables.product.prodname_actions %} ，需要管理 {% data variables.product.prodname_actions %} 的访问权限，并添加运行器以运行工作流程。
 
 {% data reusables.actions.introducing-enterprise %}
 
 {% data reusables.actions.migrating-enterprise %}
 
-## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
+## 管理企业中 {% data variables.product.prodname_actions %} 的访问权限
 
-You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+您可以使用策略来管理 {% data variables.product.prodname_actions %} 的访问。 有关详细信息，请参阅“[为企业强制实施 GitHub Actions 策略](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)”。
 
-## Adding runners
+## 添加运行器
 
-You must configure and host your own machines to run jobs for your enterprise on {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} For more information, see "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)" and "[Hosting your own runners](/actions/hosting-your-own-runners)."
+您必须配置和托管自己的计算机，才能在 {% data variables.product.product_name %} 上运行企业的作业。 {% data reusables.actions.about-self-hosted-runners %} 有关详细信息，请参阅“[开始为企业使用自承载运行器](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)”和“[托管自己的运行器](/actions/hosting-your-own-runners)”。
 
 {% data reusables.actions.general-security-hardening %}

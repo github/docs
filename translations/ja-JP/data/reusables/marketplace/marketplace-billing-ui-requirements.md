@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: d7d401ed18395e4dd30f45df07e850338fa43da9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145123189"
 ---
 - {% data variables.product.prodname_marketplace %}から購入した有料プランをキャンセルした顧客は、そのアプリケーションに無料プランがあれば自動的にダウングレードされなければなりません。 {% data reusables.marketplace.cancellation-clarification %} 顧客は以前のプランを再度有効にできるようにすることが強く推奨されます。

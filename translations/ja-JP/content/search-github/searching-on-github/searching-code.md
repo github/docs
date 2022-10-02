@@ -15,10 +15,10 @@ versions:
 topics:
   - GitHub search
 ms.openlocfilehash: 52b88aee79dd9597b64bee803c1b8e42760533f3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145118910'
 ---
 {% data reusables.search.you-can-search-globally %} 詳細については、「[GitHub での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。

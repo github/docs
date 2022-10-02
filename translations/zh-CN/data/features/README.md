@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 3e44864fd82617c799cc4af8a3ab31b9279ed950
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147166306"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147877174"
 ---
 ## 基于功能的版本
 

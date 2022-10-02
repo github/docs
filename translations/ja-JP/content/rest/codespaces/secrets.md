@@ -10,10 +10,10 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ms.openlocfilehash: 28588492685865888643b5ed1956b327c9ac838c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '147067235'
 ---
 ## Codespaces ユーザー シークレット API について

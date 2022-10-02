@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: d7d401ed18395e4dd30f45df07e850338fa43da9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145096595"
 ---
 - Os clientes que cancelarem um plano pago comprado em {% data variables.product.prodname_marketplace %} devem ser automaticamente rebaixados para o plano gratuito do aplicativo, se houver. {% data reusables.marketplace.cancellation-clarification %} é altamente recomendável permitir que os clientes reativem seu plano anterior.

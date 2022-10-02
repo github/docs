@@ -12,10 +12,10 @@ topics:
   - Teams
 shortTitle: Upgrade to Corporate ToS
 ms.openlocfilehash: 071ff249ec112af507c3bb026065281173f64b8a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099700'
 ---
 标准服务条款是 {% data variables.product.prodname_dotcom %} 与您个人之间的协议。 要代表实体（例如公司、非营利性组织或团体）与 {% data variables.product.prodname_dotcom %} 签订协议，组织所有者可升级到公司服务条款。

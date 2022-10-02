@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: b0187ce452baee47916c464beb47abb64ae616ab
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145092676"
 ---
 1. Encima de la lista de archivos, haga clic en {% octicon "download" aria-label="The download icon" %} **Código**.

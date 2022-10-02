@@ -1,8 +1,8 @@
 ---
-title: 保护供应链中的代码的最佳做法
+title: Best practices for securing code in your supply chain
 shortTitle: Securing code
 allowTitleToDifferFromFilename: true
-intro: 有关如何保护供应链中心的指导 - 你编写的代码和所依赖的代码。
+intro: Guidance on how to protect the center of your supply chain—the code you write and the code you depend on.
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,103 +15,106 @@ topics:
   - Vulnerabilities
   - Advanced Security
   - Secret scanning
-ms.openlocfilehash: 2ea5e4e2bf8fedfe23d35d32feaf261427708a4e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147406420'
 ---
-## 关于本指南
 
-本指南介绍为提高代码的安全性而做出的影响最大的更改。 每个部分都概述了可以对流程进行的更改，以提高安全性。 影响最大的更改列在前面。
+## About this guide
 
-## 风险是什么？
+This guide describes the highest impact changes you can make to improve the security of your code. Each section outlines a change you can make to your processes to improve security. The highest impact changes are listed first.
 
-开发过程中的主要风险包括：
+## What's the risk?
 
-- 使用存在安全漏洞的依赖项，攻击者可能利用该安全漏洞。
-- 身份验证凭据或令牌泄露，攻击者可利用它们来访问你的资源。
-- 在自己的代码中引入攻击者可能会利用的漏洞。
+Key risks in the development process include:
 
-这些风险会使你的资源和项目受到攻击，并且这些风险直接传递给使用你创建的包的任何人。 以下部分介绍如何保护自己和用户免受这些风险的影响。
+- Using dependencies with security vulnerabilities that an attacker could exploit.
+- Leaking authentication credentials or a token that an attacker could use to access your resources.
+- Introducing a vulnerability to your own code that an attacker could exploit.
 
-## 为依赖项创建漏洞管理程序
+These risks open your resources and projects to attack and those risks are passed directly on to anyone who uses a package that you create. The following sections explain how you can protect yourself and your users from these risks.
 
-可以通过为依赖项创建漏洞管理程序来保护所依赖的代码。 概括而言，这应该包括确保执行以下操作的流程：
+## Create a vulnerability management program for dependencies
 
-1. 创建依赖项清单。
+You can secure the code you depend on by creating a vulnerability management program for dependencies. At a high level this should include processes to ensure that you:
 
-2. 了解依赖项中何时存在安全漏洞。
+1. Create an inventory of your dependencies.
 
-3. 评估该漏洞对代码的影响，并决定要执行的操作。
+2. Know when there is a security vulnerability in a dependency.
 
-### 自动生成清单
+3. Assess the impact of that vulnerability on your code and decide what action to take.
 
-首先需要创建依赖项的完整清单。 存储库的依赖项关系图显示受支持生态系统的依赖项。 如果签入依赖项或使用其他生态系统，则需要使用第三方工具的数据来补充，或手动列出依赖项。 有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。
+### Automatic inventory generation
 
-### 自动检测依赖项中的漏洞
+As a first step, you want to make a complete inventory of your dependencies. The dependency graph for a repository shows you dependencies for supported ecosystems. If you check in your dependencies, or use other ecosystems, you will need to supplement this with data from 3rd party tools or by listing dependencies manually. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
-{% data variables.product.prodname_dependabot %} 可以帮助你监视依赖项，并在它们包含已知漏洞时通知你。 {% ifversion fpt or ghec or ghes > 3.2 %}甚至可以启用 {% data variables.product.prodname_dependabot %} 来自动引发将依赖项更新到安全版本的拉取请求。{% endif %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)”{% ifversion fpt or ghec or ghes > 3.2 %}和“[关于 Dependabot 安全更新](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)”{% endif %}。
+### Automatic detection of vulnerabilities in dependencies
 
-### 评估易受攻击的依赖项的风险
+{% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. {% ifversion fpt or ghec or ghes > 3.2 %}You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version.{% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes > 3.2 %} and "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
 
-当发现使用的是易受攻击的依赖项（例如库或框架）时，必须评估项目的暴露级别并确定要执行的操作。 漏洞报告通常带有严重性分数，以显示其影响的严重程度。 严重性分数是一个有用的指南，但无法告诉你漏洞对代码的全部影响。
+### Assessment of exposure to risk from a vulnerable dependency
 
-若要评估漏洞对代码的影响，还需要考虑如何使用库并确定该库实际对系统构成的风险。 也许漏洞是你不使用的功能的一部分，你可以更新受影响的库并继续使用正常的发布周期。 或者，你的代码可能暴露在风险中，你需要更新受影响的库并立即交付更新的生成。 此决定取决于你在系统中使用库的方式，并且只有你知晓如何做出这个决定。
+When you discover you are using a vulnerable dependency, for example, a library or a framework, you must assess your project's level of exposure and determine what action to take. Vulnerabilities are usually reported with a severity score to show how severe their impact could be. The severity score is a useful guide but cannot tell you the full impact of the vulnerability on your code.
 
-## 保护通信令牌
+To assess the impact of a vulnerability on your code, you also need to consider how you use the library and determine how much risk that actually poses to your system. Maybe the vulnerability is part of a feature that you don't use, and you can update the affected library and continue with your normal release cycle. Or maybe your code is badly exposed to risk, and you need to update the affected library and ship an updated build right away. This decision depends on how you're using the library in your system, and is a decision that only you have the knowledge to make.
 
-代码通常需要通过网络与其他系统通信，并需要机密（如密码或 API 密钥）进行身份验证。 系统需要访问这些机密才能运行，但最佳做法是不要将它们包含在源代码中。 这对许多用户有权访问的存储库尤其重要，{% ifversion not ghae %}对公共存储库至关重要{% endif %}。
+## Secure your communication tokens
 
-### 自动检测提交到存储库的机密
+Code often needs to communicate with other systems over a network, and requires secrets (like a password, or an API key) to authenticate. Your system needs access to those secrets to run, but it's best practice to not include them in your source code. This is especially important for repositories to which many people might have access{% ifversion not ghae %} and critical for public repositories{% endif %}.
+
+### Automatic detection of secrets committed to a repository
 
 {% note %}
 
-注意：{% data reusables.gated-features.secret-scanning-partner %}
+**Note:** {% data reusables.gated-features.secret-scanning-partner %}
 
 {% endnote %}
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-{% ifversion fpt or ghec %} {% data variables.product.prodname_dotcom %} 与许多提供商合作，自动检测何时将机密提交到公共存储库或存储在公共存储库中，并将通知提供商，以便他们可以采取适当措施来确保帐户保持安全。 有关详细信息，请参阅“[关于合作伙伴模式的 {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)”。
+{% ifversion fpt or ghec %}
+{% data variables.product.prodname_dotcom %} partners with many providers to automatically detect when secrets are committed to or stored in your public repositories, and will notify the provider so they can take appropriate actions to ensure your account remains secure. For more information, see "[About {% data variables.product.prodname_secret_scanning %} for partner patterns](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
 {% endif %}
 
-{% ifversion fpt %} {% data reusables.secret-scanning.fpt-GHAS-scans %} {% elsif ghec %} 如果你的组织使用 {% data variables.product.prodname_GH_advanced_security %}，则可以对组织拥有的任何存储库启用 {% data variables.product.prodname_secret_scanning_GHAS %}。 还可以定义自定义模式来检测存储库、组织或企业级的其他机密。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)”。
-{% else %} 可以将 {% data variables.product.prodname_secret_scanning %} 配置为检查许多服务提供商颁发的机密，并在检测到任何机密时通知你。 还可以定义自定义模式来检测存储库、组织或企业级的其他机密。 有关详细信息，请参阅“[关于机密扫描](/code-security/secret-scanning/about-secret-scanning)”和“[机密扫描模式](/code-security/secret-scanning/secret-scanning-patterns)”。
+{% ifversion fpt %}
+{% data reusables.secret-scanning.fpt-GHAS-scans %}
+{% elsif ghec %}
+If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.product.prodname_secret_scanning_GHAS %} on any repository owned by the organization. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)."
+{% else %}
+You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)" and "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)."
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.2 or ghae %}
-### 保护 {% data variables.product.product_name %} 中使用的机密存储
+### Secure storage of secrets you use in {% data variables.product.product_name %}
 {% endif %}
 
-{% ifversion fpt or ghec %} 除了代码，你可能还需要在其他地方使用机密。 例如，允许 {% data variables.product.prodname_actions %} 工作流、{% data variables.product.prodname_dependabot %} 或 {% data variables.product.prodname_codespaces %} 开发环境与其他系统通信。 有关如何安全地存储和使用机密的详细信息，请参阅“[操作中的加密机密](/actions/security-guides/encrypted-secrets)”、“[管理 Dependabot 的加密机密](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”和“[管理 Codespaces 的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)”。
+{% ifversion fpt or ghec %}
+Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows, {% data variables.product.prodname_dependabot %}, or your {% data variables.product.prodname_github_codespaces %} development environment to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets)," "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)," and "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
 {% endif %}
 
-{% ifversion ghes > 3.2 or ghae %} 除了代码，你可能还需要在其他地方使用机密。 例如，允许 {% data variables.product.prodname_actions %} 工作流{% ifversion ghes %}或 {% data variables.product.prodname_dependabot %}{% endif %} 与其他系统通信。 有关如何安全地存储和使用机密的详细信息，请参阅“[操作中的加密机密](/actions/security-guides/encrypted-secrets){% ifversion ghes %}”和“[管理 Dependabot 的加密机密](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”{% else %}。{% endif %} {% endif %}
+{% ifversion ghes > 3.2 or ghae %}
+Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" and "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."{% else %}."{% endif %}
+{% endif %}
 
-## 将易受攻击的编码模式排除在存储库之外
+## Keep vulnerable coding patterns out of your repository
 
 {% note %}
 
-注意：{% data reusables.gated-features.code-scanning %}
+**Note:** {% data reusables.gated-features.code-scanning %}
 
 {% endnote %}
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### 创建拉取请求评审过程
+### Create a pull request review process
 
-可以通过确保在合并拉取请求之前对其进行评审和测试，提高代码的质量和安全性。 {% data variables.product.prodname_dotcom %} 有许多可用于控制评审和合并过程的功能。 若要开始，请参阅“[关于受保护的分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)”。
+You can improve the quality and security of your code by ensuring that all pull requests are reviewed and tested before they are merged. {% data variables.product.prodname_dotcom %} has many features you can use to control the review and merge process. To get started, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
 
-### 扫描代码中易受攻击的模式
+### Scan your code for vulnerable patterns
 
-审阅者通常很难在没有辅助的情况下发现不安全的代码模式。 除了扫描代码中的机密之外，还可以检查它是否有与安全漏洞关联的模式。 例如，一个非内存安全的函数，或者无法转义用户输入，可能会导致注入漏洞。 {% data variables.product.prodname_dotcom %} 提供了几种不同的方法来处理扫描代码的方式和时间。 若要开始，请参阅“[关于代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)”。
+Insecure code patterns are often difficult for reviewers to spot unaided. In addition to scanning your code for secrets, you can check it for patterns that are associated with security vulnerabilities. For example, a function that isn't memory-safe, or failing to escaping user input that could lead to an injection vulnerability. {% data variables.product.prodname_dotcom %} offers several different ways to approach both how and when you scan your code. To get started, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
 
-## 后续步骤
+## Next steps
 
-- [保护端到端供应链](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)
+- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 
-- [确保帐户安全的最佳做法](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)
+- "[Best practices for securing accounts](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- [保护生成系统的最佳做法](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)
+- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"

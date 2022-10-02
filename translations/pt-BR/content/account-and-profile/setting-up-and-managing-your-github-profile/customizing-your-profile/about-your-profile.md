@@ -15,10 +15,10 @@ versions:
 topics:
   - Profiles
 ms.openlocfilehash: edbe34a38c2ab23de22e3b5ea466e35276c6bc35
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '146199951'
 ---
 Você pode adicionar informações pessoais sobre si mesmo na bio, como locais em que trabalhou anteriormente, os projetos com os quais contribuiu ou interesses que você tem que outras pessoas talvez gostem de saber. Para obter mais informações, confira "[Como adicionar uma biografia ao seu perfil](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)".

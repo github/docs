@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 02959a116ad5d087dc8a9d7fb3293e36b9b9cb24
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145095455"
 ---
 - Para filtrar qualquer correspondência de vários valores (uma consulta OR), separe os valores com uma vírgula. Por exemplo, `label:"good first issue",bug` listará todos os problemas rotulados como `good first issue` ou `bug`.

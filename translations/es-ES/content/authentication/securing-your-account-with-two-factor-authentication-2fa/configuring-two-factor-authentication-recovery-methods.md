@@ -18,10 +18,10 @@ topics:
   - 2FA
 shortTitle: Configure 2FA recovery
 ms.openlocfilehash: a16f8dda2f834beb4c4a1634fae812b18a8730a3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145091769'
 ---
 Además de almacenar tus códigos de recuperación de autenticación de dos factores de manera segura, recomendamos configurar uno o más métodos de recuperación adicionales.

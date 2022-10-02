@@ -39,7 +39,7 @@ You can use more than one issue to track the same {% data variables.product.prod
 
 - A "tracked in" section will also show in the corresponding alert page. 
 
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
   ![Tracked in section on code scanning alert page](/assets/images/help/repository/code-scanning-alert-tracked-in-pill.png)
   {% else %}
   ![Tracked in section on code scanning alert page](/assets/images/enterprise/3.4/repository/code-scanning-alert-tracked-in-pill.png)
@@ -69,7 +69,7 @@ The status of the tracked alert won't change if you change the checkbox state of
 1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
 {% endif %}
 1. Towards the top of the page, on the right side, click **Create issue**. 
-   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+   {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
    ![Create a tracking issue for the code scanning alert](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
    {% else %}
    ![Create a tracking issue for the code scanning alert](/assets/images/enterprise/3.4/repository/code-scanning-create-issue-for-alert.png)

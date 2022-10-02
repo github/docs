@@ -16,10 +16,10 @@ versions:
   ghec: '*'
 shortTitle: Associate text editors
 ms.openlocfilehash: 0d02c32ff04d4a5a2a1003464175e866630603f4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145148763'
 ---
 {% mac %}

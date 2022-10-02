@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: Change insight visibility
 ms.openlocfilehash: f6647993672ee56de8c1b8698b1fcdb0dc84147f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145093238'
 ---
 Os proprietários da organização podem definir limitações para exibir informações de dependência da organização. Todos os integrantes de uma organização podem exibir informações de dependência da organização por padrão.

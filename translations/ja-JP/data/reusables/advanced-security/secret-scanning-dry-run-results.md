@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ca9405d127581cff137c4f711a57af6d881cb6db
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "147549093"
 ---
 1. ドライ ランが完了すると、結果のサンプル (最大 1000 個) が表示されます。 結果をレビューし、誤検知の結果を特定します。

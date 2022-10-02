@@ -9,10 +9,10 @@ redirect_from:
 versions:
   fpt: '*'
 ms.openlocfilehash: b881fa5d9e66c4a63b8c648d87072037a8cba543
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084071'
 ---
 ## Sobre o envio de alterações para {% data variables.product.prodname_dotcom %}

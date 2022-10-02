@@ -13,10 +13,10 @@ topics:
   - Community
 shortTitle: About templates
 ms.openlocfilehash: b95b31ae4171a54d9261fab6cbe93c43361296ab
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145117593'
 ---
 Una vez que creas las plantillas de propuestas y solicitudes de extracción en tu repositorio, los colaboradores pueden usar las plantillas para abrir propuestas o describir los cambios propuestos en sus solicitudes de extracción de acuerdo con las pautas de contribución del repositorio. Para obtener más información sobre cómo agregar directrices de contribución a un repositorio, vea "[Configuración de directrices para colaboradores del repositorio](/articles/setting-guidelines-for-repository-contributors)".

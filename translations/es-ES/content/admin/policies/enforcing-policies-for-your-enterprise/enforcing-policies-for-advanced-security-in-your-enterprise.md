@@ -21,10 +21,10 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-policies-for-advanced-security-in-your-enterprise-account
 shortTitle: Advanced Security policies
 ms.openlocfilehash: 1858a854f78695b2fa36e0b84944f2fa05db0d00
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145116393'
 ---
 ## Acerca de las políticas para la {% data variables.product.prodname_GH_advanced_security %} en tu empresa

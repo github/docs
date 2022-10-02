@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: b2356ad6e76777400d8995a65e86511186d817e0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145113618"
 ---
 Las notificaciones por correo electrónico se envían a los propietarios de cuenta y gerentes de facturación cuando los gastos llegan a 50%, 75%, 90% y 100% del uso que incluye tu cuenta y cuando estos llegan al 50%, 75%, 90% y 100% del límite de gastos de la misma. 

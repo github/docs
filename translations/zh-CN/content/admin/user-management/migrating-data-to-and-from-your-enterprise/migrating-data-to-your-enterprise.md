@@ -20,10 +20,10 @@ topics:
   - Migration
 shortTitle: Import to your enterprise
 ms.openlocfilehash: 19bd9e1e8cee072e8a8f00861e2d8f876b5b8450
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147717667'
 ---
 ## 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据

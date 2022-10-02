@@ -13,10 +13,10 @@ topics:
   - Webhooks
 shortTitle: Configure server for webhooks
 ms.openlocfilehash: 78004211eb135d025272788c83b258f461dd17ab
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145112373'
 ---
 Webhook でメッセージを配信する準備ができたので、受信ペイロードを処理する基本的な Sinatra サーバーをセットアップします。

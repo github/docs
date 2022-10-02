@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 99687deb5c170a7fab2b5050607b25e1aebb844b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065440"
 ---
 Para identificar qualquer restrição de concorrência ou fila, você pode verificar quantos trabalhos estão sendo processados atualmente nos executores hospedados em {% data variables.product.prodname_dotcom %} na sua organização ou empresa. 

@@ -12,10 +12,10 @@ versions:
   ghec: '*'
 shortTitle: Write & format on GitHub
 ms.openlocfilehash: 7819ebc6bbf3ffa8696c87f82745a19c103c8134
-ms.sourcegitcommit: ab164fb4ca250c2cf5fc24be2a18b93facd0f055
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147860838'
 ---
 [Markdown](http://daringfireball.net/projects/markdown/) es una sintaxis fácil de leer y escribir para dar formato al texto sin formato.

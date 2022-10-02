@@ -14,11 +14,11 @@ shortTitle: Private image registry
 
 A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more images. There are many examples of registries, such as {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_npm_registry %}, Azure Container Registry, or DockerHub.
 
-{% data variables.product.prodname_ghcr_and_npm_registry %} can be configured to allow container images to be pulled seamlessly into {% data variables.product.prodname_github_codespaces %} during codespace creation, without having to provide any authentication credentials. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_codespaces %} to access images stored in that registry.
+{% data variables.product.prodname_ghcr_and_npm_registry %} can be configured to allow container images to be pulled seamlessly into {% data variables.product.prodname_github_codespaces %} during codespace creation, without having to provide any authentication credentials. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_github_codespaces %} to access images stored in that registry.
 
 ## Accessing images stored in {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-{% data variables.product.prodname_ghcr_and_npm_registry %} provide the easiest way for {% data variables.product.prodname_codespaces %} to consume dev container images.
+{% data variables.product.prodname_ghcr_and_npm_registry %} provide the easiest way for {% data variables.product.prodname_github_codespaces %} to consume dev container images.
 
 For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)" and "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)".
 
@@ -52,7 +52,7 @@ We recommend publishing images via {% data variables.product.prodname_actions %}
 
 ## Accessing images stored in other container registries
 
-If you are accessing a container image from a registry that isn't {% data variables.product.prodname_ghcr_or_npm_registry %}, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_github_codespaces %} will make the registry available inside your codespace.
+If you are accessing a container image from a registry that isn't {% data variables.product.prodname_ghcr_or_npm_registry %}, {% data variables.product.prodname_github_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_github_codespaces %} will make the registry available inside your codespace.
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
@@ -118,4 +118,4 @@ Some of the common image registry servers are listed below:
 
 ## Debugging private image registry access
 
-If you are having trouble pulling an image from a private image registry, make sure you are able to run `docker login -u <user> -p <password> <server>`, using the values of the secrets defined above. If login fails, ensure that the login credentials are valid and that you have the apprioriate permissions on the server to fetch a container image. If login succeeds, make sure that these values are copied appropriately into the right {% data variables.product.prodname_codespaces %} secrets, either at the user, repository, or organization level and try again.
+If you are having trouble pulling an image from a private image registry, make sure you are able to run `docker login -u <user> -p <password> <server>`, using the values of the secrets defined above. If login fails, ensure that the login credentials are valid and that you have the apprioriate permissions on the server to fetch a container image. If login succeeds, make sure that these values are copied appropriately into the right {% data variables.product.prodname_github_codespaces %} secrets, either at the user, repository, or organization level and try again.

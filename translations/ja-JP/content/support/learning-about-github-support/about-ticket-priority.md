@@ -1,6 +1,6 @@
 ---
-title: About ticket priority
-intro: You can communicate the severity of your issue and how it is affecting you and your team by setting the priority of your support ticket.
+title: チケットの優先度について
+intro: サポート チケットの優先度を設定することで、問題の重大度と、それが自分とチームにどのように影響しているかを伝えることができます。
 shortTitle: Ticket priority
 versions:
   ghec: '*'
@@ -8,9 +8,14 @@ versions:
   ghae: '*'
 topics:
   - Support
+ms.openlocfilehash: bce2a30ad25b93274e982991f81be5b1b796c685
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145140099'
 ---
-
-When you contact {% data variables.contact.enterprise_support %}, you can choose one of {% ifversion ghes or ghae %}four{% else %}three{% endif %} priorities for the ticket: {% ifversion ghes or ghae %}{% data variables.product.support_ticket_priority_urgent %},{% endif %} {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
+{% data variables.contact.enterprise_support %} へのお問い合わせ時に、チケットの優先度を {% ifversion ghes or ghae %}{% data variables.product.support_ticket_priority_urgent %}、{% endif %} {% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} の {% ifversion ghes or ghae %}4{% else %}3{% endif %} つから選択できます。
 
 {% ifversion ghes or ghae %}
 
@@ -18,21 +23,19 @@ When you contact {% data variables.contact.enterprise_support %}, you can choose
 
 {% ifversion ghes %}
 
-## Ticket priority for {% data variables.product.prodname_ghe_server %}
+## {% data variables.product.prodname_ghe_server %} のチケット優先度
 
 {% data reusables.support.ghes-priorities %}
 
-## Ticket priority for {% data variables.product.prodname_advanced_security %}
+## {% data variables.product.prodname_advanced_security %} のチケット優先度
 
-| Priority | Description |
+| 優先度 | 説明 |
 | :---: | --- |
-| {% data variables.product.support_ticket_priority_high %} | {% data variables.product.prodname_advanced_security %} is not functioning or is stopped or severely impacted such that the end user cannot reasonably continue use of the software and no workaround is available. |
-| {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} is functioning inconsistently, causing impaired end user usage and productivity. |
-| {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} is functioning consistently, but the end user requests minor changes in the software, such as documentation updates, cosmetic defects, or enhancements.|
+| {% data variables.product.support_ticket_priority_high %} | {% data variables.product.prodname_advanced_security %} は、機能しない、停止している、またはエンドユーザがソフトウェアの利用を合理的に継続できないほどの影響があり、回避策がないものです。 |
+| {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %}の機能が不安定であり、エンドユーザの利用や生産性に支障があります。 |
+| {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %}は安定して動作していますが、ドキュメントの更新、見かけ上の欠陥、拡張といったソフトウェア上の軽微な変更をエンドユーザが求めています。|
 
-{% elsif ghae %}
-{% data reusables.support.ghae-priorities %}
-{% endif %}
+{% elsif ghae %} {% data reusables.support.ghae-priorities %} {% endif %}
 
 {% elsif ghec %}
 
@@ -40,40 +43,40 @@ When you contact {% data variables.contact.enterprise_support %}, you can choose
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can submit priority questions if you have purchased {% data variables.product.prodname_ghe_cloud %} or if you're a member, outside collaborator, or billing manager of a {% data variables.product.prodname_dotcom %} organization currently subscribed to {% data variables.product.prodname_ghe_cloud %}.
+優先質問は、{% data variables.product.prodname_ghe_cloud %} を購入してある場合か、現在 {% data variables.product.prodname_ghe_cloud %} にサブスクライブしている {% data variables.product.prodname_dotcom %} Organization のメンバー、外部コラボレーターまたは支払いマネージャーである場合にサブミットできます。
 
-Questions that qualify for priority responses:
-- Include questions related to your inability to access or use {% data variables.product.prodname_dotcom %}'s core version control functionality
-- Include situations related to your account security
-- Do not include peripheral services and features, such as questions about Gists, {% data variables.product.prodname_pages %}, or email notifications
-- Include questions only about organizations currently using {% data variables.product.prodname_ghe_cloud %}
+次のような質問が、優先回答の対象となります:
+- {% data variables.product.prodname_dotcom %} の中核となるバージョン管理機能のアクセスや使用ができないことに関連する質問を含む
+- アカウントのセキュリティに関連する状況を含む
+- 周辺サービスや周辺機能 (Gist、{% data variables.product.prodname_pages %}、またはメール通知についての質問など) を含まない
+- Organization が現在使用している {% data variables.product.prodname_ghe_cloud %} の質問のみを含む
 
-To qualify for a priority response, you must:
-- Submit your question to [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) from a verified email address that's associated with an organization currently using {% data variables.product.prodname_ghe_cloud %}
-- Submit a new support ticket for each individual priority situation
-- Submit your question from Monday-Friday in your local time zone
-- Understand that the response to a priority question will be received via email
-- Cooperate with {% data variables.contact.github_support %} and provide all of the information that {% data variables.contact.github_support %} asks for
+優先回答を受ける対象となるには、次のようにする必要があります:
+- 現在 {% data variables.product.prodname_ghe_cloud %} を使用している Organization に関連付けられている認証済みメール アドレスから [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) へ質問をサブミットする
+- 個々の優先状況ごとに新規でサポートチケットをサブミットする
+- 現地時間月～金曜日に質問をサブミットする
+- 優先質問への応答をメールで受信することを把握しておく
+- {% data variables.contact.github_support %} と協働し、{% data variables.contact.github_support %} から求められる情報をすべて提供する
 
 {% note %}
 
-**Note:** Questions do not qualify for a priority response if they are submitted on a local holiday in your jurisdiction.
+**注:** お住まいの地域の祝日にサブミットされた質問は、優先回答の対象になりません。
 
 {% endnote %}
 
-The target eight-hour response time:
-- Begins when {% data variables.contact.github_support %} receives your qualifying question
-- Does not begin until you have provided sufficient information to answer the question, unless you specifically indicate that you do not have sufficient information
-- Does not apply on weekends in your local timezone or local holidays in your jurisdiction
+応答時間目標 8 時間には、次の条件があります:
+- 対象となる質問を {% data variables.contact.github_support %} が受信した時刻に開始する
+- 質問に回答するのに十分な情報が提供されるまでは、十分な情報がないことを特に指定しない限り、開始しない
+- お住まいの地域のタイムゾーンでの週末や祝日には適用されない
 
 {% note %}
 
-**Note:** {% data variables.contact.github_support %} does not guarantee a resolution to your priority question. {% data variables.contact.github_support %} may escalate or deescalate issues to or from priority question status, based on our reasonable evaluation of the information you give to us.
+**注:** {% data variables.contact.github_support %} は、優先質問に対する解決を保証するものではありません。 {% data variables.contact.github_support %} では、提供された情報の合理的な評価に基づいて、Issue の優先質問ステータスへエスカレーションをすることも、そこからディエスカレーションすることもあります。
 
 {% endnote %}
 
 {% endif %}
 
-## Further reading
+## 参考資料
 
-- "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)"
+- 「[サポート チケットの作成](/support/contacting-github-support/creating-a-support-ticket)」

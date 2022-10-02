@@ -1,0 +1,28 @@
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - 支持包可以包含敏感文件，前提是它们满足一组特定条件。 
+    - "在 GitHub Enterprise Server 中发现了一个 UI 虚假陈述漏洞，该漏洞允许在 GitHub 应用程序的用户授权 Web 流期间授予比在审批期间向用户显示的更多权限。此漏洞影响 GitHub Enterprise Server 3.3 之前的所有版本，已在 3.2.5、3.1.13 和 3.0.21 中修复。此漏洞通过 GitHub Bug 赏金计划报告，编号为 [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598)。"
+    - "在 GitHub Enterprise Server 中发现了一个在构建 GitHub Pages 站点时可以利用的远程代码执行漏洞。此漏洞影响 GitHub Enterprise Server 3.3 之前的所有版本，已在 3.0.21、3.1.13 和 3.2.5 中修复。此漏洞通过 GitHub Bug 赏金计划报告，编号为 [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599)。更新时间：2022 年 2 月 17 日。"
+  bugs:
+    - 在某些未启用操作的情况下，`ghe-support-bundle` 报告了意外消息“无法找到 MS SQL 容器”。 
+    - 由于 `/data/user/tmp/pages` 中存在权限问题，`ghe-config-apply` 的运行有时可能会失败。 
+    - 管理控制台中的错误配置导致了调度错误。 
+    - Docker 会在日志轮换后保持日志文件打开。 
+    - 由于对不兼容 UTF-8 的 `blob_path` 值的错误处理，迁移可能会停滞。 
+    - GraphQL 请求未在预接收挂钩环境中设置 GITHUB_USER_IP 变量。 
+    - 组织审计日志上的分页链接不会保留查询参数。 
+    - 在热补丁期间，如果多次运行转换，则可能会出现重复的哈希。 
+  changes:
+    - 阐明了文档中对 Actions 路径样式的解释。 
+    - 更新支持联系 URL 以使用当前支持站点 support.github.com。 
+    - 运行 `ghe-mssql-diagnostic` 时提供了其他疑难解答。
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含同一存储库中 blob 的永久链接并且该 blob 的文件路径长于 255 个字符，则问题无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样做是为了大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

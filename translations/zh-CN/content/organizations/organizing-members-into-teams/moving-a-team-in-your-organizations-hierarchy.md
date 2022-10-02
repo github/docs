@@ -16,10 +16,10 @@ topics:
   - Teams
 shortTitle: Move a team
 ms.openlocfilehash: 205ab40d04d613c54b498b9712e5f199e1433558
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145101308'
 ---
 组织所有者可以更改任何团队的父团队。 团队维护员如果同时是子团队和父团队的维护员，则可更改团队的父团队。 没有子团队维护员权限的团队维护员可以申请添加父团队或子团队。 有关详细信息，请参阅“[申请添加或更改父团队](/articles/requesting-to-add-or-change-a-parent-team)”和“[申请添加子团队](/articles/requesting-to-add-a-child-team)”。

@@ -13,10 +13,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 3e2796e83047f4e8bb6b7e9a503eee6dac63f019
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145131388'
 ---
 このセクションでは、認証の基本に焦点を当てます。 具体的には、複数の異なる方法でアプリケーションの [Web フロー][webflow]を実装する Ruby サーバー ([Sinatra][Sinatra] を使用) を作成します。

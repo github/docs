@@ -16,10 +16,10 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts
 ms.openlocfilehash: 48613d8c8974d14a1de70e0dee5a7f4819d37fd9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145137836'
 ---
 {% data variables.product.product_name %}で解決できるマージコンフリクトは、Git リポジトリの別々のブランチで、同じファイルの同じ行に異なる変更がなされた場合など、互いに矛盾する行変更を原因とするもののみです。 その他すべての種類のマージ コンフリクトについては、コマンド ラインでコンフリクトをローカルに解決する必要があります。 詳細については、「[コマンド ラインを使用してマージ コンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line/)」を参照してください。

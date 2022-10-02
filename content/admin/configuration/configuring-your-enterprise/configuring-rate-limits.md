@@ -52,7 +52,13 @@ Setting secondary rate limits protects the overall level of service on {% data v
 
 ## Enabling rate limits for Git
 
-You can apply Git rate limits per repository network or per user ID. Git rate limits are expressed in concurrent operations per minute, and are adaptive based on the current CPU load.
+If a member of {% data variables.product.company_short %}'s staff has recommended it, you can apply Git rate limits per repository network or per user ID. Git rate limits are expressed in concurrent operations per minute, and are adaptive based on the current CPU load.
+
+{% warning %}
+
+**Warning:** We encourage you to leave this setting disabled unless directly recommended by a member of {% data variables.product.company_short %}'s staff. Git operations are rarely the leading driver of CPU and RAM usage. Enabling this feature can make Git operations more likely to fail under high load conditions but does not address the underlying cause of those conditions.
+
+{% endwarning %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

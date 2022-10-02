@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Restrict repository creation
 ms.openlocfilehash: da5d32962c52b752dff9dd9012f8cc8e5494d8c6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145065968'
 ---
 您可以选择成员是否可以在组织中创建仓库。 {% ifversion ghec or ghes or ghae %}如果允许成员创建仓库，您可以选择成员可以创建的仓库类型。{% elsif fpt %}如果允许成员创建仓库，您可以选择成员是可以同时创建公共和私有仓库，还是只能创建公共仓库。{% endif %} 组织所有者始终可以创建任何类型的仓库。

@@ -1,6 +1,6 @@
 ---
-title: '在组织中禁用{% ifversion projects-v2 %}项目{% else %}项目板{% endif %}'
-intro: '组织所有者可以在组织中关闭{% ifversion projects-v2 %}组织范围的{% data variables.projects.projects_v2 %}、组织范围的{% data variables.projects.projects_v1_boards %}和存储库级别的{% data variables.projects.projects_v1_boards %}{% else %}组织范围的项目板和存储库项目板{% endif %}。'
+title: 'Disabling {% ifversion projects-v2 %}projects{% else %}project boards{% endif %} in your organization'
+intro: 'Organization owners can turn off {% ifversion projects-v2 %}organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% else %}organization-wide project boards and repository project boards{% endif %} in an organization.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
@@ -14,36 +14,32 @@ topics:
   - Pull requests
 shortTitle: Disable projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: e1e2aed1e7c689bee83dabc4a6750f8976206f4a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423322'
 ---
-禁用组织范围的项目板后，将无法在组织级别创建新的项目板，并且将无法通过其先前的 URL 访问任何现有组织级别项目板。 组织仓库中的项目板不受影响。 {% ifversion projects-v2 %}这些设置适用于 {% data variables.projects.projects_v2 %} 和 {% data variables.projects.projects_v1_boards %}。{% endif %}
+After you disable organization-wide project boards, it won’t be possible to create new project boards at the organization level, and any existing organization-level project boards will become inaccessible at their previous URLs. Project boards in repositories in the organization are not affected. {% ifversion projects-v2 %}These settings apply to {% data variables.projects.projects_v2 %} and {% data variables.projects.projects_v1_boards %}.{% endif %}
 
-在组织中禁用仓库项目板后，将无法在任何组织仓库中创建新项目板，并且将无法通过其先前的 URL 访问组织仓库中的任何现有项目板。 组织级别的项目板不受影响。
-
-
-禁用项目板后，在时间表或[审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)中将不再看到项目板信息。
+After you disable repository project boards in an organization, it won't be possible to create new project boards in any repositories in the organization, and any existing project boards in repositories in the organization will become inaccessible at their previous URLs. Project boards at the organization level are not affected.
 
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. 在边栏的“代码规划和自动化”部分，单击“{% octicon "table" aria-label="The table icon" %} 项目”。
+When you disable project boards, you will no longer see project board information in timelines or [audit logs](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization).
+
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
 {% endif %}
-1. 决定是否禁用组织范围的项目板，禁用组织中的仓库项目板，或两者均禁用。 然后，在“项目”（项目）下：
-    - 若要禁用组织范围的项目板，请取消选择“启用组织的项目”。
-    - 若要在组织中禁用存储库项目板，请取消选择“启用所有存储库的项目”。
-  ![用于禁用单个组织或单个组织所有存储库的项目的复选框](/assets/images/help/projects/disable-org-projects-checkbox.png)
-1. 单击“ **保存**”。
+1. Decide whether to disable organization-wide project boards, disable repository project boards in the organization, or both. Then, under "Projects":
+    - To disable organization-wide project boards, unselect **Enable projects for the organization**.
+    - To disable repository project boards in the organization, unselect **Enable projects for all repositories**.
+  ![Checkboxes to disable projects for an organization or for all of an organization's repositories](/assets/images/help/projects/disable-org-projects-checkbox.png)
+1. Click **Save**.
 
 {% data reusables.organizations.disable_project_board_results %}
 
-## 延伸阅读
+## Further reading
 
-{% ifversion projects-v2 %}- [关于 {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects){% endif %}
-- [关于 {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)
-- [关闭 {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board)
-- [删除 {% data variables.projects.projects_v1_board %}](/articles/deleting-a-project-board)
-- [禁用 {% data variables.projects.projects_v1_boards %} in a repository](/articles/disabling-project-boards-in-a-repository)
+{% ifversion projects-v2 %}- "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
+- "[About {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
+- "[Closing a {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board)"
+- "[Deleting a {% data variables.projects.projects_v1_board %}](/articles/deleting-a-project-board)"
+- "[Disabling {% data variables.projects.projects_v1_boards %} in a repository](/articles/disabling-project-boards-in-a-repository)"

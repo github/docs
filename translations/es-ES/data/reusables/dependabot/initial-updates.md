@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 8adf896da9e4748cfaa5d0d0562172af14264f97
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145138778"
 ---
 Cuando habilitas las actualizaciones de versión por primera vez, podrías tener muchas dependencias desactualizadas y algunas podrían estar varias versiones debajo de la última. {% data variables.product.prodname_dependabot %} verifica las dependencias que estén desactualizadas tan pronto se habilita. Podrías ver nuevas solicitudes de extracción para las actualizaciones de versión después de algunos minutos de haber agregado el archivo de configuración, dependiendo de la cantidad de archivos de manifiesto para los cuales configuras las actualizaciones. El {% data variables.product.prodname_dependabot %} también ejecutará una actualización en los cambios subsecuentes al archivo de configuración.
