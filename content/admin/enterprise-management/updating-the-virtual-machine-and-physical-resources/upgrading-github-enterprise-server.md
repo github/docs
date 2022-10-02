@@ -176,8 +176,8 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 6. Confirm that you'd like to continue with the upgrade and restart after the package signature verifies. The new root filesystem writes to the secondary partition and the instance automatically restarts in maintenance mode:
   ```shell
   *** applying update...
-  This package will upgrade your installation to version <em>version-number</em>
-  Current root partition: /dev/xvda1 [<em>version-number</em>]
+  This package will upgrade your installation to version VERSION-NUMBER
+  Current root partition: /dev/xvda1 [VERSION-NUMBER]
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```

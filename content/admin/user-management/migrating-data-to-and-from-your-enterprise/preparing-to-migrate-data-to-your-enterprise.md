@@ -30,7 +30,7 @@ shortTitle: Prepare to migrate data
 3. Use the `ghe-migrator prepare` command to prepare the archive for import on the target instance and generate a new Migration GUID for you to use in subsequent steps:
 
     ```shell
-    ghe-migrator prepare /home/admin/MIGRATION_GUID.tar.gz
+    ghe-migrator prepare /home/admin/MIGRATION-GUID.tar.gz
     ```
 
     * To start a new import attempt, run `ghe-migrator prepare` again and get a new Migration GUID.
@@ -40,7 +40,7 @@ shortTitle: Prepare to migrate data
 
 1. Using the `ghe-migrator conflicts` command with the Migration GUID, generate a *conflicts.csv* file:
     ```shell
-    $ ghe-migrator conflicts -g MIGRATION_GUID > conflicts.csv
+    $ ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
     ```
     - If no conflicts are reported, you can safely import the data by following the steps in "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)".
 2. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy *conflicts.csv* to your local computer:
@@ -118,7 +118,7 @@ Given a list of usernames from the source and a list of usernames on the target,
 You can quickly generate a CSV of users being migrated in the CSV format needed to apply custom mappings by using the [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) command:
 
 ```shell
-$ ghe-migrator audit -m user -g MIGRATION_GUID > users.csv
+$ ghe-migrator audit -m user -g MIGRATION-GUID > users.csv
 ```
 
 Now, you can edit that CSV and enter the new URL for each user you would like to map or rename, and then update the fourth column to have `map` or `rename` as appropriate.
@@ -142,7 +142,7 @@ The same process can be used to create mappings for each record that supports cu
 2. Re-map the migration data using the `ghe-migrator map` command, passing in the path to your modified *.csv* file and the Migration GUID:
 
     ```shell
-    $ ghe-migrator map -i conflicts.csv  -g MIGRATION_GUID
+    $ ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID
     ```
 
-3. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION_GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.
+3. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.

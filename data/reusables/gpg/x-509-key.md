@@ -15,7 +15,7 @@ You can use [smimesign](https://github.com/github/smimesign) to sign commits and
   ```
   - To use S/MIME to sign for a single repository:
   ```shell
-  $ cd PATH_TO_REPOSITORY
+  $ cd PATH-TO-REPOSITORY
   $ git config --local gpg.x509.program smimesign
   $ git config --local gpg.format x509
   ```
@@ -26,7 +26,7 @@ You can use [smimesign](https://github.com/github/smimesign) to sign commits and
   ```
   - To use S/MIME to sign for a single repository:
   ```shell
-  $ cd PATH_TO_REPOSITORY
+  $ cd  PATH-TO-REPOSITORY
   $ git config --local gpg.program smimesign
   ```
   If you're using an X.509 key that matches your committer identity, you can begin signing commits and tags.
@@ -52,6 +52,6 @@ You can use [smimesign](https://github.com/github/smimesign) to sign commits and
   ```
   - To use your X.509 key to sign for a single repository:
   ```shell
-  $ cd PATH_TO_REPOSITORY
+  $ cd  PATH-TO-REPOSITORY
   $ git config --local user.signingkey 0ff455a2708394633e4bb2f88002e3cd80cbd76f
   ```
