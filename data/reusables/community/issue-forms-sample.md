@@ -52,7 +52,7 @@ body:
     attributes:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
+      render: console
   - type: checkboxes
     id: terms
     attributes:
