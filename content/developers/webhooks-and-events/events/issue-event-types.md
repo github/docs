@@ -216,7 +216,17 @@ The issue was created by converting a note in a project board to an issue. {% da
 
 ## converted_to_discussion
 
-The issue was converted to a discussion.
+The issue was closed and converted to a discussion.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|-----|-----|-----|
+| <ul><li>Issues</li></ul> | **X** | |
+
+### Event Object Properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ## cross-referenced
 
