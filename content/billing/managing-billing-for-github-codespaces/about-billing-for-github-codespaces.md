@@ -17,7 +17,7 @@ redirect_from:
 
 ## {% data variables.product.prodname_github_codespaces %} pricing
 
-{% data variables.product.prodname_github_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_github_codespaces %} usage. 
+Charges are incurred for the use of {% data variables.product.prodname_codespaces %} for repositories owned by organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}. These accounts do not include any free minutes or storage for {% data variables.product.prodname_codespaces %}. Repositories in personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
 
 {% data variables.product.prodname_github_codespaces %} usage is billed according to the units of measure in the following table:
 
