@@ -150,7 +150,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
+|<kbd>Command</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
 |<kbd>←</kbd> | Move cell focus to the left
 |<kbd>→</kbd> | Move cell focus to the right
 |<kbd>↑</kbd> | Move cell focus up
@@ -162,7 +162,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |-----------|------------
 |<kbd>Enter</kbd> | Toggle edit mode for the focused cell
 |<kbd>Escape</kbd> | Cancel editing for the focused cell
-|<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
 |<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item
 |<kbd>Space</kbd> | Open selected item
 |<kbd>e</kbd> | Archive selected items
