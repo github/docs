@@ -58,7 +58,7 @@ For example:
 {% windows %}
 
 ```shell
-run.cmd --check --url <em>https://github.com/octo-org/octo-repo</em> --pat <em>ghp_abcd1234</em>
+run.cmd --check --url https://github.com/octo-org/octo-repo --pat gcp_abcd1234
 ```
 
 {% endwindows %}
@@ -78,7 +78,7 @@ To disable TLS certification verification in the self-hosted runner application,
 
 ```shell
 export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
-./config.sh --url <em>https://github.com/octo-org/octo-repo</em> --token
+./config.sh --url https://github.com/octo-org/octo-repo --token
 ./run.sh
 ```
 

@@ -33,7 +33,7 @@ For example, if you and another person both edited the file _styleguide.md_ on t
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigate into the local Git repository that has the merge conflict.
   ```shell
-  cd <em>REPOSITORY-NAME</em>
+  cd REPOSITORY-NAME
   ```
 3. Generate a list of the files affected by the merge conflict. In this example, the file *styleguide.md* has a merge conflict.
   ```shell
@@ -85,7 +85,7 @@ For example, if you edited a file, such as *README.md*, and another person remov
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigate into the local Git repository that has the merge conflict.
   ```shell
-  cd <em>REPOSITORY-NAME</em>
+  cd REPOSITORY-NAME
   ```
 2. Generate a list of the files affected by the merge conflict. In this example, the file *README.md* has a merge conflict.
   ```shell

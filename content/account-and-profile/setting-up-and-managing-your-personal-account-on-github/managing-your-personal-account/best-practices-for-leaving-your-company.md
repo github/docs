@@ -39,5 +39,5 @@ If you've been collaborating professionally with another person on repositories 
 - Delete local copies of your forks that may exist on your computer:
 
 ```shell
-$ rm -rf <em>work_directory</em>
+$ rm -rf WORK_DIRECTORY
 ```

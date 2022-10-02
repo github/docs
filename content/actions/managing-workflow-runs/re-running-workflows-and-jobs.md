@@ -48,14 +48,14 @@ Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %
 To re-run a failed workflow run, use the `run rerun` subcommand. Replace `run-id` with the ID of the failed run that you want to re-run.  If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
 
 ```shell
-gh run rerun <em>run-id</em>
+gh run rerun RUN_ID
 ```
 
 {% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
-gh run rerun <em>run-id</em> --debug
+gh run rerun RUN_ID --debug
 ```
 
 {% endif %}
@@ -90,14 +90,14 @@ If any jobs in a workflow run failed, you can re-run just the jobs that failed. 
 To re-run failed jobs in a workflow run, use the `run rerun` subcommand with the `--failed` flag. Replace `run-id` with the ID of the run for which you want to re-run failed jobs. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
 
 ```shell
-gh run rerun <em>run-id</em> --failed
+gh run rerun RUN_ID --failed
 ```
 
 {% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
-gh run rerun <em>run-id</em> --failed --debug
+gh run rerun RUN_ID --failed --debug
 ```
 
 {% endif %}
@@ -127,14 +127,14 @@ When you re-run a specific job in a workflow, a new workflow run will start for 
 To re-run a specific job in a workflow run, use the `run rerun` subcommand with the `--job` flag. Replace `job-id` with the ID of the job that you want to re-run.
 
 ```shell
-gh run rerun --job <em>job-id</em>
+gh run rerun --job JOB_ID
 ```
 
 {% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
-gh run rerun --job <em>job-id</em> --debug
+gh run rerun --job JOB_ID --debug
 ```
 
 {% endif %}

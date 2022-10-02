@@ -41,7 +41,7 @@ The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool tha
 For example, to remove your file with sensitive data and leave your latest commit untouched, run:
 
 ```shell
-$ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
+$ bfg --delete-files YOUR-FILE-WITH-SENSITIVE-DATA
 ```
 
 To replace all text listed in `passwords.txt` wherever it can be found in your repository's history, run:
@@ -76,8 +76,8 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
 2. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/articles/cloning-a-repository/) to your local computer.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
-  > Initialized empty Git repository in /Users/<em>YOUR-FILE-PATH</em>/<em>YOUR-REPOSITORY</em>/.git/
+  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY
+  > Initialized empty Git repository in /Users/YOUR-FILE-PATH/YOUR-REPOSITORY/.git/
   > remote: Counting objects: 1301, done.
   > remote: Compressing objects: 100% (769/769), done.
   > remote: Total 1301 (delta 724), reused 910 (delta 522)
@@ -86,7 +86,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   ```
 3. Navigate into the repository's working directory.
   ```shell
-  $ cd <em>YOUR-REPOSITORY</em>
+  $ cd YOUR-REPOSITORY
   ```
 4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
     - Force Git to process, but not check out, the entire history of every branch and tag
@@ -117,10 +117,10 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 5. Add your file with sensitive data to `.gitignore` to ensure that you don't accidentally commit it again.
 
   ```shell
-  $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
+  $ echo "YOUR-FILE-WITH-SENSITIVE-DATA" >> .gitignore
   $ git add .gitignore
-  $ git commit -m "Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore"
-  > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
+  $ git commit -m "Add YOUR-FILE-WITH-SENSITIVE-DATA to .gitignore"
+  > [main 051452f] Add YOUR-FILE-WITH-SENSITIVE-DATA to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 6. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
@@ -132,7 +132,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   > Compressing objects: 100% (677/677), done.
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
-  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+  > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME.YOUR-REPOSITORY.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
 8. In order to remove the sensitive file from [your tagged releases](/articles/about-releases), you'll also need to force-push against your Git tags:
@@ -143,7 +143,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   > Compressing objects: 100% (166/166), done.
   > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
   > Total 321 (delta 124), reused 269 (delta 108)
-  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+  > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
 

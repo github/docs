@@ -34,7 +34,7 @@ You can use the `git remote add` command to match a remote URL with a name.
 For example, you'd type the following in the command line:
 
 ```shell
-git remote add origin <em> &lt;REMOTE_URL> </em>
+git remote add origin &lt;REMOTE_URL> 
 ```
 
 This associates the name `origin` with the `REMOTE_URL`.

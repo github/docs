@@ -67,7 +67,7 @@ To render syntax highlighting in command line instructions, we use triple backti
 ### Usage
 
     ```shell
-    git init <em>YOUR_REPO</em>
+    git init YOUR_REPO
     ```
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.

@@ -93,13 +93,13 @@ If your repository has environment secrets or can access secrets from the parent
 To add a repository secret, use the `gh secret set` subcommand. Replace `secret-name` with the name of your secret.
 
 ```shell
-gh secret set <em>secret-name</em>
+gh secret set SECRET_NAME
 ```
 
 The CLI will prompt you to enter a secret value. Alternatively, you can read the value of the secret from a file.
 
 ```shell
-gh secret set <em>secret-name</em> < secret.txt
+gh secret set SECRET_NAME < secret.txt
 ```
 
 To list all secrets for the repository, use the `gh secret list` subcommand.
@@ -128,13 +128,13 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 To add a secret for an environment, use the `gh secret set` subcommand with the `--env` or `-e` flag followed by the environment name.
 
 ```shell
-gh secret set --env <em>environment-name</em> <em>secret-name</em>
+gh secret set --env ENV_NAME SECRET_NAME
 ```
 
 To list all secrets for an environment, use the `gh secret list` subcommand with the `--env` or `-e` flag followed by the environment name.
 
 ```shell
-gh secret list --env <em>environment-name</em>
+gh secret list --env ENV_NAME
 ```
 
 {% endcli %}
@@ -173,25 +173,25 @@ gh auth login --scopes "admin:org"
 To add a secret for an organization, use the `gh secret set` subcommand with the `--org` or `-o` flag followed by the organization name.
 
 ```shell
-gh secret set --org <em>organization-name</em> <em>secret-name</em>
+gh secret set --org ORG_NAME SECRET_NAME
 ```
 
 By default, the secret is only available to private repositories. To specify that the secret should be available to all repositories within the organization, use the `--visibility` or `-v` flag.
 
 ```shell
-gh secret set --org <em>organization-name</em> <em>secret-name</em> --visibility all
+gh secret set --org ORG_NAME SECRET_NAME --visibility all
 ```
 
 To specify that the secret should be available to selected repositories within the organization, use the `--repos` or `-r` flag.
 
 ```shell
-gh secret set --org <em>organization-name</em> <em>secret-name</em> --repos <em>repo-name-1</em>,<em>repo-name-2</em>"
+gh secret set --org ORG_NAME SECRET_NAME --repos REPO-NAME-1, REPO-NAME-2"
 ```
 
 To list all secrets for an organization, use the `gh secret list` subcommand with the `--org` or `-o` flag followed by the organization name.
 
 ```shell
-gh secret list --org <em>organization-name</em>
+gh secret list --org ORG_NAME
 ```
 
 {% endcli %}
