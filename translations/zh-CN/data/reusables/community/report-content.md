@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: cf32c2763dc7a82eec7b4e7f4703d76a0d9e8d98
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: "145129929"
 ---
 1. 你可能会看到“向存储库管理员报告”或“向 {% data variables.product.prodname_dotcom %} 支持报告滥用情况”的选项 。 如果没有，请跳至下一步。

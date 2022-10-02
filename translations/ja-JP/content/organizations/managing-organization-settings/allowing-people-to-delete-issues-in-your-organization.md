@@ -14,11 +14,11 @@ topics:
   - Teams
 shortTitle: Allow issue deletion
 ms.openlocfilehash: 6396b54d7a6e7113344935e4229843f580c246b6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 219fb805abddaef3e5547638bd798da890020bfd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145109757'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878447'
 ---
 デフォルトでは、Organization 内の Issue は削除できません。 Organization のオーナーは、まず Organization の全リポジトリでこの機能を有効化しなければなりません。
 

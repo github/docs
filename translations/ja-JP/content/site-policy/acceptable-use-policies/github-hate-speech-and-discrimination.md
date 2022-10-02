@@ -9,13 +9,8 @@ topics:
 redirect_from:
   - /github/site-policy/github-hate-speech-and-discrimination
   - /github/site-policy/github-community-guidelines#hate-speech-and-discrimination
-ms.openlocfilehash: f05e10bb8938ed47a6f05ab555c05edd4fab47f0
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556538'
 ---
+
 GitHub は、年齢、体格、能力、民族、性同一性、性表現、経験の程度、国籍、容姿、人種、宗教、性アイデンティティ、性的指向などに基づいて、個人またはグループに対して攻撃したり憎悪を助長したりする言葉を容認しません。 こうした行為には、以下が含まれます。
 
 - 上記の信念や特性に基づいて個人やグループを嘲笑、攻撃、または排除すること

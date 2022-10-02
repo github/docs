@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: bc73b3b92f131cf0af80606a2650ac5ce898055e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145109918"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147878748"
 ---
 Okta で Team 同期を有効にする前に、あなたもしくは IdP の管理者は以下を実行しなければなりません。
 

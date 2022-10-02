@@ -12,10 +12,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: ddbe9552b1520f2238e531afca06e449ba2f2ff8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145097998'
 ---
 我们弃用了 GitHub 服务，转而支持与 web 挂钩集成。 本指南可帮助您从 GitHub 服务过渡到 web 挂钩。 有关此公告的详细信息，请参阅[博客文章](https://developer.github.com/changes/2018-10-01-denying-new-github-services)。

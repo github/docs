@@ -8,12 +8,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 289a04f894172d8adcaf0c32fe129efb524d8941
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556582'
 ---
 ## <a name="what-is-a-github-trademark-policy-violation"></a>GitHub の商標ポリシー違反とはどのようなことですか?
 
@@ -51,7 +45,7 @@ ms.locfileid: '144556582'
 * 以下の文言も含めてください。「I swear, under penalty of perjury, that the information in this notification is accurate and that I am the trademark owner, or am authorized to act on behalf of the owner, of an exclusive right that is allegedly infringed. (私は、偽証罪により罰せられるという条件で、この通知の情報が正確であり、違反するとされた独占的権利の商標所有者もしくは所有者に代わって措置を講じることを許可された者であることを誓います。)」
 * お客様の直筆または電子署名を入れてください。
 
-* 注: 連邦または国際商標登録番号が必要です。 報告する名称が **登録商標でない** (政府機関や非営利団体など) 場合は、当社にお知らせください。
+* 注: 連邦または国際商標登録番号が必要です。 報告する名称が**登録商標でない** (政府機関や非営利団体など) 場合は、当社にお知らせください。
     * お客様の氏名
     * 役職
     * 住所

@@ -1,6 +1,6 @@
 ---
 title: Administrar las configuraciones del usuario de la cuenta
-intro: 'Puedes cambiar varias configuraciones de tu cuenta personal, lo que incluye cambiar tu nombre de usuario y eliminar tu cuenta.'
+intro: 'Puedes administrar la configuración de tu cuenta personal, incluidos el tema, el nombre de usuario, la rama predeterminada, la accesibilidad y la configuración de seguridad.'
 redirect_from:
   - /categories/29/articles
   - /categories/user-accounts
@@ -29,11 +29,11 @@ children:
   - /integrating-jira-with-your-personal-projects
   - /what-does-the-available-for-hire-checkbox-do
 shortTitle: Personal account settings
-ms.openlocfilehash: 4ec9ec2df1f75c30a0fe9827adcdd6694043d6b1
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: fcb653fa2fd40c206deefdaf967bae6104393537
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145165245'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760874'
 ---
 

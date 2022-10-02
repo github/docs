@@ -23,10 +23,10 @@ children:
   - /viewing-insights-for-your-organization
 shortTitle: Collaborate with groups
 ms.openlocfilehash: 84851a7282452c4a8d31c420a4f82991cf1b6bd3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128592'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876066'
 ---
 

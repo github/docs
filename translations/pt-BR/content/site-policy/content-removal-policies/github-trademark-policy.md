@@ -8,12 +8,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 289a04f894172d8adcaf0c32fe129efb524d8941
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556418'
 ---
 ## <a name="what-is-a-github-trademark-policy-violation"></a>O que é uma Violação da Política de Marcas Registradas do GitHub?
 
@@ -41,7 +35,7 @@ Para investigar violações da política de marcas registradas, forneça todas a
 * Nome de usuário da conta denunciada
 * Nome da empresa
 * A conta do GitHub da sua empresa (se houver)
-* Site da Empresa
+* Site da empresa
 * Sua palavra de marca registrada, símbolo, etc.
 * Número de registro da marca registrada
 * Escritório de registro de marcas (por exemplo, USPTO)

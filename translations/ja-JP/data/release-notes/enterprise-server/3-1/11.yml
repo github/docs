@@ -1,0 +1,28 @@
+date: '2021-11-09'
+sections:
+  security_fixes:
+    - "{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_pages %} のビルドで、攻撃者によるシステム ファイルの読み取りを可能にするパス トラバーサルの脆弱性が見つかりました。攻撃者がこの脆弱性を悪用するには、{% data variables.product.prodname_ghe_server %} インスタンス上に {% data variables.product.prodname_pages %} サイトを作成してビルドするためのアクセス許可が必要です。{% data variables.product.prodname_ghe_server %} の 3.3 より前のすべてのバージョンがこの脆弱性による影響を受け、バージョン 3.0.19、3.1.11、3.2.3 で修正されました。この脆弱性は、{% data variables.product.company_short %} Bug Bounty プログラムによって報告され、CVE-2021-22870 を割り当てられました。"
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - "HAProxy の構成のため、{% data variables.product.prodname_ghe_server %} 3.x クラスターをアップグレードした後、Git の一部の操作が失敗しました。"
+    - クラスタリング モードでは、Unicorn ワーカーの数が正しく設定されないことがありました。
+    - クラスタリング モードでは、Resqued ワーカーの数が正しく設定されないことがありました。
+    - Ubuntu の Uncomplicated Firewall (UFW) の状態が非アクティブの場合、クライアントはそのことをログに明確に表示できませんでした。
+    - "LDAP の構成に UTF8 文字が含まれている場合、{% data variables.product.prodname_ghe_server %} 2.x から 3.x へのアップグレードが失敗しました。"
+    - 特定のクラスター構成のクラスター モードでは、一部のページおよび Git 関連のバックグラウンド ジョブが実行しない場合がありました。
+    - "新しいタグが作成されたとき、[プッシュ](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) Webhook のペイロードに正しい \"head_commit\" オブジェクトが表示されませんでした。現在は、新しいタグが作成されると、プッシュ Webhook のペイロードに、新しいタグが指すコミットのデータを含む \"head_commit\" オブジェクトが常に含まれるようになりました。その結果、\"head_commit\" オブジェクトにはペイロードの \"after\" コミットのコミット データが常に含まれます。"
+    - "Enterprise の監査ログのページに、{% data variables.product.prodname_secret_scanning %} の監査イベントが表示されませんでした。"
+    - ジョブのタイムアウトが、レプリカの修復に対して十分ではありませんでした。
+    - 'ユーザーがファイルを表示するとき、危険性がある双方向 Unicode 文字に関する警告が表示されませんでした。詳しくは、{% data variables.product.prodname_blog %} の「[双方向 Unicode テキストに関する警告](https://github.co/hiddenchars)」をご覧ください。'
+    - Hookshot Go が、Collectd で処理できない分散の種類のメトリックを送信しており、解析のバルーニング エラーが発生しました。
+  changes:
+    - "Kafka の構成の改善が追加されました。リポジトリを削除するとき、領域を解放するため、パッケージ ファイルがストレージ アカウントからすぐに削除されるようになりました。\"DestroyDeletedPackageVersionsJob\" で、メタデータ レコードと共に古いパッケージのパッケージ ファイルがストレージ アカウントから削除されるようになりました。"
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、\"ghe-repl-teardown\" でのレプリカ ノードの破棄は成功しますが、\"エラー: 移行の実行\" が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

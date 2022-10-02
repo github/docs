@@ -9,13 +9,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 3fd74896cbc5a9c6d841fd94a75c99c7ed77ad86
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556488'
 ---
+
 我们提供的这个私人信息删除流程是一项特殊服务，仅针对违反 [GitHub 服务条款](/github/site-policy/github-acceptable-use-policies#3-conduct-restrictions)的高风险内容，例如当您的安全面临暴露访问凭据的风险时。 本指南说明了 GitHub 需要您提供哪些信息，才能处理从存储库中删除私人信息的请求。
 
 ## <a name="what-is-private-information"></a>什么是私人信息？
@@ -28,9 +23,9 @@ ms.locfileid: '144556488'
 - 可访问您组织的服务器、网络或域的访问凭据，例如用户名与密码组合、访问令牌或其他敏感密钥。
 - 可代表您访问第三方的 AWS 令牌和其他类似访问凭据。 您必须能够证明该令牌确实属于您。
 - 对组织构成特定安全风险的文档（例如网络图或架构）。 
-- 与您个人相关并对您构成安全风险的[信息](/github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy)（如社会保障号码或其他政府身份号码）。
+- 与您个人相关并对您构成安全风险的[信息](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy)（如社会保障号码或其他政府身份号码）。
 
-### <a name="private-information-removal-requests-are-_not_-appropriate-for"></a>私人信息删除请求 _不_ 适用于：
+### <a name="private-information-removal-requests-are-_not_-appropriate-for"></a>私人信息删除请求不适用于：
 - 他们自己的内部服务器名称、IP 地址和 URL。 您必须能够证明它们在特定文件或代码段中的使用会构成安全威胁。
 - 在 GitHub 上的文件中仅提及您公司的身份、名称、品牌、域名或对您公司的其他引用。 您必须能够阐明为什么使用您公司的身份会威胁到您公司的安全状况。
 - 整个文件或存储库并不构成特定的安全风险，但是您认为在其他方面令人反感。

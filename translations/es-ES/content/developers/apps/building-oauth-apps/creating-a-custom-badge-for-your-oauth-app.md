@@ -13,11 +13,11 @@ topics:
   - OAuth Apps
 shortTitle: Create custom badges
 ms.openlocfilehash: b9f5b8048b14c11e7eb0c43a88a18b3a63ca5f34
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145092224'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878539'
 ---
 De manera predeterminada, una aplicación nueva de OAuth tendrá un [icono de identidad](https://github.com/blog/1586-identicons) generado automáticamente.
 Una insignia de identicon se ve más o menos así:

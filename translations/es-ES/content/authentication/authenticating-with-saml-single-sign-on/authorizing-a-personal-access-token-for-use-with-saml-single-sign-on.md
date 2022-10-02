@@ -12,10 +12,10 @@ topics:
   - SSO
 shortTitle: PAT with SAML
 ms.openlocfilehash: a6e1d4c2e1fa5cf1f4738e06127c5e7875a2ef5d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145116193'
 ---
 Puede autorizar un token de acceso personal existente o [crear uno](/github/authenticating-to-github/creating-a-personal-access-token) y, después, darle autorización.

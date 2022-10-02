@@ -1,6 +1,6 @@
 ---
 title: ユーザ アカウント設定の管理
-intro: ユーザ名を変更する、アカウントを削除するなど、個人アカウントの設定を変更できます。
+intro: テーマ、ユーザー名、既定のブランチ、アクセシビリティ、セキュリティ設定など、個人用アカウントの設定を管理できます。
 redirect_from:
   - /categories/29/articles
   - /categories/user-accounts
@@ -29,11 +29,11 @@ children:
   - /integrating-jira-with-your-personal-projects
   - /what-does-the-available-for-hire-checkbox-do
 shortTitle: Personal account settings
-ms.openlocfilehash: 4ec9ec2df1f75c30a0fe9827adcdd6694043d6b1
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: fcb653fa2fd40c206deefdaf967bae6104393537
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145165246'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760864'
 ---
 

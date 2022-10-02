@@ -11,10 +11,10 @@ versions:
   ghae: '*'
   ghec: '*'
 ms.openlocfilehash: 337d7c52e43c18bdbd4ac4f972d78028260c18ce
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145066750'
 ---
 {% data reusables.user-settings.access_settings %} {% data reusables.user-settings.saved_replies %}

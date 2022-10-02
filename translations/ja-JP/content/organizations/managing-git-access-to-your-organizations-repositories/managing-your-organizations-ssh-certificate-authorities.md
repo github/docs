@@ -14,10 +14,10 @@ topics:
 shortTitle: Manage SSH authorities
 permissions: Organization owners can manage an organization's SSH certificate authorities (CA).
 ms.openlocfilehash: d2f5b946e854accd68a3e6293f8e384996a261d7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145130688'
 ---
 SSH CAをOrganizationに追加すると、メンバーはあなたが提供したSSH証明書を使用してOrganizationにアクセスできるようになります。 {% data reusables.organizations.can-require-ssh-cert %} 詳細については、「[SSH 認証局について](/articles/about-ssh-certificate-authorities)」を参照してください。

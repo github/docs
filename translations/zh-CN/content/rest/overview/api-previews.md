@@ -8,11 +8,11 @@ versions:
 topics:
   - API
 ms.openlocfilehash: fe00e2ab78881edab8d0f7704f80f2f20163fdeb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147062863'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876003'
 ---
 API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它们被纳入正式的 GitHub API 之前）。
 

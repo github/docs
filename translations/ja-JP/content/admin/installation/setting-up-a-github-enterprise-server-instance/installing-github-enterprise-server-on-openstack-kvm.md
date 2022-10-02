@@ -15,11 +15,11 @@ topics:
   - Set up
 shortTitle: Install on OpenStack
 ms.openlocfilehash: 105201d2759b333d297278aa7fe32a9544c68839
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145115229'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884956'
 ---
 ## 前提条件
 

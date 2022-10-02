@@ -11,10 +11,10 @@ redirect_from:
   - /admin/github-actions/using-actions-in-github-ae
 shortTitle: Use actions
 ms.openlocfilehash: a8439a08f73667b7d048b31e2c9eb3968ba2e957
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099985'
 ---
 {% data variables.product.prodname_actions %} 工作流可使用操作，它们是一些单独的任务，可以组合这些操作以创建作业并自定义工作流。 您可以创建自己的操作，或者使用和自定义 {% data variables.product.prodname_dotcom %} 社区分享的操作。

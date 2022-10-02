@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 58fe7bc6f3568b066453ea1e2fa5b6defc7c5048
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065428"
 ---
 Use `jobs.<job_id>.strategy.matrix.include` para expandir as configurações de matriz existentes ou para adicionar novas configurações. O valor de `include` é uma lista de objetos.

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 371057b7fbe8e92b564e8729b11442bdbf2c1a56
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145092808"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882799"
 ---
 Al seleccionar la opción **Rebase and merge** en una solicitud de incorporación de cambios en {% data variables.product.product_location %}, todas las confirmaciones de la rama de tema (o rama de encabezado) se agregan a la rama base por separado sin una confirmación de fusión. De este modo, el comportamiento de fusionar mediante cambio de base y combinar es similar a una [combinación de avance rápido](https://git-scm.com/docs/git-merge#_fast_forward_merge), ya que mantiene un historial de proyectos lineal. Sin embargo, el rebase lo logra al rescribir el historial de confirmaciones en la rama base con confirmaciones nuevas.
 

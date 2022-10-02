@@ -1,6 +1,6 @@
 ---
-title: About SSH
-intro: 'Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and personal access token at each visit.{% ifversion ssh-commit-verification %} You can also use an SSH key to sign commits.{% endif %}'
+title: SSH について
+intro: 'SSH プロトコルを利用すれば、リモートのサーバーやサービスに接続し、認証を受けられます。 SSH キーを使うと、アクセスのたびにユーザー名と個人アクセス トークンを入力することなく、{% data variables.product.product_name %} に接続できます。{% ifversion ssh-commit-verification %}SSH キーを使ってコミットに署名することもできます。{% endif %}'
 redirect_from:
   - /articles/about-ssh
   - /github/authenticating-to-github/about-ssh
@@ -12,27 +12,29 @@ versions:
   ghec: '*'
 topics:
   - SSH
+ms.openlocfilehash: d66be15122a0edcc43b48fdd2955d8f3e1463044
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147653267'
 ---
+{% data reusables.ssh.about-ssh %}SSH について詳しくは、Wikipedia の「[Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)」を参照してください。
 
-{% data reusables.ssh.about-ssh %} For more information about SSH, see [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) on Wikipedia.
+SSH を設定するときは、新しいプライベート SSH キーを生成し、SSH エージェントに追加する必要があります。 キーを使って認証を行う前{% ifversion ssh-commit-verification %}またはコミットに署名する前{% endif %}に、{% data variables.product.product_name %} のアカウントにパブリック SSH キーを追加する必要もあります。 詳しくは、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」{% ifversion ssh-commit-verification %}、{% else %}と{% endif %}「[{% data variables.product.prodname_dotcom %} アカウントへの新しい SSH キーの追加](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)」{% ifversion ssh-commit-verification %}、「[コミット署名の検証について](/articles/about-commit-signature-verification)」{% endif %}をご覧ください。
 
-When you set up SSH, you will need to generate a new private SSH key and add it to the SSH agent. You must also add the public SSH key to your account on {% data variables.product.product_name %} before you use the key to authenticate{% ifversion ssh-commit-verification %} or sign commits{% endif %}. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"{% ifversion ssh-commit-verification %}, {% else %} and{% endif %} "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account){% ifversion ssh-commit-verification %}" and "[About commit signature verification](/articles/about-commit-signature-verification){% endif %}."
+ハードウェア セキュリティ キーを使うことで、SSH キーをさらにセキュリティで保護できます。それには、SSH での認証にキー ペアを使うときに、物理的なハードウェア セキュリティ キーをコンピューターにアタッチする必要があります。 キーを ssh-agent に追加してパスフレーズを使うことで、SSH キーをセキュリティ保護することもできます。 詳細については、「[SSH キーのパスフレーズを使う](/github/authenticating-to-github/working-with-ssh-key-passphrases)」を参照してください。
 
-You can further secure your SSH key by using a hardware security key, which requires the physical hardware security key to be attached to your computer when the key pair is used to authenticate with SSH. You can also secure your SSH key by adding your key to the ssh-agent and using a passphrase. For more information, see "[Working with SSH key passphrases](/github/authenticating-to-github/working-with-ssh-key-passphrases)."
+{% ifversion fpt or ghec %}SAML シングル サインオンを使う Organization が所有するリポジトリで SSH キーを使うには、キーを承認する必要があります。 詳細については、{% ifversion fpt %}"{% data variables.product.prodname_ghe_cloud %} のドキュメントの{% else %}「[SAML シングルサインオンで利用するために SSH キーを認可する](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}{% endif %}
 
-{% ifversion fpt or ghec %}To use your SSH key with a repository owned by an organization that uses SAML single sign-on, you must authorize the key. For more information, see "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+アカウントのセキュリティを維持するため、SSH キーの一覧を定期的に確認して、無効なキーや侵害されたキーを取り消すことができます。 詳細については、「[SSH キーをレビューする](/github/authenticating-to-github/reviewing-your-ssh-keys)」を参照してください。
 
-To maintain account security, you can regularly review your SSH keys list and revoke any keys that are invalid or have been compromised. For more information, see "[Reviewing your SSH keys](/github/authenticating-to-github/reviewing-your-ssh-keys)."
-
-{% ifversion fpt or ghec %}
-If you haven't used your SSH key for a year, then {% data variables.product.prodname_dotcom %} will automatically delete your inactive SSH key as a security precaution. For more information, see "[Deleted or missing SSH keys](/articles/deleted-or-missing-ssh-keys)."
+{% ifversion fpt or ghec %} 1 年間使われていない非アクティブな SSH キーは、セキュリティの予防措置として {% data variables.product.prodname_dotcom %} によって自動的に削除されます。 詳細については、「[SSH キーの削除または紛失](/articles/deleted-or-missing-ssh-keys)」を参照してください。
 {% endif %}
 
-{% ifversion fpt %}
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can provide SSH certificates, which members can use to access that organization's repositories without adding the certificate to their account on {% data variables.product.product_name %}. If you're using an SSH certificate, you cannot use the certificate to access forks of the organization's repositories, if the fork is owned by your personal account. For more information, see "[About SSH certificate authorities](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
-{% else ghec or ghes or ghae %}
-If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your account on {% data variables.product.product_name %}. You cannot use your certificate to access forks of the organization's repositories, if the forks is owned by your personal account. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+{% ifversion fpt %} {% data variables.product.prodname_ghe_cloud %} を使用する組織は、SSH 証明書を提供できます。この証明書は、メンバーが {% data variables.product.product_name %} のアカウントに証明書を追加せずに、その組織のリポジトリにアクセスするために使用できます。 SSH 証明書を使用している場合、組織のリポジトリのフォークが個人アカウントによって所有されていると、そのフォークにアクセスするために証明書を使用することはできません。 詳細については、{% data variables.product.prodname_ghe_cloud %} ドキュメントの「[SSH 認証局について](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)」を参照してください。
+{% else ghec or ghes or ghae %} SSH 証明書を提供する組織のメンバーは、{% data variables.product.product_name %} の自分のアカウントに証明書を追加しなくても、自分の証明書を使って組織のリポジトリにアクセスできます。 組織のリポジトリのフォークが個人アカウントによって所有されている場合、自分の証明書を使用して、そのフォークにアクセスすることはできません。 詳細については、「[SSH 認証局について](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)」を参照してください。
 {% endif %}
-## Further reading
+## 参考資料
 
-- "[Troubleshooting SSH](/articles/troubleshooting-ssh)"
+- [SSH のトラブルシューティング](/articles/troubleshooting-ssh)

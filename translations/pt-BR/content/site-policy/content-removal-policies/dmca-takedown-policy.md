@@ -12,13 +12,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 6a4f45a0f04db6076826441ad71aecdf30d22730
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556429'
 ---
+
 Bem-vindo ao Guia do GitHub para a Digital Millennium Copyright Act, comumente conhecida como "DMCA". Esta página não pretende ser uma cartilha abrangente para a lei. No entanto, se você recebeu uma notificação de remoção da DMCA visando o conteúdo publicado no GitHub ou se você é um detentor de direitos que deseja emitir tal notificação, esperamos que esta página ajude a desmistificar um pouco a lei, bem como nossas políticas para cumpri-la.
 
 (Se você quiser apenas enviar uma notificação, poderá ir para "[G. Envio de Notificações](#g-submitting-notices)".)

@@ -12,13 +12,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: e2e18667095ef8d9c30dc3d10384ede21f115456
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556399'
 ---
+
 GitHub.com, GitHub Enterprise Server e as informações que você carrega em qualquer um dos produtos podem estar sujeitas a regulamentos de controle comercial, inclusive segundo os Regulamentos de Administração de Exportação dos EUA (o EAR).
 
 A visão do GitHub é ser a plataforma global para colaboração de desenvolvedores, não importa onde os desenvolvedores residam. Levamos a sério nossa responsabilidade de examinar cuidadosamente as sanções governamentais para garantir que usuários e clientes não sejam afetados além do que é exigido por lei. Isso inclui manter os serviços de repositório público, incluindo aqueles para projetos de software livre, disponíveis e acessíveis para dar suporte a comunicações pessoais envolvendo desenvolvedores em regiões sancionadas. Isso também significa que o GitHub defenderá que desenvolvedores em regiões sancionadas tenham maior acesso à plataforma e acesso total à comunidade global de software livre.

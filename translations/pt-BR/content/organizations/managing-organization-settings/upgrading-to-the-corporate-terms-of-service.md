@@ -12,10 +12,10 @@ topics:
   - Teams
 shortTitle: Upgrade to Corporate ToS
 ms.openlocfilehash: 071ff249ec112af507c3bb026065281173f64b8a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145095606'
 ---
 Os Termos de serviço padrão são um acordo entre o {% data variables.product.prodname_dotcom %} e você como indivíduo. Para fazer um acordo com o {% data variables.product.prodname_dotcom %} em nome de uma entidade, como uma empresa, um grupo ou uma organização sem fins lucrativos, os proprietários da organização podem atualizar para os Termos de serviço corporativos.

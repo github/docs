@@ -9,13 +9,8 @@ topics:
 redirect_from:
   - /github/site-policy/github-misinformation-and-disinformation
   - /github/site-policy/github-community-guidelines#misinformation-and-disinformation
-ms.openlocfilehash: ece95f9da0b1953c821531837418e75ed03af4c3
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556534'
 ---
+
 不正確であるか虚偽 (誤報) であるか、故意に欺瞞的 (偽情報) であるかにかかわらず、現実の歪曲された見方を提示するコンテンツを投稿してはなりません。そのようなコンテンツは、一般に害を及ぼすか、自由で開かれた社会に参加するすべての人の公平で平等な機会を妨げる可能性があります。 これには以下が含まれます。 
 - 公衆の健康または安全を危険にさらす不正確または科学的に裏付けのない医学的主張  
 - 音声または映像にかかわらず、公共の利益を害するおそれのある方法で誤解を招いたり欺いたりする可能性のある、操作されたメディア

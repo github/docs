@@ -11,13 +11,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 5759e374fadc9a4f2f5b6790d9650c4a47e75720
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556439'
 ---
+
 Você pode adicionar logotipos {% data variables.product.prodname_dotcom %} em seu site ou aplicativo de terceiros em alguns cenários. Para obter mais informações e diretrizes específicas sobre o uso do logotipo, consulte [{% data variables.product.prodname_dotcom %} página Logotipos e Uso](https://github.com/logos).
 
 Você também pode usar um octogato como avatar pessoal ou no site para vincular à sua conta do {% data variables.product.prodname_dotcom %}, mas não para sua empresa ou um produto que você está criando. {% data variables.product.prodname_dotcom %} tem uma extensa coleção de octogatos no [Octodex](https://octodex.github.com/). Para obter mais informações sobre como usar os octogatos do Octodex, consulte as [Perguntas frequentes sobre Octodex](https://octodex.github.com/faq/).

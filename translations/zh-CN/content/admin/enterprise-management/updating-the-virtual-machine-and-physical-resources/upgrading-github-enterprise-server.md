@@ -21,19 +21,26 @@ topics:
   - Enterprise
   - Upgrades
 shortTitle: Upgrading GHES
-ms.openlocfilehash: 3f8ba6499938f3a9d9e841eb75ca37fc0488843a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d8f14f61351ae7fe8aa1e9974bb3ecd935376c01
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061784'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861618'
 ---
 {% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
 
 ## 准备升级
 
-1. 确定升级策略并选择要升级到的版本。 有关详细信息，请参阅“[升级要求](/enterprise/admin/guides/installation/upgrade-requirements/)”和 [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) 以查找当前发行版本的升级路径。
-1. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 创建全新的主实例备份。 有关详细信息，请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %} README.md 文件](https://github.com/github/backup-utils#readme)。
+1. 确定升级策略并选择要升级到的版本。 有关详细信息，请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”和 [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) 以查找当前发行版本的升级路径。
+1. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 创建全新的主实例备份。 有关详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 项目文档中的 [README.md 文件](https://github.com/github/backup-utils#readme)。
+
+  {% note %}
+
+  注意：{% data variables.product.prodname_enterprise_backup_utilities %} 版本需要与 {% data variables.product.product_location %} 版本相同，或前者最多比后者低两个版本。 有关详细信息，请参阅“[升级 GitHub Enterprise Server 备份实用程序](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#upgrading-github-enterprise-server-backup-utilities)”。
+
+  {% endnote %}
+
 1. 如果 {% data variables.product.product_location %} 对 {% data variables.product.prodname_actions %} 使用临时自承载运行器，并且已禁用自动更新，请将运行器升级到升级实例将运行的运行器应用程序版本。
 1. 如果您要使用升级包进行升级，请为 {% data variables.product.prodname_ghe_server %} 最终用户排定维护窗口。 如果您要使用热补丁，则不需要使用维护模式。
 

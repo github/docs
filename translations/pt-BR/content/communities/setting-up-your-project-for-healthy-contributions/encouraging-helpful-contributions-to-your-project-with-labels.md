@@ -12,10 +12,10 @@ topics:
   - Community
 shortTitle: Encourage contributions
 ms.openlocfilehash: fd99b2eeaf95a2c979b6c7edce9a896cd29c5819
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084092'
 ---
 Você pode aplicar o rótulo `good first issue` aos problemas no seu repositório público para que as pessoas possam encontrá-los ao pesquisar rótulos. Para obter mais informações sobre a pesquisa de rótulos, confira "[Como pesquisar problemas e solicitações de pull](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-by-label)".

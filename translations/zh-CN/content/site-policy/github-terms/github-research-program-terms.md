@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 7a2c9623e48ec2271c87ceef2267e383ae852566
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556506'
 ---
+
 欢迎参与 GitHub 研究计划（以下简称“计划”）！ 要参与计划，我们需要您同意一组特殊的条款，即 GitHub 研究计划协议（以下简称“协议”）。
 
 本协议是您（“您”或“您的”）与 GitHub, Inc.（以下简称“GitHub”或“我们”）之间达成的法律协议。 请务必仔细阅读本协议 - 只有在您接受本协议的所有条款后，才能成为计划参与者。 以任何方式参与计划（例如，通过访问尚未公开发布的 GitHub 产品或服务相关信息），即表示您同意遵守本协议的所有条款。

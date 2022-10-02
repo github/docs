@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 58e24cfcc52a49f2f80ca316d482e2f2caf1fe4d
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556496'
 ---
+
 应邀或主动参与 GitHub 活动，包括由 GitHub 组织的与 GitHub 活动相关的任何赛事或项目（统称为“活动”），即表示您已阅读、理解并同意以下活动条款和条件。
 
 ## <a name="1-basic-requirements-to-attend---including-the-event-code-of-conduct"></a>1.参与活动的基本要求 - 包括[活动行为准则](/articles/github-event-code-of-conduct)

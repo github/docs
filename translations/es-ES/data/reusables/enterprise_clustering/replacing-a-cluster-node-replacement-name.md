@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 973fe98cbaff849fa234134175d35ae042510638
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145111785"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147880480"
 ---
 1. Si va a reemplazar el nodo principal de MySQL o Redis, en `cluster.conf`, modifique el valor `mysql-master` o `redis-master` por el nombre del nodo de reemplazo.
 

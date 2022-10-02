@@ -21,19 +21,26 @@ topics:
   - Enterprise
   - Upgrades
 shortTitle: Upgrading GHES
-ms.openlocfilehash: 3f8ba6499938f3a9d9e841eb75ca37fc0488843a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d8f14f61351ae7fe8aa1e9974bb3ecd935376c01
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061787'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861621'
 ---
 {% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
 
 ## アップグレードの準備
 
-1. アップグレードの戦略を決定し、アップグレード先のバージョンを選択してください。 詳細については、「[アップグレード要件](/enterprise/admin/guides/installation/upgrade-requirements/)」を参照してください。また、「[{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade)」を参照し、現在のリリース バージョンからのアップグレード パスを確認してください。
-1. {% data variables.product.prodname_enterprise_backup_utilities %}で、プライマリインスタンスの新しいバックアップを作成してください。 詳細については、[{% data variables.product.prodname_enterprise_backup_utilities %} の README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
+1. アップグレードの戦略を決定し、アップグレード先のバージョンを選択してください。 詳細については、「[アップグレード要件](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。また、「[{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade)」を参照し、現在のリリース バージョンからのアップグレード パスを確認してください。
+1. {% data variables.product.prodname_enterprise_backup_utilities %}で、プライマリインスタンスの新しいバックアップを作成してください。 詳しくは、{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト ドキュメントの [README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
+
+  {% note %}
+
+  **注:** {% data variables.product.prodname_enterprise_backup_utilities %} バージョンは、{% data variables.product.product_location %} と同じバージョンであるか、最大で 2 つ前のバージョンである必要があります。 詳しくは、「[GitHub Enterprise Server Backup Utilities のアップグレード](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#upgrading-github-enterprise-server-backup-utilities)」を参照してください。
+
+  {% endnote %}
+
 1. {% data variables.product.product_location %} が {% data variables.product.prodname_actions %} にエフェメラル セルフホステッド ランナーを使っていて、自動更新を無効にしている場合、アップグレードされたインスタンスが実行するランナー アプリケーションのバージョンにランナーをアップグレードしてください。
 1. アップグレードパッケージを使ってアップグレードをする場合は、{% data variables.product.prodname_ghe_server %} のエンドユーザのためにメンテナンス時間枠をスケジューリングしてください。 ホットパッチを利用している場合、メンテナンスモードは必要ありません。
 

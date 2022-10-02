@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.cli.about-cli %} For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-You can work with {% data variables.product.prodname_codespaces %} in the  {% data variables.product.prodname_cli %} to:
+You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
   - [List all of your codespaces](#list-all-of-your-codespaces)
   - [Create a new codespace](#create-a-new-codespace)
   - [Stop a codespace](#stop-a-codespace)
@@ -31,6 +31,7 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
   - [Modify ports in a codespace](#modify-ports-in-a-codespace)
   - [Access codespace logs](#access-codespace-logs)
   - [Access remote resources](#access-remote-resources)
+  - [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
 
 ## Installing {% data variables.product.prodname_cli %}
 
@@ -40,7 +41,7 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
 
 If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account. 
 
-To use `gh` to work with {% data variables.product.prodname_codespaces %}, type `gh codespace <COMMAND>` or its alias `gh cs <COMMAND>`.
+To use `gh` to work with {% data variables.product.prodname_github_codespaces %}, type `gh codespace <COMMAND>` or its alias `gh cs <COMMAND>`.
 
 As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could: 
 
@@ -115,7 +116,7 @@ If you don't have any SSH keys, follow the instructions in "[Generating a new SS
 gh codespace code -c CODESPACE-NAME
 ```
 
-For more information, see "[Using {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)."
+For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)."
 
 ### Open a codespace in JupyterLab
 
@@ -207,3 +208,11 @@ You can use the {% data variables.product.prodname_cli %} extension to create a 
 **Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
 
 {% endnote %}
+
+### Change the machine type of a codespace
+
+```shell
+gh codespace edit -m <em>machine-type-name</em>
+```
+
+For more information, see the "{% data variables.product.prodname_cli %}" tab of "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."

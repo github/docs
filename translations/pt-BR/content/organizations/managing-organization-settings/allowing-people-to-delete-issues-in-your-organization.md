@@ -14,11 +14,11 @@ topics:
   - Teams
 shortTitle: Allow issue deletion
 ms.openlocfilehash: 6396b54d7a6e7113344935e4229843f580c246b6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 219fb805abddaef3e5547638bd798da890020bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145093237'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875495'
 ---
 Por padrão, os problemas não podem ser excluídos dos repositórios de uma organização. Um proprietário da organização deve habilitar esse recurso primeiro para todos os repositórios da organização.
 

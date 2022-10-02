@@ -13,16 +13,18 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
-ms.openlocfilehash: 120827f8eca8061d90d397a7e2a21d46ae33f243
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: a12955707c3ebcfbb65e5be8053ea0b62bc82072
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '146681318'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147723233'
 ---
 ハードコードされた IP アドレスの代わりにホスト名を設定すれば、ユーザーやクライアント ソフトウェアに影響を与えることなく {% data variables.product.product_location %}を動作させる物理ハードウェアを変更できるようになります。
 
-{% data variables.enterprise.management_console %} のホスト名の設定は、適切な完全修飾ドメイン名 (FQDN) に設定して、インターネット上または内部ネットワーク内で解決できるようにしてください。 たとえば、ホスト名を `github.companyname.com.` に設定できます。Web と API のリクエストでは、{% data variables.enterprise.management_console %} で設定されたホスト名に自動的にリダイレクトされます。 `localhost` は有効なホスト名設定ではないことにご留意ください。
+{% data variables.enterprise.management_console %} のホスト名の設定は、適切な完全修飾ドメイン名 (FQDN) に設定して、インターネット上または内部ネットワーク内で解決できるようにしてください。 たとえば、ホスト名を `github.companyname.com.` に設定できます。Web と API のリクエストでは、{% data variables.enterprise.management_console %} で設定されたホスト名に自動的にリダイレクトされます。 `localhost` は有効なホスト名設定ではないことにご留意ください。 
+
+[ドメイン名仕様 RFC のセクション 2.3.4](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4) に従って、ホスト名の長さは 63 文字未満にする必要があります。
 
 ホスト名を設定したら、サブドメイン分離を有効化して、{% data variables.product.product_location %}のセキュリティをさらに強化できます。 詳細については、「[サブドメイン分離の有効化](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)」を参照してください。
 

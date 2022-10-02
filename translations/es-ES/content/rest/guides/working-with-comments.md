@@ -12,10 +12,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 9b3b768d66199fda62bc5e644da9539d5425215e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145135901'
 ---
 Para cualquier solicitud de incorporación de cambios, {% data variables.product.product_name %} proporciona tres tipos de vistas de comentarios: [comentarios en la solicitud de incorporación de cambios][PR comment] en su conjunto, [comentarios en una línea específica][PR line comment] dentro de la solicitud de incorporación de cambios y [comentarios sobre una confirmación concreta][commit comment] dentro de la solicitud de incorporación de cambios. 

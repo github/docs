@@ -18,10 +18,10 @@ topics:
   - Organizations
   - User account
 ms.openlocfilehash: 8b1c0c9b250994e4186371c74a4bc97e7609770d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084455'
 ---
 如果您在应用优惠券之前为帐户付款，则 {% data variables.product.product_name %} 无法发起退款。 如果您将优惠券应用到错误的帐户，我们也无法转移已兑换的优惠券或为您提供一张新的优惠券。 在兑换优惠券之前，请确认是否将优惠券应用到正确的帐户。

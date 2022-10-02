@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 2967524d6c5a9c1c49437c58e4f5daef6645ca8a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145100842"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147876060"
 ---
 ### 协议 TCP 端口映射，无需 PROXY 支持即可使用
 

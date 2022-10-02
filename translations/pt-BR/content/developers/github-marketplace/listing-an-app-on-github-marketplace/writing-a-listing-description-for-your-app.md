@@ -18,10 +18,10 @@ topics:
   - Marketplace
 shortTitle: Write listing descriptions
 ms.openlocfilehash: f29e049529801011d25d2723c5851b56d7a8bb92
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '146139253'
 ---
 Estas são as diretrizes sobre os campos que você precisará preencher na seção **Descrição da listagem** da listagem de rascunho.

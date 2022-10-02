@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: de00555d66e71e1922077e78b45b3c59e251e85e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145093405"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883873"
 ---
 Você pode designar um "mantenedor da equipe" para gerenciar as configurações e as discussões da equipe, entre outros privilégios. Para obter mais informações, confira "[Como atribuir a função de mantenedor da equipe a um membro da equipe](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)".
 

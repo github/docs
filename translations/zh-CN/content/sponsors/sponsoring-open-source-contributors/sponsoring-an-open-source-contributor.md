@@ -15,16 +15,16 @@ topics:
   - Open Source
   - Sponsors payments
 shortTitle: Sponsor a contributor
-ms.openlocfilehash: 446cea71c29cd2c6d94c67bdb638c3f0359c0d49
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: d006324c270d29b9ce87189751e75722da13a6ea
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145148718'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710289'
 ---
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-## <a name="about-sponsorships"></a>关于赞助
+## 关于赞助
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -58,7 +58,7 @@ ms.locfileid: '145148718'
 
 {% endnote %}
 
-## <a name="tax-information"></a>税务信息
+## 税务信息
 
 作为发起人，你承认，自发起人计划启动以来，我们可能会向你赞助的每个帐户的所有者披露以下有关你向该帐户支付的赞助费的有限信息：
 
@@ -69,7 +69,7 @@ ms.locfileid: '145148718'
 
 启用支付和报告此类赞助付款产生的任何税款需要了解此信息。
 
-## <a name="sponsoring-an-account"></a>赞助帐户
+## 赞助帐户
 
 在赞助帐户之前，您必须拥有经过验证的电子邮件地址。 有关详细信息，请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。
 

@@ -12,10 +12,10 @@ versions:
   ghec: '*'
 shortTitle: Subversion & Git differences
 ms.openlocfilehash: cbe328bf3d2fbf3a603f6eef1559715ad48ca7fe
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145135733'
 ---
 ## Estructura de directorios

@@ -4,10 +4,10 @@ intro: '{% data variables.product.prodname_desktop %} を使用して、ブラ�
 versions:
   fpt: '*'
 ms.openlocfilehash: fb8141710a99b52f1b9a93e1abc0429b5e29f116
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145117493'
 ---
 ## コミットのスカッシュについて

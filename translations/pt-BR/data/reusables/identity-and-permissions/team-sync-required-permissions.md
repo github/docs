@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 9133d57ca07dc8abafdf5f8dca8b4cf6ffeb524a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145093273"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883881"
 ---
 Para ativar a sincronização de equipe com qualquer IdP, você deve obter acesso administrativo ao seu IdP ou trabalhar com o administrador do seu IdP para configurar a integração e grupos de IdP. A pessoa que configura a sua integração com IdP e os grupos devem possuir uma das permissões necessárias.
 

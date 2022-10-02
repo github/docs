@@ -12,10 +12,10 @@ versions:
   ghec: '*'
 shortTitle: Commit views
 ms.openlocfilehash: 2b5d59d385f815bd09c853e398d372bb4c861650
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145137094'
 ---
 En {% data variables.product.product_name %}, puedes ver el historial de confirmaciones de un repositorio al:

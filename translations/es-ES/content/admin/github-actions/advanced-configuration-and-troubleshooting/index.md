@@ -12,10 +12,10 @@ children:
   - /troubleshooting-github-actions-for-your-enterprise
 shortTitle: HA & troubleshooting
 ms.openlocfilehash: ad7da43fc544a81c2e77140725726d0f4e86f04f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145120458'
 ---
 

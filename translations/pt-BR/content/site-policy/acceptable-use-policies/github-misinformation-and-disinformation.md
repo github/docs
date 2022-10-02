@@ -9,13 +9,8 @@ topics:
 redirect_from:
   - /github/site-policy/github-misinformation-and-disinformation
   - /github/site-policy/github-community-guidelines#misinformation-and-disinformation
-ms.openlocfilehash: ece95f9da0b1953c821531837418e75ed03af4c3
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556401'
 ---
+
 Você não pode postar conteúdo que apresente uma visão distorcida da realidade, seja impreciso ou falso (informação incorreta) ou intencionalmente enganoso (desinformação), em que tal conteúdo possa resultar em danos ao público ou interferir em oportunidades justas e iguais para que todos participem de uma sociedade livre e aberta. São elas: 
 - Alegações médicas imprecisas ou sem respaldo científico que ponham em risco a saúde ou a segurança pública  
 - Mídia manipulada, seja de áudio ou visual, que provavelmente induza ao erro ou engane de forma que possa prejudicar o interesse público

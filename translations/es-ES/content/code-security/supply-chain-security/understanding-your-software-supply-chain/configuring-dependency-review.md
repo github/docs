@@ -14,22 +14,22 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Pull requests
-ms.openlocfilehash: d032179f1d130509eb81e4629854dada7fd98b4c
-ms.sourcegitcommit: b19e5a6ac3fdc0a72c341f9a09e7a24aac060be9
+ms.openlocfilehash: 4cd61fd08db21c1de764a0ffe38d80a95d28036e
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2022
-ms.locfileid: '147424692'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147773174'
 ---
 {% data reusables.dependency-review.beta %}
 
-## <a name="about-dependency-review"></a>Acerca de la revisión de dependencias
+## Acerca de la revisión de dependencias
 
 {% data reusables.dependency-review.feature-overview %}   
 
 Para obtener más información, consulta «[Acerca de la revisión de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)» y «[Revisión de los cambios de dependencia en una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)».
 
-## <a name="about-configuring-dependency-review"></a>Acerca de la configuración de la revisión de dependencias
+## Acerca de la configuración de la revisión de dependencias
 
 {% ifversion fpt %} La revisión de dependencias está disponible en todos los repositorios públicos de todos los productos y no puede deshabilitarse. La revisión de dependencias está disponible en repositorios privados propiedad de las organizaciones que usan GitHub Enterprise Cloud y que tienen una licencia para [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security). Para más información, vea la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
 
@@ -41,7 +41,7 @@ Para obtener más información, consulta «[Acerca de la revisión de dependenci
 
 {% elsif ghes %} La revisión de dependencias está disponible cuando el gráfico de dependencias está habilitado para {% data variables.product.product_location %}, y {% data variables.product.prodname_advanced_security %} está habilitado para la organización o el repositorio. Para más información, vea "[Habilitación de {% data variables.product.prodname_GH_advanced_security %} para la empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)".
 
-### <a name="checking-if-the-dependency-graph-is-enabled"></a>Comprobación de si el gráfico de dependencias está habilitado
+### Comprobación de si el gráfico de dependencias está habilitado
 
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
@@ -49,7 +49,7 @@ Para obtener más información, consulta «[Acerca de la revisión de dependenci
 1. Si el gráfico de dependencias está habilitado, haz clic en **Habilitar** junto a «{% data variables.product.prodname_GH_advanced_security %}» para habilitar {% data variables.product.prodname_advanced_security %}, incluida la revisión de dependencias. El botón Habilitar está deshabilitado si tu empresa no tiene licencias disponibles para {% data variables.product.prodname_advanced_security %}.{% ifversion ghes < 3.3 %} ![Captura de pantalla de las características «Seguridad y análisis del código»](/assets/images/enterprise/3.2/repository/code-security-and-analysis-enable-ghas-3.2.png){% endif %}{% ifversion ghes > 3.2 %} ![Captura de pantalla de las características de «Seguridad y análisis de código»](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %} {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## <a name="configuring-the--data-variablesproductprodname_dependency_review_action-"></a>Configuración de la {% data variables.product.prodname_dependency_review_action %}
+## Configuración de la {% data variables.product.prodname_dependency_review_action %}
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %} {% data reusables.dependency-review.dependency-review-action-overview %}
 
@@ -66,7 +66,7 @@ Están disponibles las siguientes opciones de configuración.
 
 {% endtip %} {% endif %}
 
-En este archivo de ejemplo de {% data variables.product.prodname_dependency_review_action %} se muestra cómo se pueden usar estas opciones de configuración.
+En este archivo de ejemplo de {% data variables.product.prodname_dependency_review_action %} se muestra cómo se pueden usar estas opciones de configuración. Observa que en el ejemplo se usa el número de versión corta para la acción (`v2`) en lugar de un número de versión de gravedad (por ejemplo, `v2.0.8`). Esto garantiza que uses la versión secundaria más reciente de la acción.
 
 ```yaml{:copy}
 name: 'Dependency Review'

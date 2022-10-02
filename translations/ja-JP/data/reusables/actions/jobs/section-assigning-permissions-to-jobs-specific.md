@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 7013bd204f8af1a27bbba837fda49eb7fbfe779b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145089503"
 ---
 特定のジョブについて、`jobs.<job_id>.permissions` を使用して `GITHUB_TOKEN` に付与された既定のアクセス許可を変更し、必要に応じてアクセスを追加または削除することで、必要最小限のアクセスのみを許可することができます。 詳細については「[ワークフローで認証する](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。

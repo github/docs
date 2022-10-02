@@ -16,10 +16,10 @@ topics:
   - SSH
 shortTitle: Recover SSH key passphrase
 ms.openlocfilehash: 28d768e81f3076898c23b2b1668314ae5573ec5c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084559'
 ---
 {% mac %}

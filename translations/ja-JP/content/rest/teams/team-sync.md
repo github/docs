@@ -2,7 +2,6 @@
 title: Team の同期
 intro: 'Team Synchronization API では、{% data variables.product.product_name %} Team と外部アイデンティティプロバイダー (IdP) グループとの間の接続を管理できます。'
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API

@@ -21,7 +21,7 @@ Before you leave your company, make sure you update the following information in
 - [Change your primary email address](/articles/changing-your-primary-email-address) from your company email to your personal email.
 - [Verify your new primary email address](/articles/verifying-your-email-address).
 - [Change your GitHub username](/articles/changing-your-github-username) to remove any references to your company or organization, if necessary.
-- If you've enabled two-factor (2FA) authentication for your personl account, make sure that you (not your company) control the 2FA authentication method you have configured. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+- If you've enabled two-factor (2FA) authentication for your personal account, make sure that you (not your company) control the 2FA authentication method you have configured. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 ## Leaving organizations
 

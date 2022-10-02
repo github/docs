@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c7eea7975ef49a5a6e3deed2ade3cb6bb5543ac0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145095430"
 ---
 Quando você seleciona a opção **Mesclar por squash e mesclar** em uma solicitação de pull no {% data variables.product.product_location %}, os commits da solicitação de pull são mesclados por squash em um só commit. Em vez de ver todos os commits individuais de um contribuidor de um branch de tópico, os commits são combinados em um commit e mesclados no branch-padrão. As solicitações de pull com commits mesclados por squash são mescladas com a [opção de avanço rápido](https://git-scm.com/docs/git-merge#_fast_forward_merge).

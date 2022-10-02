@@ -1,0 +1,20 @@
+date: '2021-08-10'
+sections:
+  bugs:
+    - 'bash のサブシェルを使うカスタム pre-receive フックが、`No such file or directory` というエラーを返します。'
+    - 定期的なスケジュール バックアップを実行することなく GitHub Actions を有効にすると、MSSQL のトランザクション ログが無制限に拡大し、アプライアンスのデータ ディスクの利用可能な領域をすべて消費し、停止につながる可能性があります。
+    - LFS の使用量が多いインスタンスで、不要なデータベース ログが大量にディスク領域を消費しました。
+    - "\"リポジトリ作成\" の組織設定に加えられた変更に対する監査ログのエントリが不正確でした。"
+    - "`ActionController::UnknownFormat` 例外の過剰なログ記録により、不必要にディスクを消費していました。"
+    - "LDAP の `group_dn` の値が 255 文字より長いと、\"行 1 の列 `group_dn` でデータが切り詰められました\" というエラーが記録されました。"
+  changes:
+    - 不正利用レート制限は、動作制限が必ずしも不正利用に限らないため、セカンダリ レート制限というようになりました。
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} をセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

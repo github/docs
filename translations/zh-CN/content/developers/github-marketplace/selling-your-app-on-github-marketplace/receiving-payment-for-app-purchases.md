@@ -15,10 +15,10 @@ topics:
   - Marketplace
 shortTitle: Receive payment
 ms.openlocfilehash: 324ef8bceaa92c55f102603885799dde7e892795
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084953'
 ---
 为含有付费计划的应用程序创建 {% data variables.product.prodname_marketplace %} 上架信息并得到批准后，您需要向 {% data variables.product.product_name %} 提供付款详细信息以完成财务手续。

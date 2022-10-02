@@ -53,7 +53,7 @@ jobs:
           echo "DESCRIPTION=$DESCRIPTION" >> $GITHUB_ENV
           git commit -m "$(echo $DESCRIPTION)"
 
-      - name: If there are changes to push, create a pull request in the public repo using the gh command line tool, then immediately merge the PR and delete the branch
+      - name: If there are changes to push, create a pull request in the public repo using the gh command line tool, then immediately approve the PR
         id: createAndMergePullRequest
         env:
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_SITEPOLICY }}
@@ -70,11 +70,7 @@ jobs:
               git push --set-upstream origin automated-sync-$GITHUB_RUN_ID
               PR_URL=$(gh pr create --title "${TITLE}" --body-file msg --head automated-sync-$GITHUB_RUN_ID --base main --repo github/site-policy)
               gh pr diff ${PR_URL}
-              gh pr merge ${PR_URL} --merge --delete-branch
+              gh pr review --approve || echo "Nothing to approve"
             else
               echo "No updates to push to the public repo"
           fi
-
-      - name: Delete remote updates branch if previous step failed
-        if: failure() && steps.createAndMergePullRequest.outcome == 'failure'
-        run: git push github/site-policy --delete automated-sync-$GITHUB_RUN_ID

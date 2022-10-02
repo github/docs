@@ -12,10 +12,10 @@ versions:
 topics:
   - Community
 ms.openlocfilehash: 986d23cb4fe9850cb6c6824e9a3f2c256b6fd4e4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145086552'
 ---
 如果整个对话没有建设性或者违反了社区的行为准则 {% ifversion fpt or ghec %} 或 GitHub 的[社区指南](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}，则锁定对话是恰当的。 在锁定对话时，也可公开说明锁定的原因。

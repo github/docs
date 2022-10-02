@@ -8,12 +8,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: c9e910ccec8e281359fb21feca5957c3360530bd
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556491'
 ---
 GitHub 活动是旨在加强技术社区中的交往和协作的社区活动。
 
@@ -51,7 +45,7 @@ GitHub 致力于为每个人提供愉悦、无骚扰的活动体验，无论其�
 
 如果您受到骚扰、发现其他人被骚扰或者有任何其他顾虑，请通过电子邮件 (events@github.com) 或电话/短信 (+1 415 842 2837) 联系组织者，或者告诉其他 GitHub 员工或安全官员。
 
-GitHub 相关人员乐于帮助参与者联系安全部门或当地执法机构、护送他们到安全的地方或者以其他方式帮助受骚扰者在会议期间感到安全。 我们重视您的参与。
+GitHub 相关人员乐于帮助参与者联系安全部门或当地执法机构、护送他们到安全的地方或者以其他方式帮助受骚扰者在会议期间感到安全。 我们重视你的参与。
 
 ## <a name="credit"></a>鸣谢
 

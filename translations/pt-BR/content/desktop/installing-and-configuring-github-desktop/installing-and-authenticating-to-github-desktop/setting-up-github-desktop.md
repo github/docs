@@ -8,10 +8,10 @@ redirect_from:
 versions:
   fpt: '*'
 ms.openlocfilehash: 20d183b4f3809251d4672421ec48f220fb562c9f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145095132'
 ---
 ## Parte 1: Instalar {% data variables.product.prodname_desktop %}

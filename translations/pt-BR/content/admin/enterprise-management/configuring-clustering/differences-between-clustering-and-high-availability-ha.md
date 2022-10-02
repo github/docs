@@ -15,10 +15,10 @@ topics:
   - Infrastructure
 shortTitle: Choosing cluster or HA
 ms.openlocfilehash: 3a15defe4327b1aeed4f0db22586c75b233b5908
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '146332485'
 ---
 ## Cenários de falha

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 39dca791bca396273c4e77a81a265fcf4a6c24ae
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145096498"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147875564"
 ---
 {% ifversion fpt or ghec %}1. Se a pessoa que você está convidando nunca foi membro da organização ou se você limpou os privilégios dela, escolha uma função para o usuário, opcionalmente, adicione-o a algumas equipes e clique em **Enviar convite**.
   ![Opções Função e Equipe e botão Enviar convite](/assets/images/help/organizations/add-role-send-invitation.png){% else %}

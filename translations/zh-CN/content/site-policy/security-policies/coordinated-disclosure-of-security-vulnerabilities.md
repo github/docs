@@ -11,12 +11,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 683d537689865a557cf9b52315341bb10be82bfc
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556512'
 ---
 我们希望每个人都能安全地使用 GitHub。 当您发现 GitHub 中的安全漏洞时，如果您能以协调一致的方式向我们披露，我们将深表感谢。
 

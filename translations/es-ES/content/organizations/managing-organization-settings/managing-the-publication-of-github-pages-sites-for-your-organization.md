@@ -16,11 +16,11 @@ topics:
   - Teams
 shortTitle: Manage Pages site publication
 ms.openlocfilehash: cce086c19dd6f20de28dde599c13074c48851753
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145140666'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878532'
 ---
 {% ifversion fpt %} Puedes optar por permitir o impedir que los miembros de la organización publiquen sitios de {% data variables.product.prodname_pages %}. Las organizaciones que usan {% data variables.product.prodname_ghe_cloud %} también pueden optar por permitir sitios que se publican de forma pública, de forma privada, ambas opciones o ninguna. Para obtener más información, consulte la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
 {% elsif ghec %} Puedes optar por permitir que los miembros de la organización creen sitios que se publican de forma pública, de forma privada, ambas opciones o ninguna. Para obtener más información sobre el control de acceso de los sitios de {% data variables.product.prodname_pages %}, consulta "[Cambio de la visibilidad del sitio de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)".
