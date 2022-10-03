@@ -472,7 +472,7 @@ translations/pt-BR/content/packages/learn-github-packages/configuring-a-packages
 translations/pt-BR/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,rendering error
 translations/pt-BR/content/packages/learn-github-packages/viewing-packages.md,rendering error
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
-translations/pt-BR/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,broken liquid tags
+translations/pt-BR/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,rendering error
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,broken liquid tags
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository.md,rendering error
