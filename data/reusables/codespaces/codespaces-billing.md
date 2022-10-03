@@ -1,7 +1,7 @@
 {% data variables.product.prodname_codespaces %} are billed in US dollars (USD) according to their compute and storage usage.
 
 ### Calculating compute usage
-Compute usage is defined as the total number of uptime minutes for which a {% data variables.product.prodname_github_codespaces %} instance is active. Compute usage is calculated by summing the actual number of minutes used by all codespaces. These totals are reported to the billing service daily, and are billed monthly.
+Compute usage is defined as the total number of uptime minutes for which a {% data variables.product.prodname_github_codespaces %} instance is active. Compute usage is calculated by summing the actual number of minutes used by all codespaces that are billable to the organization or enterprise. These totals are reported to the billing service daily, and are billed monthly.
 
 Uptime is controlled by stopping your codespace, which can be done manually or automatically after a developer specified period of inactivity. For more information, see "[Closing or stopping your codespace](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)".
 
