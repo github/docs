@@ -17,7 +17,7 @@ redirect_from:
 
 ## {% data variables.product.prodname_github_codespaces %} pricing
 
-Charges are incurred for the use of {% data variables.product.prodname_codespaces %} for repositories owned by organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}. These accounts do not include any free minutes or storage for {% data variables.product.prodname_codespaces %}. Repositories in personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
+Charges are incurred for the use of {% data variables.product.prodname_github_codespaces %} for repositories owned by organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}. These accounts do not include any free minutes or storage for {% data variables.product.prodname_github_codespaces %}. Repositories in personal accounts are not currently billed for {% data variables.product.prodname_github_codespaces %} usage.
 
 {% data variables.product.prodname_github_codespaces %} usage is billed according to the units of measure in the following table:
 
@@ -30,11 +30,11 @@ Charges are incurred for the use of {% data variables.product.prodname_codespace
 |                     |  32 core | 1 hour          | $2.88 |
 | Codespaces Storage  |  Storage | 1 GB-month      | $0.07 |
 
-## About billing for {% data variables.product.prodname_codespaces %}
+## About billing for {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.codespaces-billing %}
 
-Your {% data variables.product.prodname_codespaces %} usage shares your organization or enterprise account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
+Your {% data variables.product.prodname_github_codespaces %} usage shares your organization or enterprise account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% ifversion ghec %}
 If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
