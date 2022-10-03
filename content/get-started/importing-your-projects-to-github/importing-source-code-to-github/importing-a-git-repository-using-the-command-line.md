@@ -37,7 +37,7 @@ For purposes of demonstration, we'll use:
 3. Push the locally cloned repository to {% data variables.product.product_name %} using the "mirror" option, which ensures that all references, such as branches and tags, are copied to the imported repository.
   ```shell
   $ cd REPO.git
-  $ git push --mirror https://{% data variables.command_line.codeblock %}/ghuser/REPO.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/USER/REPO.git
   # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
   ```
 4. Remove the temporary local repository.

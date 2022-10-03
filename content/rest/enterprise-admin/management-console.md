@@ -25,11 +25,11 @@ You need to pass your [Management Console password](/enterprise/admin/articles/a
 Use the `api_key` parameter to send this token with each request. For example:
 
 ```shell
-$ curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_AMAZING_PASSWORD'
+$ curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_PASSWORD'
 ```
 
 You can also use standard HTTP authentication to send this token. For example:
 
 ```shell
-$ curl -L -u "api_key:YOUR_AMAZING_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
+$ curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
 ```

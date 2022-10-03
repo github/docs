@@ -22,7 +22,7 @@ versions:
   You can also change to your repository path and then type `github .` to open that repository.
 
   ```shell
-  $ cd /path/to/repo
+  $ cd /PATH/TO/REPO
   [repo]$ github .
   ```
 
@@ -34,13 +34,13 @@ versions:
 2. {% data reusables.desktop.launch-desktop-from-command-line %}
 
   ```shell
-  C:\Users\octocat> github path\to\repo
+  C:\Users\octocat> github PATH\TO\REPO
   ```
 
  You can also change to your repository path and then type `github .` to open that repository.
 
   ```shell
-  C:\Users\octocat> cd repo\myrepo
+  C:\Users\octocat> cd REPO\MY-REPO
   C:\Users\octocat\repo\myrepo> github .
   ```
 

@@ -74,7 +74,7 @@ Anyone can work with a previously opened pull request to continue working on it,
 7. At this point, you can do anything you want with this branch. You can run some local tests, or merge other branches into the branch.
 8. When you're ready, you can push the new branch up:
   ```shell
-  [pull-inactive-pull-request] $ git push origin BRANCHNAME
+  [pull-inactive-pull-request] $ git push origin BRANCH_NAME
   > Counting objects: 32, done.
   > Delta compression using up to 8 threads.
   > Compressing objects: 100% (26/26), done.

@@ -80,7 +80,7 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
     [cluster "HOSTNAME"]
       <strong>datacenter = default</strong>
       hostname = HOSTNAME
-      ipv4 = IP ADDRESS
+      ipv4 = IP-ADDRESS
       ...
     ...
     ```
@@ -185,8 +185,8 @@ For an example configuration, see "[Example configuration](#example-configuratio
 11. Designate the primary MySQL and Redis nodes in the secondary datacenter. Replace `REPLICA MYSQL PRIMARY HOSTNAME` and `REPLICA REDIS PRIMARY HOSTNAME` with the hostnames of the passives node that you provisioned to match your existing MySQL and Redis primaries.
 
     ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica REPLICA MYSQL PRIMARY HOSTNAME
-    git config -f /data/user/common/cluster.conf cluster.redis-master-replica REPLICA REDIS PRIMARY HOSTNAME
+    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica REPLICA-MYSQL-PRIMARY-HOSTNAME
+    git config -f /data/user/common/cluster.conf cluster.redis-master-replica REPLICA-REDIS-PRIMARY-HOSTNAME
     ```
 
     {% warning %}
@@ -235,11 +235,11 @@ The top-level `[cluster]` configuration should look like the following example.
 
 ```shell
 [cluster]
-  mysql-master = HOSTNAME OF ACTIVE MYSQL MASTER
-  redis-master = HOSTNAME OF ACTIVE REDIS MASTER
-  primary-datacenter = PRIMARY DATACENTER NAME
-  mysql-master-replica = HOSTNAME OF PASSIVE MYSQL MASTER
-  redis-master-replica = HOSTNAME OF PASSIVE REDIS MASTER
+  mysql-master = HOSTNAME-OF-ACTIVE-MYSQL-MASTER
+  redis-master = HOSTNAME-OF-ACTIVE-REDIS-MASTER
+  primary-datacenter = PRIMARY-DATACENTER-NAME
+  mysql-master-replica = HOSTNAME-OF-PASSIVE-MYSQL-MASTER
+  redis-master-replica = HOSTNAME-OF-PASSIVE-REDIS-MASTER
   mysql-auto-failover = false
 ...
 ```
@@ -250,8 +250,8 @@ The configuration for an active node in your cluster's storage tier should look 
 ...
 [cluster "UNIQUE ACTIVE NODE HOSTNAME"]
   datacenter = default
-  hostname = UNIQUE ACTIVE NODE HOSTNAME
-  ipv4 = IPV4 ADDRESS
+  hostname = UNIQUE-ACTIVE-NODE-HOSTNAME
+  ipv4 = IPV4-ADDRESS
   consul-datacenter = default
   consul-server = true
   git-server = true

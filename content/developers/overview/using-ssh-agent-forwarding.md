@@ -97,8 +97,8 @@ Before you can make your keys work through agent forwarding, they must work loca
 Sometimes, system configurations disallow SSH agent forwarding. You can check if a system configuration file is being used by entering the following command in the terminal:
 
 ```shell
-$ ssh -v "example.com"
-# Connect to example.com with verbose debug output
+$ ssh -v URL
+# Connect to the specified URL with verbose debug output
 > OpenSSH_8.1p1, LibreSSL 2.7.3</span>
 > debug1: Reading configuration data /Users/YOU/.ssh/config
 > debug1: Applying options for example.com

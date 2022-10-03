@@ -63,7 +63,7 @@ Create secrets in your repository or organization for the following items:
   - Use the following command to convert your provisioning profile to Base64 and copy it to your clipboard:
   
     ```shell
-    base64 provisioning_profile.mobileprovision | pbcopy
+    base64 PROVISIONING_PROFILE.mobileprovision | pbcopy
     ```
 
 * A keychain password.

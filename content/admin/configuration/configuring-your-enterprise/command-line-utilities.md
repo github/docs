@@ -115,7 +115,7 @@ With this utility, you can both retrieve and modify the configuration settings o
 $ ghe-config core.github-hostname
 # Gets the configuration value of `core.github-hostname`
 $ ghe-config core.github-hostname URL
-# Sets the configuration value of `core.github-hostname` to URL for example, `example.com`
+# Sets the configuration value of `core.github-hostname` to the specified URL
 $ ghe-config -l
 # Lists all the configuration values
 ```

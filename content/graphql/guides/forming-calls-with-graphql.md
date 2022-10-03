@@ -106,8 +106,8 @@ To form a mutation, you must specify three things:
 Mutations are structured like this:
 
 <pre>mutation {
-  mutationName(input: {MutationNameInput!}) {
-    MutationNamePayload
+  MUTATION-NAME(input: {MUTATION-NAME-INPUT!}) {
+    MUTATION-NAME-PAYLOAD
   }
 }</pre>
 
