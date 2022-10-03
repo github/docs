@@ -15,10 +15,10 @@ topics:
   - Access management
 shortTitle: Third-party applications
 ms.openlocfilehash: b8cd20d36926c373116061e211be62701b1bd2f6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145094561'
 ---
 Quando um aplicativo de terceiro quiser identificar você pelo seu login do {% data variables.product.product_name %}, será exibida uma página com as informações de contato do desenvolvedor e uma lista dos dados específicos que estão sendo solicitados.

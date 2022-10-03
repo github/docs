@@ -12,10 +12,10 @@ type: overview
 allowTitleToDifferFromFilename: true
 shortTitle: Quickstart
 ms.openlocfilehash: 004f848e973aa66d19b9de6b922d65dba76f1aea
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145066714'
 ---
 ## 关于 {% data variables.product.prodname_cli %}

@@ -18,10 +18,10 @@ topics:
   - Access management
 shortTitle: Remove sensitive data
 ms.openlocfilehash: 4c93f372f1d537fd94f06e66986e53d6641923d2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145088433'
 ---
 `git filter-repo` ツールと BFG Repo-Cleaner によって、リポジトリの履歴が書き換えられます。これにより、変更した既存のコミットと依存するコミットの SHA が変更されます。 コミットの SHA を変更すると、リポジトリ内の開いている pull request に影響する場合があります。 リポジトリからファイルを削除する前に、開いているすべての pull request を結合または閉じることをお勧めします。

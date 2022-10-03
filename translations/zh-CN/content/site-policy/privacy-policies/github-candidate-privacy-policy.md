@@ -7,13 +7,8 @@ topics:
   - Legal
 redirect_from:
   - /github/site-policy/github-candidate-privacy-policy
-ms.openlocfilehash: 593cb11bbf5697b2fb1fd7cfe8e32f47d721188d
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556517'
 ---
+
 生效日期：2021 年 3 月 8 日
 
 本“GitHub 求职者隐私政策”说明了我们在 GitHub 求职申请或招聘过程中会收集关于您的哪些信息，以及我们收集和使用该信息的目的。 

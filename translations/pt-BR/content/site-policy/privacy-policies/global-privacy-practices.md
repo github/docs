@@ -9,14 +9,9 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: bf2feb111b697aa6181ed5274c97af1ca31b77b9
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556455'
 ---
-Data de início de vigência: 22 July 2020
+
+Data de início de vigência: 22 de julho de 2020
 
 O GitHub fornece o mesmo alto padrão de proteção de privacidade, conforme descrito na [Política de Privacidade](/github/site-policy/github-privacy-statement#githubs-global-privacy-practices) do GitHub, a todos os nossos usuários e clientes em todo o mundo, independentemente de seu país de origem ou localização, e o GitHub orgulha-se do nível de notificação, escolha, responsabilidade, segurança, integridade de dados, acesso e recurso que oferecemos. 
 
@@ -32,7 +27,7 @@ Para saber mais sobre os SCCs, consulte este artigo no [Site da Comissão Europe
 
 O GitHub é certificado com relação à Estrutura de Defesa de Privacidade UE-EUA e Suíça-EUA e aos compromissos que englobam, embora o GitHub não confie na Estrutura de Defesa de Privacidade UE-EUA como fundamento jurídico para transferências de informações pessoais à luz da decisão judicial do Tribunal de Justiça da União Europeia no Caso C-311/18.
 
-As Estruturas de Defesa de Privacidade UE-EUA e Suíça-EUA são estabelecidas pelo Departamento de Comércio dos EUA em relação à coleta, ao uso e à retenção de Informações Pessoais do Usuário transferidas da União Europeia, do Reino Unido e da Suíça para os Estados Unidos. O GitHub garantiu ao Departamento de Comércio que cumpre os Princípios de Proteção de Privacidade. Se nossos fornecedores ou afiliadas processarem Informações Pessoais do Usuário em nosso nome de forma inconsistente com os princípios da Estrutura de Proteção de Privacidade, o GitHub permanecerá responsável, a menos que provemos que não somos responsáveis pelo evento que deu origem ao dano.
+As Estruturas de Defesa de Privacidade UE-EUA e Suíça-EUA são estabelecidas pelo Departamento de Comércio dos EUA em relação à coleta, ao uso e à retenção de informações pessoais transferidas da União Europeia, do Reino Unido e da Suíça para os Estados Unidos. O GitHub garantiu ao Departamento de Comércio que cumpre os Princípios de Proteção de Privacidade. Se nossos fornecedores ou afiliadas processarem informações pessoais em nosso nome de forma inconsistente com os princípios da Estrutura de Proteção de Privacidade, o GitHub permanecerá responsável, a menos que provemos que não somos responsáveis pelo evento que deu origem ao dano.
 
 Para fins de nossas certificações sob as Estruturas de Proteção de Privacidade, se houver algum conflito entre os termos destas Práticas Globais de Privacidade e os Princípios de Proteção de Privacidade, estes prevalecerão. Para saber mais sobre o programa Proteção de Privacidade e ver nossa certificação, acesse o [Site Proteção de Privacidade](https://www.privacyshield.gov/).
 
@@ -61,7 +56,7 @@ As Estruturas de Proteção de Privacidade são baseadas em sete princípios, e 
   - Você sempre pode acessar os dados que temos sobre você em seu [perfil de usuário](https://github.com/settings/profile). Você pode acessar, atualizar, alterar ou excluir suas informações.
 - **Recurso, execução e responsabilidade**
   - Se você tiver dúvidas sobre nossas práticas de privacidade, entre em contato conosco pelo {% data variables.contact.contact_privacy %} e responderemos no prazo máximo de 45 dias.
-  - No caso improvável de controvérsia que não possamos resolver, você terá acesso à arbitragem legal sem nenhum custo para você. Consulte nossa [Política de Privacidade](/articles/github-privacy-statement/) para obter mais informações.
+  - No caso improvável de controvérsia que não possamos resolver, você terá acesso à arbitragem legal sem nenhum custo para você. Veja nossa [Declaração de privacidade](/articles/github-privacy-statement/) para maiores informações.
   - Realizaremos auditorias regulares de nossas práticas de privacidade pertinentes para verificar o cumprimento das promessas que fizemos.
   - Exigimos que nossos funcionários respeitem nossas promessas de privacidade, e a violação de nossas políticas de privacidade está sujeita a ação disciplinar, incluindo rescisão do contrato de trabalho.
 
@@ -78,4 +73,4 @@ Em certas circunstâncias limitadas, os indivíduos da UE, do Espaço Econômico
 
 Estamos sujeitos à jurisdição da Comissão Federal de Comércio dos EUA (FTC).
   
-Consulte nossa [Política de Privacidade](/articles/github-privacy-statement/) para obter mais informações.
+Veja nossa [Declaração de privacidade](/articles/github-privacy-statement/) para maiores informações.

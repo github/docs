@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 810a19c1bc5d885a5a6bff43155c8799e9b27f08
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145124462"
 ---
 1. あるいは、Organization が会社または機関に所有されているなら、 **[このアカウントの所有者は企業です]** を選んでください。

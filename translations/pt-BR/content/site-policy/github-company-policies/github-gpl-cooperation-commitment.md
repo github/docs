@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: d48a18256fab3ba4064123ef7b7ff9cdba11b9e8
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556410'
 ---
+
 Este compromisso se refere às contribuições do GitHub para o Git, o kernel do Linux e outros programas sob licenças cobertas (role até o final para ver as definições).
 
 Nós nos baseamos em nossa declaração no [modelo](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md) para empresas. Consulte o [Site do Compromisso de Cooperação GPL](https://gplcc.github.io/gplcc/) para saber como outras empresas, pessoas físicas e projetos podem adotar esse compromisso.

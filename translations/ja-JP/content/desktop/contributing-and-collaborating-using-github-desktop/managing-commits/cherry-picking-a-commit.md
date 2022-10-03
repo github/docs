@@ -6,10 +6,10 @@ versions:
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/cherry-picking-a-commit
 ms.openlocfilehash: 6dad1615b9a8c224c3648be60759b5bb6ccf0d62
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145090130'
 ---
 ## Git のチェリーピックについて

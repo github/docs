@@ -13,11 +13,11 @@ topics:
   - OAuth Apps
 shortTitle: Create custom badges
 ms.openlocfilehash: b9f5b8048b14c11e7eb0c43a88a18b3a63ca5f34
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145084028'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875518'
 ---
 Por padrão, um novo Aplicativo OAuth terá um [identicon](https://github.com/blog/1586-identicons) gerado automaticamente.
 O selo do identicon assemelha-se a isso:

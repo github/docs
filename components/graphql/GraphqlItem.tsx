@@ -25,7 +25,7 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2 }: Props
           {item.name}
         </h3>
       )}
-      <p
+      <div
         dangerouslySetInnerHTML={{
           __html: item.description,
         }}

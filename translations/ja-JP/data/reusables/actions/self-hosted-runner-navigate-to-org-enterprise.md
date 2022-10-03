@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: e63c220aff35a6efc7b2b2e2738b2b7645386d43
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.openlocfilehash: 48dc95869bae901bf79df320e83b65979dedfd65
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: "145067962"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147763749"
 ---
 {% ifversion fpt %}
 1. セルフホステッド ランナーが登録されている、Organization のメイン ページに移動します。
 2. {% octicon "gear" aria-label="The Settings gear" %} **[設定]** をクリックします。
 {% data reusables.organizations.settings-sidebar-actions-runners %} {% elsif ghec or ghes or ghae %}
-1. セルフホストランナーが登録されているところへアクセスしてください:
+1. ランナーが登録されている場所に移動します。
    * **Organization 内**: メイン ページに移動して、{% octicon "gear" aria-label="The Settings gear" %} **[設定]** をクリックします。
    * **Enterprise レベルのランナーを使用している場合**:
 

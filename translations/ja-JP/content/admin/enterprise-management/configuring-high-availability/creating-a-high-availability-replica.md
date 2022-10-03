@@ -13,19 +13,19 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Create HA replica
-ms.openlocfilehash: 0b838049fe0d520be8cb88382314b25c5bba2b28
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: 115295bd685284c9bd96eab9990c7619c1a0a8d3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '146332761'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147648224'
 ---
 {% data reusables.enterprise_installation.replica-limit %}
 
-## <a name="creating-a-high-availability-replica"></a>High Availabilityレプリカの作成
+## High Availabilityレプリカの作成
 
 1. 新しい {% data variables.product.prodname_ghe_server %} アプライアンスを希望するプラットフォームにセットアップします。 レプリカアプライアンスのCPU、RAM、ストレージ設定は、プライマリアプライアンスと同じにするべきです。 レプリカアプライアンスは、独立した環境にインストールすることをお勧めします。 下位層のハードウェア、ソフトウェア、ネットワークコンポーネントは、プライマリアプライアンスのそれらとは分離されているべきです。 クラウドプロバイダを利用している場合には、別個のリージョンもしくはゾーンを使ってください。 詳細については、「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
-1. プライマリ アプライアンスと新しいレプリカ アプライアンスの両方が、ポート 122/TCP と 1194/UDP を介して相互に通信できることを確認します。 詳細については、「[ネットワーク ポート](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)」を参照してください。
+1. 新しいアプライアンスが、ポート 122/TCP と 1194/UDP 経由で、この高可用性環境の他のすべてのアプライアンスと通信できることを確認します。 詳細については、「[ネットワーク ポート](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)」を参照してください。
 1. ブラウザで新しいレプリカアプライアンスのIPアドレスにアクセスして、所有する{% data variables.product.prodname_enterprise %}のライセンスをアップロードしてください。
 {% data reusables.enterprise_installation.replica-steps %}
 1. SSHを使ってレプリカアプライアンスのIPアドレスに接続してください。
@@ -39,7 +39,7 @@ ms.locfileid: '146332761'
   ```
 {% data reusables.enterprise_installation.replication-command %} {% data reusables.enterprise_installation.verify-replication-channel %}
 
-## <a name="creating-geo-replication-replicas"></a>Geo-replicationレプリカの作成
+## Geo-replicationレプリカの作成
 
 レプリカを作成する以下の例の設定では、1 つのプライマリと 2 つのレプリカを使用しており、これらは 3 つの異なる地域にあります。 3 つのノードは別のネットワークに配置できますが、すべてのノードは他のすべてのノードから到達可能である必要があります。 最低限、必要な管理ポートは他のすべてのノードに対して開かれている必要があります。 ポート要件の詳細については、「[ネットワーク ポート](/enterprise/admin/guides/installation/network-ports/#administrative-ports)」を参照してください。
 
@@ -87,7 +87,7 @@ ms.locfileid: '146332761'
   (primary)$ ghe-config-apply
   ```
 
-## <a name="configuring-dns-for-geo-replication"></a>Geo-replicationのためのDNSの設定
+## Geo-replicationのためのDNSの設定
 
 プライマリとレプリカノードの IP アドレスを使って、Geo DNS を設定します。 SSH でプライマリ ノードにアクセスしたり、`backup-utils` でバックアップしたりするために、プライマリ ノード (たとえば、`primary.github.example.com`) に対して DNS CNAME を作成することもできます。
 
@@ -99,7 +99,7 @@ ms.locfileid: '146332761'
 <replica2 IP>    <em>HOSTNAME</em>
 ```
 
-## <a name="further-reading"></a>参考資料
+## 参考資料
 
 - "[高可用性構成について](/enterprise/admin/guides/installation/about-high-availability-configuration)"
 - 「[Utilities for replication management](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)」 (レプリケーション管理のユーティリティ)

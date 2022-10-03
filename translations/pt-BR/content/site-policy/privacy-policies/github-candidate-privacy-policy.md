@@ -7,13 +7,8 @@ topics:
   - Legal
 redirect_from:
   - /github/site-policy/github-candidate-privacy-policy
-ms.openlocfilehash: 593cb11bbf5697b2fb1fd7cfe8e32f47d721188d
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556453'
 ---
+
 Data de Início de Vigência: 8 de março de 2021
 
 Esta Política de Privacidade do Candidato do GitHub explica quais informações coletamos sobre você durante o processo de candidatura a vaga ou recrutamento para emprego no GitHub, bem como os propósitos para os quais coletamos e usamos essas informações. 

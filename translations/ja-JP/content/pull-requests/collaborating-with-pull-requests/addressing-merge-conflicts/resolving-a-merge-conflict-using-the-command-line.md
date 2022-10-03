@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts in Git
 ms.openlocfilehash: 1d4ff97c2a93d3e5a7aebaa8752810e284203bc1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145137828'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883458'
 ---
 マージコンフリクトは、競合している変更がファイルの同じ行に行われるとき、またはある人があるファイルを編集し別の人が同じファイルを削除すると発生します。 詳細については、「[マージコンフリクトについて](/articles/about-merge-conflicts/)」を参照してください。
 

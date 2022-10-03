@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Migrate admin team
 ms.openlocfilehash: 32a3bd684d2ed81d1ba492b4e343af3e03390364
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145101329'
 ---
 默认情况下，所有组织成员都可以创建仓库。 如果将[存储库创建权限](/articles/restricting-repository-creation-in-your-organization)限制为组织所有者，并且组织是在旧式组织权限结构下创建的，则旧式管理团队的成员仍然可以创建存储库。

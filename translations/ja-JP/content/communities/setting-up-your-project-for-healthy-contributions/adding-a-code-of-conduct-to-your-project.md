@@ -11,10 +11,10 @@ topics:
   - Community
 shortTitle: Add a code of conduct
 ms.openlocfilehash: dcf1e589ae4f803017752f9e919aad304c570fbc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145090214'
 ---
 *行動規範* は、コミュニティへの参加方法の標準を定義するものです。 それは、すべてのコントリビューションを尊重する開放的な環境であることを発信します。 また、プロジェクトのコミュニティのメンバー間の問題に対処するための手順の概要も示します。 行動規範がコミュニティに参加する方法に対する標準と期待を定義する理由の詳細については、「[Open Source Guide](https://opensource.guide/code-of-conduct/)」を参照してください。

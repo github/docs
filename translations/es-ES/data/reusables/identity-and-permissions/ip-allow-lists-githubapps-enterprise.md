@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 130c705dad9367dbecb144ac281e8e58fa6d6cb7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145109978"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147880376"
 ---
 Si estás utilizando una lista de direcciones permitidas, también puedes elegir agregar automáticamente a ella cualquier dirección IP que hayas configurado para las {% data variables.product.prodname_github_apps %} que hayas instalado en tu empresa. 
 

@@ -13,11 +13,11 @@ topics:
   - Legal
 shortTitle: Request account archive
 ms.openlocfilehash: f296796810978f6d884fabc699c01fbc3eabf5eb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145131135'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147878959'
 ---
 {% data variables.product.product_name %} は、個人アカウントの活動からリポジトリとプロファイルのメタデータを保存します。 個人アカウントのデータは、{% data variables.product.prodname_dotcom_the_website %} での設定または User Migration API によりエクスポートできます。
 

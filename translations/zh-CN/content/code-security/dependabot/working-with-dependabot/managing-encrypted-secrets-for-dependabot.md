@@ -1,6 +1,6 @@
 ---
-title: 管理 Dependabot 的加密密码
-intro: '您可以将敏感信息（如密码和访问令牌）存储为加密密码，然后在 {% data variables.product.prodname_dependabot %} 配置文件中引用它们。'
+title: Managing encrypted secrets for Dependabot
+intro: 'You can store sensitive information, like passwords and access tokens, as encrypted secrets and then reference these in the {% data variables.product.prodname_dependabot %} configuration file.'
 redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
@@ -17,21 +17,16 @@ topics:
   - Repositories
   - Dependencies
 shortTitle: Manage encrypted secrets
-ms.openlocfilehash: 0ec9a4d9a7f7029054b6b831dd82f69e6e18050a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145127383'
 ---
+
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-## 关于 {% data variables.product.prodname_dependabot %} 的加密机密
+## About encrypted secrets for {% data variables.product.prodname_dependabot %}
 
-{% data variables.product.prodname_dependabot %} 密码是您在组织级别或仓库级别创建的加密凭据。
-当您在组织级别添加密码时，可以指定哪些仓库可以访问该密码。 您可以使用密码允许 {% data variables.product.prodname_dependabot %} 更新位于私人包注册表中的依赖项。 添加密码时，它会在到达 {% data variables.product.prodname_dotcom %} 之前进行加密，并且保持加密到 {% data variables.product.prodname_dependabot %} 用于访问私有包注册表。
+{% data variables.product.prodname_dependabot %} secrets are encrypted credentials that you create at either the organization level or the repository level.
+When you add a secret at the organization level, you can specify which repositories can access the secret. You can use secrets to allow {% data variables.product.prodname_dependabot %} to update dependencies located in private package registries. When you add a secret it's encrypted before it reaches {% data variables.product.prodname_dotcom %} and it remains encrypted until it's used by {% data variables.product.prodname_dependabot %} to access a private package registry.
 
-添加 {% data variables.product.prodname_dependabot %} 机密后，可在 dependabot.yml 配置文件中引用它，如下所示：{% raw %}`${{secrets.NAME}}`{% endraw %}，其中“NAME”是为机密选择的名称。 例如： 
+After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the _dependabot.yml_ configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. For example: 
 
 {% raw %}
 ```yaml
@@ -39,53 +34,57 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
 {% endraw %}
 
-有关详细信息，请参阅“[dependabot.yml 文件的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)”。
+For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)."
 
-### 命名您的密码
+### Naming your secrets
 
-{% data variables.product.prodname_dependabot %} 密码的名称：
-* 只能包含字母数字字符（`[A-Z]`、`[0-9]`）或下划线 (`_`)。 不允许空格。 如果您输入小写字母，这些字母将更改为大写字母。
-* 不得以 `GITHUB_` 前缀开头。
-* 不能以数字开头。
+The name of a {% data variables.product.prodname_dependabot %} secret:
+* Can only contain alphanumeric characters (`[A-Z]`, `[0-9]`) or underscores (`_`). Spaces are not allowed. If you enter lowercase letters these are changed to uppercase.
+* Must not start with the `GITHUB_` prefix.
+* Must not start with a number.
 
-## 为 {% data variables.product.prodname_dependabot %} 添加仓库密码
+## Adding a repository secret for {% data variables.product.prodname_dependabot %}
 
 {% data reusables.actions.permissions-statement-secrets-repository %}
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.actions.sidebar-secret %} {% data reusables.dependabot.dependabot-secrets-button %}
-1. 单击“新建存储库机密”。
-1. 在“名称”输入框中键入机密名称。
-1. 输入密码的值。
-1. 单击“添加机密”。
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.dependabot.sidebar-secret %}
+1. Click **New repository secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the value for your secret.
+1. Click **Add secret**.
 
-   密码名称列在 Dependabot 密码页面上。 可单击“更新”来更改机密值。 可单击“删除”来删除机密。
+   The name of the secret is listed on the Dependabot secrets page. You can click **Update** to change the secret value. You can click **Remove** to delete the secret.
 
-   ![更新或删除仓库密码](/assets/images/help/dependabot/update-remove-repo-secret.png)
+   ![Update or remove a repository secret](/assets/images/help/dependabot/update-remove-repo-secret.png)
 
-## 将组织机密添加到 {% data variables.product.prodname_dependabot %}
+## Adding an organization secret for {% data variables.product.prodname_dependabot %}
 
-在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
+When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
-{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.actions.sidebar-secret %} {% data reusables.dependabot.dependabot-secrets-button %}
-1. 单击“新建组织机密”。
-1. 在“名称”输入框中键入机密名称。
-1. 输入“机密”的值。
-1. 从“存储库访问”下拉列表中，选择访问策略。
-1. 如果选择“选定的存储库”：
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.dependabot.sidebar-secret %}
+1. Click **New organization secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the **Value** for your secret.
+1. From the **Repository access** dropdown list, choose an access policy.
+1. If you chose **Selected repositories**:
 
-   * 单击 {% octicon "gear" aria-label="The Gear icon" %}。
-   * 选择可以访问此机密的仓库。 
-     ![为此机密选择存储库](/assets/images/help/dependabot/secret-repository-access.png)
-   * 单击“更新选择”。
+   * Click {% octicon "gear" aria-label="The Gear icon" %}.
+   * Choose the repositories that can access this secret. 
+     ![Select repositories for this secret](/assets/images/help/dependabot/secret-repository-access.png)
+   * Click **Update selection**.
 
-1. 单击“添加机密”。
+1. Click **Add secret**.
 
-   密码名称列在 Dependabot 密码页面上。 可单击“更新”以更改机密值或其访问策略。 可单击“删除”来删除机密。
+   The name of the secret is listed on the Dependabot secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
 
-   ![更新或删除组织机密](/assets/images/help/dependabot/update-remove-org-secret.png)
+   ![Update or remove an organization secret](/assets/images/help/dependabot/update-remove-org-secret.png)
    
-## 将 {% data variables.product.prodname_dependabot %} 添加到您的注册表 IP 允许列表
+## Adding {% data variables.product.prodname_dependabot %} to your registries IP allow list
 
-如果专用注册表配置了 IP 允许列表，则可在 `dependabot` 键下找到用于访问元 API 终结点中的注册表的 IP 地址 {% data variables.product.prodname_dependabot %}。 有关详细信息，请参阅“[Meta](/rest/reference/meta)”。
+If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `dependabot` key. For more information, see "[Meta](/rest/reference/meta)."

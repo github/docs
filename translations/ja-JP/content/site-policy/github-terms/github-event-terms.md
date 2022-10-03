@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 58e24cfcc52a49f2f80ca316d482e2f2caf1fe4d
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556754'
 ---
+
 GitHub イベントに関連して GitHub が主催するイベントまたは活動 (以下総称して「イベント」といいます) など、GitHub イベントに出欠の返事をしたり出欠することにより、お客様は以下のイベントに関する条件を読み、理解し、同意を示したことになります。
 
 ## <a name="1-basic-requirements-to-attend---including-the-event-code-of-conduct"></a>1.基本的な出席要件 - [イベントの行動規範](/articles/github-event-code-of-conduct)を含む
@@ -49,7 +44,7 @@ GitHub またはそのパートナーは、GitHub イベントで写真または
 ### <a name="release-of-liability"></a>責任の免除
 お客様 (お客様自身、お客様の相続人、遺産管理人、譲受人、および代わりに申し立てを行う他の人物) は、GitHub およびそれぞれの親会社、子会社、関連会社、役員、取締役、株主、成員、従業員、ベンダー、スポンサー、およびボランティアを、当方の重大な過失または意図的な違法行為を除き、イベントまたは関連する行事へのお客様の出席に関連して生じるあらゆる申し立て、要求、請求権、損害、損失、または費用 (訴訟費用および合理的な弁護士費用を含む) から解除、放免、免除し、告訴しないことを約束するものとします。
 
-### <a name="indemnity"></a>免責
+### <a name="indemnity"></a>補償
 同様に、お客様は、イベントまたは関連する行事へのお客様の出席または行動に関連して第三者が行う申し立てまたは要求から、経費、責任、および訴訟費用を含めて、GitHub、その親会社、子会社、関連会社、役員、取締役、従業員、代理人、および代表者を免責し保護することに同意するものとします。
 
 ## <a name="4-termination"></a>4.契約終了

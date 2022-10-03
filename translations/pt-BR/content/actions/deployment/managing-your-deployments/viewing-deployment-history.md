@@ -13,10 +13,10 @@ redirect_from:
   - /developers/overview/viewing-deployment-history
   - /actions/deployment/viewing-deployment-history
 ms.openlocfilehash: 2941d8de6af3b7505a3c05a6b15436d32becea9b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145085293'
 ---
 Você pode fornecer implantações por meio do {% data variables.product.prodname_actions %} e de ambientes ou com a API REST e aplicativos de terceiros. {% ifversion fpt or ghae ghes > 3.0 or ghec %}Para obter mais informações sobre como usar ambientes para implantação com o {% data variables.product.prodname_actions %}, confira "[Como usar ambientes para implantação](/actions/deployment/using-environments-for-deployment)". {% endif %}Para obter mais informações sobre as implantações com a API REST, confira "[Repositórios](/rest/reference/repos#deployments)".

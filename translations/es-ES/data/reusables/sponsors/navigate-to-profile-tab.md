@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: febd3b002b57ce4f397da905ec08d608f565418c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145137299"
 ---
 1. En la barra lateral izquierda, haz clic en **Detalles de perfil**.

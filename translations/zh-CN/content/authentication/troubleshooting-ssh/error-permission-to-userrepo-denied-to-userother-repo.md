@@ -15,10 +15,10 @@ topics:
   - SSH
 shortTitle: Permission denied other-repo
 ms.openlocfilehash: 4d4898e947338e39c5ade86b5ea0a71f54f36f03
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084573'
 ---
 若要解决此问题，请从存储库中移除部署密钥，并改为[将密钥添加到个人帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。

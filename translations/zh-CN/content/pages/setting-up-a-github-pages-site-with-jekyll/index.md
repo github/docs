@@ -25,10 +25,10 @@ children:
   - /troubleshooting-jekyll-build-errors-for-github-pages-sites
 shortTitle: Set up site with Jekyll
 ms.openlocfilehash: 69b4b5c22bd13d57b4f37caa1bc8a5e350c8385d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145129659'
 ---
 

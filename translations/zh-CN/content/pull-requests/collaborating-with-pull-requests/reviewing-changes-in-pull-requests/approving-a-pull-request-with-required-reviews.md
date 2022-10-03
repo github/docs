@@ -15,10 +15,10 @@ topics:
   - Pull requests
 shortTitle: Required reviews
 ms.openlocfilehash: 4554ac9e9b9d0c0f184e0b6b60e732806d2f4a17
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145130085'
 ---
 有关所需审查的详细信息，请参阅“[关于受保护的分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。

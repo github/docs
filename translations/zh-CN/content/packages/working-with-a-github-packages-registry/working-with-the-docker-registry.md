@@ -16,11 +16,11 @@ versions:
   ghec: '*'
 shortTitle: Docker registry
 ms.openlocfilehash: f5d37e74f93535fd48f3400ef0b504825aadc657
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061696'
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147888450'
 ---
 <!-- Main versioning block. Short page for dotcom -->
 {% ifversion fpt or ghec %}

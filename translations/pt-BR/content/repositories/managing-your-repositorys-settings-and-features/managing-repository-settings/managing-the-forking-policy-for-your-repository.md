@@ -16,10 +16,10 @@ topics:
   - Repositories
 shortTitle: Manage the forking policy
 ms.openlocfilehash: 18355227ad40567de3824f3cc286763cd081e153
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145127022'
 ---
 Um proprietário da organização precisa permitir forks de repositórios privados{% ifversion ghae or ghes or ghec %} e internos{% endif %} no nível da organização antes de permitir ou desabilitar os forks para um repositório específico. Para obter mais informações, confira "[Como gerenciar a política de criação de forks para sua organização](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)".

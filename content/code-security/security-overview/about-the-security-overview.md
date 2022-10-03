@@ -67,7 +67,7 @@ The security overview displays active alerts raised by security features. If the
 
 At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization. You can filter information by security features at the organization-level.
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
+{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
 ### About the enterprise-level security overview
 At the enterprise-level, the security overview displays aggregate and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
 

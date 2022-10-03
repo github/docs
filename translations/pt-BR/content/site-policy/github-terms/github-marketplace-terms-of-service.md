@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 25e713f275e6a0dd04aefc8652d16d168470bfd8
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556435'
 ---
+
 Bem-vindo ao Marketplace do GitHub (“Marketplace”)! Estamos felizes por você estar aqui. Leia estes Termos de Serviço (“Termos do Marketplace”) com atenção antes de acessar ou usar o Marketplace do GitHub. O Marketplace do GitHub é uma plataforma que permite selecionar aplicativos ou ações do desenvolvedor (gratuitamente ou mediante taxa) que podem ser usados com sua conta do GitHub.com (“Produtos do Desenvolvedor”). Embora oferecidos pelo GitHub, Inc. (“GitHub”, “nós”, “nos”), os Produtos do Desenvolvedor podem ser desenvolvidos e mantidos pelo GitHub ou por fornecedores de software de terceiros. A seleção ou o uso que você faz dos Produtos do Desenvolvedor está sujeito a estes Termos do Marketplace e a quaisquer taxas aplicáveis e pode exigir que você concorde com os termos adicionais, conforme fornecidos pelo licenciador terceirizado desse Produto do Desenvolvedor (o “Provedor de Produtos”).
 
 Ao usar o Marketplace, você concorda em estar vinculado por estes Termos do Marketplace.
@@ -53,7 +48,7 @@ Se você tiver alguma dúvida, preocupação ou controvérsia em relação à co
 
 Se você deixar de usar o Produto do Desenvolvedor e revogar o acesso por meio das configurações da sua conta, o Provedor de Produtos não poderá mais acessá-la. O Provedor de Produtos é responsável por excluir suas Informações Pessoais dos sistemas no período definido. Entre em contato com o Provedor de Produtos para garantir que sua conta foi encerrada corretamente.
 
-**Segurança de Dados e Isenção de Responsabilidade de Privacidade.** Quando você seleciona ou usa um Produto do Desenvolvedor, a segurança do Produto do Desenvolvedor e a custódia de seus dados, incluindo suas Informações Pessoais (se houver), são de responsabilidade do Provedor de Produtos. Você é responsável por entender as considerações de segurança e privacidade da seleção ou uso do Produto do Desenvolvedor para sua própria segurança e risco de privacidade e considerações de conformidade.
+**Segurança de dados e aviso de isenção de responsabilidade de privacidade.** Quando você seleciona ou usa um Produto do Desenvolvedor, a segurança do Produto do Desenvolvedor e a custódia de seus dados, incluindo suas Informações Pessoais (se houver), são de responsabilidade do Provedor de Produtos. Você é responsável por entender as considerações de segurança e privacidade da seleção ou uso do Produto do Desenvolvedor para sua própria segurança e risco de privacidade e considerações de conformidade.
 
 ## <a name="f-rights-to-developer-products"></a>F. Direitos aos Produtos do Desenvolvedor
 
@@ -69,11 +64,11 @@ O GitHub pode bloquear um Produto do Desenvolvedor dos nossos servidores ou desa
 
 ## <a name="i-disclaimer-limitation-of-liability-release-and-indemnification"></a>I. Isenção de Responsabilidade; Limitação de Responsabilidade; Isenção e Indenização
 
-**Isenção de Responsabilidade.** O uso que você faz uso do Marketplace e de quaisquer Produtos do Desenvolvedor obtidos por meio do Marketplace é por sua conta e risco. Exceto conforme expressamente declarado, o GitHub fornece o Marketplace e os Produtos do Desenvolvedor “NO ESTADO EM QUE SE ENCONTRAM” e “MEDIANTE DISPONIBILIDADE”. O GitHub não oferece nem implica quaisquer garantias ou compromissos quanto ao Marketplace e aos Produtos do Desenvolvedor, incluindo, mas não de forma exclusiva, funcionalidade específica disponível por meio dos Produtos do Desenvolvedor e do Marketplace, sua confiabilidade, disponibilidade ou capacidade de atender às suas necessidades.
+**Aviso de isenção de responsabilidade.** O uso que você faz uso do Marketplace e de quaisquer Produtos do Desenvolvedor obtidos por meio do Marketplace é por sua conta e risco. Exceto conforme expressamente declarado, o GitHub fornece o Marketplace e os Produtos do Desenvolvedor “NO ESTADO EM QUE SE ENCONTRAM” e “MEDIANTE DISPONIBILIDADE”. O GitHub não oferece nem implica quaisquer garantias ou compromissos quanto ao Marketplace e aos Produtos do Desenvolvedor, incluindo, mas não de forma exclusiva, funcionalidade específica disponível por meio dos Produtos do Desenvolvedor e do Marketplace, sua confiabilidade, disponibilidade ou capacidade de atender às suas necessidades.
 
 Nós nos reservamos o direito de, a qualquer momento e periodicamente, modificar ou descontinuar, temporária ou permanentemente, o Marketplace (ou qualquer parte dele) com ou sem notificação prévia.
 
-**Limitação de Responsabilidade.** Você entende e concorda que o GitHub não será responsável perante você nem qualquer terceiro por lucros cessantes, perda de uso, reputação ou dados, nem por quaisquer danos incidentais, indiretos, especiais, consequenciais ou exemplares, independentemente de como surjam, que resultem: (i) do seu uso ou incapacidade de usar o Marketplace ou quaisquer Produtos do Desenvolvedor; (ii) de qualquer modificação, alteração de preço, suspensão ou descontinuação do Marketplace ou Produtos do Desenvolvedor; (iii) do Marketplace em geral ou do software ou de sistemas que disponibilizam o Marketplace; (iv) do acesso não autorizado ou de alterações de suas transmissões ou dados; (v) de declarações ou conduta de qualquer terceiro, Provedor de Produtos ou Produto do Desenvolvedor no Marketplace; (vi) de quaisquer outras interações do usuário que você inserir ou receber por meio do uso do Marketplace; ou (vii) de qualquer outro assunto relacionado ao Marketplace.
+**Limitação de responsabilidade.** Você entende e concorda que o GitHub não será responsável perante você nem qualquer terceiro por lucros cessantes, perda de uso, reputação ou dados, nem por quaisquer danos incidentais, indiretos, especiais, consequenciais ou exemplares, independentemente de como surjam, que resultem: (i) do seu uso ou incapacidade de usar o Marketplace ou quaisquer Produtos do Desenvolvedor; (ii) de qualquer modificação, alteração de preço, suspensão ou descontinuação do Marketplace ou Produtos do Desenvolvedor; (iii) do Marketplace em geral ou do software ou de sistemas que disponibilizam o Marketplace; (iv) do acesso não autorizado ou de alterações de suas transmissões ou dados; (v) de declarações ou conduta de qualquer terceiro, Provedor de Produtos ou Produto do Desenvolvedor no Marketplace; (vi) de quaisquer outras interações do usuário que você inserir ou receber por meio do uso do Marketplace; ou (vii) de qualquer outro assunto relacionado ao Marketplace.
 
 **Isenção e Ressarcimento.** Se você tiver uma controvérsia com um ou mais Provedores de Produtos, você concorda em isentar o GitHub de todos os requerimentos judiciais e/ou extrajudiciais, demandas e danos (reais e consequenciais) de qualquer tipo e natureza, conhecidos e desconhecidos, decorrentes ou de alguma forma relacionados a tais controvérsias.
 
@@ -93,4 +88,4 @@ Você concorda em nos ressarcir, nos defender e nos isentar de todos e quaisquer
 
 6. **Políticas de Licença do GitHub.** Estes Termos do Marketplace são licenciados segundo esta [Licença Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/). Para obter detalhes, consulte o [repositório de políticas do site](https://github.com/github/site-policy#license).
 
-7. **Entre em Contato Conosco.** Dúvidas sobre os Termos do Marketplace? [Entre em contato conosco](https://support.github.com/contact?tags=docs-policy).
+7. **Entre em contato conosco.** Dúvidas sobre os Termos do Marketplace? [ Entre em contato conosco](https://support.github.com/contact?tags=docs-policy).

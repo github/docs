@@ -19,10 +19,10 @@ topics:
   - User account
 shortTitle: Cancel a Marketplace app
 ms.openlocfilehash: 9295f8ab1c5d9f4f3bef027dd6def79fcaa51df4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145088038'
 ---
 アプリケーションをキャンセルすると、そのプランは現在の支払いサイクルが終わるまで有効のままとなり、 次の支払いサイクルで無効となります。 詳細については、「[{% data variables.product.prodname_marketplace %} の請求について](/articles/about-billing-for-github-marketplace)」を参照してください。

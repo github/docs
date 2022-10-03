@@ -8,17 +8,9 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: d7ace8807440d6ae57d38dc8ac296f88c39eb98e
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556434'
 ---
-_Estes termos se aplicam a 1) clientes do GitHub.com (não Corporativos) que aceitaram os Termos de Serviços Corporativos e 2) clientes Corporativos que licenciaram o Serviço antes de 4 de janeiro de 2021. Os clientes Corporativos que compram Produtos ou Serviços após essa data serão direcionados para https://github.com/enterprise-legal para os termos atuais._
 
-OBRIGADO POR ESCOLHER O GITHUB PARA AS NECESSIDADES COMERCIAIS DA SUA EMPRESA. LEIA ESTE CONTRATO COM ATENÇÃO, POIS ELE REGE O USO DOS PRODUTOS (CONFORME DEFINIDO ABAIXO), A MENOS QUE O GITHUB TENHA CELEBRADO UM CONTRATO POR ESCRITO SEPARADO COM O CLIENTE PARA ESSE FIM.
-AO CLICAR NO BOTÃO “CONCORDO” OU SEMELHANTE OU AO ACESSAR OS PRODUTOS, O CLIENTE ACEITA TODOS OS TERMOS E CONDIÇÕES DESTE CONTRATO. SE O CLIENTE ESTIVER CELEBRANDO ESTE CONTRATO EM NOME DE UMA EMPRESA OU DE OUTRA PESSOA JURÍDICA, ELE DECLARA QUE TEM AUTORIDADE LEGAL PARA VINCULAR A EMPRESA OU OUTRA PESSOA JURÍDICA A ESTE CONTRATO.
+_Esses termos se aplicam a clientes do GitHub.com que assinaram contratos em vigor referenciando os Termos de Serviço Corporativos. Todos os outros clientes empresariais ou institucionais são direcionados para [github.com/customer-terms](https://github.com/customer-terms) para obter os termos atuais._
 
 ## <a name="github-corporate-terms-of-service"></a>Termos de Serviços Corporativos do GitHub
 Data de Início de Vigência da Versão: 16 de novembro de 2020
@@ -134,7 +126,7 @@ O uso que o Cliente faz dos Produtos não deve violar nenhuma lei aplicável, in
 O uso que o Cliente faz do Serviço deve estar em conformidade com as [Políticas de Uso Aceitável do GitHub](/articles/github-acceptable-use-policies) e [Diretrizes da Comunidade do GitHub](/articles/github-community-guidelines). O Cliente não deve usar o Serviço em qualquer jurisdição para Conteúdo ou atividade ilegal, obscena, ofensiva ou fraudulenta, como causar danos ou advogar em prol de causá-los, interferir ou violar a integridade ou segurança de uma rede ou sistema, evadir filtros, enviar mensagens não solicitadas, abusivas ou enganosas, vírus ou código prejudicial ou violar direitos de terceiros.
 
 ### <a name="3-privacy"></a>3. Privacidade
-A [Política de Privacidade do GitHub](/articles/github-privacy-statement) e o [Contrato de Proteção de Dados do GitHub](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) fornecem uma notificação detalhada sobre as práticas de privacidade e uso de dados do GitHub, bem como as obrigações de processamento e segurança do GitHub em relação aos Dados Pessoais do Cliente. Qualquer pessoa, entidade ou serviço que coleta dados do Serviço deve cumprir a Política de Privacidade do GitHub, especialmente no que diz respeito à coleta de Informações Pessoais do Usuário (conforme definido na Política de Privacidade do GitHub). Se o Cliente coletar quaisquer Informações Pessoais do Usuário do GitHub, ele as usará apenas para a finalidade para a qual o Usuário Externo as autorizou. O Cliente protegerá razoavelmente tais Informações Pessoais e responderá prontamente a reclamações, solicitações de remoção e solicitações de “não entrar em contato” do GitHub ou de Usuários Externos.
+A [Política de Privacidade do GitHub](/articles/github-privacy-statement) e o [Contrato de Proteção de Dados do GitHub](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) fornecem uma notificação detalhada sobre as práticas de privacidade e uso de dados do GitHub, bem como as obrigações de processamento e segurança do GitHub em relação aos Dados Pessoais do Cliente. Qualquer pessoa, entidade ou serviço que coleta dados do Serviço deve cumprir a Política de Privacidade do GitHub, especialmente no que diz respeito à coleta de Informações Pessoais do Usuário (conforme definido na Política de Privacidade do GitHub). Se o Cliente coletar quaisquer informações pessoais do GitHub, ele as usará apenas para a finalidade para a qual o Usuário Externo as autorizou. O Cliente protegerá razoavelmente tais Informações Pessoais e responderá prontamente a reclamações, solicitações de remoção e solicitações de “não entrar em contato” do GitHub ou de Usuários Externos.
 
 ## <a name="d-content-responsibility-ownership-license-rights"></a>D. Responsabilidade pelo Conteúdo; Propriedade; Direitos de Licença
 
@@ -299,7 +291,7 @@ O GitHub fornecerá suporte técnico padrão para o Serviço sem custo adicional
 ### <a name="1-governing-law"></a>1. Lei Aplicável
 Se a sede principal do Cliente for nas Américas, este Contrato será regido e interpretado de acordo com as leis do Estado da Califórnia, sem dar efeito aos princípios de conflito de leis, e qualquer ação legal ou processo decorrente deste Contrato será ajuizado exclusivamente aos tribunais federais ou estaduais localizados no Distrito Norte da Califórnia, e as Partes concordam com a jurisdição pessoal e foro. Se a sede principal do Cliente estiver fora das Américas, este Contrato será regido pelas leis da Irlanda, e qualquer ação legal ou processo decorrente deste Contrato será ajuizado exclusivamente nos tribunais localizados em Dublin, e as Partes consentem com a jurisdição pessoal e foro. As Partes concordam expressamente que a Convenção das Nações Unidas sobre Contratos para a Venda Internacional de Mercadorias e a Lei de Transações de Informações Uniformes em Computadores não se aplicarão a este Contrato. Não obstante qualquer disposição em contrário acima exposta, o GitHub pode apresentar um pedido de tutela de equidade em qualquer tribunal com jurisdição adequada.
 
-### <a name="2-feedback"></a>2. Feedback
+### <a name="2-feedback"></a>2. Comentários
 O Cliente pode fornecer Feedback ao GitHub sobre os Produtos. O Feedback é voluntário e não constitui uma Informação Confidencial do Cliente, mesmo que designado como tal. O GitHub pode exercer e explorar totalmente esse Feedback com a finalidade de (i) melhorar a operação, funcionalidade e uso das ofertas de produtos existentes e futuros do GitHub e comercializar tais ofertas; e (ii) publicar estatísticas agregadas sobre a qualidade dos Produtos, desde que nenhum dado em tal publicação seja usado para identificar especificamente o Cliente, seus funcionários ou o código de software proprietário do Cliente.
 
 ### <a name="3-non-assignability"></a>3. Impossibilidade de Cessão
@@ -324,4 +316,4 @@ O GitHub estará isento de responsabilidade na medida em que não puder cumprir 
 Cada Parte é um prestador de serviço independente com relação ao objeto deste Contrato. Nenhuma disposição deste Contrato será considerada ou interpretada de qualquer forma para criar uma associação legal, parceria, joint venture, vínculo empregatício, agência, fiduciário ou outro relacionamento semelhante entre as Partes, e nenhuma das Partes pode vincular a outra contratualmente.
 
 ### <a name="10-questions"></a>10. Dúvidas
-Dúvidas sobre os Termos de Serviço? [Fale conosco](https://github.com/contact/).
+Dúvidas sobre os Termos de Serviço? [ Entre em contato conosco](https://github.com/contact/).

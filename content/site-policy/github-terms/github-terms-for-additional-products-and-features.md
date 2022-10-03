@@ -72,7 +72,7 @@ _License to the GitHub Advisory Database_
 The GitHub Advisory Database is licensed under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/). The attribution term may be fulfilled by linking to the GitHub Advisory Database at <https://github.com/advisories> or to individual GitHub Advisory Database records used, prefixed by <https://github.com/advisories>.
 
 ## Codespaces
-_Note: The github.dev service, available by pressing `.` on a repo or navigating directly to github.dev, is governed by [GitHub's Beta Terms of service](/github/site-policy/github-terms-of-service#j-beta-previews)._
+_Note: The github.dev service, available by pressing . on a repo or navigating directly to github.dev, is governed by GitHub's Beta Terms of service._
 
 GitHub Codespaces enables you to develop code directly from your browser using the code within your GitHub repository. Codespaces and any elements of the Codespaces service may not be used in violation of the Agreement or the Acceptable Use Policies. Additionally, Codespaces should not be used for:
 - cryptomining;

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 6e768815225539268c5efd5e3b97ee691be40044
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145118317"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881083"
 ---
 1. １行を選択するか、範囲を選択するかを選んでください。
     - コードを１行選択するには、行番号をクリックしてその行をハイライトしてください。

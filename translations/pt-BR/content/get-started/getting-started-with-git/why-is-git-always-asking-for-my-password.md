@@ -13,10 +13,10 @@ versions:
   ghec: '*'
 shortTitle: Git passwords
 ms.openlocfilehash: 06a8cf617072075f39a880ec58173e7cfbc5bc8a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145126724'
 ---
 Usar uma URL remota do tipo HTTPS tem algumas vantagens em comparação com o uso de SSH. É mais fácil configurar do que SSH e geralmente funciona por meio de firewalls e proxies rigorosos. No entanto, ele também pede que você insira suas credenciais de {% data variables.product.product_name %} sempre que você fizer pull ou push de um repositório. 

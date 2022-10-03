@@ -1,0 +1,18 @@
+date: '2020-12-17'
+sections:
+  security_fixes:
+    - '**低:** SVN ブリッジへの特別に作成された要求によって CPU 使用率が高くなり、サービス拒否 (DoS) が発生する可能性がありました。{% comment %} https://github.com/github/slumlord/pull/1022, https://github.com/github/slumlord/pull/1017 {% endcomment %}'
+    - 'パッケージが最新のセキュリティ バージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/24353, https://github.com/github/enterprise2/pull/23866 {% endcomment %}'
+  bugs:
+    - 'zip アーカイブや生ファイルなど、一部のファイル リソースに対する要求がリダイレクトのループに入ってしまうことがありました。{% comment %} https://github.com/github/enterprise2/pull/24193, https://github.com/github/enterprise2/pull/24075 {% endcomment %}'
+    - 'タイムアウトにより、一部の issue や pull request の検索で完全な検索結果が提供されないことがありました。{% comment %} https://github.com/github/github/pull/164155, https://github.com/github/github/pull/163845 {% endcomment %}'
+    - '小さな画面で、アルファベット以外の文字を含むカスタム タブが、正しく表示されませんでした。{% comment %} https://github.com/github/github/pull/164310, https://github.com/github/github/pull/164159 {% endcomment %}'
+    - '基になる動作により、Git LFS が有効なリポジトリへのコンテンツのプッシュが失敗していました。{% comment %} https://github.com/github/github/pull/164663, https://github.com/github/github/pull/150179 {% endcomment %}'
+    - 'Web インターフェイスでアクセスするとき、まれに、issue で 500 エラーが発生することがありました。{% comment %} https://github.com/github/github/pull/165298, https://github.com/github/github/pull/159674 {% endcomment %}'
+  known_issues:
+    - '新しくセットアップされたユーザーのいない GitHub Enterprise Server で、攻撃者が最初の管理者ユーザーを作成できました。 {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタム ファイアウォール規則は、アップグレード中維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 追跡ファイル (Web インターフェイスからアップロードされたファイル (https://github.com/blog/2105-upload-files-to-your-repositories)) が誤ってリポジトリに直接追加されます。 {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '同じリポジトリ内の BLOB へのパーマリンクが含まれ、ファイル パスが 255 文字を超える場合、issue をクローズできません。{% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベート リポジトリと内部リポジトリの issue は GitHub.com の検索結果に含まれません。 {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。'

@@ -1,6 +1,6 @@
 ---
-title: Checking your commit and tag signature verification status
-intro: 'You can check the verification status of your commit and tag signatures on {% data variables.product.product_name %}.'
+title: コミットおよびタグの署名の検証ステータスを確認する
+intro: '{% data variables.product.product_name %}のコミットやタグの署名について、検証ステータスを確認できます。'
 redirect_from:
   - /articles/checking-your-gpg-commit-and-tag-signature-verification-status
   - /articles/checking-your-commit-and-tag-signature-verification-status
@@ -15,34 +15,36 @@ topics:
   - Identity
   - Access management
 shortTitle: Check verification status
+ms.openlocfilehash: c43072b238d6064b8d6a8cc27bb1994f4806875f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147653315'
 ---
-## Checking your commit signature verification status
+## コミットの署名検証のステータスの確認
 
-1. On {% data variables.product.product_name %}, navigate to your pull request.
+1. {% data variables.product.product_name %}上で、プルリクエストに移動します。
 {% data reusables.repositories.review-pr-commits %}
-3. Next to your commit's abbreviated commit hash, there is a box that shows whether your commit signature is verified{% ifversion fpt or ghec %}, partially verified,{% endif %} or unverified.
-![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
-4. To view more detailed information about the commit signature, click **Verified**{% ifversion fpt or ghec %}, **Partially verified**,{% endif %} or **Unverified**.
-  GPG signed commits will show the ID of the key that was used.
-  ![Verified GPG signed commit](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
-{% ifversion ssh-commit-verification %}
-  SSH signed commits will show the signature of the public key that was used.
-  ![Verified SSH signed commit](/assets/images/help/commits/ssh-signed-commit-verified-details.png)
-{% endif %}
+3. コミットの短縮コミット ハッシュの横にボックスがあり、コミット署名が、検証済み{% ifversion fpt or ghec %}、部分的に検証済み、{% endif %}または未検証のいずれであるかが示されます。
+![署名されたコミット](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+4. コミット署名の詳細を確認するには、 **[Verified]\(検証済み\)** {% ifversion fpt or ghec %}、 **[Partially verified]\(部分的に検証済み\)、** {% endif %}または **[Unverified]\(未検証\)** をクリックします。
+  GPG で署名されたコミットには、使われたキーの ID が表示されます。
+  ![検証済みの GPG で署されたコミット](/assets/images/help/commits/gpg-signed-commit_verified_details.png) {% ifversion ssh-commit-verification %} SSH で署名されたコミットには、使われた公開キーの署名が表示されます。
+![検証済みの SSH で署名されたコミット](/assets/images/help/commits/ssh-signed-commit-verified-details.png) {% endif %}
 
-## Checking your tag signature verification status
+## タグの署名検証のステータスの確認
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-2. At the top of the Releases page, click **Tags**.
-![Tags page](/assets/images/help/releases/tags-list.png)
-3. Next to your tag description, there is a box that shows whether your tag signature is verified{% ifversion fpt or ghec %}, partially verified,{% endif %} or unverified.
-![verified tag signature](/assets/images/help/commits/gpg-signed-tag-verified.png)
-4. To view more detailed information about the tag signature, click **Verified**{% ifversion fpt or ghec %}, **Partially verified**,{% endif %} or **Unverified**. 
-![Verified signed tag](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+2. [Releases]\(リリース\) ページの上部にある **[Tags]\(タグ\)** をクリックします。
+![[Tags]\(タグ\) ページ](/assets/images/help/releases/tags-list.png)
+3. タグの説明の横にボックスがあり、タグ署名が、検証済み{% ifversion fpt or ghec %}、部分的に検証済み、{% endif %}または未検証のいずれであるかが示されます。
+![検証されたタグ署名](/assets/images/help/commits/gpg-signed-tag-verified.png)
+4. タグ署名の詳細を確認するには、 **[Verified]\(検証済み\)** {% ifversion fpt or ghec %}、 **[Partially verified]\(部分的に検証済み\)、** {% endif %}または **[Unverified]\(未検証\)** をクリックします。 
+![検証された署名済みタグ](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
 
-## Further reading
+## 参考資料
 
-- "[About commit signature verification](/articles/about-commit-signature-verification)"
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
+- 「[コミット署名の検証について](/articles/about-commit-signature-verification)」
+- 「[コミットに署名する](/articles/signing-commits)」
+- [タグに署名する](/articles/signing-tags)

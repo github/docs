@@ -9,10 +9,10 @@ topics:
   - Licensing
 shortTitle: Set up
 ms.openlocfilehash: 644a106a749a8c8324b6a3e83dcaa72c8ad878b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147717954'
 ---
 ## Sobre a configuração de {% data variables.product.prodname_vss_ghe %}

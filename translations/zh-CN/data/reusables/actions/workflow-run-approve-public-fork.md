@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 59e70683dad451b603d2d34286976bfaa8d1d9c8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145065816"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881056"
 ---
 任何人都可以复刻公共仓库，然后提交建议更改仓库 {% data variables.product.prodname_actions %} 工作流程的拉取请求。 虽然来自复刻的工作流程无法访问敏感数据（如密钥），但如果出于滥用目的进行修改，可能会让维护者感到烦恼。
 

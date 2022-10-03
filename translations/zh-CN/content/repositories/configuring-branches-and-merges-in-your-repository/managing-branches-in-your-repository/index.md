@@ -18,10 +18,10 @@ children:
   - /deleting-and-restoring-branches-in-a-pull-request
 shortTitle: Manage branches
 ms.openlocfilehash: ba89b34a3372621f2d0fc077030e5321a1443118
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129390'
 ---
 

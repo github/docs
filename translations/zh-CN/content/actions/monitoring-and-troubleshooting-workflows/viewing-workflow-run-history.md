@@ -10,10 +10,10 @@ versions:
   ghec: '*'
 shortTitle: View workflow run history
 ms.openlocfilehash: bfef1ccd9f15480000332aec3ced6dc326cb9af3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145100196'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}

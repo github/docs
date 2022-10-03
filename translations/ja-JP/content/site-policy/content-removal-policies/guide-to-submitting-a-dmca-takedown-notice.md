@@ -11,10 +11,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: c664d164136504f695a3954b03b01e0d47191eab
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556571'
 ---
 このガイドでは、DMCA 削除要求を処理するために GitHub が必要とする情報について説明します。 DMCA の内容や、GitHub による DMCA 削除要求の処理方法など、一般的な事項については [DMCA 削除ポリシー](/articles/dmca-takedown-policy) をご覧ください。
@@ -23,7 +23,7 @@ GitHub がホストするコンテンツの種類 (主にソフトウェア コ�
 
 すべての法的問題と同様に、お客様固有の疑問または状況については常に専門家と相談することが最善策です。 当社は、お客様の権利に影響を与える可能性がある行動を起こす前に、専門家と相談すること強くお勧めします。 このガイドは法的助言ではなく、そのように解釈されるべきものでもありません。
 
-## <a name="before-you-start"></a>提出前の準備
+## 提出前の準備
 
 ***真実を語ってください。** _ DMCA では、_偽証罪により罰せられるという条件で *、著作権侵害の苦情が真実であることを誓うことを義務付けています。宣誓宣言で意図的に虚偽の陳述を行うと連邦犯罪になります ([合衆国法典、第 18 編、第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)* を参照*)。虚偽の情報を提出すると、民事責任が発生する可能性もあります。つまり、金銭的損害で訴えられる可能性があります。 DMCA 自体には、そのマテリアルや活動が権利を侵害していることを故意かつ実質的に不実表示した人物に対する[損害賠償が規定](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations)されています。
 
@@ -56,7 +56,7 @@ GitHub がホストするコンテンツの種類 (主にソフトウェア コ�
 ***GitHub は裁判官ではありません。***
 GitHub は、メモが DMCA の最小要件を満たしているかどうかを判断する以外に、このプロセスで自由裁量権を行使することはほとんどありません。 メモが偽証罪により罰せられるという条件で作成されたことを念頭に、申し立てのメリットを評価するのは両当事者 (およびそれぞれの弁護士) 次第です。
 
-## <a name="your-complaint-must-"></a>苦情の要件
+## 苦情の要件
 
 1. **以下の文言を含めてください。「I have read and understand GitHub's Guide to Filing a DMCA Notice (GitHub の DMCA 通知提出ガイドを読んで理解しました。)」** この文言が含まれていないとしても、苦情に不備がなければ当社は処理を拒否しません。 ただし、このガイドラインを読んでいないと判断できるため、ガイドラインを読むように求める場合があります。
 
@@ -77,14 +77,14 @@ GitHub は、メモが DMCA の最小要件を満たしているかどうかを�
 
 9. **お客様の直筆または電子署名を入れてください。**
 
-## <a name="complaints-about-anti-circumvention-technology"></a>技術的な保護措置の回避禁止に関する苦情
+## 技術的な保護措置の回避禁止に関する苦情
 
 著作権法では、著作権で保護された著作物へのアクセスを効果的に制御する技術的措置の回避も禁止しています。 GitHub でホストされているコンテンツがこの禁止事項に違反すると思われる場合は、{% data variables.contact.contact_dmca %}からレポートを送信してください。 回避申し立てには、実施されている技術的措置に関する以下の詳細および告発されたプロジェクトが回避している方法を記載する必要があります。 特に、GitHub への通知には、以下に関する詳細な説明を含める必要があります。
 1. 技術的措置の内容: 
 2. 著作権で保護された版権物へのアクセスを効果的に制御する方法、および 
 3. 告発プロジェクトを、以前に説明した技術的な保護対策を回避するように工夫する方法。
 
-## <a name="how-to-submit-your-complaint"></a>苦情の提出方法
+## 苦情の提出方法
 
 {% data variables.contact.contact_dmca %}で情報を入力し、すべての質問に答えることで、最も早く回答を得ることができます。
 

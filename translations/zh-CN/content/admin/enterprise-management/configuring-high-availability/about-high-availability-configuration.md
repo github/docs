@@ -14,10 +14,10 @@ topics:
   - Infrastructure
 shortTitle: About HA configuration
 ms.openlocfilehash: 921a1a935bbfa930c77e2c72d7856f00d54d6016
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '146332742'
 ---
 配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。 还会复制大多数 {% data variables.product.prodname_ghe_server %} 配置设置，包括 {% data variables.enterprise.management_console %} 密码。 有关详细信息，请参阅“[访问管理控制台](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)”。

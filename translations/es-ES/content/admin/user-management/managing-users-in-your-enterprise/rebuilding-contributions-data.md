@@ -14,10 +14,10 @@ topics:
   - User account
 shortTitle: Rebuild contributions
 ms.openlocfilehash: 66a4aff597be725eb06dd4c8743ee2ad8691c7e4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145116218'
 ---
 Siempre que se sube una confirmación de cambios a {% data variables.product.prodname_enterprise %}, se vincula a una cuenta de usuario, si ambas están asociadas con la misma dirección de correo electrónico. Pero las confirmaciones existentes *no* se vinculan de forma retroactiva cuando un usuario registra una dirección de correo electrónico nueva o crea una cuenta.

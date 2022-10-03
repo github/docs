@@ -8,14 +8,9 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 25e713f275e6a0dd04aefc8652d16d168470bfd8
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556499'
 ---
-欢迎使用 GitHub Marketplace（以下简称“Marketplace”）！ 我们很高兴您能来到这里。 在访问或使用 GitHub Marketplace 之前，请仔细阅读以下服务条款（以下简称“Marketplace 条款”）。 GitHub Marketplace 是一个平台，供您选择可通过您的 GitHub.com 帐户使用的开发人员应用或操作（免费或付费）（以下简称“开发人员产品”）。 尽管开发人员产品由 GitHub, Inc.（以下简称“GitHub”或“我们”）提供，但 GitHub 或第三方软件提供商都可以开发和维护开发人员产品。 您对开发人员产品的选择或使用受这些 Marketplace 条款的约束，并可能需要支付适当的费用，而且您可能需要同意开发人员产品的第三方许可方（以下简称“产品提供商”）提出的额外条款。
+
+欢迎使用 GitHub Marketplace（以下简称“Marketplace”）！ 我们很高兴在这里遇到你。 在访问或使用 GitHub Marketplace 之前，请仔细阅读以下服务条款（以下简称“Marketplace 条款”）。 GitHub Marketplace 是一个平台，供您选择可通过您的 GitHub.com 帐户使用的开发人员应用或操作（免费或付费）（以下简称“开发人员产品”）。 尽管开发人员产品由 GitHub, Inc.（以下简称“GitHub”或“我们”）提供，但 GitHub 或第三方软件提供商都可以开发和维护开发人员产品。 您对开发人员产品的选择或使用受这些 Marketplace 条款的约束，并可能需要支付适当的费用，而且您可能需要同意开发人员产品的第三方许可方（以下简称“产品提供商”）提出的额外条款。
 
 通过使用 Marketplace，您同意受这些 Marketplace 条款的约束。
 

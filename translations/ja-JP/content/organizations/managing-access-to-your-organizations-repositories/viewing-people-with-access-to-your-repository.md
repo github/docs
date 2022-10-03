@@ -1,6 +1,6 @@
 ---
-title: 自分のリポジトリにアクセスできる人を表示する
-intro: 'Organization内のリポジトリにアクセスできる人のリストを表示{% ifversion ghec or ghes or ghae %}及びエクスポート{% endif %}できます。'
+title: Viewing people with access to your repository
+intro: 'You can view{% ifversion ghec or ghes or ghae %} and export{% endif %} a list of people with access to a repository within an organization.'
 redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
   - /github/setting-up-and-managing-organizations-and-teams/viewing-people-with-access-to-your-repository
@@ -14,34 +14,45 @@ topics:
   - Teams
 shortTitle: View people with access
 permissions: Organization owners can view people with access to a repository.
-ms.openlocfilehash: 01ee5b1844e32b4ba631fda67babaa9e9f8a982e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066635'
 ---
-## リポジトリにアクセスできる人のリストについて
 
-この情報は、外部の人の支援、コンプライアンスのデータ収集、その他の一般的なセキュリティチェックに利用できます。 
+## About the list of people with access to your repository
 
-{% ifversion fpt %} {% data variables.product.prodname_ghe_cloud %} を使用する Organization は、リポジトリへのアクセス権を持つ人の CSV リストをエクスポートすることもできます。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository)を参照してください。
+You can use this information to help off-board people, gather data for compliance, and other general security checkups. 
+
+{% ifversion fpt %}
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can also export a CSV list of people who have access to a repository. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository).
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %} ![アクセス管理の概要](/assets/images/help/repository/manage-access-overview.png) {% else %} ![リポジトリ ユーザーのアクセス許可リスト](/assets/images/help/repository/repository-permissions-list.png) {% endif %}
-## 自分のリポジトリにアクセスできる人を表示する
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+![Access management overview](/assets/images/help/repository/manage-access-overview.png)
+{% else %}
+![Repository people permissions list](/assets/images/help/repository/repository-permissions-list.png)
+{% endif %}
+## Viewing people with access to your repository
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %} リポジトリ設定で、リポジトリにアクセスできる Team とユーザーの概要を組み合わせて確認できます。 詳細については、「[リポジトリへのアクセス権を持つ Team と人を管理する](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)」を参照してください。 {% else %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %} {% data reusables.repositories.accessing-repository-people %} {% endif %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+You can see a combined overview of teams and people with access to your repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)." 
+{% else %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.accessing-repository-people %}
+{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-## リポジトリへのアクセス権を持つ人のリストをエクスポートする
+## Exporting a list of people with access to your repository
 
-{% ifversion ghec %} {% note %}
+{% ifversion ghec %}
+{% note %}
 
-**注:** {% data variables.product.prodname_ghe_cloud %} を使用する Organization だけが、リポジトリにアクセスできる人のリストをエクスポートできます。 {% data reusables.enterprise.link-to-ghec-trial %}
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can export a list of people with access to a repository. {% data reusables.enterprise.link-to-ghec-trial %}
 
-{% endnote %} {% endif %}
+{% endnote %}
+{% endif %}
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %} {% data reusables.repositories.accessing-repository-people %}
-4. **[CSV にエクスポート]** をクリックします。
-  ![リポジトリ サイドバーの [ユーザー] タブ](/assets/images/help/repository/export-repository-permissions.png) {% endif %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.accessing-repository-people %}
+4. Click **Export CSV**.
+  ![People tab in the repository sidebar](/assets/images/help/repository/export-repository-permissions.png)
+{% endif %}

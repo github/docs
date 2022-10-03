@@ -12,10 +12,10 @@ topics:
   - 2FA
 shortTitle: Countries supporting SMS
 ms.openlocfilehash: bfd2ae699b2ac36d0d56deb43d892192441d2fe3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145083575'
 ---
 Se a autenticação de dois fatores por mensagem de texto não for aceita em seu país de residência, você poderá configurar a autenticação por meio de um aplicativo móvel TOTP. Para obter mais informações, confira "[Como configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".

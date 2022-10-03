@@ -18,10 +18,10 @@ topics:
   - 2FA
 shortTitle: Configure 2FA recovery
 ms.openlocfilehash: a16f8dda2f834beb4c4a1634fae812b18a8730a3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145088289'
 ---
 2 要素認証リカバリコードを安全に保管することに加え、別のリカバリ方法を 1 つ以上設定することを強くおすすめします。

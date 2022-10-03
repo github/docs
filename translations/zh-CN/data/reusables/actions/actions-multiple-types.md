@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 4c39c079fb88a8a1b86ed9359ebe55be268389bb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098579"
 ---
 如果为事件指定活动类型或筛选器，并且针对多个事件指定工作流触发器，则必须单独配置每个事件。 必须为所有事件附加冒号 (`:`)，包括没有配置的事件。

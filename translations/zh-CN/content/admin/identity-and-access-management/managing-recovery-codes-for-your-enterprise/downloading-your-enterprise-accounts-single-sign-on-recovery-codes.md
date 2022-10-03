@@ -14,10 +14,10 @@ redirect_from:
   - /admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes
 permissions: Enterprise owners can download the SSO recovery codes for the enterprise account.
 ms.openlocfilehash: 82f44654b18a36d2fb29797fe8b6e0426785522b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147063592'
 ---
 如果 IdP 不可用，可以使用恢复代码在 {% data variables.product.product_location %} 上登录和访问企业。 有关详细信息，请参阅“[在标识提供者不可用时访问企业帐户](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)”。

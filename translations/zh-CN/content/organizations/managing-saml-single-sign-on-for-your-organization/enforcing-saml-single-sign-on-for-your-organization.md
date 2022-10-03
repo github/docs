@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: Enforce SAML single sign-on
 ms.openlocfilehash: 78c6ca3297705511e419a96742a8887d01d7b70d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145101338'
 ---
 ## 关于对组织实施 SAML SSO

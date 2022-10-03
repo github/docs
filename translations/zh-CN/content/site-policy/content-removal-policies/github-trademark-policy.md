@@ -8,12 +8,6 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 289a04f894172d8adcaf0c32fe129efb524d8941
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556487'
 ---
 ## <a name="what-is-a-github-trademark-policy-violation"></a>哪些行为违反 GitHub 商标政策？
 
@@ -51,7 +45,7 @@ ms.locfileid: '144556487'
 * 还应包括以下声明：“我郑重声明，本通知中的信息是准确的，并且我是商标所有者，或者我被授权代表专有权涉嫌受到侵犯的所有者行事。”
 * 包括您的纸质或电子签名。
 
-* 注意：需要提供联邦或国际商标注册号。 如果您举报的名称 **不是** 注册商标（例如，政府机构或非营利组织），请告知：
+* 注意：需要提供联邦或国际商标注册号。 如果您举报的名称**不是**注册商标（例如，政府机构或非营利组织），请告知：
     * 您的名字和姓氏
     * 标题
     * 地址

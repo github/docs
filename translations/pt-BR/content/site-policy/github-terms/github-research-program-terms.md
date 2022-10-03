@@ -8,13 +8,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 7a2c9623e48ec2271c87ceef2267e383ae852566
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556442'
 ---
+
 Bem-vindo ao Programa de Pesquisa do GitHub (o “Programa”)! Para participar, precisamos que você concorde com um conjunto especial de termos, o Contrato do Programa de Pesquisa do GitHub (“Contrato”).
 
 Este Contrato é um contrato legal celebrado entre você (“você”, “seu”) e a GitHub, Inc. (“GitHub”, “nós” ou “nos”). Leia este Contrato com atenção – você só poderá ser um participante do Programa se aceitar todos os termos deste Contrato. Participar do Programa de qualquer forma – por exemplo, acessando informações sobre produtos ou serviços do GitHub que ainda não estão disponíveis para o público em geral – significa que você concorda em cumprir todos os termos deste Contrato.
@@ -47,11 +42,11 @@ Você pode remover seu consentimento a qualquer momento e solicitar o acesso ou 
 
 Se o acesso aos serviços ou software do GitHub for necessário para participar de determinados estudos ou atividades do Programa, o contrato de serviços ou software será aplicado ao uso que você faz desses produtos (os “Termos Geralmente Aplicáveis”). No caso de um conflito direto entre este Contrato e os Termos Geralmente Aplicáveis, os Termos Geralmente Aplicáveis prevalecerão, exceto com relação a qualquer uso de Informações Confidenciais (conforme definido abaixo), caso em que este Contrato prevalecerá.
 
-## <a name="f-disclaimer-of-warranties"></a>F. Isenção de garantias
+## <a name="f-disclaimer-of-warranties"></a>F. Aviso de isenção de responsabilidade de garantias
 
 Todas as Informações Confidenciais e outros materiais que você recebe por meio do Programa são fornecidas “no estado em que se encontram” e sem garantia de qualquer tipo. Não obstante, nós nos isentamos expressamente de todas as garantias, sejam contratuais, legais ou estatutárias, em relação ao Programa, incluindo, sem limitação, qualquer garantia de padrões de comercialização, adequação a uma finalidade específica, titularidade de direito, segurança, precisão e não violação.
 
-## <a name="g-limitation-of-liability"></a>G. Limitação de Responsabilidade
+## <a name="g-limitation-of-liability"></a>G. Limitação de responsabilidade
 
 Exceto conforme proibido por lei, você entende e concorda que nós não seremos responsáveis perante você nem qualquer terceiro por lucros cessantes, perda de uso, reputação ou dados, nem por quaisquer danos incidentais, indiretos, especiais, consequenciais ou exemplares.
 

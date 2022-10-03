@@ -15,10 +15,10 @@ topics:
   - SSH
 shortTitle: Permission denied other-user
 ms.openlocfilehash: b46df8f9e8671008b37d3db69e2094e96e0413b8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145083552'
 ---
 Para corrigir isso, o proprietário do repositório (`user`) precisa adicionar sua conta (`other-user`) como colaborador no repositório ou a uma equipe que tenha acesso de gravação ao repositório.

@@ -9,13 +9,8 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 3fd74896cbc5a9c6d841fd94a75c99c7ed77ad86
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556419'
 ---
+
 Oferecemos esse processo de remoção de informações privadas como um serviço excepcional apenas para conteúdo de alto risco que viola os [Termos de Serviço do GitHub](/github/site-policy/github-acceptable-use-policies#3-conduct-restrictions), como quando sua segurança está em risco devido à exposição das credenciais de acesso. Este guia descreve as informações que o GitHub precisa que você forneça a fim de processar uma solicitação para remover informações privadas de um repositório.
 
 ## <a name="what-is-private-information"></a>O que são Informações Privadas?
@@ -28,7 +23,7 @@ Para as finalidades deste documento, “informação privada” refere-se ao con
 - Credenciais de acesso, como nomes de usuário combinados com senhas, tokens de acesso ou outros segredos confidenciais que podem permitir acesso ao servidor, à rede ou ao domínio da sua organização.
 - Tokens da AWS e outras credenciais de acesso semelhantes que permitem acesso a terceiros em seu nome. Você deve ser capaz de mostrar que o token pertence a você.
 - Documentação (como arquitetura ou diagramas de rede) que representa um risco de segurança específico para uma organização. 
-- [Informações](/github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy) relacionadas e que representam um risco à segurança para você como pessoa física (como números da previdência social ou outros números de identificação do governo).
+- [Informações](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy) relacionadas e que representam um risco à segurança para você como pessoa física (como números da previdência social ou outros números de identificação do governo).
 
 ### <a name="private-information-removal-requests-are-_not_-appropriate-for"></a>As solicitações de remoção de informações privadas _não_ são apropriadas para:
 - Nomes de servidores internos, endereços IP e URLs por conta própria. Você deve ser capaz de comprovar que seu uso em um determinado arquivo ou parte de código representa uma ameaça à segurança.
@@ -68,7 +63,7 @@ Para as finalidades deste documento, “informação privada” refere-se ao con
 7. **O usuário pode solicitar uma janela adicional para fazer alterações.** Se o usuário perder a oportunidade de remover as informações privadas especificadas na notificação, poderemos conceder a ele um período adicional de aproximadamente 1 dia útil, mediante solicitação, para fazer essas alterações. Nesse caso, o GitHub notificará o denunciante.
 
 ### <a name="what-about-forks-or-whats-a-fork"></a>E os forks? (ou O que é um fork?)
-Um dos melhores recursos do GitHub é a capacidade de os usuários “criarem forks” dos repositórios uns dos outros. O que isso significa? Basicamente, isso significa que os usuários podem fazer uma cópia de um projeto no GitHub em seus próprios repositórios. Conforme a licença ou a lei permitir, os usuários podem fazer alterações nesse fork para retornar ao projeto principal ou apenas manter como sua própria variação de um projeto. Cada uma dessas cópias é um “[fork](/articles/github-glossary/#fork)” do repositório original, que por sua vez também pode ser chamado de “pai” do fork.
+Um dos melhores recursos do GitHub é a capacidade de os usuários "criarem forks" dos repositórios uns dos outros. O que isso significa? Basicamente, isso significa que os usuários podem fazer uma cópia de um projeto no GitHub em seus próprios repositórios. Conforme a licença ou a lei permitir, os usuários podem fazer alterações nesse fork para retornar ao projeto principal ou apenas manter como sua própria variação de um projeto. Cada uma dessas cópias é um “[fork](/articles/github-glossary/#fork)” do repositório original, que por sua vez também pode ser chamado de “pai” do fork.
 
 O GitHub não desabilitará automaticamente os forks ao desabilitar um repositório pai. Isso ocorre porque os forks pertencem a usuários diferentes e podem ter sido alterados de maneira significativa. O GitHub não conduz nenhuma investigação independente sobre forks. Esperamos que aqueles que enviam solicitações de remoção de informações privadas conduzam essa investigação e, se acreditarem que os forks também contêm informações privadas, incluam expressamente os forks em sua solicitação.
 

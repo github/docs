@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 91063473b138602048700554b54ff81778394656
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145096340"
 ---
 Os membros com permissões de mantenedor da equipe podem:

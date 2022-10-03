@@ -14,10 +14,10 @@ topics:
   - Teams
 shortTitle: Restrict repository creation
 ms.openlocfilehash: da5d32962c52b752dff9dd9012f8cc8e5494d8c6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145069642'
 ---
 Puedes elegir si los miembros pueden crear repositorios en tu organización o no. {% ifversion ghec or ghes or ghae %}Si permites que los miembros creen repositorios, puedes elegir qué tipos de estos pueden crear.{% elsif fpt %}Si permites que los miembros creen repositorios, puedes elegir si ellos pueden crear tanto repositorios públicos como privados o solo públicos.{% endif %} Los propietarios de las organizaciones siempre pueden crear cualquier tipo de repositorio.

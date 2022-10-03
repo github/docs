@@ -1,7 +1,7 @@
 ---
 title: Alterar o branch-padrão
 intro: 'Se você tiver mais de um branch no seu repositório, você poderá configurar qualquer branch como o branch-padrão.'
-permissions: People with admin permissions to a repository can change the default branch for the repository.
+permissions: People with admin access for a repository can change the default branch for the repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,10 +16,10 @@ topics:
   - Repositories
 shortTitle: Change the default branch
 ms.openlocfilehash: e8f88499ab258e5855804288a4f811b38237df97
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145127113'
 ---
 ## Sobre mudar o branch-padrão

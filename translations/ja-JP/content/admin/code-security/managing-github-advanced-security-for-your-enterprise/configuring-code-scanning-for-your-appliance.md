@@ -48,6 +48,14 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 You must ensure that Git is in the PATH variable on any self-hosted runners you use to run {% data variables.product.prodname_codeql %} actions.
 
+{% ifversion ghes > 3.7 or ghae > 3.7 %}
+{% note %}
+
+If you use {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} to analyze code written in Python in your enterprise, you must make sure that your self-hosted runner has Python 3 installed.
+
+{% endnote %}
+{% endif %}
+
 ### Provisioning the actions for {% data variables.product.prodname_code_scanning %}
 
 {% ifversion ghes %}
