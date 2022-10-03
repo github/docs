@@ -290,6 +290,7 @@ translations/zh-CN/content/admin/configuration/configuring-your-enterprise/confi
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
+translations/zh-CN/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,broken liquid tags
 translations/zh-CN/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
 translations/zh-CN/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise.md,rendering error
@@ -481,7 +482,7 @@ translations/zh-CN/content/packages/learn-github-packages/viewing-packages.md,re
 translations/zh-CN/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-npm-registry.md,rendering error
-translations/zh-CN/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,broken liquid tags
+translations/zh-CN/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,rendering error
 translations/zh-CN/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,rendering error
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,broken liquid tags
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository.md,rendering error
@@ -518,6 +519,7 @@ translations/zh-CN/content/rest/repos/lfs.md,broken liquid tags
 translations/zh-CN/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,rendering error
 translations/zh-CN/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,rendering error
 translations/zh-CN/content/site-policy/privacy-policies/github-subprocessors-and-cookies.md,broken liquid tags
+translations/zh-CN/content/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers.md,broken liquid tags
 translations/zh-CN/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account.md,broken liquid tags
 translations/zh-CN/content/support/learning-about-github-support/about-github-support.md,rendering error
