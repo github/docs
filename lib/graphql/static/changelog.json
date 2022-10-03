@@ -4,6 +4,28 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>CreateLinkedBranchInput</code> was added</p>",
+          "<p>Type <code>CreateLinkedBranchPayload</code> was added</p>",
+          "<p>Type <code>DeleteLinkedBranchInput</code> was added</p>",
+          "<p>Type <code>DeleteLinkedBranchPayload</code> was added</p>",
+          "<p>Type <code>LinkedBranch</code> was added</p>",
+          "<p>Type <code>LinkedBranchConnection</code> was added</p>",
+          "<p>Type <code>LinkedBranchEdge</code> was added</p>",
+          "<p>Field <code>linkedBranches</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>createLinkedBranch</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteLinkedBranch</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-10-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>view</code> was added to object type 'ProjectV2'</p>"
         ]
       }
