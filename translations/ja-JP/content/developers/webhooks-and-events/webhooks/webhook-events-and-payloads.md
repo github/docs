@@ -1065,6 +1065,10 @@ Key | Type | Description
 
 {% data reusables.webhooks.pull_request_short_desc %}
 
+{% ifversion fpt or ghec %}
+  {% data reusables.pull_requests.merge-queue-beta %}
+{% endif %}
+
 ### Availability
 
 - Repository webhooks

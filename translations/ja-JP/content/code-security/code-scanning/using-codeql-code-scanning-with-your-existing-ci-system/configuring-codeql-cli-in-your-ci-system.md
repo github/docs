@@ -331,6 +331,15 @@ By default, {% data variables.product.prodname_code_scanning %} expects one SARI
 
 If you want to upload more than one set of results to the {% data variables.product.prodname_code_scanning %} API for a commit in a repository, you must identify each set of results as a unique set. For repositories where you create more than one {% data variables.product.prodname_codeql %} database to analyze for each commit, use the `--sarif-category` option to specify a language or other unique category for each SARIF file that you generate for that repository.
 
+{% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+### Issues with Python extraction
+
+We are deprecating Python 2 support for the {% data variables.product.prodname_codeql_cli %}, more specifically for the CodeQL database generation phase (code extraction).
+
+If you use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} on code written in Python, you must make sure that your CI system has Python 3 installed.
+
+{% endif %}
+
 ## Further reading
 
 - [Creating CodeQL databases](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/)

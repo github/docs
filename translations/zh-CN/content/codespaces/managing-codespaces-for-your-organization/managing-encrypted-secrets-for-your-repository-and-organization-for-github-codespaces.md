@@ -1,7 +1,7 @@
 ---
-title: 为 GitHub Codespaces 管理存储库和组织的加密机密
+title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
 shortTitle: Encrypted secrets
-intro: '加密机密允许你将敏感信息存储在你的组织、仓库或 {% data variables.product.prodname_github_codespaces %} 中。'
+intro: 'Encrypted secrets allow you to store sensitive information in your organization, repository, or {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
@@ -13,67 +13,72 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
-ms.openlocfilehash: 86755c5858fb230ddd12b16bd18148511f8d8277
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147111408'
 ---
-## 关于机密
 
-密钥是您在组织或仓库中创建的加密环境变量。 你创建的机密可用于 {% data variables.product.prodname_github_codespaces %}。 GitHub 在机密提交到 GitHub 之前使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对其加密，并且仅当需要在 codespace 中使用它们时才对其解密。
+ 
 
-组织级密钥允许在多个仓库之间共享密钥，从而减少创建重复密钥的需要。 您可以使用访问策略来控制哪些仓库可以使用组织密钥。 
+## About secrets
+
+Secrets are encrypted environment variables that you create in an organization or  repository. The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. GitHub uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach GitHub and only decrypts them when you use them in a codespace.
+
+Organization-level secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets. 
 
 {% data reusables.codespaces.secrets-on-start %}
 
-### 命名密钥
+### Naming secrets
 
-{% data reusables.codespaces.secrets-naming %} 例如，在仓库级别创建的密钥必须在该仓库中具有唯一的名称， 而在组织级创建的密钥必须在该级别有独特的名称。
+{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
   {% data reusables.codespaces.secret-precedence %}
 
-### 密码的限制
+### Limits for secrets
 
-每个组织最多可存储 100 个密钥，每个仓库最多可存储 100 个密钥。
+You can store up to 100 secrets per organization and 100 secrets per repository.
 
-密码大小限于 64 KB。
+Secrets are limited to 64 KB in size.
 
-## 为仓库添加密钥
+## Adding secrets for a repository
 
-要为组织仓库创建密码，您必须具有管理员访问权限。
+To create secrets for an organization repository, you must have administrator access.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
-1. 在边栏的“安全性”部分中，选择“{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} 机密”，然后单击“{% data variables.product.prodname_codespaces %}” 。
-2. 在页面顶部，单击“新建存储库机密”。
-3. 在“名称”输入框中键入机密名称。
-4. 输入密码的值。
-5. 单击“添加机密”。
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.codespaces.sidebar-secret %}
 
-## 为组织添加密钥
+2. At the top of the page, click **New repository secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the value for your secret.
+5. Click **Add secret**.
 
-在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
+## Adding secrets for an organization
+
+When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
-{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %}
-1. 在边栏的“安全性”部分中，选择“{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} 机密”，然后单击“{% data variables.product.prodname_codespaces %}” 。
-2. 在页面顶部，单击“新建组织机密”。
-3. 在“名称”输入框中键入机密名称。
-4. 输入“机密”的值。
-5. 从“存储库访问”下拉列表中，选择访问策略。
-    ![已选定专用存储库的存储库访问列表](/assets/images/help/codespaces/secret-repository-access.png)
-6. 单击“添加机密”。
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.codespaces.sidebar-secret %}
 
-## 审查对组织级别密码的访问权限
+2. At the top of the page, click **New organization secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the **Value** for your secret.
+5. From the **Repository access** dropdown list, choose an access policy.
+    ![Repository Access list with private repositories selected](/assets/images/help/codespaces/secret-repository-access.png)
+6. Click **Add secret**.
 
-您可以检查哪些访问策略应用于组织中的密钥。
+## Reviewing access to organization-level secrets
 
-{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.actions.sidebar-secret %}
-1. 密码列表包括任何已配置的权限和策略。 例如：![机密列表](/assets/images/help/settings/actions-org-secrets-list.png)
-1. 若要详细了解已为每个机密配置的权限，请单击“更新”。
+You can check which access policies are applied to a secret in your organization.
 
-## 延伸阅读
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.codespaces.sidebar-secret %}
 
-- [管理 codespace 的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
+1. The list of secrets includes any configured permissions and policies. For example:
+![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
+1. For more details on the configured permissions for each secret, click **Update**.
+
+## Further reading
+
+- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

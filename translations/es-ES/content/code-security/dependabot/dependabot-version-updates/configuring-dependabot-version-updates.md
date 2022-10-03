@@ -137,7 +137,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     ignore:
       # Ignore updates to packages that start with 'aws'
       # Wildcards match zero or more arbitrary characters
