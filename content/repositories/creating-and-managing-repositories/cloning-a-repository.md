@@ -48,9 +48,8 @@ gh repo clone REPOSITORY
 You can also use the GitHub URL to clone a repository.
 
 ```shell
-gh repo clone URL
+gh repo clone https://github.com/PATH-TO/REPOSITORY
 ```
-Replace URL with the URL of a GitHub repository. For example, `https://github.com/cli/cli` 
 
 {% endcli %}
 
