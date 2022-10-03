@@ -192,7 +192,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
   ```shell
   repositories {
       maven {
-          url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else % REGISTRY-URL{% endif %}/OWNER/REPOSITORY")
+          url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/REPOSITORY")
           credentials {
               username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
               password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
