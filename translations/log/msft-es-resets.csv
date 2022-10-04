@@ -300,6 +300,7 @@ translations/es-ES/content/actions/using-workflows/workflow-syntax-for-github-ac
 translations/es-ES/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise.md,rendering error
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,rendering error
+translations/es-ES/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,broken liquid tags
 translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
 translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise.md,rendering error
 translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise.md,rendering error
@@ -505,6 +506,7 @@ translations/es-ES/content/rest/overview/permissions-required-for-github-apps.md
 translations/es-ES/content/rest/repos/lfs.md,broken liquid tags
 translations/es-ES/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,rendering error
 translations/es-ES/content/site-policy/privacy-policies/github-subprocessors-and-cookies.md,broken liquid tags
+translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers.md,broken liquid tags
 translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization.md,broken liquid tags
 translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account.md,broken liquid tags
 translations/es-ES/content/support/learning-about-github-support/about-github-support.md,rendering error

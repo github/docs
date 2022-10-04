@@ -36,7 +36,7 @@ By connecting a repository to a package, the package landing page will show info
 1. In your Dockerfile, add this line, replacing {% ifversion ghes %}`HOSTNAME`, {% endif %}`OWNER` and `REPO` with your details:
 
  ```shell
- LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPO</em>
+ LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPO
  ```
  For example, if you're the user `monalisa` and own `my-repo`, and {% data variables.product.product_location %} hostname is `github.companyname.com`, you would add this line to your Dockerfile:
  ```shell
