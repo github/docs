@@ -4,7 +4,7 @@ intro: 直接Issueのページから作業のためのブランチを作成し�
 versions:
   fpt: '*'
   ghes: '>=3.5'
-  ghae: issue-6234
+  ghae: '>= 3.5'
   ghec: '*'
 allowTitleToDifferFromFilename: true
 topics:

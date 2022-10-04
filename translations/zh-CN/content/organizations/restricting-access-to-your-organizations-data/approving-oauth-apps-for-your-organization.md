@@ -1,6 +1,6 @@
 ---
-title: 批准组织的 OAuth Apps
-intro: '当组织成员申请 {% data variables.product.prodname_oauth_app %} 访问组织资源时，组织所有者可以批准或拒绝该申请。'
+title: Approving OAuth Apps for your organization
+intro: 'When an organization member or outside collaborator requests {% data variables.product.prodname_oauth_app %} access to organization resources, organization owners can approve or deny the request.'
 redirect_from:
   - /articles/approving-third-party-applications-for-your-organization
   - /articles/approving-oauth-apps-for-your-organization
@@ -12,21 +12,20 @@ topics:
   - Organizations
   - Teams
 shortTitle: Approve OAuth Apps
-ms.openlocfilehash: b4f8f81b9ad773af86c7e2b488459d8865de3a49
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145130343'
 ---
-启用 {% data variables.product.prodname_oauth_app %} 访问限制后，组织成员必须先向组织所有者[申请批准](/articles/requesting-organization-approval-for-oauth-apps)，然后才能授权有权访问组织资源的 {% data variables.product.prodname_oauth_app %}。
+When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, organization members and outside collaborators must [request approval](/articles/requesting-organization-approval-for-oauth-apps) from an organization owner before they can authorize an {% data variables.product.prodname_oauth_app %} that has access to the organization's resources.
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.oauth_app_access %}
-5. 在要批准的应用程序旁边，单击“查看”。
-![查看请求链接](/assets/images/help/settings/settings-third-party-approve-review.png)
-6. 查看有关请求的应用程序的信息后，单击“授权访问”。
-![“授权访问”按钮](/assets/images/help/settings/settings-third-party-approve-grant.png)
+{% ifversion limit-app-access-requests %}
+{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
 
-## 延伸阅读
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.oauth_app_access %}
+5. Next to the application you'd like to approve, click **Review**.
+![Review request link](/assets/images/help/settings/settings-third-party-approve-review.png)
+6. After you review the information about the requested application, click **Grant access**.
+![Grant access button](/assets/images/help/settings/settings-third-party-approve-grant.png)
 
-- [关于 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/about-oauth-app-access-restrictions)
+## Further reading
+
+- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"

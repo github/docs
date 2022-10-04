@@ -5,7 +5,7 @@ intro: 'Como usar recursos avançados do {% data variables.product.prodname_acti
 versions:
   fpt: '*'
   ghes: '>= 3.5'
-  ghae: issue-4925
+  ghae: '>= 3.5'
   ghec: '*'
 type: how_to
 topics:

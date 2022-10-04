@@ -116,7 +116,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
 * You can also run an _introspection query_ of the schema via a `GET` request:
 
   ```shell
-  $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
+  $ curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
   ```
   
   {% note %}
@@ -130,7 +130,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   Alternatively, you can pass the `idl` media type to return the results in IDL format, which is a condensed version of the schema:
 
   ```shell
-  $ curl -H "Authorization: bearer <em>token</em>" -H "Accept: application/vnd.github.v4.idl" \
+  $ curl -H "Authorization: bearer TOKEN" -H "Accept: application/vnd.github.v4.idl" \
   {% data variables.product.graphql_url_pre %}
   ```
 

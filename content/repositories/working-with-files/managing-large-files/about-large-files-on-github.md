@@ -40,7 +40,7 @@ shortTitle: Large files
 
 {% endnote %}
 
-{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
 
 To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[About {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
 
@@ -74,7 +74,7 @@ If the file was added with your most recent commit, and you have not pushed to {
 {% data reusables.command_line.switching_directories_procedural %}
 3. To remove the file, enter `git rm --cached`:
   ```shell
-  $ git rm --cached <em>giant_file</em>
+  $ git rm --cached GIANT_FILE
   # Stage our giant file for removal, but leave it on disk
   ```
 4. Commit this change using `--amend -CHEAD`:

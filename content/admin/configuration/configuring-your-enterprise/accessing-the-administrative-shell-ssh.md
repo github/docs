@@ -58,13 +58,13 @@ If you encounter the `Permission denied (publickey)` error when you try to conne
 To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
 
 ```shell
-ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
+ssh -i /path/to/ghe_private_key -p 122 admin@HOSTNAME
 ```
 
 You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
-Host <em>hostname</em>
+Host HOSTNAME
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122

@@ -44,7 +44,7 @@ shortTitle: Check out a PR locally
 To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
 
 ```shell
-gh pr checkout <em>pull-request</em>
+gh pr checkout PULL-REQUEST
 ```
 
 {% endcli %}
@@ -64,24 +64,24 @@ Anyone can work with a previously opened pull request to continue working on it,
 {% data reusables.command_line.open_the_multi_os_terminal %}
 5. Fetch the reference to the pull request based on its ID number, creating a new branch in the process.
   ```shell
-  $ git fetch origin pull/<em>ID</em>/head:<em>BRANCHNAME</em>
+  $ git fetch origin pull/ID/head:BRANCH_NAME
   ```
 6. Switch to the new branch that's based on this pull request:
   ```shell
-  [main] $ git checkout <em>BRANCHNAME</em>
-  > Switched to a new branch '<em>BRANCHNAME</em>'
+  [main] $ git checkout BRANCH_NAME
+  > Switched to a new branch 'BRANCH_NAME'
   ```
 7. At this point, you can do anything you want with this branch. You can run some local tests, or merge other branches into the branch.
 8. When you're ready, you can push the new branch up:
   ```shell
-  [pull-inactive-pull-request] $ git push origin <em>BRANCHNAME</em>
+  [pull-inactive-pull-request] $ git push origin BRANCH_NAME
   > Counting objects: 32, done.
   > Delta compression using up to 8 threads.
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repository</em>.git
-  >  * [new branch]      <em>BRANCHNAME</em> -> <em>BRANCHNAME</em>
+  > To https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
+  >  * [new branch]      BRANCH_NAME -> BRANCH_NAME
   ```
 9. [Create a new pull request](/articles/creating-a-pull-request) with your new branch.
 
@@ -90,7 +90,7 @@ Anyone can work with a previously opened pull request to continue working on it,
 The remote `refs/pull/` namespace is *read-only*. If you try to push any commits there, you'll see this error:
 ```shell
 ! [remote rejected] HEAD -> refs/pull/1/head (deny updating a hidden ref)
-error: failed to push some refs to 'git@github.local:<em>USERNAME</em>/<em>REPOSITORY</em>.git'
+error: failed to push some refs to 'git@github.local:USERNAME/REPOSITORY.git'
 ```
 
 {% tip %}
