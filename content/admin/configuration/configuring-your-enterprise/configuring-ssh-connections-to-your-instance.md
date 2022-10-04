@@ -42,7 +42,7 @@ For more information, see [{% data variables.product.prodname_blog %}](https://g
 1. To configure a cutoff date after which {% data variables.product.product_location %} will deny connections from clients that use an RSA key uploaded after the date if the connection is signed by the SHA-1 hash function, enter the following command. Replace _**RFC-3399-UTC-TIMESTAMP**_ with a valid RFC 3399 UTC timestamp. For example, the default value, August 1, 2022, would be represented as `2022-08-01T00:00:00Z`. For more information, see [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) on the IETF website.
 
    <pre>
-   $ ghe-config app.gitauth.rsa-sha1 <em>RFC-3339-UTC-TIMESTAMP</em>
+   $ ghe-config app.gitauth.rsa-sha1 RFC-3339-UTC-TIMESTAMP
    </pre>
 1. Alternatively, to completely disable SSH connections using RSA keys that are signed with the SHA-1 hash function, enter the following command.
 

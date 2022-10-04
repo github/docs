@@ -163,7 +163,7 @@ With cURL, you will send an `Authorization` header with your token. Replace `YOU
 ```shell
 curl --request GET \
 --url "https://api.github.com/octocat" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+--header "Authorization: Bearer YOUR-TOKEN"
 ```
 
 {% note %}
@@ -326,7 +326,7 @@ To send a header with cURL, use the `--header` or `-H` flag followed by the head
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+--header "Authorization: Bearer YOUR-TOKEN"
 ```
 
 {% endcurl %}
@@ -390,7 +390,7 @@ To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with 
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
 --header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+--header "Authorization: Bearer YOUR-TOKEN"
 ```
 
 {% endcurl %}
@@ -443,7 +443,7 @@ For cURL, add a `?` to the end of the path, then append your query parameter nam
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2&sort=updated&direction=asc" \
 --header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+--header "Authorization: Bearer YOUR-TOKEN"
 ```
 
 {% endcurl %}
@@ -495,7 +495,7 @@ For cURL, use the `--data` flag to pass the body parameters in a JSON object.
 curl --request POST \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
 --header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>" \
+--header "Authorization: Bearer YOUR-TOKEN" \
 --data '{
   "title": "Created with the REST API",
   "body": "This is a test issue created by the REST API"
@@ -593,7 +593,7 @@ For example, this request:
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
 --header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>" \
+--header "Authorization: Bearer YOUR-TOKEN" \
 --include
 ```
 
@@ -661,7 +661,7 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
 --header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+--header "Authorization: Bearer YOUR-TOKEN"
 ```
 
 {% endcurl %}
@@ -730,7 +730,7 @@ For example, you can use `>` to redirect the response to a file:
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
 --header "Accept: application/vnd.github.v3+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>" > data.json
+--header "Authorization: Bearer YOUR-TOKEN" > data.json
 ```
 
 Then you can use jq to get the title and author ID of each issue:

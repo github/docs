@@ -67,7 +67,7 @@ You can also access these reports programmatically via standard HTTP authenticat
 For example, here is how you would download the "all users" report using cURL:
 
 ```shell
-curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftools/reports/all_users.csv
+curl -L -u USERNAME:TOKEN http(s)://HOSTNAME/stafftools/reports/all_users.csv
 ```
 
 To access the other reports programmatically, replace `all_users` with `active_users`, `dormant_users`, `suspended_users`, `all_organizations`, or `all_repositories`.
