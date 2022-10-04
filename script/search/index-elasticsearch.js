@@ -15,6 +15,7 @@ import { program, Option } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 
+import { retryOnErrorTest } from '../helpers/retry-on-error-test.js'
 import { languageKeys } from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { decompress } from '../../lib/search/compress.js'
@@ -351,14 +352,32 @@ async function indexVersion(
   console.log(`Alias ${indexName} -> ${thisAlias}`)
 
   // const indices = await client.cat.indices({ format: 'json' })
-  const { body: indices } = await client.cat.indices({ format: 'json' })
+  const { body: indices } = await retryOnErrorTest(
+    (error) => {
+      return error instanceof errors.ResponseError && error.statusCode === 404
+    },
+    () => client.cat.indices({ format: 'json' }),
+    {
+      // Combined, this is a total of 30 seconds which is not long
+      // for an Action that runs based on automation.
+      attempts: 10,
+      sleepTime: 3000,
+      onError: (error, attempts) => {
+        console.warn(
+          chalk.yellow(
+            `Failed to get a list of indexes for '${indexName}' (${error.message}). Will attempt ${attempts} more times.`
+          )
+        )
+      },
+    }
+  )
   for (const index of indices) {
     if (index.index !== thisAlias && index.index.startsWith(indexName)) {
       aliasUpdates.push({ remove_index: { index: index.index } })
       console.log('Deleting index', index.index)
     }
   }
-  console.log('Updating alias actions:', aliasUpdates)
+  if (verbose) console.log('Updating alias actions:', aliasUpdates)
   await client.indices.updateAliases({ body: { actions: aliasUpdates } })
 }
 
