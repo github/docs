@@ -41,9 +41,9 @@ After you rename a branch in a repository on {% data variables.product.product_n
 From the local clone of the repository on a computer, run the following commands to update the name of the default branch.
 
 ```shell
-$ git branch -m <em>OLD-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
+$ git branch -m OLD-BRANCH-NAME NEW-BRANCH-NAME
 $ git fetch origin
-$ git branch -u origin/<em>NEW-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
+$ git branch -u origin/NEW-BRANCH-NAME NEW-BRANCH-NAME
 $ git remote set-head origin -a
 ```
 

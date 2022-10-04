@@ -35,7 +35,7 @@ For an example *.gitignore* file, see "[Some common .gitignore configurations](h
 If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.
 
 ```shell
-$ git rm --cached <em>FILENAME</em>
+$ git rm --cached FILENAME
 ```
 
 ## Configuring ignored files for all repositories on your computer

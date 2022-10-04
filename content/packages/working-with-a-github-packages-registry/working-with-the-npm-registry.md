@@ -55,14 +55,14 @@ If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
+//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}/:_authToken=TOKEN
 ```
 
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
 ```shell
-//<em>HOSTNAME</em>/_registry/npm/:_authToken=<em>TOKEN</em>
+//HOSTNAME/_registry/npm/:_authToken=TOKEN
 ```
 {% endif %}
 
@@ -75,21 +75,21 @@ If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-$ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+$ npm login --scope=@OWNER --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}
 
-> Username: <em>USERNAME</em>
-> Password: <em>TOKEN</em>
-> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
+> Username: USERNAME
+> Password: TOKEN
+> Email: PUBLIC-EMAIL-ADDRESS
 ```
 
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
 ```shell
-$ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
-> Username: <em>USERNAME</em>
-> Password: <em>TOKEN</em>
-> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
+$ npm login --scope=@OWNER --registry=https://HOSTNAME/_registry/npm/
+> Username: USERNAME
+> Password: TOKEN
+> Email: PUBLIC-EMAIL-ADDRESS
 ```
 {% endif %}
 
@@ -142,14 +142,14 @@ You can use `publishConfig` element in the *package.json* file to specify the re
   {% endif %}
   ```shell
   "publishConfig": {
-    "registry":"https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
+    "registry":"https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}"
   },
   ```
   {% ifversion ghes %}
   If your instance has subdomain isolation disabled:
    ```shell
    "publishConfig": {
-     "registry":"https://<em>HOSTNAME</em>/_registry/npm/"
+     "registry":"https://HOSTNAME/_registry/npm/"
    },
   ```
   {% endif %}
@@ -165,7 +165,7 @@ To ensure the repository's URL is correct, replace REPOSITORY with the name of t
 {% data variables.product.prodname_registry %} will match the repository based on the URL, instead of based on the package name.
 
 ```shell
-"repository":"https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
+"repository":"https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY",
 ```
 
 ## Installing a package
@@ -213,16 +213,16 @@ If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
-@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@OWNER:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
+@OWNER:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
 ```
 
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
 ```shell
-@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
-@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
+@OWNER:registry=https://HOSTNAME/_registry/npm
+@OWNER:registry=https://HOSTNAME/_registry/npm
 ```
 {% endif %}
 

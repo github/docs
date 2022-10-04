@@ -138,7 +138,7 @@ You are prompted to choose a repository. If codespaces for this repository are b
 Alternatively, you can use flags to specify some or all of the options:
 
 ```shell
-gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> --devcontainer-path <em>path</em> -m <em>machine-type</em> 
+gh codespace create -r OWNER/REPO -b BRANCH --devcontainer-path PATH -m MACHINE-TYPE
 ```
 
 In this example, replace `owner/repo` with the repository identifier. Replace `branch` with the name of the branch, or the full SHA hash of the commit, that you want to be initially checked out in the codespace. If you use the `-r` flag without the `b` flag, the codespace is created from the default branch.
