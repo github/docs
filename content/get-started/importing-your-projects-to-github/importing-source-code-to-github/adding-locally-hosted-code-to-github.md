@@ -86,7 +86,7 @@ If you have existing source code or repositories stored locally on your computer
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  $ git remote add origin &lt;REMOTE_URL>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -132,7 +132,7 @@ If you have existing source code or repositories stored locally on your computer
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In the Command prompt, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  $ git remote add origin &lt;REMOTE_URL>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -178,7 +178,7 @@ If you have existing source code or repositories stored locally on your computer
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  $ git remote add origin &lt;REMOTE_URL>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL

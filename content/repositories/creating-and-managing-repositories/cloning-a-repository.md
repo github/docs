@@ -42,13 +42,13 @@ You can clone your existing repository or clone another person's existing reposi
 To clone a repository locally, use the `repo clone` subcommand. Replace the `repository` parameter with the repository name. For example, `octo-org/octo-repo`, `monalisa/octo-repo`, or `octo-repo`. If the `OWNER/` portion of the `OWNER/REPO` repository argument is omitted, it defaults to the name of the authenticating user.
 
 ```shell
-gh repo clone <em>repository</em>
+gh repo clone REPOSITORY
 ```
 
 You can also use the GitHub URL to clone a repository.
 
 ```shell
-gh repo clone <em>https://github.com/cli/cli</em>
+gh repo clone https://github.com/PATH-TO/REPOSITORY
 ```
 
 {% endcli %}
