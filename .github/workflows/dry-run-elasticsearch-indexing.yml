@@ -20,7 +20,7 @@ jobs:
     # Avoid github/docs and forks of it
     if: github.repository == 'github/docs-internal'
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04-xl
 
     steps:
       - uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
