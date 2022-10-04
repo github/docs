@@ -17,7 +17,7 @@ redirect_from:
 
 ## {% data variables.product.prodname_github_codespaces %} pricing
 
-{% data variables.product.prodname_github_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_github_codespaces %} usage. 
+Charges are incurred for the use of {% data variables.product.prodname_github_codespaces %} for repositories owned by organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}. These accounts do not include any free minutes or storage for {% data variables.product.prodname_github_codespaces %}. Repositories in personal accounts are not currently billed for {% data variables.product.prodname_github_codespaces %} usage.
 
 {% data variables.product.prodname_github_codespaces %} usage is billed according to the units of measure in the following table:
 
@@ -30,11 +30,11 @@ redirect_from:
 |                     |  32 core | 1 hour          | $2.88 |
 | Codespaces Storage  |  Storage | 1 GB-month      | $0.07 |
 
-## About billing for {% data variables.product.prodname_codespaces %}
+## About billing for {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.codespaces-billing %}
 
-Your {% data variables.product.prodname_github_codespaces %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
+Your {% data variables.product.prodname_github_codespaces %} usage shares your organization or enterprise account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% ifversion ghec %}
 If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
@@ -66,9 +66,9 @@ Organization owners can create a policy to restrict the machine types that are a
 
 ## How billing is handled for forked repositories
 
-{% data variables.product.prodname_github_codespaces %} can only be used in organizations where a billable owner has been defined. To incur charges to the organization, the user must be a member or collaborator, otherwise they cannot create a codespace. 
+To incur charges to an organization account (or to an enterprise account, if the organization belongs to an enterprise), the user must be a member or collaborator of that organization, otherwise they cannot create a codespace for which the organization, or its parent enterprise, would be billed.
 
-For example, a user in a private organization can fork a repository within that organization, and can subsequently use a codespace billed to the organization; this is because the organization is the owner of the parent repository, which can remove the user's access, the forked repository, and the codespace.
+For example, a user in an organization can fork a repository within that organization, and can subsequently use a codespace billed to the organization; this is because the organization is the owner of the parent repository, which can remove the user's access, the forked repository, and the codespace.
   
 ## How billing is handled when a repository is transferred
 
