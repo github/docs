@@ -62,6 +62,9 @@ jobs:
         # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
+        # Expose container port 5432 as port 5432 on localhost 
+        ports:
+          - 5432:5432
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
