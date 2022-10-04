@@ -7,7 +7,7 @@ import { allVersions } from '../../lib/all-versions.js'
 import statsd from '../../lib/statsd.js'
 import { defaultCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
-import { getSearchResults, ELASTICSEARCH_URL } from './es-search.js'
+import { getSearchResults } from './es-search.js'
 
 // Used by the legacy search
 const versions = new Set(Object.values(searchVersions))
@@ -65,28 +65,8 @@ function convertLegacyVersionName(version) {
   return legacyEnterpriseServerVersions[version] || version
 }
 
-function notConfiguredMiddleware(req, res, next) {
-  if (!ELASTICSEARCH_URL) {
-    if (process.env.NODE_ENV === 'production') {
-      // Temporarily, this is OKish. The Docs Engineering team is
-      // currently working on setting up an Elasticsearch cloud
-      // instance that we can use. We don't currently have that,
-      // but this code is running in production. We just don't want
-      // to unnecessarily throw errors when it's actually a known thing.
-      return res.status(500).send('ELASTICSEARCH_URL not been set up yet')
-    }
-    throw new Error(
-      'process.env.ELASTICSEARCH_URL is not set. ' +
-        "If you're working on this locally, add `ELASTICSEARCH_URL=http://localhost:9200` in your .env file"
-    )
-  }
-
-  return next()
-}
-
 router.get(
   '/legacy',
-  notConfiguredMiddleware,
   catchMiddlewareError(async function legacySearch(req, res) {
     const { query, version, language, filters, limit: limit_ } = req.query
     if (filters) {
@@ -238,7 +218,6 @@ const validationMiddleware = (req, res, next) => {
 router.get(
   '/v1',
   validationMiddleware,
-  notConfiguredMiddleware,
   catchMiddlewareError(async function search(req, res) {
     const { indexName, query, page, size, debug, sort } = req.search
 

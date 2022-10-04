@@ -16,14 +16,16 @@ import { Link } from 'components/Link'
 
 import styles from './Search.module.scss'
 
-// This is a temporary thing purely for the engineers of this project.
-// When we are content that the new Elasticsearch-based middleware can
-// wrap searches that match the old JSON format, but based on Elasticsearch
-// behind the scene, we can change this component to always use
-// /api/search/legacy. Then, when time allows we can change this component
-// to use the new JSON format (/api/search/v1) and change the code to
-// use that instead.
-const USE_LEGACY_SEARCH = JSON.parse(process.env.NEXT_PUBLIC_USE_LEGACY_SEARCH || 'false')
+// The search endpoint used prior to using /api/search/legacy was
+// just /search, which used middleware/search.js. We are leaving that
+// middleware in tact to allow folks that previously used the /search
+// endpoint to continue doing so. But, we changed the endpoint used by
+// the search input on docs.github.com to use the new /api/search/legacy
+// endpoint.
+// Eventually, we will deprecate the /search and /api/search/legacy
+// endpoints and use the /api/search/v1 endpoint, which has
+// a different response JSON format.
+const SEARCH_API_ENDPOINT = '/api/search/legacy'
 
 type SearchResult = {
   url: string
@@ -67,7 +69,7 @@ export function Search({
     : 'en'
 
   const fetchURL = query
-    ? `/${USE_LEGACY_SEARCH ? 'api/search/legacy' : 'search'}?${new URLSearchParams({
+    ? `${SEARCH_API_ENDPOINT}?${new URLSearchParams({
         language,
         version,
         query,
@@ -463,10 +465,23 @@ function ShowSearchResults({
         </p>
 
         <ActionList variant="full">
-          {results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
+          {results.map(({ url, breadcrumbs, title, content, score, popularity }, index) => {
             return (
               <ActionList.Item className="width-full" key={url}>
-                <Link href={url} className="no-underline color-fg-default">
+                <Link
+                  href={url}
+                  className="no-underline color-fg-default"
+                  onClick={() => {
+                    sendEvent({
+                      type: EventType.searchResult,
+                      search_result_query: Array.isArray(query) ? query[0] : query,
+                      search_result_index: index,
+                      search_result_total: results.length,
+                      search_result_rank: (results.length - index) / results.length,
+                      search_result_url: url,
+                    })
+                  }}
+                >
                   <div
                     data-testid="search-result"
                     className={cx('list-style-none', styles.resultsContainer)}

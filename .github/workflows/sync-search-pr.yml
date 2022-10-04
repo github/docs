@@ -110,8 +110,7 @@ jobs:
         run: |
           ./script/search/index-elasticsearch.js \
             --language en \
-            --version dotcom \
-            --source-directory /tmp/records
+            --version dotcom -- /tmp/records
 
       - name: Check created indexes and aliases
         run: |

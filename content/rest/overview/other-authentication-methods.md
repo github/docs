@@ -45,7 +45,7 @@ response. The solution is to manually craft the `Authorization` header.
 We recommend you use OAuth tokens to authenticate to the GitHub API. OAuth tokens include [personal access tokens][personal-access-tokens] and enable the user to revoke access at any time.
 
 ```shell
-$ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre %}/user
+$ curl -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 ```
 
 This approach is useful if your tools only support Basic Authentication but you want to take advantage of OAuth access token security features.
@@ -71,7 +71,7 @@ would authenticate you if you replace `<username>` with your {% data variables.p
 (cURL will prompt you to enter the password.)
 
 ```shell
-$ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
+$ curl -u USERNAME {% data variables.product.api_url_pre %}/user
 ```
 If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
 
@@ -95,7 +95,7 @@ If you have two-factor authentication enabled, make sure you understand how to [
 If you're using the API to access an organization that enforces [SAML SSO][saml-sso] for authentication, you'll need to create a personal access token (PAT) and [authorize the token][allowlist] for that organization. Visit the URL specified in `X-GitHub-SSO` to authorize the token for the organization.
 
 ```shell
-$ curl -v -H "Authorization: Bearer <em>TOKEN</em>" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
+$ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
 
 > X-GitHub-SSO: required; url=https://github.com/orgs/octodocs-test/sso?authorization_request=AZSCKtL4U8yX1H3sCQIVnVgmjmon5fWxks5YrqhJgah0b2tlbl9pZM4EuMz4
 {
@@ -107,7 +107,7 @@ $ curl -v -H "Authorization: Bearer <em>TOKEN</em>" {% data variables.product.ap
 When requesting data that could come from multiple organizations (for example, [requesting a list of issues created by the user][user-issues]), the `X-GitHub-SSO` header indicates which organizations require you to authorize your personal access token:
 
 ```shell
-$ curl -v -H "Authorization: Bearer <em>TOKEN</em>" {% data variables.product.api_url_pre %}/user/issues
+$ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/user/issues
 
 > X-GitHub-SSO: partial-results; organizations=21955855,20582480
 ```
@@ -136,9 +136,9 @@ This header tells you how your account receives its two-factor authentication co
 ```shell
 $ curl --request POST \
   --url https://api.github.com/authorizations \
-  --header 'authorization: Basic <em>PASSWORD</em>' \
+  --header 'authorization: Basic PASSWORD' \
   --header 'content-type: application/json' \
-  --header 'x-github-otp: <em>OTP</em>' \
+  --header 'x-github-otp: OTP' \
   --data '{"scopes": ["public_repo"], "note": "test"}'
 ```
 {% endif %}

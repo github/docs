@@ -38,7 +38,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 6. Find and take a note of your public key fingerprint. 
   ```shell
   $ ssh-add -l -E sha256
-  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
 7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
@@ -67,7 +67,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 6. Find and take a note of your public key fingerprint. 
   ```shell
   $ ssh-add -l -E sha256
-  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
 7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
@@ -94,7 +94,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 6. Find and take a note of your public key fingerprint. 
   ```shell
   $ ssh-add -l -E sha256
-  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
   ```
 
 7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.

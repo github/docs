@@ -5,11 +5,13 @@ import type { SearchResultsT, SearchResultHitT } from './types'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
 import { useQuery } from 'components/hooks/useQuery'
+import { sendEvent, EventType } from 'components/lib/events'
 
 type Props = {
   results: SearchResultsT
+  query: string
 }
-export function SearchResults({ results }: Props) {
+export function SearchResults({ results, query }: Props) {
   const { t } = useTranslation('search')
 
   const pages = Math.ceil(results.meta.found.value / results.meta.size)
@@ -31,20 +33,27 @@ export function SearchResults({ results }: Props) {
         )}
       </p>
 
-      <SearchResultHits hits={results.hits} />
+      <SearchResultHits hits={results.hits} query={query} />
 
       {pages > 1 && <ResultsPagination page={page} totalPages={pages} />}
     </div>
   )
 }
 
-function SearchResultHits({ hits }: { hits: SearchResultHitT[] }) {
+function SearchResultHits({ hits, query }: { hits: SearchResultHitT[]; query: string }) {
   const { debug } = useQuery()
   return (
     <div>
       {hits.length === 0 && <NoSearchResults />}
-      {hits.map((hit) => (
-        <SearchResultHit key={hit.id} hit={hit} debug={debug} />
+      {hits.map((hit, index) => (
+        <SearchResultHit
+          key={hit.id}
+          hit={hit}
+          query={query}
+          totalHits={hits.length}
+          index={index}
+          debug={debug}
+        />
       ))}
     </div>
   )
@@ -61,7 +70,19 @@ function NoSearchResults() {
   )
 }
 
-function SearchResultHit({ hit, debug }: { hit: SearchResultHitT; debug: boolean }) {
+function SearchResultHit({
+  hit,
+  query,
+  totalHits,
+  index,
+  debug,
+}: {
+  hit: SearchResultHitT
+  query: string
+  totalHits: number
+  index: number
+  debug: boolean
+}) {
   const title =
     hit.highlights.title && hit.highlights.title.length > 0 ? hit.highlights.title[0] : hit.title
 
@@ -72,6 +93,16 @@ function SearchResultHit({ hit, debug }: { hit: SearchResultHitT; debug: boolean
           href={hit.url}
           className="color-fg-accent"
           dangerouslySetInnerHTML={{ __html: title }}
+          onClick={() => {
+            sendEvent({
+              type: EventType.searchResult,
+              search_result_query: Array.isArray(query) ? query[0] : query,
+              search_result_index: index,
+              search_result_total: totalHits,
+              search_result_rank: (totalHits - index) / totalHits,
+              search_result_url: hit.url,
+            })
+          }}
         ></Link>
       </h2>
       <h3 className="text-normal f4 mb-2">{hit.breadcrumbs}</h3>

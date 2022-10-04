@@ -78,7 +78,7 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 To forward a port use the `gh codespace ports forward` subcommand. Replace `codespace-port:local-port` with the remote and local ports that you want to connect. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
-gh codespace ports forward <em>codespace-port</em>:<em>local-port</em>
+gh codespace ports forward CODESPACE-PORT:LOCAL-PORT
 ```
 
 For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_ports_forward).
@@ -132,7 +132,7 @@ To change the visibility of a forwarded port, use the `gh codespace ports visibi
 Replace `codespace-port` with the forwarded port number. Replace `setting` with `private`, `org`, or `public`. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
-gh codespace ports visibility <em>codespace-port</em>:<em>setting</em>
+gh codespace ports visibility CODESPACE-PORT:SETTINGS
 ```
 
 You can set the visibility for multiple ports with one command. For example:

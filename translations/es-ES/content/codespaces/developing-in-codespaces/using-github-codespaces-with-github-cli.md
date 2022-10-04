@@ -31,6 +31,7 @@ You can work with {% data variables.product.prodname_github_codespaces %} in the
   - [Modify ports in a codespace](#modify-ports-in-a-codespace)
   - [Access codespace logs](#access-codespace-logs)
   - [Access remote resources](#access-remote-resources)
+  - [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
 
 ## Installing {% data variables.product.prodname_cli %}
 
@@ -207,3 +208,11 @@ You can use the {% data variables.product.prodname_cli %} extension to create a 
 **Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
 
 {% endnote %}
+
+### Change the machine type of a codespace
+
+```shell
+gh codespace edit -m <em>machine-type-name</em>
+```
+
+For more information, see the "{% data variables.product.prodname_cli %}" tab of "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."

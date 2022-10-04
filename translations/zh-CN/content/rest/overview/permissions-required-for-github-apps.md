@@ -702,10 +702,10 @@ Issues and pull requests are closely related. For more information, see "[List i
 
 ## Permission on "pages"
 
+GitHub Pages can only be created or unpublished by a repository owner or administrator.
+
 - [`GET /repos/:owner/:repo/pages`](/rest/reference/pages#get-a-github-pages-site) (:read)
-- [`POST /repos/:owner/:repo/pages`](/rest/reference/pages#create-a-github-pages-site) (:write)
 - [`PUT /repos/:owner/:repo/pages`](/rest/reference/pages#update-information-about-a-github-pages-site) (:write)
-- [`DELETE /repos/:owner/:repo/pages`](/rest/reference/pages#delete-a-github-pages-site) (:write)
 - [`GET /repos/:owner/:repo/pages/builds`](/rest/reference/pages#list-github-pages-builds) (:read)
 - [`POST /repos/:owner/:repo/pages/builds`](/rest/reference/pages#request-a-github-pages-build) (:write)
 - [`GET /repos/:owner/:repo/pages/builds/:build_id`](/rest/reference/pages#get-github-pages-build) (:read)

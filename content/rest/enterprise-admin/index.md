@@ -59,7 +59,7 @@ When endpoints include `{enterprise}`, replace `{enterprise}` with the handle fo
 [Management Console](#management-console) API endpoints are only prefixed with a hostname:
 
 ```shell
-http(s)://<em>hostname</em>/
+http(s)://HOSTNAME/
 ```
 {% endif %}
 {% ifversion ghae or ghes %}

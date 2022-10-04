@@ -1,7 +1,7 @@
 ---
-title: Configurando notificações para alertas do Dependabot
+title: Configuring notifications for Dependabot alerts
 shortTitle: Configure notifications
-intro: 'Otimize a forma como você recebe notificações sobre {% data variables.product.prodname_dependabot_alerts %}.'
+intro: 'Optimize how you receive notifications about  {% data variables.product.prodname_dependabot_alerts %}.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
@@ -19,50 +19,51 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Repositories
-ms.openlocfilehash: b8810c27a10302a7873fc61a32189f33855140bb
-ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147875524'
 ---
-## Sobre as notificações de {% data variables.product.prodname_dependabot_alerts %}.
 
-Quando o {% data variables.product.prodname_dependabot %} detecta dependências vulneráveis {% ifversion GH-advisory-db-supports-malware %} ou malware{% endif %} nos seus repositórios, geramos um alerta do {% data variables.product.prodname_dependabot %} que é exibido na guia Segurança do repositório. O {% data variables.product.product_name %} notifica os mantenedores dos repositórios afetados sobre o novo alerta de acordo com as preferências de notificação.{% ifversion fpt or ghec %} Por padrão, o {% data variables.product.prodname_dependabot %} está habilitado em todos os repositórios públicos. Para {% data variables.product.prodname_dependabot_alerts %}, por padrão, você receberá {% data variables.product.prodname_dependabot_alerts %} por e-mail, agrupado pela vulnerabilidade específica.
+## About notifications for {% data variables.product.prodname_dependabot_alerts %}
+
+When {% data variables.product.prodname_dependabot %} detects vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} in your repositories, we generate a {% data variables.product.prodname_dependabot %} alert and display it on the Security tab for the repository. {% data variables.product.product_name %} notifies the maintainers of affected repositories about the new alert according to their notification preferences.{% ifversion fpt or ghec %} {% data variables.product.prodname_dependabot %} is enabled by default on all public repositories. For {% data variables.product.prodname_dependabot_alerts %}, by default, you will receive {% data variables.product.prodname_dependabot_alerts %} by email, grouped by the specific vulnerability.
 {% endif %} 
 
-{% ifversion fpt or ghec %}Se você é proprietário de uma organização, habilite ou desabilite os {% data variables.product.prodname_dependabot_alerts %} em todos os repositórios da organização com um clique. Você também pode definir se os {% data variables.product.prodname_dependabot_alerts %} serão habilitados ou desabilitados para repositórios recém-criados. Para obter mais informações, confira "[Como gerenciar as configurações de segurança e de análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added)".
+{% ifversion fpt or ghec %}If you're an organization owner, you can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories in your organization with one click. You can also set whether {% data variables.product.prodname_dependabot_alerts %} will be enabled or disabled for newly-created repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added)."
 {% endif %}
 
-{% ifversion ghes or ghae %} Por padrão, se o proprietário da sua empresa configurou o email para receber notificações sobre sua empresa, você receberá os {% data variables.product.prodname_dependabot_alerts %} por email.
+{% ifversion ghes or ghae %}
+By default, if your enterprise owner has configured email for notifications on your enterprise, you will receive {% data variables.product.prodname_dependabot_alerts %} by email.
 
-Os proprietários das empresas também podem habilitar {% data variables.product.prodname_dependabot_alerts %} sem notificações. Para obter mais informações, confira "[Como habilitar o {% data variables.product.prodname_dependabot %} para sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+Enterprise owners can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% endif %}
 
-## Configurar notificações para {% data variables.product.prodname_dependabot_alerts %}
+## Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion fpt or ghes or ghec %} Quando um novo alerta do {% data variables.product.prodname_dependabot %} é detectado, o {% data variables.product.product_name %} notifica todos os usuários com acesso aos {% data variables.product.prodname_dependabot_alerts %} no repositório de acordo com as respectivas preferências de notificação. Você receberá alertas se estiver acompanhando o repositório, caso tenha habilitado notificações para alertas de segurança ou para toda a atividade no repositório e não estiver ignorando o repositório. Para obter mais informações, confira "[Como configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
+{% ifversion fpt or ghes or ghec %}
+When a new {% data variables.product.prodname_dependabot %} alert is detected, {% data variables.product.product_name %} notifies all users with access to {% data variables.product.prodname_dependabot_alerts %} for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, and are not ignoring the repository. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
 {% endif %}
 
-Você pode definir as configurações de notificação para si mesmo ou para sua organização no menu suspenso Gerenciar notificações {% octicon "bell" aria-label="The notifications bell" %} exibido na parte superior de cada página. Para obter mais informações, confira "[Como configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)".
+You can configure notification settings for yourself or your organization from the Manage notifications drop-down {% octicon "bell" aria-label="The notifications bell" %} shown at the top of each page. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
 
-{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %} {% data reusables.notifications.vulnerable-dependency-notification-options %}
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
+{% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-  ![Opções {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
+{% ifversion update-notification-settings-22 %}
+![Screenshot of {% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/dependabot/dependabot-notification-frequency.png){% else %}
+![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/notifications-v2/dependabot-alerts-options.png){% endif %}
+
 
 {% note %}
 
-**Observação:** você pode filtrar suas notificações no {% data variables.product.company_short %} para mostrar os {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, confira "[Como gerenciar notificações na sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".
+**Note:** You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."
 
 {% endnote %}
 
-{% data reusables.repositories.security-alerts-x-github-severity %} Para obter mais informações, confira "[Como configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)".
+{% data reusables.repositories.security-alerts-x-github-severity %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)."
 
-## Como reduzir as notificações desnecessárias de {% data variables.product.prodname_dependabot_alerts %}.
+## How to reduce the noise from notifications for {% data variables.product.prodname_dependabot_alerts %}
 
-Se você estiver preocupado em receber muitas notificações para {% data variables.product.prodname_dependabot_alerts %}, recomendamos que você opte pelo resumo semanal de e-mail ou desabilite as notificações enquanto mantém {% data variables.product.prodname_dependabot_alerts %} habilitado. Você ainda pode navegar para ver os {% data variables.product.prodname_dependabot_alerts %} na guia Segurança do repositório. Para obter mais informações, confira "[Como ver os {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)".
+If you are concerned about receiving too many notifications for {% data variables.product.prodname_dependabot_alerts %}, we recommend you opt into the weekly email digest, or turn off notifications while keeping {% data variables.product.prodname_dependabot_alerts %} enabled. You can still navigate to see your {% data variables.product.prodname_dependabot_alerts %} in your repository's Security tab. For more information, see "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
 
-## Leitura adicional
+## Further reading
 
-- "[Como configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"
-- "[Como gerenciar notificações na sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-is-queries)"
+- "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"
+- "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-is-queries)"
