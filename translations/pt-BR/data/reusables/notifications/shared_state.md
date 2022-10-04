@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: b5e0ba909d27927fefce88d2a763f0b94aa83dab
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145096551"
+---
 {% tip %}
 
-**Dica:** se você receber notificações da web e por e-mail, você pode sincronizar automaticamente o status lido ou não lido da notificação para que as notificações da web sejam automaticamente marcadas como lidas depois de ler a notificação de e-mail correspondente. Para habilitar esta sincronização, o cliente de e-mail deve poder ver imagens de {% ifversion fpt or ghec %}`notifications@github. om`{% else %}o endereço de e-mail `no-reply` {% ifversion ghae %}para o seu nome de host de {% data variables.product.product_name %}{% elsif ghes %}para {% data variables.product.product_location %}, configurado pelo administrador do seu site{% endif %}{% endif %}.
+**Dica:** se você receber notificações da Web e por email, poderá sincronizar automaticamente o status de lido ou não lido da notificação para que as notificações da Web sejam marcadas automaticamente como lidas depois que você ler a notificação por email correspondente. Para habilitar essa sincronização, seu cliente de email precisa conseguir exibir as imagens no {% ifversion fpt or ghec %}`notifications@github.com`{% else %} endereço de email `no-reply` {% ifversion ghae %}do nome do host do {% data variables.product.product_name %}{% elsif ghes %}para a {% data variables.product.product_location %}, que é configurado pelo administrador do site{% endif %}{% endif %}.
 
 {% endtip %}

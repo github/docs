@@ -13,12 +13,18 @@ versions:
   ghec: '*'
 topics:
   - Profiles
-shortTitle: Mostrar un resumen
+shortTitle: Show an overview
+ms.openlocfilehash: a706c476cad8a2474ff1971dc8d81e680cf5c5c3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147080448'
 ---
+{% data reusables.profile.activity-overview-summary %} Para obtener más información, consulte "[Ver contribuciones en el perfil](/articles/viewing-contributions-on-your-profile)."
 
-{% data reusables.profile.activity-overview-summary %} Para obtener más información, consulta "[Ver contribuciones en tu perfil](/articles/viewing-contributions-on-your-profile)."
-
-![Sección de resumen de actividad en el perfil](/assets/images/help/profile/activity-overview-section.png)
+![Sección de resumen de actividad en tu perfil](/assets/images/help/profile/activity-overview-section.png)
 
 {% data reusables.profile.access_profile %}
-2. Arriba de tu gráfica de contribuyentes, utiliza el menú desplegable de **configuración de contribuciones** y selecciona o deselecciona **Resumen de la actividad**. ![Habilita el resumen de actividad desde el menú desplegable de configuraciones de contribuciones](/assets/images/help/profile/activity-overview.png)
+2. Encima del gráfico de contribuciones, use el menú desplegable **Contribution settings** y seleccione o anule la selección de **Activity overview**.
+ ![Habilitar el resumen de actividad desde el menú desplegable de configuración de contribuciones](/assets/images/help/profile/activity-overview.png)

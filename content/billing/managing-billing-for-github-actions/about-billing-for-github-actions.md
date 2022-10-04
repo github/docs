@@ -74,6 +74,7 @@ The storage used by a repository is the total storage used by {% data variables.
 {% ifversion actions-hosted-runners %} 
 - For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
 - Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s.
+- The {% data variables.actions.hosted_runner %}s are not free for public repositories.
 {% endif %}
 
 ## Calculating minute and storage spending

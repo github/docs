@@ -1,7 +1,7 @@
 ---
-title: Gerenciando pré-compilações
-shortTitle: Gerenciar pré-compilações
-intro: 'Você pode revisar, modificar e excluir as configurações de pré-compilação do seu repositório.'
+title: Managing prebuilds
+shortTitle: Manage prebuilds
+intro: 'You can review, modify, and delete the prebuild configurations for your repository.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,88 +12,88 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-## Verificando, alterando e excluindo suas configurações de pré-compilação
+## Checking, changing, and deleting your prebuild configurations
 
-As pré-compilações que você configurar para um repositórios são criadas e atualizadas usando um fluxo de trabalho de {% data variables.product.prodname_actions %}, gerenciado pelo serviço de {% data variables.product.prodname_github_codespaces %}.
+The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_github_codespaces %} service. 
 
-Dependendo das configurações em uma configuração de pré-criação, o fluxo de trabalho para atualizar a pré-criação poderá ser acionado por esses eventos:
+Depending on the settings in a prebuild configuration, the workflow to update the prebuild may be triggered by these events:
 
-* Criando ou atualizando a configuração de pré-compilação
-* Enviando por push um commit ou um pull request para um branch configurado para pré-compilações
-* Alterando qualquer um dos arquivos de configuração de contêiner de desenvolvimento
-* Um agendamento que você definiu na configuração de pré-criação
-* Acionando manualmente o fluxo de trabalho
+* Creating or updating the prebuild configuration
+* Pushing a commit or a pull request to a branch that's configured to have prebuilds
+* Changing any of the dev container configuration files
+* A schedule that you've defined in the prebuild configuration
+* Manually triggering the workflow
 
-As configurações na configuração de pré-criação determinam quais eventos acionaram automaticamente uma atualização da pré-criação. Para obter mais informações, consulte "[Configurando pré-criações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
+The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)." 
 
-As pessoas com acesso de administrador a um repositório podem verificar o progresso de pré-compilações, editar e excluir configurações de pré-criação.
+People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations. 
 
-### Visualizando o progresso das pré-compilações
-Você pode visualizar o status atual da última execução do fluxo de trabalho para cada configuração de pré-compilação que você definiu na página de {% data variables.product.prodname_codespaces %} das configurações do repositório. Por exemplo, "Atualmente em execução" ou "Última execução 1 hora atrás".
+### Viewing the progress of prebuilds
+You can view the current status of the latest workflow run for each prebuild configuration you've set up on the {% data variables.product.prodname_github_codespaces %} page of your repository settings. For example, "Currently running" or "Last run 1 hour ago."
 
-Para ver a saída de registro para a última execução do fluxo de trabalho de pré-compilação, clique em **Ver saída**.
+To see the log output for the latest prebuild workflow run, click **See output**.
 
-![O botão 'Ver saída'](/assets/images/help/codespaces/prebuilds-see-output.png)
+![The 'See output' button](/assets/images/help/codespaces/prebuilds-see-output.png) 
 
-Ele exibe a saída da execução mais recente do fluxo de trabalho na aba **Ações**.
+This displays the output of the most recent run of the workflow in the **Actions** tab.
 
-![A saída de fluxo de trabalho de pré-compilação](/assets/images/help/codespaces/prebuilds-log-output.png)
+![The prebuild workflow output](/assets/images/help/codespaces/prebuilds-log-output.png) 
 
-Como alternativa, para visualizar todas as execuções de fluxo de trabalho pré-compilado associadas a um branch especificada, clique no botão de retiências e selecione **Visualizar execuções** no menu suspenso.
+Alternatively, to view all prebuild workflow runs associated with the specified branch, click the ellipsis button and choose **View runs** from the dropdown menu.
 
-![A opção 'Visualizar execuções' no menu suspenso](/assets/images/help/codespaces/prebuilds-view-runs.png)
+![The 'View runs' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-view-runs.png) 
 
-Exibe o histórico de execução de fluxo de trabalho para pré-compilações para o branch associado.
+This displays the workflow run history for prebuilds for the associated branch.
 
-![Histórico de execução do fluxo de trabalho](/assets/images/help/codespaces/prebuilds-workflow-runs.png)
+![The workflow run history](/assets/images/help/codespaces/prebuilds-workflow-runs.png) 
 
-### Editando uma configuração de pré-compilação
+### Editing a prebuild configuration
 
-1. Na página de {% data variables.product.prodname_codespaces %} das configurações do repositório, clique nas reticências à direita da configuração de pré-compilação que você deseja editar.
-1. No menu suspenso, clique em **Editar**.
+1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to edit.
+1. In the dropdown menu, click **Edit**.
+ 
+   ![The 'Edit' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-edit.png) 
 
-   ![A opção 'Editar' no menu suspenso](/assets/images/help/codespaces/prebuilds-edit.png)
-
-1. Faça as alterações necessárias na configuração de pré-compilação e, em seguida, clique em **Atualizar**.
+1. Make the required changes to the prebuild configuration, then click **Update**. 
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
 
-### Desabilitando configuração de pré-compilação
+### Disabling a prebuild configuration
 
-Para pausar a atualização das pré-compilações para uma configuração, você pode desabilitar as execuções de fluxo de trabalho para a configuração. Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-compilação não exclui nenhuma pré-compilação previamente criado para essa configuração e, como resultado, os codespaces continuarão sendo gerados a partir de uma pré-compilação existente.
+To pause the update of prebuilds for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuilds for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild.
 
-Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-compilação é útil se você precisar investigar as falhas de criação de modelo.
+Disabling the workflow runs for a prebuild configuration is useful if you need to investigate template creation failures.
 
-1. Na página de {% data variables.product.prodname_codespaces %} das configurações do repositório, clique nas reticências à direita da configuração de pré-compilação que você deseja desabilitar.
-1. No menu suspenso, clique em **Desabilitar execuções**.
+1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to disable.
+1. In the dropdown menu, click **Disable runs**.
 
-   ![A opção "Desabilitar execuções" no menu suspenso](/assets/images/help/codespaces/prebuilds-disable.png)
+   ![The 'Disable runs' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-disable.png)
 
-1. Para confirmar que você deseja desabilitar esta configuração, clique em **OK**.
+1. To confirm that you want to disable this configuration, click **OK**.
 
-### Excluindo a configuração de uma pré-compilação
+### Deleting a prebuild configuration
 
-A exclusão de uma configuração de pré-compilação também exclui todas as pré-compilações criadas anteriormente para essa configuração. Como resultado, logo após você excluir uma configuração, as pré-compilações geradas por essa configuração não estarão disponíveis ao criar um novo codespace.
+Deleting a prebuild configuration also deletes all previously created prebuilds for that configuration. As a result, shortly after you delete a configuration, prebuilds generated by that configuration will no longer be available when you create a new codespace.
 
-Depois que você excluir uma configuração de pré-compilação, as execuções do fluxo de trabalho que foram enfileirados ou iniciados ainda serão executadas. Elas serão listados no histórico de execução de fluxo de trabalho junto com execuções de fluxo de trabalho concluídas anteriormente.
+After you delete a prebuild configuration, workflow runs for that configuration that have been queued or started will still run. They will be listed in the workflow run history, along with previously completed workflow runs.
 
-1. Na página de {% data variables.product.prodname_codespaces %} das configurações do repositório, clique nas reticências à direita da configuração de pré-compilação que você deseja excluir.
-1. No menu suspenso, clique em **Excluir**.
+1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to delete.
+1. In the dropdown menu, click **Delete**.
 
-   ![A opção "Excluir" no menu suspenso](/assets/images/help/codespaces/prebuilds-delete.png)
+   ![The 'Delete' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-delete.png)
 
-1. Clique em **OK** para confirmar a exclusão.
+1. Click **OK** to confirm the deletion.
 
-### Acionar pré-compilações manualmente
+### Manually trigger prebuilds
 
-Pode ser útil acionar manualmente a execução de um fluxo de trabalho para uma configuração de pré-compilação. Geralmente, isso só é necessário se você estiver depurando um problema com o fluxo de trabalho para uma configuração de pré-compilação.
+It may be useful to manually trigger a workflow run for a prebuild configuration. Generally this is only necessary if you are debugging a problem with the workflow for a prebuild configuration.
 
-1. Na página de {% data variables.product.prodname_codespaces %} das configurações do repositório, clique nas reticências à direita da configuração de pré-compilação cujo fluxo de trabalho você deseja acionar.
-1. No menu suspenso, clique em **Acionar manualmente**.
+1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration whose workflow you want to trigger.
+1. In the dropdown menu, click **Manually trigger**.
 
-   ![A opção "Acionar manualmente" no menu suspenso](/assets/images/help/codespaces/prebuilds-manually-trigger.png)
+   ![The 'Manually trigger' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-manually-trigger.png) 
 
-## Leia mais
+## Further reading
 
-- "[Solucionar problemas de pré-compilações](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"

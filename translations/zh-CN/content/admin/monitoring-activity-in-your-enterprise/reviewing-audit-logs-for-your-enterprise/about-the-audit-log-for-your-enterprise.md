@@ -1,7 +1,7 @@
 ---
-title: 关于企业的审核日志
-intro: '为了支持调试以及内部和外部合规性， {% data variables.product.product_name %} 提供已审核{% ifversion ghes %} 系统、{% endif %} 用户、组织和存储库事件的日志。'
-shortTitle: 关于审核日志
+title: About the audit log for your enterprise
+intro: 'To support debugging and internal and external compliance, {% data variables.product.product_name %} provides logs of audited{% ifversion ghes %} system,{% endif %} user, organization, and repository events.'
+shortTitle: About audit logs
 redirect_from:
   - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
@@ -23,37 +23,37 @@ topics:
   - Security
 ---
 
-## 关于审核日志
+## About audit logs
 
 {% data reusables.audit_log.retention-periods %}
 
 {% data reusables.audit_log.audit-log-search-list-info-about-action %}
 
-除了查看审核日志之外，您还可以通过其他方式监控企业中的活动，例如 {% ifversion ghes or ghae %}查看推送日志以及 {% endif %}管理全局 web 挂钩。 更多信息请参阅“[探索企业中的用户活动](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity)”。
+In addition to viewing your audit log, you can monitor activity in your enterprise in other ways, such as {% ifversion ghes or ghae %}viewing push logs and {% endif %}managing global webhooks. For more information, see "[Exploring user activity in your enterprise](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity)."
 
-## 使用审核日志
+## Using your audit logs
 
-作为企业所有者{% ifversion ghes %} 或站点管理员{% endif %}，您可以通过多种方式与企业的审核日志数据进行交互：
-- 您可以查看企业的审核日志。 更多信息请参阅“[访问企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)”。
-- 您可以在审核日志中搜索特定事件{% ifversion ghec %} 并导出审核日志数据{% endif %}。 For more information, see "[Searching the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)"{% ifversion ghec %} and "[Exporting the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)"{% endif %}.{% ifversion audit-data-retention-tab %}
+As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you can interact with the audit log data for your enterprise in several ways:
+- You can view the audit log for your enterprise. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
+- You can search the audit log for specific events{% ifversion ghec %} and export audit log data{% endif %}. For more information, see "[Searching the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)"{% ifversion ghec %} and "[Exporting the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)"{% endif %}.{% ifversion audit-data-retention-tab %}
 - You can configure settings, such as the retention period for audit log events{% ifversion enable-git-events %} and whether Git events are included{% endif %}. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise)."{% endif %}
 {%- ifversion enterprise-audit-log-ip-addresses %}
-- 您可以在审核日志中显示与事件关联的 IP 地址。 更多信息请参阅“[在企业的审核日志中显示 IP 地址](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)”。
+- You can display the IP address associated with events in the audit log. For more information, see "[Displaying IP addresses in the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)."
 {%- endif %}
 {%- ifversion audit-log-streaming %}
-- 您可以将审核和 Git 事件数据从 {% data variables.product.prodname_dotcom %} 流式传输到外部数据管理系统。 更多信息请参阅“[流式传输企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)”。
+- You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
 {%- endif %}
 {%- ifversion ghes %}
-- 您可以将审核和系统日志从企业转发到第三方托管的监控系统。 更多信息请参阅“[日志转发](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)。”
+- You can forward audit and system logs, from your enterprise to an third-party hosted monitoring system. For more information, see "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 {%- endif %}
-{%- ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
-- 您可以使用审核日志 API 查看在企业中执行的操作。 更多信息请参阅“[使用企业的审核日志 API](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)”。
+{%- ifversion ghec or ghes > 3.2 or ghae %}
+- You can use the Audit log API to view actions performed in your enterprise. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 {%- endif %}
 
-有关企业审核日志中可能显示的审核日志操作的完整列表，请参阅“[企业的审核日志操作](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
+For a full list of audit log actions that may appear in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
-## 延伸阅读
-- “[查看组织的审核日志](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)”
+## Further reading
+- "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"
 {%- ifversion ghes %}
-- “[关于系统日志](/admin/enterprise-management/monitoring-your-appliance/about-system-logs)”
+- "[About system logs](/admin/enterprise-management/monitoring-your-appliance/about-system-logs)"
 {%- endif %}

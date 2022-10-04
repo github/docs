@@ -12,9 +12,14 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Dividir una subcarpeta
+shortTitle: Splitting a subfolder
+ms.openlocfilehash: 21467b459f1e7af1dd28e5b7a20c962786aed2b5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147879300'
 ---
-
 Si creas un nuevo clon del repositorio, no perderás ninguno de tus historiales o cambios de Git cuando divides una carpeta en un repositorio separado.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -31,41 +36,41 @@ Si creas un nuevo clon del repositorio, no perderás ninguno de tus historiales 
    $ cd <em>REPOSITORY-NAME</em>
    ```
 
-5. Para filtrar la subcarpeta desde el resto de los archivos en el repositorio, ejecuta [`git filter-repo`](https://github.com/newren/git-filter-repo), proporcionando esta información:
-   - `FOLDER-NAME`: la carpeta dentro de tu proyecto en donde desearías crear un repositorio separado.
+5. Para filtrar la subcarpeta del resto de los archivos del repositorio, ejecute [`git filter-repo`](https://github.com/newren/git-filter-repo)y proporcione esta información:
+   - `FOLDER-NAME`: la carpeta dentro del proyecto en la que quiere crear un repositorio independiente.
 
    {% windows %}
 
    {% tip %}
 
-   **Sugerencia:** los usuarios de Windows deberían utilizar `/` para delimitar carpetas.
+   **Sugerencia:** Los usuarios de Windows deben utilizar `/` para delimitar carpetas.
 
    {% endtip %}
 
    {% endwindows %}
-
+  
    ```shell
    $ git filter-repo --path FOLDER-NAME1/ --path FOLDER-NAME2/
    # Filter the specified branch in your directory and remove empty commits
    > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
    > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
    ```
-
+   
    El repositorio debería ahora únicamente contener archivos que estuvieron en tu(s) subcarpeta(s)
 
-6. [Crea un nuevo repositorio](/articles/creating-a-new-repository/) en {% data variables.product.product_name %}.
+6. [Cree un repositorio](/articles/creating-a-new-repository/) en {% data variables.product.product_name %}.
 
 7. En la parte superior de tu repositorio nuevo, en la página de configuración rápida de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto.
-
-   ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+    
+   ![Copia el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
    {% tip %}
 
-   **Tip:** Para obtener más información sobre la diferencia entre las URL de HTTPS y SSH, consulta la sección "[Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".
+   **Sugerencia:** Para obtener información sobre la diferencia entre las direcciones URL HTTPS y SSH, consulte ["Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".
 
    {% endtip %}
 
-8. Verifica el nombre remoto existente para tu repositorio. Por ejemplo, `origin` o `upstream` son dos de las opciones comunes.
+8. Verifica el nombre remoto existente para tu repositorio. Por ejemplo, `origin` o `upstream` son dos opciones comunes.
    ```shell
    $ git remote -v
    > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (fetch)

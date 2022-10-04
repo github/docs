@@ -1,21 +1,21 @@
 date: '2022-01-18'
 sections:
   security_fixes:
-    - 'Packages have been updated to the latest security versions. In these updates, Log4j has been updated to version 2.17.1. Note: previous mitigations released in 3.3.1, 3.2.6, 3.1.14, and 3.0.22 are sufficient to address the impact of CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, and CVE-2021-44832 in these versions of GitHub Enterprise Server.'
-    - Sanitize more secrets in the generated support bundles
-    - Packages have been updated to the latest security versions.
+    - 'パッケージは最新のセキュリティ バージョンに更新されました。これらの更新では、Log4j がバージョン 2.17.1 に更新されました。注: GitHub Enterprise Server のこれらのバージョンで CVE-2021-44228、CVE-2021-45046、CVE-2021-45105、CVE-2021-44832 の影響に対処するには、3.3.1、3.2.6、3.1.14、3.0.22 でリリースされた以前の軽減策で十分です。'
+    - 生成されたサポート バンドルでさらに多くのシークレットをサニタイズする
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
-    - The save button in management console was unreachable by scrolling in lower resolution browsers.
-    - IOPS and Storage Traffic monitoring graphs were not updating after collectd version upgrade.
-    - Some webhook related jobs could generated large amount of logs.
-    - The repository permissions to the user returned by the `/repos` API would not return the full list.
+    - "\"ghe-config-apply\" の実行は、\"/data/user/tmp/pages\" でのアクセス許可の問題のために失敗することがありました。"
+    - 解像度の低いブラウザーでスクロールすると、管理コンソールの保存ボタンが表示されませんでした。
+    - IOPS と Storage Traffic 監視グラフが、修正されたバージョンのアップグレードの後で更新されませんでした。
+    - 一部の Webhook 関連のジョブで、大量のログが生成されることがありました。
+    - "ユーザーに対して \"/repos\" API で返されるリポジトリ アクセス許可で、完全なリストが返されませんでした。"
   known_issues:
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、\"ghe-repl-teardown\" でのレプリカ ノードの破棄は成功しますが、\"エラー: 移行の実行\" が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

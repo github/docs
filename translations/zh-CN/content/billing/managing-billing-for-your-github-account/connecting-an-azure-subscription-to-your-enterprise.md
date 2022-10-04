@@ -1,58 +1,57 @@
 ---
-title: 将 Azure 订阅连接到您的企业
-intro: '您可以使用 Microsoft 企业协议启用并支付 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_github_codespaces %} 的使用。'
+title: Connecting an Azure subscription to your enterprise
+intro: 'You can use your Microsoft Enterprise Agreement to enable and pay for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %} usage.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise
 versions:
   ghec: '*'
-shortTitle: 连接 Azure 订阅
+shortTitle: Connect an Azure subscription
 ---
+## About Azure subscriptions and {% data variables.product.product_name %}
 
-## 关于 Azure 订阅和 {% data variables.product.product_name %}
-
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”和“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。
+{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
 {% note %}
 
-**注意：** 如果您的企业帐户使用 Microsoft 企业协议，则连接 Azure 订阅是使用超出 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 所包含金额或使用 {% data variables.product.prodname_codespaces %} 的唯一方法。
+**Note:** If your enterprise account is on a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond the included amounts, or to use {% data variables.product.prodname_github_codespaces %} at all.
 
 {% endnote %}
 
-连接 Azure 订阅后，您还可以管理您的支出限制。
+After you connect an Azure subscription, you can also manage your spending limits.
 
-- “[管理 {% data variables.product.prodname_registry %} 的支出限额](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)”
-- “[管理 {% data variables.product.prodname_actions %} 的支出限额](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)”
-- “[管理 {% data variables.product.prodname_github_codespaces %} 的支出限额](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)”
+- "[Managing your spending limit for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)"
+- "[Managing your spending limit for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)"
+- "[Managing your spending limit for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"
 
-## 将 Azure 订阅连接到您的企业帐户
+## Connecting your Azure subscription to your enterprise account
 
-要连接 Azure 订阅，您必须拥有订阅的所有者权限。
+To connect your Azure subscription, you must have owner permissions to the subscription.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 {% data reusables.enterprise-accounts.payment-information-tab %}
-1. 在“Payment Information（付款信息）”下，单击 **Add Azure Subscription（添加 Azure 订阅）**。
-1. 要登录到您的 Microsoft 帐户，请按照提示执行。
-1. 查看“请求的权限”提示。 如果您同意条款，请单击 **Accept（接受）**。
-1. 在“Select a subscription（选择订阅）”下，选择您想要连接到企业的 Azure 订阅 ID。
+1. Under "Payment Information", click **Add Azure Subscription**.
+1. To sign in to your Microsoft account, follow the prompts.
+1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
+1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your enterprise.
 
    {% note %}
 
-   **注意：**{% data variables.product.company_short %}的订阅权限验证请求只读访问权限以显示可用订阅的列表。 要选择 Azure 订阅，必须对订阅拥有所有者权限。 如果默认租户没有正确的权限，则可能需要指定其他租户 ID。 更多信息请参阅 Microsoft 文档中的 [Microsoft 身份平台和 OAuth 2.0 授权代码流](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code)。
+   **Note:** {% data variables.product.company_short %}'s Subscription Permission Validation requests read-only access to display the list of available subscriptions. To select an Azure subscription, you must have owner permissions to the subscription. If the default tenant does not have the right permissions, you may need to specify a different tenant ID. For more information, see [Microsoft identity platform and OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) in Microsoft Docs.
 
    {% endnote %}
-1. 单击 **Connect（连接）**。
+1. Click **Connect**.
 
-## 从企业帐户断开您的 Azure 订阅
+## Disconnecting your Azure subscription from your enterprise account
 
-从企业帐户断开 Azure 订阅后，您的使用不能再超过您的计划所包含的时间量。
+After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 {% data reusables.enterprise-accounts.payment-information-tab %}
-1. 在“Azure subscription（Azure 订阅）”下您要断开连接的订阅 ID 右侧，单击 **{% octicon "trash" aria-label="The trash icon" %}**。
-1. 查看提示，然后单击 **Remove（删除）**。
+1. Under "Azure subscription", to the right of the subscription ID you want to disconnect, click **{% octicon "trash" aria-label="The trash icon" %}**.
+1. Review the prompt, then click **Remove**.

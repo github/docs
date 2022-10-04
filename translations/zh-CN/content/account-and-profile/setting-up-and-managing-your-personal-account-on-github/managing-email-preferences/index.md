@@ -23,6 +23,12 @@ children:
   - /remembering-your-github-username-or-email
   - /types-of-emails-github-sends
   - /managing-marketing-emails-from-github
-shortTitle: 管理电子邮件首选项
+shortTitle: Manage email preferences
+ms.openlocfilehash: 8295d9884f7b2a9bfdef329f693c6492db636a61
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164719'
 ---
 

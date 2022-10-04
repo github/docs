@@ -1,7 +1,7 @@
 ---
 title: Documentación de GitHub Pages
-shortTitle: Páginas de GitHub
-intro: 'Aprende cómo crear un sitio web directamente desde un repositorio en{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Explora las herramientas de creación de sitios web como Jekyll y soluciona los problemas de tu sitio de {% data variables.product.prodname_pages %}.'
+shortTitle: GitHub Pages
+intro: 'Descubre cómo crear un sitio web directamente desde un repositorio en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Explora herramientas de creación de sitios web como Jekyll y soluciona problemas con el sitio de {% data variables.product.prodname_pages %}.'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages
@@ -49,5 +49,11 @@ children:
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site
+ms.openlocfilehash: 8f1e83a8329a023f49a73a3716a88f61b2438adb
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147643929'
 ---
 

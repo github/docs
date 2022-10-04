@@ -1,7 +1,7 @@
 ---
 title: Reviewing your organization's audit logs for GitHub Codespaces
-shortTitle: Registros de auditoría
-intro: 'Puedes utilizar la bitácora de auditoría para revisar todas las acciones relacionadas con los {% data variables.product.prodname_github_codespaces %}.'
+shortTitle: Audit logs
+intro: 'You can use the audit log to review all actions related to {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -17,12 +17,12 @@ redirect_from:
 
  
 
-Cuando algún miembro de tu organización lleva a cabo una acción relacionada con los {% data variables.product.prodname_github_codespaces %}, puedes revisar las acciones en la bitácora de auditoría. Para obtener más información sobre cómo acceder a la bitácora, consulta la sección "[Revisar tu bitácora de auditoría](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)".
+When any member of your organization performs an action related to {% data variables.product.prodname_github_codespaces %}, you can review the actions in the audit log. For information about accessing the log, see "[Reviewing your audit log](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)."
 
-![Bitácora de auditoría con información de los codespaces](/assets/images/help/settings/codespaces-audit-log-org.png)
+![Audit log with Codespaces information](/assets/images/help/settings/codespaces-audit-log-org.png)
 
-La bitácora de auditoría incluye detalles tales como quién realizó la acción, qué fue esa acción y cuándo se llevó a cabo. Para obtener información sobre las acciones de los {% data variables.product.prodname_codespaces %}, consulta la sección "[acciones de categoría de los {% data variables.product.prodname_codespaces %}](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)".
+The audit log includes details such as who performed the action, what the action was, and when the action was performed. For information on {% data variables.product.prodname_github_codespaces %} actions, see "[`codespaces` category actions](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)."
 
-## Leer más
+## Further reading
 
-- "[Revisar tus bitácoras de seguridad de {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+- "[Reviewing your security logs for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"

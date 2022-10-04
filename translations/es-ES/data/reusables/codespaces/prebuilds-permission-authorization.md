@@ -1,13 +1,21 @@
-   If the dev container configuration for the repository specifies permissions for accessing other repositories, you will be shown an authorization page. For more information on how this is specified in the `devcontainer.json` file, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
+---
+ms.openlocfilehash: 21a587f89a71ccd8e9f1a69aa5423a840f26b9a6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147431624"
+---
+   Si la configuración del contenedor de desarrollo para el repositorio especifica permisos para acceder a otros repositorios, se te mostrará una página de autorización. Para obtener más información sobre cómo se especifica esto en el archivo `devcontainer.json`, consulta "[Administración del acceso a otros repositorios del codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".   
 
-   Click {% octicon "chevron-down" aria-label="The expand down icon" %} to view the details of the requested permissions.
+   Haz clic en {% octicon "chevron-down" aria-label="The expand down icon" %} para ver los detalles de los permisos solicitados.
 
-   ![Screenshot of the authorization page for prebuilds](/assets/images/help/codespaces/prebuild-authorization-page.png)
+   ![Captura de pantalla de la página de autorización para precompilaciones](/assets/images/help/codespaces/prebuild-authorization-page.png)
 
-   Click **Authorize and continue** to grant these permissions for creation of the prebuild. Alternatively, you can click **Continue without authorizing** but, if you do so, codespaces created from the resulting prebuild may not work properly.
+   Haz clic en **Autorizar y continuar** para conceder estos permisos para la creación de la precompilación. Como alternativa, puedes hacer clic en **Continuar sin autorizar**, pero, si lo haces, es posible que los espacios de código creados a partir de la precompilación resultante no funcionen correctamente.
 
    {% note %}
 
-   **Note**: Users who create codespaces using this prebuild will also be asked to grant these permisssions.
+   **Nota**: También se pedirá que concedan estos permisos a los usuarios que creen codespaces que usan esta precompilación.
 
    {% endnote %}

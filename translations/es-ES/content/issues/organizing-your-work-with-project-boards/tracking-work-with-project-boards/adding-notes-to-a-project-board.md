@@ -1,6 +1,6 @@
 ---
-title: 'Agregar notas a un {% data variables.product.prodname_project_v1 %}'
-intro: 'Puedes agregar notas a un {% data variables.projects.projects_v1_board %} para que sirvan como recordatorios de tarea o para agregar información relacionada con el {% data variables.projects.projects_v1_board %}.'
+title: 'Adición de notas a una instancia de {% data variables.product.prodname_project_v1 %}'
+intro: 'Puedes agregar notas a una instancia de {% data variables.projects.projects_v1_board %} que sirvan como recordatorios de tareas, o bien para agregar información relacionada con la instancia de {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
   - /articles/adding-notes-to-a-project
@@ -10,34 +10,41 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 'Agregar notas a {% data variables.product.prodname_project_v1 %}'
+shortTitle: 'Add notes to {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 46068bb6de081043b05c78e731a09e7dbaa47c78
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422752'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**Tips:**
-- Puedes dar formato a tu nota usando la sintaxis de Markdown. Por ejemplo, puedes usar encabezados, enlaces, listas de tareas o emojis. Para obtener más información, consulta "[Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)".
+**Sugerencias:**
+- Puedes dar formato a tu nota usando la sintaxis de Markdown. Por ejemplo, puedes usar encabezados, enlaces, listas de tareas o emojis. Para más información, vea "[Sintaxis básica de escritura y formato](/articles/basic-writing-and-formatting-syntax)".
 - Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas y moverlas entre las columnas. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-- Tu {% data variables.projects.projects_v1_board %} debe tener por lo menos una columna para que puedas agregar notas. Para obtener más información, consulta "[Crear un tablero de proyecto](/articles/creating-a-project-board)".
+- Las instancias de {% data variables.projects.projects_v1_board %} deben tener al menos una columna para poder agregar notas. Para obtener más información, consulte "[Creación de un panel de proyecto](/articles/creating-a-project-board)".
 
 {% endtip %}
 
-Cuando agregas una URL para una propuesta, solicitud de cambios u otro {% data variables.projects.projects_v1_board %} a una nota, verás una vista previa en la tarjeta de resumen debajo de tu texto.
+Cuando agregas una URL para una incidencia, solicitud de incorporación de cambios u otra instancia de {% data variables.projects.projects_v1_board %} a una nota, verás una vista previa en una tarjeta de resumen debajo del texto.
 
 ![Tarjetas de tableros de proyecto mostrando una vista previa de una propuesta y otro tablero de proyecto](/assets/images/help/projects/note-with-summary-card.png)
 
-## Agregar notas a un {% data variables.projects.projects_v1_board %}
+## Adición de notas a una instancia de {% data variables.projects.projects_v1_board %}
 
-1. Navega al {% data variables.projects.projects_v1_board %} en donde quieres agregar notas.
-2. En la columna en la que deseas agregar una nota, haz clic en {% octicon "plus" aria-label="The plus icon" %}. ![Icono de adición en el encabezado de la columna](/assets/images/help/projects/add-note-button.png)
-3. Escribe tu nota, luego haz clic en **Add** (Agregar). ![Campo para escribir una nota y botón Add card (Agregar tarjeta)](/assets/images/help/projects/create-and-add-note-button.png)
+1. Navega a la instancia de {% data variables.projects.projects_v1_board %} en la que quieras agregar notas.
+2. En la columna en la que desee agregar una nota, haga clic en {% octicon "plus" aria-label="The plus icon" %}.
+![Icono de adición en el encabezado de la columna](/assets/images/help/projects/add-note-button.png)
+3. Escriba la nota y, a continuación, haga clic en **Add**.
+![Campo para escribir una nota y botón Add card](/assets/images/help/projects/create-and-add-note-button.png)
 
   {% tip %}
 
-  **Sugerencia:** Puedes hacer referencia a una propuesta o solicitud de extracción en tu nota al escribir su URL en la tarjeta.
+  **Sugerencia:** Puede hacer referencia a una incidencia o solicitud de incorporación de cambios en su nota escribiendo la URL en la tarjeta.
 
   {% endtip %}
 
@@ -49,28 +56,33 @@ Cuando conviertes una nota en una propuesta, la propuesta se crea automáticamen
 
 {% tip %}
 
-**Sugerencia:** Puedes agregar el contenido en el cuerpo de tu nota para @mencionar a alguien, vincular otra propuesta o solicitud de extracción, y agregar un emoji. Estas características de lenguaje de marcado enriquecido de {% data variables.product.prodname_dotcom %} no son compatibles con las notas del {% data variables.projects.projects_v1_board %}, pero una vez que tu nota se convierta en una propuesta, se mostrarán correctamente. Para obtener más información sobre cómo usar estas características, consulta "[Acerca de la escritura y el formato en {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
+**Sugerencia:** Puede agregar contenido en el cuerpo de la nota para @mention a alguien, vincularla a otra incidencia o solicitud de incorporación de cambios y agregar emoji. Estas características de formato Markdown de {% data variables.product.prodname_dotcom %} no son compatibles con las notas de {% data variables.projects.projects_v1_board %}, pero una vez que la nota se convierte en una incidencia, aparecerán correctamente. Para obtener más información sobre el uso de estas características, consulte "[Acerca de la escritura y el formato en {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
 
 {% endtip %}
 
 1. Desplázate hasta la nota que deseas convertir en propuesta.
 {% data reusables.project-management.project-note-more-options %}
-3. Haz clic en **Convert to issue** (Convertir en propuesta). ![Botón para convertir en propuesta](/assets/images/help/projects/convert-to-issue.png)
-4. Si la tarjeta está en un {% data variables.projects.projects_v1_board %} de toda la organización, en el menú desplegable, elige el repositorio al cual quieras agregar la propuesta. ![Menú desplegable enumerando los repositorios donde puedes crear la propuesta](/assets/images/help/projects/convert-note-choose-repository.png)
-5. Opcionalmente, edita el título de la propuesta completada previamente, y escribe el cuerpo de la propuesta. ![Campos para título y cuerpo de la propuesta](/assets/images/help/projects/convert-note-issue-title-body.png)
-6. Haz clic en **Convert to issue** (Convertir en propuesta).
-7. La nota se convertirá automáticamente en una propuesta. En el {% data variables.projects.projects_v1_board %}, la tarjeta de propuesta nueva estará en la misma ubicación que la nota previa.
+3. Haga clic en **Convert to issue**.
+  ![Botón Convert to issue](/assets/images/help/projects/convert-to-issue.png)
+4. Si la tarjeta está en una instancia de {% data variables.projects.projects_v1_board %} para toda la organización, en el menú desplegable, elige el repositorio al que quieres agregar la incidencia.
+  ![Menú desplegable que contiene los repositorios donde puede crear la incidencia](/assets/images/help/projects/convert-note-choose-repository.png)
+5. Opcionalmente, edita el título de la propuesta completada previamente, y escribe el cuerpo de la propuesta.
+  ![Campos para el título y el cuerpo de la incidencia](/assets/images/help/projects/convert-note-issue-title-body.png)
+6. Haga clic en **Convert to issue**.
+7. La nota se convertirá automáticamente en una propuesta. En la instancia de {% data variables.projects.projects_v1_board %}, la nueva tarjeta de incidencia estará en la misma ubicación que la nota anterior.
 
 ## Editar o eliminar una nota
 
 1. Desplázate hasta la nota que deseas editar o eliminar.
 {% data reusables.project-management.project-note-more-options %}
-3. Para editar los contenidos de la nota, haz clic en **Edit note** (Editar nota). ![Botón para editar notas](/assets/images/help/projects/edit-note.png)
-4. Para eliminar los contenidos de las notas, haz clic en **Delete note** (Eliminar nota). ![Botón para eliminar notas](/assets/images/help/projects/delete-note.png)
+3. Para editar el contenido de la nota, haga clic en **Edit note**.
+  ![Botón Edit note](/assets/images/help/projects/edit-note.png)
+4. Para eliminar el contenido de las notas, haga clic en **Delete note**.
+  ![Botón Delete note](/assets/images/help/projects/delete-note.png)
 
-## Leer más
+## Información adicional
 
 - "[Acerca de {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Crear un {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
-- "[Editar un {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"
-- "[Agregar propuestas y solicitudes de cambios a un {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Creación de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
+- "[Edición de una instancia de {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"
+- "[Adición de incidencias y solicitudes de incorporación de cambios a una instancia de {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"

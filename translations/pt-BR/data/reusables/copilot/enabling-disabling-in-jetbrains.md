@@ -1,6 +1,16 @@
-## Habilitar ou desabilitar {% data variables.product.prodname_copilot %}
+---
+ms.openlocfilehash: 960ff3b717cd2526824827ac5c98f613e30d9848
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147079502"
+---
+## Como habilitar ou desabilitar o {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} from within JetBrains. O ícone de status {% data variables.product.prodname_copilot %} na parte inferior da janela do JetBrains indica se o {% data variables.product.prodname_copilot %} está habilitado ou desabilitado. Quando habilitado, o ícone é destacado. Quando desabilitado, o ícone fica inativo.
+Você pode habilitar ou desabilitar o {% data variables.product.prodname_copilot %} de dentro do JetBrains. O ícone de status do {% data variables.product.prodname_copilot %} no painel inferior da janela do JetBrains indica se o {% data variables.product.prodname_copilot %} está habilitado ou desabilitado. Quando habilitado, o ícone fica realçado. Quando desabilitado, o ícone fica esmaecido.
 
-1. Para habilitar ou desabilitar {% data variables.product.prodname_copilot %}, clique no ícone de status no painel inferior da janela do JetBrains. ![Screenshot of status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, JetBrains will ask whether you want to disable the feature globally, or for the language of the file you are currently editing. Para desabilitar globalmente, clique em **Desabilitar as conclusões**. Alternatively, click the button to disable completions for the language of the file you are currently editing. ![Screenshot of options to disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+1. Para habilitar ou desabilitar o {% data variables.product.prodname_copilot %}, clique no ícone de status no painel inferior da janela do JetBrains.
+   ![Captura de tela do ícone de status no JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
+2. Quando você estiver desabilitando o {% data variables.product.prodname_copilot %}, o JetBrains perguntará se deseja desabilitar o recurso globalmente ou para a linguagem do arquivo em edição no momento. Para desabilitar globalmente, clique em **Desabilitar Conclusões**. Como alternativa, clique no botão para desabilitar as conclusões na linguagem do arquivo em edição no momento.
+   ![Captura de tela da opção para desabilitar o {% data variables.product.prodname_copilot %} globalmente ou para a linguagem atual](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)

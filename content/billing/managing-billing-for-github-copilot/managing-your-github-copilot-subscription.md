@@ -1,6 +1,7 @@
 ---
 title: Managing your GitHub Copilot subscription
 intro: 'Set up your {% data variables.product.prodname_copilot %} trial and manage your subscription.'
+product: '{% data reusables.gated-features.copilot-billing %}'
 versions:
   feature: copilot
 type: how_to

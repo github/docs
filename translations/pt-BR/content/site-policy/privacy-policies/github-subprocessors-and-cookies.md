@@ -1,5 +1,5 @@
 ---
-title: Subprocessadores e cookies do GitHub
+title: GitHub Subprocessors and Cookies
 redirect_from:
   - /subprocessors
   - /github-subprocessors
@@ -14,23 +14,23 @@ topics:
   - Legal
 ---
 
-Entrada em vigor: **1 de setembro de 2022**
+Effective date: **September 1, 2022**
 
 
-O GitHub fornece um grande acordo de transparência em relação à forma como usamos seus dados, como os coletamos e com quem compartilhamos. Para essa finalidade, disponibilizamos esta página, que detalha os [nossos subprocessadores](#github-subprocessors) e como usamos [cookies](#cookies-on-github).
+GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
-## Subprocessadores GitHub
+## GitHub Subprocessors
 
-Quando compartilhamos suas informações com terceiros subprocessadores, tais como nossos fornecedores e provedores de serviços, permanecemos responsáveis por elas. Trabalhamos muito duro para manter sua confiança quando trazemos novos fornecedores, e exigimos que todos os fornecedores se submetam a contratos de proteção de dados conosco que restringem seu processamento de Informações Pessoais dos Usuários (conforme definido na [Declaração de Privacidade](/articles/github-privacy-statement/)).
+When we share your information with third party subprocessors, such as our vendors and service providers, we remain responsible for it. We work very hard to maintain your trust when we bring on new vendors, and we require all vendors to enter into data protection agreements with us that restrict their processing of Users' Personal Information (as defined in the [Privacy Statement](/articles/github-privacy-statement/)).
 
-Quando trouxermos um novo subprocessador que lida com as Informações Pessoais de nossos Usuários, ou removermos um subprocessador, ou mudarmos a forma como usamos um subprocessador, atualizaremos a lista de subprocessadores. Você pode visualizar a lista atual de subprocessadores e se inscrever para receber atualizações da lista de subprocessadores, em [https://www.github.com/privacy/subprocessors](https://www.github.com/privacy/subprocessors).
+When we bring on a new subprocessor who handles our Users' Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update the list of subprocessors. You can view the current list of subprocessors, and sign up to receive subprocessor list updates, at [https://www.github.com/privacy/subprocessors](https://www.github.com/privacy/subprocessors).
 
-Se você tiver dúvidas ou preocupações sobre um novo subprocessador, ficaremos felizes em ajudar. Entre em contato conosco via {% data variables.contact.contact_privacy %}.
+If you have questions or concerns about a new subprocessor, we'd be happy to help. Please contact us via {% data variables.contact.contact_privacy %}.
 
-## Cookies no GitHub
+## Cookies on GitHub
 
-O GitHub usa cookies para fornecer e proteger nossos sites, bem como analisar o uso dos nossos sites, para oferecer a você uma ótima experiência de usuário. Consulte nossa [Declaração de privacidade](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) se você quiser saber mais informações sobre cookies e sobre como e por que os usamos.
+GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them. 
+ 
+You can view the current list of cookies on GitHub, and sign up to receive cookie list updates, at [https://github.com/privacy/cookies](https://github.com/privacy/cookies).
 
-Você pode ver a lista atual de cookies no GitHub e se inscrever para receber atualizações da lista de cookies em [https://github.com/privacy/cookies](https://github.com/privacy/cookies).
-
-(!) Observe que, embora limitemos o uso de cookies de terceiros aos que forem necessários para fornecer funcionalidade externa ao processar conteúdo externo, certas páginas no nosso site podem definir outros cookies de terceiros. Por exemplo, podemos incorporar conteúdo, como vídeos, de outro site que define um cookie. Embora tentemos minimizar esses cookies de terceiros, nem sempre podemos controlar quais cookies esse conteúdo de terceiros define.
+(!) Please note while we limit our use of third party cookies to those necessary to provide external functionality when rendering external content, certain pages on our website may set other third party cookies. For example, we may embed content, such as videos, from another site that sets a cookie. While we try to minimize these third party cookies, we can’t always control what cookies this third party content sets.

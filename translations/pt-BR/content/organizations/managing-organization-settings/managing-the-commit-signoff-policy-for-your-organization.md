@@ -1,25 +1,29 @@
 ---
-title: Gerenciando a política de aprovação do commit para sua organização
-intro: 'Você pode exigir que os usuários assinem automaticamente todos os commits que criarem na interface web do {% data variables.product.product_name %} em repositórios pertencentes à sua organização.'
+title: Como gerenciar a política de aprovação de confirmação para sua organização
+intro: 'Você pode exigir que os usuários aprovem automaticamente todos os commits que fizerem na interface da Web de {% data variables.product.product_name %} para repositórios de propriedade da sua organização.'
 versions:
   feature: commit-signoffs
 permissions: Organization owners can require all commits to repositories owned by the organization be signed off by the commit author.
 topics:
   - Organizations
-shortTitle: Gerenciar a política de aprovação de commit
+shortTitle: Manage the commit signoff policy
+ms.openlocfilehash: 0d4f2a0fae7db59a7a1f5d8646263e965e9be9ef
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409742'
 ---
+## Sobre as aprovações de commit
 
-## Sobre as autorizações de commit
+Para afirmar que um commit está em conformidade com as regras e o licenciamento que regem um repositório, muitas organizações exigem que os desenvolvedores aprovem cada commit. Se sua organização exigir aprovações de commit, você poderá tornar a aprovação uma parte contínua do processo de commit habilitando as aprovações de commit obrigatórias para usuários que fazem commit por meio da interface da Web de {% data variables.product.product_name %}. Depois de habilitar as aprovações de commit obrigatórias para uma organização, cada commit feito em repositórios nessa organização por meio da interface da Web de {% data variables.product.product_name %} será automaticamente aprovada pelo autor do commit.
 
-Para afirmar que um commit está de acordo com as regras e licenciamento de um repositório, muitas organizações exigem que os desenvolvedores assinem em todos os commits. Se sua organização requer assinaturas do commit, você pode tornar a assinatura de uma parte ininterrupta do processo de commit, permitindo a aprovação obrigatória de commits para os usuários que fizerem commit da interface web de {% data variables.product.product_name %}. Após habilitar as assinaturas de commit obrigatórias para uma organização, cada commit criado nos repositórios dessa organização por meio da interface web de {% data variables.product.product_name %} será automaticamente assinado pelo autor do commit.
-
-Pessoas com acesso de administrador a um repositório também podem habilitar assinaturas de commit obrigatórias no nível de repositório. Para obter mais informações, consulte "[Gerenciando a política de assinatura de commit para o seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)".
+Pessoas com acesso de administrador a um repositório também podem habilitar as aprovações de commit obrigatórias no nível do repositório. Para obter mais informações, confira "[Como gerenciar a política de aprovação de commit para seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)".
 
 {% data reusables.repositories.commit-signoffs %}
 
-## Gerenciando as assinaturas de commit obrigatórias para sua organização
+## Como gerenciar aprovações de commit obrigatórias para sua organização
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.repository-defaults %}
-1. Selecione ou desmarque **Exigir que os colaboradores assinem em commits baseados na web**. ![Captura de tela dos contribuidores obrigatórios para assinar commits baseados na web](/assets/images/help/organizations/require-signoffs.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
+1. Selecione ou cancele a seleção de **Exigir que os colaboradores aprovem commits baseados na Web**.
+  ![Captura de tela da opção Exigir que os colaboradores aprovem commits baseados na Web](/assets/images/help/organizations/require-signoffs.png)

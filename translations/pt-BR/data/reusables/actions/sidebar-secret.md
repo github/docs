@@ -1,5 +1,5 @@
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. Na barra lateral esquerda, clique em **Segredos de {% octicon "key-asterisk" aria-label="The key-asterisk icon" %}**.
-{% else %}
-1. Na barra lateral esquerda, clique em **Secrets** (Segredos).
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 -%}
+1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets**, then click **Actions**.
+{%- else %}
+1. In the left sidebar, click **Secrets**.
+{%- endif %}

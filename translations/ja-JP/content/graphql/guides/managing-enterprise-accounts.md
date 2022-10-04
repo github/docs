@@ -9,25 +9,30 @@ versions:
   ghae: '*'
 topics:
   - API
-shortTitle: Enterpriseアカウントの管理
+shortTitle: Manage enterprise accounts
+ms.openlocfilehash: bdfcca52766b85406df12b597822d5a5a596f26b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145068465'
 ---
-
 ## GraphQLでのEnterpriseアカウントの管理について
 
 Organizationをモニターし、変更を行ってコンプライアンスを維持しやすくするために、Enterprise Accounts API及びAudit Log APIを利用できます。これらはGraphQL APIでのみ利用できます。
 
 Enterpriseアカウントのエンドポイントは、GitHub Enterprise Cloud及びGitHub Enterprise Serverのどちらでも動作します。
 
-GraphQLを利用すれば、指定したデータだけをリクエストして返してもらうことができます。 たとえば、GraphQLクエリを作成し、情報をリクエストすることで、Organizationに追加された新しいメンバーを全員みることができます。 あるいはミューテーションを行って変更をかけて、Enterpriseアカウントに管理者を招待できます。
+GraphQL を使用すると、指定したデータのみを要求し、返すことができます。 たとえば、組織に追加された新しい組織メンバーの情報をすべて表示するには、GraphQL クエリ (つまり情報の要求) を作成します。 また、Enterprise アカウントに管理者を招待するための変化 (変更) を加えることもできます。
 
-Audit Log APIでは、誰かが以下のようなことをするのをモニターできます。
-- Organizationあるいはリポジトリの設定へのアクセス。
-- 権限の変更。
-- Organization、リポジトリ、Teamへのユーザーの追加もしくは削除。
-- ユーザを管理者に昇格。
-- GitHub Appの権限の変更。
+Audit Log API を使用すると、次のような場合を監視できます。
+- 組織またはリポジトリの設定にアクセスする。
+- アクセス許可を変更する。
+- 組織、リポジトリ、またはチームのユーザーを追加または削除する。
+- ユーザーを管理者に昇格させる。
+- GitHub アプリのアクセス許可を変更する。
 
-Audit Log APIを使えば、Audit logのデータのコピーを保持できます。 Audit Log APIで発行するクエリについては、GraphQLのレスポンスには最大で90から120日分のデータが含まれることがあります。 Audit Log APIで利用できるフィールドのリストについては、「[ AuditEntryインターフェース](/graphql/reference/interfaces#auditentry/)」を参照してください。
+Audit Log API を使用すると、監査ログ データのコピーを保持できます。 Audit Log APIで発行するクエリについては、GraphQLのレスポンスには最大で90から120日分のデータが含まれることがあります。 Audit Log API で使用できるフィールドの一覧については、「[AuditEntry インターフェイス](/graphql/reference/interfaces#auditentry/)」を参照してください。
 
 Enterprise APIを利用すると、以下のことができます。
 - Enterpriseアカウントに属するすべてのOrganizationとリポジトリの取得と確認。
@@ -36,7 +41,7 @@ Enterprise APIを利用すると、以下のことができます。
 - Enterpriseアカウントへの管理者の招待。
 - Enterpriseアカウント内での新しいOrganizationの作成。
 
-Enterprise Accounts APIで利用できるフィールドのリストについては、「[Enterprise Accounts APIのGraphQLフィールドと型](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)」を参照してください。
+エンタープライズ アカウント API で使用できるフィールドの一覧については、「[エンタープライズ アカウント API での GraphQL のフィールドと型](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)」を参照してください。
 
 ## EnterpriseアカウントでGraphQLを使い始める
 
@@ -45,27 +50,27 @@ GraphQLを使ってEnterpriseアカウントの管理を始めるには、以下
  - GraphQLクライアントの選択もしくはGraphQL Explorerの利用
  - GraphQL APIを利用するためのInsomniaのセットアップ
 
-クエリの例については「[Enterprise Accounts APIを使ったクエリの例](#an-example-query-using-the-enterprise-accounts-api)」を参照してください。
+クエリの例については、「[エンタープライズ アカウント API を使ったクエリの例](#an-example-query-using-the-enterprise-accounts-api)」を参照してください。
 
-### 1. 個人アクセストークンでの認証
+### 1. 個人用アクセス トークンでの認証
 
-1. GraphQLで認証を受けるには、開発者の設定から個人アクセストークン（PAT）を生成しなければなりません。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+1. GraphQLで認証を受けるには、開発者の設定から個人アクセストークン（PAT）を生成しなければなりません。 詳細については、[個人アクセス トークンの作成](/github/authenticating-to-github/creating-a-personal-access-token)に関する記事を参照してください。
 
 2. アクセスしたいGHESの領域に対して、管理及び完全なコントロール権限を個人アクセストークンに付与してください。 プライベートリポジトリ、Organization、Team、ユーザデータ、Enterpriseの支払い及びプロフィールデータへのアクセスについての完全な権限に関しては、個人アクセストークンに対して以下のスコープを選択することをおすすめします。
     - `repo`
     - `admin:org`
-    - `ユーザ`
+    - `user`
     - `admin:enterprise`
 
   Enterpriseアカウントに固有にスコープは以下のとおりです。
-    - `admin:enterprise`: Enterpriの完全な西予を与えます（{% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`、{% endif %}`manage_billing:enterprise`及び`read:enterprise`を含みます）。
-    - `manage_billing:enterprise`: Enterpriseの支払いデータの読み書き。{% ifversion ghes > 3.2 or ghae  %}
-    - `manage_runners:enterprise`: GitHub ActionsのEnterpriseランナー及びランナーグループを管理するためのアクセス。{% endif %}
-    - `read:enterprise`: Enterpriseのプロフィールデータの読み取り。
+    - `admin:enterprise`: エンタープライズを完全に制御します ({% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`、{% endif %}`manage_billing:enterprise` および `read:enterprise` を含む)
+    - `manage_billing:enterprise`: エンタープライズ課金データの読み取りと書き込み。{% ifversion ghes > 3.2 or ghae  %}
+    - `manage_runners:enterprise`: GitHub Actions エンタープライズ ランナーとランナー グループを管理するためのアクセス。{% endif %}
+    - `read:enterprise`: エンタープライズのプロファイル データを読み取ります。
 
 3. 個人アクセストークンをコピーし、GraphQLクライアントに追加するまでは安全な場所に保管しておいてください。
 
-### 2. GraphQLクライアントの選択
+### 2. GraphQL クライアントの選択
 
 GraphiQLもしくはベースURLの設定ができる他のスタンドアローンのGraphQLクライアントを使うことをおすすめします。
 
@@ -76,46 +81,58 @@ GraphiQLもしくはベースURLの設定ができる他のスタンドアロー
 
 この次のステップではInsomniaを使います。
 
-### 3. EnterpriseアカウントでGitHub GraphQL APIを利用するためのInsomniaのセットアップ
+### 3. エンタープライズ アカウントで GitHub GraphQL API を使用するための Insomnia の設定
 
-1. GraphQLクライアントにベースURLと`POST`メソッドを追加してください。 GraphQLを使って情報をリクエスト（クエリ）したり、情報を変更（ミューテーション）したり、GitHub APIを使ってデータを転送したりする場合、デフォルトのHTTPメソッドは`POST`であり、ベースURLは以下の構文に従います。
-    - Enterpriseインスタンスの場合は、`https://<HOST>/api/graphql`
-    - GitHub Enterprise Cloudの場合は、`https://api.github.com/graphql`
+1. ベース URL と `POST` メソッドを GraphQL クライアントに追加します。 GraphQL を使用して情報の要求 (クエリ)、情報の変更 (ミューテーション)、または GitHub API を使用してデータを転送する場合、既定の HTTP メソッドは `POST` であり、ベース URL は次の構文に従います。
+    - エンタープライズ インスタンスの場合: `https://<HOST>/api/graphql`
+    - GitHub Enterprise Cloud の場合: `https://api.github.com/graphql`
 
-2. 認証を受けるには、認証オプションのメニューを開き、**Bearer token**を選択してください。 次に、先ほどコピーした個人アクセストークンを追加してください。
+2. 認証するには、認証オプション メニューを開き、 **[ベアラー トークン]** を選択します。 次に、先ほどコピーした個人アクセストークンを追加してください。
 
  ![個人アクセストークンの権限オプション](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
 
  ![個人アクセストークンの権限オプション](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
 
 3. ヘッダー情報を含めてください。
-   - ヘッダーとして`Content-Type`を、値として`application/json`を追加してください。 ![標準ヘッダー](/assets/images/developer/graphql/json-content-type-header.png) ![Audit Log APIのためのプレビュー値を持つヘッダー](/assets/images/developer/graphql/preview-header-for-2.18.png)
+   - `Content-Type` をヘッダーとして、`application/json` を値として追加します。
+   ![標準ヘッダー](/assets/images/developer/graphql/json-content-type-header.png)
+   ![監査ログ API のプレビュー値を含むヘッダー](/assets/images/developer/graphql/preview-header-for-2.18.png)
 
 これでクエリを発行する準備ができました。
 
 ## Enterprise Accounts APIを使ったクエリの例
 
-このGraphQLクエリは、Enterprise Accounts APIを使い、アプライアンス中の各Organization内の{% ifversion not ghae %}`パブリック`{% else %}`プライベート`{% endif %}なリポジトリの総数を要求しています。 このクエリをカスタマイズするには、`<enterprise-account-name>`をEnterpriseアカウントのハンドルで置き換えてください。 たとえばEnterpriseアカウントが`https://github.com/enterprises/octo-enterprise`にあるなら、`<enterprise-account-name>`を`octo-enterprise`で置き換えてください。
+この GraphQL クエリは、エンタープライズ アカウント API を使用して、アプライアンスの各組織の {% ifversion not ghae %}`public`{% else %}`private`{% endif %} リポジトリの合計数を要求します。 このクエリをカスタマイズするには、`<enterprise-account-name>` をエンタープライズ アカウントのハンドルに置換します。 たとえば、エンタープライズ アカウントが `https://github.com/enterprises/octo-enterprise` にある場合は、`<enterprise-account-name>` を `octo-enterprise` に置換します。
 
 {% ifversion not ghae %}
 
 ```graphql
-query publicRepositoriesByOrganization {
-  organizationOneAlias: organization(login: "<name-of-organization-one>") {
-    # フラグメントの使い方
-    ...repositories
+query publicRepositoriesByOrganization($slug: String!) {
+  enterprise(slug: $slug) {
+    ...enterpriseFragment
   }
-  organizationTwoAlias: organization(login: "<name-of-organization-two>") {
-    ...repositories
-  }
-  # organizationThreeAlias ... といったように最大でたとえば100個続く
 }
-# How to define a fragment
-fragment repositories on Organization {
-  name
-  repositories(privacy: PUBLIC){
-    totalCount
+
+fragment enterpriseFragment on Enterprise {
+  ... on Enterprise{
+    name
+    organizations(first: 100){
+      nodes{
+        name
+        ... on Organization{
+          name
+          repositories(privacy: PUBLIC){
+            totalCount
+          }
+        }
+      }
+    }
   }
+}
+
+# Passing our Enterprise Account as a variable
+variables {
+  "slug": "<enterprise-account-name>"
 }
 ```
 
@@ -152,23 +169,23 @@ variables {
 ```
 {% endif %}
 
-次のGraphQLクエリの例は、Enterprise Accounts APIを使わずに各Organization内の{% ifversion not ghae %}`public`{% else %}` private`{% endif %}なリポジトリの数を取得するのがいかに難しいかを示します。  単一の変数だけをカスタマイズすれば済むようになることから、EnterpriseにとってGraphQLのEnterprise Accounts APIがこのタスクをシンプルにしてくれていることに注意してください。 このクエリをカスタマイズするには、`<name-of-organization-one>`や`<name-of-organization-two>`などを 自分のインスタンス上のOrganization名で置き換えてください。
+次の GraphQL クエリの例では、エンタープライズ アカウント API を使用せずに、各組織の {% ifversion not ghae %}`public`{% else %}`private`{% endif %} リポジトリの数を取得することがいかに困難であるかを示しています。  単一の変数だけをカスタマイズすれば済むようになることから、EnterpriseにとってGraphQLのEnterprise Accounts APIがこのタスクをシンプルにしてくれていることに注意してください。 このクエリをカスタマイズするには、`<name-of-organization-one>` や `<name-of-organization-two>` などを、インスタンスの組織名に置換します。
 
 {% ifversion not ghae %}
 ```graphql
-# 各organizationに対して個別にクエリを実行
+# Each organization is queried separately
 {
   organizationOneAlias: organization(login: "nameOfOrganizationOne") {
-    # フラグメントの使い方
+    # How to use a fragment
     ...repositories
   }
   organizationTwoAlias: organization(login: "nameOfOrganizationTwo") {
     ...repositories
   }
-  # organizationThreeAlias ... といったように最大でたとえば100個続く
+  # organizationThreeAlias ... and so on up-to lets say 100
 }
 
-## フラグメントの定義方法
+## How to define a fragment
 fragment repositories on Organization {
   name
   repositories(privacy: PUBLIC){
@@ -178,19 +195,19 @@ fragment repositories on Organization {
 ```
 {% else %}
 ```graphql
-# 各organizationに対して個別にクエリを実行
+# Each organization is queried separately
 {
   organizationOneAlias: organization(login: "name-of-organization-one") {
-    # フラグメントの使い方
+    # How to use a fragment
     ...repositories
   }
   organizationTwoAlias: organization(login: "name-of-organization-two") {
     ...repositories
   }
-  # organizationThreeAlias ... といったように最大でたとえば100個続く
+  # organizationThreeAlias ... and so on up-to lets say 100
 }
 
-## フラグメントの定義方法
+## How to define a fragment
 fragment repositories on Organization {
   name
   repositories(privacy: PRIVATE){
@@ -207,15 +224,15 @@ fragment repositories on Organization {
 ```graphql
 query publicRepositoriesByOrganization {
   organizationOneAlias: organization(login: "<name-of-organization-one>") {
-    # フラグメントの使用方法
+    # How to use a fragment
     ...repositories
   }
   organizationTwoAlias: organization(login: "<name-of-organization-two>") {
     ...repositories
   }
-  # organizationThreeAlias ... といったように最大でたとえば100個続く
+  # organizationThreeAlias ... and so on up-to lets say 100
 }
-# フラグメントの定義方法
+# How to define a fragment
 fragment repositories on Organization {
   name
   repositories(privacy: PUBLIC){
@@ -229,15 +246,15 @@ fragment repositories on Organization {
 ```graphql
 query privateRepositoriesByOrganization {
   organizationOneAlias: organization(login: "<name-of-organization-one>") {
-    # フラグメントの使用方法
+    # How to use a fragment
     ...repositories
   }
   organizationTwoAlias: organization(login: "<name-of-organization-two>") {
     ...repositories
   }
-  # organizationThreeAlias ... といったように最大でたとえば100個続く
+  # organizationThreeAlias ... and so on up-to lets say 100
 }
-# フラグメントの定義方法
+# How to define a fragment
 fragment repositories on Organization {
   name
   repositories(privacy: PRIVATE){
@@ -248,7 +265,7 @@ fragment repositories on Organization {
 
 {% endif %}
 
-このGraphQLクエリは、EnterpriseのOrganizationの最新の5つのログエントリを要求します。 このクエリをカスタマイズするには、`<org-name>`と`<user-name>`を置き換えてください。
+このGraphQLクエリは、EnterpriseのOrganizationの最新の5つのログエントリを要求します。 このクエリをカスタマイズするには、`<org-name>` と `<user-name>` を置換します。
 
 ```graphql
 {
@@ -257,11 +274,11 @@ fragment repositories on Organization {
       edges {
         node {
           ... on AuditEntry {
-# Audit Logのエントリを'Action'で取得
+# Get Audit Log Entry by 'Action'
             action
             actorLogin
             createdAt
-#  'Action'を実行したUser
+# User 'Action' was performed on
            user{
               name
                 email
@@ -274,12 +291,13 @@ fragment repositories on Organization {
 }
 ```
 
-GraphQLの使い始め方に関する詳しい情報については「[GraphQLの紹介](/graphql/guides/introduction-to-graphql)」及び「[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
+GraphQL の概要の詳細については、「[GraphQL の紹介](/graphql/guides/introduction-to-graphql)」と「[GraphQL での呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
 
 ## Enterprise Accounts APIでのGraphQLのフィールドと型
 
 Enterprise Accounts APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型の概要を以下に示します。
 
-Enterprise APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型に関する詳しい情報については、任意の[GraphQLリファレンスページ](/graphql)の詳細なGraphQLの定義があるサイドバーを参照してください。
+エンタープライズ アカウント API で使用できる新しいクエリ、ミューテーション、およびスキーマ定義型の詳細については、[GraphQL リファレンス ページ](/graphql)の詳細な GraphQL 定義が表示されているサイドバーを参照してください。
 
-GitHub上のGraphQL Explorer内からリファレンスドキュメントにアクセスできます。 詳しい情報については「[Explorerの利用](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)」を参照してください。 認証やレート制限の詳細など その他の情報については[ガイド](/graphql/guides)を参照してください。
+GitHub上のGraphQL Explorer内からリファレンスドキュメントにアクセスできます。 詳細については、「[Explorer の利用](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)」を参照してください。
+認証やレート制限の詳細など、その他の情報については「[ガイド](/graphql/guides)」を参照してください。

@@ -1,105 +1,107 @@
 ---
-title: Configuring a repository cache
-intro: 'You can configure a repository cache by creating a new appliance, connecting the repository cache to your primary appliance, and configuring replication of repository networks to the repository cache.'
+title: リポジトリ キャッシュの構成
+intro: リポジトリ キャッシュを構成するには、新しいアプライアンスを作成し、リポジトリ キャッシュをプライマリ アプライアンスに接続し、リポジトリ キャッシュに対するリポジトリ ネットワークのレプリケーションを構成します。
 versions:
   ghes: '>=3.3'
 type: how_to
 topics:
   - Enterprise
+ms.openlocfilehash: dced49e1e6795407e2e41f12275a310c3a98aaf1
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '146332011'
 ---
-
 {% data reusables.enterprise.repository-caching-release-phase %}
 
-## About configuration for repository caching
+## リポジトリ キャッシュの構成について
 
-{% data reusables.enterprise.repository-caching-config-summary %} Then, you can set data location policies that govern which repository networks are replicated to the repository cache.
+{% data reusables.enterprise.repository-caching-config-summary %}次に、リポジトリ キャッシュにレプリケートされるリポジトリ ネットワークを管理するデータの場所ポリシーを設定できます。
 
-Repository caching is not supported with clustering.
+クラスタリングでは、リポジトリ キャッシュはサポートされていません。
 
-## DNS for repository caches
+## リポジトリ キャッシュの DNS
 
-The primary instance and repository cache should have different DNS names. For example, if your primary instance is at `github.example.com`, you might decide to name a cache `europe-ci.github.example.com` or `github.asia.example.com`.
+プライマリ インスタンスとリポジトリ キャッシュの DNS 名は異なっている必要があります。 たとえば、プライマリ インスタンスが `github.example.com` にある場合は、キャッシュ名は `europe-ci.github.example.com` や `github.asia.example.com` に決定できます。
 
-To have your CI machines fetch from the repository cache instead of the primary instance, you can use Git's `url.<base>.insteadOf` configuration setting. For more information, see [`git-config`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf) in the Git documentation.
+CI マシンで、プライマリ インスタンスではなくリポジトリ キャッシュからフェッチするには、Git の `url.<base>.insteadOf` 構成設定を使用できます。 詳細については、Git ドキュメントにある「[`git-config`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf)」を参照してください。 
 
-For example, the global `.gitconfig` for the CI machine would include these lines.
+たとえば、CI マシンのグローバル `.gitconfig` には、次の行が含まれます。
 
 ```
 [url "https://europe-ci.github.example.com/"]
     insteadOf = https://github.example.com/
 ```
 
-Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will instead fetch from `https://europe-ci.github.example.com/myorg/myrepo`.
+次に、`https://github.example.com/myorg/myrepo` をフェッチするように Git に要求すると、代わりに `https://europe-ci.github.example.com/myorg/myrepo` からフェッチされます。
 
-## Configuring a repository cache
+## リポジトリ キャッシュの構成
 
 {% ifversion ghes = 3.3 %}
-1. On your primary {% data variables.product.prodname_ghe_server %} appliance, enable the feature flag for repository caching.
-
+1. プライマリ {% data variables.product.prodname_ghe_server %} アプライアンスで、リポジトリ キャッシュの機能フラグを有効にします。
+   
    ```
    $ ghe-config cluster.cache-enabled true
    ```
 {%- endif %}
-1. 新しい {% data variables.product.prodname_ghe_server %} アプライアンスを希望するプラットフォームにセットアップします。 This appliance will be your repository cache. 詳細は「[{% data variables.product.prodname_ghe_server %}インスタンスをセットアップする](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+1. 新しい {% data variables.product.prodname_ghe_server %} アプライアンスを希望するプラットフォームにセットアップします。 このアプライアンスがリポジトリ キャッシュになります。 詳細については、「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 {% data reusables.enterprise_installation.replica-steps %}
-1. Connect to the repository cache's IP address using SSH.
+1. SSH を使用して、リポジトリ キャッシュの IP アドレスに接続します。
 
    ```shell
    $ ssh -p 122 admin@<em>REPLICA IP</em>
    ```
 {%- ifversion ghes = 3.3 %}
-1. On your cache replica, enable the feature flag for repository caching.
-
+1. キャッシュ レプリカで、リポジトリ キャッシュの機能フラグを有効にします。
+   
    ```
    $ ghe-config cluster.cache-enabled true
    ```
-{%- endif %}
-{% data reusables.enterprise_installation.generate-replication-key-pair %}
-{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
-1. To verify the connection to the primary and enable replica mode for the repository cache, run `ghe-repl-setup` again.
+{%- endif %} {% data reusables.enterprise_installation.generate-replication-key-pair %} {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
+1. プライマリへの接続を確認し、リポジトリ キャッシュに対してレプリカ モードを有効にするには、`ghe-repl-setup` をもう一度実行します。
 
    ```shell
    $ ghe-repl-setup <em>PRIMARY IP</em>
    ```
 
-1. Set a `cache_location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
+1. *CACHE-LOCATION* を、キャッシュがデプロイされているリージョンなどの英数字識別子に置き換えて、リポジトリ キャッシュに対して `cache_location` を設定します。 また、このキャッシュのデータセンター名も設定します。新しいキャッシュでは、同じデータセンター内の別のキャッシュからシード処理を試みます。
 
    ```shell
    $ ghe-repl-node --cache <em>CACHE-LOCATION</em> --datacenter <em>REPLICA-DC-NAME</em>
    ```
 
-{% data reusables.enterprise_installation.replication-command %}
-{% data reusables.enterprise_installation.verify-replication-channel %}
-1. To enable replication of repository networks to the repository cache, set a data location policy. For more information, see "[Data location policies](#data-location-policies)."
+{% data reusables.enterprise_installation.replication-command %} {% data reusables.enterprise_installation.verify-replication-channel %}
+1. リポジトリ キャッシュへのリポジトリ ネットワークのレプリケーションを有効にするには、データの場所ポリシーを設定します。 詳細については、「[データの場所ポリシー](#data-location-policies)」を参照してください。
 
-## Data location policies
+## データの場所ポリシー
 
-You can control data locality by configuring data location policies for your repositories with the `spokesctl cache-policy` command. Data location policies determine which repository networks are replicated on which repository caches. By default, no repository networks will be replicated on any repository caches until a data location policy is configured.
+`spokesctl cache-policy` コマンドでリポジトリのデータの場所ポリシーを構成して、データの局所性を制御できます。 データの場所ポリシーによって、どのリポジトリ ネットワークがどのリポジトリ キャッシュにレプリケートされているかが決まります。 既定では、データの場所ポリシーが構成されるまで、どのリポジトリ キャッシュにもリポジトリ ネットワークはレプリケートされません。
 
-Data location policies affect only Git content. Content in the database, such as issues and pull request comments, will be replicated to all nodes regardless of policy.
+データの場所ポリシーは、Git コンテンツにのみ影響します。 Issue や pull request コメントなどのデータベース内のコンテンツは、ポリシーに関係なくすべてのノードにレプリケートされます。
 
 {% note %}
 
-**Note:** Data location policies are not the same as access control. You must use repository roles to control which users may access a repository. For more information about repository roles, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+**注:** データの場所ポリシーは、アクセス制御と同じではありません。 リポジトリにアクセスできるユーザーを制御するには、リポジトリ ロールを使用する必要があります。 リポジトリ ロールの詳細については、「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
-{% endnote %}
+{% endnote %} 
 
-You can configure a policy to replicate all networks with the `--default` flag. For example, this command will create a policy to replicate a single copy of every repository network to the set of repository caches whose `cache_location` is "kansas".
+`--default` フラグを使用して、すべてのネットワークをレプリケートするようにポリシーを構成できます。 たとえば、次のコマンドでは、すべてのリポジトリ ネットワークの 1 つのコピーを、`cache_location` が "kansas" であるリポジトリ キャッシュのセットにレプリケートするポリシーが作成されます。
 
  ```
  $ ghe-spokesctl cache-policy set --default 1 kansas
  ```
 
-To configure replication for a repository network, specify the repository that is the root of the network. A repository network includes a repository and all of the repository's forks. You cannot replicate part of a network without replicating the whole network.
+リポジトリ ネットワークのレプリケーションを構成するには、ネットワークのルートであるリポジトリを指定します。 リポジトリ ネットワークには、リポジトリとリポジトリのすべてのフォークが含まれます。 ネットワーク全体をレプリケートしないと、ネットワークの一部をレプリケートすることはできません。
 
 ```
 $ ghe-spokesctl cache-policy set <owner/repository> 1 kansas
 ```
 
-You can override a policy that replicates all networks and exclude specific networks by specifying a replica count of zero for the network. For example, this command specifies that any repository cache in location "kansas" cannot contain any copies of that network.
+ネットワークのレプリカ数を 0 に指定すると、すべてのネットワークをレプリケートし、特定のネットワークを除外するポリシーをオーバーライドできます。 たとえば、次のコマンドでは、場所 "kansas" 内のリポジトリ キャッシュに、そのネットワークのコピーを含めることができないことが指定されます。
 
 ```
 $ ghe-spokesctl cache-policy set <owner/repository> 0 kansas
 ```
 
-Replica counts greater than one in a given cache location are not supported.
+特定のキャッシュの場所で、1 より大きいレプリカ数はサポートされていません。

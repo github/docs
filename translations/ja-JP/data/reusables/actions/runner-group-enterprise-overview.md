@@ -1,3 +1,11 @@
-Runner groups are used to control access to runners at the organization and enterprise level. Enterprise owners can configure access policies that control which organizations {% ifversion restrict-groups-to-workflows %}and workflows {% endif %}in an enterprise have access to the runner group. Organization owners can configure access policies that control which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} in an organization have access to the runner group.
+---
+ms.openlocfilehash: 3e11d726bb45f2a291ea7fbae4d10770cd505eaf
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147763976"
+---
+ランナー グループは、Organization レベルと Enterprise レベルのランナーへのアクセスを制御するために使用されます。 Enterprise の所有者はアクセス ポリシーを設定して、Enterprise 内のどの Organization {% ifversion restrict-groups-to-workflows %}とワークフロー{% endif %}がランナー グループにアクセスできるかを制御できます。 Organization の所有者はアクセス ポリシーを設定して、Organization 内のどのリポジトリ{% ifversion restrict-groups-to-workflows %}とワークフロー{% endif %}がランナー グループにアクセスできるかを制御できます。
 
-When an enterprise owner grants access to a runner group, organization owners can see the runner group listed in the organization's runner settings. The organization owners can then assign additional granular repository{% ifversion restrict-groups-to-workflows %} and workflow{% endif %} access policies to the enterprise runner group.
+Enterprise の所有者がランナー グループにアクセス権を付与する場合、Organization の所有者には、Organization のランナー設定に一覧表示されているランナー グループが表示されます。 その後、Organization の所有者は、リポジトリ{% ifversion restrict-groups-to-workflows %}とワークフロー{% endif %}の詳細な追加アクセス ポリシーを、Enterprise ランナー グループに割り当てることができます。

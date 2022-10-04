@@ -1,4 +1,12 @@
-1. **Repository（リポジトリ）**メニューを開き、**Repository settings...（リポジトリ設定...）**をクリックしてください。
+---
+ms.openlocfilehash: 3867cf990f6df6b792472271ed3fcac0b2851ae3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145138252"
+---
+1. **[リポジトリ]** メニューを開き、 **[リポジトリの設定...]** をクリックします。
 
   {% mac %}
 

@@ -1,27 +1,26 @@
----
 date: '2021-06-24'
 sections:
   security_fixes:
-    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+    - Packages have been updated to the latest security versions.
   bugs:
-    - Una cantidad más grande de métricas `gauge-dependency-graph-api-dispatch_dispatch` pudo acumularse en a consola de administración.
-    - El servicio de sshd algunas veces falló en iniciar en instancias que se estaban ejecutando en la plataforma de Google Cloud.
-    - Los archivos de actualización antiguos persistieron en el disco del usuario, lo cual algunas veces dio como resultado tener condiciones de falta de espacio.
-    - '`gh-migrator` mostró una ruta incorrecta a su bitácora de salida.'
-    - Un archivo de exportación falló silenciosamente en importar solicitudes de cambios si estas contenían solicitudes de revisión de equipos que no estaban presentes en el archivo.
+    - A large number of `gauge-dependency-graph-api-dispatch_dispatch` metrics could accumulate in the Management Console.
+    - The sshd service would sometimes fail to start on instances running on Google Cloud Platform.
+    - Old upgrade files would persist on the user disk, sometimes resulting in out of space conditions.
+    - '`gh-migrator` displayed an incorrect path to its log output.'
+    - An export archive would silently fail to import pull requests if they contained review requests from teams not present in the archive.
   changes:
-    - Actualiza la versión del ejecutor de {% data variables.product.prodname_actions %} en GHES 3.1 a la [v2.278.0](https://github.com/actions/runner/releases/tag/v2.278.0)
+    - Update the {% data variables.product.prodname_actions %} Runner version in GHES 3.1 to [v2.278.0](https://github.com/actions/runner/releases/tag/v2.278.0)
   known_issues:
-    - El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.
-    - En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.
-    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
-    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
-    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.
-    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - |
-      Después de actualizar de la versión 3.0.x a la 3.1.x, en algunos casos, puede que GitHub actions falle con un error de tipo: `An unexpected error occurred when executing this workflow.` Para solucionar este problema, conéctate al shell administrativo (ssh) y ejecuta:
+      After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
       ```
       ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
       ```
-    - Si se habilitan las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}, el desmontar un nodo de réplica con `ghe-repl-teardown` tendrá éxito, pero podría devolver un `ERROR:Running migrations`.
-    - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
+    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
