@@ -69,8 +69,10 @@ export default function parsePageSectionsIntoRecords(page) {
   // These below lines can be deleted (along with the `maxContentLength`
   // config) once we've stopped generating Lunr indexes on disk that
   // we store as Git LFS.
-  if (languageCode !== 'en' && body.length > maxContentLength) {
-    body = body.slice(0, maxContentLength)
+  if (!process.env.ELASTICSEARCH_URL) {
+    if (languageCode !== 'en' && body.length > maxContentLength) {
+      body = body.slice(0, maxContentLength)
+    }
   }
 
   const content = `${intro}\n${body}`.trim()
