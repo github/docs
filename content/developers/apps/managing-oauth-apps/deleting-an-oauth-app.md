@@ -18,7 +18,7 @@ topics:
 {% data reusables.user-settings.oauth_apps %}
 4. Select the {% data variables.product.prodname_oauth_app %} you want to modify.
 ![App selection](/assets/images/oauth-apps/oauth_apps_choose_app_post2dot12.png)
-5. Click on **Advanced** on the sidebar.
+5. Click **Advanced** from the sidebar.
 <!-- Picture to be inserted -->
 6. Click **Delete application**.
 ![Button to delete the application](/assets/images/oauth-apps/oauth_apps_delete_application.png)
