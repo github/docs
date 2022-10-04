@@ -63,7 +63,7 @@ By default, self-hosted runners will automatically perform a software update whe
 To turn off automatic software updates and install software updates yourself, specify the `--disableupdate` flag when registering your runner using `config.sh`. For example:
 
 ```shell
-./config.sh --url <em>https://github.com/octo-org</em> --token <em>example-token</em> --disableupdate
+./config.sh --url https://github.com/YOUR-ORGANIZATION --token EXAMPLE-TOKEN --disableupdate
 ```
 
 If you disable automatic updates, you must still update your runner version regularly.  New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software.  The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.

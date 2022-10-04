@@ -44,17 +44,19 @@ If you are a site administrator for {% data variables.product.product_location %
    {%- ifversion ghae %}
     <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
    ```shell
-   $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
+   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com" 
+   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
    ```
    {%- else %}
    ```shell
-   $ ssh-keygen -t ed25519 -C "<em>your_email@example.com</em>"
+   $ ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
    {% note %}
 
    **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
    ```shell
-    $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
+    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
    ```
 
    {% endnote %}
@@ -62,14 +64,14 @@ If you are a site administrator for {% data variables.product.product_location %
 
    This creates a new SSH key, using the provided email as a label.
    ```shell
-   > Generating public/private <em>algorithm</em> key pair.
+   > Generating public/private ALGORITHM key pair.
    ```
 3. When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
 
    {% mac %}
 
    ```shell
-   > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_<em>algorithm</em>): <em>[Press enter]</em>
+   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM: [Press enter]
    ```
 
    {% endmac %}
@@ -77,7 +79,7 @@ If you are a site administrator for {% data variables.product.product_location %
    {% windows %}
 
    ```shell
-   > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_<em>algorithm</em>):<em>[Press enter]</em>
+   > Enter a file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
    ```
 
    {% endwindows %}
@@ -85,15 +87,15 @@ If you are a site administrator for {% data variables.product.product_location %
    {% linux %}
 
    ```shell
-   > Enter a file in which to save the key (/home/<em>you</em>/.ssh/<em>algorithm</em>): <em>[Press enter]</em>
+   > Enter a file in which to save the key (/home/YOU/.ssh/ALGORITHM):[Press enter]
    ```
 
    {% endlinux %}
 
 4. At the prompt, type a secure passphrase. For more information, see ["Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)."
    ```shell
-   > Enter passphrase (empty for no passphrase): <em>[Type a passphrase]</em>
-   > Enter same passphrase again: <em>[Type passphrase again]</em>
+   > Enter passphrase (empty for no passphrase): [Type a passphrase]
+   > Enter same passphrase again: [Type passphrase again]
    ```
 
 ## Adding your SSH key to the ssh-agent
@@ -110,7 +112,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
      ```shell
      $ open ~/.ssh/config
-     > The file /Users/<em>you</em>/.ssh/config does not exist.
+     > The file /Users/YOU/.ssh/config does not exist.
      ```
 
    * If the file doesn't exist, create the file.
@@ -198,7 +200,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Paste the text below, substituting in the email address for your account on {% data variables.product.product_name %}.
    ```shell
-   $ ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "<em>your_email@example.com</em>"
+   $ ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
    ```
 
    {%- ifversion not ghae %}
@@ -217,7 +219,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    {% mac %}
 
    ```shell
-   > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk): <em>[Press enter]</em>
+   > Enter a file in which to save the key (/Users/YOU/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk): [Press enter]
    ```
 
    {% endmac %}
@@ -225,7 +227,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    {% windows %}
 
    ```shell
-   > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk):<em>[Press enter]</em>
+   > Enter a file in which to save the key (/c/Users/YOU/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk):[Press enter]
    ```
 
    {% endwindows %}
@@ -233,14 +235,14 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    {% linux %}
 
    ```shell
-   > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk): <em>[Press enter]</em>
+   > Enter a file in which to save the key (/home/YOU/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk):[Press enter]
    ```
 
    {% endlinux %}
 
 6. When you are prompted to type a passphrase, press **Enter**.
    ```shell
-   > Enter passphrase (empty for no passphrase): <em>[Type a passphrase]</em>
-   > Enter same passphrase again: <em>[Type passphrase again]</em>
+   > Enter passphrase (empty for no passphrase): [Type a passphrase]
+   > Enter same passphrase again: [Type passphrase again]
    ```
 7. Add the SSH key to your account on {% data variables.product.prodname_dotcom %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."

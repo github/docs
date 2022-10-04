@@ -56,7 +56,7 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 Some output in _auth.log_ may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.product.product_location %} to decode these responses. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 ```shell
-$ base64 --decode <em>ENCODED OUTPUT</em>
+$ base64 --decode ENCODED_OUTPUT
 ```
 
 ## Error: "Another user already owns the account"

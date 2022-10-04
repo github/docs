@@ -1,12 +1,12 @@
 ---
-title: Git 和 GitHub 学习资源
+title: Git and GitHub learning resources
 redirect_from:
   - /articles/good-resources-for-learning-git-and-github
   - /articles/what-are-other-good-resources-for-learning-git-and-github
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
-intro: 'Web 上有许多有用的 Git 和 {% data variables.product.product_name %} 资源。 这是我们精选的简短列表！'
+intro: 'There are a lot of helpful Git and {% data variables.product.product_name %} resources on the web. This is a short list of our favorites!'
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,55 +15,49 @@ versions:
 authors:
   - GitHub
 shortTitle: Learning resources
-ms.openlocfilehash: d8d0457de2842392febee0c90660285e9b1afef8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146139294'
 ---
-## 使用 Git
+## Using Git
 
-通过访问[官方 Git 项目站点](https://git-scm.com)并阅读 [ProGit 书籍](http://git-scm.com/book)熟悉 Git。 还可以查看 [Git 命令列表](https://git-scm.com/docs)。
+Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can also review the [Git command list](https://git-scm.com/docs).
 
-## 使用 {% data variables.product.product_name %}
+## Using {% data variables.product.product_name %}
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_learning %} 提供免费互动课程，它们内置于 {% data variables.product.prodname_dotcom %} 中，附有即时自动反馈和帮助。 学习提出第一个拉取请求、做出第一个开源贡献、创建 {% data variables.product.prodname_pages %} 站点等。 有关课程设置的详细信息，请参阅 [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})。
+{% data variables.product.prodname_learning %} offers free interactive courses that are built into {% data variables.product.prodname_dotcom %} with instant automated feedback and help. Learn to open your first pull request, make your first open source contribution, create a {% data variables.product.prodname_pages %} site, and more. For more information about course offerings, see [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
 
 {% endif %}
 
-通过[入门指南](/categories/getting-started-with-github/)文章更好地熟悉 {% data variables.product.product_name %}。 参阅 [{% data variables.product.prodname_dotcom %} 流程](https://guides.github.com/introduction/flow)，了解流程介绍。 阅读[概述指南](https://guides.github.com)，了解基本概念。
+Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. See our [{% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow) for a process introduction. Refer to our [overview guides](https://guides.github.com) to walk through basic concepts.
 
 {% data reusables.support.ask-and-answer-forum %}
 
-### 分支、复刻和拉取请求
+### Branches, forks, and pull requests
 
-使用交互式工具了解 [Git 分支](http://learngitbranching.js.org/)。 阅读有关[分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)和[拉取请求](/articles/using-pull-requests)的相关信息并了解[如何在 {% data variables.product.prodname_dotcom %} 上使用拉取请求](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)。 从[命令行](https://cli.github.com/)访问有关使用 {% data variables.product.prodname_dotcom %} 的参考。
+Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
 
-### 收看视频
+### Tune in
 
-我们的 {% data variables.product.prodname_dotcom %} [YouTube 培训和指南频道](https://youtube.com/githubguides)提供了有关[拉取请求](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19)、[创建分支](https://www.youtube.com/watch?v=5oJHRbqEofs)、[变基](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22)和[重置](https://www.youtube.com/watch?v=BKPjPMVB81g)功能的教程。 每个主题介绍 5 分钟或更短时间。
+Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides channel](https://youtube.com/githubguides) offers tutorials about [pull requests](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19), [forking](https://www.youtube.com/watch?v=5oJHRbqEofs), [rebase](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22), and [reset](https://www.youtube.com/watch?v=BKPjPMVB81g) functions. Each topic is covered in 5 minutes or less.
 
-## 培训
+## Training
 
-### 免费课程
+### Free courses
 
-{% data variables.product.product_name %} 提供一系列交互式、[点播培训课程](https://skills.github.com/)，包括 [{% data variables.product.prodname_dotcom %} 简介](https://github.com/skills/introduction-to-github)；以及关于 {% data variables.product.product_name %} 特定工具（如 {% data variables.product.prodname_actions %}）的课程。
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://skills.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
-### {% data variables.product.prodname_dotcom %} 基于 web 的教育课程
+### {% data variables.product.prodname_dotcom %}'s web-based educational programs
 
-{% data variables.product.prodname_dotcom %} 提供直播[培训](https://services.github.com/#upcoming-events)，为喜欢和不喜欢使用命令行的人提供注重实践、基于项目的方法。
+{% data variables.product.prodname_dotcom %} offers live [trainings](https://services.github.com/#upcoming-events) with a hands-on, project-based approach for those who love the command line and those who don't.
 
-### 为您的公司提供培训
+### Training for your company
 
-{% data variables.product.prodname_dotcom %} 提供[现场课程](https://services.github.com/#offerings)，由经验丰富的教师讲授。 如需询问有关培训的问题，请[联系我们](https://services.github.com/#contact)。
+{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. [Contact us](https://services.github.com/#contact) to ask your training-related questions.
 
-## 附加信息
+## Extras
 
-[Pluralsight](https://www.pluralsight.com/codeschool) 的互动式[在线 Git 课程](https://www.pluralsight.com/courses/code-school-git-real)有七个等级，以有趣的游戏形式提供数许多练习。 你可以根据自己的需求自由调整 [.gitignore 模板](https://github.com/github/gitignore)。
+An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
 
-通过{% ifversion fpt or ghec %}[集成](/articles/about-integrations){% else %}integrations{% endif %}，或者安装 [{% data variables.product.prodname_desktop %}](https://desktop.github.com) 和可靠的 [Atom](https://atom.io) 文本编辑器来扩展 {% data variables.product.prodname_dotcom %} 范围。
+Extend your {% data variables.product.prodname_dotcom %} reach through {% ifversion fpt or ghec %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) text editor.
 
-通过[开源指南](https://opensource.guide/)了解如何启动和发展开源项目。
+Learn how to launch and grow your open source project with the [Open Source Guides](https://opensource.guide/).
