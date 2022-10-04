@@ -174,6 +174,7 @@ translations/zh-CN/content/site-policy/github-terms/github-community-forum-code-
 translations/zh-CN/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account.md,file deleted because it no longer exists in main
 translations/zh-CN/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/zh-CN/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
+translations/zh-CN/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/self-hosted-runner-groups-navigate-to-repo-org-enterprise.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/codespaces/about-billing-for-codespaces.md,file deleted because it no longer exists in main
@@ -228,8 +229,10 @@ translations/zh-CN/data/reusables/rest-reference/webhooks/repos.md,file deleted 
 translations/zh-CN/data/reusables/security-center/beta.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/server-statistics/release-phase.md,file deleted because it no longer exists in main
 translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions.md,rendering error
+translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile.md,rendering error
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/index.md,broken liquid tags
@@ -290,7 +293,7 @@ translations/zh-CN/content/admin/configuration/configuring-your-enterprise/confi
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,rendering error
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
-translations/zh-CN/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,broken liquid tags
+translations/zh-CN/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,rendering error
 translations/zh-CN/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
 translations/zh-CN/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise.md,rendering error
@@ -350,6 +353,7 @@ translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scannin
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,rendering error
+translations/zh-CN/content/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts.md,rendering error
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,rendering error
@@ -427,25 +431,33 @@ translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-prebuilds.
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-your-connection-to-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/working-with-support-for-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
+translations/zh-CN/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,broken liquid tags
 translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
 translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
 translations/zh-CN/content/copilot/quickstart.md,broken liquid tags
+translations/zh-CN/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/index.md,broken liquid tags
 translations/zh-CN/content/developers/apps/building-github-apps/authenticating-with-github-apps.md,rendering error
 translations/zh-CN/content/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps.md,rendering error
 translations/zh-CN/content/developers/apps/building-github-apps/managing-allowed-ip-addresses-for-a-github-app.md,rendering error
 translations/zh-CN/content/developers/apps/getting-started-with-apps/differences-between-github-apps-and-oauth-apps.md,broken liquid tags
 translations/zh-CN/content/developers/overview/about-githubs-apis.md,broken liquid tags
+translations/zh-CN/content/developers/overview/managing-deploy-keys.md,broken liquid tags
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom.md,broken liquid tags
+translations/zh-CN/content/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations.md,broken liquid tags
 translations/zh-CN/content/get-started/exploring-projects-on-github/following-organizations.md,broken liquid tags
+translations/zh-CN/content/get-started/getting-started-with-git/associating-text-editors-with-git.md,broken liquid tags
 translations/zh-CN/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
 translations/zh-CN/content/get-started/quickstart/be-social.md,broken liquid tags
+translations/zh-CN/content/get-started/quickstart/communicating-on-github.md,broken liquid tags
+translations/zh-CN/content/get-started/quickstart/git-and-github-learning-resources.md,broken liquid tags
 translations/zh-CN/content/get-started/using-github/keyboard-shortcuts.md,rendering error
+translations/zh-CN/content/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github.md,broken liquid tags
 translations/zh-CN/content/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,rendering error
 translations/zh-CN/content/get-started/writing-on-github/working-with-advanced-formatting/attaching-files.md,broken liquid tags
 translations/zh-CN/content/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.md,rendering error
@@ -484,6 +496,7 @@ translations/zh-CN/content/packages/working-with-a-github-packages-registry/work
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-npm-registry.md,rendering error
 translations/zh-CN/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,rendering error
 translations/zh-CN/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,rendering error
+translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line.md,broken liquid tags
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request.md,broken liquid tags
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository.md,rendering error
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch.md,rendering error
@@ -622,6 +635,7 @@ translations/zh-CN/data/reusables/gated-features/secret-scanning.md,rendering er
 translations/zh-CN/data/reusables/identity-and-permissions/ip-allow-lists-enable.md,broken liquid tags
 translations/zh-CN/data/reusables/notifications-v2/custom-notification-types.md,broken liquid tags
 translations/zh-CN/data/reusables/notifications/shared_state.md,rendering error
+translations/zh-CN/data/reusables/notifications/vulnerable-dependency-notification-options.md,broken liquid tags
 translations/zh-CN/data/reusables/organizations/billing_plans.md,rendering error
 translations/zh-CN/data/reusables/organizations/github-apps-settings-sidebar.md,rendering error
 translations/zh-CN/data/reusables/organizations/member-privileges.md,rendering error
