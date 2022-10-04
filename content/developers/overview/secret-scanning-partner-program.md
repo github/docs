@@ -343,60 +343,28 @@ const verify_signature = async (payload, signature, keyID) => {
 
 **Validation sample in Python**
 
-Two examples are provided, depending on whether you prefer to use Cryptodome or python-ecdsa.
-
 ```python
+# This example assumes that the public key identified by key id
+# 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
+# is used to validate the message; production validators shoud be
+# prepared to check the key id and and fetch updated public keys
+# at runtime.
+
 from base64 import b64decode
-import requests
-import os
 
-key_url = "https://api.github.com/meta/public_keys/secret_scanning"
-
-key_id = "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
 payload = b'[{"token":"some_token","type":"some_type","url":"some_url"}]'
 signature = b"MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
 raw_sig = b64decode(signature)
 
-try:
-    # Requests for the public key SHOULD be authenticated. To make this demonstration
-    # more robust this recommendation is not enforced, and a working example key is
-    # included here in case online key retrieval fails.
-    github_token = os.environ.get("GITHUB_PRODUCTION_TOKEN", None)
-    headers = {"Authorization": f"Bearer: {github_token}"} if github_token else {}
-    key_resp = requests.get(key_url, headers=headers, timeout=5).json()
-    for k in key_resp["public_keys"]:
-        if k["key_identifier"] == key_id:
-            public_key = k["key"]
-            break
+public_key = "\n".join(
+    [
+        "-----BEGIN PUBLIC KEY-----",
+        "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE9MJJHnMfn2+H4xL4YaPDA4RpJqUq",
+        "kCmRCBnYERxZanmcpzQSXs1X/AljlKkbJ8qpVIW4clayyef9gWhFbNHWAA==",
+        "-----END PUBLIC KEY-----",
+    ]
+)
 
-except Exception:
-    public_key = "\n".join(
-        [
-            "-----BEGIN PUBLIC KEY-----",
-            "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE9MJJHnMfn2+H4xL4YaPDA4RpJqUq",
-            "kCmRCBnYERxZanmcpzQSXs1X/AljlKkbJ8qpVIW4clayyef9gWhFbNHWAA==",
-            "-----END PUBLIC KEY-----",
-        ]
-    )
-
-########################################################
-# Validating the message using Cryptodome goes like this
-from Cryptodome.PublicKey import ECC
-from Cryptodome.Signature import DSS
-from Cryptodome.Hash import SHA256
-
-ecc_key = ECC.import_key(public_key)
-msg_hash = SHA256.new(payload)
-
-cdome_verifier = DSS.new(key=ecc_key, mode="fips-186-3", encoding="der")
-try:
-    cdome_verifier.verify(msg_hash=msg_hash, signature=raw_sig)
-    print("Message validated")
-except ValueError:
-    print("Message not validated")
-
-##########################################################
-# Validating the message using python-ecdsa goes like this
 from ecdsa import VerifyingKey, BadSignatureError, NIST256p
 from ecdsa.util import sigdecode_der
 from hashlib import sha256
@@ -409,6 +377,7 @@ try:
     print("Message validated")
 except (BadSignatureError, ValueError):
     print("Message not validated")
+
 ```
 
 ### Implement secret revocation and user notification in your secret alert service
