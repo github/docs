@@ -32,6 +32,11 @@ export default function parsePageSectionsIntoRecords(page) {
 
   const rootSelector = '[data-search=article-body]'
   const $root = $(rootSelector)
+  if ($root.length === 0) {
+    console.warn(`${href} has no '${rootSelector}'`)
+  } else if ($root.length > 1) {
+    console.warn(`${href} has more than one '${rootSelector}' (${$root.length})`)
+  }
 
   const $sections = $('h2', $root)
     .filter('[id]')
