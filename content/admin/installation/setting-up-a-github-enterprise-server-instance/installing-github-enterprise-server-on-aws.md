@@ -70,7 +70,7 @@ AMIs for {% data variables.product.prodname_ghe_server %} are available in the A
 1. Using the AWS CLI, get a list of {% data variables.product.prodname_ghe_server %} images published by {% data variables.product.prodname_dotcom %}'s AWS owner IDs (`025577942450` for GovCloud, and `895557238572` for other regions). For more information, see "[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)" in the AWS documentation.
   ```shell
   aws ec2 describe-images \
-  --owners <em>OWNER ID</em> \
+  --owners OWNER_ID \
   --query 'sort_by(Images,&Name)[*].{Name:Name,ImageID:ImageId}' \
   --output=text
   ```
@@ -82,14 +82,14 @@ If you're setting up your AMI for the first time, you will need to create a secu
 
 1. Using the AWS CLI, create a new security group. For more information, see "[create-security-group](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)" in the AWS documentation.
   ```shell
-  $ aws ec2 create-security-group --group-name <em>SECURITY_GROUP_NAME</em> --description "<em>SECURITY GROUP DESCRIPTION</em>"
+  $ aws ec2 create-security-group --group-name SECURITY_GROUP_NAME --description "SECURITY GROUP DESCRIPTION"
   ```
 
 2. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
 
 3. Create a security group rule for each of the ports in the table below. For more information, see "[authorize-security-group-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html)" in the AWS documentation.
   ```shell
-  $ aws ec2 authorize-security-group-ingress --group-id <em>SECURITY_GROUP_ID</em> --protocol <em>PROTOCOL</em> --port <em>PORT_NUMBER</em> --cidr <em>SOURCE IP RANGE</em>
+  $ aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE
   ```
   This table identifies what each port is used for.
 
@@ -118,11 +118,11 @@ In the AWS CLI, launch an EC2 instance using your AMI and the security group you
 
 ```shell
 aws ec2 run-instances \
-  --security-group-ids <em>SECURITY_GROUP_ID</em> \
-  --instance-type <em>INSTANCE_TYPE</em> \
-  --image-id <em>AMI_ID</em> \
-  --block-device-mappings '[{"DeviceName":"/dev/xvdf","Ebs":{"VolumeSize":<em>SIZE</em>,"VolumeType":"<em>TYPE</em>"}}]' \
-  --region <em>REGION</em> \
+  --security-group-ids SECURITY_GROUP_ID \
+  --instance-type INSTANCE_TYPE \
+  --image-id AMI_ID \
+  --block-device-mappings '[{"DeviceName":"/dev/xvdf","Ebs":{"VolumeSize":SIZE,"VolumeType":"TYPE"}}]' \
+  --region REGION \
   --ebs-optimized
 ```
 

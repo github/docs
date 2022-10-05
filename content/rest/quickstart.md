@@ -279,7 +279,7 @@ jobs:
    curl --request GET \
    --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
    --header "Accept: application/vnd.github.v3+json" \
-   --header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+   --header "Authorization: Bearer YOUR-TOKEN"
    ```
 
    {% note %}

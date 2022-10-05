@@ -87,7 +87,7 @@ You can add a {% data variables.actions.hosted_runner %} to an organization, whe
 
 ## Running jobs on your runner
 
-Once your runner type has been been defined, you can update your workflows to send jobs to the runner instances for processing. In this example, a runner group is populated with Ubuntu 16-core runners, which have been assigned the label `ubuntu-20.04-16core`. If you have a runner matching this label, the `check-bats-version` job then uses the `runs-on` key to target that runner whenever the job is run:
+Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. In this example, a runner group is populated with Ubuntu 16-core runners, which have been assigned the label `ubuntu-20.04-16core`. If you have a runner matching this label, the `check-bats-version` job then uses the `runs-on` key to target that runner whenever the job is run:
 
 ```yaml
 name: learn-github-actions
@@ -103,6 +103,8 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
 ```
+
+To find out which runners are enabled for your repository and organization, you must contact your organization admin. Your organization admin can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group.
 
 ## Managing access to your runners
 

@@ -52,16 +52,16 @@ Many files can be [renamed directly on {% data variables.product.product_name %}
 {% data reusables.command_line.switching_directories_procedural %}
 3. Rename the file, specifying the old file name and the new name you'd like to give the file. This will stage your change for commit.
   ```shell
-  $ git mv <em>old_filename</em> <em>new_filename</em>
+  $ git mv OLD-FILENAME NEW-FILENAME
   ```
 4. Use `git status` to check the old and new file names.
   ```shell
   $ git status
-  > # On branch <em>your-branch</em>
+  > # On branch YOUR-BRANCH
   > # Changes to be committed:
   > #   (use "git reset HEAD <file>..." to unstage)
   > #
-  > #     renamed: <em>old_filename</em> -> <em>new_filename</em>
+  > #     renamed: OLD-FILENAME -> NEW-FILENAME
   > #
   ```
 {% data reusables.git.commit-file %}

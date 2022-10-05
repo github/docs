@@ -61,8 +61,8 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
 
     ```shell
     [cluster]
-      mysql-master = <em>HOSTNAME</em>
-      redis-master = <em>HOSTNAME</em>
+      mysql-master = HOSTNAME
+      redis-master = HOSTNAME
       <strong>primary-datacenter = default</strong>
     ```
 
@@ -77,10 +77,10 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
     When you're done, the section for each node in the cluster configuration file should look like the following example. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
 
     ```shell
-    [cluster "<em>HOSTNAME</em>"]
+    [cluster "HOSTNAME"]
       <strong>datacenter = default</strong>
-      hostname = <em>HOSTNAME</em>
-      ipv4 = <em>IP ADDRESS</em>
+      hostname = HOSTNAME
+      ipv4 = IP-ADDRESS
       ...
     ...
     ```
@@ -143,7 +143,7 @@ For an example configuration, see "[Example configuration](#example-configuratio
 6. Decide on a name for the secondary datacenter where you provisioned your passive nodes, then update the temporary cluster configuration file with the new datacenter name. Replace `SECONDARY` with the name you choose.
 
     ```shell
-    sed -i 's/datacenter = default/datacenter = <em>SECONDARY</em>/g' ~/cluster-passive.conf
+    sed -i 's/datacenter = default/datacenter = SECONDARY/g' ~/cluster-passive.conf
     ```
 
 7. Decide on a pattern for the passive nodes' hostnames.
@@ -167,10 +167,10 @@ For an example configuration, see "[Example configuration](#example-configuratio
     - Add a new key-value pair, `replica = enabled`.
 
     ```shell
-    [cluster "<em>NEW PASSIVE NODE HOSTNAME</em>"]
+    [cluster "NEW PASSIVE NODE HOSTNAME"]
       ...
-      hostname = <em>NEW PASSIVE NODE HOSTNAME</em>
-      ipv4 = <em>NEW PASSIVE NODE IPV4 ADDRESS</em>
+      hostname = NEW PASSIVE NODE HOSTNAME
+      ipv4 = NEW PASSIVE NODE IPV4 ADDRESS
       <strong>replica = enabled</strong>
       ...
     ...
@@ -185,8 +185,8 @@ For an example configuration, see "[Example configuration](#example-configuratio
 11. Designate the primary MySQL and Redis nodes in the secondary datacenter. Replace `REPLICA MYSQL PRIMARY HOSTNAME` and `REPLICA REDIS PRIMARY HOSTNAME` with the hostnames of the passives node that you provisioned to match your existing MySQL and Redis primaries.
 
     ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica <em>REPLICA MYSQL PRIMARY HOSTNAME</em>
-    git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
+    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica REPLICA-MYSQL-PRIMARY-HOSTNAME
+    git config -f /data/user/common/cluster.conf cluster.redis-master-replica REPLICA-REDIS-PRIMARY-HOSTNAME
     ```
 
     {% warning %}
@@ -194,7 +194,7 @@ For an example configuration, see "[Example configuration](#example-configuratio
     **Warning**: Review your cluster configuration file before proceeding.
 
     - In the top-level `[cluster]` section, ensure that the values for `mysql-master-replica` and `redis-master-replica` are the correct hostnames for the passive nodes in the secondary datacenter that will serve as the MySQL and Redis primaries after a failover.
-    - In each section for an active node named <code>[cluster "<em>ACTIVE NODE HOSTNAME</em>"]</code>, double-check the following key-value pairs.
+    - In each section for an active node named <code>[cluster "ACTIVE NODE HOSTNAME"]</code>, double-check the following key-value pairs.
       - `datacenter` should match the value of `primary-datacenter` in the top-level `[cluster]` section.
       - `consul-datacenter` should match the value of `datacenter`, which should be the same as the value for `primary-datacenter` in the top-level `[cluster]` section.
     - Ensure that for each active node, the configuration has **one** corresponding section for **one** passive node with the same roles. In each section for a passive node, double-check each key-value pair.
@@ -235,11 +235,11 @@ The top-level `[cluster]` configuration should look like the following example.
 
 ```shell
 [cluster]
-  mysql-master = <em>HOSTNAME OF ACTIVE MYSQL MASTER</em>
-  redis-master = <em>HOSTNAME OF ACTIVE REDIS MASTER</em>
-  primary-datacenter = <em>PRIMARY DATACENTER NAME</em>
-  mysql-master-replica = <em>HOSTNAME OF PASSIVE MYSQL MASTER</em>
-  redis-master-replica = <em>HOSTNAME OF PASSIVE REDIS MASTER</em>
+  mysql-master = HOSTNAME-OF-ACTIVE-MYSQL-MASTER
+  redis-master = HOSTNAME-OF-ACTIVE-REDIS-MASTER
+  primary-datacenter = PRIMARY-DATACENTER-NAME
+  mysql-master-replica = HOSTNAME-OF-PASSIVE-MYSQL-MASTER
+  redis-master-replica = HOSTNAME-OF-PASSIVE-REDIS-MASTER
   mysql-auto-failover = false
 ...
 ```
@@ -248,10 +248,10 @@ The configuration for an active node in your cluster's storage tier should look 
 
 ```shell
 ...
-[cluster "<em>UNIQUE ACTIVE NODE HOSTNAME</em>"]
+[cluster "UNIQUE ACTIVE NODE HOSTNAME"]
   datacenter = default
-  hostname = <em>UNIQUE ACTIVE NODE HOSTNAME</em>
-  ipv4 = <em>IPV4 ADDRESS</em>
+  hostname = UNIQUE-ACTIVE-NODE-HOSTNAME
+  ipv4 = IPV4-ADDRESS
   consul-datacenter = default
   consul-server = true
   git-server = true
@@ -262,9 +262,9 @@ The configuration for an active node in your cluster's storage tier should look 
   memcache-server = true
   metrics-server = true
   storage-server = true
-  vpn = <em>IPV4 ADDRESS SET AUTOMATICALLY</em>
-  uuid = <em>UUID SET AUTOMATICALLY</em>
-  wireguard-pubkey = <em>PUBLIC KEY SET AUTOMATICALLY</em>
+  vpn = IPV4 ADDRESS SET AUTOMATICALLY
+  uuid = UUID SET AUTOMATICALLY
+  wireguard-pubkey = PUBLIC KEY SET AUTOMATICALLY
 ...
 ```
 
@@ -276,12 +276,12 @@ The configuration for the corresponding passive node in the storage tier should 
 
 ```shell
 ...
-<strong>[cluster "<em>UNIQUE PASSIVE NODE HOSTNAME</em>"]</strong>
+<strong>[cluster "UNIQUE PASSIVE NODE HOSTNAME"]</strong>
   <strong>replica = enabled</strong>
-  <strong>ipv4 = <em>IPV4 ADDRESS OF NEW VM WITH IDENTICAL RESOURCES</em></strong>
-  <strong>datacenter = <em>SECONDARY DATACENTER NAME</em></strong>
-  <strong>hostname = <em>UNIQUE PASSIVE NODE HOSTNAME</em></strong>
-  <strong>consul-datacenter = <em>SECONDARY DATACENTER NAME</em></strong>
+  <strong>ipv4 = IPV4 ADDRESS OF NEW VM WITH IDENTICAL RESOURCES</strong>
+  <strong>datacenter = SECONDARY DATACENTER NAME</strong>
+  <strong>hostname = UNIQUE PASSIVE NODE HOSTNAME</strong>
+  <strong>consul-datacenter = SECONDARY DATACENTER NAME</strong>
   consul-server = true
   git-server = true
   pages-server = true
@@ -291,9 +291,9 @@ The configuration for the corresponding passive node in the storage tier should 
   memcache-server = true
   metrics-server = true
   storage-server = true
-  <strong>vpn = <em>DO NOT DEFINE</em></strong>
-  <strong>uuid = <em>DO NOT DEFINE</em></strong>
-  <strong>wireguard-pubkey = <em>DO NOT DEFINE</em></strong>
+  <strong>vpn = DO NOT DEFINE</strong>
+  <strong>uuid = DO NOT DEFINE</strong>
+  <strong>wireguard-pubkey = DO NOT DEFINE</strong>
 ...
 ```
 
