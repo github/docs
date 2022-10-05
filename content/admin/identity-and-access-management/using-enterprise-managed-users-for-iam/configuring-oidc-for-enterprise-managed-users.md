@@ -47,3 +47,9 @@ Each Azure AD tenant can support only one OIDC integration with {% data variable
 ## Enabling provisioning
 
 After you enable OIDC SSO, enable provisioning. For more information, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
+
+In the settings for the GitHub Enterprise Managed User (OIDC) application in Azure Portal, under "Tenant URL", type https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE, replacing YOUR_ENTERPRISE with the name of your enterprise account.
+
+For example, if your enterprise account's URL is https://github.com/enterprises/octo-corp, the name of the enterprise account is octo-corp.
+
+Under "Secret token", paste the personal access token with the admin:enterprise scope that you created earlier.
