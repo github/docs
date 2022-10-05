@@ -1,6 +1,6 @@
 ---
 title: Using concurrency
-shortTitle: Using concurrency
+shortTitle: Concurrency
 intro: Run a single job at a time.
 versions:
   fpt: '*'
