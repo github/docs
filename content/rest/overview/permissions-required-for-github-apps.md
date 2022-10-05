@@ -474,6 +474,14 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /repos/:owner/:repo/releases/latest`](/rest/reference/repos/#get-the-latest-release) (read)
 - [`GET /repos/:owner/:repo/releases/tags/:tag`](/rest/reference/repos/#get-a-release-by-tag-name) (read)
 
+{% ifversion dependabot-alerts-rest-api %}
+## Dependabot alerts
+
+- [`GET /repos/:owner/:repo/dependabot/alerts`](/rest/dependabot/alerts#list-dependabot-alerts-for-a-repository) (read)
+- [`GET /repos/:owner/:repo/dependabot/alerts/:alert_number`](/rest/dependabot/alerts#get-a-dependabot-alert) (read)
+- [`PATCH /repos/:owner/:repo/dependabot/alerts/:alert_number`](/rest/dependabot/alerts#update-a-dependabot-alert) (write)
+{% endif %}
+
 {% ifversion fpt or ghec or ghes > 3.3%}
 <span id="permission-on-dependabot-secrets"></span>
 ## Dependabot secrets
