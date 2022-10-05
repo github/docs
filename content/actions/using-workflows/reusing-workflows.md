@@ -1,6 +1,6 @@
 ---
 title: Reusing workflows
-shortTitle: Reusing workflows
+shortTitle: Reuse workflows
 intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
 redirect_from:
   - /actions/learn-github-actions/reusing-workflows

@@ -1,5 +1,6 @@
 ---
 title: Configuring the self-hosted runner application as a service
+shortTitle: Run the runner app as a service
 intro: You can configure the self-hosted runner application as a service to automatically start the runner application when the machine starts.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
@@ -10,7 +11,6 @@ versions:
   ghec: '*'
 type: tutorial
 defaultPlatform: linux
-shortTitle: Run runner app on startup
 ---
 
 {% data reusables.actions.enterprise-beta %}
