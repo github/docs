@@ -19,6 +19,7 @@ export default async function syncSearchIndexes({
   outDirectory,
   compressFiles,
   generateLunrIndex,
+  config = {},
 }) {
   const t0 = new Date()
 
@@ -72,7 +73,8 @@ export default async function syncSearchIndexes({
         indexablePages,
         pageVersion,
         languageCode,
-        redirects
+        redirects,
+        config
       )
       if (generateLunrIndex) {
         const index = new LunrIndex(indexName, records)

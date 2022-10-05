@@ -35,7 +35,7 @@ Let's walk through an example.
 If you [request the authenticated user](/rest/reference/users#get-the-authenticated-user):
 
 ```shell
-$ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
+$ curl -i -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 ```
 
 you'll get a response that includes the `node_id` of the authenticated user:

@@ -74,13 +74,13 @@ Before you can use the {% data variables.product.prodname_cli %} to add an SSH k
 To add an SSH authentication key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
 
 ```shell
-gh ssh-key add <em>key-file</em>
+gh ssh-key add KEY-FILE
 ```
 
 To include a title for the new key, use the `-t` or `--title` flag.
 
 ```shell
-gh ssh-key add <em>key-file</em> --title "personal laptop"
+gh ssh-key add KEY-FILE --title "personal laptop"
 ```
 
 If you generated your SSH key by following the instructions in "[Generating a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", you can add the key to your account with this command.
