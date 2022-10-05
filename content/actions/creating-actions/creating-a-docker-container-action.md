@@ -1,5 +1,6 @@
 ---
 title: Creating a Docker container action
+shortTitle: Create a Docker container action
 intro: 'This guide shows you the minimal steps required to build a Docker container action. '
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -15,7 +16,6 @@ type: tutorial
 topics:
   - Action development
   - Docker
-shortTitle: Docker container action
 ---
 
 {% data reusables.actions.enterprise-beta %}

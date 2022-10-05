@@ -41,13 +41,6 @@ The default container image that's used by {% data variables.product.prodname_gi
 
 1. In the {% data variables.product.prodname_vscode_shortname %} editor, close any "Get Started" tabs that are displayed.
 1. Open the `image-classifier.ipynb` notebook file.
-1. Click the Python kernel link at the top right of the editor.
-
-   ![Screenshot of the Python kernal link](/assets/images/help/codespaces/jupyter-python-kernel-link.png)
-   
-1. In the drop-down menu, choose the kernel in the directory `/opt/python/latest/bin/python`.
-
-   ![Screenshot of the Python kernal drop-down menu](/assets/images/help/codespaces/jupyter-python-kernel-dropdown.png)
 
 ### Build the image classifier
 

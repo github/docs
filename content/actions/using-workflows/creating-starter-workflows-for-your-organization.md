@@ -1,6 +1,6 @@
 ---
 title: Creating starter workflows for your organization
-shortTitle: Creating starter workflows
+shortTitle: Create starter workflows
 intro: Learn how you can create starter workflows to help people in your team add new workflows more easily.
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
