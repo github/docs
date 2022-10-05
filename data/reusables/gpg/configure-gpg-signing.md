@@ -1,9 +1,5 @@
-1. Configure Git to use GPG to sign commits and tags:
-  ```bash
-  $ git config --global gpg.format opengpg
-  ```
+1. If you have previously configured Git to use a different key format when signing with `--gpg-sign`, unset this configuration so the default format of `openpgp` will be used.
 
-  Alternatively, you can unset any previous `gpg.format` configuration so the default format `opengpg` will be used:
-  ```bash
-  $ git config --global --unset gpg.format
+  ```Shell{:copy}
+  git config --global --unset gpg.format
   ```
