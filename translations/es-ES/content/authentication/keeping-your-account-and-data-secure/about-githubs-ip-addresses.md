@@ -1,6 +1,6 @@
 ---
-title: About GitHub's IP addresses
-intro: '{% data variables.product.product_name %} serves applications from multiple IP address ranges, which are available using the API.'
+title: Acerca de las direcciones de IP de GitHub
+intro: '{% data variables.product.product_name %} proporciona aplicaciones desde varios rangos de dirección IP, que están disponibles usando la API.'
 redirect_from:
   - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist
   - /categories/73/articles
@@ -17,24 +17,29 @@ topics:
   - Identity
   - Access management
 shortTitle: GitHub's IP addresses
+ms.openlocfilehash: ab598fa408512a43ab07c069119480b5ae03278e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145119985'
 ---
-
-You can retrieve a list of {% data variables.product.prodname_dotcom %}'s IP addresses from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[Meta](/rest/reference/meta)."
+Puede recuperar una lista de las direcciones IP de {% data variables.product.prodname_dotcom %} del punto de conexión de API [meta](https://api.github.com/meta). Para más información, vea "[Meta](/rest/reference/meta)".
 
 {% note %}
 
-**Note:** The list of {% data variables.product.prodname_dotcom %} IP addresses returned by the Meta API is not intended to be an exhaustive list. For example, IP addresses for some {% data variables.product.prodname_dotcom %} services might not be listed, such as LFS or {% data variables.product.prodname_registry %}.
+**Nota:** La lista de direcciones IP de {% data variables.product.prodname_dotcom %} que devuelve la API Meta no pretende ser una lista exhaustiva. Por ejemplo, puede que no se listen las direcciones IP para algunos servicios de {% data variables.product.prodname_dotcom %}, tales como LFS o {% data variables.product.prodname_registry %}.
 
 {% endnote %}
 
-These IP addresses are used by {% data variables.product.prodname_dotcom %} to serve our content, deliver webhooks, and perform hosted {% data variables.product.prodname_actions %} builds.
+{% data variables.product.prodname_dotcom %} utiliza estas direcciones IP para servir nuestro contenido, entregar webhooks y realizar compilaciones de {% data variables.product.prodname_actions %} hospedadas.
 
-These ranges are in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You can use an online conversion tool to convert from CIDR notation to IP address ranges, for example: [CIDR to IPv4 conversion site](https://www.ipaddressguide.com/cidr).
+Estos rangos están en [notación CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). Puede usar una herramienta de conversión en línea para convertir la notación CIDR en intervalos de direcciones IP, por ejemplo: [sitio de conversión de CIDR a IPv4](https://www.ipaddressguide.com/cidr).
 
-We make changes to our IP addresses from time to time. We do not recommend allowing by IP address, however if you use these IP ranges we strongly encourage regular monitoring of our API.
+Hacemos cambios a nuestras direcciones IP de vez en cuando. No te recomendamos hacer una lista blanca por dirección de IP, sin embargo, si utilizas estos rangos de IP te exhortamos enfáticamente a monitorear nuestra API con frecuencia.
 
-For applications to function, you must allow TCP ports 22, 80, 443, and 9418 via our IP ranges for `github.com`.
+Para que las aplicaciones funcionen, debe permitir los puertos TCP 22, 80, 443 y 9418 mediante nuestros intervalos IP para `github.com`.
 
-## Further reading
+## Información adicional
 
-- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"
+- "[Solución de problemas de conectividad](/articles/troubleshooting-connectivity-problems)"

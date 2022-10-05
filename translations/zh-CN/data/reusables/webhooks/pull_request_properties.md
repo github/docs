@@ -1,1 +1,6 @@
-`number`|`integer` | 拉取请求编号。 `changes`|`object`| 对评论的更改，如果操作为 `edited`。 `changes[title][from]` |`string` | 标题的前版本，如果操作为 `edited`。 `changes[body][from]`|`string` | 正文的前版本，如果操作为 `edited`。 `pull_request`|`object` | [拉取请求](/rest/reference/pulls)本身。
+`number`|`integer` | The pull request number.
+`changes`|`object`| The changes to the comment if the action was `edited`.
+`changes[title][from]`|`string` | The previous version of the title if the action was `edited`.
+`changes[body][from]`|`string` | The previous version of the body if the action was `edited`.
+`pull_request`|`object` | The [pull request](/rest/reference/pulls) itself.{% ifversion fpt or ghec %}
+`reason`|`string` | The reason the pull request was removed from a merge queue if the action was `dequeued`.{% endif %}

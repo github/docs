@@ -1,5 +1,4 @@
----
-#Issue 6921
+# Issue 6921
 versions:
   fpt: '*'
   ghec: '*'

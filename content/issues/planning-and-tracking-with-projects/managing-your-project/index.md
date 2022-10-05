@@ -11,5 +11,6 @@ children:
   - /managing-access-to-your-projects
   - /closing-and-deleting-your-projects
   - /adding-your-project-to-a-repository
+  - /adding-your-project-to-a-team
 allowTitleToDifferFromFilename: true
 ---

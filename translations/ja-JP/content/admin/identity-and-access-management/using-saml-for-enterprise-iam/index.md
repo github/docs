@@ -1,7 +1,7 @@
 ---
-title: Using SAML for enterprise IAM
+title: Enterprise IAM での SAML の使用
 shortTitle: SAML for enterprise IAM
-intro: 'You can centrally manage {% ifversion ghes or ghae %}accounts and {% endif %}access to {% ifversion ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise{% elsif ghec %}your enterprise''s resources{% endif %} with SAML single sign-on (SSO){% ifversion ghec or ghae %} and System for Cross-domain Identity Management (SCIM){% endif %}.'
+intro: 'SAML シングル サインオン (SSO){% ifversion ghec or ghae %} とクロスドメイン ID 管理システム (SCIM){% endif %} を使用して、{% ifversion ghes or ghae %}アカウントと{% endif %}{% ifversion ghes %}{% data variables.product.product_location %}{% elsif ghae %} Enterprise {% elsif ghec %} Enterprise のリソース{% endif %}へのアクセスを一元管理できます。'
 versions:
   ghec: '*'
   ghes: '*'
@@ -32,6 +32,11 @@ children:
   - /updating-a-users-saml-nameid
   - /switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /troubleshooting-saml-authentication
+ms.openlocfilehash: 4258d753035ce174cb0f45f186b2b99c9ce1752b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120293'
 ---
-
 {% data reusables.enterprise-accounts.emu-saml-note %}

@@ -37,6 +37,8 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 ## Seeing your first suggestion
 
+{% data reusables.copilot.code-examples-limitations %}
+
 {% data reusables.copilot.supported-languages %} The following samples are in JavaScript, but other languages will work similarly.
 
 {% data reusables.copilot.create-js-file %}

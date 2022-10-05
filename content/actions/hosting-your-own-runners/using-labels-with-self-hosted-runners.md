@@ -19,7 +19,7 @@ For information on how to use labels to route jobs to specific types of self-hos
 
 ## Creating a custom label
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.actions.settings-sidebar-actions-runner-selection %}
  1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
@@ -38,7 +38,7 @@ The custom label is created and assigned to the self-hosted runner. Custom label
 
 ## Assigning a label to a self-hosted runner
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.runner-label-settings %}
@@ -53,7 +53,7 @@ The custom label is created and assigned to the self-hosted runner. Custom label
 
 ## Removing a custom label from a self-hosted runner
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.runner-label-settings %}

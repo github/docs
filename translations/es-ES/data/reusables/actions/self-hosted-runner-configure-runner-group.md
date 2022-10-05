@@ -1,1 +1,0 @@
-1. En la sección de "Ejecutores" de la página de ajustes, junto al grupo ejecutor que te gustaría configurar, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego en **Editar nombre y acceso al [organización|repositorio]**. ![Administrar permisos del repositorio](/assets/images/help/settings/actions-runner-manage-permissions.png)

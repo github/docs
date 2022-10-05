@@ -1,6 +1,6 @@
 ---
 title: Configurar tu dirección de correo electrónico de confirmación
-intro: 'Puedes configurar la dirección de correo electrónico que se utiliza para crear confirmaciones en {% data variables.product.product_location %} y en tu computadora.'
+intro: 'Puedes configurar la dirección de correo electrónico que se usa para crear confirmaciones en {% data variables.product.product_location %} y en tu equipo.'
 redirect_from:
   - /articles/keeping-your-email-address-private
   - /articles/setting-your-commit-email-address-on-github
@@ -21,16 +21,21 @@ versions:
 topics:
   - Accounts
   - Notifications
-shortTitle: Configurar la dirección de correo electrónico para confirmaciones
+shortTitle: Set commit email address
+ms.openlocfilehash: 76b0af2a1afa776281434c36cf33fa0e082c2c56
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '146338953'
 ---
-
 ## Acerca de las dirección de correo electrónico de confirmación
 
 {% data variables.product.prodname_dotcom %} utiliza tu dirección de correo electrónico para confirmaciones para asociar dichas confirmaciones con tu cuenta de {% data variables.product.product_location %}. Puedes elegir la dirección de correo electrónico que se asociará con las confirmaciones que subes desde la línea de comando y las operaciones de Git con base en la web que realizas.
 
 Para las operaciones de Git basadas en web, puedes configurar tu dirección de correo electrónico para confirmaciones en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para las confirmaciones que subes desde la línea de comando, puedes configurar tu dirección de correo electrónico de confirmaciones en Git.
 
-{% ifversion fpt or ghec %}Cualquier confirmación que hayas realizado antes de cambiar tu dirección de correo electrónico de confirmaciones estará todavía asociada a tu dirección de correo electrónico previa.{% else %}Después de cambiar tu dirección de correo electrónico de confirmaciones en {% data variables.product.product_name %}, la nueva dirección de correo electrónico será visible por defecto en todas tus operaciones futuras de Git con base en la web. Cualquier confirmación que realices antes de cambiar tu dirección de correo electrónico de confirmaciones estarán todavía asociada a tu dirección de correo electrónico anterior.{% endif %}
+{% ifversion fpt or ghec %}Cualquier confirmación que haya realizado antes de cambiar la dirección de correo electrónico de confirmación seguirá asociada a la dirección de correo electrónico anterior.{% else %}Después de cambiar la dirección de correo electrónico de confirmación en {% data variables.product.product_name %}, la nueva dirección de correo electrónico será visible de forma predeterminada en todas las operaciones futuras de Git basadas en web. Cualquier confirmación que realices antes de cambiar tu dirección de correo electrónico de confirmaciones estarán todavía asociada a tu dirección de correo electrónico anterior.{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -42,35 +47,31 @@ Para las operaciones de Git basadas en web, puedes configurar tu dirección de c
 
 {% endif %}
 
-{% ifversion fpt or ghec %}If you'd like to keep your personal email address private, you can use a `noreply` email address from {% data variables.product.product_name %} as your commit email address. Para utilizar tu dirección de correo electrónico `noreply` para confirmaciones que subes desde la línea de comando, utiliza esa dirección de correo electrónico cuando configuras tu dirección de correo electrónico de confirmaciones en Git. Para utilizar tu dirección `noreply` para las operaciones de Git con base en la web, configura tu dirección de correo electrónico de confirmaciones en GitHub y elige **Keep my email address private (Mantener mi dirección de correo electrónico privada)**.
+{% ifversion fpt or ghec %}Si quiere mantener la dirección de correo electrónico personal como privada, puede usar una dirección `noreply` de {% data variables.product.product_name %} como dirección de correo electrónico de confirmación. A fin de usar la dirección de correo electrónico `noreply` para las confirmaciones insertadas desde la línea de comandos, úsela al configurar la dirección de correo electrónico de confirmación en Git. A fin de usar la dirección `noreply` para las operaciones de Git basadas en web, configure la dirección de correo electrónico de confirmaciones en GitHub y seleccione **Mantener mi dirección de correo electrónico privada**.
 
-También puedes elegir bloquear las confirmaciones que subes desde la línea de comando que muestra tu dirección de correo electrónico personal. Para obtener más información, consulta "[Bloquear las subidas de línea de comando que muestran tu correo electrónico personal](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)."{% endif %}
+También puedes elegir bloquear las confirmaciones que subes desde la línea de comando que muestra tu dirección de correo electrónico personal. Para más información, vea "[Bloqueo de inserciones de línea de comandos que exponen el correo electrónico personal](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)".{% endif %}
 
-Para garantizar que las confirmaciones se te atribuyan y aparezcan en tu gráfica de contribuciones, utiliza una dirección de correo electrónico que esté conectada a tu cuenta de {% data variables.product.product_location %}{% ifversion fpt or ghec %}, o a la dirección de tipo `noreply` que se te proporcionó en la configuración de correo electrónico{% endif %}. {% ifversion not ghae %}Para obtener más información, consulta la sección "[Agregar una dirección de correo electrónico a tu cuenta de {% data variables.product.prodname_dotcom %}](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)".{% endif %}
+Para garantizar que las confirmaciones se le atribuyan y aparezcan en el gráfico de contribuciones, use una dirección de correo electrónico que esté conectada a la cuenta de {% data variables.product.product_location %}{% ifversion fpt or ghec %}, o a la dirección `noreply` que se le ha proporcionado en la configuración de correo electrónico{% endif %}. {% ifversion not ghae %}Para más información, vea "[Adición de una dirección de correo electrónico a la cuenta de {% data variables.product.prodname_dotcom %}](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)".{% endif %}
 
 {% ifversion fpt or ghec %}
 
 {% note %}
 
-**Nota:** Si creaste tu cuenta en {% data variables.product.product_location %} _después_ del 18 de julio de 2017, tu dirección de correo electrónico de `noreply` para {% data variables.product.product_name %} es un número de ID de siete dígitos y tu nombre de usuario en formato <code><em>ID+username</em>@users.noreply.github.com</code>. Si creaste tu cuenta en {% data variables.product.product_location %} _antes del_ 18 de julio de 2017, tu dirección de correo electrónico de tipo `noreply` de {% data variables.product.product_name %} es <code><em>username</em>@users.noreply.github.com</code>. You can get an ID-based `noreply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
+**Nota:** Si ha creado la cuenta en {% data variables.product.product_location %} _después_ del 18 de julio de 2017, la dirección de correo electrónico `noreply` de {% data variables.product.product_name %} es un número de identificador de siete dígitos y el nombre de usuario con el formato <code><em>ID+username</em>@users.noreply.github.com</code>. Si ha creado la cuenta en {% data variables.product.product_location %} _antes_ del 18 de julio de 2017, la dirección de correo electrónico `noreply` de {% data variables.product.product_name %} es <code><em>username</em>@users.noreply.github.com</code>. Puede obtener una dirección de correo electrónico `noreply` basada en id. para {% data variables.product.product_name %} si selecciona (o anula la selección y vuelve a seleccionar) **Mantener mi dirección de correo electrónico como privada** en la configuración de correo electrónico.
 
 {% endnote %}
 
-Si utilizas tu dirección de correo electrónico de tipo `noreply` para que {% data variables.product.product_name %} realice confirmaciones y luego [cambias tu nombre de usuario](/articles/changing-your-github-username), dichas confirmaciones no se asociarán con tu cuenta en {% data variables.product.product_location %}. Esto no aplica si estás utilizando la dirección de tipo `noreply` basada en ID desde {% data variables.product.product_name %}. Para obtener más información, consulta [Cambiar tu {% data variables.product.prodname_dotcom %} nombre de usuario](/articles/changing-your-github-username)"{% endif %}
+Si usa la dirección de correo electrónico `noreply` para {% data variables.product.product_name %} a fin de realizar confirmaciones y, después, [cambia el nombre de usuario](/articles/changing-your-github-username), esas confirmaciones no se asociarán con la cuenta de {% data variables.product.product_location %}. Esto no aplica si usa la dirección `noreply` basada en id. desde {% data variables.product.product_name %}. Para más información, vea "[Cambio del nombre de usuario de {% data variables.product.prodname_dotcom %}](/articles/changing-your-github-username)".{% endif %}
 
 ## Configurar tu dirección de correo electrónico de confirmación en {% data variables.product.prodname_dotcom %}
 
 {% data reusables.files.commit-author-email-options %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-{% data reusables.user-settings.add_and_verify_email %}
-{% data reusables.user-settings.select_primary_email %}{% ifversion fpt or ghec %}
-{% data reusables.user-settings.keeping_your_email_address_private %}{% endif %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %} {% data reusables.user-settings.add_and_verify_email %} {% data reusables.user-settings.select_primary_email %}{% ifversion fpt or ghec %} {% data reusables.user-settings.keeping_your_email_address_private %}{% endif %}
 
 ## Configurar tu dirección de correo electrónico de confirmación en Git
 
-Puedes utilizar el comando `git config` para cambiar la dirección de correo electrónico que asocias a tus confirmaciones de Git. La nueva dirección de correo electrónico que configures será visible en cualquier confirmación futura que subas a {% data variables.product.product_location %} desde la línea de comando. Cualquier confirmación que realices antes de cambiar tu dirección de correo electrónico de confirmaciones estarán todavía asociadas a tu dirección de correo electrónico anterior.
+Puede usar el comando `git config` para cambiar la dirección de correo electrónico asociada a las confirmaciones de Git. La nueva dirección de correo electrónico que configure será visible en cualquier confirmación futura que inserte en {% data variables.product.product_location %} desde la línea de comandos. Cualquier confirmación que realices antes de cambiar tu dirección de correo electrónico de confirmaciones estarán todavía asociadas a tu dirección de correo electrónico anterior.
 
 ### Configurar tu dirección de correo electrónico para cada repositorio en tu computadora
 

@@ -40,12 +40,26 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          # To prevent issues with cloning early access content later
+          persist-credentials: 'false'
+
+      - name: Clone docs-early-access
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: main
 
       - name: Setup Node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
           node-version: '16.15.0'
           cache: npm
+
+      - name: Merge docs-early-access repo's folders
+        run: .github/actions-scripts/merge-early-access.sh
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -57,11 +71,6 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 4000
-          # Overload protection is on by default (when NODE_ENV==production)
-          # but it would help in this context.
-          DISABLE_OVERLOAD_PROTECTION: true
-          # Render caching won't help when we visit every page exactly once.
-          DISABLE_RENDERING_CACHE: true
         run: |
 
           node server.js &

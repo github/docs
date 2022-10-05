@@ -8,9 +8,14 @@ topics:
   - Enterprise
   - Packages
   - Storage
-shortTitle: Habilitar pacotes com MinIO
+shortTitle: Enable Packages with MinIO
+ms.openlocfilehash: 2e7d76ee696dfbcd2369c577ef2d2ee803a09638
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145094907'
 ---
-
 {% warning %}
 
 **Avisos:**
@@ -22,7 +27,7 @@ shortTitle: Habilitar pacotes com MinIO
 
 ## Pré-requisitos
 
-Antes de poder habilitar e configurar {% data variables.product.prodname_registry %} em {% data variables.product.product_location_enterprise %}, você precisa preparar seu grupo de armazenamento do MinIO. Para ajudá-lo a configurar rapidamente um bucket do MinIO e acessar as opções de personalização do MinIO, consulte o "[Guia de inícoio rápido para configurar seu bucket de armazenamento do MinIO para {% data variables.product.prodname_registry %}](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)".
+Antes de poder habilitar e configurar {% data variables.product.prodname_registry %} em {% data variables.product.product_location_enterprise %}, você precisa preparar seu grupo de armazenamento do MinIO. Para ajudar você a configurar rapidamente um bucket do MinIO e navegar pelas opções de personalização do MinIO, confira o "[Guia de início rápido para configurar o bucket de armazenamento do MinIO para o {% data variables.product.prodname_registry %}](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)".
 
 Certifique-se de que que o seu ID da chave de acesso e o segredo de armazenamento externo do MinIO tenham essas permissões:
   - `s3:PutObject`
@@ -37,21 +42,16 @@ Certifique-se de que que o seu ID da chave de acesso e o segredo de armazenament
 
 Embora o MinIO atualmente não apareça na interface do usuário em "Armazenamento de Pacote", ele ainda é compatível com {% data variables.product.prodname_registry %} em {% data variables.product.prodname_enterprise %}. Além disso, observe que o armazenamento de objetos do MinIO é compatível com a API do S3 e você pode inserir detalhes do bucket do MinIO no lugar dos detalhes do AWS S3.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-{% data reusables.package_registry.enable-enterprise-github-packages %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %} {% data reusables.package_registry.enable-enterprise-github-packages %}
 
 {% ifversion ghes %}
-1. Em "Armazenamento de pacotes", selecione **Amazon S3**.
+1. Em "Armazenamento de Pacotes", selecione **Amazon S3**.
 1. Insira os detalhes do seu bucket de armazenamento do MinIO nas configurações de armazenamento do AWS.
-    - **URL de serviço do AWS:** A URL de hospedagem do bucket do seu MinIO.
-    - **Bucket do S3 AWS**: O nome do bucket do seu MinIO compatível com S3 e dedicado a {% data variables.product.prodname_registry %}.
-    - **Chave de Acesso do AWS S3** e **Chave secreta do AWS S3**: Digite a chave de acesso do MinIO e a chave secreta para acessar seu bucket.
+    - **URL de Serviço da AWS:** a URL de hospedagem do bucket do MinIO.
+    - **Bucket da AWS S3:** o nome do bucket do MinIO compatível com a S3 dedicado ao {% data variables.product.prodname_registry %}.
+    - **Chave de Acesso da AWS S3** e **Chave Secreta da AWS S3**: insira a ID da chave de acesso e a chave secreta do MinIO para acessar o bucket.
 
-    ![Caixas de entrada para detalhes do seu bucket do AWS S3](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png)
-{% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+    ![Caixas de entrada usadas para os detalhes do bucket da S3 AWS](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png) {% endif %} {% data reusables.enterprise_management_console.save-settings %}
 
 ## Próximas etapas
 

@@ -1,12 +1,18 @@
 ---
-title: Contribute with GitHub Community Exchange
+title: GitHub Community Exchange で投稿する
 shortTitle: '{% data variables.product.prodname_community_exchange %}'
-intro: 'With {% data variables.product.prodname_community_exchange %}, you can use {% data variables.product.product_name %} to contribute to open source and build your portfolio.'
+intro: '{% data variables.product.prodname_community_exchange %} では、{% data variables.product.product_name %} を使用してオープンソースに貢献し、ポートフォリオを構築できます。'
 versions:
   fpt: '*'
 children:
   - /getting-started-with-github-community-exchange
   - /submitting-your-repository-to-github-community-exchange
   - /managing-your-submissions-to-github-community-exchange
+ms.openlocfilehash: 420db797ef8e913a597647f2a20fad8cea2c5861
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409801'
 ---
 

@@ -13,7 +13,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Push protection
+shortTitle: Enable push protection
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -30,11 +30,7 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
 - sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
 
-{% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by the following service providers.
-
-{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
-
-{% data reusables.secret-scanning.secret-list-private-push-protection %}
+For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
 
 ## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
 
@@ -58,31 +54,35 @@ Organization owners, security managers, and repository administrators can enable
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
+## Using secret scanning as a push protection from the command line
 
-## Using {% data variables.product.prodname_secret_scanning %} as a push protection from the command line
-
-When you attempt to push a supported secret to a repository or organization with {% data variables.product.prodname_secret_scanning %} as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the push. You can remove the secret from your commit or follow a provided URL to allow the push.
+{% data reusables.secret-scanning.push-protection-command-line-choice %}
 
 Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret. 
 
+{% ifversion push-protection-custom-link-orgs %} 
+
+Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain organization-specific resources and advice, such as directions on using a recommended secrets vault or who to contact for questions relating to the blocked secret.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
+
+{% else %}
+
 ![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
-If you need to remove the secret from your latest commit (that is, `HEAD`) on the branch being pushed and any earlier commits that contain the secret, you can remove the secret from `HEAD`, then squash the commits between when the commit was introduced and the first version of `HEAD` for which the secret has been removed.
+{% endif %}
 
-{% note %}
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
 
-**Notes**: 
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
-* If your git configuration supports pushes to multiple branches, and not only to the default branch, your push may be blocked due to additional and unintended refs being pushed. For more information, see the [`push.default` options](https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault) in the Git Docs.
-* If {% data variables.product.prodname_secret_scanning %} upon a push times out, {% data variables.product.prodname_dotcom %} will still run a scan after the push.
-
-{% endnote %}
+{% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
 ### Allowing a blocked secret to be pushed
 
 If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
-
-If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
@@ -97,11 +97,17 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 {% ifversion secret-scanning-push-protection-web-ui %}
 ## Using secret scanning as a push protection from the web UI
 
-When you use the web UI to attempt to commit a supported secret to a repository or organization with secret scanning as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the commit. You will see a banner at the top of the page with information about the secret's location, and the secret will also be underlined in the file so you can easily find it.  
-
-  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+{% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
 {% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
+
+{% ifversion push-protection-custom-link-orgs %} 
+
+Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
+
+{% ifversion push-protection-custom-link-orgs-beta %}{% data reusables.advanced-security.custom-link-beta %}{% endif %}
+
+{% endif %}
 
 You can remove the secret from the file using the web UI. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.
 
@@ -109,7 +115,11 @@ You can remove the secret from the file using the web UI. Once you remove the se
 
 ### Bypassing push protection for a secret
 
-If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed. If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible.
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)." 
+
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 

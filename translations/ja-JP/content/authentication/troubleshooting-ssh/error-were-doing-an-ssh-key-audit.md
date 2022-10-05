@@ -14,8 +14,13 @@ versions:
 topics:
   - SSH
 shortTitle: SSH key audit
+ms.openlocfilehash: 8683f5506fc2a026c11f22f2086de2308d096906
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145088169'
 ---
-
 未検証のキーを使用して Git 操作を実行すると、SSH キーの監査を行うように求めるメッセージが表示されます。
 
 ```shell
@@ -28,4 +33,4 @@ fatal: could not read from remote repository
 ```
 ## 問題の解決
 
-これを解決するには、[SSH キーを確認](/articles/reviewing-your-ssh-keys)し、未検証のキーを拒否または承認します。 エラーメッセージ内の URL リンクをクリックすると、SSH の設定ページに移動し、未検証の SSH キーが SSH キーリスト内で強調表示されます。
+これを修正するには、[SSH キーを確認](/articles/reviewing-your-ssh-keys)し、未検証のキーを拒否または承認する必要があります。 エラーメッセージ内の URL リンクをクリックすると、SSH の設定ページに移動し、未検証の SSH キーが SSH キーリスト内で強調表示されます。

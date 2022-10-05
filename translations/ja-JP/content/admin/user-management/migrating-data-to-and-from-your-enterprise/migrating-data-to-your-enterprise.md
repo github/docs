@@ -19,19 +19,24 @@ topics:
   - Enterprise
   - Migration
 shortTitle: Import to your enterprise
+ms.openlocfilehash: 19bd9e1e8cee072e8a8f00861e2d8f876b5b8450
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717670'
 ---
-
 ## インポートしたデータを {% data variables.product.prodname_ghe_server %} に適用する
 
-Before you can migrate data to your enterprise, you must prepare the data and resolve any conflicts. 詳しい情報については、「[Enterprise へのデータ移行を準備する](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)」を参照してください。
+データを Enterprise に移行するには、事前にデータを準備し、競合を解決する必要があります。 詳細については、「[Enterprise へのデータ移行の準備](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)」を参照してください。
 
-After you prepare the data and resolve conflicts, you can apply the imported data on {% data variables.product.product_name %}.
+データを準備して競合を解決したら、インポートしたデータを {% data variables.product.product_name %} に適用できます。
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-2. `ghe-migrator import`コマンドを使ってインポートのプロセスを開始してください。 以下が必要です:
-    * 移行 GUID. 詳しい情報については、「[Enterprise へのデータ移行を準備する](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)」を参照してください。
-    * 認証のための個人アクセストークン。 個人アクセストークンは、サイト管理者としての認証にのみ使用され、特定のスコープは必要ありません。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+2. `ghe-migrator import` コマンドを使用して、インポート プロセスを開始します。 必要なものは次のとおりです。
+    * 移行 GUID。 詳細については、「[Enterprise へのデータ移行の準備](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)」を参照してください。
+    * 認証のための個人アクセストークン。 個人アクセストークンは、サイト管理者としての認証にのみ使用され、特定のスコープは必要ありません。 詳細については、[個人アクセス トークンの作成](/github/authenticating-to-github/creating-a-personal-access-token)に関する記事を参照してください。
 
     ```shell
     $ ghe-migrator import /home/admin/<em>MIGRATION_GUID</em>.tar.gz -g <em>MIGRATION_GUID</em> -u <em>username</em> -p <em>TOKEN</em>
@@ -44,56 +49,56 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 
 ## 移行データのレビュー
 
-デフォルトでは、`ghe-migrator audit` はすべてのレコードを返します。 また、以下の条件でレコードをフィルタリングすることもできます。
+既定では、`ghe-migrator audit` はすべてのレコードを返します。 また、以下の条件でレコードをフィルタリングすることもできます。
 
   * レコードのタイプ。
   * レコードの状態。
 
-レコードタイプは[移行データ](/enterprise/admin/guides/migrations/about-migrations/#migrated-data)にあるものとマッチします。
+レコードの種類は、[移行されたデータ](/enterprise/admin/guides/migrations/about-migrations/#migrated-data)で見つかったものと一致します。
 
 ## レコードタイプのフィルタ
 
-| レコードタイプ                       | フィルタ名                         |
-| ----------------------------- | ----------------------------- |
-| ユーザ                           | `ユーザ`                         |
-| Organization                  | `Organization`                |
-| リポジトリ                         | `リポジトリ`                       |
-| Team                          | `Team`                        |
-| マイルストーン                       | `マイルストーン`                     |
-| プロジェクトボード                     | `project`                     |
-| Issue                         | `Issue`                       |
-| Issueのコメント                    | `issue_comment`               |
-| プルリクエスト                       | `pull_request`                |
-| プルリクエストのレビュー                  | `pull_request_review`         |
-| コミットのコメント                     | `commit_comment`              |
-| プルリクエストのレビューのコメント             | `pull_request_review_comment` |
-| リリース                          | `リリース`                        |
-| プルリクエストあるいはIssueに対して行われたアクション | `issue_event`                 |
-| 保護されたブランチ                     | `protected_branch`            |
+|      レコード タイプ      | フィルター名  |
+|-----------------------|--------|
+| ユーザー           | `user`
+| 組織   | `organization`
+| リポジトリ    | `repository`
+| Teams           | `team`
+| マイルストーン      | `milestone`
+| プロジェクトボード  | `project`
+| 発行          | `issue`
+| Issueのコメント  | `issue_comment`
+| Pull Request   | `pull_request`
+| プルリクエストのレビュー | `pull_request_review`
+| コミットのコメント | `commit_comment`
+| プルリクエストのレビューのコメント | `pull_request_review_comment`
+| リリース | `release`
+| プルリクエストあるいはIssueに対して行われたアクション | `issue_event`
+| 保護されたブランチ | `protected_branch`
 
 ## レコードの状態フィルタ
 
-| レコードの状態         | 説明                  |
-| --------------- | ------------------- |
-| `export`        | レコードはエクスポートされます。    |
-| `import`        | レコードはインポートされます。     |
-| `map`           | レコードはマップされます。       |
-| `rename`        | レコードの名前が変更されます。     |
-| `マージ`           | レコードはマージされます。       |
+| レコードの状態    | 説明    |
+|-----------------|----------------|
+| `export`        | レコードはエクスポートされます。 |
+| `import`        | レコードはインポートされます。 |
+| `map`           | レコードはマップされます。 |
+| `rename`        | レコードの名前が変更されます。 |
+| `merge`         | レコードはマージされます。 |
 | `exported`      | レコードはエクスポートに成功しました。 |
-| `imported`      | レコードはインポートに成功しました。  |
-| `mapped`        | レコードはマップに成功しました。    |
-| `renamed`       | レコードの名前の変更に成功しました。  |
-| `merged`        | レコードはマージに成功しました。    |
+| `imported`      | レコードはインポートに成功しました。 |
+| `mapped`        | レコードはマップに成功しました。 |
+| `renamed`       | レコードの名前の変更に成功しました。 |
+| `merged`        | レコードはマージに成功しました。 |
 | `failed_export` | レコードはエクスポートに失敗しました。 |
-| `failed_import` | レコードはインポートに失敗しました。  |
-| `failed_map`    | レコードはマップに失敗しました。    |
-| `failed_rename` | レコードの名前の変更に失敗しました。  |
-| `failed_merge`  | レコードはマージに失敗しました。    |
+| `failed_import` | レコードはインポートに失敗しました。 |
+| `failed_map`    | レコードはマップに失敗しました。 |
+| `failed_rename` | レコードの名前の変更に失敗しました。 |
+| `failed_merge`  | レコードはマージに失敗しました。 |
 
 ## 監査されたレコードのフィルタリング
 
-`ghe-migrator audit`では、`-m`フラグを使ってレコードタイプに基づくフィルタリングができます。 同様に、`-s`フラグでインポートの状態に対してフィルタリングができます。 コマンドは以下のようになります。
+`ghe-migrator audit` コマンドを使用すると、`-m` フラグを使用してレコードの種類に基づいてフィルター処理できます。 同様に、`-s` フラグを使用してインポート状態をフィルター処理できます。 次のようなコマンドです。
 
 ```shell
 $ ghe-migrator audit -m <em>RECORD_TYPE</em> -s <em>STATE</em> -g <em>MIGRATION_GUID</em>
@@ -106,7 +111,7 @@ $ ghe-migrator audit -m organization,team -s mapped,renamed -g <em>MIGRATION_GUI
 > organization,https://gh.source/octo-org/,https://ghe.target/octo-org/,renamed
 ```
 
-**失敗したすべてのインポートを監査することを強くおすすめします。**そのためには以下のようにします。
+**失敗したすべてのインポートを監査することを強くお勧めします。** これを行うには、次のように入力します。
 ```shell
 $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <em>MIGRATION_GUID</em>
 > model_name,source_url,target_url,state
@@ -122,32 +127,30 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 ## ターゲットインスタンス上でのリポジトリのアンロック
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ## ソース上でのリポジトリのアンロック
 
 ### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリのロックを解除する
 
-{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをアンロックするには、`DELETE` リクエストを[移行アンロックエンドポイント](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository)に送信します。 以下が必要です:
+{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリのロックを解除するには、`DELETE` 要求を[移行ロック解除エンドポイント](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository)に送信します。 必要なものは次のとおりです。
   * 認証のためのアクセストークン
-  * 移行のユニーク`id`
+  * 移行の一意の `id`
   * アンロックするリポジトリの名前
 ```shell
-curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   -H "Accept: application/vnd.github.wyandotte-preview+json" \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
 ### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリを削除する
 
-{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをロック解除した後、[リポジトリ削除エンドポイント](/rest/repos/#delete-a-repository)を使用して以前に移行したすべてのリポジトリを削除する必要があります。 認証のためのアクセストークンが必要になります。
+{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリのロックを解除した後、[リポジトリ削除エンドポイント](/rest/repos/#delete-a-repository)を使用して以前に移行したすべてのリポジトリを削除する必要があります。 認証のためのアクセストークンが必要になります。
 ```shell
-curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
 ### {% data variables.product.prodname_ghe_server %} インスタンスからリポジトリをアンロックする
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}

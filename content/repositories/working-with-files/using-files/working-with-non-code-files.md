@@ -199,7 +199,7 @@ You can click {% octicon "file" aria-label="The paper icon" %} to see the change
 
 ![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ### Disabling Markdown rendering
 
@@ -340,7 +340,7 @@ To view a fully interactive version of your Jupyter Notebook, you can set up a n
 If you're having trouble rendering Jupyter Notebook files in static HTML, you can convert the file locally on the command line by using the [`nbconvert` command](https://github.com/jupyter/nbconvert):
 
 ```shell
-$ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
+$ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 ```
 
 ### Further reading
@@ -371,7 +371,7 @@ When you view the file in the repository, it is rendered as a flow chart.
 
 If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
 
-If the chart displays, but does not appear as you'd expect, you can create a new [feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback), and add the `mermaid` tag. 
+If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label. 
 
 #### Known issues
 

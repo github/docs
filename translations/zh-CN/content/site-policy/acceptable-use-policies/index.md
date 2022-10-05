@@ -1,5 +1,5 @@
 ---
-title: 可接受的使用政策
+title: 可接受使用政策
 versions:
   fpt: '*'
 topics:

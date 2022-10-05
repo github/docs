@@ -1,1 +1,10 @@
-1. "Monitoring（モニタリング）"の下で、**Enable SNMP（SNMPの有効化）**を選択してください。 ![SNMPを有効化するボタン](/assets/images/enterprise/management-console/enable-snmp.png)
+---
+ms.openlocfilehash: 5ea8a4178da32641edd99b1b7d14a7562faceb55
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145123637"
+---
+1. [監視] で、 **[Enable SNMP]\(SNMP を有効にする\)** を選びます。
+![SNMP を有効にするボタン](/assets/images/enterprise/management-console/enable-snmp.png)

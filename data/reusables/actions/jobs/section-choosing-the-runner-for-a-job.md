@@ -6,7 +6,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. {% 
 
 ### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
 
-If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
+If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
 
 Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
@@ -18,7 +18,7 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 runs-on: ubuntu-latest
 ```
 
-For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}

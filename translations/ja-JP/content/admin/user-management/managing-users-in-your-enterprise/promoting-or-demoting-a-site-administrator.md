@@ -1,11 +1,11 @@
 ---
-title: Promoting or demoting a site administrator
+title: サイト管理者の昇格あるいは降格
 redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator
   - /enterprise/admin/articles/demoting-a-site-administrator
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
   - /admin/user-management/promoting-or-demoting-a-site-administrator
-intro: 'Site administrators can promote any normal user account to a site administrator, as well as demote other site administrators to regular users.'
+intro: サイト管理者は、任意の通常ユーザアカウントをサイト管理者に昇格させることや、他のサイト管理者を通常のユーザに降格させることができます。
 versions:
   ghes: '*'
 type: how_to
@@ -15,48 +15,50 @@ topics:
   - User account
   - Enterprise
 shortTitle: Manage administrators
+ms.openlocfilehash: 19daa56cf7d750d69495a6ff52655784411f56ff
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331697'
 ---
 {% tip %}
 
-**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) and the `Administrators group` attribute is set when [configuring LDAP access for users](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), those users will automatically have site administrator access to your instance. In this case, you can't manually promote users with the steps below; you must add them to the LDAP administrators group.
+**注:** [ユーザーの LDAP アクセスを構成する](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)ときに、[LDAP 同期が有効](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)で、`Administrators group` 属性が設定されている場合、それらのユーザーはインスタンスへのサイト管理者アクセス権を自動的に持ちます。 この場合、以下のステップで手動でユーザを昇格させることはできません。ユーザを昇格させるにはLDAPの管理者グループに追加してください。
 
 {% endtip %}
 
-For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-org-admin-promote)."
+Organization 所有者へのユーザーの昇格については、「[コマンド ライン ユーティリティ](/enterprise/admin/guides/installation/command-line-utilities#ghe-org-admin-promote)」の `ghe-org-admin-promote` のセクションをご覧ください。
 
-## Promoting a user from the enterprise settings
+## Enterprise設定からユーザを昇格させる
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-{% data reusables.enterprise-accounts.administrators-tab %}
-5. In the upper-right corner of the page, click **Add owner**.
-  ![Button to add an admin](/assets/images/help/business-accounts/business-account-add-admin-button.png)
-6. In the search field, type the name of the user and click **Add**.
-  ![Search field to add an admin](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %} {% data reusables.enterprise-accounts.administrators-tab %}
+5. ページの右上隅にある **[Add owner]\(所有者の追加\)** をクリックします。
+  ![管理者を追加するボタン](/assets/images/help/business-accounts/business-account-add-admin-button.png)
+6. 検索フィールドにユーザーの名前を入力して、 **[追加]** をクリックします。
+  ![管理者を追加するための検索フィールド](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
 
-## Demoting a site administrator from the enterprise settings
+## Enterprise設定からサイト管理者を降格させる
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-{% data reusables.enterprise-accounts.administrators-tab %}
-1. In the upper-left corner of the page, in the "Find an administrator" search field, type the username of the person you want to demote.
-  ![Search field to find an administrator](/assets/images/help/business-accounts/business-account-search-for-admin.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %} {% data reusables.enterprise-accounts.administrators-tab %}
+1. ウィンドウの左上にある [Find an administrator] 検索フィールドに、降格させたい人物のユーザ名を入力します。
+  ![管理者を見つけるための検索フィールド](/assets/images/help/business-accounts/business-account-search-for-admin.png)
 
-1. In the search results, find the username of the person you want to demote, then use the {% octicon "gear" %} drop-down menu, and select **Remove owner**.
-  ![Remove from enterprise option](/assets/images/help/business-accounts/demote-admin-button.png)
+1. 検索結果で降格させるユーザーのユーザー名を見つけ、{% octicon "gear" %} ドロップダウン メニューを使って **[所有者の削除]** を選びます。
+  ![Enterprise からの削除オプション](/assets/images/help/business-accounts/demote-admin-button.png)
 
-## Promoting a user from the command line
+## コマンドラインからユーザを昇格させる
 
-1. [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
-2. Run [ghe-user-promote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-promote) with the username to promote.
+1. アプライアンスに [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) で接続します。
+2. 昇格させるユーザー名を指定して [ghe-user-promote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-promote) を実行します。
   ```shell
   $ ghe-user-promote <em>username</em>
   ```
 
-## Demoting a site administrator from the command line
+## コマンドラインからサイト管理者を降格させる
 
-1. [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
-2. Run [ghe-user-demote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-demote) with the username to demote.
+1. アプライアンスに [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) で接続します。
+2. 降格させるユーザー名を指定して [ghe-user-demote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-demote) を実行します。
   ```shell
   $ ghe-user-demote <em>username</em>
   ```

@@ -17,24 +17,29 @@ topics:
   - Identity
   - Access management
 shortTitle: GitHub's IP addresses
+ms.openlocfilehash: ab598fa408512a43ab07c069119480b5ae03278e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145119982'
 ---
-
-{% data variables.product.prodname_dotcom %}のIPアドレスのリストは、[メタ](https://api.github.com/meta)APIエンドポイントから取得できます。 詳しい情報については、「[メタ](/rest/reference/meta)」を参照してください。
+{% data variables.product.prodname_dotcom %} の IP アドレスのリストは、[メタ](https://api.github.com/meta) API エンドポイントから取得できます。 詳しくは、「[メタ](/rest/reference/meta)」をご覧ください。
 
 {% note %}
 
-**Note:** The list of {% data variables.product.prodname_dotcom %} IP addresses returned by the Meta API is not intended to be an exhaustive list. For example, IP addresses for some {% data variables.product.prodname_dotcom %} services might not be listed, such as LFS or {% data variables.product.prodname_registry %}.
+**注:** Meta API によって返される {% data variables.product.prodname_dotcom %} の IP アドレスのリストは、完全なリストではありません。 たとえば、LFS や {% data variables.product.prodname_registry %} など、一部の {% data variables.product.prodname_dotcom %} サービスの IP アドレスがリストにない場合があります。
 
 {% endnote %}
 
-These IP addresses are used by {% data variables.product.prodname_dotcom %} to serve our content, deliver webhooks, and perform hosted {% data variables.product.prodname_actions %} builds.
+これらの IP アドレスは、{% data variables.product.prodname_dotcom %} によって、コンテンツの提供、Webhook の配信、ホストされた {% data variables.product.prodname_actions %} ビルドの実行に使われます。
 
-これらの範囲は[CIDR表記](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)になっています。 You can use an online conversion tool to convert from CIDR notation to IP address ranges, for example: [CIDR to IPv4 conversion site](https://www.ipaddressguide.com/cidr).
+これらの範囲は [CIDR 表記](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)になっています。 オンライン変換ツールを使って、CIDR 表記から IP アドレス範囲に変換できます (例: [CIDR から IPv4 への変換サイト](https://www.ipaddressguide.com/cidr))。
 
-We make changes to our IP addresses from time to time. IP アドレスによる許可はお勧めしませんが、これらの IP 範囲を使用する場合は、API を定期的にモニタリングすることを強くお勧めします。
+GitHub の IP アドレスはときどき変更されます。 IP アドレスによる許可はお勧めしませんが、これらの IP 範囲を使用する場合は、API を定期的にモニタリングすることを強くお勧めします。
 
-アプリケーションが機能するためには、`github.com`のIPの範囲についてTCPポートの22、80、443、9418を許可しなければなりません。
+アプリケーションが機能するためには、`github.com` の IP の範囲について TCP ポート 22、80、443、9418 を許可する必要があります。
 
-## 参考リンク
+## 参考資料
 
-- [接続の問題のトラブルシューティング](/articles/troubleshooting-connectivity-problems)
+- 「[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)」 (接続問題のトラブルシューティング)

@@ -19,6 +19,7 @@ children:
   - /custom-roles
   - /members
   - /outside-collaborators
+  - /security-managers
   - /webhooks
 ---
 

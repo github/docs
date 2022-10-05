@@ -16,23 +16,16 @@ topics:
 shortTitle: Delete a codespace
 ---
 
+There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. For more information, see "[About billing for GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
-
-{% data reusables.codespaces.concurrent-codespace-limit %}
-
-{% note %}
-
-**Note:** Only the person who created a codespace can delete it. There is currently no way for organization owners to delete codespaces created within their organization.
-
-{% endnote %}
+{% data reusables.codespaces.max-number-codespaces %}
 
 ## Deleting a codespace
 
 {% webui %}
 
-1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
-
-2. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**
+{% data reusables.codespaces.your-codespaces-procedure-step %}
+1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**
 
    ![Delete button](/assets/images/help/codespaces/delete-codespace.png)
 
@@ -98,5 +91,37 @@ gh cs delete --repo octo-org/octo-repo --days 7
 
 {% endcli %}
 
+## Deleting codespaces in your organization
+
+As an organization owner, you can use {% data variables.product.prodname_cli %} to delete any codespace in your organization.
+
+{% webui %}
+
+For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
+
+{% endwebui %}
+
+{% vscode %}
+
+For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
+
+{% endvscode %}
+
+{% cli %}
+
+1. Enter one of these commands to display a list of codespaces.
+   * `gh codespace delete --org ORGANIZATION` - Lists the current codespaces in the specified organization. 
+   * `gh codespace delete --org ORGANIZATION --user USER` - Lists only those codespaces created by the specified user.
+   You must be an owner of the specified organization.
+1. In the list of codespaces, navigate to the codespace you want to delete.
+1. To delete the selected codespace press <kbd>Enter</kbd>.
+
+   If the codespace contains unsaved changes you will be prompted to confirm deletion.
+
+{% endcli %}
+
+You can also use the REST API to delete codespaces for your organization. For more information, see "[Codespaces organizations](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)."
+
 ## Further reading
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"
+- "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"

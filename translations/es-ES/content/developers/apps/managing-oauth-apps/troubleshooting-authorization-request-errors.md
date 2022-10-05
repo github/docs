@@ -12,9 +12,14 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Solucionar los problemas de autorización
+shortTitle: Troubleshoot authorization
+ms.openlocfilehash: 8706453423298277ed27ac5f950c562db8a42a09
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147885328'
 ---
-
 ## Aplicación suspendida
 
 Si la App de OAuth que configuraste se suspendió (debido a que reportaron abuso, spam, o mal uso de la API), GitHub te redirigirá a la URL de rellamado registrada utilizando los siguientes parámetros para resumir el error:
@@ -28,22 +33,22 @@ Para resolver los problemas de suspensión de aplicaciones, por favor contacta a
 
 ## Redirigir una discordancia de URI
 
-Si proporcionas una `redirect_uri` que no concuerde con lo que has registrado con tu aplicación, GitHub te redirigirá a la URL de rellamado registrada con los siguientes parámetros que resumirán el error:
+Si proporciona un valor `redirect_uri` que no coincide con lo que ha registrado con la aplicación, GitHub le redirigirá a la URL de devolución de llamada registrada con los siguientes parámetros que resumen el error:
 
     http://your-application.com/callback?error=redirect_uri_mismatch
       &error_description=The+redirect_uri+MUST+match+the+registered+callback+URL+for+this+application.
       &error_uri=/apps/building-integrations/setting-up-and-registering-oauth-apps/troubleshooting-authorization-request-errors/%23redirect-uri-mismatch
       &state=xyz
 
-Para corregir este error, puedes ya sea proporcionar una `redirect_uri` que coincida con lo que registraste o dejar este parámetro para utilizar aquél predeterminado que se registró con tu aplicación.
+Para corregir este error, puede proporcionar un valor `redirect_uri` que coincida con lo que haya registrado, o bien excluir este parámetro y usar el predeterminado que haya registrado con la aplicación.
 
 ### Acceso denegado
 
-Si el usuario rechaza el acceso a tu aplicación, GitHub te redirigirá a la URL de rellamado registrada con los siguientes parámetros para resumir el error:
+Si el usuario rechaza el acceso a la aplicación, GitHub le redirigirá a la URL de devolución de llamada registrada con los siguientes parámetros que resumen el error:
 
     http://your-application.com/callback?error=access_denied
       &error_description=The+user+has+denied+your+application+access.
       &error_uri=/apps/building-integrations/setting-up-and-registering-oauth-apps/troubleshooting-authorization-request-errors/%23access-denied
       &state=xyz
 
-No puedes hacer nada al respecto, ya que los usuarios tiene la libertad de elegir si no quieren utilizar tu aplicación. Lo más común es que los usuarios simplemente cierren la ventana o presionen "atrás" en su buscador, así que es probable que nunca veas este error.
+No puede hacer nada al respecto, ya que los usuarios tienen la libertad de elegir si no quieren utilizar la aplicación. Lo más común es que los usuarios simplemente cierren la ventana o presionen "Atrás" en el explorador, por lo que es probable que nunca vea este error.

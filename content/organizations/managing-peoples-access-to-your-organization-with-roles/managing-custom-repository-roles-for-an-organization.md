@@ -18,7 +18,17 @@ To perform any actions on {% data variables.product.product_name %}, such as cre
 
 Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. A custom repository role is a configurable set of permissions with a custom name you choose. After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
+You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. A custom repository role is a configurable set of permissions with a custom name you choose. After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+
+{% ifversion custom-repo-role-api %}
+
+You can also use the REST API to create and manage custom repository roles. For more information, see "[Custom Repository Roles](/rest/orgs/custom-roles)."
+
+{% else %}
+
+You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[Custom Repository Roles API](/rest/orgs/custom-roles)."
+
+{% endif %}
 
 ## About the inherited role
 
@@ -92,9 +102,10 @@ You can only choose an additional permission if it's not already included in the
 - **Set interaction limits**: Temporarily restrict certain users from commenting, opening issues, or creating pull requests in your public repository to enforce a period of limited activity. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
 {%- endif %}
 - **Set the social preview**: Add an identifying image to your repository that appears on social media platforms when your repository is linked. For more information, see "[Customizing your repository's social media preview](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)."
-- **Push commits to protected branches**: Push to a branch that is marked as a protected branch.
+- **Push commits to protected branches**: Push to a branch that is marked as a protected branch. Branch protection rules will still apply and could result in a push being rejected.
 - **Create protected tags**: Create tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
-- **Delete protected tags**: Delete tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+- **Delete protected tags**: Delete tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."{% ifversion bypass-branch-protections %}
+- **Bypass branch protections**: Push to a protected branch without needing to comply with branch protection rules.{% endif %}
 
 ### Security
 

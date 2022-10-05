@@ -29,7 +29,13 @@ describe('markdown for each rest version', () => {
   test('markdown file exists for every operationId prefix in all versions of the OpenAPI schema', async () => {
     // list of REST markdown files that do not correspond to REST API resources
     // TODO could we get this list dynamically, say via page frontmatter?
-    const excludeFromResourceNameCheck = ['README.md', 'index.md', 'guides', 'overview']
+    const excludeFromResourceNameCheck = [
+      'README.md',
+      'index.md',
+      'guides',
+      'overview',
+      'quickstart.md',
+    ]
 
     // Unique set of all categories across all versions of the OpenAPI schema
     const allCategories = new Set()

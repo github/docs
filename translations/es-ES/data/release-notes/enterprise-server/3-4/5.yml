@@ -1,35 +1,30 @@
 date: '2022-06-28'
 sections:
   security_fixes:
-    - "**MEDIA**: Previene un ataque en donde un parámetro de secuencia de consulta de `org` puede especificarse para una URL de GitHub Enterprise Server que posteriormente otorga acceso a los confirmantes activos de otra organización."
-    - "**MEDIA**: Se asegura que `github.company.com` y `github-company.com` no se evalúen por los servicios internos como nombres de host idénticos, previniendo un ataque potencial de falsificación de seguridad del lado del servidor (SSRF)."
-    - "**BAJA**: Un atacante pudo acceder a la consola de administración con un ataque de recorrido de ruta a través de HTTP, incluso si las reglas de cortafuegos externo bloqueaban el acceso HTTP."
-    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+    - "**MEDIUM**: Prevents an attack where an `org` query string parameter can be specified for a GitHub Enterprise Server URL that then gives access to another organization's active committers."
+    - "**MEDIUM**: Ensures that `github.company.com` and `github-company.com` are not evaluated by internal services as identical hostnames, preventing a potential server-side security forgery (SSRF) attack."
+    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
+    - Packages have been updated to the latest security versions.
   bugs:
-    - Los archivos dentro de un archivo de artefacto no se pudieron abrir después de la descompresión debido a los permisos de restricción.
-    - Los tiempos de espera máxima de Redis ya no detienen las migraciones de bases de datos mientras ejecutan `ghe-config-apply`.
-    - Los procesadores de jobs en segundo plano se atoraron en un estado de cierre parcial, lo cuál dio como resultado que algunos tipos de jobs en segundo plano (como el escaneo de código) se mostrarán atorados.
-    - En algunos casos, los administradores de sitio no se agregaron automáticamente como propietarios de empresa.
+    - Files inside an artifact archive were unable to be opened after decompression due to restrictive permissions.
+    - Redis timeouts no longer halt database migrations while running `ghe-config-apply`.
+    - Background job processors would get stuck in a partially shut-down state, resulting in certain kinds of background jobs (like code scanning) appearing stuck.
+    - In some cases, site administrators were not automatically added as enterprise owners.
     - A rendering issue could affect the dropdown list for filtering secret scanning alerts in a repository.
   changes:
     - Improved the performance of Dependabot version updates after first enabled.
-    - Los tiempos de exceso de espera para la sincronización y compilación de GitHub Pages ahora se pueden configurar en la consola de administración.
-    - El crear o actualizar ejecuciones de verificación o suites de verificación pudo devolver un `500 Internal Server Error` si el valor para campos específicos, como el de nombre, era demasiado largo.
-    - 'Cuando [despliegas nodos de servidor caché](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), ahora es obligatorio describir la topología del centro de datos (utilizando el argumento `--datacenter`) para cada nodo en el sistema. Este requisito previene situaciones en donde el dejar una membrecía del centro de datos configurada como "default" ocasiona que las cargas de trabajo se balanceen inadecuadamente a lo largo de varios centros de datos.'
+    - The GitHub Pages build and synchronization timeouts are now configurable in the Management Console.
+    - Creating or updating check runs or check suites could return `500 Internal Server Error` if the value for certain fields, like the name, was too long.
+    - When [deploying cache-server nodes](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), it is now mandatory to describe the datacenter topology (using the `--datacenter` argument) for every node in the system. This requirement prevents situations where leaving datacenter membership set to "default" leads to workloads being inappropriately balanced across multiple datacenters.
   known_issues:
-    - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.
-    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
-    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
-    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.
-    - Cuando se habilita la opción "Los usuarios pueden buscar en GitHub.com" con las propuestas de {% data variables.product.prodname_github_connect %}, las propuestas en los repositorios internos y privados no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}.
-    - El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.
-    - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - |
-      Después de registrar un ejecutor auto-hospedado con el parámetro `--ephemeral` en más de un nivel (por ejemplo, tanto en la empresa como en la organización), el ejecutor podría atorarse en un estado inactivo y requerir un nuevo registro. [Actualizado: 2022-06-17]
-    - |
-      Cuando utilizas las aserciones cifradas con {% data variables.product.prodname_ghe_server %} 3.4.0 y 3.4.1, un atributo nuevo de XML `WantAssertionsEncrypted` en el `SPSSODescriptor` contiene un atributo inválido para los metadatos de SAML. Los IdP que consumen esta terminal de metadatos de SAML podrían encontrar errores al validar el modelo XML de los metadatos de SAML. Habrá una corrección disponible en el siguiente lanzamiento de parche. [Actualizado: 2022-04-11]
-
-      Para darle una solución a este problema, puedes tomar una de las dos acciones siguientes.
-      - Reconfigurar el IdP cargando una copia estática de los metadatos de SAML sin el atributo `WantAssertionsEncrypted`.
-      - Copiar los metadatos de SAML, eliminar el atributo `WantAssertionsEncrypted`, hospedarlo en un servidor web y reconfigurar el IdP para que apunte a esa URL.
-    - Después de mejorar a {% data variables.product.prodname_ghe_server %} 3.4, podría parecer que los lanzamientos no están en los repositorios. Esto puede ocurrir cuando las migraciones de índice de Elasticsearch requeridas no se han completado exitosamente.
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration.
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

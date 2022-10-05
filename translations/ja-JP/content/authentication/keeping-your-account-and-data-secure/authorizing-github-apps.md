@@ -1,6 +1,6 @@
 ---
-title: Authorizing GitHub Apps
-intro: 'You can authorize a {% data variables.product.prodname_github_app %} to allow an application to retrieve information about your {% data variables.product.prodname_dotcom %} account and, in some circumstances, to make changes on {% data variables.product.prodname_dotcom %} on your behalf.'
+title: GitHub App の承認
+intro: '{% data variables.product.prodname_github_app %} を承認して、アプリケーションが {% data variables.product.prodname_dotcom %} アカウントに関する情報を取得し、状況によっては、ユーザーの代わりに {% data variables.product.prodname_dotcom %} に変更を加えることができます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,43 +11,51 @@ topics:
   - Access management
 redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps
+ms.openlocfilehash: 050f437f411919c4be488e61c032a8543a301e02
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145115054'
 ---
+ユーザーの {% data variables.product.prodname_dotcom %} ID を確認したり、ユーザーに代わって {% data variables.product.prodname_dotcom %} 上のデータを操作する必要があるサードパーティのアプリケーションでは、それを行うために {% data variables.product.prodname_github_app %} の認可を求められることがあります。 
 
-Third-party applications that need to verify your {% data variables.product.prodname_dotcom %} identity, or interact with the data on {% data variables.product.prodname_dotcom %} on your behalf, can ask you to authorize the {% data variables.product.prodname_github_app %} to do so.
+{% data variables.product.prodname_github_app %} を認可するときには、そのアプリケーションが信頼できること、誰がそれを開発したのか、およびプリケーションがアクセスしたい情報の種類を確認する必要があります。
 
-When authorizing the {% data variables.product.prodname_github_app %}, you should ensure you trust the application, review who it's developed by, and review the kinds of information the application wants to access.
+認可の際、{% data variables.product.prodname_github_app %} にアクセス許可を与えるよう求められます。
+* **{% data variables.product.prodname_dotcom %} ID を確認する**<br/>
+  認可されると、{% data variables.product.prodname_github_app %} はパブリックな GitHub プロファイルをプログラムで取得できるようになり、要求されたアクセス レベルに応じてプライベートな情報 (メール アドレスなど) も取得できるようになります。
+* **アクセスできるリソースを把握する**<br/>
+  承認されると、{% data variables.product.prodname_github_app %}} は、アクセスできる _プライベート_ {% data variables.product.prodname_dotcom %}} リソース (プライベート {% data variables.product.prodname_dotcom %} リポジトリ _など) を_ プログラムで読み取ることができます。このリソースには、{% data variables.product.prodname_github_app %} のインストールも存在します。 アプリケーションは、たとえば、リポジトリの適切なリストを表示できるように、これを使用できます。
+* **ユーザーに代わって操作する**<br/>
+  アプリケーションは、{% data variables.product.prodname_dotcom %} 上でタスクを実行する必要があるかもしれません。 これには、issue の作成、pull request へのコメントが含まれる場合があります。 このユーザーに代わって操作する機能は、ユーザーと {% data variables.product.prodname_github_app %} の _両方_ がアクセスできる {% data variables.product.prodname_dotcom %} リソースに制限されます。 ただし、アプリケーションがユーザーに代わって変更を加えない場合もあります。
+  
+## {% data variables.product.prodname_github_app %} がユーザーに代わって操作するタイミング
 
-During authorization, you'll be prompted to grant the {% data variables.product.prodname_github_app %} permission to:
-* **Verify your {% data variables.product.prodname_dotcom %} identity**<br/> When authorized, the {% data variables.product.prodname_github_app %} will be able to programmatically retrieve your public GitHub profile, as well as some private details (such as your email address), depending on the level of access requested.
-* **Know which resources you can access**<br/> When authorized, the {% data variables.product.prodname_github_app %} will be able to programmatically read the _private_ {% data variables.product.prodname_dotcom %} resources that you can access (such as private  {% data variables.product.prodname_dotcom %}  repositories) _where_ an installation of the {% data variables.product.prodname_github_app %} is also present. The application may use this, for example, so that it can show you an appropriate list of repositories.
-* **Act on your behalf**<br/> The application may need to perform tasks on {% data variables.product.prodname_dotcom %}, as you. This might include creating an issue, or commenting on a pull request. This ability to act on your behalf is limited to the {% data variables.product.prodname_dotcom %} resources where _both_ you and the {% data variables.product.prodname_github_app %} have access. In some cases, however, the application may never make any changes on your behalf.
+{% data variables.product.prodname_github_app %} がユーザーに代わって操作する状況は、{% data variables.product.prodname_github_app %} の目的と、使われているコンテキストによって異なります。 
 
-## When does a {% data variables.product.prodname_github_app %} act on your behalf?
+たとえば、統合開発環境 (IDE) では、{% data variables.product.prodname_github_app %} を使って、IDE を通じて作成した変更を {% data variables.product.prodname_dotcom %} のリポジトリにプッシュ バックするために、ユーザーに代わって操作できます。  {% data variables.product.prodname_github_app %} は [user-to-server 要求](/get-started/quickstart/github-glossary#user-to-server-request)を通じてこれを実現します。
 
-The situations in which a {% data variables.product.prodname_github_app %} acts on your behalf vary according to the purpose of the {% data variables.product.prodname_github_app %} and the context in which it is being used.
+このように {% data variables.product.prodname_github_app %} が代行する場合、GitHub 上では以下のような特別なアイコンが表示され、{% data variables.product.prodname_github_app %} の小さなアバターがユーザー自身のアバターの上に重なって表示されるようになっています。
 
-For example, an integrated development environment (IDE) may use a {% data variables.product.prodname_github_app %} to interact on your behalf in order to push changes you have authored through the IDE back to repositories on {% data variables.product.prodname_dotcom %}.  The {% data variables.product.prodname_github_app %} will achieve this through a [user-to-server request](/get-started/quickstart/github-glossary#user-to-server-request).
+![{% data variables.product.prodname_github_app %} からの "user-to-server" 要求によって作成された issue](/assets/images/help/apps/github-apps-new-issue.png)
 
-When a {% data variables.product.prodname_github_app %} acts on your behalf in this way, this is identified on GitHub via a special icon that shows a small avatar for the {% data variables.product.prodname_github_app %} overlaid onto your own avatar, similar to the one shown below.
+## {% data variables.product.prodname_github_app %} は、どこまでユーザーがアクセスできるリソースを把握して、どの程度までユーザーに代わって操作できますか?
 
-![An issue created by a "user-to-server" request from a {% data variables.product.prodname_github_app %}](/assets/images/help/apps/github-apps-new-issue.png)
+{% data variables.product.prodname_github_app %} が、認可された後に、ユーザーがどのリソースにアクセスできるかを把握し、ユーザーに代わって操作できる範囲は、次のように制限されています。
 
-## To what extent can a {% data variables.product.prodname_github_app %} know which resources you can access  and act on your behalf?
+* アプリがインストールされている組織またはリポジトリ 
+* アプリが要求しているアクセス許可
+* {% data variables.product.prodname_dotcom %} リソースへのアクセス権
 
-The extent to which a {% data variables.product.prodname_github_app %} can know which resources you can access and act on your behalf, after you have authorized it, is limited by:
+例を使って説明しましょう。
 
-* The organizations or repositories on which the app is installed
-* The permissions the app has requested
-* Your access to {% data variables.product.prodname_dotcom %} resources
+{% data variables.product.prodname_dotcom %} ユーザーの Alice は、{% data variables.product.prodname_dotcom %} ID を使ってサードパーティの Web アプリケーション ExampleApp にログインします。 このプロセスの間、Alice は ExampleApp が自分に代わってアクションを実行することを認可します。
 
-Let's use an example to explain this.
+ただし、ExampleApp が Alice に代わって {% data variables.product.prodname_dotcom %} で実行できるアクティビティは、ExampleApp がインストールされているリポジトリ、ExampleApp が要求したアクセス許可、そして Alice の {% data variables.product.prodname_dotcom %} リソースへのアクセス権によって制限されます。 
 
-{% data variables.product.prodname_dotcom %} user Alice logs into a third-party web application, ExampleApp, using their {% data variables.product.prodname_dotcom %} identity. During this process, Alice authorizes ExampleApp to perform actions on their behalf.
+つまり、ExampleApp が Alice に代わって Repo A というリポジトリに issue を作成するには、次のすべてに該当する必要があります。
 
-However, the activity ExampleApp is able to perform on Alice's behalf in {% data variables.product.prodname_dotcom %} is constrained by: the repositories on which ExampleApp is installed, the permissions ExampleApp has requested, and Alice's access to {% data variables.product.prodname_dotcom %} resources.
-
-This means that, in order for ExampleApp to create an issue on Alice's behalf, in a repository called Repo A, all of the following must be true:
-
-* ExampleApp's {% data variables.product.prodname_github_app %} requests write access to issues.
-* A user having admin access for Repo A must have installed ExampleApp's {% data variables.product.prodname_github_app %} on Repo A.
-* Alice must have read permission for Repo A. For information about which permissions are required to perform various activities, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+* ExampleApp の {% data variables.product.prodname_github_app %} が、issue への書き込み権限を要求しています。
+* Repo A の管理者特権を持つユーザーが、Repo A に ExampleApp の {% data variables.product.prodname_github_app %} をインストールしている必要があります。
+* Alice は Repo A の読み取りアクセス許可を持っている必要があります。さまざまなアクティビティを実行するためにどのアクセス許可が必要かは、「[組織のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。

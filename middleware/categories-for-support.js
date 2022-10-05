@@ -12,7 +12,7 @@ let globalAllCategoriesCache = null
 
 // This middleware exposes a list of all categories and child articles at /categories.json.
 // GitHub Support uses this for internal ZenDesk search functionality.
-export default async function categoriesForSupport(req, res, next) {
+export default async function categoriesForSupport(req, res) {
   const englishSiteTree = req.context.siteTree.en
 
   const allCategories = globalAllCategoriesCache || []
@@ -51,9 +51,6 @@ export default async function categoriesForSupport(req, res, next) {
   // Cache somewhat aggressively but note that it will be soft-purged
   // in every prod deployment.
   cacheControl(res)
-
-  // Undo the cookie setting that CSRF sets.
-  res.removeHeader('set-cookie')
 
   return res.json(allCategories)
 }

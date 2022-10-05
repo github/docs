@@ -1,6 +1,6 @@
 date: '2022-07-26'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -104,10 +104,6 @@ sections:
         # https://github.com/github/releases/issues/2256
         - |
           Enterprise owners on instances with a GitHub Advanced Security license can see an overview of Dependabot alerts for the entire instance, including a repository-centric view of application security risks, and an alert-centric view of all secret scanning and Dependabot alerts. The views are in beta and subject to change, and alert-centric views for code scanning are planned for a future release of GitHub Enterprise Server. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)."
-
-        # https://github.com/github/releases/issues/1993
-        - |
-          Dependabot alerts show users if repository code calls vulnerable functions. Individual alerts display a "vulnerable call" label and code snippet, and users can filter search by `has:vulnerable-calls`. Vulnerable functions are curated during publication to the [GitHub Advisory Database](https://github.com/advisories). New incoming Python advisories will be supported, and GitHub is backfilling known vulnerable functions for historical Python advisories. After beta testing with Python, GitHub will add support for other ecosystems. For more information, see "[Viewing and updating Dependabot alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
 
         # https://github.com/github/releases/issues/2160
         - |
@@ -299,3 +295,4 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

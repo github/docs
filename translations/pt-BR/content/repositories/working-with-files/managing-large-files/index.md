@@ -23,5 +23,11 @@ children:
   - /moving-a-file-in-your-repository-to-git-large-file-storage
   - /removing-files-from-git-large-file-storage
   - /resolving-git-large-file-storage-upload-failures
+ms.openlocfilehash: 74ada6c4ff70b61ae3403749b9faf32c975bc30d
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145126958'
 ---
 

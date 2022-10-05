@@ -11,17 +11,21 @@ Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
 Azure | Azure Active Directory Application Secret
 Azure | Azure DevOps Personal Access Token
+Azure | Azure ML Studio (classic) Web Service Key
 Azure | Azure SAS Token
 Azure | Azure Service Management Certificate
 Azure | Azure SQL Connection String
 Azure | Azure Storage Account Key
 Checkout.com | Checkout.com Production Secret Key
 Checkout.com | Checkout.com Test Secret Key
+Chief | Chief Tools Token
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
 Contributed Systems | Contributed Systems Credentials
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
+DevCycle | DevCycle Client API Key
+DevCycle | DevCycle Server API Key
 DigitalOcean | DigitalOcean Personal Access Token
 DigitalOcean | DigitalOcean OAuth Token
 DigitalOcean | DigitalOcean Refresh Token
@@ -71,12 +75,15 @@ PlanetScale | PlanetScale OAuth Token
 PlanetScale | PlanetScale Service Token
 Plivo | Plivo Auth ID and Token
 Postman | Postman API Key
+Prefect | Prefect Server API Key
+Prefect | Prefect User API Token
 Proctorio | Proctorio Consumer Key
 Proctorio | Proctorio Linkage Key
 Proctorio | Proctorio Registration Key
 Proctorio | Proctorio Secret Key
 Pulumi | Pulumi Access Token
 PyPI | PyPI API Token
+ReadMe | ReadMe API Access Key
 redirect.pizza | redirect.pizza API Token
 RubyGems | RubyGems API Key
 Samsara | Samsara API Token
@@ -102,5 +109,12 @@ Tencent Cloud | Tencent Cloud Secret ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
 Typeform | Typeform Personal Access Token
+Uniwise | WISEflow API Key 
 Valour | Valour Access Token
+Yandex | Yandex.Cloud API Key	
+Yandex | Yandex.Cloud IAM Cookie	
+Yandex | Yandex.Cloud IAM Token	
+Yandex | Yandex.Dictionary API Key	
+Yandex | Yandex.Cloud Access Secret	
+Yandex | Yandex.Passport OAuth Token	
 Zuplo | Zuplo Consumer API

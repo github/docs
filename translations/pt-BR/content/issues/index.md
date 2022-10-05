@@ -1,6 +1,6 @@
 ---
 title: Problemas do GitHub
-shortTitle: Problemas do GitHub
+shortTitle: GitHub Issues
 intro: 'Saiba como usar {% data variables.product.prodname_github_issues %} para planejar e acompanhar seu trabalho.'
 introLinks:
   overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
@@ -34,7 +34,7 @@ featuredLinks:
     - title: Issue Forms for open source – Luke Hefson
       href: 'https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY'
   videosHeading: Videos
-product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y{% else %}https://www.youtube-nocookie.com/embed/uiaLWluYJsA{% endif %}'
+product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y?list=PL0lo9MOBetEG8TZty9Z38oSZAY8FjkaB7&index=1{% else %}https://www.youtube-nocookie.com/embed/uiaLWluYJsA{% endif %}'
 layout: product-landing
 beta_product: false
 versions:
@@ -73,5 +73,11 @@ redirect_from:
   - /disabling-issues
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
+ms.openlocfilehash: 77ed4853ea625e6c4daa2548086e84ab0979ed5b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147443677'
 ---
 

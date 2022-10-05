@@ -106,7 +106,7 @@ If you don't already have a PAT to use for your account on {% ifversion ghae %}{
 
 3. Publish the package using your PAT as the API key.
   ```shell
-  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
+  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
   ```
 
 {% data reusables.package_registry.viewing-packages %}
@@ -232,6 +232,8 @@ Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not s
 
 If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
 
+If you're using a `GITHUB_TOKEN` to authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, the token cannot access private repository-based packages in a different repository other than where the workflow is running in. To access packages associated with other repositories, instead generate a PAT with the `read:packages` scope and pass this token in as a secret.
+ 
 ## Further reading
 
 - "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"

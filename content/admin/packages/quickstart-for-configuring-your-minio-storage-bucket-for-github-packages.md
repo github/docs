@@ -121,7 +121,7 @@ Other modes of MinIO remain available with standard support.
 
      ```shell
      $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
-     $ docker run minio/mc <em>BUCKET-NAME</em>
+     $ docker run minio/mc BUCKET-NAME
      ```
 
      This example can be used for MinIO standalone or MinIO as a NAS gateway.

@@ -6,15 +6,26 @@ import { Flash, Label, ActionList, ActionMenu } from '@primer/react'
 import { ItemInput } from '@primer/react/lib/deprecated/ActionList/List'
 import { InfoIcon } from '@primer/octicons-react'
 
+import { useLanguages } from 'components/context/LanguagesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { sendEvent, EventType } from 'components/lib/events'
 import { useMainContext } from './context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'components/hooks/useQuery'
 import { Link } from 'components/Link'
-import { useLanguages } from './context/LanguagesContext'
 
 import styles from './Search.module.scss'
+
+// The search endpoint used prior to using /api/search/legacy was
+// just /search, which used middleware/search.js. We are leaving that
+// middleware in tact to allow folks that previously used the /search
+// endpoint to continue doing so. But, we changed the endpoint used by
+// the search input on docs.github.com to use the new /api/search/legacy
+// endpoint.
+// Eventually, we will deprecate the /search and /api/search/legacy
+// endpoints and use the /api/search/v1 endpoint, which has
+// a different response JSON format.
+const SEARCH_API_ENDPOINT = '/api/search/legacy'
 
 type SearchResult = {
   url: string
@@ -32,6 +43,7 @@ type Props = {
   iconSize: number
   children?: (props: { SearchInput: ReactNode; SearchResults: ReactNode }) => ReactNode
 }
+
 export function Search({
   isHeaderSearch = false,
   isMobileSearch = false,
@@ -52,10 +64,12 @@ export function Search({
   const { searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
   const version = searchVersions[currentVersion] || searchVersions[nonEnterpriseDefaultVersion]
-  const language = (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
+  const language = languages
+    ? (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
+    : 'en'
 
   const fetchURL = query
-    ? `/search?${new URLSearchParams({
+    ? `${SEARCH_API_ENDPOINT}?${new URLSearchParams({
         language,
         version,
         query,
@@ -451,10 +465,23 @@ function ShowSearchResults({
         </p>
 
         <ActionList variant="full">
-          {results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
+          {results.map(({ url, breadcrumbs, title, content, score, popularity }, index) => {
             return (
               <ActionList.Item className="width-full" key={url}>
-                <Link href={url} className="no-underline color-fg-default">
+                <Link
+                  href={url}
+                  className="no-underline color-fg-default"
+                  onClick={() => {
+                    sendEvent({
+                      type: EventType.searchResult,
+                      search_result_query: Array.isArray(query) ? query[0] : query,
+                      search_result_index: index,
+                      search_result_total: results.length,
+                      search_result_rank: (results.length - index) / results.length,
+                      search_result_url: url,
+                    })
+                  }}
+                >
                   <div
                     data-testid="search-result"
                     className={cx('list-style-none', styles.resultsContainer)}

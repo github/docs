@@ -17,7 +17,8 @@
 
 	// Install features. Type 'feature' in the VS Code command palette for a full list.
 	"features": {
-		"git-lfs": "latest"
+		"git-lfs": "latest",
+		"sshd": "latest"
 	 },
 
 	// Visual Studio Code extensions which help authoring for docs.github.com.
@@ -38,5 +39,8 @@
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node"
-
+,
+	"hostRequirements": {
+		"memory": "8gb"
+	 }
 }

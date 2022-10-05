@@ -1,1 +1,0 @@
-codespaceを作成する際に`.devcontainer/SUBDIRECTORY`という場所から`devcontainer.json`ファイルを使うよう選択した場合、事前ビルドは利用できません。 `devcontainer.json`ファイルを選択することに関する情報については「[codespaceの作成](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。

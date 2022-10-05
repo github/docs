@@ -90,7 +90,15 @@ All enterprise members have read permissions to the internal repository, but int
 
 {% data reusables.repositories.internal-repo-default %}
 
-Any member of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
+{% ifversion ghec %}Unless your enterprise uses {% data variables.product.prodname_emus %}, members{% else %}Members{% endif %} of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** {% data variables.product.prodname_managed_users_caps %} cannot fork internal repositories. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+
+{% endnote %}
+{% endif %}
 {% endif %}
 
 ## Limits for viewing content and diffs in a repository

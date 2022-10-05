@@ -1,3 +1,9 @@
-Para que una persona que utiliza varios ambientes de {% data variables.product.prodname_enterprise %} consuma una licencia única, debes sincronizar el uso de licencias entre ambientes. Entonces, {% data variables.product.company_short %} dejará de duplicar a los usuarios con base en las direcciones de correo electrónico asociadas con sus cuentas de usuario. Las cuentas de usuario múltiples consumirán una sola licencia cuando haya una coincidencia entre la dirección de correo electrónico principal en {% data variables.product.prodname_ghe_server %} o con una dirección de correo electrónico verificad de una cuenta de {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información sobre la verificación de las direcciones de correo electrónico de {% data variables.product.prodname_dotcom_the_website %}, consulta la sección "[Verificar tu dirección de correo electrónico](/enterprise-cloud@latest/get-started/signing-up-for-github/verifying-your-email-address){% ifversion not ghec %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
-
-Cuando sincronizas el uso de licencia, solo la ID de usuario y las direcciones de correo electrónico de cada cuenta de usuario en {% data variables.product.prodname_ghe_server %} se transmiten a {% data variables.product.prodname_ghe_cloud %}.
+---
+ms.openlocfilehash: 12b28d4c3665573a1cfc0d56e2a61b616ee0a9ec
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147572676"
+---
+Para que una persona que utiliza varios ambientes de {% data variables.product.prodname_enterprise %} consuma una licencia única, debes sincronizar el uso de licencias entre ambientes. Luego, {% data variables.product.company_short %} desduplicará a los usuarios en función de las direcciones de correo electrónico asociadas a sus cuentas de usuario. Para más información, consulta «[Solución de problemas del uso de licencias para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise#about-the-calculation-of-consumed-licenses)».
