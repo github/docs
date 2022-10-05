@@ -90,7 +90,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 1. To create a release, use the `gh release create` subcommand. Replace `tag` with the desired tag for the release.
 
    ```shell
-   gh release create <em>tag</em>
+   gh release create TAG
    ```
 
 2. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes.
@@ -153,7 +153,7 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 1. To delete a release, use the `gh release delete` subcommand. Replace `tag` with the tag of the release to delete. Use the `-y` flag to skip confirmation.
 
    ```shell
-   gh release delete <em>tag</em> -y
+   gh release delete TAG -y
    ```
 
 {% endcli %}
