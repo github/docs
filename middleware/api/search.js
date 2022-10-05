@@ -88,10 +88,8 @@ router.get(
     )}-${language}`
 
     const hits = []
-    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
-      'version:legacy',
-      `indexName:${indexName}`,
-    ])
+    const tags = ['version:legacy', `indexName:${indexName}`]
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', tags)
     const options = {
       indexName,
       query,
@@ -108,8 +106,10 @@ router.get(
       usePrefixSearch: true,
     }
     try {
-      const searchResults = await timed(options)
-      hits.push(...searchResults.hits)
+      const { hits: hits_, meta } = await timed(options)
+      hits.push(...hits_)
+      statsd.timing('api.search.total', meta.took.total_msec, tags)
+      statsd.timing('api.search.query', meta.took.query_msec, tags)
     } catch (error) {
       // If we don't catch here, the `catchMiddlewareError()` wrapper
       // will take any thrown error and pass it to `next()`.
@@ -227,14 +227,15 @@ router.get(
     // This measurement then combines both the Node-work and the total
     // network-work but we know that roughly 99.5% of the total time is
     // spent in the network-work time so this primarily measures that.
-    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
-      'version:v1',
-      `indexName:${indexName}`,
-    ])
+    const tags = ['version:v1', `indexName:${indexName}`]
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', tags)
 
     const options = { indexName, query, page, size, debug, sort }
     try {
       const { meta, hits } = await timed(options)
+
+      statsd.timing('api.search.total', meta.took.total_msec, tags)
+      statsd.timing('api.search.query', meta.took.query_msec, tags)
 
       if (process.env.NODE_ENV !== 'development') {
         // The assumption, at the moment is that searches are never distinguished
