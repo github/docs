@@ -2,11 +2,20 @@
 title: Habilitar los GitHub Packages con MinIO
 intro: 'Configura el {% data variables.product.prodname_registry %} con MinIO como tu almacenamiento externo.'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
+type: tutorial
 topics:
   - Enterprise
+  - Packages
+  - Storage
+shortTitle: Enable Packages with MinIO
+ms.openlocfilehash: 2e7d76ee696dfbcd2369c577ef2d2ee803a09638
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145116434'
 ---
-
 {% warning %}
 
 **Advertencias:**
@@ -15,8 +24,10 @@ topics:
 - Asegúrate de configurar el bucket que quieres utilizar en el futuro. No te recomendamos cambiar tu almacenamiento después de que comienzas a utilizar {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
-### Prerrequisitos
-Antes de que puedas habilitar y configurar el {% data variables.product.prodname_registry %} en {% data variables.product.product_location_enterprise %}, necesitas preparar tu bucket de almacenamiento de MinIO. Para ayudarte a configurar el bucket de MinIO rápidamente y navegar a las opciones de personalización de MinIO, consulta la [Guía de inicio rápido para configurar tu bucket de almacenamiento de MinIO para el {% data variables.product.prodname_registry %}](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)".
+
+## Requisitos previos
+
+Antes de que puedas habilitar y configurar el {% data variables.product.prodname_registry %} en {% data variables.product.product_location_enterprise %}, necesitas preparar tu bucket de almacenamiento de MinIO. Para ayudarle a configurar rápidamente un cubo de MinIO y navegar por las opciones de personalización de MinIO, vea el "[Inicio rápido para configurar el cubo de almacenamiento de MinIO para {% data variables.product.prodname_registry %}](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)".
 
 Asegúrate que tu ID de clave de acceso y secreto de almacenamiento externo de MinIO tenga estos permisos:
   - `s3:PutObject`
@@ -27,32 +38,21 @@ Asegúrate que tu ID de clave de acceso y secreto de almacenamiento externo de M
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-### Habilitar el {% data variables.product.prodname_registry %} con el almacenamiento externo de MinIO
+## Habilitar el {% data variables.product.prodname_registry %} con el almacenamiento externo de MinIO
 
-Aunque MinIO no aparece actualmente en la interface de usuario bajo "Almacenamiento de paquetes", aún es {% if currentVersion == "enterprise-server@2.22" %} oficialmente{% endif %} compatible con el {% data variables.product.prodname_registry %} en {% data variables.product.prodname_enterprise %}. También debes tomar en cuenta que el almacenamiento de objetos de MinIO es compatible con la API de S3 y puedes ingresar los detalles del bucket de MinIO en vez de aquellos de AWS S3.
+Aunque MinIO no aparece actualmente en la interface de usuario debajo de "Almacenamiento de Paquetes", este aún es compatible con el {% data variables.product.prodname_registry %} en {% data variables.product.prodname_enterprise %}. También debes tomar en cuenta que el almacenamiento de objetos de MinIO es compatible con la API de S3 y puedes ingresar los detalles del bucket de MinIO en vez de aquellos de AWS S3.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-{% data reusables.package_registry.enable-enterprise-github-packages %}
-{% if currentVersion == "enterprise-server@2.22" %}
-1. Debajo de "URL de Servicio de AWS", teclea la URL de MinIO para la región de tu bucket. ![Campo de URL de servicio de AWS](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
-1. Debajo de "Bucket de AWS S3", teclea el nombre del bucket de MinIO que quieras utilizar para almacenar artefactos de paquetes. ![Campo de espacio de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
-1. Debajo de "Clave de Acceso de AWS S3", teclea tu clave de acceso para MinIO. ![Campo de clave de acceso de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
-1. Debajo de "Clave secreta de AWS S3", teclea tu clave secreta para MinIO. ![Campo de clave secreta de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
-1. Debajo de "Región de AWS S3", teclea tu región para MinIO. ![Campo de región de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
-{% endif %}
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-1. Debajo de "Almacenamiento de Paquetes", selecciona **Amazon S3**.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %} {% data reusables.package_registry.enable-enterprise-github-packages %}
+
+{% ifversion ghes %}
+1. En "Packages Storage", seleccione **Amazon S3**.
 1. Ingresa tus detalles de bucket de almacenamiento de MinIO en la configuración de almacenamiento de AWS.
-    - **AWS Service URL:** La URL de hospedaje para tu bucket de MinIO.
-    - **AWS S3 Bucket:** El nombre de tu bucket de MinIO compatible con S3 dedicado para el {% data variables.product.prodname_registry %}.
-    - **AWS S3 Access Key** y **AWS S3 Secret Key**: Ingresa la ID de clave de acceso y clave secreta de MinIO para acceder a tu bucket.
+    - **AWS Service URL:** dirección URL de hospedaje del cubo de MinIO.
+    - **AWS S3 Bucket:** nombre del cubo de MinIO compatible con S3 dedicado para {% data variables.product.prodname_registry %}.
+    - **AWS S3 Access Key** y **AWS S3 Secret Key**: escriba el identificador de clave de acceso de MinIO y la clave secreta para acceder al cubo.
 
-    ![Cajas de entrada para los detalles de tu bucket de AWS S3](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png)
-{% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+    ![Cuadros de entrada para los detalles del cubo de AWS S3](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png) {% endif %} {% data reusables.enterprise_management_console.save-settings %}
 
-### Pasos siguientes
+## Pasos siguientes
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

@@ -1,1 +1,0 @@
-1. Wähle im Dropdownmenü unter „Repository deletion and transfer“ (Repository-Löschung und -Übertragung) eine Richtlinie aus. ![Dropdownmenü mit Optionen für die Richtlinie für die Repository-Löschung](/assets/images/help/business-accounts/repository-deletion-policy-drop-down.png)

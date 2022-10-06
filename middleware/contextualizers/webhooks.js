@@ -1,15 +1,21 @@
-const path = require('path')
-const { defaults } = require('lodash')
-const webhookPayloads = require(path.join(process.cwd(), 'lib/webhooks'))
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
-const allVersions = require('../../lib/all-versions')
+import { defaults } from 'lodash-es'
+import getWebhookPayloads from '../../lib/webhooks/index.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import { allVersions } from '../../lib/all-versions.js'
 
-module.exports = function webhooksContext (req, res, next) {
+let webhookPayloads = null
+
+export default function webhooksContext(req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-webhook reference paths
   // and to versions that don't exist
-  if (!req.path.includes('webhook') || !currentVersionObj) {
+  if (!req.pagePath.includes('webhook') || !currentVersionObj) {
     return next()
+  }
+
+  // Idempotent for consecutive calls
+  if (!webhookPayloads) {
+    webhookPayloads = getWebhookPayloads()
   }
 
   // Get the name of the dir under lib/webhooks/static
@@ -21,9 +27,13 @@ module.exports = function webhooksContext (req, res, next) {
   const webhookPayloadsForCurrentVersion = webhookPayloads[webhookPayloadDir]
 
   // if current version is non-dotcom, include dotcom payloads in object so we can fall back to them if needed
-  req.context.webhookPayloadsForCurrentVersion = req.context.currentVersion === nonEnterpriseDefaultVersion
-    ? webhookPayloadsForCurrentVersion
-    : defaults(webhookPayloadsForCurrentVersion, webhookPayloads[allVersions[nonEnterpriseDefaultVersion].miscVersionName])
+  req.context.webhookPayloadsForCurrentVersion =
+    req.context.currentVersion === nonEnterpriseDefaultVersion
+      ? webhookPayloadsForCurrentVersion
+      : defaults(
+          webhookPayloadsForCurrentVersion,
+          webhookPayloads[allVersions[nonEnterpriseDefaultVersion].miscVersionName]
+        )
 
   return next()
 }

@@ -2,24 +2,31 @@
 title: Começar a usar a API do banco de dados do Git
 intro: 'A API do banco de dados do Git dá acesso para ler e gravar objetos do Git sem processamento no seu banco de dados do Git no {% data variables.product.product_name %} e para listar e atualizar suas referências (cabeçalhos de branch e etiquetas).'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Get started - Git Database API
+ms.openlocfilehash: b7044e299602de42a2c880df8da4a6f19ef9334b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145126763'
 ---
-
-### Visão Geral
+## Visão geral 
 
 Isso basicamente permite que você reimplemente uma série de funcionalidades do Git sobre nossa API, criando objetos sem processamento diretamente no banco de dados e atualizando referências de ramificações que você pode fazer tecnicamente sobre qualquer coisa que o Git possa fazer sem tê-lo instalado.
 
-Funções da API do Banco de Dados do Git retornará um `409 Conflict` se o repositório do Git estiver vazio ou indisponível.  Um repositório indisponível normalmente significa que o {% data variables.product.product_name %} está no processo de criação do repositório. Para um repositório vazio, você pode usar o ponto de extremidade "[Criar ou atualizar o conteúdo do arquivo](/rest/reference/repos#create-or-update-file-contents)" para criar conteúdo e inicializar o repositório para que você possa usar a API de banco de dados do Git. Entre em contato com {% data variables.contact.contact_support %} se esse status de resposta persistir.
+As funções de API do Banco de Dados do Git retornarão `409 Conflict` se o repositório Git estiver vazio ou indisponível.  Um repositório indisponível normalmente significa que o {% data variables.product.product_name %} está no processo de criação do repositório. Para um repositório vazio, use o ponto de extremidade "[Criar ou atualizar o conteúdo do arquivo](/rest/reference/repos#create-or-update-file-contents)" para criar um conteúdo e inicializar o repositório a fim de usar a API do Banco de Dados do Git. Entre em contato com {% data variables.contact.contact_support %} se esse status de resposta persistir.
 
 ![Visão geral do banco de dados Git](/assets/images/git-database-overview.png)
 
-Para obter mais informações sobre a base de dados de objetos do Git, leia o capítulo [Internos do Git](http://git-scm.com/book/en/v1/Git-Internals) no livro Pro do Git.
+Para obter mais informações sobre o banco de dados de objetos do Git, leia o capítulo [Componentes internos do Git](http://git-scm.com/book/en/v1/Git-Internals) do livro Pro Git.
 
-Como exemplo, se você quisesse fazer commit de uma alteração em um arquivo no seu repositório, você:
+Por exemplo, se desejar fazer commit de uma alteração em um arquivo no seu repositório, você vai:
 
 * Obter o objeto do commit atual
 * Recuperar a árvore para a qual ele aponta
@@ -29,20 +36,20 @@ Como exemplo, se você quisesse fazer commit de uma alteração em um arquivo no
 * Criar um novo objeto de confirmação com o SHA do commit atual como o principal e o SHA da novo da árvore, obtendo, em troca, o SHA do commit
 * Atualizar a referência do seu branch para apontar para o novo SHA do commit
 
-Pode parecer complexo, mas, na verdade, é bem simples. Ao entender o modelo e ele oferece muitas coisas que você poderia fazer potencialmente com a API.
+Pode parecer complexo, mas, na verdade, é bem simples quando você entende o modelo e ele revela várias coisas que podem ser feitas com a API.
 
-### Verificar a mesclabilidade de pull requests
+## Verificar a mesclabilidade de pull requests
 
 {% warning %}
 
-**Aviso!**Não dependa do uso do Git diretamente ou de [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference)  para atualizações para fazer `merge` de refs do Git, pois este conteúdo fica desatualizado sem aviso prévio.
+**Aviso** Não dependa do uso direto do Git ou de [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference) para atualizações de referências de `merge` do Git, pois esse conteúdo fica desatualizado sem aviso.
 
 {% endwarning %}
 
-Uma API consumível precisa solicitar explicitamente que um pull request crie um commit de merge de _teste_. Um commit de merge de _teste_ é criado quando você visualiza o pull request na interface do usuário e o botão "Merge" é exibido, ou quando [obtém](/rest/reference/pulls#get-a-pull-request), [cria](/rest/reference/pulls#create-a-pull-request), ou [edita](/rest/reference/pulls#update-a-pull-request) um pull request usando a API REST. Sem esta solicitação, as referências de `merge` do Git ficarão desatualizadas até a próxima vez que alguém visualizar o pull request.
+Uma API de consumo precisa solicitar explicitamente uma solicitação de pull para criar um commit de mesclagem de _teste_. Um commit de mesclagem de _teste_ é criado quando você visualiza a solicitação de pull na interface do usuário e o botão "Mesclar" é exibido ou quando você [obtém](/rest/reference/pulls#get-a-pull-request), [cria](/rest/reference/pulls#create-a-pull-request) ou [edita](/rest/reference/pulls#update-a-pull-request) uma solicitação de pull usando a API REST. Sem essa solicitação, as referências de `merge` do Git ficarão desatualizadas até a próxima vez que alguém visualizar a solicitação de pull.
 
-Se você está usando métodos de sondagem que produzem refs do Git de `merge` obsoletos, o GitHub recomenda usar as etapas a seguir para obter as últimas alterações do branch-padrão:
+Se você está usando métodos de sondagem que produzem referências de `merge` obsoletas do Git, o GitHub recomenda usar as seguintes etapas para obter as últimas alterações do branch padrão:
 
 1. Receber o webhook do pull request.
-2. Chame [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) para iniciar um trabalho em segundo plano para criar o candidato de do commit do merge.
-3. Faça a sondam do seu repositório usando [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) para ver se o atributo `mesclável` é `verdadeiro` ou `falso`. Você pode usar o Git diretamente ou [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference) para atualizações para fazer `merge` das refs do Git apenas após executar as etapas anteriores.
+2. Chame [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) para iniciar um trabalho em segundo plano para criar o candidato de commit de mesclagem.
+3. Sonde seu repositório usando [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) para ver se o atributo `mergeable` é `true` ou `false`. Use o Git diretamente ou [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference) para atualizações das referências de `merge` do Git somente depois de executar as etapas anteriores.

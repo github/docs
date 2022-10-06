@@ -1,5 +1,17 @@
+---
+ms.openlocfilehash: c3e82ab5103e82750cfec55553865b4f874d4f8f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147880558"
+---
 {% warning %}
 
-**警告**: {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}サイト管理者がPublic Pagesを有効化したなら、{% endif %}{% data variables.product.prodname_pages %}サイトは{% if currentVersion == "free-pro-team@latest" %}デフォルトで{% endif %}、サイトのリポジトリがプライベートもしくはインターナルであっても、インターネット上で公開利用できます。{% if currentVersion == "free-pro-team@latest" %} {% data reusables.pages.about-private-publishing %}そうでない場合は、もし{% else %}もし{% endif %}センシティブなデータがサイトのリポジトリにあるなら、公開前にそのデータを削除しておくとよいでしょう。 詳しい情報については、{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} 「[Enterpriseの{% data variables.product.prodname_pages %}の設定](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)」及び{% endif %}「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility){% if currentVersion == "free-pro-team@latest" %}」及び「[{% data variables.product.prodname_pages %}サイトの可視性の変更](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)」{% else %}」{% endif %}を参照してください。
+{% ifversion fpt %} **警告**: {% data variables.product.prodname_pages %} サイトは、そのリポジトリがプライベートであってもインターネットからのアクセスに対して公開されます。 サイトのリポジトリにセンシティブなデータがあるなら、公開前にそのデータを取り除くのが良いでしょう。 詳細については、[リポジトリ](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)に関する説明を参照してください。
+{% elsif ghec %} **警告**: エンタープライズが {% data variables.product.prodname_emus %} を使用しない限り、サイトのリポジトリがプライベートまたは内部であっても、{% data variables.product.prodname_pages %} サイトは既定でインターネット上で一般公開されます。 サイトのアクセス制御を管理することで、サイトをプライベートで公開できます。 それ以外の場合、サイトのリポジトリにセンシティブなデータがあるなら、公開前にそのデータを取り除くのが良いでしょう。 詳細については、「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」および「[{% data variables.product.prodname_pages %} サイトの可視性の変更](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)」を参照してください。
+{% elsif ghae %} **警告**: {% data variables.product.prodname_pages %} サイトは、サイトのリポジトリがプライベートであっても、すべてのエンタープライズ メンバーに表示されます。 サイトのリポジトリにセンシティブなデータがあるなら、公開前にそのデータを取り除くのが良いでしょう。 詳細については、[リポジトリ](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)に関する説明を参照してください。
+{% elsif ghes %} **警告**: サイト管理者がパブリック ページを有効にしている場合、サイトのリポジトリがプライベートまたは内部であっても、{% data variables.product.prodname_pages %} サイトはインターネット上で一般公開されます。 サイトのリポジトリにセンシティブなデータがあるなら、公開前にそのデータを取り除くのが良いでしょう。 詳細については、「[エンタープライズで {% data variables.product.prodname_pages %} を構成する](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)」および「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」を参照してください。
+{% endif %}
 
 {% endwarning %}

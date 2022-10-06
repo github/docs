@@ -1,0 +1,1 @@
+export { TruncateLines } from './TruncateLines'

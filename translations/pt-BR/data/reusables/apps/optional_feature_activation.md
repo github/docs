@@ -1,3 +1,12 @@
-4. Na barra lateral esquerda, clique em **{% if currentVersion ver_lt "enterprise-server@3.1" %} Funcionalidades {% else %} Opcionais {% endif %} de Beta**.
-  {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
-5. Ao lado do {% if currentVersion ver_lt "enterprise-server@3.1" %} da funcionalidade {% else %} opcional {% endif %} de beta que deseja habilitar para o seu aplicativo, clique em **Opt-in**. ![Botão de optar por participar para habilitar uma funcionalidade opcional](/assets/images/github-apps/enable-optional-features.png)
+---
+ms.openlocfilehash: d5771c9c0954960982d76d828cdb36d7a0a2312e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145094258"
+---
+4. Na barra lateral esquerda, clique em **Recursos Opcionais**.
+   ![Guia Recursos Opcionais](/assets/images/github-apps/optional-features-option.png) 
+5. Ao lado do recurso opcional que deseja habilitar para seu aplicativo, clique em **Aceitar**.
+  ![Botão Aceitar usado para habilitar um recurso opcional](/assets/images/github-apps/enable-optional-features.png)

@@ -1,1 +1,9 @@
-1. 如果您要从 {% data variables.product.prodname_free_team %} 升级，请单击 **Upgrade options（升级选项）**。 如果您要从 {% data variables.product.prodname_team %} 升级，请使用 **Edit（编辑）**下拉菜单，然后单击 **Upgrade（升级）**。 ![升级选项按钮](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)
+---
+ms.openlocfilehash: 716f4b4dbe73fa1253b7b448905a3d6bf3fbf9df
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145100978"
+---
+1. 单击“当前计划”旁边的“升级”。

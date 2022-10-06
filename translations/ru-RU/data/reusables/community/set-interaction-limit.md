@@ -1,1 +1,0 @@
-5. Under "Temporary interaction limits", to the right of the type of interaction limit you want to set, use the **Enable** drop-down menu, then click the duration you want for your interaction limit.

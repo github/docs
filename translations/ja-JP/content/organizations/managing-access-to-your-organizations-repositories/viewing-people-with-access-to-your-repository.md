@@ -1,28 +1,51 @@
 ---
-title: 自分のリポジトリにアクセスできる人を表示する
-intro: 'Organization のオーナーは、Organization 内のリポジトリへの人のアクセスを表示できます。 {% data variables.product.prodname_ghe_cloud %} または {% data variables.product.prodname_ghe_server %} を使用して、Organization のオーナーは、リポジトリにアクセスできる人の CSV リストをエクスポートすることもできます。'
+title: Viewing people with access to your repository
+intro: 'You can view{% ifversion ghec or ghes or ghae %} and export{% endif %} a list of people with access to a repository within an organization.'
 redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
   - /github/setting-up-and-managing-organizations-and-teams/viewing-people-with-access-to-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: View people with access
+permissions: Organization owners can view people with access to a repository.
 ---
 
-管理者はこの情報を使用して、社外の人の支援、コンプライアンスのためのデータ収集、およびその他の一般的なセキュリティチェックを行うことができます。
+## About the list of people with access to your repository
 
-![リポジトリユーザの権限リスト](/assets/images/help/repository/repository-permissions-list.png)
+You can use this information to help off-board people, gather data for compliance, and other general security checkups. 
 
-### 自分のリポジトリにアクセスできる人を表示する
+{% ifversion fpt %}
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can also export a CSV list of people who have access to a repository. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository).
+{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+![Access management overview](/assets/images/help/repository/manage-access-overview.png)
+{% else %}
+![Repository people permissions list](/assets/images/help/repository/repository-permissions-list.png)
+{% endif %}
+## Viewing people with access to your repository
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+You can see a combined overview of teams and people with access to your repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)." 
+{% else %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.accessing-repository-people %}
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+## Exporting a list of people with access to your repository
+
+{% ifversion ghec %}
 {% note %}
 
-**注釈**: リポジトリにアクセスできる Team と人について、組み合わせた概要を確認することもできます。 詳細は、「[リポジトリへのアクセス権を持つ Team と人を管理する](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)」を参照してください。
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can export a list of people with access to a repository. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
@@ -30,12 +53,6 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.accessing-repository-people %}
-
-### リポジトリへのアクセス権を持つ人のリストをエクスポートする
-
-{% data variables.product.prodname_ghe_cloud %} または {% data variables.product.prodname_ghe_server %} の Organization のオーナーは、リポジトリにアクセスできる人の CSV リストをエクスポートできます。
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.accessing-repository-people %}
-4. [**Export CSV**] をクリックします。 ![リポジトリサイドバーの人タブ](/assets/images/help/repository/export-repository-permissions.png)
+4. Click **Export CSV**.
+  ![People tab in the repository sidebar](/assets/images/help/repository/export-repository-permissions.png)
+{% endif %}

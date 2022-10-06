@@ -1,0 +1,1 @@
+Any scripts or {% data variables.product.prodname_actions %} workflows that use the namespace for the Docker registry, {% data variables.product.prodname_docker_registry_namespace %}, will continue to work after migration to the {% data variables.product.prodname_container_registry %} at {% data variables.product.prodname_container_registry_namespace %}.

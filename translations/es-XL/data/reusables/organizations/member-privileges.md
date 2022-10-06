@@ -1,1 +1,0 @@
-4. En la barra lateral izquierda, da clic en **Privilegios de los miembros**. ![Opción de privilegios de los miembros en la configuración de la organización](/assets/images/help/organizations/org-settings-member-privileges.png)

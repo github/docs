@@ -1,1 +1,9 @@
-1. Clique em **Salvar**. ![Botão "Salvar" para opções de provisionamento de configuração do aplicativo do Okta](/assets/images/help/saml/okta-provisioning-tab-save.png)
+---
+ms.openlocfilehash: 1d086698c2b65210481924f1cf3462e61504c0fa
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145126322"
+---
+1. Clique em **Save** (Salvar).

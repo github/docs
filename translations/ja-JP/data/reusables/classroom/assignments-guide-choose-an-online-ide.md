@@ -1,5 +1,13 @@
-課題に対してオンラインIDEを選択するには、 **Select an online IDE（オンラインIDEを選択）**ドロップダウンメニューを選択し、学生に使わせたいIDEを選択してください。
+---
+ms.openlocfilehash: ee3ed1eecdd04268bf04b44e80ca4cdf4690f328
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145115813"
+---
+課題の IDE を選択するには、[エディターの追加] ドロップダウン メニューを選択し、学生に使用させる IDE をクリックします。
 
 <div class="procedural-image-wrapper">
-  <img alt="'Select an online IDE（オンラインIDEの選択）'ドロップダウンメニューを使って課題のためのオンラインIDEをクリック" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-online-ide.png">
+  <img alt="Using the 'Select an online IDE' drop-down menu to click an online IDE for the assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/select-supported-editor-including-codespaces.png">
 </div>

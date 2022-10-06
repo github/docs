@@ -1,1 +1,0 @@
-Die Konfigurationsschritte variieren je nach Paketclient. Allgemeine Informationen zur Konfiguration eines Workflow für {% data variables.product.prodname_actions %} findest Du auf „[Konfigurieren eines Workflow](/github/automating-your-workflow-with-github-actions/configuring-a-workflow)."

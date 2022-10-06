@@ -1,1 +1,0 @@
-7. Um eine Stufe zurückzuziehen, klicke **Retire tier** (Stufe zurückziehen), dann klicke **OK**. ![Schaltfläche „Retire tier“ (Stufe zurückziehen)](/assets/images/help/sponsors/retire-tier-button.png)

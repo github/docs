@@ -2,10 +2,10 @@
   "ext": "js,json,yml,md,html,scss",
   "ignore": [
     "assets",
-    "scripts",
+    "script",
     "translations",
-    "dist",
-    "javascripts",
-    "stylesheets"
+    "stylesheets",
+    "tests",
+    "content"
   ]
 }

@@ -1,13 +1,21 @@
-### Resolver conversas
+### Resolving conversations
 
-É possível resolver uma conversa em um pull request se você abriu o pull request ou se você tem acesso de gravação ao repositório em que o pull request foi aberto.
+You can resolve a conversation in a pull request if you opened the pull request or if you have write access to the repository where the pull request was opened.
 
-Para indicar que uma conversa na aba **Arquivos alterados** está completa, clique em **Resolver conversa**.
+To indicate that a conversation on the **Files changed** tab is complete, click **Resolve conversation**.
 
-![Conversa de pull request com o botão de Resolver conversa](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
+![Pull request conversation with Resolve conversation button](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
 
-Toda a conversa será colapsada e marcada como resolvida, tornando mais fácil encontrar conversas que ainda precisam ser consideradas.
+The entire conversation will be collapsed and marked as resolved, making it easier to find conversations that still need to be addressed.
 
-![Conversa resolvida](/assets/images/help/pull_requests/resolved-conversation.png)
+![Resolved conversation](/assets/images/help/pull_requests/resolved-conversation.png)
 
-Se a sugestão em um comentário estiver fora do escopo do seu pull request, você pode abrir um novo problema que rastreia os comentários e relaciona o comentário original. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
+If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
+
+#### Discovering and navigating conversations
+
+You can discover and navigate to all the conversations in your pull request using the **Conversations** menu that's shown at the top of the **Files Changed** tab.
+
+From this view, you can see which conversations are unresolved, resolved, and outdated. This makes it easy to discover and resolve conversations.
+
+![Showing the conversations menu](/assets/images/help/pull_requests/conversations-menu.png)

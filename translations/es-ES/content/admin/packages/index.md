@@ -4,18 +4,23 @@ intro: 'Puedes habilitar {% data variables.product.prodname_registry %} para tu 
 redirect_from:
   - /enterprise/admin/packages
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
+children:
+  - /getting-started-with-github-packages-for-your-enterprise
+  - /enabling-github-packages-with-aws
+  - /enabling-github-packages-with-azure-blob-storage
+  - /enabling-github-packages-with-minio
+  - /quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
+  - /configuring-package-ecosystem-support-for-your-enterprise
+  - /migrating-your-enterprise-to-the-container-registry-from-the-docker-registry
+shortTitle: Manage GitHub Packages
+ms.openlocfilehash: 257cd942e8f12c9a8c23883c9806fae43df1a8de
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408983'
 ---
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% link_with_intro /getting-started-with-github-packages-for-your-enterprise %}
-
-  {% link_in_list /enabling-github-packages-with-aws %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
-  {% link_in_list /enabling-github-packages-with-azure-blob-storage %}{% endif %}
-  {% link_in_list /enabling-github-packages-with-minio %}
-  {% link_in_list /quickstart-for-configuring-your-minio-storage-bucket-for-github-packages %}
-
-{% link_with_intro /configuring-package-ecosystem-support-for-your-enterprise %}
+{% data reusables.package_registry.packages-ghes-release-stage %} {% ifversion ghes %} {% endif %}

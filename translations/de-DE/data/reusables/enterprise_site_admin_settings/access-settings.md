@@ -1,1 +1,0 @@
-1. From an administrative account on {% data variables.product.product_name %}, click {% octicon "rocket" aria-label="The rocket ship" %} in the upper-right corner of any page. ![Raumschiffsymbol für den Zugriff auf die Einstellungen des Websiteadministrators](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

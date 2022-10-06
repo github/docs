@@ -1,16 +1,20 @@
-{% if currentVersion == "enterprise-server@2.22" %}
+---
+ms.openlocfilehash: 67190938682aae49ce571d8d6bb61e025c36bdad
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879482"
+---
+{% ifversion ghae %}
+
+<!-- Remove this reusable and all references for GA release -->
+
+{% elsif ghae %}
 
 {% note %}
 
-**Observação:** {% data variables.product.prodname_code_scanning_capc %} está em beta em {% data variables.product.prodname_ghe_server %} 2.22. Para a versão geralmente disponível do varredura de código, atualize para a versão mais recente de {% data variables.product.prodname_ghe_server %}.
-
-{% endnote %}
-
-{% elsif currentVersion == "github-ae@latest" %}
-
-{% note %}
-
-**Nota:** {% data variables.product.prodname_code_scanning_capc %} está atualmente em versão beta e sujeito a alterações.
+**Observação:** atualmente, a {% data variables.product.prodname_code_scanning_capc %} está em versão beta e sujeita a alterações.
 
 {% endnote %}
 

@@ -1,10 +1,15 @@
-const yaml = require('js-yaml')
-const { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry } = require('../../script/graphql/build-changelog')
-const fs = require('fs').promises
-const MockDate = require('mockdate')
-const readFileAsync = require('../../lib/readfile-async')
-const expectedChangelogEntry = require('../fixtures/changelog-entry')
-const expectedUpdatedChangelogFile = require('../fixtures/updated-changelog-file')
+import yaml from 'js-yaml'
+import {
+  createChangelogEntry,
+  cleanPreviewTitle,
+  previewAnchor,
+  prependDatedEntry,
+} from '../../script/graphql/build-changelog.js'
+import fs from 'fs/promises'
+import MockDate from 'mockdate'
+import readJsonFile from '../../lib/read-json-file.js'
+const expectedChangelogEntry = readJsonFile('./tests/fixtures/changelog-entry.json')
+const expectedUpdatedChangelogFile = readJsonFile('./tests/fixtures/updated-changelog-file.json')
 
 describe('creating a changelog from old schema and new schema', () => {
   afterEach(() => {
@@ -45,7 +50,7 @@ describe('creating a changelog from old schema and new schema', () => {
     }
     `
 
-    const previews = yaml.safeLoad(`
+    const previews = yaml.load(`
 - title: Test preview
   description: This preview is just for test
   toggled_by: ':test_preview'
@@ -58,14 +63,14 @@ describe('creating a changelog from old schema and new schema', () => {
     - '@github/engineering'
 `)
 
-    const oldUpcomingChanges = yaml.safeLoad(`
+    const oldUpcomingChanges = yaml.load(`
 upcoming_changes:
   - location: EnterprisePendingCollaboratorEdge.isUnlicensed
     description: '\`isUnlicensed\` will be removed.'
     date: '2021-01-01T00:00:00+00:00'
 `).upcoming_changes
 
-    const newUpcomingChanges = yaml.safeLoad(`
+    const newUpcomingChanges = yaml.load(`
 upcoming_changes:
   - location: Query.stableField
     description: '\`stableField\` will be removed.'
@@ -75,7 +80,13 @@ upcoming_changes:
     date: '2021-01-01T00:00:00+00:00'
 `).upcoming_changes
 
-    const entry = await createChangelogEntry(oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges)
+    const entry = await createChangelogEntry(
+      oldSchemaString,
+      newSchemaString,
+      previews,
+      oldUpcomingChanges,
+      newUpcomingChanges
+    )
     expect(entry).toEqual(expectedChangelogEntry)
   })
 
@@ -114,14 +125,14 @@ describe('updating the changelog file', () => {
 
   it('modifies the entry object and the file on disk', async () => {
     const testTargetPath = 'tests/graphql/example_changelog.json'
-    const previousContents = await readFileAsync(testTargetPath)
+    const previousContents = await fs.readFile(testTargetPath)
 
     const exampleEntry = { someStuff: true }
     const expectedDate = '2020-11-20'
     MockDate.set(expectedDate)
 
     prependDatedEntry(exampleEntry, testTargetPath)
-    const newContents = await readFileAsync(testTargetPath, 'utf8')
+    const newContents = await fs.readFile(testTargetPath, 'utf8')
     // reset the file:
     await fs.writeFile(testTargetPath, previousContents)
 

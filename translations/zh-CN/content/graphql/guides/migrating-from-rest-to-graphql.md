@@ -1,44 +1,48 @@
 ---
-title: 从 REST 迁移到 GraphQL
-intro: '了解从 {% data variables.product.prodname_dotcom %} 的 REST API 迁移到 {% data variables.product.prodname_dotcom %} 的 GraphQL API 的最佳实践和注意事项。'
+title: Migrating from REST to GraphQL
+intro: 'Learn best practices and considerations for migrating from {% data variables.product.prodname_dotcom %}''s REST API to {% data variables.product.prodname_dotcom %}''s GraphQL API.'
 redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Migrate from REST to GraphQL
 ---
 
-### API 逻辑差异
+## Differences in API logic
 
-从 REST 迁移到 GraphQL 代表了 API 逻辑的一次重大转变。 作为样式的 REST 与作为规范的 GraphQL 之间的差异使得很难&mdash;且通常不可取&mdash;以一对一方式将 REST API 调用替换为 GraphQL API 查询。 我们在下面提供了具体的迁移示例。
+{% data variables.product.company_short %} provides two APIs: a REST API and a GraphQL API. For more information about {% data variables.product.company_short %}'s APIs, see "[About {% data variables.product.company_short %}'s APIs](/developers/overview/about-githubs-apis)."
 
-要将代码从 [REST API](/rest) 迁移到 GraphQL API：
+Migrating from REST to GraphQL represents a significant shift in API logic. The differences between REST as a style and GraphQL as a specification make it difficult&mdash;and often undesirable&mdash;to replace REST API calls with GraphQL API queries on a one-to-one basis. We've included specific examples of migration below.
 
-- 查看 [GraphQL 规范](https://graphql.github.io/graphql-spec/June2018/)
-- 查看 GitHub 的 [GraphQL 架构](/graphql/reference)
-- 考虑您当前的现有代码如何与 GitHub REST API 交互
-- 使用[全局节点 ID](/graphql/guides/using-global-node-ids) 引用 API 版本之间的对象
+To migrate your code from the [REST API](/rest) to the GraphQL API:
 
-GraphQL 的重要优势包括：
+- Review the [GraphQL spec](https://graphql.github.io/graphql-spec/June2018/)
+- Review GitHub's [GraphQL schema](/graphql/reference)
+- Consider how any existing code you have currently interacts with the GitHub REST API
+- Use [Global Node IDs](/graphql/guides/using-global-node-ids) to reference objects between API versions
 
-- [仅获取您所需的数据](#example-getting-the-data-you-need-and-nothing-more)
-- [嵌套字段](#example-nesting)
-- [强类型化](#example-strong-typing)
+Significant advantages of GraphQL include:
 
-下面是每种优势的示例。
+- [Getting the data you need and nothing more](#example-getting-the-data-you-need-and-nothing-more)
+- [Nested fields](#example-nesting)
+- [Strong typing](#example-strong-typing)
 
-## 示例：仅获取您所需的数据
+Here are examples of each.
 
-单个 REST API 可检索组织成员列表：
+## Example: Getting the data you need and nothing more
+
+A single REST API call retrieves a list of your organization's members:
 ```shell
 curl -v {% data variables.product.api_url_pre %}/orgs/:org/members
 ```
 
-如果您的目标是仅检索成员名称和头像链接，REST 有效负载中将包含多余数据。 但是，GraphQL 查询仅返回您指定的数据：
+The REST payload contains excessive data if your goal is to retrieve only member names and links to avatars. However, a GraphQL query returns only what you specify:
 
 ```graphql
 query {
@@ -55,17 +59,17 @@ query {
 }
 ```
 
-考虑另一个示例：检索拉取请求列表并检查每个请求是否可合并。 对 REST API 的调用可检索拉取请求列表及其[摘要陈述](/rest#summary-representations)：
+Consider another example: retrieving a list of pull requests and checking if each one is mergeable. A call to the REST API retrieves a list of pull requests and their [summary representations](/rest#summary-representations):
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
-确定拉取请求是否可合并需要分别检索每个拉取请求，查看其[详细陈述](/rest#detailed-representations)（大型有效负载），并检查它的 `mergeable` 属性是真还是假：
+Determining if a pull request is mergeable requires retrieving each pull request individually for its [detailed representation](/rest#detailed-representations) (a large payload) and checking whether its `mergeable` attribute is true or false:
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
 
-使用 GraphQL，可以仅检索每个拉取请求的 `number` 和 `mergeable` 属性：
+With GraphQL, you could retrieve only the `number` and `mergeable` attributes for each pull request:
 
 ```graphql
 query {
@@ -82,9 +86,9 @@ query {
 }
 ```
 
-## 示例：嵌套
+## Example: Nesting
 
-通过嵌套字段查询，可将多个 REST 调用替换为更少的 GraphQL 查询。 例如，利用 **REST API** 检索拉取请求及其提交、非评论注释和评论需要四个单独的调用：
+Querying with nested fields lets you replace multiple REST calls with fewer GraphQL queries. For example, retrieving a pull request along with its commits, non-review comments, and reviews using the **REST API** requires four separate calls:
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
@@ -92,7 +96,7 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:numb
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
-使用 **GraphQL API**，可以利用嵌套字段通过单个查询检索数据：
+Using the **GraphQL API**, you can retrieve the data with a single query using nested fields:
 
 ```graphql
 {
@@ -130,18 +134,17 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:numbe
 }
 ```
 
-您也可以通过[用变量替换](/graphql/guides/forming-calls-with-graphql#working-with-variables)拉取请求编号扩大此查询的能力。
+You can also extend the power of this query by [substituting a variable](/graphql/guides/forming-calls-with-graphql#working-with-variables) for the pull request number.
 
-## 示例：强类型化
+## Example: Strong typing
 
-GraphQL 架构属于强类型化架构，可使数据处理更加安全。
+GraphQL schemas are strongly typed, making data handling safer.
 
-考虑一个利用 GraphQL [突变](/graphql/reference/mutations)向议题或拉取请求添加注释，并错误地将 [`clientMutationId`](/graphql/reference/mutations#addcomment) 值指定为整数而非字符串的示例：
+Consider an example of adding a comment to an issue or pull request using a GraphQL [mutation](/graphql/reference/mutations), and mistakenly specifying an integer rather than a string for the value of [`clientMutationId`](/graphql/reference/mutations#addcomment):
 
 ```graphql
 mutation {
-  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) mutation {
-  addComment(input:{clientMutationId: "1234", subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
+  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
     clientMutationId
     commentEdge {
       node {
@@ -160,7 +163,7 @@ mutation {
 }
 ```
 
-执行此查询将返回错误，并指定此操作的预期类型：
+Executing this query returns errors specifying the expected types for the operation:
 
 ```json
 {
@@ -188,27 +191,10 @@ mutation {
 }
 ```
 
-用引号括住 `1234` 可将此值从整数转换为字符串，预期类型为：
+Wrapping `1234` in quotes transforms the value from an integer into a string, the expected type:
 
 ```graphql
 mutation {
-  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
-    clientMutationId
-    commentEdge {
-      node {
-        body
-        repository {
-          id
-          name
-          nameWithOwner
-        }
-        issue {
-          number
-        }
-      }
-    }
-  }
-} mutation {
   addComment(input:{clientMutationId: "1234", subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
     clientMutationId
     commentEdge {

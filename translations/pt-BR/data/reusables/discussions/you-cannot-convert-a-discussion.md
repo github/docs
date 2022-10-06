@@ -1,1 +1,0 @@
-Você não pode converter uma discussão em um problema.

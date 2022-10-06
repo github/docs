@@ -1,53 +1,50 @@
-const nock = require('nock')
-const Hydro = require('../../lib/hydro')
+import { afterEach } from '@jest/globals'
+import nock from 'nock'
+import Hydro from '../../lib/hydro.js'
 
 describe('hydro', () => {
   let hydro, params
 
   beforeEach(() => {
-    hydro = new Hydro({ secret: '123', endpoint: 'https://real-hydro.com' })
+    hydro = new Hydro({
+      secret: '123',
+      endpoint: 'https://real-hydro.com',
+      // When jest tests run, `NODE_ENV==='test'` so the actualy `got()`
+      // calls inside the Hydro class would be prevented.
+      // Setting this to true will prevent that second-layer protection.
+      forceDisableMock: true,
+    })
 
     nock(hydro.endpoint, {
       reqheaders: {
         Authorization: /^Hydro [\d\w]{64}$/,
         'Content-Type': 'application/json',
-        'X-Hydro-App': 'docs-production'
-      }
+        'X-Hydro-App': 'docs-production',
+      },
     })
       // Respond with a 200 and store the body we sent
-      .post('/').reply(200, (_, body) => { params = body })
+      .post('/')
+      .reply(200, (_, body) => {
+        params = body
+      })
+  })
+
+  afterEach(() => {
+    // Gotta always clean up after activating `nock`.
+    nock.cleanAll()
   })
 
   describe('#publish', () => {
     it('publishes a single event to Hydro', async () => {
       await hydro.publish('event-name', { pizza: true })
       expect(params).toEqual({
-        events: [{
-          schema: 'event-name',
-          value: JSON.stringify({ pizza: true }),
-          cluster: 'potomac'
-        }]
-      })
-    })
-  })
-
-  describe('#publishMany', () => {
-    it('publishes multiple events to Hydro', async () => {
-      await hydro.publishMany([
-        { schema: 'event-name', value: { pizza: true } },
-        { schema: 'other-name', value: { salad: false } }
-      ])
-
-      expect(params).toEqual({
-        events: [{
-          schema: 'event-name',
-          value: JSON.stringify({ pizza: true }),
-          cluster: 'potomac'
-        }, {
-          schema: 'other-name',
-          value: JSON.stringify({ salad: false }),
-          cluster: 'potomac'
-        }]
+        events: [
+          {
+            schema: 'event-name',
+            value: JSON.stringify({ pizza: true }),
+            cluster: 'potomac',
+          },
+        ],
       })
     })
   })

@@ -1,24 +1,28 @@
 ---
-title: Visão Geral
-intro: 'Você pode aprender sobre {% data variables.product.product_name %} e gerenciar contas de {% if enterpriseServerVersions contains currentVersion %} e acesso, licenças e{% endif %} faturamento.'
+title: Visão geral
+intro: 'Você pode aprender sobre o {% data variables.product.product_name %} e gerenciar{% ifversion ghes %} contas e acesso, licenças e{% endif %} cobrança.'
 redirect_from:
   - /enterprise/admin/overview
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+children:
+  - /about-github-for-enterprises
+  - /about-github-enterprise-server
+  - /about-github-ae
+  - /about-upgrades-to-new-releases
+  - /about-data-residency
+  - /about-enterprise-accounts
+  - /system-overview
+  - /about-the-github-enterprise-api
+  - /creating-an-enterprise-account
+  - /accessing-compliance-reports-for-your-enterprise
+ms.openlocfilehash: d936542993310333e314efcc9d5bb5689be00701
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147389840'
 ---
-
-Para obter mais informações ou comprar o {% data variables.product.prodname_enterprise %}, consulte [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
-
-### Índice
-
-{% link_in_list /about-github-ae %}
-{% link_in_list /about-upgrades-to-new-releases %}
-{% link_in_list /about-data-residency %}
-{% link_in_list /about-enterprise-accounts %}
-{% link_in_list /managing-your-github-enterprise-license %}
-{% link_in_list /managing-billing-for-your-enterprise %}
-{% link_in_list /about-upgrades-to-new-releases %}
-{% link_in_list /system-overview %}
-{% link_in_list /about-the-github-enterprise-api %}
-{% link_in_list /github-ae-release-notes %}
+Para obter mais informações ou para comprar o {% data variables.product.prodname_enterprise %}, confira [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).

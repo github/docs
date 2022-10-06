@@ -1,13 +1,13 @@
 ---
 title: Customizing GitHub-hosted runners
 intro: You can install additional software on GitHub-hosted runners as a part of your workflow.
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
+shortTitle: Customize runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -18,11 +18,10 @@ To see which packages are already installed by default, see "[Preinstalled softw
 
 This guide demonstrates how to create a job that installs additional software on a {% data variables.product.prodname_dotcom %}-hosted runner.
 
-### Installing software on Ubuntu runners
+## Installing software on Ubuntu runners
 
 The following example demonstrates how to install an `apt` package as part of a job.
 
-{% raw %}
 ```yaml
 name: Build on Ubuntu
 on: push
@@ -31,14 +30,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository code
-      uses: actions/checkout@v2
-    - name: Install jq tool
-      run: |
-        sudo apt-get update
-        sudo apt-get install jq
+      - name: Check out repository code
+        uses: {% data reusables.actions.action-checkout %}
+      - name: Install jq tool
+        run: |
+          sudo apt-get update
+          sudo apt-get install jq
 ```
-{% endraw %}
 
 {% note %}
 
@@ -46,11 +44,10 @@ jobs:
 
 {% endnote %}
 
-### Installing software on macOS runners
+## Installing software on macOS runners
 
 The following example demonstrates how to install Brew packages and casks as part of a job.
 
-{% raw %}
 ```yaml
 name: Build on macOS
 on: push
@@ -59,20 +56,19 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - name: Check out repository code
-      uses: actions/checkout@v2
-    - name: Install GitHub CLI
-      run: |
-        brew update
-        brew install gh
-    - name: Install Microsoft Edge
-      run: |
-        brew update
-        brew install --cask microsoft-edge
+      - name: Check out repository code
+        uses: {% data reusables.actions.action-checkout %}
+      - name: Install GitHub CLI
+        run: |
+          brew update
+          brew install gh
+      - name: Install Microsoft Edge
+        run: |
+          brew update
+          brew install --cask microsoft-edge
 ```
-{% endraw %}
 
-### Installing software on Windows runners
+## Installing software on Windows runners
 
 The following example demonstrates how to use [Chocolatey](https://community.chocolatey.org/packages) to install the {% data variables.product.prodname_dotcom %} CLI as part of a job.
 

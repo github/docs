@@ -1,1 +1,1 @@
-You automatically watch all repositories that you create and are owned by your user account. You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository manually.
+You automatically watch all repositories that you create and are owned by your personal account. You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository manually.

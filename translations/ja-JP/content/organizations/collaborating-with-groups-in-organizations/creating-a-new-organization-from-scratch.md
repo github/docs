@@ -2,9 +2,10 @@
 title: 新しい Organization をゼロから作成
 intro: Organization を作成して、リポジトリへの細かなアクセス許可を適用します。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch
   - /admin/user-management/creating-organizations
@@ -12,17 +13,21 @@ redirect_from:
 topics:
   - Organizations
   - Teams
+shortTitle: Create new organization
+ms.openlocfilehash: d9443aa84964fcc1202fee41d95800cf8e9ccd4c
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147878790'
 ---
+ゼロから作成されたばかりの新しい Organization には、何のリポジトリも関連付けられていません。 Organization にリポジトリを追加する方法については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」と「[リポジトリの転送](/articles/transferring-a-repository)」を参照してください。
 
-ゼロから作成されたばかりの新しい Organization には、何のリポジトリも関連付けられていません。 自分の Organization へのリポジトリ追加に関する詳しい情報については、「[新しいリポジトリを作成する](/articles/creating-a-new-repository)」と「[リポジトリを移譲する](/articles/transferring-a-repository)」を参照してください。
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %} {% data reusables.organizations.new-organization %}
+4. プロンプトに従って Organization を作成します。 {% ifversion fpt or ghec %}チームで利用できるプランについて詳しくは、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。{% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
-{% data reusables.organizations.new-organization %}
-4. プロンプトに従って Organization を作成します。 {% if currentVersion == "free-pro-team@latest" %}Team で利用できるプランに関する詳しい情報については、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。{% endif %}
+## 参考資料
 
-### 参考リンク
-
-{% if currentVersion == "free-pro-team@latest" %}
-- [支払い請求先メールアドレスを設定する](/articles/setting-your-billing-email){% endif %}
-- [Organization について](/articles/about-organizations)
+{% ifversion fpt or ghec %}
+- 「[課金メールの設定](/articles/setting-your-billing-email)」{% endif %}
+- "[Organization について](/articles/about-organizations)"

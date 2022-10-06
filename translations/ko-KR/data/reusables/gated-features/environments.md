@@ -1,1 +1,0 @@
-{% data reusables.gated-features.actions-shared %} Environments, environment protection rules, and environment secrets are available in public repositories for all products and in private repositories for {% data variables.product.prodname_enterprise %}. {% if currentVersion == "free-pro-team@latest" %}{% data reusables.gated-features.more-info %}{% endif %}

@@ -4,34 +4,35 @@ intro: 'Se você criar ferramentas que integram-se ao {% data variables.product.
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
+ms.openlocfilehash: cfe3b9caacf86404e6df45704d15aa3ab4e6a34d
+ms.sourcegitcommit: 7fbc3f6cca22f0b982be5829e71b23308b858dc1
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/27/2022
+ms.locfileid: '147425547'
 ---
+Você está criando um aplicativo que se integra ao GitHub? Registre-se no nosso programa de desenvolvedor! As possibilidades são infinitas, e você irá desfrutar do reconhecimento da comunidade. [Registrar agora](https://github.com/developer/register)
 
-Você está criando um aplicativo que se integra ao GitHub? Registre-se no nosso programa de desenvolvedor! As possibilidades são infinitas, e você irá desfrutar do reconhecimento da comunidade. [Registre-se agora](https://github.com/developer/register)
-
-## Fique por dentro
-
-Seja o primeiro a saber das mudanças na API e experimente novos recursos antes que sejam lançados no [blog do desenvolvedor](https://developer.github.com/changes/).
-
-## Acabe com a curiosidade
+## <a name="scratch-an-itch"></a>Acabe com a curiosidade
 
 Crie suas próprias ferramentas que integram-se perfeitamente ao lugar que você carrega o código todos os dias.
 
-## Assuma a empresa
+## <a name="take-on-the-enterprise"></a>Assuma a empresa
 
-[Obtenha licenças de desenvolvedor](http://github.com/contact?form%5Bsubject%5D=Development+licenses) para criar e testar seu aplicativo com base no {% data variables.product.prodname_ghe_server %}.
+Envie um email para <a href="mailto:partnerships@github.com">partnerships@github.com</a> a fim de solicitar licenças de desenvolvedor para compilar e testar seu aplicativo no {% data variables.product.prodname_ghe_server %}.
 
+## <a name="have-an-integration-that-works-with-github"></a>Você tem uma integração que é compatível com o GitHub?
 
-## Você tem uma integração que é compatível com o GitHub?
-
-Excelente! Nós adoraríamos que você fizesse parte do programa. Veja como você pode divulgar a notícia:</p>
-* [Conte-nos sobre sua integração](https://github.com/contact?form[subject]=New+GitHub+Integration)
-* Use o logotipo do [Octocat ou GitHub](https://github.com/logos) para identificar que o seu produto é compatível com o GitHub
+Maravilha! Nós adoraríamos que você fizesse parte do programa. Veja como você pode divulgar a notícia:</p>
+* [Conte-nos sobre sua integração](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)
+* Use o [logotipo do Octocat ou do GitHub](https://github.com/logos) para identificar que o seu produto funciona com o GitHub
 * Publique um vídeo ou um blog no seu site sobre sua integração
 
-## Pronto para participar do Programa de Desenvolvedor do GitHub?</h3>
+## <a name="ready-to-join-the-github-developer-program"></a>Pronto para participar do Programa de Desenvolvedor do GitHub?
 
 A associação é aberta para desenvolvedores individuais e empresas que têm:
 

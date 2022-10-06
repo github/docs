@@ -1,7 +1,9 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-{% data variables.product.prodname_secret_scanning_caps %} 可用于{% if currentVersion == "free-pro-team@latest" %}公共仓库，以及具有{% else %}您有{% endif %} {% data variables.product.prodname_advanced_security %} 许可的组织拥有的私有仓库。 {% data reusables.advanced-security.more-info-ghas %}
-{% endif %}
+<!--This reusable describes the GHAS secret scanning feature. For a reusable that also covers the free secret scanning for public repositories on GitHub.com, use `secret-scanning-partner.md`  -->
 
-{% if currentVersion == "github-ae@latest" %}
-{% data variables.product.prodname_secret_scanning_caps %} 可用作 {% data variables.product.prodname_GH_advanced_security %} 的一部分，在测试期间免费使用。
-{% endif %}
+{%- ifversion ghec or ghes %}
+{% data variables.product.prodname_secret_scanning_GHAS_caps %} is available for organization-owned repositories in {% data variables.product.product_name %} if your enterprise has a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghae %}
+{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+
+{%- endif %} {% ifversion not ghae %}{% data reusables.advanced-security.more-info-ghas %}{% endif %}

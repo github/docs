@@ -4,40 +4,46 @@ intro: REST APIを通じてオブジェクトのグローバルノードIDを取
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: c4e6dba85ea94fe3337828f795bb7325162b6452
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146381473'
 ---
-
-GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエストなど）には、REST APIを使っても、GraphQL APIを使ってもアクセスできます。 [最近のアップデート](https://developer.github.com/changes/2017-12-19-graphql-node-id/)で、多くのオブジェクトの**グローバルノードID**をREST APIから見つけ、それらのIDをGraphQLの操作で使えるようになりました。
+GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエストなど）には、REST APIを使っても、GraphQL APIを使ってもアクセスできます。 REST API 内から多くのオブジェクトの **グローバル ノード ID** を検索し、GraphQL 操作でこれらの ID を使えます。 詳しくは、「[REST API リソースでの GraphQL API ノード ID のプレビュー](https://developer.github.com/changes/2017-12-19-graphql-node-id/)」を参照してください。
 
 {% note %}
 
-**ノート:** RESTでは、グローバルノードIDフィールドは`node_id`という名前になっています。 GraphQLでは、`node`インターフェースの`id`フィールドです。 GraphQLで「ノード」が何を意味するかを再確認するため、「[GraphQLの紹介](/graphql/guides/introduction-to-graphql#node)」を参照してください。
+**注:** REST では、グローバル ノード ID フィールドに `node_id` という名前が付けられます。 GraphQL では、これは `node` インターフェイス上の `id` フィールドになります。 GraphQL での "ノード" の意味をもう一度確認するには、「[GraphQL の概要](/graphql/guides/introduction-to-graphql#node)」をご覧ください。
 
 {% endnote %}
 
-### グローバルノードIDを利用する
+## グローバルノードIDを利用する
 
 グローバルノードIDを効率的に利用するには、以下の3つのステップを踏んでください。
 
-1. オブジェクトの`node_id`を返すRESTのエンドポイントを呼びます。
+1. オブジェクトの `node_id` を返す REST エンドポイントを呼び出します。
 2. GraphQLでのそのオブジェクトの型を見つけます。
 3. そのIDと型を使い、GraphQLでダイレクトにノードのルックアップを行います。
 
 例を見ていきましょう。
 
-### 1. オブジェクトのノードIDを返すRESTのエンドポイントの呼び出し
+## 1. オブジェクトのノード ID を返す REST エンドポイントを呼び出す
 
-[認証済みのユーザをリクエスト](/rest/reference/users#get-the-authenticated-user)した場合、
+[認証されたユーザーを要求する](/rest/reference/users#get-the-authenticated-user)場合:
 
 ```shell
 $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
 ```
 
-その認証済みユーザの`node_id`を含むレスポンスが返されます。
+認証されたユーザーの `node_id` を含むレスポンスが返されます。
 
 ```json
 {
@@ -87,11 +93,11 @@ $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/us
 }
 ```
 
-### 2. GraphQLでのオブジェクトの型を見つける
+## 2. GraphQL でのオブジェクトの種類を見つける
 
-この例では、`node_id`の値は`MDQ6VXNlcjU4MzIzMQ==`です。 この値を使って、同じオブジェクトをGraphQLでクエリできます。
+この例では、`node_id` 値は `MDQ6VXNlcjU4MzIzMQ==` です。 この値を使って、同じオブジェクトをGraphQLでクエリできます。
 
-ただし、まずオブジェクトの_型_を知る必要があります。 シンプルなGraphQLクエリで、この型を調べることができます。
+しかし、最初にオブジェクトの _種類_ を把握する必要があります。 シンプルなGraphQLクエリで、この型を調べることができます。
 
 ```graphql
 query {
@@ -101,13 +107,13 @@ query {
 }
 ```
 
-この種のノードをIDで見つけるクエリは、「ダイレクトノードルックアップ」と呼ばれています。
+このクエリの種類&mdash;ノードを ID で見つける&mdash;は、"ダイレクト ノード ルックアップ" と呼ばれています。
 
-このクエリを実行すると、`__typename`が[`User`](/graphql/reference/objects#user)であることが分かります。
+このクエリを実行すると、`__typename` は [`User`](/graphql/reference/objects#user) になります。
 
-### 3. GraphQLでダイレクトノードルックアップを行う
+## 3. GraphQL でダイレクト ノード ルックアップを行う
 
-型が確認できたら、[インラインフラグメント](https://graphql.github.io/learn/queries/#inline-fragments)を使ってIDでオブジェクトにアクセスし、追加のデータを返させることができます。 この例では、クエリをかけたい`User`のフィールドを定義しています。
+種類を確認したら、[インライン フラグメント](https://graphql.github.io/learn/queries/#inline-fragments)を使って、その ID によってオブジェクトにアクセスし、追加のデータを返すことができます。 この例では、こちらでクエリを実行する `User` のフィールドを定義しています。
 
 ```graphql
 query {
@@ -122,6 +128,6 @@ query {
 
 この種のクエリは、オブジェクトをグローバルノードIDでルックアップする標準的なアプローチです。
 
-### 移行におけるグローバルノードIDの利用
+## 移行におけるグローバルノードIDの利用
 
-REST API または GraphQL API を使用するインテグレーションを構築する場合、API バージョン間にわたってオブジェクトを簡単に参照できるように、グローバルノード ID を保持すると良いでしょう。 RESTとGraphQL間の移行の扱いに関する詳細な情報については「[RESTからGraphQLへの移行](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
+REST API または GraphQL API を使用するインテグレーションを構築する場合、API バージョン間にわたってオブジェクトを簡単に参照できるように、グローバルノード ID を保持すると良いでしょう。 REST と GraphQL の間の移行処理について詳しくは、「[REST から GraphQL への移行](/graphql/guides/migrating-from-rest-to-graphql)」をご覧ください。

@@ -1,15 +1,16 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-1. No nome do repositório, clique em **Clonar ou fazer download**. ![Botão Clone or download (Clonar ou baixar)](/assets/images/help/repository/clone-repo-clone-url-button.png)
-2. Para clonar o repositório usando HTTPS, em "Clonar com HTTPS", clique em
-{% octicon "clippy" aria-label="The clipboard icon" %}.
-Para clonar o repositório usando uma chave SSH que inclui um certificado emitido pela autoridade certificada de SSH da sua organização clique em **Usar SSH** e, em seguida, clique em
-{% octicon "clippy" aria-label="The clipboard icon" %}.
-![Botão Clone URL (Clonar URL)](/assets/images/help/repository/https-url-clone.png)
-{% else %}
-1. Acima da lista de arquivos, clique em {% octicon "download" aria-label="The download icon" %} **código**. ![Botão de "Código"](/assets/images/help/repository/code-button.png)
-1. Para clonar o repositório usando HTTPS, em "Clonar com HTTPS", clique em
-{% octicon "clippy" aria-label="The clipboard icon" %}. Para clonar o repositório usando uma chave SSH, incluindo um certificado emitido pela autoridade certificada e SSH da sua organização, clique em **Usar SSH** e, em seguida, clique em {% octicon "clippy" aria-label="The clipboard icon" %}.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} Para clonar um repositório usando {% data variables.product.prodname_cli %}, clique em **Usar {% data variables.product.prodname_cli %}** e, em seguida, clique em {% octicon "clippy" aria-label="The clipboard icon" %}.{% endif %}
-  ![O ícone da área de transferência para copiar a URL para clonar um repositório](/assets/images/help/repository/https-url-clone.png)
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-  ![O ícone da área de transferência para copiar a URL para clonar um repositório com o CLI do GitHub](/assets/images/help/repository/https-url-clone-cli.png){% endif %}
-{% endif %}
+---
+ms.openlocfilehash: b0187ce452baee47916c464beb47abb64ae616ab
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145084254"
+---
+1. Acima da lista de arquivos, clique em {% octicon "download" aria-label="The download icon" %} **Código**.
+  ![Botão "Código"](/assets/images/help/repository/code-button.png)
+1. Copie a URL do repositório.
+
+   - Para clonar o repositório usando HTTPS, em "HTTPS", clique em {% octicon "clippy" aria-label="The clipboard icon" %}. 
+   - Para clonar o repositório usando uma chave SSH, incluindo um certificado emitido pela autoridade de certificação SSH da sua organização, clique em **SSH** e em {% octicon "clippy" aria-label="The clipboard icon" %}. 
+   - Para clonar um repositório usando {% data variables.product.prodname_cli %}, clique em **{% data variables.product.prodname_cli %}** e selecione {% octicon "clippy" aria-label="The clipboard icon" %}.
+  ![O ícone da área de transferência para copiar a URL para clonar um repositório com o CLI do GitHub](/assets/images/help/repository/https-url-clone-cli.png)

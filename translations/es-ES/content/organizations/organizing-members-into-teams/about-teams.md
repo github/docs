@@ -1,56 +1,64 @@
 ---
 title: Acerca de los equipos
-intro: Los equipos son grupos de miembros de una organización que reflejan la estructura de tu empresa o grupo con menciones y permisos de acceso en cascada.
+intro: Los equipos son grupos de miembros de la organización que reflejan la estructura de la empresa o del grupo con menciones y permisos de acceso en cascada.
 redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+ms.openlocfilehash: 7b899cf08ca58170acdf8fb2fb2ad13d251b76e3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145149855'
 ---
-
 ![Listado de equipos en una organización](/assets/images/help/teams/org-list-of-teams.png)
 
-Los propietarios de la organización y los mantenedores del equipo le pueden otorgar a los equipos acceso de escritura, de lectura o de administrador a los repositorios de la organización. Los miembros de la organización pueden enviar una notificación a todo un equipo al mencionar el nombre del equipo. Los miembros de la organización también pueden enviar una notificación a todo un equipo al solicitar una revisión de ese equipo. Los miembros de la organización pueden solicitar revisiones de equipos específicos con acceso de lectura al repositorio donde la solicitud de extracción esté abierta. Los equipos pueden ser designados como propietarios de ciertos tipos o áreas de código en un archivo CODEOWNERS.
+Los propietarios de la organización y los mantenedores del equipo pueden conceder a los equipos acceso de administración, lectura o escritura a los repositorios de la organización. Los miembros de la organización pueden enviar una notificación a todo un equipo mencionando el nombre del equipo. Los miembros de la organización también pueden enviar una notificación a todo un equipo solicitando una revisión por parte de ese equipo. Los miembros de la organización pueden solicitar revisiones a equipos específicos con acceso de lectura al repositorio en el que se ha abierto la solicitud de incorporación de cambios. Los equipos pueden ser designados como propietarios de ciertos tipos o áreas de código en un archivo CODEOWNERS.
 
-Para obtener más información, consulta:
-- "[Administrar el acceso del equipo al repositorio de una organización](/articles/managing-team-access-to-an-organization-repository)"
-- "[Mencionar personas y equipos](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)"
-- "[Acerca de los propietarios del código](/articles/about-code-owners/)"
+Para más información, consulte:
+- "[Administración del acceso de equipo a un repositorio de la organización](/articles/managing-team-access-to-an-organization-repository)"
+- "[Mención de personas y equipos](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)"
+- "[Acerca de los propietarios de código](/articles/about-code-owners/)"
 
 ![Imagen de la mención a un equipo](/assets/images/help/teams/team-mention.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-También puedes usar la sincronización LDAP para sincronizar los roles del equipo y los miembros del equipo de {% data variables.product.product_location %} con tus grupos de LDAP establecidos. Esto te permite establecer un control de acceso para usuarios basado en roles desde tu servidor LDAP, en lugar de hacerlo de forma manual dentro de {% data variables.product.product_location %}. Para obtener más información, consulta "[Activar sincronización LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
+También puede usar la sincronización de LDAP para sincronizar los roles y miembros del equipo de {% data variables.product.product_location %} con los grupos de LDAP establecidos. Esto le permite establecer un control de acceso para usuarios basado en roles desde el servidor LDAP, en lugar de hacerlo de forma manual desde {% data variables.product.product_location %}. Para más información, vea ["Habilitación de la sincronización LDAP](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)".
 
 {% endif %}
 
 {% data reusables.organizations.team-synchronization %}
 
-### Visibilidad del equipo
+## Visibilidad del equipo
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-### Paginas del equipo
+Puedes ver todos los equipos a los cuales perteneces en tu tablero personal. Para más información, vea "[Acerca del panel personal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)".
+
+## Paginas del equipo
 
 Cada equipo tiene su propia página dentro de una organización. En la página de un equipo, puedes ver los miembros del equipo, los equipos hijo y los repositorios del equipo. Los propietarios de la organización y los mantenedores del equipo pueden acceder a los parámetros del equipo y actualizar la foto de perfil y la descripción del equipo desde la página del equipo.
 
-Los miembros de la organización pueden crear y participar en debates con el equipo. Para obtener más información, consulta [Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)".
+Los miembros de la organización pueden crear y participar en debates con el equipo. Para más información, vea "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)".
 
 ![Página del equipo que enumera los miembros del equipo y los debates](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-### Equipos anidados
+## Equipos anidados
 
-Puedes reflejar la jerarquía de tu grupo o empresa dentro de tu organización de {% data variables.product.product_name %} con varios niveles de equipos anidados. Un equipo padre puede tener varios equipos hijo, mientras que cada equipo hijo solo tiene un equipo padre. No puedes anidar equipos secretos.
+Puedes reflejar la jerarquía de tu grupo o empresa dentro de tu organización de {% data variables.product.product_name %} con varios niveles de equipos anidados. Un equipo principal puede tener varios equipos secundarios, mientras que cada equipo secundario solo tiene uno principal. Los equipos secretos no se pueden anidar.
 
-Los equipos hijo heredan los permisos de acceso del padre, lo que simplifica la administración de permisos para los grupos grandes. Los miembros de los equipos hijo también reciben notificaciones cuando se hace una @mención al equipo padre, simplificando la comunicación con varios grupos de personas.
+Los equipos secundarios heredan los permisos de acceso del equipo principal, lo que simplifica la administración de permisos de grupos grandes. Los miembros de los equipos secundarios también reciben notificaciones cuando se hace una @mentioned al equipo primario, lo que simplifica la comunicación con varios grupos de personas.
 
-Por ejemplo, si la estructura de tu equipo es Empleados > Ingeniería > Ingeniería de aplicación> Identidad, otorgar acceso de escritura a Ingeniería en un repositorio implicará que también se podrá acceder a Ingeniería de aplicación e Identidad. Si haces una @mención al equipo de Identidad o a cualquier equipo de la parte inferior de la jerarquía de la organización, son los únicos que recibirán una notificación.
+Por ejemplo, si la estructura de tu equipo es Empleados > Ingeniería > Ingeniería de aplicación > Identidad, otorgar acceso de escritura a un repositorio a Ingeniería significa que Ingeniería de aplicación e Identidad también reciben ese acceso. Si hace @mention al equipo de Identidad o a cualquier equipo de la parte inferior de la jerarquía de la organización, son los únicos que recibirán una notificación.
 
 ![Página de los equipos con un equipo padre y equipos hijo](/assets/images/help/teams/nested-teams-eng-example.png)
 
@@ -58,11 +66,11 @@ Para comprender fácilmente quién comparte las menciones y los permisos de un e
 
 ![Página del equipo padre con todos los miembros de los equipos hijo](/assets/images/help/teams/team-and-subteam-members.png)
 
-Puedes elegir un padre cuando creas el equipo o puedes mover un equipo más tarde en la jerarquía de tu organización. Para obtener más información, consulta [Mover un equipo dentro de la jerarquía de tu organización](/articles/moving-a-team-in-your-organization-s-hierarchy)".
+Puedes elegir un padre cuando creas el equipo o puedes mover un equipo más tarde en la jerarquía de tu organización. Para más información, vea "[Traslado de un equipo en la jerarquía de la organización](/articles/moving-a-team-in-your-organization-s-hierarchy)".
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-### Prepararse para anidar equipos en tu organización
+## Prepararse para anidar equipos en tu organización
 
 Si tu organización ya tiene equipos existentes, deberías auditar los permisos de acceso a los repositorios de cada equipo antes de anidar equipos por arriba o por debajo del mismo. También deberías considerar la nueva estructura que te gustaría implementar para tu organización.
 
@@ -73,7 +81,7 @@ En la parte superior de la jerarquía del equipo, deberías otorgar permisos de 
 3. Crear todos los equipos nuevos que quieras, elegir un padre para cada equipo nuevo y otorgarles acceso a los repositorios.
 4. Agregar las personas directamente a los equipos.
 
-### Leer más
+## Información adicional
 
-- "[Crear un equipo](/articles/creating-a-team)"
-- "[Agregar miembros de la organización a un equipo](/articles/adding-organization-members-to-a-team)"
+- "[Creación de un equipo](/articles/creating-a-team)"
+- "[Adición de miembros de la organización a un equipo](/articles/adding-organization-members-to-a-team)"

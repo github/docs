@@ -1,0 +1,1 @@
+As a security precaution, {% data variables.product.company_short %} automatically removes personal access tokens that haven't been used in a year. To provide additional security, we highly recommend adding an expiration to your personal access tokens.

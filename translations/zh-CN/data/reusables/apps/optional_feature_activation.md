@@ -1,3 +1,12 @@
-4. 在左侧栏中，单击 **{% if currentVersion ver_lt "enterprise-server@3.1" %} 测试 {% else %} 可选 {% endif %} 功能**。
-  {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
-5. 在您要为应用程序启用的 {% if currentVersion ver_lt "enterprise-server@3.1" %} 测试 {% else %} 可选 {% endif %} 功能旁边，单击 **Opt-in（选择加入）**。 ![用于启用测试版功能的选择加入按钮](/assets/images/github-apps/enable-optional-features.png)
+---
+ms.openlocfilehash: d5771c9c0954960982d76d828cdb36d7a0a2312e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145098352"
+---
+4. 在左侧边栏中，单击“可选功能”。
+   ![“可选功能”选项卡](/assets/images/github-apps/optional-features-option.png) 
+5. 在要为应用启用的可选功能旁边，单击“选择加入”。
+  ![用于启用可选功能的选择加入按钮](/assets/images/github-apps/enable-optional-features.png)

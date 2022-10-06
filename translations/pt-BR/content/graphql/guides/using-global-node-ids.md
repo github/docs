@@ -4,32 +4,38 @@ intro: Você pode obter IDs de nós globais de objetos através da API REST e us
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: c4e6dba85ea94fe3337828f795bb7325162b6452
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146381469'
 ---
-
-Você pode acessar a maioria dos objetos do GitHub (usuários, problemas, pull requests, etc.) usando a API REST ou a API do GraphQL. Com uma atualização recente [](https://developer.github.com/changes/2017-12-19-graphql-node-id/), você pode encontrar o **ID do nó global** de muitos objetos na API REST e usar esses IDs nas operações do GraphQL.
+Você pode acessar a maioria dos objetos do GitHub (usuários, problemas, pull requests, etc.) usando a API REST ou a API do GraphQL. Você pode encontrar a **ID de nó global** de muitos objetos na API REST e usar esses IDs em suas operações do GraphQL. Para ver mais informações, confira "[Pré-visualização de IDs de nó da API GraphQL nos recursos da API REST](https://developer.github.com/changes/2017-12-19-graphql-node-id/)".
 
 {% note %}
 
-**Observação:** Na REST, o campo de ID do nó global é chamado `node_id`. No GraphQL, é um campo `id` na interface do `nó`. Para relembrar o que significa "nó" no GraphQL, consulte"[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql#node)".
+**Observação:** na REST, o campo de ID de nó global é chamado `node_id`. No GraphQL, ele é um campo `id` na interface `node`. Para obter uma atualização sobre o que "nó" significa no GraphQL, confira "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql#node)".
 
 {% endnote %}
 
-### Colocando IDs de nó global em uso
+## Colocando IDs de nó global em uso
 
 Você pode seguir três etapas para usar efetivamente os IDs dos nós globais:
 
-1. Chame um ponto final da REST que retorna um `node_id` de um objeto.
+1. Chame um ponto de extremidade da REST que retorna a `node_id` de um objeto
 2. Encontre o tipo do objeto no GraphQL.
 3. Use o ID e o tipo para fazer uma consulta direta de nó no GraphQL.
 
 Vamos analisar um exemplo.
 
-### 1. Chame um ponto final da REST que retorna o ID do nó de um objeto
+## 1. Chamar um ponto de extremidade da REST que retorna a ID do nó de um objeto
 
 Se você [solicitar o usuário autenticado](/rest/reference/users#get-the-authenticated-user):
 
@@ -37,7 +43,7 @@ Se você [solicitar o usuário autenticado](/rest/reference/users#get-the-authen
 $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
 ```
 
-você obterá uma resposta que inclui o `node_id` do usuário autenticado:
+receberá uma resposta que inclui a `node_id` do usuário autenticado:
 
 ```json
 {
@@ -87,11 +93,11 @@ você obterá uma resposta que inclui o `node_id` do usuário autenticado:
 }
 ```
 
-### 2. Encontre o tipo do objeto no GraphQL
+## 2. Encontrar o tipo do objeto no GraphQL
 
-Neste exemplo, o valor de `node_id` é `MDQ6VXNlcjU4MzIzMQ==`. Você pode usar esse valor para consultar o mesmo objeto no GraphQL.
+Neste exemplo, o valor de `node_id`é `MDQ6VXNlcjU4MzIzMQ==`. Você pode usar esse valor para consultar o mesmo objeto no GraphQL.
 
-Mas primeiro você precisará saber o _tipo_ do objeto. Você pode verificar o tipo com uma simples consulta do GraphQL:
+No entanto, você precisará saber o _tipo_ do objeto primeiro. Você pode verificar o tipo com uma simples consulta do GraphQL:
 
 ```graphql
 query {
@@ -101,13 +107,13 @@ query {
 }
 ```
 
-Este tipo de consulta&mdash;ou seja, encontrar o nó pelo ID&mdash;é conhecida como "consulta direta de nó".
+Esse tipo de consulta (ou seja, encontrar o nó pela ID) é conhecido como uma "pesquisa de nó direto".
 
-Ao executar esta consulta, você verá que `__typename` é [`Usuário`](/graphql/reference/objects#user).
+Ao executar essa consulta, você verá que o `__typename` é [`User`](/graphql/reference/objects#user).
 
-### 3. Faça uma pesquisa direta de nó no GraphQL
+## 3. Fazer uma pesquisa direta de nó no GraphQL
 
-Depois de confirmar o tipo, você pode usar um [fragmento embutido](https://graphql.github.io/learn/queries/#inline-fragments) para acessar o objeto pelo seu ID e retornar dados adicionais. Neste exemplo, definimos os campos no `Usuário` que gostaríamos de consultar:
+Depois de confirmar o tipo, use um [fragmento em linha](https://graphql.github.io/learn/queries/#inline-fragments) para acessar o objeto pela ID e retornar dados adicionais. Neste exemplo, definimos os campos em `User` que desejamos consultar:
 
 ```graphql
 query {
@@ -122,6 +128,6 @@ query {
 
 Este tipo de consulta é a abordagem-padrão para consultar um objeto pelo seu ID de nó global.
 
-### Usando IDs de nó global em migrações
+## Usando IDs de nó global em migrações
 
-Ao construir integrações que usam a API REST ou a API do GraphQL, considera-se uma prática recomendada persistir no ID de nó global para que você possa facilmente fazer referência a objetos entre nas versões da API. Para obter mais informações sobre como lidar com a transição entre a REST e o GraphQL, consulte "[Migrando da REST para o GraphQL](/graphql/guides/migrating-from-rest-to-graphql)"
+Ao construir integrações que usam a API REST ou a API do GraphQL, considera-se uma prática recomendada persistir no ID de nó global para que você possa facilmente fazer referência a objetos entre nas versões da API. Para obter mais informações sobre como lidar com a transição entre a REST e o GraphQL, confira "[Como migrar da REST para o GraphQL](/graphql/guides/migrating-from-rest-to-graphql)".

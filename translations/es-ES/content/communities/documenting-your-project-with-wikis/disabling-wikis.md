@@ -6,19 +6,25 @@ redirect_from:
   - /articles/disabling-wikis
   - /github/building-a-strong-community/disabling-wikis
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: e23f48fc904c18c2d8744966a97a7b7cab73fbc2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145092432'
 ---
-
 Cuando desactivas una wiki, su contenido se oculta pero no se borra. Si eliges habilitar nuevamente las wikis en el futuro, se restaurarán tus páginas anteriores.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. En Características, quita la marca de selección de **Wiki**. ![Casilla de verificación para inhabilitar wikis](/assets/images/help/wiki/wiki_enable_disable.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. En Características, anula la selección de **Wiki**.
+  ![Casilla de verificación para deshabilitar la wiki](/assets/images/help/wiki/wiki_enable_disable.png)
 
-### Leer más
+## Información adicional
 
-- "[Cambiar los permisos de acceso para las wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)"
+- [Cambiar permisos de acceso para wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)

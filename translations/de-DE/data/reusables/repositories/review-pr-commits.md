@@ -1,1 +1,0 @@
-1. Klicke auf dem Pull Request auf {% octicon "git-commit" aria-label="The commit icon" %} **Commits**. ![Registerkarte „Commits" auf einem Pull Request](/assets/images/help/pull_requests/pull-request-tabs-commits.png)

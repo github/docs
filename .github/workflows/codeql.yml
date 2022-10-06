@@ -15,14 +15,24 @@ on:
       - '**/*.js'
       - '.github/workflows/codeql.yml'
 
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   build:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-      - uses: github/codeql-action/init@v1
+      - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+      - uses: github/codeql-action/init@1ed1437484560351c5be56cf73a48a279d116b78
         with:
           languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp} (not YET ruby, sorry!)
-      - uses: github/codeql-action/analyze@v1
+      - uses: github/codeql-action/analyze@1ed1437484560351c5be56cf73a48a279d116b78
         continue-on-error: true

@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 2d53a518c3fe06a8dfc5731ead3d77e0671a6092
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147428416"
+---
 {% tip %}
 
-**Nota**: Si los archivos fuente de tu sitio de {% if currentVersion ver_lt "enterprise-server@2.23" %} se ubican en la fuente de publicación predeterminada—`master` para sitios de usuario o de organización, o en `gh-pages` para los sitios de proyecto—pero tu sitio{% endif %} no se publició automáticamente, asegúrate de que alguien con permisos administrativos y una dirección de correo electrónico verificada haya subido la información a la fuente de publicación.
+**Nota**: {% ifversion pages-custom-workflow %}Si publicas desde una rama y{% else %}If{% endif %} el sitio no se ha publicado automáticamente, asegúrate de que alguien con permisos de administrador y una dirección de correo electrónico verificada haya insertado en la fuente de publicación.
 
 {% endtip %}

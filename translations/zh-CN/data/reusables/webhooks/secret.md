@@ -1,1 +1,9 @@
-设置 web 挂钩密钥使您可以确保将 `POST` 请求发送到来自 {% data variables.product.product_name %} 的有效负载 URL。 在设置机密时，您将在 web 挂钩 `POST` 请求中收到 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`X-Hub-Signature` 和 `X-Hub-Signature-256` 标头{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature` 标头{% elsif currentVersion == "github-ae@latest" %}`X-Hub-Signature-256` 标头{% endif %}。 有关如何使用密钥和签名标头来保护 web 挂钩有效负载的更多信息，请参阅“[保护 web 挂钩](/webhooks/securing/)”。
+---
+ms.openlocfilehash: 3dcfb143f7ac70db7c1a197304c83a5b75642749
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147876026"
+---
+通过设置 Webhook 机密，可以确保发送到有效负载 URL 的 `POST` 请求来自 {% data variables.product.product_name %}。 设置机密时，你将在 Webhook `POST` 请求中收到 {% ifversion fpt or ghes or ghec %}`X-Hub-Signature` 和 `X-Hub-Signature-256` 标头{% elsif ghae %}`X-Hub-Signature-256` 标头{% endif %}。 有关如何使用带有签名标头的机密来保护 Webhook 有效负载的详细信息，请参阅“[保护 Webhook](/webhooks/securing/)”。

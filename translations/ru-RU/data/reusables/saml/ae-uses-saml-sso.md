@@ -1,1 +1,0 @@
-{% data variables.product.product_name %} uses SAML SSO for user authentication. You can centrally manage access to {% data variables.product.prodname_ghe_managed %} from an IdP that supports the SAML 2.0 standard.

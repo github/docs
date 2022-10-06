@@ -1,1 +1,9 @@
-1. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}どの公開ソースを使いたいか、{% else %}プロジェクトサイトを作成しているなら、どの公開ソースを使いたいか、{% endif %}判断してください。 {% if currentVersion ver_lt "enterprise-server@2.23" %}ユーザもしくはOrganizationのサイトを作成しているなら、サイトのソースコードは`master`ブランチに保存しなければなりません。{% endif %}詳しい情報については「[{% data variables.product.prodname_pages %}について](/articles/about-github-pages#publishing-sources-for-github-pages-sites)」を参照してください。
+---
+ms.openlocfilehash: ec4658691c5147aecfb83c20a4c35be184314dad
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147428284"
+---
+1. 使用する公開ソースを決定します。 詳細については、「[ご利用の GitHub Pages サイトに合わせた公開元の構成](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)」を参照してください。

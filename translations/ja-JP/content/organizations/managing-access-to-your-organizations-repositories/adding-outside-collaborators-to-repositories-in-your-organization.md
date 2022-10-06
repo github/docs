@@ -1,42 +1,52 @@
 ---
-title: 外部のコラボレータを Organization のリポジトリに追加する
-intro: '*外部のコラボレータ*は、Organization の明示的なメンバーではありませんが、Organization の 1 つ以上のリポジトリに読み取り、書き込み、あるいは管理権限を持っている人です。'
+title: Adding outside collaborators to repositories in your organization
+intro: You can allow people who aren't members of your organization to access repositories that your organization owns.
 redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Add outside collaborator
+permissions: People with admin access to a repository can add an outside collaborator to the repository.
 ---
 
-{% data reusables.organizations.owners-and-admins-can %} 外部コラボレーターをリポジトリに追加できます。ただし、Organization のオーナーがコラボレーターの招待を禁じていない場合に限ります。 詳しい情報については、「[外部のコラボレーターを追加するための権限を設定する](/articles/setting-permissions-for-adding-outside-collaborators)」を参照してください。
+## About outside collaborators
+
+An outside collaborator is a person who is not a member of your organization, but has access to one or more of your organization's repositories. You can choose the level of access to grant for each outside collaborator. {% data reusables.organizations.outside_collaborator_forks %}
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-{% if currentVersion != "github-ae@latest" %}
-Organization が[メンバーおよび外部コラボレーターに 2 要素認証を使うことを求める](/articles/requiring-two-factor-authentication-in-your-organization)なら、メンバーおよび外部コラボレーターはあなたからの Organization のリポジトリでのコラボレーションの招待を受諾する前に、2 要素認証を有効化しなければなりません。
+{% ifversion fpt %}
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can restrict the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% else %}
+An organization owner can restrict the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)."
 {% endif %}
 
-{% data reusables.organizations.outside_collaborator_forks %}
+{% ifversion ghes %}
+Before you can add someone as an outside collaborator on a repository, the person must have a personal account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site administrator can create an account for the person. For more information, see "[Configuring built-in authentication](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
+{% endif %}
 
+{% ifversion not ghae %}
+If your organization requires two-factor authentication, all outside collaborators must enable two-factor authentication before accepting your invitation to collaborate on a repository. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
+{% endif %}
+
+## Adding outside collaborators to a repository
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+You can give outside collaborators access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)." 
+{% else %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% data reusables.organizations.invite-teams-or-people %}
-5. 検索フィールドで、招待する人の名前を入力し、一致するリストの名前をクリックします。 ![リポジトリに招待する人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. [Choose a role] で、人に付与する権限を選択し、[**Add NAME to REPOSITORY**] をクリックします。 ![人の権限を選択する](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
-{% else %}
-5. 左のサイドバーで、[**Collaborators & teams**] をクリックします。 ![コラボレーターと Team がハイライトされたリポジトリ設定サイドバー](/assets/images/help/repository/org-repo-settings-collaborators-and-teams.png)
-6. "Collaborators" の下で、リポジトリへのアクセスを許可したい人の名前を入力し、[**Add collaborator**] をクリックします。 ![Octocat のユーザ名が検索フィールドに入力されているコラボレーターセクション](/assets/images/help/repository/org-repo-collaborators-find-name.png)
-7. 新しいコラボレータの名前の隣で、*Write (書き込み)*、*Read (読み取り)*、*Admin (管理)* の中から適切な権限レベルを選択してください。 ![リポジトリの権限の選択](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png)
+5. In the left sidebar, click **Collaborators & teams**.
+  ![Repository settings sidebar with Collaborators & teams highlighted](/assets/images/help/repository/org-repo-settings-collaborators-and-teams.png)
+6. Under "Collaborators", type the name of the person you'd like to give access to the repository, then click **Add collaborator**.
+![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/repository/org-repo-collaborators-find-name.png)
+7. Next to the new collaborator's name, use the drop-down menu and select the appropriate access level.
+![The repository permissions picker](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png)
 {% endif %}
-
-### 参考リンク
-
-- [Organizatin のメンバーを外部のコラボレータに変換する](/articles/converting-an-organization-member-to-an-outside-collaborator)
-- [外部のコラボレータを Organization のリポジトリから削除する](/articles/removing-an-outside-collaborator-from-an-organization-repository)

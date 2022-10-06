@@ -1,2 +1,0 @@
-1. Klicke in der rechten oberen Ecke einer beliebigen Seite auf Dein Profilfoto und klicke dann auf **{% data variables.product.prodname_sponsors %}**. ![Schaltfläche {% data variables.product.prodname_sponsors %}](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
-2. Klicke rechts neben Organisation in der Liste Deiner unterstützten und berechtigten Konten auf **Dashboard**. ![Schaltfläche „Organization sponsors dashboard" (Dashboard der Organisations-Sponsoren)](/assets/images/help/sponsors/org-sponsors-dashboard-button.png)

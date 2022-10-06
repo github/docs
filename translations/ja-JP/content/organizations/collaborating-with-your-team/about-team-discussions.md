@@ -1,49 +1,63 @@
 ---
-title: About team discussions
-intro: 'Your team can plan together, update one another, or talk about any topic you''d like in discussion posts on your team''s page in an organization.'
+title: Team ディスカッションについて
+intro: Team は、Organization 内の Team のページ内のディスカッションポストにおける好きな話題について、計画をしたり、更新をしたり、議論をしたりできます。
 redirect_from:
   - /articles/about-team-discussions
   - /github/building-a-strong-community/about-team-discussions
   - /github/setting-up-and-managing-organizations-and-teams/about-team-discussions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 173a067c99ff6ab10ceb6d7f0a7ef288de58b658
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145130867'
 ---
-
 {% data reusables.organizations.team-discussions-purpose %}
 
-Any organization member can post on your team's page or participate in a public discussion. {% data reusables.organizations.team-discussions-permissions %}
+Organization のメンバーは、誰でも Team のページにポストしたり、パブリックなディスカッションに参加したりできます。 {% data reusables.organizations.team-discussions-permissions %}
 
-![Discussions tab of team page with public and private discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
+![パブリックおよびプライベートのディスカッションを持つ Team ページのディスカッションタブ](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-You can link to any team discussion to reference it elsewhere. You can pin important posts to your team's page for quick reference later. For more information, see "[Pinning a team discussion](/organizations/collaborating-with-your-team/pinning-a-team-discussion)."
+Team のディスカッションにリンクを張って、別のところから参照できます。 重要なポストは Team のページにピン止めして、後で簡単に参照できます。 詳細については、「[Team ディスカッションをピン止めする](/organizations/collaborating-with-your-team/pinning-a-team-discussion)」を参照してください。
 
-![Pinned discussions tab of team page with pinned discussion](/assets/images/help/organizations/team-discussions-pinned.png)
+![ピン止めされたディスカッションを持つ、Team ページの [Pinned] ディスカッションタブ](/assets/images/help/organizations/team-discussions-pinned.png)
 
-{% data reusables.organizations.team-discussions-default %} Owners can disable team discussions for the entire organization. For more information, see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)."
+{% data reusables.organizations.team-discussions-default %}オーナーは Organization 全体にわたって Team ディスカッションを無効化できます。 詳細については、「[Organization の Team ディスカッションを無効にする](/articles/disabling-team-discussions-for-your-organization)」を参照してください。
 
-### Notifications for team discussions
+## Team ディスカッションの通知
 
-When someone posts or replies to a public discussion on a team's page, members of the team and members of any child teams receive email or web notifications. When someone posts or replies to a private discussion on a team's page, only members of the team receive notifications.
+Team のページのパブリックなディスカッションに誰かがポストしたり返信したりしたとき、その Team のメンバーや子チームのメンバーは、メールあるいは Web 通知を受け取ります。 誰かが Team のページ上のプライベートなディスカッションにポストあるいは返信した場合は、その Team のメンバーだけが通知を受け取ります。
 
 {% tip %}
 
-**Tip:** Depending on your notification settings, you'll receive updates by email, the web notifications page on {% data variables.product.product_name %}, or both. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" and "[About web notifications](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
+**ヒント:** 通知の設定によって、更新はメール、{% data variables.product.product_name %} 上の Web 通知、あるいはその両方で受け取ることになります。 詳細については、「[通知の設定](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)」を参照してください。
 
 {% endtip %}
 
-By default, if your username is mentioned in a team discussion, you'll receive notifications for the post mentioning your username and any replies to that post. Also, by default, if you reply to a post, you will receive notifications for other replies to the post.
+デフォルトでは、ユーザ名が Team のディスカッション内でメンションされると、ユーザ名をメンションしたポストと、そのポストに対する返信についての通知を受けることになります。 また、デフォルトでは、ポストに返信した場合、そのポストに対する他の返信についても通知を受け取ることになります。
 
-To turn off notifications for team discussions, you can unsubscribe to a specific discussion post or change your notification settings to unwatch or completely ignore a specific team's discussions. You can subscribe to notifications for a specific discussion post even if you're unwatching that team's discussions.
+Team のディスカッションに対する通知をオフにするには、特定のディスカッションのポストのサブスクライブを解除するか、Watch の解除あるいは特定の Team のディスカッションを完全に無視するよう通知設定を変更できます。 Team のディスカッションの Watch を解除している場合でも、特定のディスカッションのポストについての通知をサブスクライブすることはできます。
 
-For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" and "[Nested teams](/articles/about-teams/#nested-teams)."
+詳しく、「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)」と「[入れ子チーム](/articles/about-teams/#nested-teams)」をご覧ください。
 
-### Further reading
+{% ifversion fpt or ghec %}
 
-- "[About conversations on {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)"
-- "[About teams](/articles/about-teams)"
-- "[Creating a team discussion](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
-- "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"
+## Organization のディスカッション
+
+また、組織のディスカッションを使って、組織全体の会話を支援することもできます。 詳しくは、「[Organization の GitHub ディスカッションを有効または無効にする](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)」をご覧ください。
+
+{% endif %}
+
+## 参考資料
+
+- 「[{% data variables.product.prodname_dotcom %} で通信するためのクイック スタート](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)」
+- 「[Team について](/articles/about-teams)」
+- 「[Team ディスカッションの作成](/organizations/collaborating-with-your-team/creating-a-team-discussion)」
+- 「[Team ディスカッションの編集または削除](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)」

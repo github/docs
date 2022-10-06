@@ -1,1 +1,0 @@
-Create and use a dedicated machine user account on your IdP to associate with the first enterprise owner account on {% data variables.product.product_name %}. Store the credentials for the user account securely in a password manager.

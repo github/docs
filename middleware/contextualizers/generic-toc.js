@@ -1,59 +1,107 @@
-const { sortBy } = require('lodash')
+import findPageInSiteTree from '../../lib/find-page-in-site-tree.js'
 
-module.exports = async function genericToc (req, res, next) {
+// This module adds either flatTocItems or nestedTocItems to the context object for
+// product, categorie, and map topic TOCs that don't have other layouts specified.
+// They are rendered by includes/generic-toc-flat.html or inclueds/generic-toc-nested.html.
+export default async function genericToc(req, res, next) {
   if (!req.context.page) return next()
-  if (req.context.page.hidden) return next()
   if (req.context.currentLayoutName !== 'default') return next()
-  if (req.context.page.documentType === 'homepage' || req.context.page.documentType === 'article') return next()
-
-  const currentSiteTree = req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
-
-  // Find the array of child pages that start with the requested path.
-  const currentPageInSiteTree = findPageInSiteTree(currentSiteTree.childPages, req.context.currentPath)
-
-  req.context.tocItems = sortBy(
-    await getUnsortedTocItems(currentPageInSiteTree.childPages, req.context),
-    // Sort by the ordered array of `children` in the frontmatter.
-    currentPageInSiteTree.page.children
+  // This middleware can only run on product, category, and map topics.
+  if (
+    req.context.page.documentType === 'homepage' ||
+    req.context.page.documentType === 'article' ||
+    req.context.page.relativePath === 'search/index.md'
   )
+    return next()
+
+  // This one product TOC is weird.
+  const isOneOffProductToc = req.context.page.relativePath === 'github/index.md'
+
+  // There are different types of TOC depending on the document type.
+  const tocTypes = {
+    product: 'flat',
+    category: 'nested',
+    mapTopic: 'flat',
+  }
+
+  // Frontmatter can optionally be set on an Early Access product to show hidden child items.
+  // If so, this is a special case where we want to override the flat tocType and use a nested type.
+  const earlyAccessToc = req.context.page.earlyAccessToc
+
+  // Find the current TOC type based on the current document type.
+  const currentTocType = earlyAccessToc ? 'nested' : tocTypes[req.context.page.documentType]
+
+  // Find the part of the site tree that corresponds to the current path.
+  const treePage = findPageInSiteTree(
+    req.context.currentProductTree,
+    req.context.currentEnglishTree,
+    req.pagePath
+  )
+
+  // By default, only include hidden child items on a TOC page if it's an Early Access category or
+  // map topic page, not a product or 'articles' fake cagegory page (e.g., /early-access/github/articles).
+  // This is because we don't want entire EA product TOCs to be publicly browseable, but anything at the category
+  // or below level is fair game because that content is scoped to specific features.
+  const isCategoryOrMapTopic =
+    req.context.page.documentType === 'category' || req.context.page.documentType === 'mapTopic'
+  const isEarlyAccess = req.context.currentPath.includes('/early-access/')
+  const isArticlesCategory = req.context.currentPath.endsWith('/articles')
+
+  req.context.showHiddenTocItems =
+    earlyAccessToc || (isCategoryOrMapTopic && isEarlyAccess && !isArticlesCategory)
+
+  // Conditionally run getTocItems() recursively.
+  let isRecursive
+  // Conditionally render intros.
+  let renderIntros
+
+  // Get an array of child links with intros and add it to the context object.
+  if (currentTocType === 'flat' && !isOneOffProductToc) {
+    isRecursive = false
+    renderIntros = true
+    req.context.genericTocFlat = await getTocItems(
+      treePage.childPages,
+      req.context,
+      isRecursive,
+      renderIntros
+    )
+  }
+
+  // Get an array of child map topics and their child articles and add it to the context object.
+  if (currentTocType === 'nested' || isOneOffProductToc) {
+    isRecursive = !isOneOffProductToc
+    renderIntros = false
+    req.context.genericTocNested = await getTocItems(
+      treePage.childPages,
+      req.context,
+      isRecursive,
+      renderIntros
+    )
+  }
 
   return next()
 }
 
-// Recursively loop through the siteTree until we reach the point where the
-// current siteTree page is the same as the requested page. Then stop.
-function findPageInSiteTree (pageArray, currentPath) {
-  const childPage = pageArray.find(page => currentPath.startsWith(page.href))
+async function getTocItems(pagesArray, context, isRecursive, renderIntros) {
+  return (
+    await Promise.all(
+      pagesArray.map(async (child) => {
+        // only include a hidden page if showHiddenTocItems is true
+        if (child.page.hidden && !context.showHiddenTocItems) return
 
-  if (childPage.href === currentPath) {
-    return childPage
-  }
-
-  return findPageInSiteTree(childPage.childPages, currentPath)
-}
-
-async function getUnsortedTocItems (pageArray, context) {
-  return Promise.all(pageArray.map(async (childPage) => {
-    // return an empty string if it's a hidden link on a non-hidden page (hidden links on hidden pages are OK)
-    if (childPage.page.hidden && !context.page.hidden) {
-      return ''
-    }
-
-    const fullPath = childPage.href
-    // Titles are already rendered by middleware/contextualizers/render-tree-titles.js.
-    const title = childPage.renderedFullTitle
-    const intro = await childPage.page.renderProp('intro', context, { unwrap: true })
-
-    if (!childPage.childPages) {
-      return { fullPath, title, intro }
-    }
-
-    const childTocItems = sortBy(
-      await getUnsortedTocItems(childPage.childPages, context),
-      // Sort by the ordered array of `children` in the frontmatter.
-      childPage.page.children
+        return {
+          title: child.renderedFullTitle,
+          fullPath: child.href,
+          // renderProp is the most expensive part of this function.
+          intro: renderIntros
+            ? await child.page.renderProp('intro', context, { unwrap: true })
+            : null,
+          childTocItems:
+            isRecursive && child.childPages
+              ? await getTocItems(child.childPages, context, isRecursive, renderIntros)
+              : null,
+        }
+      })
     )
-
-    return { fullPath, title, intro, childTocItems }
-  }))
+  ).filter(Boolean)
 }

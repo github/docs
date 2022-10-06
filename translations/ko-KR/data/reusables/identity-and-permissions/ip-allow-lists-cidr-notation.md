@@ -1,1 +1,0 @@
-You can approve access for a single IP address, or a range of addresses, using CIDR notation. For more information, see "[CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)" on Wikipedia.

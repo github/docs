@@ -1,16 +1,38 @@
 {
   "ref": "refs/tags/simple-tag",
-  "before": "6113728f27ae82c7b1a177c8d03f9e96e0adf246",
-  "after": "0000000000000000000000000000000000000000",
-  "created": false,
-  "deleted": true,
+  "before": "0000000000000000000000000000000000000000",
+  "after": "6113728f27ae82c7b1a177c8d03f9e96e0adf246",
+  "created": true,
+  "deleted": false,
   "forced": false,
   "base_ref": null,
-  "compare": "https://github.com/Codertocat/Hello-World/compare/6113728f27ae...000000000000",
+  "compare": "https://github.com/Codertocat/Hello-World/compare/simple-tag",
   "commits": [
 
   ],
-  "head_commit": null,
+  "head_commit": {
+    "id": "6113728f27ae82c7b1a177c8d03f9e96e0adf246",
+    "tree_id": "4b825dc642cb6eb9a060e54bf8d69288fbee4904",
+    "distinct": true,
+    "message": "Adding a .gitignore file",
+    "timestamp": "2019-05-15T15:20:41Z",
+    "url": "https://github.com/Codertocat/Hello-World/commit/6113728f27ae82c7b1a177c8d03f9e96e0adf246",
+    "author": {
+      "name": "Codertocat",
+      "email": "21031067+Codertocat@users.noreply.github.com",
+      "username": "Codertocat"
+    },
+    "committer": {
+      "name": "Codertocat",
+      "email": "21031067+Codertocat@users.noreply.github.com",
+      "username": "Codertocat"
+    },
+    "added": [
+      ".gitignore"
+    ],
+    "removed": [ ],
+    "modified": [ ]
+  },
   "repository": {
     "id": 186853002,
     "node_id": "MDEwOlJlcG9zaXRvcnkxODY4NTMwMDI=",

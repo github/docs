@@ -1,15 +1,16 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" and currentVersion ver_lt "enterprise-server@3.1" %}
+---
+ms.openlocfilehash: dd38b5506d6696876419f48fada5abbfe373d21c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145100241"
+---
+{% ifversion fpt or ghes or ghae %}
+
 {% note %}
 
-**注：**过期用户令牌目前是用户到服务器令牌过期的一部分，可能会更改。 要选择使用用户到服务器令牌过期测试功能，请参阅“[激活应用程序的可选功能](/developers/apps/activating-optional-features-for-apps)”。 更多信息请参阅“[GitHub 应用程序过期用户到服务器访问令牌](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)”。
-
-{% endnote %}
-
-{% elsif currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
-
-{% note %}
-
-**注：**过期用户令牌目前是可选功能，可能会更改。 要选择使用或退出用户到服务器令牌过期功能，请参阅“[激活应用程序的可选功能](/developers/apps/activating-optional-features-for-apps)”。 更多信息请参阅“[GitHub 应用程序过期用户到服务器访问令牌](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)”。
+**注意：** 过期用户令牌目前为可选功能，可能会有变动。 若要选择加入或退出用户到服务器令牌过期功能，请参阅“[激活应用的可选功能](/developers/apps/activating-optional-features-for-apps)”。 有关详细信息，请参阅“[GitHub 应用的用户到服务器访问令牌过期](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)”。
 
 {% endnote %}
 

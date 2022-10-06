@@ -1,1 +1,0 @@
-1. Klicke im obersten Bereich einer beliebigen Seite auf **Marketplace** (Marktplatz). ![Marktplatz-Link im globalen Navigationsmenü zuoberst auf jeder Seite](/assets/images/help/marketplace/marketplace-link-global-navigation.png)

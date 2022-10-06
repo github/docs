@@ -1,1 +1,0 @@
-1. Um der Liste der autorisierten Schlüssel auf der primären Appliance den öffentlichen Schlüssel hinzuzufügen, navigiere zu `https://PRIMARY-HOSTNAME/setup/settings`, und füge den Schlüssel, den Du vom Replikat kopiert hast, zur Liste hinzu.

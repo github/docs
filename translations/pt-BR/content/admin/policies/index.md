@@ -5,20 +5,20 @@ redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
+children:
+  - /enforcing-policies-for-your-enterprise
+  - /enforcing-policy-with-pre-receive-hooks
+shortTitle: Set policies
+ms.openlocfilehash: 075d4f949435539c9c45ae651aedb0878f3317db
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147400367'
 ---
 
-
-### Índice
-
-{% topic_link_in_list /enforcing-policies-for-your-enterprise %}
-    {% link_in_list /enforcing-repository-management-policies-in-your-enterprise %}
-    {% link_in_list /enforcing-policies-for-advanced-security-in-your-enterprise %}
-{% topic_link_in_list /enforcing-policy-with-pre-receive-hooks %}
-    {% link_in_list /about-pre-receive-hooks %}
-    {% link_in_list /creating-a-pre-receive-hook-environment %}
-    {% link_in_list /creating-a-pre-receive-hook-script %}
-    {% link_in_list /managing-pre-receive-hooks-on-the-github-enterprise-server-appliance %}

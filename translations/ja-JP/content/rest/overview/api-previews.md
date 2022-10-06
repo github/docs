@@ -4,261 +4,200 @@ intro: API プレビューを使用して新機能を試し、これらの機能
 redirect_from:
   - /v3/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: <3.4
 topics:
   - API
+ms.openlocfilehash: fe00e2ab78881edab8d0f7704f80f2f20163fdeb
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878439'
 ---
-
-
 API プレビューを使用すると、正式に GitHub API の一部になる前に、新しい API や既存の API メソッドへの変更を試すことができます。
 
-プレビュー期間中は、開発者からのフィードバックに基づいて機能を変更することがあります。 変更をする際には、事前の通知なく[開発者blog](https://developer.github.com/changes/)でアナウンスします。
+プレビュー期間中は、開発者からのフィードバックに基づいて機能を変更することがあります。 変更を行う際には、事前の通知なく[開発者ブログ](https://developer.github.com/changes/)で発表します。
 
-API プレビューにアクセスするには、リクエストの ` Accept` ヘッダー内でカスタムの[メディアタイプ](/rest/overview/media-types)を提供しなければなりません。 各プレビューの機能ドキュメントに、どのカスタムメディアタイプを提供するのかが示されています。
+API プレビューにアクセスするには、自分の要求の `Accept` ヘッダーにカスタムの[メディアの種類](/rest/overview/media-types)を指定する必要があります。 各プレビューの機能ドキュメントに、どのカスタムメディアタイプを提供するのかが示されています。
 
-{% if currentVersion == "free-pro-team@latest" %}
-### 移行
+{% ifversion ghes < 3.3 %}
 
-GitHub ユーザまたは Organization アカウントからリポジトリをダウンロードして、データの確認、バックアップ、{% data variables.product.prodname_ghe_server %} への[移行](/rest/reference/migrations)ができます。
+## 強化されたデプロイメント
 
-**カスタムメディアタイプ:** `wyandotte-preview` **発表日:** [2018-05-24](https://developer.github.com/changes/2018-05-24-user-migration-api/)
+より多くの情報と細かい粒度で[デプロイ](/rest/reference/repos#deployments)をより細かく制御します。
+
+**カスタムのメディアの種類:** `ant-man-preview`
+**発表日:** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
+
 {% endif %}
 
-### 強化されたデプロイメント
+{% ifversion ghes < 3.3 %}
 
-より多くの情報と細かい粒度で、[デプロイメント](/rest/reference/repos#deployments)をより詳細に制御します。
+## リアクション
 
-**カスタムメディアタイプ:** `ant-man-preview` **発表日:** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
+コミット、問題、コメントの[リアクション](/rest/reference/reactions)を管理します。
 
-### リアクション
+**カスタムのメディアの種類:** `squirrel-girl-preview`
+**発表:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/)
+**更新:** [2016-06-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)
 
-コミット、Issue、コメントに対する[リアクション](/rest/reference/reactions)を管理します。
-
-**カスタムメディアタイプ:** `squirrel-girl-preview` **発表日:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/) **更新日:** [2016-06-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)
-
-### タイムライン
-
-Issue またはプルリクエストの[イベントのリスト](/rest/reference/issues#timeline)を取得します。
-
-**カスタムメディアタイプ:** `mockingbird-preview` **発表日:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
-
-{% if enterpriseServerVersions contains currentVersion %}
-### pre-receive 環境
-
-pre-receive フックの環境を作成、一覧表示、更新、削除します。
-
-**カスタムメディアタイプ:** `eye-scream-preview` **発表日:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-### インテグレーション
+{% ifversion ghes < 3.3 %}
 
-API を介して[インテグレーション](/v3/integrations)を管理します。
+## タイムライン
 
-**カスタムメディアタイプ:** `machine-man-preview` **発表日:** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/)
+問題または pull request の[イベントの一覧](/rest/reference/issues#timeline)を取得します。
+
+**カスタムのメディアの種類:** `mockingbird-preview`
+**発表日:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
+
 {% endif %}
 
-### プロジェクト
+{% ifversion ghes < 3.3 %}
+## プロジェクト
 
 [プロジェクト](/rest/reference/projects)を管理します。
 
-**カスタムメディアタイプ:** `inertia-preview` **発表日:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **更新日:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
+**カスタムのメディアの種類:** `inertia-preview`
+**発表:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/)
+**更新:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/) {% endif %} {% ifversion ghes < 3.3 %}
 
-### コミット検索
+## コミット検索
 
-[コミットの検索](/rest/reference/search)をします。
+[コミットを検索します](/rest/reference/search)。
 
-**カスタムメディアタイプ:** `cloak-preview` **発表日:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
+**カスタムのメディアの種類:** `cloak-preview`
+**発表:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/) {% endif %} {% ifversion ghes < 3.3 %}
 
-### リポジトリトピック
+## リポジトリトピック
 
-リポジトリの結果を返す[呼び出し](/rest/reference/repos)で[リポジトリトピック](/articles/about-topics/)のリストを表示します。
+リポジトリの結果を返す[呼び出し](/articles/about-topics/)で[リポジトリ トピック](/rest/reference/repos)の一覧を表示します。
 
-**カスタムメディアタイプ:** `mercy-preview` **発表日:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
+**カスタムのメディアの種類:** `mercy-preview`
+**発表:** [2017-01-31](https://github.com/blog/2309-introducing-topics) {% endif %} {% ifversion ghes < 3.3 %}
 
-### 行動規範
+## 行動規範
 
-すべての[行動規範](/rest/reference/codes-of-conduct)を表示するか、リポジトリに現在ある行動規範を取得します。
+すべての[行動規範](/rest/reference/codes-of-conduct)を表示するか、リポジトリに現在含まれる行動規範を取得します。
 
-**カスタムメディアタイプ:** `scarlet-witch-preview`
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-### 入れ子チーム
-
-入れ子チームコンテンツを [Team](/rest/reference/teams) ペイロードに含めます。
-
-**カスタムメディアタイプ:** `hellcat-preview` **発表日:** [2017-09-01](https://developer.github.com/changes/2017-08-30-preview-nested-teams)
+**カスタムのメディアの種類:** `scarlet-witch-preview`
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes < 3.3 %}
 
-### グローバル webhook
+## グローバル webhook
 
-[Organization](/webhooks/event-payloads/#organization) および[ユーザ](/webhooks/event-payloads/#user)イベントタイプの[グローバル webhook](/rest/reference/enterprise-admin#global-webhooks/) を有効にします。 この API プレビューは {% data variables.product.prodname_ghe_server %} でのみ使用できます。
+[組織](/webhooks/event-payloads/#organization)と[ユーザー](/webhooks/event-payloads/#user)のイベントの種類に対して[グローバル Webhook](/rest/reference/enterprise-admin#global-webhooks/) を有効にします。 この API プレビューは {% data variables.product.prodname_ghe_server %} でのみ使用できます。
 
-**カスタムメディアタイプ:** `superpro-preview` **発表日:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
-
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-### リポジトリ移譲
-
-[リポジトリ](/rest/reference/repos)を Organization またはユーザに移譲します。
-
-**カスタムメディアタイプ:** `nightshade-preview` **発表日:** [2017-11-09](https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview)
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-### ロック理由の追加
-
-[Issue をロック](/rest/reference/issues#lock-an-issue)するときに理由を追加できるようになりました。
-
-**カスタムメディアタイプ:** `sailor-v-preview` **発表日:** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview)
-{% endif %}
-
-### 署名済みコミットの必須化
-
-これで、API を使用して、[保護されたブランチで署名済みコミットを必須にする](/rest/reference/repos#branches)ための設定を管理できます。
-
-**カスタムメディアタイプ:** `zzzax-preview` **発表日:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
-
-### 複数の承認レビューの必須化
-
-API を使用して、プルリクエストに対して[複数の承認レビューを必須にする](/rest/reference/repos#branches)ことができるようになりました。
-
-**カスタムメディアタイプ:** `luke-cage-preview` **発表日:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.19" %}
-### ホバーカード情報の取得
-
-[ユーザのホバーカード](/rest/reference/users#get-contextual-information-for-a-user)から情報を取得します。
-
-**カスタムメディアタイプ:** `hagar-preview` **発表日:** [2018-03-21](https://developer.github.com/changes/2018-03-21-hovercard-api-preview)
+**カスタムのメディアの種類:** `superpro-preview`
+**発表日:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
-### チェック実行とチェックスイート API
+{% ifversion ghes < 3.3 %}
 
-GitHub App がリポジトリのコードに対して外部チェックを実行できるようにします。 詳細については、[チェック実行](/rest/reference/checks#runs)と[チェックスイート](/rest/reference/checks#suites) API をご覧ください。
+## 署名済みコミットの必須化
 
-**カスタムメディアタイプ:** `antiope-preview` **発表日:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
-{% endif %}
+これで、API を使用して、[保護されたブランチで署名済みコミットを必須にする](/rest/reference/repos#branches)ための設定を管理できるようになりました。
 
-{% if currentVersion == enterpriseServerVersions contains currentVersion %}
+**カスタムのメディアの種類:** `zzzax-preview`
+**発表:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures) {% endif %} {% ifversion ghes < 3.3 %}
 
-### リポジトリへの匿名 Git アクセス
+## 複数の承認レビューの必須化
 
-{% data variables.product.prodname_ghe_server %} インスタンスがプライベートモードの場合、サイトおよびリポジトリの管理者は、パブリックリポジトリに対して匿名の Git アクセスを有効にすることができます。
+API を使用することで、pull request に対して[複数の承認レビューを要求](/rest/reference/repos#branches)できるようになりました。
 
-**カスタムメディアタイプ:** `x-ray-preview` **発表日:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
-
-{% endif %}
-
-### プロジェクトカードの詳細
-
-[Issue イベント](/rest/reference/issues#events)および [Issue タイムラインイベント](/rest/reference/issues#timeline)の REST API 応答は、プロジェクト関連イベントの `project_card` フィールドを返すようになりました。
-
-**カスタムメディアタイプ:** `starfox-preview` **発表日:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-### GitHub App マニフェスト
-
-GitHub App マニフェストを使用すると、事前設された GitHub App を作成できます。 詳細については、「[GitHub App のマニフェスト](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。
-
-**カスタムメディアタイプ:** `fury-preview`
+**カスタムのメディアの種類:** `luke-cage-preview`
+**発表日:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
 {% endif %}
 
-### デプロイメントステータス
+{% ifversion ghes < 3.3 %}
 
-[デプロイメントステータス](/rest/reference/repos#create-a-deployment-status)の`環境`を更新し、`in_progress` および `queued` ステータスを使用できるようになりました。 デプロイメントステータスを作成するときに、`auto_inactive` パラメータを使用して、古い`本番`デプロイメントを `inactive` としてマークできるようになりました。
+## プロジェクトカードの詳細
 
-**カスタムメディアタイプ:** `flash-preview` **発表日:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
+[issue イベント](/rest/reference/issues#events)と [issue タイムライン イベント](/rest/reference/issues#timeline) の REST API 応答から、プロジェクト関連のイベントの `project_card` フィールドが返されるようになりました。
 
-### リポジトリの作成権限
+**カスタムのメディアの種類:** `starfox-preview`
+**発表日:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
-Organization メンバーによるリポジトリの作成可否、および作成可能なリポジトリのタイプを設定できるようになりました。 詳細については、「[Organization を更新する](/rest/reference/orgs#update-an-organization)」を参照してください。
+{% endif %}
 
-**カスタムメディアタイプ:** `surtur-preview` **発表日:** [2019-12-03](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
+{% ifversion ghes < 3.3 %}
 
-### コンテンツの添付
+## デプロイメントステータス
+
+これで、[デプロイ状態](/rest/reference/deployments#create-a-deployment-status)の `environment` を更新し、`in_progress` と `queued` の状態を使用できるようになりました。 デプロイの状態を作成する際に、`auto_inactive` パラメーターを使用して古い `production` デプロイを `inactive` として使用できるようになりました。
+
+**カスタムのメディアの種類:** `flash-preview`
+**発表日:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
+
+{% endif %}
+
+{% ifversion ghes < 3.3 %}
+
+## リポジトリの作成権限
+
+Organization メンバーによるリポジトリの作成可否、および作成可能なリポジトリのタイプを設定できるようになりました。 詳細については、[組織の更新](/rest/reference/orgs#update-an-organization)に関するページを参照してください。
+
+**カスタムのメディアの種類:** `surtur-preview`
+**発表:** [2019-12-03](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
+
+{% endif %}
+
+{% ifversion ghes < 3.4 %}
+## コンテンツの添付
 
 {% data variables.product.prodname_unfurls %} API を使用して、登録されたドメインにリンクする URL の詳細情報を GitHub で提供できるようになりました。 詳細については、「[添付コンテンツを使用する](/apps/using-content-attachments/)」を参照してください。
 
-**カスタムメディアタイプ:** `corsair-preview` **発表日:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
+**カスタムのメディアの種類:** `corsair-preview`
+**発表:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-### ドラフトプルリクエスト
+{% endif %} {% ifversion ghes < 3.3 %}
 
-ドラフトプルリクエスト API とその[プルリクエスト](/rest/reference/pulls)エンドポイントを使用して、プルリクエストがドラフト状態かどうかを確認できます。 ドラフトプルリクエストについての詳細は、「[プルリクエストについて](/articles/about-pull-requests/)」を参照してください。
+## Pages の有効化と無効化
 
-**カスタムメディアタイプ:** `shadow-cat-preview` **発表日:** [2019-02-14](https://developer.github.com/changes/2019-02-14-draft-pull-requests/)
+[Pages API](/rest/reference/repos#pages) の新しいエンドポイントを使用して、Pages を有効または無効にすることができます。 Pages の詳細については、[GitHub Pages の基本](/categories/github-pages-basics)に関するページを参照してください。
+
+**カスタムのメディアの種類:** `switcheroo-preview`
+**発表:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
 
 {% endif %}
 
-### Pages の有効化と無効化
+{% ifversion ghes < 3.3 %}
 
-[Pages API](/rest/reference/repos#pages) の新しいエンドポイントを使用して、Pages を有効または無効にできます。 Pages の詳細については、「[GitHub Pages の基本](/categories/github-pages-basics) 」を参照してください。
+## コミットのブランチまたはプルリクエストの一覧表示
 
-**カスタムメディアタイプ:** `switcheroo-preview` **発表日:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
+[Commits API](/rest/reference/repos#commits) で 2 つの新しいエンドポイントを使用して、コミットのブランチまたは pull requests を一覧表示できます。
 
-### コミットのブランチまたはプルリクエストの一覧表示
+**カスタムのメディアの種類:** `groot-preview`
+**発表:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
-[Commits API](/rest/reference/repos#commits) で 2 つの新しいエンドポイントを使用して、コミットのブランチまたはプルリクエストを一覧表示できます。
-
-**カスタムメディアタイプ:** `groot-preview` **発表日:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-### GitHub App のアンインストール
-
-GitHub App の所有者は、[Apps API](/rest/reference/apps#delete-an-installation-for-the-authenticated-app) を使用してアプリケーションをアンインストールできるようになりました。
-
-**カスタムメディアタイプ:** `gambit-preview`
 {% endif %}
 
-### リポジトリの脆弱性アラートの有効化または無効化
+{% ifversion ghes < 3.3 %}
 
-[Repos API](/rest/reference/repos) で 2 つの新しいエンドポイントを使用して、脆弱性アラートを有効化または無効化できます。
+## プルリクエストブランチの更新
 
-**カスタムメディアタイプ:** `dorian-preview` **発表日:** [2019-04-24](https://developer.github.com/changes/2019-04-24-vulnerability-alerts/)
+新しいエンドポイントを使用することで、アップストリーム ブランチの HEAD からの変更で [pull request ブランチを更新](/rest/reference/pulls#update-a-pull-request-branch)することができます。
 
-### プルリクエストブランチの更新
+**カスタムのメディアの種類:** `lydian-preview`
+**発表:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
-新しいエンドポイントを使用して、[プルリクエストブランチ](/rest/reference/pulls#update-a-pull-request-branch)を上流ブランチの HEAD からの変更で更新できます。
+{% endif %} {% ifversion ghes < 3.3 %}
 
-**カスタムメディアタイプ:** `lydian-preview` **発表日:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
+## リポジトリテンプレートの作成および使用
 
-{% if currentVersion == "free-pro-team@latest" %}
-### 自動セキュリティ修正の有効化または無効化
+新しいエンドポイントを使用すると、[テンプレートを使用してリポジトリを作成](/rest/reference/repos#create-a-repository-using-a-template)したり、`is_template` パラメーターを `true` に設定して[認証済みユーザー用のリポジトリを作成](/rest/reference/repos#create-a-repository-for-the-authenticated-user)したりできます。 [リポジトリを取得](/rest/reference/repos#get-a-repository)することで、`is_template` キーを使用してそれがテンプレート リポジトリとして設定されているかどうかを確認できます。
 
-新しいエンドポイントを使用して、[自動セキュリティ修正を有効化または無効化](/rest/reference/repos#enable-automated-security-fixes)することができます。
+**カスタムのメディアの種類:** `baptiste-preview`
+**発表:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/) {% endif %} {% ifversion ghes < 3.3 %}
 
-**カスタムメディアタイプ:** `london-preview` **発表日:** [2019-06-04](https://developer.github.com/changes/2019-06-04-automated-security-fixes/)
-{% endif %}
-
-### リポジトリテンプレートの作成および使用
-
-新しいエンドポイントで、[テンプレートを使用してリポジトリを作成](/rest/reference/repos#create-a-repository-using-a-template)し、`is_template` パラメータを `true` に設定して、テンプレートリポジトリである[認証済みユーザのリポジトリを作成](/rest/reference/repos#create-a-repository-for-the-authenticated-user)できます。 `is_template` キーを使用して、[リポジトリを取得](/rest/reference/repos#get-a-repository)し、テンプレートリポジトリとして設定されているかどうかを確認します。
-
-**カスタムメディアタイプ:** `baptiste-preview` **発表日:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
-
-{% if currentVersion == "enterprise-server@2.20" %}
-### 新しい OAuth アプリケーション API エンドポイント
-
-新しい [OAuth アプリケーション API](/rest/reference/apps#oauth-applications) エンドポイントでパスパラメータの代わりに OAuth トークンを入力パラメータとして使用することにより、OAuth App のトークンをより安全に管理できます。
-
-**カスタムメディアタイプ:** `doctor-strange-preview` **発表日:** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/)
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-### Repositories API の新しい可視性パラメータ
+## Repositories API の新しい可視性パラメータ
 
 [Repositories API](/rest/reference/repos) でリポジトリの可視性を設定および取得できます。
 
-**カスタムメディアタイプ:** `nebula-preview` **発表日:** [2019-11-25](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
-{% endif %}
+**カスタムのメディアの種類:** `nebula-preview`
+**発表:** [2019-11-25](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/) {% endif %}

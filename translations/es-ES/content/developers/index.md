@@ -2,12 +2,20 @@
 title: Desarrolladores
 intro: 'Saca más provecho de {% data variables.product.prodname_dotcom %} integrándote con nuestras API, personalizando tu flujo de trabajo de {% data variables.product.prodname_dotcom %}, y creando y compartiendo apps con la comunidad.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+children:
+  - /overview
+  - /webhooks-and-events
+  - /apps
+  - /github-marketplace
+ms.openlocfilehash: 12f99e62dd1e5a4128079360b4d1721954f5e775
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145112474'
 ---
 
-{% link_with_intro /overview %}
-{% link_with_intro /webhooks-and-events %}
-{% link_with_intro /apps %}
-{% link_with_intro /github-marketplace %}

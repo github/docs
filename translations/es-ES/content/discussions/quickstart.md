@@ -1,58 +1,83 @@
 ---
 title: Guía de inicio rápido para los debates de GitHub
-intro: 'Habilita los {% data variables.product.prodname_discussions %} en un repositorio existente e inicia conversaciones con tu comunidad.'
+intro: 'Habilita {% data variables.product.prodname_discussions %} en un repositorio u organización existente e inicia conversaciones con tu comunidad.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  feature: discussions
+shortTitle: Quickstart
+ms.openlocfilehash: 0b43d9ce559e31c93002cc8cccef51b8284672c1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410215'
 ---
+## Introducción
 
-{% data reusables.discussions.beta %}
-
-### Introducción
-
-{% data variables.product.prodname_discussions %} es un foro de comunicación colaborativa para la comunidad que circunda un proyecto de código abierto. Se pretende que los debates se lleven a cabo para las conversaciones que necesitan ser transparentes y de fácil acceso pero que no necesitan rastrearse en un tablero de proyecto y que no estén relacionadas con el código, a diferencia de las propuestas. Los debates habilitan las conversaciones abiertas y fluídas en un foro público.
+{% data variables.product.prodname_discussions %} es un foro de comunicación colaborativa para la comunidad que circunda un proyecto interno o de código abierto. Los debates existen para las conversaciones que necesitan ser transparentes y accesibles pero no necesitan rastrearse en un tablero de proyecto y no se relacionan con el código, a diferencia de los {% data variables.product.prodname_github_issues %}. Los debates habilitan las conversaciones abiertas y fluídas en un foro público.
 
 Los debates proporcionan un espacio para que existan conversaciones colaborativas al conectar y asignar un área más centralizada para conectarse y encontrar información.
 
-### Habilitar los {% data variables.product.prodname_discussions %} en tu repositorio
+## Habilitar los {% data variables.product.prodname_discussions %} en tu repositorio
 
-Los propietarios de los repositorios y las personas con acceso de escritura pueden habilitar los {% data variables.product.prodname_discussions %} para una comunidad en sus repositorios privados o públicos.
+Los propietarios de los repositorios y las personas con acceso de escritura pueden habilitar los {% data variables.product.prodname_discussions %} para una comunidad en sus repositorios públicos{% ifversion ghes > 3.5 %}, internos{% endif %} y privados. La visibilidad de un debate se hereda del repositorio en el que se crea el debate.
 
-Cuando habilitas un {% data variables.product.prodname_discussions %} por primera vez, se te invitará a configurar una publicación de bienvenida.
+Cuando habilitas los {% data variables.product.prodname_discussions %} por primera vez, se te invitará a configurar una publicación de bienvenida.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Debajo de tu nombre de repositorio, da clic en {% octicon "gear" aria-label="The gear icon" %} **Configuración**. ![Botón de configuración pública](/assets/images/help/discussions/public-repo-settings.png)
-1. Debajo de "Características", da clic en **Configurar debates**. ![Botón de configurar un debate debajo de "Características" para habilitar o inhabilitar los debates para un repositorio](/assets/images/help/discussions/setup-discussions-button.png)
+1. Debajo del nombre del repositorio, haga clic en {% octicon "gear" aria-label="The gear icon" %} **Settings** (Configuración).
+![Botón de configuración pública](/assets/images/help/discussions/public-repo-settings.png)
+1. En "Features" (Características), haga clic en **Set up discussions** (Configurar debates).
+  ![Botón "Set up discussions" (Configurar debates) en "Features" (Características) para habilitar o deshabilitar los debates de GitHub en un repositorio](/assets/images/help/discussions/setup-discussions-button.png)
 1. Debajo de "Iniciar un debate nuevo" edita la plantilla para que se apegue con los recursos y el tono que quieras configurar para tu comunidad.
-1. Da clic en **Iniciar debate**. ![Botón de "Iniciar debate"](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
+1. Haga clic en **Start discussion** (Iniciar debate).
+  ![Botón "Start discussion" (Iniciar debate)](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
-### Aceptar contribuyentes en tus debates
+## Habilitación de {% data variables.product.prodname_discussions %} en tu organización
 
-Puedes invitar a tu comunidad y presentarles una forma nueva de comunicarse en un repositorio si creas una publicación de bienvenida y la fijas en tu página de {% data variables.product.prodname_discussions %}. El fijar y bloquear los debates ayuda a que las personas sepan si una publicación se hizo a manera de anuncio. Puedes utilizar los anuncios como una forma de vincular a las personas con más recursos y ofrecerles orientación para abrir debates en tu comunidad. Para obtener más información sobre cómo fijar un debate, consulta la sección "[Administrar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)".
+Los propietarios de las organizaciones pueden habilitar {% data variables.product.prodname_discussions %} para su organización.
+
+{% data reusables.discussions.about-organization-discussions %}
+
+{% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-organization %}
+
+## Aceptar contribuyentes en tus debates
+
+Puedes dar la bienvenida a tu comunidad y presentar una forma nueva de comunicarse en un repositorio o una organización si creas una publicación de bienvenida y anclas la publicación a tu página de {% data variables.product.prodname_discussions %}. El fijar y bloquear los debates ayuda a que las personas sepan si una publicación se hizo a manera de anuncio. Puedes utilizar los anuncios como una forma de vincular a las personas con más recursos y ofrecerles orientación para abrir debates en tu comunidad. Para más información sobre cómo anclar un debate, consulta "[Administración de debates](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)".
 
 
-### Configurar los lineamientos comunitarios para los contribuyentes
+## Configurar los lineamientos comunitarios para los contribuyentes
 
-Puedes configurar lineamientos de contribución para motivar a los colaboradores para que tengan conversaciones significativas y útiles que sean relevantes para el repositorio. También puedes actualizar el archivo de README del repositorio para comunicar tus expectativas de cuándo deberían los colaboradores abrir una propuesta o un debate.
+En el caso de los debates de un repositorio, puedes configurar lineamientos de contribución para motivar a los colaboradores para que tengan conversaciones significativas y útiles que sean relevantes para el repositorio. También puedes actualizar el archivo de README del repositorio para comunicar tus expectativas de cuándo deberían los colaboradores abrir una propuesta o un debate. Para obtener más información sobre cómo proporcionar instrucciones para el proyecto, consulta{% ifversion fpt or ghec %} "[Adición de un código de conducta al proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y{% endif %} "[Configuración del proyecto para colaboraciones correctas](/communities/setting-up-your-project-for-healthy-contributions)".
 
-Para obtener más información sobre proporcionar lineamientos para tu proyecto, consulta las secciones "[Agregar un código de conducta a tu proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y "[Configurar tu proyecto para que tegan contribuciones sanas](/communities/setting-up-your-project-for-healthy-contributions)".
+En el caso de los debates de una organización, compartes información sobre como participar con tu organización si creas un archivo LÉAME de perfil de esta. Para más información, consulta "[Personalización del perfil de la organización](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".
 
-### Crear un debate nuevo
+## Crear un debate nuevo
 
-Cualquiera con acceso a un repositorio puede crear un debate.
+Cualquier usuario autenticado que pueda ver un repositorio puede crear un debate en dicho repositorio. Del mismo modo, dado que los debates de una organización se basan en un repositorio de origen, cualquier usuario autenticado que pueda ver el repositorio de origen puede crear un debate en esa organización.
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Organizar los debates en tus categorías relevantes
+## Creación de un sondeo
 
-Los propietarios de los repositorios y las personas con acceso de escritura pueden crear categorías nuevas para mantener los debates organizados. Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías para los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
+Cualquier usuario autenticado que pueda ver un repositorio puede crear un sondeo. Del mismo modo, dado que los debates de una organización se basan en un repositorio de origen, cualquier usuario autenticado que pueda ver el repositorio de origen puede crear un sondeo en esa organización.
 
-### Promover las conversaciones sanas
+{% data reusables.discussions.starting-a-poll %}
 
-Las personas con permisos de escritura en un repositorio pueden ayudar a que las conversaciones importantes emerjan fijando los debates, borrando aquellos que ya no sean útiles o que dañen a la comunidad, y transfiriendo aquellos a repositorios más relevantes que pertenezcan a la organización. Para obtener más información, consulta la sección "[Administrar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
+## Organizar debates
 
-Las personas con permisos de clasificación en un repositorio pueden ayudar a moderar los debates de un proyecto si marcan los comentarios como respuestas, fijar los debates que ya no son útiles o que están haciendo daño a la comunidad, y convertir las propuestas en debates cuando una idea aún se encuentra en una etapa temprana de desarrollo. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
+Los propietarios de un repositorio y las personas que tienen acceso de escritura al mismo pueden crear categorías nuevas para mantener los debates organizados. Del mismo modo, dado que los debates de una organización se basan en un repositorio de origen, los propietarios del repositorio y las personas que tienen acceso de escritura al repositorio de origen pueden crear categorías para los debates de una organización.
 
-### Pasos siguientes
+Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para más información, consulta "[Administración de categorías para debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
-Una vez que exista una ruta clara para ampliar el alcance del trabajo y migrar una idea desde un concepto hacia la realidad, puedes crear una propuesta y comenzar a rastrear tu progreso. Para obtener más información sobre cómo crear una propuesta a partir de un debate, consulta la sección "[Moderar debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
+{% data reusables.discussions.you-can-label-discussions %}
+
+## Promover las conversaciones sanas
+
+Las personas que tienen permisos de escritura en el repositorio, o bien en el repositorio de origen para los debates de una organización, pueden ayudar a que las conversaciones importantes emerjan si anclan los debates, borran aquellos que ya no son útiles o que dañan a la comunidad, y transfieren aquellos a repositorios más pertinentes que pertenezcan a la organización. Para más información, consulta "[Administración de debates](/discussions/managing-discussions-for-your-community/managing-discussions)".
+
+Las personas con permisos de evaluación de prioridades en el repositorio, o bien en el repositorio de origen para los debates de una organización, pueden ayudar a moderar los debates de un proyecto si marcan los comentarios como respuestas, bloquean los debates que ya no son útiles o que dañan a la comunidad, y convierten las incidencias en debates cuando una idea aún se encuentra en una etapa de desarrollo temprana. Para más información, vea "[Moderación de debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
+
+## Pasos siguientes
+
+Una vez que exista una ruta clara para ampliar el alcance del trabajo y migrar una idea desde un concepto hacia la realidad, puedes crear una propuesta y comenzar a rastrear tu progreso. Para obtener más información sobre cómo crear una incidencia a partir de un debate, vea "[Moderación de debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".

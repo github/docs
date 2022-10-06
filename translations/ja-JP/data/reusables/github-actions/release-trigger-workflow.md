@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %}上で新しいリリースを作成するたびに、イメージを公開するワークフローを起動できます。 以下の例のワークフローは、`created`というアクティビティの種類を持つ`release`イベントが生じた時に実行されます。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。

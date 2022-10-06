@@ -1,9 +1,24 @@
-const fetch = require('node-fetch')
-const FailBot = require('../../lib/failbot')
-
-jest.mock('node-fetch')
+import FailBot from '../../lib/failbot.js'
+import nock from 'nock'
 
 describe('FailBot', () => {
+  const requestBodiesSent = []
+
+  beforeEach(() => {
+    delete process.env.HAYSTACK_URL
+
+    // Always reset the array to an empty one between tests
+    // so it doesn't intefere across tests.
+    requestBodiesSent.length = 0
+
+    nock('https://haystack.example.com')
+      .post('/')
+      .reply(200, (uri, requestBody) => {
+        requestBodiesSent.push(requestBody)
+        return requestBody
+      })
+  })
+
   afterEach(() => {
     delete process.env.HAYSTACK_URL
   })
@@ -12,34 +27,34 @@ describe('FailBot', () => {
     it('returns early if `HAYSTACK_URL` is not set', async () => {
       const result = await FailBot.report()
       expect(result).toBeUndefined()
+      expect(requestBodiesSent.length).toBe(0)
     })
 
     it('sends the expected report', async () => {
-      process.env.HAYSTACK_URL = 'https://haystack.com'
+      process.env.HAYSTACK_URL = 'https://haystack.example.com'
       const err = new Error('Kaboom')
-      await FailBot.report(err)
+      const backendPromises = FailBot.report(err, { foo: 'bar' })
+      // Note! You don't need to await the promises it returns to be
+      // able to use `FailBot.report()`. It will send.
+      // But here in the context of jest, we need to await *now*
+      // so we can assert that it did make the relevant post requests.
+      // Once we've done this, we can immediate check what it did.
+      await Promise.all(await backendPromises)
 
-      // Check that we made a request
-      expect(fetch).toHaveBeenCalled()
+      // It's not interesting or relevant what the `.report()` static
+      // method returns. All that matters is that it did a POST
+      // request.
+      expect(requestBodiesSent.length).toBe(1)
 
-      // Verify the basic fetch params
-      const params = fetch.mock.calls[0]
-      expect(params[0]).toBe('https://haystack.com')
-      expect(params[1]).toMatchObject({
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-      })
-
-      // Check that we send the expected body
-      const body = JSON.parse(params[1].body)
-      expect(body).toMatchObject({
+      // Verify what was sent in that POST request.
+      expect(requestBodiesSent[0]).toMatchObject({
         app: 'docs',
         backtrace: expect.stringContaining('Error: Kaboom'),
         class: 'Error',
         created_at: expect.any(String),
         js_environment: expect.stringMatching(/^Node\.js\sv[\d.]+/),
         message: 'Kaboom',
-        rollup: expect.any(String)
+        rollup: expect.any(String),
       })
     })
   })

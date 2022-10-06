@@ -1,56 +1,64 @@
 ---
 title: Sobre equipes
-intro: As equipes são grupos de integrantes da organização que refletem sua empresa ou a estrutura do grupo com permissões de acesso em cascata e menções.
+intro: As equipes são grupos de membros da organização que refletem a estrutura da sua empresa ou do grupo com menções e permissões de acesso em cascata.
 redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+ms.openlocfilehash: 7b899cf08ca58170acdf8fb2fb2ad13d251b76e3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145149841'
 ---
-
 ![Lista de equipes em uma organização](/assets/images/help/teams/org-list-of-teams.png)
 
-Os proprietários da organização e os mantenedores de equipe podem dar às equipes acesso de administrador, leitura ou gravação aos repositórios da organização. Os integrantes da organização podem enviar uma notificação a uma equipe inteira mencionando o nome da equipe. Os integrantes da organização também podem enviar uma notificação a uma equipe inteira solicitando uma revisão dessa equipe. Os integrantes da organização podem solicitar revisões de equipes específicas com acesso de leitura ao repositório onde a pull request está aberta. As equipes podem ser designadas como proprietários de determinados tipos de área de código em um arquivo CODEOWNERS.
+Os proprietários da organização e os mantenedores da equipe podem conceder às equipes acesso de administrador, de leitura ou de gravação aos repositórios da organização. Os membros da organização podem enviar uma notificação para uma equipe inteira mencionando o nome da equipe. Os membros da organização também podem enviar uma notificação para uma equipe inteira solicitando uma análise dessa equipe. Os membros da organização podem solicitar análises de equipes específicas com acesso de leitura ao repositório no qual a solicitação de pull foi aberta. As equipes podem ser designadas como proprietários de determinados tipos de área de código em um arquivo CODEOWNERS.
 
 Para obter mais informações, consulte:
-- "[Gerenciar o acesso da equipe a um repositório da organização](/articles/managing-team-access-to-an-organization-repository)"
-- "[Mencionar pessoas e equipes](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)"
-- "[Sobre proprietários do código](/articles/about-code-owners/)"
+- "[Como gerenciar o acesso da equipe a um repositório da organização](/articles/managing-team-access-to-an-organization-repository)"
+- "[Como mencionar pessoas e equipes](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)"
+- "[Sobre os proprietários de código](/articles/about-code-owners/)"
 
 ![Imagem de uma menção de equipe](/assets/images/help/teams/team-mention.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-Você também pode usar a sincronização LDAP para sincronizar os integrantes e funções da equipe da {% data variables.product.product_location %} com os grupos LDAP estabelecidos. Isso permite estabelecer o controle de acesso baseado em função para usuários do servidor LDAP em vez de manualmente na {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar a Sincronização LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
+Use também a Sincronização LDAP para sincronizar membros da equipe e funções de equipe do {% data variables.product.product_location %} com os grupos LDAP estabelecidos. Isso permite estabelecer o controle de acesso baseado em função para usuários do servidor LDAP em vez de manualmente no {% data variables.product.product_location %}. Para obter mais informações, confira "[Como habilitar a Sincronização LDAP](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)".
 
 {% endif %}
 
 {% data reusables.organizations.team-synchronization %}
 
-### Visibilidade da equipe
+## Visibilidade da equipe
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-### Páginas da equipe
+Você pode ver todas as equipes às quais você pertence no seu painel pessoal. Para obter mais informações, confira "[Sobre seu painel pessoal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)".
+
+## Páginas da equipe
 
 Cada equipe tem sua própria página em uma organização. Na página de uma equipe, é possível exibir integrantes da equipe, equipes secundárias e os repositórios da equipe. Os proprietários da organização e os mantenedores de equipe podem acessar as configurações da equipe, bem como atualizar a descrição e a foto de perfil da equipe na página da equipe.
 
-Os integrantes da organização podem criar e participar de discussões com a equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)".
+Os integrantes da organização podem criar e participar de discussões com a equipe. Para obter mais informações, confira "[Sobre as discussões em equipe](/organizations/collaborating-with-your-team/about-team-discussions)".
 
 ![Página da equipe listando integrantes e discussões da equipe](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-### Equipes aninhadas
+## Equipes aninhadas
 
-Você pode refletir seu grupo ou a hierarquia da empresa na sua organização do {% data variables.product.product_name %} com vários níveis de equipes aninhadas. Uma equipe principal pode ter várias equipes secundárias, enquanto cada equipe secundária tem apenas uma equipe principal. Não é possível aninhar equipes secretas.
+Você pode refletir seu grupo ou a hierarquia da empresa na sua organização do {% data variables.product.product_name %} com vários níveis de equipes aninhadas. Uma equipe pai pode ter várias equipes filhas, enquanto cada equipe filha tem apenas uma equipe pai. Você não pode aninhar equipes secretas.
 
-As equipes secundárias herdam as permissões de acesso da principal, simplificando o gerenciamento de permissões para grandes grupos. Os integrantes das equipes secundárias também recebem notificações quando a equipe principal é @mencionada, simplificando a comunicação com vários grupos de pessoas.
+As equipes filhas herdam as permissões de acesso do pai, simplificando o gerenciamento de permissões para grandes grupos. Os membros das equipes filho também recebem notificações quando a equipe pai é @mentioned, simplificando a comunicação com vários grupos de pessoas.
 
-Por exemplo, se a estrutura da sua equipe for Funcionários > Engenharia > Engenharia de aplicativos > Identidade, conceder à Engenharia acesso de gravação a um repositório significa que a Engenharia de aplicativos e a Identidade também obterão esse acesso. Se você @mencionar a Equipe Identidade ou qualquer equipe na parte inferior da hierarquia da organização, elas serão as únicas que receberão uma notificação.
+Por exemplo, se a estrutura da sua equipe for Funcionários > Engenharia > Engenharia de aplicativos > Identidade, conceder à Engenharia acesso de gravação a um repositório significa que a Engenharia de aplicativo e a Identidade também obterão esse acesso. Se você @mention a Equipe de Identidade ou qualquer equipe na parte inferior da hierarquia da organização, elas serão as únicas que receberão uma notificação.
 
 ![Página das equipes com uma equipe principal e equipes secundárias](/assets/images/help/teams/nested-teams-eng-example.png)
 
@@ -58,11 +66,11 @@ Para entender facilmente quem compartilha permissões da equipe principal e faz 
 
 ![Página da equipe principal com todos os integrantes das equipes secundárias](/assets/images/help/teams/team-and-subteam-members.png)
 
-Você pode escolher uma principal quando criar a equipe ou pode mover uma equipe na hierarquia da organização posteriormente. Para obter mais informações, consulte "[Mover uma equipe na hierarquia da sua organização](/articles/moving-a-team-in-your-organization-s-hierarchy)".
+Você pode escolher uma principal quando criar a equipe ou pode mover uma equipe na hierarquia da organização posteriormente. Para obter mais informações, confira "[Como mover uma equipe na hierarquia da sua organização](/articles/moving-a-team-in-your-organization-s-hierarchy)".
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-### Preparar para aninhar equipes em sua organização
+## Preparar para aninhar equipes em sua organização
 
 Se a sua organização já tiver equipes, você deverá auditar as permissões de acesso ao repositório de cada equipe antes de aninhar equipes acima ou abaixo dela. Também é preciso considerar a nova estrutura que deseja implementar para a organização.
 
@@ -73,7 +81,7 @@ No topo da hierarquia da equipe, você deve fornecer às equipes principais perm
 3. Crie qualquer equipe nova que desejar, escolha uma principal para cada equipe nova e forneça a ela acesso ao repositório
 4. Adicione pessoas diretamente às equipes
 
-### Leia mais
+## Leitura adicional
 
-- "[Criar uma equipe](/articles/creating-a-team)"
-- "[Adicionar integrantes da organização a uma equipe](/articles/adding-organization-members-to-a-team)"
+- "[Como criar uma equipe](/articles/creating-a-team)"
+- "[Como adicionar membros da organização a uma equipe](/articles/adding-organization-members-to-a-team)"

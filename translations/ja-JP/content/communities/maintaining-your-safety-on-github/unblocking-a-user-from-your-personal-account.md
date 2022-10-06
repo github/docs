@@ -5,38 +5,47 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/unblocking-a-user-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Unblock from your account
+ms.openlocfilehash: a88a8613a8d787ee7e42ea9f6f5ef994353aedc8
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145090273'
 ---
-
-ユーザのブロックを解除した場合、そのユーザはあなたをリポジトリのコラボレーターに招待できます。 もしそのユーザがあなたを GitHub のどこかで [@メンション](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)した場合、あなたは通知を受け取ります。
+ユーザのブロックを解除した場合、そのユーザはあなたをリポジトリのコラボレーターに招待できます。 GitHub 上の任意の場所で彼らが[あなたについて@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) した場合、通知を受け取ります。
 
 お客様が所有しているリポジトリで、そのユーザは通常通りにコラボレートできるようになります。
 
 アカウント設定、もしくはユーザのプロフィールページからユーザのブロックを解除できます。
 
-### アカウント設定でのユーザのブロックの解除
+## アカウント設定でのユーザのブロックの解除
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
-3. [Blocked users] の下で、ブロックを解除したいユーザの横にある [**Unblock**] をクリックします。 ![ユーザブロックの解除ボタン](/assets/images/help/organizations/org-unblock-user-button.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.blocked_users %}
+3. [ブロックされたユーザー] の下で、ブロックを解除するユーザーの横にある **[ブロック解除]** をクリックします。
+![ユーザー ブロックの解除ボタン](/assets/images/help/organizations/org-unblock-user-button.png)
 
-### プロフィールページからのユーザのブロックの解除
+## プロフィールページからのユーザのブロックの解除
 
 {% data reusables.profile.user_profile_page_navigation %}
-2. 左のサイドバーのユーザのプロフィール写真の下にある [{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}] をクリックしてから、[**Unblock or report user**] をクリックします。 ![ユーザリンクのブロックの解除または報告](/assets/images/help/profile/profile-unblock-or-report-user.png)
-3. [**Unblock user**] をクリックします。 ![ユーザのブロックの解除あるいは悪用のレポートの選択肢を持つモーダルボックス](/assets/images/help/profile/profile-unblockuser.png)
+2. 左のサイドバーのユーザのプロフィール写真の下にある [{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}] をクリックしてから、 **[ユーザーのブロックの解除または報告]** をクリックします。
+![ユーザーのブロックの解除または報告のリンク](/assets/images/help/profile/profile-unblock-or-report-user.png)
+3. **[ブロックの解除]** をクリックします。
+  ![ユーザーのブロックの解除または不正報告のオプションがあるモーダル ボックス](/assets/images/help/profile/profile-unblockuser.png)
 
 {% tip %}
 
-**参考**: コラボレーターステータス、Star やフォローなど、ユーザをブロックした時に削除した設定については、そのユーザのブロックを解除しても回復しません。
+**ヒント**: コラボレーター ステータス、Star やフォローなど、ユーザをブロックした時に削除した設定については、そのユーザのブロックを解除しても回復しません。
 
 {% endtip %}
 
-### 参考リンク
+## 参考資料
 
-- [個人アカウントからのユーザのブロック](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)
-- [Organization からのユーザのブロック](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)
-- [Organization からのユーザのブロック解除](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)
-- [悪用あるいはスパムのレポート](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
+- "[個人アカウントからのユーザーのブロック](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
+- 「[組織からのユーザーのブロック](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)」
+- "[組織からユーザーのブロックを解除する](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
+- "[悪用あるいはスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"

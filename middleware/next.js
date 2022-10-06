@@ -1,21 +1,28 @@
-const next = require('next')
+import next from 'next'
 
-const { NODE_ENV, FEATURE_NEXTJS } = process.env
+const { NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
 
-let nextHandleRequest
-if (FEATURE_NEXTJS) {
-  const nextApp = next({ dev: isDevelopment })
-  nextHandleRequest = nextApp.getRequestHandler()
-  nextApp.prepare()
-}
+export const nextApp = next({ dev: isDevelopment })
+export const nextHandleRequest = nextApp.getRequestHandler()
+await nextApp.prepare()
 
-module.exports = function renderPageWithNext (req, res, next) {
-  if (req.path.startsWith('/_next/')) {
+function renderPageWithNext(req, res, next) {
+  // We currently don't use next/image for any images.
+  // We don't even have `sharp` installed.
+  // This could change in the future but right now can just 404 on these
+  // so we don't have to deal with any other errors.
+  if (req.path.startsWith('/_next/image')) {
+    return next(404)
+  }
+
+  const isNextDataRequest = req.path.startsWith('/_next') && !req.path.startsWith('/_next/data')
+
+  if (isNextDataRequest) {
     return nextHandleRequest(req, res)
   }
 
-  next()
+  return next()
 }
 
-module.exports.nextHandleRequest = nextHandleRequest
+export default renderPageWithNext

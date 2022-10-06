@@ -1,1 +1,0 @@
-Du kannst den Zugriff für eine einzelne IP-Adresse oder einen Adressbereich mithilfe der CIDR-Notation genehmigen. Weitere Informationen findest Du unter „[CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)" (CIDR-Notation) auf Wikipedia.

@@ -1,2 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} デフォルトでは、{% data variables.product.product_name %} はビルドログと成果物を 90 日間保存します。この保持期間はカスタマイズできます。 詳しい情報については、「[使用制限、支払い、および管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)」を参照してください。{% endif %}
-{% if currentVersion == "enterprise-server@2.22" %} {% data variables.product.product_name %} には、完全なビルドログと成果物が 90 日間保存されます。{% endif %}

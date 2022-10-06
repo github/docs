@@ -1,1 +1,0 @@
-1. Verwende in der linken Seitenleiste unter der Liste der Repositories das Dropdownmenü "Manage notifications" (Benachrichtigungen verwalten), um auf **Notification settings** (Benachrichtigungseinstellungen) zu klicken. ![Dropdownmenü-Optionen „Manage Notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
