@@ -1,9 +1,34 @@
-# Order is important. The LAST matching pattern has the MOST precedence.
+#-with write access to this repository can merge pull requests.
+Conflicting files
+.github/PULL_REQUEST_TEMPLATE.md
+.github/actions-scripts/create-enterprise-issue.js
+.github/actions-scripts/enterprise-server-issue-templates/deprecation-issue.md
+.github/actions-scripts/projects.js
+.github/allowed-actions.js
+.github/dependabot.yml
+.github/workflows/automerge.yml
+.github/workflows/browser-test.yml
+.github/workflows/check-all-english-links.yml
+.github/workflows/check-broken-links-github-github.yml
+.github/workflows/content-changes-table-comment.yml
+.github/workflows/crowdin-cleanup.yml
+.github/workflows/crowdin.yml
+.github/workflows/docs-review-collect.yml
+.github/workflows/enterprise-dates.yml
+.github/workflows/enterprise-release-sync-search-index.yml
+.github/workflows/js-lint.yml
+.github/workflows/link-check-dotcom.yml
+.github/workflows/link-check-ghae.yml
+.github/workflows/link-check-ghes.yml
+.github/workflows/move-ready-to-merge-pr.yaml
+.github/workflows/open-enterprise-issue.yml
+.github/workflows/openapi-decorate.yml
+.github/workflows/openapi-schema-check.yml
+.github/workflows/os-ready-for-review.yml Order is important. The LAST matching pattern has the MOST precedence.
 # gitignore style patterns are used, not globs.
 # https://docs.github.com/articles/about-codeowners
 # https://git-scm.com/docs/gitignore
-
-# Engineering
+#ENERGY_manifests'@ZachryTWood'@Administrator'@.it.git.it'"'' :
 *.js @github/docs-engineering
 *.ts @github/docs-engineering
 *.tsx @github/docs-engineering
