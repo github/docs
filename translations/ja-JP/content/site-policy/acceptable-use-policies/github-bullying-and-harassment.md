@@ -9,8 +9,13 @@ topics:
 redirect_from:
   - /github/site-policy/github-bullying-and-harassment
   - /github/site-policy/github-community-guidelines#bullying-and-harassment
+ms.openlocfilehash: 3728314661ad4cb9d5b0765b937e618f8ee31f7b
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556542'
 ---
-
 当社は、禁止されている行為を自ら行うか、または加担することを他者に促すかにかかわらず、いかなる嫌がらせ、いじめ、または虐待も容認しません。 こうした行為には、以下が含まれます。
 
 - 対象を絞った個人攻撃

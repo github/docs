@@ -8,6 +8,12 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 52d7b272455ad0cef74ae07a7f4694afd66c055f
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556704'
 ---
 En GitHub, mantenemos nuestro compromiso con las prácticas empresariales éticas, lo que incluye la prohibición del soborno y la corrupción. Como explica [Transparencia Internacional](https://www.transparency.org/what-is-corruption#costs-of-corruption), el coste de la corrupción es:
 - **político**, pues plantea un grave obstáculo a la democracia y el estado de derecho;
@@ -17,7 +23,7 @@ En GitHub, mantenemos nuestro compromiso con las prácticas empresariales ética
 
 Según los cálculos del [Banco Mundial](https://www.worldbank.org/en/topic/governance/brief/anti-corruption) en 2017, las empresas y las personas físicas abonan aproximadamente un billón y medio de dólares estadounidenses (1,5 billones de USD) en sobornos al año.
 
-## <a name="github-policies-prohibiting-bribery"></a>Directivas de GitHub que prohíben el soborno
+## Directivas de GitHub que prohíben el soborno
 
 El compromiso de GitHub contra el soborno queda claro en varias de nuestras directivas empresariales. Como parte de la familia Microsoft, GitHub también está comprometido con la Directiva Anticorrupción de Microsoft, que se aplica a todos los empleados y contratistas de GitHub, además de las directivas descritas en este documento.
 
@@ -32,7 +38,7 @@ Las Normas de Conducta de GitHub prohíben:
 
 En la **Directiva de Obsequios y Entretenimiento de GitHub** se explica que el soborno no está permitido en relación con los viajes y el entretenimiento y se aportan ejemplos que ilustran las conductas indebidas. En la directiva se describen los obsequios y los gastos de viaje y entretenimiento que son adecuados e indebidos; los procesos de la empresa relativos a la entrega de obsequios por parte de administradores, ejecutivos, empleados y agentes de GitHub; los requisitos de mantenimiento de registros y sanciones; así como la denuncia de infracciones. Se incluyen los umbrales monetarios claros aplicables a los obsequios, así como las limitaciones anuales, con excepciones limitadas para obsequios aprobados por la dirección correspondiente. La directiva es clara y de fácil acceso para los empleados y contratistas de GitHub.
 
-## <a name="training-for-our-employees"></a>Formación para nuestros empleados
+## Formación para nuestros empleados
 
 Los empleados de GitHub deben participar en sesiones de formación sobre corrupción, incluido el soborno. También proporcionamos formación adicional para personas y equipos especialmente pertinentes, como nuestro equipo de ventas. En la formación se explican los elementos pertinentes de la Ley de Prácticas Corruptas en el Extranjero de EE. UU. y la Ley Antisoborno de 2010 del Reino Unido. Por ejemplo,
 - definición y efectos estructurales de la corrupción;
@@ -53,6 +59,6 @@ Además, la formación abarca las directivas internas de GitHub relacionadas con
 
 Mientras que la FCPA de EE. UU. se centra en las interacciones con los funcionarios públicos, la Ley Antisoborno del Reino Unido es más amplia y se hace extensiva al soborno de cualquier persona, independientemente de si es un funcionario público o no. Ambas leyes pueden hacerse extensivas a las acciones de GitHub en otros lugares del mundo. Las directivas de GitHub prohíben sobornar a cualquier persona, en cualquier parte del mundo.
 
-## <a name="engaging-our-partners"></a>Implicación de nuestros partners
+## Implicación de nuestros partners
 - Los **acuerdos de reventa con Socios de Canal** estándar de GitHub incluyen cláusulas anticorrupción obligatorias. A partir de ahora, en GitHub exigimos a nuestros Socios de Canal que se comprometan a cumplir esta Declaración Anticorrupción.
 - Además, a partir de ahora, en los **contratos de proveedores** de GitHub se exige un compromiso de cumplimiento del Código de conducta del proveedor de Microsoft o de esta Declaración Anticorrupción.
