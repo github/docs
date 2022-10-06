@@ -10,88 +10,93 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 72b487e302242e4809cd267dc10e7041e7e21d8d
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858669'
 ---
+## 概要および目的
 
-## <a name="overview-and-purpose"></a>概要および目的
+世界中の何百万人もの開発者が、GitHub で何百万ものプロジェクト (オープン ソースとクローズド ソースの両方) をホストしています。 当社は、開発者コミュニティの日々のコラボレーションに貢献できて幸いに思います。これは軽々しく考えてはならない当社の責任です。 同時に、当社には誇りに思うことができるこのコミュニティを実現するための絶好の機会があります。
 
-Millions of developers across the world host millions of projects—both open and closed source—on GitHub. We're fortunate to be able to play a part in enabling collaboration across the developer community every day, which is a responsibility we don’t take lightly. Together, we all have the exciting opportunity to make this a community we can be proud of.
+GitHub Discussions を利用した GitHub コミュニティは、コラボレーション、サポート、およびブレインストーミングを推進する場となることを目的としています。 ここは、他のユーザーとつながり、新しいスキルを学び、意見やアイデアを共有し、さらに GitHub プロジェクトに必要なサポートを得るための文化的な場です。 GitHub コミュニティに参加することにより、GitHub.com に適用される[サービス条件](/github/site-policy/github-terms-of-service/)および [GitHub 利用規約](/github/site-policy/github-acceptable-use-policies)、ならびにこの GitHub コミュニティに固有の行動規範にも同意したことになります。
 
-GitHub Community, powered by GitHub Discussions, is intended to be a place for further collaboration, support, and brainstorming. This is a civilized place for connecting with other users, learning new skills, sharing feedback and ideas, and finding all the support you need for your GitHub projects. By participating in GitHub Community, you are agreeing to the same <bpt id="p1">[</bpt>Terms of Service<ept id="p1">](/github/site-policy/github-terms-of-service/)</ept> and <bpt id="p2">[</bpt>GitHub Acceptable Use Policies<ept id="p2">](/github/site-policy/github-acceptable-use-policies)</ept> that apply to GitHub.com, as well as this GitHub Community-specific Code of Conduct.
+この行動規範により、当社は、GitHub コミュニティで協力する最善の方法、モデレーターにできること、およびコミュニティへの参加が一時的または永久に停止される可能性のある行為やコンテンツの種類について理解する助けになることを願っています。 当社は不正行為の報告を調査し、GitHub 利用規約または本行動規範のいずれかに違反していると当社が判断した GitHub コミュニティ内の公開コンテンツをモデレートすることがあります。
 
-With this Code of Conduct, we hope to help you understand how best to collaborate in GitHub Community, what you can expect from moderators, and what type of actions or content may result in temporary or permanent suspension from community participation. We will investigate any abuse reports and may moderate public content within GitHub Community that we determine to be in violation of either the GitHub Terms of Service or this Code of Conduct.
+ユーザーのベースが異なれば、その視点、アイデア、経験は異なります。先週、初めて「Hello World」プロジェクトを作った人から、世界で最も有名なソフトウェア開発者まで、さまざまなユーザーがいます。 当社は、開発者が最高の仕事をするための安全な場所を維持しながら、GitHub が当社のコミュニティで提供する必要があるさまざまな意見や視点に対応する環境になるように取り組んでいます。
 
-世界中の何百万人もの開発者が、GitHub で何百万ものプロジェクト (オープン ソースとクローズド ソースの両方) をホストしています。
-
-## <a name="pledge"></a>誓約
+## 誓約
 
 当社は、オープンで居心地の良い環境を作るために、投稿者および管理者として GitHub コミュニティへ参加するにあたり、年齢、体格、障碍、民族、性同一性、性表現、経験の程度、国籍、容姿、人種、宗教、性アイデンティティ、性的指向に関するハラスメントを誰に対しても行わないことを誓います。
 
-## <a name="standards"></a>標準
+## 標準
 
-当社は、開発者コミュニティの日々のコラボレーションに貢献できて幸いに思います。これは軽々しく考えてはならない当社の責任です。
+GitHub コミュニティには、敬意をもって接してください。 私たちは共有のリソースです。すなわち、スキル、知識、関心を、会話を通じて分かち合う場です。
 
-同時に、当社には誇りに思うことができるこのコミュニティを実現するための絶好の機会があります。
+以下は、杓子定規の決まりごとではなく、コミュニティにおける人間の判断を助けるためのものです。 気持ちよい、礼儀正しい話し合いの場である状態を保つため、このガイドラインを用いましょう。
 
-### <a name="best-practices-for-maintaining-a-strong-community"></a>*強いコミュニティを維持するためのベスト プラクティス*
+### *強いコミュニティを維持するためのベスト プラクティス*
 
-The primary purpose of the GitHub community is to collaborate on software projects. We are committed to maintaining a community where users are free to express themselves and challenge one another's ideas, both technical and otherwise. At the same time, it's important that users remain respectful and allow space for others to contribute openly. In order to foster both a safe and productive environment, we encourage our community members to look to these guidelines to inform how they interact on our platform. Below, you’ll find some suggestions for how to have successful interactions as a valued member of the GitHub community.
+GitHub コミュニティの主な目的は、ソフトウェア プロジェクトでコラボレーションすることです。 私たちは、ユーザーが自由に自己表現し、技術的な内容であるかにかかわらず、お互いのアイデアについて意見を交換できるコミュニティを維持できるように取り組んでいます。 同時に、ユーザーが敬意を払い、他のユーザーがオープンに投稿できる場を許容することが重要です。 安全で生産性の高い環境を作るために、当社では、コミュニティ メンバーにプラットフォーム上で対話を行う方法を示すこれらのガイドラインに目を向けるよう推奨しています。 GitHub コミュニティの重要なメンバーとして適切に対話を行う方法について、いくつかの提案を以下に示します。
 
 - 配慮と敬意を持って接しましょう。
 
-     - GitHub Discussions を利用した GitHub コミュニティは、コラボレーション、サポート、およびブレインストーミングを推進する場となることを目的としています。
+     - **広い心で受け入れる** - 毎日、新しいユーザーが当社のコミュニティに参加します。 経験豊富な開発者もいれば、初心者もいます。 他のアイデアや経験レベルを受け入れてください。 自分以外の意見にも耳を傾け、新しいコラボレーターや初心者を受け入れてください。
 
-     - ここは、他のユーザーとつながり、新しいスキルを学び、意見やアイデアを共有し、さらに GitHub プロジェクトに必要なサポートを得るための文化的な場です。 
+     - **敬意を払う** - 協力的な環境で作業することは、意見の相違が生じる可能性があることを意味します。 ただし、批判すべきはアイデアであって、人ではありません。 思慮深く建設的な批判を共有し、礼儀正しく接してください。 敬意を持って接することができない場合は、一歩下がるか、いくつかのモデレーション ツールを使用して緊張状態を緩和することを検討してください。 
 
-     - GitHub コミュニティに参加することにより、GitHub.com に適用される[サービス条件](/github/site-policy/github-terms-of-service/)および [GitHub 利用規約](/github/site-policy/github-acceptable-use-policies)、ならびにこの GitHub コミュニティに固有の行動規範にも同意したことになります。  
+     - **共感的になる** - GitHub は、その多くが自分とは異なる可能性があるさまざまな背景や視点を持つ人々とのグローバル コミュニティです。 他の人の立場になって考えてみて、彼らの気持ちを理解してから対応してください。 GitHub を他の人が安心して投稿し、ディスカッションに参加し、さまざまなアイデアを共有できるコミュニティにするために最善を尽くしてください。  
 
 - 肯定的、建設的な方法で投稿してください。
-  - <bpt id="p1">**</bpt>Improve the discussion.<ept id="p1">**</ept> Help us make this a great place for discussion by always working to improve the discussion in some way, however small. If you are not sure your post adds to the conversation, think over what you want to say and try again later.
+  - **ディスカッションを向上させる。** ディスカッションを少しでも向上させるように努め、コミュニティが最適なディスカッションの場になるようご協力ください。 投稿が会話を深めるか自信がない場合は、何を言いたいかをまず考えてみてください。
 
-    この行動規範により、当社は、GitHub コミュニティで協力する最善の方法、モデレーターにできること、およびコミュニティへの参加が一時的または永久に停止される可能性のある行為やコンテンツの種類について理解する助けになることを願っています。
-  - 当社は不正行為の報告を調査し、GitHub 利用規約または本行動規範のいずれかに違反していると当社が判断した GitHub コミュニティ内の公開コンテンツをモデレートすることがあります。
+    この場で話し合われる話題は私たちにとって大切であるため、それを大切にしてもらいたいと思います。 何か同意できないことがある場合でも、話題やそれを話し合う人々を尊重してください。
+  - **明確に伝え、トピックから逸脱しない。** GitHub コミュニティは、コラボレーション、アイデアの共有、そしてお互いの作業を完了するための支援の場です。 トピックから逸脱したコメントは、生産的に働いて作業を完了するという目的から気をそらしてしまいます (たまにはいいかもしれませんが、普段は慎みましょう)。 トピックに集中することで、ポジティブで生産的な議論が生まれます。
 
-    This applies to sharing links, as well. Any links shared in GitHub Community discussions should be shared with the intent of providing relevant and appropriate information. Links should not be posted to simply drive traffic or attention to a site. Links should always be accompanied by a full explanation of the content and purpose of the link. Posting links, especially unsolicited ones, without relevant and valuable context can come across as advertising or serving even more malicious purposes.
+    これは、リンクを共有する場合にも当てはまります。 GitHub コミュニティのディスカッションでリンクを共有す場合、関連する適切な情報を提供する必要があります。 単にトラフィックを呼び込んだり、サイトに注目を集めたりするためにリンクを投稿すべきではありません。 リンクを共有する場合は、常にリンク先のコンテンツや目的についての十分な説明を添えてください。 関連性や価値あるコンテンツがない、不要なリンクを投稿すると、広告や悪意の目的があるものと受け取られる可能性があります。
     
-  - ユーザーのベースが異なれば、その視点、アイデア、経験は異なります。先週、初めて「Hello World」プロジェクトを作った人から、世界で最も有名なソフトウェア開発者まで、さまざまなユーザーがいます。
+  - **伝え方に注意する。** 他の人にフィードバックを求めたり、プロジェクトへのコラボレーションを求めたりする場合は、背景を伝えるため、有益で関連するリソースのみを共有してください。 ディスカッションに価値を付加しないリンクや、自分のプロジェクトやサイトへのリンクをむやみに他のユーザーのスレッドに投稿しないでください。
 
-    当社は、開発者が最高の仕事をするための安全な場所を維持しながら、GitHub が当社のコミュニティで提供する必要があるさまざまな意見や視点に対応する環境になるように取り組んでいます。
-  - <bpt id="p1">**</bpt>Keep it tidy.<ept id="p1">**</ept> Make the effort to put things in the right place, so that we can spend more time discussing and less time cleaning up. So:
+    また、機密情報を書き込まないでください。 これには、あなたの電子メール アドレスも含まれます。 GitHub コミュニティでは、投稿者や他のユーザーにとって安全やプライバシーのリスクが生じるため、そのような情報の書き込みを許可していません。 他の GitHub ユーザーをプロジェクトのコラボレーションや共同作業に招待したい場合は、作業中のプロジェクトにあるリポジトリのリンクを伝えてください。 プロジェクトの内容や、求めている支援やフィードバックについての情報を添えて、プロジェクトのリポジトリへのリンクを共有することで、あなたの個人情報を伝えることなく、イシューやプル リクエストを通じてコラボレーションするように他の人々を招待できます。 また、プロジェクトのリポジトリに他者を外部のコラボレーターとして追加し、プロジェクトを開発するために役立つ特別な権限を与えることも可能です。
+  - **秩序正しく。** 適切な場所に書くことに気をつけて、内容の整理よりもディスカッションに多くの時間を割けるようにしましょう。 そのために、以下のことにご協力ください。
     - 間違ったカテゴリでディスカッションを開始しないでください。
     - 複数のディスカッションに同じ内容をクロスポストしないでください。
     - 中身のない返信を投稿しないでください。
     - 新しく適切な情報を共有するのでない限り、スレッドを上げないでください。
     - 話の流れを途中で変えて、ディスカッションの話題を逸らさないでください。
 
-    Rather than posting “+1” or “Agreed”, use the upvote button. Rather than taking an existing discussion in a radically different direction, open a new discussion.
+    「+1」や「賛成」と投稿するよりも、賛成票を投じるボタンを使用してください。 既存のディスカッションをまったく別の方向に進めるよりも、新たなディスカッションを開始しましょう。
 
 - 信頼されるようになりましょう。
-  - <bpt id="p1">**</bpt>Always be honest.<ept id="p1">**</ept> Don’t knowingly share incorrect information or intentionally mislead other GitHub Community participants. If you don’t know the answer to someone’s question but still want to help, you can try helping them research or find resources instead. GitHub staff will also be active in GitHub Community, so if you’re unsure of an answer, it’s likely a moderator will be able to help.
+  - **常に正直に。** 誤った情報を故意に共有したり、他の GitHub コミュニティ参加者を意図的に誤解させたりしないでください。 質問の答えはわからないもの手を貸したい場合は、情報収集やリソースのリサーチを手伝うことができます。 GitHub スタッフもコミュニティで活動しているため、答えがわからない場合は、モデレーターの助けを受けられる可能性があります。
 
-### <a name="what-is-not-allowed"></a>*禁止事項*
+### *禁止事項*
 
-GitHub's <bpt id="p1">[</bpt>Acceptable Use Policies<ept id="p1">](/site-policy/acceptable-use-policies/github-acceptable-use-policies)</ept>, which are part of GitHub's <bpt id="p2">[</bpt>Terms of Service<ept id="p2">](/github/site-policy/github-terms-of-service/)</ept>, set a baseline for what is not allowed on GitHub. Since GitHub Community is on GitHub.com, these terms and restrictions apply to GitHub Community, including the following restrictions:
+GitHub の[利用規約](/github/site-policy/github-terms-of-service/)の一部である GitHub の[サービス条件](/site-policy/acceptable-use-policies/github-acceptable-use-policies)は、GitHub での禁止事項に関するベースラインを設定するものです。 GitHub コミュニティは GitHub.com 上に存在するため、以下の制限を含むこれらの規約と制限事項が GitHub コミュニティに適用されます。
 
-- GitHub コミュニティには、敬意をもって接してください。
+- **13 歳未満の方。** 13 未満のお子様の場合、GitHub でアカウントを保有することはできません。 GitHub は、13 歳未満の子どもから意図的に情報を収集せず、13 歳未満の子どもを対象としたコンテンツを提供しません。 当社は、お客様が 13 歳未満のユーザーであることを知った場合、またはそうであると疑う理由がある場合、残念ながら GitHub.com アカウントを閉鎖する必要があります。 当社はお客様がコードを学習することに反対したくはありませんが、これらは規則なのです。 アカウントの終了については、当社の[サービス条件](/github/site-policy/github-terms-of-service/)を参照してください。
 
-- 私たちは共有のリソースです。すなわち、スキル、知識、関心を、会話を通じて分かち合う場です。
+- **アカウント制限後の新しいアカウントの作成。** GitHub の[サービス条件](/github/site-policy/github-terms-of-service/)には、「単一の個人または法人が維持できる無料アカウントは 1 つのみです」と記載されています。 GitHub でフラグが設定されているか一時停止されたアカウントについて問い合わせるために作成された追加の無料アカウントは削除されます。
 
-- <bpt id="p1">**</bpt>Other conduct which could reasonably be considered inappropriate in a professional setting.<ept id="p1">**</ept> GitHub Community is a professional space and should be treated as such.
+- **職場で合理的に不適切と見なされる可能性があるその他の行動。** GitHub コミュニティはプロフェッショナルな場であり、それにふさわしい振る舞いが求められます。
 
-- 以下は、杓子定規の決まりごとではなく、コミュニティにおける人間の判断を助けるためのものです。  
+- **サービス条件への違反。** お客様の GitHub.com アカウントが[サービス条件](/github/site-policy/github-terms-of-service/)に違反していることが確認された場合、当社ではお客様のアカウントを閉鎖する必要があります。  
 
-## <a name="enforcement"></a>適用
+## 適用
 
-### <a name="what-github-community-participants-can-do"></a>GitHub コミュニティ参加者ができること**
+### GitHub コミュニティ参加者ができること
 
-- 気持ちよい、礼儀正しい話し合いの場である状態を保つため、このガイドラインを用いましょう。
+- **問題を見つけた場合は、報告してください。** モデレーターは特別な権限を持ち、この GitHub コミュニティに対して責任があります。 しかし、あなたもコミュニティに責任を負っているのです。 あなたの助けがあってこそ、モデレーターは守衛や警察のように振る舞うだけでなく、コミュニティの進行役を努めることができます。
 
-  When you see bad behavior, don’t reply. It encourages the bad behavior by acknowledging it, consumes your energy, and wastes everyone’s time. You can report a disruptive user or disruptive content to GitHub. For more information, see "<bpt id="p1">[</bpt>Reporting abuse or spam<ept id="p1">](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)</ept>."
+  悪意のある書き込みを見ても、返信しないでください。 その存在を認識することで、悪い振る舞いが促され、あなたを疲弊させ、みんなの時間を無駄にします。 混乱をもたらすユーザーまたは混乱をもたらすコンテンツを GitHub に報告できます。 詳細については、「[悪用あるいはスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)」を参照してください。
 
-### <a name="our-responsibilities"></a>私たちの責任
+### 私たちの責任
 
-There are a variety of actions that we may take in response to inappropriate behavior or content. It usually depends on the exact circumstances of a particular case. We recognize that sometimes people may say or do inappropriate things for any number of reasons. Perhaps they did not realize how their words would be perceived. Or maybe they just let their emotions get the best of them. Of course, sometimes, there are folks who just want to spam or cause trouble.
+不適切な行動やコンテンツの報告に対して当社が講じる措置はさまざまです。 通常、事態の正確な状況次第で決まります。 当社では、人はさまざまな理由で不適切な発言や行動をしてしまうことがあると認識しています。 自分の言葉がどのように受け取られるのかをわかっていなかったという場合もあるでしょう。 また、つい感情的になってしまったという場合もあるでしょう。 もちろん、単に迷惑メールをばらまいたり、トラブルを引き起こすことを目的とする人がいることも事実です。
 
-GitHub コミュニティの主な目的は、ソフトウェア プロジェクトでコラボレーションすることです。
+ケースバイケースで異なるアプローチが必要なため、当社は状況に合った対応を行うように心がけています。 このため、それぞれの状況を個別に確認しています。 いずれの場合も、多様性に富んだチームがコンテンツとそれに関する事情を調査し、必要に応じて対応し、この行動規範に基づいて決定を下します。
 
 フラグや不正行為の報告を受けた際に当社が講じる措置には以下が含まれますが、これらに限定されません。
   - コンテンツの削除
@@ -101,18 +106,18 @@ GitHub コミュニティの主な目的は、ソフトウェア プロジェク
 
 行動規範を誠実に遵守もしくは施行しない GitHub コミュニティ モデレーターは、GitHub コミュニティの幹部である他のメンバーによる裁定により、一時的または永久的な処分を受ける可能性があります。
 
-## <a name="contacting-github-staff"></a>GitHub スタッフへの連絡
+## GitHub スタッフへの連絡
 
-私たちは、ユーザーが自由に自己表現し、技術的な内容であるかにかかわらず、お互いのアイデアについて意見を交換できるコミュニティを維持できるように取り組んでいます。
+何らかの理由で、GitHub スタッフ、コミュニティ管理者、管理者、または GitHub コミュニティのモデレーターにプライベートで連絡したい場合は、[サポート連絡フォーム](https://support.github.com/contact?tags=docs-community-support)を使用できます。 一方的なメンションや ping を介して、または GitHub コミュニティ自体もしくはサポート連絡フォーム以外の手段で GitHub スタッフのメンバーに連絡することは極力お控えください。そうした行為は、ハラスメント禁止に対する違反と見なされる場合があります。
 
 お互いの存在と時間を尊重することにより、GitHub コミュニティを安心して参加できる場に保つよう協力しましょう。
 
-## <a name="legal-notices"></a>法定通知
+## 法定通知
 
-同時に、ユーザーが敬意を払い、他のユーザーがオープンに投稿できる場を許容することが重要です。
+法律的な言葉は退屈なものですが、私たちは自分自身、その延長として皆さんやそのデータを、敵意ある人々から守る必要があります。 当社の[サービス条件](/github/site-policy/github-terms-of-service/)には、[利用規約](/github/site-policy/github-acceptable-use-policies)と、コンテンツ、プライバシー、および法律に関連するお客様 (と当社) の行動と権利が記載された[プライバシーに関する声明](/github/site-policy/github-privacy-statement/)が含まれています。 このサービスを使用するには、[サービス条件](/github/site-policy/github-terms-of-service/)、[GitHub 利用規約](/github/site-policy/github-acceptable-use-policies)、および[プライバシーに関する声明](/github/site-policy/github-privacy-statement/)に従うことに同意しなければなりません。
 
-安全で生産性の高い環境を作るために、当社では、コミュニティ メンバーにプラットフォーム上で対話を行う方法を示すこれらのガイドラインに目を向けるよう推奨しています。
+この行動規範は、当社の[サービス条件](/github/site-policy/github-terms-of-service/) (当社の[利用規約](/github/site-policy/github-acceptable-use-policies)を含む) を変更するものではなく、また包括的なリストであることを意図したものではありません。 GitHub は、[サービス条件](/github/site-policy/github-terms-of-service/)に基づいて、非合法、攻撃的、脅迫的、中傷、名誉毀損、ポルノ、わいせつ、その他不快なもの、他者の知的財産権や当社のサービス条件に違反するものであるなどの理由から、これらの規約に反する行為に対してあらゆるコンテンツまたはアカウントの削除または制限を実施できる、完全な裁量を保持します。 本行動規範は、かかる裁量を行使する場合について説明しています。
 
-### <a name="data-retention-and-deletion-of-data"></a>データの保持と削除
+### データの保持と削除
 
-GitHub コミュニティの重要なメンバーとして適切に対話を行う方法について、いくつかの提案を以下に示します。
+お客様が GitHub ユーザーである場合は、[ユーザー プロファイルを編集する](https://github.com/settings/profile)か、[GitHub サポート](https://support.github.com/contact)に連絡することによって、基本的なユーザー プロファイル情報へのアクセス、更新、変更、または削除を行うことができます。 当社は、当社の法的義務の遵守、紛争の解決、および当社の契約の履行のために、必要に応じてお客様の情報を保持して使用しますが、法的要件がない限り、当社はお客様の要求から 90 日以内にお客様のプロファイル全体を妥当な範囲で削除します。 詳細については、[GitHub のプライバシーに関する声明](/github/site-policy/github-privacy-statement)を参照してください。
