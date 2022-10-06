@@ -1,16 +1,4 @@
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "node",
-      "request": "attach",
-      "name": "Node: Nodemon",
-      "processId": "${command:PickProcess}",
-      "restart": true,
-      "protocol": "inspector",
-    },
-  ]
-}Skip to content
+Skip to content
 Search or jump to…
 Pull requests
 Issues
