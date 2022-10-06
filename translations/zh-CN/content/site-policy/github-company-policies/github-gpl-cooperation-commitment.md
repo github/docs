@@ -8,13 +8,18 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: d48a18256fab3ba4064123ef7b7ff9cdba11b9e8
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556479'
 ---
-
 本承诺适用于 GitHub 对 Git、Linux 内核以及涵盖许可（具体定义请滚动到最后的定义部分）下其他程序的贡献。
 
 我们的声明基于公司[模板](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md)。 有关其他公司、个人和项目如何采用本承诺，请参阅 [GPL 合作承诺网站](https://gplcc.github.io/gplcc/)。
 
-## <a name="our-commitment"></a>我们的承诺
+## 我们的承诺
 
 在提交或继续起诉因涵盖许可的终止而引起的任何法律程序或索赔（反诉除外）之前，GitHub 将对被指控违反涵盖许可的个人或实体（“您”）的承诺扩展到以下补救和恢复条款（取自 GPL 第 3 版）。 本文使用的术语“本许可”是指正在执行的特定涵盖许可。
 
