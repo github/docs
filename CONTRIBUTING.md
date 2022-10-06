@@ -96,4 +96,175 @@ This site can be developed on Windows, however a few potential gotchas need to b
 3. Bash: Not every Windows developer has a terminal that fully supports Bash, so it's generally preferred to write [scripts](/script) in JavaScript instead of Bash.
 4. Filename too long error: There is a 260 character limit for a filename when Git is compiled with `msys`. While the suggestions below are not guaranteed to work and could possibly cause other issues, a few workarounds include:
     - Update Git configuration: `git config --system core.longpaths true`
-    - Consider using a different Git client on Windows
+    - Consider usSandbox
+AchryTylerWood@Administrator@it.git
+zachryiixixiiwood@gmail.com
+Home
+Payments
+Payments Overview
+Counterparties
+Approvals
+Reconciliation
+Virtual Accounts
+Ledgers
+Compliance
+New
+Reporting
+Invite Users
+Help
+Viewing Sandbox
+Developers
+Settings
+
+?
+Charge p.n.c.bank.national.association $200,000.00
+Approved
+
+Actions
+ID
+25991f83-6f78-40c5-ad3e-72e0b252e8cb
+Originating Account
+IBB JPMORGAN TRUST I\ZACHRY TYLER WOOD\PayPal Ventures (••• 9879)
+Counterparty
+p.n.c.bank.national.association
+External Account
+Zachry Tyler Wood (••• 6547)
+Type
+ACH Debit
+Subtype
+N/A
+Priority
+Same-Day
+Direction
+Debit
+Amount
+$200,000.00
+Payment Currency
+USD
+Payment Date
+2022-10-06
+Internal Description
+You have 7 days left in your trial, which includes all features Choose a plan to buy CFO Dashboard Business Accounting Contacts ZW Current pageOpens in new window Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processesContacts No invoices awaiting payment View recent invoices report THEY OWE0.00 Money in over last 12 months 0 70.8428G Nov Dec Jan Feb Mar Apr May Jun Jul Aug Sep Oct Activity Notes Email ITEM NUMBER REFERENCE DATE ACTIVITY DATE DUE TOTAL Created By Zachry Wood Oct 6, 2022 Just now Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes has been created. Prepayment Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Oct 6, 2022 Paid Oct 6, 2022 70,842,743,866.00 2 total items Contact Details Click 'Edit' to store the contact's address, phone number, and other essential details. Financial Details Default CurrencyUSD United States Dollar
+Statement Description
+SVCCHRG
+Accounting Category
+N/A
+Accounting Class
+N/A
+Remittance Information
+You have 7 days left in your trial, which includes all features Choose a plan to buy CFO Dashboard Business Accounting Contacts ZW Current pageOpens in new window Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processesContacts No invoices awaiting payment View recent invoices report THEY OWE0.00 Money in over last 12 months 0 70.8428G Nov Dec Jan Feb Mar Apr May Jun Jul Aug Sep Oct Activity Notes Email ITEM NUMBER REFERENCE DATE ACTIVITY DATE DUE TOTAL Created By Zachry Wood Oct 6, 2022 Just now Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes has been created. Prepayment Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Oct 6, 2022 Paid Oct 6, 2022 70,842,743,866.00 2 total items Contact Details Click 'Edit' to store the contact's address, phone number, and other essential details. Financial Details Default CurrencyUSD United States Dollar
+Send Remittance Advice
+Enabled
+Foreign Exchange Indicator
+N/A
+NSF Protection
+Disabled
+Transaction Monitoring
+Enabled
+Created At
+10/06/202214:28:45 CDT
+Tracking
+Tracking Details
+
+Status
+Approved
+Timeline
+
+ All
+
+ Audits
+
+ Events
+
+ Status
+
+Type
+Detail
+Time
+Status Change
+Approved
+10/06/202214:28:46 CDT
+Event
+Approved
+10/06/202214:28:46 CDT
+Event
+Created
+10/06/202214:28:45 CDT
+Create Payment Order
+ALPHABET
+10/06/202214:28:45 CDT
+1-4
+
+
+
+Close
+Open as page
+Copy link
+Audit Record
+ID
+8ef1ed36-4c4e-4803-bb4d-345e8a41fd00
+Action
+Create
+Entity
+Payment Order
+Event Time
+10/06/202214:28:45 CDT
+Source
+ALPHABET
+IP Address
+2600:1700:28e0:cce0:9653:3a81:da64:8444
+Location
+Dallas
+Data
+{
+"id":"25991f83-6f78-40c5-ad3e-72e0b252e8cb"
+"amount":20000000
+"status":"pending"
+"purpose":NULL
+"currency":"USD"
+"priority":"high"
+"direction":"debit"
+"live_mode":false
+"created_at":"2022-10-06T19:28:45.683Z"
+"expires_at":NULL
+"updated_at":"2022-10-06T19:28:45.723Z"
+"description":"You have 7 days left in your trial, which includes all features Choose a plan to buy CFO Dashboard Business Accounting Contacts ZW Current pageOpens in new window Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processesContacts No invoices awaiting payment View recent invoices report THEY OWE0.00 Money in over last 12 months 0 70.8428G Nov Dec Jan Feb Mar Apr May Jun Jul Aug Sep Oct Activity Notes Email ITEM NUMBER REFERENCE DATE ACTIVITY DATE DUE TOTAL Created By Zachry Wood Oct 6, 2022 Just now Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes has been created. Prepayment Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Oct 6, 2022 Paid Oct 6, 2022 70,842,743,866.00 2 total items Contact Details Click 'Edit' to store the contact's address, phone number, and other essential details. Financial Details Default CurrencyUSD United States Dollar"
+"webhook_url":NULL
+"lock_version":1
+"payment_type":"ach"
+"charge_bearer":NULL
+"end_to_end_id":NULL
+"metadata_json":{
+"You have 7 days left in your trial, which includes all features Choose a plan to buy CFO Dashboard Business Accounting Contacts ZW Current pageOpens in new window Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processesContacts No invoices awaiting payment View recent invoices report THEY OWE0.00 Money in over last 12 months 0 70.8428G Nov Dec Jan Feb Mar Apr May Jun Jul Aug Sep Oct Activity Notes Email ITEM NUMBER REFERENCE DATE ACTIVITY DATE DUE TOTAL Created By Zachry Wood Oct 6, 2022 Just now Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes has been created. Prepayment Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Oct 6, 2022 Paid Oct 6, 2022 70,842,743,866.00 2 total items Contact Details Click 'Edit' to store the contact's address, phone number, and other essential details. Financial Details Default CurrencyUSD United States Dollar":"70842743866.00"
+}
+"nsf_protected":false
+"effective_date":"2022-10-06"
+"reviewer_token":{}
+"counterparty_id":"15c72cc7-c3a8-4070-8726-afda6234f94f"
+"creation_source":"dashboard_form"
+"organization_id":"5768dc71-e960-4024-88c6-45eec72b2779"
+"payment_subtype":NULL
+"payment_mandate_id":NULL
+"receiving_entity_id":"13a64f0d-2c0a-435e-8260-d718d52634c1"
+"statement_descriptor":"SVCCHRG"
+"receiving_entity_type":"ExternalAccount"
+"accounting_category_id":NULL
+"originating_account_id":"cd814888-795e-4708-94f4-982837889da5"
+"originating_party_name":NULL
+"remittance_information":"You have 7 days left in your trial, which includes all features Choose a plan to buy CFO Dashboard Business Accounting Contacts ZW Current pageOpens in new window Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processesContacts No invoices awaiting payment View recent invoices report THEY OWE0.00 Money in over last 12 months 0 70.8428G Nov Dec Jan Feb Mar Apr May Jun Jul Aug Sep Oct Activity Notes Email ITEM NUMBER REFERENCE DATE ACTIVITY DATE DUE TOTAL Created By Zachry Wood Oct 6, 2022 Just now Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes has been created. Prepayment Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Glossary Account For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits. X Close Automated Clearinghouse or ACH A facility that processes Oct 6, 2022 Paid Oct 6, 2022 70,842,743,866.00 2 total items Contact Details Click 'Edit' to store the contact's address, phone number, and other essential details. Financial Details Default CurrencyUSD United States Dollar"
+"send_remittance_advice":NULL
+"source_payment_order_id":NULL
+"verification_attempt_id":NULL
+"foreign_exchange_contract":NULL
+"foreign_exchange_indicator":NULL
+"ultimate_receiving_party_name":NULL
+"transaction_monitoring_enabled":true
+"ultimate_originating_party_name":NULL
+"ultimate_originating_party_type":NULL
+"current_payment_order_attempt_id":"b845dd09-5fde-4dae-b5d3-56296d59c05d"
+"ultimate_receiving_party_address_id":NULL
+"ultimate_receiving_party_identifier":NULL
+"ultimate_originating_party_address_id":NULL
+"ultimate_originating_party_identifier":NULL
+"ultimate_originating_party_taxpayer_identifier":NULL
+}ing a different Git client on Windows
