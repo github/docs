@@ -9,8 +9,13 @@ topics:
 redirect_from:
   - /github/site-policy/github-misinformation-and-disinformation
   - /github/site-policy/github-community-guidelines#misinformation-and-disinformation
+ms.openlocfilehash: ece95f9da0b1953c821531837418e75ed03af4c3
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556466'
 ---
-
 您不得发布歪曲事实的内容，包括不准确或不实内容（错误信息）或故意造成假象的内容（虚假信息），导致可能危害公共利益或妨碍所有人获得享受自由和开放社会的公平和平等机会。 这可能包括： 
 - 危害公共健康或安全的不准确或无科学依据的医疗宣传  
 - 操纵媒体（无论是音频还是视频），导致可能引起误导或欺骗并因此而有可能危害公共利益
