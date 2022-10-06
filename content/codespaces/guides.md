@@ -24,8 +24,9 @@ includeGuides:
   - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
   - /codespaces/developing-in-codespaces/opening-an-existing-codespace
   - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
-  - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
-  - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
+  - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
+  - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
+  - /codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli
   - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
   - /codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace

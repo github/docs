@@ -11,9 +11,11 @@ const article: PlaygroundArticleT = {
     '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces',
   codeLanguageId: 'dotnet',
   intro: dedent`
-  This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **C# (.NET)** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+  This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **C# (.NET)** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." 
 
-  If you want to add a dev container configuration for another programming language, click the language button to the right.
+  To step through the instructions in this guide you will work on a codespace using either the Visual Studio Code desktop application or the VS Code web client.
+  
+  These instructions are for C#. If you want to add a dev container configuration for another programming language, click the language button to the right.
  `,
   prerequisites: dedent`
     - You should have an existing C# (.NET) project in a repository on GitHub.com. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/python-quickstart.

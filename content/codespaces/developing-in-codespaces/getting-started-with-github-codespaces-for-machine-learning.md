@@ -106,7 +106,7 @@ Some software, such as TensorFlow, requires you to install NVIDIA CUDA to use yo
 
 The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes JupyterLab, the web-based Jupyter IDE. You can use {% data variables.product.prodname_cli %} to open your codespace in JupyterLab without having to install anything else on your codespace.
 
-1. In the terminal, enter the {% data variables.product.prodname_cli %} command `gh cs jupyter`.
+1. In the terminal, enter the {% data variables.product.prodname_cli %} command `gh codespace jupyter`.
 1. Choose the codespace you want to open.
 
    ![Screenshot of opening a codespace from the terminal](/assets/images/help/codespaces/open-codespace-in-jupyter.png)

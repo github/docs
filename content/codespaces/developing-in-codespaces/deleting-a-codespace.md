@@ -16,6 +16,8 @@ topics:
 shortTitle: Delete a codespace
 ---
 
+You can delete a codespace in a variety of ways: in the terminal by using {% data variables.product.prodname_cli %}, in {% data variables.product.prodname_vscode %}, or in your web browser. Use the tabs in this article to display instructions for each of these ways of deleting a codespace. 
+
 There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. For more information, see "[About billing for GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 {% data reusables.codespaces.max-number-codespaces %}
@@ -58,13 +60,13 @@ For more information about this command, see [the {% data variables.product.prod
 
 {% webui %}
 
-You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
+You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
 
 {% endwebui %}
 
 {% vscode %}
 
-You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
+You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
 
 {% endvscode %}
 
@@ -86,7 +88,7 @@ By default you are prompted to confirm deletion of any codespaces that contain u
 Delete all of the codespaces for the `octo-org/octo-repo` repository that you created more than 7 days ago.
 
 ```
-gh cs delete --repo octo-org/octo-repo --days 7
+gh codespace delete --repo octo-org/octo-repo --days 7
 ```
 
 {% endcli %}

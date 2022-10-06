@@ -18,7 +18,15 @@ shortTitle: Create a codespace
 
 ## About codespace creation
 
-You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
+You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. Use the tabs in this article to display instructions for each of these ways of creating a codespace.
+
+{% note %}
+
+**Note**: If you use a JetBrains IDE, you can use {% data variables.product.prodname_cli %} to create a codespace. You can then use the JetBrains Gateway application to open the codespace in a JetBrains IDE. For more information, see "[Using Codespaces in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+
+{% endnote %}
+
+{% data reusables.codespaces.codespaces-are-personal %}
 
 Codespaces are associated with a specific branch of a repository and the repository cannot be empty. You can create more than one codespace per repository or even per branch.
 

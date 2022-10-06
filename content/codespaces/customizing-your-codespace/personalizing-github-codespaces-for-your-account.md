@@ -23,7 +23,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 When using any development environment, customizing the settings and tools to your preferences and workflows is an important step. {% data variables.product.prodname_github_codespaces %} allows for two main ways of personalizing your codespaces.
 
-- [Settings Sync](#settings-sync) - You can use and share {% data variables.product.prodname_vscode %} settings between {% data variables.product.prodname_github_codespaces %} and other instances of {% data variables.product.prodname_vscode %}.
+- [Settings Sync](#settings-sync) - You can share your {% data variables.product.prodname_vscode %} settings between the desktop application and the {% data variables.product.prodname_vscode_shortname %} web client.
 - [Dotfiles](#dotfiles) – You can use a `dotfiles` repository to specify scripts, shell preferences, and other configurations.
 
 {% data variables.product.prodname_github_codespaces %} personalization applies to any codespace you create.
@@ -32,13 +32,13 @@ Project maintainers can also define a default configuration that applies to ever
 
 ## Settings Sync
 
-Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode %}.
+Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode_shortname %}.
 
-To enable Settings Sync, in the bottom-left corner of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Turn on Settings Sync…**. In the dialog box, select the settings you'd like to sync.
+To enable Settings Sync, in the bottom-left corner of {% data variables.product.prodname_vscode %}'s Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Turn on Settings Sync…**. In the dialog box, select the settings you'd like to sync.
 
 ![Setting Sync option in manage menu](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
 
-For more information, see the [Settings Sync guide](https://code.visualstudio.com/docs/editor/settings-sync) in the {% data variables.product.prodname_vscode %} documentation.
+For more information, see the [Settings Sync guide](https://code.visualstudio.com/docs/editor/settings-sync) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Dotfiles
 
@@ -65,7 +65,7 @@ Any changes to your selected dotfiles repository will apply only to each new cod
 
 {% note %}
 
-**Note:** Currently, {% data variables.product.prodname_github_codespaces %} does not support personalizing the _User_ settings for the {% data variables.product.prodname_vscode %} editor with your `dotfiles` repository. You can set default _Workspace_ and _Remote [Codespaces]_ settings for a specific project in the project's repository. For more information, see "[Introduction to dev containers](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#creating-a-custom-dev-container-configuration)."
+**Note:** Currently, {% data variables.product.prodname_codespaces %} does not support personalizing the User-scoped settings for {% data variables.product.prodname_vscode_shortname %} with your `dotfiles` repository. You can set default Workspace and Remote [Codespaces] settings for a specific project in the project's repository. For more information, see "[Introduction to dev containers](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#creating-a-custom-dev-container-configuration)."
 
 {% endnote %}
 
@@ -103,3 +103,4 @@ You can also personalize {% data variables.product.prodname_github_codespaces %}
 ## Further reading
 
 * "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)"
+* "[Deep dive into GitHub Codespaces](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)"

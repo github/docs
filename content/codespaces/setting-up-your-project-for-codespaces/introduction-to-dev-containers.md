@@ -21,7 +21,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 ## About dev containers
 
-Development containers, or dev containers, are Docker containers that are specifically configured to provide a full-featured development environment. Whenever you work in a codespace, you are using a dev container on a virtual machine.
+Development containers, or dev containers, are Docker containers that are specifically configured to provide a fully featured development environment. Whenever you work in a codespace, you are using a dev container on a virtual machine.
 
 You can configure the dev container for a repository so that codespaces created for that repository give you a tailored development environment, complete with all the tools and runtimes you need to work on a specific project. If you don't define a configuration in the repository then {% data variables.product.prodname_github_codespaces %} uses a default configuration, which contains many of the common tools that your team might need for development with your project. For more information, see "[Using the default dev container configuration](#using-the-default-dev-container-configuration)."
 
@@ -122,7 +122,7 @@ The default configuration is a good option if you're working on a small project 
 
 ## Using a predefined dev container configuration
 
-You can choose from a list of predefined configurations to create a dev container configuration for your repository. These configurations provide common setups for particular project types, and can help you quickly get started with a configuration that already has the appropriate container options, {% data variables.product.prodname_vscode_shortname %} settings, and {% data variables.product.prodname_vscode_shortname %} extensions that should be installed.
+If you use {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}, or in a web browser, you can create a dev container configuration for your repository by choosing from a list of predefined configurations. These configurations provide common setups for particular project types, and can help you quickly get started with a configuration that already has the appropriate container options, {% data variables.product.prodname_vscode %} settings, and {% data variables.product.prodname_vscode %} extensions that should be installed.
 
 Using a predefined configuration is a great idea if you need some additional extensibility. You can also start with a predefined configuration and amend it as needed for your project. For more information about the definitions of predefined dev containers, see the [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src) repository.
 
@@ -202,27 +202,44 @@ The `devcontainer.json` file is written using the JSONC (JSON with comments) for
 
 {% endnote %}
 
-### Editor settings for {% data variables.product.prodname_vscode_shortname %}
+### Interface settings for {% data variables.product.prodname_vscode_shortname %}
 
-{% data reusables.codespaces.vscode-settings-order %}
+You can configure the interface settings for {% data variables.product.prodname_vscode_shortname %}, with three scopes: Workspace, Remote [Codespaces], and User. You can view these scopes in the {% data variables.product.prodname_vscode_shortname %} Settings editor.
 
-You can define default editor settings for {% data variables.product.prodname_vscode_shortname %} in two places.
+![Screenshot showing the choice of scopes in the Settings editor](/assets/images/help/codespaces/scopes-for-vscode.png)
 
-* Editor settings defined in the `.vscode/settings.json` file in your repository are applied as _Workspace_-scoped settings in the codespace.
-* Editor settings defined in the `settings` key in the `devcontainer.json` file are applied as _Remote [Codespaces]_-scoped settings in the codespace.
+If a setting is defined in multiple scopes, Workspace settings take priority, then Remote [Codespaces], then User.
+
+You can define default interface settings for {% data variables.product.prodname_vscode_shortname %} in two places.
+
+* Interface settings defined in the `.vscode/settings.json` file in your repository are applied as Workspace-scoped settings in the codespace.
+* Interface settings defined in the `settings` key in the `devcontainer.json` file are applied as Remote [Codespaces]-scoped settings in the codespace.
 
 ## Applying configuration changes to a codespace
 
-{% data reusables.codespaces.apply-devcontainer-changes %}
+Changes to a configuration will be applied the next time you create a codespace. However, if you're using a codespace in a web browser, in {% data variables.product.prodname_vscode_shortname %}, or in a JetBrains IDE, you can apply configuration changes to the current codespace by rebuilding the container.
+
+### Rebuilding the dev container in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application
 
 {% data reusables.codespaces.rebuild-command %}
-1. {% data reusables.codespaces.recovery-mode %} Fix the errors in the configuration.
+1. {% data reusables.codespaces.recovery-mode %}
 
    ![Error message about recovery mode](/assets/images/help/codespaces/recovery-mode-error-message.png)
 
    - To diagnose the error by reviewing the creation logs, click **View creation log**.
    - To fix the errors identified in the logs, update your `devcontainer.json` file.
    - To apply the changes, rebuild your container. 
+
+### Rebuilding the dev container in a JetBrains IDE
+
+{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
+1. In the {% data variables.product.prodname_github_codespaces %} tool window, click the rebuild icon.
+
+   ![Screenshot of the rebuild button](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
+
+1. Click **Rebuild** when prompted to confirm that you want to rebuild the dev container. 
+1. Reopen the codespace in your JetBrains IDE.
+
 
 ## Further reading
 

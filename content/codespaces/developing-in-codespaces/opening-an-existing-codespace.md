@@ -13,7 +13,7 @@ topics:
 shortTitle: Open an existing codespace
 ---
 
-You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[{% data variables.product.prodname_codespaces %} lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
+You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[{% data variables.product.prodname_codespaces %} lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
 
 ## Opening an existing codespace
 
@@ -72,3 +72,9 @@ You can also access the commands listed above by navigating to the Remote Explor
 For more information, see [`gh codespace code`](https://cli.github.com/manual/gh_codespace_code) in the {% data variables.product.prodname_cli %} manual.
 
 {% endcli %}
+
+{% jetbrains %}
+
+{% data reusables.codespaces.opening-codespace-in-jetbrains %}
+
+{% endjetbrains %}

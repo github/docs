@@ -17,7 +17,7 @@ hidden: true
 
 ## Introduction
 
-This guide shows you how to set up your C# (.NET) project in {% data variables.product.prodname_github_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
+This guide shows you how to set up your C# (.NET) project {% data reusables.codespaces.setting-up-project-intro %}
 
 ### Prerequisites
 

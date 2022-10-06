@@ -29,8 +29,9 @@ featuredLinks:
     - /codespaces/getting-started/deep-dive
     - /codespaces/developing-in-codespaces/creating-a-codespace
     - /codespaces/developing-in-codespaces/opening-an-existing-codespace
-    - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
   popularHeading: Set up your project
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
 communityRedirect:

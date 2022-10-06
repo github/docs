@@ -66,3 +66,7 @@ You can use the {% data variables.product.prodname_vscode_command_palette_shortn
 To retrieve the logs for {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "log". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_github_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
 
 ![Command to access logs](/assets/images/help/codespaces/codespaces-logs.png)
+
+## Further reading
+
+- "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"

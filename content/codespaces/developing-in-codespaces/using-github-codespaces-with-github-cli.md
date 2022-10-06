@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -116,7 +117,7 @@ If you don't have any SSH keys, follow the instructions in "[Generating a new SS
 gh codespace code -c CODESPACE-NAME
 ```
 
-For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)."
+For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
 
 ### Open a codespace in JupyterLab
 

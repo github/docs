@@ -41,7 +41,7 @@ When a codespace times out, your data is preserved from the last time your chang
 
 ## Rebuilding a codespace
 
-You can rebuild your codespace to restore a clean state as if you had created a new codespace. For most uses, you can create a new codespace as an alternative to rebuilding a codespace. You are most likely to rebuild a codespace to implement changes to your dev container. When you rebuild a codespace, any Docker containers, images, volumes, and caches are cleaned, then the codespace is rebuilt.
+You can rebuild your codespace to restore a clean state as if you had created a new codespace. For most uses, you can create a new codespace as an alternative to rebuilding a codespace. You are most likely to rebuild a codespace to implement changes to your dev container configuration. When you rebuild a codespace, any Docker containers, images, volumes, and caches are cleaned, then the codespace is rebuilt.
 
 If you need any of this data to persist over a rebuild, you can create, at the desired location in the container, a symbolic link (symlink) to the persistent directory. For example, in your `.devcontainer` directory, you can create a `config` directory that will be preserved across a rebuild. You can then symlink the `config` directory and its contents as a `postCreateCommand` in your `devcontainer.json` file.
 
