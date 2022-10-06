@@ -179,6 +179,7 @@ translations/pt-BR/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file de
 translations/pt-BR/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/self-hosted-runner-groups-navigate-to-repo-org-enterprise.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/apps/metadata-permissions.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/billing/per-user-pricing-reference.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/codespaces/about-billing-for-codespaces.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/codespaces/availability.md,file deleted because it no longer exists in main
@@ -348,7 +349,7 @@ translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scannin
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,rendering error
-translations/pt-BR/content/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts.md,broken liquid tags
+translations/pt-BR/content/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,rendering error
@@ -513,6 +514,7 @@ translations/pt-BR/content/repositories/releasing-projects-on-github/about-relea
 translations/pt-BR/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/pt-BR/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/pt-BR/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
+translations/pt-BR/content/repositories/working-with-files/managing-large-files/about-large-files-on-github.md,broken liquid tags
 translations/pt-BR/content/repositories/working-with-files/using-files/working-with-non-code-files.md,rendering error
 translations/pt-BR/content/rest/dependabot/index.md,broken liquid tags
 translations/pt-BR/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
@@ -636,7 +638,7 @@ translations/pt-BR/data/reusables/gated-features/secret-scanning-partner.md,rend
 translations/pt-BR/data/reusables/gated-features/secret-scanning.md,rendering error
 translations/pt-BR/data/reusables/identity-and-permissions/ip-allow-lists-enable.md,broken liquid tags
 translations/pt-BR/data/reusables/notifications-v2/custom-notification-types.md,broken liquid tags
-translations/pt-BR/data/reusables/notifications/vulnerable-dependency-notification-options.md,broken liquid tags
+translations/pt-BR/data/reusables/notifications/vulnerable-dependency-notification-options.md,rendering error
 translations/pt-BR/data/reusables/organizations/billing_plans.md,rendering error
 translations/pt-BR/data/reusables/organizations/github-apps-settings-sidebar.md,rendering error
 translations/pt-BR/data/reusables/organizations/member-privileges.md,rendering error
