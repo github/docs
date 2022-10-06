@@ -95,7 +95,7 @@ You can also find the node ID of all projects in your organization. The followin
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"{organization(login: \"ORGANIZATION") {projectsV2(first: 20) {nodes {id title}}}}"}'
+  --data '{"query":"{organization(login: \"ORGANIZATION\") {projectsV2(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
 
