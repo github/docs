@@ -113,7 +113,7 @@ To troubleshoot, sign out of your account on {% data variables.product.prodname_
 ### Empty token
 
 ```shell
-info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
+info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - USERNAME (empty token)
 ```
 
 This error means that {% data variables.product.prodname_desktop %} is unable to find the access token that it created in the system keychain.

@@ -33,6 +33,12 @@ You must store this file in the `.github` directory of your repository. When you
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
+{% note %}
+
+**Note:** You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the *dependabot.yml* file.
+
+{% endnote %}
+
 The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
 
 ## Configuration options for the *dependabot.yml* file

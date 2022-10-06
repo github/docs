@@ -1,5 +1,6 @@
 ---
 title: Publishing Node.js packages
+shortTitle: Publish Node.js packages
 intro: You can publish Node.js packages to a registry as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages
@@ -16,7 +17,6 @@ topics:
   - Publishing
   - Node
   - JavaScript
-shortTitle: Node.js packages
 ---
 
 {% data reusables.actions.enterprise-beta %}

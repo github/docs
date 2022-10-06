@@ -27,9 +27,7 @@ Before you can configure prebuilds for your project the following must be true:
 
 ## Configuring a prebuild
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %}**.
+{% data reusables.codespaces.accessing-prebuild-configuration %}
 1. In the "Prebuild configuration" section of the page, click **Set up prebuild**.
 
    ![The 'Set up prebuilds' button](/assets/images/help/codespaces/prebuilds-set-up.png)
@@ -79,6 +77,12 @@ Before you can configure prebuilds for your project the following must be true:
 1. Optionally, add users or teams to notify when the prebuild workflow run fails for this configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
 
    ![The prebuild failure notification setting](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
+
+1. Optionally, at the bottom of the page, click **Show advanced options**.
+
+   ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
+
+   In the "Advanced options" section, if you select **Disable prebuild optimization**, codespaces will be created without a prebuild if the latest prebuild workflow has failed or is currently running. For more information, see "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds#preventing-out-of-date-prebuilds-being-used)."
 
 1. Click **Create**.
 

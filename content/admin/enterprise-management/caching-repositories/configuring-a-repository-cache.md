@@ -45,7 +45,7 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 1. Connect to the repository cache's IP address using SSH.
 
    ```shell
-   $ ssh -p 122 admin@<em>REPLICA IP</em>
+   $ ssh -p 122 admin@REPLICA-IP
    ```
 {%- ifversion ghes = 3.3 %}
 1. On your cache replica, enable the feature flag for repository caching.
@@ -59,13 +59,13 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 1. To verify the connection to the primary and enable replica mode for the repository cache, run `ghe-repl-setup` again.
 
    ```shell
-   $ ghe-repl-setup <em>PRIMARY IP</em>
+   $ ghe-repl-setup PRIMARY-IP
    ```
 
 1. Set a `cache_location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
 
    ```shell
-   $ ghe-repl-node --cache <em>CACHE-LOCATION</em> --datacenter <em>REPLICA-DC-NAME</em>
+   $ ghe-repl-node --cache CACHE-LOCATION --datacenter REPLICA-DC-NAME
    ```
 
 {% data reusables.enterprise_installation.replication-command %}

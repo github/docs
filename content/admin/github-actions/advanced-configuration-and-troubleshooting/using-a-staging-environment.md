@@ -48,5 +48,5 @@ To more accurately mirror your production environment, you can optionally copy f
 * For Amazon S3 buckets, you can use [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). For example:
 
   ```shell
-  aws s3 sync s3://<em>SOURCE-BUCKET</em> s3://<em>DESTINATION-BUCKET</em>
+  aws s3 sync s3://SOURCE-BUCKET s3://DESTINATION-BUCKET
   ```

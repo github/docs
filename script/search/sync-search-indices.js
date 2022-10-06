@@ -49,6 +49,7 @@ program
   // and change where it's used to be that the default is to not generate
   // any Lunr indexes.
   .option('--no-lunr-index', `Do not generate a Lunr index, just the records file (default false)`)
+  .option('--no-markers', 'Do not print a marker for each parsed document')
   .parse(process.argv)
 
 main(program.opts())
@@ -128,6 +129,10 @@ async function main(opts) {
 
   const generateLunrIndex = !!opts.lunrIndex
 
+  const config = {
+    noMarkers: !opts.markers,
+  }
+
   const options = {
     dryRun,
     language,
@@ -136,6 +141,7 @@ async function main(opts) {
     outDirectory,
     compressFiles,
     generateLunrIndex,
+    config,
   }
   await searchSync(options)
 }

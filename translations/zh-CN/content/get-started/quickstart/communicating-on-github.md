@@ -1,6 +1,6 @@
 ---
-title: 在 GitHub 上通信
-intro: '您可以在 {% data variables.product.product_name %} 中使用不同类型的讨论来讨论特定项目和更改，以及更广泛的想法或团队目标。'
+title: Communicating on GitHub
+intro: 'You can discuss specific projects and changes, as well as broader ideas or team goals, using different types of discussions on {% data variables.product.product_name %}.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/quickstart-for-communicating-on-github
@@ -18,137 +18,137 @@ topics:
   - Issues
   - Discussions
   - Fundamentals
-ms.openlocfilehash: 6c7461a01cd0bc44bff93b1eb4e8a013d26bc147
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147408889'
 ---
-## 简介
+## Introduction
 
-{% data variables.product.product_name %} 提供内置的协作通信工具，使您能够与社区进行密切互动。 此快速入门指南将指导您如何根据您的需求选择合适的工具。
+{% data variables.product.product_name %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
 
-{% ifversion discussions %}可以根据想参加的对话类型创建并参与问题、拉取请求、{% data variables.product.prodname_discussions %} 和团队讨论。
-{% else %}可以根据你想参加的对话类型创建并参与问题、拉取请求和团队讨论。
+{% ifversion discussions %}
+You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
+{% else %}
+You can create and participate in issues, pull requests and team discussions, depending on the type of conversation you'd like to have.
 {% endif %}
 
 ### {% data variables.product.prodname_github_issues %}
-- 适用于讨论项目的具体细节，如漏洞报告、计划的改进和反馈。 
-- 是特定于存储库的，通常有一个明确的所有者。 
-- 通常被称为 {% data variables.product.prodname_dotcom %} 的错误跟踪系统。
+- are useful for discussing specific details of a project such as bug reports, planned improvements and feedback. 
+- are specific to a repository, and usually have a clear owner. 
+- are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system.
   
-### 拉取请求
-- 允许您提出具体的更改。
-- 允许您直接评论其他人建议的更改。 
-- 是特定于仓库的。 
+### Pull requests
+- allow you to propose specific changes.
+- allow you to comment directly on proposed changes suggested by others. 
+- are specific to a repository. 
  
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
--  就像一个论坛，最好用来进行合作很重要的开放式想法和讨论。 
--  可能跨越许多仓库。 
--  在代码库之外提供协作体验，从而集思广益，并创建社区知识库。
--  往往没有明确的所有者。
--  通常不会导致可操作的任务。
+-  are like a forum, and are best used for open-form ideas and discussions where collaboration is important. 
+-  may span many repositories. 
+-  provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
+-  often don’t have a clear owner.
+-  often do not result in an actionable task.
 {% endif %}
 
-### 团队讨论
-- 可以在您的团队页面上启动跨项目的对话，不属于特定的议题或拉取请求。 不要在仓库中开启一个议题来讨论一个想法，而可以通过在团队讨论中进行对话将整个团队包括在内。
-- 允许您与您的团队在一个地方就规划、分析、设计、用户研究和一般项目决策进行讨论。{% ifversion ghes or ghae %} 
-- 在代码库之外提供协作体验，从而可以集思广益。
-- 往往没有明确的所有者。
-- 通常不会导致可操作的任务。{% endif %}
+### Team discussions
+- can be started on your team's page for conversations that span across projects and don't belong in a specific issue or pull request. Instead of opening an issue in a repository to discuss an idea, you can include the entire team by having a conversation in a team discussion.
+- allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes or ghae %} 
+- provide a collaborative experience outside the codebase, allowing the brainstorming of ideas.
+- often don’t have a clear owner.
+- often do not result in an actionable task.{% endif %}
 
-## 我应该使用哪种讨论工具？
+## Which discussion tool should I use?
 
-### 议题场景
+### Scenarios for issues
 
-- 我想跟踪任务、增强功能和漏洞。
-- 我想提交错误报告。
-- 我想分享有关特定功能的反馈。
-- 我想询问有关仓库文件的问题。
+- I want to keep track of tasks, enhancements and bugs.
+- I want to file a bug report.
+- I want to share feedback about a specific feature.
+- I want to ask a question about files in the repository.
 
-####               问题示例
+#### Issue example
 
-此示例说明了 {% data variables.product.prodname_dotcom %} 用户如何在我们的文档开源仓库中创建议题，以便让我们了解错误并讨论修复方法。 
+This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix. 
 
-![议题实例](/assets/images/help/issues/issue-example.png)
+![Example of issue](/assets/images/help/issues/issue-example.png)
 
-- 用户注意到，中文版 {% data variables.product.prodname_dotcom %} 文档页面顶部横幅的蓝色使横幅中的文本不可读。 
-- 用户在仓库中创建一个议题，指出了问题并提出了修复建议（即对横幅使用不同的背景色）。
-- 随后进行了讨论，最终就适用的修复方法达成共识。
-- 然后，参与者可以创建包含修复方法的拉取请求。
+- A user noticed that the blue color of the banner at the top of the page in the Chinese version of the {% data variables.product.prodname_dotcom %} Docs makes the text in the banner unreadable. 
+- The user created an issue in the repository, stating the problem and suggesting a fix (which is, use a different background color for the banner).
+- A discussion ensues, and eventually, a consensus will be reached about the fix to apply.
+- A contributor can then create a pull request with the fix.
 
-### 拉取请求场景
+### Scenarios for pull requests
 
-- 我想修复仓库中的拼写错误。
-- 我想对仓库进行更改。
-- 我想进行更改以修复问题。
-- 我想评论其他人建议的更改。
+- I want to fix a typo in a repository.
+- I want to make changes to a repository.
+- I want to make changes to fix an issue.
+- I want to comment on changes suggested by others.
 
-#### 拉取请求示例
+#### Pull request example
 
-此示例说明了 {% data variables.product.prodname_dotcom %} 用户如何在我们的文档开源仓库中创建拉取请求以修复拼写错误。 
+This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo. 
 
-在拉取请求的“对话”选项卡，作者解释了其创建拉取请求的原因。
+In the **Conversation** tab of the pull request, the author explains why they created the pull request.
 
-![拉取请求示例 - 对话选项卡](/assets/images/help/pull_requests/pr-conversation-example.png)
+![Example of pull request - Conversation tab](/assets/images/help/pull_requests/pr-conversation-example.png)
 
-拉取请求的“文件更改”选项卡显示已实现的修补程序。
+The **Files changed** tab of the pull request shows the implemented fix.
 
-![拉取请求示例 - 文件已更改选项卡](/assets/images/help/pull_requests/pr-files-changed-example.png)
+![Example of pull request - Files changed tab](/assets/images/help/pull_requests/pr-files-changed-example.png)
 
-- 此参与者发现仓库中的拼写错误。
-- 用户创建包含修复方法的拉取请求。
-- 仓库维护员审查拉取请求、发表评论并合并它。
+- This contributor notices a typo in the repository.
+- The user creates a pull request with the fix.
+- A repository maintainer reviews the pull request, comments on it, and merges it.
 
 {% ifversion discussions %}
-### {% data variables.product.prodname_discussions %} 的场景
+### Scenarios for {% data variables.product.prodname_discussions %}
 
-- 我有一个不一定与仓库中的特定文件相关的问题。
-- 我想与协作者或团队分享消息。
-- 我想发起或参与开放式对话。
-- 我想向社区发布公告。
+- I have a question that's not necessarily related to specific files in the repository.
+- I want to share news with my collaborators, or my team.
+- I want to start or participate in an open-ended conversation.
+- I want to make an announcement to my community.
 
-#### {% data variables.product.prodname_discussions %} 示例
+#### {% data variables.product.prodname_discussions %} example
 
-此示例显示了 {% data variables.product.prodname_dotcom %} 文档开源仓库的 {% data variables.product.prodname_discussions %} 欢迎帖子，并说明了团队希望如何与社区合作。
+This example shows the {% data variables.product.prodname_discussions %} welcome post for the {% data variables.product.prodname_dotcom %} Docs open source repository, and illustrates how the team wants to collaborate with their community.
 
-![{% data variables.product.prodname_discussions %} 示例](/assets/images/help/discussions/github-discussions-example.png)
+![Example of {% data variables.product.prodname_discussions %}](/assets/images/help/discussions/github-discussions-example.png)
 
-这位社区维护员发起讨论以欢迎社区成员，并请成员自我介绍。 这个帖子营造了欢迎访客和参与者的氛围。 这个帖子还阐明，团队乐于帮助用户参与仓库。
+This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
 
 {% endif %}
-### 团队讨论场景
+### Scenarios for team discussions
 
-- 我有一个不一定与仓库中的特定文件相关的问题。
-- 我想与协作者或团队分享消息。
-- 我想发起或参与开放式对话。
-- 我想向团队发布公告。
+- I have a question that's not necessarily related to specific files in the repository.
+- I want to share news with my collaborators, or my team.
+- I want to start or participate in an open-ended conversation.
+- I want to make an announcement to my team.
 
-{% ifversion fpt or ghec %} 如你所见，团队讨论与 {% data variables.product.prodname_discussions %} 非常类似。 对于 {% data variables.product.prodname_dotcom_the_website %}，我们建议使用 {% data variables.product.prodname_discussions %} 作为对话的起点。 您可以使用 {% data variables.product.prodname_discussions %} 与任何社区在 {% data variables.product.prodname_dotcom %} 上进行协作。 如果您是组织成员，希望在您的组织或组织的团队中发起对话，您应该使用团队讨论。
+{% ifversion fpt or ghec %}
+As you can see, team discussions are very similar to {% data variables.product.prodname_discussions %}. For {% data variables.product.prodname_dotcom_the_website %}, we recommend using {% data variables.product.prodname_discussions %} as the starting point for conversations. You can use {% data variables.product.prodname_discussions %} to collaborate with any community on {% data variables.product.prodname_dotcom %}. If you are part of an organization, and would like to initiate conversations within your organization or team within that organization, you should use team discussions.
 {% endif %}
 
-#### 团队讨论示例
+#### Team discussion example
 
-此示例显示 `octo-team` 团队的团队帖子。
+This example shows a team post for the `octo-team` team.
 
-![团队讨论示例](/assets/images/help/projects/team-discussions-example.png)
+![Example of team discussion](/assets/images/help/projects/team-discussions-example.png)
 
-`octocat` 团队成员发布了团队讨论，告知团队各种事项：
-- 一个叫 Mona 的团队成员开始了远程游戏活动。
-- 有一篇博文描述了团队如何使用 {% data variables.product.prodname_actions %} 来生成文档。
-- 有关 April All Hands 的材料现在可供所有团队成员查看。
+The `octocat` team member posted a team discussion, informing the team of various things:
+- A team member called Mona started remote game events.
+- There is a blog post describing how the teams use {% data variables.product.prodname_actions %} to produce their docs.
+- Material about the April All Hands is now available for all team members to view.
 
-## 后续步骤
+## Next steps
 
-这些示例向您展示了如何决定哪种工具是您在 {% data variables.product.product_name %} 上进行对话的最佳工具。 但这仅仅是个开始；您可以做更多的工作来根据需求定制这些工具。
+These examples showed you how to decide which is the best tool for your conversations on {% data variables.product.product_name %}. But this is only the beginning; there is so much more you can do to tailor these tools to your needs.
 
-例如，对于议题，您可以用标签标记议题以支持更快的搜索，并创建议题模板以帮助参与者打开有意义的议题。 有关详细信息，请参阅“[关于问题](/github/managing-your-work-on-github/about-issues#working-with-issues)”和“[关于问题和拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)”。
+For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues#working-with-issues)" and "[About issue and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
 
-对于拉取请求，如果您提议的更改仍在进行中，您可以创建拉取请求草稿。 草稿拉取请求在标记为可供审查之前无法合并。 有关详细信息，请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)”。
+For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)."
 
-{% ifversion discussions %}对于 {% data variables.product.prodname_discussions %}，可以{% ifversion fpt or ghec %}设置行为准则并{% endif %}将包含社区重要信息的讨论置顶。 有关详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
+{% ifversion discussions %}
+For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 {% endif %}
 
-对于团队讨论，您可以编辑或删除团队页面上的讨论，还可以为团队讨论配置通知。 有关详细信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
+For team discussions, you can edit or delete discussions on a team's page, and you can configure notifications for team discussions. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+
+To learn some advanced formatting features that will help you communicate, see "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."

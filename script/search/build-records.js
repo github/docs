@@ -26,8 +26,10 @@ export default async function buildRecords(
   indexablePages,
   pageVersion,
   languageCode,
-  redirects
+  redirects,
+  config = {}
 ) {
+  const { noMarkers } = config
   console.log(`\n\nBuilding records for index '${indexName}' (${languages[languageCode].name})`)
   const records = []
   const pages = indexablePages
@@ -61,12 +63,12 @@ export default async function buildRecords(
 
   const waiter = domwaiter(permalinks, { maxConcurrent: MAX_CONCURRENT, minTime: MIN_TIME })
     .on('page', (page) => {
-      process.stdout.write(pageMarker)
+      if (!noMarkers) process.stdout.write(pageMarker)
       const newRecord = parsePageSectionsIntoRecords(page)
       const pathArticle = page.relativePath.replace('/index.md', '').replace('.md', '')
       const popularity = (hasPopularPages && popularPages[pathArticle]) || 0.0
       newRecord.popularity = popularity
-      process.stdout.write(recordMarker)
+      if (!noMarkers) process.stdout.write(recordMarker)
       records.push(newRecord)
     })
     .on('error', (err) => {

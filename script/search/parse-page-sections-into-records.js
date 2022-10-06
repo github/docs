@@ -32,6 +32,11 @@ export default function parsePageSectionsIntoRecords(page) {
 
   const rootSelector = '[data-search=article-body]'
   const $root = $(rootSelector)
+  if ($root.length === 0) {
+    console.warn(`${href} has no '${rootSelector}'`)
+  } else if ($root.length > 1) {
+    console.warn(`${href} has more than one '${rootSelector}' (${$root.length})`)
+  }
 
   const $sections = $('h2', $root)
     .filter('[id]')
@@ -69,8 +74,10 @@ export default function parsePageSectionsIntoRecords(page) {
   // These below lines can be deleted (along with the `maxContentLength`
   // config) once we've stopped generating Lunr indexes on disk that
   // we store as Git LFS.
-  if (languageCode !== 'en' && body.length > maxContentLength) {
-    body = body.slice(0, maxContentLength)
+  if (!process.env.ELASTICSEARCH_URL) {
+    if (languageCode !== 'en' && body.length > maxContentLength) {
+      body = body.slice(0, maxContentLength)
+    }
   }
 
   const content = `${intro}\n${body}`.trim()
