@@ -4,7 +4,7 @@ intro: Navigate to the different views available in the security overview
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 versions:
-  ghae: '>= 3.5'
+  ghae: '>= 3.4'
   ghes: '*'
   ghec: '*'
 type: how_to

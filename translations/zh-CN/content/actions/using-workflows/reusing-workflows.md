@@ -1,6 +1,6 @@
 ---
 title: Reusing workflows
-shortTitle: Reusing workflows
+shortTitle: Reuse workflows
 intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
 redirect_from:
   - /actions/learn-github-actions/reusing-workflows
@@ -105,7 +105,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    on:
      workflow_call:
        inputs:
-         username:
+         config-path:
            required: true
            type: string
        secrets:
@@ -133,10 +133,10 @@ You can define inputs and secrets, which can be passed from the caller workflow 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: octo-org/my-action@v1
-           with:
-             username: ${{ inputs.username }}
-             token: ${{ secrets.envPAT }}
+       - uses: actions/labeler@v4
+         with:
+           repo-token: ${{ secrets.envPAT }}
+           configuration-path: ${{ inputs.config-path }}
    ```
    {% endraw %}
    In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job.
@@ -162,7 +162,7 @@ name: Reusable workflow example
 on:
   workflow_call:
     inputs:
-      username:
+      config-path:
         required: true
         type: string
     secrets:
@@ -170,14 +170,13 @@ on:
         required: true
 
 jobs:
-  example_job:
-    name: Pass input and secrets to my-action
+  triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: octo-org/my-action@v1
-        with:
-          username: ${{ inputs.username }}
-          token: ${{ secrets.token }}
+    - uses: actions/labeler@v4
+      with:
+        repo-token: ${{ secrets.token }}
+        configuration-path: ${{ inputs.config-path }}
 ```
 {% endraw %}
 
@@ -256,7 +255,7 @@ When you call a reusable workflow, you can only use the following keywords in th
 
 ### Example caller workflow
 
-This workflow file calls two workflow files. The second of these, `workflow-B.yml` (shown in the [example reusable workflow](#example-reusable-workflow)), is passed an input (`username`) and a secret (`token`).
+This workflow file calls two workflow files. The second of these, `workflow-B.yml` (shown in the [example reusable workflow](#example-reusable-workflow)), is passed an input (`config-path`) and a secret (`token`).
 
 {% raw %}
 ```yaml{:copy}
@@ -272,11 +271,14 @@ jobs:
     uses: octo-org/example-repo/.github/workflows/workflow-A.yml@v1
 
   call-workflow-passing-data:
+    permissions:
+      contents: read
+      pull-requests: write
     uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
     with:
-      username: mona
+      config-path: .github/labeler.yml
     secrets:
-      token: ${{ secrets.TOKEN }}
+      token: ${{ secrets.GITHUB_TOKEN }}
 ```
 {% endraw %}
 
