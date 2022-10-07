@@ -386,7 +386,7 @@ If you're wondering where the Terminal output above is coming from, it's written
 
 ## Troubleshooting
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
+Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data reusables.support.prodname_support_forum_with_url %}.
 
 * **Q:** When I try to install the Smee command-line client, I get the following error:
 
