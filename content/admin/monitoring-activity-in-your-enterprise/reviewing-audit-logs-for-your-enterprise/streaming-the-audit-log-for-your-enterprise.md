@@ -91,7 +91,7 @@ For information on creating or accessing your access key ID and secret key, see 
    - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
    - For "Audience", use `sts.amazonaws.com`.
 1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
-1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket. {% data variables.product.prodname_dotcom %} requires only the following permissions.
+1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket by copying the following JSON and replacing `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
 
    ```
    {
@@ -103,7 +103,7 @@ For information on creating or accessing your access key ID and secret key, see 
             "Action": [
                "s3:PutObject"
             ],
-            "Resource": "arn:aws:s3:::example-bucket/*"
+            "Resource": "arn:aws:s3:::EXAMPLE-BUCKET/*"
         }
       ]
    }

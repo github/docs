@@ -256,6 +256,7 @@ translations/es-ES/content/account-and-profile/managing-subscriptions-and-notifi
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile.md,rendering error
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme.md,broken liquid tags
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private.md,broken liquid tags
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile.md,broken liquid tags
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository.md,rendering error
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository.md,rendering error
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository.md,rendering error
@@ -317,8 +318,8 @@ translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise
 translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,rendering error
 translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
 translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,rendering error
-translations/es-ES/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,broken liquid tags
-translations/es-ES/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,broken liquid tags
+translations/es-ES/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,rendering error
+translations/es-ES/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,rendering error
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/about-ssh.md,broken liquid tags
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,rendering error
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
@@ -368,16 +369,17 @@ translations/es-ES/content/code-security/getting-started/github-security-feature
 translations/es-ES/content/code-security/getting-started/securing-your-repository.md,rendering error
 translations/es-ES/content/code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
+translations/es-ES/content/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories.md,broken liquid tags
 translations/es-ES/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,rendering error
 translations/es-ES/content/code-security/security-overview/about-the-security-overview.md,rendering error
-translations/es-ES/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,broken liquid tags
+translations/es-ES/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
 translations/es-ES/content/code-security/security-overview/viewing-the-security-overview.md,rendering error
 translations/es-ES/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
 translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,rendering error
 translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
-translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,broken liquid tags
+translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,rendering error
 translations/es-ES/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
 translations/es-ES/content/codespaces/codespaces-reference/disaster-recovery-for-github-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
@@ -439,8 +441,12 @@ translations/es-ES/content/copilot/getting-started-with-github-copilot/getting-s
 translations/es-ES/content/copilot/quickstart.md,broken liquid tags
 translations/es-ES/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/index.md,broken liquid tags
 translations/es-ES/content/developers/apps/getting-started-with-apps/differences-between-github-apps-and-oauth-apps.md,broken liquid tags
+translations/es-ES/content/developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app.md,broken liquid tags
+translations/es-ES/content/developers/apps/guides/creating-ci-tests-with-the-checks-api.md,broken liquid tags
+translations/es-ES/content/developers/apps/guides/using-the-github-api-in-your-app.md,broken liquid tags
 translations/es-ES/content/developers/overview/about-githubs-apis.md,broken liquid tags
 translations/es-ES/content/developers/overview/managing-deploy-keys.md,broken liquid tags
+translations/es-ES/content/developers/webhooks-and-events/events/issue-event-types.md,broken liquid tags
 translations/es-ES/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/es-ES/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
 translations/es-ES/content/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion.md,broken liquid tags
@@ -460,7 +466,7 @@ translations/es-ES/content/get-started/writing-on-github/getting-started-with-wr
 translations/es-ES/content/get-started/writing-on-github/working-with-advanced-formatting/attaching-files.md,broken liquid tags
 translations/es-ES/content/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.md,rendering error
 translations/es-ES/content/graphql/guides/migrating-from-rest-to-graphql.md,broken liquid tags
-translations/es-ES/content/graphql/overview/about-the-graphql-api.md,broken liquid tags
+translations/es-ES/content/graphql/overview/about-the-graphql-api.md,rendering error
 translations/es-ES/content/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects.md,broken liquid tags
 translations/es-ES/content/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects.md,broken liquid tags
 translations/es-ES/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,rendering error
@@ -653,6 +659,7 @@ translations/es-ES/data/reusables/secret-scanning/partner-secret-list-private-re
 translations/es-ES/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/es-ES/data/reusables/security-overview/permissions.md,rendering error
 translations/es-ES/data/reusables/sponsors/feedback.md,broken liquid tags
+translations/es-ES/data/reusables/support/help_resources.md,broken liquid tags
 translations/es-ES/data/reusables/user-settings/access_applications.md,rendering error
 translations/es-ES/data/reusables/user-settings/account_settings.md,rendering error
 translations/es-ES/data/reusables/user-settings/appearance-settings.md,rendering error
@@ -666,4 +673,5 @@ translations/es-ES/data/reusables/user-settings/security.md,rendering error
 translations/es-ES/data/reusables/user-settings/ssh.md,rendering error
 translations/es-ES/data/reusables/webhooks/pull_request_properties.md,broken liquid tags
 translations/es-ES/data/reusables/webhooks/pull_request_webhook_properties.md,broken liquid tags
+translations/es-ES/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/es-ES/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags

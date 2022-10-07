@@ -314,8 +314,8 @@ translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,rendering error
-translations/zh-CN/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,broken liquid tags
-translations/zh-CN/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,broken liquid tags
+translations/zh-CN/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,rendering error
+translations/zh-CN/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,rendering error
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/about-ssh.md,broken liquid tags
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,rendering error
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
@@ -368,19 +368,20 @@ translations/zh-CN/content/code-security/dependabot/working-with-dependabot/mana
 translations/zh-CN/content/code-security/getting-started/github-security-features.md,rendering error
 translations/zh-CN/content/code-security/getting-started/securing-your-repository.md,rendering error
 translations/zh-CN/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
+translations/zh-CN/content/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories.md,broken liquid tags
 translations/zh-CN/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
 translations/zh-CN/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,rendering error
 translations/zh-CN/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,rendering error
 translations/zh-CN/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,rendering error
 translations/zh-CN/content/code-security/security-overview/about-the-security-overview.md,rendering error
-translations/zh-CN/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,broken liquid tags
+translations/zh-CN/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
 translations/zh-CN/content/code-security/security-overview/viewing-the-security-overview.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
-translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,broken liquid tags
+translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,rendering error
 translations/zh-CN/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
 translations/zh-CN/content/codespaces/codespaces-reference/disaster-recovery-for-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
@@ -445,8 +446,12 @@ translations/zh-CN/content/developers/apps/building-github-apps/authenticating-w
 translations/zh-CN/content/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps.md,rendering error
 translations/zh-CN/content/developers/apps/building-github-apps/managing-allowed-ip-addresses-for-a-github-app.md,rendering error
 translations/zh-CN/content/developers/apps/getting-started-with-apps/differences-between-github-apps-and-oauth-apps.md,broken liquid tags
+translations/zh-CN/content/developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app.md,broken liquid tags
+translations/zh-CN/content/developers/apps/guides/creating-ci-tests-with-the-checks-api.md,broken liquid tags
+translations/zh-CN/content/developers/apps/guides/using-the-github-api-in-your-app.md,broken liquid tags
 translations/zh-CN/content/developers/overview/about-githubs-apis.md,broken liquid tags
 translations/zh-CN/content/developers/overview/managing-deploy-keys.md,broken liquid tags
+translations/zh-CN/content/developers/webhooks-and-events/events/issue-event-types.md,broken liquid tags
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion.md,broken liquid tags
@@ -466,7 +471,7 @@ translations/zh-CN/content/get-started/writing-on-github/getting-started-with-wr
 translations/zh-CN/content/get-started/writing-on-github/working-with-advanced-formatting/attaching-files.md,broken liquid tags
 translations/zh-CN/content/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.md,rendering error
 translations/zh-CN/content/graphql/guides/migrating-from-rest-to-graphql.md,broken liquid tags
-translations/zh-CN/content/graphql/overview/about-the-graphql-api.md,broken liquid tags
+translations/zh-CN/content/graphql/overview/about-the-graphql-api.md,rendering error
 translations/zh-CN/content/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects.md,broken liquid tags
 translations/zh-CN/content/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects.md,broken liquid tags
 translations/zh-CN/content/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects.md,broken liquid tags
@@ -664,6 +669,7 @@ translations/zh-CN/data/reusables/secret-scanning/partner-secret-list-private-re
 translations/zh-CN/data/reusables/secret-scanning/push-protection-web-ui-choice.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/zh-CN/data/reusables/security-overview/permissions.md,rendering error
+translations/zh-CN/data/reusables/support/help_resources.md,broken liquid tags
 translations/zh-CN/data/reusables/user-settings/access_applications.md,rendering error
 translations/zh-CN/data/reusables/user-settings/account_settings.md,rendering error
 translations/zh-CN/data/reusables/user-settings/appearance-settings.md,rendering error
@@ -677,4 +683,5 @@ translations/zh-CN/data/reusables/user-settings/security.md,rendering error
 translations/zh-CN/data/reusables/user-settings/ssh.md,rendering error
 translations/zh-CN/data/reusables/webhooks/pull_request_properties.md,broken liquid tags
 translations/zh-CN/data/reusables/webhooks/pull_request_webhook_properties.md,broken liquid tags
+translations/zh-CN/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/zh-CN/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
