@@ -29,11 +29,14 @@ To generate a dependency graph, {% data variables.product.product_name %} needs 
 {% endif %}
 
 {% ifversion ghes %} ## Enabling the dependency graph
+{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
 {% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
 
 ### Enabling and disabling the dependency graph for a private repository
 
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
+
+{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
 {% endif %}
 
 When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% ifversion fpt or ghec %} and every push to other repositories in the graph{% endif %}.
