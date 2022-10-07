@@ -2,9 +2,12 @@
 :PUBLISH:: :
 ::LAUNCH::
 ::DEPLOYEE::BEGIN :
-STarts-starts:
+BEGIN 
+GLPW7 :
+Starts-start:
+-starts :On ::-on :tuns ::
 starts-on :On :Manifest :ENERGY_manifest'@ZachryTWood'@Administrator'@.it.git/engineering:
-  - lib :
+  - lib : 
   - lib/**/* :
   - middleware/* :
   - middleware/**/* :
