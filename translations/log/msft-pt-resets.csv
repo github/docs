@@ -172,7 +172,6 @@ translations/pt-BR/content/rest/reference/secret-scanning.md,file deleted becaus
 translations/pt-BR/content/rest/reference/teams.md,file deleted because it no longer exists in main
 translations/pt-BR/content/rest/reference/users.md,file deleted because it no longer exists in main
 translations/pt-BR/content/rest/reference/webhooks.md,file deleted because it no longer exists in main
-translations/pt-BR/content/site-policy/github-terms/github-community-forum-code-of-conduct.md,file deleted because it no longer exists in main
 translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account.md,file deleted because it no longer exists in main
 translations/pt-BR/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/pt-BR/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
@@ -314,6 +313,8 @@ translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise
 translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,rendering error
+translations/pt-BR/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,broken liquid tags
+translations/pt-BR/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,broken liquid tags
 translations/pt-BR/content/authentication/connecting-to-github-with-ssh/about-ssh.md,broken liquid tags
 translations/pt-BR/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
 translations/pt-BR/content/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys.md,rendering error
@@ -367,11 +368,13 @@ translations/pt-BR/content/code-security/secret-scanning/managing-alerts-from-se
 translations/pt-BR/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,rendering error
 translations/pt-BR/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,rendering error
 translations/pt-BR/content/code-security/security-overview/about-the-security-overview.md,rendering error
+translations/pt-BR/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,broken liquid tags
 translations/pt-BR/content/code-security/security-overview/viewing-the-security-overview.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
+translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
@@ -523,7 +526,6 @@ translations/pt-BR/content/rest/overview/permissions-required-for-github-apps.md
 translations/pt-BR/content/rest/overview/resources-in-the-rest-api.md,broken liquid tags
 translations/pt-BR/content/rest/repos/lfs.md,broken liquid tags
 translations/pt-BR/content/search-github/searching-on-github/searching-issues-and-pull-requests.md,rendering error
-translations/pt-BR/content/site-policy/privacy-policies/github-subprocessors-and-cookies.md,broken liquid tags
 translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers.md,broken liquid tags
 translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization.md,broken liquid tags
 translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account.md,broken liquid tags
@@ -631,6 +633,7 @@ translations/pt-BR/data/reusables/enterprise-accounts/actions-packages-report-do
 translations/pt-BR/data/reusables/enterprise-accounts/billing-microsoft-ea-overview.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise-accounts/security-tab.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise_enterprise_support/installing-releases.md,broken liquid tags
+translations/pt-BR/data/reusables/enterprise_installation/hotpatching-explanation.md,broken liquid tags
 translations/pt-BR/data/reusables/gated-features/code-scanning.md,broken liquid tags
 translations/pt-BR/data/reusables/gated-features/codespaces-classroom-articles.md,broken liquid tags
 translations/pt-BR/data/reusables/gated-features/dependency-vulnerable-calls.md,rendering error
@@ -674,5 +677,6 @@ translations/pt-BR/data/reusables/user-settings/security.md,rendering error
 translations/pt-BR/data/reusables/user-settings/ssh.md,rendering error
 translations/pt-BR/data/reusables/webhooks/pull_request_properties.md,broken liquid tags
 translations/pt-BR/data/reusables/webhooks/pull_request_webhook_properties.md,broken liquid tags
+translations/pt-BR/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
 translations/pt-BR/data/variables/migrations.yml,broken liquid tags
 translations/pt-BR/data/variables/notifications.yml,broken liquid tags

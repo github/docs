@@ -19,7 +19,6 @@ shortTitle: GitHub App permissions
 
 {% data variables.product.prodname_github_apps %} are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[Setting permissions for GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)."
 
-<span id="metadata-permissions"></span>
 ## Metadata
 
 GitHub Apps have the **Read-only** metadata permission by default. The metadata permission provides access to a collection of read-only endpoints with metadata for various resources. These endpoints do not leak sensitive private repository information.
@@ -116,7 +115,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /users/:username/keys`](/rest/reference/users#list-public-keys-for-a-user)
 
 {% ifversion fpt or ghes or ghec %}
-<span id="permission-on-actions"></span>
 ## Actions
 
 - [`GET /repos/:owner/:repo/actions/artifacts`](/rest/reference/actions#list-artifacts-for-a-repository) (read)
@@ -144,7 +142,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs`](/rest/reference/actions#list-workflow-runs) (read)
 {% endif %}
 
-<span id="permission-on-administration"></span>
 ## Administration
 
 - [`POST /orgs/:org/repos`](/rest/reference/repos#create-an-organization-repository) (write)
@@ -260,7 +257,6 @@ If you set the metadata permission to **No access** and select a permission that
 {% endif %}
 
 {% ifversion fpt or ghec %}
-<span id="permission-on-blocking"></span>
 ## Blocking users
 
 - [`GET /user/blocks`](/rest/reference/users#list-users-blocked-by-the-authenticated-user) (read)
@@ -269,7 +265,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`DELETE /user/blocks/:username`](/rest/reference/users#unblock-a-user) (write)
 {% endif %}
 
-<span id="permission-on-checks"></span>
 ## Checks
 
 - [`POST /repos/:owner/:repo/check-runs`](/rest/reference/checks#create-a-check-run) (write)
@@ -284,7 +279,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /repos/:owner/:repo/commits/:sha/check-runs`](/rest/reference/checks#list-check-runs-for-a-git-reference) (read)
 - [`GET /repos/:owner/:repo/commits/:sha/check-suites`](/rest/reference/checks#list-check-suites-for-a-git-reference) (read)
 
-<span id="permission-on-security-events"></span>
 ## Code scanning alerts
 
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (read)
@@ -309,20 +303,17 @@ If you set the metadata permission to **No access** and select a permission that
 {% endif -%}
 
 {% ifversion fpt or ghec %}
-<span id="permission-on-codespaces"></span>
 ## Codespaces
 
 - [`GET /repos/:owner/:repo/codespaces/machines`](/rest/reference/codespaces#list-available-machine-types-for-a-repository)
 {% endif %}
 
-<span id="permission-on-statuses"></span>
 ## Commit statuses
 
 - [`GET /repos/:owner/:repo/commits/:ref/status`](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) (read)
 - [`GET /repos/:owner/:repo/commits/:ref/statuses`](/rest/reference/commits#list-commit-statuses-for-a-reference) (read)
 - [`POST /repos/:owner/:repo/statuses/:sha`](/rest/reference/commits#create-a-commit-status) (write)
 
-<span id="permission-on-contents"></span>
 ## Contents
 
 - [`GET /repos/:owner/:repo/:archive_format/:ref`](/rest/reference/repos#download-a-repository-archive) (read)
@@ -483,7 +474,6 @@ If you set the metadata permission to **No access** and select a permission that
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3%}
-<span id="permission-on-dependabot-secrets"></span>
 ## Dependabot secrets
 
 - [`GET /repos/:owner/:repo/dependabot/secrets/public-key`](/rest/reference/dependabot#get-a-repository-public-key) (read)
@@ -502,7 +492,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`DELETE /orgs/:org/dependabot/secrets/:secret_name`](/rest/reference/dependabot#delete-an-organization-secret) (write)
 {% endif %}
 
-<span id="permission-on-deployments"></span>
 ## Deployments
 
 - [`GET /repos/:owner/:repo/deployments`](/rest/reference/deployments#list-deployments) (read)
@@ -514,7 +503,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id`](/rest/reference/deployments#get-a-deployment-status) (read)
 
 {% ifversion fpt or ghes or ghec %}
-<span id="permission-on-emails"></span>
 ## Email addresses
 
 {% ifversion fpt or ghec -%}
@@ -526,7 +514,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /user/public_emails`](/rest/reference/users#list-public-email-addresses-for-the-authenticated-user) (read)
 {% endif %}
 
-<span id="permission-on-followers"></span>
 ## Followers
 
 - [`GET /user/followers`](/rest/reference/users#list-followers-of-a-user) (read)
@@ -535,7 +522,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`PUT /user/following/:username`](/rest/reference/users#follow-a-user) (write)
 - [`DELETE /user/following/:username`](/rest/reference/users#unfollow-a-user) (write)
 
-<span id="permission-on-keys"></span>
 ## Git SSH keys
 
 - [`GET /user/keys`](/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user) (read)
@@ -543,7 +529,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /user/keys/:key_id`](/rest/reference/users#get-a-public-ssh-key-for-the-authenticated-user) (read)
 - [`DELETE /user/keys/:key_id`](/rest/reference/users#delete-a-public-ssh-key-for-the-authenticated-user) (write)
 
-<span id="permission-on-gpg-keys"></span>
 ## GPG keys
 
 - [`GET /user/gpg_keys`](/rest/reference/users#list-gpg-keys-for-the-authenticated-user) (read)
@@ -552,7 +537,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`DELETE /user/gpg_keys/:gpg_key_id`](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user) (write)
 
 {% ifversion fpt or ghec %}
-<span id="permission-on-interaction-limits"></span>
 ## Interaction limits
 
 - [`GET /user/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-your-public-repositories) (read)
@@ -560,7 +544,6 @@ If you set the metadata permission to **No access** and select a permission that
 - [`DELETE /user/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-from-your-public-repositories) (write)
 {% endif %}
 
-<span id="permission-on-issues"></span>
 ## Issues
 
 Issues and pull requests are closely related. For more information, see "[List issues assigned to the authenticated user](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)." If your GitHub App has permissions on issues but not on pull requests, these endpoints will be limited to issues. Endpoints that return both issues and pull requests will be filtered. Endpoints that allow operations on both issues and pull requests will be restricted to issues.
@@ -626,7 +609,6 @@ Issues and pull requests are closely related. For more information, see "[List i
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (write)
 
-<span id="permission-on-members"></span>
 ## Members
 
 {% ifversion fpt or ghec -%}
@@ -702,7 +684,6 @@ Issues and pull requests are closely related. For more information, see "[List i
 - [`DELETE /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#remove-a-repository-from-a-team) (write)
 - [`GET /teams/:team_id/teams`](/rest/reference/teams#list-child-teams) (read)
 
-<span id="permission-on-organization-administration"></span>
 ## Organization administration
 
 - [`PATCH /orgs/:org`](/rest/reference/orgs#update-an-organization) (write)
@@ -720,13 +701,11 @@ Issues and pull requests are closely related. For more information, see "[List i
 - [`DELETE /orgs/:org/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization) (write)
 {% endif %}
 
-<span id="permission-on-organization-events"></span>
 ## Organization events
 
 - [`GET /users/:username/events/orgs/:org`](/rest/reference/activity#list-organization-events-for-the-authenticated-user) (read)
 
 {% ifversion ghes %}
-<span id="permission-on-organization-pre-receive-hooks"></span>
 ## Organization pre-receive hooks
 
 - [`GET /orgs/:org/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization) (read)
@@ -735,7 +714,6 @@ Issues and pull requests are closely related. For more information, see "[List i
 - [`DELETE /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization) (write)
 {% endif %}
 
-<span id="permission-on-organization-projects"></span>
 ## Organization projects
 
 - [`POST /orgs/:org/projects`](/rest/reference/projects#create-an-organization-project) (write)
@@ -757,7 +735,6 @@ Issues and pull requests are closely related. For more information, see "[List i
 - [`POST /projects/columns/cards/:card_id/moves`](/rest/reference/projects#move-a-project-card) (write)
 
 {% ifversion fpt or ghec %}
-<span id="permission-on-organization-user-blocking"></span>
 ## Organization user blocking
 
 - [`GET /orgs/:org/blocks`](/rest/reference/orgs#list-users-blocked-by-an-organization) (read)
@@ -766,7 +743,6 @@ Issues and pull requests are closely related. For more information, see "[List i
 - [`DELETE /orgs/:org/blocks/:username`](/rest/reference/orgs#unblock-a-user-from-an-organization) (write)
 {% endif %}
 
-<span id="permission-on-organization-hooks"></span>
 ## Organization webhooks
 
 - [`GET /orgs/:org/hooks`](/rest/reference/orgs#webhooks/#list-organization-webhooks) (read)
@@ -779,7 +755,6 @@ Issues and pull requests are closely related. For more information, see "[List i
 ### Teams
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (read)
 
-<span id="permission-on-pages"></span>
 ## Pages
 
 GitHub Pages can only be created or unpublished by a repository owner or administrator.
@@ -795,12 +770,10 @@ GitHub Pages can only be created or unpublished by a repository owner or adminis
 - [`POST /repos/:owner/:repo/pages/deployment`](/rest/reference/repos#create-a-github-pages-deployment) (write)
 {% endif %}
 
-<span id="permission-on-profile"></span>
 ## Profile
 
 - [`PATCH /user`](/rest/reference/users#update-the-authenticated-user) (write)
 
-<span id="permission-on-pull-requests"></span>
 ## Pull requests
 
 Pull requests and issues are closely related. If your GitHub App has permissions on pull requests but not on issues, these endpoints will be limited to pull requests. Endpoints that return both pull requests and issues will be filtered. Endpoints that allow operations on both pull requests and issues will be restricted to pull requests.
@@ -889,7 +862,6 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/dismissals`](/rest/reference/pulls#dismiss-a-review-for-a-pull-request) (write)
 
 {% ifversion ghes %}
-<span id="permission-on-repository-pre-receive-hooks"></span>
 ## Repository pre-receive hooks
 
 - [`GET /repos/:owner/:repo/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository) (read)
@@ -898,7 +870,6 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 - [`DELETE /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository) (write)
 {% endif %}
 
-<span id="permission-on-repository-projects"></span>
 ## Repository projects
 
 - [`GET /projects/:project_id`](/rest/reference/projects#get-a-project) (read)
@@ -923,7 +894,6 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 ### Teams
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (read)
 
-<span id="permission-on-repository-hooks"></span>
 ## Repository webhooks
 
 - [`GET /repos/:owner/:repo/hooks`](/rest/reference/webhooks#list-repository-webhooks) (read)
@@ -935,7 +905,6 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 - [`POST /repos/:owner/:repo/hooks/:hook_id/tests`](/rest/reference/repos#test-the-push-repository-webhook) (read)
 
 {% ifversion fpt or ghec %}
-<span id="permission-on-secrets"></span>
 ## Secrets
 
 - [`GET /repos/:owner/:repo/actions/secrets/public-key`](/rest/reference/actions#get-a-repository-public-key) (read)
@@ -955,7 +924,6 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 {% endif %}
 
 {% ifversion ghes or ghec %}
-<span id="permission-on-secret-scanning-alerts"></span>
 ## Secret scanning alerts
 
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (read)
@@ -965,7 +933,6 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-<span id="permission-on-self-hosted-runners"></span>
 ## Self-hosted runners
 
 - [`GET /orgs/:org/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-an-organization) (read)
@@ -981,21 +948,18 @@ Pull requests and issues are closely related. If your GitHub App has permissions
 - [`DELETE /orgs/:org/actions/runners/:runner_id/labels/:name`](/rest/reference/actions#remove-a-custom-label-from-a-self-hosted-runner-for-an-organization) (write)
 {% endif %}
 
-<span id="permission-on-single-file"></span>
 ## Single file
 
 - [`GET /repos/:owner/:repo/contents/:path`](/rest/reference/repos#get-repository-content) (read)
 - [`PUT /repos/:owner/:repo/contents/:path`](/rest/reference/repos#create-or-update-file-contents) (write)
 - [`DELETE /repos/:owner/:repo/contents/:path`](/rest/reference/repos#delete-a-file) (write)
 
-<span id="permission-on-starring"></span>
 ## Starring
 
 - [`GET /user/starred/:owner/:repo`](/rest/reference/activity#check-if-a-repository-is-starred-by-the-authenticated-user) (read)
 - [`PUT /user/starred/:owner/:repo`](/rest/reference/activity#star-a-repository-for-the-authenticated-user) (write)
 - [`DELETE /user/starred/:owner/:repo`](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user) (write)
 
-<span id="permission-on-team-discussions"></span>
 ## Team discussions
 
 - [`GET /teams/:team_id/discussions`](/rest/reference/teams#list-discussions) (read)

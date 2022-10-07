@@ -10,8 +10,13 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 32ce117172ece21540b71457cd7a75b1c90bc7a0
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099191'
 ---
-
 Milhões de desenvolvedores do mundo todo hospedam milhões de projetos – tanto de código aberto quanto fechado – no GitHub. Temos a sorte de poder desempenhar um papel em permitir a colaboração em toda a comunidade de desenvolvedores todos os dias, o que é uma responsabilidade que nós não tratamos levianamente. Juntos, todos nós temos a emocionante oportunidade de fazer desta comunidade algo do qual podemos nos orgulhar.
 
 Nossa base diversificada de usuários traz diferentes perspectivas, ideias e experiências e abrange desde pessoas que criaram seu primeiro projeto “Hello World” na semana passada até os desenvolvedores de software mais conhecidos do mundo. Estamos comprometidos em tornar o GitHub um ambiente que acolhe todas as diversas vozes e perspectivas que nossa comunidade tem a oferecer, mantendo um local seguro para os desenvolvedores fazerem seu melhor trabalho.
@@ -21,7 +26,7 @@ Ao esboçar o que pensamos ser um modelo de [comunidade segura, acolhedora e pro
 Incentivamos os membros da nossa comunidade a comunicar as expectativas de forma clara, [moderar](#what-if-something-or-someone-offends-you) seus projetos, sempre que possível, e [denunciar](https://github.com/contact/report-abuse) qualquer conteúdo que possa violar nossas [políticas](/github/site-policy/github-terms-of-service). A equipe do GitHub investigará quaisquer denúncias de abuso e poderá moderar o conteúdo público em nosso site se determinarmos que ele viola os Termos de Serviço.
 
 
-## <a name="maintaining-a-strong-community"></a>Como manter uma comunidade forte
+## Como manter uma comunidade forte
 
 O objetivo principal da comunidade do GitHub é colaborar em projetos de software. Estamos comprometidos em manter uma comunidade na qual os usuários são livres para se expressar e desafiar as ideias uns dos outros, tanto técnicas quanto outras. Ao mesmo tempo, é importante que os usuários mantenham o respeito e deem espaço para que outras pessoas contribuam abertamente. Para promover um ambiente seguro e produtivo, incentivamos os membros de nossa comunidade a observar essas diretrizes para informar como eles interagem em nossa plataforma.  Abaixo, você encontrará algumas sugestões sobre como ter interações bem-sucedidas como um membro valioso da comunidade do GitHub.
 
@@ -32,7 +37,7 @@ O objetivo principal da comunidade do GitHub é colaborar em projetos de softwar
 * **Seja empático** – O GitHub é uma comunidade global com pessoas de uma ampla variedade de experiências e perspectivas, muitas das quais podem ser diferentes das suas. Tente se colocar no lugar dos outros e entender seus sentimentos antes de abordá-los. Faça o seu melhor para ajudar a tornar o GitHub uma comunidade na qual outras pessoas se sintam seguras para fazer contribuições, participar de discussões e compartilhar ideias diferentes.  
 
 
-## <a name="what-if-something-or-someone-offends-you"></a>E se algo ou alguém ofender você?
+## E se algo ou alguém ofender você?
 
 Embora algumas divergências possam ser resolvidas com uma comunicação direta e respeitosa entre os membros da comunidade, entendemos que isso nem sempre acontece. Incentivamos nossa comunidade a [nos informar](https://support.github.com/contact/report-abuse?category=report-abuse&report=other&report_type=unspecified) quando se acreditar que o conteúdo ou a atividade identificado viola nossas políticas. No entanto, se você encontrar algo ou alguém no site que considere censurável, aqui estão algumas maneiras pelas quais o GitHub permite que você tome uma atitude: 
 
@@ -50,7 +55,7 @@ Embora algumas divergências possam ser resolvidas com uma comunicação direta 
 
 Embora sejamos apaixonados por capacitar os mantenedores a moderar seus próprios projetos, entre em contato conosco para {% data variables.contact.report_abuse %} se você precisar de suporte adicional para lidar com uma situação.
 
-## <a name="what-happens-if-someone-violates-githubs-policies"></a>O que acontece se alguém violar as políticas do GitHub?
+## O que acontece se alguém violar as políticas do GitHub?
 
 Contamos com relatórios da comunidade, bem como com a detecção proativa, para ajudar a garantir que o GitHub seja uma plataforma segura, acolhedora e produtiva para desenvolvedores de software. Levamos em consideração diversos fatores quando tomamos conhecimento de comportamento ou conteúdo em desacordo com as políticas do GitHub. No entanto, nossa abordagem de imposição de políticas e moderação de conteúdo prioriza nossa visão de ser o lar de todos os desenvolvedores. Isso significa que:
 
@@ -69,11 +74,11 @@ Nos casos em que decidimos que a ação de moderação é necessária, estas sã
 * Suspendendo uma conta de usuário ou organização
 
 
-## <a name="appeal-and-reinstatement"></a>Recurso e Restabelecimento
+## Recurso e Restabelecimento
 
 Se o conteúdo ou a conta foi desativado ou restrito e você busca o restabelecimento ou deseja contestar, consulte a [Página de Recurso e Reposição](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) para obter informações sobre o processo e use o [Formulário de Recurso e Restabelecimento](https://support.github.com/contact/reinstatement) para enviar uma solicitação.
 
-## <a name="legal-notices"></a>Notificações Legais
+## Notificações Legais
 
 Dedicamos estas Diretrizes da Comunidade ao domínio público para qualquer pessoa usar, reutilizar, adaptar ou o que for, segundo os termos de [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 
