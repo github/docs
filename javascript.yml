@@ -1,9 +1,10 @@
-BEGIN
-GLOW4
-START
-ON
-RUNS
-RUN
+BEGIN :
+GLOW7 :
+Presses :Start_button-then :cselects :"Run::/" :Script::/:Automate :AUTOMATES ::Automatically-thenFix-All ::PERFECT :'::ALL AUTOMATE ::':BEGIN ::
+LIVEORTEST :LIVE : \ 
+On :
+Runs :
+Run :
 Run::/:-start:On-on:-on  :
 -on :-start:scripts::
 scripts: :build-and-deployee :pop-kernel_springs-up_WindowsXp-frameworks'@Users:\Desktop :running-in-background ::: :
