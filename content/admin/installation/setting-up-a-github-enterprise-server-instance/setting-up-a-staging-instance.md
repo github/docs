@@ -33,7 +33,7 @@ To thoroughly test {% data variables.product.product_name %} and recreate an env
 - Authentication, especially if you use an external authentication provider like SAML
 - Integration with an external ticketing system
 - Integration with a continuous integration server
-- External scripts or software that use {% data variables.product.prodname_enterprise_api %}
+- External scripts or software that use the {% data variables.product.prodname_enterprise_api %}
 - External SMTP server for email notifications
 
 ## Setting up a staging instance
