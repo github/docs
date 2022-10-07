@@ -10,61 +10,75 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 991c060af22a9161e026aa396037a1d52e66fcea
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858615'
 ---
-
-Are you a law enforcement officer conducting an investigation that may involve user content hosted on GitHub?
-Or maybe you're a privacy-conscious person who would like to know what information we share with law enforcement and under what circumstances.
-Either way, you're on the right page.
-
-In these guidelines, we provide a little background about what GitHub is, the types of data we have, and the conditions under which we will disclose private user information.
-Before we get into the details, however, here are a few important details you may want to know:
-
-- 如果有任何对于用户帐户信息的请求，我们将[**通知受影响用户**](#we-will-notify-any-affected-account-owners)，除非法律或法庭命令禁止此类通知。
-- 如果没有[有效的法庭命令或搜查令](#with-a-court-order-or-a-search-warrant)，我们不会披露**位置跟踪数据**，如 IP 地址日志。
-- 如果没有有效的[搜查令](#only-with-a-search-warrant)，我们不会披露任何**私人用户内容**，包括私有存储库内容。
-
-## <a name="about-these-guidelines"></a>关于这些准则
-
 您是否是一名执法官员，所开展的调查可能涉及到 GitHub 上托管的用户内容？
-
 或者您是一位非常注重隐私的人士，希望了解我们在哪些情况下与执法机构分享哪些信息。
-
 无论您是哪种身份，都应参阅本文内容。
 
-## <a name="github-terminology"></a>GitHub 术语
+在这些准则中，我们提供了一些背景信息，包括 GitHub 是什么、我们拥有的数据类型以及我们会在哪些情况下披露私人用户信息。
+在深入说明之前，您需要了解一些重要的详细信息：
 
-Before asking us to disclose data, it may be useful to understand how our system is implemented.
-GitHub hosts millions of data repositories using the <bpt id="p1">[</bpt>Git version control system<ept id="p1">](https://git-scm.com/video/what-is-version-control)</ept>.
-Repositories on GitHub—which may be public or private—are most commonly used for software development projects, but are also often used to work on content of all kinds.
+- 如果有任何对于用户帐户信息的请求，我们将 [**通知受影响用户**](#we-will-notify-any-affected-account-owners)，除非法律或法庭命令禁止此类通知。
+- 如果没有 [有效的法庭命令或搜查令](#with-a-court-order-or-a-search-warrant)，我们不会披露 **位置跟踪数据**，如 IP 地址日志。
+- 如果没有有效的 [搜查令](#only-with-a-search-warrant)，我们不会披露任何 **私人用户内容**，包括私有存储库内容。
 
-- 在这些准则中，我们提供了一些背景信息，包括 GitHub 是什么、我们拥有的数据类型以及我们会在哪些情况下披露私人用户信息。
+## 关于这些准则
+
+我们的用户信任我们，将他们的软件项目和代码交由我们托管，这些通常是他们最重要的业务或个人资产。
+保持这种信任对我们来说至关重要，因此我们必须确保用户数据的安全、可靠和私密。
+
+虽然我们绝大多数用户使用 GitHub 服务来建立新业务、构建新技术并总体改善人类生活，但我们也认识到，在我们遍及全球的数百万用户中，难免会有几个害群之马。
+在这种情况下，我们希望帮助执法部门履行其保护公众的法定职责。
+
+通过为执法人员提供准则，我们希望在常有利益冲突的用户隐私与司法之间取得平衡。
+我们希望这些准则有助于明确对双方的期望，并提高 GitHub 内部流程的透明度。
+我们的用户应当知道，我们重视他们的私人信息，并竭尽所能保护这些信息。
+这至少意味着只有在符合适当法律要求的情况下，我们才会向第三方披露数据。
+同样，我们也希望培养专业执法人员对 GitHub 系统的了解，以便他们更高效地定制他们的数据请求，并且仅针对他们开展调查所需的信息提出请求。
+
+## GitHub 术语
+
+在要求我们披露数据之前，了解我们的系统的实施方式会很有用。
+GitHub 使用 [Git 版本控制系统](https://git-scm.com/video/what-is-version-control)托管数百万个数据存储库。
+GitHub 上的公共存储库或私有存储库最常用于软件开发项目，但也常用于托管各种类型的内容。
+
+- [**用户**](/articles/github-glossary#user) - 用户在我们的系统中以个人 GitHub 帐户的形式呈现。
+每个用户都有自己的个人资料，可以拥有多个存储库。
+用户可以创建或受邀加入组织，也可以在其他用户的存储库上进行协作。
 
 - [**协作者**](/articles/github-glossary#collaborator) - 协作者是受存储库所有者邀请提供贡献的用户，有权读取和写入存储库。
 
-- 在深入说明之前，您需要了解一些重要的详细信息：
+- [**组织**](/articles/github-glossary#organization) - 组织是由两个或以上用户组成的组，通常对应实际的组织，如企业或项目。
+组织由用户管理，可以包含存储库和用户小组。
 
-- <bpt id="p1">[</bpt><bpt id="p2">**</bpt>Repositories<ept id="p2">**</ept><ept id="p1">](/articles/github-glossary#repository)</ept> — A repository is one of the most basic GitHub elements.
-They may be easiest to imagine as a project's folder.
-A repository contains all of the project files (including documentation), and stores each file's revision history.
-Repositories can have multiple collaborators and, at its administrators' discretion, may be publicly viewable or not.
+- [**存储库**](/articles/github-glossary#repository) - 存储库是最基本的 GitHub 元素之一。
+最简单的方式是将它们想象为项目的文件夹。
+存储库包含所有项目文件（包括文档），并存储每个文件的修订历史记录。
+存储库可以有多个协作者，并由管理员自行决定是否可以公开查看。
 
-- <bpt id="p1">[</bpt><bpt id="p2">**</bpt>Pages<ept id="p2">**</ept><ept id="p1">](/articles/what-is-github-pages)</ept> — GitHub Pages are public webpages freely hosted by GitHub that users can easily publish through code stored in their repositories.
-If a user or organization has a GitHub Page, it can usually be found at a URL such as <ph id="ph1">`https://username.github.io`</ph> or they may have the webpage mapped to their own custom domain name.
+- [**页面**](/articles/what-is-github-pages) - GitHub 页面是由 GitHub 免费托管的公共网页，用户可以轻松地通过存储在其存储库中的代码发布这些网页。
+如果用户或组织有一个 GitHub 页面，该页面通常位于`https://username.github.io`这样的 URL 上，或其网页可能已映射到其自定义域名。
 
-- <bpt id="p1">[</bpt><bpt id="p2">**</bpt>Gists<ept id="p2">**</ept><ept id="p1">](/articles/creating-gists)</ept> — Gists are snippets of source code or other text that users can use to store ideas or share with friends.
-Like regular GitHub repositories, Gists are created with Git, so they are automatically versioned, forkable and downloadable.
-Gists can either be public or secret (accessible only through a known URL). Public Gists cannot be converted into secret Gists.
+- [**Gist**](/articles/creating-gists) - Gist 是源代码或其他文本的片段，用户可用来存储想法或与朋友共享。
+像普通的 GitHub 存储库一样，Gist 也是通过 Git 创建的，所以它们会自动设置版本、可复刻、可下载。
+Gist 可以是公共的，也可以是秘密的（只能通过已知 URL 访问）。 公共 Gist 无法转换成秘密 Gist。
 
-## <a name="user-data-on-githubcom"></a>GitHub.com 上的用户数据
+## GitHub.com 上的用户数据
 
 以下是我们维护的 GitHub 上用户和项目数据类型的非详尽清单。
 
-- <bpt id="p1">&lt;a name="public-account-data"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept><ph id="ph1">
-</ph><bpt id="p2">**</bpt>Public account data<ept id="p2">**</ept> — There is a variety of information publicly available on GitHub about users and their repositories.
-User profiles can be found at a URL such as <ph id="ph1">`https://github.com/username`</ph>.
-User profiles display information about when the user created their account as well their public activity on GitHub.com and social interactions.
-Public user profiles can also include additional information that a user may have chosen to share publicly.
-All user public profiles display:
+- <a name="public-account-data"></a>
+**公共帐户数据** - GitHub 上有各种关于用户及其存储库的公开信息。
+用户配置文件位于`https://github.com/username`这样的 URL 上。
+用户配置文件显示有关用户在 GitHub.com 上创建帐户的时间及其在 GitHub.com 上的公共活动和社交互动的信息。
+公共用户配置文件还可以包括用户可能已经选择公开分享的其他信息。
+所有用户公共配置文件均显示：
   - 用户名
   - 用户已加星标的存储库
   - 用户关注的其他 GitHub 用户
@@ -79,9 +93,9 @@ All user public profiles display:
   - 他们的个人网页
   - 用户所属的组织（*取决于组织或用户偏好*）
 
-- <bpt id="p1">&lt;a name="private-account-data"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept><ph id="ph1">
-</ph><bpt id="p2">**</bpt>Private account data<ept id="p2">**</ept> — GitHub also collects and maintains certain private information about users as outlined in our <bpt id="p3">[</bpt>Privacy Policy<ept id="p3">](/articles/github-privacy-statement)</ept>.
-This may include:
+- <a name="private-account-data"></a>
+**私人帐户数据** - GitHub 也收集和维护我们的[隐私政策](/articles/github-privacy-statement)中概述的有关用户的特定私人信息。
+这可能包括：
   - 私人电子邮件地址
   - 付款详细信息
   - 安全访问日志
@@ -89,7 +103,11 @@ This may include:
 
   要了解 GitHub 收集的私人帐户信息类型，可以访问您的 {% data reusables.user-settings.personal_dashboard %} 并浏览左侧菜单栏中的部分。
 
-- 我们的用户信任我们，将他们的软件项目和代码交由我们托管，这些通常是他们最重要的业务或个人资产。
+- <a name="organization-account-data"></a>
+**组织帐户数据** - 有关组织及其管理用户和存储库的信息公开发布在 GitHub 上。
+组织配置文件位于`https://github.com/organization`这样的 URL 上。
+组织公共配置文件还可以包括所有者可能已经选择公开分享的其他信息。
+所有组织公共配置文件均显示：
   - 组织名称
   - 所有者已加星标的存储库
   - 身为组织所有者的所有 GitHub 用户
@@ -101,7 +119,10 @@ This may include:
   - 直接成员和团队
   - 协作者
 
-- 保持这种信任对我们来说至关重要，因此我们必须确保用户数据的安全、可靠和私密。
+- <a name="public-repository-data"></a>
+**公共存储库数据** - GitHub 上具有几百万个公共的开源软件项目。
+您可以浏览几乎任何公共存储库（例如 [Atom 项目](https://github.com/atom/atom)），以了解 GitHub 收集和维护的存储库相关信息。
+这可能包括：
 
   - 代码本身
   - 代码的先前版本
@@ -118,13 +139,16 @@ This may include:
 - <a name="other-data"></a>
 **其他数据** - 此外，GitHub 还收集分析数据，如页面访问和用户偶尔自愿提供的信息（例如与我们支持团队的通信、调查信息和/或站点注册）。
 
-## <a name="we-will-notify-any-affected-account-owners"></a>我们将通知任何受影响的帐户所有者
+## 我们将通知任何受影响的帐户所有者
 
-It is our policy to notify users about any pending requests regarding their accounts or repositories, unless we are prohibited by law or court order from doing so. Before disclosing user information, we will make a reasonable effort to notify any affected account owner(s) by sending a message to their verified email address providing them with a copy of the subpoena, court order, or warrant so that they can have an opportunity to challenge the legal process if they wish. In (rare) exigent circumstances, we may delay notification if we determine delay is necessary to prevent death or serious harm or due to an ongoing investigation.
+根据我们的政策，我们将通知用户有关其帐户或存储库的任何待处理请求，除非法律或法庭命令禁止此类通知。 在披露用户信息之前，我们将作出合理的努力通知任何受影响的帐户所有者，包括向他们经验证的电子邮件地址发送邮件，向他们提供传票、法庭命令或逮捕令的副本等，以便他们有机会根据自己的意愿对法律程序提出质疑。 在（极少的）紧急情况下，如果我们确定有必要延迟通知以防止死亡或严重伤害或者开展持续调查，我们可能延迟通知。
 
-## <a name="disclosure-of-non-public-information"></a>非公开信息的披露
+## 非公开信息的披露
 
-虽然我们绝大多数用户使用 GitHub 服务来建立新业务、构建新技术并总体改善人类生活，但我们也认识到，在我们遍及全球的数百万用户中，难免会有几个害群之马。
+根据我们的政策，仅当用户同意或在收到有效传票、民事调查要求、法庭命令、搜查令或其他类似有效法律程序时，才会披露与民事或刑事调查有关的非公开用户信息。 在某些紧急情况（参阅下文）下，我们也可能分享有限的信息，但仅与情况的性质相对应，超出此范围则需要法律程序。
+GitHub 保留对任何非公开信息的请求提出异议的权利。
+如果 GitHub 同意应合法请求提供非公开信息，我们将对请求的信息进行合理搜寻。
+以下是我们会同意提供的信息类型，具体取决于提供给我们的法律程序的类型：
 
 - <a name="with-user-consent"></a>
 **经用户同意** - GitHub 将应请求直接向用户（若为组织帐户，则为组织所有者）或指定的第三方（GitHub 确信用户已验证第三方身份并得到用户书面同意）提供私人帐户信息。
@@ -139,18 +163,22 @@ It is our policy to notify users about any pending requests regarding their acco
   - 帐户注册时的 IP 地址、日期和时间
   - 用于在指定时间或与调查有关的事件中访问帐户的 IP 地址
 
-在这种情况下，我们希望帮助执法部门履行其保护公众的法定职责。
+若为组织帐户，我们可以提供帐户所有者的姓名和电子邮件地址，以及创建组织帐户时的日期和 IP 地址。 我们不会生成关于组织帐户的其他成员或贡献者（如果有）的任何信息，或者关于识别的帐户所有者的任何其他信息，除非收到这些特定用户的后续请求。
 
-Please note that the information available will vary from case to case. Some of the information is optional for users to provide. In other cases, we may not have collected or retained the information.
+请注意，可用的信息因具体情况而异。 用户可以选择性地提供其中一些信息。 在其他情况下，我们可能没有收集或保留信息。
 
-- 通过为执法人员提供准则，我们希望在常有利益冲突的用户隐私与司法之间取得平衡。
+- <a name="with-a-court-order-or-a-search-warrant"></a>
+**有法庭命令 *或* 搜查令** - 我们不会披露帐户访问日志，除非收到以下指令的要求：(i) 根据 18 U.S.C. 第 2703(d) 节签发的法庭命令，有具体而明确的事实表明，有合理的理由相信所要求的信息与正在进行的刑事调查有关；或 (ii) 根据《美国联邦刑事诉讼程序》所规定的程序或同等的州搜查程序所签发的搜查令，并有合理理由。
+除了上述非公开帐户信息之外，我们会根据法庭命令或搜查令提供帐户访问日志，其中可能包括：
 
   - 显示用户在一段时间内的动态的任何日志
   - 帐户或私有存储库设置（例如，哪些用户拥有特定权限等）
   - 用户或 IP 特定分析数据，如浏览历史记录
   - 帐户创建以外或指定时间和日期的安全访问日志
 
-- 我们希望这些准则有助于明确对双方的期望，并提高 GitHub 内部流程的透明度。
+- <a name="only-with-a-search-warrant"></a>
+**仅有搜查令** - 我们不会披露任何帐户的私人内容，除非根据《美国联邦刑事诉讼程序》或同等的州搜查程序签发的搜查令要求披露，并有合理理由。
+除了上述非公开帐户信息和帐户访问日志之外，我们还将根据搜查令提供私人帐户内容，其中可能包括：
 
   - 秘密 Gist 的内容
   - 私有存储库中的源代码或其他内容
@@ -158,11 +186,12 @@ Please note that the information available will vary from case to case. Some of 
   - 私有存储库中的通信或文档（例如议题或 Wiki）
   - 任何用于身份验证或加密的安全密钥
 
-- 我们的用户应当知道，我们重视他们的私人信息，并竭尽所能保护这些信息。
+- <a name="in-exigent-circumstances"></a>
+**在紧急情况下** - 如果我们在某些紧急情况（我们认为有必要披露信息以防止涉及人员死亡或严重人身伤害危险的紧急情况）下收到要求提供信息的请求，我们可能会披露我们认为对执法部门处理紧急情况必要的有限信息。 对于超出此范围的任何信息，如上所述，我们需要传票、搜查令或法庭命令才会披露。 例如，我们不会在没有搜查令的情况下披露私有存储库的内容。 在披露信息之前，我们会确认请求来自执法机构、机构发出了概述紧急情况的正式通知，以及所请求的信息将如何有助于处理紧急情况。
 
-## <a name="cost-reimbursement"></a>费用补偿
+## 费用补偿
 
-这至少意味着只有在符合适当法律要求的情况下，我们才会向第三方披露数据。
+根据州和联邦法律，GitHub 可以要求补偿与遵守有效法律要求（如传票、法庭命令或搜查令）相关的费用。 我们只收取部分费用，这些补偿只包括我们为遵守法律命令而实际发生的一部分费用。
 
 虽然我们在紧急情况下不收费，但除非法律另有要求，否则我们将根据以下安排要求补偿为满足所有其他法律要求而产生的费用：
 
@@ -171,11 +200,11 @@ Please note that the information available will vary from case to case. Some of 
 - 为 5 个以上帐户制作订阅者信息/数据：每个帐户 20 美元
 - 二次搜索：每次搜索 10 美元
 
-## <a name="data-preservation"></a>数据保留
+## 数据保留
 
 在美国执法部门发出与正式刑事调查相关的正式要求后，以及签发法庭命令或其他程序之前，我们将采取措施将帐户记录保留达 90 天。
 
-## <a name="submitting-requests"></a>提交请求
+## 提交请求
 
 请将请求发送到：
 
@@ -199,10 +228,12 @@ Sacramento, CA 95833-3505
 
 请给我们至少两周时间审查您的请求。
 
-## <a name="requests-from-foreign-law-enforcement"></a>外国执法部门的请求
+## 外国执法部门的请求
 
-同样，我们也希望培养专业执法人员对 GitHub 系统的了解，以便他们更高效地定制他们的数据请求，并且仅针对他们开展调查所需的信息提出请求。
+作为一家设在加利福尼亚的美国公司，GitHub 无需根据外国机构签发的法律程序向外国政府提供数据。
+希望向 GitHub 索取信息的外国执法官员应与美国司法部刑事司国际事务办公室联系。
+GitHub 将迅速答复美国法院通过司法互助条约（“MLAT）或委托调查书发出的请求。
 
-## <a name="questions"></a>问题
+## 问题
 
-Do you have other questions, comments or suggestions? Please contact {% data variables.contact.contact_support %}.
+您是否有其他问题、评论或建议？ 请联系 {% data variables.contact.contact_support %}。

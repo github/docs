@@ -10,61 +10,75 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 991c060af22a9161e026aa396037a1d52e66fcea
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858620'
 ---
-
-Are you a law enforcement officer conducting an investigation that may involve user content hosted on GitHub?
-Or maybe you're a privacy-conscious person who would like to know what information we share with law enforcement and under what circumstances.
-Either way, you're on the right page.
-
-In these guidelines, we provide a little background about what GitHub is, the types of data we have, and the conditions under which we will disclose private user information.
-Before we get into the details, however, here are a few important details you may want to know:
-
-- 当社は、法律または裁判所命令によって禁止されていない限り、ユーザーのアカウント情報への要求に関して[**影響を受けるユーザーに通知します**](#we-will-notify-any-affected-account-owners)。
-- 当社は、[有効な裁判所命令または捜索令状](#with-a-court-order-or-a-search-warrant)なしに、IP アドレス ログなどの**位置追跡データ**を開示することはありません。
-- 当社は、有効な[捜索令状](#only-with-a-search-warrant)なしに、プライベート リポジトリのコンテンツなどの**非公開のユーザー コンテンツ**を開示することはありません。
-
-## <a name="about-these-guidelines"></a>本ガイドラインの概要
-
 あなたは、GitHub でホストされているユーザー コンテンツに関連する可能性がある調査を実施する法執行機関の担当者ですか。
-
 そうでなければ、当社が法執行機関と共有する情報と、それを共有する状況を知りたいと思っているプライバシー意識の高い方でしょう。
-
 いずれにせよ、適切なページにアクセスしています。
 
-## <a name="github-terminology"></a>GitHub の用語
+本ガイドラインで、当社は GitHub の概要、当社が保持するデータの種類、および当社がユーザー個人情報を開示する状況について少し背景を説明します。
+ですが、詳しく説明する前に、お客様が知りたいと思われる重要な詳細をいくつか説明します。
 
-Before asking us to disclose data, it may be useful to understand how our system is implemented.
-GitHub hosts millions of data repositories using the <bpt id="p1">[</bpt>Git version control system<ept id="p1">](https://git-scm.com/video/what-is-version-control)</ept>.
-Repositories on GitHub—which may be public or private—are most commonly used for software development projects, but are also often used to work on content of all kinds.
+- 当社は、法律または裁判所命令によって禁止されていない限り、ユーザーのアカウント情報への要求に関して [**影響を受けるユーザーに通知します**](#we-will-notify-any-affected-account-owners)。
+- 当社は、[有効な裁判所命令または捜索令状](#with-a-court-order-or-a-search-warrant)なしに、IP アドレス ログなどの **位置追跡データ** を開示することはありません。
+- 当社は、有効な [捜索令状](#only-with-a-search-warrant)なしに、プライベート リポジトリのコンテンツなどの **非公開のユーザー コンテンツ** を開示することはありません。
 
-- 本ガイドラインで、当社は GitHub の概要、当社が保持するデータの種類、および当社がユーザー個人情報を開示する状況について少し背景を説明します。
+## 本ガイドラインの概要
+
+当社のユーザーは、多くの場合に企業または個人の最も貴重な資産の一部であるソフトウェア プロジェクトとコードを当社に委託してくれています。
+その信頼を維持することは、当社にとって不可欠です。それは、ユーザー データを安全かつ非公開で維持することを意味します。
+
+当社のユーザーの圧倒的大多数は、新しいビジネスの創出や新しいテクノロジの構築、人類の全般的な向上のために GitHub のサービスを利用していますが、その一方で、世界中に広がる何百人もユーザーの中には、悪事を働く人がいるものだということを認識しています。
+そのような場合、当社は、法執行機関が一般の人々を守るうえで正当な権益にかなうように支援します。
+
+当社は、法執行機関の担当者にガイドラインを示すことで、競合することが多いユーザー プライバシーの権益と司法制度の間でバランスをとることを望んでいます。
+当社は、本ガイドラインが両方の側面に期待事項を設定し、GitHub の内部プロセスの透明性を高めるのに役立つことを望んでいます。
+当社のユーザーは、当社がユーザーの個人情報を大切に扱っており、その保護のためにできることをしているという点をご理解ください。
+これは、少なくとも、適切な法的要件が満たされた場合にのみデータを第三者に公開する、ということを意味します。
+さらに、当社は法執行機関の専門家がデータの要求を効率よく調整し、彼らの調査の実施に必要な情報だけを対象にすることができるように、GitHub のシステムに関して彼らを教育することも望んでいます。
+
+## GitHub の用語
+
+当社にデータの開示を要求する前に、当社のシステムがどのように実装されているかを理解すると役立つ場合があります。
+GitHub では、[Git バージョン管理システム](https://git-scm.com/video/what-is-version-control)を使用して、何百万ものデータ リポジトリをホストしています。
+GitHub 上のリポジトリ (公開または非公開の可能性があります) は、ソフトウェア開発プロジェクトのために最も一般的に使用されていますが、多くの場合、これらのリポジトリを使用して、あらゆる種類のコンテンツの作業も行われています。
+
+- [**ユーザー**](/articles/github-glossary#user) — 当社のシステムにおいて、ユーザーは個人の GitHub アカウントを意味します。
+各ユーザーには個人プロファイルがあり、複数のリポジトリを所有できます。
+ユーザーは組織を作ったり、組織への参加を招待されたり、別のユーザーのリポジトリでコラボレーションしたりすることができます。
 
 - [**コラボレーター**](/articles/github-glossary#collaborator) — コラボレーターとは、リポジトリ所有者によって投稿に招待されたユーザーであり、リポジトリに対する読み取りおよび書き込みアクセス権を持ちます。
 
-- ですが、詳しく説明する前に、お客様が知りたいと思われる重要な詳細をいくつか説明します。
+- [**組織**](/articles/github-glossary#organization) — 組織とは、企業やプロジェクトなどの一般に実際の組織に似た 2 人以上のユーザーのグループです。
+組織はユーザーによって管理され、リポジトリとユーザーのチームの両方を含めることができます。
 
-- <bpt id="p1">[</bpt><bpt id="p2">**</bpt>Repositories<ept id="p2">**</ept><ept id="p1">](/articles/github-glossary#repository)</ept> — A repository is one of the most basic GitHub elements.
-They may be easiest to imagine as a project's folder.
-A repository contains all of the project files (including documentation), and stores each file's revision history.
-Repositories can have multiple collaborators and, at its administrators' discretion, may be publicly viewable or not.
+- [**リポジトリ**](/articles/github-glossary#repository) — リポジトリとは、GitHub の最も基本的な要素の 1 つです。
+これらは、プロジェクトのフォルダーと考えると、わかりやすいでしょう。
+リポジトリにはプロジェクト ファイルのすべて (ドキュメントを含む) が含まれており、各ファイルの改訂履歴が保存されます。
+リポジトリには、複数のコラボレーターがいる可能性があり、その管理者の裁量でリポジトリを公開するかどうかを決定できます。
 
-- <bpt id="p1">[</bpt><bpt id="p2">**</bpt>Pages<ept id="p2">**</ept><ept id="p1">](/articles/what-is-github-pages)</ept> — GitHub Pages are public webpages freely hosted by GitHub that users can easily publish through code stored in their repositories.
-If a user or organization has a GitHub Page, it can usually be found at a URL such as <ph id="ph1">`https://username.github.io`</ph> or they may have the webpage mapped to their own custom domain name.
+- [**ページ**](/articles/what-is-github-pages) — GitHub ページは、ユーザーがそのリポジトリに保存したコードを通じて簡単に公開できる、GitHub が自由にホストするパブリック Web ページです。
+ユーザーや組織が GitHub ページを持っている場合、通常は `https://username.github.io` などの URL で検索できるか、ユーザーや組織の Web ページがその独自のカスタム ドメイン名にマッピングされることがあります。
 
-- <bpt id="p1">[</bpt><bpt id="p2">**</bpt>Gists<ept id="p2">**</ept><ept id="p1">](/articles/creating-gists)</ept> — Gists are snippets of source code or other text that users can use to store ideas or share with friends.
-Like regular GitHub repositories, Gists are created with Git, so they are automatically versioned, forkable and downloadable.
-Gists can either be public or secret (accessible only through a known URL). Public Gists cannot be converted into secret Gists.
+- [**Gists**](/articles/creating-gists) — Gists とは、ユーザーがアイデアの保存や友人との共有に使用できるソース コードのスニペットやその他のテキストです。
+通常の GitHub リポジトリと同様に、Gists は Git を使用して作成されるため、自動的にバージョンが付けられ、フォーク操作が可能で、ダウンロードできます。
+Gists はパブリックにすることも、シークレット (既知の URL からのみアクセス可能) にすることもできます。 パブリック Gists をシークレット Gists に変換することはできません。
 
-## <a name="user-data-on-githubcom"></a>GitHub.com 上のユーザー データ
+## GitHub.com 上のユーザー データ
 
 以下に、GitHub 上のユーザーとプロジェクトに関して当社が維持するデータの種類の一覧を示します (すべてを網羅するものではありません)。
 
-- <bpt id="p1">&lt;a name="public-account-data"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept><ph id="ph1">
-</ph><bpt id="p2">**</bpt>Public account data<ept id="p2">**</ept> — There is a variety of information publicly available on GitHub about users and their repositories.
-User profiles can be found at a URL such as <ph id="ph1">`https://github.com/username`</ph>.
-User profiles display information about when the user created their account as well their public activity on GitHub.com and social interactions.
-Public user profiles can also include additional information that a user may have chosen to share publicly.
-All user public profiles display:
+- <a name="public-account-data"></a>
+**公開アカウント データ** — ユーザーとそのリポジトリに関してさまざまな情報が GitHub で公開されています。
+ユーザー プロファイルは、`https://github.com/username` などの URL で検索できます。
+ユーザー プロファイルには、ユーザーがいつアカウントを作成したかと、GitHub.com でのパブリック アクティビティおよびソーシャル ネットワークでの交流に関する情報が表示されます。
+パブリック ユーザー プロファイルには、ユーザーが公に共有することにした追加情報を含めることもできます。
+すべてのパブリック ユーザー プロファイルには以下が表示されます。
   - ユーザー名
   - ユーザーが星印を付けたリポジトリ
   - ユーザーがフォローしている他の GitHub ユーザー
@@ -79,9 +93,9 @@ All user public profiles display:
   - ユーザー個人の Web ページ
   - ユーザーが属する組織 (*組織またはユーザーの設定に応じて*)
 
-- <bpt id="p1">&lt;a name="private-account-data"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept><ph id="ph1">
-</ph><bpt id="p2">**</bpt>Private account data<ept id="p2">**</ept> — GitHub also collects and maintains certain private information about users as outlined in our <bpt id="p3">[</bpt>Privacy Policy<ept id="p3">](/articles/github-privacy-statement)</ept>.
-This may include:
+- <a name="private-account-data"></a>
+**非公開アカウント データ** — GitHub は、当社の[プライバシー ポリシー](/articles/github-privacy-statement)に記載されているように、ユーザーに関する特定の個人情報も収集し、維持します。
+これには以下が含まれます。
   - プライベートな電子メール アドレス
   - 支払いの詳細
   - セキュリティ アクセス ログ
@@ -89,7 +103,11 @@ This may include:
 
   GitHub が収集する非公開のアカウント情報の種類を把握するには、ユーザーの{% data reusables.user-settings.personal_dashboard %}にアクセスし、左側のメニューバーのセクションを参照してください。
 
-- 当社のユーザーは、多くの場合に企業または個人の最も貴重な資産の一部であるソフトウェア プロジェクトとコードを当社に委託してくれています。
+- <a name="organization-account-data"></a>
+**組織のアカウント データ** — 組織、その管理ユーザー、およびリポジトリに関する情報は、GitHub で公開されています。
+組織プロファイルは、`https://github.com/organization` などの URL で検索できます。
+公開組織プロファイルには、所有者が公開共有することにした追加情報を含めることもできます。
+すべての組織プロファイルには以下が表示されます。
   - 組織名
   - 所有者が星印を付けたリポジトリ
   - 組織の所有者であるすべての GitHub ユーザー
@@ -101,7 +119,10 @@ This may include:
   - 直属のメンバーとチーム
   - コラボレーター
 
-- その信頼を維持することは、当社にとって不可欠です。それは、ユーザー データを安全かつ非公開で維持することを意味します。
+- <a name="public-repository-data"></a>
+**パブリック リポジトリ データ** — GitHub は、何百万もの公開されたオープンソース ソフトウェア プロジェクトをホストしています。
+ユーザーはほとんどのパブリック リポジトリ ([Atom プロジェクト](https://github.com/atom/atom) など) を参照して、GitHub がリポジトリに関して収集および維持する情報を把握できます。
+これには以下が含まれる可能性があります。
 
   - コード自体
   - コードの以前のバージョン
@@ -118,13 +139,16 @@ This may include:
 - <a name="other-data"></a>
 **その他のデータ** — さらに、GitHub はページへの訪問などの分析データと、ユーザーがたまに自発的に提供した情報 (当社のサポート チームとの連絡、アンケートの情報、サイトの登録など) を収集します。
 
-## <a name="we-will-notify-any-affected-account-owners"></a>当社は、影響を受けるアカウント所有者に通知します
+## 当社は、影響を受けるアカウント所有者に通知します
 
-It is our policy to notify users about any pending requests regarding their accounts or repositories, unless we are prohibited by law or court order from doing so. Before disclosing user information, we will make a reasonable effort to notify any affected account owner(s) by sending a message to their verified email address providing them with a copy of the subpoena, court order, or warrant so that they can have an opportunity to challenge the legal process if they wish. In (rare) exigent circumstances, we may delay notification if we determine delay is necessary to prevent death or serious harm or due to an ongoing investigation.
+当社のポリシーでは、法律または裁判所命令によって禁止されていない限り、ユーザーのアカウントやリポジトリに関する保留中の要求についてユーザーに通知することになっています。 当社は、ユーザーの情報を開示する前に、影響を受けるアカウント所有者に通知するためにあらゆる合理的な努力をします。それには、確認済みの電子メール アドレスにメッセージを送信し、彼らが希望する場合に司法手続きに異議を申し立てる機会が得られるように召喚状、裁判所命令、または令状のコピーを提供します。 当社は、まれにある緊急事態において、死または深刻な危害を防ぐため、または進行中の調査のために通知を遅らせる必要があると判断した場合、そのようにすることがあります。
 
-## <a name="disclosure-of-non-public-information"></a>非公開情報の開示
+## 非公開情報の開示
 
-当社のユーザーの圧倒的大多数は、新しいビジネスの創出や新しいテクノロジの構築、人類の全般的な向上のために GitHub のサービスを利用していますが、その一方で、世界中に広がる何百人もユーザーの中には、悪事を働く人がいるものだということを認識しています。
+当社のポリシーでは、ユーザーの同意を得た場合、または有効な召喚状、民事事件の調査要求、裁判所命令、捜索令状、その他の同類の有効な司法手続きを受け取った場合のみ、民事または刑事事件の調査に関連して非公開のユーザー情報を開示することになっています。 当社は、特定の緊急事態において (以下を参照)、その事態の本質に応じて限られた情報を共有する場合もありますが、それ以上の措置には司法手続きが必要になります。
+GitHub は、非公開情報の要求に異議を申し立てる権利を有します。
+GitHub は、司法手続き上の要求に対応して非公開情報を生成することに同意した場合、要求された情報の合理的な検索を行います。
+以下に、当社が応じる司法手続きの種類によって、当社が生成に同意する情報の種類を示します。
 
 - <a name="with-user-consent"></a>
 **ユーザーの同意を得て** — GitHub は、要求された場合、ユーザー (または組織アカウントの場合は所有者) に直接、またはユーザーの書面による同意を得た指定された第三者 (ユーザーがその身元を確認したことを GitHub が納得したうえで) に対して、非公開アカウント情報を提供します。
@@ -139,18 +163,22 @@ It is our policy to notify users about any pending requests regarding their acco
   - アカウント登録時の IP アドレスと日時
   - 調査に関連して指定された時刻または事象でアカウントへのアクセスに使用された IP アドレス
 
-そのような場合、当社は、法執行機関が一般の人々を守るうえで正当な権益にかなうように支援します。
+組織アカウントの場合、当社はアカウント所有者の名前と電子メール アドレス、および組織アカウントの作成日と作成時点の IP アドレスを提供できます。 当社は、特定のユーザーの追跡調査の要求がなければ、他のメンバーまたは組織アカウントへの投稿者 (いる場合) に関する情報や、指定されたアカウント所有者に関する追加情報を生成することはありません。
 
-Please note that the information available will vary from case to case. Some of the information is optional for users to provide. In other cases, we may not have collected or retained the information.
+提供できる情報は、状況によって異なります。 情報によっては、ユーザーが任意で提供するものもあります。 当社がその情報を収集または保持していない場合もあります。
 
-- 当社は、法執行機関の担当者にガイドラインを示すことで、競合することが多いユーザー プライバシーの権益と司法制度の間でバランスをとることを望んでいます。
+- <a name="with-a-court-order-or-a-search-warrant"></a>
+**裁判所命令 *または* 捜索令状** — 当社は、以下のいずれかによってそれを強制されない限り、アカウント アクセス ログを開示することはありません。 (i) 要求された情報が、進行中の刑事事件の調査に関連があるか、重要であると考える合理的な根拠があることを示す、特定の明確な事実を提示したうえで、18 U.S.C. 第 2703(d) 項の下で発行された裁判所命令、または (ii) 相当な理由を提示したうえで、連邦刑事訴訟規則で規定された手続き、または同等の州の令状手続きの下で発行された捜索令状。
+上記の非公開アカウント情報に加えて、当社は裁判所命令または捜索令状に対応して、以下を含めたアカウント アクセス ログを提供できます。
 
   - ある期間にわたるユーザーの移動を明らかにするログ
   - アカウントまたはプライベート リポジトリの設定 (どのユーザーが特定のアクセス許可を持っているかなど)
   - ユーザーごとまたは IP ごとの分析データ (参照履歴など)
   - アカウント作成以外、または特定の日時のセキュリティ アクセス ログ
 
-- 当社は、本ガイドラインが両方の側面に期待事項を設定し、GitHub の内部プロセスの透明性を高めるのに役立つことを望んでいます。
+- <a name="only-with-a-search-warrant"></a>
+**捜索令状がある場合のみ** — 当社は、相当な理由を提示したうえで、連邦刑事訴訟規則で規定された手続き、または同等の州の令状手続きの下で発行された捜索令状の下でそれを強制されない限り、アカウントの非公開コンテンツを開示することはありません。
+上記の非公開アカウント情報とアカウント アクセス ログに加えて、当社は捜索令状に対応して、以下を含めたアカウントの非公開コンテンツも提供します。
 
   - シークレット Gists のコンテンツ
   - プライベート リポジトリ内のソース コードやその他のコンテンツ
@@ -158,11 +186,12 @@ Please note that the information available will vary from case to case. Some of 
   - プライベート リポジトリ内のやり取りやドキュメント (問題や Wiki など)
   - 認証や暗号化に使用されるセキュリティ キー
 
-- 当社のユーザーは、当社がユーザーの個人情報を大切に扱っており、その保護のためにできることをしているという点をご理解ください。
+- <a name="in-exigent-circumstances"></a>
+**緊急事態で** — 当社は、特定の緊急事態で情報の要求を受けた場合 (死または深刻な傷害の危険に関わる緊急事態を防ぐために開示が必要であると当社が判断した場合)、法執行機関による緊急事態への対応を可能にするために必要であると当社が判断した、限られた情報を開示することがあります。 それを超える情報については、上記のとおり召喚状、捜索令状、または裁判所命令が必要です。 たとえば、当社が捜索令状なしにプライベート リポジトリのコンテンツを開示することはありません。 当社は情報を開示する前に、要求が法執行機関から届いたこと、当局が緊急事態の概要を説明する公式通知を送付したこと、要求された情報が緊急事態への対応にどのように役立つかを確認します。
 
-## <a name="cost-reimbursement"></a>費用の払い戻し
+## 費用の払い戻し
 
-これは、少なくとも、適切な法的要件が満たされた場合にのみデータを第三者に公開する、ということを意味します。
+州および連邦の法令の下で、GitHub は召喚状、裁判所命令、捜索令状などの有効な司法手続き上の要求の遵守に関連する費用の払い戻しを求めることができます。 当社が請求するのは、費用の一部にすぎません。これらの払い戻しは、法的な命令を遵守するために発生した実費の一部のみに相当します。
 
 当社は、非常時またはその他の緊急事態では費用を請求しませんが、その他の司法手続き上の要求については、法令によって義務付けられていない限り、以下のスケジュールに従って払い戻しを求めます。
 
@@ -171,11 +200,11 @@ Please note that the information available will vary from case to case. Some of 
 - 5 つを超えるアカウントのサブスクライバーの情報/データの生成: 1 アカウントにつき 20 ドル
 - 2 回目の検索: 1 回の検索につき 10 ドル
 
-## <a name="data-preservation"></a>データの保持
+## データの保持
 
 当社は、公的な刑事事件の調査に関連した米国の法執行機関からの正式な要求後、および裁判所命令またはその他の手続きの発行が保留になってから、最大 90 日間アカウント記録を保存する措置を講じます。
 
-## <a name="submitting-requests"></a>要求の提出
+## 要求の提出
 
 以下に要求を行ってください。
 
@@ -199,10 +228,12 @@ Sacramento, CA 95833-3505
 
 当社がお客様の要求を調査するのに、2 週間以上かかることをご了承ください。
 
-## <a name="requests-from-foreign-law-enforcement"></a>外国の法執行機関からの要求
+## 外国の法執行機関からの要求
 
-さらに、当社は法執行機関の専門家がデータの要求を効率よく調整し、彼らの調査の実施に必要な情報だけを対象にすることができるように、GitHub のシステムに関して彼らを教育することも望んでいます。
+GitHub は、カリフォルニア州に本拠地を置く米国企業として、外国の当局が発行した司法手続きに対応して、外国政府にデータを提供する義務はありません。
+GitHub に情報の要求を希望する外国の法執行機関の担当者は、米国司法省刑事部門の国際業務課に連絡してください。
+GitHub は、刑事共助条約 (「MLAT」) または嘱託書を通じて米国の裁判所から発行された要求に直ちに対応します。
 
-## <a name="questions"></a>お問い合わせ
+## お問い合わせ
 
-Do you have other questions, comments or suggestions? Please contact {% data variables.contact.contact_support %}.
+その他の質問、意見、提案がある場合 {% data variables.contact.contact_support %} にお問い合わせください。
