@@ -107,7 +107,7 @@ You'll notice that files are matched—`*.c`, `*.sln`, `*.png`—, separated by 
 
 When you set the `core.autocrlf` option or commit a *.gitattributes* file, you may find that Git reports changes to files that you have not modified. Git has changed line endings to match your new configuration.
 
-To ensure that all the line endings in your repository match your new configuration, backup your files with Git, delete all files in your repository (except the `.git` directory), then restore the files all at once.
+To ensure that all the line endings in your repository match your new configuration, backup your files with Git, then remove/restore the files all at once with renormalized line endings.
 
 1. Save your current files in Git, so that none of your work is lost.  
    ```shell
