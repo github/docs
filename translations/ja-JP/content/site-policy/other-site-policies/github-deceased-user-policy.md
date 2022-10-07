@@ -8,8 +8,13 @@ topics:
 redirect_from:
   - /github/site-policy/github-deceased-user-policy
   - /github/site-policy/github-terms-and-other-site-policies/github-deceased-user-policy
+ms.openlocfilehash: a78a0c99d0edf9891748101d238b26598df96c77
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556521'
 ---
-
 GitHub ユーザーが死亡した場合、当社は、権限を与えられた人と協力してそのアカウントのコンテンツをどうするかを判断します。 
 
 死亡したユーザーの近親者、[事前指定された後継者](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)、または権限を与えられたその他の人 (コラボレーターやビジネス パートナーが含まれる可能性があります) が故人のアカウントに関する要求を行う場合は、https://support.github.com/contact で当社にご連絡ください。 メッセージに以下の情報を記入してください。

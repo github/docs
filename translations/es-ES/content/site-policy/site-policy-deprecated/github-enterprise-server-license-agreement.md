@@ -7,8 +7,13 @@ redirect_from:
   - /github/site-policy-deprecated/github-enterprise-server-license-agreement
 versions:
   fpt: '*'
+ms.openlocfilehash: 46e22d433532263ebef0599c92f7563b96257d1b
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099308'
 ---
-
 _Estos términos se aplican a los Clientes con contratos en vigor que hacen referencia a ellos. Todos los demás clientes corporativos se dirigen a https://www.github.com/customer-terms para los términos actuales._
 
 Este Acuerdo se aplica a los siguientes productos y servicios de GitHub, conforme a lo definido más adelante (colectivamente, los **«Productos»**):
@@ -93,7 +98,7 @@ Si el Cliente ha comprado los Productos a un Socio de GitHub, las siguientes dis
 
 **8.2** *Compra de Licencias de Suscripción Adicionales.* El Cliente puede obtener Licencias de suscripción adicionales conforme a lo dispuesto en el presente Contrato enviando una solicitud a través del sitio web de GitHub o mediante su equipo de ventas. Se generará entonces un nuevo Formulario de Pedido y, si el Cliente adquiere las Licencias de Suscripción adicionales, deberá pagar las Tarifas vigentes en ese momento, prorrateadas por el resto del Plazo de Suscripción aplicable. Tras la renovación de las Licencias de Suscripción del Cliente por otro Periodo de Suscripción, GitHub facturará todas las Licencias de Suscripción a la vez anualmente, a menos que se especifique otra cosa en un Formulario de Pedido.
 
-**8.3** *Software complementario.* La licencia del Software complementario se concede por Usuario. Para evitar dudas y, a menos que se estipule lo contrario en un Formulario de pedidos, la cantidad de Licencias de suscripción que el Cliente tiene en un momento dado para el Software complementario debe ser igual a la cantidad de Licencias de suscripción que el Cliente tiene para los Productos conforme a lo dispuesto en el presente Contrato. Por ejemplo, si el Cliente quiere comprar una suscripción de Seguridad avanzada y ya cuenta con Licencias de suscripción para 100 Usuarios para los Productos, debe comprar Licencias de suscripción de Seguridad avanzada para 100 Usuarios.
+**8.3** *Software complementario.* La licencia del Software complementario se concede por Usuario. Para evitar dudas y, a menos que se estipule lo contrario en un Formulario de Pedido, la cantidad de Licencias de suscripción que el Cliente tiene en un momento dado para el Software complementario debe ser igual a la cantidad de Licencias de suscripción que el Cliente tiene para los Productos conforme a lo dispuesto en el presente Contrato. Por ejemplo, si el Cliente quiere comprar una suscripción de Seguridad avanzada y ya cuenta con Licencias de suscripción para 100 Usuarios para los Productos, debe comprar Licencias de suscripción de Seguridad avanzada para 100 Usuarios.
 
 **9. Entrega.** GitHub facilitará la Clave de la licencia al Cliente para descargar en un sitio web seguro protegido con contraseña. Todas las entregas conforme a lo dispuesto en la presente Sección 9 serán electrónicas. Para evitar dudas, el Cliente es responsable de la instalación de cualquier Software y reconoce que GitHub no tiene ninguna obligación de entrega adicional con respecto al Software después de la entrega de la Clave de la licencia. Cuando haya Actualizaciones disponibles, GitHub facilitará la descarga en el mismo sitio web. El Cliente debe actualizar el Software sobre una base comercialmente razonable, pero no menos de una (1) vez al año. El Cliente es responsable de mantener la confidencialidad de los nombres de usuario y las contraseñas.
 

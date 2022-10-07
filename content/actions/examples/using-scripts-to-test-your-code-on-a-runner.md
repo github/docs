@@ -1,6 +1,6 @@
 ---
 title: Using scripts to test your code on a runner
-shortTitle: Using scripts to test your code on a runner
+shortTitle: Use scripts to test your code on a runner
 intro: 'How to use essential {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'

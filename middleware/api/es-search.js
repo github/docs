@@ -1,17 +1,23 @@
 import { Client } from '@elastic/elasticsearch'
 
-// The reason this is exported is so the middleware endpoints can
-// find out if the environment variable has been set (and is truthy)
-// before attempting to call the main function in this file.
-export const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
+const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
 const isDevMode = process.env.NODE_ENV !== 'production'
 
 function getClient() {
+  if (!ELASTICSEARCH_URL) {
+    // If this was mistakenly not set, it will eventually fail
+    // when you use the Client. But `new Client({node: undefined})`
+    // won't throw. And the error you get when you actually do try
+    // to use that Client instance is cryptic compared to this
+    // plain and simple thrown error.
+    throw new Error(`$ELASTICSEARCH_URL is not set`)
+  }
   return new Client({
     node: ELASTICSEARCH_URL,
   })
 }
+
 // The true work horse that actually performs the Elasticsearch query
 export async function getSearchResults({
   indexName,

@@ -31,6 +31,7 @@ If you don't have a GPG key that matches your committer identity, you need to as
 If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.configure-gpg-signing %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
@@ -68,6 +69,7 @@ If you don't have a GPG key that matches your committer identity, you need to as
 If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.configure-gpg-signing %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
@@ -89,6 +91,7 @@ If you don't have a GPG key that matches your committer identity, you need to as
 If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.configure-gpg-signing %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}

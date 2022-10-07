@@ -142,9 +142,10 @@ Every image must include an alt attribute that provides a complete description o
 
 ### Filenames
 
-Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. If replacing an image, use the exact filename.
+Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
+- **Avoid:** `purchase-button{% ifversion ghes > 3.2 %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
@@ -165,7 +166,6 @@ Individual words might be small, but together they can create community, belongi
 ### Resources about inclusive language
 
 GitHub Brand Guide:
-- [People and communities](https://brand.github.com/content/grammar#people-and-communities)
 
 The Microsoft Style Guide offers resources on bias-free communication, accessibility terms, and writing for all abilities:
 - [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)

@@ -1974,6 +1974,40 @@
       ]
     },
     {
+      "name": "createLinkedBranch",
+      "kind": "mutations",
+      "id": "createlinkedbranch",
+      "href": "/graphql/reference/mutations#createlinkedbranch",
+      "description": "<p>Create a branch linked to an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateLinkedBranchInput!",
+          "id": "createlinkedbranchinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createlinkedbranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "linkedBranch",
+          "type": "LinkedBranch",
+          "id": "linkedbranch",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranch",
+          "description": "<p>The new branch issue reference.</p>"
+        }
+      ]
+    },
+    {
       "name": "createMigrationSource",
       "kind": "mutations",
       "id": "createmigrationsource",
@@ -2490,6 +2524,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteLinkedBranch",
+      "kind": "mutations",
+      "id": "deletelinkedbranch",
+      "href": "/graphql/reference/mutations#deletelinkedbranch",
+      "description": "<p>Unlink a branch from an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteLinkedBranchInput!",
+          "id": "deletelinkedbranchinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deletelinkedbranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue the linked branch was unlinked from.</p>"
         }
       ]
     },
@@ -22178,6 +22246,56 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "linkedBranches",
+          "description": "<p>Branches linked to this issue.</p>",
+          "type": "LinkedBranchConnection!",
+          "id": "linkedbranchconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranchconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "locked",
           "description": "<p><code>true</code> if the object is locked.</p>",
           "type": "Boolean!",
@@ -24200,6 +24318,96 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "LinkedBranch",
+      "kind": "objects",
+      "id": "linkedbranch",
+      "href": "/graphql/reference/objects#linkedbranch",
+      "description": "<p>A branch linked to an issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "ref",
+          "description": "<p>The branch's ref.</p>",
+          "type": "Ref",
+          "id": "ref",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#ref"
+        }
+      ]
+    },
+    {
+      "name": "LinkedBranchConnection",
+      "kind": "objects",
+      "id": "linkedbranchconnection",
+      "href": "/graphql/reference/objects#linkedbranchconnection",
+      "description": "<p>The connection type for LinkedBranch.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[LinkedBranchEdge]",
+          "id": "linkedbranchedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranchedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[LinkedBranch]",
+          "id": "linkedbranch",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranch"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "LinkedBranchEdge",
+      "kind": "objects",
+      "id": "linkedbranchedge",
+      "href": "/graphql/reference/objects#linkedbranchedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "LinkedBranch",
+          "id": "linkedbranch",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranch"
         }
       ]
     },
@@ -63819,6 +64027,10 @@
           "description": "<p>Python packages hosted at PyPI.org.</p>"
         },
         {
+          "name": "PUB",
+          "description": "<p>Dart packages hosted at pub.dev.</p>"
+        },
+        {
           "name": "RUBYGEMS",
           "description": "<p>Ruby gems hosted at RubyGems.org.</p>"
         },
@@ -68195,6 +68407,57 @@
       ]
     },
     {
+      "name": "CreateLinkedBranchInput",
+      "kind": "inputObjects",
+      "id": "createlinkedbranchinput",
+      "href": "/graphql/reference/input-objects#createlinkedbranchinput",
+      "description": "<p>Autogenerated input type of CreateLinkedBranch.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>ID of the issue to link to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the new branch. Defaults to issue number and title.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The commit SHA to base the new branch on.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#gitobjectid"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>ID of the repository to create the branch in. Defaults to the issue repository.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CreateMigrationSourceInput",
       "kind": "inputObjects",
       "id": "createmigrationsourceinput",
@@ -68852,6 +69115,32 @@
         {
           "name": "id",
           "description": "<p>The Node ID of the label to be deleted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteLinkedBranchInput",
+      "kind": "inputObjects",
+      "id": "deletelinkedbranchinput",
+      "href": "/graphql/reference/input-objects#deletelinkedbranchinput",
+      "description": "<p>Autogenerated input type of DeleteLinkedBranch.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "linkedBranchId",
+          "description": "<p>The ID of the linked branch.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",

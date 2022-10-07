@@ -10,6 +10,7 @@ import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js
 import walkFiles from '../../script/helpers/walk-files'
 import frontmatter from '../../lib/frontmatter.js'
 import loadSiteData from '../../lib/site-data.js'
+import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated-flag-error-cleanup.js'
 
 /*
   NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
@@ -28,8 +29,13 @@ const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVers
 
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
-  test.each(featureVersions)('data/features/%s matches the schema', (_, featureVersion) => {
-    const { errors } = revalidator.validate(featureVersion, featureVersionsSchema)
+  test.each(featureVersions)('data/features/%s matches the schema', (name, featureVersion) => {
+    let { errors } = revalidator.validate(featureVersion, featureVersionsSchema)
+
+    // TODO temporary kludge! See notes in the module.
+    if (errors.length) {
+      errors = cleanUpDeprecatedGhaeFlagErrors(errors)
+    }
 
     const errorMessage = errors
       .map((error) => {
