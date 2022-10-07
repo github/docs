@@ -12,7 +12,7 @@ topics:
   - Developer
 ---
 
- ## About {% data variables.product.prodname_codespaces %} in JetBrains IDEs
+## About {% data variables.product.prodname_codespaces %} in JetBrains IDEs
 
 If you use a JetBrains IDE to work on your code, you can take advantage of working in a codespace. You do this by using the JetBrains Gateway application.
 
