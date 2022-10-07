@@ -2,10 +2,10 @@
 :PUBLISH:: :
 ::LAUNCH::
 ::DEPLOYEE::BEGIN :
-BEGIN 
+BEGIN :
 GLPW7 :
 Starts-start:
--starts :On ::-on :tuns ::
+-starts :On ::-on :transit :ABA :
 starts-on :On :Manifest :ENERGY_manifest'@ZachryTWood'@Administrator'@.it.git/engineering:
   - lib : 
   - lib/**/* :
@@ -24,18 +24,18 @@ starts-on :On :Manifest :ENERGY_manifest'@ZachryTWood'@Administrator'@.it.git/en
 ::':Build:: :
 :PUBLISH:: :
 ::LAUNCH::
-::DEPLOYEE::'::AS :FOLLOWS: Sandbox
-ZachryTylerWood'@Administrater'@'.it'.git
-zachryiixixiiwood@gmail.com
-Home
-Payments
-Payments Overview
-Counterparties
-Approvals
-Reconciliation
+::DEPLOYEE::'::AS :FOLLOWS :'require'rest'@Ci  :
+ZachryTylerWood'@Administrater'@'.it'.git :
+zachryiixixiiwood@gmail.com :
+Home :
+Payments :
+Payments Overview :
+Counterparties :
+Approvals :
+Reconciliation :
 Virtual Accounts
-Ledgers
-Compliance
+Ledgers :
+Compliance "
 New
 Reporting
 Invite Users
