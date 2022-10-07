@@ -6,7 +6,9 @@ BEGIN :
 GLPW7 :
 Starts-start:
 -starts :On ::-on :transit :ABA :
-starts-on :On :Manifest :ENERGY_manifest'@ZachryTWood'@Administrator'@.it.git/engineering:
+starts-on :On :
+Manifest :
+ENERGY_manifests'@ZachryTWood'@Administrator'@.it.git.github.gist'@.github.com/gists/secret/BITORE/ ::
   - lib : 
   - lib/**/* :
   - middleware/* :
