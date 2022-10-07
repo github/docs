@@ -3,6 +3,7 @@ title: Enterprise のコード セキュリティの管理
 shortTitle: Manage code security
 intro: コードベースからシークレットと脆弱性を排除し、ソフトウェア サプライ チェーンを維持する機能を使用して、開発者のワークフローにセキュリティを組み込むことができます。
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
