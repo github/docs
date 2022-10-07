@@ -29,12 +29,14 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 
 {% data reusables.actions.context-injection-warning %}
 
-#### Example expression in an `if` conditional
+#### Example expressions in an `if` conditional and an `if` not conditional
 
 ```yaml
 steps:
   - uses: actions/hello-world-javascript-action@v1.1
     if: {% raw %}${{ <expression> }}{% endraw %}
+  - uses: actions/hello-world-python-action@v1.1
+    if: {% raw %}${{ ! <expression> }}{% endraw %}
 ```
 
 #### Example setting an environment variable
