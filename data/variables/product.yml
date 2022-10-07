@@ -104,8 +104,7 @@ prodname_oauth_app: 'OAuth App'
 prodname_oauth_apps: 'OAuth Apps'
 
 # API and developer docs
-prodname_enterprise_api: 'the {% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %} APIs'
-prodname_support_forum_with_url: '[APIs and Integrations discussions on GitHub Community](https://github.com/orgs/community/discussions/categories/apis-and-integrations)'
+prodname_enterprise_api: '{% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %} APIs'
 prodname_unfurls: 'Content Attachments'
 
 # Azure AD
