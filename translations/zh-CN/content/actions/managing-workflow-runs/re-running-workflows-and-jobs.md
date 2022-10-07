@@ -1,5 +1,6 @@
 ---
 title: Re-running workflows and jobs
+shortTitle: Re-run workflows and jobs
 intro: 'You can re-run a workflow run{% ifversion re-run-jobs %}, all failed jobs in a workflow run, or specific jobs in a workflow run{% endif %} up to 30 days after its initial run.'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
