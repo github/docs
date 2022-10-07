@@ -192,7 +192,7 @@ For pull requests, you can also use search to:
 - Filter pull requests by [reviewer](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
 - Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
-- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`
+- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/docs`
 - Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`
 
 ## Sorting issues and pull requests

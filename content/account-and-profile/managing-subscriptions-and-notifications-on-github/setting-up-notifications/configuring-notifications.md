@@ -79,15 +79,27 @@ You can customize notifications for a repository. For example, you can choose to
 ### Participating in conversations
 Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}.
+{% ifversion update-notification-settings-22 %}For conversations you're watching or participating in, you can choose whether you want to receive notifications on {% data variables.product.company_short %} or by email in your notification settings. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 
-![Participating and watching notifications options](/assets/images/help/notifications-v2/participating-and-watching-options.png)
+![Animated GIF of participating and watching subscriptions options](/assets/images/help/notifications/selecting-participating-notifications.gif) 
+
+{% else %}
+
+For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_location %}{% ifversion ghes %} and {% data variables.product.prodname_mobile %}{% endif %}. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
+
+![Screenshot of participating and watching notifications options](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
+
+
 
 For example:
   - If you don't want notifications to be sent to your email, unselect **email** for participating and watching notifications.
   - If you want to receive notifications by email when you've participated in a conversation, then you can select **email** under "Participating".
 
-If you do not enable watching or participating notifications for web{% ifversion fpt or ghes or ghec %} and mobile{% endif %}, then your notifications inbox will not have any updates.
+{% ifversion update-notification-settings-22 %}If you do not enable "Notify me: On GitHub" for watching or participating notifications, then your notifications inbox will not have any updates.
+
+{% else %}
+
+If you do not enable watching or participating notifications for web{% ifversion ghes %} and mobile{% endif %}, then your notifications inbox will not have any updates.{% endif %}
 
 ## Customizing your email notifications
 
@@ -146,11 +158,16 @@ Email notifications from {% data variables.product.product_location %} contain t
 
 ## Automatic watching
 
-By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options.
+By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings. 
 
-  ![Automatic watching options](/assets/images/help/notifications-v2/automatic-watching-options.png)
+{% ifversion update-notification-settings-22 %}
+![Automatic watching options for teams and repositories](/assets/images/automatically-watch-repos-and-teams.png)
+{% else %}
+![Automatic watching options](/assets/images/help/notifications-v2/automatic-watching-options.png){% endif %}
 
-If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option.
+If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option. 
+
+For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 
 ## Configuring your watch settings for an individual repository
 
@@ -172,9 +189,17 @@ If you belong to an organization, you can choose the email account you want noti
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
+
 3. Under "Default notification email", select the email address you'd like notifications sent to.	
-![Default notification email address drop-down](/assets/images/help/notifications/notifications_primary_email_for_orgs.png)	
-4. Click **Save**.	
+{% ifversion update-notification-settings-22 %}
+
+   ![Screenshot of the default notification email address setting](/assets/images/help/notifications/default-email-address-emphasized.png)
+
+{% else %}
+
+   ![Screenshot of the default notification email address dropdown](/assets/images/help/notifications/notifications_primary_email_for_orgs.png){% endif %}
+{% ifversion ghes or ghae %}
+4. Click **Save**.{% endif %}	
 
 ### Customizing email routes per organization	
 
@@ -182,12 +207,35 @@ If you are a member of more than one organization, you can configure each one to
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
-3. Under "Custom routing," find your organization's name in the list.	
-![List of organizations and email addresses](/assets/images/help/notifications/notifications_org_emails.png)	
+{% ifversion update-notification-settings-22 %}
+3. Under "Default notifications email", click **Custom routing**.
+
+   ![Screenshot of default notifications email settings with custom routing button emphasised](/assets/images/help/notifications/custom-router-emphasized.png)
+
+4. Click **Add new route**.
+
+   ![Screenshot of custom routing settings with add new route button emphasised](/assets/images/help/notifications/add-new-route-emphasized.png)
+
+5. Click **Pick organization**, then select the organization you want to customize from the dropdown.
+
+   ![Screenshot of dropdown to pick organization](/assets/images/help/notifications/organization-dropdown-custom-routing-emphasis.png)
+
+6. Select one of your verified email addresses, then click **Save**. 
+
+   ![Screenshot of custom routing page with save button](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
+
+{% else %}
+3. Under "Custom routing," find your organization's name in the list.
+
+   ![List of organizations and email addresses](/assets/images/help/notifications/notifications_org_emails.png)	
+
 4. Click **Edit** next to the email address you want to change.
-![Editing an organization's email addresses](/assets/images/help/notifications/notifications_edit_org_emails.png)	
+
+   ![Editing an organization's email addresses](/assets/images/help/notifications/notifications_edit_org_emails.png)	
+
 5. Select one of your verified email addresses, then click **Save**.	
-![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif)
+
+   ![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif){% endif %}
 
 ## {% data variables.product.prodname_dependabot_alerts %} notification options 
 
@@ -197,14 +245,17 @@ If you are a member of more than one organization, you can configure each one to
 
 For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
-{% ifversion fpt or ghes or ghec %}
+{% ifversion update-notification-settings-22 or ghes %}
 ## {% data variables.product.prodname_actions %} notification options
 
-Choose how you want to receive workflow run updates for repositories that you are watching that are set up with {% data variables.product.prodname_actions %}. You can also choose to only receive notifications for failed workflow runs.
+Choose how you want to receive workflow run updates for repositories that you are watching that are set up with {% data variables.product.prodname_actions %}. You can also choose to only receive notifications for failed workflow runs.{% endif %}
 
-  ![Notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png)
+{% ifversion update-notification-settings-22 %}
+![Animated GIF of notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications/github-actions-customize-notifications.gif){% endif %}
 
-{% endif %}
+{% ifversion ghes %}
+  ![Screenshot of the notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
+
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 ## Organization alerts notification options 

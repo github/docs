@@ -121,7 +121,7 @@ For more information about the audit log REST API, see "[Enterprise administrati
 The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination):
 
 ```shell
-curl -H "Authorization: Bearer <em>TOKEN</em>" \
+curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
@@ -133,7 +133,7 @@ You can specify multiple search phrases, such as `created` and `actor`, by separ
 The query below searches for audit log events for pull requests, where the event occurred on or after Jan 1st, 2022 in the `avocado-corp` enterprise, and the action was performed by the `octocat` user:
 
 ```shell
-curl -H "Authorization: Bearer <em>TOKEN</em>" \
+curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```

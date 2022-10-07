@@ -36,7 +36,7 @@ There are several possible explanations:
 Your local repository may not have the commit yet. To get information from your remote repository to your local clone, use `git fetch`:
 
 ```shell
-$ git fetch <em>remote</em>
+$ git fetch REMOTE
 ```
 
 This safely copies information from the remote repository to your local clone without making any changes to the files you have checked out.
