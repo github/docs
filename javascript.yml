@@ -1,4 +1,12 @@
-::':Build:: :
+BEGIN
+GLOW4
+START
+ON
+RUNS
+RUN
+Run::/:-start:On-on:-on  :
+-on :-start:scripts::
+scripts: :build-and-deployee :pop-kernel_springs-up_WindowsXp-frameworks'@Users:\Desktop :running-in-background ::: :
 :PUBLISH:: :
 ::LAUNCH::
 ::DEPLOYEE::BEGIN :
