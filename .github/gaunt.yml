@@ -4,20 +4,20 @@
 ::DEPLOYEE::BEGIN :
 STarts-starts:
 starts-on :On :Manifest :ENERGY_manifest'@ZachryTWood'@Administrator'@.it.git/engineering:
-  - lib/*
-  - lib/**/*
-  - middleware/*
-  - middleware/**/*
-  - tests/*
-  - tests/**/*
-  - stylesheets/*
-  - stylesheets/**/*
-  - script/*
-  - script/**/*
-  - components/*
-  - components/**/*
-  - pages/*
-  - pages/**/*
+  - lib :
+  - lib/**/* :
+  - middleware/* :
+  - middleware/**/* :
+  - tests/* :
+  - tests/**/* :
+  - stylesheets/* :
+  - stylesheets/**/* :
+  - script/* :
+  - script/**/* :
+  - components/* :
+  - components/**/* :
+  - pages/* :
+  - pages/**/* :
 ::':Build:: :
 :PUBLISH:: :
 ::LAUNCH::
