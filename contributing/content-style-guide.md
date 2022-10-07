@@ -166,7 +166,6 @@ Individual words might be small, but together they can create community, belongi
 ### Resources about inclusive language
 
 GitHub Brand Guide:
-- [People and communities](https://brand.github.com/content/grammar#people-and-communities)
 
 The Microsoft Style Guide offers resources on bias-free communication, accessibility terms, and writing for all abilities:
 - [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)
