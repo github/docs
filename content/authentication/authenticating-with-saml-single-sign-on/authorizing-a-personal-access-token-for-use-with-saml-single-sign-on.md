@@ -29,5 +29,5 @@ You can authorize an existing personal access token, or [create a new personal a
 
 ## Further reading
 
-- "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)"
+- "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"
 - "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"
