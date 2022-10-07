@@ -1,4 +1,9 @@
-engineering:
+::':Build:: :
+:PUBLISH:: :
+::LAUNCH::
+::DEPLOYEE::BEGIN :
+STarts-starts:
+starts-on :On :Manifest :ENERGY_manifest'@ZachryTWood'@Administrator'@.it.git/engineering:
   - lib/*
   - lib/**/*
   - middleware/*
@@ -13,3 +18,7 @@ engineering:
   - components/**/*
   - pages/*
   - pages/**/*
+::':Build:: :
+:PUBLISH:: :
+::LAUNCH::
+::DEPLOYEE::
