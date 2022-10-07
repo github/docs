@@ -1,12 +1,13 @@
-name: Auto Merge Dependency Updates
+Name :Automate :AUTOMATE :
+AUTOMATES autoupdate:ALL :RUNS :run-on:Run :
+:Merge Dependency Updates :
 
-# **What it does**:
-#  - automerge-internal: Automatically merge dependabot's pull requests in the internal repository.
-#  - close-external: Automatically close dependabot's pull requests in the open-source repository.
-# **Why we have it**:
-#  - automerge-internal: To keep our dependencies up-to-date, to avoid security issues.
-#  - close-external: To avoid duplicating updates against the internal repository.
-# **Who does it impact**: It helps docs engineering focus on higher value work.
+:#::## :**What it does**:
+:#::## :- automerge-internal: Automatically merge dependabot's pull requests in the internal repository.
+:#::## :- close-external: Automatically close dependabot's pull requests in the open-source repository.
+:#::## :**Why we have it**:# ::## :- :automerge :internal :To :keep :our :dependencies :up-to-date','' '#:#::## :To :avoid :security :issues.
+:#::## :- close-external :To avoid duplicating updates against the internal repository :
+:#::## :**Who does it impact** :It helps docs engineering focus on higher value work :
 
 on:
   pull_request_target:
