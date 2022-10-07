@@ -43945,6 +43945,68 @@
                 "href": "/graphql/reference/input-objects#projectv2fieldorder"
               }
             }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectV2View#order_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#group_by_field</code> API. Check out the <code>ProjectV2View#group_by_fields</code> API as an example for the more capable alternative. Removal on 2023-04-01 UTC.</p>"
+        },
+        {
+          "name": "groupByFields",
+          "description": "<p>The view's group-by field.</p>",
+          "type": "ProjectV2FieldConfigurationConnection",
+          "id": "projectv2fieldconfigurationconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2fieldconfigurationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2FieldOrder",
+                "id": "projectv2fieldorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2fieldorder"
+              }
+            }
           ]
         },
         {
@@ -74571,6 +74633,10 @@
           "description": "<p>Python packages hosted at PyPI.org.</p>"
         },
         {
+          "name": "PUB",
+          "description": "<p>Dart packages hosted at pub.dev.</p>"
+        },
+        {
           "name": "RUBYGEMS",
           "description": "<p>Ruby gems hosted at RubyGems.org.</p>"
         },
@@ -78179,6 +78245,10 @@
         {
           "name": "PIP",
           "description": "<p>Python packages hosted at PyPI.org.</p>"
+        },
+        {
+          "name": "PUB",
+          "description": "<p>Dart packages hosted at pub.dev.</p>"
         },
         {
           "name": "RUBYGEMS",
