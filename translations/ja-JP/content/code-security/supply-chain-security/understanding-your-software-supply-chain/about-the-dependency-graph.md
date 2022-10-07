@@ -85,6 +85,9 @@ The recommended formats explicitly define which versions are used for all direct
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`<sup>[‡]</sup> |
+{%- ifversion dependency-graph-dart-support %}
+| pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
+{%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
 {%- endif %}
