@@ -8643,6 +8643,11 @@ enum DependencyGraphEcosystem {
   PIP
 
   """
+  Dart packages hosted at pub.dev
+  """
+  PUB
+
+  """
   Ruby gems hosted at RubyGems.org
   """
   RUBYGEMS
@@ -31398,6 +31403,39 @@ type ProjectV2View implements Node {
     """
     orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConnection
+    @deprecated(
+      reason: "The `ProjectV2View#order_by` API is deprecated in favour of the more capable `ProjectV2View#group_by_field` API. Check out the `ProjectV2View#group_by_fields` API as an example for the more capable alternative. Removal on 2023-04-01 UTC."
+    )
+
+  """
+  The view's group-by field.
+  """
+  groupByFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the project v2 fields returned from the connection.
+    """
+    orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
+  ): ProjectV2FieldConfigurationConnection
   id: ID!
 
   """
@@ -43689,6 +43727,11 @@ enum SecurityAdvisoryEcosystem {
   Python packages hosted at PyPI.org
   """
   PIP
+
+  """
+  Dart packages hosted at pub.dev
+  """
+  PUB
 
   """
   Ruby gems hosted at RubyGems.org

@@ -3,6 +3,7 @@ title: 管理企业的代码安全性
 shortTitle: Manage code security
 intro: 可以使用使机密和漏洞远离代码库以及维护软件供应链的功能为开发人员工作流生成安全性。
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

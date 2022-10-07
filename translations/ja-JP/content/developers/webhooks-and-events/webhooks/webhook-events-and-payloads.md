@@ -317,6 +317,24 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {{ webhookPayloadsForCurrentVersion.delete }}
 
+{% ifversion fpt or ghec %}
+## dependabot_alert
+
+{% data reusables.webhooks.dependabot_alert_description %}
+
+### Availability
+
+{% data reusables.webhooks.dependabot_alert_availability %}
+
+### Webhook payload object
+
+{% data reusables.webhooks.dependabot_alert_payload %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.dependabot_alert.fixed }}
+{% endif %}
+
 ## deploy_key
 
 {% data reusables.webhooks.deploy_key_short_desc %}
@@ -1591,7 +1609,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 | Key | Type | Description |
 |-----|-----|-----|
-| `inputs` | `object` | Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input. |
+| `inputs` | `object` | Inputs to the workflow. Each key represents the name of the input while its value represents the value of that input. |
 {% data reusables.webhooks.org_desc %}
 | `ref` | `string` | The branch ref from which the workflow was run. |
 {% data reusables.webhooks.repo_desc %}

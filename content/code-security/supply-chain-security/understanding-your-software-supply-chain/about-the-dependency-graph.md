@@ -33,7 +33,9 @@ When you create a pull request containing changes to dependencies that targets t
 
 ## Dependency graph availability
 
-{% ifversion fpt or ghec %}The dependency graph is available for every public repository that defines dependencies in a supported package ecosystem using a supported file format. Repository administrators can also set up the dependency graph for private repositories. For more information, see "[Configuring the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."{% endif %}
+{% ifversion fpt or ghec %}The dependency graph is available for every public repository that defines dependencies in a supported package ecosystem using a supported file format. Repository administrators can also set up the dependency graph for private repositories. {% endif %}For more information {% ifversion ghes %}about configuration of the dependency graph{% endif %}, see "[Configuring the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."
+
+{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
 
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
