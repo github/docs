@@ -1,7 +1,6 @@
 # GitHub Doc javascript/WORKSFLOW/.github/docs/worksflows/Test/tests/travis/package.json/pkg.yml/API/Adk.apk.sdk.S.E/Jdk.J.C/jre.jar'@write-prettier.config/sets-up:rake.i'@https://rake.io/API::
 
-<!-- omit in toc --> <img src="blob:chrome-untrusted://media-app/c1b5dc97-adc6-472e-b757-22c25412db35" alt="newheaderlogo.svg"/>![image](https://user-images.githubusercontent.com/109656750/194682293-bb2e07f4-b06e-4d45-b6f8-66de18a32051.png)
-
+<!-- omit in toc --> 
 # 1: Variables
 Close
 
