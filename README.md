@@ -26,9 +26,7 @@ Event Time
 
 10/05/202205:46:20 CDT
 
-Source
-
-ALPHABET
+Source :
 
 IP Address
 
