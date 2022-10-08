@@ -1,5 +1,9 @@
 # This stuff ends up here: https://catalog.githubapp.com/services/help-docs/docs
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Website</title>
 version: 1
 links:
   - name: Observability docs
