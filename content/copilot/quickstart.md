@@ -1,3 +1,6 @@
+:#:: 
+::##:
+::###:#:: ## :
 ---
 title: Quickstart for GitHub Copilot
 intro: '{% data variables.product.prodname_copilot %} can help you work, by offering inline suggestions as you code.'
