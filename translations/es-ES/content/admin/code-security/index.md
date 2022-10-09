@@ -3,6 +3,7 @@ title: Administración de la seguridad del código para la empresa
 shortTitle: Manage code security
 intro: Puedes crear seguridad en el flujo de trabajo de los desarrolladores con características que mantienen secretos y vulnerabilidades fuera del código base y que mantienen la cadena de suministro de software.
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
