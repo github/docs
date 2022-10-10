@@ -50,6 +50,7 @@ program
   // any Lunr indexes.
   .option('--no-lunr-index', `Do not generate a Lunr index, just the records file (default false)`)
   .option('--no-markers', 'Do not print a marker for each parsed document')
+  .option('--filter <MATCH>', 'Filter to only do pages that match this string')
   .parse(process.argv)
 
 main(program.opts())
@@ -131,6 +132,7 @@ async function main(opts) {
 
   const config = {
     noMarkers: !opts.markers,
+    filter: opts.filter,
   }
 
   const options = {
