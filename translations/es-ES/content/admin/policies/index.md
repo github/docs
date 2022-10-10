@@ -4,7 +4,6 @@ intro: 'Puedes configurar políticas en {% data variables.product.product_name %
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
-  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 versions:
   ghec: '*'
   ghes: '*'
@@ -14,6 +13,12 @@ topics:
 children:
   - /enforcing-policies-for-your-enterprise
   - /enforcing-policy-with-pre-receive-hooks
-shortTitle: Configurar políticas
+shortTitle: Set policies
+ms.openlocfilehash: 075d4f949435539c9c45ae651aedb0878f3317db
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147400374'
 ---
 

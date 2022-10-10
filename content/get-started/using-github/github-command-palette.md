@@ -39,8 +39,8 @@ When you open the command palette, it shows your location at the top left and us
 {% note %}
 
 **Notes:**
-- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).
-- If you are working on a project (beta), a project-specific command palette is displayed instead. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
+- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
+- If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."{% endif %}
 
 {% endnote %}
 
@@ -151,7 +151,7 @@ These commands are available from all scopes.
 |`Import repository`|Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)."  |
 |`New gist`|Open a new gist. For more information, see "[Creating a gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)." |
 |`New organization`|Create a new organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." |
-|`New project`|Create a new project board. For more information, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."  |
+|`New project`|Create a new project board. For more information, see "[Creating a project](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."  |
 |`New repository`|Create a new repository from scratch. For more information, see "[Creating a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository)." |
 |`Switch theme to <theme name>`|Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)." |
 

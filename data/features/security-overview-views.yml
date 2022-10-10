@@ -2,5 +2,5 @@
 # Documentation for the security overview individual views
 versions:
   ghes: '> 3.4'
-  ghae: 'issue-5503'
+  ghae: '>= 3.5'
   ghec: '*'

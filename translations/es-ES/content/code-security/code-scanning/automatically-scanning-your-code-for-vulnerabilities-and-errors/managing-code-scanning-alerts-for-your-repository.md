@@ -42,11 +42,11 @@ By default, the code scanning alerts page is filtered to show alerts for the def
 {% data reusables.code-scanning.explore-alert %}
 ![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
-     {% data reusables.code-scanning.alert-default-branch %}
-     ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+   {% data reusables.code-scanning.alert-default-branch %}
+   ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
    ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
    {% else %}
    ![The "Show paths" link on an alert](/assets/images/enterprise/3.4/repository/code-scanning-show-paths.png)
@@ -81,7 +81,7 @@ The benefit of using keyword filters is that only values with results are shown 
 
 If you enter multiple filters, the view will show alerts matching _all_ these filters. For example, `is:closed severity:high branch:main` will only display closed high-severity alerts that are present on the `main` branch. The exception is filters relating to refs (`ref`, `branch` and `pr`): `is:open branch:main branch:next` will show you open alerts from both the `main` branch and the `next` branch.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.code-scanning.filter-non-default-branches %}
 {% endif %}
 
@@ -102,7 +102,7 @@ You can use the "Only alerts in application code" filter or `autofilter:true` ke
 You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
 - The name of the alert
 - The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
- {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+ {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
  ![The alert information used in searches](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
  {% else %}
  ![The alert information used in searches](/assets/images/enterprise/3.4/repository/code-scanning-free-text-search-areas.png)
@@ -154,11 +154,11 @@ Alerts may be fixed in one branch but not in another. You can use the "Branch" f
 
 ![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.code-scanning.filter-non-default-branches %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
 {% note %}
 
 **Note:** If you run code scanning using multiple configurations, then sometimes an alert will have multiple analysis origins. Unless you run all configurations regularly, you may see alerts that are fixed in one analysis origin but not in another. For more information, see "[About analysis origins](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
@@ -204,15 +204,14 @@ To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alert
   ![Filter alerts by rule](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
 {% endif %}{% endif %}
 1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
-
 ![Open an alert from the summary list](/assets/images/help/repository/code-scanning-click-alert.png)
-
-1. Review the alert, then click {% ifversion comment-dismissed-code-scanning-alert %}**Dismiss alert** and choose, or type, a reason for closing the alert. 
-  ![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
-{% else %}**Dismiss** and choose a reason for closing the alert.
+{%- ifversion comment-dismissed-code-scanning-alert %}
+1. Review the alert, then click **Dismiss alert** and choose, or type, a reason for closing the alert. 
+  ![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
+{%- else %}
+1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
   ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{% endif %}
-
+{%- endif %}
    {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
    {% data reusables.code-scanning.false-positive-fix-codeql %}

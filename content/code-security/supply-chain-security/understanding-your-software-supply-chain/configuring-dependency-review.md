@@ -36,11 +36,11 @@ Dependency review is included in {% data variables.product.product_name %} for p
 1. If "{% data variables.product.prodname_GH_advanced_security %}" is not enabled, click **Enable** next to the feature.
    ![Screenshot of GitHub Advanced Security feature with "Enable" button emphasized](/assets/images/help/security/enable-ghas-private-repo.png)
 
-{% elsif ghes %}
-Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."
+{% elsif ghes or ghae %}
+
+Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository.{% ifversion ghes %} For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."{% endif %}
 
 ### Checking if the dependency graph is enabled
-
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -49,6 +49,7 @@ Dependency review is available when dependency graph is enabled for {% data vari
 1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. The enable button is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion ghes < 3.3 %}
   ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.2/repository/code-security-and-analysis-enable-ghas-3.2.png){% endif %}{% ifversion ghes > 3.2 %}
     ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
+
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
@@ -62,16 +63,20 @@ The following configuration options are available.
 | Option | Required | Usage |
 |------------------|-------------------------------|--------|
 | `fail-on-severity` | Optional | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
-| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|
-| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|
+{%- ifversion dependency-review-action-licenses %}
+| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
+{%- ifversion dependency-review-action-licenses %}
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}
 
+{% ifversion dependency-review-action-licenses %}
 {% tip %}
 
 **Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
 
 {% endtip %}
+{% endif %}
 
-This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use these configuration options.
+This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use these configuration options. Notice that the example uses short version number for the action (`v2`) instead of a semver release number (for example, `v2.0.8`). This ensures that you use the most recent minor version of the action.
 
 ```yaml{:copy}
 name: 'Dependency Review'
@@ -91,6 +96,7 @@ jobs:
         with:
           # Possible values: "critical", "high", "moderate", "low" 
           fail-on-severity: critical
+{% ifversion dependency-review-action-licenses %}
           # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
           # ([String]). Only allow these licenses (optional)
           # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
@@ -99,6 +105,7 @@ jobs:
           # ([String]). Block the pull request on these licenses (optional)
           # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
           # deny-licenses: LGPL-2.0, BSD-2-Clause
+{% endif %}
 ```
 
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).

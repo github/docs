@@ -25,6 +25,7 @@ children:
   - /site-admin-dashboard
   - /enabling-private-mode
   - /managing-github-mobile-for-your-enterprise
+  - /configuring-ssh-connections-to-your-instance
   - /configuring-email-for-notifications
   - /verifying-or-approving-a-domain-for-your-enterprise
   - /configuring-rate-limits
@@ -34,6 +35,7 @@ children:
   - /command-line-utilities
   - /restricting-network-traffic-to-your-enterprise
   - /configuring-github-pages-for-your-enterprise
+  - /configuring-host-keys-for-your-instance
   - /configuring-the-referrer-policy-for-your-enterprise
   - /configuring-custom-footers
   - /configuring-web-commit-signing

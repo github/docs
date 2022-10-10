@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10 as base
+FROM node:16.17.0-alpine@sha256:2c405ed42fc0fd6aacbe5730042640450e5ec030bada7617beac88f742b6997b as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -71,10 +71,7 @@ COPY --chown=node:node --from=builder $APP_HOME/.next $APP_HOME/.next
 # We should always be running in production mode
 ENV NODE_ENV production
 
-# Whether to hide iframes, add warnings to external links
-ENV AIRGAP false
-
-# Preferred port for server.mjs
+# Preferred port for server.js
 ENV PORT 4000
 
 ENV ENABLED_LANGUAGES "en"
@@ -87,19 +84,17 @@ ENV BUILD_SHA=$BUILD_SHA
 # Copy only what's needed to run the server
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
-COPY --chown=node:node includes ./includes
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
-COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
-COPY --chown=node:node server.mjs ./server.mjs
-COPY --chown=node:node start-server.mjs ./start-server.mjs
+COPY --chown=node:node server.js ./server.js
+COPY --chown=node:node start-server.js ./start-server.js
 
 EXPOSE $PORT
 
-CMD ["node", "server.mjs"]
+CMD ["node", "server.js"]
 
 # --------------------------------------------------------------------------------
 # PRODUCTION IMAGE - includes all translations

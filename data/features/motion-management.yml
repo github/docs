@@ -1,0 +1,7 @@
+# Issue 6523
+# Support for customizing the automatic playback of animated images in the web interface
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.6'
+  ghae: '>= 3.6'

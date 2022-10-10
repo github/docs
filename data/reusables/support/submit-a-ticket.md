@@ -36,6 +36,8 @@
     - Steps to reproduce the issue
     - Any special circumstances surrounding the discovery of the issue (for example, the first occurrence or occurrence after a specific event, frequency of occurrence, business impact of the problem, and suggested urgency)
     - Exact wording of error messages
+{% indented_data_reference reusables.repositories.anyone-can-view-anonymized-url spaces=3 %}
+
 {%- ifversion ghes %}
 1. Optionally, attach diagnostics files and other files by dragging and dropping, uploading, or pasting from the clipboard.
 {%- endif %}

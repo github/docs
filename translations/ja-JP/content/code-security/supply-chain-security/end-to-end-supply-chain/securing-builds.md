@@ -1,8 +1,8 @@
 ---
-title: ビルドシステムの保護のベストプラクティス
-shortTitle: ビルドの保護
+title: ビルド システムをセキュリティで保護するためのベスト プラクティス
+shortTitle: Securing builds
 allowTitleToDifferFromFilename: true
-intro: サプライチェーンの終端である、成果物のビルドと配布に使うシステムの保護の方法に関するガイダンス。
+intro: サプライ チェーンの終端を保護する方法 (成果物の構築と配布に使用するシステム) に関するガイダンス。
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,50 +14,55 @@ topics:
   - Security
   - CI
   - CD
+ms.openlocfilehash: f184bb668ba1594a77099fab734686b9c550c238
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147518857'
 ---
-
 ## このガイドについて
 
-このガイドは、ビルドシステムのセキュリティを高めることができる、もっと影響の大きい変更について説明します。 各セクションは、セキュリティを改善するためにプロセスに加えることができる変更の概要を説明します。 影響の大きい変更から最初にリストされています。
+このガイドでは、ビルド システムのセキュリティを向上させるために加えられる最も影響が大きい変更について説明します。 各セクションで、セキュリティを向上させるためにプロセスに対して行うことができる変更の概要を示します。 変更は影響が大きい順に示されます。
 
-## リスクとは何か？
+## リスクとは
 
-ソフトウェアサプライチェーンに対する攻撃の中には、ビルドシステムを直接ターゲットとするものもあります。 攻撃者がビルドプロセスを変更できれば、個人アカウントやコードを侵害する労力なしに、システムを悪用できます。 個人アカウントやコードとともに、ビルドシステムを保護することを忘れないようにすることが重要です。
+ソフトウェア サプライ チェーンに対する攻撃の一部は、ビルド システムを直接対象とします。 攻撃者がビルド プロセスを変更できる場合は、個人アカウントやコードを侵害することなく、システムを悪用するおそれがあります。 ビルド システムだけでなく、個人のアカウントやコードも忘れずに保護することが重要です。
 
-## ビルドシステムの保護
+## ビルド システムのセキュリティによる保護
 
-ビルドシステムが持つべきセキュリティの機能がいくつかあります。
+ビルド システムに必要なセキュリティ機能がいくつかあります。
 
-1. ビルドステップは明確で再現可能でなければなりません。
+1. ビルドの手順は明確で繰り返すことができる必要があります。
 
-2. ビルドプロセス中に何が実行されているかを正確に知っていなければなりません。
+2. ビルド プロセス中に何が実行されていたかを正確に把握する必要があります。
 
-3. 侵害されたビルドが将来のビルドに影響し続けることがないよう、各ビルドは新しい環境で開始されなければなりません。
+3. 各ビルドは新しい環境で開始する必要があるため、侵害されたビルドは今後のビルドに影響を与えることはありません。
 
-{% data variables.product.prodname_actions %}は、これらの機能を満たすのに役立ちます。 ビルドの手順は、コードとともにリポジトリに保存されます。 ビルドが実行される環境は、Windows、Mac、Linux、自分でホストするランナーを含め、選択できます。 各ビルドは新しい仮想環境で開始され、攻撃がビルド環境に留まり続けるのを難しくします。
+{% data variables.product.prodname_actions %} は、これらの機能を満たすのに役立ちます。 ビルド手順は、コードと共にリポジトリに格納されます。 ご自分でホストする Windows、Mac、Linux、ランナーなど、ビルドを実行する環境を選びます。 各ビルドは新しいランナー イメージから始まり、ビルド環境に攻撃が持続することは困難になります。
 
-セキュリティ上の利点に加えて、{% data variables.product.prodname_actions %}はビルドを手動、定期的、リポジトリでのgitイベントでトリガーし、頻繁に高速なビルドを行えます。
+{% data variables.product.prodname_actions %} を使用すると、セキュリティ上の利点に加えて、頻繁かつ高速なビルドのために、ビルドを手動で、定期的に、またはリポジトリの Git イベントでトリガーできます。
 
-{% data variables.product.prodname_actions %}は大きなトピックですが、「[GitHubホストランナー](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)」及び「[ワークフローのトリガー](/actions/using-workflows/triggering-a-workflow)」と合わせて「[GitHub Actionsを理解する](/actions/learn-github-actions/understanding-github-actions)」がよい出発点になります。
+{% data variables.product.prodname_actions %} は大きなトピックですが、作業を開始するには、「[GitHub Actions について](/actions/learn-github-actions/understanding-github-actions)」のほかに、「[GitHub ホストランナーの選択](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)」、「[ワークフローのトリガー](/actions/using-workflows/triggering-a-workflow)」を参照してください。
 
-## ビルドへの署名
+## ビルドに署名する
 
-ビルドプロセスが保護されたら、ビルドプロセスの最終結果が誰かに改ざんされないようにします。 そのための素晴らしい方法が、ビルドへの署名です。 ソフトウェアを公に配布する場合、しばしば公開/秘密暗号鍵のペアとともに行われます。 秘密鍵を使ってビルドに署名し、公開鍵を公開してソフトウェアのユーザが利用までにビルドの署名を検証できるようにします。 もしもビルドのバイトが変更されていた場合、署名は検証されません。
+ビルド プロセスがセキュリティで保護されたら、誰かがビルド プロセスの最終的な結果を改ざんできないようにする必要があります。 これを行う優れた方法は、ビルドに署名することです。 ソフトウェアをパブリックに配布する場合、多くの場合、公開/秘密の暗号化キー ペアで行われます。 秘密キーを使用してビルドに署名し、公開キーを公開して、ソフトウェアのユーザーがビルドの署名を使用する前に確認できるようにします。 ビルドのバイトが変更された場合、署名は検証されません。
 
-ビルドにどの程度正確に署名するかは、書いているコードの種類や、ユーザがどういった人たちかによります。 秘密鍵を安全に保管する方法を知るのは、多くの場合困難です。 ここでの基本的な選択肢の1つは{% data variables.product.prodname_actions %}の暗号化されたシークレットを使うことですが、それらの{% data variables.product.prodname_actions %}ワークフローにアクセスできる人を慎重に制限しなければなりません。 {% ifversion fpt or ghec %}秘密鍵をパブリックなインターネットを通じてアクセスできる他のシステム（Microsoft AzureやHashiCorpのVaultなど）に保存するなら、さらに高度な選択肢はOpenID Connectで認証をして、システム間でシークレットを共有しなくていいようにすることです。{% endif %}秘密鍵にアクセスできるのがプライベートネットワークからのみなのであれば、他の選択肢は{% data variables.product.prodname_actions %}のセルフホストランナーを使うことです。
+ビルドに正確に署名する方法は、記述しているコードの種類とユーザーによって異なります。 多くの場合、秘密キーを安全に格納する方法を知ることは困難です。 ここでの基本的なオプションの 1 つは、{% data variables.product.prodname_actions %} 暗号化されたシークレットを使用することですが、それらの {% data variables.product.prodname_actions %} ワークフローにアクセスするユーザーを制限するように注意する必要があります。 {% ifversion fpt or ghec %} 秘密キーがパブリック インターネット (Microsoft Azure、HashiCorp Vault など) 経由でアクセスできる別のシステムに格納されている場合、より高度なオプションは OpenID Connect で認証することであるため、システム間でシークレットを共有する必要はありません。{% endif %} 秘密キーにアクセスできるのがプライベート ネットワークからのみの場合は、{% data variables.product.prodname_actions %} にセルフホステッド ランナーを使用することもできます。
 
-詳しい情報については「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」{% ifversion fpt or ghec %}、「[OpenID Connectでのセキュリティ強化について](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)」{% endif %}、「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。
+詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」{% ifversion fpt or ghec %}、「[OpenID Connect によるセキュリティ強化について](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)」、{% endif %} および「[セルフホステッド ランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。
 
-## {% data variables.product.prodname_actions %}のセキュリティ強化
+## {% data variables.product.prodname_actions %} のセキュリティを強化する
 
-{% data variables.product.prodname_actions %}をさらに保護するために行えるステップがもっとたくさんあります。 特に、サードパーティのワークフローを評価する際には注意し、自分のワークフローを変更できる人は`CODEOWNERS`を使って制限することを検討してください。
+さらに {% data variables.product.prodname_actions %} をセキュリティで保護するために、さらに多くの手順を実行できます。 特に、サードパーティのワークフローを評価する場合は注意が必要です。また、ワークフローに変更を加えることができるユーザーを制限するために `CODEOWNERS` を使用することを検討してください。
 
-詳しい情報については「[GitHub Actionsのセキュリティ強化](/actions/security-guides/security-hardening-for-github-actions)」、特に「[サードパーティアクションの利用](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)」及び「[変更をモニタリングするための`CODEOWNERS`の利用](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)」を参照してください。
+詳しくは、「[GitHub Actions のセキュリティ強化](/actions/security-guides/security-hardening-for-github-actions)」、特に「[サードパーティ アクションを使用する](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)」および「[変更の監視に `CODEOWNERS` を使用する](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)」を参照してください。
 
-## 次のステップ
+## 次の手順
 
-- 「[エンドツーエンドのサプライチェーンの保護](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)」
+- 「[エンドツーエンドのサプライ チェーンのセキュリティ保護](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)」
 
-- 「[アカウントの保護のベストプラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)」
+- 「[アカウントをセキュリティで保護するためのベスト プラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)」
 
-- 「[サプライチェーン中のコードの保護のベストプラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)」
+- 「[サプライ チェーンのコードをセキュリティで保護するためのベスト プラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)」

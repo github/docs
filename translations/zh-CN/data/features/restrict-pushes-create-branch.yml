@@ -1,6 +1,5 @@
----
-#Issue 6045
-#Restrict pushes that create matching branches option, within branch restrictions
+# Issue 6045
+# Restrict pushes that create matching branches option, within branch restrictions
 versions:
   fpt: '*'
   ghec: '*'

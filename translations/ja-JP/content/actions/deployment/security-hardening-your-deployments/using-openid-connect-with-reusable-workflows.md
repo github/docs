@@ -1,39 +1,49 @@
 ---
-title: Using OpenID Connect with reusable workflows
+title: 再利用可能なワークフローでの OpenID Connect の使用
 shortTitle: Using OpenID Connect with reusable workflows
-intro: You can use reusable workflows with OIDC to standardize and security harden your deployment steps.
+intro: 再利用可能なワークフローと OIDC を使用して、デプロイ手順を標準化し、セキュリティを強化できます。
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/using-oidc-with-your-reusable-workflows
 versions:
   fpt: '*'
-  ghae: issue-4757
   ghec: '*'
   ghes: '>=3.5'
 type: how_to
 topics:
   - Workflows
   - Security
+ms.openlocfilehash: ecf00be738c711394bc4debf0088ca0cbe5a2d9c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710276'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 再利用可能なワークフローについて
 
-## About reusable workflows
+あるワークフローから別のワークフローにデプロイ ジョブをコピーして貼り付けるのではなく、デプロイ手順を実行する再利用可能なワークフローを作成できます。 「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)」で説明されているアクセス要件のいずれかを満たしていれば、別のワークフローから再利用可能なワークフローを使用できます。
 
-Rather than copying and pasting deployment jobs from one workflow to another, you can create a reusable workflow that performs the deployment steps. A reusable workflow can be used by another workflow if it meets one of the access requirements described in "[Reusing workflows](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)."
+「ワークフローの再利用 (/actions/learn-github-actions/reusing-workflows)」および「[OpenID Connect によるセキュリティ強化について](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)」で説明されている概念をよく理解している必要があります。
 
-When combined with OpenID Connect (OIDC), reusable workflows let you enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows.
+## 信頼条件の定義
 
-In order to create trust conditions based on reusable workflows, your cloud provider must support custom claims for `job_workflow_ref`. This allows your cloud provider to identify which repository the job originally came from. If your cloud provider only supports the standard claims (_audience_ and _subject_), it will not be able to determine that the job originated from the reusable workflow repository. Cloud providers that support `job_workflow_ref` include Google Cloud Platform and HashiCorp Vault.
+再利用可能なワークフローを OpenID Connect (OIDC) と組み合わせると、リポジトリ、組織、またはエンタープライズ全体で一貫したデプロイを実施することができます。 これを行うには、再利用可能なワークフローに基づいてクラウド ロールの信頼条件を定義します。 使用可能なオプションは、ご利用のクラウド プロバイダーによって異なります。
 
-Before proceeding, you should be familiar with the concepts of [reusable workflows](/actions/learn-github-actions/reusing-workflows) and [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+- **`job_workflow_ref` の使用**: 
+  - 再利用可能なワークフローに基づいて信頼条件を作成するには、クラウド プロバイダーが `job_workflow_ref` のカスタム要求をサポートしている必要があります。 これにより、クラウド プロバイダーは、ジョブの元のリポジトリを特定できます。 
+  - 標準のクレーム (対象ユーザー (`aud`) とサブジェクト (`sub`)) のみをサポートするクラウドの場合は、API を使用して `sub` クレームをカスタマイズして `job_workflow_ref` を含めることができます。 詳しくは、「[トークン クレームのカスタマイズ](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)」を参照してください。 カスタム クレームは、現在、Google Cloud Platform と HashiCorp Vault でサポートされています。
 
-## How the token works with reusable workflows
+- **トークン クレームのカスタマイズ**: 
+  - JWT に含まれる発行者 (`iss`) とサブジェクト (`sub`) のクレームをカスタマイズすることで、信頼条件をより細かく構成できます。 詳しくは、「[トークン クレームのカスタマイズ](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)」を参照してください。
 
-During a workflow run, {% data variables.product.prodname_dotcom %}'s OIDC provider presents a OIDC token to the cloud provider which contains information about the job. If that job is part of a reusable workflow, the token will include the standard claims that contain information about the calling workflow, and will also include a custom claim called `job_workflow_ref` that contains information about the called workflow.
+## 再利用可能なワークフローでのトークンのしくみ
 
-For example, the following OIDC token is for a job that was part of a called workflow. The `workflow`, `ref`, and other attributes describe the caller workflow, while `job_workflow_ref` refers to the called workflow:
+ワークフロー実行中、{% data variables.product.prodname_dotcom %} の OIDC プロバイダーは、ジョブに関する情報を含む OIDC トークンをクラウド プロバイダーに提示します。 そのジョブが再利用可能なワークフローの一部である場合、トークンには、呼び出し元ワークフローに関する情報を含む標準の要求が含まれます。また、呼び出されたワークフローに関する情報を含む `job_workflow_ref` というカスタム要求も含まれます。
+
+たとえば、次の OIDC トークンは、呼び出されたワークフローの一部であったジョブ用です。 `workflow`、`ref` などの属性は呼び出し元ワークフローを表し、`job_workflow_ref` は呼び出されたワークフローを指します。
 
 ```yaml{:copy}
 {
@@ -70,30 +80,30 @@ For example, the following OIDC token is for a job that was part of a called wor
 }
 ```
 
-If your reusable workflow performs deployment steps, then it will typically need access to a specific cloud role, and you might want to allow any repository in your organization to call that reusable workflow. To permit this, you'll create the trust condition that allows any repository and any caller workflow, and then filter on the organization and the called workflow. See the next section for some examples.
+再利用可能なワークフローでデプロイ手順を実行する場合、通常、特定のクラウド ロールへのアクセスが必要になります。また、組織内のどのリポジトリからもその再利用可能なワークフローを呼び出せるようにすることもできます。 これを許可するには、任意のリポジトリと任意の呼び出し元ワークフローを許可する信頼条件を作成し、組織と呼び出されたワークフローでフィルター処理します。 例については、次のセクションを参照してください。
 
-## サンプル
+## 例
 
-**Filtering for reusable workflows within a specific repository**
+**特定のリポジトリ内の再利用可能なワークフローにフィルター処理する**
 
-You can configure a custom claim that filters for any reusable workflow in a specific repository. In this example, the workflow run must have originated from a job defined in a reusable workflow in the `octo-org/octo-automation` repository, and in any repository that is owned by the `octo-org` organization.
+特定のリポジトリ内の再利用可能なワークフローをフィルター処理するカスタム要求を構成することができます。 この例で、ワークフロー実行は、`octo-org/octo-automation` リポジトリ内と、`octo-org` 組織が所有する任意のリポジトリ内の再利用可能なワークフローで定義されたジョブから開始される必要があります。
 
-- **Subject**:
-  - Syntax: `repo:ORG_NAME/*`
-  - Example: `repo:octo-org/*`
+- **件名**:
+  - 構文: `repo:ORG_NAME/*`
+  - 例: `repo:octo-org/*`
 
-- **Custom claim**:
-  - Syntax: `job_workflow_ref:ORG_NAME/REPO_NAME`
-  - Example: `job_workflow_ref:octo-org/octo-automation@*`
+- **カスタム要求**:
+  - 構文: `job_workflow_ref:ORG_NAME/REPO_NAME`
+  - 例: `job_workflow_ref:octo-org/octo-automation@*`
 
-**Filtering for a specific reusable workflow at a specific ref**
+**特定の参照で特定の再利用可能なワークフローにフィルター処理する**
 
-You can configure a custom claim that filters for a specific reusable workflow. In this example, the workflow run must have originated from a job defined in the reusable workflow `octo-org/octo-automation/.github/workflows/deployment.yml`, and in any repository that is owned by the `octo-org` organization.
+特定の再利用可能なワークフローをフィルター処理するカスタム要求を構成することができます。 この例で、ワークフロー実行は、再利用可能なワークフロー `octo-org/octo-automation/.github/workflows/deployment.yml` 内と、`octo-org` 組織が所有する任意のリポジトリ内で定義されたジョブから開始される必要があります。
 
-- **Subject**:
-  - Syntax: `repo:ORG_NAME/*`
-  - Example: `repo:octo-org/*`
+- **件名**:
+  - 構文: `repo:ORG_NAME/*` 
+  - 例: `repo:octo-org/*` 
 
-- **Custom claim**:
-  - Syntax: `job_workflow_ref:ORG_NAME/REPO_NAME/.github/workflows/WORKFLOW_FILE@ref`
-  - Example: `job_workflow_ref:octo-org/octo-automation/.github/workflows/deployment.yml@ 10040c56a8c0253d69db7c1f26a0d227275512e2`
+- **カスタム要求**:
+  - 構文: `job_workflow_ref:ORG_NAME/REPO_NAME/.github/workflows/WORKFLOW_FILE@ref` 
+  - 例: `job_workflow_ref:octo-org/octo-automation/.github/workflows/deployment.yml@ 10040c56a8c0253d69db7c1f26a0d227275512e2`

@@ -55,17 +55,17 @@ Many files can be [moved directly on {% data variables.product.product_name %}](
 3. Use `git status` to check the old and new file locations.
   ```shell
   $ git status
-  > # On branch <em>your-branch</em>
+  > # On branch YOUR-BRANCH
   > # Changes not staged for commit:
   > #   (use "git add/rm <file>..." to update what will be committed)
   > #   (use "git checkout -- <file>..." to discard changes in working directory)
   > #
-  > #     deleted:    /<em>old-folder</em>/<em>image.png</em>
+  > #     deleted:    /OLD-FOLDER/IMAGE.PNG
   > #
   > # Untracked files:
   > #   (use "git add <file>..." to include in what will be committed)
   > #
-  > #     /<em>new-folder</em>/<em>image.png</em>
+  > #     /NEW-FOLDER/IMAGE.PNG
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
@@ -78,7 +78,7 @@ Many files can be [moved directly on {% data variables.product.product_name %}](
 5. Use `git status` to check the changes staged for commit.
   ```shell
   $ git status
-  > # On branch <em>your-branch</em>
+  > # On branch YOUR-BRANCH
   > # Changes to be committed:
   > #   (use "git reset HEAD <file>..." to unstage)
   > #

@@ -50,7 +50,7 @@ export async function getTreeSha(owner, repo, commitSha) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-tree
-export async function getTree(owner, repo, ref, allowedPaths = []) {
+export async function getTree(owner, repo, ref) {
   const commitSha = await getCommitSha(owner, repo, ref)
   const treeSha = await getTreeSha(owner, repo, commitSha)
   try {

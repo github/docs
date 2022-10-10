@@ -1,0 +1,26 @@
+date: '2022-07-21'
+sections:
+  security_fixes:
+    - "**中**: サーバー側リクエスト フォージェリ (SSRF) によって Subversion (SVN) ブリッジを強制し、任意のデータを Memcached に挿入することによりリモート コードを実行する可能性のある攻撃を防ぎます。" 
+    - "Grafana をバージョン 7.5.16 に更新します。これにより、[CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) や [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g) などのさまざまなセキュリティの脆弱性が対処されます。" 
+    - パッケージは最新のセキュリティ バージョンに更新されました。 
+  bugs:
+    - 解凍ツールを使って解凍すると成果物の zip アーカイブ内のファイルのアクセス許可が 000 になった問題を修正しました。現在は、GitHub.com での動作と同じように、ファイルのアクセス許可は 644 に設定されます。 
+    - collectd デーモンのメモリ消費が多すぎることがありました。 
+    - 場合によっては、ローテーションされたログ ファイルのバックアップが蓄積し、ストレージを消費し過ぎることがありました。 
+    - 新しい機能リリースにアップグレードしてから構成を実行した後、インデックスの再構築の間に Elasticsearch が過剰な例外をログすることがありました。 
+    - 複数の承認レビューを必要とする保護されたブランチで、pull request がマージされる承認レビューが必要な数より少ない場合がありました。 
+    - LDAP 認証を使うインスタンスで、ユーザー名とパスワード両方のテキスト フィールドが表示されていると、sudo モードの認証プロンプトにより、既定でカーソルがパスワード フィールド内に誤って配置されました。 
+  changes:
+    - インスタンスが回復モードで起動されるとき、`ghe-set-password` コマンド ラインユーティリティは必要なサービスを自動的に開始します。 
+    - "`aqueduct` バックグラウンド プロセスのメトリックが Collectd 転送について収集され、管理コンソールに表示されます。" 
+    - データベース移行と構成実行のログの場所 `/data/user/common/ghe-config.log` が、進行中の移行の詳細のページに表示されるようになります。 
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

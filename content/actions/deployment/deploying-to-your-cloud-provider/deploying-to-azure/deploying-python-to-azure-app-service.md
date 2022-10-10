@@ -20,7 +20,7 @@ topics:
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
@@ -68,6 +68,8 @@ Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Build and deploy Python app to Azure Web App
 

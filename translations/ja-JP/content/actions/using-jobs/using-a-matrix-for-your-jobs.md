@@ -1,7 +1,7 @@
 ---
-title: Using a matrix for your jobs
+title: ジョブにマトリックスを使用する
 shortTitle: Using a matrix
-intro: Create a matrix to define variations for each job.
+intro: マトリックスを作成して、各ジョブのバリエーションを定義します。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,51 +10,55 @@ versions:
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /actions/using-jobs/using-a-build-matrix-for-your-jobs
+ms.openlocfilehash: 2dd53fd8810e2ca5dcfc74ff8a6e45b46477d55f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145121014'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About matrix strategies
+## マトリックス戦略について
 
 {% data reusables.actions.jobs.about-matrix-strategy %}
 
-## Using a matrix strategy
+## マトリックス戦略の使用
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-### Example: Using a single-dimension matrix
+### 例: 1 次元マトリックスの使用
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-### Example: Using a multi-dimension matrix
+### 例: 多次元マトリックスの使用
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-### Example: Using contexts to create matrices
+### 例: コンテキストを使ったマトリックスの作成
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
-## Expanding or adding matrix configurations
+## マトリックス構成の展開または追加
 
 {% data reusables.actions.jobs.matrix-include %}
 
-### Example: Expanding configurations
+### 例: 構成の展開
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-### Example: Adding configurations
+### 例: 構成の追加
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 
-## Excluding matrix configurations
+## マトリックス構成の除外
 
 {% data reusables.actions.jobs.matrix-exclude %}
 
-## Handling failures
+## エラー処理
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}
 
-## Defining the maximum number of concurrent jobs
+## 同時ジョブの最大数の定義
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-max-parallel %}

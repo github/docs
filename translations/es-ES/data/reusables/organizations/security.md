@@ -1,7 +1,7 @@
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. En la sección de "Seguridad" de la barra lateral, haz clic en **{% octicon "shield-lock" aria-label="The shield-lock icon" %} Seguridad de autenticación**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-label="The shield-lock icon" %} Authentication security**.
 {% else  %}
-1. En la barra lateral izquierda, da clic en **Seguridad de la organización**.
+1. In the left sidebar, click **Organization security**.
 
- ![Configuración de seguridad de la organización](/assets/images/help/organizations/org-security-settings-tab.png)
+ ![Organization security settings](/assets/images/help/organizations/org-security-settings-tab.png)
 {% endif %}

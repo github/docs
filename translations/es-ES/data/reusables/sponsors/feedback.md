@@ -1,1 +1,1 @@
-Puedes compartir tu retroalimentación sobre los {% data variables.product.prodname_sponsors %} con {% data variables.product.company_short %}. Para unirte a la conversación, consulta la sección "[Retroalimentación de patrocinadores](https://github.com/github/feedback/discussions/categories/sponsors-feedback)".
+You can share your feedback about {% data variables.product.prodname_sponsors %} with {% data variables.product.company_short %}. To join the conversation, see "[Sponsors Feedback](https://github.com/orgs/community/discussions/categories/sponsors)."

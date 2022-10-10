@@ -10,8 +10,6 @@ topics:
   - Enterprise
 ---
 
-{% data reusables.server-statistics.release-phase %}
-
 ## About the benefits of {% data variables.product.prodname_server_statistics %}
 
 {% data variables.product.prodname_server_statistics %} can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.

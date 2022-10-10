@@ -56,7 +56,7 @@ The `actions-sync` tool can only download actions from {% data variables.product
   Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)."
 
   ```shell
-  ghe-org-admin-promote -u <em>USERNAME</em> -o actions
+  ghe-org-admin-promote -u USERNAME -o actions
   ```{% endif %}
 
 ## Example: Using the `actions-sync` tool

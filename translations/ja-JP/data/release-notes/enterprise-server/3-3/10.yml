@@ -1,21 +1,22 @@
 date: '2022-06-28'
 sections:
   security_fixes:
-    - "**中**: `github.company.com`及び`github-company.com`が内部のサービスによって同じホスト名と評価されないようにして、潜在的なサーバーサイドセキュリティフォージェリ（SSRF）攻撃を防ぎます。"
-    - "**低**: 外部のファイアウォールールがHTTPアクセスをブロックしている場合でも、HTTP経由のパストラバーサル攻撃で攻撃者がManagement Consoleにアクセスできました。"
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - "**中**: サーバー側セキュリティ フォージェリ (SSRF) 攻撃の可能性を防ぐため、`github.company.com` と `github-company.com` が内部サービスによって同じホスト名として評価されないようにします。"
+    - "**低**: 外部ファイアウォール規則によって HTTP アクセスがブロックされている場合であっても、攻撃者は、HTTP 経由のパス トラバーサル攻撃で管理コンソールにアクセスできました。"
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - サイト管理者が自動的にEnterpriseオーナーとして追加されないことがありました。
-    - ブランチをデフォルトのブランチにマージしたあと、ファイルの"History"リンクがターゲットのブランチではなく以前のブランチへのリンクのままになります。
+    - サイト管理者が Enterprise 所有者として自動的に追加されないことがありました。
+    - "ブランチを既定のブランチにマージした後も、ファイルの [履歴] リンクが、ターゲット ブランチではなく、前のブランチにまだリンクしていました。" 
   changes:
-    - 名前のような特定のフィールドの値が長すぎる場合に、チェックの実行もしくはチェックスイートの作成ないしアップデートが`500 Internal Server Error`を返すことがあります。
+    - 特定のフィールド (名前など) の値が長すぎた場合、チェック実行またはチェック スイートを作成または更新すると、`500 Internal Server Error` が返されました。 
   known_issues:
-    - '{% data variables.product.prodname_ghe_server %} 3.3にアップグレード後、{% data variables.product.prodname_actions %}が自動起動に失敗することがあります。この問題を解決するためには、アプライアンスにSSHで接続し、`ghe-actions-start`コマンドを実行してください。'
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - '{% data variables.product.prodname_github_connect %}で"Users can search GitHub.com（ユーザはGitHub.comの検索が可能）" が有効化されたとき、プライベート及びインターナルリポジトリのIssueが{% data variables.product.prodname_dotcom_the_website %}の検索結果に含まれません。'
-    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
-    - '{% data variables.product.prodname_actions %}のストレージ設定は、"Force Path Style（パススタイルの強制）"が選択されている場合、検証できず{% data variables.enterprise.management_console %}に保存できません。その代わりに、`ghe-actions-precheck`コマンドラインユーティリティで設定しなければなりません。'
+    - "{% data variables.product.prodname_ghe_server %} 3.3 にアップグレードした後、{% data variables.product.prodname_actions %} が自動的に開始しないことがあります。この問題を解決するには、SSH を使ってアプライアンスに接続し、`ghe-actions-start` コマンドを実行します。"
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - '[Force Path Style]\(パス スタイルの強制\) がオンになっていると、{% data variables.product.prodname_actions %} のストレージ設定を検証して {% data variables.enterprise.management_console %} に保存することができず、代わりに `ghe-actions-precheck` コマンド ライン ユーティリティで構成する必要があります。'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

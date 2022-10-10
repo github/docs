@@ -19,19 +19,27 @@ export default function parsePageSectionsIntoRecords(page) {
 
   const breadcrumbs = breadcrumbsArray.join(' / ') || ''
   const metaKeywords = $('meta[name="keywords"]').attr('content')
-  const topics = metaKeywords ? metaKeywords.split(',') : []
+  const topics = (metaKeywords ? metaKeywords.split(',') : [])
+    .filter(Boolean)
+    .map((keyword) => keyword.trim())
 
   const productName = breadcrumbsArray[0] || ''
-  topics.push(productName)
+  if (productName) topics.push(productName)
   // Remove "github" to make filter queries shorter
   if (productName.includes('GitHub ')) {
-    topics.push(productName.replace('GitHub ', ''))
+    const productNameShort = productName.replace('GitHub ', '').trim()
+    if (productNameShort) topics.push(productNameShort)
   }
 
   const objectID = href
 
   const rootSelector = '[data-search=article-body]'
   const $root = $(rootSelector)
+  if ($root.length === 0) {
+    console.warn(`${href} has no '${rootSelector}'`)
+  } else if ($root.length > 1) {
+    console.warn(`${href} has more than one '${rootSelector}' (${$root.length})`)
+  }
 
   const $sections = $('h2', $root)
     .filter('[id]')
@@ -69,11 +77,14 @@ export default function parsePageSectionsIntoRecords(page) {
   // These below lines can be deleted (along with the `maxContentLength`
   // config) once we've stopped generating Lunr indexes on disk that
   // we store as Git LFS.
-  if (languageCode !== 'en' && body.length > maxContentLength) {
-    body = body.slice(0, maxContentLength)
+  if (!process.env.ELASTICSEARCH_URL) {
+    if (languageCode !== 'en' && body.length > maxContentLength) {
+      body = body.slice(0, maxContentLength)
+    }
   }
 
-  const content = `${intro}\n${body}`.trim()
+  const content =
+    intro && !body.includes(intro.trim()) ? `${intro.trim()}\n${body.trim()}`.trim() : body.trim()
 
   return {
     objectID,

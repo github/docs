@@ -1,6 +1,6 @@
 ---
 title: ユーザ アカウント設定の管理
-intro: ユーザ名を変更する、アカウントを削除するなど、個人アカウントの設定を変更できます。
+intro: テーマ、ユーザー名、既定のブランチ、アクセシビリティ、セキュリティ設定など、個人用アカウントの設定を管理できます。
 redirect_from:
   - /categories/29/articles
   - /categories/user-accounts
@@ -19,18 +19,21 @@ children:
   - /managing-your-theme-settings
   - /managing-your-tab-size-rendering-preference
   - /changing-your-github-username
-  - /merging-multiple-personal-accounts
-  - /converting-a-user-into-an-organization
-  - /deleting-your-personal-account
   - /permission-levels-for-a-personal-account-repository
   - /permission-levels-for-a-project-board-owned-by-a-personal-account
   - /managing-accessibility-settings
   - /managing-the-default-branch-name-for-your-repositories
   - /managing-security-and-analysis-settings-for-your-personal-account
   - /managing-access-to-your-personal-accounts-project-boards
+  - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /integrating-jira-with-your-personal-projects
-  - /best-practices-for-leaving-your-company
   - /what-does-the-available-for-hire-checkbox-do
 shortTitle: Personal account settings
+ms.openlocfilehash: fcb653fa2fd40c206deefdaf967bae6104393537
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147760864'
 ---
 

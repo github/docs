@@ -1,1 +1,1 @@
-1. 新しいカスタムパターンに満足したら、{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}**Publish pattern（パターンの公開）**{% elsif  ghes > 3.2 or ghae %}**Create pattern（パターンの作成）**{% elsif ghes = 3.2 %}**Create custom pattern（カスタムパターンの作成）**{% endif %}をクリックしてください。
+1. When you're satisfied with your new custom pattern, click {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}**Publish pattern**{% elsif  ghes > 3.2 or ghae %}**Create pattern**{% elsif ghes = 3.2 %}**Create custom pattern**{% endif %}.

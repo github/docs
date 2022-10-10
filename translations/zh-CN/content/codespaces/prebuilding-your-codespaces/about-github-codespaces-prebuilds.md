@@ -1,7 +1,7 @@
 ---
-title: 关于 GitHub Codespaces 预构建
-shortTitle: 关于预构建
-intro: 代码空间预构建有助于加快为大型或复杂存储库创建新代码空间的速度。
+title: About GitHub Codespaces prebuilds
+shortTitle: About prebuilds
+intro: '{% data variables.product.prodname_github_codespaces %} prebuilds help to speed up the creation of new codespaces for large or complex repositories.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,39 +12,43 @@ redirect_from:
   - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
 ---
 
-## 概览
+## Overview
 
-预构建代码空间可以提高工作效率并更快地访问代码空间，尤其是在存储库很大或很复杂并且新代码空间目前需要 2 分钟以上的时间才能启动的情况下。 这是因为在为项目创建代码空间之前，任何源代码、编辑器扩展、项目依赖项、命令和配置都已下载、安装和应用。 将预构建视为代码空间的“准备就绪”模板。
+Prebuilding your codespaces allows you to be more productive and access your codespace faster, particularly if your repository is large or complex and new codespaces currently take more than 2 minutes to start. This is because any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace for your project. Think of a prebuild as a "ready-to-go" template for a codespace. 
 
-默认情况下，每当您将更改推送到存储库时，{% data variables.product.prodname_github_codespaces %} 都会使用 {% data variables.product.prodname_actions %} 自动更新您的预构建。
+By default, whenever you push changes to your repository, {% data variables.product.prodname_github_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
 
-当预构建可用于存储库的特定分支以及您所在的地区时，则创建代码空间时在计算机类型选项列表中会看到“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签。 如果仍在创建预构建，您将看到“{% octicon "history" aria-label="The history icon" %} 预构建正在进行中”标签。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
+When prebuilds are available for a particular branch of a repository, a particular dev container configuration file, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-label="The history icon" %} Prebuild in progress" label. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
 
-![用于选择计算机类型的对话框](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![The dialog box for choosing a machine type](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-{% note %}
+## The prebuild process
 
-{% data reusables.codespaces.prebuilds-not-available %}
+To create a prebuild you set up a prebuild configuration. When you save the configuration, a {% data variables.product.prodname_actions %} workflow runs to create each of the required prebuilds; one workflow per prebuild. Workflows also run whenever the prebuilds for your configuration need to be updated. This can happen at scheduled intervals, on pushes to a prebuild-enabled repository, or when you change the dev container configuration. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."  
 
-{% endnote %}
+When a prebuild configuration workflow runs, {% data variables.product.prodname_dotcom %} creates a temporary codespace, performing setup operations up to and including any `onCreateCommand` and `updateContentCommand` commands in the `devcontainer.json` file. No `postCreateCommand` commands are run during the creation of a prebuild. For more information about these commands, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation. A snapshot of the generated container is then taken and stored.
 
-## 关于 {% data variables.product.prodname_codespaces %} 预构建的计费
+When you create a codespace from a prebuild, {% data variables.product.prodname_dotcom %} downloads the existing container snapshot from storage and deploys it on a fresh virtual machine, completing the remaining commands specified in the dev container configuration. Since many operations have already been performed, such as cloning the repository, creating a codespace from a prebuild can be substantially quicker than creating one without a prebuild. This is true where the repository is large and/or `onCreateCommand` commands take a long time to run.
 
-{% data reusables.codespaces.billing-for-prebuilds %} 有关 {% data variables.product.prodname_codespaces %} 存储定价的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
+## About billing for {% data variables.product.prodname_codespaces %} prebuilds
 
-使用预构建创建的代码空间的费用与常规代码空间相同。
+{% data reusables.codespaces.billing-for-prebuilds-default %} For details of {% data variables.product.prodname_github_codespaces %} storage pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)." 
 
-## 关于将更改推送到启用了预构建的分支
+{% data reusables.codespaces.billing-for-prebuilds-reducing %} 
 
-默认情况下，每次推送到具有预构建配置的分支都会导致运行 {% data variables.product.prodname_dotcom %} 管理的 Actions 工作流程来更新预构建模板。 对于给定的预构建配置，预构建工作流程的并发限制为一次运行一个工作流程，除非所做的更改会影响关联存储库的开发容器配置。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。 如果运行已在进行中，则最近排队的工作流程运行将在当前运行完成后运行。
+Use of codespaces created using prebuilds is charged at the same rate as regular codespaces.
 
-如果预构建模板设置为在每次推送时进行更新，这意味着当推送到存储库的频率很高时，预构建模板更新频率至少与运行预构建工作流程的频率相同。 也就是说，如果工作流程运行通常需要一个小时才能完成，当运行成功时，大约每小时为存储库创建预构建，当有更改分支上开发容器配置的推送时，则创建更为频繁。
+## About pushing changes to prebuild-enabled branches
 
-例如，假设对具有预构建配置的分支快速连续进行 5 次推送。 在此情况下：
+By default, each push to a branch that has a prebuild configuration results in a {% data variables.product.prodname_dotcom %}-managed Actions workflow run to update the prebuild. The prebuild workflow has a concurrency limit of one workflow run at a time for a given prebuild configuration, unless changes were made that affect the dev container configuration for the associated repository. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." If a run is already in progress, the workflow run that was queued most recently queued will run next, after the current run completes. 
 
-* 将对第一次推送启动工作流程运行，以更新预构建模板。
-* 如果剩余的 4 个推送不影响开发容器配置，则工作流程将针对这些推送在“挂起”状态下排队。
+With the prebuild set to be updated on each push, it means that if there are very frequent pushes to your repository, prebuild updates will occur at least as often as it takes to run the prebuild workflow. That is, if your workflow run typically takes one hour to complete, prebuilds will be created for your repository roughly hourly, if the run succeeds, or more often if there were pushes that change the dev container configuration on the branch.
 
-  如果其余 4 个推送中的任何一个更改了开发容器配置，则服务不跳过该推送，而立即运行预构建创建工作流程，如果成功，则会相应地更新预构建。
+For example, let's imagine 5 pushes are made, in quick succession, against a branch that has a prebuild configuration. In this situation:
 
-* 第一次运行完成后，将为推送 2、3 和 4 运行工作流程，最后排队的工作流程（对于推送 5）将运行并更新预构建模板。 
+* A workflow run is started for the first push, to update the prebuild.
+* If the 4 remaining pushes do not affect the dev container configuration, the workflow runs for these are queued in a "pending" state. 
+  
+  If any of the remaining 4 pushes change the dev container configuration, then the service will not skip that one and will immediately run the prebuild creation workflow, updating the prebuild accordingly if it succeeds. 
+
+* Once the first run completes, workflow runs for pushes 2, 3, and 4 will be canceled, and the last queued workflow (for push 5) will run and update the prebuild. 

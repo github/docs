@@ -4,8 +4,7 @@ shortTitle: Collaborating with maintainers
 intro: 'You can contribute to the goals, plans, health, and community for a project on {% data variables.product.product_name %} by communicating with the maintainers of the project in a discussion.'
 permissions: 'People with read access to a repository can start and participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can start and participate in discussions and polls in the organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
@@ -20,6 +19,8 @@ Repository administrators and project maintainers can delete a discussion in tha
 {% data reusables.discussions.github-recognizes-members %} These members appear in a list of the most helpful contributors to the project's discussions. As your project grows, you can grant higher access permissions to active members of your community. For more information, see "[Granting higher permissions to top contributors](/discussions/guides/granting-higher-permissions-to-top-contributors)"
 
 ![Most helpful contributors to discussions for a project](/assets/images/help/discussions/most-helpful.png)
+
+Community members can upvote discussions and top-level comments inside discussions to communicate with maintainers about ideas that matter to them. Project maintainers can then sort discussions and comments based on upvotes to gain insight into what community members value.
 
 For more information about participation in discussions, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
 
@@ -48,6 +49,34 @@ You can search for discussions and filter the list of discussions in a repositor
 1. In the list of discussions, click the discussion you want to view.
   ![Discussion search results](/assets/images/help/discussions/search-result.png)
 
+## Sorting the list of discussions
+
+You can choose how to sort the list of discussions.
+
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+1. To the right of the **Search all discussions** field, select **New**, or select **Top** and choose a time period from the drop down menu.
+
+   ![Buttons for sorting discussions](/assets/images/help/discussions/sort-discussions-buttons.png)
+
+    - Sort by **New** to display the discussions with the most recent activity at the top of the list.
+    - Sort by **Top** to display the discussions with the most upvotes at the top of the list. You can limit the list to only display discussions from a specific time period.
+
+## Sorting top-level comments in discussions
+
+You can choose how to sort top-level comments in discussions. Comment threads do not impact the order comments are sorted in.
+
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. Under the main discussion post, select **Oldest**, **Newest**, or **Top**.
+
+   ![Buttons for sorting comments in discussions](/assets/images/help/discussions/sort-comments-buttons.png)
+
+    - Sort by **Oldest** to display the oldest top-level comments first.
+    - Sort by **Newest** to display the newest top-level comments first.
+    - Sort by **Top** to display the most upvoted top-level comments first.
+
 ## Converting an issue to a discussion
 
 {% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
@@ -55,4 +84,6 @@ You can search for discussions and filter the list of discussions in a repositor
 ## Further reading
 
 - "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
+{%- ifversion fpt or ghec %}
 - "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
+{%- endif %}

@@ -1,5 +1,6 @@
 ---
 title: Scheduling issue creation
+shortTitle: Schedule issue creation
 intro: 'You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.'
 redirect_from:
   - /actions/guides/scheduling-issue-creation
@@ -32,6 +33,8 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+    
     name: Weekly Team Sync
     on:
       schedule:

@@ -1,1 +1,1 @@
-1. Cuando estés satisfecho con tu patrón personalizado nuevo, haz clic en {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}**Publicar patrón**{% elsif  ghes > 3.2 or ghae %}**Crear patrón**{% elsif ghes = 3.2 %}**Crear patrón personalizado**{% endif %}.
+1. When you're satisfied with your new custom pattern, click {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}**Publish pattern**{% elsif  ghes > 3.2 or ghae %}**Create pattern**{% elsif ghes = 3.2 %}**Create custom pattern**{% endif %}.

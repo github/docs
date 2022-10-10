@@ -12,25 +12,33 @@ topics:
 redirect_from:
   - /github/administering-a-repository/renaming-a-branch
   - /github/administering-a-repository/managing-branches-in-your-repository/renaming-a-branch
+ms.openlocfilehash: 6e30c7c2615f8b3dc21075e24298796febbce314
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127101'
 ---
-
 ## Sobre a renomeação de branches
 
-Você pode renomear um branch em um repositório em {% data variables.product.product_location %}. Para obter mais informações sobre os branches, consulte "[Sobre os branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
+Você pode renomear um branch em um repositório em {% data variables.product.product_location %}. Para obter mais informações sobre branches, confira "[Sobre os branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)".
 
 Ao renomear um branch em {% data variables.product.product_location %}, todas as URLs que contiverem o nome do branch antigo serão automaticamente redirecionadas para a URL equivalente para o branch renomeado. Atualizam-se também as políticas de proteção de branch também, bem como o branch base para pull requests abertos (incluindo aqueles para bifurcações) e rascunhos de versões. Depois que a renomeação for concluída, {% data variables.product.prodname_dotcom %} fornecerá instruções na página inicial do repositório direcionando os colaboradores para atualizar seus ambientes do Git locais.
 
-Embora as URLs do arquivo sejam automaticamente redirecionadas, as URLs do arquivo não processado não são redirecionadas. Além disso, {% data variables.product.prodname_dotcom %} não realiza nenhum redirecionamento se os usuários executarem um `git pull` para o nome do branch anterior.
+Embora as URLs do arquivo sejam automaticamente redirecionadas, as URLs do arquivo não processado não são redirecionadas. Além disso, o {% data variables.product.prodname_dotcom %} não executará nenhum redirecionamento se os usuários executarem um `git pull` par o nome de branch anterior.
 
-Os fluxos de trabalho de {% data variables.product.prodname_actions %} não seguem renomes. Portanto, se o repositório publicar uma ação, qualquer pessoa que usar essa ação com `@{old-branch-name}` vai quebrar. Você deve considerar adicionar um novo branch com o conteúdo original mais um relatório de commit adicional informando que o nome do branch está obsoleto e sugerindo que os usuários façam a migração para o novo nome do branche.
+Os fluxos de trabalho do {% data variables.product.prodname_actions %} não seguem as renomeações, ou seja, se o repositório publicar uma ação, qualquer pessoa que usar essa ação com `@{old-branch-name}` será interrompida. Você deve considerar adicionar um novo branch com o conteúdo original mais um relatório de commit adicional informando que o nome do branch está obsoleto e sugerindo que os usuários façam a migração para o novo nome do branche.
 
 ## Renomear um branch
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Na lista de branches, à direita do branch que você deseja renomear, clique em {% octicon "pencil" aria-label="The edit icon" %}. ![Ícone do lápis à direita do branch que você deseja renomear](/assets/images/help/branch/branch-rename-edit.png)
-1. Digite um novo nome para o branch. ![Campo de texto para digitar o novo nome do branch](/assets/images/help/branch/branch-rename-type.png)
-1. Revise as informações sobre ambientes locais e clique em **Renomear o branch**. ![Informações de ambiente local e botão para "Renomear o branch"](/assets/images/help/branch/branch-rename-rename.png)
+1. Na lista de branches, à direita do branch que você deseja renomear, clique em {% octicon "pencil" aria-label="The edit icon" %}.
+    ![Ícone de lápis à direita do branch que você deseja renomear](/assets/images/help/branch/branch-rename-edit.png)
+1. Digite um novo nome para o branch.
+    ![Campo de texto usado para digitar o novo nome do branch](/assets/images/help/branch/branch-rename-type.png)
+1. Revise as informações sobre ambientes locais e clique em **Renomear branch**.
+    ![Informações de ambiente local e botão "Renomear branch"](/assets/images/help/branch/branch-rename-rename.png)
 
 ## Atualizar um clone local após alterações de nome do branch
 

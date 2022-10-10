@@ -69,11 +69,11 @@ With this command, you can also pause or resume jobs in the queue.
 ```shell
 $ ghe-aqueduct status
 # lists queues and the number of currently queued jobs for all queues
-$ ghe-aqueduct queue_depth --queue <em>QUEUE</em>
+$ ghe-aqueduct queue_depth --queue QUEUE
 # lists the number of currently queued jobs for the specified queue
-$ ghe-aqueduct pause --queue <em>QUEUE</em>
+$ ghe-aqueduct pause --queue QUEUE
 # pauses the specified queue
-$ ghe-aqueduct resume --queue <em>QUEUE</em>
+$ ghe-aqueduct resume --queue QUEUE
 # resumes the specified queue
 ```
 {% endif %}
@@ -112,24 +112,24 @@ ghe-cleanup-settings
 With this utility, you can both retrieve and modify the configuration settings of {% data variables.product.product_location %}.
 
 ```shell
-$ ghe-config <em>core.github-hostname</em>
+$ ghe-config core.github-hostname
 # Gets the configuration value of `core.github-hostname`
-$ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
-# Sets the configuration value of `core.github-hostname` to `example.com`
+$ ghe-config core.github-hostname URL
+# Sets the configuration value of `core.github-hostname` to the specified URL
 $ ghe-config -l
 # Lists all the configuration values
 ```
 Allows you to find the universally unique identifier (UUID) of your node in `cluster.conf`.
 
 ```shell
-  $ ghe-config <em>HOSTNAME</em>.uuid
+  $ ghe-config HOSTNAME.uuid
 ```
 
 {% ifversion ghes %}
 Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
-$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "HUBOT GITHUB-ACTIONS"
 # Exempts the users hubot and github-actions from rate limits
 ```
 {% endif %}
@@ -240,7 +240,7 @@ ghe-motd
 This utility returns a repository's name and owner based on the repository ID.  
 
 ```shell
-ghe-nwo <em>REPOSITORY_ID</em>
+ghe-nwo REPOSITORY_ID
 ```
 
 ### ghe-org-admin-promote
@@ -259,19 +259,19 @@ This utility cannot promote a non-site admin to be an owner of all organizations
 Give organization owner privileges in a specific organization to a specific site admin
 
 ```shell
-ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>
+ghe-org-admin-promote -u USERNAME -o ORGANIZATION
 ```
 
 Give organization owner privileges in all organizations to a specific site admin
 
 ```shell
-ghe-org-admin-promote -u <em>USERNAME</em>
+ghe-org-admin-promote -u USERNAME
 ```
 
 Give organization owner privileges in a specific organization to all site admins
 
 ```shell
-ghe-org-admin-promote -o <em>ORGANIZATION</em>
+ghe-org-admin-promote -o ORGANIZATION
 ```
 
 Give organization owner privileges in all organizations to all site admins
@@ -342,6 +342,18 @@ With `ghe-set-password`, you can set a new password to authenticate into the [{%
 ```shell
 ghe-set-password <new_password>
 ```
+
+### ghe-setup-network
+
+This utility allows you to configure the primary network interface.
+
+To enter visual mode, which will guide you through configuration of network settings:
+
+```shell
+$ ghe-setup-network -v
+```
+
+Use the -h flag for additional options.
 
 ### ghe-ssh-check-host-keys
 
@@ -440,7 +452,7 @@ You can use these additional options with the utility:
 - The `-h` flag displays more usage information.
 
 ```shell
-ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
+ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
 ```
 
 ### ghe-ssl-certificate-setup
@@ -490,24 +502,24 @@ ghe-webhook-logs
 To show all failed hook deliveries in the past day:
 {% ifversion ghes %}
 ```shell
-ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+ghe-webhook-logs -f -a YYYY-MM-DD
 ```
 
 The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
 {% else %}
 ```shell
-ghe-webhook-logs -f -a <em>YYYYMMDD</em>
+ghe-webhook-logs -f -a YYYYMMDD
 ```
 {% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
 {% ifversion ghes %}
 ```shell
-ghe-webhook-logs -g <em>delivery-guid</em>
+ghe-webhook-logs -g DELIVERY_GUID
 ```
 {% else %}
 ```shell
-ghe-webhook-logs -g <em>delivery-guid</em> -v
+ghe-webhook-logs -g DELIVERY_GUID -v
 ```
 {% endif %}
 
@@ -529,22 +541,22 @@ By default, the command creates the tarball in */tmp*, but you can also have it 
 
 To create a standard bundle:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
 
 To create an extended bundle:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
 ```
 
 To send a bundle to {% data variables.contact.github_support %}:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -u'
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -u'
 ```
 
 To send a bundle to {% data variables.contact.github_support %} and associate the bundle with a ticket:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
 
 {% ifversion ghes %}
@@ -572,7 +584,7 @@ ghe-dpages status
 
 To evacuate a {% data variables.product.prodname_pages %} storage service before evacuating a cluster node:
 ```shell
-ghe-dpages evacuate pages-server-<em>UUID</em>
+ghe-dpages evacuate pages-server-UUID
 ```
 
 ### ghe-spokes
@@ -598,7 +610,7 @@ ghe-spokes route
 To evacuate storage services on a cluster node:
 
 ```shell
-ghe-spokes server evacuate git-server-<em>UUID</em>
+ghe-spokes server evacuate git-server-UUID
 ```
 
 ### ghe-storage
@@ -606,7 +618,7 @@ ghe-spokes server evacuate git-server-<em>UUID</em>
 This utility allows you to evacuate all storage services before evacuating a cluster node.
 
 ```shell
-ghe-storage evacuate storage-server-<em>UUID</em>
+ghe-storage evacuate storage-server-UUID
 ```
 
 ## Git
@@ -621,7 +633,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_gcf %}.
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -649,7 +661,7 @@ Try ghe-governor <subcommand> --help for more information on the arguments each 
 This utility allows you to change to a repository's directory and open an interactive shell as the `git` user. You can perform manual inspection or maintenance of a repository via commands like `git-*` or `git-nw-*`.
 
 ```shell
-ghe-repo <em>username</em>/<em>reponame</em>
+ghe-repo USERNAME/REPONAME
 ```
 
 ### ghe-repo-gc
@@ -660,12 +672,12 @@ You can add the optional `--prune` argument to remove unreachable Git objects th
 
 {% warning %}
 
-**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure the repository is offline. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 {% endwarning %}
 
 ```shell
-ghe-repo-gc <em>username</em>/<em>reponame</em>
+ghe-repo-gc USERNAME/REPONAME
 ```
 
 ## {% data variables.product.prodname_actions %}
@@ -685,7 +697,7 @@ This utility tests the blob storage configuration for {% data variables.product.
 For more information about the configuration of {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 
 ```shell
-ghe-actions-precheck -p [<em>provider</em>] -cs ["<em>connectionstring</em>"]
+ghe-actions-precheck -p [PROVIDER] -cs ["CONNECTION-STRING"]
 ```
 
 If your storage system is configured correctly, you'll see the following output.
@@ -737,6 +749,20 @@ This utility rewrites the imported repository. This gives you a chance to rename
 git-import-rewrite
 ```
 
+{% ifversion ghes > 3.3 %}
+
+## Security
+
+### ghe-find-insecure-git-operations
+
+This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} and "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."{% endif %}
+
+```shell
+ghe-find-insecure-git-operations
+```
+
+{% endif %}
+
 ## Support
 
 ### ghe-diagnostics
@@ -758,23 +784,23 @@ By default, the command creates the tarball in */tmp*, but you can also have it 
 
 To create a standard bundle:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o' > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
 
 To create an extended bundle:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -x -o' > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -x -o' > support-bundle.tgz
 ```
 
 To send a bundle to {% data variables.contact.github_support %}:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -u'
 ```
 
 To send a bundle to {% data variables.contact.github_support %} and associate the bundle with a ticket:
 
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -t <em>ticket-id</em>'
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -t TICKET_ID'
 ```
 
 ### ghe-support-upload
@@ -783,12 +809,12 @@ This utility sends information from your appliance to {% data variables.product.
 
 To send a file to {% data variables.contact.github_support %} and associate the file with a ticket:
 ```shell
-ghe-support-upload -f <em>path/to/your/file</em> -t <em>ticket-id</em>
+ghe-support-upload -f FILE_PATH -t TICKET_ID
 ```
 
 To upload data via `STDIN` and associating the data with a ticket:
 ```shell
-<em>ghe-repl-status -vv</em> | ghe-support-upload -t <em>ticket-id</em> -d "<em>Verbose Replication Status</em>"
+ghe-repl-status -vv | ghe-support-upload -t TICKET_ID -d "Verbose Replication Status"
 ```
 
 In this example, `ghe-repl-status -vv` sends verbose status information from a replica appliance. You should replace `ghe-repl-status -vv` with the specific data you'd like to stream to `STDIN`, and `Verbose Replication Status` with a brief description of the data. {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
@@ -801,12 +827,12 @@ This utility installs or verifies an upgrade package. You can also use this util
 
 To verify an upgrade package:
 ```shell
-ghe-upgrade --verify <em>UPGRADE-PACKAGE-FILENAME</em>
+ghe-upgrade --verify UPGRADE-PACKAGE-FILENAME
 ```
 
 To install an upgrade package:
 ```shell
-ghe-upgrade <em>UPGRADE-PACKAGE-FILENAME</em>
+ghe-upgrade UPGRADE-PACKAGE-FILENAME
 ```
 
 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
@@ -817,18 +843,18 @@ This utility manages scheduled installation of upgrade packages. You can show, c
 
 To schedule a new installation for a package:
 ```shell
-$ ghe-upgrade-scheduler -c "0 2 15 12 *" <em>UPGRADE-PACKAGE-FILENAME</em>
+$ ghe-upgrade-scheduler -c "0 2 15 12 *" UPGRADE-PACKAGE-FILENAME
 ```
 
 To show scheduled installations for a package:
 ```shell
-$ ghe-upgrade-scheduler -s <em>UPGRADE PACKAGE FILENAME</em>
-> 0 2 15 12 * /usr/local/bin/ghe-upgrade -y -s <em>UPGRADE-PACKAGE-FILENAME</em> > /data/user/common/<em>UPGRADE-PACKAGE-FILENAME</em>.log 2>&1
+$ ghe-upgrade-scheduler -s UPGRADE PACKAGE FILENAME
+> 0 2 15 12 * /usr/local/bin/ghe-upgrade -y -s UPGRADE-PACKAGE-FILENAME > /data/user/common/UPGRADE-PACKAGE-FILENAME.log 2>&1
 ```
 
 To remove scheduled installations for a package:
 ```shell
-$ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
+$ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 ```
 
 ### ghe-update-check
@@ -840,7 +866,7 @@ A file containing the status of the download is available at */var/lib/ghe-updat
 To check for the latest {% data variables.product.prodname_enterprise %} release, use the `-i` switch.
 
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
 ```
 
 ## User management
@@ -860,7 +886,7 @@ ghe-license-usage
 This utility will enforce the default organization membership visibility setting on all members in your instance. For more information, see "[Configuring visibility for organization membership](/enterprise/admin/guides/user-management/configuring-visibility-for-organization-membership)." Setting options are `public` or `private`.
 
 ```shell
-ghe-org-membership-update --visibility=<em>SETTING</em>
+ghe-org-membership-update --visibility=SETTING
 ```
 
 ### `ghe-user-csv`
@@ -876,7 +902,7 @@ ghe-user-csv -o > users.csv
 This utility demotes the specified user from admin status to that of a regular user. We recommend using the web UI to perform this action, but provide this utility in case the `ghe-user-promote` utility is run in error and you need to demote a user again from the CLI.
 
 ```shell
-ghe-user-demote <em>some-user-name</em>
+ghe-user-demote USERNAME
 ```
 
 ### ghe-user-promote
@@ -884,7 +910,7 @@ ghe-user-demote <em>some-user-name</em>
 This utility promotes the specified user account to a site administrator.
 
 ```shell
-ghe-user-promote <em>some-user-name</em>
+ghe-user-promote USERNAME
 ```
 
 ### ghe-user-suspend
@@ -892,7 +918,7 @@ ghe-user-promote <em>some-user-name</em>
 This utility suspends the specified user, preventing them from logging in, pushing, or pulling from your repositories.
 
 ```shell
-ghe-user-suspend <em>some-user-name</em>
+ghe-user-suspend USERNAME
 ```
 
 ### ghe-user-unsuspend
@@ -900,5 +926,5 @@ ghe-user-suspend <em>some-user-name</em>
 This utility unsuspends the specified user, granting them access to login, push, and pull from your repositories.
 
 ```shell
-ghe-user-unsuspend <em>some-user-name</em>
+ghe-user-unsuspend USERNAME
 ```

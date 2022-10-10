@@ -1,6 +1,6 @@
 ---
 title: Using the GitHub CLI on a runner
-shortTitle: Using the GitHub CLI on a runner
+shortTitle: Use the GitHub CLI on a runner
 intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
