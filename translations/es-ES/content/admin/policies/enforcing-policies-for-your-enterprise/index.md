@@ -21,7 +21,7 @@ children:
   - /enforcing-policies-for-security-settings-in-your-enterprise
   - /enforcing-policies-for-dependency-insights-in-your-enterprise
   - /enforcing-policies-for-github-actions-in-your-enterprise
-  - /enforcing-policies-for-advanced-security-in-your-enterprise
+  - /enforcing-policies-for-code-security-and-analysis-for-your-enterprise
 shortTitle: Enforce policies
 ms.openlocfilehash: 045831c9b6e9632db2f7743f2cf30d965ee3c327
 ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
