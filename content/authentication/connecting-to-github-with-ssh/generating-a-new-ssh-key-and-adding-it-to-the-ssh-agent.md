@@ -51,7 +51,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   ```shell
   > Generating public/private <em>algorithm</em> key pair.
   ```
-3. When you're prompted to "Enter a file in which to save the key", you can press "Enter" to accept the default file location, but if you already created SSH Keys previously, ssh-keygen may ask you to rewrite another key, so it's advisable to create a custom-named SSH key. For this, you type the default file location, except that "id_ssh_keyname" will be the name you choose.
+3. When you're prompted to "Enter a file in which to save the key", you can press **Enter** to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ssh_keyname with your custom key name.
 
   {% mac %}
 
