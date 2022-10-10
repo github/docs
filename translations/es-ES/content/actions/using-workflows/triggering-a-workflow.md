@@ -1,6 +1,6 @@
 ---
 title: Triggering a workflow
-shortTitle: Triggering a workflow
+shortTitle: Trigger a workflow
 intro: 'How to automatically trigger {% data variables.product.prodname_actions %} workflows'
 versions:
   fpt: '*'

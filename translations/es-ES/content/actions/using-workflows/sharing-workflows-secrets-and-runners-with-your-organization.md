@@ -1,6 +1,6 @@
 ---
 title: 'Sharing workflows, secrets, and runners with your organization'
-shortTitle: Sharing workflows with your organization
+shortTitle: Share workflows with your organization
 intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflows, secrets, and self-hosted runners.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization

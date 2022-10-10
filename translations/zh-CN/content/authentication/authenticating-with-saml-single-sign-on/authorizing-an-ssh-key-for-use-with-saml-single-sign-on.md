@@ -1,6 +1,6 @@
 ---
-title: 授权用于 SAML 单点登录的 SSH 密钥
-intro: 要将 SSH 密钥用于使用 SAML 单点登录 (SSO) 的组织，必须先授权该密钥。
+title: Authorizing an SSH key for use with SAML single sign-on
+intro: 'To use an SSH key with an organization that uses SAML single sign-on (SSO), you must first authorize the key.'
 redirect_from:
   - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
@@ -11,14 +11,8 @@ versions:
 topics:
   - SSO
 shortTitle: SSH Key with SAML
-ms.openlocfilehash: 11df62f1a4adc5a0de1f54efbccafe71ad0feb83
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145099902'
 ---
-您可以授权现有 SSH 密钥，或者创建新 SSH 密钥后再授权。 有关创建新的 SSH 密钥的详细信息，请参阅“[生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+You can authorize an existing SSH key, or create a new SSH key and then authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -26,18 +20,20 @@ ms.locfileid: '145099902'
 
 {% note %}
 
-注意：如果你的 SSH 密钥授权被组织撤销，你将无法再授权该密钥。 此时您需要创建新 SSH 密钥并授权。 有关创建新的 SSH 密钥的详细信息，请参阅“[生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+**Note:** If your SSH key authorization is revoked by an organization, you will not be able to reauthorize the same key. You will need to create a new SSH key and authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
-3. 在要授权的 SSH 密钥旁边，单击“启用 SSO”或“禁用 SSO” 。
-![SSO 令牌授权按钮](/assets/images/help/settings/ssh-sso-button.png)
-4. 找到要为其授权访 SSH 密钥的组织。
-5. 单击“授权”。
-![令牌授权按钮](/assets/images/help/settings/ssh-sso-authorize.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
+1. To the right of the SSH key you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
 
-## 延伸阅读
+   ![Screenshot of the SSO token authorize button](/assets/images/help/settings/ssh-sso-button.png)
+1. To the right of the organization you'd like to authorize the SSH key for, click **Authorize**.
 
-- “[检查现有 SSH 密钥](/articles/checking-for-existing-ssh-keys)”
-- “[关于使用 SAML 单一登录进行身份验证](/articles/about-authentication-with-saml-single-sign-on)”
+   ![Screenshot of the token authorize button](/assets/images/help/settings/ssh-sso-authorize.png)
+
+## Further reading
+
+- "[Checking for existing SSH keys](/articles/checking-for-existing-ssh-keys)"
+- "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"
