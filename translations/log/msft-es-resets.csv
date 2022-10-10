@@ -309,6 +309,7 @@ translations/es-ES/content/admin/enterprise-management/updating-the-virtual-mach
 translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
 translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise.md,rendering error
 translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise.md,rendering error
+translations/es-ES/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication.md,broken liquid tags
 translations/es-ES/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users.md,broken liquid tags
 translations/es-ES/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,rendering error
 translations/es-ES/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise.md,rendering error
@@ -346,6 +347,7 @@ translations/es-ES/content/billing/managing-billing-for-your-github-account/conn
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
@@ -448,6 +450,7 @@ translations/es-ES/content/developers/apps/guides/creating-ci-tests-with-the-che
 translations/es-ES/content/developers/apps/guides/using-the-github-api-in-your-app.md,rendering error
 translations/es-ES/content/developers/overview/about-githubs-apis.md,broken liquid tags
 translations/es-ES/content/developers/overview/managing-deploy-keys.md,broken liquid tags
+translations/es-ES/content/developers/overview/secret-scanning-partner-program.md,broken liquid tags
 translations/es-ES/content/developers/webhooks-and-events/events/issue-event-types.md,broken liquid tags
 translations/es-ES/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/es-ES/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
@@ -609,6 +612,8 @@ translations/es-ES/data/reusables/advanced-security/secret-scanning-push-protect
 translations/es-ES/data/reusables/audit_log/audit-log-events-workflows.md,rendering error
 translations/es-ES/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,rendering error
 translations/es-ES/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
+translations/es-ES/data/reusables/code-scanning/analyze-go.md,broken liquid tags
+translations/es-ES/data/reusables/code-scanning/autobuild-add-build-steps.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error
 translations/es-ES/data/reusables/code-scanning/codeql-languages-keywords.md,rendering error
 translations/es-ES/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags

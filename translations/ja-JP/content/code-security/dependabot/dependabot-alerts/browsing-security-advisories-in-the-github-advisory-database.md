@@ -57,7 +57,8 @@ Generally, we name our supported ecosystems after the software programming langu
 - Maven (registry: https://repo.maven.apache.org/maven2)
 - npm (registry: https://www.npmjs.com/)
 - NuGet (registry: https://www.nuget.org/)
-- pip (registry: https://pypi.org/)
+- pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
+- pub (registry: https://pub.dev/packages/registry){% endif %}
 - RubyGems (registry: https://rubygems.org/)
 - Rust (registry: https://crates.io/)
 
