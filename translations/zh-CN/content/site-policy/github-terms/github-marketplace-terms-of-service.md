@@ -9,37 +9,37 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 25e713f275e6a0dd04aefc8652d16d168470bfd8
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556499'
 ---
-欢迎使用 GitHub Marketplace（以下简称“Marketplace”）！ 我们很高兴您能来到这里。 在访问或使用 GitHub Marketplace 之前，请仔细阅读以下服务条款（以下简称“Marketplace 条款”）。 GitHub Marketplace 是一个平台，供您选择可通过您的 GitHub.com 帐户使用的开发人员应用或操作（免费或付费）（以下简称“开发人员产品”）。 尽管开发人员产品由 GitHub, Inc.（以下简称“GitHub”或“我们”）提供，但 GitHub 或第三方软件提供商都可以开发和维护开发人员产品。 您对开发人员产品的选择或使用受这些 Marketplace 条款的约束，并可能需要支付适当的费用，而且您可能需要同意开发人员产品的第三方许可方（以下简称“产品提供商”）提出的额外条款。
+欢迎使用 GitHub Marketplace（以下简称“Marketplace”）！ 我们很高兴在这里遇到你。 在访问或使用 GitHub Marketplace 之前，请仔细阅读以下服务条款（以下简称“Marketplace 条款”）。 GitHub Marketplace 是一个平台，供您选择可通过您的 GitHub.com 帐户使用的开发人员应用或操作（免费或付费）（以下简称“开发人员产品”）。 尽管开发人员产品由 GitHub, Inc.（以下简称“GitHub”或“我们”）提供，但 GitHub 或第三方软件提供商都可以开发和维护开发人员产品。 您对开发人员产品的选择或使用受这些 Marketplace 条款的约束，并可能需要支付适当的费用，而且您可能需要同意开发人员产品的第三方许可方（以下简称“产品提供商”）提出的额外条款。
 
 通过使用 Marketplace，您同意受这些 Marketplace 条款的约束。
 
 生效日期：2020 年 11 月 20 日
 
-## <a name="a-githubcoms-terms-of-service"></a>A. GitHub.com 服务条款
+## A. GitHub.com 服务条款
 
 Marketplace 由 GitHub 提供，受[服务条款](/articles/github-terms-of-service/)或[企业服务条款](/articles/github-corporate-terms-of-service/)（“GitHub 条款”）的约束，具体取决于您的帐户类型以及这些 Marketplace 条款。 如果您将开发人员产品配置在 GitHub.com 网站上的一个或多个帐户中使用，则您对开发人员产品的使用还受适用的 GitHub 条款的约束。 在本文档中未定义的任何大写术语将在适用的 GitHub 条款中定义。
 
 您对开发人员产品的使用不得违反适用的 GitHub 条款。 许多开发人员产品专用于执行自动化任务。 而且，可能会有多个用户指挥开发人员产品的操作。 但是，如果您购买开发人员产品和/或在您的帐户上设置开发人员产品，或者您是带有集成式开发人员产品的帐户的所有者，则在您的帐户上执行或通过您的帐户执行的开发人员产品操作由您担责。
 
-## <a name="b-use-requirements"></a>B. 用户要求
+## B. 用户要求
 
 使用 Marketplace 必须满足以下条件：如果您居住在美国，必须年满 13 周岁，如果您居住在其他国家/地区，必须达到您所在国家/地区法律规定的最低年龄；拥有有效的 GitHub 帐户；并且同意适用的 GitHub 条款和这些 Marketplace 条款。
 
 如果您是代表公司、组织或其他法律实体同意这些 Marketplace 条款，则您声明您有权使该法律实体、其关联公司以及作为其代表访问 Marketplace 的所有用户受这些 Marketplace 条款的约束。 如果您没有该权力，则不得接受这些 Marketplace 条款，也不得使用 Marketplace 服务。
 
-## <a name="c-developer-products-and-product-providers"></a>C. 开发人员产品和产品提供商
+## C. 开发人员产品和产品提供商
 
 当您安装和/或购买开发人员产品时，您是从 GitHub 购买开发人员产品，因此必须将相关款项直接支付给 GitHub。 但是，您是从产品提供商而非 GitHub 获得对开发人员产品的访问权限和使用权利（GitHub 拥有的开发人员产品除外）。 产品提供商所提供的开发人员产品、其中的内容、您或任何其他相关方针对该开发人员产品提出的任何索赔，以及您对该开发人员产品的使用，概由产品提供商承担全责。
 
 我们并非您与产品提供商就该开发人员产品所订协议的签约方。 对于该开发人员产品、其中的内容、您或任何其他相关方针对该开发人员产品提出的任何索赔，以及您对该开发人员产品的使用，我们概不负责。 但是，我们是您与产品提供商就各个开发人员产品所订协议的第三方受益人，并且我们将有权（并且将被视为已接受该权利）作为第三方受益人对您执行该协议。
 
-## <a name="d-payment-billing-schedule-and-cancellation"></a>D. 付款、计费计划和取消
+## D. 付款、计费计划和取消
 
 针对开发人员产品支付的所有款项将支付给 GitHub。 您的付款和费用条款将受[第 K. 节 付款](/articles/github-terms-of-service/#k-payment)或适用的 GitHub 条款之相似章节的约束。 通过使用 Marketplace，您同意向 GitHub 支付就您购买开发人员产品而产生的任何费用。 每次购买交易均是您与 GitHub 及您与产品提供商之间订立的电子合同。 您有责任向我们提供有效的付款方式用于购买开发人员产品。 如果您只购买免费的开发人员产品，则您无需提供付款信息。
 
@@ -47,7 +47,7 @@ Marketplace 由 GitHub 提供，受[服务条款](/articles/github-terms-of-serv
 
 如果您对账单有疑问、顾虑或争议，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-policy)。
 
-## <a name="e-your-data-and-githubs-privacy-policy"></a>E. 您的数据和 GitHub 隐私政策
+## E. 您的数据和 GitHub 隐私政策
 
 **隐私。** 当您选择或使用开发人员产品时，无论您的隐私设置如何，GitHub 都有可能会将特定的个人信息（具体定义请见 [GitHub 隐私声明](/articles/github-privacy-statement/)）共享给产品提供商，以向您提供开发人员产品。 根据您选择的开发人员产品的要求，GitHub 共享的信息量有所不同，可能只会共享少量的信息，例如您的帐户名、ID 和主要电子邮件地址，也有可能会共享对您的存储库中所含内容的访问权限，包括读取和修改您的隐私数据的权限。 您将可以查看开发人员产品所请求的权限范围，并且在通过 OAuth 授予权限时接受或拒绝该等请求。 
 
@@ -55,19 +55,19 @@ Marketplace 由 GitHub 提供，受[服务条款](/articles/github-terms-of-serv
 
 **数据安全和隐私免责声明。** 当您选择或使用开发人员产品时，产品提供商负责保护开发人员产品的安全及保管您的数据，包括您的个人信息（如果有）。 为了您自身的安全和隐私风险及合规性考虑，您有责任了解选择或使用开发人员产品时的安全和隐私注意事项。
 
-## <a name="f-rights-to-developer-products"></a>F. 对开发人员产品的权利
+## F. 对开发人员产品的权利
 
 授予您的使用任何开发人员产品的权利仅适用于您个人，不得转让给任何第三方，例如您的最终用户。 任何向第三方提供或转售开发人员产品的权利只能由产品提供商直接授予。
 
-## <a name="g-updates-to-developer-products"></a>G. 开发人员产品更新
+## G. 开发人员产品更新
 
 GitHub.com 可能会不时通过远程服务器（由 GitHub 或第三方托管）检查开发人员产品的可用更新，包括但不限于 Bug 修复或增强功能。 您同意，系统会自动请求、下载和安装该等更新，而不会另外通知您。
 
-## <a name="h-developer-product-blocking"></a>H. 开发人员产品拦截
+## H. 开发人员产品拦截
 
 基于法律或政策原因，GitHub 可能会拦截来自我们的服务器的开发人员产品或禁用其功能。 如果我们必须拦截或禁用开发人员产品，我们将与产品提供商合作通知受影响的用户。
 
-## <a name="i-disclaimer-limitation-of-liability-release-and-indemnification"></a>I. 免责声明；责任限制；免除和赔偿
+## I. 免责声明；责任限制；免除和赔偿
 
 **免责声明。** 您使用 Marketplace 及通过 Marketplace 获得的任何开发人员产品由您自行承担风险。 除另行明确说明外，GitHub“按原样”和基于“可用性”提供 Marketplace 和开发人员产品。 GitHub 不做出或暗示任何关于 Marketplace 和开发人员产品的保证或承诺，包括但不限于通过 Marketplace 和开发人员产品提供的特定功能、其可靠性、可用性或能够满足您的需求。
 
@@ -79,7 +79,7 @@ GitHub.com 可能会不时通过远程服务器（由 GitHub 或第三方托管�
 
 对于因您使用 Marketplace，包括但不限于您违反这些 Marketplace 条款，而引起的任何及所有索赔、责任和费用，包括律师费，您同意对我们作出赔偿，为我们提供抗辩并使我们免于承担责任，但前提是：GitHub (1) 立即向您发出有关该索赔、主张、诉讼或法律程序的书面通知；(2) 允许您全权控制索赔、主张、诉讼或法律程序的抗辩与和解（但您就索赔、主张、诉讼或法律程序达成和解的前提是 GitHub 的所有责任得到无条件免除）；以及 (3) 向您提供所有合理的协助，但费用由您承担。
 
-## <a name="j-miscellanea"></a>J. 其他
+## J. 其他
 
 1. **管辖法律。** 您同意这些 Marketplace 条款以及您对开发人员产品的使用受加利福尼亚州法律的管辖，与开发人员产品有关的任何争议必须提交至位于加利福尼亚州旧金山或周边具有管辖权的法院进行解决。
 

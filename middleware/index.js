@@ -36,7 +36,8 @@ import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
 import triggerError from './trigger-error.js'
-import releaseNotes from './contextualizers/release-notes.js'
+import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
+import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
 import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
@@ -222,7 +223,7 @@ export default function (app) {
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 
   // *** Config and context for rendering ***
-  app.use(instrument(findPage, './find-page')) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
   app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding
@@ -258,7 +259,8 @@ export default function (app) {
   app.head('/*', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
-  app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
+  app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
+  app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))

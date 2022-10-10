@@ -4,9 +4,10 @@ import searchVersions from '../../lib/search/versions.js'
 import FailBot from '../../lib/failbot.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
+import statsd from '../../lib/statsd.js'
 import { defaultCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
-import { getSearchResults, ELASTICSEARCH_URL } from './es-search.js'
+import { getSearchResults } from './es-search.js'
 
 // Used by the legacy search
 const versions = new Set(Object.values(searchVersions))
@@ -64,28 +65,8 @@ function convertLegacyVersionName(version) {
   return legacyEnterpriseServerVersions[version] || version
 }
 
-function notConfiguredMiddleware(req, res, next) {
-  if (!ELASTICSEARCH_URL) {
-    if (process.env.NODE_ENV === 'production') {
-      // Temporarily, this is OKish. The Docs Engineering team is
-      // currently working on setting up an Elasticsearch cloud
-      // instance that we can use. We don't currently have that,
-      // but this code is running in production. We just don't want
-      // to unnecessarily throw errors when it's actually a known thing.
-      return res.status(500).send('ELASTICSEARCH_URL not been set up yet')
-    }
-    throw new Error(
-      'process.env.ELASTICSEARCH_URL is not set. ' +
-        "If you're working on this locally, add `ELASTICSEARCH_URL=http://localhost:9200` in your .env file"
-    )
-  }
-
-  return next()
-}
-
 router.get(
   '/legacy',
-  notConfiguredMiddleware,
   catchMiddlewareError(async function legacySearch(req, res) {
     const { query, version, language, filters, limit: limit_ } = req.query
     if (filters) {
@@ -107,28 +88,33 @@ router.get(
     )}-${language}`
 
     const hits = []
+    const tags = ['version:legacy', `indexName:${indexName}`]
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', tags)
+    const options = {
+      indexName,
+      query,
+      page: 1,
+      sort: 'best',
+      size: limit,
+      debug: true,
+      includeTopics: true,
+      // The legacy search is used as an autocomplete. In other words,
+      // a debounce that sends the query before the user has had a
+      // chance to fully submit the search. That means if the user
+      // send the query 'google cl' they hope to find 'Google Cloud'
+      // even though they didn't type that fully.
+      usePrefixSearch: true,
+    }
     try {
-      const searchResults = await getSearchResults({
-        indexName,
-        query,
-        page: 1,
-        sort: 'best',
-        size: limit,
-        debug: true,
-        includeTopics: true,
-        // The legacy search is used as an autocomplete. In other words,
-        // a debounce that sends the query before the user has had a
-        // chance to fully submit the search. That means if the user
-        // send the query 'google cl' they hope to find 'Google Cloud'
-        // even though they didn't type that fully.
-        usePrefixSearch: true,
-      })
-      hits.push(...searchResults.hits)
-    } catch (err) {
+      const { hits: hits_, meta } = await timed(options)
+      hits.push(...hits_)
+      statsd.timing('api.search.total', meta.took.total_msec, tags)
+      statsd.timing('api.search.query', meta.took.query_msec, tags)
+    } catch (error) {
       // If we don't catch here, the `catchMiddlewareError()` wrapper
       // will take any thrown error and pass it to `next()`.
-      console.error('Error wrapping getSearchResults()', err)
-      return res.status(500).json([])
+      await handleGetSearchResultsError(req, res, error, options)
+      return
     }
 
     // The legacy search just returned an array
@@ -232,11 +218,24 @@ const validationMiddleware = (req, res, next) => {
 router.get(
   '/v1',
   validationMiddleware,
-  notConfiguredMiddleware,
   catchMiddlewareError(async function search(req, res) {
     const { indexName, query, page, size, debug, sort } = req.search
+
+    // The getSearchResults() function is a mix of preparing the search,
+    // sending & receiving it, and post-processing the response from the
+    // network (i.e. Elasticsearch).
+    // This measurement then combines both the Node-work and the total
+    // network-work but we know that roughly 99.5% of the total time is
+    // spent in the network-work time so this primarily measures that.
+    const tags = ['version:v1', `indexName:${indexName}`]
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', tags)
+
+    const options = { indexName, query, page, size, debug, sort }
     try {
-      const { meta, hits } = await getSearchResults({ indexName, query, page, size, debug, sort })
+      const { meta, hits } = await timed(options)
+
+      statsd.timing('api.search.total', meta.took.total_msec, tags)
+      statsd.timing('api.search.query', meta.took.query_msec, tags)
 
       if (process.env.NODE_ENV !== 'development') {
         // The assumption, at the moment is that searches are never distinguished
@@ -254,27 +253,26 @@ router.get(
       // If getSearchResult() throws an error that might be 404 inside
       // elasticsearch, if we don't capture that here, it will propgate
       // to the next middleware.
-      if (process.env.NODE_ENV === 'development') {
-        console.error('Error calling getSearchResults()', error)
-      } else {
-        const reports = FailBot.report(error, {
-          url: req.url,
-          indexName,
-          query,
-          page,
-          size,
-          debug,
-          sort,
-        })
-        // It might be `undefined` if no backends are configured which
-        // is likely when using production NODE_ENV on your laptop
-        // where you might not have a HATSTACK_URL configured.
-        if (reports) await Promise.all(reports)
-      }
-      res.status(500).send(error.message)
+      await handleGetSearchResultsError(req, res, error, options)
     }
   })
 )
+
+// We have more than one place where we do `try{...} catch error( THIS )`
+// which is slightly different depending on the "sub-version" (e.g. /legacy)
+// This function is a single place to take care of all of these error handlings
+async function handleGetSearchResultsError(req, res, error, options) {
+  if (process.env.NODE_ENV === 'development') {
+    console.error(`Error calling getSearchResults(${options})`, error)
+  } else {
+    const reports = FailBot.report(error, Object.assign({ url: req.url }, options))
+    // It might be `undefined` if no backends are configured which
+    // is likely when using production NODE_ENV on your laptop
+    // where you might not have a HATSTACK_URL configured.
+    if (reports) await Promise.all(reports)
+  }
+  res.status(500).send(error.message)
+}
 
 // Alias for the latest version
 router.get('/', (req, res) => {

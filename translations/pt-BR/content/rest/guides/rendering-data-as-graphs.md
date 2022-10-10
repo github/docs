@@ -12,11 +12,11 @@ versions:
 topics:
   - API
 ms.openlocfilehash: e613c2f707db1030b9e2e5c40de98f2628c0ca3b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145126759'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875477'
 ---
 Neste guia, vamos usar a API para buscar informações sobre os repositórios dos quais somos proprietários e as linguagens de programação que os compõem. Em seguida, visualizaremos essas informações de algumas maneiras diferentes usando a biblioteca [D3.js][D3.js]. Para interagir com a API do {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, usaremos a excelente biblioteca do Ruby, [Octokit][Octokit].
 

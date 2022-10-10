@@ -15,10 +15,10 @@ versions:
 topics:
   - Pull requests
 ms.openlocfilehash: 759889bd4f014e4bc2afff5f182a0b7258c8bb07
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '147065870'
 ---
 Las verificaciones de estado se basan en procesos externos, como compilaciones de integración continua, que se ejecutan para cada subida que haces a un repositorio. Puede ver el estado *pending* (pendiente), *passing* (aprobado) o *failing* (error) de las verificaciones de estado al lado de las confirmaciones individuales en su solicitud de incorporación de cambios.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 446bc8429d81d54d38eeaf2852a61d25db17da68
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145186077"
 ---
 `jobs.<job_id>.outputs` を使って、ジョブの出力の `map` を作成できます。 ジョブの出力は、そのジョブに依存しているすべての下流のジョブから利用できます。 ジョブ依存関係の定義の詳細については、「[`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。

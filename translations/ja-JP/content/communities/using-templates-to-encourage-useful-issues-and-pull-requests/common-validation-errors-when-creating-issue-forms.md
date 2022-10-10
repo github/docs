@@ -6,21 +6,21 @@ versions:
   ghec: '*'
 topics:
   - Community
-ms.openlocfilehash: 54451186fe7fcbc40945dc6a0b2ee2d757924c1b
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: 55eae6e043f82bfbaa49f7af42e23e4cb56f0ee8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '145861070'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147650342'
 ---
 <!--UI-LINK: We link to individual anchors within this file from the issue template editor when the given YAML error is thrown. Links to and anchors within this file should be preserved or should be updated in github/github if they are changed -->
 {% data reusables.community.issue-forms-beta %}
 
-## <a name="required-top-level-key-name-is-missing"></a>必須の最上位レベルのキー `name` が欠落しています
+## 必須の最上位レベルのキー `name` が欠落しています
 
 テンプレートに `name` フィールドが含まれていません。つまり、ユーザーにオプションのリストを示すときに Issue テンプレートを呼び出す内容が明確ではありません。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 description: "Thank you for reporting a bug!"
@@ -35,11 +35,11 @@ description: "Thank you for reporting a bug!"
 ...
 ```
 
-## <a name="key-must-be-a-string"></a>`key` は文字列である必要があります
+## `key` は文字列である必要があります
 
 このエラー メッセージは、許可されたキーは指定されていますが、データの種類がサポートされていないため、その値を解析できないことを意味します。
 
-### <a name="example"></a>例
+### 例
 
 以下の `description` はブール値として解析されていますが、文字列である必要があります。
 
@@ -74,11 +74,11 @@ description: "File a bug report"
 ...
 ```
 
-## <a name="input-is-not-a-permitted-key"></a>`input` が許可されているキーではありません
+## `input` が許可されているキーではありません
 
 テンプレートの最上位レベルで予期しないキーが指定されました。 サポートされている最上位レベルのキーの詳細については、「[Issue フォームの構文](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)」を参照してください。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 name: "Bug report"
@@ -93,7 +93,7 @@ name: "Bug report"
 ...
 ```
 
-## <a name="forbidden-keys"></a>禁止されているキー
+## 禁止されているキー
 
 YAML では特定の文字列を `Boolean` 値として解析します。 これを回避するために、次のキーの使用を明示的に禁止しています。
 
@@ -101,11 +101,11 @@ YAML では特定の文字列を `Boolean` 値として解析します。 これ
 
 このエラーは、禁止されているキーを削除することで修正できます。
 
-## <a name="body-must-contain-at-least-one-non-markdown-field"></a>本文には、マークダウン以外のフィールドが少なくとも 1 つ含まれている必要があります
+## 本文には、マークダウン以外のフィールドが少なくとも 1 つ含まれている必要があります
 
 Issue フォームではユーザー入力を受け入れる必要があります。つまり、そのフィールドの少なくとも 1 つにユーザー入力フィールドが含まれている必要があります。 `markdown` 要素は静的テキストであるため、`body` 配列に `markdown` 要素のみを含めることはできません。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 name: "Bug report"
@@ -128,11 +128,11 @@ body:
     label: "What's wrong?"
 ```
 
-## <a name="body-must-have-unique-ids"></a>本文には一意の ID が必要です
+## 本文には一意の ID が必要です
 
 `id` 属性を使用して複数の要素を区別する場合、各 `id` 属性は一意である必要があります。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 name: "Bug report"
@@ -162,11 +162,11 @@ body:
     label: Last name
 ```
 
-## <a name="body-must-have-unique-labels"></a>本文には一意のラベルが必要です
+## 本文には一意のラベルが必要です
 
 ユーザー入力を受け入れる `body` 要素が複数ある場合、各ユーザー入力フィールドの `label` 属性は一意である必要があります。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 name: "Bug report"
@@ -210,11 +210,11 @@ body:
 `id` 属性は Issue 本文に表示されません。 結果の Issue のフィールドを区別する場合は、個別の `label` 属性を使用する必要があります。
 
 
-## <a name="labels-are-too-similar"></a>ラベルが似すぎています
+## ラベルが似すぎています
 
 似たようなラベルは同じ参照に処理される場合があります。 `id` 属性が `input` に対して指定されていない場合、`input` フィールドへの参照を生成するために `label` 属性が使用されます。 これを行うには、Rails の [parameterize](https://apidock.com/rails/ActiveSupport/Inflector/parameterize) メソッドを利用して `label` を処理します。 場合によっては、異なる 2 つのラベルを同じパラメーター化された文字列に処理できます。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 name: "Bug report"
@@ -255,11 +255,11 @@ body:
     label: Name???????
 ```
 
-## <a name="checkboxes-must-have-unique-labels"></a>checkboxes には一意のラベルが必要です
+## checkboxes には一意のラベルが必要です
 
 `checkboxes` 要素が存在する場合、その入れ子になった各ラベルは、そのピアと他の入力の種類の間で一意である必要があります。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 name: "Bug report"
@@ -304,13 +304,13 @@ body:
 
 `id` 属性は Issue 本文に表示されません。 結果の Issue のフィールドを区別する場合は、個別の `label` 属性を使用する必要があります。
 
-## <a name="bodyi-required-key-type-is-missing"></a>Body[i]: 必須のキーの種類が欠落しています
+## Body[i]: 必須のキーの種類が欠落しています
 
 各本文ブロックにはキー `type` が含まれている必要があります。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのゼロから始まるインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 body:
@@ -327,13 +327,13 @@ body:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-## <a name="bodyi-x-is-not-a-valid-input-type"></a>Body[i]: `x` が有効な入力の種類ではありません
+## Body[i]: `x` が有効な入力の種類ではありません
 
 本体ブロックの 1 つに、[許可されている種類](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)の 1 つではない種類の値が含まれています。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 body:
@@ -351,13 +351,13 @@ body:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-## <a name="bodyi-required-attribute-key-value-is-missing"></a>Body[i]: 必須の属性キー `value` が欠落しています
+## Body[i]: 必須の属性キー `value` が欠落しています
 
 必須の `value` 属性の 1 つが指定されていません。 このエラーは、ブロックに `attributes` キーがない場合、または `attributes` キーの下に `value` キーがない場合に発生します。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 body:
@@ -379,13 +379,13 @@ body:
     value: "This is working now!"
 ```
 
-## <a name="bodyi-label-must-be-a-string"></a>Body[i]: ラベルは文字列である必要があります
+## Body[i]: ラベルは文字列である必要があります
 
 その `attributes` ブロック内で、値のデータ型が間違っています。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
 以下の `label` はブール値として解析されていますが、文字列である必要があります。
 
@@ -428,13 +428,13 @@ body:
     label: "Name"
 ```
 
-## <a name="bodyi-id-can-only-contain-numbers-letters---_"></a>Body[i]: `id` に含めることができるのは数字、文字、-、_ のみです
+## Body[i]: `id` に含めることができるのは数字、文字、-、_ のみです
 
 `id` 属性に含めることができるのは、英数字、`-`、および `_` のみです。 テンプレートの `id` には、空白などの許可されていない文字が含まれる場合があります。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 name: "Bug report"
@@ -456,13 +456,13 @@ body:
     label: First name
 ```
 
-## <a name="bodyi-x-is-not-a-permitted-key"></a>Body[i]: `x` は許可されているキーではありません
+## Body[i]: `x` は許可されているキーではありません
 
 予期しないキー `x` が、`type` および `attributes` と同じインデント レベルで指定されました。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 body:
@@ -481,13 +481,13 @@ body:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-## <a name="bodyi-label-contains-forbidden-word"></a>Body[i]: `label` に禁止された単語が含まれています
+## Body[i]: `label` に禁止された単語が含まれています
 
 GitHub Issues で個人情報と資格情報が公開されるリスクを最小限に抑えるために、攻撃者が一般的に使用する一部の単語は、入力や textarea 要素の `label` では許可されません。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 body:
@@ -511,13 +511,13 @@ body:
     label: Username
 ```
 
-## <a name="bodyi-x-is-not-a-permitted-attribute"></a>Body[i]: `x` は許可されている属性ではありません
+## Body[i]: `x` は許可されている属性ではありません
 
 無効なキーが `attributes` ブロックに指定されています。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
 ```yaml
 body:
@@ -536,15 +536,15 @@ body:
     value: "Thanks for taking the time to fill out this bug!"
 ```
 
-## <a name="bodyi-options-must-be-unique"></a>Body[i]: `options` は一意である必要があります
+## Body[i]: `options` は一意である必要があります
 
 checkboxes とドロップダウン入力の種類の場合、`options` 配列で定義されている選択肢は一意である必要があります。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -557,7 +557,7 @@ body:
 
 `options` 配列に重複する選択肢が確実に存在しないようにすることで、エラーを修正できます。
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -567,15 +567,15 @@ body:
       - pie
 ```
 
-## <a name="bodyi-options-must-not-include-the-reserved-word-none"></a>Body[i]: `options` に予約語 none を含めることはできません
+## Body[i]: `options` に予約語 none を含めることはできません
 
 "None" は `options` セット内の予約語です。これは、`dropdown` が不要な場合に非選択を示すために使用されるためです。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -590,7 +590,7 @@ body:
 
 このエラーは、オプションとして "None" を削除することで修正できます。 コントリビューターがこのような種類のいずれのパイも好みでないことを示せるようにする場合は、さらに `required` 検証を削除できます。
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -602,15 +602,15 @@ body:
 
 この例では、選択可能なオプションとして "None" が自動的に設定されます。
 
-## <a name="bodyi-options-must-not-include-booleans-please-wrap-values-such-as-yes-and-true-in-quotes"></a>Body[i]: `options` にブール値を含めることはできません。 'yes' や 'true' など、値を引用符で囲んでください
+## Body[i]: `options` にブール値を含めることはできません。 'yes' や 'true' など、値を引用符で囲んでください
 
 引用符で囲まれている場合を除き、YAML パーサーによってブール値に処理されるようになる英単語がいくつかあります。 ドロップダウンの `options` の場合、すべての項目はブール値ではなく文字列である必要があります。
 
 `body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### <a name="example"></a>例
+### 例
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -623,7 +623,7 @@ body:
 
 問題のある各オプションを引用符で囲んで、ブール値として処理されないようにすることで、このエラーを修正できます。
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -634,7 +634,37 @@ body:
       - Maybe
 ```
 
-## <a name="further-reading"></a>参考資料
+## 本体を空にすることはできない
+
+テンプレート本体の `key:value` のペアを空にすることはできません。 必要な最上位レベルのキーについて詳しくは、「[Issue フォームの構文](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)」をご覧ください。
+
+このエラーは、`body:` セクションを追加することで修正できます。
+
+### 例
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+---
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+この例では、ヘッダーと `body` セクションの間の `---` (ドキュメント区切り記号) を削除することで、エラーを修正できます。
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+## 参考資料
 
 - [YAML](https://yaml.org/)
 - [Issue フォームの構文](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)

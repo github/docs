@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 3a921ec22c1ce29805ee6fa7309532f261d15bff
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147062102"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878467"
 ---
 2. Elija la opción que mejor describa por qué debería poder insertar el secreto.
     - Si el secreto solo se usa en pruebas y no supone ninguna amenaza, haga clic en **Se usa en las pruebas**.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c8e09d66bc8f0f35ca319e3650c6913174e59067
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145065312"
 ---
 O {% data variables.product.prodname_actions %} inclui uma coleção de variáveis chamadas _contextos_ e uma coleção semelhante de variáveis chamadas _variáveis de ambiente padrão_. Estas variáveis são destinadas a serem usadas em diferentes pontos do fluxo de trabalho:

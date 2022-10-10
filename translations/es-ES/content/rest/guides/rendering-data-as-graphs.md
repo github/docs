@@ -12,11 +12,11 @@ versions:
 topics:
   - API
 ms.openlocfilehash: e613c2f707db1030b9e2e5c40de98f2628c0ca3b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135907'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878372'
 ---
 En esta guía vamos a utilizar la API para obtener información acerca de los repositorios que nos pertenecen y de los lenguajes de programación que los componen. A continuación, visualizaremos esa información de dos maneras diferentes desde la biblioteca [D3.js][D3.js]. Para interactuar con la API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, se usará la excelente biblioteca de Ruby: [Octokit][Octokit].
 

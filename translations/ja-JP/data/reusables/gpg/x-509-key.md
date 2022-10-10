@@ -1,15 +1,15 @@
 ---
-ms.openlocfilehash: 3aa2f76a2abdf35ef89c8e083cf01e5a021d23eb
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.openlocfilehash: 3661ae0cbef8282faa12b3d71bef77d503fcc0c6
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: "145110117"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147785411"
 ---
 
-### <a name="telling-git-about-your-x509-key"></a>Git にX.509 キーについて知らせる
+## Git にX.509 キーについて知らせる
 
-[smimesign](https://github.com/github/smimesign) を使用して、GPG ではなく S/MIME を使用してコミットとタグに署名できます。
+S/MIME を使ってコミットをタグに署名するには、[smimesign](https://github.com/github/smimesign) を使います。
 
 {% data reusables.gpg.smime-git-version %}
 

@@ -12,10 +12,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 5759e374fadc9a4f2f5b6790d9650c4a47e75720
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556503'
 ---
 在某些情况下，您可以将 {% data variables.product.prodname_dotcom %} 徽标添加到您的网站或第三方应用程序中。 有关徽标使用的更多信息和具体指南，请参阅 [{% data variables.product.prodname_dotcom %} 徽标和使用页面](https://github.com/logos)。

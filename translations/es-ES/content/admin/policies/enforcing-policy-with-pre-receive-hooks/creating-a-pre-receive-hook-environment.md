@@ -14,10 +14,10 @@ topics:
   - Pre-receive hooks
 shortTitle: Pre-receive hook environments
 ms.openlocfilehash: 2c2a31a4092b475170449ba138d6f0798424206b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145116369'
 ---
 Un entorno previo a la recepción para {% data variables.product.prodname_ghe_server %} es un entorno [`chroot`](https://en.wikipedia.org/wiki/Chroot) de Linux. Dado que los ganchos de pre-recepción se ejecutan en todos los eventos de extracción, deberían ser rápidos y livianos. Normalmente, el entorno necesario para tales verificaciones será mínimo.

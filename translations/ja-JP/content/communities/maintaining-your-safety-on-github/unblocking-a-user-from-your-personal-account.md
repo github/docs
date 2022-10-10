@@ -11,10 +11,10 @@ topics:
   - Community
 shortTitle: Unblock from your account
 ms.openlocfilehash: a88a8613a8d787ee7e42ea9f6f5ef994353aedc8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145090273'
 ---
 ユーザのブロックを解除した場合、そのユーザはあなたをリポジトリのコラボレーターに招待できます。 GitHub 上の任意の場所で彼らが[あなたについて@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) した場合、通知を受け取ります。

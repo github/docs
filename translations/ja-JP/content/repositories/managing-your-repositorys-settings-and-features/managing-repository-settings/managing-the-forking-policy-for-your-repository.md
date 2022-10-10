@@ -16,10 +16,10 @@ topics:
   - Repositories
 shortTitle: Manage the forking policy
 ms.openlocfilehash: 18355227ad40567de3824f3cc286763cd081e153
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145132120'
 ---
 Organization のオーナーは、特定のリポジトリのフォークを許可または禁止する前に、Organization レベルでプライベート{% ifversion ghae or ghes or ghec %}および内部{% endif %}のリポジトリのフォークを許可する必要があります。 詳細については、「[Organization のフォーク ポリシーを管理する](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」を参照してください。

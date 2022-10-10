@@ -12,10 +12,10 @@ topics:
   - Teams
 shortTitle: Scheduled reminders
 ms.openlocfilehash: 3c86b54c527c89409326840e0089a9a05ab9c49a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145101309'
 ---
 ## 关于团队的预定提醒

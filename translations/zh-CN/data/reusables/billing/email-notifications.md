@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: b2356ad6e76777400d8995a65e86511186d817e0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145098297"
 ---
 当支出达到帐户包含使用量的 50%、75%、90% 和 100% 以及支出达到帐户支出限制的 50%、75%、90% 和 100% 时，系统将向帐户所有者和帐单管理员发送电子邮件通知。 

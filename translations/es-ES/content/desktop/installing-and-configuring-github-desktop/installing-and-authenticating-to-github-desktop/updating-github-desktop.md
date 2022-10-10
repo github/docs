@@ -7,10 +7,10 @@ redirect_from:
 versions:
   fpt: '*'
 ms.openlocfilehash: 77b4b6d3bca7bc5d535c3591f23465d84824ad6a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145117322'
 ---
 {% mac %}

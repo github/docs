@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 02f279903abd69f50ad55aa88462c9c8e4b9a1a8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145087287"
 ---
 使用 `jobs.<job_id>.strategy.matrix` 定义不同作业配置的矩阵。 在矩阵中，定义一个或多个变量，后跟一个值数组。 例如，以下矩阵有一个称为 `version` 的变量，其值为 `[10, 12, 14]` ，以及一个称为 `os` 的变量，其值为 `[ubuntu-latest, windows-latest]`：

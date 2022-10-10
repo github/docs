@@ -1,7 +1,7 @@
 ---
-title: 事前ビルドの管理
+title: Managing prebuilds
 shortTitle: Manage prebuilds
-intro: リポジトリのプレビルド構成をレビュー、変更、削除できます。
+intro: 'You can review, modify, and delete the prebuild configurations for your repository.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,95 +10,90 @@ topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 5257419e4c2f3750cfb6b2c6d5e115d29b4b4342
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147548089'
 ---
-## 事前ビルド構成を確認、変更、削除する
 
-リポジトリに対して構成したプレビルドは、{% data variables.product.prodname_actions %} ワークフローを使用して作成および更新され、{% data variables.product.prodname_github_codespaces %} サービスによって管理されます。 
+## Checking, changing, and deleting your prebuild configurations
 
-プレビルド構成での設定によっては、プレビルドを更新するワークフローが、次のイベントによってトリガーされる場合があります。
+The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_github_codespaces %} service. 
 
-* 事前ビルド構成を作成または更新する
-* 事前ビルドを持つように構成されているブランチにコミットまたは pull request をプッシュする
-* 開発コンテナー構成ファイルの変更
-* 事前ビルドの構成で定義したスケジュール
-* ワークフローを手動でトリガーする
+Depending on the settings in a prebuild configuration, the workflow to update the prebuild may be triggered by these events:
 
-プレビルド構成の設定によって、プレビルドの更新を自動的にトリガーするイベントが決まります。 詳しくは、「[事前ビルドを構成する](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)」をご覧ください。 
+* Creating or updating the prebuild configuration
+* Pushing a commit or a pull request to a branch that's configured to have prebuilds
+* Changing any of the dev container configuration files
+* A schedule that you've defined in the prebuild configuration
+* Manually triggering the workflow
 
-リポジトリへの管理者アクセス権を持つユーザーは、事前ビルドの進行状況の確認、事前ビルド構成の編集と削除ができます。 
+The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)." 
 
-### 事前ビルドの進行状況を表示する
-リポジトリ設定の {% data variables.product.prodname_codespaces %} ページで、設定した事前ビルド構成ごとに最新のワークフロー実行の現在の状態を表示できます。 たとえば、"現在実行中" や "1 時間前に最後の実行" などです。
+People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations. 
 
-最新の事前ビルド ワークフロー実行のログ出力を表示するには、 **[出力の表示]** をクリックします。
+### Viewing the progress of prebuilds
+You can view the current status of the latest workflow run for each prebuild configuration you've set up on the {% data variables.product.prodname_github_codespaces %} page of your repository settings. For example, "Currently running" or "Last run 1 hour ago."
 
-![[出力の表示] ボタン](/assets/images/help/codespaces/prebuilds-see-output.png) 
+To see the log output for the latest prebuild workflow run, click **See output**.
 
-**[アクション]** タブにワークフローの最新の実行の出力が表示されます。
+![The 'See output' button](/assets/images/help/codespaces/prebuilds-see-output.png) 
 
-![事前ビルド ワークフローの出力](/assets/images/help/codespaces/prebuilds-log-output.png) 
+This displays the output of the most recent run of the workflow in the **Actions** tab.
 
-または、指定したブランチに関連付けられているすべての事前ビルド ワークフロー実行を表示するには、省略記号ボタンをクリックし、ドロップダウン メニューから **[実行の表示]** を選択します。
+![The prebuild workflow output](/assets/images/help/codespaces/prebuilds-log-output.png) 
 
-![ドロップダウン メニューの [実行の表示] オプション](/assets/images/help/codespaces/prebuilds-view-runs.png) 
+Alternatively, to view all prebuild workflow runs associated with the specified branch, click the ellipsis button and choose **View runs** from the dropdown menu.
 
-関連付けられているブランチの事前ビルドのワークフロー実行履歴が表示されます。
+![The 'View runs' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-view-runs.png) 
 
-![ワークフロー実行履歴](/assets/images/help/codespaces/prebuilds-workflow-runs.png) 
+This displays the workflow run history for prebuilds for the associated branch.
 
-### 事前ビルド構成を編集する
+![The workflow run history](/assets/images/help/codespaces/prebuilds-workflow-runs.png) 
 
-1. リポジトリ設定の {% data variables.product.prodname_codespaces %} ページで、編集する事前ビルド構成の右側にある省略記号をクリックします。
-1. ドロップダウン メニューの **[編集]** をクリックします。
+### Editing a prebuild configuration
+
+1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to edit.
+1. In the dropdown menu, click **Edit**.
  
-   ![ドロップダウン メニューの [編集] オプション](/assets/images/help/codespaces/prebuilds-edit.png) 
+   ![The 'Edit' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-edit.png) 
 
-1. 事前ビルド構成に必要な変更を加えて、 **[更新]** をクリックします。 
+1. Make the required changes to the prebuild configuration, then click **Update**. 
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
 
-### 事前ビルド構成を無効にする
+### Disabling a prebuild configuration
 
-構成のプレビルドの更新を一時停止するには、構成のワークフロー実行を無効にします。 プレビルド構成のワークフロー実行を無効にしても、その構成に対して以前に作成されたプレビルドは削除されず、その結果、codespace は既存のプレビルドから生成され続けます。
+To pause the update of prebuilds for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuilds for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild.
 
-事前ビルド構成のワークフロー実行を無効にすると、テンプレート作成エラーを調査する必要がある場合に役立ちます。
+Disabling the workflow runs for a prebuild configuration is useful if you need to investigate template creation failures.
 
-1. リポジトリ設定の {% data variables.product.prodname_codespaces %} ページで、無効にする事前ビルド構成の右側にある省略記号をクリックします。
-1. ドロップダウン メニューの **[Disable runs]\(実行を無効にする\)** をクリックします。
+1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to disable.
+1. In the dropdown menu, click **Disable runs**.
 
-   ![ドロップダウン メニューの [Disable runs]\(実行を無効にする\) オプション](/assets/images/help/codespaces/prebuilds-disable.png)
+   ![The 'Disable runs' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-disable.png)
 
-1. この構成を無効にすることを確定するには、 **[OK]** をクリックします。
+1. To confirm that you want to disable this configuration, click **OK**.
 
-### 事前ビルド構成を削除する
+### Deleting a prebuild configuration
 
-プレビルド構成を削除すると、その構成用に以前に作成したプレビルドもすべて削除されます。 その結果、構成を削除した直後から、その構成で生成された事前ビルドは、新しい codespace を作成する際に使用できなくなります。
+Deleting a prebuild configuration also deletes all previously created prebuilds for that configuration. As a result, shortly after you delete a configuration, prebuilds generated by that configuration will no longer be available when you create a new codespace.
 
-事前ビルド構成を削除した後も、キューに既に入っているか開始済みの構成のワークフロー実行は引き続き実行されます。 これらは、以前に完了したワークフロー実行と共に、ワークフロー実行履歴に一覧表示されます。
+After you delete a prebuild configuration, workflow runs for that configuration that have been queued or started will still run. They will be listed in the workflow run history, along with previously completed workflow runs.
 
-1. リポジトリ設定の {% data variables.product.prodname_codespaces %} ページで、削除する事前ビルド構成の右側にある省略記号をクリックします。
-1. ドロップダウン メニューの **[削除]** をクリックします。
+1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to delete.
+1. In the dropdown menu, click **Delete**.
 
-   ![ドロップダウン メニューの [削除] オプション](/assets/images/help/codespaces/prebuilds-delete.png)
+   ![The 'Delete' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-delete.png)
 
-1. 削除を確認するメッセージが表示されたら、 **[OK]** をクリックします。
+1. Click **OK** to confirm the deletion.
 
-### 事前ビルドを手動でトリガーする
+### Manually trigger prebuilds
 
-事前ビルド構成のワークフロー実行を手動でトリガーすると便利な場合があります。 通常、これが必要になるのは、事前ビルド構成のワークフローに関する問題をデバッグする場合だけです。
+It may be useful to manually trigger a workflow run for a prebuild configuration. Generally this is only necessary if you are debugging a problem with the workflow for a prebuild configuration.
 
-1. リポジトリ設定の {% data variables.product.prodname_codespaces %} ページで、トリガーするワークフローが含まれる事前ビルド構成の右側にある省略記号をクリックします。
-1. ドロップダウン メニューで、 **[手動でトリガー]** をクリックします。
+1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration whose workflow you want to trigger.
+1. In the dropdown menu, click **Manually trigger**.
 
-   ![ドロップダウン メニューの [手動でトリガー] オプション](/assets/images/help/codespaces/prebuilds-manually-trigger.png) 
+   ![The 'Manually trigger' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-manually-trigger.png) 
 
-## 参考資料
+## Further reading
 
-- [プレビルドに関するトラブルシューティング](/codespaces/troubleshooting/troubleshooting-prebuilds)
+- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"

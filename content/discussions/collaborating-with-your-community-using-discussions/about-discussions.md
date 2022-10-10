@@ -13,6 +13,7 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 - Share announcements and information, gather feedback, plan, and make decisions
 - Ask questions, discuss and answer the questions, and mark the discussions as answered
 - Create polls to gauge community opinion
+- Upvote discussions and comments to give higher visibility to ideas you find valuable
 - Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
 
 ![Discussions tab for a repository](/assets/images/help/discussions/hero.png)

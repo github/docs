@@ -1,0 +1,30 @@
+date: '2022-02-01'
+sections:
+  security_fixes:
+    - '**中**:  シークレット スキャン API 呼び出しから、要求のスコープ外のリポジトリに対するアラートが返されることがありました。'
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - MySQL シークレットのローテーションから、`nginx` を手動で再起動するまで、ページを使用できなくなりました。
+    - "{% data variables.product.prodname_actions %} が有効な場合、移行に失敗することがありました。"
+    - ISO 8601 の日付でメンテナンス スケジュールを設定すると、タイムゾーンが UTC に変換されないため、実際にスケジュールされる時刻が一致しませんでした。
+    - "`cloud-config.service` に関する誤ったエラー メッセージがコンソールに出力されました。"
+    - "`ghe-cluster-each` を使ってホットパッチをインストールした後、バージョン番号が正しく更新されませんでした。"
+    - Webhook テーブル クリーンアップ ジョブが同時に実行でき、リソースの競合とジョブ実行時間の増加の原因になっていました。
+    - プライマリからレプリカに対して `ghe-repl-teardown` を実行しても、MSSQL 可用性グループからそのレプリカが削除されませんでした。
+    - 検証済みまたは承認済みドメインでのメール アドレスを持つユーザーへのメール ベースの通知を制限する機能が、正しく動作しませんでした。
+    - "CAS 認証の使用と [Reactivate suspended users]\\(一時停止されているユーザーの再アクティブ化\\) オプションが有効になっていると、一時停止されているユーザーが自動的に再アクティブ化されませんでした。"
+    - セキュリティ アラート設定に関連するデータベース移行の実行時間が長くなると、アップグレードの完了が遅れることがありました。
+  changes:
+    - GitHub Connect データ接続レコードに、アクティブ ユーザーと休眠ユーザーの数と、構成済みの休眠期間が含まれるようになりました。
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} 3.3 にアップグレードした後、{% data variables.product.prodname_actions %} が自動的に開始しないことがあります。この問題を解決するには、SSH を使ってアプライアンスに接続し、`ghe-actions-start` コマンドを実行します。"
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - イシューに同じリポジトリ内の BLOB への固定リンクが含まれていて、その BLOB のファイル パスが 255 文字を超えている場合、そのイシューをクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリのイシューが GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - '[Force Path Style]\(パス スタイルの強制\) がオンになっていると、{% data variables.product.prodname_actions %} のストレージ設定を検証して {% data variables.enterprise.management_console %} に保存することができず、代わりに `ghe-actions-precheck` コマンド ライン ユーティリティで構成する必要があります。'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 のインスタンスを Azure にインストールし、32 個以上の CPU コアでプロビジョニングすると、現在の Linux カーネルに存在するバグのため、起動しませんでした。[更新日: 2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

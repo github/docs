@@ -12,10 +12,10 @@ topics:
   - Community
 shortTitle: Add a license to a repo
 ms.openlocfilehash: 7961f690678d2bfe53726a33d02a54e95b9cfe78
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145117641'
 ---
 Si incluyes una licencia detectable en tu repositorio, las personas que visiten tu repositorio la verán en la parte superior de la página del repositorio. Para leer el archivo de licencia completa, haz clic en el nombre de la licencia.

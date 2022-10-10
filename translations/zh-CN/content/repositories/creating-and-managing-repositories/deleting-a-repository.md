@@ -15,10 +15,10 @@ versions:
 topics:
   - Repositories
 ms.openlocfilehash: 53e6b69113a5483ea37c7ddd34dee7921959b62a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129372'
 ---
 {% data reusables.organizations.owners-and-admins-can %} 删除组织仓库。 如果已禁用“允许成员删除或转让此组织的存储库”，仅组织所有者可删除组织存储库。 {% data reusables.organizations.new-repo-permissions-more-info %}

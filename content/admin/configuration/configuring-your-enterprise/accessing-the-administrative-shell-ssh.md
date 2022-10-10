@@ -27,7 +27,7 @@ If you have SSH access to the administrative shell, you can run {% data variable
 
 ## Enabling access to the administrative shell via SSH
 
-To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys.
+To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% tip %}
 
@@ -58,13 +58,13 @@ If you encounter the `Permission denied (publickey)` error when you try to conne
 To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
 
 ```shell
-ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
+ssh -i /path/to/ghe_private_key -p 122 admin@HOSTNAME
 ```
 
 You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
-Host <em>hostname</em>
+Host HOSTNAME
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122

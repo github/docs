@@ -1,0 +1,6 @@
+# Reference: Issue #6076 ability to dismiss or re-open multiple Dependabot alerts
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.5'
+  ghae: 'issue-6628'

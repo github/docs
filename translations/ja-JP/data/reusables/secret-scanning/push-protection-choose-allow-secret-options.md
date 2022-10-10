@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 3a921ec22c1ce29805ee6fa7309532f261d15bff
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147062099"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878464"
 ---
 2. シークレットをプッシュできる理由を最もよく表しているオプションを選択します。
     - シークレットがテストでのみ使用され、脅威がない場合は、 **[テストで使用されます]** をクリックします。

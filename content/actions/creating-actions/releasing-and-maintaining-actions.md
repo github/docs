@@ -1,6 +1,6 @@
 ---
 title: Releasing and maintaining actions
-shortTitle: Releasing and maintaining actions
+shortTitle: Release and maintain actions
 intro: You can leverage automation and open source best practices to release and maintain actions.
 type: tutorial
 topics:

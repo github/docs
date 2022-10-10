@@ -12,10 +12,10 @@ versions:
   ghec: '*'
 shortTitle: Resolve upload failures
 ms.openlocfilehash: d2f776561f08132e1ca05d0864368943098c5ddc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145126952'
 ---
 A verificação de integridade do {% data variables.large_files.product_name_short %} verifica se todos os arquivos referenciados do {% data variables.large_files.product_name_short %} em um push foram transferidos corretamente. Se a verificação identificar arquivos referenciados que não foram transferidos, você receberá uma mensagem de erro e o push será bloqueado.

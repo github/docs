@@ -19,10 +19,10 @@ children:
   - /allowing-changes-to-a-pull-request-branch-created-from-a-fork
   - /what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
 ms.openlocfilehash: 79d8346fdd63366e5987def43164932503104332
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '146683658'
 ---
 

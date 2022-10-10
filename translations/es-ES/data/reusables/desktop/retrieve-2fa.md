@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 8ce5074496913c768c4ff56afaa968df9be4f39b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145138226"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879456"
 ---
 1. Si ha configurado la autenticación en dos fases para {% data variables.product.prodname_enterprise %}, siga estos pasos:
     - Si configuras 2FA por medio de SMS, recupera tu código 2FA de un mensaje SMS.

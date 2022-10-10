@@ -11,10 +11,10 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#threats-of-violence
   - /github/site-policy/github-community-guidelines#gratuitously-violent-content
 ms.openlocfilehash: 4dc5d6eb2b79dc500b29d3a3bf8bfc9b77244680
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556428'
 ---
 您不得使用 GitHub 组织、宣传、鼓励、威胁使用或煽动暴力行为。 您不得发布描绘或美化针对人类或动物的暴力或身体伤害的内容。 其中包括：

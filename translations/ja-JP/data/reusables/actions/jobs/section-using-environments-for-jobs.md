@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 5b827a2f598a6067ae3c486dbe046effda95bb7f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145089472"
 ---
 ジョブが参照する環境を定義するには、`jobs.<job_id>.environment` を使います。 環境を参照するジョブがランナーに送られる前に、その環境のすべて保護ルールはパスしなければなりません。 詳細については、「[デプロイに環境を使用する](/actions/deployment/using-environments-for-deployment)」を参照してください。

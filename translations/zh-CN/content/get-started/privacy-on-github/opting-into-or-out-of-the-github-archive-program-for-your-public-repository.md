@@ -12,10 +12,10 @@ topics:
   - Legal
 shortTitle: GitHub Archive program
 ms.openlocfilehash: 99c11ad07a88161f73b71cb0d7268f94afa8bc5e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145128852'
 ---
 {% data reusables.repositories.about-github-archive-program %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的存档内容和数据](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。

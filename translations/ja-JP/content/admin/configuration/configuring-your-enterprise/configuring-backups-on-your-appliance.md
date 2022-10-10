@@ -1,5 +1,5 @@
 ---
-title: Configuring backups on your appliance
+title: アプライアンスでのバックアップの設定
 shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
@@ -14,7 +14,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
-intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.product.product_location %} by configuring automated backups.'
+intro: 'ディザスター リカバリー計画の一部として、自動バックアップを構成して {% data variables.product.product_location %}の運用データを保護できます。'
 versions:
   ghes: '*'
 type: how_to
@@ -23,94 +23,207 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
+ms.openlocfilehash: 4403ec24aa3da63f6700ae4bfcd2392ec0cfd194
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861653'
 ---
-## About {% data variables.product.prodname_enterprise_backup_utilities %}
+## {% data variables.product.prodname_enterprise_backup_utilities %}について
 
-{% data variables.product.prodname_enterprise_backup_utilities %} is a backup system you install on a separate host, which takes backup snapshots of {% data variables.product.product_location %} at regular intervals over a secure SSH network connection. You can use a snapshot to restore an existing {% data variables.product.prodname_ghe_server %} instance to a previous state from the backup host.
+{% data variables.product.prodname_enterprise_backup_utilities %} は、個別のホストにインストールするバックアップ システムで、{% data variables.product.product_location %} のバックアップ スナップショットをセキュアな SSH ネットワーク接続経由で定期的に取得します。 スナップショットを使用して、既存の {% data variables.product.prodname_ghe_server %} インスタンスをバックアップホストから以前の状態に復元できます。
 
-Only data added since the last snapshot will transfer over the network and occupy additional physical storage space. To minimize performance impact, backups are performed online under the lowest CPU/IO priority. You do not need to schedule a maintenance window to perform a backup.
+ネットワーク経由で転送されるのは最後のスナップショット以降に追加されたデータのみで、追加の物理ストレージ領域もその分だけしか占めません。 パフォーマンスへの影響を最小化するために、バックアップは最低のCPU/IO優先度の下でオンライン実行されます。 バックアップを行うために、メンテナンスウィンドウをスケジューリングする必要はありません。
 
-For more detailed information on features, requirements, and advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme).
+{% data variables.product.prodname_enterprise_backup_utilities %} のメジャー リリースとバージョン番号は、{% data variables.product.product_name %} の機能リリースと一致します。 両方の製品の最新バージョン 4 つをサポートしています。 詳しい情報については、「[{% data variables.product.product_name %} のリリース](/admin/all-releases)」をご覧ください。
 
-## Prerequisites
+機能、要件、および高度な使用方法について詳しくは、{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト ドキュメントの [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) を参照してください。
 
-To use {% data variables.product.prodname_enterprise_backup_utilities %}, you must have a Linux or Unix host system separate from {% data variables.product.product_location %}.
+## 前提条件
 
-You can also integrate {% data variables.product.prodname_enterprise_backup_utilities %} into an existing environment for long-term permanent storage of critical data.
+{% data variables.product.prodname_enterprise_backup_utilities %} を利用するには、{% data variables.product.product_location %} とは別の Linux もしくは Unix ホスト システムが必要です。
 
-We recommend that the backup host and {% data variables.product.product_location %} be geographically distant from each other. This ensures that backups are available for recovery in the event of a major disaster or network outage at the primary site.
+{% data variables.product.prodname_enterprise_backup_utilities %}は、重要なデータのための長期的な恒久ストレージの既存環境に統合することもできます。
 
-Physical storage requirements will vary based on Git repository disk usage and expected growth patterns:
+バックアップ ホストと {% data variables.product.product_location %} は、地理的に離れたところに配置することをおすすめします。 そうすることで、プライマリのサイトにおける大規模な災害やネットワーク障害に際してもリカバリにバックアップが利用できることが保証されます。
 
-| Hardware | Recommendation |
+物理的なストレージの要求は、Gitリポジトリのディスク利用状況と予想される成長パターンによって異なります。
+
+| ハードウェア | 推奨 |
 | -------- | --------- |
-| **vCPUs**  | 2 |
-| **Memory** | 2 GB |
-| **Storage** | Five times the primary instance's allocated storage |
+| **vCPU 数**  | 2 |
+| **[メモリ]** | 2 GB |
+| **Storage** | プライマリインスタンスに割り当てられたストレージの5倍 |
 
-More resources may be required depending on your usage, such as user activity and selected integrations.
+ユーザのアクティビティや他の製品との結合といった利用方法によっては、さらに多くのリソースが必要になることがあります。
 
-## Installing {% data variables.product.prodname_enterprise_backup_utilities %}
+詳しくは、{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト ドキュメントの「[{% data variables.product.prodname_enterprise_backup_utilities %} の要件](https://github.com/github/backup-utils/blob/master/docs/requirements.md)」を参照してください。
+
+## {% data variables.product.prodname_enterprise_backup_utilities %}のインストール
+
+バックアップ ホストに {% data variables.product.prodname_enterprise_backup_utilities %} をインストールするには、プロジェクトの Git リポジトリを複製することをお勧めします。 この方法では、Git を使用して新しいリリースを直接フェッチすることができ、新しいバージョンをインストールするときに既存のバックアップ構成ファイル `backup.config` が保持されます。
+
+または、ホスト マシンがインターネットにアクセスできない場合は、圧縮アーカイブとして各 {% data variables.product.prodname_enterprise_backup_utilities %} リリースをダウンロードし、コンテンツを抽出してインストールできます。 詳しくは、{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト ドキュメントの「[概要](https://github.com/github/backup-utils/blob/master/docs/getting-started.md)」を参照してください。
+
+バックアップ スナップショットは、`backup.config` ファイル内の`GHE_DATA_DIR` データ ディレクトリ変数によって設定されたディスク パスに書き込まれます。 スナップショットは、シンボリック リンクとハード リンクをサポートするファイル システムに格納する必要があります。
 
 {% note %}
 
-**Note:** To ensure a recovered appliance is immediately available, perform backups targeting the primary instance even in a Geo-replication configuration.
+**注:** {% data variables.product.prodname_enterprise_backup_utilities %} バージョンをアップグレードするときに誤ってデータ ディレクトリが上書きされないように、スナップショットが {% data variables.product.prodname_enterprise_backup_utilities %} インストール ディレクトリのサブディレクトリに保持されないようにすることをお勧めします。
 
 {% endnote %}
 
-1. Download the latest [{% data variables.product.prodname_enterprise_backup_utilities %} release](https://github.com/github/backup-utils/releases) and extract the file with the `tar` command.
-  ```shell
-  $ tar -xzvf /path/to/github-backup-utils-v<em>MAJOR.MINOR.PATCH</em>.tar.gz	  
+1. [{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト リポジトリ](https://github.com/github/backup-utils/)をバックアップ ホスト上のローカル ディレクトリに複製するには、次のコマンドを実行します。
+
   ```
-2. Copy the included `backup.config-example` file to `backup.config` and open in an editor.
-3. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
+  $ git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
+  ```
+1. ローカル リポジトリ ディレクトリに移動するには、次のコマンドを実行します。
 
-  {% note %}
+  ```
+  cd backup-utils
+  ```
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
+1. インクルードされた `backup.config-example` ファイルを `backup.config` にコピーするには、次のコマンドを実行します。
 
-  **Note:** If your {% data variables.product.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.product.product_location %}.
+   ```shell
+   cp backup.config-example backup.config
+   ```
+1. 構成をカスタマイズするには、テキスト エディターで `backup.config` を編集します。
+   1. `GHE_HOSTNAME` の値をプライマリの {% data variables.product.prodname_ghe_server %} インスタンスのホスト名あるいは IP アドレスに設定します。
+
+     {% note %}
+
+     **注:** {% data variables.product.product_location %} がクラスターとして、またはロード バランサーを使用する高可用性構成に展開されている場合は、{% data variables.product.product_location %} への SSH アクセス (ポート 122 上) が許可されている限り、`GHE_HOSTNAME` をロード バランサーのホスト名に指定できます。
+
+     復旧されたアプライアンスがすぐに利用できることを保証するために、geo レプリケーション構成の場合であってもプライマリ インスタンスをターゲットとしたバックアップを実行してください。
+
+     {% endnote %}
+   1. `GHE_DATA_DIR` の値をバックアップ スナップショットを保存したいファイルシステムの場所に設定します。 手順 1 で Git リポジトリを複製した場所以外の、バックアップ ホストと同じファイル システム上の場所を選ぶことをお勧めします。
+1. バックアップ ホストにインスタンスへのアクセスを許可するには、プライマリ インスタンスの設定ページ `http(s)://HOSTNAME/setup/settings` を開き、承認された SSH キーの一覧にバックアップ ホストの SSH キーを追加します。 詳細については、「[管理シェル (SSH) にアクセスする](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)」を参照してください。
+1. バックアップ ホストで、`ghe-host-check` コマンドを使用して、{% data variables.product.product_location %} との SSH 接続を確認します。
+
+  ```shell
+  ./bin/ghe-host-check
+  ```         
+1. 最初の完全バックアップを作成するには、次のコマンドを実行します。
+
+  ```shell
+  ./bin/ghe-backup
+  ```
+
+高度な使用方法について詳しくは、{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト ドキュメントの [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) を参照してください。
+
+## {% data variables.product.prodname_enterprise_backup_utilities %} のアップグレード
+
+{% data variables.product.prodname_enterprise_backup_utilities %} をアップグレードするときは、現在のバージョンの {% data variables.product.product_name %} で動作するリリースを選ぶ必要があります。 {% data variables.product.prodname_enterprise_backup_utilities %} のインストールは、少なくとも {% data variables.product.product_location %} と同じバージョンである必要があり、3 つ以上先のバージョンにインストールすることはできません。 詳しくは、{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト ドキュメントの「[{% data variables.product.prodname_ghe_server %} バージョン要件](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements)」を参照してください。
+最新の変更をフェッチしてチェックアウトすることで、Git リポジトリの {% data variables.product.prodname_enterprise_backup_utilities %} をアップグレードできます。
+
+または、インストールに Git リポジトリを使用しない場合は、新しいアーカイブを抽出することも、代わりに Git リポジトリを使用するように方法を変更することもできます。
+
+### インストールの種類の確認
+
+{% data variables.product.prodname_enterprise_backup_utilities %} のインストール方法を確認し、インストールをアップグレードする最適な方法を決定できます。
+
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
+1. 有効な作業ディレクトリが Git リポジトリ内に存在するかどうかを確認するには、次のコマンドを実行します。
+
+   ```
+   git rev-parse --is-inside-work-tree
+   ```
+
+   出力が `true` の場合、{% data variables.product.prodname_enterprise_backup_utilities %} は、プロジェクトの Git リポジトリを複製することによってインストールされました。 出力に `fatal: not a git repository (or any of the parent directories)` が含まれている場合、{% data variables.product.prodname_enterprise_backup_utilities %} は、圧縮アーカイブ ファイルを抽出することによってインストールされたと考えられます。
+インストールが Git リポジトリにある場合は、Git を使用して最新バージョンをインストールできます。 インストールが圧縮アーカイブ ファイルから行われた場合は、最新バージョンをダウンロードして抽出するか、Git を使用して {% data variables.product.prodname_enterprise_backup_utilities %} を再インストールして、将来のアップグレードを簡略化できます。
+
+- [Git リポジトリでのインストールのアップグレード](#upgrading-an-installation-in-a-git-repository)
+- [圧縮アーカイブの代わりに Git を使用してアーカイブする](#using-git-instead-of-compressed-archives-for-upgrades)
+
+### Git リポジトリでのインストールのアップグレード
+
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %} {% note %}
+
+  **注:** {% data variables.product.prodname_enterprise_backup_utilities %} をアップグレードする前に、既存の `backup.config` ファイルのコピーを `$HOME/backup.config` のような一時的な場所に作成することをお勧めします。
 
   {% endnote %}
 
-4. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots.
-5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
-6. Verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
+1. `git fetch` コマンドを実行して、最新のプロジェクト更新プログラムをダウンロードします。
+
   ```shell
-  $ bin/ghe-host-check		  
-  ```		  
-  7. To create an initial full backup, run the `ghe-backup` command.
-  ```shell
-  $ bin/ghe-backup		  
+  git fetch
   ```
 
-For more information on advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme).
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %} {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
 
-## Scheduling a backup
+### 圧縮アーカイブの代わりに Git を使用してアーカイブする
 
-You can schedule regular backups on the backup host using the `cron(8)` command or a similar command scheduling service. The configured backup frequency will dictate the worst case recovery point objective (RPO) in your recovery plan. For example, if you have scheduled the backup to run every day at midnight, you could lose up to 24 hours of data in a disaster scenario. We recommend starting with an hourly backup schedule, guaranteeing a worst case maximum of one hour of data loss if the primary site data is destroyed.
+バックアップ ホストにインターネット接続があり、以前に圧縮アーカイブ (`.tar.gz`) を使用して {% data variables.product.prodname_enterprise_backup_utilities %} をインストールまたはアップグレードした場合は、代わりにインストールに Git リポジトリを使用することをお勧めします。 Git を使用してアップグレードすると、作業が少なくなり、バックアップ構成が保持されます。
 
-If backup attempts overlap, the `ghe-backup` command will abort with an error message, indicating the existence of a simultaneous backup. If this occurs, we recommended decreasing the frequency of your scheduled backups. For more information, see the "Scheduling backups" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups).
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
+1. 既存の {% data variables.product.prodname_enterprise_backup_utilities %} の構成をバックアップするには、現在の `backup.config` ファイルをホーム ディレクトリなどの安全な場所にコピーします。
 
-## Restoring a backup
+  ```
+  $ cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
+  ```
 
-In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.product.product_location %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
+1. {% data variables.product.prodname_enterprise_backup_utilities %} Git リポジトリをインストールするバックアップ ホスト上のローカル ディレクトリに移動します。
+1. [プロジェクト リポジトリ](https://github.com/github/backup-utils/)をバックアップ ホスト上のディレクトリに複製するには、次のコマンドを実行します。
 
-{% ifversion ghes %}
+  ```
+  git clone https://github.com/github/backup-utils.git
+  ```
+1. 複製されたリポジトリに移動するには、次のコマンドを実行します。
+
+  ```
+  cd backup-utils
+  ```
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
+1. 前の手順からバックアップ構成を復元するには、既存のバックアップ構成ファイルをローカル リポジトリ ディレクトリにコピーします。 コマンドのパスを、手順 2 で保存したファイルの場所に置き換えます。
+
+  ```
+  $ cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
+  ```
+  
+  {% note %}
+
+  **注:** 複製後にバックアップ構成ファイルを復元する場所を選ぶことができます。 構成ファイルを配置できる場所について詳しくは、{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト ドキュメントの「[概要](https://github.com/github/backup-utils/blob/master/docs/getting-started.md)」を参照してください。
+
+  {% endnote %}
+
+1. バックアップ構成ファイル内のディレクトリまたはスクリプトのパスが正しいことを確認するには、テキスト エディターでファイルを確認します。
+{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
+1. 手順 1 から古い GitHub Enterprise Server Backup Utilities ディレクトリ (圧縮アーカイブのインストール場所) を削除します。
+
+## バックアップのスケジューリング
+
+`cron(8)` コマンドや同様のコマンド スケジューリング サービスを使用して、バックアップ ホストで定期的なバックアップをスケジュール設定できます。 設定されたバックアップ頻度によって、リカバリー計画での最悪の目標復旧ポイント (RPO) が決まります。 たとえば、毎日午前 0 時にバックアップを実行するようにスケジュール設定した場合、災害のシナリオで最大 24 時間分のデータが失われる可能性があります。 プライマリサイトのデータが破壊された場合に、最悪でも最大 1 時間分のデータ損失で収まることが保証されるように、1 時間ごとのバックアップスケジュールから始めることをおすすめします。
+
+バックアップの試行が重複すると、`ghe-backup` コマンドはエラー メッセージを表示して中断し、同時バックアップが存在することを示します。 そのような場合は、スケジュール設定したバックアップの頻度を減らすことをおすすめします。 詳しくは、{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト ドキュメントの [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups) を参照してください。
+
+## バックアップの復元
+
+プライマリ サイトで長時間の停止または壊滅的なイベントが発生した場合は、別の {% data variables.product.prodname_enterprise %} アプライアンスをプロビジョニングしてバックアップ ホストから復元することで、{% data variables.product.product_location %} を復元できます。 アプライアンスを復元する前に、バックアップホストの SSH キーをターゲットの {% data variables.product.prodname_enterprise %} アプライアンスに認証済み SSH キーとして追加する必要があります。
+
 {% note %}
 
-**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+**注意:** {% data variables.product.product_location %} へのバックアップを復元する場合は、同じバージョンのサポート ルールが適用されます。 最大 2 つ前の機能リリースからしかデータを復元できません。
+
+たとえば、{% data variables.product.product_name %} 3.0.x からバックアップを取得した場合、バックアップを {% data variables.product.product_name %} 3.2.x インスタンスに復元できます。 {% data variables.product.product_name %} 2.22.x のバックアップから 3.2.x を実行しているインスタンスにデータを復元することはできません。これは、バージョンを 3 回ジャンプするためです (2.22 から 3.0、3.1、3.2 の順)。 最初に 3.1.x を実行しているインスタンスに復元してから、3.2.x にアップグレードする必要があります。
 
 {% endnote %}
-{% endif %}
+
+最後に成功したスナップショットから {% data variables.product.product_location %} を復元するには、`ghe-restore` コマンドを使用します。
 
 {% note %}
 
-**Note:** When performing backup restores to {% data variables.product.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
-
-For example, if you take a backup from GHES 3.0.x, you can restore it into a GHES 3.2.x instance. But, you cannot restore data from a backup of GHES 2.22.x onto 3.2.x, because that would be three jumps between versions (2.22 > 3.0 > 3.1 > 3.2). You would first need to restore onto a 3.1.x instance, and then upgrade to 3.2.x.
+**注:** バックアップを復元する前に、次のことを確認してください。
+- プライマリ インスタンスでメンテナンス モードが有効になり、すべてのアクティブなプロセスが完了している。 詳細については、「[メンテナンス モードの有効化](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)」を参照してください。
+- 高可用性構成のすべてのレプリカでレプリケーションが停止している。 詳しくは、「[高可用性構成について](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop)」の `ghe-repl-stop` コマンドを参照してください。
+- {% data variables.product.product_location %} で {% data variables.product.prodname_actions %} が有効になっている場合は、まず交換用アプライアンスで {% data variables.product.prodname_actions %} 外部ストレージ プロバイダーを構成する必要があります。 詳細については、「[{% data variables.product.prodname_actions %} を有効にして、{% data variables.product.prodname_ghe_server %} をバックアップおよび復元する](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)」を参照してください。
 
 {% endnote %}
 
-To restore {% data variables.product.product_location %} from the last successful snapshot, use the `ghe-restore` command. You should see output similar to this:
+`ghe-restore` コマンドを実行すると、次のような出力が表示されます。
 
 ```shell
 $ ghe-restore -c 169.154.1.1
@@ -129,16 +242,15 @@ $ ghe-restore -c 169.154.1.1
 > Visit https://169.154.1.1/setup/settings to review appliance configuration.
 ```
 
-{% ifversion ip-exception-list %}
-Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+{% ifversion ip-exception-list %}必要に応じて復元を検証するには、指定した IP アドレスのリストへのアクセスを許可するように IP 例外リストを構成します。 詳細については、「[IP 例外リストを使い、メンテナンス モードで変更を検証する](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)」を参照してください。
 {% endif %}
 
 {% note %}
 
-**Note:** The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
+**注意:** ネットワーク設定はバックアップ スナップショットから除外されます。 ご使用の環境に合わせて、ターゲットの {% data variables.product.prodname_ghe_server %} アプライアンスでネットワークを手動で設定する必要があります。
 
 {% endnote %}
 
-You can use these additional options with `ghe-restore` command:
-- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
-- The `-s` flag allows you to select a different backup snapshot.
+`ghe-restore` コマンドでは、次の追加オプションを使用できます。
+- `-c` フラグは、既に設定されている場合でも、ターゲット ホストで設定、証明書、およびライセンス データを上書きします。 テストのためにステージングインスタンスを設定しており、ターゲット上の依存の設定を残しておきたい場合には、このフラグを省いてください。 詳しくは、{% data variables.product.prodname_enterprise_backup_utilities %} プロジェクト ドキュメントの [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) の「バックアップと復旧コマンドの使用」セクションを参照してください。
+- `-s` フラグにより、異なるバックアップ スナップショットを選択できます。

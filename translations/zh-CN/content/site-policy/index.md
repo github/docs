@@ -18,11 +18,11 @@ children:
   - /security-policies
   - /github-company-policies
   - /site-policy-deprecated
-ms.openlocfilehash: a4be89273e55ac0b29bc879f150781c39f161b4d
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.openlocfilehash: f1e4dc46acc99e667705d06d71cb25bfe858ff26
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556507'
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099234'
 ---
 

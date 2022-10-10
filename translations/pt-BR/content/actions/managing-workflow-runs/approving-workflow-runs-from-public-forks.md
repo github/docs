@@ -6,10 +6,10 @@ versions:
   ghec: '*'
 shortTitle: Approve public fork runs
 ms.openlocfilehash: b995362f67d97a3e2ee6d1029cbe24227867f58a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145083634'
 ---
 ## Sobre as execuções de fluxo de trabalho a partir de bifurcações públicas

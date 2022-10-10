@@ -12,10 +12,10 @@ topics:
   - Security
   - Dependency graph
 ms.openlocfilehash: f99085f6c484869623a81c7585216aca936929e1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145120841'
 ---
 Puedes permitir que los usuarios identifiquen las dependencias de sus proyectos mediante la {% ifversion ghes %}habilitación{% elsif ghae %}con{% endif %} el gráfico de dependencias para {% data variables.product.product_location %}. Para obtener más información, consulta "{% ifversion ghes %}[Habilitación del gráfico de dependencias para la empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% elsif ghae %}[Acerca del gráfico de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph){% endif %}".

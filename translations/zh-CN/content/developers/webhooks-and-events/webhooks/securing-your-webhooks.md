@@ -12,10 +12,10 @@ versions:
 topics:
   - Webhooks
 ms.openlocfilehash: c3597365ae7cf9f96375201d6938c4f6675a8eae
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147707477'
 ---
 一旦服务器配置为接收有效负载，它将侦听发送到您配置的端点的任何有效负载。 出于安全原因，您可能需要将请求限制为来自 GitHub 的请求。 有几种方法可以做到这一点，例如，您可以选择允许来自 GitHub 的 IP 地址的请求，但更简单的方法是设置一个密钥令牌并验证信息。

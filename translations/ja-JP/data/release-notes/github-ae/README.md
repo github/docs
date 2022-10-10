@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 78f03188cb76fd34ffd5670585758bb8c9c2a47d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145115005"
 ---
 # GitHub AEのリリースノート

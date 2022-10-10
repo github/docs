@@ -1,6 +1,6 @@
 ---
-title: Configuring Dependabot alerts
-intro: 'Enable {% data variables.product.prodname_dependabot_alerts %} to be generated when a new vulnerable dependency {% ifversion GH-advisory-db-supports-malware %}or malware {% endif %}is found in one of your repositories.'
+title: Dependabot アラートの構成
+intro: '新しい脆弱な依存関係{% ifversion GH-advisory-db-supports-malware %}またはマルウェア{% endif %}がいずれかのリポジトリに見つかった場合に、{% data variables.product.prodname_dependabot_alerts %}が生成されるようにします。'
 shortTitle: Configure Dependabot alerts
 versions:
   fpt: '*'
@@ -15,96 +15,81 @@ topics:
   - Dependencies
   - Pull requests
   - Repositories
+ms.openlocfilehash: 7844380c395b1ab0c43ba01fa151bf403c6a0349
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146455518'
 ---
-
-## About {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}
+## 脆弱な依存関係{% ifversion GH-advisory-db-supports-malware %}とマルウェア{% endif %}に関する {% data variables.product.prodname_dependabot_alerts %}について
 
 {% data reusables.repositories.a-vulnerability-is %} 
 
-{% data variables.product.prodname_dependabot %} scans code when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or the dependency graph for a repository changes. When vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} are detected, {% data variables.product.prodname_dependabot_alerts %} are generated. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+{% data variables.product.prodname_advisory_database %} に新しいアドバイザリが追加されたとき、またはリポジトリの依存関係グラフが変更されたとき、{% data variables.product.prodname_dependabot %} によってコードがスキャンされます。 脆弱な依存関係{% ifversion GH-advisory-db-supports-malware %}またはマルウェア{% endif %}が検出されると、{% data variables.product.prodname_dependabot_alerts %}が生成されます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
 
-You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for:
-* Your personal account
-* Your repository
-* Your organization
+次の場合、{% data variables.product.prodname_dependabot_alerts %} を有効か無効にできます。
+* 個人アカウント
+* リポジトリ
+* 自分の組織
 
-## Managing {% data variables.product.prodname_dependabot_alerts %} for your personal account
+## 個人アカウントの {% data variables.product.prodname_dependabot_alerts %} の管理
 
 {% ifversion fpt or ghec %}
 
-You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your personal account.
+個人アカウントが所有するすべてのリポジトリの {% data variables.product.prodname_dependabot_alerts %} を有効か無効にできます。
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for existing repositories
+### 既存のリポジトリに対する {% data variables.product.prodname_dependabot_alerts %} の有効化または無効化
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security-analysis %}
-3. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable all** or **Enable all**.
- ![Screenshot of "Configure security and analysis" features with "Enable all" or "Disable all" buttons emphasized](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-all.png)
-4. Optionally, enable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories that you create.
-  ![Screenshot of "Enable Dependabot alerts" with "Enable by default for new private repositories" checkbox emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-by-default.png)
-5. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories you own.
-  ![Screenshot of "Enable Dependabot alerts" with "Enable  Dependabot alerts" button emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
+3. [Code security and analysis]\(コードのセキュリティと分析\) で、{% data variables.product.prodname_dependabot_alerts %} の右側にある **[すべて無効にする]** か **[すべて有効にする]** をクリックします。
+ ![[すべて有効にする] または [すべて無効にする] ボタンが強調された [セキュリティと分析の構成] 機能のスクリーンショット](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-all.png)
+4. 必要に応じて、作成する新しいリポジトリに対して {% data variables.product.prodname_dependabot_alerts %} を既定で有効にします。
+  ![[Enable by default for new private repositories]\(新しいプライベート リポジトリを既定で有効にする\) チェックボックスが強調されている "Dependabot アラートを有効にする" スクリーンショット](/assets/images/help/dependabot/dependabot-alerts-enable-by-default.png)
+5. **[{% data variables.product.prodname_dependabot_alerts %}を無効にする]** か **[{% data variables.product.prodname_dependabot_alerts %}を有効にする]** をクリックすると、所有しているすべてのリポジトリに対して {% data variables.product.prodname_dependabot_alerts %} を無効か有効にすることができます。
+  ![[Enable Dependabot alerts]\(Dependabot アラートを有効にする\) ボタンが強調された "Dependabot アラートを有効にする" スクリーンショット](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts.png)
 
-When you enable {% data variables.product.prodname_dependabot_alerts %} for existing repositories, you will see any results displayed on GitHub within minutes.
+既存のリポジトリに対して {% data variables.product.prodname_dependabot_alerts %} を有効にすると、数分以内に GitHub に結果が表示されるようになります。
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for new repositories
+### 新規リポジトリに対する {% data variables.product.prodname_dependabot_alerts %} の有効化または無効化
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security-analysis %}
-3. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, enable or disable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories that you create.
-  ![Screenshot of "Configure security and analysis" with "Enable  for all new private repositories" check emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-for-all-new-repositories.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
+3. [Code security and analysis]\(コードのセキュリティと分析\) で、{% data variables.product.prodname_dependabot_alerts %} の右側にある、作成する新規リポジトリに対する {% data variables.product.prodname_dependabot_alerts %} を既定で有効か無効に設定できます。
+  ![[Enable for all new private repositories]\(すべての新しいプライベート リポジトリに対して有効にする\) チェックが強調された [Configure security and analysis]\(セキュリティと分析の構成\) のスクリーンショット](/assets/images/help/dependabot/dependabot-alerts-enable-for-all-new-repositories.png)
 
-{% else %}
-{% data variables.product.prodname_dependabot_alerts %} for your repositories can be enabled or disabled by your enterprise owner. For more information, see "[Enabling Dependabot for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+{% else %}リポジトリの {% data variables.product.prodname_dependabot_alerts %} は、エンタープライズ所有者が有効か無効にできます。 詳細については、「[エンタープライズでの Dependabot の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 
 {% endif %}
 
-## Managing {% data variables.product.prodname_dependabot_alerts %} for your repository
+## リポジトリの {% data variables.product.prodname_dependabot_alerts %} の管理
 
-{% ifversion fpt or ghec %}You can manage {% data variables.product.prodname_dependabot_alerts %} for your public, private or internal repository.
+{% ifversion fpt or ghec %}パブリック、プライベート、または内部リポジトリの {% data variables.product.prodname_dependabot_alerts %} を管理できます。
 
-By default, we notify people with admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working repositories that you own or have admin permissions for.
+デフォルトでは、新しい{% data variables.product.prodname_dependabot_alerts %}に関して影響を受けるリポジトリに管理権限を持っている人に通知を行います。 {% data variables.product.product_name %} は、どのようなリポジトリについても、安全でない依存関係を公表することはありません。 {% data variables.product.prodname_dependabot_alerts %} を、自分が所有または管理者権限を持っているリポジトリで作業している追加のユーザや Team に表示することもできます。
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for a repository
+### リポジトリに対する {% data variables.product.prodname_dependabot_alerts %} の有効化および無効化
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Enable** to enable alerts or **Disable** to disable alerts. 
-  ![Screenshot of "Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png)
-{% endif %}{% ifversion ghes or ghae %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. [コードのセキュリティと分析] で、{% data variables.product.prodname_dependabot_alerts %}の右側にある **[有効にする]** をクリックしてアラートを有効にするか、 **[無効にする]** をクリックしてアラートを無効にします。 
+  ![[コードのセキュリティと分析] セクションと、{% data variables.product.prodname_dependabot_security_updates %}を有効にするボタンのスクリーンショット](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png) {% endif %}{% ifversion ghes or ghae %}
 
-{% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. For more information, see "[Enabling Dependabot for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+リポジトリの {% data variables.product.prodname_dependabot_alerts %} は、エンタープライズ所有者が有効か無効にできます。 詳細については、「[エンタープライズでの Dependabot の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 {% endif %}
 
-## Managing {% data variables.product.prodname_dependabot_alerts %} for your organization
-{% ifversion fpt or ghec %}You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your organization. Your changes affect all repositories.
+## 組織の {% data variables.product.prodname_dependabot_alerts %} の管理
+{% ifversion fpt or ghec %}組織が所有するすべてのリポジトリに対して {% data variables.product.prodname_dependabot_alerts %} を有効か無効にできます。 変更はすべてのリポジトリに影響します。
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for all existing repositories
+### 既存のすべてのリポジトリに対する {% data variables.product.prodname_dependabot_alerts %} の有効化または無効化
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-2. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable all** or **Enable all**. 
-   {% ifversion fpt or ghec %}
-   ![Screenshot of "Configure security and analysis" features with the "Enable all" or "Disable all" button emphasized for Dependabot alerts](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt.png)
-   {% endif %}
-   {% ifversion ghae %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png)
-   {% endif %}
-   {% ifversion fpt or ghec %}
-3. Optionally, enable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories in your organization.
-   {% ifversion fpt or ghec %}
-   ![Screenshot of "Enable by default" option for new repositories](/assets/images/help/dependabot/dependabot-alerts-enable-by-default-organizations.png)
-   {% endif %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %}
+2. [Code security and analysis]\(コードのセキュリティと分析\) で、{% data variables.product.prodname_dependabot_alerts %} の右側にある **[すべて無効にする]** か **[すべて有効にする]** をクリックします。 
+   {% ifversion fpt or ghec %} ![Dependabot アラートで [すべて有効にする] または [すべて無効にする] ボタンが強調された [セキュリティと分析の構成] 機能のスクリーンショット](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt.png) {% endif %} {% ifversion ghae %} ![[セキュリティと分析の構成] 機能の [すべて有効にする] または [すべて無効にする] ボタン](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png) {% endif %} {% ifversion fpt or ghec %}
+3. 必要に応じて、組織内の新しいリポジトリに対して {% data variables.product.prodname_dependabot_alerts %} を既定で有効にします。
+   {% ifversion fpt or ghec %} ![新しいリポジトリの [既定で有効にする] オプションのスクリーンショット](/assets/images/help/dependabot/dependabot-alerts-enable-by-default-organizations.png) {% endif %}
    
+   {% endif %} {% ifversion fpt or ghec %}
+4. **[{% data variables.product.prodname_dependabot_alerts %}を無効にする]** か **[{% data variables.product.prodname_dependabot_alerts %}を有効にする]** をクリックすると、組織内のすべてのリポジトリに対して {% data variables.product.prodname_dependabot_alerts %} を無効か有効にすることができます。
+   {% ifversion fpt or ghec %} ![無効または有効にする機能のボタンが強調された [Enable Dependabot alerts]\(Dependabot アラートを有効にする\) モーダルのスクリーンショット](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts-organizations.png) {% endif %}{% endif %}{% endif %}{% ifversion ghes or ghae %} 組織の {% data variables.product.prodname_dependabot_alerts %} は、エンタープライズ所有者が有効か無効にできます。 詳細については、「[GitHub Enterprise サーバーの Dependabot について](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
    {% endif %}
-   {% ifversion fpt or ghec %}
-4. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories in your organization.
-   {% ifversion fpt or ghec %}
-   ![Screenshot of "Enable Dependabot alerts" modal with button to disable or enable feature emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts-organizations.png)
-   {% endif %}{% endif %}{% endif %}{% ifversion ghes or ghae %}
-{% data variables.product.prodname_dependabot_alerts %} for your organization can be enabled or disabled by your enterprise owner. For more information, see "[About Dependabot for GitHub Enterprise Server](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
-{% endif %}

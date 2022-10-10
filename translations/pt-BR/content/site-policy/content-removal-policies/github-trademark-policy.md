@@ -9,39 +9,39 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 289a04f894172d8adcaf0c32fe129efb524d8941
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556418'
 ---
-## <a name="what-is-a-github-trademark-policy-violation"></a>O que é uma Violação da Política de Marcas Registradas do GitHub?
+## O que é uma Violação da Política de Marcas Registradas do GitHub?
 
 Usar uma empresa ou um nome comercial, um logotipo ou outros materiais protegidos por marca registrada de maneira que possa enganar ou confundir outras pessoas em relação à sua marca ou à afiliação comercial pode ser considerado uma violação da política de marcas registradas.
 
-## <a name="what-is-not-a-github-trademark-policy-violation"></a>O que não se trata de uma Violação da Política de Marcas Registradas do GitHub?
+## O que não se trata de uma Violação da Política de Marcas Registradas do GitHub?
 
 Usar a marca registrada de outra pessoa de forma não relacionada ao produto ou ao serviço para o qual a marca registrada foi concedida não é uma violação da política de marcas registradas. Os nomes de usuário do GitHub estão disponíveis por ordem de chegada e não podem ser reservados. Uma conta do GitHub com um nome de usuário equivalente a uma marca registrada não constitui, por si só, uma violação de nossa política de marcas registradas.
 
-## <a name="how-does-github-respond-to-reported-trademark-policy-violations"></a>Como o GitHub responde a violações da política de marcas registradas denunciadas?
+## Como o GitHub responde a violações da política de marcas registradas denunciadas?
 
 Quando recebemos denúncias de violações da política de marcas registradas de titulares de registros federais ou internacionais de marcas registradas, analisamos a conta e podemos tomar as seguintes medidas:
 
 * Quando houver clara intenção de enganar outras pessoas por meio do uso não autorizado de uma marca registrada, o GitHub suspenderá a conta e notificará o titular.
 * Quando determinamos que uma conta parece confundir os usuários, mas não está se passando propositalmente por produto ou serviço de marca registrada, oferecemos ao titular da conta a oportunidade de esclarecer qualquer possível confusão. Também podemos liberar um nome de usuário para uso ativo do titular da marca registrada.
 
-## <a name="how-do-i-report-a-trademark-policy-violation"></a>Como faço para denunciar uma violação da política de marcas registradas?
+## Como faço para denunciar uma violação da política de marcas registradas?
 
 Os titulares de marcas registradas podem denunciar possíveis violações da política de marca registrada ao GitHub por meio do nosso [formulário de contato](https://support.github.com/contact?tags=docs-trademark). Envie solicitações relacionadas a marcas registradas usando o endereço de email de sua empresa e inclua todas as informações solicitadas abaixo para ajudar a agilizar nossa resposta. Também descreva claramente por que a conta pode causar confusão com sua marca ou como a conta pode diluir ou manchar sua marca.
 
-## <a name="what-information-is-required-when-reporting-trademark-policy-violations"></a>Quais informações são necessárias ao denunciar violações da política de marcas registradas?
+## Quais informações são necessárias ao denunciar violações da política de marcas registradas?
 
 Para investigar violações da política de marcas registradas, forneça todas as informações a seguir:
 
 * Nome de usuário da conta denunciada
 * Nome da empresa
 * A conta do GitHub da sua empresa (se houver)
-* Site da Empresa
+* Site da empresa
 * Sua palavra de marca registrada, símbolo, etc.
 * Número de registro da marca registrada
 * Escritório de registro de marcas (por exemplo, USPTO)

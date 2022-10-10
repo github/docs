@@ -47,6 +47,8 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ![Screenshot of {% data variables.product.prodname_vs %} permissions confirmation](/assets/images/help/copilot/vs-confirmation.png)
 
 ## Seeing your first suggestion
+
+{% data reusables.copilot.code-examples-limitations %}
 {% data reusables.copilot.supported-languages %} The following samples are in C#, but other languages will work similarly.
 
 {% data reusables.copilot.create-c-file %}

@@ -20,6 +20,8 @@ Repository administrators and project maintainers can delete a discussion in tha
 
 ![Most helpful contributors to discussions for a project](/assets/images/help/discussions/most-helpful.png)
 
+Community members can upvote discussions and top-level comments inside discussions to communicate with maintainers about ideas that matter to them. Project maintainers can then sort discussions and comments based on upvotes to gain insight into what community members value.
+
 For more information about participation in discussions, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
 
 ## Prerequisites
@@ -46,6 +48,34 @@ You can search for discussions and filter the list of discussions in a repositor
   ![Search bar and buttons for filtering discussions](/assets/images/help/discussions/search-and-filter-controls.png)
 1. In the list of discussions, click the discussion you want to view.
   ![Discussion search results](/assets/images/help/discussions/search-result.png)
+
+## Sorting the list of discussions
+
+You can choose how to sort the list of discussions.
+
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+1. To the right of the **Search all discussions** field, select **New**, or select **Top** and choose a time period from the drop down menu.
+
+   ![Buttons for sorting discussions](/assets/images/help/discussions/sort-discussions-buttons.png)
+
+    - Sort by **New** to display the discussions with the most recent activity at the top of the list.
+    - Sort by **Top** to display the discussions with the most upvotes at the top of the list. You can limit the list to only display discussions from a specific time period.
+
+## Sorting top-level comments in discussions
+
+You can choose how to sort top-level comments in discussions. Comment threads do not impact the order comments are sorted in.
+
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. Under the main discussion post, select **Oldest**, **Newest**, or **Top**.
+
+   ![Buttons for sorting comments in discussions](/assets/images/help/discussions/sort-comments-buttons.png)
+
+    - Sort by **Oldest** to display the oldest top-level comments first.
+    - Sort by **Newest** to display the newest top-level comments first.
+    - Sort by **Top** to display the most upvoted top-level comments first.
 
 ## Converting an issue to a discussion
 

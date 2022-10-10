@@ -37,17 +37,10 @@ We'll run all of the cells, in sequence, to perform all phases of building the i
 
 ### Open the image classifier notebook
 
-The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, TensorFlow, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/codespaces#github-codespaces-default-linux-universal).
+The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, TensorFlow, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/universal).
 
 1. In the {% data variables.product.prodname_vscode_shortname %} editor, close any "Get Started" tabs that are displayed.
 1. Open the `image-classifier.ipynb` notebook file.
-1. Click the Python kernel link at the top right of the editor.
-
-   ![Screenshot of the Python kernal link](/assets/images/help/codespaces/jupyter-python-kernel-link.png)
-   
-1. In the drop-down menu, choose the kernel in the directory `/opt/python/latest/bin/python`.
-
-   ![Screenshot of the Python kernal drop-down menu](/assets/images/help/codespaces/jupyter-python-kernel-dropdown.png)
 
 ### Build the image classifier
 
@@ -75,7 +68,7 @@ Some software, such as TensorFlow, requires you to install NVIDIA CUDA to use yo
 1. Add a top-level `features` object with the following contents:
 
    ```json{:copy}
-     “features”: {
+     "features": {
        "ghcr.io/devcontainers/features/nvidia-cuda:1": { 
          "installCudnn": true
        }
@@ -96,7 +89,7 @@ Some software, such as TensorFlow, requires you to install NVIDIA CUDA to use yo
          ]
        }
      },
-     “features”: {
+     "features": {
        "ghcr.io/devcontainers/features/nvidia-cuda:1": { 
          "installCudnn": true
        }

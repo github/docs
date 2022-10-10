@@ -74,6 +74,7 @@ const ALLOW_DOCS_PATHS = [
   '.github/review-template.md',
   '.github/workflows/hubber-contribution-help.yml',
   '.github/workflows/sync-search-indices.yml',
+  '.github/workflows/site-policy-reminder.yml',
   'contributing/search.md',
   'docs/index.yaml',
   'lib/excluded-links.js',

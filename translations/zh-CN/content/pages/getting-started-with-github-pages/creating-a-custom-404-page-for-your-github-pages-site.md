@@ -15,11 +15,11 @@ topics:
   - Pages
 shortTitle: Create custom 404 page
 ms.openlocfilehash: 1b10946277d90773b847b929d85a3b6cf8212a4e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145130269'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880563'
 ---
 {% data reusables.pages.navigate-site-repo %} {% data reusables.pages.navigate-publishing-source %} {% data reusables.files.add-file %}
 3. 在“文件名”字段中，键入 `404.html` 或 `404.md`。
