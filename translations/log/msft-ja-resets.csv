@@ -299,6 +299,7 @@ translations/ja-JP/content/actions/using-workflows/events-that-trigger-workflows
 translations/ja-JP/content/actions/using-workflows/reusing-workflows.md,rendering error
 translations/ja-JP/content/actions/using-workflows/sharing-workflows-secrets-and-runners-with-your-organization.md,rendering error
 translations/ja-JP/content/actions/using-workflows/triggering-a-workflow.md,rendering error
+translations/ja-JP/content/actions/using-workflows/workflow-commands-for-github-actions.md,broken liquid tags
 translations/ja-JP/content/actions/using-workflows/workflow-syntax-for-github-actions.md,rendering error
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise.md,rendering error
@@ -307,7 +308,7 @@ translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-mach
 translations/ja-JP/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
 translations/ja-JP/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise.md,rendering error
 translations/ja-JP/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise.md,rendering error
-translations/ja-JP/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication.md,broken liquid tags
+translations/ja-JP/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication.md,rendering error
 translations/ja-JP/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,rendering error
 translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,rendering error
@@ -510,6 +511,7 @@ translations/ja-JP/content/repositories/configuring-branches-and-merges-in-your-
 translations/ja-JP/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches.md,rendering error
 translations/ja-JP/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule.md,rendering error
 translations/ja-JP/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks.md,rendering error
+translations/ja-JP/content/repositories/creating-and-managing-repositories/transferring-a-repository.md,broken liquid tags
 translations/ja-JP/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,rendering error
 translations/ja-JP/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,rendering error
 translations/ja-JP/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,rendering error
@@ -523,6 +525,7 @@ translations/ja-JP/content/repositories/releasing-projects-on-github/managing-re
 translations/ja-JP/content/repositories/working-with-files/managing-large-files/about-large-files-on-github.md,broken liquid tags
 translations/ja-JP/content/repositories/working-with-files/using-files/working-with-non-code-files.md,rendering error
 translations/ja-JP/content/rest/dependabot/index.md,broken liquid tags
+translations/ja-JP/content/rest/enterprise-admin/scim.md,broken liquid tags
 translations/ja-JP/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/ja-JP/content/rest/overview/permissions-required-for-github-apps.md,rendering error
 translations/ja-JP/content/rest/repos/lfs.md,broken liquid tags
