@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Introduction
+# Introduction
 
 {% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
@@ -28,7 +28,7 @@ In this quickstart guide, you will:
 
 To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
 
-## Creating a repository
+# Creating a repository
 
 A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a _README_ file, a file with information about your project. _README_ files are written in the plain text Markdown language. You can use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} lets you add a _README_ file at the same time you create your new repository. {% data variables.product.product_name %} also offers other common options such as a license file, but you do not have to select any of them now.
 
@@ -43,7 +43,7 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 
    ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
 
-## Creating a branch
+# Creating a branch
 
 Branching lets you have different versions of a repository at one time.
 
@@ -69,7 +69,7 @@ Branches accomplish similar goals in {% data variables.product.product_name %} r
 
 Here at {% data variables.product.product_name %}, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `main` (production) branch. When a change is ready, they merge their branch into `main`.
 
-### Create a branch
+# Create a branch
 
 1. Click the **Code** tab of your `hello-world` repository.
 2. Click the drop down at the top of the file list that says **main**.
@@ -97,7 +97,7 @@ You can make and save changes to the files in your repository. On {% data variab
 
 These changes will be made only to the README file on your `readme-edits` branch, so now this branch contains content that's different from `main`.
 
-## Opening a pull request
+#Opening a pull request
 
 Now that you have changes in a branch off of `main`, you can open a pull request.
 
