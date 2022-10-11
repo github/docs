@@ -124,7 +124,7 @@ Next, the script gets the current time and sets it as an output variable that ac
 1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
   ```shell{:copy}
-  $ git update-index —chmod=+x entrypoint.sh
+  $ git update-index --chmod=+x entrypoint.sh
   ```
   
 1. Optionally, to check the permission mode of the file in the git index, run the following command.
