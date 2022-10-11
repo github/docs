@@ -116,7 +116,7 @@ After you enable {% data variables.product.prodname_dependabot_alerts %} for you
 
 {% data reusables.enterprise_management_console.save-settings %}
 1. Click **Visit your instance**.
-1. Configure self-hosted runners to create the pull requests that will update dependencies. For more information, see "[Managing self-hosted runners for {% data variables.product.prodname_dependabot_updates %} on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)."
+1. Configure dedicated self-hosted runners to create the pull requests that will update dependencies. This is required because the workflows use a specific runner label. For more information, see "[Managing self-hosted runners for {% data variables.product.prodname_dependabot_updates %} on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)."
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Users can easily upgrade to non-vulnerable open source code dependencies", click **Enable**.
