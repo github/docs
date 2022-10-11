@@ -31,7 +31,7 @@ From least access to most access, the roles for an organization repository are:
 
 {% ifversion fpt %}
 If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can create custom repository roles. For more information, see "[Managing custom repository roles for an organization](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
-{% elsif ghec or ghes > 3.4 or ghae-issue-6271 %}
+{% elsif ghec or ghes > 3.4 or ghae > 3.4 %}
 You can create custom repository roles. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 {% endif %}
 
@@ -111,7 +111,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Configure [a publishing source for {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages) | | | | **✔️** | **✔️** |
 | [Manage branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule) | | | | | **✔️** |
 | [Push to protected branches](/articles/about-protected-branches) | | | | **✔️** | **✔️** |
-| Merge pull requests on protected branches, even if there are no approving reviews | | | | | **✔️** |{% ifversion fpt or ghes > 3.4 or ghae-issue-6337 or ghec %}
+| Merge pull requests on protected branches, even if there are no approving reviews | | | | | **✔️** |{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
 | Create tags that match a [tag protection rule](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules) | | | | **✔️** | **✔️** |
 | Delete tags that match a [tag protection rule](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules) | | | | | **✔️** |{% endif %}
 | [Create and edit repository social cards](/articles/customizing-your-repositorys-social-media-preview) | | | | **✔️** | **✔️** |{% ifversion fpt or ghec %}

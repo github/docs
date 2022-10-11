@@ -19,6 +19,7 @@ export default async function syncSearchIndexes({
   outDirectory,
   compressFiles,
   generateLunrIndex,
+  config = {},
 }) {
   const t0 = new Date()
 
@@ -39,7 +40,7 @@ export default async function syncSearchIndexes({
   )
 
   // Exclude WIP pages, hidden pages, index pages, etc
-  const indexablePages = await findIndexablePages()
+  const indexablePages = await findIndexablePages(config.filter)
   const redirects = {}
   indexablePages.forEach((page) => {
     const href = page.relativePath.replace('index.md', '').replace('.md', '')
@@ -72,7 +73,8 @@ export default async function syncSearchIndexes({
         indexablePages,
         pageVersion,
         languageCode,
-        redirects
+        redirects,
+        config
       )
       if (generateLunrIndex) {
         const index = new LunrIndex(indexName, records)

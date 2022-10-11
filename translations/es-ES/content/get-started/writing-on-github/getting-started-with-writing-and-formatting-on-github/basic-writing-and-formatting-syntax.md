@@ -1,6 +1,6 @@
 ---
-title: Sintaxis de escritura y formato básicos
-intro: Crear formatos sofisticados para tu prosa y código en GitHub con sintaxis simple.
+title: Basic writing and formatting syntax
+intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
 redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax
@@ -10,71 +10,70 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Sintaxis de formato básica
+shortTitle: Basic formatting syntax
 ---
+## Headings
 
-## Encabezados
-
-Para crear un encabezado, agrega uno a seis símbolos <kbd>#</kbd> antes del encabezado del texto. La cantidad de <kbd>#</kbd> que utilices determinará el tamaño del encabezado.
-
-```markdown
-# El encabezado más largo
-## El segundo encabezado más largo
-###### El encabezado más pequeño
-```
-
-![Encabezados H1, H2 y H6 representados](/assets/images/help/writing/headings-rendered.png)
-
-Cuando usas dos o más encabezados, GitHub generará una tabla de contenido automáticamente, a la cual podrás acceder si haces clic en {% octicon "list-unordered" aria-label="The unordered list icon" %} dentro del encabezado del archivo. Cada título de encabezado se lista en la tabla de contenido y puedes hacer clic en un título para navegar a la sección seleccionada.
-
-![Captura de pantalla resaltando el icono de la tabla de contenido](/assets/images/help/repository/headings_toc.png)
-
-## Estilo de texto
-
-Puedes indicar un énfasis con texto en negritas, itálicas, tachado, subíndice o superíndice en los campos de comentario y archivos `.md`.
-
-| Estilo                       | Sintaxis                   | Atajo del teclado                                                                    | Ejemplo                                                  | Resultado                                     |
-| ---------------------------- | -------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------- | --------------------------------------------- |
-| Negrita                      | `** **` o `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Este texto está en negrita**`                         | **Este texto está en negrita**                |
-| Cursiva                      | `* *` o `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Este texto está en cursiva*`                           | *Este texto está en cursiva*                  |
-| Tachado                      | `~~ ~~`                    |                                                                                      | `~~Este texto está equivocado~~`                         | ~~Este texto está equivocado~~                |
-| Cursiva en negrita y anidada | `** **` y `_ _`            |                                                                                      | `**Este texto es _extremadamente_ importante**`          | **Este texto es _extremadamente_ importante** |
-| Todo en negrita y cursiva    | `*** ***`                  |                                                                                      | `***Todo este texto es importante***`                    | ***Todo este texto es importante***           |
-| Subíndice                    | `<sub> </sub>` |                                                                                      | `<sub>Este es un texto en subíndice</sub>`   | <sub>Este es un texto en subíndice</sub>      |
-| Superíndice                  | `<sup> </sup>` |                                                                                      | `<sup>Este es un texto en superíndice</sup>` | <sup>Este es un texto en superíndice</sup>    |
-
-## Cita de texto
-
-Puedes citar texto con un <kbd>></kbd>.
+To create a heading, add one to six <kbd>#</kbd> symbols before your heading text. The number of <kbd>#</kbd> you use will determine the size of the heading.
 
 ```markdown
-Texto que no es una cita
-
-> Texto que es una cita
+# The largest heading
+## The second largest heading
+###### The smallest heading
 ```
 
-![Texto citado representado](/assets/images/help/writing/quoted-text-rendered.png)
+![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
+
+When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section. 
+
+![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
+
+## Styling text
+
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.  
+
+| Style | Syntax | Keyboard shortcut | Example | Output |
+| --- | --- | --- | --- | --- |
+| Bold | `** **` or `__ __`| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**This is bold text**` | **This is bold text** |
+| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*This text is italicized*` | *This text is italicized* |
+| Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
+| Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
+| All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
+| Subscript | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
+| Superscript | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+
+## Quoting text
+
+You can quote text with a <kbd>></kbd>.
+
+```markdown
+Text that is not a quote
+
+> Text that is a quote
+```
+
+![Rendered quoted text](/assets/images/help/writing/quoted-text-rendered.png)
 
 {% tip %}
 
-**Tip:** Cuando ves una conversación, puedes citar texto automáticamente en un comentario si lo resaltas y luego tecleas <kbd>R</kbd>. Puedes citar un comentario completo al hacer clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, y luego en **Quote reply** (Citar respuesta). Para obtener más información sobre atajo del teclado, consulta "[Atajos del teclado](/articles/keyboard-shortcuts/)".
+**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts/)."
 
 {% endtip %}
 
-## Código de cita
+## Quoting code
 
-Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto dentro de las comillas simples no será formateado. También puedes presionar el atajo de teclado <kbd>Command</kbd>+<kbd>E</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) para insertar los apóstrofos para un bloque de código dentro de una línea de lenguaje de marcado.
+You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted. You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.
 
 ```markdown
-Usa `git status` para enumerar todos los archivos nuevos o modificados que aún no han sido confirmados.
+Use `git status` to list all new or modified files that haven't yet been committed.
 ```
 
-![Bloque de código en línea representado](/assets/images/help/writing/inline-code-rendered.png)
+![Rendered inline code block](/assets/images/help/writing/inline-code-rendered.png)
 
-Para formatear código o texto en su propio bloque distintivo, usa comillas triples.
+To format code or text into its own distinct block, use triple backticks.
 
 <pre>
-Algunos de los comandos de Git básicos son:
+Some basic Git commands are:
 ```
 git status
 git add
@@ -82,118 +81,112 @@ git commit
 ```
 </pre>
 
-![Bloque de código representado](/assets/images/help/writing/code-block-rendered.png)
+![Rendered code block](/assets/images/help/writing/code-block-rendered.png)
 
-Para obtener más información, consulta "[Crear y resaltar bloques de código](/articles/creating-and-highlighting-code-blocks)".
+For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
-## Modelos de color compatibles
+## Supported color models
 
-En las propuestas, solicitudes de cambio y debates, puedes hacer llamados a colores con una oración si utilizas comillas simples. Un modelo de color compatible dentro de comillas simples mostrará una visualización de dicho color.
+In issues, pull requests, and discussions, you can call out colors within a sentence by using backticks. A supported color model within backticks will display a visualization of the color.
 
 ```markdown
-El color de fondo debe ser `#ffffff` para el modo claro y `#0d1117` para el modo oscuro.
+The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
 ```
 
-![Modelo de color compatible representado.](/assets/images/help/writing/supported-color-models-rendered.png)
+![Rendered supported color model.](/assets/images/help/writing/supported-color-models-rendered.png)
 
-Aquí están los modelos de color compatibles actualmente.
+Here are the currently supported color models.
 
-| Color | Sintaxis                  | Ejemplo                   | Resultado                                                                                                                                  |
-| ----- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| HEX   | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Modelo de color representado compatible en formato HEX.](/assets/images/help/writing/supported-color-models-hex-rendered.png)            |
-| RGB   | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Formato de modelo de color representado compatible en formato RGB.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
-| HSL   | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Formato de modelo de color representado compatible en formato HSL.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+| Color | Syntax | Example | Output |
+| --- | --- | --- | --- |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Rendered supported color model in RGB format.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Rendered supported color model in HSL format.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
 
 {% note %}
 
-**Notas:**
+**Notes:**
 
-- Un modelo de color compatible no puede tener espacios iniciales o finales dentro de las comillas simples.
-- La visualización del color solo es compatible en propuestas, solicitudes de cambio y debates.
+- A supported color model cannot have any leading or trailing spaces within the backticks.
+- The visualization of the color is only supported in issues, pull requests, and discussions.
 
 {% endnote %}
 
-## Enlaces
+## Links
 
-Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. También puedes utilizar el atajo de teclado <kbd>Command</kbd>+<kbd>K</kbd> para crear un enlace.{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Cuando tienes texto seleccionado, puedes pegar una URL desde tu portapapeles para crear automáticamente un enlace desde la selección.{% endif %}
+You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae > 3.3 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
-{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} También puedes crear un hipervínculo de lenguaje de marcado si resaltas el texto y utilizas el atajo de teclado <kbd>Command</kbd>+<kbd>V</kbd>. Si quieres reemplazar el texto con el enlace, utiliza el atajo de teclado <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
-`Este sitio se construyó usando [GitHub Pages](https://pages.github.com/).`
+`This site was built using [GitHub Pages](https://pages.github.com/).`
 
-![Enlace representado](/assets/images/help/writing/link-rendered.png)
+![Rendered link](/assets/images/help/writing/link-rendered.png)
 
 {% tip %}
 
-**Sugerencias:** {% data variables.product.product_name %} automáticamente crea enlaces cuando las direcciones URL válidas están escritas en un comentario. Para obtener más información, consulta "[Referencias y direcciones URL autovinculadas](/articles/autolinked-references-and-urls)".
+**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
 
 {% endtip %}
 
-## Enlaces de sección
+## Section links
 
 {% data reusables.repositories.section-links %}
 
-## Enlaces relativos
+## Relative links
 
 {% data reusables.repositories.relative-links %}
 
-## Imágenes
+## Images
 
-Puedes mostrar una imagen si agregas <kbd>!</kbd> y pones el texto alternativo entre `[ ]`. Entonces encierra el enlace de la imagen entre paréntesis `()`.
+You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. Then wrap the link for the image in parentheses `()`.
 
-`![Esta es una imagen](https://myoctocat.com/assets/images/base-octocat.svg)`
+`![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
-![Imagen interpretada](/assets/images/help/writing/image-rendered.png)
+![Rendered Image](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} es compatible con incrustar imágenes en tus propuestas, solicitudes de cambio{% ifversion fpt or ghec %}, debates{% endif %}, comentarios y archivos `.md`. Puedes mostrar una imagen desde tu repositorio, agregar un enlace a una imagen en línea o cargar una imagen. Para obtener más información, consulta la sección "[Cargar activos](#uploading-assets)".
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
 {% tip %}
 
-**Tip:** Cuando quieras mostrar una imagen que esté en tu repositorio, deberías utilizar enlaces relativos en vez de absolutos.
+**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
 
 {% endtip %}
 
-Aquí tienes algunos ejemplos para utilizar enlaces relativos para mostrar una imagen.
+Here are some examples for using relative links to display an image.
 
-| Contexto                                                                | Enlace Relativo                                                        |
-| ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| En un archivo `.md` en la misma rama                                    | `/assets/images/electrocat.png`                                        |
-| En un archivo `.md` en otra rama                                        | `/../main/assets/images/electrocat.png`                                |
-| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png?raw=true`                   |
-| En un archivo `.md` en otro repositorio                                 | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
-| En propuestas, solicitudes de cambios y comentarios de otro repositorio | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| Context | Relative Link |
+| ------ | -------- |
+| In a `.md` file on the same branch | `/assets/images/electrocat.png` |
+| In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
+| In issues, pull requests and comments of the repository | `../blob/main/assets/images/electrocat.png?raw=true` |
+| In a `.md` file in another repository | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
+| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
 
-**Nota**: Los últimos dos enlaces relativos en la tabla anterior funcionarán únicamente para las imágenes en repositorios privados solo si el lector tiene por lo menos acceso de lectura a este.
+**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
 
 {% endnote %}
 
-Para obtener más información, consulta la sección "[Enlaces relativos](#relative-links)".
+For more information, see "[Relative Links](#relative-links)."
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
-### Especificar un tema en el que se muestra una imagen
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+### Specifying the theme an image is shown to
 
-Puedes especificar el tema para el cual se muestra una imagen en el lenguaje de marcado si utilizas el elemento HTML `<picture>` combinado con la característica de medios `prefers-color-scheme`. Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
+You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
 
-Por ejemplo, el siguiente código muestra una imagen de un sol para los temas claros y una luna para los oscuros:
+For example, the following code displays a sun image for light themes and a moon for dark themes:
 
-```HTML
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
-  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
-</picture>
-```
+{% data reusables.getting-started.picture-element-example %}
 
-El método antiguo para especificar las imágenes con base en el tema, que es utilizando un fragmento anexo a la URL (`#gh-dark-mode-only` o `#gh-light-mode-only`), será obsoleto y se eliminará para favorecer al método nuevo que se menciona anteriormente.
+The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
 {% endif %}
 
-## Listas
+## Lists
 
-Puedes crear una lista con viñetas si precedes una o más líneas de texto con <kbd>-</kbd> o <kbd>*</kbd>.
+You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd> or <kbd>*</kbd>.
 
 ```markdown
 - George Washington
@@ -201,9 +194,9 @@ Puedes crear una lista con viñetas si precedes una o más líneas de texto con 
 - Thomas Jefferson
 ```
 
-![Lista desordenada representada](/assets/images/help/writing/unordered-list-rendered.png)
+![Rendered unordered list](/assets/images/help/writing/unordered-list-rendered.png)
 
-Para ordenar tu lista, antecede cada línea con un número.
+To order your list, precede each line with a number.
 
 ```markdown
 1. James Madison
@@ -211,139 +204,139 @@ Para ordenar tu lista, antecede cada línea con un número.
 3. John Quincy Adams
 ```
 
-![Lista ordenada representada](/assets/images/help/writing/ordered-list-rendered.png)
+![Rendered ordered list](/assets/images/help/writing/ordered-list-rendered.png)
 
-### Listas anidadas
+### Nested Lists
 
-Puedes crear una lista anidada al dejar sangría en uno o más elementos de la lista debajo de otro elemento.
+You can create a nested list by indenting one or more list items below another item.
 
-Para crear una lista anidada mediante el editor web en {% data variables.product.product_name %} o un editor de texto que usa una fuente monoespaciada, como [Atom](https://atom.io/), puedes alinear tu lista visualmente. Escribe los caracteres con espacio frente a tu elemento de la lista anidada hasta que el carácter del marcador de lista (<kbd>-</kbd> or <kbd>*</kbd>) se encuentre directamente debajo del primer carácter del texto en el elemento que se encuentra por debajo.
+To create a nested list using the web editor on {% data variables.product.product_name %} or a text editor that uses a monospaced font, like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), you can align your list visually. Type space characters in front of your nested list item, until the list marker character (<kbd>-</kbd> or <kbd>*</kbd>) lies directly below the first character of the text in the item above it.
 
 ```markdown
-1. Primer elemento de la lista
-   - Primer elemento de la lista anidado
-     - Segundo elemento de la lista anidado
+1. First list item
+   - First nested list item
+     - Second nested list item
 ```
 
 {% tip %}
 
-**Nota**: En el editor basado en web, puedes poner o quitar la sangría de una o más líneas de texto si primero las resaltas y luego presionas <kbd>Tab</kbd> o <kbd>Shift</kbd>+<kbd>Tab</kbd> según corresponda.
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
 
 {% endtip %}
 
-![Lista anidada con alineación resaltada](/assets/images/help/writing/nested-list-alignment.png)
+![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
 
-![Lista con dos niveles de elementos anidados](/assets/images/help/writing/nested-list-example-1.png)
+![List with two levels of nested items](/assets/images/help/writing/nested-list-example-1.png)
 
-Para crear una lista anidada en el editor de comentarios en {% data variables.product.product_name %}, que no usa una fuente monoespaciada, puedes observar el elemento de la lista inmediatamente anterior a la lista anidada y contar el número de caracteres que aparecen antes del contenido del elemento. Luego escribe ese número de caracteres de espacio frente al elemento de la lista anidada.
+To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
 
-En este ejemplo, puedes agregar un elemento de la lista anidada debajo del elemento de la lista `100. Primer elemento de la lista` con una sangría mínima de cinco espacios para el elemento de la lista anidada, dado que hay cinco caracteres (`100.`) antes del `Primer elemento de la lista`.
-
-```markdown
-100. Primer elemento de la lista
-     - Primer elemento de la lista anidada
-```
-
-![Lista con un elemento de lista anidado](/assets/images/help/writing/nested-list-example-3.png)
-
-Puedes crear múltiples niveles de listas anidadas mediante el mismo método. Por ejemplo, ya que el primer elemento de la lista anidada tiene siete caracteres (`␣␣␣␣␣-␣`) antes del contenido `First nested list item` de la misma, necesitarás colocar sangría de siete espacios en el segundo elemento de esta.
+In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
 
 ```markdown
-100. Primer elemento de la lista
-     - Primer elemento de la lista anidada
-       - Segundo elemento de la lista anidada
+100. First list item
+     - First nested list item
 ```
 
-![Lista con dos niveles de elementos anidados](/assets/images/help/writing/nested-list-example-2.png)
+![List with a nested list item](/assets/images/help/writing/nested-list-example-3.png)   
 
-Para conocer más ejemplos, consulta las [Especificaciones de formato Markdown de GitHub](https://github.github.com/gfm/#example-265).
+You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
-## Listas de tareas
+```markdown
+100. First list item
+     - First nested list item
+       - Second nested list item
+```
+
+![List with two levels of nested items](/assets/images/help/writing/nested-list-example-2.png)    
+
+For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
+
+## Task lists
 
 {% data reusables.repositories.task-list-markdown %}
 
-Si una descripción de elementos de lista comienza con un paréntesis, necesitarás escaparla con <kbd>\\</kbd>:
+If a task list item description begins with a parenthesis, you'll need to escape it with <kbd>\\</kbd>:
 
-`- [ ] \(Optional) Abre una propuesta de seguimiento`
+`- [ ] \(Optional) Open a followup issue`
 
-Para obtener más información, consulta "[Acerca de las listas de tareas](/articles/about-task-lists)".
+For more information, see "[About task lists](/articles/about-task-lists)."
 
-## Mencionar personas y equipos
+## Mentioning people and teams
 
-Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir <kbd>@</kbd> más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información sobre las notificaciones, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".
+You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
 
 {% note %}
 
-**Nota:** Solo se le puede notificar a una persona sobre una mención si esta tiene acceso de lectura en el repositorio y si dicho repositorio le pertenece a una organización de la cuál esta persona sea miembro.
+**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
 
 {% endnote %}
 
-`@github/support ¿Qué piensas sobre estas actualizaciones?`
+`@github/support What do you think about these updates?`
 
-![@mention representado](/assets/images/help/writing/mention-rendered.png)
+![Rendered @mention](/assets/images/help/writing/mention-rendered.png)
 
-Cuando mencionas a un equipo padre, los miembros de los equipos hijo también reciben notificaciones, simplificando la comunicación con múltiples grupos de personas. Para obtener más información, consulta "[Acerca de los equipos](/articles/about-teams)".
+When you mention a parent team, members of its child teams also receive notifications, simplifying communication with multiple groups of people. For more information, see "[About teams](/articles/about-teams)."
 
-Si escribes un símbolo <kbd>@</kbd> aparecerá una lista de personas o equipos en el proyecto. La lista filtra a medida que escribes, por lo que una vez que escribes el nombre de la persona o del equipo que estás buscando, puedes usar las teclas de flecha para seleccionarlos y presionar cada pestaña para ingresar para completar el nombre. En el caso de los equipos, escribe el nombre de la @organización/equipo y todos los miembros del equipo que se suscribirán a la conversación.
+Typing an <kbd>@</kbd> symbol will bring up a list of people or teams on a project. The list filters as you type, so once you find the name of the person or team you are looking for, you can use the arrow keys to select it and press either tab or enter to complete the name. For teams, enter the @organization/team-name and all members of that team will get subscribed to the conversation.
 
-Los resultados autocompletados se restringen a los colaboradores del repositorio y a otros participantes en el hilo.
+The autocomplete results are restricted to repository collaborators and any other participants on the thread.
 
-## Hacer referencia a propuestas y solicitudes de extracción
+## Referencing issues and pull requests
 
-Puedes mencionar una lista de las propuestas y las solicitudes de cambios sugeridas dentro del repositorio al escribir <kbd>#</kbd>. Escribe el número o el título de la propuesta o la solicitud de extracción para filtrar la lista, y luego presiona cada pestaña o ingresa para completar el resultado resaltado.
+You can bring up a list of suggested issues and pull requests within the repository by typing <kbd>#</kbd>. Type the issue or pull request number or title to filter the list, and then press either tab or enter to complete the highlighted result.
 
-Para obtener más información, consulta "[Referencias y direcciones URL autovinculadas](/articles/autolinked-references-and-urls)".
+For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
 
-## Hacer referencia a recursos externos
+## Referencing external resources
 
 {% data reusables.repositories.autolink-references %}
 
 {% ifversion ghes < 3.4 %}
-## Adjuntos de contenido
+## Content attachments
 
-Algunas {% data variables.product.prodname_github_apps %} proporcionan información en {% data variables.product.product_name %} para las URL que enlazan a sus dominios registrados. {% data variables.product.product_name %} presenta la información suministrada por la app debajo de la URL en el cuerpo o comentario de una propuesta o solicitud de extracción.
+Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
 
-![Adjunto de contenido](/assets/images/github-apps/content_reference_attachment.png)
+![Content attachment](/assets/images/github-apps/content_reference_attachment.png)
 
-Para ver los adjuntos de contenido, debes tener una {% data variables.product.prodname_github_app %} que use la API de los adjuntos de contenido instalada en el repositorio.{% ifversion fpt or ghec %} Para obtener más información, consulta las secciones "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" y "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
+To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% ifversion fpt or ghec %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 
-Los adjuntos de contenido no se mostrarán para las URL que son parte de un enlace de Markdown.
+Content attachments will not be displayed for URLs that are part of a markdown link.
 
-Para obtener más información sobre el desarrollo de una {% data variables.product.prodname_github_app %} que usa adjuntos de contenido, consulta la sección "[Usar adjuntos de contenido](/apps/using-content-attachments)".{% endif %}
+For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."{% endif %}
 
-## Cargar activos
+## Uploading assets
 
-Puedes cargar activos como imágenes si las arrastras y sueltas, las seleccionas de un buscador de archivos o si las pegas. Puedes cargar activos a las propuestas, solicitudes de cambios, comentarios y archivos `.md` en tu repositorio.
+You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
 
-## Usar emojis
+## Using emoji
 
-Puedes agregar emojis a tu escritura al escribir `:EMOJICODE:`.
+You can add emoji to your writing by typing `:EMOJICODE:`.
 
 `@octocat :+1: This PR looks great - it's ready to merge! :shipit:`
 
-![Emoji representado](/assets/images/help/writing/emoji-rendered.png)
+![Rendered emoji](/assets/images/help/writing/emoji-rendered.png)
 
-Si escribes <kbd>:</kbd> aparecerá una lista con los emojis sugeridos. La lista filtrará a medida que escribes; por lo tanto, una vez que encuentres el emoji que estás buscando, presiona **Tab** (Tabulador) o **Enter** (Intro) para completar el resultado resaltado.
+Typing <kbd>:</kbd> will bring up a list of suggested emoji. The list will filter as you type, so once you find the emoji you're looking for, press **Tab** or **Enter** to complete the highlighted result.
 
-Para encontrar una lista completa de emojis y códigos disponibles, consulta el [listado de emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
+For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
-## Párrafos
+## Paragraphs
 
-Puedes crear un nuevo párrafo al dejar una línea en blanco entre las líneas de texto.
+You can create a new paragraph by leaving a blank line between lines of text.
 
 {% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-## Notas al pie
+## Footnotes
 
-Puedes agregar notas al pie para tu contenido si utilizas esta sintaxis de corchetes:
+You can add footnotes to your content by using this bracket syntax:
 
 ```
-Esta es una nota al pie sencilla[^1].
+Here is a simple footnote[^1].
 
 A footnote can also have multiple lines[^2].  
 
 You can also use words, to fit your writing style more closely[^note].
 
-[^1]: Mi referencia.
+[^1]: My reference.
 [^2]: Every new line should be prefixed with 2 spaces.  
   This allows you to have a footnote with multiple lines.
 [^note]:
@@ -351,48 +344,48 @@ You can also use words, to fit your writing style more closely[^note].
     This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
-La nota al pie se verá así:
+The footnote will render like this:
 
-![Nota al pie interpretada](/assets/images/site/rendered-footnote.png)
+![Rendered footnote](/assets/images/site/rendered-footnote.png)
 
 {% tip %}
 
-**Notae**: La posición de una nota al pie en tu archivo con lenguaje de marcado no influencia la nota al pie que se interpretará. Puedes escribir una nota al pie después de referenciarla y esta aún se interpretará en la parte inferior del archivo con lenguaje de marcado.
+**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
 
-No hay compatibilidad con notas al pie en los wikis.
+Footnotes are not supported in wikis.
 
 {% endtip %}
 {% endif %}
 
-## Ocultar el contenido con comentarios
+## Hiding content with comments
 
-Puedes decirle a {% data variables.product.product_name %} que oculte el contenido del lenguaje de marcado interpretado colocando el contenido en un comentario de HTML.
+You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
 
 <pre>
 &lt;!-- This content will not appear in the rendered Markdown --&gt;
 </pre>
 
-## Importar formato de Markdown
+## Ignoring Markdown formatting
 
-Puedes pedirle a {% data variables.product.product_name %} que ignore (o escape) el formato de lenguaje de marcado si utilizas <kbd>\\</kbd> antes del carácter de lenguaje de marcado.
+You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using <kbd>\\</kbd> before the Markdown character.
 
-`Cambiemos el nombre de \*our-new-project\* a \*our-old-project\*.`
+`Let's rename \*our-new-project\* to \*our-old-project\*.`
 
-![Carácter evadido representado](/assets/images/help/writing/escaped-character-rendered.png)
+![Rendered escaped character](/assets/images/help/writing/escaped-character-rendered.png)
 
-Para obtener más información, consulta "[Sintaxis de Markdown" de Daring Fireball](https://daringfireball.net/projects/markdown/syntax#backslash),
+For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
-## Inhabilitar la representación del lenguaje de marcado
+## Disabling Markdown rendering
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 
 {% endif %}
 
-## Leer más
+## Further reading
 
-- [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
-- "[Acerca de escritura y formato en GitHub](/articles/about-writing-and-formatting-on-github)"
-- "[Trabajar con formato avanzado](/articles/working-with-advanced-formatting)"
-- "[Dominar Markdown](https://guides.github.com/features/mastering-markdown/)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+- "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
+- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
+- "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"

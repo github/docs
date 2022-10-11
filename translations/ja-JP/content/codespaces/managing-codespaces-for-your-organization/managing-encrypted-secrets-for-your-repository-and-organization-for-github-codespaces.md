@@ -1,7 +1,7 @@
 ---
 title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
-shortTitle: 暗号化されたシークレット
-intro: '暗号化されたシークレットを使用すると、機密情報を Organization、リポジトリ、または {% data variables.product.prodname_github_codespaces %} に保存できます。'
+shortTitle: Encrypted secrets
+intro: 'Encrypted secrets allow you to store sensitive information in your organization, repository, or {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
@@ -17,63 +17,68 @@ redirect_from:
 
  
 
-## シークレットについて
+## About secrets
 
-シークレットは、Organization またはリポジトリで作成する暗号化された環境変数です。 作成したシークレットは、{% data variables.product.prodname_github_codespaces %} で使用できます。 GitHub は [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) を使用して、シークレットが GitHub に到達する前に暗号化し、codespace で使用する場合にのみ復号化します。
+Secrets are encrypted environment variables that you create in an organization or  repository. The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. GitHub uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach GitHub and only decrypts them when you use them in a codespace.
 
-Organization レベルのシークレットを使用すると、複数のリポジトリ間でシークレットを共有できるため、重複するシークレットを作成する必要が軽減されます。 アクセスポリシーを使用して、Organization のシークレットを使用できるリポジトリを制御できます。
+Organization-level secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets. 
 
 {% data reusables.codespaces.secrets-on-start %}
 
-### シークレットに名前を付ける
+### Naming secrets
 
-{% data reusables.codespaces.secrets-naming %} たとえば、リポジトリレベルで作成されたシークレットは、そのリポジトリ内で一意の名前である必要があり、Organization レベルで作成されたシークレットは、そのレベルで一意の名前である必要があります。
+{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
   {% data reusables.codespaces.secret-precedence %}
 
-### シークレットの制限
+### Limits for secrets
 
-Organization ごとに最大 100 個のシークレット、リポジトリごとに最大 100 個のシークレットを保存できます。
+You can store up to 100 secrets per organization and 100 secrets per repository.
 
-シークレットの容量は最大64 KBです。
+Secrets are limited to 64 KB in size.
 
-## リポジトリにシークレットを追加する
+## Adding secrets for a repository
 
-Organization リポジトリのシークレットを作成するには、管理者アクセス権が必要です。
+To create secrets for an organization repository, you must have administrator access.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
-2. ページの上部にある [**New repository secret**] をクリックします。
-3. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
-4. シークレットの値を入力します。
-5. [**Add secret（シークレットの追加）**] をクリックします。
+{% data reusables.codespaces.sidebar-secret %}
 
-## Organization にシークレットを追加する
+2. At the top of the page, click **New repository secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the value for your secret.
+5. Click **Add secret**.
 
-Organizationでシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
+## Adding secrets for an organization
+
+When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
-2. ページの上部にある [**New organization secret**] をクリックします。
-3. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
-4. シークレットの **Value（値）** を入力します。
-5. [ **Repository access（リポジトリアクセス）** ドロップダウン リストから、アクセス ポリシーを選択します。 ![プライベートリポジトリが選択された [Repository Access] リスト](/assets/images/help/codespaces/secret-repository-access.png)
-6. [**Add secret（シークレットの追加）**] をクリックします。
+{% data reusables.codespaces.sidebar-secret %}
 
-## Organizationレベルのシークレットへのアクセスの確認
+2. At the top of the page, click **New organization secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the **Value** for your secret.
+5. From the **Repository access** dropdown list, choose an access policy.
+    ![Repository Access list with private repositories selected](/assets/images/help/codespaces/secret-repository-access.png)
+6. Click **Add secret**.
 
-Organization 内のシークレットに適用されているアクセスポリシーを確認できます。
+## Reviewing access to organization-level secrets
+
+You can check which access policies are applied to a secret in your organization.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-1. シークレットのリストには、設定済みのアクセス許可とポリシーが含まれます。 例: ![シークレットリスト](/assets/images/help/settings/actions-org-secrets-list.png)
-1. 各シークレットに設定されているアクセス許可の詳細については、[**Update（更新）**] をクリックしてください。
+{% data reusables.codespaces.sidebar-secret %}
 
-## 参考リンク
+1. The list of secrets includes any configured permissions and policies. For example:
+![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
+1. For more details on the configured permissions for each secret, click **Update**.
 
-- 「[codespacesのための暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」
+## Further reading
+
+- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

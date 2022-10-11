@@ -1,6 +1,6 @@
 ---
-title: About Dependabot alerts
-intro: '{% data variables.product.product_name %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect that your repository uses a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}.'
+title: 关于 Dependabot 警报
+intro: '当我们检测到存储库使用易受攻击的依赖项{% ifversion GH-advisory-db-supports-malware %} 或恶意软件{% endif %} 时，{% data variables.product.product_name %} 发送 {% data variables.product.prodname_dependabot_alerts %}。'
 redirect_from:
   - /articles/about-security-alerts-for-vulnerable-dependencies
   - /github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies
@@ -20,87 +20,87 @@ topics:
   - Repositories
   - Dependencies
 shortTitle: Dependabot alerts
+ms.openlocfilehash: 4a1e85a620465247dcd63e8ce9c88c99a0af31fd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147526732'
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->
 
-## About {% data variables.product.prodname_dependabot_alerts %}
+## 关于 {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion GH-advisory-db-supports-malware %}
-{% data reusables.advisory-database.beta-malware-advisories %}
-{% endif %}
+{% ifversion GH-advisory-db-supports-malware %} {% data reusables.advisory-database.beta-malware-advisories %} {% endif %}
 
-{% data variables.product.prodname_dependabot_alerts %} tell you that your code depends on a package that is insecure.
+{% data variables.product.prodname_dependabot_alerts %} 告知代码依赖于不安全的包。
 
-If your code depends on a package with a security vulnerability, this can cause a range of problems for your project or the people who use it. You should upgrade to a secure version of the package as soon as possible.{% ifversion GH-advisory-db-supports-malware %} If your code uses malware, you need to replace the package with a secure alternative.{% endif %}
+当代码依赖于具有安全漏洞的包时，这可能会导致项目或使用它的人遇到一系列问题。 应尽快升级到该包的安全版本。{% ifversion GH-advisory-db-supports-malware %} 如果代码使用恶意软件，则需要将包替换为安全的替代项。{% endif %}
 
 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-## Detection of insecure dependencies
+## 不安全依赖项的检测
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-{% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies, and sends {% data variables.product.prodname_dependabot_alerts %} when:
+{% data variables.product.prodname_dependabot %} 执行扫描以检测不安全的依赖关系，并在以下情况下发送 {% data variables.product.prodname_dependabot_alerts %} ：
 
 {% ifversion fpt or ghec %}
-- A new advisory is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[Browsing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)."{% else %}
-- New advisory data is synchronized to {% data variables.product.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
-  {% note %}
+- 新公告添加到 {% data variables.product.prodname_advisory_database %}。 有关详细信息，请参阅“[在 {% data variables.product.prodname_advisory_database %} 中浏览安全公告](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)”。{% else %}
+- 新公告数据每小时从 {% data variables.product.prodname_dotcom_the_website %} 同步到 {% data variables.product.product_location %}。 {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %} {% note %}
 
-  **Note:** Only advisories that have been reviewed by {% data variables.product.company_short %} will trigger {% data variables.product.prodname_dependabot_alerts %}.
+  注意：只有经过 {% data variables.product.company_short %} 审核的公告才会触发 {% data variables.product.prodname_dependabot_alerts %}。
 
   {% endnote %}
-- The dependency graph for a repository changes. For example, when a contributor pushes a commit to change the packages or versions it depends on{% ifversion fpt or ghec %}, or when the code of one of the dependencies changes{% endif %}. For more information, see "[About the dependency graph](/code-security/supply-chain-security/about-the-dependency-graph)."
+- 存储库的依赖项关系图发生更改。 例如，当参与者推送提交以更改所依赖的包或版本时{% ifversion fpt or ghec %}，或者当某个依赖项的代码发生更改时{% endif %}。 有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/about-the-dependency-graph)”。
 
 {% data reusables.repositories.dependency-review %}
 
-For a list of the ecosystems that {% data variables.product.product_name %} detects insecure dependencies in, see "[Supported package ecosystems](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+有关 {% data variables.product.product_name %} 检测到其中不安全的依赖项的生态系统列表，请参阅“[支持的包生态系统](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)”。
 
 {% note %}
 
-**Note:** It is important to keep your manifest and lock files up to date. If the dependency graph doesn't accurately reflect your current dependencies and versions, then you could miss alerts for insecure dependencies that you use. You may also get alerts for dependencies that you no longer use.
+注意：保持清单和锁定文件处于最新状态非常重要。 如果依赖关系图不能准确反映你当前的依赖项和版本，则可能错过有关你使用的不安全依赖项的警报。 您还可以收到不再使用的依赖项的警报。
 
 {% endnote %}
 
-##  Configuration of {% data variables.product.prodname_dependabot_alerts %}
+##  {% data variables.product.prodname_dependabot_alerts %} 的配置
 
 {% data reusables.repositories.enable-security-alerts %}
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detects vulnerable dependencies and malware in _public_ repositories and displays the dependency graph, but does not generate {% data variables.product.prodname_dependabot_alerts %} by default. Repository owners or people with admin access can enable {% data variables.product.prodname_dependabot_alerts %} for public repositories. Owners of private repositories, or people with admin access, can enable {% data variables.product.prodname_dependabot_alerts %} by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for their repositories.
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} 检测公共存储库中易受攻击的依赖项和恶意软件并显示依赖项关系图，但默认情况下不会生成 {% data variables.product.prodname_dependabot_alerts %}。 仓库所有者或具有管理员访问权限的人员可以为公共公共仓库启用 {% data variables.product.prodname_dependabot_alerts %}。 私有仓库的所有者或具有管理员权限的人员可以通过为其仓库启用依赖关系图和 {% data variables.product.prodname_dependabot_alerts %} 来启用 {% data variables.product.prodname_dependabot_alerts %}。
 
-You can also enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your user account or organization. For more information, see "[Configuring {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)."
+你也可以为用户帐户或组织拥有的所有存储库启用或禁用 {% data variables.product.prodname_dependabot_alerts %}。 有关详细信息，请参阅“[配置 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)”。
 
-For information about access requirements for actions related to {% data variables.product.prodname_dependabot_alerts %}, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)."
+有关 {% data variables.product.prodname_dependabot_alerts %} 相关操作的访问要求的信息，请参阅“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)”。
 
-{% data variables.product.product_name %} starts generating the dependency graph immediately and generates alerts for any insecure dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see "[Managing data use settings for your private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)."
+{% data variables.product.product_name %} 将立即开始生成依赖关系图，并在发现任何不安全的依赖项后立即生成警报。 依赖关系图通常在几分钟之内填充，但对于依赖项很多的仓库，可能需要更长时间。 有关详细信息，请参阅“[管理专用存储库的数据使用设置](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)”。
 {% endif %}
 
-When {% data variables.product.product_name %} identifies a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}, we generate a {% data variables.product.prodname_dependabot %} alert and display it {% ifversion fpt or ghec or ghes %} on the Security tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes %}a link to the affected file in the project, and {% endif %}information about a fixed version. {% data variables.product.product_name %} may also notify the maintainers of affected repositories about the new alert according to their notification preferences. For more information, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
+当 {% data variables.product.product_name %} 发现易受攻击的依赖项{% ifversion GH-advisory-db-supports-malware %} 或恶意软件时{% endif %}，我们会生成 {% data variables.product.prodname_dependabot %} 警报，并将其显示{% ifversion fpt or ghec or ghes %}在存储库的“安全”选项卡上和{% endif %}在存储库的依赖项关系图中。 警报包括项目中受影响文件的{% ifversion fpt or ghec or ghes %}链接，以及{% endif %}有关已修复的版本的信息。 {% data variables.product.product_name %} 还可能根据受影响仓库的管理员的通知首选项向他们通知新的警报。 有关详细信息，请参阅“[配置 {% data variables.product.prodname_dependabot_alerts %} 的通知](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)”。
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
-For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, the alert may also contain a link to a pull request to update the manifest or lock file to the minimum version that resolves the vulnerability. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+{% ifversion fpt or ghec or ghes > 3.2 %} 对于已启用 {% data variables.product.prodname_dependabot_security_updates %} 的存储库，警报中还包含一个拉取请求链接，用于将清单或锁定文件更新到能解决该漏洞的最低版本。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 {% endif %}
 
 {% warning %}
 
-**Note**: {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.
+注意：{% data variables.product.product_name %} 的安全功能并不声明捕获所有漏洞{% ifversion GH-advisory-db-supports-malware %} 和恶意软件{% endif %}。 我们积极维护 {% data variables.product.prodname_advisory_database %} 并生成包含最新信息的警报。 但是，我们无法在保证的时间范围内捕获所有漏洞或告知你已知的漏洞。 这些功能不能替代针对每个依赖项潜在漏洞或任何其他问题的人工评审，建议在必要时咨询安全服务或进行彻底的依赖项评审。
 
 {% endwarning %}
 
-## Access to  {% data variables.product.prodname_dependabot_alerts %}
+## 访问 {% data variables.product.prodname_dependabot_alerts %}
 
-You can see all of the alerts that affect a particular project{% ifversion fpt or ghec %} on the repository's Security tab or{% endif %} in the repository's dependency graph. For more information, see "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
+你可以{% ifversion fpt or ghec %}在存储库的“安全性”选项卡中或{% endif %}在存储库的依赖项关系图中查看影响特定项目的所有警报。 有关详细信息，请参阅“[查看和更新 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)”。
 
-By default, we notify people with admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% ifversion fpt or ghec %}{% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working with repositories that you own or have admin permissions for. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+默认情况下，我们会向受影响仓库中具有管理员权限的人员通知有关新的 {% data variables.product.prodname_dependabot_alerts %}。 {% ifversion fpt or ghec %}{% data variables.product.product_name %} 绝不会公开披露任何存储库的不安全依赖项。 也可以将 {% data variables.product.prodname_dependabot_alerts %} 设为对使用你拥有或具有管理员权限的存储库的其他人或团队可见。 有关详细信息，请参阅“[管理存储库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”。
 {% endif %}
 
-{% data reusables.notifications.vulnerable-dependency-notification-enable %}
-{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %} For more information, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
+{% data reusables.notifications.vulnerable-dependency-notification-enable %} {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %} 有关详细信息，请参阅“[为 {% data variables.product.prodname_dependabot_alerts %} 配置通知](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)”。
 
-You can also see all the {% data variables.product.prodname_dependabot_alerts %} that correspond to a particular advisory in the {% data variables.product.prodname_advisory_database %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
+你还可以查看与 {% data variables.product.prodname_advisory_database %} 中的特定公告对应的 {% data variables.product.prodname_dependabot_alerts %}。 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-## Further reading
+## 延伸阅读
 
-- "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"
-- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% endif %}
-{% ifversion fpt or ghec %}- "[Privacy on {% data variables.product.prodname_dotcom %}](/get-started/privacy-on-github)"{% endif %}
+- [关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)
+- “[查看和更新 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)”{% endif %} {% ifversion fpt or ghec %}-“[关于 {% data variables.product.prodname_dotcom %} 的隐私](/get-started/privacy-on-github)”{% endif %}

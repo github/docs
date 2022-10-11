@@ -4,7 +4,7 @@ intro: Navigate to the different views available in the security overview
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 versions:
-  ghae: issue-5503
+  ghae: '>= 3.4'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -43,7 +43,7 @@ shortTitle: View the security overview
 2. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
   ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
+{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
 ## Viewing the security overview for an enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}

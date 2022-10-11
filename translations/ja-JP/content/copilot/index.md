@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot
 shortTitle: GitHub Copilot
-intro: 'You can use {% data variables.product.prodname_copilot %} to get autocomplete-style suggestions from an AI pair programmer as you code.'
+intro: '{% data variables.product.prodname_copilot %} を使うと、コーディング時に AI ペア プログラマーからオートコンプリート スタイルの候補を取り入れることができます。'
 redirect_from:
   - /github/copilot
 changelog:
@@ -30,5 +30,11 @@ children:
   - /configuring-github-copilot
 topics:
   - Copilot
+ms.openlocfilehash: 9a6100d2b5fe0bf8b710ce19e6a12f0afee42913
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147443697'
 ---
 

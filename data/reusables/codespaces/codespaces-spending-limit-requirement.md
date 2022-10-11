@@ -1,6 +1,6 @@
 {% note %}
 
-**Note:** You must set a non-zero spending limit before you can use {% data variables.product.prodname_codespaces %}.
+**Note:** You must set a non-zero spending limit before you can use {% data variables.product.prodname_github_codespaces %}.
 
 {% endnote %}
 

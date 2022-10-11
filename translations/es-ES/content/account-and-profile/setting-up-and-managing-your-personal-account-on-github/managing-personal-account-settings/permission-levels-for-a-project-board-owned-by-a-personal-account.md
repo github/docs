@@ -1,6 +1,6 @@
 ---
-title: Permission levels for a project board owned by a personal account
-intro: 'Un tablero de proyecto que le pertenezca a una cuenta personal tiene dos niveles de permiso: el propietario del tablero del proyecto y los colaboradores.'
+title: Niveles de permisos para un panel de proyecto propiedad de una cuenta personal
+intro: 'Un tablero de proyecto propiedad de una cuenta personal tiene dos niveles de permiso: el del propietario del tablero de proyecto y el de los colaboradores.'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-user-owned-project-boards
@@ -13,12 +13,17 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Permisos del tablero de proyecto
+shortTitle: Project board permissions
+ms.openlocfilehash: 353b9ac497abc7110437aafdf691ca48a3ff6cec
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145165344'
 ---
+## Introducción sobre los permisos
 
-## Resumen de permisos
-
-Solo hay un propietario de un tablero de proyecto que le pertenezca a un usuario; este permiso no se puede compartir con otra cuenta personal. Además del propietario, otras personas pueden colaborar en tableros de proyecto.
+Solamente hay un único propietario de un panel de proyecto propiedad de un usuario; este permiso no puede compartirse con otra cuenta personal. Además del propietario, otras personas pueden colaborar en tableros de proyecto.
 
 Hay tres niveles de permisos para los colaboradores de un tablero de proyecto:
 
@@ -28,11 +33,11 @@ Hay tres niveles de permisos para los colaboradores de un tablero de proyecto:
 
 El propietario del tablero de proyecto y los colaboradores con acceso de administrador tienen control completo del tablero de proyecto. Además de todos los permisos admitidos por los colaboradores del tablero de proyecto, un propietario y un colaborador de un tablero de proyecto con acceso de administrador pueden:
 
-- [Administrar, ver y agregar colaboradores](/articles/managing-access-to-your-user-account-s-project-boards)
-- [Configurar un tablero de proyecto como {% ifversion ghae %}interno{% else %}público{% endif %} o privado](/articles/changing-project-board-visibility)
-- [Eliminar un tablero de proyecto](/articles/deleting-a-project-board/)
-- [Cerrar un tablero de proyecto](/articles/closing-a-project-board/)
-- [Volver a abrir un tablero de proyecto cerrado](/articles/reopening-a-closed-project-board)
+- [Administración, visualización y adición de colaboradores](/articles/managing-access-to-your-user-account-s-project-boards)
+- [Configuración de un panel de proyecto como {% ifversion ghae %}interno{% else %}público{% endif %} o privado](/articles/changing-project-board-visibility)
+- [Eliminación de un panel de proyecto](/articles/deleting-a-project-board/)
+- [Cierre de un panel de proyecto](/articles/closing-a-project-board/)
+- [Reapertura de un panel de proyecto cerrado](/articles/reopening-a-closed-project-board)
 
 ## Permisos de lectura y escritura para un tablero de proyecto propiedad del usuario
 
@@ -58,8 +63,8 @@ Los colaboradores con acceso de escritura a un tablero de proyecto propiedad del
 
 ## Visibilidad del tablero de proyecto
 
-Puedes cambiar la visibilidad del tablero de proyecto de privada a {% ifversion ghae %}interna{% else %}pública{% endif %} y de vuelta. Por defecto, los tableros de proyecto propiedad del usuario son privados. Para obtener más información, consulta "[Cambiar la visibilidad de un tablero de proyecto](/articles/changing-project-board-visibility)".
+Puede cambiar la visibilidad del panel del proyecto de privado a {% ifversion ghae %}interno{% else %}público{% endif %} y viceversa. Por defecto, los tableros de proyecto propiedad del usuario son privados. Para más información, vea "[Cambio de la visibilidad del panel de proyecto](/articles/changing-project-board-visibility)".
 
-## Leer más
+## Información adicional
 
-  - "[Adminsitrar el acceso a los tableros de proyecto de tu cuenta personal](/articles/managing-access-to-your-user-account-s-project-boards)"
+  - "[Administración del acceso a los paneles de proyecto de la cuenta personal](/articles/managing-access-to-your-user-account-s-project-boards)"

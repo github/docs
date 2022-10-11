@@ -14,12 +14,17 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: 在本地查看 PR
+shortTitle: Check out a PR locally
+ms.openlocfilehash: bdb63d3951c92996ca4d6dc393bdc49b8d37acce
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130084'
 ---
-
 {% note %}
 
-  **注：**拉取请求作者可以授权上游仓库维护员或对上游仓库具有推送权限的人员，允许他们提交到用户拥有的复刻中其拉取请求的比较分支。 更多信息请参阅“[允许更改从复刻创建的拉取请求分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)”。
+  注意：拉取请求创建者可授权上游存储库维护员或对上游存储库具有推送权限的人员，允许他们提交到用户拥有的分支中其拉取请求的比较分支。 有关详细信息，请参阅“[允许更改从复刻创建的拉取请求分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)”。
 
   {% endnote %}
 
@@ -29,9 +34,12 @@ shortTitle: 在本地查看 PR
 
 {% data reusables.repositories.sidebar-pr %}
 2. 在拉取请求列表中，单击要修改的拉取请求。{% ifversion fpt or ghec %}
-3. 要选择想打开拉取请求的位置，请选择**使用 {% octicon "triangle-down" aria-label="The down triangle icon" %} 打开**下拉列表，然后单击其中一个选项卡。 ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
-3. 在合并框中，单击**命令行说明**。 按照步骤顺序解决提议的拉取请求。 ![访问命令行拉取请求说明的链接](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
-4. （可选）要在 {% data variables.product.prodname_desktop %} 中查看提议的更改，请单击 **open this in {% data variables.product.prodname_desktop %}（在 GitHub Desktop 中打开）**。 ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+3. 要选择想打开拉取请求的位置，请选择“通过 {% octicon "triangle-down" aria-label="The down triangle icon" %} 打开”下拉列表，然后单击其中一个选项卡。
+  ![访问命令行拉取请求说明的链接](/assets/images/help/pull_requests/open-with-button.png){% else %}
+3. 在合并框中，单击“命令行说明”。 按照步骤顺序解决提议的拉取请求。
+  ![访问命令行拉取请求说明的链接](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
+4. （可选）若要在 {% data variables.product.prodname_desktop %} 中查看提议的更改，请单击“在 {% data variables.product.prodname_desktop %} 中打开”。
+  ![在 Desktop 中本地打开拉取请求的链接](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
 {% endwebui %}
 
@@ -39,7 +47,7 @@ shortTitle: 在本地查看 PR
 
 {% data reusables.cli.cli-learn-more %}
 
-要在本地检出拉取请求，请使用 `gh pr checkout` 子命令。 将 `pull-request` 替换为拉取请求的编号、URL 或头部分支。
+若要在本地签出拉取请求，请使用 `gh pr checkout` 子命令。 将 `pull-request` 替换为拉取请求的数字、URL 或主分支。
 
 ```shell
 gh pr checkout <em>pull-request</em>
@@ -57,8 +65,8 @@ gh pr checkout <em>pull-request</em>
 
 {% data reusables.repositories.sidebar-issue-pr %}
 2. 在“Pull Requests（拉取请求）”列表中，单击要合并的拉取请求。
-3. 找到非活动拉取请求的 ID 号。 这是拉取请求标题后面的数字序列。 ![拉取请求 ID 号](/assets/images/help/pull_requests/pull_request_id_number.png)
-{% data reusables.command_line.open_the_multi_os_terminal %}
+3. 找到非活动拉取请求的 ID 号。 这是拉取请求标题后面的数字序列。
+  ![拉取请求 ID 号](/assets/images/help/pull_requests/pull_request_id_number.png) {% data reusables.command_line.open_the_multi_os_terminal %}
 5. 根据其 ID 号获取对该拉取请求的引用，在该过程中创建一个新分支。
   ```shell
   $ git fetch origin pull/<em>ID</em>/head:<em>BRANCHNAME</em>
@@ -80,11 +88,11 @@ gh pr checkout <em>pull-request</em>
   > To https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repository</em>.git
   >  * [new branch]      <em>BRANCHNAME</em> -> <em>BRANCHNAME</em>
   ```
-9. 用新分支[创建一个新的拉取请求](/articles/creating-a-pull-request)。
+9. 使用新分支[创建新的拉取请求](/articles/creating-a-pull-request)。
 
 ## 错误：无法推送某些 ref
 
-远程 `refs/pull/` 命名空间为*只读*。 如果尝试在那里推送任何提交，您将看到此错误：
+远程 `refs/pull/` 命名空间是只读的。 如果尝试在那里推送任何提交，您将看到此错误：
 ```shell
 ! [remote rejected] HEAD -> refs/pull/1/head (deny updating a hidden ref)
 error: failed to push some refs to 'git@github.local:<em>USERNAME</em>/<em>REPOSITORY</em>.git'
@@ -92,6 +100,6 @@ error: failed to push some refs to 'git@github.local:<em>USERNAME</em>/<em>REPOS
 
 {% tip %}
 
-**提示：**删除或重命名远程引用时，本地 `refs/pull/origin/` 命名空间将不会受到调用 `git-remote` 的影响。
+提示：移除或重命名远程引用时，本地 `refs/pull/origin/` 命名空间不会受到对 `git-remote` 的调用的影响。
 
 {% endtip %}

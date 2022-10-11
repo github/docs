@@ -43,9 +43,14 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     }
   }
 
+  let authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
+  if (operation.subcategory === 'management-console') {
+    authHeader = '-u "api_key:your-password"'
+  }
+
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\ \n  -H "Authorization: token <TOKEN>"`,
+    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}`,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)
@@ -86,12 +91,12 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
     requestBodyParams = Object.keys(codeSample.request.bodyParameters)
       .map((key) => {
         if (typeof codeSample.request.bodyParameters[key] === 'string') {
-          return `-f ${key}='${codeSample.request.bodyParameters[key]}'\n`
+          return `-f ${key}='${codeSample.request.bodyParameters[key]}' `
         } else {
-          return `-F ${key}=${codeSample.request.bodyParameters[key]}\n`
+          return `-F ${key}=${codeSample.request.bodyParameters[key]} `
         }
       })
-      .join(' ')
+      .join('\\\n ')
   }
   const args = [
     operation.verb !== 'get' && `--method ${operation.verb.toUpperCase()}`,
@@ -141,11 +146,7 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
     }
   }
   const comment = `// Octokit.js\n// https://github.com/octokit/core.js#readme\n`
-  const require = `const octokit = new Octokit(${stringify(
-    { auth: 'personal-access-token123' },
-    null,
-    2
-  )})\n\n`
+  const require = `const octokit = new Octokit(${stringify({ auth: 'YOUR-TOKEN' }, null, 2)})\n\n`
 
   return `${comment}${require}await octokit.request('${operation.verb.toUpperCase()} ${
     operation.requestPath

@@ -1,11 +1,10 @@
----
 date: '2020-07-09'
 sections:
   security_fixes:
     - '**中：** 将 nginx 更新到 1.16.1 并解决了 CV-2019-20372。（更新于 2020-07-22）{% comment %} https://github.com/github/enterprise2/pull/21251 {% endcomment %}'
     - '包已更新到最新的安全版本。{% comment %} https://github.com/github/enterprise2/pull/21088, https://github.com/github/enterprise2/pull/21036 {% endcomment %}'
   bugs:
-    - '依赖关系图在多个 Redis 节点的集群配置中部署时不会检测依赖项。{% comment %} https://github.com/github/enterprise2/pull/21260, https://github.com/github/enterprise2/pull/21102 {% endcomment %}'
+    - '依赖项关系图在多个 Redis 节点的群集配置中部署时不会检测依赖项。{% comment %} https://github.com/github/enterprise2/pull/21260, https://github.com/github/enterprise2/pull/21102 {% endcomment %}'
     - '某些日志文件没有每 7 天轮换一次。 {% comment %} https://github.com/github/enterprise2/pull/21278, https://github.com/github/enterprise2/pull/21264 {% endcomment %}'
     - '快速重新使用 web 挂钩源端口导致拒绝连接。 {% comment %} https://github.com/github/enterprise2/pull/21289 {% endcomment %}'
     - '不正确的背景作业可能尝试在配置为被动副本的实例上运行。{% comment %} https://github.com/github/enterprise2/pull/21318, https://github.com/github/enterprise2/pull/21212, https://github.com/github/enterprise2/issues/21167 {% endcomment %}'

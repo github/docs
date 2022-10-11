@@ -279,12 +279,12 @@ jobs:
    curl --request GET \
    --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
    --header "Accept: application/vnd.github.v3+json" \
-   --header "Authorization: Bearer <em>YOUR-TOKEN</em>"
+   --header "Authorization: Bearer YOUR-TOKEN"
    ```
 
    {% note %}
 
-   **Note:** In most cases, you can use `Authorization: Bearer` or `Authorization: token`. JSON web tokens (JWTs) only work with `Authorization: Bearer`.
+   **Note:** {% data reusables.getting-started.bearer-vs-token %}
 
    {% endnote %}
 

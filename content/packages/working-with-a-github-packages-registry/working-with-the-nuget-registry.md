@@ -106,7 +106,7 @@ If you don't already have a PAT to use for your account on {% ifversion ghae %}{
 
 3. Publish the package using your PAT as the API key.
   ```shell
-  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
+  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
   ```
 
 {% data reusables.package_registry.viewing-packages %}

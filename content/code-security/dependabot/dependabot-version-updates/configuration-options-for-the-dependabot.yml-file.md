@@ -33,6 +33,12 @@ You must store this file in the `.github` directory of your repository. When you
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
+{% note %}
+
+**Note:** You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the *dependabot.yml* file.
+
+{% endnote %}
+
 The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
 
 ## Configuration options for the *dependabot.yml* file
@@ -77,19 +83,19 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   # Maintain dependencies for Composer
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 ```
 
 ### `directory`
@@ -105,29 +111,31 @@ updates:
     # Files stored in repository root
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   - package-ecosystem: "npm"
     # Files stored in `app` directory
     directory: "/app"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   - package-ecosystem: "github-actions"
     # Workflow files stored in the
     # default location of `.github/workflows`
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 ```
 
 ### `schedule.interval`
 
 **Required**. You must define how often to check for new versions for each package manager. By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. To set a specific time, you can use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
 
-- `daily`—runs on every weekday, Monday to Friday.
-- `weekly`—runs once each week. By default, this is on Monday. To modify this, use [`schedule.day`](#scheduleday).
-- `monthly`—runs once each month. This is on the first day of the month.
+| Interval types | Frequency |
+|----------------|-----------|
+| `daily` | Runs on every weekday, Monday to Friday.|
+| `weekly`| Runs once each week. By default, this is on Monday. To modify this, use [`schedule.day`](#scheduleday).|
+| `monthly` | Runs once each month. This is on the first day of the month. |
 
 ```yaml
 # Set update schedule for each package manager
@@ -179,7 +187,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     allow:
       # Allow updates for Lodash
       - dependency-name: "lodash"
@@ -189,7 +197,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     allow:
       # Allow both direct and indirect updates for all packages
       - dependency-type: "all"
@@ -197,7 +205,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     allow:
       # Allow only direct updates for
       # Django and any packages starting "django"
@@ -222,7 +230,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Add assignees
     assignees:
       - "octocat"
@@ -254,7 +262,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     commit-message:
       # Prefix all commit messages with "npm"
       prefix: "npm"
@@ -262,7 +270,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Prefix all commit messages with "Composer"
     # include a list of updated dependencies
     commit-message:
@@ -272,7 +280,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Include a list of updated dependencies
     # with a prefix determined by the dependency group
     commit-message:
@@ -283,7 +291,7 @@ updates:
 If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
-   
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -318,7 +326,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     ignore:
       - dependency-name: "express"
         # For Express, ignore all updates for version 4 and 5
@@ -389,7 +397,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Specify labels for npm pull requests
     labels:
       - "npm"
@@ -410,14 +418,14 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Associate pull requests with milestone "4"
     milestone: 4
 ```
 
 ### `open-pull-requests-limit`
 
-By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests, new requests are blocked until you merge or close some of the open requests, after which new pull requests can be opened on subsequent updates. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
+By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_dependabot %} will not open any new requests until some of those open requests are merged or closed. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
 
 This option has no impact on security updates, which have a separate, internal limit of ten open pull requests.
 
@@ -429,14 +437,14 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Disable version updates for npm dependencies
     open-pull-requests-limit: 0
 
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Allow up to 10 open pull requests for pip dependencies
     open-pull-requests-limit: 10
 ```
@@ -457,7 +465,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     pull-request-branch-name:
       # Separate sections of the branch name with a hyphen
       # for example, `dependabot-npm_and_yarn-next_js-acorn-6.4.1`
@@ -483,7 +491,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Disable rebasing for npm pull requests
     rebase-strategy: "disabled"
 ```
@@ -535,7 +543,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Add reviewers
     reviewers:
       - "octocat"
@@ -581,7 +589,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
       # Check for npm updates at 9am UTC
       time: "09:00"
 ```
@@ -598,7 +606,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
       time: "09:00"
       # Use Japan Standard Time (UTC +09:00)
       timezone: "Asia/Tokyo"
@@ -616,7 +624,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Raise pull requests for version updates
     # to pip against the `develop` branch
     target-branch: "develop"
@@ -689,7 +697,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Update the npm manifest file to relax
     # the version requirements
     versioning-strategy: widen
@@ -697,7 +705,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Increase the version requirements for Composer
     # only when required
     versioning-strategy: increase-if-necessary
@@ -705,7 +713,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Only allow updates to the lockfile for pip and
     # ignore any version updates that affect the manifest
     versioning-strategy: lockfile-only
@@ -776,11 +784,7 @@ registries:
 
 ### `docker-registry`
 
-{% note %}
-
-**Note:** We don't support the Azure Container Registry (ACR).
-
-{% endnote %}
+{% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
 The `docker-registry` type supports username and password.
 
@@ -795,7 +799,7 @@ registries:
 ```
 {% endraw %}
 
-The `docker-registry` type can also be used to pull from Amazon ECR using static AWS credentials.
+The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
 
 {% raw %}
 ```yaml
@@ -900,7 +904,8 @@ registries:
   nuget-azure-devops:
     type: nuget-feed
     url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
 {% endraw %}
 
@@ -926,7 +931,8 @@ registries:
   python-azure:
     type: python-index
     url: https://pkgs.dev.azure.com/octocat/_packaging/my-feed/pypi/example
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
     replaces-base: true
 ```
 {% endraw %}
@@ -970,7 +976,7 @@ registries:
 ```
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %} 
+{% ifversion fpt or ghec or ghes > 3.4 %}
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`
@@ -987,6 +993,6 @@ updates:{% ifversion fpt or ghec or ghes > 3.5 %}
   - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 ```
 {% endif %}

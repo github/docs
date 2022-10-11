@@ -11,44 +11,48 @@ type: how_to
 topics:
   - Clustering
   - Enterprise
+ms.openlocfilehash: ea771194e8bf5104707a645c4ee18473ff235153
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331814'
 ---
-
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ## 安装 {% data variables.product.prodname_ghe_server %}
 
-1. 在每个集群节点上，提供并安装 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
-2. 使用管理 shell 或 DHCP，**仅**配置每个节点的 IP 地址。 不要配置任何其他设置。
+1. 在每个集群节点上，提供并安装 {% data variables.product.prodname_ghe_server %}。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
+2. 使用管理 shell 或 DHCP，仅配置每个节点的 IP 地址。 不要配置任何其他设置。
 
 ## 配置第一个节点
 
-1. 连接到将在 `cluster.conf` 中指定为 MySQL 主要节点的节点。 更多信息请参阅“[关于集群配置文件](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
+1. 连接到将在 `cluster.conf` 中指定为 MySQL 主要节点的节点。 有关详细信息，请参阅“[关于群集配置文件](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
 2. 在 Web 浏览器中，访问 `https://<ip address>:8443/setup/`。
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
+{% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
 ## 初始化集群
 
-要初始化集群，您需要一个集群配置文件 (`cluster.conf`)。 更多信息请参阅“[关于集群配置文件](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
+若要初始化群集，需要群集配置文件 (`cluster.conf`)。 有关详细信息，请参阅“[关于群集配置文件](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
 
 1. 从配置的第一个节点开始，运行 `ghe-cluster-config-init`。  如果集群配置文件中存在未配置的节点，此操作会初始化集群。
-2. 运行 `ghe-cluster-config-apply`。 这将验证 `cluster.conf` 文件，将配置应用于每个节点文件，并在每个节点上显示已配置的服务。
+2. 运行 `ghe-cluster-config-apply`。 这将验证 `cluster.conf` 文件、将配置应用于每个节点文件，并调出每个节点上已配置的服务。
 
-要检查正在运行的集群的状态，使用 `ghe-cluster-status` 命令。
+若要检查正在运行的群集的状态，请使用 `ghe-cluster-status` 命令。
 
 ## 关于集群配置文件
 
-集群配置文件 (`cluster.conf`) 会定义集群中的节点以及它们运行的​​服务。 更多信息请参阅“[关于集群节点](/enterprise/admin/guides/clustering/about-cluster-nodes)”。
+群集配置文件 (`cluster.conf`) 会定义群集中的节点及其运行的服务。
+有关详细信息，请参阅“[关于群集节点](/enterprise/admin/guides/clustering/about-cluster-nodes)”。
 
-此示例 `cluster.conf` 定义了一个包含五个节点的集群。
+此示例 `cluster.conf` 定义具有五个节点的群集。
 
   - 两个节点（称为 `ghe-app-node-\*`）运行负责响应客户端请求的 `web-server` 和 `job-server` 服务。
   - 三个节点（称为 `ghe-data-node-\*`）运行负责存储和检索 {% data variables.product.prodname_ghe_server %} 数据的服务。
 
 节点的名称可以是您选择的任何有效主机名。 名称被设置为每个节点的主机名，并且还将添加到每个节点上的 `/etc/hosts` 中，以便节点可以在本地相互解析。
 
-通过 `mysql-server` 和 `mysql-master` 指定您配置为 MySQL 主要节点的第一个集群节点。
+通过 `mysql-server` 和 `mysql-master` 指定你配置为 MySQL 主要节点的第一个集群节点。
 
 ```ini
 [cluster]

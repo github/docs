@@ -14,17 +14,22 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Mostrar u ocultar la membrecía
+shortTitle: Show or hide membership
+ms.openlocfilehash: 89f9c7ee5cae6215412fd20dc0590f4f8dc5bf0b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881183'
 ---
-
 ![Casilla de perfil de organizaciones](/assets/images/help/profile/profile_orgs_box.png)
 
 ## Cambiar la visibilidad de la membresía de tu organización
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-4. Ubica tu nombre de usuario en la lista de miembros. Si la lista es grande, puedes buscar tu nombre de usuario en la casilla de búsqueda. ![Casilla de búsqueda de miembro de la organización](/assets/images/help/organizations/member-search-box.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
+4. Ubica tu nombre de usuario en la lista de miembros. Si la lista es grande, puedes buscar tu nombre de usuario en la casilla de búsqueda.
+![Cuadro de búsqueda de miembros de la organización](/assets/images/help/organizations/member-search-box.png)
 5. En el menú a la derecha de tu nombre de usuario, elige una nueva opción de visibilidad:
-    - Para divulgar tu membresía, elige **Public (Pública)**.
-    - Para esconder tu membresía, elige **Private (Privada)**. ![Enlace de visibilidad de un miembro de la organización](/assets/images/help/organizations/member-visibility-link.png)
+    - Para que la pertenencia sea pública, elija **Public** (Público).
+    - Para ocultar la pertenencia, elija **Private** (Privado).
+  ![Enlace de visibilidad de miembro de la organización](/assets/images/help/organizations/member-visibility-link.png)

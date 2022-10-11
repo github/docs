@@ -18,7 +18,7 @@ redirect_from:
 Codespaces are set to stop after 30 minutes without any activity. If you try to interact with a codespace after it has stopped, you may see a `503 service unavailable` error. 
 
 - If a **Start** button is shown in {% data variables.product.prodname_vscode %} or in your browser window, click **Start** to reconnect to the codespace.
-- Reset your codespace by reloading the window. From the [command palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
+- Reset your codespace by reloading the window. From the [Command Palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
 
 ## Browser cannot connect
 
@@ -37,7 +37,7 @@ If you cannot connect to a codespace from {% data variables.product.prodname_vsc
 
 1. Check that you have the latest version of the {% data variables.product.prodname_github_codespaces %} extension installed. The extension is a preview release and frequent updates are released.
    1. In {% data variables.product.prodname_vscode %}, display the "Extensions" tab.
-   2. Select the {% data variables.product.prodname_codespaces %} extension to display the extension's overview page.
+   2. Select the {% data variables.product.prodname_github_codespaces %} extension to display the extension's overview page.
    3. If an update is available, a button is shown, click **Update to X.X.X** to upgrade to the latest version.
 2. Check whether you are using the stable build of {% data variables.product.prodname_vscode %} or the [{% data variables.product.prodname_vscode %} Insiders](https://code.visualstudio.com/insiders/) release (nightly updates). If you are using the insiders release, try installing the [stable build](https://code.visualstudio.com/).
 3. Your company network may be blocking the connection. If possible, check any logging for rejected connections on your device.
@@ -46,4 +46,4 @@ If you still cannot connect, {% data reusables.codespaces.contact-support %}
 
 ### The codespace has latency issues
 
-If the codespace seems particularly slow or has latency issues, it is possible that it has been created in a region that is far from you. To resolve this, you can [manually set your {% data variables.product.prodname_codespaces %} region](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces).
+If the codespace seems particularly slow or has latency issues, it is possible that it has been created in a region that is far from you. To resolve this, you can [manually set your {% data variables.product.prodname_github_codespaces %} region](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces).

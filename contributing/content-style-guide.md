@@ -93,6 +93,15 @@ schedule:
   - cron:  "40 19 * * *"
 ```
 
+### File and directory names
+
+Use inline codeblocks to refer to file and directory names. If a file type generally follows a specific capitalization convention, such as all caps for README files, use the established convention.
+
+- **Use:** In your `README.md` file, add info about your repository.
+- **Use:** In your `.github/workflows/` directory, create the `example-workflow.yml` file.
+- **Avoid:** In your _.github/workflows/_ directory, create the `example-workflow.yml` file.
+- **Avoid:** Delete the **example.js** file.
+
 ### Indentation
 
 In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.
@@ -133,9 +142,10 @@ Every image must include an alt attribute that provides a complete description o
 
 ### Filenames
 
-Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. If replacing an image, use the exact filename.
+Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
+- **Avoid:** `purchase-button{% ifversion ghes > 3.2 %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
@@ -156,7 +166,6 @@ Individual words might be small, but together they can create community, belongi
 ### Resources about inclusive language
 
 GitHub Brand Guide:
-- [People and communities](https://brand.github.com/content/grammar#people-and-communities)
 
 The Microsoft Style Guide offers resources on bias-free communication, accessibility terms, and writing for all abilities:
 - [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)
@@ -500,28 +509,10 @@ Format checkbox names in bold and omit the word “checkbox.” To describe choo
 - **Use:** Select **Enable for all new repositories**.
 - **Avoid:** Check the “Enable for all new repositories” checkbox.
 
-### Directory names
-
-Use sentence style capitalization. You can use internal capital letters in directory and folder names for readability. Format directory names in bold if you direct someone to select, type, or otherwise interact with the name.
-
-- **Use:** In your .github/workflows directory, create a new file.
-- **Use:** Select your **.github/workflows** directory.
-- **Avoid:** In your *.github/workflows* directory, select the workflow you wish to edit.
-- **Avoid:** In your `.github/workflows` directory, select the workflow you wish to edit.
-
 ### Dynamic text
 
 Use capital letters to indicate text that changes in the user interface or that the user needs to supply in a command or code snippet.
 - **Use:** Click **Add USERNAME to REPONAME**.
-
-### File names
-
-Use title style capitalization. If a file type generally follows a different capitalization convention, such as all caps for README files, use the established convention. You can use internal capital letters in file names for readability. Format file names in bold if you direct someone to select, type, or otherwise interact with the name.
-
-- **Use:** In your README.md file, add info about your repository.
-- **Use:** Enter **MyWorkflow.yml**.
-- **Avoid:** In your *README.md* file, add info about your repository.
-- **Avoid:** In your `README.md` file, add info about your repository.
 
 ### Lists and list items
 

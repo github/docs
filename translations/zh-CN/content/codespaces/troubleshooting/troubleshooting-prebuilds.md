@@ -1,7 +1,7 @@
 ---
-title: 预构建疑难解答
-shortTitle: 代码空间预构建
-intro: 您可以使用预构建来加速代码空间的创建。 本文提供预构建常见问题的疑难解答步骤。
+title: Troubleshooting prebuilds
+shortTitle: Codespaces prebuilds
+intro: You can use prebuilds to speed up the creation of codespaces. This article provides troubleshooting steps for common issues with prebuilds.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,60 +12,78 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-有关 {% data variables.product.prodname_codespaces %} 预构建的详细信息，请参阅“[预构建代码空间](/codespaces/prebuilding-your-codespaces)”。
+For more information about {% data variables.product.prodname_github_codespaces %} prebuilds, see "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)."
 
-## 检查代码空间是否是从预构建创建的？
+## Checking whether a codespace was created from a prebuild?
 
-创建代码空间时，可以选择要使用的虚拟机类型。 如果预构建可用于虚拟机类型，则其旁边会显示“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”。
+When you create a codespace, you can choose the type of the virtual machine you want to use. If a prebuild is available for the type of virtual machine, "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" is shown next to it.
 
-![可用计算机类型的列表](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![A list of available machine types](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-如果将 {% data variables.product.prodname_codespaces %} 编辑器首选项设置为“{% data variables.product.prodname_vscode %} for Web”，则“设置代码空间”页面将显示消息“找到预构建的代码空间”（如果正在使用预构建）。
+If you have your {% data variables.product.prodname_github_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used. 
 
-![“找到预构建的代码空间”消息](/assets/images/help/codespaces/prebuilt-codespace-found.png)
+![The 'prebuilt codespace found' message](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-同样，如果您的编辑器首选项是“{% data variables.product.prodname_vscode_shortname %}”，则当您创建新代码空间时，集成终端将包含消息“您正在使用由存储库的预构建配置定义的预构建代码空间”。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_github_codespaces %} 的默认编辑器](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)”。
+Similarly, if your editor preference is "{% data variables.product.prodname_vscode_shortname %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
 
-创建代码空间后，可以通过在终端中运行以下 {% data variables.product.prodname_cli %} 命令来检查它是否是从预构建创建的：
+After you have created a codespace you can check whether it was created from a prebuild by running the following {% data variables.product.prodname_cli %} command in the terminal:
 
 ```shell{:copy}
 gh api /user/codespaces/$CODESPACE_NAME --jq .prebuild
 ```
 
-如果代码是使用预构建创建的，将返回 `true`。
+This returns `true` if the codespace was created using a prebuild.
 
-或者，如果未安装 {% data variables.product.prodname_cli %} (`gh`)，则可以使用以下命令，如果代码空间是从预构建创建的，则该命令将返回 `createFromPrebuild` ：
+Alternatively, if {% data variables.product.prodname_cli %} (`gh`) is not installed, you can use the following command, which returns `createFromPrebuild` if the codespace was created from a prebuild: 
 
 ```shell{:copy}
 cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME'
 ```
 
-## “预构建就绪”标签有时会丢失
+## The "Prebuild Ready" label is sometimes missing
 
-您可能会注意到，有时，当您从启用了预构建的分支创建新代码空间时，“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签不会显示在用于选择计算机类型的对话框中。 这意味着预构建当前不可用。
+You may notice that sometimes, when you create a new codespace from a prebuild-enabled branch, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed in the dialog box for choosing a machine type. This means that prebuilds are not currently available.
 
-By default, each time you push to a prebuild-enabled branch, the prebuild is updated. 如果推送涉及对开发容器配置的更改，则在更新过程中，将从计算机类型列表中删除“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签。 During this time you can still create codespaces without a prebuild. If required, you can reduce the occasions on which prebuilds are unavailable for a repository by setting the prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. 更多信息请参阅“[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。
+By default, each time you push to a prebuild-enabled branch, the prebuild is updated. If the push involves a change to the dev container configuration then, while the update is in progress, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is removed from the list of machine types. During this time you can still create codespaces without a prebuild. If required, you can reduce the occasions on which prebuilds are unavailable for a repository by setting the prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
 
-如果您的分支未专门为预构建启用，当它是启用了预构建的分支的分支时，也可从预构建受益。 但是，如果分支上的开发容器配置发生更改，使其与基本分支上的配置不同，则预构建在分支上将不再可用。
+If your branch is not specifically enabled for prebuilds it may still benefit from prebuilds if it was branched from a prebuild-enabled branch. However, if the dev container configuration is changed on your branch, so that it's not the same as the configuration on the base branch, prebuilds will no longer be available on your branch.
 
-以下是检查特定分支是否未显示“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签的事项：
+Here are things to check if the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed for a particular branch:
 
-* 确认此分支存在预构建配置。 如果您不是存储库管理员，则需要联系存储库管理员进行确认。
-* 确认预构建配置包括您的区域。
-* 检查最近是否将对开发容器配置的更改推送到启用了预构建的分支。 如果是这样，通常必须等到为此推送运行的预构建工作流程完成，然后预构建才会再次可用。
-* 如果最近未进行任何配置更改，请转到存储库的“ **操作** ”选项卡，单击工作流程列表中的 **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} 预构建** ，然后检查分支的预构建工作流程运行是否成功。 如果工作流程的最新运行失败，并且其中一个或多个失败的运行包含对开发容器配置的更改，则关联分支将没有可用的预构建。
+* Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this. 
+* Confirm that the prebuild configuration includes your region.
+* Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
+* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch. 
 
 ## Some resources cannot be accessed in codespaces created using a prebuild
 
 If the `devcontainer.json` configuration file for a prebuild configuration specifies that permissions for access to other repositories are required, then the repository administrator is prompted to authorize these permissions when they create or update the prebuild configuration. If the administrator does not grant all of the requested permissions there's a chance that problems may occur in the prebuild, and in codespaces created from this prebuild. This is true even if the user who creates a codespace based on this prebuild _does_ grant all of the permissions when they are prompted to do so.
 
-## 预构建工作流程运行失败疑难解答
+## Troubleshooting failed workflow runs for prebuilds
 
 If the `devcontainer.json` configuration file for a prebuild configuration is updated to specify that permissions for access to other repositories are required, and a repository administrator has not been prompted to authorize these permissions for the prebuild configuration, then the prebuild workflow may fail. Try updating the prebuild configuration, without making any changes. If, when you click **Update**, the authorization page is displayed, check that the requested permissions are appropriate and, if so, authorize the request. For more information, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds#editing-a-prebuild-configuration)" and "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#setting-additional-repository-permissions)."
 
-如果为预构建配置运行的工作流程失败，则可以在调查时暂时禁用预构建配置。 更多信息请参阅“[管理预构建](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)”。
+If the workflow runs for a prebuild configuration are failing, you can temporarily disable the prebuild configuration while you investigate. For more information, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)."
 
-## 延伸阅读
+### Preventing out-of-date prebuilds being used
 
-- “[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)”
-- “[管理预构建](/codespaces/prebuilding-your-codespaces/managing-prebuilds)”
+By default, if the latest prebuild workflow has failed, then a previous prebuild for the same combination of repository, branch, and `devcontainer.json` configuration file will be used to create new codespaces. This behavior is called prebuild optimization.
+
+We recommend keeping prebuild optimization enabled, because it helps ensure that codespaces can still be created quickly if an up-to-date prebuild is not available. However, as a repository administrator, you can disable prebuild optimization if you run into problems with prebuilt codespaces being behind the current state of the branch. If you disable prebuild optimization, codespaces for the relevant combination of repository, branch, and `devcontainer.json` file will be created without a prebuild if the latest prebuild workflow has failed or is currently running.
+
+{% data reusables.codespaces.accessing-prebuild-configuration %}
+1. To the right of the affected prebuild configuration, select the ellipsis (**...**), then click **Edit**.
+
+   ![Screenshot of a list of prebuilds, with "Edit" highlighted](/assets/images/help/codespaces/edit-prebuild-configuration.png)
+1. Scroll to the bottom of the "Edit configuration" page and click **Show advanced options**.
+
+   ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
+1. If you're sure you want to disable the default setting, select **Disable prebuild optimization**.
+
+   ![Screenshot of the advanced option section and the "disable prebuild optmization" setting](/assets/images/help/codespaces/disable-prebuild-optimization.png)
+1. To save your change, click **Update**.
+
+## Further reading
+
+- "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
+- "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"

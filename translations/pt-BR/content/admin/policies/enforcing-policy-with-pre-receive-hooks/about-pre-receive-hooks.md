@@ -1,6 +1,6 @@
 ---
 title: Sobre hooks pre-receive
-intro: '*Hooks pre-receive* são scripts executados no appliance do {% data variables.product.prodname_ghe_server %} que você pode usar para implementar verificações de qualidade.'
+intro: '*Hooks pre-receive* são scripts executados no dispositivo do {% data variables.product.prodname_ghe_server %} que você pode usar para implementar verificações de qualidade.'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
@@ -12,8 +12,13 @@ topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+ms.openlocfilehash: a62d5391f9733c4a79ea8ba5d5f8f0d821d47d5c
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145093928'
 ---
-
 Quando ocorre um push, cada script é executado em um ambiente isolado e pode executar verificações no conteúdo do push. Os scripts farão o push ser aceito se o status de saída for 0, ou farão o push ser rejeitado se o status de saída for diferente de zero.
 
 ## Cenários de uso
@@ -29,4 +34,4 @@ Exemplos de uso dos hooks pre-receive:
 ## Fluxos de trabalho e impacto no desempenho
 O impacto para os desenvolvedores e seus fluxos de trabalho pode ser significativo e deve ser considerado atentamente. Hooks pre-receive baseados nas demandas corporativas e implementados com cuidado trarão mais benefícios para a organização como um todo.
 
-Os hooks pre-receive podem ter efeitos indesejados no desempenho do {% data variables.product.product_location %}, devendo ser implementados e analisados com atenção.
+Os ganchos de pré-recebimento podem ter efeitos indesejados no desempenho do {% data variables.product.product_location %}, devendo ser implementados e analisados com atenção.

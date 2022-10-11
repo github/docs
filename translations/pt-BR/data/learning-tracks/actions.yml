@@ -1,6 +1,5 @@
----
 getting_started:
-  title: 'Primeiros passos com {% data variables.product.prodname_actions %}'
+  title: 'Introdução ao {% data variables.product.prodname_actions %}'
   description: 'Descubra as possibilidades de {% data variables.product.prodname_actions %} criando seu primeiro fluxo de trabalho.'
   guides:
     - /actions/learn-github-actions/introduction-to-github-actions
@@ -22,8 +21,8 @@ continuous_integration:
     - /actions/automating-builds-and-tests/building-and-testing-java-with-ant
     - /actions/automating-builds-and-tests/building-and-testing-swift
 continuous_deployment:
-  title: 'Automatize as suas implantações'
-  description: 'Aprenda a automatizar a publicação de versões para o seu projeto com um fluxo de trabalho personalizado de implantação contínua (CD) em {% data variables.product.prodname_actions %}.'
+  title: 'Automatizar implantações'
+  description: 'Saiba como automatizar a publicação de versões para o seu projeto com um fluxo de trabalho personalizado de implantação contínua (CD) em {% data variables.product.prodname_actions %}.'
   guides:
     - /actions/publishing-packages/about-packaging-with-github-actions
     - /actions/publishing-packages/publishing-nodejs-packages
@@ -32,14 +31,14 @@ continuous_deployment:
     - /actions/publishing-packages/publishing-docker-images
 deploy_to_the_cloud:
   title: 'Implantar na nuvem'
-  description: 'Aprenda como usar {% data variables.product.prodname_actions %} para criar um aplicativo e implantá-lo em várias plataformas baseadas na nuvem.'
+  description: 'Saiba como usar {% data variables.product.prodname_actions %} para criar um aplicativo e implantá-lo em várias plataformas baseadas em nuvem.'
   guides:
     - /actions/deployment/deploying-to-amazon-elastic-container-service
     - /actions/deployment/deploying-to-azure-app-service
     - /actions/deployment/deploying-to-google-kubernetes-engine
 adopting_github_actions_for_your_enterprise_ghec:
   title: 'Adote o GitHub Actions para a sua empresa'
-  description: 'Aprenda a planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
+  description: 'Saiba como planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
   versions:
     ghec: '*'
   guides:
@@ -52,7 +51,7 @@ adopting_github_actions_for_your_enterprise_ghec:
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 adopting_github_actions_for_your_enterprise_ghes_and_ghae:
   title: 'Adote o GitHub Actions para a sua empresa'
-  description: 'Aprenda a planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
+  description: 'Saiba como planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
   versions:
     ghes: '*'
     ghae: '*'
@@ -79,8 +78,8 @@ hosting_your_own_runners:
     - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups
     - /actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners
 create_actions:
-  title: 'Crie uma ação'
-  description: 'Você tem alguma ideia para uma ação nova? Você construiu algo personalizado para seu projeto? Aprenda como criar ações compartilháveis e publicá-las no GitHub Marketplace.'
+  title: 'Criar uma ação'
+  description: 'Você tem uma ideia para uma nova ação? Você criou algo personalizado para o seu projeto? Saiba como criar ações compartilháveis e publicá-las no GitHub Marketplace.'
   guides:
     - /actions/creating-actions/about-custom-actions
     - /actions/creating-actions/creating-a-docker-container-action

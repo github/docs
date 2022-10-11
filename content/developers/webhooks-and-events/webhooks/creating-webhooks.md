@@ -26,7 +26,7 @@ For the purposes of this tutorial, we're going to use a local server to receive 
 After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. 4567 is the port number on which our server will listen for messages. You should see a line that looks something like this:
 
 ```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
 Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.

@@ -1,7 +1,7 @@
 ---
-title: Definindo padrões personalizados para varredura de segredo
-shortTitle: Defina padrões personalizados
-intro: 'Você pode estender {% data variables.product.prodname_secret_scanning_GHAS %} para detectar segredos além dos padrões tradicionais.'
+title: Defining custom patterns for secret scanning
+shortTitle: Define custom patterns
+intro: 'You can extend {% data variables.product.prodname_secret_scanning_GHAS %} to detect secrets beyond the default patterns.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
@@ -18,49 +18,49 @@ topics:
 {% ifversion ghes < 3.3 %}
 {% note %}
 
-**Observação:** Os padrões personalizados para {% data variables.product.prodname_secret_scanning %} estão atualmente em fase beta e sujeitos a alterações.
+**Note:** Custom patterns for {% data variables.product.prodname_secret_scanning %} is currently in beta and is subject to change.
 
 {% endnote %}
 {% endif %}
 
-## Sobre padrões personalizados para {% data variables.product.prodname_secret_scanning %}
+## About custom patterns for {% data variables.product.prodname_secret_scanning %}
 
-Você pode definir padrões personalizados para identificar segredos que não são detectados pelos padrões padrão compatíbeis com {% data variables.product.prodname_secret_scanning %}. Por exemplo, você pode ter um padrão de segredo que é interno da sua organização. Para obter detalhes dos segredos e provedores de serviço compatíveis, consulte "[ Padrões de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)".
+You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
 
-É possível definir padrões personalizados para sua empresa, organização ou repositório. {% data variables.product.prodname_secret_scanning_caps %} é vompatível com até
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-7297 %} 500 padrões personalizados para cada conta da organização ou empresa e até 100 padrões personalizados por repositório.
-{%- elsif ghes = 3.2 %} 20 padrões personalizados para cada organização ou conta corporativa, e por repositório.
-{%- else %} 100 padrões personalizados para cada organização ou conta corporativa, e 20 por repositório.
+You can define custom patterns for your enterprise, organization, or repository. {% data variables.product.prodname_secret_scanning_caps %} supports up to 
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
+{%- elsif ghes = 3.2 %} 20 custom patterns for each organization or enterprise account, and per repository.
+{%- else %} 100 custom patterns for each organization or enterprise account, and 20 per repository.
 {%- endif %}
 
 {% ifversion ghes < 3.3 %}
 {% note %}
 
-**Observação:** No beta, existem algumas limitações ao usar padrões personalizados para {% data variables.product.prodname_secret_scanning %}:
+**Note:** During the beta, there are some limitations when using custom patterns for {% data variables.product.prodname_secret_scanning %}:
 
-* Não há nenhuma funcionalidade de exercício de simulação.
-* Você não pode editar padrões personalizados depois que forem criados. Para alterar um padrão, você deve excluí-lo e recriá-lo.
-* Não há API para criar, editar ou excluir padrões personalizados. No entanto, os resultados de padrões personalizados são retornados na [API de alertas de segredos](/rest/reference/secret-scanning).
+* There is no dry-run functionality.
+* You cannot edit custom patterns after they're created. To change a pattern, you must delete it and recreate it.
+* There is no API for creating, editing, or deleting custom patterns. However, results for custom patterns are returned in the [secret scanning alerts API](/rest/reference/secret-scanning).
 
 {% endnote %}
 {% endif %}
 
-## Sintaxe de expressão regular para padrões personalizados
+## Regular expression syntax for custom patterns
 
-Você pode especificar padrões personalizados para {% data variables.product.prodname_secret_scanning_GHAS %} como uma ou mais expressões regulares.
+You can specify custom patterns for {% data variables.product.prodname_secret_scanning_GHAS %} as one or more regular expressions.
 
-- **Formato secreto:** uma expressão que descreve o formato do próprio segredo.
-- **Antes do segredo:** uma expressão que descreve os caracteres que vêm antes do segredo. Por padrão, isto é definido como `\A|[^0-9A-Za-z]`, o que significa que o segredo deve estar no início de uma linha ou ser precedido por um caractere não alfanumérico.
-- **Após o segredo:** uma expressão que descreve os caracteres que vêm após o segredo. Por padrão, isso é definido como `\z|[^0-9A-Za-z]` o que significa que o segredo deve ser seguido por uma nova linha ou um caractere não alfanumérico.
-- **Requisitos adicionais de correspondência:** uma ou mais expressões opcionais que o segredo propriamente dito deve ou não corresponder.
+- **Secret format:** an expression that describes the format of the secret itself.
+- **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
+- **After secret:** an expression that describes the characters that come after the secret. By default, this is set to `\z|[^0-9A-Za-z]` which means that the secret must be followed by a new line or a non-alphanumeric character.
+- **Additional match requirements:** one or more optional expressions that the secret itself must or must not match.
 
-Para tokens simples você normalmente só precisa especificar um formato de segredo. Os outros campos proporcionam flexibilidade para que você possa especificar segredos mais complexos sem criar expressões regulares complexas.  Par aobter um exemplo de um padrão personalizado, consulte "[Exemplo de um padrão personalizado especificado com requisitos adicionais](#example-of-a-custom-pattern-specified-using-additional-requirements)" abaixo.
+For simple tokens you will usually only need to specify a secret format. The other fields provide flexibility so that you can specify more complex secrets without creating complex regular expressions.  For an example of a custom pattern, see "[Example of a custom pattern specified using additional requirements](#example-of-a-custom-pattern-specified-using-additional-requirements)" below.
 
-{% data variables.product.prodname_secret_scanning_caps %} usa a [biblioteca Hyperscan](https://github.com/intel/hyperscan) e é compatível apenas os construtores regex do Hyperscan, que são um subconjunto da sintaxe PCRE. Os modificadores de opções de huperscan não são compatíveis.  Para obter mais informações sobre construções de padrões do Hyperscan, consulte "[suporte do padrão](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)na documentação do Hyperscan.
+{% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
 
-## Definindo um padrão personalizado para um repositório
+## Defining a custom pattern for a repository
 
-Antes de definir um padrão personalizado, você deve garantir que {% data variables.product.prodname_secret_scanning %} está habilitado no seu repositório. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_secret_scanning %} para os seus repositórios](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)".
+Before defining a custom pattern, you must ensure that {% data variables.product.prodname_secret_scanning %} is enabled on your repository. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -68,27 +68,27 @@ Antes de definir um padrão personalizado, você deve garantir que {% data varia
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. Quando estiver pronto para testar seu novo padrão personalizado, para identificar correspondências no repositório sem criar alertas, clique em **Salvar testar**.
+1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {% endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-Após a criação do seu padrão, {% data reusables.secret-scanning.secret-scanning-process %} Para mais informações sobre visualização de alertas {% data variables.product.prodname_secret_scanning %}, consulte "[Gerenciando alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
+After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
-### Exemplo de um padrão personalizado especificado usando requisitos adicionais
+### Example of a custom pattern specified using additional requirements
 
-Uma empresa tem um token interno com cinco características. Eles usam os diferentes campos para especificar como identificar tokens da seguinte forma:
+A company has an internal token with five characteristics. They use the different fields to specify how to identify tokens as follows:
 
-| **Característica**                                 | **Expressão regular e campo**                                          |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| Comprimento entre 5 e 10 caracteres                | Formato do segredo: `[$#%@AA-Za-z0-9]{5,10}`                           |
-| Não termina com um `.`                             | Após o segredo: `[^\.]`                                               |
-| Contém números e letras maiúsculas                 | Requisitos adicionais: o segredo deve corresponder a `[A-Z]` e `[0-9]` |
-| Não inclui mais de uma letra minúscula consecutiva | Requisitos adicionais: o segredo não deve corresponder a `[a-z]{2,}`   |
-| Contém um dos `$%@!`                               | Requisitos adicionais: o segredo deve corresponder a `[$%@!]`          |
+| **Characteristic** | **Field and regular expression** |
+|----------------|------------------------------|
+| Length between 5 and 10 characters | Secret format: `[$#%@AA-Za-z0-9]{5,10}` |
+| Does not end in a `.` | After secret: `[^\.]` |
+| Contains numbers and uppercase letters | Additional requirements: secret must match `[A-Z]` and `[0-9]` |
+| Does not include more than one lowercase letter in a row | Additional requirements: secret must not match `[a-z]{2,}` |
+| Contains one of `$%@!` | Additional requirements: secret must match `[$%@!]` |
 
-Esses tokens iriam corresponder ao padrão personalizado descrito acima:
+These tokens would match the custom pattern described above:
 
 ```
 a9@AAfT!         # Secret string match: a9@AAfT
@@ -96,7 +96,7 @@ ee95GG@ZA942@aa  # Secret string match: @ZA942@a
 a9@AA!ee9        # Secret string match: a9@AA
 ```
 
-Estas strings não correspondem ao padrão personalizado descrito acima:
+These strings would not match the custom pattern described above:
 
 ```
 a9@AA.!
@@ -105,14 +105,14 @@ aa9@AA!ee9
 aAAAe9
 ```
 
-## Definindo um padrão personalizado para uma organização
+## Defining a custom pattern for an organization
 
-Antes de definir um padrão personalizado, você deverá habilitar {% data variables.product.prodname_secret_scanning %} para os repositórios que você deseja fazer a digitalização na organização. Para habilitar {% data variables.product.prodname_secret_scanning %} em todos os repositórios da sua organização, consulte "[gerenciar configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
+Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
 {% ifversion ghes < 3.5 or ghae %}
 {% note %}
 
-**Observação:** Como não há nenhuma funcionalidade de teste, recomendamos que você teste seus padrões personalizados em um repositório antes de defini-los para toda a organização. Dessa forma, você pode evitar criar alertas falsos-positivos de {% data variables.product.prodname_secret_scanning %}.
+**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire organization. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
 
 {% endnote %}
 {% endif %}
@@ -124,79 +124,81 @@ Antes de definir um padrão personalizado, você deverá habilitar {% data varia
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. Quando você estiver pronto para testar seu novo padrão personalizado, para identificar correspondências em repositórios selecionados sem criar alertas, clique em **Salvar e testar**.
+1. When you're ready to test your new custom pattern, to identify matches in select repositories without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-Depois que o padrão for criado, {% data variables.product.prodname_secret_scanning %} irá verificar todos os segredos nos repositórios na sua organização, incluindo todo seu histórico do Git em todos os branches. Os proprietários da organização e administradores do repositório receberão um alerta sobre todos os segredos encontrados e poderão revisar o alerta no repositório onde o segredo for encontrado. Para obter mais informações sobre a visualização de alertas de {% data variables.product.prodname_secret_scanning %}, consulte "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
+After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
-## Definir um padrão personalizado para uma conta corporativa
+## Defining a custom pattern for an enterprise account
 
 {% ifversion fpt or ghec or ghes %}
 
-Antes de definir um padrão personalizado, você deverá garantir que você habilite a digitalização de segredo para a sua conta corporativa. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_GH_advanced_security %} para a sua empresa]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
 
 {% endif %}
 
 {% note %}
 
 {% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
-**Notas:**
-- No nível corporativo, apenas o criador de um padrão personalizado pode editar o padrão e usá-lo em um teste.
-- Os proprietários de empresas só podem usar testes em repositórios aos quais têm acesso, e os proprietários de empresas não têm necessariamente acesso a todas as organizações ou repositórios da empresa.
+**Notes:**
+- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run. 
+- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
 {% else %}
-**Observação:** Como não há nenhuma funcionalidade de teste, recomendamos que você teste seus padrões personalizados em um repositório antes de defini-los para toda sua empresa. Dessa forma, você pode evitar criar alertas falsos-positivos de {% data variables.product.prodname_secret_scanning %}.
+**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
 
 {% endif %}
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
+{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. Under "Code security and analysis", click **Security features**.{% else %}
 {% data reusables.enterprise-accounts.advanced-security-policies %}
-{% data reusables.enterprise-accounts.advanced-security-security-features %}
-1. Em "Padrões de personalização de digitalização de segredos", clique em {% ifversion ghes = 3.2 %}**Novo padrão personalizado**{% else %}**Novo padrão**{% endif %}.
+{% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
+1. Under "Secret scanning custom patterns", click {% ifversion ghes = 3.2 %}**New custom pattern**{% else %}**New pattern**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
-1. Quando estiver pronto para testar seu novo padrão personalizado, para identificar correspondências na empresa sem criar alertas, clique em **Salvar e testar**.
+1. When you're ready to test your new custom pattern, to identify matches in the enterprise without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-Depois que o seu padrão for criado, {% data variables.product.prodname_secret_scanning %} irá digitalizar qualquer segredo em repositórios nas organizações da sua empresa com {% data variables.product.prodname_GH_advanced_security %} habilitado, incluindo todo seu histórico do Git em todos os branches. Os proprietários da organização e administradores do repositório receberão um alerta sobre todos os segredos encontrados e poderão revisar o alerta no repositório onde o segredo for encontrado. Para obter mais informações sobre a visualização de alertas de {% data variables.product.prodname_secret_scanning %}, consulte "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
+After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
 {% ifversion fpt or ghes > 3.2 or ghec or ghae %}
-## Editando um padrão personalizado
+## Editing a custom pattern
 
-Ao salvar uma alteração em um padrão personalizado, isso irá fechar todos os alertas de {% data variables.product.prodname_secret_scanning %} que foram criados usando a versão anterior do padrão.
-1. Acesse o local onde o padrão personalizado foi criado. Um padrão personalizado pode ser criado na conta de um repositório, organização ou empresa.
-   * Para um repositório ou organização, exiba as configurações "Segurança & análise" do repositório ou organização onde o padrão personalizado foi criado. Para mais informações consulte "[Definir um padrão personalizado para um repositório](#defining-a-custom-pattern-for-a-repository)" ou "[Definir um padrão personalizado para uma organização](#defining-a-custom-pattern-for-an-organization)" acima.
-   * Para uma empresa, em "Políticas" exiba a área "Segurança Avançada" e, em seguida, clique em **Funcionalidades de segurança**. Para obter mais informações, consulte "[Definindo um padrão personalizado para uma conta corporativa](#defining-a-custom-pattern-for-an-enterprise-account)" acima.
-2. Em "{% data variables.product.prodname_secret_scanning_caps %}", à direita do padrão personalizado que você deseja editar, clique em {% octicon "pencil" aria-label="The edit icon" %}.
+When you save a change to a custom pattern, this closes all the {% data variables.product.prodname_secret_scanning %} alerts that were created using the previous version of the pattern.
+1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
+   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
+   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**. For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
+2. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
 {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
-3. Quando estiver pronto para testar seu padrão personalizado editado, para identificar correspondências sem criar alertas, clique em **Salvar e testar**.
+3. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
 {%- endif %}
-4. Ao revisar e testar suas alterações, clique em **Salvar alterações**.
+4. When you have reviewed and tested your changes, click **Save changes**.
 {% endif %}
 
-## Removendo um padrão personalizado
+## Removing a custom pattern
 
-1. Acesse o local onde o padrão personalizado foi criado. Um padrão personalizado pode ser criado na conta de um repositório, organização ou empresa.
+1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
 
-   * Para um repositório ou organização, exiba as configurações "Segurança & análise" do repositório ou organização onde o padrão personalizado foi criado. Para mais informações consulte "[Definir um padrão personalizado para um repositório](#defining-a-custom-pattern-for-a-repository)" ou "[Definir um padrão personalizado para uma organização](#defining-a-custom-pattern-for-an-organization)" acima.
-   * Para uma empresa, em "Políticas" exiba a área "Segurança Avançada" e, em seguida, clique em **Funcionalidades de segurança**.  Para obter mais informações, consulte "[Definindo um padrão personalizado para uma conta corporativa](#defining-a-custom-pattern-for-an-enterprise-account)" acima.
+   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
+   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**.  For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
 {%- ifversion ghec or ghes > 3.2 or ghae %}
-1. À direita do padrão personalizado que você deseja remover, clique em {% octicon "trash" aria-label="The trash icon" %}.
-1. Revise a confirmação e selecione um método para lidar com todos os alertas abertos relacionados ao padrão personalizado.
-1. Clique em **Sim, excluir este padrão**.
+1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
+1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
+1. Click **Yes, delete this pattern**.
 
-   ![Confirmando a exclusão de um padrão {% data variables.product.prodname_secret_scanning %} personalizado ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)
+   ![Confirming deletion of a custom {% data variables.product.prodname_secret_scanning %} pattern ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)
 {%- elsif ghes = 3.2 %}
-1. À direita do padrão personalizado que você deseja remover, clique em **Remover**.
-1. Revise a confirmação e clique em **Remover padrão personalizado**.
+1. To the right of the custom pattern you want to remove, click **Remove**.
+1. Review the confirmation, and click **Remove custom pattern**.
 {%- endif %}

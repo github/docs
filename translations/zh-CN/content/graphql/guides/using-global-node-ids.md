@@ -10,13 +10,18 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: c4e6dba85ea94fe3337828f795bb7325162b6452
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146381470'
 ---
-
-您可以使用 REST API 或 GraphQL API 访问 GitHub 中的大多数对象（用户、议题、拉取请求等）。 您可以从 REST API 中找到许多对象的**全局节点 ID** ，并在 GraphQL 操作中使用这些 ID。 更多信息请参阅“[预览 REST API 资源中的 GraphQL API 节点 ID](https://developer.github.com/changes/2017-12-19-graphql-node-id/)”。
+您可以使用 REST API 或 GraphQL API 访问 GitHub 中的大多数对象（用户、议题、拉取请求等）。 可以在 REST API 中找到许多对象的全局节点 ID，并将这些 ID 用于 GraphQL 操作。 有关详细信息，请参阅“[预览 REST API 资源中的 GraphQL API 节点 ID](https://developer.github.com/changes/2017-12-19-graphql-node-id/)”。
 
 {% note %}
 
-**注：**在 REST 中，全局节点 ID 字段被命名为 `node_id`。 在 GraphQL 中，此字段为 `node` 接口上的 `id` 字段。 若要重温“节点”在 GraphQL 中的含义，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#node)。”
+注意：在 REST 中，全局节点 ID 字段被命名为 `node_id`。 在 GraphQL 中，此字段为 `node` 接口上的 `id` 字段。 若要重温“节点”在 GraphQL 中的含义，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#node)”。
 
 {% endnote %}
 
@@ -32,13 +37,13 @@ topics:
 
 ## 1. 调用可返回对象节点 ID 的 REST 端点
 
-如果您[请求经过身份验证的用户](/rest/reference/users#get-the-authenticated-user)：
+如果[请求经过身份验证的用户](/rest/reference/users#get-the-authenticated-user)：
 
 ```shell
 $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
 ```
 
-您将得到响应，其中包含经过验证的用户的 `node_id`：
+你将得到响应，其中包含经过验证的用户的 `node_id`：
 
 ```json
 {
@@ -90,9 +95,9 @@ $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/us
 
 ## 2. 在 GraphQL 中查找对象类型
 
-在本示例中，`node_id` 值为 `MDQ6VXNlcjU4MzIzMQ==`。 您可以使用此值在 GraphQL 中查询同一个对象。
+在此示例中，`node_id` 值为 `MDQ6VXNlcjU4MzIzMQ==`。 您可以使用此值在 GraphQL 中查询同一个对象。
 
-不过，首先需要知道对象的_类型_。 您可以通过简单的 GraphQL 查询检查类型：
+不过，首先需要知道对象的类型。 您可以通过简单的 GraphQL 查询检查类型：
 
 ```graphql
 query {
@@ -102,9 +107,9 @@ query {
 }
 ```
 
-此查询类型&mdash;即按 ID 查找节点&mdash;被称为“直接节点查找。”
+此查询类型&mdash;即按 ID 查找节点&mdash;被称为“直接节点查找”。
 
-当您运行此查询时，将发现 `__typename` 为 [`User`](/graphql/reference/objects#user)。
+运行此查询时，将看到 `__typename` 为 [`User`](/graphql/reference/objects#user)。
 
 ## 3. 在 GraphQL 中执行直接节点查找
 
@@ -125,4 +130,4 @@ query {
 
 ## 在迁移中使用全局节点 ID
 
-构建使用 REST API 或 GraphQL API 的集成时，最佳做法是保留全局节点 ID，以便轻松引用不同 API 版本的对象。 有关处理 REST 与 GraphQL 之间的转换的更多信息，请参阅“[从 REST 迁移到 GraphQL](/graphql/guides/migrating-from-rest-to-graphql)。”
+构建使用 REST API 或 GraphQL API 的集成时，最佳做法是保留全局节点 ID，以便轻松引用不同 API 版本的对象。 有关处理 REST 与 GraphQL 之间的转换的更多信息，请参阅“[从 REST 迁移到 GraphQL](/graphql/guides/migrating-from-rest-to-graphql)”。

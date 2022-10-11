@@ -1,5 +1,5 @@
 ---
-title: 'Managing team access to an organization {% data variables.product.prodname_project_v1 %}'
+title: Managing team access to an organization {% data variables.product.prodname_project_v1 %}
 intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can give a team access to a {% data variables.projects.projects_v1_board %} owned by your organization.'
 redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Gerenciar acesso de equipe
+shortTitle: Manage team access
 allowTitleToDifferFromFilename: true
 ---
 
@@ -20,9 +20,9 @@ allowTitleToDifferFromFilename: true
 
 {% warning %}
 
-**Avisos:**
+**Warnings:**
 - You can change a team's permission level if the team has direct access to a {% data variables.projects.projects_v1_board %}. If the team's access to the {% data variables.projects.projects_v1_board %} is inherited from a parent team, you must change the parent team's access to the {% data variables.projects.projects_v1_board %}.
-- If you add or remove {% data variables.projects.projects_v1_board %} access for a parent team, each of that parent's child teams will also receive or lose access to the {% data variables.projects.projects_v1_board %}. Para obter mais informações, consulte "[Sobre equipes](/articles/about-teams)".
+- If you add or remove {% data variables.projects.projects_v1_board %} access for a parent team, each of that parent's child teams will also receive or lose access to the {% data variables.projects.projects_v1_board %}. For more information, see "[About teams](/articles/about-teams)."
 
 {% endwarning %}
 
@@ -43,9 +43,11 @@ You can give an entire team the same permission level to a {% data variables.pro
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
-8. Na barra lateral esquerda, clique em **Teams** (Equipes).
-9. Para adicionar uma equipe, clique em **Add a team: Select team** (Adicionar uma equipe: Selecionar equipe). Depois, escolha uma equipe no menu suspenso ou pesquise a equipe que você deseja adicionar. ![Menu suspenso Add a team (Adicionar uma equipe) com lista de equipes na organização](/assets/images/help/projects/add-a-team.png)
-10. Ao lado do nome da equipe, use o menu suspenso para selecionar o nível de permissão desejado: **Read** (Leitura), **Write** (Gravação) ou **Admin** (Administrador). ![Menu suspenso Team permissions (Permissões de equipe) com opções read, write e admin (leitura, gravação e administrador)](/assets/images/help/projects/org-project-team-choose-permissions.png)
+8. In the left sidebar, click **Teams**.
+9. To add a team, click **Add a team: Select team**. Then, choose a team from the drop-down menu or search for the team you'd like to add.
+ ![Add a team drop-down menu with list of teams in organization](/assets/images/help/projects/add-a-team.png)
+10. Next to the team name, use the drop-down menu to select the desired permission level: **Read**, **Write**, or **Admin**.
+ ![Team permissions drop-down menu with read, write, and admin options](/assets/images/help/projects/org-project-team-choose-permissions.png)
 
 ## Configuring a team's access to a {% data variables.projects.projects_v1_board %}
 
@@ -54,5 +56,16 @@ If a team's access to a {% data variables.projects.projects_v1_board %} is inher
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
-4. Acima das conversas da equipe, clique em {% octicon "project" aria-label="The Projects icon" %} **Projects** (Projetos). ![Aba repositórios da equipe](/assets/images/help/organizations/team-project-board-button.png)
-5. To change permissions levels, to the right of the {% data variables.projects.projects_v1_board %} you want to update, use the drop-down. To remove a {% data variables.projects.projects_v1_board %}, click **{% octicon "trash" aria-label="The trash icon" %}**. ![Botão Trash (Lixeira) Remove a project board from your team (Remover um quadro de projeto de sua equipe)](/assets/images/help/organizations/trash-button.png)
+4. Above the team's conversation, click {% octicon "project" aria-label="The Projects icon" %} **Projects**.
+  ![The team repositories tab](/assets/images/help/organizations/team-project-board-button.png)
+5. To change permissions levels, to the right of the {% data variables.projects.projects_v1_board %} you want to update, use the drop-down. To remove a {% data variables.projects.projects_v1_board %}, click **{% octicon "trash" aria-label="The trash icon" %}**.
+  ![Remove a project board from your team trash button](/assets/images/help/organizations/trash-button.png)
+
+{% ifversion projects-v2-add-to-team %}
+
+## Further reading
+
+- [Adding your project to a team](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)
+
+
+{% endif %}

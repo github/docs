@@ -26,11 +26,12 @@ You can authorize an existing SSH key, or create a new SSH key and then authoriz
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-3. Next to the SSH key you'd like to authorize, click **Enable SSO** or **Disable SSO**.
-![SSO token authorize button](/assets/images/help/settings/ssh-sso-button.png)
-4. Find the organization you'd like to authorize the SSH key for.
-5. Click **Authorize**.
-![Token authorize button](/assets/images/help/settings/ssh-sso-authorize.png)
+1. To the right of the SSH key you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
+
+   ![Screenshot of the SSO token authorize button](/assets/images/help/settings/ssh-sso-button.png)
+1. To the right of the organization you'd like to authorize the SSH key for, click **Authorize**.
+
+   ![Screenshot of the token authorize button](/assets/images/help/settings/ssh-sso-authorize.png)
 
 ## Further reading
 
