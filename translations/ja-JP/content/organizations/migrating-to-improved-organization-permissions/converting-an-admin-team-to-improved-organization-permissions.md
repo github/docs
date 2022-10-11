@@ -6,11 +6,12 @@ redirect_from:
   - /articles/converting-an-admin-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-admin-team-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 管理Teamの変換
 ---
 
 レガシーの管理者 Team メンバーのために新しい Team を作成することで、レガシーの管理者 Team が持つリポジトリ作成の資格を削除できます。Team が Organization のリポジトリに対して必要なアクセスを持っていることを確認してから、レガシーの管理者 Teamを削除してください。

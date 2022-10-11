@@ -8,32 +8,31 @@ redirect_from:
   - /packages/guides/pushing-and-pulling-docker-images
   - /packages/getting-started-with-github-container-registry/about-github-container-registry
   - /packages/managing-container-images-with-github-container-registry
+  - /packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
+  - /packages/getting-started-with-github-container-registry/enabling-improved-container-support
+  - /packages/guides/container-guides-for-github-packages/enabling-improved-container-support
+  - /packages/guides/enabling-improved-container-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: コンテナレジストリ
 ---
 
-{% data reusables.package_registry.container-registry-beta %}
-
-{% data reusables.package_registry.docker-vs-container-registry %}
-
-### {% data variables.product.prodname_container_registry %}サポートについて
-
-コンテナイメージをプッシュ及びプルするためには、Organizationの管理者もしくは個人アカウントのオーナーは、{% data variables.product.prodname_container_registry %}を有効化しなければなりません。 詳しい情報については「[{% data variables.product.prodname_container_registry %}での改善されたコンテナサポートの有効化](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)」を参照してください。
-
-Dockerイメージをインストールあるいは公開する際に、コンテナレジストリはWindowsイメージのような外部レイヤーをサポートします。
+## {% data variables.product.prodname_container_registry %}サポートについて
 
 現在のところ、{% data variables.product.prodname_container_registry %} では以下のコンテナフォーマットをサポートしています。
 
 * [DDocker イメージマニフェスト V2、スキーマ 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
 * [Open Container Initiative (OCI) 仕様](https://github.com/opencontainers/image-spec)
 
-### {% data variables.product.prodname_container_registry %}での認証
+Dockerイメージをインストールあるいは公開する際には、{% data variables.product.prodname_container_registry %}はWindowsイメージのような外部レイヤーもサポートします。
+
+## {% data variables.product.prodname_container_registry %}での認証
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
-### コンテナイメージをプッシュする
+## コンテナイメージをプッシュする
 
 以下の例では、`IMAGE-NAME` の最新バージョンをプッシュします。
   ```shell
@@ -47,9 +46,9 @@ Dockerイメージをインストールあるいは公開する際に、コン�
 
 パッケージを最初に公開する際のデフォルトの可視性はプライベートです。 可視性を変更したりアクセス権限を設定するには、「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」を参照してください。
 
-### コンテナイメージをプルする
+## コンテナイメージをプルする
 
-#### ダイジェストによるプル
+### ダイジェストによるプル
 
 常に同一のイメージを使用するため、`digest` SHA 値でプルするコンテナイメージのバージョンを指定できます。
 
@@ -67,13 +66,13 @@ Dockerイメージをインストールあるいは公開する際に、コン�
   $ docker pull ghcr.io/OWNER/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
   ```
 
-#### 名前によるプル
+### 名前によるプル
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME
   ```
 
-#### 名前とバージョンによるプル
+### 名前とバージョンによるプル
 
 名前と `1.14.1` バージョンタグにより Docker CLI でイメージをプルする例を以下に示します。
   ```shell
@@ -87,7 +86,7 @@ Dockerイメージをインストールあるいは公開する際に、コン�
   > ghcr.io/orgname/image-name/release:1.14.1
   ```
 
-#### 名前と最新バージョンによるプル
+### 名前と最新バージョンによるプル
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME:latest
@@ -97,14 +96,14 @@ Dockerイメージをインストールあるいは公開する際に、コン�
   > ghcr.io/user/image-name:latest
   ```
 
-### コンテナイメージを構築する
+## コンテナイメージを構築する
 
 以下の例では `hello_docker` イメージを構築します。
   ```shell
   $ docker build -t hello_docker .
   ```
 
-### コンテナイメージにタグ付けする
+## コンテナイメージにタグ付けする
 
 1. タグ付けする Docker イメージの ID を調べます。
   ```shell

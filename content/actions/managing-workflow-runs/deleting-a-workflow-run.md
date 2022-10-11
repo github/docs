@@ -4,13 +4,12 @@ intro: 'You can delete a workflow run that has been completed, or is more than t
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 

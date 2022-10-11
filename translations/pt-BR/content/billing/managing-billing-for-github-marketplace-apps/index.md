@@ -8,7 +8,7 @@ redirect_from:
   - /articles/managing-your-organization-s-apps/
   - /articles/managing-billing-for-github-marketplace-apps
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-billing-for-github-marketplace
   - /upgrading-the-billing-plan-for-a-github-marketplace-app

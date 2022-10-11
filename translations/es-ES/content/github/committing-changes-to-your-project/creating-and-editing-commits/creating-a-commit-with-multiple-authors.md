@@ -1,20 +1,21 @@
 ---
 title: Crear una confirmación con distintos autores
-intro: 'Puedes atribuir una confirmación a más de un autor agregando una o más introducciones `Co-authored-by` al mensaje de la confirmación. Las confirmaciones conjuntas pueden verse en {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} y pueden incluirse en la gráfica de contribuciones del perfil y en la estadística del repositorio{% endif %}.'
+intro: 'Puedes atribuir una confirmación a más de un autor agregando una o más introducciones `Co-authored-by` al mensaje de la confirmación. Las confirmaciones conjuntas pueden visualizarse en {% data variables.product.product_name %}{% ifversion ghes or ghae %} y pueden incluirse en la gráfica de contribuciones del perfil y en la estadística del repositorio{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
   - /github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Con autores múltiples
 ---
 
-### Información del coautor requerida
+## Información del coautor requerida
 
 Antes de agregar un coautor a una confirmación, debes saber el correo electrónico correcto para usar con cada coautor. Para que la confirmación del coautor se considere como una contribución, debes usar el correo electrónico asociado con su cuenta {% data variables.product.product_name %}.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Si una persona elige mantener la privacidad de su dirección de correo electrónico, debes usar su correo electrónico `no-reply` proporcionado por {% data variables.product.product_name %} para proteger su privacidad. Si no lo haces, el correo electrónico del coautor estará disponible para el público en el mensaje de confirmación. Si deseas mantener la privacidad de tu correo electrónico, puedes optar por usar un correo electrónico `no-reply` proporcionado por {% data variables.product.product_name %} para las operaciones Git y solicitar a los otros coautores que incluyan tu correo electrónico `no-reply` en las introducciones de cada confirmación.
 
@@ -30,13 +31,13 @@ Para obtener más información, consulta "[Establecer tu dirección de correo el
 
 {% endif %}
 
-### Crear confirmaciones conjuntas usando {% data variables.product.prodname_desktop %}
+## Crear confirmaciones conjuntas usando {% data variables.product.prodname_desktop %}
 
 Puedes usar {% data variables.product.prodname_desktop %} para crear una confirmación con un coautor. Para obtener más información, consulta "[Escribe un mensaje de confirmación y sube tus cambios](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" y [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
 ![Agregar un coautor al mensaje de confirmación](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
-### Crear confirmaciones conjuntas en la línea de comando
+## Crear confirmaciones conjuntas en la línea de comando
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
@@ -65,7 +66,7 @@ Puedes usar {% data variables.product.prodname_desktop %} para crear una confirm
 
 El nuevo mensaje y la confirmación aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
-### Crear confirmaciones conjuntas en {% data variables.product.product_name %}
+## Crear confirmaciones conjuntas en {% data variables.product.product_name %}
 
 Una vez que hayas realizado los cambios en un archivo usando el editor web en {% data variables.product.product_name %}, puedes crear una confirmación conjunta agregando una introducción `Co-authored-by:` al mensaje de confirmación.
 
@@ -78,11 +79,10 @@ Una vez que hayas realizado los cambios en un archivo usando el editor web en {%
 
 La confirmación y el mensaje nuevos aparecerán en {% data variables.product.product_location %}.
 
-### Leer más
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+## Leer más
+{% ifversion ghes or ghae %}
 - "[Ver las contribuciones en tu perfil](/articles/viewing-contributions-on-your-profile)"
 - "[¿Por qué mis contribuciones no se ven en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
-- "[Ver un resumen de la actividad del repositorio](/articles/viewing-a-summary-of-repository-activity)"
 - "[Ver los colaboradores de un proyecto](/articles/viewing-a-projects-contributors)"
 - "[Cambiar un mensaje de confirmación](/articles/changing-a-commit-message)"
 - "[Confirmar y revisar los cambios en tu proyecto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" en la documentación de {% data variables.product.prodname_desktop %}

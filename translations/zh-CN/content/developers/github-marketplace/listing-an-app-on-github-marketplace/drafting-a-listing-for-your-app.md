@@ -14,12 +14,13 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: 草拟应用程序列表
 ---
 
-### 创建新的 {% data variables.product.prodname_marketplace %} 上架信息草稿
+## 创建新的 {% data variables.product.prodname_marketplace %} 上架信息草稿
 
 您只能为公共应用程序创建上架信息草稿。 在创建上架信息草稿之前，请阅读以下有关在 {% data variables.product.prodname_marketplace %} 上架信息中编写和配置设置的指南：
 
@@ -52,14 +53,14 @@ topics:
 
 {% endnote %}
 
-### 编辑您的上架信息
+## 编辑您的上架信息
 
 创建 {% data variables.product.prodname_marketplace %} 上架信息草稿后，您可以随时回来修改上架信息。 如果您的应用程序已获批准并且在 {% data variables.product.prodname_marketplace %} 中，您可以编辑上架产品的信息和图像，但无法更改现有的已发布定价计划。 请参阅“[设置 {% data variables.product.prodname_marketplace %} 上架产品的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”。
 
-### 提交应用程序
+## 提交应用程序
 
 完成 {% data variables.product.prodname_marketplace %} 上架信息后，您可以在 **Overview（概览）**页面中提交您的上架信息以供审查。 您需要阅读并接收“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”，然后才可以单击 **Submit for review（提交审查）**。 提交应用程序以供审查后，上架专家将与您联系，提供有关上架流程的其他信息。
 
-### 删除 {% data variables.product.prodname_marketplace %} 上架信息
+## 删除 {% data variables.product.prodname_marketplace %} 上架信息
 
 如果您不想再在 {% data variables.product.prodname_marketplace %} 中上架应用程序，请联系 {% data variables.contact.contact_support %} 删除您的上架信息。

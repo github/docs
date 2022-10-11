@@ -6,9 +6,9 @@ redirect_from:
   - /v3/guides/basics-of-authentication
   - /rest/basics-of-authentication
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -22,7 +22,7 @@ topics:
 
 {% endtip %}
 
-### 注册您的应用程序
+## 注册您的应用程序
 
 首先，您需要注册[您的应用程序][new oauth app]。 每个注册的 OAuth 应用程序都被分配了一个唯一的客户端 ID 和客户端密钥。 不应共享客户端密钥！ 也不应将该字符串检入您的仓库。
 
@@ -30,7 +30,7 @@ topics:
 
 由于我们运行常规的 Sinatra 服务器，因此本地实例的位置设置为 `http://localhost:4567`。 回调 URL 应填写为 `http://localhost:4567/callback`。
 
-### 接受用户授权
+## 接受用户授权
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -50,7 +50,7 @@ end
 ```
 
 客户端 ID 和客户端密钥[来自应用程序的配置页面][app settings]。
-{% if currentVersion == "free-pro-team@latest" %} **永远_不要_**将该事项的这些值存储在
+{% ifversion fpt %} **永远_不要_**将该事项的这些值存储在
 {% data variables.product.product_name %} 中或任何其他公共的地方。{% endif %} 建议将它们存储为
 [环境变量][about env vars]--我们正是这样做的。
 
@@ -85,7 +85,7 @@ end
 
 哦，还记得我们指定了一个回调 URL 用于 `callback` 吗？ 我们没有为它提供路由，因此 {% data variables.product.product_name %} 在用户授权应用程序后不知道将他们带去哪里。 现在我们来解决这个问题！
 
-#### 提供回调
+### 提供回调
 
 在 _server.rb_ 中，添加路由以指定回调应执行的操作：
 
@@ -108,7 +108,7 @@ end
 
 在应用程序身份验证成功后，{% data variables.product.product_name %} 将提供一个临时的 `code` 值。 您需要将此代码 `POST` 到 {% data variables.product.product_name %} 以换取 `access_token`。 为了简化我们的 GET 和 POST HTTP 请求，我们使用 [rest-client][REST Client]。 请注意，您可能永远不会通过 REST 访问 API。 对于更重要的应用程序，您可能需要使用[一个用您选择的语言编写的库][libraries]。
 
-#### 检查授予的作用域
+### 检查授予的作用域
 
 用户可以通过直接更改 URL 来编辑您请求的范围。 这可以授予您的应用程序比您最初请求的更少的访问权限。 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。 有关请求和授予的范围的更多信息，请参阅“[OAuth 应用程序的范围](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)”。
 
@@ -132,9 +132,9 @@ end
 
 仅在发出请求之前检查作用域是不够的，因为用户可能会在检查与实际请求之间的时间段更改作用域。 如果发生这种情况，您期望成功的 API 调用可能会以 `404` 或 `401` 状态失败，或者返回不同的信息子集。
 
-为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 除此之外，OAuth 应用程序 API 还提供 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} [检查令牌的有效性](/rest/reference/apps#check-a-token){% else %}[检查令牌的有效性](/rest/reference/apps#check-an-authorization){% endif %} 的端点。 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
+为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 除此之外，OAuth 应用程序 API 还提供 {% ifversion fpt or ghes %} [检查令牌的有效性](/rest/reference/apps#check-a-token){% else %}[检查令牌的有效性](/rest/reference/apps#check-an-authorization){% endif %} 的端点。 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
 
-#### 发出经过身份验证的请求
+### 发出经过身份验证的请求
 
 最后，使用此访问令牌，您将能够将在用户登录时发出经过身份验证的请求：
 
@@ -172,7 +172,7 @@ erb :basic, :locals => auth_result
 </p>
 ```
 
-### 实现“持久”身份验证
+## 实现“持久”身份验证
 
 如果我们要求用户每次访问网页时都必须登录应用程序，这将是一个非常糟糕的模式。 例如，尝试直接导航到 `http://localhost:4567/basic`。 您会收到一个错误。
 

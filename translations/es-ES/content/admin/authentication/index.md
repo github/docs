@@ -4,8 +4,8 @@ intro: 'Puedes configurar ingresan los usuarios en {% data variables.product.pro
 redirect_from:
   - /enterprise/admin/authentication
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

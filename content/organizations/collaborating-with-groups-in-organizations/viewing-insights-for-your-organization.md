@@ -37,6 +37,13 @@ With organization activity insights you can view weekly, monthly, and yearly dat
   ![Choose repositories to view org insights](/assets/images/help/organizations/org-insights-repos.png)
 
 ## Viewing organization dependency insights
+
+{% note %}
+
+**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph). 
+
+{% endnote %}
+
 With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
 
 {% data reusables.profile.access_org %}

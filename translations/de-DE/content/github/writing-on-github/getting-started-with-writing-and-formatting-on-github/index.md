@@ -6,11 +6,12 @@ redirect_from:
   - /articles/getting-started-with-writing-and-formatting-on-github
 intro: 'Du kannst einfache Funktionen verwenden, um Deine Kommentare zu formatieren und mit anderen in Issues, Pull Requests und Wikis auf GitHub zu interagieren.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-writing-and-formatting-on-github
   - /basic-writing-and-formatting-syntax
+shortTitle: Start writing on GitHub
 ---
 

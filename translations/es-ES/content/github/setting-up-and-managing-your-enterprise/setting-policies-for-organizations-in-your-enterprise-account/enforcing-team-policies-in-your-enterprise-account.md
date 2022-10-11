@@ -9,12 +9,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Requerir políticas de equipo
 ---
 
-### Hacer cumplir una política para los debates de equipo
+## Hacer cumplir una política para los debates de equipo
 
 En todas las organizaciones que son propiedad de tu cuenta de empresa, puedes habilitar o inhabilitar los debates de equipo o permitir que los propietarios administren este parámetro a nivel de la organización. Para obtener más información, consulta [Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions/)".
 

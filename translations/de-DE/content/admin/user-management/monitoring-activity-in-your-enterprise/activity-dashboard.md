@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 ---
@@ -26,11 +26,7 @@ Das Aktivitäts-Dashboard bietet wöchentliche, monatliche und jährliche Grafik
 
 ![Aktivitäts-Dashboard](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
-Für weitere Analysen auf Basis der Daten von {% data variables.product.product_name %} kannst Du {% data variables.product.prodname_insights %} erwerben. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)“.
-{% endif %}
-
-### Auf das Aktivitäts-Dashboard zugreifen
+## Auf das Aktivitäts-Dashboard zugreifen
 
 1. Klicken Sie im oberen Bereich einer beliebigen Seite auf **Explore** (Erkunden). ![Registerkarte „Explore“ (Erkunden)](/assets/images/enterprise/settings/ent-new-explore.png)
 2. Klicken Sie in der oberen rechten Ecke auf **Activity** (Aktivität). ![Schaltfläche „Activity“ (Aktivität)](/assets/images/enterprise/activity/activity-button.png)

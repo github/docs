@@ -6,11 +6,12 @@ redirect_from:
   - /articles/about-comparing-branches-in-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Compare branches
 ---
 
 {% note %}
@@ -20,13 +21,13 @@ topics:
 {% endnote %}
 
 Du kannst die vorgeschlagenen Änderungen in einem Pull Request auf der Registerkarte „Files changed“ (Geänderte Dateien) anzeigen.
-{% if currentVersion ver_lt "github-enterprise@3.0" %}
+{% ifversion ghes < 3.0 %}
 ![Registerkarte für geänderte Pull-Request-Dateien](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
 ![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 
 Anstatt die Commits selbst anzuzeigen, können Sie die vorgeschlagenen Änderungen so anzeigen, wie sie in den Dateien erscheinen, sobald der Pull Request gemergt wurde. Die Dateien werden in alphabetischer Reihenfolge auf der Registerkarte „Files changed“ (Geänderte Dateien) angezeigt. Ergänzungen zu den Dateien erscheinen grün und sind durch ein „`+`“-Zeichen gekennzeichnet , wohingegen entfernte Inhalte rot erscheinen und durch ein „`-`“-Zeichen gekennzeichnet sind.
 
-### Anzeigeoptionen für Diffs
+## Anzeigeoptionen für Diffs
 
 {% tip %}
 
@@ -48,7 +49,7 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 
   ![Dropdownmenü mit Dateifiltern](/assets/images/help/pull_requests/file-filter-menu.png)
 
-### Vergleiche von Three-Dot- (Dreipunkte-) und Two-Dot- (Zweipunkte-) Diffs von Git
+## Vergleiche von Three-Dot- (Dreipunkte-) und Two-Dot- (Zweipunkte-) Diffs von Git
 
 Standardmäßig zeigen Pull-Requests auf {% data variables.product.prodname_dotcom %} einen three-dot-Diff (Dreipunkte-Diff) an, oder einen Vergleich zwischen der aktuellsten Version des Themenzweiges und dem Commit, in dem der Themenzweig letztmals mit dem Basis-Zweig synchronisiert wurde.
 
@@ -62,11 +63,11 @@ Wenn Sie einen Two-Dot-Diff in einem Pull Request simulieren und einen Vergleich
 
 For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
-### Gründe für Anzeigefehler bei Diffs
-- Du hast die maximale Anzahl von Dateien oder bestimmten Dateitypen überschritten. Weitere Informationen findest Du unter „[Begrenzungen für die Anzeige von Inhalten und Diffs in einem Repository](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits).“
+## Gründe für Anzeigefehler bei Diffs
+- Du hast die maximale Anzahl von Dateien oder bestimmten Dateitypen überschritten. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
 - Deine Datei entspricht einer Regel in der *.gitattributes*-Datei des Repositorys, welche verhindert, dass diese Datei standardmäßig angezeigt wird. Weitere Informationen findest Du unter „[Darstellung geänderter Dateien auf GitHub anpassen](/articles/customizing-how-changed-files-appear-on-github).“
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Pull Requests](/articles/about-pull-requests)“
 - „[Informationen zu Forks](/articles/about-forks)“

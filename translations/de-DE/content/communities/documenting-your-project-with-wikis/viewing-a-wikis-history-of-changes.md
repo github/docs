@@ -7,14 +7,15 @@ redirect_from:
   - /articles/viewing-a-wikis-history-of-changes
   - /github/building-a-strong-community/viewing-a-wikis-history-of-changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: View a history of changes
 ---
 
-### Wiki-Verlauf anzeigen
+## Wiki-Verlauf anzeigen
 
 Zum Wiki-Verlauf zählen:
 - Der Benutzer, der die Änderung durchgeführt hat
@@ -26,19 +27,19 @@ Zum Wiki-Verlauf zählen:
 3. Navigiere auf der Wiki-Seitenleiste zur Seite, deren Verlauf Du anzeigen möchtest.
 4. Klicke im oberen Bereich des Wikis auf den Revisionslink. ![Wiki-Revisionslink](/assets/images/help/wiki/wiki_revision_link.png)
 
-### Vorherigen Inhalt anzeigen
+## Vorherigen Inhalt anzeigen
 
 In der Wiki-Verlaufstabelle kannst Du auf einen [SHA-1-Hash](http://en.wikipedia.org/wiki/SHA-1) klicken (die Reihe von Buchstaben und Zahlen ganz rechts), um zu sehen, wie eine Wiki-Seite zu einem bestimmten Zeitpunkt aussah.
 
 ![Wiki-SHA-Nummer](/assets/images/help/wiki/wiki_sha_number.png)
 
-### Zwei Revisionen vergleichen
+## Zwei Revisionen vergleichen
 
 1. Wähle zwei Zeilen aus, die verglichen werden sollen.
 2. Klicke im oberen Bereich der Verlaufstabelle auf **Compare Revisions** (Revisionen vergleichen). ![Wiki-Schaltfläche „compare revisions" (Vergleichen von Revisionen)](/assets/images/help/wiki/wiki_compare_revisions.png)
 3. Du wirst ein Diff der Änderungen sehen, das aufzeigt, welche Zeilen hinzugefügt, entfernt und geändert wurden.
 
-### Vorherige Änderungen rückgängig machen
+## Vorherige Änderungen rückgängig machen
 
 Du kannst nur dann Änderungen rückgängig machen, wenn Du berechtigt bist, das Wiki zu bearbeiten.
 

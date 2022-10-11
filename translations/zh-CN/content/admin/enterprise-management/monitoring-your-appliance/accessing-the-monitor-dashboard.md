@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
   - /admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,15 +14,16 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: 访问监控仪表板
 ---
 
-### 访问监视仪表板
+## 访问监视仪表板
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. 在页面顶部，单击 **Monitor**。 ![监视仪表板链接](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-### 排查设备上的常见资源分配问题
+## 排查设备上的常见资源分配问题
 
 {% note %}
 

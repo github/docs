@@ -11,7 +11,7 @@ redirect_from:
   - /packages/guides/configuring-dotnet-cli-for-use-with-github-packages
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: NuGet registry
 ---

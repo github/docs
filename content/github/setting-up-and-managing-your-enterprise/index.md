@@ -14,6 +14,7 @@ topics:
 children:
   - /managing-your-enterprise-account
   - /managing-users-in-your-enterprise
+  - /managing-your-enterprise-users-with-your-identity-provider
   - /managing-organizations-in-your-enterprise-account
   - /configuring-identity-and-access-management-for-your-enterprise-account
   - /setting-policies-for-organizations-in-your-enterprise-account

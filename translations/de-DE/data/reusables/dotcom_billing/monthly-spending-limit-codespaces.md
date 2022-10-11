@@ -1,0 +1,1 @@
+1. Under "Monthly spending limit", scroll down to "Codespaces" and choose to limit spending or allow unlimited spending. ![Optionsfelder, um Ausgaben zu begrenzen oder unbegrenzte Ausgaben zu ermöglichen](/assets/images/help/billing/limit-or-unlimited-codespaces.png)

@@ -2,11 +2,12 @@
 title: Sponsors GraphQL API 使用入门
 intro: 使用 GraphQL API，您可以构建自定义集成来管理或审查您的赞助。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - GraphQL
   - API
+shortTitle: 赞助者 GraphQL API
 ---
 
 要开始使用 GraphQL API，请参阅 [GraphQL 简介](/graphql/guides/introduction-to-graphql)。

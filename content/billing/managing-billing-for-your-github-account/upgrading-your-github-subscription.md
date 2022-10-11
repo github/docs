@@ -40,6 +40,7 @@ You can upgrade your personal account from {% data variables.product.prodname_fr
 2. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
+{% data reusables.dotcom_billing.enter-billing-info %}
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 

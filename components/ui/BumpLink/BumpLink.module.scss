@@ -1,0 +1,13 @@
+.container:hover .symbol {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.symbol {
+  display: inline-block;
+  transform: translateX(0);
+  color: inherit;
+  opacity: 0;
+  transition: 200ms;
+  transform: translateX(0);
+}

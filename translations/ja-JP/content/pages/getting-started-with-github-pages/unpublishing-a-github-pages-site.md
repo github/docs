@@ -11,24 +11,25 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 permissions: 'People with admin or maintainer permissions for a repository can unpublish a {% data variables.product.prodname_pages %} site.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: Pagesサイトの公開取り下げ
 ---
 
-### プロジェクトサイトを取り下げる
+## プロジェクトサイトを取り下げる
 
 {% data reusables.repositories.navigate-to-repo %}
 2. リポジトリに `gh-pages` ブランチが存在する場合は、`gh-pages` ブランチを削除します。 詳しい情報については[リポジトリ内でのブランチの作成と削除](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)を参照してください。
-3. If the `gh-pages` branch was your publishing source, {% if currentVersion == "free-pro-team@latest" %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
+3. 公開ソースが`gh-pages`ブランチなら、{% ifversion fpt %}ステップ 6 までスキップします{% else %}サイトの公開は取り消され、残りのステップをスキップできます{% endif %}。
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 5. {% data variables.product.prodname_pages %} で、[**Source**] ドロップダウンメニューを使用して [**None**] を選択します。 ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}
 
-### ユーザまたは Organization サイトを取り下げる
+## ユーザまたは Organization サイトを取り下げる
 
 {% data reusables.repositories.navigate-to-repo %}
 2. 公開元として使用しているブランチを削除するか、リポジトリ全体を削除します。 詳細は「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」および「[リポジトリを削除する](/articles/deleting-a-repository)」を参照してください。

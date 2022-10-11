@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/guides/clustering/managing-a-github-enterprise-cluster/
   - /enterprise/admin/enterprise-management/configuring-clustering
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:

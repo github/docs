@@ -12,6 +12,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.0'
+  ghae: "issue-4864"
 type: how_to
 topics:
   - Dependency graph
@@ -23,8 +24,6 @@ shortTitle: Explore dependencies
 
 ## Viewing the dependency graph
 
-{% data reusables.repositories.enable-security-alerts %}
-
 The dependency graph shows the dependencies{% ifversion fpt %} and dependents{% endif %} of your repository. For information about the detection of dependencies and which ecosystems are supported, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -32,6 +31,10 @@ The dependency graph shows the dependencies{% ifversion fpt %} and dependents{% 
 {% data reusables.repositories.click-dependency-graph %}{% ifversion fpt %}
 4. Optionally, under "Dependency graph", click **Dependents**.
 ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
+
+{% ifversion ghes or ghae-issue-4864 %}
+Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."
+{% endif %}
 
 ### Dependencies view
 
@@ -44,14 +47,14 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 
 {% endif %}
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes or ghae %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 ![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
+**Note:** {% data variables.product.product_name %} does not populate the **Dependents** view.
 
 {% endnote %}
 

@@ -35,6 +35,8 @@ If you do not have an enterprise account, please use the {% data variables.conta
 
 ## Submitting a ticket using the {% data variables.contact.enterprise_portal %}
 
+{% data reusables.support.zendesk-deprecation %}
+
 1. Navigate to the {% data variables.contact.contact_enterprise_portal %}.
 5. Click **Submit a Ticket**
   ![Submit a ticket to Enterprise Support team](/assets/images/enterprise/support/submit-ticket-button.png)

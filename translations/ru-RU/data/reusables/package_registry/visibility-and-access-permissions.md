@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 If you have admin permissions to a container image, you can set the access permissions for the container image to private or public. Public images allow anonymous access and can be pulled without authentication or signing in via the CLI.
 
 As an admin, you can also grant access permissions for a container image that are separate from the permissions you've set at the organization and repository levels.

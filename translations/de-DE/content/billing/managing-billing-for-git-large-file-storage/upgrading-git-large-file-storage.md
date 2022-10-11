@@ -6,19 +6,19 @@ redirect_from:
   - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account/
   - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization/
   - /articles/upgrading-git-large-file-storage
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - LFS
   - Organizations
   - Upgrades
   - User account
+shortTitle: Upgrade Git LFS storage
 ---
 
-### Zusätzlichen Speicher und Bandbreite für ein persönliches Konto kaufen
+## Zusätzlichen Speicher und Bandbreite für ein persönliches Konto kaufen
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -26,7 +26,7 @@ topics:
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-### Zusätzlichen Speicher und Bandbreite für eine Organisation kaufen
+## Zusätzlichen Speicher und Bandbreite für eine Organisation kaufen
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -35,7 +35,7 @@ topics:
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zur Abrechnung für {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)“
 - „[Informationen zur Speicher- und Bandbreitennutzung](/articles/about-storage-and-bandwidth-usage)“

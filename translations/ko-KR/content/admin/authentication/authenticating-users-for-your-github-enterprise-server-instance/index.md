@@ -9,7 +9,7 @@ redirect_from:
   - /enterprise/admin/user-management/authenticating-users-for-your-github-enterprise-server-instance
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -20,5 +20,6 @@ children:
   - /using-ldap
   - /allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /changing-authentication-methods
+shortTitle: Authenticate users
 ---
 

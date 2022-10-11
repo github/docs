@@ -6,11 +6,12 @@ redirect_from:
   - /articles/disabling-project-boards-in-your-organization
   - /github/managing-your-work-on-github/disabling-project-boards-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Desabilitar quadro de projetos
 ---
 
 Após a desabilitação dos quadros de projeto em toda a organização, não é mais possível criar quadros de projeto no nível da organização nem acessar os quadros de projeto no nível de organização já existentes pelas URLs anteriores. Os quadros de projeto em repositórios não são afetados.
@@ -29,7 +30,7 @@ Quando você desabilita quadros de projeto, deixa de ver informações relaciona
 
 {% data reusables.organizations.disable_project_board_results %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"
 - "[Fechar um quadro de projeto](/articles/closing-a-project-board)"

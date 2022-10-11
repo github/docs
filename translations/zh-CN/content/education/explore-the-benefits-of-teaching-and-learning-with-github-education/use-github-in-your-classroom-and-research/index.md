@@ -6,10 +6,11 @@ redirect_from:
   - /github/teaching-and-learning-with-github-education/using-github-in-your-classroom-and-research
   - /articles/using-github-in-your-classroom-and-research
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-github-education-for-educators-and-researchers
   - /apply-for-an-educator-or-researcher-discount
   - /why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
+shortTitle: 课堂和研究
 ---
 

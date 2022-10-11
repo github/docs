@@ -5,14 +5,14 @@ redirect_from:
   - /articles/about-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Open Source
   - Fundamentals
 ---
 
-### Informationen zu {% data variables.product.prodname_sponsors %}
+## Informationen zu {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -24,7 +24,7 @@ topics:
 
 Wenn du ein unterstützter Entwickler oder eine unterstütze Organisation wirst, gelten zusätzliche Bedingungen für {% data variables.product.prodname_sponsors %}. Weitere Informationen findest Du unter „[GitHub Sponsors Zusätzliche Bedingungen](/github/site-policy/github-sponsors-additional-terms)."
 
-### Informationen zu {% data variables.product.prodname_matching_fund %}
+## Informationen zu {% data variables.product.prodname_matching_fund %}
 
 {% note %}
 
@@ -40,11 +40,13 @@ Donations between sponsored developers will not be matched.
 
 {% data reusables.sponsors.legal-additional-terms %}
 
-### Feedback zu {% data variables.product.prodname_sponsors %} geben
+## Feedback zu {% data variables.product.prodname_sponsors %} geben
 
 {% data reusables.sponsors.feedback %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 - "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"
 - "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"
+- "[Searching users and organizations based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
+- "[Searching repositories based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
 - „[Häufig gestellte Fragen mit dem {% data variables.product.prodname_sponsors %}-Team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)“ auf {% data variables.product.prodname_blog %}

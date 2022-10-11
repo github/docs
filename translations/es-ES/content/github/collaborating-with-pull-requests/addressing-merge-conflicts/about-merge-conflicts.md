@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-merge-conflicts
   - /github/collaborating-with-issues-and-pull-requests/about-merge-conflicts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -19,7 +19,7 @@ Debes resolver todos los conflictos de fusión antes de poder fusionar un solici
 
 ![mensaje de error de conflicto de fusión](/assets/images/help/pull_requests/merge_conflict_error_on_github.png)
 
-### Resolver conflictos de fusión
+## Resolver conflictos de fusión
 
 Para resolver un conflicto de fusión, debes editar de forma manual el archivo conflictivo para seleccionar los cambios que quieres mantener en la fusión final. Hay un par de maneras diferentes de resolver un conflicto de fusión:
 
@@ -34,7 +34,7 @@ $ git merge <em>BRANCH-NAME</em>
 > Automatic merge failed; fix conflicts and then commit the result
 ```
 
-### Leer más
+## Leer más
 
 - "[Acerca de las fusiones de solicitudes de extracción](/articles/about-pull-request-merges/)"
 - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests/)"

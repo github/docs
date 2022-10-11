@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 1. Klicke unter „Danger Zone“ (Gefahrenzone) auf **Transfer** (Übertragen). ![Schaltfläche „Transfer“ (Übertragen)](/assets/images/help/repository/repo-transfer.png)
 1. Lies die Informationen zum Übertragen eines Repositorys, und gib anschließend den Namen des Benutzers oder der Organisation ein, dessen respektive deren Inhaberschaft Du auf das Repository übertragen möchtest. ![Informationen zur Repository-Übertragung und Feld zur Eingabe des Benutzernamens des neuen Inhabers](/assets/images/help/repository/transfer-repo-new-owner-name.png)
 1. Lies die Warnungen zu potenziellen Feature-Verlusten in Abhängigkeit zum Abonnement des neuen Inhabers. ![Warnungen zur Übertragung eines Repositorys auf eine Person, die ein kostenloses Produkt verwendet](/assets/images/help/repository/repo-transfer-free-plan-warnings.png)
