@@ -6,9 +6,9 @@ redirect_from:
   - /articles/reviewing-changes-in-pull-requests
 intro: 'Depois de abrir uma pull request, você pode revisar e comentar um conjunto de alterações propostas.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
 children:
@@ -23,6 +23,5 @@ children:
   - /approving-a-pull-request-with-required-reviews
   - /dismissing-a-pull-request-review
   - /checking-out-pull-requests-locally
-shortTitle: Revisar alterações
 ---
 

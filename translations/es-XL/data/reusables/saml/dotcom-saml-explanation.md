@@ -1,0 +1,1 @@
+El SSO de SAML proporciona a los propietarios de organizaciones y empresas en {% data variables.product.prodname_dotcom %} una manera de controlar y asegurar el acceso a los recursos organizacionales como repositorios, informes de problemas y solicitudes de extracción.

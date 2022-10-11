@@ -5,9 +5,9 @@ intro: '{% data variables.product.prodname_dotcom %}のREST APIを使って呼�
 redirect_from:
   - /v3
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /overview
   - /reference

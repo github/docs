@@ -4,14 +4,13 @@ intro: 'Du kannst in Slack Erinnerungen für alle Pull Requests erhalten, für d
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Manage scheduled reminders
 ---
 
-## Über geplante Erinnerungen für Pull Requests
+### Über geplante Erinnerungen für Pull Requests
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
@@ -19,7 +18,7 @@ Organisationsinhaber können Erinnerungen für eines oder mehrere Teams in ihrer
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-## Eine geplante Erinnerung für eine Organisation erstellen
+### Eine geplante Erinnerung für eine Organisation erstellen
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -42,7 +41,7 @@ Organisationsinhaber können Erinnerungen für eines oder mehrere Teams in ihrer
 {% data reusables.reminders.required-labels %}
 {% data reusables.reminders.create-reminder %}
 
-## Geplante Erinnerungen für eine Organisation verwalten
+### Geplante Erinnerungen für eine Organisation verwalten
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -51,14 +50,14 @@ Organisationsinhaber können Erinnerungen für eines oder mehrere Teams in ihrer
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-## Geplante Erinnerungen für eine Organisation löschen
+### Geplante Erinnerungen für eine Organisation löschen
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Deine geplanten Erinnerungen verwalten](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"
 - „[Geplante Erinnerungen für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

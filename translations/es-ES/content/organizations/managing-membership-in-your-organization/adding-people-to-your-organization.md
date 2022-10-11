@@ -5,13 +5,12 @@ redirect_from:
   - /articles/adding-people-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-people-to-your-organization
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 permissions: Organization owners can add people to an organization.
-shortTitle: Agregar a las personas a una organización
 ---
 
-{% ifversion not ghae %}
+{% if currentVersion != "github-ae@latest" %}
 Si tu organización[requiere que los miembros usen autenticación de dos factores](/articles/requiring-two-factor-authentication-in-your-organization), los usuarios deben [habilitar la autenticación de dos factores](/articles/securing-your-account-with-two-factor-authentication-2fa) antes de que puedas agregarlos a la organización.
 {% endif %}
 
@@ -26,5 +25,5 @@ Si tu organización[requiere que los miembros usen autenticación de dos factore
 {% data reusables.organizations.add-user-to-teams %}
 {% data reusables.organizations.send-invitation %}
 
-## Leer más
+### Leer más
 - "[Agregar miembros de la organización a un equipo](/articles/adding-organization-members-to-a-team)"

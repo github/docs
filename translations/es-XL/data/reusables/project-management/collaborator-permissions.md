@@ -1,0 +1,1 @@
+11. Opcionalmente, junto al nombre del colaborador nuevo, utiliza el menú desplegable y da clic en el nivel de permiso que le quieras otorgar: **Read**, **Write**, o **Admin**. ![Menú desplegable de permisos de colaborador con opciones read, write y admin](/assets/images/help/projects/org-project-collaborators-choose-permissions.png)

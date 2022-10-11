@@ -56,7 +56,7 @@ describe('POST /events', () => {
       referrer: 'https://github.com/github/docs',
       search: '?q=is%3Aissue+is%3Aopen+example+',
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
-      path_language: 'en',
+      site_language: 'en',
 
       // Device information
       os: 'linux',
@@ -211,13 +211,13 @@ describe('POST /events', () => {
         400
       ))
 
-    it('should path_language is a valid option', () =>
+    it('should site_language is a valid option', () =>
       checkEvent(
         {
           ...pageExample,
           context: {
             ...pageExample.context,
-            path_language: 'nl',
+            site_language: 'nl',
           },
         },
         400

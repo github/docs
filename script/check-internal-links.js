@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+import linkinator from 'linkinator'
+import { deprecated, latest } from '../lib/enterprise-server-releases.js'
+
+const checker = new linkinator.LinkChecker()
+const englishRoot = 'http://localhost:4002/en'
+const allowedVersions = ['dotcom', 'enterprise-server', 'github-ae']
 
 // [start-readme]
 //
@@ -10,13 +16,6 @@
 // If you want to run it locally, you must have a local server running. You can use `npm run link-check`.
 //
 // [end-readme]
-
-import linkinator from 'linkinator'
-import { deprecated, latest } from '../lib/enterprise-server-releases.js'
-
-const checker = new linkinator.LinkChecker()
-const englishRoot = 'http://localhost:4002/en'
-const allowedVersions = ['dotcom', 'enterprise-server', 'github-ae']
 
 const config = {
   path: englishRoot,

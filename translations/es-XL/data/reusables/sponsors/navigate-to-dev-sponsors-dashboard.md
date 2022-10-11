@@ -1,0 +1,2 @@
+1. En la esquina superior derecha de cualquier página, da clic en tu foto de perfil, posteriormente, da clic en **{% data variables.product.prodname_sponsors %}**. ![Botón de {% data variables.product.prodname_sponsors %}](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
+2. Si se muestra una lista de cuentas patrocinadas y elegibles, haz clic a la derecha de tu nombre en **Tablero**. ![Botón de tablero para patrocinadores del desarrollador](/assets/images/help/sponsors/dev-sponsors-dashboard-button.png)

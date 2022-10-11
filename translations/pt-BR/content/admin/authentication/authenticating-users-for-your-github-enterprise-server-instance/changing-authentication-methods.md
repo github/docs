@@ -6,14 +6,13 @@ redirect_from:
   - /enterprise/admin/authentication/changing-authentication-methods
   - /admin/authentication/changing-authentication-methods
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: overview
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Alterar métodos de autenticação
 ---
 
 As contas de usuário no {% data variables.product.product_location %} são preservadas quando você altera o método de autenticação, e os usuários continuarão fazendo login na mesma conta (desde que não haja alteração nos nomes de usuário).

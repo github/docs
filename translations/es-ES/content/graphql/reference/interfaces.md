@@ -4,14 +4,14 @@ redirect_from:
   - /v4/interface
   - /v4/reference/interface
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---
 
-## Acerca de las interfaces
+### Acerca de las interfaces
 
 Las [interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) sirven como objetos padre de los cuales obtendrán sus herencias los demás objetos.
 

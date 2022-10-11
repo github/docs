@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
   - /admin/enterprise-management/evacuating-a-cluster-node
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Clustering
@@ -19,8 +19,8 @@ topics:
 
 1. 用 `ghe-config` 命令查找节点的 `uuid`。
 
-    ```shell
-    $ ghe-config cluster.<em>HOSTNAME</em>.uuid
+    ```
+    $ ghe-config cluster._hostname_.uuid
     ```
 
 2. 在复制数据时，您需要监视节点的状态。 理想情况下，在复制完成之前，不应使该节点离线。 要监视节点的状态，请运行以下任意命令：
@@ -30,11 +30,11 @@ topics:
     ghe-spokes evac-status
     ```
     对于 {% data variables.product.prodname_pages %}
-
-    ```shell
-    echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
+    {% raw %}
     ```
-
+    echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
+    ```
+    {% endraw %}
     对于存储
     ```
     ghe-storage evacuation-status
@@ -43,25 +43,26 @@ topics:
 3. 复制完成后，您可以撤出存储服务。 运行以下任意命令：
 
     对于 Git
-
-    ```shell
-    ghe-spokes server evacuate git-server-<em>UUID</em> \'<em>REASON FOR EVACUATION</em>\'
+    {% raw %}
     ```
-
+    ghe-spokes server evacuate git-server-<uuid>
+    ```
+    {% endraw %}
     对于 {% data variables.product.prodname_pages %}
-
-    ```shell
-    ghe-dpages evacuate pages-server-<em>UUID</em>
+    {% raw %}
     ```
-
+    ghe-dpages evacuate pages-server-<uuid>
+    ```
+    {% endraw %}
     对于存储，请使节点离线
-
-    ```shell
-    ghe-storage offline storage-server-<em>UUID</em>
+    {% raw %}
     ```
-
+    ghe-storage offline storage-server-<uuid>
+    ```
+    {% endraw %}
       然后撤出
-
-    ```shell
-    ghe-storage evacuate storage-server-<em>UUID</em>
+    {% raw %}
     ```
+    ghe-storage evacuate storage-server-<uuid>
+    ```
+    {% endraw %}

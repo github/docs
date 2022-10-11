@@ -3,9 +3,9 @@ title: 跟踪项目板上的进度
 shortTitle: 跟踪项目
 intro: 了解如何跟踪您在项目板上的工作
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Issues
   - Projects
@@ -19,4 +19,3 @@ redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
 ---
 
-{% data reusables.projects.project_boards_old %}

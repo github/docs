@@ -1,0 +1,98 @@
+/* Navigation & Header
+.nav-mobile prefixed classes style nav elements only for mobile (< 768px)
+.nav-desktop prefixed classes style nav elements only for desktop
+------------------------------------------------------------------------------*/
+
+.header-notifications a {
+  color: var(--color-auto-blue-6);
+  text-decoration: underline;
+}
+
+header summary,
+.nav-contact {
+  @include breakpoint(md) {
+    font-size: $spacer-3;
+  }
+}
+
+.dropdown-withArrow[open] {
+  .arrow {
+    transform: rotate(180deg) scaleX(-1);
+  }
+}
+
+.nav-mobile-dropdown {
+  @media (max-width: $width-md - 1) {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.nav-mobile-dropdown.js-open {
+  @media (max-width: $width-md) {
+    display: block;
+    visibility: visible;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    background-color: var(--color-auto-gray-0);
+    padding: $spacer-3;
+    padding-top: $spacer-8;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.nav-mobile-burgerIcon {
+  background: url("/assets/images/octicons/hamburger.svg") no-repeat right;
+  width: 18px;
+  height: 23px;
+  position: relative;
+  z-index: 3;
+
+  &.js-open {
+    background: url("/assets/images/octicons/x.svg") no-repeat right;
+    width: 16px;
+    height: 21px;
+  }
+}
+
+.nav-desktop-productDropdown,
+.nav-desktop-langDropdown {
+  @include breakpoint(md) {
+    min-width: 200px;
+    background: var(--color-bg-primary);
+    border-radius: 3px;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.nav-desktop-productDropdownButton {
+  @include breakpoint(md) {
+    font-family: $mono-font;
+  }
+}
+
+// Allows dropdown to be closed when clicking outside of it
+@include breakpoint(md) {
+  details.close-when-clicked-outside[open] > summary::before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    display: block;
+    cursor: default;
+    content: " ";
+    background: transparent;
+  }
+}
+
+.nav-dropdown {
+  @media (min-width: 1012px) and (max-width: 1279px) {
+    right: 0;
+  }
+}

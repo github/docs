@@ -8,13 +8,16 @@ redirect_from:
   - /packages/guides/using-github-packages-with-github-actions
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=2.22'
   ghae: '*'
 shortTitle: Publish & install with Actions
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-self-hosted-runners-notice %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 

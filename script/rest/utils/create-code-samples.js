@@ -158,7 +158,6 @@ function getExampleParamValue(name, schema) {
   // TODO: figure out the right behavior here
   if (schema.oneOf && schema.oneOf[0].type) return getExampleParamValue(name, schema.oneOf[0])
   if (schema.anyOf && schema.anyOf[0].type) return getExampleParamValue(name, schema.anyOf[0])
-  if (!schema.type) return 'any'
 
   switch (schema.type) {
     case 'string':
@@ -174,6 +173,5 @@ function getExampleParamValue(name, schema) {
     case 'array':
       return [getExampleParamValue(name, schema.items)]
   }
-  
   throw new Error(`Unknown data type in schema:, ${JSON.stringify(schema, null, 2)}`)
 }

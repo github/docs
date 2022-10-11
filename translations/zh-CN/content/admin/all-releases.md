@@ -3,10 +3,9 @@ title: GitHub Enterprise Server 发行版
 intro: '当前支持且先前废弃的 {{ site.data.variables.product.prodname_ghe_server }} 版本的文档。'
 allowTitleToDifferFromFilename: true
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 topics:
   - Enterprise
-shortTitle: 版本发布
 ---
 
 ## 当前支持

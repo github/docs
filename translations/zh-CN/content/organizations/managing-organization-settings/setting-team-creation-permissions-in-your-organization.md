@@ -5,13 +5,12 @@ redirect_from:
   - /articles/setting-team-creation-permissions-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/setting-team-creation-permissions-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 限制团队创建
 ---
 
 组织所有者可以设置团队创建权限。

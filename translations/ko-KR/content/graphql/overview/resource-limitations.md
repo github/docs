@@ -4,9 +4,9 @@ intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API has limitat
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---

@@ -5,9 +5,9 @@ redirect_from:
   - /articles/deleting-a-saved-reply
   - /github/writing-on-github/deleting-a-saved-reply
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

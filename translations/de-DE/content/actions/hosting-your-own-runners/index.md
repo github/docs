@@ -5,13 +5,12 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
   - /actions/automating-your-workflow-with-github-actions/hosting-your-own-runners
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 children:
   - /about-self-hosted-runners
   - /adding-self-hosted-runners
-  - /autoscaling-with-self-hosted-runners
   - /configuring-the-self-hosted-runner-application-as-a-service
   - /using-a-proxy-server-with-self-hosted-runners
   - /using-labels-with-self-hosted-runners
@@ -24,3 +23,4 @@ children:
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}

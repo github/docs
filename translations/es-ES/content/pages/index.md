@@ -13,9 +13,9 @@ redirect_from:
   - /github/working-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pages
 children:

@@ -1,11 +1,4 @@
 #!/usr/bin/env node
-
-// [start-readme]
-//
-// Run this script to test-render all the translation files that have been changed (when compared to the `main` branch).
-//
-// [end-readme]
-
 import { fileURLToPath } from 'url'
 import path from 'path'
 import renderContent from '../lib/render-content/index.js'
@@ -13,15 +6,20 @@ import loadSiteData from '../lib/site-data.js'
 import { loadPages } from '../lib/page-data.js'
 import languages from '../lib/languages.js'
 import { promisify } from 'util'
-import ChildProcess, { execSync } from 'child_process'
+import xChildProcess, { execSync } from 'child_process'
 import fs from 'fs'
 import frontmatter from '../lib/frontmatter.js'
 import chalk from 'chalk'
 import { YAMLException } from 'js-yaml'
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const exec = promisify(ChildProcess.exec)
+// [start-readme]
+//
+// Run this script to test-render all the translation files that have been changed (when compared to the `main` branch).
+//
+// [end-readme]
+
+const exec = promisify(xChildProcess.exec)
 
 main()
 

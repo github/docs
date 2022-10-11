@@ -2,13 +2,12 @@
 title: Referência
 intro: 'Esta seção contém referências que permitirão seu sucesso com {% data variables.product.prodname_codespaces %}'
 versions:
-  fpt: '*'
-product: '{% data reusables.gated-features.codespaces %}'
+  free-pro-team: '*'
 children:
-  - /understanding-billing-for-codespaces
+  - /about-billing-for-codespaces
+  - /troubleshooting-your-codespace
   - /allowing-your-codespace-to-access-a-private-image-registry
   - /using-the-command-palette-in-codespaces
-  - /security-in-codespaces
-  - /disaster-recovery-for-codespaces
 ---
 
+{% data reusables.codespaces.release-stage %}

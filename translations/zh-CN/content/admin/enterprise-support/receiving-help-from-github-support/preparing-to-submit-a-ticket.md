@@ -5,13 +5,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
   - /admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
-shortTitle: 准备事件单
 ---
 
 在提交事件单之前，您应当：
@@ -23,7 +22,7 @@ shortTitle: 准备事件单
 - 确定与 {% data variables.contact.github_support %} 正在进行的任何通信中是否存在现有事件单编号。
 - 确定联系 {% data variables.contact.github_support %} 的最佳人选。
 
-## 选择联系人
+### 选择联系人
 
 特别是优先级为 {% data variables.product.support_ticket_priority_urgent %} 的事件单，联系 {% data variables.contact.github_support %} 的人应该：
 

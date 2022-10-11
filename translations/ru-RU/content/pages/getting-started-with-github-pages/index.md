@@ -8,9 +8,9 @@ redirect_from:
   - /github/working-with-github-pages/getting-started-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pages
 children:
@@ -23,6 +23,5 @@ children:
   - /securing-your-github-pages-site-with-https
   - /using-submodules-with-github-pages
   - /unpublishing-a-github-pages-site
-shortTitle: Начать работу
 ---
 

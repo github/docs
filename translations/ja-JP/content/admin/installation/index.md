@@ -10,7 +10,7 @@ redirect_from:
   - /enterprise/admin/categories/logging-and-monitoring/
   - /enterprise/admin/installation
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise

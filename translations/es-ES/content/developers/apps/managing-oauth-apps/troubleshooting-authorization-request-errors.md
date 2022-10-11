@@ -6,15 +6,14 @@ redirect_from:
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /developers/apps/troubleshooting-authorization-request-errors
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
-shortTitle: Solucionar los problemas de autorización
 ---
 
-## Aplicación suspendida
+### Aplicación suspendida
 
 Si la App de OAuth que configuraste se suspendió (debido a que reportaron abuso, spam, o mal uso de la API), GitHub te redirigirá a la URL de rellamado registrada utilizando los siguientes parámetros para resumir el error:
 
@@ -25,7 +24,7 @@ Si la App de OAuth que configuraste se suspendió (debido a que reportaron abuso
 
 Para resolver los problemas de suspensión de aplicaciones, por favor contacta a {% data variables.contact.contact_support %}.
 
-## Redirigir una discordancia de URI
+### Redirigir una discordancia de URI
 
 Si proporcionas una `redirect_uri` que no concuerde con lo que has registrado con tu aplicación, GitHub te redirigirá a la URL de rellamado registrada con los siguientes parámetros que resumirán el error:
 
@@ -36,7 +35,7 @@ Si proporcionas una `redirect_uri` que no concuerde con lo que has registrado co
 
 Para corregir este error, puedes ya sea proporcionar una `redirect_uri` que coincida con lo que registraste o dejar este parámetro para utilizar aquél predeterminado que se registró con tu aplicación.
 
-### Acceso denegado
+#### Acceso denegado
 
 Si el usuario rechaza el acceso a tu aplicación, GitHub te redirigirá a la URL de rellamado registrada con los siguientes parámetros para resumir el error:
 

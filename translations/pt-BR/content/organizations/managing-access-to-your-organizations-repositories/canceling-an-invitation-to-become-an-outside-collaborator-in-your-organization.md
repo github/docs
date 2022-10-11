@@ -5,11 +5,10 @@ permissions: Organization owners can cancel an invitation to become an outside c
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Cancelar convite de colaborador
 ---
 
 Você pode visualizar uma lista de todas as pessoas com convites pendentes para se tornar um colaborador externo em qualquer repositório que pertence à sua organização.

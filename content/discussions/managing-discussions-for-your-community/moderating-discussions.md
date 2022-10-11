@@ -6,6 +6,7 @@ versions:
   fpt: '*'
 ---
 
+{% data reusables.discussions.beta %}
 
 ## About moderating discussions
 

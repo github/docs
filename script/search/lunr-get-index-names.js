@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 import { fileURLToPath } from 'url'
 import path from 'path'
-import fs from 'fs/promises'
+import xFs from 'fs'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const fs = xFs.promises
 
-async function getIndexNames() {
-  const indexList = await fs.readdir(path.join(__dirname, '../../lib/search/indexes'))
-  return indexList.sort().map((index) => index.replace('.json.br', ''))
+export default async function getIndexNames() {
+  return await fs.readdir(path.join(__dirname, '../../lib/search/indexes'))
 }
-
-export default await getIndexNames()

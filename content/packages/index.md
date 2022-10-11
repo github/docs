@@ -28,7 +28,7 @@ redirect_from:
 layout: product-landing
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=2.22'
   ghae: '*'
 children:
   - /quickstart

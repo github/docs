@@ -2,7 +2,7 @@
 title: Ensine com GitHub Classroom
 intro: Aprenda a configurar sua sala de aula e suas atividades.
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configure-default-settings-for-assignment-repositories
   - /education/manage-coursework-with-github-classroom/probot-settings
@@ -15,6 +15,5 @@ children:
   - /leave-feedback-with-pull-requests
   - /use-autograding
   - /connect-a-learning-management-system-to-github-classroom
-shortTitle: Ensinar
 ---
 

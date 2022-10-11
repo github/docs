@@ -8,7 +8,7 @@ redirect_from:
 permissions: Anyone with write permissions for a repository can publish a package to that repository.
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=2.22'
   ghae: '*'
 ---
 

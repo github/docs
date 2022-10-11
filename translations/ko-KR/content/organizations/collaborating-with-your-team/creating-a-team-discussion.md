@@ -6,12 +6,11 @@ redirect_from:
   - /github/building-a-strong-community/creating-a-team-discussion
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team-discussion
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Community
-shortTitle: Create a team discussion
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
@@ -24,7 +23,7 @@ shortTitle: Create a team discussion
 7. Optionally, select whether you want your post to be private or public using the drop-down menu. ![Team discussions privacy settings menu](/assets/images/help/projects/team-discussions-privacy-menu.png)
 8. Click **Comment**. ![Create new team discussions comment button](/assets/images/help/projects/team-discussions-comment-button.png)
 
-## 더 읽을거리
+### 더 읽을거리
 
   - "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)"
   - "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

@@ -5,13 +5,12 @@ redirect_from:
   - /articles/allowing-people-to-delete-issues-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-delete-issues-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Allow issue deletion
 ---
 
 By default, issues cannot be deleted in an organization's repositories. An organization owner must enable this feature for all of the organization's repositories first.

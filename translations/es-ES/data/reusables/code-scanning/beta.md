@@ -1,4 +1,4 @@
-{% ifversion ghes = 2.22 %}
+{% if currentVersion == "enterprise-server@2.22" %}
 
 {% note %}
 
@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-{% elsif ghae %}
+{% elsif currentVersion == "github-ae@latest" %}
 
 {% note %}
 

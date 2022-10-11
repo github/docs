@@ -4,15 +4,14 @@ intro: 'To save time and make sure you''re delivering a consistent message, you 
 redirect_from:
   - /articles/working-with-saved-replies
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /about-saved-replies
   - /creating-a-saved-reply
   - /editing-a-saved-reply
   - /deleting-a-saved-reply
   - /using-saved-replies
-shortTitle: Work with saved replies
 ---
 

@@ -1,50 +1,52 @@
 ---
-title: Combinar las confirmaciones
-intro: 'Puedes utilizar {% data variables.product.prodname_desktop %} para combinar las confirmaciones en el historial de tu rama.'
+title: Squashing commits
+intro: "You can use {% data variables.product.prodname_desktop %} to squash commits in your branch's history."
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 ---
 
-## Acerca de combinar una confirmación
+## About squashing a commit
 
-La combinación te permite combinar confirmaciones múltiples del historial de tu rama en solo una confirmación. Esto puede ayudar a que el historial de tu repositorio sea más legible e inteligible.
+Squashing allows you to combine multiple commits in your branch's history into a single commit. This can help keep your repository's history more readable and understandable.
 
-## Combinar una confirmación
+## Squashing a commit
 
 {% mac %}
 
 {% data reusables.desktop.current-branch-menu %}
-2. En la lista de ramas, selecciona aquella que tenga las confirmaciones que quieres combinar.
+2. In the list of branches, select the branch that has the commits that you want to squash.
 {% data reusables.desktop.history-tab %}
-4. Selecciona las confirmaciones a combinar y suéltalas en aquella con la cual las quieras combinar. Puedes seleccionar una confirmación o varias de ellas utilizando <kbd>⌘</kbd> o <kbd>Shift</kbd>. ![función de combinar arrastrando y soltando](/assets/images/help/desktop/squash-drag-and-drop.png)
-5. Modifica el mensaje de confirmación de tu confirmación nueva. Los mensajes de confirmación de las confirmaciones seleccionadas que quieres combinar se llenan previamente en los campos de **Resumen** y **Descripción**.
-6. Haz clic en **Combinar confirmaciones**.
+4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>⌘</kbd> or <kbd>Shift</kbd>.
+  ![squash drag and drop](/assets/images/help/desktop/squash-drag-and-drop.png)
+5. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
+6. Click **Squash Commmits**.
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.current-branch-menu %}
-2. En la lista de ramas, selecciona aquella que tenga las confirmaciones que quieres combinar.
+2. In the list of branches, select the branch that has the commits that you want to squash.
 {% data reusables.desktop.history-tab %}
-4. Selecciona las confirmaciones a combinar y suéltalas en aquella con la cual las quieras combinar. Puedes seleccionar una confirmación o seleccionar varias de ellas utilizando <kbd>Ctrl</kbd> o <kbd>Shift</kbd>. ![función de combinar arrastrando y soltando](/assets/images/help/desktop/squash-drag-and-drop.png)
-5. Modifica el mensaje de confirmación de tu confirmación nueva. Los mensajes de confirmación de las confirmaciones seleccionadas que quieres combinar se llenan previamente en los campos de **Resumen** y **Descripción**.
-6. Haz clic en **Combinar confirmaciones**.
+4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>Ctrl</kbd> or <kbd>Shift</kbd>.
+  ![squash drag and drop](/assets/images/help/desktop/squash-drag-and-drop.png)
+5. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
+6. Click **Squash Commmits**.
 
 {% endwindows %}
 
-## Mensajes de error cuando combinas las confirmaciones
+## Error messages when squashing commits
 
-Cuando combinas las confirmaciones, puede que veas una de las siguientes notificaciones o mensajes de error.
+When you squash commits, you may see one of the following notifications or error messages.
 
-* Una notificación declara que el cambio solicitado a la rama requerirá una subida forzada para actualizar la rama remota. El subir forzadamente altera el historial de la confirmaciones de la rama y afectará a otros colaboradores que están trabajando en ella.  Selecciona **Comenzar combinación** para que inicie la combienación y luego haz clic en **Subida forzada al origen** para subir tus cambios.
+* A notification states that the requested change to the branch will require a force push to update the remote branch. Force pushing alters the commit history of the branch and will affect other collaborators who are working in that branch.  Select **Begin Squash** to start the squash, and then click **Force push origin** to push your changes.
 
-  ![diálogo de subida forzada de la combinación](/assets/images/help/desktop/squash-force-push.png)
+  ![squash force push dialog](/assets/images/help/desktop/squash-force-push.png)
 
-* Un error indica que la combinación falló porque hay una confirmación de fusión entre las confirmaciones combinadas.
+* An error states that the squash failed because there is a merge commit among the squashed commits.
 
-  ![diálogo de confirmación de fusión para reordenamiento](/assets/images/help/desktop/squash-merge-commit-dialog.png)
+  ![reorder merge commit dialog](/assets/images/help/desktop/squash-merge-commit-dialog.png)
 
-* Se muestra una indicación que indica que hay cambios sin confirmar presentes en tu rama actual. Selecciona **Almacenar cambios y continuar** para almacenar los cambios y proceder, o selecciona **Cerrar** para descartar el mensaje y confirmar los cambios. Cuando ya no haya cambios sin confirmar, podrás combinar tus confirmaciones.
+* A notification is shown indicating that there are uncommitted changes present on your current branch. Select **Stash Changes and Continue** to store the changes and proceed, or select **Close** to dismiss the message and commit the changes. When there are no longer any uncommitted changes you can squash your commits.
 
-  ![diálogo de acumulación de combinaciones](/assets/images/help/desktop/squash-stash-dialog.png)
+  ![squash stash dialog](/assets/images/help/desktop/squash-stash-dialog.png)

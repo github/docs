@@ -1,0 +1,1 @@
+También puedes utilizar {% data variables.product.prodname_enterprise_api %} para administrar los webhooks globales. Para encontrar una lista de acciones completa, consulta la sección "[Webhooks globales](/v3/enterprise-admin/global_webhooks)".

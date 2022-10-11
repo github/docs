@@ -6,15 +6,12 @@ redirect_from:
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: 配置自动化
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.automate-project-board-permissions %} 更多信息请参阅“[关于项目板的自动化](/articles/about-automation-for-project-boards)”。
 
@@ -35,5 +32,5 @@ shortTitle: 配置自动化
 5. 选择要为该列配置的工作流程自动化。 ![自动化列的选项列表](/assets/images/help/projects/select-automation-options-existing-column.png)
 6. 单击 **Update automation（更新自动化）**。
 
-## 延伸阅读
+### 延伸阅读
 - “[关于项目板的自动化](/articles/about-automation-for-project-boards)”

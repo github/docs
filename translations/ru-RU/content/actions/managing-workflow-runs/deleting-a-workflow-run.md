@@ -3,13 +3,14 @@ title: Deleting a workflow run
 intro: 'You can delete a workflow run that has been completed, or is more than two weeks old.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 

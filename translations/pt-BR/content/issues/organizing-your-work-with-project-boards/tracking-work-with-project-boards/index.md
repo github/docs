@@ -3,9 +3,9 @@ title: Acompanhar o andamento do quadro de projeto
 shortTitle: Monitorando projetos
 intro: Aprenda a monitorar o seu trabalho em quadros de projetos
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Issues
   - Projects
@@ -19,4 +19,3 @@ redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
 ---
 
-{% data reusables.projects.project_boards_old %}

@@ -5,7 +5,7 @@ intro: GitHub Desktopを使って、プロジェクトを管理し、有意義�
 redirect_from:
   - /desktop/contributing-to-projects
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /adding-and-cloning-repositories
   - /making-changes-in-a-branch
@@ -13,4 +13,3 @@ children:
   - /working-with-your-remote-repository-on-github-or-github-enterprise
   - /keeping-your-local-repository-in-sync-with-github
 ---
-

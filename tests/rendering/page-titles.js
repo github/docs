@@ -46,7 +46,6 @@ describe('page titles', () => {
   // TODO enable this once translated content has synced with the versioning changes
   // Note the expected translations may need to be updated, since the English title changed
   // from `GitHub.com Help Documentation` to `GitHub Documentation`
-  // Docs Engineering issue: 967
   test.skip('displays only the site name on localized homepages', async () => {
     expect((await getDOM('/cn'))('title').text()).toBe('GitHub 帮助文档')
     expect((await getDOM('/ja'))('title').text()).toBe('GitHub ヘルプドキュメント')

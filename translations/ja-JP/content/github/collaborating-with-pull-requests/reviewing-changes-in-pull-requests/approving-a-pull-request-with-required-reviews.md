@@ -6,12 +6,11 @@ redirect_from:
   - /articles/approving-a-pull-request-with-required-reviews
   - /github/collaborating-with-issues-and-pull-requests/approving-a-pull-request-with-required-reviews
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: 必須のレビュー
 ---
 
 必須レビューに関する詳しい情報については「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)」を参照してください。
@@ -37,7 +36,7 @@ shortTitle: 必須のレビュー
 
 {% data reusables.repositories.request-changes-tips %}
 
-## 参考リンク
+### 参考リンク
 
 - [プルリクエストで提案された変更のレビュー](/articles/reviewing-proposed-changes-in-a-pull-request)
 - [プルリクエストへのコメント](/articles/commenting-on-a-pull-request)

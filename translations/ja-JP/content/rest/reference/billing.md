@@ -1,10 +1,9 @@
 ---
 title: 支払い
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 Billing API を使用して、ユーザおよび Organization の {% data variables.product.prodname_actions %} および {% data variables.product.prodname_registry %} の料金と使用状況を監視できます。

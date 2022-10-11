@@ -9,7 +9,7 @@ redirect_from:
   - /actions/building-actions/creating-a-docker-container-action
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=2.22'
   ghae: '*'
 type: tutorial
 topics:
@@ -20,6 +20,7 @@ shortTitle: Docker container action
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -59,7 +60,7 @@ Before you begin, you'll need to create a {% data variables.product.prodname_dot
 In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. For more information, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)."
 
 **Dockerfile**
-```Dockerfile{:copy}
+```dockerfile{:copy}
 # Container image that runs your code
 FROM alpine:3.10
 

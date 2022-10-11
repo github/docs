@@ -6,8 +6,8 @@ redirect_from:
   - /categories/managing-security-vulnerabilities
   - /github/managing-security-vulnerabilities
 versions:
-  fpt: '*'
-  ghes: '>=3.0'
+  free-pro-team: '*'
+  enterprise-server: '>=3.0'
 topics:
   - Dependabot
   - Dependencies

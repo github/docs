@@ -8,20 +8,20 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/building-actions/creating-a-javascript-action
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
   - Action development
   - JavaScript
-shortTitle: Acción de JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-## Introducción
+### Introducción
 
 En esta guía, aprenderás acerca de los componentes básicos necesarios para crear y usar una acción de JavaScript empaquetada. Para centrar esta guía en los componentes necesarios para empaquetar la acción, la funcionalidad del código de la acción es mínima. La acción imprime "Hello World" en los registros o "Hello [who-to-greet]"si proporcionas un nombre personalizado.
 
@@ -33,15 +33,15 @@ Una vez que completes este proyecto, deberías comprender cómo crear tu propia 
 
 {% data reusables.github-actions.context-injection-warning %}
 
-## Prerrequisitos
+### Prerrequisitos
 
-Antes de que comiences, necesitarás descargar Node.js y crear un repositorio público de {% data variables.product.prodname_dotcom %}.
+Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
 1. Descarga e instala Node.js 12.x, que incluye npm.
 
   https://nodejs.org/en/download/current/
 
-1. Crea un repositorio público nuevo en {% data variables.product.product_location %} y llámalo "hello-world-javascript-action". Para obtener más información, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)".
+1. Create a new public repository on {% data variables.product.product_location %} and call it "hello-world-javascript-action". Para obtener más información, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)".
 
 1. Clona el repositorio en tu computadora. Para obtener más información, consulta "[Clonar un repositorio](/articles/cloning-a-repository)".
 
@@ -51,15 +51,15 @@ Antes de que comiences, necesitarás descargar Node.js y crear un repositorio p�
   cd hello-world-javascript-action
   ```
 
-1. Desde tu terminal, inicializa el directorio con npm para generar un archivo `package.json`.
+1. From your terminal, initialize the directory with npm to generate a `package.json` file.
 
   ```shell
   npm init -y
   ```
 
-## Crear un archivo de metadatos de una acción
+### Crear un archivo de metadatos de una acción
 
-Crea un archivo nuevo que se llame `action.yml` en el directorio `hello-world-javascript-action` con el siguiente código de ejemplo. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)".
+Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)".
 
 ```yaml
 name: 'Hello World'
@@ -79,7 +79,7 @@ runs:
 
 Este archivo define la entrada `who-to-greet` y la salida `time`. También informa al ejecutador de la acción cómo empezar a ejecutar esta acción de JavaScript.
 
-## Agregar paquetes de kit de herramientas de las acciones
+### Añadir paquetes de kit de herramientas de acciones
 
 El kit de herramientas de acciones es una recopilación de los paquetes Node.js que te permiten desarrollar rápidamente acciones de JavaScript con más consistencia.
 
@@ -98,7 +98,7 @@ npm install @actions/github
 
 Ahora deberías ver un directorio `node_modules` con los módulos que acabas de instalar y un archivo `package-lock.json` con las dependencias del módulo instalado y las versiones de cada módulo instalado.
 
-## Escribir el código de la acción
+### Escribir el código de la acción
 
 Esta acción usa el kit de herramientas para obtener la variable de entrada `who-to-greet` requerida en el archivo de metadatos de la acción e imprime "Hello [who-to-greet]" en un mensaje de depuración del registro. A continuación, el script obtiene la hora actual y la establece como una variable de salida que pueden usar las acciones que se ejecutan posteriormente en unt rabajo.
 
@@ -129,7 +129,7 @@ try {
 Si en el ejemplo anterior de `index.js` ocurre un error, entonces `core.setFailed(error.message);` utilizará el paquete [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) del kit de herramientas de las acciones para registrar un mensaje y configurar un código de salida defectuoso. Para obtener más información, consulta la sección "[Configurar los códigos de salida para las acciones](/actions/creating-actions/setting-exit-codes-for-actions)".
 
 
-## Crear un README
+### Crear un README
 
 Puedes crear un archivo README para que las personas sepan cómo usar tu acción. Un archivo README resulta más útil cuando planificas el intercambio de tu acción públicamente, pero también es una buena manera de recordarle a tu equipo cómo usar la acción.
 
@@ -147,17 +147,17 @@ En tu directorio `hello-world-javascript-action`, crea un archivo `README.md` qu
 
 Esta acción imprime "Hello World" o "Hello" + el nombre de una persona a quien saludar en el registro.
 
-## Inputs
+## Entradas
 
-## `who-to-greet`
+### `who-to-greet`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Obligatorio** El nombre de la persona a quien saludar. Default `"World"`.
 
 ## Outputs
 
-## `time`
+### `time`
 
-The time we greeted you.
+El tiempo en que lo saludamos.
 
 ## Example usage
 
@@ -166,7 +166,7 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-## Confirma, etiqueta y sube tu acción a GitHub
+### Confirmar, etiquetar y subir tu acción a GitHub
 
 {% data variables.product.product_name %} descarga cada acción ejecutada en un flujo de trabajo durante el tiempo de ejecución y la ejecuta como un paquete completo de código antes de que puedas usar comandos de flujo de trabajo como `run` para interactuar con la máquina del ejecutor. Eso significa que debes incluir cualquier dependencia del paquete requerida para ejecutar el código de JavaScript. Necesitarás verificar los paquetes `core` y `github` del kit de herramientas para el repositorio de tu acción.
 
@@ -202,17 +202,17 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-## Probar tu acción en un flujo de trabajo
+### Probar tu acción en un flujo de trabajo
 
 Ahora estás listo para probar tu acción en un flujo de trabajo. Cuando una acción esté en un repositorio privado, la acción solo puede usarse en flujos de trabajo en el mismo repositorio. Las acciones públicas pueden ser usadas por flujos de trabajo en cualquier repositorio.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-### Ejemplo usando una acción pública
+#### Ejemplo usando una acción pública
 
-Este ejemplo demuestra cómo se puede ejecutar tu acción nueva y pública desde dentro de un repositorio externo.
+This example demonstrates how your new public action can be run from within an external repository.
 
-Copia el siguiente YAML en un archivo nuevo en `.github/workflows/main.yml` y actualiza la línea `uses: octocat/hello-world-javascript-action@v1.1` con tu nombre de usuario y con el nombre del repositorio público que creaste anteriormente. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
+Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
 
 {% raw %}
 ```yaml
@@ -234,9 +234,9 @@ jobs:
 ```
 {% endraw %}
 
-Cuando se activa este flujo de trabajo, el ejecutor descargará la acción `hello-world-javascript-action` desde tu repositorio público y luego lo ejecutará.
+When this workflow is triggered, the runner will download the `hello-world-javascript-action` action from your public repository and then execute it.
 
-### Ejemplo usando una acción privada
+#### Ejemplo usando una acción privada
 
 Copia el siguiente ejemplo de código de flujo de trabajo en un archivo `.github/workflows/main.yml` en tu repositorio de acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
 
@@ -265,11 +265,11 @@ jobs:
 ```
 {% endraw %}
 
-Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. {% ifversion fpt or ghes > 3.0 or ghae %}Debajo de **Jobs** o en la gráfica de visualización, da clic en **A job to say hello**. {% endif %}Debrás ver la frase "Hello Mona the Octocat" o el nombre que utilizaste para la entrada `who-to-greet` y la marca de tiempo impresa en la bitácora.
+Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}Debajo de **Jobs** o en la gráfica de visualización, haz clic en **Un job para decir hola**. {% endif %}Debrás ver la frase "Hello Mona the Octocat" o el nombre que utilizaste para la entrada `who-to-greet` y la marca de tiempo impresa en la bitácora.
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 ![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run.png)

@@ -11,7 +11,7 @@ redirect_from:
   - /apps/marketplace/listing-on-github-marketplace/
   - /marketplace/listing-on-github-marketplace
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Marketplace
 children:
@@ -20,6 +20,5 @@ children:
   - /setting-pricing-plans-for-your-listing
   - /configuring-a-webhook-to-notify-you-of-plan-changes
   - /submitting-your-listing-for-publication
-shortTitle: List an app on the Marketplace
 ---
 

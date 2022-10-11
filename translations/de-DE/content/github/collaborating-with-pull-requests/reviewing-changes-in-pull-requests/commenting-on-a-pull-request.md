@@ -9,15 +9,14 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
 intro: 'Wenn Du einen Pull Request in einem Repository geöffnet hast, können Mitarbeiter und Teammitglieder den Vergleich der Dateien zwischen den zwei festgelegten Branches kommentieren oder allgemeine Kommentare zum Gesamtprojekt abgeben.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Comment on a PR
 ---
 
-## Informationen zu Pull Requests
+### Informationen zu Pull Requests
 
 Du kannst auf der Registerkarte **Conversation** (Unterhaltung) eines Pull Requests Kommentare hinterlassen, um allgemeine Anmerkungen, Fragen oder Vorschläge anzubringen. Du kannst auch Änderungen vorschlagen, die der Autor des Pull Requests direkt aus Deinem Kommentar übernehmen kann.
 
@@ -43,7 +42,7 @@ Um auf einen vorhandenen Zeilenkommentar zu antworten, navigiere auf der Registe
 
 {% endtip %}
 
-## Zeilenkommentare zu einem Pull Request hinzufügen
+### Zeilenkommentare zu einem Pull Request hinzufügen
 
 {% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste der Pull Requests auf den Pull Request, bei dem Du Zeilenkommentare einfügen möchtest.
@@ -57,8 +56,8 @@ Alle, die den Pull Request oder das Repository beobachten, erhalten eine Benachr
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - "[Writing on GitHub](/github/writing-on-github)"
-{% ifversion fpt %}- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“
+{% if currentVersion == "free-pro-team@latest" %}- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“
 {% endif %}

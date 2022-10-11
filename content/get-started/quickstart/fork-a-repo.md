@@ -7,7 +7,6 @@ redirect_from:
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
 intro: A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
-permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -44,7 +43,7 @@ When creating your public repository from a fork of someone's project, make sure
 
 {% endif %}
 
-## Prerequisites
+## Prerequisties
 
 If you haven't yet, you should first [set up Git](/articles/set-up-git). Don't forget to [set up authentication to {% data variables.product.product_location %} from Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git) as well.
 
@@ -63,7 +62,7 @@ You might fork a project to propose changes to the upstream, or original, reposi
 
 {% cli %}
 
-{% data reusables.cli.cli-learn-more %}
+{% data reusables.cli.download-cli %}
 
 To create a fork of a repository, use the `gh repo fork` subcommand.
 
@@ -84,7 +83,7 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 ## Cloning your forked repository
 
-Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally on your computer.
+Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally your computer.
 
 {% include tool-switcher %}
 {% webui %}
@@ -112,7 +111,7 @@ Right now, you have a fork of the Spoon-Knife repository, but you don't have the
 
 {% cli %}
 
-{% data reusables.cli.cli-learn-more %}
+{% data reusables.cli.download-cli %}
 
 To create a clone of your fork, use the `--clone` flag.
 
@@ -174,7 +173,7 @@ Now, you can keep your fork synced with the upstream repository with a few Git c
 
 {% cli %}
 
-{% data reusables.cli.cli-learn-more %}
+{% data reusables.cli.download-cli %}
 
 To configure a remote repository for the forked repository, use the `--remote` flag.
 

@@ -6,16 +6,15 @@ redirect_from:
   - /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/permission-levels-for-security-advisories
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 type: reference
 topics:
   - Security advisories
   - Vulnerabilities
   - Permissions
-shortTitle: 権限レベル
 ---
 
-## 権限の概要
+### 権限の概要
 
 {% data reusables.repositories.security-advisory-admin-permissions %}セキュリティアドバイザリへのコラボレータの追加についての詳細については、「[セキュリティアドバイザリからコラボレータを追加する](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)」を参照してください。
 
@@ -33,7 +32,7 @@ shortTitle: 権限レベル
 | セキュリティアドバイザリのドラフトをクローズする                                                                                                                                                                                |          | X        |
 | セキュリティアドバイザリを公開する (「[キュリティアドバイザリを公開する](/github/managing-security-vulnerabilities/publishing-a-security-advisory)」を参照)                                                                                   |          | X        |
 
-## 参考リンク
+### 参考リンク
 
 - 「[セキュリティアドバイザリにコラボレータを追加する](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)」
 - 「[一時的なプライベートフォークで、セキュリティ脆弱性を解決するためにコラボレートする](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)」

@@ -6,15 +6,12 @@ redirect_from:
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Link repository to board
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 Jeder, der Schreibberechtigung auf ein Projektboard hat, kann Repositories im Besitz dieser Organisation oder dieses Benutzerkontos mit dem Projektboard verknüpfen. Weitere Informationen findest Du unter „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization/)" oder „[Berechtigungsebenen für benutzereigene Projektboards](/articles/permission-levels-for-user-owned-project-boards/)."
 
@@ -34,6 +31,6 @@ Jeder, der Schreibberechtigung auf ein Projektboard hat, kann Repositories im Be
 
 {% endnote %}
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“

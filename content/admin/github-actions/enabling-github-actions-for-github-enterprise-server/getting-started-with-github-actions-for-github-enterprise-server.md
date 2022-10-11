@@ -8,7 +8,7 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
   - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
 versions:
-  ghes: '*'
+  ghes: '>=2.22'
 type: how_to
 topics:
   - Actions
@@ -36,23 +36,9 @@ This article explains how site administrators can configure {% data variables.pr
 
 {% endif %}
 
-{%- ifversion ghes < 3.2 %}
-
 The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}.
 
 Internal testing at {% data variables.product.company_short %} demonstrated the following maximum throughput for {% data variables.product.prodname_ghe_server %} instances with a range of CPU and memory configurations. You may see different throughput depending on the overall levels of activity on your instance.
-
-{%- endif %}
-
-{%- ifversion ghes > 3.1 %}
-
-The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss.
-
-The peak quantity of concurrent jobs running without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
-
-{% endif %}
-
-{%- ifversion ghes < 3.2 %}
 
 | vCPUs | Memory | Maximum job throughput |
 | :--- | :--- | :--- |
@@ -60,21 +46,6 @@ The peak quantity of concurrent jobs running without performance loss depends on
 | 8 | 64 GB | 25 jobs |
 | 16 | 160 GB | 35 jobs |
 | 32 | 256 GB | 100 jobs |
-
-{%- endif %}
-
-{%- ifversion ghes > 3.1 %}
-
-| vCPUs | Memory | Maximum Concurrency*|
-| :--- | :--- | :--- |
-| 32 | 128 GB | 1500 jobs |
-| 64 | 256 GB | 1900 jobs |
-| 96 | 384 GB | 2200 jobs |
-
-*Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
-
-{%- endif %}
-
 
 If you {% ifversion ghes = 2.22 %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
 
@@ -124,10 +95,6 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 {% endif %}
 
-## Networking considerations
-
-{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
-
 {% ifversion ghes > 2.22 %}
 
 ## Enabling {% data variables.product.prodname_actions %} with your storage provider
@@ -159,7 +126,3 @@ For more information, see "[About using actions in your enterprise](/admin/githu
 If you want to learn more about security practices for {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."
 
 {% endif %}
-
-## Reserved Names
-
-When you enable {% data variables.product.prodname_actions %} for your enterprise, two organizations are created: `github` and `actions`. If your enterprise already uses the `github` organization name, `github-org` (or `github-github-org` if `github-org` is also in use) will be used instead. If your enterprise already uses the `actions` organization name, `github-actions` (or `github-actions-org` if `github-actions` is also in use) will be used instead. Once actions is enabled, you won't be able to use these names anymore.

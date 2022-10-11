@@ -1,10 +1,9 @@
 ---
 title: 计费
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 您可以通过计费 API 监控用户和组织的 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 费用和使用情况。

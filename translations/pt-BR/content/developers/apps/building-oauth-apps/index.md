@@ -5,9 +5,9 @@ redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/
   - /apps/building-oauth-apps
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - OAuth Apps
 children:

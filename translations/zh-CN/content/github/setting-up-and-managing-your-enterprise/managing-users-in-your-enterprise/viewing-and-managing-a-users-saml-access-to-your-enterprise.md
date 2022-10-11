@@ -8,23 +8,27 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Enterprise
-shortTitle: 查看和管理 SAML 访问
 ---
 
-## 关于对企业帐户的 SAML 访问
+### 关于对企业帐户的 SAML 访问
 
 对企业帐户启用 SAML 单点登录时，每个企业成员都可以将其在身份提供程序 (IdP) 上的外部身份链接到其现有的 {% data variables.product.product_name %} 帐户。 {% data reusables.saml.about-saml-access-enterprise-account %}
 
-If your enterprise is uses {% data variables.product.prodname_emus %}, your members will use accounts provisioned through your IdP. {% data variables.product.prodname_managed_users_caps %} will not use their existing user account on {% data variables.product.product_name %}. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
-
-## 查看和撤销链接的身份
+### 查看和撤销链接的身份
 
 {% data reusables.saml.about-linked-identities %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you will not be able to deprovision or remove user accounts from the enterprise on {% data variables.product.product_name %}. Any changes you need to make to your enterprise's {% data variables.product.prodname_managed_users %} should be made through your IdP.
+{% warning %}
+
+**警告：**对于使用 SCIM 的组织：
+- 撤销 {% data variables.product.product_name %} 上链接的用户身份也会删除 SAML 和 SCIM 元数据。 因此，身份提供商无法同步或解除预配已链接的用户身份。
+- 管理员必须通过身份提供商撤销链接的身份。
+- 要撤销链接的身份并通过身份提供商链接其他帐户，管理员可以删除用户并重新分配给 {% data variables.product.product_name %} 应用程序。 更多信息请参阅身份提供商的文档。
+
+{% endwarning %}
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
@@ -36,7 +40,7 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you will not
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-## 查看和撤销活动的 SAML 会话
+### 查看和撤销活动的 SAML 会话
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -45,7 +49,7 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you will not
 {% data reusables.saml.view-saml-sessions %}
 {% data reusables.saml.revoke-saml-session %}
 
-## 查看和撤销授权的凭据
+### 查看和撤销授权的凭据
 
 {% data reusables.saml.about-authorized-credentials %}
 
@@ -57,6 +61,6 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you will not
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-## 延伸阅读
+### 延伸阅读
 
 - "[查看和管理成员对组织的 SAML 访问](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"

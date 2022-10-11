@@ -6,12 +6,11 @@ redirect_from:
   - /articles/disabling-project-boards-in-your-organization
   - /github/managing-your-work-on-github/disabling-project-boards-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Disable project boards
 ---
 
 Wenn Du organisationsweite Projektboards deaktiviert hast, kannst Du keine neuen Projektboards auf Organisationsebene mehr erstellen. Auf vorhandene Projektboards auf Organisationsebene kannst Du nicht mehr über deren frühere URL zugreifen. Projektboards in Repositorys in der Organisation sind nicht betroffen.
@@ -30,7 +29,7 @@ Wenn Du Projektboards deaktivierst, kannst du keine Projektboard-Informationen m
 
 {% data reusables.organizations.disable_project_board_results %}
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“
 - „[Ein Projektboard schließen](/articles/closing-a-project-board)“

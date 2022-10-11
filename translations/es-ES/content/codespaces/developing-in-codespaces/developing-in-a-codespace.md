@@ -1,13 +1,12 @@
 ---
 title: Desarrollar en un codespace
 intro: 'Puedes abrir un codespace en {% data variables.product.product_name %} y después desarrollar utilizando las características de {% data variables.product.prodname_vscode %}.'
-product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'You can develop in codespaces you''ve created for repositories owned by organizations using {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}.'
+permissions: Anyone can develop in a codespace owned by their user account.
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 type: how_to
 topics:
   - Codespaces
@@ -15,9 +14,9 @@ topics:
   - Developer
 ---
 
- 
+{% data reusables.codespaces.release-stage %}
 
-## Acerca del desarrollo con {% data variables.product.prodname_codespaces %}
+### Acerca del desarrollo con {% data variables.product.prodname_codespaces %}
 
 {% data variables.product.prodname_codespaces %} te proporciona la experiencia completa de desarrollo de {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -33,28 +32,24 @@ Para obtener más información sobre cómo utilizar {% data variables.product.pr
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-{% data reusables.codespaces.use-chrome %} Para obtener más información, consulta la sección "[Solucionar problemas de los clientes de los Codespaces](/codespaces/troubleshooting/troubleshooting-codespaces-clients)".
+{% data reusables.codespaces.use-chrome %} Para obtener más información, consulta la sección "[Solucionar problemas de tu codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)".
 
-### Personalizar tu codespace
+#### Personalizar tu codespace
 
 {% data reusables.codespaces.about-personalization %} Para obtener más información, consulta la sección "[Personalizar {% data variables.product.prodname_codespaces %} para tu cuenta](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)".
 
 {% data reusables.codespaces.apply-devcontainer-changes %} Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
 
-### Ejecutar tu app desde un codespace
+#### Ejecutar tu app desde un codespace
 {% data reusables.codespaces.about-port-forwarding %} Para obtener más información, consulta la sección "[Abrir puertos en tu codespace](/github/developing-online-with-codespaces/forwarding-ports-in-your-codespace)".
 
-### Configramr tus cambios
+#### Configramr tus cambios
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-### Utilizar la paleta de comandos
-
-La paleta de comandos te permite acceder y administrar muchas características para los {% data variables.product.prodname_codespaces %} y para {% data variables.product.prodname_vscode %}. Para obtener más información, consulta la sección "[Utilizar la paleta de comandos en los {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces)".
-
-## Navegar a un codespace existente
+### Navegar a un codespace existente
 
 1. {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 2. Da clic en el nombre del codespace en el cual quieras desarrollar. ![Nombre del codespace](/assets/images/help/codespaces/click-name-codespace.png)
 
-Como alternativa, puedes ver cualquier codespace activo en un repositorio si navegas a dicho repositorio y seleccionnas **{% octicon "code" aria-label="The code icon" %} Código**. El menú desplegable mostrará todos los codespaces activos en un repositorio.
+Como alternativa, puedes ver cualquier codespace activo para un repositorio si navegas al repositorio en el que se hizo y seleccionas **Codespaces {% octicon "codespaces" aria-label="The codespaces icon" %}**.

@@ -12,6 +12,8 @@ type: how_to
 shortTitle: Publish in GitHub Marketplace
 ---
 
+{% data reusables.actions.ae-beta %}
+
 You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
 
 ## About publishing actions

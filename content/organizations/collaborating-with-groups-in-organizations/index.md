@@ -17,7 +17,6 @@ children:
   - /about-your-organization-dashboard
   - /creating-a-new-organization-from-scratch
   - /accessing-your-organizations-settings
-  - /customizing-your-organizations-profile
   - /about-your-organizations-news-feed
   - /viewing-insights-for-your-organization
 shortTitle: Collaborate with groups

@@ -1,11 +1,10 @@
 ---
 title: About GitHub Packages and GitHub Actions
-intro: 'Learn the fundamentals of managing packages through your {% data variables.product.prodname_actions %} workflows.'
+intro: Learn the fundamentals of managing packages through your {% data variables.product.prodname_actions %} workflows.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Packages & Actions
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

@@ -1,4 +1,4 @@
-{% ifversion ghes %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
 
 {% note %}
 

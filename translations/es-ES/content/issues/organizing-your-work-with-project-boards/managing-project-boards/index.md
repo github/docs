@@ -3,9 +3,9 @@ title: Administrar tableros de proyecto
 shortTitle: Administrar tableros de proyecto
 intro: Aprende cómo crear y administrar los tableros de proyecto
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Issues
   - Projects
@@ -25,4 +25,3 @@ redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
 ---
 
-{% data reusables.projects.project_boards_old %}

@@ -8,15 +8,14 @@ redirect_from:
   - /github/building-a-strong-community/creating-a-footer-or-sidebar-for-your-wiki
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Community
-shortTitle: Create footer or sidebar
 ---
 
-## Eine Fußzeile erstellen
+### Eine Fußzeile erstellen
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -25,7 +24,7 @@ shortTitle: Create footer or sidebar
 5. Gib eine Commit-Mitteilung mit einer Beschreibung der neuen Fußzeile ein. ![Wiki-Commit-Mitteilung](/assets/images/help/wiki/wiki_commit_message.png)
 6. Um Deine Änderungen an das Wiki zu freizugeben, klicke auf **Save Page** (Seite speichern).
 
-## Eine Seitenleiste erstellen
+### Eine Seitenleiste erstellen
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -34,6 +33,6 @@ shortTitle: Create footer or sidebar
 5. Gib eine Commit-Mitteilung mit einer Beschreibung der neuen Seitenleiste ein. ![Wiki-Commit-Mitteilung](/assets/images/help/wiki/wiki_commit_message.png)
 6. Um Deine Änderungen an das Wiki zu freizugeben, klicke auf **Save Page** (Seite speichern).
 
-## Eine Fußzeile oder Seitenleiste lokal erstellen
+### Eine Fußzeile oder Seitenleiste lokal erstellen
 
 Wenn Du eine Datei mit dem Namen `_Footer.<extension>` oder `_Sidebar.<extension>` erstellst, zeigen wir diese Informationen in der Fußzeile bzw. auf der Seitenleiste Deines Wiki an. Wie bei allen Wiki-Seiten bestimmt auch hier die von Dir gewählte Dateierweiterung, wie wir sie darstellen werden.

@@ -1,22 +1,22 @@
 #!/usr/bin/env node
-
-// [start-readme]
-//
-// Move the files from a category directory to a top-level product and add redirects.
-//
-// [end-readme]
-
 import fs from 'fs'
 import path from 'path'
-import mkdirp from 'mkdirp'
+import xMkdirp from 'mkdirp'
 import program from 'commander'
 import { execSync } from 'child_process'
 import frontmatter from '../lib/read-frontmatter.js'
 import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
 import walkFiles from './helpers/walk-files.js'
 
+const mkdirp = xMkdirp.sync
 const contentFiles = walkFiles('content', '.md')
 const contentDir = path.posix.join(process.cwd(), 'content')
+
+// [start-readme]
+//
+// Move the files from a category directory to a top-level product and add redirects.
+//
+// [end-readme]
 
 program
   .description('Move a category-level docs set to the product level.')
@@ -50,9 +50,9 @@ const newProductPath = path.posix.join(process.cwd(), 'content', newProduct)
 
 main()
 
-async function main() {
+function main() {
   // Create the new product dir.
-  await mkdirp(newProductPath)
+  mkdirp(newProductPath)
 
   // Add redirects to the frontmatter of the to-be-moved files.
   oldCategoryFiles.forEach((file) => {

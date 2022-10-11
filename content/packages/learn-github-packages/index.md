@@ -10,7 +10,7 @@ redirect_from:
   - /packages/manage-packages
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=2.22'
   ghae: '*'
 children:
   - /introduction-to-github-packages

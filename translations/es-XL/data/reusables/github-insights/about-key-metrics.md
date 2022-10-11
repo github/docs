@@ -1,0 +1,1 @@
+{% data variables.product.prodname_insights %} resalta las métricas clave ya que éstas se pueden accionar directamente para incrementar tanto velocidad como calidad. Las métricas clave son útiles para todos en la organización, desde colaboradores individuales y sus gerentes, hasta ejecutivos que buscan un panorama más amplio.

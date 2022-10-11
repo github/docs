@@ -99,15 +99,6 @@ prodname_debug: 'GitHub Debug'
 # GitHub Discussions
 prodname_discussions: 'GitHub Discussions'
 
-# GitHub Enterprise Managed Users
-prodname_emu_idp_application: 'GitHub Enterprise Managed User'
-prodname_emus: 'Enterprise Managed Users'
-prodname_managed_user: 'managed user'
-prodname_managed_users: 'managed users'
-prodname_managed_users_caps: 'Managed users'
-prodname_emu_enterprise: 'enterprise with managed users'
-prodname_emu_org: 'organization with managed users'
-
 # GitHub Issues
 prodname_github_issues: 'GitHub Issues'
 
@@ -132,7 +123,6 @@ prodname_security_center: 'Security Center'
 # Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
-prodname_serverless: 'web-based editor'
 
 # GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'GitHub Community Support'
@@ -182,9 +172,6 @@ prodname_dependabot_version_updates: 'Dependabot version updates'
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'
 
-# GitHub Copilot
-prodname_copilot: 'GitHub Copilot'
-
 # Links
 product_url: >-
   {% ifversion fpt %}github.com{% else %}[hostname]{% endif %}
@@ -210,7 +197,7 @@ api_url_pre: >-
 oauth_host_code: >-
   {% ifversion fpt %}https://github.com{% else %}http(s)://[hostname]{% endif %}
 device_authorization_url: >-
-  [`https://github.com/login/device`](https://github.com/login/device)
+  {% ifversion fpt or ghes > 2.21 or ghae %}[`https://github.com/login/device`](https://github.com/login/device){% else %}`http(s)://[hostname]/login/device`{% endif %}
 # Use this all other code blocks
 api_url_code: >-
   {% ifversion fpt %}https://api.github.com{% elsif ghes %}http(s)://[hostname]/api/v3{% elsif ghae %}https://[hostname]/api/v3{% endif %}

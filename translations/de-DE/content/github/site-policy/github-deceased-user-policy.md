@@ -1,7 +1,7 @@
 ---
 title: GitHub-Richtlinie für verstorbene Benutzer
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Policy
   - Legal

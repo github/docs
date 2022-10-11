@@ -7,18 +7,17 @@ redirect_from:
   - /admin/user-management/preventing-users-from-creating-organizations
 intro: 您可以防止用户在您的企业中创建组织。
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 type: how_to
 topics:
   - Enterprise
   - Organizations
   - Policies
-shortTitle: 阻止创建组织
 ---
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

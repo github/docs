@@ -5,13 +5,12 @@ redirect_from:
   - /articles/disabling-team-discussions-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/disabling-team-discussions-for-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 禁用团队讨论
 ---
 
 {% data reusables.organizations.team-discussions-default %} 有关团队讨论的更多信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。

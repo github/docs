@@ -10,17 +10,15 @@ header:
     early_access: '📣请<b>不要公开分享</b>此 URL。此页包含有关早期访问功能的内容。'
     release_notes_use_latest: 请使用最新版本获取最新的安全性、性能和错误修复。
     #GHES release notes
-    ghes_release_notes_upgrade_patch_only: '📣 这不是 Enterprise Server 最新的<a href="#{{ latestPatch }}">补丁版本</a>。'
-    ghes_release_notes_upgrade_release_only: '📣 这不是 Enterprise Server 的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。'
-    ghes_release_notes_upgrade_patch_and_release: '📣 这不是此版本系列的<a href="#{{ latestPatch }}">最新修补版</a>，也不是 Enterprise Server 的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。'
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
 release_notes:
   banner_text_current: 这些更改将在未来一周内推出。
   banner_text_past: 这些更改将在 周内部署到企业
 search:
   need_help: 需要帮助？
   placeholder: 搜索主题、产品...
-  loading: 正在加载
-  no_results: 未找到结果
 homepage:
   explore_by_product: 按产品浏览
   version_picker: 版本
@@ -30,10 +28,9 @@ toc:
   guides: 指南
   whats_new: 新增内容
 pages:
-  article_version: 'Article version'
+  article_version: '文章版本：'
   miniToc: 本文内容
   contributor_callout: 这篇文章的参与者和维护者是
-  all_enterprise_releases: All Enterprise releases
 errors:
   oops: 哎呀！
   something_went_wrong: 看来出现了错误。
@@ -47,6 +44,8 @@ survey:
   able_to_find: 此文档对您有帮助吗？
   yes: true
   no: false
+  yes_feedback: 我们在不断改进文档，希望听到您的改进建议。
+  no_feedback: 我们在不断改进文档，希望听到您的改进建议。
   comment_yes_label: 让我们知道哪方面做得好
   comment_no_label: 告诉我们如何改进
   optional: 可选
@@ -158,15 +157,10 @@ product_sublanding:
   more_guides: 更多指南
   load_more: 加载更多指南
   all_guides: '所有 {{ productMap[currentProduct].name }} 指南'
-  filter_instructions: Filter the guide list using these controls
   filters:
     type: 类型
     topic: 主题
     all: 所有
-  guides_found:
-    multiple: '{n} guides found'
-    one: 1 guide found
-    none: No guides found
   guide_types:
     overview: 概览
     quick_start: 快速入门

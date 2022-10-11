@@ -6,12 +6,11 @@ redirect_from:
   - /articles/associating-milestones-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/associating-milestones-with-issues-and-pull-requests
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Adicionar aos marcos
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -25,7 +24,7 @@ Enquanto estiver trabalhando em problemas e pull requests, você pode [rastrear 
 
 {% endtip %}
 
-## Leia mais
+### Leia mais
 
 - "[Sobre marcos](/articles/about-milestones)"
 - "[Criar e editar marcos para problemas e pull requests](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"

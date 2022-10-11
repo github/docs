@@ -11,16 +11,15 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organizations-settings
 intro: 'Auf der Seite mit den Einstellungen für das Organisationskonto gibt es mehrere Möglichkeiten, das Konto zu verwalten, beispielsweise über die Einstellungen für die Abrechnung, die Teammitgliedschaft und die Repositorys.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Access organization settings
 ---
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
 

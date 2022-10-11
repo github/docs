@@ -13,7 +13,7 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Authentication outside IdP
+shortTitle: Use built-in authentication
 ---
 ## About built-in authentication for users outside your identity provider
 

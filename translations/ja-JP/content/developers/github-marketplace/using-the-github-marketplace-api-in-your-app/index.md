@@ -6,7 +6,7 @@ redirect_from:
   - /apps/marketplace/integrating-with-the-github-marketplace-api/
   - /marketplace/integrating-with-the-github-marketplace-api
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Marketplace
 children:
@@ -16,6 +16,5 @@ children:
   - /handling-new-purchases-and-free-trials
   - /handling-plan-changes
   - /handling-plan-cancellations
-shortTitle: Marketplace APIの使い方
 ---
 

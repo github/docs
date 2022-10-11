@@ -1,7 +1,7 @@
 import patterns from '../../lib/patterns.js'
-import EnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import xEnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 const { supported, deprecated, all, latest, oldestSupported, nextDeprecationDate } =
-  EnterpriseServerReleases
+  xEnterpriseServerReleases
 
 describe('enterpriseServerReleases module', () => {
   test('includes an array of `supported` versions', async () => {

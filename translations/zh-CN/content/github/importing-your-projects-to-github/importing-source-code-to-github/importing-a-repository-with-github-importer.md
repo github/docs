@@ -6,8 +6,7 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  fpt: '*'
-shortTitle: 使用 GitHub 导入工具
+  free-pro-team: '*'
 ---
 
 {% tip %}
@@ -33,6 +32,6 @@ shortTitle: 使用 GitHub 导入工具
 
 在仓库完成导入时，您会收到一封电子邮件。
 
-## 延伸阅读
+### 延伸阅读
 
 - "[使用 GitHub 导入工具更新提交作者属性](/articles/updating-commit-author-attribution-with-github-importer)"

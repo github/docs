@@ -1,0 +1,3 @@
+| Clave    | Tipo        | Descripción                                                                         |
+| -------- | ----------- | ----------------------------------------------------------------------------------- |
+| `Acción` | `secuencia` | La acción que se realizó. Puede ser una de las siguientes:<ul><li> `added` - Un usuario acepta una invitación a un repositorio.</li><li>`removed` - Se elimina a un usuario como colaborador de un repositorio.</li><li>`edited` - Los permisos de colaborador de un usuario han cambiado. </li></ul> |

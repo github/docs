@@ -4,9 +4,9 @@ intro: '了解如何将 {% data variables.product.prodname_dotcom %} API 用于�
 redirect_from:
   - /apps/quickstart-guides
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
 children:

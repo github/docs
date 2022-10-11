@@ -1,31 +1,13 @@
 ---
 title: Criar comunidades
-shortTitle: Criar comunidades
-intro: 'Aprenda as práticas recomendadas para moderar e configurar comunidades colaborativas, seguras e eficazes usando as ferramentas testadas pela comunidade do GitHub.'
+intro: 'Quer seu projeto seja de código aberto ou privado, você pode criar um ambiente saudável e eficaz para a colaboração.'
 redirect_from:
   - /categories/building-a-strong-community
   - /github/building-a-strong-community
-changelog:
-  label: wikis
-featuredLinks:
-  guides:
-    - /communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors
-    - /communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project
-    - /communities/moderating-comments-and-conversations/managing-disruptive-comments
-  guideCards:
-    - /communities/documenting-your-project-with-wikis/editing-wiki-content
-    - /communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account
-    - /communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization
-  popular:
-    - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository
-    - /communities/maintaining-your-safety-on-github/reporting-abuse-or-spam
-    - /communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository
-    - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
-layout: product-landing
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Community
 children:

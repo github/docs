@@ -9,15 +9,14 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-project-board-policies-in-your-enterprise-account
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Enterprise
-shortTitle: Policies for projects
 ---
 
 プロジェクトボードの詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。
 
-## Organization 全体のプロジェクトボードでポリシーを施行する
+### Organization 全体のプロジェクトボードでポリシーを施行する
 
 自分の Enterprise アカウントで所有しているすべての Organization で、Organization 全体のプロジェクトボードを有効または無効にしたり、オーナーに Organization レベルで設定を管理させたりできます。
 
@@ -27,7 +26,7 @@ shortTitle: Policies for projects
 4. [Organization projects] で、設定変更についての情報を読みます。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. [Organization projects] で、ドロップダウンメニューを使用してポリシーを選択します。 ![Organization プロジェクトボード ポリシー オプションのドロップダウンメニュー](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
 
-## リポジトリのプロジェクトボードでのポリシーを施行する
+### リポジトリのプロジェクトボードでのポリシーを施行する
 
 自分の Enterprise アカウントによって所有されているすべての Organization 全体で、リポジトリレベルのプロジェクトボードを有効または無効にしたり、オーナーに Organization レベルで設定を管理させたりできます。
 

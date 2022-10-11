@@ -46,47 +46,36 @@ For more information, see "[Adding a security policy to your repository](/code-s
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-issue-4864 %}
+{% ifversion fpt or ghes > 2.22 %}
 ## Managing the dependency graph
 
-{% ifversion fpt %}
-Once you have [enabled the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), it is automatically generated for all public repositories, and you can choose to enable it for private repositories.
+The dependency graph is automatically generated for {% ifversion fpt or ghes > 2.22 %} all public repositories and you can choose to enable it for private repositories.{% else %} all repositories.{% endif %}
 
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**.
 2. Click **Security & analysis**.
 3. Next to Dependency graph, click **Enable** or **Disable**.
-{% endif %}
-
-{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
 For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-issue-4864 %}
+{% ifversion fpt or ghes > 2.22 %}
 ## Managing {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion fpt %}By default, {% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and generates {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.prodname_dependabot_alerts %} can also be enabled for private repositories.
+By default, {% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and generates {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.prodname_dependabot_alerts %} can also be enabled for private repositories.
 
 1. Click your profile photo, then click **Settings**.
 2. Click **Security & analysis**.
 3. Click **Enable all** next to {% data variables.product.prodname_dependabot_alerts %}.
-{% endif %}
-
-{% data reusables.dependabot.dependabot-alerts-beta %}
-{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
 For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies){% ifversion fpt %}" and "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account){% endif %}."
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 %}
+{% ifversion fpt or ghes > 3.1 %}
 ## Managing dependency review
 
-Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. 
-{%- ifversion fpt %}Dependency review is available in all public repositories. For private and internal repositories you require a license for {% data variables.product.prodname_advanced_security %}. To enable dependency review for a repository, enable the dependency graph and enable {% data variables.product.prodname_advanced_security %}. 
-{%- elsif ghes or ghae %}Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and you enable {% data variables.product.prodname_advanced_security %} for the repository (see below).{% endif %}
-For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+Dependency review lets you visualize dependency changes in pull requests before they are merged into your repository. Dependency review is available in all public repositories and in repositories owned by organizations with an {% data variables.product.prodname_advanced_security %} license that have the dependency graph enabled. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
 
 {% endif %}
 

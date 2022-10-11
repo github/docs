@@ -1,12 +1,4 @@
 #!/usr/bin/env node
-
-// [start-readme]
-//
-// This script is run on a writer's machine while developing Early Access content locally. It
-// updates the data and image paths to either include `early-access` or remove it.
-//
-// [end-readme]
-
 import fs from 'fs'
 import path from 'path'
 import program from 'commander'
@@ -14,6 +6,13 @@ import walk from 'walk-sync'
 import { escapeRegExp, last } from 'lodash-es'
 import yaml from 'js-yaml'
 import patterns from '../../lib/patterns.js'
+
+// [start-readme]
+//
+// This script is run on a writer's machine while developing Early Access content locally. It
+// updates the data and image paths to either include `early-access` or remove it.
+//
+// [end-readme]
 
 const earlyAccessContent = path.posix.join(process.cwd(), 'content/early-access')
 const earlyAccessData = path.posix.join(process.cwd(), 'data/early-access')

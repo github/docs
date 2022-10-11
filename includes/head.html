@@ -1,0 +1,33 @@
+<head>
+  {% comment %} For human readers {% endcomment %}
+  <meta charset="utf-8" />
+  <title>{% if error == '404' %}{% data ui.errors.oops %}{% elsif page.documentType == 'homepage' and currentVersion == 'free-pro-team@latest' %}GitHub Documentation{% elsif page.fullTitle %}{{ page.fullTitle }}{% else %}GitHub Documentation{% endif %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate icon" type="image/png" href="/assets/images/site/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/site/favicon.svg">
+  <link rel="stylesheet" href="{{ builtAssets.main.css }}">
+
+  {% comment %} For Google and Bots {% endcomment %}
+  {% if page.intro %}
+    <meta name="description" content="{{ page.introPlainText }}">
+  {% endif %}
+  {% if page.topics %}
+    <meta name="keywords" content="{{ page.topics | join: ',' }}">
+  {% endif %}
+  {% if page.hidden %}
+    <meta name="robots" content="noindex" />
+  {% endif %}
+  {% for languageVariant in page.languageVariants %}
+    <link
+      rel="alternate"
+      hreflang="{{ languageVariant.hreflang }}"
+      href="https://docs.github.com{{ languageVariant.href }}"
+    />
+  {% endfor %}
+  <meta name="google-site-verification" content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ" />
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+  {% comment %} For our JS {% endcomment %}
+  <meta name="csrf-token" content="$CSRFTOKEN$">
+  <meta name="site.data.ui.search.placeholder" content="{% data ui.search.placeholder %}">
+</head>

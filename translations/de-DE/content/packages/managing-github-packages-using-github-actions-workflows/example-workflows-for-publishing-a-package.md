@@ -2,10 +2,9 @@
 title: Example workflows for publishing a package
 intro: 'To help you get started with your own custom workflows, review some example workflows for publishing packages.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Example workflows
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

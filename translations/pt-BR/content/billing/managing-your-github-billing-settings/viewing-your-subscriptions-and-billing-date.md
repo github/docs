@@ -10,28 +10,27 @@ redirect_from:
   - /articles/viewing-your-plans-and-billing-date/
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 type: how_to
 topics:
   - Accounts
   - Organizations
   - User account
-shortTitle: Assinaturas & data de cobrança
 ---
 
-## Localizar a próxima data de cobrança da sua conta pessoal
+### Localizar a próxima data de cobrança da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-## Localizar a próxima data de cobrança da sua organização
+### Localizar a próxima data de cobrança da sua organização
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-## Leia mais
+### Leia mais
 
 - "[Sobre a cobrança das contas do {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"

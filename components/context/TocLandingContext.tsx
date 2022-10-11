@@ -2,12 +2,6 @@ import pick from 'lodash/pick'
 import { createContext, useContext } from 'react'
 import { FeaturedLink, getFeaturedLinksFromReq } from './ProductLandingContext'
 
-export type LearningTrack = {
-  trackName?: string
-  prevGuide?: { href: string; title: string }
-  nextGuide?: { href: string; title: string }
-}
-
 export type TocItem = {
   fullPath: string
   title: string
@@ -18,11 +12,11 @@ export type TocLandingContextT = {
   title: string
   introPlainText: string
   productCallout: string
+  isEarlyAccess: boolean
   tocItems: Array<TocItem>
   variant?: 'compact' | 'expanded'
   featuredLinks: Record<string, Array<FeaturedLink>>
-  renderedPage: string
-  currentLearningTrack?: LearningTrack
+  renderedEarlyAccessPage: string
 }
 
 export const TocLandingContext = createContext<TocLandingContextT | null>(null)
@@ -39,16 +33,16 @@ export const useTocLandingContext = (): TocLandingContextT => {
 
 export const getTocLandingContextFromRequest = (req: any): TocLandingContextT => {
   return {
-    title: req.context.page.titlePlainText,
+    title: req.context.page.title,
     productCallout: req.context.page.product || '',
     introPlainText: req.context.page.introPlainText,
+    isEarlyAccess: req.context.page?.documentType === 'early-access',
     tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map((obj: any) =>
       pick(obj, ['fullPath', 'title', 'intro', 'childTocItems'])
     ),
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
 
     featuredLinks: getFeaturedLinksFromReq(req),
-    renderedPage: req.context.renderedPage,
-    currentLearningTrack: req.context.currentLearningTrack,
+    renderedEarlyAccessPage: req.context.renderedPage,
   }
 }

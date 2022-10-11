@@ -4,7 +4,7 @@ featuredLinks:
   gettingStarted:
     - /github/getting-started-with-github/set-up-git
     - /github/authenticating-to-github/connecting-to-github-with-ssh
-    - /repositories/creating-and-managing-repositories
+    - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
     - /github/writing-on-github/basic-writing-and-formatting-syntax
   popular:
     - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
@@ -15,9 +15,6 @@ featuredLinks:
 versions: '*'
 children:
   - get-started
-  - account-and-profile
-  - authentication
-  - repositories
   - github
   - admin
   - billing
@@ -27,11 +24,10 @@ children:
   - actions
   - codespaces
   - packages
-  - search-github
   - developers
   - rest
   - graphql
-  - github-cli
+  - insights
   - discussions
   - sponsors
   - communities
@@ -40,6 +36,11 @@ children:
   - desktop
   - early-access
 externalProducts:
+  cli:
+    id: cli
+    name: GitHub CLI
+    href: 'https://cli.github.com/manual'
+    external: true
   atom:
     id: atom
     name: Atom
@@ -56,3 +57,4 @@ externalProducts:
     href: 'https://codeql.github.com/docs'
     external: true
 ---
+

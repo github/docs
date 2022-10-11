@@ -7,12 +7,11 @@ redirect_from:
   - /articles/resolving-a-merge-conflict-using-the-command-line
   - /github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Resolve merge conflicts in Git
 ---
 
 Mergekonflikte entstehen, wenn in der gleichen Zeile derselben Datei von verschiedenen Personen konkurrierende Änderungen vorgenommen werden oder wenn eine Person eine Datei bearbeitet und eine andere Person die Datei löscht. Weitere Informationen findest Du unter „[Informationen zu Mergekonflikten](/articles/about-merge-conflicts/).“
@@ -23,7 +22,7 @@ Mergekonflikte entstehen, wenn in der gleichen Zeile derselben Datei von verschi
 
 {% endtip %}
 
-## Mergekonflikte durch konkurrierende Änderungen in der gleichen Zeile
+### Mergekonflikte durch konkurrierende Änderungen in der gleichen Zeile
 
 Zur Behebung eines Mergekonflikts durch konkurrierende Änderungen in der gleichen Zeile in zwei verschiedenen Branches musst Du entscheiden, welche der Änderungen in einem neuen Commit übernommen werden sollen.
 
@@ -75,7 +74,7 @@ Ein Beispiel: Du und eine andere Person haben die gleichen Zeilen der Datei _sty
 
 Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {% data variables.product.product_name %} übertragen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
 
-## Mergekonflikte durch das Entfernen einer Datei
+### Mergekonflikte durch das Entfernen einer Datei
 
 Zur Behebung eines Mergekonflikts, der entsteht, wenn eine Person eine Datei in einem Branch löscht und eine andere Person die gleiche Datei in einem anderen Branch bearbeitet, müssen Sie entscheiden, ob die Datei in einem neuen Commit gelöscht oder beibehalten werden soll.
 
@@ -124,7 +123,7 @@ Ein Beispiel: Du hast eine Datei bearbeitet, beispielsweise die Datei *README.md
 
 Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {% data variables.product.product_name %} übertragen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Informationen zu Mergekonflikten](/articles/about-merge-conflicts)“
 - „[Pull Requests lokal auschecken](/articles/checking-out-pull-requests-locally/)“

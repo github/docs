@@ -6,8 +6,7 @@ redirect_from:
   - /articles/working-with-pre-receive-hooks
   - /github/collaborating-with-issues-and-pull-requests/working-with-pre-receive-hooks
 versions:
-  ghes: '*'
-shortTitle: Pre-receive hooks
+  enterprise-server: '*'
 ---
 
 Pre-Receive-Hooks führen Tests für an ein Repository übertragenen Code durch, um sicherzustellen, dass die Beiträge die Repository- oder Organisationsrichtlinie erfüllen. Falls die Commit-Inhalte die Tests bestehen, wird der Push in das Repository akzeptiert. Falls die Commit-Inhalte die Tests nicht bestehen, wird der Push nicht akzeptiert.

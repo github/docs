@@ -2,12 +2,11 @@
 title: GitHub Sponsors のプロフィールを非公開にする
 intro: 'スポンサーがいない場合は、{% data variables.product.prodname_sponsors %} のプロフィールを非公開にすることができます。'
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
-shortTitle: Unpublish your profile
 ---
 
 スポンサーがいる場合は、{% data variables.product.prodname_sponsors %} アカウントを非公開にするときに GitHub Support に問い合わせて支援を受ける必要があります。

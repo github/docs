@@ -18,8 +18,6 @@ shortTitle: GitHub Enterprise Cloud
 
 {% endnote %}
 
-{% data reusables.support.zendesk-deprecation %}
-
 You can submit priority questions if you have purchased {% data variables.product.prodname_ghe_cloud %} or if you're a member, outside collaborator, or billing manager of a {% data variables.product.prodname_dotcom %} organization currently subscribed to {% data variables.product.prodname_ghe_cloud %}.
 
 Questions that qualify for priority responses:

@@ -1,20 +1,19 @@
 ---
 title: Pull Request erstellen
 intro: 'Erstelle einen Pull Request, um Änderungen an einem Repository vorzuschlagen und um daran mitzuarbeiten. These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
-permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
   - /articles/creating-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
 ---
 
-If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. Weitere Informationen findest Du unter „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork)“ und „
+Jeder, der Leseberechtigungen für ein Repository besitzt, kann einen Pull Request erstellen. Du benötigst jedoch Schreibberechtigungen, um einen Branch zu erstellen. Wenn Du einen neuen Branch für Deinen Pull Request erstellen möchtest, aber keine Schreibberechtigung hast, kannst Du das Repository zunächst forken. Weitere Informationen findest Du unter „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork)“ und „
 Informationen zu Forks</a.></p> 
 
 Du kannst festlegen, in welchen Branch Du Deine Änderungen zusammenführen möchtest, wenn Du Deinen Pull Request erstellst. Pull Requests können nur zwischen zwei unterschiedlichen Branches geöffnet werden.
@@ -23,9 +22,23 @@ Du kannst festlegen, in welchen Branch Du Deine Änderungen zusammenführen möc
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
 
-## Branch-Bereich und Ziel-Repository ändern
+
+{% tip %}
+
+**Tip**: You can create a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr create`](https://cli.github.com/manual/gh_pr_create)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+
+
+
+{% endif %}
+
+
+
+### Branch-Bereich und Ziel-Repository ändern
 
 By default, pull requests are based on the parent repository's default branch. Weitere Informationen finden Sie unter „[Informationen zu Branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)“.
 
@@ -50,11 +63,13 @@ Wenn Du Informationen im Branch-Bereich änderst, werden die Vorschauen für „
 
 
 
-## Den Pull Request erstellen
+### Den Pull Request erstellen
 
-{% include tool-switcher %}
+{% tip %}
 
-{% webui %}
+**Tipp**: Du kannst auch {% data variables.product.prodname_desktop %} verwenden, um einen Pull Request zu erstellen. Weitere Informationen findest Du unter „[Issue oder Pull Request erstellen](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)“ in der {% data variables.product.prodname_desktop %}-Dokumentation.
+
+{% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
 
@@ -74,147 +89,9 @@ Wenn Du Informationen im Branch-Bereich änderst, werden die Vorschauen für „
 
 Nachdem Ihr Pull Request geprüft wurde, können Sie ihn [in das Repository mergen](/articles/merging-a-pull-request).
 
-{% endwebui %}
 
-{% cli %}
 
-{% data reusables.cli.cli-learn-more %}
-
-To create a pull request, use the `gh pr create` subcommand.
-
-
-
-```shell
-gh pr create
-```
-
-
-To assign a pull request to an individual, use the `--assignee` or `-a` flags. You can use `@me` to self-assign the pull request.
-
-
-
-```shell
-gh pr create --assignee "@octocat"
-```
-
-
-To specify the branch into which you want the pull request merged, use the `--base` or `-B` flags. To specify the branch that contains commits for your pull request, use the `--head` or `-H` flags.
-
-
-
-```shell
-gh pr create --base my-base-branch --head my-changed-branch
-```
-
-
-To include a title and body for the new pull request, use the `--title` and `--body` flags.
-
-
-
-```shell
-gh pr create --title "The bug is fixed" --body "Everything works again"
-```
-
-
-To mark a pull request as a draft, use the `--draft` flag.
-
-
-
-```shell
-gh pr create --draft
-```
-
-
-To add a labels or milestones to the new pull request, use the `--label` and `--milestone`  flags.
-
-
-
-```shell
-gh pr create --label "bug,help wanted" --milestone octocat-milestone
-```
-
-
-To add the new pull request to a specific project, use the `--project` flag.
-
-
-
-```shell
-gh pr create --project octocat-project
-```
-
-
-To assign an individual or team as reviewers, use the `--reviewer` flag.
-
-
-
-```shell
-gh pr create --reviewer monalisa,hubot  --reviewer myorg/team-name
-```
-
-
-To create the pull request in your default web browser, use the `--web` flag.
-
-
-
-```shell
-gh pr create --web
-```
-
-
-{% endcli %}
-
-{% desktop %}
-
-{% mac %}
-
-1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
-2. Klicke auf **Create Pull Request** (Pull-Request erstellen). {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}. ![The Create Pull Request button](/assets/images/help/desktop/mac-create-pull-request.png)
-
-4. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes. ![Dropdown-Menüs zur Auswahl von Basis- und Vergleichs-Branches](/assets/images/help/desktop/base-and-compare-branches.png) 
-   
-   {% data reusables.repositories.pr-title-description %}
-   
-   
-   
-   {% data reusables.repositories.create-pull-request %}
-
-{% endmac %}
-
-{% windows %}
-
-1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
-2. Klicke auf **Create Pull Request** (Pull-Request erstellen). {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}. ![The Create Pull Request button](/assets/images/help/desktop/windows-create-pull-request.png)
-
-3. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes. ![Dropdown-Menüs zur Auswahl von Basis- und Vergleichs-Branches](/assets/images/help/desktop/base-and-compare-branches.png) 
-   
-   {% data reusables.repositories.pr-title-description %}
-   
-   
-   
-   {% data reusables.repositories.create-pull-request %}
-
-{% endwindows %}
-
-{% enddesktop %}
-
-{% ifversion fpt %}
-
-{% codespaces %}
-
-1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon. ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
-
-1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description. ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr.png)
-
-1. Klicke auf **Create** (Erstellen).
-
-For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
-
-{% endcodespaces %}
-
-{% endif %}
-
-
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork)“
 - „[Den Basis-Branch eines Pull Requests ändern](/articles/changing-the-base-branch-of-a-pull-request)“

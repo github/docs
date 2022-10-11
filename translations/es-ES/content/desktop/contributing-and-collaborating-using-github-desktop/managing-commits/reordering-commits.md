@@ -1,39 +1,41 @@
 ---
-title: Reordenar las confirmaciones
-intro: 'Puedes utilizar {% data variables.product.prodname_desktop %} para volver a ordenar las confirmaciones del historial de tu rama.'
+title: Reordering commits
+intro: "You can use {% data variables.product.prodname_desktop %} to reorder commits in your branch's history."
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 ---
 
-## Acerca de reordenar una confirmación
+## About reordering a commit
 
-El reordenamiento te permite alterar tu historial de confirmaciones para proporcionar una progresión de confirmaciones más significativa. {% data variables.product.prodname_desktop %} te permite arrastrar y soltar confirmaciones en el historial de tu rama para reordenarlas.
+Reordering allows you to alter your commit history to provide a more meaningful progression of commits. {% data variables.product.prodname_desktop %} allows you to drag-and-drop commits in your branch's history to reorder them.
 
-## Reordenar una confirmación
+## Reordering a commit
 
 {% data reusables.desktop.current-branch-menu %}
-2. En la lista de ramas, haz clic en aquella con las confirmaciones que quieras reordenar.
+2. In the list of branches, click the branch with the commits that you want to reorder.
 {% data reusables.desktop.history-tab %}
-4. Arrastra la confirmación que quieras reordenar y suéltala entre dos confirmaciones adyacentes. ![reorder drag and drop](/assets/images/help/desktop/reorder-drag-and-drop.png)Mientras que la aplicación reordena las confirmaciones, un diálogo de **reordenamiento en proceso** indica el progreso del cambio.
+4. Drag the commit that you want to reorder and drop it between two adjoining commits.
+  ![reorder drag and drop](/assets/images/help/desktop/reorder-drag-and-drop.png)
+While the application reorders the commits, a **Reorder in process** dialog indicates the progress of the change.
 
-## Mensajes de error al reordenar las confirmaciones
+## Error messages when reordering commits
 
-Cuando vuelves a ordenar las confirmaciones, podrías ver alguna de las siguientes notificaciones o mensajes de error.
+When you reorder commits, you may see one of the following notifications or error messages.
 
-* Una notificación declara que el cambio solicitado a la rama requerirá una subida forzada para actualizar la rama remota. Esto se muestra cuando las confirmaciones que reorganizaste se cargaron previamente a la rama remota. El subir forzadamente altera el historial de la confirmaciones de la rama y afectará a otros colaboradores que están trabajando en ella.  Selecciona **Comenzar a reordenar** para iniciar el reordenamiento y luego haz clic en **Subir el origen forzadamente** para subir tus cambios.
+* A notification states that the requested change to the branch will require a force push to update the remote branch. This is shown when the commits that you reordered were previously pushed to the remote branch. Force pushing alters the commit history of the branch and will affect other collaborators who are working in that branch.  Select **Begin reorder** to start the reorder, and then click **Force push origin** to push your changes.
 
-  ![diálogo de subida forzada para reordenamiento](/assets/images/help/desktop/reorder-force-push-dialog.png)
+  ![reorder force push dialog](/assets/images/help/desktop/reorder-force-push-dialog.png)
 
-* Un error declara que el reordenamiento falló ya que hay una confirmación de fusión entre las confirmaciones reordenadas.
+* An error states that the reorder failed because there is a merge commit among the reordered commits.
 
-  ![diálogo de confirmación de fusión para reordenamiento](/assets/images/help/desktop/reorder-merge-commit-dialog.png)
+  ![reorder merge commit dialog](/assets/images/help/desktop/reorder-merge-commit-dialog.png)
 
-* Se muestra una indicación que indica que hay cambios sin confirmar presentes en tu rama actual. Selecciona **Almacenar cambios y continuar** para almacenar los cambios y proceder, o selecciona **Cerrar** para descartar el mensaje y confirmar los cambios. Cuando ya no haya cambios sin confirmar, puedes reordenar tus confirmaciones.
+* A notification is shown indicating that there are uncommitted changes present on your current branch. Select **Stash Changes and Continue** to store the changes and proceed, or select **Close** to dismiss the message and commit the changes. When there are no longer any uncommitted changes, you can reorder your commits.
 
-  ![diálogo de almacenamiento para reordenamiento](/assets/images/help/desktop/reorder-stash-dialog.png)
+  ![reorder stash dialog](/assets/images/help/desktop/reorder-stash-dialog.png)
 
-* Un mensaje declara que hay conflictos de fusión que debes resolver antes de que la aplicación pueda seguir reordenando als confirmaciones en tu rama.
-    1. Haz clic en **ver conflictos** para ver los conflictos. ![mensaje de resolución de conflictos para reordenamiento](/assets/images/help/desktop/reorder-resolve-conflicts.png)
+* A message states that there are merge conflicts that you must resolve before the application can continue reordering commits on your branch.
+    1. Click **View conflicts** to see the conflicts.
     {% data reusables.desktop.resolve-merge-conflicts %}
-   3. Cuando se resuelvan todos los conflictos, podrás reordenar tus confirmaciones.
-  
+
+  ![reorder resolve conflicts message](/assets/images/help/desktop/reorder-resolve-conflicts.png)

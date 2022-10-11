@@ -1,5 +1,5 @@
-import cors from 'cors'
-export default cors({
+import xCors from 'cors'
+export default xCors({
   origin: '*',
   methods: ['GET', 'HEAD'],
 })

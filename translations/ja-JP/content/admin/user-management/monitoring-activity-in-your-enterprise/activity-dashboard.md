@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 ---
@@ -26,7 +26,11 @@ topics:
 
 ![アクティビティダッシュボード](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-## アクティビティダッシュボードへのアクセス
+{% if enterpriseServerVersions contains currentVersion %}
+{% data variables.product.product_name %}からのデータに基づく分析をさらに進めるには、{% data variables.product.prodname_insights %}を購入できます。 詳しい情報については、「[{% data variables.product.prodname_insights %} について](/insights/installing-and-configuring-github-insights/about-github-insights)」を参照してください。
+{% endif %}
+
+### アクティビティダッシュボードへのアクセス
 
 1. ページの上部で [**Explore**] をクリックします。 ![[Explore] タブ](/assets/images/enterprise/settings/ent-new-explore.png)
 2. 右上にある **Activity** をクリックする。 ![Activity ボタン](/assets/images/enterprise/activity/activity-button.png)

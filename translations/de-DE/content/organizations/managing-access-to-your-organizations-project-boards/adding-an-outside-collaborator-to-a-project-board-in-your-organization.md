@@ -5,13 +5,12 @@ redirect_from:
   - /articles/adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-an-outside-collaborator-to-a-project-board-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Add a collaborator
 ---
 
 Ein externer Mitarbeiter ist eine Person, die nicht explizit Mitglied Deiner Organisation ist, aber auf ein Projektboard in Deiner Organisation zugreifen kann.

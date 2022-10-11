@@ -7,14 +7,13 @@ redirect_from:
   - /enterprise/admin/user-management/troubleshooting-service-hooks
   - /admin/user-management/troubleshooting-service-hooks
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
-shortTitle: 服务挂钩疑难解答
 ---
 
-## 获取有关交付的信息
+### 获取有关交付的信息
 
 您可以在任意仓库中找到有关所有服务挂钩交付的最后响应的信息。
 
@@ -24,7 +23,7 @@ shortTitle: 服务挂钩疑难解答
 4. 单击有问题的服务挂钩下的 **Latest Delivery** 链接。 ![挂钩详情](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
 5. 在 **Remote Calls** 下，您将看到发布到远程服务器时使用的标头以及远程服务器发送回安装的响应。
 
-## 查看有效负载
+### 查看有效负载
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. 浏览到您要调查的仓库。
@@ -32,7 +31,7 @@ shortTitle: 服务挂钩疑难解答
 4. 单击有问题的服务挂钩下的 **Latest Delivery** 链接。
 5. 单击 **Delivery（交付）**。 ![查看有效负载](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
 
-## 查看过去的交付
+### 查看过去的交付
 
 交付存储 15 天。
 

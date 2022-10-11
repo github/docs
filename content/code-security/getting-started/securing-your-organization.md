@@ -32,32 +32,26 @@ You can create a default security policy that will display in any of your organi
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-issue-4864 %}
+{% ifversion fpt or ghes > 2.22 %}
 ## Managing {% data variables.product.prodname_dependabot_alerts %} and the dependency graph
 
-{% ifversion fpt %}By default, {% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and generates {% data variables.product.prodname_dependabot_alerts %} and a dependency graph. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} and the dependency graph for all private repositories owned by your organization.
+By default, {% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and generates {% data variables.product.prodname_dependabot_alerts %} and a dependency graph. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} and the dependency graph for all repositories owned by your organization.
 
 1. Click your profile photo, then click **Organizations**.
 2. Click **Settings** next to your organization.
 3. Click **Security & analysis**.
 4. Click **Enable all** or **Disable all** next to the feature that you want to manage.
-5. Optionally, select **Automatically enable for new repositories**.
-{% endif %}
-
-{% data reusables.dependabot.dependabot-alerts-beta %}
-{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
+5. Optionally, select **Automatically enable for new repositories**. 
 
 For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)," "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)," and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 %}
+{% ifversion fpt or ghes > 3.1 %}
 
 ## Managing dependency review
 
-Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. 
-{% ifversion fpt %}Dependency review is available in all public repositories. For private and internal repositories you require a license for {% data variables.product.prodname_advanced_security %}. To enable dependency review for an organization, enable the dependency graph and enable {% data variables.product.prodname_advanced_security %}. 
-{% elsif ghes or ghae %}Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and you enable {% data variables.product.prodname_advanced_security %} for the organization (see below).{% endif %}
-For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. Dependency review is available in all public repositories and in repositories owned by organizations with an {% data variables.product.prodname_advanced_security %} license that have the dependency graph enabled. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
 
 {% endif %}
 
@@ -85,11 +79,7 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 {% ifversion fpt or ghes > 2.22 or ghae %}
 ## Managing {% data variables.product.prodname_GH_advanced_security %}
 
-{% ifversion fpt or ghes > 2.22 %}
 If your organization has an {% data variables.product.prodname_advanced_security %} license, you can enable or disable {% data variables.product.prodname_advanced_security %} features.
-{% elsif ghae %}
-You can enable or disable {% data variables.product.prodname_advanced_security %} features.
-{% endif %}
 
 1. Click your profile photo, then click **Organizations**.
 2. Click **Settings** next to your organization.
@@ -115,7 +105,7 @@ For more information, see "[Managing security and analysis settings for your org
 {% endif %}
 
 ## Next steps
-{% ifversion fpt or ghes > 3.1 or ghae-next %}You can view, filter, and sort security alerts for repositories owned by your organization in the security overview. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."{% endif %}
+{% ifversion fpt or ghae-next %}You can view, filter, and sort security alerts for repositories owned by your organization in the security overview. For more information, see "[Exploring security alerts](/code-security/security-overview/exploring-security-alerts)."{% endif %}
 
 You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes > 2.22 %} "[Viewing and updating vulnerable dependencies in your repository](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% ifversion fpt %}"[Managing pull requests for dependency updates](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Managing {% data variables.product.prodname_code_scanning %} for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," and "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 

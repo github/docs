@@ -7,12 +7,11 @@ redirect_from:
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: オーナーTeamの変換
 ---
 
 レガシーのオーナー Team を変換する方法はいくつかあります:
@@ -20,7 +19,7 @@ shortTitle: オーナーTeamの変換
 - Team に、メンバーが Organization 内で特別なステータスを持っていることを示す名前を付ける。
 - すべてのメンバーが、Organization のリポジトリにアクセスできる必要な権限を持つ Team に追加されていることを確認してから、元の Team を削除する。
 
-## オーナー Team に新しい名前を付ける
+### オーナー Team に新しい名前を付ける
 
 {% tip %}
 
@@ -38,7 +37,7 @@ shortTitle: オーナーTeamの変換
 6. Team の説明の下にある、[**Save and continue**] をクリックします。 ![[Save and continue] ボタン](/assets/images/help/teams/owners-team-save-and-continue.png)
 7. また、代わりに [Team を*パブリック*にする](/articles/changing-team-visibility)こともできます。
 
-## レガシーのオーナー Team の削除
+### レガシーのオーナー Team の削除
 
 {% warning %}
 

@@ -3,12 +3,11 @@ title: Aplicaciones
 redirect_from:
   - /v3/apps
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 La API de GitHub Apps te permite obtener información de alto nivel acerca de una GitHub App así como la información específica acerca de las instalaciones de la misma. Para conocer más sobre las GitHub Apps, consulta la sección "[Autenticarte como una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)".
@@ -45,7 +44,7 @@ Para listar las instalaciones de una GitHub App para una organización, consulta
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 ## Marketplace
 
 Para obtener más información acerca de {% data variables.product.prodname_marketplace %}, consulta "[GitHub Marketplace](/marketplace/)".
@@ -56,7 +55,7 @@ La API de {% data variables.product.prodname_marketplace %} te permite ver qué 
 
 Esta API incluye terminales que te permiten [probar tu {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) con **datos de muestra**. Los datos de muestra son datos falsos y preprogramados que no cambiarán con base en las suscripciones reales.
 
-Para hacer pruebas con estos datos, utiliza una terminal de muestra en vez de su contraparte productiva. Esto te permite probar si la lógica de la API tendrá éxito antes de listar tus {% data variables.product.prodname_github_apps %} en {% data variables.product.prodname_marketplace %}.
+Para hacer pruebas con estos datos, utiliza una terminal de muestra en vez de su contraparte productiva. Esto te permite probar si la lógica de la API tendrá éxito antes de listar tus {% data variables.product.prodname_github_app %} en {% data variables.product.prodname_marketplace %}.
 
 Asegúrate de reemplazar tus terminales de muestra con aquellas productivas antes de desplegar tu {% data variables.product.prodname_github_app %}.
 
@@ -66,10 +65,8 @@ Asegúrate de reemplazar tus terminales de muestra con aquellas productivas ante
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ## Webhooks
-
-Un webhook de {% data variables.product.prodname_github_app %} te permite recibir cargas útiles de `POST` por HTTP cada que sucedan ciertos eventos para una app. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

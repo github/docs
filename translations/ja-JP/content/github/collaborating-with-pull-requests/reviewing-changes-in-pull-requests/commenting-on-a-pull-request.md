@@ -9,15 +9,14 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
 intro: リポジトリのプルリクエストのオープン後、コラボレーターや Team メンバーは、特定の 2 つのブランチ間におけるファイルの比較について、またプロジェクト全体についてコメントできます。
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Comment on a PR
 ---
 
-## プルリクエストのコメントについて
+### プルリクエストのコメントについて
 
 プルリクエストの [**Conversation**] タブに、一般的なコメント、質問、提案などを書き込むことができます。 プルリクエストの作者がコメントから直接適用できる変更を提案することもできます。
 
@@ -43,7 +42,7 @@ Pull Request レビューへの行コメント追加に関する 詳しい情報
 
 {% endtip %}
 
-## プルリクエストに行コメントを追加する
+### プルリクエストに行コメントを追加する
 
 {% data reusables.repositories.sidebar-pr %}
 2. プルリクエストのリストで、行コメントをしたいプルリクエストをクリックします。
@@ -57,8 +56,8 @@ Pull Request レビューへの行コメント追加に関する 詳しい情報
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-## 参考リンク
+### 参考リンク
 
-- [GitHubでの執筆](/github/writing-on-github)
-{% ifversion fpt %}- 「[乱用やスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)」
+- "[Writing on GitHub](/github/writing-on-github)"
+{% if currentVersion == "free-pro-team@latest" %}-「[乱用やスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)」
 {% endif %}

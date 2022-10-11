@@ -6,7 +6,7 @@ redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Security advisories
   - Vulnerabilities

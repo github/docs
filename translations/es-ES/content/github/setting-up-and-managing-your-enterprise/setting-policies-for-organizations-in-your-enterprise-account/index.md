@@ -5,7 +5,7 @@ redirect_from:
   - /articles/setting-policies-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/setting-policies-for-organizations-in-your-enterprise-account
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Enterprise
 children:
@@ -18,6 +18,5 @@ children:
   - /enforcing-github-actions-policies-in-your-enterprise-account
   - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
   - /enforcing-policies-for-advanced-security-in-your-enterprise-account
-shortTitle: Configurar las polítcas de la organización
 ---
 

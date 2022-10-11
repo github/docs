@@ -6,12 +6,11 @@ redirect_from:
   - /articles/associating-milestones-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/associating-milestones-with-issues-and-pull-requests
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Add to milestones
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -25,7 +24,7 @@ Während Du Issues und Pull Requests bearbeitest, kannst Du [den Fortschritt Dei
 
 {% endtip %}
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Informationen zu Meilensteinen](/articles/about-milestones)“
 - „[Meilensteine für Issues und Pull Requests erstellen und bearbeiten](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)“

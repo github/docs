@@ -9,16 +9,15 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
 permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 保持所有权连续性
 ---
 
-## 关于保持组织的所有权连续性
+### 关于保持组织的所有权连续性
 
 {% data reusables.organizations.org-ownership-recommendation %}
 
@@ -30,7 +29,7 @@ shortTitle: 保持所有权连续性
 
 {% endnote %}
 
-## 任命组织所有者
+### 任命组织所有者
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

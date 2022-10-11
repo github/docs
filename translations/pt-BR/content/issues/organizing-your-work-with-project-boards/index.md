@@ -3,9 +3,9 @@ title: Organizando seu trabalho com quadros de projetos
 shortTitle: Quadros de projeto
 intro: 'Use os quadros de projetos para gerenciar seu trabalho em {% data variables.product.prodname_dotcom %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Issues
   - Projects
@@ -20,4 +20,3 @@ redirect_from:
   - /archiving-cards-on-a-project-board
 ---
 
-{% data reusables.projects.project_boards_old %}
