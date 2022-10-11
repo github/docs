@@ -283,7 +283,7 @@ you or your users have two-factor authentication enabled.
 
 The `redirect_uri` parameter is optional. If left out, GitHub will
 redirect users to the callback URL configured in the OAuth Application
-settings. If provided, the redirect URL's host and port must exactly
+settings. If provided, the redirect URL's host (excluding sub-domains) and port must exactly
 match the callback URL. The redirect URL's path must reference a
 subdirectory of the callback URL.
 
@@ -291,6 +291,8 @@ subdirectory of the callback URL.
 
     GOOD: http://example.com/path
     GOOD: http://example.com/path/subdir/other
+    GOOD: http://oauth.example.com/path
+    GOOD: http://oauth.example.com/path/subdir/other
     BAD:  http://example.com/bar
     BAD:  http://example.com/
     BAD:  http://example.com:8080/path
