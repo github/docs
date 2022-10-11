@@ -5,10 +5,9 @@ redirect_from:
   - /articles/commit-branch-and-tag-labels
   - /github/committing-changes-to-your-project/commit-branch-and-tag-labels
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Rama & etiquetas de marcado
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Si tu confirmación no está en la rama predeterminada, un indicador mostarará las ramas que contienen la confirmación. Si la confirmación es parte de una solicitud de extracción no fusionada, mostrará un enlace.
@@ -19,7 +18,7 @@ Una vez que la confirmación está en la rama por defecto, todas las etiquetas q
 
 ![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
-## Leer más
+### Leer más
 
 * "[Firmar confirmaciones](/articles/signing-commits)"
 * "[Firmar etiquetas](/articles/signing-tags)"

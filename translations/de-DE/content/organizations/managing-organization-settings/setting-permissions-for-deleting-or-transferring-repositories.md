@@ -6,13 +6,12 @@ redirect_from:
   - /articles/setting-permissions-for-deleting-or-transferring-repositories
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-deleting-or-transferring-repositories
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Set repo management policy
 ---
 
 Inhaber können die Berechtigungen zum Löschen oder Übertragen von Repositorys innerhalb einer Organisation festlegen.

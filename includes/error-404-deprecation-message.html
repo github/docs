@@ -1,0 +1,12 @@
+{% if enterpriseServerReleases.deprecated contains currentVersion %}
+{% assign deprecatedDate = enterpriseServerReleases.dates[currentVersion].deprecationDate %}
+  <div class="deprecation-banner border rounded-1 mb-2 color-bg-warning p-3 color-border-warning f5">
+    <p>
+      <b>
+        {% data reusables.enterprise_deprecation.version_was_deprecated %}
+        <span data-date="{{ deprecatedDate }}" data-format="%B %d, %Y" title="{{ deprecatedDate }}">{{ deprecatedDate }}</span>.
+      </b>
+      The documentation page you are looking for may have moved. Try going to the <a href="/{{ currentLanguage }}/enterprise/{{ currentVersion}}">GitHub Enterprise Server {{ currentVersion }} documentation homepage</a> or searching by keyword.
+    </p>
+  </div>
+{% endif %}

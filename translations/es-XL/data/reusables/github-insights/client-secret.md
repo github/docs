@@ -1,0 +1,1 @@
+1. Debajo de "Secreto de Cliente", teclea el secreto del cliente de tu {% data variables.product.prodname_github_app %}, el cual grabaste cuando creaste la app. ![Campo de secreto de cliente](/assets/images/help/insights/client-secret.png)

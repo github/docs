@@ -89,17 +89,17 @@ describe('enterprise deprecation', () => {
 describe('deprecation banner', () => {
   test('renders a deprecation warning banner on oldest supported Enterprise version', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('[data-testid=deprecation-banner]').length).toBe(1)
+    expect($('.deprecation-banner').length).toBe(1)
   })
 
   test('does not render a deprecation warning banner on other Enterprise versions', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}`)
-    expect($('[data-testid=deprecation-banner]').length).toBe(0)
+    expect($('.deprecation-banner').length).toBe(0)
   })
 
   test('deprecation warning banner includes a date', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('[data-testid=deprecation-banner] b').text().endsWith('discontinued on .')).toBe(false)
+    expect($('.deprecation-banner b').text().endsWith('discontinued on .')).toBe(false)
   })
 
   test('deprecation warning banner includes the right text depending on the date', async () => {
@@ -107,7 +107,7 @@ describe('deprecation banner', () => {
     const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
       ? 'was discontinued'
       : 'will be discontinued'
-    expect($('[data-testid=deprecation-banner] b').text().includes(expectedString)).toBe(true)
+    expect($('.deprecation-banner b').text().includes(expectedString)).toBe(true)
   })
 })
 
@@ -130,7 +130,7 @@ describe('does not render survey prompt or contribution button', () => {
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
       expect($('.contribution').length).toBe(0)
     } else {
-      expect($('[data-testid=survey-form]').length).toBeGreaterThan(0)
+      expect($('.js-survey').length).toBeGreaterThan(0)
     }
   })
 })
@@ -188,7 +188,7 @@ describe('JS and CSS assets', () => {
 
   it('returns the expected node_modules', async () => {
     const result = await supertest(app)
-      .get('/node_modules/instantsearch.js/dist/instantsearch.production.min.js')
+      .get('/node_modules/algoliasearch/dist/algoliasearch.min.js')
       .set('Referrer', '/en/enterprise/2.17')
 
     expect(result.statusCode).toBe(200)

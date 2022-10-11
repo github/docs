@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import walk from 'walk-sync'
 import { get, isPlainObject } from 'lodash-es'
-import { allVersions } from '../../lib/all-versions.js'
+import allVersions from '../../lib/all-versions.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 import { operations } from '../../lib/rest/index.js'
 import dedent from 'dedent'
@@ -157,7 +157,7 @@ describe('x-codeSamples for @octokit/core.js', () => {
   })
 
   // skipped because the definition is current missing the `content-type` parameter
-  // GitHub GitHub issue: 155943
+  // See GitHub issue #155943
   test.skip('operation with content-type parameter', () => {
     const operation = findOperation('POST', '/markdown/raw')
     expect(isPlainObject(operation)).toBe(true)

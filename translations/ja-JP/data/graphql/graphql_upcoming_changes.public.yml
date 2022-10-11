@@ -36,6 +36,13 @@ upcoming_changes:
     criticality: 破壊的
     owner: tambling
   - 
+    location: Query.sponsorsListing
+    description: '`sponsorsListing`は削除されます。代わりに `Sponsorable.sponsorsListing`を使ってください。'
+    reason: '`Query.sponsorsListing`は削除されます。'
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: antn
+  - 
     location: Sponsorship.maintainer
     description: '`maintainer`は削除されます。代わりに`Sponsorship.sponsorable`を使ってください。'
     reason: '`Sponsorship.maintainer`は削除されます。'
@@ -119,10 +126,3 @@ upcoming_changes:
     date: '2021-06-21'
     criticality: 破壊的
     owner: reybard
-  - 
-    location: ReactionGroup.users
-    description: '`users`は削除されます。代わりに`reactors`フィールドを使ってください。'
-    reason: リアクターは、マネキン、ボット、Organizationになることができます。
-    date: '2021-10-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: synthead

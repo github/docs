@@ -6,13 +6,12 @@ redirect_from:
   - /articles/removing-organization-members-from-a-team
   - /github/setting-up-and-managing-organizations-and-teams/removing-organization-members-from-a-team
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Eliminar a los miembros
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}

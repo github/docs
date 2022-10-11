@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+import program from 'commander'
+import { execSync } from 'child_process'
+import assert from 'assert'
+import fs from 'fs'
+import path from 'path'
+import chalk from 'chalk'
 
 // [start-readme]
 //
@@ -16,13 +22,6 @@
 // $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
 //
 // [end-readme]
-
-import program from 'commander'
-import { execSync } from 'child_process'
-import assert from 'assert'
-import fs from 'fs'
-import path from 'path'
-import chalk from 'chalk'
 
 program
   .description('reset translated files')

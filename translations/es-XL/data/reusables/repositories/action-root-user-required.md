@@ -1,0 +1,1 @@
+**Nota:**{% data variables.product.prodname_actions %} debe ejecutarse por el usuario predeterminado (root) de Docker. Asegúrate de que tu Dockerfile no configure la instrucción de `USER`, de lo contrario, no podrás acceder a `GITHUB_WORKSPACE`.

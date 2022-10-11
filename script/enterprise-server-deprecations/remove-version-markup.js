@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import program from 'commander'
+import frontmatter from '../../lib/read-frontmatter.js'
+import removeLiquidStatements from '../../script/helpers/remove-liquid-statements.js'
+import removeDeprecatedFrontmatter from '../../script/helpers/remove-deprecated-frontmatter.js'
+import { all, getNextReleaseNumber} from '../../lib/enterprise-server-releases.js'
+import walkFiles from '../helpers/walk-files.js'
 
 // [start-readme]
 //
@@ -6,14 +13,6 @@
 // contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
 //
 // [end-readme]
-
-import fs from 'fs'
-import program from 'commander'
-import frontmatter from '../../lib/read-frontmatter.js'
-import removeLiquidStatements from '../../script/helpers/remove-liquid-statements.js'
-import removeDeprecatedFrontmatter from '../../script/helpers/remove-deprecated-frontmatter.js'
-import { all, getNextReleaseNumber } from '../../lib/enterprise-server-releases.js'
-import walkFiles from '../helpers/walk-files.js'
 
 program
   .description(
@@ -35,9 +34,7 @@ if (!release) {
 }
 
 if (!all.includes(release)) {
-  console.log(
-    `You specified ${release}! Please specify a supported or deprecated release number from lib/enterprise-server-releases.js`
-  )
+  console.log(`You specified ${release}! Please specify a supported or deprecated release number from lib/enterprise-server-releases.js`)
   process.exit(1)
 }
 
@@ -49,12 +46,12 @@ console.log(`Next oldest version: ${nextOldestRelease}\n`)
 // gather content and data files
 const contentFiles = walkFiles('content', '.md', { includeEarlyAccess: true })
 const reusables = walkFiles('data/reusables', '.md', { includeEarlyAccess: true })
-const variables = walkFiles('data/variables', '.yml', { includeEarlyAccess: true })
+const variables =  walkFiles('data/variables', '.yml', { includeEarlyAccess: true })
 const allFiles = contentFiles.concat(reusables, variables)
 
 main()
 
-async function main() {
+async function main () {
   for (const file of allFiles) {
     const oldContents = fs.readFileSync(file, 'utf8')
     const { content, data } = frontmatter(oldContents)
@@ -87,7 +84,7 @@ async function main() {
       fs.unlinkSync(file)
       continue
     }
-
+    
     fs.writeFileSync(file, newContents)
   }
 

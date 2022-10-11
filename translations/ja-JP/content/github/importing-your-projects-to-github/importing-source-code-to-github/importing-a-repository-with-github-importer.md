@@ -6,8 +6,7 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  fpt: '*'
-shortTitle: Use GitHub Importer
+  free-pro-team: '*'
 ---
 
 {% tip %}
@@ -33,6 +32,6 @@ shortTitle: Use GitHub Importer
 
 リポジトリのインポートが完了すると、メールが届きます。
 
-## 参考リンク
+### 参考リンク
 
 - [GitHub Importerでのコミット作者の属性の更新](/articles/updating-commit-author-attribution-with-github-importer)

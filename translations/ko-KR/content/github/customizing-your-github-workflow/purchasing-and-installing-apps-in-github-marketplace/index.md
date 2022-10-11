@@ -4,10 +4,9 @@ intro: '{% data variables.product.prodname_marketplace %} includes apps with fre
 redirect_from:
   - /articles/purchasing-and-installing-apps-in-github-marketplace
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /installing-an-app-in-your-personal-account
   - /installing-an-app-in-your-organization
-shortTitle: Install Marketplace apps
 ---
 

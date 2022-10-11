@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import { chain } from 'lodash-es'
+import chalk from 'chalk'
+import Heroku from 'heroku-client'
+import getOctokit from './helpers/github.js'
 
 // [start-readme]
 //
@@ -7,13 +12,7 @@
 //
 // [end-readme]
 
-import dotenv from 'dotenv'
-import { chain } from 'lodash-es'
-import chalk from 'chalk'
-import Heroku from 'heroku-client'
-import getOctokit from './helpers/github.js'
-
-dotenv.config()
+xDotenv.config()
 
 // Check for required Heroku API token
 if (!process.env.HEROKU_API_TOKEN) {
@@ -41,7 +40,7 @@ async function main() {
     .orderBy('name')
     .value()
 
-  const prInfoMatch = /^(?:gha-|ghd-)?(?<repo>docs(?:-internal)?)-(?<pullNumber>\d+)--.*$/
+  const prInfoMatch = /^(?<repo>docs(?:-internal)?)-(?<pullNumber>\d+)--.*$/
 
   const appsPlusPullIds = apps.map((app) => {
     const match = prInfoMatch.exec(app.name)
@@ -67,9 +66,8 @@ async function main() {
     const { isStale, isSpammy } = await assessPullRequest(awpi.repo, awpi.pullNumber)
 
     if (isSpammy) spammyCount++
-    if (isStale) staleCount++
-
-    if (isSpammy || isStale) {
+    if (isStale) {
+      staleCount++
       await deleteHerokuApp(awpi.app.name)
     }
   }

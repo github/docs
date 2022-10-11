@@ -1,7 +1,7 @@
 ---
 title: GitHub 已故用户政策
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Policy
   - Legal

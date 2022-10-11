@@ -2,7 +2,7 @@
 title: Enforcing security settings in your enterprise account
 intro: Enterprise owners can enforce certain security policies for all organizations owned by an enterprise account.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-miniTocMaxHeadingLevel: 3
+miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/enforcing-security-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account/
@@ -11,13 +11,12 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Enterprise
-shortTitle: Enforce security settings
 ---
 
-## Requiring two-factor authentication for organizations in your enterprise account
+### Requiring two-factor authentication for organizations in your enterprise account
 
 Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise account use two-factor authentication to secure their personal accounts.
 
@@ -43,7 +42,7 @@ Before you require use of two-factor authentication, we recommend notifying orga
 6. If prompted, read the information about members and outside collaborators who will be removed from the organizations owned by your enterprise account. To confirm the change, type your enterprise account's name, then click **Remove members & require two-factor authentication**. ![Confirm two-factor enforcement box](/assets/images/help/business-accounts/confirm-require-2fa.png)
 7. Optionally, if any members or outside collaborators are removed from the organizations owned by your enterprise account, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
 
-## Managing allowed IP addresses for organizations in your enterprise account
+### Managing allowed IP addresses for organizations in your enterprise account
 
 Enterprise owners can restrict access to assets owned by organizations in an enterprise account by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
@@ -53,7 +52,7 @@ Enterprise owners can restrict access to assets owned by organizations in an ent
 
 You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
-### Adding an allowed IP address
+#### Adding an allowed IP address
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -62,11 +61,11 @@ You can also configure allowed IP addresses for an individual organization. For 
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
-### Allowing access by {% data variables.product.prodname_github_apps %}
+#### Allowing access by {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-### Enabling allowed IP addresses
+#### Enabling allowed IP addresses
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -74,7 +73,7 @@ You can also configure allowed IP addresses for an individual organization. For 
 3. Under "IP allow list", select **Enable IP allow list**. ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
 4. Click **Save**.
 
-### Editing an allowed IP address
+#### Editing an allowed IP address
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -84,7 +83,7 @@ You can also configure allowed IP addresses for an individual organization. For 
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. Click **Update**.
 
-### Deleting an allowed IP address
+#### Deleting an allowed IP address
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -92,17 +91,17 @@ You can also configure allowed IP addresses for an individual organization. For 
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-### Using {% data variables.product.prodname_actions %} with an IP allow list
+#### Using {% data variables.product.prodname_actions %} with an IP allow list
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
-## Managing your enterprise account's SSH certificate authorities
+### Managing your enterprise account's SSH certificate authorities
 
 Enterprise owners can add and delete an enterprise account's SSH certificate authorities (CA).
 
 By adding an SSH CA to your enterprise account, you can allow members of any organization owned by your enterprise account to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](/articles/about-ssh-certificate-authorities)."
 
-### Adding an SSH certificate authority
+#### Adding an SSH certificate authority
 
 {% data reusables.organizations.add-extension-to-cert %}
 
@@ -112,7 +111,7 @@ By adding an SSH CA to your enterprise account, you can allow members of any org
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
-### Deleting an SSH certificate authority
+#### Deleting an SSH certificate authority
 
 Deleting a CA cannot be undone. If you want to use the same CA in the future, you'll need to upload the CA again.
 
@@ -121,6 +120,6 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
 
-## Дополнительная литература
+### Дополнительная литература
 
 - "[Configuring identity and access management for your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

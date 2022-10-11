@@ -4,7 +4,7 @@ intro: 'É possível personalizar e estender o fluxo de trabalho do {% data vari
 redirect_from:
   - /articles/exploring-integrations
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /about-integrations
   - /about-github-marketplace

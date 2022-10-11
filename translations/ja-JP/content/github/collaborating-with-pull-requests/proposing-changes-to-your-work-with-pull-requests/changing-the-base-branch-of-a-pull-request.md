@@ -6,12 +6,11 @@ redirect_from:
   - /articles/changing-the-base-branch-of-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/changing-the-base-branch-of-a-pull-request
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Change the base branch
 ---
 
 {% warning %}
@@ -32,7 +31,7 @@ shortTitle: Change the base branch
 
 {% endtip %}
 
-## 参考リンク
+### 参考リンク
 
 - [プルリクエストの作成](/articles/creating-a-pull-request)
 - [プルリクエストについて](/articles/about-pull-requests)

@@ -1,4 +1,4 @@
-{% ifversion ghes %}
+{% ifversion ghes > 2.21 %}
 
 ### Using self-hosted runners on {% data variables.product.prodname_ghe_server %}
 

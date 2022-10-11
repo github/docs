@@ -1,16 +1,18 @@
 ---
 title: Resumen
-intro: 'Puedes aprender sobre {% data variables.product.product_name %} y administrar cuentas de{% ifversion ghes %} y accesos, licencias, y{% endif %} facturación.'
+intro: 'Puedes aprender sobre {% data variables.product.product_name %} y administrar cuentas de{% if enterpriseServerVersions contains currentVersion %} y accesos, licencias, y{% endif %} facturación.'
 redirect_from:
   - /enterprise/admin/overview
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /about-github-ae
   - /about-upgrades-to-new-releases
   - /about-data-residency
   - /about-enterprise-accounts
+  - /managing-your-github-enterprise-license
+  - /managing-billing-for-your-enterprise
   - /system-overview
   - /about-the-github-enterprise-api
 ---

@@ -7,9 +7,9 @@ redirect_from:
   - /categories/importing/
   - /categories/importing-your-projects-to-github
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /importing-source-code-to-github
   - /working-with-subversion-on-github

@@ -11,7 +11,7 @@ redirect_from:
 permissions: You must have at least read permissions to view a package.
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=2.22'
   ghae: '*'
 ---
 
@@ -65,4 +65,4 @@ You can find and view any package you've published across all organizations and 
 
 ## Further reading
 
-- "[Searching for packages](/search-github/searching-on-github/searching-for-packages)"
+- "[Searching for packages](/github/searching-for-information-on-github/searching-for-packages)"

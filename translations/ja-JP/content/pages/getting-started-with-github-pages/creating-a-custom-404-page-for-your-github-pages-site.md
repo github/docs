@@ -7,12 +7,11 @@ redirect_from:
   - /github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pages
-shortTitle: カスタム404ページの作成
 ---
 
 {% data reusables.pages.navigate-site-repo %}
@@ -31,6 +30,6 @@ shortTitle: カスタム404ページの作成
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-## 参考リンク
+### 参考リンク
 
 - Jekyll ドキュメンテーションの [Front matter](http://jekyllrb.com/docs/frontmatter)

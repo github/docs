@@ -1,0 +1,1 @@
+1. En la parte superior de cualquier página, da clic en **Codespaces**. ![Enlace de {% data variables.product.prodname_codespaces %} en el encabezado](/assets/images/help/codespaces/header-link.png)

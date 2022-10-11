@@ -6,9 +6,9 @@ redirect_from:
   - /apps/managing-github-apps/modifying-a-github-app
   - /developers/apps/modifying-a-github-app
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
 ---

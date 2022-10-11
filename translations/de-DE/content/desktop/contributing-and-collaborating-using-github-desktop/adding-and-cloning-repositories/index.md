@@ -4,12 +4,11 @@ intro: 'Füge existierende Repositorys von Deinem lokalen Computer zu {% data va
 redirect_from:
   - /desktop/contributing-to-projects/adding-and-cloning-repositories
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /adding-a-repository-from-your-local-computer-to-github-desktop
   - /adding-an-existing-project-to-github-using-github-desktop
   - /cloning-and-forking-repositories-from-github-desktop
   - /cloning-a-repository-from-github-to-github-desktop
-shortTitle: Add & clone repos
 ---
 

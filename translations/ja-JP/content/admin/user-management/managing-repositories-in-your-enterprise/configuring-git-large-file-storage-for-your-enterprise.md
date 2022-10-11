@@ -14,18 +14,17 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/configuring-git-large-file-storage-for-your-enterprise
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 type: how_to
 topics:
   - Git
   - Enterprise
   - LFS
   - Storage
-shortTitle: Configure Git LFS
 ---
 
-## {% data variables.large_files.product_name_long %}について
+### {% data variables.large_files.product_name_long %}について
 
 {% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %} {% data variables.large_files.product_name_long %} は、単一のリポジトリ、すべての個人または Organization のリポジトリ、または Enterprise 内のすべてのリポジトリで使用できます。 特定のリポジトリまたは Organization に対して {% data variables.large_files.product_name_short %} を有効にする前に、Enterprise に対して {% data variables.large_files.product_name_short %} を有効にする必要があります。
 
@@ -36,10 +35,10 @@ shortTitle: Configure Git LFS
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
-## Enterprise 向けに {% data variables.large_files.product_name_long %} を設定する
+### Enterprise 向けに {% data variables.large_files.product_name_long %} を設定する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -47,7 +46,7 @@ shortTitle: Configure Git LFS
 {% data reusables.enterprise-accounts.options-tab %}
 4. [{% data variables.large_files.product_name_short %} access]で、ドロップダウンメニューを使用して [**Enabled**] または [**Disabled**] をクリックします。 ![Git LFSアクセス](/assets/images/enterprise/site-admin-settings/git-lfs-admin-center.png)
 
-## 個々のリポジトリ用に {% data variables.large_files.product_name_long %} を設定する
+### 個々のリポジトリ用に {% data variables.large_files.product_name_long %} を設定する
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -58,7 +57,7 @@ shortTitle: Configure Git LFS
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
-## ユーザーアカウントまたは Organization が所有するすべてのリポジトリ用に {% data variables.large_files.product_name_long %} を設定する
+### ユーザーアカウントまたは Organization が所有するすべてのリポジトリ用に {% data variables.large_files.product_name_long %} を設定する
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
@@ -67,8 +66,8 @@ shortTitle: Configure Git LFS
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
-{% ifversion ghes %}
-## サードパーティのサーバを使うGit Large File Storageの設定
+{% if enterpriseServerVersions contains currentVersion %}
+### サードパーティのサーバを使うGit Large File Storageの設定
 
 {% data reusables.large_files.storage_assets_location %}
 {% data reusables.large_files.rejected_pushes %}
@@ -105,7 +104,7 @@ shortTitle: Configure Git LFS
   ```
 3. 既存の {% data variables.large_files.product_name_short %} アセットを移行します。 詳しい情報については、「[異なる {% data variables.large_files.product_name_long %} サーバーへ移行する](#migrating-to-a-different-git-large-file-storage-server)」を参照してください。
 
-## 異なるGit Large File Storageサーバへの移行
+### 異なるGit Large File Storageサーバへの移行
 
 別の {% data variables.large_files.product_name_long %} サーバーに移行する前に、サードパーティのサーバーを使用するように {% data variables.large_files.product_name_short %} を設定する必要があります。 詳細については、「[サードパーティのサーバーを使用するための {% data variables.large_files.product_name_long %} を設定する](#configuring-git-large-file-storage-to-use-a-third-party-server)」を参照してください。
 
@@ -140,6 +139,6 @@ shortTitle: Configure Git LFS
   ```
 {% endif %}
 
-## 参考リンク
+### 参考リンク
 
 - [{% data variables.large_files.product_name_long %}プロジェクトサイト](https://git-lfs.github.com/)

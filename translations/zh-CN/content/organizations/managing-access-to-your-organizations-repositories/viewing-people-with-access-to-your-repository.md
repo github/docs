@@ -5,22 +5,21 @@ redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
   - /github/setting-up-and-managing-organizations-and-teams/viewing-people-with-access-to-your-repository
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 查看有访问权限的人
 ---
 
 管理员可以使用此信息帮助非内部人员，收集数据用于合规性以及其他常规安全检查。
 
 ![仓库人员权限列表](/assets/images/help/repository/repository-permissions-list.png)
 
-## 查看具有仓库访问权限的人员
+### 查看具有仓库访问权限的人员
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
 **注**：您还可以查看有权访问仓库的团队和人员的组合概述。 更多信息请参阅“[管理有权访问仓库的团队和人员](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)”。
@@ -32,7 +31,7 @@ shortTitle: 查看有访问权限的人
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.accessing-repository-people %}
 
-## 导出具有您的仓库访问权限人员的列表
+### 导出具有您的仓库访问权限人员的列表
 
 {% data variables.product.prodname_ghe_cloud %} 或 {% data variables.product.prodname_ghe_server %} 上的组织所有者可以导出具有仓库访问权限人员的 CSV 列表。
 

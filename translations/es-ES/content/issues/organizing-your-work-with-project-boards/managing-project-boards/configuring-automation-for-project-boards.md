@@ -6,15 +6,12 @@ redirect_from:
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Configurar la automatización
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.automate-project-board-permissions %} Para obtener más información, consulta "[Acerca de la automatización para tableros de proyecto](/articles/about-automation-for-project-boards)".
 
@@ -35,5 +32,5 @@ shortTitle: Configurar la automatización
 5. Selecciona las automatizaciones del flujo de trabajo que deseas configurar para la columna. ![Lista de opciones para automatizar la columna](/assets/images/help/projects/select-automation-options-existing-column.png)
 6. Haz clic en **Update automation** (Actualizar automatización).
 
-## Leer más
+### Leer más
 - "[Acerca de la automatización de los tableros de proyecto](/articles/about-automation-for-project-boards)"

@@ -1,18 +1,17 @@
 ---
 title: Adicionar integrantes da organização a uma equipe
-intro: 'As pessoas com permissões de proprietário ou mantenedor de equipe podem adicionar integrantes da organização às equipes. As pessoas com permissões de proprietário também podem {% ifversion fpt %}convidar não integrantes para ingressar em{% else %}adicionar não integrantes a{% endif %} uma equipe e na organização.'
+intro: 'As pessoas com permissões de proprietário ou mantenedor de equipe podem adicionar integrantes da organização às equipes. Pessoas com permissões de proprietário também podem {% if currentVersion == "free-pro-team@latest" %}convidar os não integrantes a juntar-se a {% else %}adicionar não integrantes a {% endif %} uma equipe e à organização.'
 redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program/
   - /articles/adding-organization-members-to-a-team
   - /github/setting-up-and-managing-organizations-and-teams/adding-organization-members-to-a-team
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Adicionar integrantes a uma equipe
 ---
 
 {% data reusables.organizations.team-synchronization %}
@@ -25,9 +24,9 @@ shortTitle: Adicionar integrantes a uma equipe
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-{% ifversion fpt %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
-## Leia mais
+### Leia mais
 
 - "[Sobre equipes](/articles/about-teams)"
 - "[Gerenciar o acesso da equipe a um repositório da organização](/articles/managing-team-access-to-an-organization-repository)"

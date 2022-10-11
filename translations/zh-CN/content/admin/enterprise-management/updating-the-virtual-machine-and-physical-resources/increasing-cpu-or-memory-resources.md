@@ -6,18 +6,17 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
   - /admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
-shortTitle: 增加 CPU 或内存
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-## 为 AWS 增加 CPU 或内存资源
+### 为 AWS 增加 CPU 或内存资源
 
 {% note %}
 
@@ -25,14 +24,14 @@ shortTitle: 增加 CPU 或内存
 
 {% endnote %}
 
-### 调整的考量因素
+#### 调整的考量因素
 
 在为 {% data variables.product.product_location %} 增加 CPU 或内存资源之前：
 
 - **使用 CPU 扩展内存**。 {% data reusables.enterprise_installation.increasing-cpus-req %}
 - **将 Elastic IP 地址分配给实例**。 如果未分配弹性 IP，则在重启后您必须调整 {% data variables.product.prodname_ghe_server %} 主机的 DNS A 记录，以反映公共 IP 地址的变更。 在实例重新启动后，如果它启动到 VPC 中，会自动保留弹性 IP (EIP)。 如果实例启动到 EC2-Classic 中，则必须手动重新关联弹性 IP。
 
-### 支持的 AWS 实例类型
+#### 支持的 AWS 实例类型
 
 您需要根据 CPU/内存规范确定升级的目标实例类型。
 
@@ -40,7 +39,7 @@ shortTitle: 增加 CPU 或内存
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-### 针对 AWS 进行调整
+#### 针对 AWS 进行调整
 
 {% note %}
 
@@ -55,7 +54,7 @@ shortTitle: 增加 CPU 或内存
 3. 启动实例。
 {% data reusables.enterprise_installation.configuration-recognized %}
 
-## 为 OpenStack KVM 增加 CPU 或内存资源
+### 为 OpenStack KVM 增加 CPU 或内存资源
 
 无法将 CPU 或内存资源添加到现有的 OpenStack KVM 实例。 相反，您必须执行以下操作：
 
@@ -63,7 +62,7 @@ shortTitle: 增加 CPU 或内存
 2. 停止实例。
 3. 选择包含所需 CPU 和/或内存资源的新实例。
 
-## 为 VMWare 增加 CPU 或内存资源
+### 为 VMWare 增加 CPU 或内存资源
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 

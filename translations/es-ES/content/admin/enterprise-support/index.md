@@ -4,13 +4,12 @@ intro: 'Aprende a abrir un ticket y proporciona al equipo de {% data variables.c
 redirect_from:
   - /enterprise/admin/enterprise-support
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:
   - /overview
   - /receiving-help-from-github-support
-shortTitle: Trabajar con soporte
 ---
 

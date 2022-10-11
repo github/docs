@@ -6,6 +6,7 @@ versions:
 shortTitle: Grant higher permissions
 ---
 
+{% data reusables.discussions.beta %}
 
 ## Introduction
 

@@ -2,7 +2,7 @@
 title: About data residency
 intro: 'You can choose the geography where {% data variables.product.product_name %} stores all customer data for your enterprise.'
 versions:
-  ghae: '*'
+  github-ae: '*'
 type: overview
 topics:
   - Enterprise

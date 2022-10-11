@@ -1,4 +1,4 @@
-{% ifversion ghes = 3.0 or ghae %}
+{% if  currentVersion == "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 **Nota:** Las {% data variables.product.prodname_secret_scanning_caps %} para los repositorios que pertenecen a organizaciones se encuentra actualmente en beta y está sujeta a cambios.
@@ -6,7 +6,7 @@
 {% endnote %}
 
 {% endif %}
-{% ifversion ghes > 3.0 %}
+{% if currentVersion ver_gt "enterprise-server@3.0" %}
 
 {% note %}
 

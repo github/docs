@@ -5,11 +5,10 @@ redirect_from:
   - /articles/adding-a-license-to-a-repository
   - /github/building-a-strong-community/adding-a-license-to-a-repository
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Community
-shortTitle: Add a license to a repo
 ---
 
 If you include a detectable license in your repository, people who visit your repository will see it at the top of the repository page. To read the entire license file, click the license name.
@@ -18,10 +17,10 @@ If you include a detectable license in your repository, people who visit your re
 
 Open source licenses enable others to freely use, change, and distribute the project in your repository. For more information on repository licenses, see "[Licensing a repository](/articles/licensing-a-repository)."
 
-## Including an open source license in your repository
+### Including an open source license in your repository
 
 <!--Dotcom version uses the license tool-->
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. In the file name field, type *LICENSE* or *LICENSE.md* (with all caps).
@@ -36,7 +35,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% ifversion ghes or ghae %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -49,6 +48,6 @@ Open source licenses enable others to freely use, change, and distribute the pro
 
 {% endif %}
 
-## Дополнительная литература
+### Дополнительная литература
 
 - "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"

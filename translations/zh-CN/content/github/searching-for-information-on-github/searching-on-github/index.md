@@ -3,9 +3,9 @@ title: 在 GitHub 上搜索
 redirect_from:
   - /articles/searching-on-github
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub search
 children:

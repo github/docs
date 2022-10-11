@@ -1,14 +1,13 @@
 ---
 title: Importar un repositorio de Git usando la línea de comando
-intro: '{% ifversion fpt %}Si [GitHub Importer](/articles/importing-a-repository-with-github-importer) no se ajusta a tus necesidades, por ejemplo, si tu código existente se hospeda en una red privada, entonces te recomendamos importar utilizando la línea de comandos.{% else %}Importar proyectos de Git utilizando la línea de comandos es adecuado cuando tu código existente se encuentra hospedado en una red privada.{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" %}Si [GitHub Importer](/articles/importing-a-repository-with-github-importer) no se ajusta a tus necesidades, por ejemplo, si tu código existente se hospeda en una red privada, entonces te recomendamos importar utilizando la línea de comandos.{% else %}Importar proyectos de Git utilizando la línea de comandos es adecuado cuando tu código existente se encuentra hospedado en una red privada.{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Importar un repositorio localmente
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Antes de comenzar, asegúrate de saber lo siguiente:

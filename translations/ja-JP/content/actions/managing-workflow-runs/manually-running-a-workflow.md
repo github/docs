@@ -3,38 +3,34 @@ title: ワークフローの手動実行
 intro: 'ワークフローが `workflow_dispatch` イベントで実行されるように設定されている場合、{% data variables.product.prodname_dotcom %}、{% data variables.product.prodname_cli %}、または REST API の [Actions] タブを使用してワークフローを実行できます。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Manually run a workflow
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-## ワークフローを手動実行する設定
+### ワークフローを手動実行する設定
 
-ワークフローを手動で実行するには、`workflow_dispatch` イベントで実行するようにワークフローを設定する必要があります。 To trigger the `workflow_dispatch` event, your workflow must be in the default branch. `workflow_dispatch`イベントの設定に関する詳しい情報については「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
+ワークフローを手動で実行するには、`workflow_dispatch` イベントで実行するようにワークフローを設定する必要があります。 `workflow_dispatch`イベントの設定に関する詳しい情報については「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
+
+### {% data variables.product.prodname_dotcom %} でワークフローを実行する
+
+{% data variables.product.prodname_dotcom %} で `workflow_dispatch` イベントをトリガーするには、ワークフローがデフォルトブランチに含まれている必要があります。 ワークフローの実行を手動でトリガーするには、次の手順に従います。
 
 {% data reusables.repositories.permissions-statement-write %}
-
-## Running a workflow
-
-{% include tool-switcher %}
-
-{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. 左側のサイドバーで、実行するワークフローをクリックします。 ![アクション選択ワークフロー](/assets/images/actions-select-workflow.png)
 1. ワークフロー実行の一覧の上にある**Run workflow（ワークフローの実行）**を選択します。 ![アクション ワークフローのディスパッチ](/assets/images/actions-workflow-dispatch.png)
-1. Use the **Branch** dropdown to select the workflow's branch, and type the input parameters. **Run workflow（ワークフローの実行）**をクリックします。 ![アクションはワークフローを手動で実行します](/assets/images/actions-manually-run-workflow.png)
+1. ワークフローを実行するブランチを選択し、ワークフローで使用される入力パラメータを入力します。 **Run workflow（ワークフローの実行）**をクリックします。 ![アクションはワークフローを手動で実行します](/assets/images/actions-manually-run-workflow.png)
 
-{% endwebui %}
+### {% data variables.product.prodname_cli %} を使ってワークフローを実行する
 
-{% cli %}
-
-{% data reusables.cli.cli-learn-more %}
+{% data reusables.actions.actions-cli %}
 
 ワークフローを実行するには、`workflow run` サブコマンドを使用します。 `workflow` パラメータを、実行するワークフローの名前、ID、またはファイル名のいずれかに置き換えます。 たとえば、`"Link Checker"`、`1234567`、`"link-check-test.yml"` などです。 ワークフローを指定しない場合、{% data variables.product.prodname_cli %} はワークフローを選択するためのインタラクティブメニューを返します。
 
@@ -66,9 +62,7 @@ gh workflow run <em>workflow</em> --ref <em>branch-name</em>
 gh run watch
 ```
 
-{% endcli %}
-
-## REST API を使用してワークフローを実行する
+### REST API を使用してワークフローを実行する
 
 REST API を使用する場合は、 `inputs`と`ref`をリクエストボディのパラメータとして設定してください。 入力を省略すると、ワークフロー ファイルで定義されているデフォルト値が使用されます。
 

@@ -6,25 +6,20 @@ redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Revisar alterações propostas
 ---
 
-## Sobre revisões de pull requests
+### Sobre revisões de pull requests
 
 Você pode revisar as alterações em um arquivo de pull request por vez. Ao revisar os arquivos em um pull request, você pode deixar comentários individuais em alterações específicas. Após terminar de revisar cada arquivo, você pode marcar o arquivo como visualizado. Isso aninha o arquivo e ajuda a identificar os arquivos que ainda precisam ser revisadas. Uma barra de progresso no cabeçalho do pull request mostra o número de arquivos que você visualizou. Depois de revisar todos os arquivos você desejar, você pode aprovar a solicitação de pull ou solicitar alterações adicionais enviando a sua revisão com um comentário resumido.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
-## Iniciar uma revisão
-
-{% include tool-switcher %}
-
-{% webui %}
+### Iniciar uma revisão
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
@@ -37,25 +32,9 @@ Você pode revisar as alterações em um arquivo de pull request por vez. Ao rev
 Antes de enviar a revisão, os comentários em linha ficam com status _pendente_ e somente você pode visualizá-los. Você pode editar editar os comentários pendentes a qualquer momento antes de enviar a revisão. Para cancelar uma revisão pendente, incluindo todos os comentários pendentes, role para baixo até o final da linha do tempo na guia Conversation (Conversa) e clique em **Cancel review** (Cancelar revisão).
 
 ![Botão Cancel review (Cancelar revisão)](/assets/images/help/pull_requests/cancel-review-button.png)
-{% endwebui %}
 
-{% ifversion fpt %}
-
-{% codespaces %}
-
-Você pode usar [{% data variables.product.prodname_codespaces %}](/codespaces/overview) para testar, executar e revisar pull requests.
-
-{% data reusables.codespaces.review-pr %}
-
-Para obter mais informações sobre a revisão de pull requests em {% data variables.product.prodname_codespaces %}, consulte "[Usando codespaces para pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)"
-
-{% endcodespaces %}
-{% endif %}
-
-{% ifversion fpt or ghes > 3.1 %}
-## Revisar alterações de dependência
-
-{% data reusables.dependency-review.beta %}
+{% if currentVersion == "free-pro-team@latest" %}
+### Revisar alterações de dependência
 
 Se o pull request contiver alterações em dependências, você poderá usar a revisão de dependências para um manifesto ou arquivo de bloqueio para ver o que mudou e verificar se as alterações introduzem vulnerabilidades de segurança. Para obter mais informações, consulte "[Revisar as mudanças de dependências em um pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
 
@@ -68,14 +47,14 @@ Se o pull request contiver alterações em dependências, você poderá usar a r
 {% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
-## Marcar um arquivo como visualizado
+### Marcar um arquivo como visualizado
 
 Quando terminar de revisar um arquivo, você pode marcar o arquivo como visualizado, e o arquivo será aninhado. Se o arquivo for alterado após ser visualizado, será desmarcado como visualizado.
 
 {% data reusables.repositories.changed-files %}
 2. À direta do cabeçalho do arquivo revisado, selecione **Viewed** (Visualizado). ![Caixa de seleção visualizado](/assets/images/help/pull_requests/viewed-checkbox.png)
 
-## Enviar a revisão
+### Enviar a revisão
 
 Quando terminar de revisar os arquivos que deseja incluir na pull request, envie a revisão.
 
@@ -90,7 +69,7 @@ Quando terminar de revisar os arquivos que deseja incluir na pull request, envie
 
 {% data reusables.repositories.request-changes-tips %}
 
-## Leia mais
+### Leia mais
 
 - "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
 - "[Filtrar pull requests por status de revisão](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

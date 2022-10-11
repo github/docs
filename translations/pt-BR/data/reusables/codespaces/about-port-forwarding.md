@@ -1,1 +1,1 @@
-Você pode encaminhar portas no seu código para testar e depurar seu aplicativo.
+You can forward ports in your codespace to test and debug your application.

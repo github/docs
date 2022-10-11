@@ -19,8 +19,6 @@ release_notes:
 search:
   need_help: 도움이 필요하십니까?
   placeholder: 검색 주제, 제품...
-  loading: Loading
-  no_results: No results found
 homepage:
   explore_by_product: 제품별 탐색
   version_picker: 버전
@@ -30,10 +28,9 @@ toc:
   guides: 안내서
   whats_new: What's new
 pages:
-  article_version: '문서 버전'
+  article_version: '문서 버전:'
   miniToc: 기사 내용
   contributor_callout: This article is contributed and maintained by
-  all_enterprise_releases: All Enterprise releases
 errors:
   oops: 이런!
   something_went_wrong: 뭔가 잘못된 것 같습니다.
@@ -47,6 +44,8 @@ survey:
   able_to_find: 이 문서가 도움이 되었습니까?
   yes: true
   no: false
+  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
+  no_feedback: 지속적으로 문서를 개선하고 있습니다. 더욱 잘 개선할 수 있도록 고객의 의견을 듣고 싶습니다.
   comment_yes_label: Let us know what we do well
   comment_no_label: 개선할 점을 알려주십시오.
   optional: 선택 사항
@@ -139,7 +138,7 @@ product_landing:
   sorry: Sorry, there is no result for
   no_example: It looks like we don't have an example that fits your filter.
   try_another: Try another filter or add your code example.
-  no_result: Sorry, there are no guides that match your filter.
+  no_result: Sorry, there is no guide that match your filter.
   learn: Learn how to add a code example
   communities_using_discussions: Communities using discussions
   add_your_community: Add your community
@@ -158,15 +157,10 @@ product_sublanding:
   more_guides: more guides
   load_more: Load more guides
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
-  filter_instructions: Filter the guide list using these controls
   filters:
     type: 유형
     topic: Topic
     all: All
-  guides_found:
-    multiple: '{n} guides found'
-    one: 1 guide found
-    none: No guides found
   guide_types:
     overview: 개요
     quick_start: Quickstart

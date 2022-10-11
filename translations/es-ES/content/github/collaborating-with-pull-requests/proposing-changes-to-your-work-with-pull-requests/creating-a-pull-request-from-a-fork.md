@@ -5,14 +5,13 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
   - /articles/creating-a-pull-request-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
-permissions: 'Anyone with write access to a repository can create a pull request from a user-owned fork. {% data reusables.enterprise-accounts.emu-permission-propose %}'
+permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Crear una Solicitud de cambios desde una bifurcación
 ---
 
 También puedes otorgar permiso a los mantenedores del repositorio ascendente para subir confirmaciones de cambios en una bifurcación propiedad del usuario. Si tu solicitud de extracción compara tu rama de tema con una rama del repositorio ascendente como la rama base, entonces tu rama de tema también se llamará rama de comparación de la solicitud de extracción. Para obtener más información acerca de las ramas de solicitud de extracción, incluyendo ejemplos, consulta la sección "[Crear una solicitud de extracción](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)."
@@ -32,7 +31,7 @@ También puedes otorgar permiso a los mantenedores del repositorio ascendente pa
 
 {% data reusables.repositories.asking-for-review %}
 
-## Leer más
+### Leer más
 
 - "[Trabajar con bifurcaciones](/articles/working-with-forks)"
 - "[Permitir cambios en una rama de solicitud de extracción creada desde una bifurcación](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"

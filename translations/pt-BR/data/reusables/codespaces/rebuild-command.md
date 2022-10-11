@@ -1,3 +1,1 @@
-1. Acesse a paleta de comandos (`Shift + Command + P`/ `Ctrl + Shift + P`) e, em seguida, comece a digitar "recriar". Selecione **Codespaces: Reconstruir Contêiner**.
-
-    ![Opção de reconstruir contêiner](/assets/images/help/codespaces/codespaces-rebuild.png)
+Access the command palette (`shift command P` / `shift control P`), then start typing "Codespaces: Rebuild Container". Click **Codespaces: Rebuild Container**. 

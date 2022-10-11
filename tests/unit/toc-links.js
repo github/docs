@@ -1,7 +1,8 @@
 import { jest } from '@jest/globals'
 import { loadPages } from '../../lib/page-data.js'
 import renderContent from '../../lib/render-content/index.js'
-import { allVersionKeys } from '../../lib/all-versions.js'
+import xAllVersions from '../../lib/all-versions.js'
+const allVersions = Object.keys(xAllVersions)
 
 describe('toc links', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -15,7 +16,7 @@ describe('toc links', () => {
 
     const issues = []
 
-    for (const pageVersion of allVersionKeys) {
+    for (const pageVersion of allVersions) {
       for (const page of englishIndexPages) {
         // skip page if it doesn't have a permalink for the current product version
         if (!page.permalinks.some((permalink) => permalink.pageVersion === pageVersion)) continue

@@ -5,10 +5,9 @@ redirect_from:
   - /articles/commit-branch-and-tag-labels
   - /github/committing-changes-to-your-project/commit-branch-and-tag-labels
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: 分支和标记标签
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果您的提交不在默认分支上，则指示符将显示包含提交的分支。 如果提交是未合并拉取请求的一部分，它将显示一个链接。
@@ -19,7 +18,7 @@ shortTitle: 分支和标记标签
 
 ![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
-## 延伸阅读
+### 延伸阅读
 
 * "[对提交签名](/articles/signing-commits)"
 * "[对标记签名](/articles/signing-tags)"

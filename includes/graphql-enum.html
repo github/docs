@@ -1,10 +1,9 @@
 <div>
   <div>
     <h2 id="{{ item.id }}">
-      <a href="#{{ item.id }}" class="doctocat-link">{% include doctocat-link-icon %}</a>
-      {{- item.name -}}
+      <a href="#{{ item.id }}">{{item.name}}</a>
     </h2>
-    {{ item.description }}
+  {{ item.description }}
   </div>
 
   <div>
@@ -17,5 +16,5 @@
   <p>{{ value.description }}</p>
   {% endfor %}
   </div>
-  <hr />
+  <hr>
 </div>

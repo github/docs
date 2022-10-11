@@ -5,8 +5,7 @@ redirect_from:
   - /articles/installing-an-app-in-your-organization
   - /github/customizing-your-github-workflow/installing-an-app-in-your-organization
 versions:
-  fpt: '*'
-shortTitle: Organización de apps de instalación
+  free-pro-team: '*'
 ---
 
 {% data reusables.marketplace.marketplace-apps-only %}
@@ -17,7 +16,7 @@ Si eliges un plan pago, pagarás tu suscripción a la app en la fecha de factura
 
 {% data reusables.marketplace.free-trials %}
 
-## Instalar una {% data variables.product.prodname_github_app %} en tu organización
+### Instalar una {% data variables.product.prodname_github_app %} en tu organización
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -30,7 +29,7 @@ Si eliges un plan pago, pagarás tu suscripción a la app en la fecha de factura
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-## Instalar una {% data variables.product.prodname_oauth_app %} en tu organización
+### Instalar una {% data variables.product.prodname_oauth_app %} en tu organización
 
 {% data reusables.saml.saml-session-oauth %}
 
@@ -43,7 +42,7 @@ Si eliges un plan pago, pagarás tu suscripción a la app en la fecha de factura
 {% data reusables.marketplace.complete-order-begin-installation %}
 8. Revisa la información acerca del acceso de la app a tu cuenta personal, a tus organizaciones y a los datos, luego haz clic en **Authorize application** (Autorizar aplicación).
 
-## Leer más
+### Leer más
 
 - "[Actualizar el método de pago de tu organización](/articles/updating-your-organization-s-payment-method)"
 - "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)"

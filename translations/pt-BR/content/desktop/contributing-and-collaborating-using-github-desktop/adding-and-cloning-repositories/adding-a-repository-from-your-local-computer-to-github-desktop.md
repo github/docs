@@ -5,8 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/adding-a-repository-from-your-local-computer-to-github-desktop
 versions:
-  fpt: '*'
-shortTitle: Adicionar um repositório
+  free-pro-team: '*'
 ---
 
 {% tip %}

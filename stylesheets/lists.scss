@@ -1,0 +1,81 @@
+/* Numbered procedures (step 1, step 2, ...)
+------------------------------------------------------------------------------*/
+
+.list-style-inside {
+  list-style: inside;
+}
+
+.markdown-body ol {
+  counter-reset: li;
+  list-style: none;
+  position: relative;
+  padding-bottom: 10px;
+  padding-left: 0;
+}
+
+.markdown-body ol > li {
+  padding: 15px 0 15px 55px;
+  position: relative;
+  margin-bottom: 5px;
+  border-top: 3px solid var(--color-auto-gray-2);
+}
+
+.markdown-body ol > li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 100%;
+  width: 30px;
+  padding: 0 10px 0 0;
+  color: var(--color-auto-gray-4);
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 35px;
+  text-align: right;
+}
+
+.markdown-body ol > li > p {
+  margin: 0;
+}
+
+.markdown-body ol > li > p:first-child {
+  margin-top: 0;
+}
+
+.markdown-body ol > li:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.markdown-body ol > li {
+  padding: $spacer-2 0 $spacer-2 $spacer-7;
+  border: 0;
+
+  &:before {
+    top: 2px;
+    font-size: $spacer-3;
+    width: $spacer-4;
+  }
+
+  p:not(:first-child) {
+    margin-top: 15px;
+  }
+
+  .extended-markdown {
+    margin-top: 15px;
+  }
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

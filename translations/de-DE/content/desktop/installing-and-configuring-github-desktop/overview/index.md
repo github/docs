@@ -4,7 +4,7 @@ intro: Erfahre etwas über GitHub Desktop und erstelle schnell Dein erstes Repos
 redirect_from:
   - /desktop/getting-started-with-github-desktop/overview
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /getting-started-with-github-desktop
   - /creating-your-first-repository-using-github-desktop

@@ -12,11 +12,12 @@ featuredLinks:
     - /packages/learn-github-packages/installing-a-package
   popular:
     - /packages/working-with-a-github-packages-registry/working-with-the-npm-registry
-    - '{% ifversion fpt %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
+    - /packages/working-with-a-github-packages-registry/working-with-the-docker-registry
     - /packages/learn-github-packages
     - /packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
   guideCards:
-    - '{% ifversion fpt %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
+    - /packages/working-with-a-github-packages-registry/working-with-the-docker-registry
+    - /packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
     - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry
 changelog:
   label: packages
@@ -27,9 +28,9 @@ redirect_from:
   - /github/managing-packages-with-github-package-registry
 layout: product-landing
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 children:
   - /quickstart
   - /learn-github-packages

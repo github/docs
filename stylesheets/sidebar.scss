@@ -1,0 +1,97 @@
+.sidebar {
+  width: 260px;
+  position: sticky;
+  top: 0;
+  padding-bottom: $spacer-5;
+  overflow-y: auto;
+  height: 100vh;
+  flex-shrink: 0;
+
+  @include breakpoint(xl) {
+    width: 280px;
+  }
+}
+
+.sidebar-products > li {
+  margin: 4px 0;
+}
+
+.sidebar-products a,
+.sidebar-products .arrow {
+  text-decoration: none;
+  display: block;
+  line-height: 1.4;
+}
+
+.sidebar-category,
+.sidebar-product {
+  > a,
+  summary a {
+    opacity: 0.8;
+  }
+}
+
+.sidebar-category.active {
+  background-color: rgba(#959da5, 0.1); // --color-auto-gray-4
+  // We can't do rgba(var(--color-auto-gray-4, 0.1) quite yet
+  // as the browsers are still working on supporting that combination
+}
+
+.sidebar-article {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: $spacer-4;
+    height: 100%;
+    border-left: 1px solid var(--color-text-primary);
+    width: 1px;
+    top: 0;
+  }
+
+  &.active {
+    &::before {
+      border-left: 2px solid var(--color-text-primary);
+    }
+  }
+}
+
+.is-current-page > a {
+  font-weight: bolder;
+}
+
+// only display child lists of active elements in sidebar
+.sidebar-product.active > ul,
+.sidebar-category.active > ul,
+.sidebar-maptopic.active > ul {
+  display: block;
+}
+
+.sidebar-category {
+  > ul {
+    display: none;
+  }
+}
+
+.sidebar-maptopic > ul {
+  display: none;
+}
+
+.sidebar-maptopic > details > summary > div,
+.sidebar-article > a {
+  color: var(--color-text-secondary);
+}
+
+.sidebar-maptopic > details > summary > div:hover,
+.sidebar-article > a:hover {
+  color: var(--color-text-primary);
+  transition: color 0.2s ease;
+}
+
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}

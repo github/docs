@@ -7,14 +7,12 @@ redirect_from:
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -28,7 +26,7 @@ topics:
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## ユーザが所有するプロジェクトボードの作成
+### ユーザが所有するプロジェクトボードの作成
 
 {% data reusables.profile.access_profile %}
 2. プロフィールページの一番上のメインナビゲーションにある{% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![プロジェクトタブ](/assets/images/help/projects/user-projects-tab.png)
@@ -47,7 +45,7 @@ topics:
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Organization 全体のプロジェクトボードの作成
+### Organization 全体のプロジェクトボードの作成
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -67,7 +65,7 @@ topics:
 
 {% data reusables.project-management.edit-project-columns %}
 
-## リポジトリのプロジェクトボードの作成
+### リポジトリのプロジェクトボードの作成
 
 {% data reusables.repositories.navigate-to-repo %}
 2. リポジトリ名の下にある {% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![プロジェクトタブ](/assets/images/help/projects/repo-tabs-projects.png)
@@ -84,10 +82,10 @@ topics:
 
 {% data reusables.project-management.edit-project-columns %}
 
-## 参考リンク
+### 参考リンク
 
 - "[プロジェクトボードについて](/articles/about-project-boards)"
-- [プロジェクトボードの編集](/articles/editing-a-project-board){% ifversion fpt %}
+- [プロジェクトボードの自動化を設定する](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}
 - "[プロジェクトボードをクローズする](/articles/closing-a-project-board)"

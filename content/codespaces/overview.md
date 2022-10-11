@@ -1,15 +1,10 @@
 ---
 title: GitHub Codespaces overview
 shortTitle: Overview
-product: '{% data reusables.gated-features.codespaces %}'
 intro: 'This guide introduces {% data variables.product.prodname_codespaces %} and provides details on how it works and how to use it.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/about-codespaces
-  - /github/developing-online-with-github-codespaces/about-github-codespaces
-  - /github/developing-online-with-codespaces/about-codespaces
-  - /codespaces/getting-started-with-codespaces/about-codespaces
-  - /codespaces/about-codespaces
 versions:
   free-pro-team: '*'
 type: quick_start
@@ -21,7 +16,7 @@ topics:
 
 A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_codespaces %} by committing [configuration files](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
 
-{% data variables.product.prodname_codespaces %} run on a variety of VM-based compute options hosted by {% data variables.product.product_location %}, which you can configure from 2 core machines up to 32 core machines. You can connect to your codespaces from the browser or locally using {% data variables.product.prodname_vscode %}.
+{% data variables.product.prodname_codespaces %} run on a variety of VM-based compute options hosted by {% data variables.product.product_location %}, that you can configure from 2 core machines up to 32 core machines. You can connect to your codespaces from the browser or locally using {% data variables.product.prodname_vscode %}.
 
 ![A diagram showing how {% data variables.product.prodname_codespaces %} works](/assets/images/help/codespaces/codespaces-diagram.png)
 
@@ -37,6 +32,8 @@ You can also personalize aspects of your codespace environment by using a public
 
 ## About billing for {% data variables.product.prodname_codespaces %}
 
-For information on billing for {% data variables.product.prodname_codespaces %}, see "[Managing billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
+{% data reusables.codespaces.about-billing-for-codespaces %} For more information, see "[About billing for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-billing-for-codespaces)."
 
-{% data reusables.codespaces.codespaces-spending-limit-requirement %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_codespaces %} for an organization, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+## Joining the beta
+
+A limited number of people will be invited to join the beta. To join the waitlist, see [Sign up for the Codespaces beta](https://github.com/features/codespaces/signup).

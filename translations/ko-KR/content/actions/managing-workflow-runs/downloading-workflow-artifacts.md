@@ -3,40 +3,36 @@ title: Downloading workflow artifacts
 intro: You can download archived artifacts before they automatically expire.
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Download workflow artifacts
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %} By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %}
-{% ifversion ghes = 2.22 %} {% data variables.product.product_name %} stores full build logs and artifacts for 90 days.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. For more information, see "[Configuring the retention period for GitHub Actions artifacts and logs in your repository](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %}
+{% if currentVersion == "enterprise-server@2.22" %} {% data variables.product.product_name %} stores full build logs and artifacts for 90 days.{% endif %}
+
+### Download artifacts with the {% data variables.product.prodname_dotcom %} UI
 
 {% data reusables.repositories.permissions-statement-read %}
-
-{% include tool-switcher %}
-
-{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Under **Artifacts**, click the artifact you want to download.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
     ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down-updated.png)
     {% else %}
     ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)
     {% endif %}
 
-{% endwebui %}
+### Download artifacts with {% data variables.product.prodname_cli %}
 
-{% cli %}
-
-{% data reusables.cli.cli-learn-more %}
+{% data reusables.actions.actions-cli %}
 
 {% data variables.product.prodname_cli %} will download each artifact into separate directories based on the artifact name. If only a single artifact is specified, it will be extracted into the current directory.
 
@@ -63,5 +59,3 @@ To download specific artifacts across all runs in a repository, use the `run dow
 ```shell
 gh run download -n <em>artifact-name-1</em> -n <em>artifact-name-2</em>
 ```
-
-{% endcli %}

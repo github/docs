@@ -99,32 +99,6 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
-## branch_protection_rule
-
-Activity related to a branch protection rule. For more information, see "[About branch protection rules](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)."
-
-### Availability
-
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with at least `read-only` access on repositories administration
-
-### Webhook payload object
-
-Key | Type | Description
-----|------|-------------
-`action` |`string` | The action performed. Can be `created`, `edited`, or `deleted`.
-`rule` | `object` | The branch protection rule. Includes a `name` and all the [branch protection settings](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-settings) applied to branches that match the name. Binary settings are boolean. Multi-level configurations are one of `off`, `non_admins`, or `everyone`. Actor and build lists are arrays of strings.
-`changes` | `object` | If the action was `edited`, the changes to the rule.
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
-
-### Webhook payload example
-
-{{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
-{% endif %}
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -173,6 +147,7 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
+{% ifversion fpt or ghes > 2.21 or ghae %}
 ## code_scanning_alert
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
@@ -189,7 +164,7 @@ Key | Type | Description
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt %}`github`{% elsif ghes > 3.0 or ghae-next %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
+`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt %}`github` {% elsif ghes > 3.0 %}`github-enterprise` {% else %}empty {% endif %}for all other actions.
 
 ### Webhook payload example
 
@@ -216,6 +191,7 @@ Key | Type | Description
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
+{% endif %}
 
 ## content_reference
 
@@ -508,6 +484,12 @@ Key | Type | Description
 
 {% data reusables.webhooks.installation_short_desc %}
 
+{% note %}
+
+**Note:** This event replaces the deprecated `integration_installation` event.  
+
+{% endnote %}
+
 ### Availability
 
 - {% data variables.product.prodname_github_apps %}
@@ -525,6 +507,12 @@ Key | Type | Description
 ## installation_repositories
 
 {% data reusables.webhooks.installation_repositories_short_desc %}
+
+{% note %}
+
+**Note:** This event replaces the deprecated `integration_installation_repositories` event.
+
+{% endnote %}
 
 ### Availability
 
@@ -1032,15 +1020,10 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 Key | Type | Description
 ----|------|-------------
-`ref`|`string` | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main` or `refs/tags/v3.14.1`.
+`ref`|`string` | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main`.
 `before`|`string` | The SHA of the most recent commit on `ref` before the push.
 `after`|`string` | The SHA of the most recent commit on `ref` after the push.
-`created`|`boolean` | Whether this push created the `ref`.
-`deleted`|`boolean` | Whether this push deleted the `ref`.
-`forced`|`boolean` | Whether this push was a force push of the `ref`.
-`head_commit`|`object` | For pushes where `after` is or points to a commit object, an expanded representation of that commit. For pushes where `after` refers to an annotated tag object,  an expanded representation of the commit pointed to by the annotated tag.
-`compare`|`string` | URL that shows the changes in this `ref` update, from the `before` commit to the `after` commit. For a newly created `ref` that is directly based on the default branch, this is the comparison between the head of the default branch and the `after` commit. Otherwise, this shows all commits until the `after` commit.
-`commits`|`array` | An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.) The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.
+`commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)
 `commits[][id]`|`string` | The SHA of the commit.
 `commits[][timestamp]`|`string` | The ISO 8601 timestamp of the commit.
 `commits[][message]`|`string` | The commit message.
@@ -1381,7 +1364,7 @@ The event’s actor is the [user](/rest/reference/users) who starred a repositor
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes > 2.21 %}
 ## workflow_dispatch
 
 This event occurs when someone triggers a workflow run on GitHub or sends a `POST` request to the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" endpoint. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."
@@ -1395,30 +1378,6 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 %}
-
-## workflow_job
-
-{% data reusables.webhooks.workflow_job_short_desc %}
-
-### Availability
-
-- Repository webhooks
-- Organization webhooks
-- Enterprise webhooks
-
-### Webhook payload object
-
-{% data reusables.webhooks.workflow_job_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.sender_desc %}
-
-### Webhook payload example
-
-{{ webhookPayloadsForCurrentVersion.workflow_job }}
-
-{% endif %}
 {% ifversion fpt or ghes > 2.22 %}
 ## workflow_run
 

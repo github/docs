@@ -1,9 +1,8 @@
 ---
 title: Utilizar la API de GraphQL para los debates
-intro: 'Aprende a utilizar la API de GraphQL de los {% data variables.product.prodname_discussions %}.'
+intro: Aprende cómo utilizar la API de GraphQL para los debates de GitHub.
 versions:
-  fpt: '*'
-shortTitle: Utilizar GraphQL para los debates
+  free-pro-team: '*'
 ---
 
 La API de GraphQL de {% data variables.product.prodname_discussions %} te permite obtener, crear, editar y borrar las publicaciones de debate. Para obtener más información sobre los {% data variables.product.prodname_discussions %}, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
@@ -1080,4 +1079,4 @@ Campos de tipo de retorno:
 
 ## Buscar
 
-El debate puede devolverse desde el campo `search` de nivel superio. Para buscar un debate, especifica el `type` como `DISCUSSION`. El tipo `SearchResultItemConnection` tiene un campo de `discussionCount` para reportar la cantidad de debates devueltos y el tipo `Discussion` se agrega a la unión `SearchResultItem`. Para obtener más información, consulta las secciones "[Consultas](/graphql/reference/queries#searchresultitemconnection)" y "[Buscar debates](/search-github/searching-on-github/searching-discussions)".
+El debate puede devolverse desde el campo `search` de nivel superio. Para buscar un debate, especifica el `type` como `DISCUSSION`. El tipo `SearchResultItemConnection` tiene un campo de `discussionCount` para reportar la cantidad de debates devueltos y el tipo `Discussion` se agrega a la unión `SearchResultItem`. Para obtener más información, consulta las secciones "[Consultas](/graphql/reference/queries#searchresultitemconnection)" y "[Buscar debates](/github/searching-for-information-on-github/searching-discussions)".

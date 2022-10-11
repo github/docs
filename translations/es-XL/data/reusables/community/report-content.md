@@ -1,0 +1,4 @@
+1. Puedes ver opciones de **Reportar a los administradores del repositorio** o **Reportar abuso al soporte de {% data variables.product.prodname_dotcom %}**. Si no, pasa al siguiente paso.
+    - Para reportar el contenido al soporte técnico de {% data variables.product.prodname_dotcom %} , haz clic en **Informar de abuso a {% data variables.product.prodname_dotcom %} Soporte**.
+    - Para reportar el contenido a los mantenedores de repositorio, utiliza el menú desplegable **Escoge una razón** para seleccionar una razón y da clic en **Reportar a los administradores del repositorio**. Tu reporte se ha emitido. ![modal de "Reportar contenido"](/assets/images/help/repository/report-content-modal.png)
+2. Complete el formulario de "Reporte de contenido", luego haga clic en **Send Request (Enviar solicitud)**. ![formato de "Reportar contenido"](/assets/images/help/repository/report-content-to-support-form.png)

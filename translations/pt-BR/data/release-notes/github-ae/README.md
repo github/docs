@@ -1,35 +1,35 @@
-# Notas de versão para o GitHub AE
+# Release notes for GitHub AE
 
-Interpretado aqui: https://docs.github.com/en/github-ae@latest/admin/release-notes
+Rendered here: https://docs.github.com/en/github-ae@latest/admin/release-notes
 
-## Como funciona
+## How it works
 
-### Arquivo de conteúdo do espaço reservado
+### Placeholder content file
 
-Existe um arquivo de conteúdo em `content/admin/release-notes.md`. Ele tem um especial layout frontmatter da propriedade `layout: release-notes` e nenhum conteúdo de Markdown. A fonte das notas de versão vem dos dados do YAML.
+A content file exists in `content/admin/release-notes.md`. It has a special frontmatter property `layout: release-notes` and no Markdown content. The source of the release notes comes from YAML data.
 
-### Fonte YAML
+### YAML source
 
-Os dados de origem para as notas de versão encontram-se neste diretório (`data/release-notes/github-ae`).
+The source data for the release notes lives in this directory (`data/release-notes/github-ae`).
 
-Os diretórios são nomeados por mês. Os arquivos YAML são nomeados pelos dados de uma versão semanal.
+The directories are named by month. The YAML files are named by the data of a weekly release.
 
-Uma propriedade booleana denominada `currentWeek` deve ser definida em cada arquivo YAML. Não mais do que um arquivo de cada vez pode ter essa propriedade definida como verdadeiro.
+A boolean property called `currentWeek` must be set in each YAML file. No more than one file at a time can have this property set to true.
 
-Observe que arquivos de patch podem tornar-se obsoletos individualmente (ou seja, ocultos no site de documentação) por uma propriedade opcional `deprecated: true` propriedade.
+Note that patch files can be deprecated individually (i.e., hidden on the docs site) by an optional `deprecated: true` property.
 
-### Processamento de recursos intermediários
+### Middleware processing
 
-Os dados do YAML são processados e classificados por `middleware/contextualizers/release-notes.js` e adicionados ao objeto `contexto`.
+The YAML data is processed and sorted by `middleware/contextualizers/release-notes.js` and added to the `context` object.
 
 ### Layouts
 
-The `context` object data is rendered by `components/release-notes`.
+The `context` object data is rendered by `layouts/release-notes.html` and `includes/github-ae-release-notes.html`.
 
-The release notes page has a custom design with CSS in `stylesheets/release-notes.scss`.
+The release notes page has a custom design with CSS in `stylesheets/release-notes.scss` and client-side JavaScript in `javascripts/release-notes.js`.
 
 ### Esquema
 
-O esquema que valida os dados do YAML encontra-se em `testes/helpers/schemas/ghae-release-notes-schema.js`. Consulte o arquivo do esquema para descobrir as propriedades obrigatórias e opcionais.
+The schema that validates the YAML data lives in `tests/helpers/schemas/ghae-release-notes-schema.js`. See the schema file to find out the required and optional properties.
 
-O esquema é exercido por um teste em `tests/linting/lint-files.js`. O teste irá falhar se os dados não passarem na validação.
+The schema is exercised by a test in `tests/linting/lint-files.js`. The test will fail if the data does not pass validation.

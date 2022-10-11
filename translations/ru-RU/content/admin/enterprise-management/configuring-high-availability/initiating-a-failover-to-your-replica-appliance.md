@@ -6,13 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: Initiate failover to appliance
 ---
 
 The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 2-10 minutes.
@@ -47,6 +46,6 @@ The time required to failover depends on how long it takes to manually promote t
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-## Дополнительная литература
+### Дополнительная литература
 
 - "[Utilities for replication management](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

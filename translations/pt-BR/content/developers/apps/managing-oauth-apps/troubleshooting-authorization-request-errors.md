@@ -6,15 +6,14 @@ redirect_from:
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /developers/apps/troubleshooting-authorization-request-errors
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
-shortTitle: Solucionar problemas de autorização
 ---
 
-## Aplicativo suspenso
+### Aplicativo suspenso
 
 Se o aplicativo OAuth que você configurou foi suspenso (em razão de abusos, spam, ou de má utilização da API), o GitHub irá redirecionar para a URL de chamada de retorno registrada, usando os parâmetros a seguir para resumir o erro:
 
@@ -25,7 +24,7 @@ Se o aplicativo OAuth que você configurou foi suspenso (em razão de abusos, sp
 
 Para resolver problemas com aplicativos suspensos, entre em contato com {% data variables.contact.contact_support %}.
 
-## Erro no redirecionamento do URI
+### Erro no redirecionamento do URI
 
 Se você fornecer um `redirect_uri` que não corresponde ao que você registrou com o seu aplicativo, o GitHub irá redirecionar para a URL de chamada de retorno registrada com os parâmetros a seguir resumindo o erro:
 
@@ -36,7 +35,7 @@ Se você fornecer um `redirect_uri` que não corresponde ao que você registrou 
 
 Para corrigir este erro, ou forneça um `redirect_uri` que corresponda ao que você registrou ou deixe de fora este parâmetro para usar o padrão registrado com o seu aplicativo.
 
-### Acesso Negado
+#### Acesso Negado
 
 Se o usuário rejeitar o acesso ao seu aplicativo, o GitHub irá redirecionar para a URL de chamada de retorno registrada com os parâmetros a seguir resumindo o erro:
 

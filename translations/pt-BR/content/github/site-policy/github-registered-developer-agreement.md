@@ -3,7 +3,7 @@ title: Contrato de desenvolvedor registrado do GitHub
 redirect_from:
   - /articles/github-registered-developer-agreement
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Policy
   - Legal

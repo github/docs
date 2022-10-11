@@ -5,13 +5,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
   - /admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
-shortTitle: Preparar um tíquete
 ---
 
 Antes de enviar um tíquete, você deve:
@@ -23,7 +22,7 @@ Antes de enviar um tíquete, você deve:
 - Determinar se há um número de tíquete existente em qualquer outra comunicação em andamento com o {% data variables.contact.github_support %}.
 - Determinar a pessoa mais indicada para o contato com o {% data variables.contact.github_support %}.
 
-## Determinar a pessoa mais indicada
+### Determinar a pessoa mais indicada
 
 Especialmente para tíquetes com prioridade {% data variables.product.support_ticket_priority_urgent %}, a pessoa que entrou em contato com {% data variables.contact.github_support %} deve:
 

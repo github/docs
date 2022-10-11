@@ -6,15 +6,12 @@ redirect_from:
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Configurar automação
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.automate-project-board-permissions %} Para obter mais informações, consulte "[Sobre a automação para quadros de projeto](/articles/about-automation-for-project-boards)".
 
@@ -35,5 +32,5 @@ shortTitle: Configurar automação
 5. Selecione as automações do fluxo de trabalho que deseja configurar para a coluna. ![Lista de opções para automação da coluna](/assets/images/help/projects/select-automation-options-existing-column.png)
 6. Clique em **Update automation** (Atualizar automação).
 
-## Leia mais
+### Leia mais
 - "[Sobre a automação para quadros de projeto](/articles/about-automation-for-project-boards)"

@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import findUnusedAssets from './helpers/find-unused-assets.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -8,12 +13,6 @@
 // you don't want to delete, add them to `ignoreList` in `lib/find-unused-assets.js`
 //
 // [end-readme]
-
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import findUnusedAssets from './helpers/find-unused-assets.js'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const dryRun = process.argv.slice(2).includes('--dry-run')
 main()

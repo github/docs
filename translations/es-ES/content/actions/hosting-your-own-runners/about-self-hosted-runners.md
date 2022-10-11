@@ -5,17 +5,18 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-## Acerca de los ejecutores autoalojados
+### Acerca de los ejecutores autoalojados
 
 {% data reusables.github-actions.self-hosted-runner-description %} Los ejecutores auto-hospedados pueden ser físicos, virtuales, estar en un contenedor, en los servidores del usuario, o en la nube.
 
@@ -28,11 +29,11 @@ La máquina de tu ejecutor se conecta a{% data variables.product.product_name %}
 
 {% data reusables.github-actions.self-hosted-runner-auto-removal %}
 
-Para obtener más información acerca de la instalación y el uso de los ejecutores autoalojados, consulta "[Agregar ejecutores autoalojados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" y "[Usar ejecutores autoalojados en un flujo de trabajo](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+Para obtener más información acerca de la instalación y el uso de los ejecutores auto-alojados, consulta la sección "[Agregar ejecutores auto-alojados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" y "[Usar ejecutores auto-alojados en un flujo de trabajo](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)".
 
-## Diferencias entre ejecutores alojados en {% data variables.product.prodname_dotcom %} y autoalojados
+### Diferencias entre ejecutores alojados en {% data variables.product.prodname_dotcom %} y autoalojados
 
-Los ejecutores alojados en {% data variables.product.prodname_dotcom %} ofrecen una manera más rápida y sencilla de ejecutar tus flujos de trabajo, mientras que los ejecutores autoalojados son una manera altamente configurable de ejecutar flujos de trabajo en tu propio entorno personalizado.
+Los ejecutores alojados en {% data variables.product.prodname_dotcom %} ofrecen una manera más rápida y sencilla de ejecutar tus flujos de trabajo, mientras que estos son una manera altamente configurable de ejecutar flujos de trabajo en tu propio entorno personalizado.
 
 **Ejecutores alojados en {% data variables.product.prodname_dotcom %}:**
 - Reciben actualizaciones automáticas para el sistema operativo, paquetes y herramientas pre-instalados, y la aplicación del ejecutor auto-hospedado.
@@ -40,14 +41,14 @@ Los ejecutores alojados en {% data variables.product.prodname_dotcom %} ofrecen 
 - Proporcionan una instancia limpia para cada ejecución de trabajo.
 - Usan minutos libres en tu plan de {% data variables.product.prodname_dotcom %}, con tarifas por minuto aplicadas después de superar los minutos libres.
 
-**Ejecutores autoalojados:**
+**Ejecutores auto-hospedados:**
 - Reciben actualizaciones automáticas únicamente para la aplicación del ejecutor auto-hospedado. Eres responsable de actualizar el sistema operativo y el resto del software.
 - Puedes usar los servicios en la nube o las máquinas locales que ya pagas.
 - Son personalizables para tu hardware, sistema operativo, software y requisitos de seguridad.
 - No es necesario tener una instancia limpia para cada ejecución de trabajo.
 - Son de uso gratuito con las {% data variables.product.prodname_actions %}, pero eres responsable del costo de mantener tus máquinas de ejecutores.
 
-## Requisitos para máquinas de ejecutores autoalojados
+### Requisitos para máquinas de ejecutores autoalojados
 
 Puedes usar cualquier máquina como ejecutor autoalojado, siempre que cumpla con estos requisitos:
 
@@ -56,14 +57,7 @@ Puedes usar cualquier máquina como ejecutor autoalojado, siempre que cumpla con
 * La máquina tiene suficientes recursos de hardware para el tipo de flujos de trabajo que planeas ejecutar. La propia aplicación del ejecutor autoalojado solo requiere unos recursos mínimos.
 * Si quieres ejecutar flujos de trabajo que usan acciones del contenedor Docker o contenedores de servicio, debes usar una máquina Linux y Docker debe estar instalado.
 
-{% ifversion fpt or ghes > 3.2 %}
-## Autoescalar tus ejecutores auto-hospedados
-
-Puedes aumentar o disminuir la cantidad de ejecutores auto-hospedados automáticamente en tu ambiente como respuesta a los eventos de webhook que recibes. Para obtener más información, consulta la sección "[Autoescalar con ejecutores auto-hospedados](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)".
-
-{% endif %}
-
-## Límites de uso
+### Límites de uso
 
 Hay algunos límites para el uso de las {% data variables.product.prodname_actions %} cuando se utilizan ejecutores auto-hospedados. Estos límites están sujetos a cambios.
 
@@ -73,15 +67,15 @@ Hay algunos límites para el uso de las {% data variables.product.prodname_actio
 - **Matiz de jobs** - {% data reusables.github-actions.usage-matrix-limits %}
 {% data reusables.github-actions.usage-workflow-queue-limits %}
 
-## Continuidad de los flujos de trabajo para los ejecutores auto-hospedados
+### Continuidad de los flujos de trabajo para los ejecutores auto-hospedados
 
 {% data reusables.github-actions.runner-workflow-continuity %}
 
-## Sistemas operativos y arquitecturas compatibles para los ejecutores auto-hospedados
+### Sistemas operativos y arquitecturas compatibles para los ejecutores auto-hospedados
 
-Los siguientes sistemas operativos son compatibles con la aplicación del ejecutor autoalojado.
+Los siguientes sistemas operativos son compatibles con la aplicación del ejecutor auto-hospedado.
 
-### Linux
+#### Linux
 
 - Red Hat Enterprise Linux 7 o superior
 - CentOS 7 o superior
@@ -93,7 +87,7 @@ Los siguientes sistemas operativos son compatibles con la aplicación del ejecut
 - openSUSE 15 o posterior
 - SUSE Enterprise Linux (SLES) 12 SP2 o posterior
 
-### Windows
+#### Windows
 
 - Windows 7 64-bit
 - Windows 8.1 64-bit
@@ -102,11 +96,11 @@ Los siguientes sistemas operativos son compatibles con la aplicación del ejecut
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-### macOS
+#### macOS
 
 - macOS 10.13 (High Sierra) o posterior
 
-### Arquitecturas
+#### Arquitecturas
 
 Las siguientes arquitecturas de procesamiento son compatibles para la aplicación del ejecutor auto-hospedado.
 
@@ -114,19 +108,19 @@ Las siguientes arquitecturas de procesamiento son compatibles para la aplicació
 - `ARM64` - Solo Linux.
 - `ARM32` - Solo Linux.
 
-{% ifversion ghes %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-## La comunicación entre ejecutores autoalojados y {{ site.data.variables.product.prodname_dotcom }}
+### La comunicación entre ejecutores autoalojados y {{ site.data.variables.product.prodname_dotcom }}
 
-Podría requerirse algo de configuración adicional para utilizar acciones de {% data variables.product.prodname_dotcom_the_website %} con {% data variables.product.prodname_ghe_server %} o para utilizar las acciones de `actions/setup-LANGUAGE` con ejecutores auto-hospedados que no tengan acceso a internet. Para obtener más información, consulta "[La comunicación entre ejecutores autoalojados y {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)."
+La máquina puede comunicarse con {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[La comunicación entre ejecutores autoalojados y {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)."
 
 {% endif %}
 
-## La comunicación entre ejecutores autoalojados y {% data variables.product.product_name %}
+### La comunicación entre ejecutores autoalojados y {% data variables.product.product_name %}
 
-El ejecutor auto-hospedado sondea a {% data variables.product.product_name %} para solicitar actualizaciones de aplicaciones y para revisar si hay jobs en cola para su procesamiento. El ejecutor auto-hospedado utiliza un _sondeo largo_ de HTTPS que abre una conexión a {% data variables.product.product_name %} por 50 segundos, y si no recibe respuesta alguna, expira y crea un nuevo sondeo largo. La aplicación debe estar ejecutándose en la máquina para aceptar y ejecutar trabajos de {% data variables.product.prodname_actions %}.
+El ejecutor auto-hospedado sondea a {% data variables.product.product_name %} para solicitar actualizaciones de aplicaciones y para revisar si hay jobs en cola para su procesamiento. El ejecutor auto-hospedado utiliza un _sondeo largo_ de HTTPS que abre una conexión a {% data variables.product.product_name %} por 50 segundos, y si no recibe respuesta alguna, expira y crea un nuevo sondeo largo. La aplicación debe estar ejecutándose en la máquina para aceptar y ejecutar jobs de {% data variables.product.prodname_actions %}.
 
-{% ifversion ghae %}
+{% if currentVersion == "github-ae@latest" %}
 Debes asegurarte de que el ejecutor auto-hospedado tenga un acceso adecuado a la red para comunicarse con la
 URL de {% data variables.product.prodname_ghe_managed %}.
 Por ejemplo, si el nombre de tu instancia es `octoghae`, entonces necesitarás permitir que el ejecutor auto-hospedado acceda a `octoghae.github.com`.
@@ -135,15 +129,9 @@ Si utilizas una lista blanca para las direcciones IP para tu
 cuenta empresarial u organizacional de {% data variables.product.prodname_dotcom %}, debes agregar la dirección IP de tu ejecutor auto-.hospedado a dicha lista. Para obtener más información, consulta "[Administrar las direcciones IP permitidas en tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)".
 {% endif %}
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 Debes asegurarte de que la máquina tiene el acceso a la red adecuado para comunicarte con las URL de {% data variables.product.prodname_dotcom %} listadas a continuación.
-
-{% note %}
-
-**Nota:** Algunos de los dominios que se listan a continuación se configuraron utilizando registros de `CNAME`. Algunos cortafuegos podrían requerir que agregues reglas recursivamente apra todos los registros de `CNAME`. Nota que los registros de `CNAME` podrían cambiar en el futuro y que solo los dominios que se listan a continuación seguirán siendo constantes.
-
-{% endnote %}
 
 ```
 github.com
@@ -156,26 +144,23 @@ codeload.github.com
 pkg-cache.githubusercontent.com
 pkg-containers.githubusercontent.com
 pkg-containers-az.githubusercontent.com
-*.blob.core.windows.net
 ```
 
 Si utilizas un listado de direcciones IP permitidas para tu cuenta organizacional o empresarial de {% data variables.product.prodname_dotcom %}, debes agregar la dirección IP de tu ejecutor auto-hospedado a dicha lista. Para obtener más información, consulta "[Administrar las direcciones IP permitidas para tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" o "[Hacer cumplir los parámetros de seguridad en tu cuenta de empresa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 
-Debes asegurarte de que la máquina tenga el acceso a la red adecuado para comunicarse con {% data variables.product.product_location %}.
+Debes asegurarte de que la máquina tenga el acceso de red adecuado para comunicarse con {% data variables.product.product_location %}.
 
 {% endif %}
 
-También puedes utilizar los ejecutores auto-hospedados con un servidor proxy. Para obtener más información, consulta la sección "[Utilizar un servidor proxy con ejecutores auto-hospedados](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)".
+También puedes usar ejecutores autoalojados con un servidor proxy. Para obtener más información, consulta "[Usar un servidor proxy con ejecutores autoalojados](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
 
-## Seguridad de ejecutores autoalojdados con repositorios públicos
+### Seguridad de ejecutores autoalojdados con repositorios públicos
 
-{% ifversion not ghae %}
 {% data reusables.github-actions.self-hosted-runner-security %}
-{% endif %}
 
-Esto no es un problema con los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, porque cada ejecutor hospedado en {% data variables.product.prodname_dotcom %} siempre es una máquina virtual aislada y limpia y se destruye al final de la ejecución del trabajo.
+Este no es un problema con los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, ya que cada uno de ellos siempre constituye una máquina virtual limpia y aislada, la cual se destruya al final de la ejecución del job.
 
 Los flujos de trabajo que no son de confianza y se ejecutan en tu ejecutor autoalojado plantean riesgos de seguridad considerables para tu máquina y entorno de red, en especial si tu máquina se mantiene en su entorno entre trabajos. Algunos de los riesgos incluyen:
 

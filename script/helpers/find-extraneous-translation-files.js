@@ -2,11 +2,10 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { difference } from 'lodash-es'
-import walkSync from 'walk-sync'
+import xWalkSync from 'walk-sync'
 import languages from '../../lib/languages.js'
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const walk = walkSync.entries
+const walk = xWalkSync.entries
 
 export default function findExtraneousTranslatedFiles() {
   const files = []

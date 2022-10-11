@@ -3,9 +3,9 @@ title: リファレンス
 shortTitle: リファレンス
 intro: GitHub RESTのAPIで使用できるリソースについては、リファレンスドキュメントを参照してください。
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 children:

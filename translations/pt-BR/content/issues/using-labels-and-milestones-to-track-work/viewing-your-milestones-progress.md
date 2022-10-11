@@ -7,12 +7,11 @@ redirect_from:
   - /articles/viewing-your-milestones-progress
   - /github/managing-your-work-on-github/viewing-your-milestones-progress
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Visualizar o progresso do marco
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -24,7 +23,7 @@ shortTitle: Visualizar o progresso do marco
 
 Para gerenciar melhor seu projeto, você pode priorizar problemas ou pull request em um marco. Para obter mais informações, consulte "[Sobre marcos](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)".
 
-## Leia mais
+### Leia mais
 
 * "[Associar marcos a problemas e pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"
 * "[Filtrar problemas e pull requests por marco](/articles/filtering-issues-and-pull-requests-by-milestone)"

@@ -8,10 +8,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Enterprise
-shortTitle: 查看组织审核日志
 ---
 
 每个审核日志条目都显示有关事件的适用信息，例如：

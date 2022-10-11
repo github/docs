@@ -28,9 +28,6 @@ featuredLinks:
 layout: product-landing
 versions:
   fpt: '*'
-communityRedirect: 
-  name: 'Provide GitHub Feedback'
-  href: 'https://github.com/github/feedback/discussions/categories/sponsors-feedback'
 children:
   - /getting-started-with-github-sponsors
   - /sponsoring-open-source-contributors

@@ -6,12 +6,11 @@ redirect_from:
   - /articles/dismissing-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Dismiss a PR review
 ---
 
 {% data reusables.pull_requests.dismiss_review %}
@@ -25,7 +24,7 @@ shortTitle: Dismiss a PR review
 4. {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、続いて [**Dismiss review**] をクリックします。 ![マージボックス中のケバブアイコン](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 5. レビューの却下理由を入力して、[**Dismiss review**] をクリックします。 ![[Dismiss review] ボタン](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
 
-## 参考リンク
+### 参考リンク
 
 - "[プルリクエストのレビューについて](/articles/about-pull-request-reviews)"
 - [プルリクエストで提案された変更のレビュー](/articles/reviewing-proposed-changes-in-a-pull-request)

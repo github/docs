@@ -4,9 +4,9 @@ intro: 'リファレンスドキュメントを見て、{% data variables.produc
 redirect_from:
   - /v4/reference
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /queries
   - /mutations

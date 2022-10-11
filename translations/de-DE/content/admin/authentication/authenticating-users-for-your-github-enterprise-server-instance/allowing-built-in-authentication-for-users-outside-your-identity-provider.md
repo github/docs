@@ -6,17 +6,16 @@ redirect_from:
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Authentication outside IdP
 ---
 
-## Informationen zur integrierten Authentifizierung für Benutzer außerhalb Ihres Identity Providers
+### Informationen zur integrierten Authentifizierung für Benutzer außerhalb Ihres Identity Providers
 
 Sie können die integrierte Authentifizierung für externe Benutzer verwenden, wenn Sie nicht in der Lage sind, Ihrem Identity Provider (IdP) bestimmte Konten, beispielsweise Konten für Vertragsnehmer oder Maschinenbenutzer hinzuzufügen. Darüber hinaus können Sie die integrierte Authentifizierung verwenden, um auf ein Fallback-Konto zuzugreifen, falls der Identity Provider nicht verfügbar ist.
 
@@ -30,7 +29,7 @@ Die integrierte Authentifizierung für einen spezifischen IdP ist standardmäßi
 
 {% endwarning %}
 
-## Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers konfigurieren
+### Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers konfigurieren
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -42,7 +41,7 @@ Die integrierte Authentifizierung für einen spezifischen IdP ist standardmäßi
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-## Benutzer außerhalb Ihres Identity Providers zur Authentifizierung an Ihrer Instanz einladen
+### Benutzer außerhalb Ihres Identity Providers zur Authentifizierung an Ihrer Instanz einladen
 
 Wenn ein Benutzer die Einladung akzeptiert, kann er sich anstatt über den IdP mittels Benutzername und Passwort anmelden.
 
@@ -51,7 +50,7 @@ Wenn ein Benutzer die Einladung akzeptiert, kann er sich anstatt über den IdP m
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[LDAP verwenden](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap)“
 - „[SAML verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)“

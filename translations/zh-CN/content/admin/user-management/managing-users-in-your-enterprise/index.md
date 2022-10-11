@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/user-security
   - /enterprise/admin/user-management/managing-users-in-your-enterprise
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:
@@ -22,6 +22,5 @@ children:
   - /customizing-user-messages-for-your-enterprise
   - /rebuilding-contributions-data
   - /managing-global-webhooks
-shortTitle: 管理用户
 ---
 

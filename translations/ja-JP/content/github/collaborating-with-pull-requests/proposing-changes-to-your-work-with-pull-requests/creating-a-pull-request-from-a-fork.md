@@ -5,14 +5,13 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
   - /articles/creating-a-pull-request-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
-permissions: 'Anyone with write access to a repository can create a pull request from a user-owned fork. {% data reusables.enterprise-accounts.emu-permission-propose %}'
+permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: Create a PR from a fork
 ---
 
 また、上流リポジトリのメンテナに、ユーザ所有のフォークにコミットをプッシュする権限を与えることもできます。 プルリクエストが上流リポジトリのブランチを base ブランチとして自分のトピックブランチと比較する場合、トピックブランチは「プルリクエストの比較ブランチ」とも呼ばれます。 例も含めたプルリクエストブランチに関する詳しい情報については、「[プルリクエストを作成する](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)」を参照してください。
@@ -32,7 +31,7 @@ shortTitle: Create a PR from a fork
 
 {% data reusables.repositories.asking-for-review %}
 
-## 参考リンク
+### 参考リンク
 
 - "[フォークでの作業](/articles/working-with-forks)"
 - [フォークから作成されたプルリクエストブランチへの変更を許可する](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)

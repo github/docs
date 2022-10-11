@@ -1,4 +1,4 @@
-{% ifversion ghes %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% note %}
 

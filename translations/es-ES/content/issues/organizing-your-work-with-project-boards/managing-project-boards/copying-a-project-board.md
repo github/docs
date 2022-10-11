@@ -6,12 +6,10 @@ redirect_from:
   - /articles/copying-a-project-board
   - /github/managing-your-work-on-github/copying-a-project-board
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Pull requests
 ---
-
-{% data reusables.projects.project_boards_old %}
 
 Copiar un tablero de proyecto te permite volver a usar el título, la descripción y la configuración automática de un tablero de proyecto. Puedes copiar los tableros de proyecto para eliminar el proceso manual de creación de nuevos tableros de proyecto para flujos de trabajo similares.
 
