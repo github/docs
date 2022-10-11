@@ -1,4 +1,4 @@
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Your site administrator must enable
-{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts for vulnerable dependencies for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
+{% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
 {% endif %}

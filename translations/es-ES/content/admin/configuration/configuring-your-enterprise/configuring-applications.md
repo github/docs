@@ -6,14 +6,14 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
   - /admin/configuration/configuring-applications
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
 ---
 
-### Ajustar el almacenamiento en caché de las imágenes
+## Ajustar el almacenamiento en caché de las imágenes
 
 Puedes elegir la cantidad de tiempo que {% data variables.product.product_location %} almacena en caché los avatares. Cuando aumentas el tiempo de almacenamiento en caché, aumentas la cantidad de tiempo que tardará en cargar el avatar de un usuario. Configurar el tiempo de almacenamiento en caché con un valor demasiado bajo puede sobrecargar {% data variables.product.product_location %} los procesos de trabajo.
 

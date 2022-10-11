@@ -6,13 +6,26 @@ redirect_from:
   - /articles/syncing-a-fork
   - /github/collaborating-with-issues-and-pull-requests/syncing-a-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
+
+## 从 web UI 同步复刻
+
+1. 在 {% data variables.product.product_name %} 上，导航到您想要与上游版本库同步的复刻仓库主页。
+1. 选择 **Fetch upstream（提取上游）**下拉菜单。 !["Fetch upstream（提取上游）"下拉菜单](/assets/images/help/repository/fetch-upstream-drop-down.png)
+1. 查看上游仓库中有关提交的细节，然后单击“**提取并合并**”。 !["提取并合并"按钮](/assets/images/help/repository/fetch-and-merge-button.png)
+
+如果上游仓库的更改导致冲突，{% data variables.product.company_short %} 将提示您创建拉取请求以解决冲突。
+
+## 从命令行同步复刻
+
+{% endif %}
 必须在 Git 中[配置指向上游仓库的远程仓库](/articles/configuring-a-remote-for-a-fork)，然后才能将您的复刻与上游仓库同步。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

@@ -6,23 +6,23 @@ redirect_from:
   - /articles/downgrading-an-app-for-your-personal-account/
   - /articles/downgrading-an-app-for-your-organization/
   - /articles/downgrading-the-billing-plan-for-a-github-marketplace-app
-  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-the-billing-plan-for-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/downgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Downgrades
   - Marketplace
   - Organizations
   - User account
+shortTitle: Downgrade billing plan
 ---
 
 When you downgrade an app, your subscription remains active until the end of your current billing cycle. The downgrade takes effect on your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-### Downgrading an app for your personal account
+## Downgrading an app for your personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -31,7 +31,7 @@ When you downgrade an app, your subscription remains active until the end of you
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### Downgrading an app for your organization
+## Downgrading an app for your organization
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -43,6 +43,6 @@ When you downgrade an app, your subscription remains active until the end of you
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### 더 읽을거리
+## 더 읽을거리
 
 - "[Canceling a {% data variables.product.prodname_marketplace %} app](/articles/canceling-a-github-marketplace-app/)"

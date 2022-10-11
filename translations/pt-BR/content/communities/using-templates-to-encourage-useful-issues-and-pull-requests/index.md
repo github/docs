@@ -8,14 +8,16 @@ redirect_from:
   - /articles/using-issue-and-pull-request-templates
   - /github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
 children:
   - /about-issue-and-pull-request-templates
   - /configuring-issue-templates-for-your-repository
+  - /syntax-for-issue-forms
+  - /syntax-for-githubs-form-schema
   - /creating-a-pull-request-template-for-your-repository
   - /manually-creating-a-single-issue-template-for-your-repository
 ---

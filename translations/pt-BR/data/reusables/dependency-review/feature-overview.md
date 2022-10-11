@@ -1,4 +1,4 @@
-Dependency review helps you understand dependency changes and the security impact of these changes at every pull request. It provides an easily understandable visualization of dependency changes with a rich diff on the "Files Changed" tab of a pull request. Dependency review informs you of:
-- Which dependencies were added, removed, or updated, along with the release dates.
-- How many projects use these components.
-- Vulnerability data for these dependencies.
+Revisão de dependências ajuda você a entender as alterações de dependência e o impacto de segurança dessas alterações em cada pull request. Ele fornece uma visualização facilmente compreensível de mudanças de dependência, com um rico diff na aba "Arquivos alterados" de um pull request. A revisão de dependências informa você:
+- Quais dependências foram adicionadas, removidas ou atualizadas, junto com as datas de versão.
+- Quantos projetos usam esses componentes.
+- Dados de vulnerabilidade para essas dependências.

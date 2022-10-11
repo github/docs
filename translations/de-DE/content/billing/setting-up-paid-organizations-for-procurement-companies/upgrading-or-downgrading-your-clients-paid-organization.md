@@ -5,14 +5,14 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /articles/upgrading-or-downgrading-your-client-s-paid-organization
   - /articles/upgrading-or-downgrading-your-clients-paid-organization
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - Upgrades
+shortTitle: Upgrade or downgrade
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -25,7 +25,7 @@ topics:
 
 {% endtip %}
 
-### Anzahl der bezahlten Benutzer einer Organisation heraufstufen
+## Anzahl der bezahlten Benutzer einer Organisation heraufstufen
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.add-seats %}
@@ -34,7 +34,7 @@ topics:
 
 Nachdem Sie Benutzer hinzugefügt haben, wird der für die Organisation hinterlegten Zahlungsmethode ein anteiliger Betrag in Rechnung gestellt, der auf der Anzahl der Benutzer, die Sie hinzufügen, und der verbleibenden Zeit in Ihrem Abrechnungszeitraum basiert.
 
-### Anzahl der bezahlten Benutzer einer Organisation auf kostenlos herabstufen
+## Anzahl der bezahlten Benutzer einer Organisation auf kostenlos herabstufen
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}

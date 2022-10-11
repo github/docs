@@ -3,11 +3,12 @@ title: アプリ
 redirect_from:
   - /v3/apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 GitHub Apps API を使用すると、GitHub App に関する大まかな情報と、アプリケーションのインストールに関する具体的な情報を取得できます。 GitHub App の詳細については、「[GitHub App として認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)」を参照してださい。
@@ -44,7 +45,7 @@ Organization のすべての GitHub App インストレーションを一覧表�
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Marketplace
 
 {% data variables.product.prodname_marketplace %} の詳細については、「[GitHub Marketplace](/marketplace/)」を参照してください。
@@ -55,7 +56,7 @@ Organization のすべての GitHub App インストレーションを一覧表�
 
 この API には、[**スタブされたデータ**で {% data variables.product.prodname_github_app %} をテスト](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/)できるエンドポイントが含まれています。 スタブされたデータはハードコードされた偽のデータであり、実際のプランに基づいて変更されることはありません。
 
-スタブされたデータでテストするには、対応する本番環境の代わりにスタブされたエンドポイントを使用します。 これにより、{% data variables.product.prodname_github_app %} を {% data variables.product.prodname_marketplace %} にリストする前に、API ロジックが成功するかどうかをテストできます。
+スタブされたデータでテストするには、対応する本番環境の代わりにスタブされたエンドポイントを使用します。 This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
 
 {% data variables.product.prodname_github_app %} をデプロイする前に、スタブされたエンドポイントを本番のエンドポイントに置き換えてください。
 
@@ -65,8 +66,10 @@ Organization のすべての GitHub App インストレーションを一覧表�
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 ## webhook
+
+A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

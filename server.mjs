@@ -1,4 +1,4 @@
-import xDotenv from 'dotenv'
+import dotenv from 'dotenv'
 import './lib/feature-flags.js'
 import './lib/check-node-version.js'
 import './lib/handle-exceptions.js'
@@ -9,7 +9,7 @@ import prefixStreamWrite from './lib/prefix-stream-write.js'
 import createApp from './lib/app.js'
 import warmServer from './lib/warm-server.js'
 import http from 'http'
-xDotenv.config()
+dotenv.config()
 // Intentionally require these for both cluster primary and workers
 
 const { PORT, NODE_ENV } = process.env
@@ -41,7 +41,9 @@ async function checkPortAvailability() {
   const portInUse = await portUsed.check(port)
   if (portInUse) {
     console.log(`\n\n\nPort ${port} is not available. You may already have a server running.`)
-    console.log('Try running `killall node` to shut down all your running node processes.\n\n\n')
+    console.log(
+      `Try running \`npx kill-port ${port}\` to shut down all your running node processes.\n\n\n`
+    )
     console.log('\x07') // system 'beep' sound
     process.exit(1)
   }

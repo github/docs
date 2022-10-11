@@ -7,13 +7,14 @@ redirect_from:
   - /admin/user-management/promoting-or-demoting-a-site-administrator
 intro: 站点管理员可以将任何普通用户升级为站点管理员，也可以将其他站点管理员降级为普通用户。
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Accounts
   - User account
   - Enterprise
+shortTitle: 管理管理员
 ---
 
 {% tip %}
@@ -24,7 +25,7 @@ topics:
 
 有关将用户升级为组织所有者的信息，请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-org-admin-promote)”的 `ghe-org-admin-promote` 部分。
 
-### 从企业设置升级用户
+## 从企业设置升级用户
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -32,7 +33,7 @@ topics:
 5. 在页面的右上角，单击 **Add owner（添加所有者）**。 ![用于添加管理员的按钮](/assets/images/help/business-accounts/business-account-add-admin-button.png)
 6. 在搜索字段中，输入用户的名称，然后单击 **Add**。 ![用于添加管理员的搜索字段](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
 
-### 从企业设置降级站点管理员
+## 从企业设置降级站点管理员
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -41,7 +42,7 @@ topics:
 
 1. 在搜索结果中，查找您想要降级的人员的用户名，然后使用 {% octicon "gear" %} 下拉菜单选择 **Remove owner（删除所有者）**。 ![从企业选项中删除](/assets/images/help/business-accounts/demote-admin-button.png)
 
-### 从命令行升级用户
+## 从命令行升级用户
 
 1. 通过 [SSH](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/) 登录您的设备。
 2. 使用您想要升级的用户名运行 [ghe-user-promote](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-promote)。
@@ -49,7 +50,7 @@ topics:
   $ ghe-user-promote <em>username</em>
   ```
 
-### 从命令行降级站点管理员
+## 从命令行降级站点管理员
 
 1. 通过 [SSH](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/) 登录您的设备。
 2. 使用您想要降级的用户名运行 [ghe-user-demote](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-demote)。

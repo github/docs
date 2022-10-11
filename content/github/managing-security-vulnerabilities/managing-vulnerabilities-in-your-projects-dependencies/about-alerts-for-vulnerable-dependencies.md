@@ -1,6 +1,6 @@
 ---
 title: About alerts for vulnerable dependencies
-intro: '{% data variables.product.product_name %} sends {% ifversion ghes > 2.21 %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} when we detect vulnerabilities affecting your repository.'
+intro: '{% data variables.product.product_name %} sends {% ifversion ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} when we detect vulnerabilities affecting your repository.'
 versions:
   ghes: <=2.22
 topics:
@@ -19,7 +19,7 @@ When your code depends on a package that has a security vulnerability, this vuln
 
 ## Detection of vulnerable dependencies
 
- {% ifversion ghes > 2.21 %}{% data variables.product.prodname_dependabot %} detects vulnerable dependencies and sends {% data variables.product.prodname_dependabot_alerts %}{% else %}{% data variables.product.product_name %} detects vulnerable dependencies and sends security alerts{% endif %} when:
+ {% ifversion ghes %}{% data variables.product.prodname_dependabot %} detects vulnerable dependencies and sends {% data variables.product.prodname_dependabot_alerts %}{% else %}{% data variables.product.product_name %} detects vulnerable dependencies and sends security alerts{% endif %} when:
 
 - New advisory data is synchronized to {% data variables.product.prodname_ghe_server %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 - The dependency graph for a repository changes. For example, when a contributor pushes a commit to change the packages or versions it depends on. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
@@ -34,7 +34,7 @@ For a list of the ecosystems that {% data variables.product.product_name %} can 
 
 {% endnote %}
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 ## {% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies
 {% else %}
 ## Security alerts for vulnerable dependencies
@@ -42,12 +42,8 @@ For a list of the ecosystems that {% data variables.product.product_name %} can 
 
 {% data reusables.repositories.enable-security-alerts %}
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 When {% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it on the Security tab for the repository. The alert includes a link to the affected file in the project, and information about a fixed version. {% data variables.product.product_name %} also notifies the maintainers of affected repositories about the new alert according to their notification preferences. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
-{% endif %}
-
-{% ifversion ghes < 2.22 %}
-When {% data variables.product.product_name %} identifies a vulnerable dependency, we send a security alert to the maintainers of affected repositories with details of the vulnerability, a link to the affected file in the project, and information about a fixed version. 
 {% endif %}
 
 {% warning %}
@@ -56,15 +52,12 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 
 {% endwarning %}
 
-## Access to {% ifversion ghes > 2.21 %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts
+## Access to {% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts
 
 You can see all of the alerts that affect a particular project in the repository's dependency graph.
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 By default, we notify people with admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}.{% endif %}
 
-{% ifversion ghes < 2.22 %}
-We send security alerts to people with admin permissions in the affected repositories by default. {% data variables.product.product_name %} never publicly discloses identified vulnerabilities for any repository.
-{% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}{% ifversion ghes %} For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."{% endif %}

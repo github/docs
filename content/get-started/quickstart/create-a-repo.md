@@ -38,6 +38,10 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 {% endif %}
 
+{% include tool-switcher %}
+
+{% webui %}
+
 {% data reusables.repositories.create_new %}
 2. Type a short, memorable name for your repository. For example, "hello-world".
   ![Field for entering a repository name](/assets/images/help/repository/create-repository-name.png)
@@ -49,15 +53,28 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 Congratulations! You've successfully created your first repository, and initialized it with a *README* file.
 
-{% ifversion fpt or ghes or ghae %}
-{% tip %}
+{% endwebui %}
 
-**Tip**: You can also create repositories using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
+{% cli %}
 
-{% endtip %}
-{% endif %}
+{% data reusables.cli.cli-learn-more %}
+
+1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
+2. To create a repository for your project, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+
+   ```shell
+   gh repo create <em>project-name</em>
+   ```
+
+3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
+
+{% endcli %}
 
 ## Commit your first change
+
+{% include tool-switcher %}
+
+{% webui %}
 
 A *[commit](/articles/github-glossary#commit)* is like a snapshot of all the files in your project at a particular point in time.
 
@@ -77,11 +94,56 @@ Let's commit a change to the *README* file.
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
+{% endwebui %}
+
+{% cli %}
+
+Now that you have created a project, you can start committing changes.
+
+*README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository. Follow these steps to add a *README* file. 
+
+1. In the command line, navigate to the root directory of your new project. (This directory was created when you ran the `gh repo create` command.)
+1. Create a *README* file with some information about the project.
+
+    ```shell
+    echo "info about this project" >> README.md
+    ```
+
+1. Enter `git status`. You will see that you have an untracked `README.md` file.
+
+    ```shell
+    $ git status
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+      README.md
+
+    nothing added to commit but untracked files present (use "git add" to track)
+    ```
+
+1. Stage and commit the file.
+
+    ```shell
+    git add README.md && git commit -m "Add README"
+    ```
+
+1. Push the changes to your branch.
+
+    ```shell
+    git push --set-upstream origin HEAD
+    ```
+
+{% endcli %}
+
 ## Celebrate
 
 Congratulations! You have now created a repository, including a *README* file, and created your first commit on {% data variables.product.product_location %}.
 
+{% webui %}
+
 You can now clone a {% data variables.product.product_name %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[Cloning a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" and "[Set up Git](/articles/set-up-git)."
+
+{% endwebui %}
 
 You can find interesting projects and repositories on {% data variables.product.product_name %} and make changes to them by creating a fork of the repository. For more information see, "[Fork a repository](/articles/fork-a-repo)."
 

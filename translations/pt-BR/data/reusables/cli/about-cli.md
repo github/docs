@@ -1,0 +1,1 @@
+{% data variables.product.prodname_cli %} é uma ferramenta de código aberto para usar {% data variables.product.product_name %} a partir da linha de comando do seu computador. Quando você está trabalhando na linha de comando, você pode usar {% data variables.product.prodname_cli %} para economizar tempo e evitar mudar o contexto.

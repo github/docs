@@ -2,12 +2,13 @@
 title: 为 GitHub Packages 配置 MinIO 存储桶的快速入门
 intro: '配置您的自定义 MinIO 存储桶，用于 {% data variables.product.prodname_registry %}。'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 type: quick_start
 topics:
   - Packages
   - Enterprise
   - Storage
+shortTitle: MinIO 快速入门
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -18,7 +19,7 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
 
 此快速入门将演示如何使用 Docker 设置 MinIO 以与 {% data variables.product.prodname_registry %} 使用，但除了 Docker 之外，您还有其他用于管理 MinIO 的选项。 有关 MinIO 的更多信息，请参阅官方的 [MinIO 文档](https://docs.min.io/)。
 
-### 1. 根据您的需求选择 MinIO 模式
+## 1. 根据您的需求选择 MinIO 模式
 
 | MinIO 模式                | 针对以下平台优化    | 需要存储基础架构     |
 | ----------------------- | ----------- | ------------ |
@@ -28,7 +29,7 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
 
 有关您的选项的更多信息，请参阅官方的 [MinIO 文档](https://docs.min.io/)。
 
-### 2. 安装、运行和登录到 MinIO
+## 2. 安装、运行和登录到 MinIO
 
 1. 为 MinIO 设置首选环境变量。
 
@@ -100,7 +101,7 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
 
    * 使用 Docker 作为集群运行 MinIO： 此 MinIO 部署使用多个主机和 MinIO 的擦除编码来提供最强的数据保护。 要在群集模式下运行 MinIO，请参阅“[分布式 MinIO 快速入门指南](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)”。
 
-### 3. 为 {% data variables.product.prodname_registry %} 创建 MinIO 存储桶
+## 3. 为 {% data variables.product.prodname_registry %} 创建 MinIO 存储桶
 
 1. 安装 MinIO 客户端。
 
@@ -126,7 +127,7 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
      $ docker run minio/mc mb packages
      ```
 
-### 后续步骤
+## 后续步骤
 
 要完成 {% data variables.product.prodname_registry %} 的存储配置，您需要复制 MinIO 存储 URL：
 

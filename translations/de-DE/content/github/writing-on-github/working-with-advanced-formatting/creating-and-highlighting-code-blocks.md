@@ -5,12 +5,13 @@ redirect_from:
   - /articles/creating-and-highlighting-code-blocks
   - /github/writing-on-github/creating-and-highlighting-code-blocks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Create code blocks
 ---
 
-### Fenced-Code-Blöcke
+## Fenced-Code-Blöcke
 
 Um Fenced-Code-Blöcke zu erstellen, platziere dreifache Backticks <code>\`\`\`</code> vor und nach dem Codeblock. Wir empfehlen, eine leere Zeile vor und nach den Codeblöcken einzufügen, damit die Rohformatierung besser lesbar ist.
 
@@ -44,7 +45,7 @@ Look! You can see my backticks.
 ![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
 
-### Syntaxmarkierung
+## Syntaxmarkierung
 
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
@@ -63,7 +64,7 @@ So sieht z. B. die Syntaxmarkierung des Ruby-Codes aus:
 
 Wir nutzen [Linguist](https://github.com/github/linguist), um die Spracherkennung durchzuführen und [Drittanbieter-Grammatiken](https://github.com/github/linguist/blob/master/vendor/README.md) für die Syntaxmarkierung auszuwählen. In der [YAML-Sprachen-Datei](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml) findest Du gültige Stichworte.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
 - „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax)“

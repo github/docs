@@ -5,13 +5,14 @@ redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Accounts
   - Enterprise
   - Teams
+shortTitle: Remove user membership
 ---
 
 Organizationのメンバーを削除できるのは、オーナーもしくはTeamの管理者のみです。 ユーザがTeamもしくはOrganizationから削除されても、Organizationのリポジトリ内のそのユーザのIssue、プルリクエスト、コメントはそのまま残り、ユーザのもののままです。
@@ -22,7 +23,7 @@ Organizationのメンバーを削除できるのは、オーナーもしくはTe
 
 {% endwarning %}
 
-### Teamメンバーの削除
+## Teamメンバーの削除
 
 {% warning %}
 
@@ -38,7 +39,7 @@ LDAPグループに同期しているTeamの既存メンバーを削除するに
 4. 削除する個人を選択します。 ![Organization メンバーの横のチェックボックス](/assets/images/help/teams/team-member-check-box.png)
 5. Team メンバーのリストの上のドロップダウンメニューで、[**Remove from team**] をクリックします。 ![ロールを変更するオプションのあるドロップダウンメニュー](/assets/images/help/teams/bulk-edit-drop-down.png)
 
-### Organizationからのユーザの削除
+## Organizationからのユーザの削除
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

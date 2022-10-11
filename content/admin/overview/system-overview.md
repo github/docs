@@ -74,6 +74,12 @@ For more information, see "[Configuring backups on your appliance](/enterprise/{
 
 {% data variables.product.prodname_ghe_server %} runs a customized Linux operating system with only the necessary applications and services. {% data variables.product.prodname_dotcom %} manages patching of the appliance's core operating system as part of its standard product release cycle. Patches address functionality, stability, and non-critical security issues for {% data variables.product.prodname_dotcom %} applications. {% data variables.product.prodname_dotcom %} also provides critical security patches as needed outside of the regular release cycle.
 
+{% data variables.product.prodname_ghe_server %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Debian distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
+
+Currently, the base of the {% data variables.product.prodname_ghe_server %} appliance is Debian 9 (Stretch) and receives support under the Debian Long Term Support program.  There are plans to move to a newer base operating system before the end of the Debian LTS period for Stretch.
+
+Regular patch updates are released on the {% data variables.product.prodname_ghe_server %} [releases](https://enterprise.github.com/releases) page, and the [release notes](/enterprise-server/admin/release-notes) page provides more information. These patches typically contain upstream vendor and project security patches after they've been tested and quality approved by our engineering team. There can be a slight time delay from when the upstream update is released to when it's tested and bundled in an upcoming {% data variables.product.prodname_ghe_server %} patch release.
+
 ### Network security
 
 {% data variables.product.prodname_ghe_server %}'s internal firewall restricts network access to the appliance's services. Only services necessary for the appliance to function are available over the network. For more information, see "[Network ports](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports)."

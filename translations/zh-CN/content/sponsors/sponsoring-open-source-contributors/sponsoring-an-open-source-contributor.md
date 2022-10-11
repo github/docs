@@ -7,17 +7,18 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: 赞助贡献者
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### 关于赞助
+## 关于赞助
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -27,7 +28,7 @@ topics:
 - 作为重视开源的组织，培养品牌知名度
 - 感谢开源开发者构建库来补充您的组织提供的产品
 
-您可以使用信用卡赞助 {% data variables.product.product_name %} 上的帐户。 如果您的组织希望按发票付款，请[联系我们](https://support.github.com/contact/org-sponsors-waitlist)。
+您可以使用信用卡赞助 {% data variables.product.product_name %} 上的帐户。 If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
 
 {% data reusables.sponsors.no-fees %} 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)”。
 
@@ -47,7 +48,7 @@ topics:
 
 {% endnote %}
 
-### 赞助帐户
+## 赞助帐户
 
 在赞助帐户之前，您必须拥有经过验证的电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。
 

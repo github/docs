@@ -76,6 +76,10 @@ In addition to the features available with {% data variables.product.prodname_fr
   - Draft pull requests
   - Team pull request reviewers
   - Scheduled reminders
+{% ifversion fpt %}
+- The option to enable {% data variables.product.prodname_github_codespaces %}
+  - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
+{% endif %}
 
 {% data reusables.github-actions.actions-billing %}
 
@@ -97,6 +101,7 @@ In addition to the features available with {% data variables.product.prodname_te
 - 50GB {% data variables.product.prodname_registry %} storage
 - Access control for {% data variables.product.prodname_pages %} sites. For more information, see <a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Changing the visibility of your {% data variables.product.prodname_pages %} site</a>"
 - A service level agreement for 99.9% monthly uptime
+- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "<a href="/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users" class="dotcom-only">About {% data variables.product.prodname_emus %}</a>."
 - The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations with an enterprise account. For more information, see "<a href="/articles/about-enterprise-accounts" class="dotcom-only">About enterprise accounts</a>."
 
 You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Setting up a trial of {% data variables.product.prodname_ghe_cloud %}</a>."

@@ -6,21 +6,21 @@ redirect_from:
   - /articles/upgrading-an-app-for-your-personal-account/
   - /articles/upgrading-an-app-for-your-organization/
   - /articles/upgrading-the-billing-plan-for-a-github-marketplace-app
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-the-billing-plan-for-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Marketplace
   - Organizations
   - Upgrades
   - User account
+shortTitle: Atualizar plano de cobrança
 ---
 
 Quando você atualiza um app, é cobrado na forma de pagamento um valor proporcional com base no tempo restante até a data da próxima cobrança. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
 
-### Atualizar um app da sua conta pessoal
+## Atualizar um app da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -29,7 +29,7 @@ Quando você atualiza um app, é cobrado na forma de pagamento um valor proporci
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### Atualizar um app da organização
+## Atualizar um app da organização
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

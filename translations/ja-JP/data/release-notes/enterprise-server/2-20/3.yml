@@ -13,3 +13,4 @@ sections:
     - '以前のバージョンからのアップグレードの際に、バックグラウンドジョブワーカーがspawnせず、Pull Requestのマージなどの重要な機能が動作しないことがあります。（2020-04-07更新）{% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
     - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。（2020-06-23更新）{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - '複数のRedisノードでのクラスタ設定にデプロイされた際に、依存関係グラフが依存関係を検出しません。（2020-06-30更新）{% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。'

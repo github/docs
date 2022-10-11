@@ -8,17 +8,20 @@ redirect_from:
   - /github/articles/synchronizing-teams-between-okta-and-github
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization
 permissions: Organization owners can manage team synchronization for an organization.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage team synchronization
 ---
+
+{% data reusables.enterprise-accounts.emu-scim-note %}
 
 {% data reusables.gated-features.okta-team-sync %}
 
-### Informationen zur Teamsynchronisierung
+## Informationen zur Teamsynchronisierung
 
 Du kannst die Teamsynchronisierung zwischen Deinem IdP und {% data variables.product.product_name %} aktivieren, um es den Organisationsinhabern und Team-Betreuern zu ermöglichen, Teams in Deiner Organisation mit IdP-Gruppen zu verbinden.
 
@@ -30,11 +33,15 @@ Du kannst die Teamsynchronisierung zwischen Deinem IdP und {% data variables.pro
 
 Du kannst die Teamsynchronisierung auch für Organisationen im Besitz eines Enterprise-Kontos aktivieren. Weiter Informationen findest Du unter „[Sicherheitseinstellungen für Dein Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)."
 
-### Teamsynchronisierung aktivieren
+{% data reusables.enterprise-accounts.team-sync-override %}
+
+{% data reusables.identity-and-permissions.team-sync-usage-limits %}
+
+## Teamsynchronisierung aktivieren
 
 Die Schritte zur Aktivierung der Teamsynchronisierung hängen vom IdP ab, den Du verwenden möchtest. Es gibt Voraussetzungen zur Aktivierung der Teamsynchronisierung, die auf jeden IdP zutreffen. Jeder einzelne IdP hat zusätzliche Voraussetzungen.
 
-#### Vorrausetzungen
+### Vorrausetzungen
 
 {% data reusables.identity-and-permissions.team-sync-required-permissions %}
 
@@ -42,7 +49,7 @@ Du musst SAML Single Sign-On für Deine Organisation und Deinen unterstützten I
 
 Du musst Dich für Deine Organisation mittels SAML SSO und dem unterstützten IdP authentifizieren. Weitere Informationen findest Du unter „[Authentifizierung mit SAML Single Sign-On](/articles/authenticating-with-saml-single-sign-on).“
 
-#### Teamsynchronisierung für Azure AD aktivieren
+### Teamsynchronisierung für Azure AD aktivieren
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
@@ -54,7 +61,7 @@ Du musst Dich für Deine Organisation mittels SAML SSO und dem unterstützten Id
 {% data reusables.identity-and-permissions.team-sync-confirm %}
 6. Prüfe die Mandanteninformationen des Identitätsanbieters für Deine Organisation, und klicke auf **Approve** (Genehmigen). ![Ausstehende Anforderung zum Aktivieren der Teamsynchronisierung für einen IdP-Mandanten mit der Option zur Genehmigung oder Ablehnung](/assets/images/help/teams/approve-team-synchronization.png)
 
-#### Teamsynchronisierung für Okta aktivieren
+### Teamsynchronisierung für Okta aktivieren
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
@@ -66,7 +73,7 @@ Du musst Dich für Deine Organisation mittels SAML SSO und dem unterstützten Id
 7. Gib unterhalb dem Namen Deiner Organisation einen gültigen SSWS-Token und die URL zu Deiner Okta-Instanz ein. ![Okta Organisationsformular für das Aktivieren der Teamsynchronisierung](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)
 6. Überprüfe die Mandanteninformationen des Identitätsanbieters, den Du mit Deiner Organisation verbinden möchtest und klicke auf **Approve** (Genehmigen). ![Schaltfläche „Enable team synchronization" (Teamsynchronisierung aktivieren)](/assets/images/help/teams/confirm-team-synchronization-okta.png)
 
-### Teamsynchronisierung deaktivieren
+## Teamsynchronisierung deaktivieren
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 

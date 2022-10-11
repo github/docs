@@ -17,7 +17,7 @@ topics:
 shortTitle: Prevent organization creation
 ---
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes > 2.21 or ghae %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

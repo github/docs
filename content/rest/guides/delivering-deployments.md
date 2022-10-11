@@ -175,12 +175,12 @@ After the deployment is finished, we set the status to `success`.
 ## Conclusion
 
 At GitHub, we've used a version of [Heaven][heaven] to manage
-our deployments for years. The basic flow is essentially the exact same as the
-server we've built above. At GitHub, we:
+our deployments for years. A common flow is essentially the same as the
+server we've built above:
 
-* Wait for a response on the state of the CI
-* If the code is green, we merge the pull request
-* Heaven takes the merged code, and deploys it to our production and staging servers
+* Wait for a response on the state of the CI checks (success or failure)
+* If the required checks succeed, merge the pull request
+* Heaven takes the merged code, and deploys it to staging and production servers
 * In the meantime, Heaven also notifies everyone about the build, via [Hubot][hubot] sitting in our chat rooms
 
 That's it! You don't need to build your own deployment setup to use this example.

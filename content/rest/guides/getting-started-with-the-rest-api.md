@@ -136,10 +136,10 @@ $ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/use
 
 When prompted, you can enter your OAuth token, but we recommend you set up a variable for it:
 
-You can use `-u "username:$token"` and set up a variable for `token` to avoid leaving your token in shell history, which should be avoided.
+You can use `-u "your_username:$token"` and set up a variable for `token` to avoid leaving your token in shell history, which should be avoided.
 
 ```shell
-$ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
+$ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -147,12 +147,24 @@ When authenticating, you should see your rate limit bumped to 5,000 requests an 
 
 You can easily [create a **personal access token**][personal token] using your [Personal access tokens settings page][tokens settings]:
 
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %}
+{% warning %}
+
+To help keep your information secure, we highly recommend setting an expiration for your personal access tokens.
+
+{% endwarning %}
+{% endif %}
+
 {% ifversion fpt or ghes %}
 ![Personal Token selection](/assets/images/personal_token.png)
 {% endif %}
 
 {% ifversion ghae %}
 ![Personal Token selection](/assets/images/help/personal_token_ghae.png)
+{% endif %}
+
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %}
+API requests using an expiring personal access token will return that token's expiration date via the `GitHub-Authentication-Token-Expiration` header. You can use the header in your scripts to provide a warning message when the token is close to its expiration date.
 {% endif %}
 
 ### Get your own user profile

@@ -4,33 +4,35 @@ intro: 'Wenn Sie zusätzlichen Speicher und zusätzliche Bandbreite für {% data
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage
   - /articles/about-billing-for-git-large-file-storage
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - LFS
   - Upgrades
+shortTitle: About Git LFS billing
 ---
 
-### Informationen zur Abrechnung für {% data variables.large_files.product_name_long %}
+## Informationen zur Abrechnung für {% data variables.large_files.product_name_long %}
 
 {% data reusables.large_files.free-storage-bandwidth-amount %} {% data reusables.large_files.does_not_carry %}
 
 {% data reusables.large_files.owner_quota_only %}
 
-### Zusätzlichen Speicher und zusätzliche Bandbreite kaufen
+{% data reusables.user_settings.context_switcher %}
+
+## Zusätzlichen Speicher und zusätzliche Bandbreite kaufen
 
 Zusätzlicher Speicher und zusätzliche Bandbreite werden in einem einzigen Datenpaket angeboten. Ein Datenpaket kostet {% data variables.large_files.pack_monthly_price %} und bietet ein monatliches Kontingent von {% data variables.large_files.pack_monthly_bandwidth %} an Bandbreite und {% data variables.large_files.pack_monthly_storage %} an Speicher. Du kannst so viele Datenpakete kaufen, wie Du benötigst. Wenn Du beispielsweise 150 GB Speicherplatz benötigst, kannst Du drei Datenpakete kaufen.
 
 Der Kauf von Datenpaketen für {% data variables.large_files.product_name_short %} ist unabhängig von jeder anderen kostenpflichtigen Funktion respektive jedem anderen Produkt auf {% data variables.product.product_name %}.
 
-### Speicher und Bandbreite herabstufen
+## Speicher und Bandbreite herabstufen
 
 Wenn Du die Anzahl Deiner zusätzlichen Datenpakete herabstufst, werden Deine Änderungen zum nächsten Abrechnungsdatum wirksam.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)“
 - „[{% data variables.large_files.product_name_long %} installieren](/articles/installing-git-large-file-storage)“

@@ -6,11 +6,12 @@ redirect_from:
   - /articles/approving-a-pull-request-with-required-reviews
   - /github/collaborating-with-issues-and-pull-requests/approving-a-pull-request-with-required-reviews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 必要的审查
 ---
 
 有关必需审查的更多信息，请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。
@@ -36,7 +37,7 @@ topics:
 
 {% data reusables.repositories.request-changes-tips %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[评论拉取请求](/articles/commenting-on-a-pull-request)"

@@ -8,16 +8,17 @@ redirect_from:
   - /github/working-with-github-pages/about-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: Jekyll build errors for Pages
 ---
 
-### Informationen zu Jekyll-Build-Fehlern
+## Informationen zu Jekyll-Build-Fehlern
 
-Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% if currentVersion == "free-pro-team@latest" %}
+Manchmal kann es vorkommen, dass {% data variables.product.prodname_pages %} nicht versucht, Ihre Website zu erstellen, nachdem Sie Änderungen zur Veröffentlichungsquelle Ihrer Website gepusht haben.{% ifversion fpt %}
 - Der Benutzer, der die Änderungen gepusht hat, hat seine E-Mail-Adresse nicht verifiziert. Weitere Informationen findest Du unter „[Eigene E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“.{% endif %}
 - Du führst den Push mit einem Deployment-Schlüssel durch. Wenn Du Übertragungen zum Repository Deiner Website automatisieren möchtest, kannst du stattdessen einen Maschinenbenutzer einrichten. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#machine-users)."
 - Du verwendest einen Dienst für die fortlaufende Integration, der nicht zum Erstellen Deiner Veröffentlichungsquelle konfiguriert ist. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. Weitere Informationen findest Du unter „[Build anpassen](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)“ auf Travis CI oder in der Dokumentation Deines Dienstes für die fortlaufende Integration.
@@ -34,7 +35,7 @@ Wenn beim Versuch von Jekyll, Deine Website zu erstellen, ein Fehler auftritt, w
 
 Weitere Informationen zur Behebung von Build-Fehlern findest Du unter „[Behebung von Jekyll-Build-Fehlern bei {% data variables.product.prodname_pages %}-Websites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites).“
 
-### Jekyll-Build-Fehlermeldungen anzeigen
+## Jekyll-Build-Fehlermeldungen anzeigen
 
 Wir empfehlen Ihnen, Ihre Website lokal zu testen. Dadurch sehen Sie Build-Fehlermeldungen in der Befehlszeile und können Build-Fehler beheben, bevor Sie die Änderungen zu {% data variables.product.product_name %} pushen. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_pages %}-Website lokal mit Jekyll testen](/articles/testing-your-github-pages-site-locally-with-jekyll).“
 

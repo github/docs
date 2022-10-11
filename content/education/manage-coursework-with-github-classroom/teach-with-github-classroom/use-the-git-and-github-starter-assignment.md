@@ -8,12 +8,6 @@ redirect_from:
 shortTitle: Starter assignment
 ---
 
-{% note %}
-
-**Note:** The Git & {% data variables.product.company_short %} starter assignment is in beta and subject to change.
-
-{% endnote %}
-
 The Git & {% data variables.product.company_short %} starter assignment is a pre-made course that summarizes the basics of Git and {% data variables.product.company_short %} and links students to resources to learn more about specific topics.
 
 ## Prerequisites

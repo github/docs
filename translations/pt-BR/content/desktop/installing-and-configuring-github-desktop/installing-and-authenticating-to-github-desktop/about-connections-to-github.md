@@ -5,7 +5,8 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/about-connections-to-github
   - /desktop/installing-and-configuring-github-desktop/about-connections-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Sobre conexões
 ---
 
 {% data variables.product.prodname_desktop %} conecta-se a {% data variables.product.prodname_dotcom %} quando você pull, push, clona e bifurca os repositórios remotos. Para se conectar a {% data variables.product.prodname_dotcom %} a partir de {% data variables.product.prodname_desktop %}, você deve autenticar sua conta. Para obter mais informações, consulte "
@@ -17,6 +18,6 @@ Depois de se autenticar no {% data variables.product.prodname_dotcom %}, você p
 
 
 
-### Leia mais
+## Leia mais
 
 - "[Clonagem e bifurcação de repositórios no GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)"

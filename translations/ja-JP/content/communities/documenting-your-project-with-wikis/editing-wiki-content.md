@@ -13,21 +13,21 @@ redirect_from:
   - /github/building-a-strong-community/editing-wiki-content
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
 ---
 
-### リンクの追加
+## リンクの追加
 
 ページでサポートされている標準的なマークアップや MediaWiki の構文を使ってウィキにリンクを作成できます。 例:
 
 - ページが Markdown でレンダリングされる場合、リンクの構文は `[Link Text](full-URL-of-wiki-page)` です。
 - MediaWiki 構文では、リンクの構文は `[[Link Text|nameofwikipage]]` となります。
 
-### 画像の追加
+## 画像の追加
 
 ウィキでは PNG、JPEG、および GIF 画像を表示できます。
 
@@ -38,13 +38,13 @@ topics:
 5. [Insert Image] ダイアログボックスで、画像の URL と代替テキスト (これは検索エンジンや画像リーダーで使われます) を入力します。
 6. [**OK**] をクリックします。
 
-#### リポジトリでの画像へのリンク
+### リポジトリでの画像へのリンク
 
 {% data variables.product.product_name %}上のリポジトリにある画像は、ブラウザで URL をコピーし、それを画像へのパスとして利用することでリンクできます。 たとえば、Markdown を使ってウィキに画像を埋め込むと、以下のようになります:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-### サポートされる MediaWiki 形式
+## サポートされる MediaWiki 形式
 
 ウィキがどのマークアップ言語で書かれたかにかかわらず、特定の MediaWiki 構文を常に使用できます。
 - リンク ([Asciidoc を除く](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))

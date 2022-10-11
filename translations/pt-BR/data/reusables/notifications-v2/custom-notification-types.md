@@ -1,2 +1,2 @@
-{%- if currentVersion == "free-pro-team@latest" %}issues, pulls requests, releases, security alerts, or discussions{% endif %}
-{%- if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}issues, pull requests, releases, or discussions{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}problemas, pull requests, versões, alertas de segurança ou discussões{% endif %}
+{%- ifversion ghes = 3.1 %}problemas, pull requests, versões ou discussões{% endif %}

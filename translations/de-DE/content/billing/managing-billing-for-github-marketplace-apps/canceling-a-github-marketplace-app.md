@@ -6,10 +6,9 @@ redirect_from:
   - /articles/canceling-an-app-for-your-personal-account/
   - /articles/canceling-an-app-for-your-organization/
   - /articles/canceling-a-github-marketplace-app
-  - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Cancellation
@@ -17,6 +16,7 @@ topics:
   - Organizations
   - Trials
   - User account
+shortTitle: Cancel a Marketplace app
 ---
 
 Wenn Du eine App kündigst, bleibt Dein Abonnement bis zum Ende des aktuellen Abrechnungszeitraums aktiv. Die Kündigung tritt zum nächsten Abrechnungsdatum in Kraft. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
@@ -25,21 +25,21 @@ Wenn Du eine kostenlose Testperiode auf einem kostenpflichtigen Plan kündigst, 
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-### Eine App für Dein persönliches Konto kündigen
+## Eine App für Dein persönliches Konto kündigen
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-### Eine kostenlose Testperiode einer App für Dein persönliches Konto kündigen
+## Eine kostenlose Testperiode einer App für Dein persönliches Konto kündigen
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-### Eine App für Deine Organisation kündigen
+## Eine App für Deine Organisation kündigen
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -50,7 +50,7 @@ Wenn Du eine kostenlose Testperiode auf einem kostenpflichtigen Plan kündigst, 
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-### Eine kostenlose Testperiode einer App für Deine Organisation kündigen
+## Eine kostenlose Testperiode einer App für Deine Organisation kündigen
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

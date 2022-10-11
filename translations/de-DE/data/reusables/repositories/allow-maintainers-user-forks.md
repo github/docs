@@ -1,4 +1,4 @@
-1. Wenn Du auf benutzereigenen Forks niemandem mit Push-Zugriff auf das vorgelagerte Repository erlauben möchtest, Änderungen an Deinem Pull Request vorzunehmen, deaktiviere die Option **Allow edits from maintainers** (Änderungen von Betreuern zulassen).
+1. On user-owned forks, if you want to allow anyone with push access to the upstream repository to make changes to your pull request, select **Allow edits from maintainers**.
 
     {% warning %}
 

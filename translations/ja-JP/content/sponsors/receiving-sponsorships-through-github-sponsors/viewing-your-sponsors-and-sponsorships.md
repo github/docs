@@ -5,28 +5,29 @@ redirect_from:
   - /articles/viewing-your-sponsors-and-sponsorships
   - /github/supporting-the-open-source-community-with-github-sponsors/viewing-your-sponsors-and-sponsorships
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Open Source
   - Analytics
+shortTitle: View sponsors & sponsorships
 ---
 
-### スポンサーとスポンサーシップについて
+## スポンサーとスポンサーシップについて
 
 現在と過去のスポンサーシップについての分析、スポンサーから受領した支払い、キャンセルなどのイベント、スポンサーシップのスポンサー層の変更を表示できます。 新しいスポンサーシップ、スポンサーシップの変更、スポンサーシップのキャンセルといったアクティビティも確認できます。 アクティビティのリストは、日付でフィルタリングできます。 表示しているアカウントのスポンサーシップデータを CSV または JSON 形式でエクスポートすることもできます。
 
-### スポンサーとスポンサーシップを表示する
+## スポンサーとスポンサーシップを表示する
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 1. あるいは、スポンサーを層によってフィルタリングするには、**Filter（フィルター）**ドロップダウンメニューで、**Active tiers（アクティブな層）**または**Retired tiers（リタイアした層）**をクリックしてから、層を選択します。 ![層によってフィルタリングするドロップダウンメニュー](/assets/images/help/sponsors/filter-drop-down.png)
 
-### 最近のスポンサーシップアクティビティを表示する
+## 最近のスポンサーシップアクティビティを表示する
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.activity-tab %}
 
-### スポンサーシップデータをエクスポートする
+## スポンサーシップデータをエクスポートする
 
 スポンサーシップのトランザクションは 月単位でエクスポートできます。 {% data variables.product.company_short %} で、選択した月のスポンサーすべてのトランザクションデータがメールでエクスポートされます。 エクスポートが完了したら、別の月のデータをエクスポートできます。 スポンサードアカウントごとに、1 時間に 10 セットまでのデータをエクスポートできます。
 

@@ -49,6 +49,12 @@ Billing managers **are not** able to:
 
 ## Inviting a billing manager
 
+{% note %}
+
+**Note:** If your organization is managed using [Enterprise Accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) you will not be able to invite Billing Managers at the organization level. 
+
+{% endnote %}
+
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
 {% data reusables.organizations.billing-settings %}

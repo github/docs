@@ -7,7 +7,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/receiving-sponsorships-as-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/receiving-sponsorships-through-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-github-sponsors-for-open-source-contributors
   - /setting-up-github-sponsors-for-your-user-account
@@ -21,5 +21,6 @@ children:
   - /tax-information-for-github-sponsors
   - /disabling-your-github-sponsors-account
   - /unpublishing-your-github-sponsors-profile
+  - /sponsors-for-companies
 ---
 

@@ -2,7 +2,7 @@
 title: 使用暂存环境
 intro: '了解在 {% data variables.product.prodname_ghe_server %} 暂存环境中使用 {% data variables.product.prodname_actions %}。'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 type: how_to
 topics:
   - Actions
@@ -11,6 +11,7 @@ topics:
   - Upgrades
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
+shortTitle: 使用暂存区域
 ---
 
 为 {% data variables.product.product_location %} 提供临时或测试环境会有用，这样您就可以在生产环境中实施更新或新功能之前进行测试。

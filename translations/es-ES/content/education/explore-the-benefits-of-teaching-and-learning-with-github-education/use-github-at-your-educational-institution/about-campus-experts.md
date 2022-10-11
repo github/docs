@@ -7,7 +7,7 @@ redirect_from:
   - /articles/about-campus-experts
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 Aprende habilidades comunicativas en público, escritura técnica, liderazgo comunitario y habilidades de desarrollo de software como un Experto en campus de {% data variables.product.prodname_dotcom %}.

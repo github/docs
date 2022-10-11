@@ -5,13 +5,14 @@ redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Accounts
   - Enterprise
   - Teams
+shortTitle: Remove user membership
 ---
 
 Nur Inhaber oder Teamadministratoren können Organisationsmitglieder entfernen. Wenn ein Benutzer aus einem Team oder aus einer Organisation entfernt wird, bleiben seine Issues, Pull Requests und Kommentare in den Repositorys der Organisation erhalten und sind ihm weiterhin zugeordnet.
@@ -22,7 +23,7 @@ Nur Inhaber oder Teamadministratoren können Organisationsmitglieder entfernen. 
 
 {% endwarning %}
 
-### Teammitglied entfernen
+## Teammitglied entfernen
 
 {% warning %}
 
@@ -38,7 +39,7 @@ Wenden Sie sich an Ihren LDAP-Administrator, um ein vorhandenes Mitglied eines m
 4. Wähle die Person(en) aus, die Du entfernen möchtest. ![Kontrollkästchen neben dem Organisationsmitglied](/assets/images/help/teams/team-member-check-box.png)
 5. Klicke im Dropdownmenü über der Liste der Teammitglieder auf **Remove from team** (Aus Team entfernen). ![Dropdownmenü mit Option zum Ändern der Rolle](/assets/images/help/teams/bulk-edit-drop-down.png)
 
-### Benutzer aus einer Organisation entfernen
+## Benutzer aus einer Organisation entfernen
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

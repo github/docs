@@ -1,21 +1,23 @@
 ---
 title: Organization
+intro: 'The Organizations API gives you access to control and manage all your {% data variables.product.product_name %} organizations.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## ユーザのブロック
 
 Organization に対するブロック呼び出しを実行するには、呼び出しの認証に使用するトークンに `admin:org` が必要です。 それがない場合には、`HTTP 404` が返されます。
@@ -40,7 +42,9 @@ Organization に対するブロック呼び出しを実行するには、呼び�
 
 ## webhook
 
-Organization の webhook を使用すると、Organization で特定のイベントが発生するとき必ず HTTP `POST` ペイロードを受け取ることができます。 そのようなイベントをサブスクライブすると、 {% data variables.product.product_name %} でのイベントに応答するインテグレーションを構築できます。 サブスクライブできるアクションの詳細は、「[{% data variables.product.prodname_dotcom %} のイベントタイプ](/developers/webhooks-and-events/github-event-types)」を参照してください。
+Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
+
+サブスクライブできるアクションの詳細は、「[{% data variables.product.prodname_dotcom %} のイベントタイプ](/developers/webhooks-and-events/github-event-types)」を参照してください。
 
 ### スコープと制限事項
 

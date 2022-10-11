@@ -4,7 +4,7 @@ redirect_from:
   - /eu-safe-harbor/
   - /articles/global-privacy-practices
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -16,13 +16,13 @@ O GitHub fornece o mesmo padrão alto de proteção de privacidade — conforme 
 
 O GitHub também está em conformidade com certos quadros jurídicos relacionados à transferência de dados do Espaço Econômico Europeu, Reino Unido, e Suíça (coletivamente, denominada “UE”) para os Estados Unidos. Quando o GitHub se envolve em tais transferências, ele conta com as Cláusulas Contratuais Padrão como mecanismo legal para ajudar a garantir que seus direitos e proteções acompanhem as suas informações pessoais. Além disso, a GitHub é certificado nos Quadros de Proteção à Privacidade entre UE e EUA e Suíça e EUA. Para saber mais sobre as decisões da Comissão Europeia sobre a transferência internacional de dados, veja este artigo no [site da Comissão Europeia](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
 
-### Cláusulas Contratuais Padrão
+## Cláusulas Contratuais Padrão
 
 O GitHub conta com as Cláusulas Contratuais Padrão aprovadas pela Comissão Europeia (“SCCs”) como um mecanismo legal para transferências de dados da UE. Os SCCs são compromissos contratuais entre empresas que transferem dados pessoais, vinculando-as a proteger a privacidade e a segurança desses dados. O GitHub adotou as SCCs para que os fluxos de dados necessários possam ser protegidos quando transferidos para fora da UE para países cuja proteção de dados não é considerada adequada pela Comissão Europeia, incluindo a proteção de transferências de dados para os Estados Unidos.
 
 Para saber mais sobre as SCCs, consulte este artigo no [site da Comissão Europeia](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en).
 
-### Estrutura de Defesa da Privacidade
+## Escudo de Defesa da Privacidade
 
 O GitHub é certificado nas estruturas do Escudo de Privacidade Privacidade entre a UE e os EUA e entre a Suíça e os EUA e nos compromissos que implicam, embora o GitHub não dependa da Estrutura do Escudo de Privacidade entre a UE e os EUA como base jurídica para transferências de informações pessoais à luz da decisão do Tribunal de Justiça da UE no processo C-311/18.
 
@@ -60,13 +60,13 @@ As Estruturas do Escudo de Privacidade têm por base sete princípios e o GitHub
   - Exigimos que nossos funcionários respeitem compromissos de privacidade, e a violação de nossas políticas de privacidade está sujeita a ações disciplinares, incluindo até mesmo a rescisão do contrato de emprego.
 
 
-#### Processo de resolução de conflitos
+### Processo de resolução de conflitos
 
 Conforme explicado na seção [Resolver reclamações](/github/site-policy/github-privacy-statement#resolving-complaints) da nossa [Declaração de privacidade](/github/site-policy/github-privacy-statement), nós o incentivamos a entrar em contato conosco, caso tenha uma reclamação relacionada ao Escudo de Privacidade (ou alguma reclamação relacionada à privacidade em geral). Para quaisquer reclamações que não possam ser resolvidas com o GitHub diretamente, selecionamos cooperar com a Autoridade de Proteção de Dados relevante da UE ou com o conselho criado pelas autoridades europeias de proteção de dados para a resolução de conflitos com indivíduos da UE, e com o Comissário Federal de Proteção e Informação de Dados (FDPIC) para a resolução de conflitos com indivíduos da Suíça. Se você precisar de direcionamento quanto aos contatos da sua autoridade de proteção de dados, entre em contato conosco.
 
 Se for residente de um estado-membro da UE, você terá o direito de apresentar queixa junto à autoridade de supervisão local.
 
-#### Arbitragem independente
+### Arbitragem independente
 
 Em determinadas circunstâncias, indivíduos da UE, da Área Econômica Europeia (AEE), da Suíça e do Reino Unido podem convocar arbitragem vinculativa para o Escudo de Proteção da Privacidade como último recurso, caso nenhuma das outras formas de resolução de conflitos tenha êxito. Para saber mais sobre esse método de resolução e sua disponibilidade para você, leia mais sobre o [Escudo de Proteção da Privacidade](https://www.privacyshield.gov/article?id=ANNEX-I-introduction). A arbitragem não é obrigatória; trata-se de uma ferramenta disponível para seu uso.
 

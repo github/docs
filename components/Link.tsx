@@ -7,7 +7,7 @@ const { NODE_ENV } = process.env
 type Props = { locale?: string; disableClientTransition?: boolean } & ComponentProps<'a'>
 export function Link(props: Props) {
   const { airGap } = useMainContext()
-  const { href, locale, disableClientTransition = true, ...restProps } = props
+  const { href, locale, disableClientTransition = false, ...restProps } = props
 
   if (!href && NODE_ENV !== 'production') {
     console.warn('Missing href on Link')
@@ -37,7 +37,7 @@ export function Link(props: Props) {
   }
 
   return (
-    <NextLink href={href || ''} locale={locale || false}>
+    <NextLink href={locale ? `/${locale}${href}` : href || ''} locale={locale || false}>
       {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
       <a rel={isExternal ? 'noopener' : ''} {...restProps} />
     </NextLink>

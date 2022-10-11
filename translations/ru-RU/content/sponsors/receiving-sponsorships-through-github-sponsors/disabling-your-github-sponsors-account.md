@@ -2,11 +2,12 @@
 title: Disabling your GitHub Sponsors account
 intro: 'If you no longer want to participate in {% data variables.product.prodname_sponsors %}, you can disable your {% data variables.product.prodname_sponsors %} account.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Disable your account
 ---
 
 If you are receiving sponsorship payments, you'll need to contact GitHub Support to disable your {% data variables.product.prodname_sponsors %} account.

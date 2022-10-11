@@ -5,7 +5,7 @@ redirect_from:
   - /articles/dmca-counter-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-counter-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ GitHub のあなたのコンテンツが DMCA テイクダウンリクエスト�
 
 法律に関わるあらゆる事項と同様、具体的な疑問や状況については専門家に相談するのが常に最善です。 あなたの権利に影響を及ぼす可能性のある行動をとる前に、そうすることを強くお勧めします。 このガイドは法律上の助言ではなく、またそのように解釈されるべきではありません。
 
-### はじめる前に
+## はじめる前に
 
 *** 真実を教えてください。***DMCA では、宣誓を行い、虚偽の申し立てを行った場合には*偽証罪によって罰せられるという条件で*異議申し立て通知を行うことを義務付けています。 宣誓宣言で意図的に虚偽の陳述を行うと連邦犯罪になります。   （[合衆国法典、タイトル 18、セクション 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm) *を参照してください</em>。 ）虚偽の情報を提出すると、民事責任が発生する可能性もあります。 つまり、金銭的損害で訴えられる可能性があります。
 
@@ -40,7 +40,7 @@ GitHub のあなたのコンテンツが DMCA テイクダウンリクエスト�
 
 ***その他のリソース。***さらにサポートが必要な場合は、インターネット上に利用できるリソースが数多く用意されています。 Lumen には、[著作権](https://www.lumendatabase.org/topics/5)と [DMCA セーフハーバー](https://www.lumendatabase.org/topics/14)に関する有益なガイドがあります。 法的助言が必要なオープンソースプロジェクトに関与している場合は、[Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/) に問い合わせることができます。 また、特に困難な事態に直面したと思われる場合は、[Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) などの非営利団体から直接支援を受けたり、弁護士を紹介してもらえる場合もあります。
 
-### 異議申し立て通知は...
+## 異議申し立て通知は...
 
 1. **"I have read and understand GitHub's Guide to Filing a DMCA Counter Notice."（GitHub の DMCA 異議申し立て通知提出ガイドを読んで理解しました。）という文言を含んでいなければなりません。**この文言が含まれていないとしても、異議申し立て通知に不備がなければ当社は処理を拒否しません。ただし、このガイドラインを読んでいないと判断できるため、ガイドラインを読むように求める場合があります。
 
@@ -54,7 +54,7 @@ GitHub のあなたのコンテンツが DMCA テイクダウンリクエスト�
 
 6. **物理的または電子的な署名を含めてください。**
 
-### 異議申し立て通知の提出方法
+## 異議申し立て通知の提出方法
 
 {% data variables.contact.contact_dmca %} で情報を入力し、すべての質問に答えることで、最も早く回答を得ることができます。
 

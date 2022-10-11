@@ -3,16 +3,17 @@ title: Requerir políticas de seguridad avanzada en tu cuenta empresarial
 intro: 'Los propietarios de las empresas pueden requerir políticas para administrar las características de {% data variables.product.prodname_GH_advanced_security %} para las organizaciones que pertenecen a una cuenta empresarial.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
+shortTitle: Políticas para la seguridad avanzada
 ---
 
-### Acerca de {% data variables.product.prodname_GH_advanced_security %}
+## Acerca de {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-### Requerir una política para las características de la {% data variables.product.prodname_advanced_security %}
+## Requerir una política para las características de la {% data variables.product.prodname_advanced_security %}
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 

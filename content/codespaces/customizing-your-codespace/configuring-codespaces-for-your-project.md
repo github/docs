@@ -13,14 +13,15 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
+product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Configure your project
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 ## About dev containers
 
-A development container, or dev container, is the environment that {% data variables.product.prodname_codespaces %} uses to provide the tools and runtimes that your project needs for development. When working with a dev container in {% data variables.product.prodname_codespaces %} you can either [use the default configuration](#using-the-default-configuration), [use a pre-defined configuration](#using-a-pre-defined-container-configuration), or [create your own configuration](#creating-a-custom-codespace-configuration). The option you choose is dependent on the tools, runtimes, dependencies, and workflows that a user might need to be successful with your project.
+A development container, or dev container, is the environment that {% data variables.product.prodname_codespaces %} uses to provide the tools and runtimes that your project needs for development. When working with a dev container in {% data variables.product.prodname_codespaces %} you can either [use the default configuration](#using-the-default-configuration), [use a predefined configuration](#using-a-predefined-container-configuration), or [create your own configuration](#creating-a-custom-codespace-configuration). The option you choose is dependent on the tools, runtimes, dependencies, and workflows that a user might need to be successful with your project.
 
 {% data variables.product.prodname_codespaces %} allows for customization on a per-project and per-branch basis with a `devcontainer.json` file. This configuration file determines the environment of every new codespace anyone creates for your repository by defining a development container that can include frameworks, tools, extensions, and port forwarding. A Dockerfile can also be used alongside the `devcontainer.json` file in the `.devcontainer` folder to define everything required to create a container image.
 

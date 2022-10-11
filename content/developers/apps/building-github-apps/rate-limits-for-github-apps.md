@@ -31,7 +31,7 @@ Different server-to-server request rate limits apply to {% data variables.produc
 
 ### {% data variables.product.prodname_ghe_cloud %} server-to-server rate limits
 
-{% data variables.product.prodname_github_apps %} that are installed on an organization or repository owned by a {% data variables.product.prodname_ghe_cloud %} account and make server-to-server requests have a rate limit of 15,000 requests per hour.
+{% data variables.product.prodname_github_apps %} that are installed on an organization or repository owned by a {% data variables.product.prodname_ghe_cloud %} account and make server-to-server requests have a rate limit of 15,000 requests per hour per organization for organization installations or per repository for repository installations.
 
 {% endif %}
 

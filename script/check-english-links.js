@@ -1,26 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import linkinator from 'linkinator'
-import program from 'commander'
-import { pull, uniq } from 'lodash-es'
-import xRimraf from 'rimraf'
-import xMkdirp from 'mkdirp'
-import { deprecated } from '../lib/enterprise-server-releases.js'
-import got from 'got'
-import excludedLinks from '../lib/excluded-links.js'
-import xLanguages from '../lib/languages.js'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const checker = new linkinator.LinkChecker()
-const rimraf = xRimraf.sync
-const mkdirp = xMkdirp.sync
-const root = 'https://docs.github.com'
-const englishRoot = `${root}/en`
-
-// Links with these codes may or may not really be broken.
-const retryStatusCodes = [429, 503, 'Invalid']
 
 // [start-readme]
 //
@@ -31,6 +9,27 @@ const retryStatusCodes = [429, 503, 'Invalid']
 // broken, so this script double-checks those using `got`.
 //
 // [end-readme]
+
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import linkinator from 'linkinator'
+import program from 'commander'
+import { pull, uniq } from 'lodash-es'
+import rimraf from 'rimraf'
+import mkdirp from 'mkdirp'
+import { deprecated } from '../lib/enterprise-server-releases.js'
+import got from 'got'
+import excludedLinks from '../lib/excluded-links.js'
+import libLanguages from '../lib/languages.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const checker = new linkinator.LinkChecker()
+const root = 'https://docs.github.com'
+const englishRoot = `${root}/en`
+
+// Links with these codes may or may not really be broken.
+const retryStatusCodes = [429, 503, 'Invalid']
 
 program
   .description('Check all links in the English docs.')
@@ -51,7 +50,7 @@ program
 // Skip excluded links defined in separate file.
 
 // Skip non-English content.
-const languagesToSkip = Object.keys(xLanguages)
+const languagesToSkip = Object.keys(libLanguages)
   .filter((code) => code !== 'en')
   .map((code) => `${root}/${code}`)
 
@@ -75,8 +74,8 @@ main()
 async function main() {
   // Clear and recreate a directory for logs.
   const logFile = path.join(__dirname, '../.linkinator/full.log')
-  rimraf(path.dirname(logFile))
-  mkdirp(path.dirname(logFile))
+  rimraf.sync(path.dirname(logFile))
+  await mkdirp(path.dirname(logFile))
 
   // Update CLI output and append to logfile after each checked link.
   checker.on('link', (result) => {

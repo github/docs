@@ -1,0 +1,74 @@
+.markdownBody {
+  ol:not(:global(.no-styling)) {
+    counter-reset: li;
+    list-style: none;
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 0;
+
+    > li {
+      padding: 8px 0 8px 40px;
+      border: 0;
+      position: relative;
+      margin-bottom: 5px;
+
+      &:before {
+        top: 2px;
+        font-size: 16px;
+        width: 24px;
+        content: counter(li);
+        counter-increment: li;
+        position: absolute;
+        left: 0;
+        height: 100%;
+        padding: 0 10px 0 0;
+        color: var(--color-auto-gray-4);
+        font-weight: bold;
+        line-height: 35px;
+        text-align: right;
+      }
+
+      &:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      p:first-child {
+        margin-top: 0;
+      }
+
+      p:not(:first-child) {
+        margin-top: 15px;
+      }
+
+      [class~="extended-markdown"] {
+        margin-top: 15px;
+      }
+    }
+
+    ol li:before:global(.no-styling) {
+      display: none;
+    }
+  }
+
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Override primer style */
+.markdownBody div > ol:not([type]) {
+  list-style-type: none;
+}

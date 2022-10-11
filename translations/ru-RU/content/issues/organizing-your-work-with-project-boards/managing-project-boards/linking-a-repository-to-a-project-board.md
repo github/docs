@@ -6,12 +6,15 @@ redirect_from:
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Link repository to board
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Anyone with write permissions to a project board can link repositories owned by that organization or user account to the project board. For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization/)" or "[Permission levels for user-owned project boards](/articles/permission-levels-for-user-owned-project-boards/)."
 
@@ -31,6 +34,6 @@ Anyone with write permissions to a project board can link repositories owned by 
 
 {% endnote %}
 
-### Дополнительная литература
+## Дополнительная литература
 
 - "[About projects boards](/articles/about-project-boards)"

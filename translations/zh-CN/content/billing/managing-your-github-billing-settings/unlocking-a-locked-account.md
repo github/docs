@@ -10,23 +10,23 @@ redirect_from:
   - /articles/unlocking-a-locked-personal-account/
   - /articles/unlocking-a-locked-organization-account/
   - /articles/unlocking-a-locked-account
-  - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/unlocking-a-locked-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Accounts
   - Downgrades
   - Organizations
   - User account
+shortTitle: 已锁定的帐户
 ---
 
 通过更新组织的付款方式和恢复付费状态，您可以解锁并访问自己的帐户。 我们不会要求您为锁定模式经过的时间付款。
 
 您可以将组织降级到 {% data variables.product.prodname_free_team %}，以继续使用公共仓库中相同的高级功能。 更多信息请参阅“[降级您的 {% data variables.product.product_name %} 订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)”。
 
-### 解锁组织因拒绝付款而锁定的功能
+## 解锁组织因拒绝付款而锁定的功能
 
 如果您组织的高级功能因拒绝付款而被锁定，您将需要更新帐单信息来触发新授权的扣费。 更多信息请参阅“[添加或编辑付款方式](/articles/adding-or-editing-a-payment-method)”。
 

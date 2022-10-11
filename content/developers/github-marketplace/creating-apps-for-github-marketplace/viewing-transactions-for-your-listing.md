@@ -30,6 +30,8 @@ You can view or download the transaction data to keep track of your subscription
 * **amount_in_cents:** The amount of the transaction in cents. When a value is less the plan amount, the user upgraded and the new plan is prorated. A value of zero indicates the user cancelled their plan.
 * **renewal_frequency:** The subscription renewal frequency, either `Monthly` or `Yearly`.
 * **marketplace_listing_plan_id:** The `id` of the subscription plan.
+* **region:** The name of the region present in billing address.
+* **postal_code:** The postal code value present in billing address.
 
 ![Marketplace insights](/assets/images/marketplace/marketplace_transactions.png)
 

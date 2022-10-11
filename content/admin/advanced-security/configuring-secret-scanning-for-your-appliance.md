@@ -27,7 +27,7 @@ topics:
 
 - The [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.product.product_location %}.
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes > 3.0 %} (see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)"){% endif %}
+- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes > 3.0 %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
 - {% data variables.product.prodname_secret_scanning_caps %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
@@ -50,8 +50,12 @@ If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to ref
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-1. Check if there is an **{% data variables.product.prodname_advanced_security %}** entry in the left sidebar.
-![Advanced Security sidebar](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
+1. Check if there is {% ifversion ghes < 3.2 %}an **{% data variables.product.prodname_advanced_security %}**{% else %}a **Security**{% endif %} entry in the left sidebar.
+{% ifversion ghes < 3.2 %}
+   ![Advanced Security sidebar](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
+{% else %}
+   ![Security sidebar](/assets/images/enterprise/3.2/management-console/sidebar-security.png)
+{% endif %}
 
 {% data reusables.enterprise_management_console.advanced-security-license %}
 
@@ -62,7 +66,7 @@ If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to ref
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_secret_scanning_caps %}**.
+1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," click **{% data variables.product.prodname_secret_scanning_caps %}**.
 ![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -73,6 +77,6 @@ If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to ref
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "{% data variables.product.prodname_advanced_security %}", unselect **{% data variables.product.prodname_secret_scanning_caps %}**.
+1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," unselect **{% data variables.product.prodname_secret_scanning_caps %}**.
 ![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}

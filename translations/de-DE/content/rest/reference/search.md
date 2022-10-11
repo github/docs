@@ -1,13 +1,15 @@
 ---
 title: Suche
+intro: 'The {% data variables.product.product_name %} Search API lets you to search for the specific item efficiently.'
 redirect_from:
   - /v3/search
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 The Search API helps you search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google. It's designed to help you find the one result you're looking for (or maybe the few results you're looking for). Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs. To satisfy that need, the {% data variables.product.product_name %} Search API provides **up to 1,000 results for each search**.
@@ -48,7 +50,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-See "[Searching on GitHub](/articles/searching-on-github/)" for a complete list of available qualifiers, their format, and an example of how to use them. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax/)."
+See "[Searching on GitHub](/articles/searching-on-github/)" for a complete list of available qualifiers, their format, and an example of how to use them. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
 
 ### Einschränkungen der Abfragelänge
 
