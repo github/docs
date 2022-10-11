@@ -5,9 +5,9 @@ intro: 'Aprenda como usar recursos da organização para colaborar com a sua equ
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 ---
 
@@ -15,13 +15,19 @@ type: how_to
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Visão Geral
+## Visão Geral
 
 Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie, centralizadamente, segredos, artefatos e executores auto-hospedados. Você também pode criar modelos de fluxo de trabalho no repositório `.github` e compartilhá-los com outros usuários na sua organização.
 
-### Criar um modelo do fluxo de trabalho
+## Criar um modelo do fluxo de trabalho
 
-Os modelos do fluxo de trabalh podem ser criados por usuários com acesso de gravação ao repositório `.github` da organização. Em seguida, os modelos podem ser usados por integrantes da organização com permissão para criar fluxos de trabalho. Os modelos do fluxo de trabalho podem ser usados para criar novos fluxos de trabalho nos repositórios públicos de uma organização; para usar modelos para criar fluxos de trabalho em repositórios privados, a organização deve fazer parte de um plano corporativo.
+Os modelos do fluxo de trabalh podem ser criados por usuários com acesso de gravação ao repositório `.github` da organização. Em seguida, os modelos podem ser usados por integrantes da organização com permissão para criar fluxos de trabalho.
+
+{% note %}
+
+**Observação:** Os modelos de fluxo de trabalho podem ser usados para criar novos fluxos de trabalho no repositório público de uma organização. Para usar modelos para criar fluxos de trabalho em repositórios privados, a organização deve fazer parte de um plano corporativo.
+
+{% endnote %}
 
 Este procedimento demonstra como criar um modelo de fluxo de trabalho e um arquivo de metadados. O arquivo de metadados descreve como o modelo é apresentado aos usuários quando estão criando um novo fluxo de trabalho.
 
@@ -78,7 +84,7 @@ Para adicionar outro modelo de fluxo de trabalho, adicione seus arquivos ao mesm
 
 ![Arquivos do modelo do fluxo de trabalho](/assets/images/help/images/workflow-template-files.png)
 
-### Usar um modelo de fluxo de trabalho da sua organização
+## Usar um modelo de fluxo de trabalho da sua organização
 
 Este procedimento demonstra como um membro da sua organização pode localizar e usar um modelo de fluxo de trabalho para criar um novo fluxo de trabalho. Os modelos de fluxo de trabalho de uma organização podem ser usados por qualquer pessoa que seja integrante da organização.
 
@@ -88,7 +94,7 @@ Este procedimento demonstra como um membro da sua organização pode localizar e
 1. Os modelos de fluxo de trabalho da sua organização estão localizados em sua própria seção intitulada "Fluxos de trabalho criados pelo _nome da organização_". Sob, nome do template que você gostaria de usar, clique em **Configurar este fluxo de trabalho**. ![Configurar este fluxo de trabalho](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 
-### Compartilhar segredos dentro de uma organização
+## Compartilhar segredos dentro de uma organização
 
 Você pode gerenciar seus segredos centralmente dentro de uma organização e, em seguida, disponibilizá-los para repositórios selecionados. Isso também significa que você pode atualizar um segredo em um único local e fazer com que a alteração seja aplicada em todos os fluxos de trabalho do repositório que usam o segredo.
 
@@ -105,13 +111,13 @@ Ao criar um segredo em uma organização, você pode usar uma política para lim
 1. Na lista suspensa **Acesso do repositório**, escolha uma política de acesso.
 1. Clique em **Add secret** (Adicionar segredo).
 
-### Compartilhe executores auto-hospedados dentro de uma organização
+## Compartilhe executores auto-hospedados dentro de uma organização
 
 Os administradores da organização podem adicionar seus executores auto-hospedados para grupos e, em seguida, criar políticas que controlam quais repositórios podem acessar o grupo.
 
 Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
 
-### Próximas etapas
+## Próximas etapas
 
 Para continuar aprendendo mais sobre {% data variables.product.prodname_actions %}, consulte "[Aumento da segurança para {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions).

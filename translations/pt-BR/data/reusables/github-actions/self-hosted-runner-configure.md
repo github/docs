@@ -1,6 +1,4 @@
-1. Selecione o sistema operacional e a arquitetura da sua máquina de executor auto-hospedada. ![Selecionar sistema operacional de executor auto-hospedado](/assets/images/help/settings/actions-runner-architecture-os.png)
-
-
+1. Select the operating system image and architecture of your self-hosted runner machine.
 1. Você verá instruções mostrando como baixar o executor e instalá-lo em sua máquina de executor auto-hospedada.
 
    Abra um shell em sua máquina de executor auto-hospedado e execute cada comando shell na ordem mostrada.

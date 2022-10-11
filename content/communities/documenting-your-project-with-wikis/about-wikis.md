@@ -34,4 +34,4 @@ You can edit wikis directly on {% data variables.product.product_name %}, or you
 - "[Creating a footer or sidebar for your wiki](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"
 - "[Editing wiki content](/communities/documenting-your-project-with-wikis/editing-wiki-content)"
 - "[Viewing a wiki's history of changes](/articles/viewing-a-wiki-s-history-of-changes)"
-- "[Searching wikis](/articles/searching-wikis)"
+- "[Searching wikis](/search-github/searching-on-github/searching-wikis)"

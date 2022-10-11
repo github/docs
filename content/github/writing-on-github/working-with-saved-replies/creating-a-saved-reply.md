@@ -18,7 +18,7 @@ versions:
 5. To review your reply, click **Preview**.
 ![Add a saved reply](/assets/images/help/settings/saved-replies-preview.png)
 6. Click **Add saved reply**.
-![Add a saved reply](/assets/images/help/settings/saved-replies-add-button.png)
+!["Add saved reply" button](/assets/images/help/settings/saved-replies-add-button.png)
 
 ## Further reading
 

@@ -9,7 +9,7 @@ type Props = { patch: ReleaseNotePatch; didEnterView: () => void }
 export function GHAEReleaseNotePatch({ patch, didEnterView }: Props) {
   const { t } = useTranslation('release_notes')
   const containerRef = useRef<HTMLDivElement>(null)
-  const onScreen = useOnScreen(containerRef, '-40% 0px -50%')
+  const onScreen = useOnScreen(containerRef, { rootMargin: '-40% 0px -50%' })
   useEffect(() => {
     if (onScreen) {
       didEnterView()

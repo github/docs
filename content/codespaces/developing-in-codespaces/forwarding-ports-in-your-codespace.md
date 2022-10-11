@@ -1,6 +1,7 @@
 ---
 title: Forwarding ports in your codespace
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
 redirect_from:
@@ -13,7 +14,7 @@ topics:
 shortTitle: Forward ports
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 ## About forwarded ports
 
@@ -46,7 +47,7 @@ You can label a port to make the port more easily identifiable in a list.
 
 ## Sharing a port
 
-If you want to share a forwarded port with others, you can make the port public. After you make a port public, anyone with the port's URL can view the running application without needing to authenticate.
+If you want to share a forwarded port with others, you need to make the port public. After you make a port public, anyone with the port's URL can view the running application without needing to authenticate.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Right click the port you want to share, then click **Make Public**.

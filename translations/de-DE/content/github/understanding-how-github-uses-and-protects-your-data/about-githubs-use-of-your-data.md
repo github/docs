@@ -5,13 +5,14 @@ redirect_from:
   - /articles/about-githubs-use-of-your-data
 intro: '{% data variables.product.product_name %} verwendet die Daten Ihres Repositorys, um Sie mit relevanten Tools, Personen, Projekten und Informationen zu verknüpfen.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
+shortTitle: GitHub's use of your data
 ---
  
-### About {% data variables.product.product_name %}'s use of your data
+## About {% data variables.product.product_name %}'s use of your data
 
 {% data variables.product.product_name %} bündelt Metadaten und analysiert Inhaltsmuster, um allgemeine Erkenntnisse innerhalb des Produkts bereitzustellen. Es nutzt Daten aus öffentlichen Repositorys sowie Metadaten und aggregierte Daten aus privaten Repositorys, wenn der Inhaber eines Repositorys sich dafür entschieden hat, die Daten für {% data variables.product.product_name %} per Zustimmung freizugeben. Wenn Sie der Datennutzung für ein privates Repository zustimmen, wird eine schreibgeschützte Analyse dieses spezifischen privaten Repositorys durchgeführt.
 
@@ -23,7 +24,7 @@ If you opt in to data use for a private repository, we will continue to treat yo
 
 Wir kündigen wesentliche neue Funktionen, die Metadaten oder aggregierte Daten nutzen, auf dem [{% data variables.product.prodname_dotcom %}-Blog](https://github.com/blog) an.
 
-### Wie Daten die Sicherheitsempfehlungen verbessern
+## Wie Daten die Sicherheitsempfehlungen verbessern
 
 Durch die Nutzung Ihrer Daten können wir beispielsweise eine Sicherheitsschwachstelle in den Abhängigkeiten Ihres öffentlichen Repositorys erkennen und Sie darüber informieren. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |
 
@@ -31,7 +32,7 @@ Um potenzielle Sicherheitsschwachstellen zu erkennen, prüft {% data variables.p
 
 {% data variables.product.product_name %} erfährt auch von Änderungen, die Sie an Ihrem Abhängigkeitsmanifest vornehmen. Wenn Sie beispielsweise eine angreifbare Abhängigkeit nach Erhalt einer Sicherheitsmeldung auf eine sichere Version aktualisieren und andere dasselbe tun, erkennt {% data variables.product.product_name %}, wie man die Schwachstelle patcht, und kann den betroffenen Repositorys einen ähnlichen Patch empfehlen.
 
-### Datenschutz und Datenfreigabe
+## Datenschutz und Datenfreigabe
 
 Daten aus privaten Repositorys werden maschinell erfasst und nie von {% data variables.product.product_name %}-Mitarbeitern gelesen. Menschliche Augen sehen niemals den Inhalt Ihrer privaten Repositorys, außer in den in unseren [Nutzungsbedingungen](/articles/github-terms-of-service/#3-access) beschriebenen Fällen.
 

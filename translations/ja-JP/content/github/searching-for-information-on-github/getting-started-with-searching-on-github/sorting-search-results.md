@@ -5,9 +5,9 @@ redirect_from:
   - /articles/sorting-search-results
   - /github/searching-for-information-on-github/sorting-search-results
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
@@ -18,7 +18,7 @@ topics:
 
 インタラクション、リアクション、作者日付、コミッター日付、またはアイテム更新頻度でソートするには、検索クエリに `sort` 修飾子を追加します。
 
-### インタラクションでソート
+## インタラクションでソート
 
 `sort:interactions` 修飾子は、インタラクションおよびコメントの合計数の多い順にソートします。
 
@@ -27,7 +27,7 @@ topics:
 | `sort:interactions` または `sort:interactions-desc` | [**org:github sort:interactions**](https://github.com/search?q=org%3Agithub+sort%3Ainteractions&type=Issues) は、{% data variables.product.product_name %} が所有するリポジトリの Issue にマッチし、インタラクションおよびコメントの合計数の多い順にソートされます。                         |
 | `sort:interactions-asc`                          | [**org:github sort:interactions-asc**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Ainteractions-asc&type=Issues) は、{% data variables.product.product_name %} が所有するリポジトリの Issue にマッチし、インタラクションおよびコメントの合計数の少ない順にソートされます。 |
 
-### リアクションでソート
+## リアクションでソート
 
 `sort:reactions` 修飾子は、リアクションおよびコメントの合計数の多い順にソートします。
 
@@ -41,7 +41,7 @@ topics:
 |                                            | [**org:github sort:reactions-tada**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-tada&type=Issues) は、{% data variables.product.product_name %} が所有するリポジトリの Issue にマッチし、「やったー！」(:tada:) の多い順にソートされます。         |
 |                                            | [**org:github sort:reactions-heart**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-heart&type=Issues) は、{% data variables.product.product_name %} が所有するリポジトリの Issue にマッチし、ハート (:heart:) が多い順にソートされます。         |
 
-### オーサー日付でソート
+## オーサー日付でソート
 
 `sort:author-date` 修飾子は、オーサー日付を降順または昇順でソートします。
 
@@ -50,7 +50,7 @@ topics:
 | `sort:author-date` または `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) は、オーサー日付で降順にソートされた、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチします。      |
 | `sort:author-date-asc`                         | [**feature org:github sort:author-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) は、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチし、作者日付の昇順でソートされます。 |
 
-### コミッター日付でソート
+## コミッター日付でソート
 
 `sort:committer-date` 修飾子は、コミッター日付を降順または昇順でソートします。
 
@@ -59,7 +59,7 @@ topics:
 | `sort:committer-date` または `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) は、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチし、コミッター日付の降順にソートされます。         |
 | `sort:committer-date-asc`                            | [**feature org:github sort:committer-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) は、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチし、コミッター日付の昇順でソートされます。 |
 
-### 更新日付でソート
+## 更新日付でソート
 
 `sort:updated` 修飾子は、アイテムがどれだけ最近に更新されたかでソートします。
 
@@ -68,7 +68,7 @@ topics:
 | `sort:updated` または `sort:updated-desc` | [**feature sort:updated**](https://github.com/search?utf8=%E2%9C%93&q=feature+sort%3Aupdated&type=Repositories) は、「feature」という単語を含むリポジトリにマッチし、更新日付の新しい順でソートされます。         |
 | `sort:updated-asc`                     | [**feature sort:updated-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+sort%3Aupdated-asc&type=Repositories) は、更新日付の古い順でソートされた、「feature」という単語を含むリポジトリにマッチします。 |
 
-### 参考リンク
+## 参考リンク
 
-- [GitHub での検索について](/articles/about-searching-on-github)
-- [Issue およびプルリクエストをソートする](/articles/sorting-issues-and-pull-requests/)
+- "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)"
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

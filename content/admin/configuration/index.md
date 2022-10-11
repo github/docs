@@ -12,9 +12,9 @@ topics:
 children:
   - /configuring-your-enterprise
   - /configuring-network-settings
-  - /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
+  - /managing-connections-between-your-enterprise-accounts
 ---
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 {% note %}
 
 **Note:** To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see "[Managing GitHub Actions for your enterprise](/admin/github-actions)" or "[Managing GitHub Packages for your enterprise](/admin/packages)."

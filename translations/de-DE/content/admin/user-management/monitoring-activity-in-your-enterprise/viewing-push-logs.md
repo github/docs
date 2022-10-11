@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -27,7 +27,7 @@ Push-Protokolleinträge zeigen:
 - Der für den Push-Vorgang verwendete Git-Client
 - Die SHA-Hashes vor und nach dem Vorgang
 
-### Push-Protokolle eines Repositorys anzeigen
+## Push-Protokolle eines Repositorys anzeigen
 
 1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
 1. Navigieren Sie zu einem Repository.
@@ -35,8 +35,8 @@ Push-Protokolleinträge zeigen:
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. Klicken Sie auf der linken Seitenleiste auf **Push Log** (Push-Protokoll). ![Registerkarte „Push log“ (Push-Protokoll)](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Push-Protokolle eines Repositorys an der Befehlszeile anzeigen
+{% ifversion ghes %}
+## Push-Protokolle eines Repositorys an der Befehlszeile anzeigen
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. Öffnen Sie im entsprechenden Git-Repository die Auditprotokolldatei:

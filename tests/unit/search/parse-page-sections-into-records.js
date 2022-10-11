@@ -1,15 +1,15 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
-import fs from 'fs'
+import fs from 'fs/promises'
 import cheerio from 'cheerio'
 import parsePageSectionsIntoRecords from '../../../script/search/parse-page-sections-into-records.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const fixtures = {
-  pageWithSections: fs.readFileSync(
+  pageWithSections: await fs.readFile(
     path.join(__dirname, 'fixtures/page-with-sections.html'),
     'utf8'
   ),
-  pageWithoutSections: fs.readFileSync(
+  pageWithoutSections: await fs.readFile(
     path.join(__dirname, 'fixtures/page-without-sections.html'),
     'utf8'
   ),

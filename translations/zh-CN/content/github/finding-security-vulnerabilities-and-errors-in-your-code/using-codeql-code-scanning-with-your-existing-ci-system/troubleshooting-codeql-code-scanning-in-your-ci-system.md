@@ -4,7 +4,7 @@ shortTitle: CI 中的故障排除
 intro: '如果您在 {% data variables.product.prodname_codeql_runner %} 方面遇到问题，可使用这些提示来排除故障。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -13,11 +13,11 @@ redirect_from:
 
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### `init` 命令耗时太长
+## `init` 命令耗时太长
 
 在 {% data variables.product.prodname_codeql_runner %} 可以构建和分析代码之前，它需要访问 {% data variables.product.prodname_codeql %} 包，其中包含 {% data variables.product.prodname_codeql %} CLI 和 {% data variables.product.prodname_codeql %} 库。
 
@@ -26,7 +26,7 @@ redirect_from:
 
 为避免这种自动下载，您可以手动将 {% data variables.product.prodname_codeql %} 包下载到您的计算机上，并使用 `init` 命令的 `--codeql-path` 标志指定路径。
 
-### 构建过程中找不到代码
+## 构建过程中找不到代码
 
 如果用于 {% data variables.product.prodname_codeql_runner %} 的 `analyze` 命令失败并返回错误 `No source code was seen during the build`，这表明 {% data variables.product.prodname_codeql %} 无法监视您的代码。 有几个原因可以解释这种失败。
 

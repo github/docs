@@ -4,19 +4,20 @@ intro: 'Du kannst Webhooks konfigurieren, damit Du benachrichtigt wirst, wenn Du
 redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Webhooks
   - Events
   - Open Source
+shortTitle: Webhooks for events
 ---
 
-### About webhooks for events in your sponsored account
+## About webhooks for events in your sponsored account
 
 Damit Du Änderungen wie zum Beispiel die Kündigung eines Sponsorings am Ende der Zahlungsperiode überwachen kannst, kannst Du Webhooks für Deine unterstützten Benutzer- oder Organisations-Konten erstellen. When you set up a webhook for your sponsored account, you'll receive updates when sponsorships are created, edited, or deleted. For more information, see the [`sponsorship` webhook event](/webhooks/event-payloads/#sponsorship).
 
-### Managing webhooks for events in your sponsored account
+## Managing webhooks for events in your sponsored account
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-webhooks-tab %}

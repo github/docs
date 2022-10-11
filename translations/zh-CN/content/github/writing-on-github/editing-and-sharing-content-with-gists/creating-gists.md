@@ -1,6 +1,7 @@
 ---
-title: Creating gists
-intro: 'You can create two kinds of gists: {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and secret. Create {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} gist if you''re ready to share your ideas with {% if currentVersion == "github-ae@latest" %}enterprise members{% else %}the world{% endif %} or a secret gist if you''re not.'
+title: 创建 Gist
+intro: '您可以创建两种 gist：{% ifversion ghae %}内部{% else %}公共{% endif %}和秘密。 如果您准备与{% ifversion ghae %}企业成员{% else %}全世界{% endif %}分享您的创意，请创建{% ifversion ghae %}内部{% else %}公共{% endif %} gist，否则请创建秘密 gist。'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/about-gists/
   - /articles/cannot-delete-an-anonymous-gist/
@@ -8,73 +9,72 @@ redirect_from:
   - /articles/creating-gists
   - /github/writing-on-github/creating-gists
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
-### About gists
 
-Every gist is a Git repository, which means that it can be forked and cloned. {% if currentVersion != "github-ae@latest" %}If you are signed in to {% data variables.product.product_name %} when{% else %}When{% endif %} you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
+## 关于 gists
 
-Gists can be {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret. {% if currentVersion == "github-ae@latest" %}Internal{% else %}Public{% endif %} gists show up in {% data variables.gists.discover_url %}, where {% if currentVersion == "github-ae@latest" %}enterprise members{% else %}people{% endif %} can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work.
+每个 gist 都是一个 Git 仓库，意即可以复刻和克隆。 {% ifversion not ghae %}如果您在{% else %}在{% endif %}创建 Gist 时登录了 {% data variables.product.product_name %}，则该 Gist 将与您的帐户相关联， 当您导航到 {% data variables.gists.gist_homepage %} 时，您会在 Gist 列表中看到它。
 
-Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. Secret gists aren't private. If you send the URL of a secret gist to {% if currentVersion == "github-ae@latest" %}another enterprise member{% else %}a friend {% endif %}, they'll be able to see it. However, if {% if currentVersion == "github-ae@latest" %}any other enterpise member{% else %}someone you don't know{% endif %} discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/articles/creating-a-new-repository) instead.
+Gist 可设为{% ifversion ghae %}内部{% else %}公共{% endif %}或秘密。 {% ifversion ghae %}内部{% else %}公共{% endif %} gist 显示在 {% data variables.gists.discover_url %} 中，{% ifversion ghae %}企业成员{% else %}人们{% endif %}可以在其中浏览新建的 gist。 它们也可供搜索，因此，如果您希望其他人查找和查看您的工作，便可使用公共 gists。
+
+密码 gist 不会显示在 {% data variables.gists.discover_url %} 中，也不可搜索。 秘密 Gist 不是私有 Gist。 If you send the URL of a secret gist to {% ifversion ghae %}another enterprise member{% else %}a friend{% endif %}, they'll be able to see it. 但是，如果{% ifversion ghae %}任何其他企业成员{% else %}您不认识的人{% endif %}发现了该 URL，他们也能够看到您的 Gist。 如果需要让您的代码不被偷窥，可能要改为[创建私有仓库](/articles/creating-a-new-repository)。
 
 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-If your site administrator has disabled private mode, you can also use anonymous gists, which can be public or secret.
+如果您的站点管理员禁用了私有模式，您也可以使用匿名 gists，可以是公共 gists 或秘密 gists。
 
 {% data reusables.gist.anonymous-gists-cannot-be-deleted %}
 
 {% endif %}
 
-You'll receive a notification when:
-- You are the author of a gist.
-- Someone mentions you in a gist.
-- You subscribe to a gist, by clicking **Subscribe** at the top any gist.
+您在以下情况下会收到通知：
+- 您是新 gist 的作者。
+- 有人在 gist 中提及您。
+- 单击任何 gist 顶部的 **Subscribe（订阅）**以订阅 gist。
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
-You can pin gists to your profile so other people can see them easily. For more information, see "[Pinning items to your profile](/articles/pinning-items-to-your-profile)."
-
-{% endif %}
-
-You can discover {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. Gist search uses the same search syntax as [code search](/articles/searching-code).
-
-Since gists are Git repositories, you can view their full commit history, complete with diffs. You can also fork or clone gists. For more information, see ["Forking and cloning gists"](/articles/forking-and-cloning-gists).
-
-You can download a ZIP file of a gist by clicking the **Download ZIP** button at the top of the gist. You can embed a gist in any text field that supports Javascript, such as a blog post. To get the embed code, click the clipboard icon next to the **Embed** URL of a gist. To embed a specific gist file, append the **Embed** URL with `?file=FILENAME`.
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Mapping GeoJSON files on {% data variables.product.product_name %}](/articles/mapping-geojson-files-on-github)."
+您可以在个人资料中置顶 Gist，使其他人更容易看到它们。 更多信息请参阅“[将项目嵌入到个人资料](/articles/pinning-items-to-your-profile)”。
 
 {% endif %}
 
-### Creating a gist
+通过访问 {% data variables.gists.gist_homepage %} 并单击 **All Gists（所有 Gist）**，您可以发现其他人创建的{% ifversion ghae %}内部{% else %}公共{% endif %} gist。 将会显示所有 gists 存储的页面，gist 按创建或更新时间显示。 您也可以通过 {% data variables.gists.gist_search_url %} 按语言搜索 gist。 Gist 搜索使用的搜索语法与[代码搜索](/search-github/searching-on-github/searching-code)相同。
 
-You can also drag and drop a text file from your desktop directly into the gist editor.
+由于 gists 是 Git 仓库，因此您可以查看其整个提交历史记录，包括差异。 您也可以复刻或克隆 gists。 更多信息请参阅[“复刻和克隆 gists”](/articles/forking-and-cloning-gists)。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+您可以单击 gist 顶部的 **Download ZIP（下载 ZIP）**按钮下载 gist 的 ZIP 文件。 您可以将 gist 嵌入到支持 Javascript 的任何文本字段中，如博文。 要获取嵌入的代码，请单击 gist 的**嵌入** URL 旁边的剪贴板图标。 要嵌入特定的 gist 文件，请使用 `?file=FILENAME` 附加**嵌入** URL。
+
+{% ifversion fpt %}
+
+Gist 支持地图 GeoJSON 文件。 这些地图显示在嵌入的 Gist 中，因此您可以轻松分享和嵌入地图。 For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+
+{% endif %}
+
+## 创建 Gist
+
+按照以下步骤创建 gist。
+
+{% ifversion fpt or ghes or ghae %}
 {% note %}
 
-You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+您也可以使用 {% data variables.product.prodname_cli %} 创建 Gist。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh Gist 创建`](https://cli.github.com/manual/gh_gist_create)”。
+
+或者，也可以将桌面上的文本文件直接拖放到编辑器中。
 
 {% endnote %}
 {% endif %}
 
-1. Sign in to {% data variables.product.product_name %}.
-2. Navigate to your {% data variables.gists.gist_homepage %}.
-3. Type an optional description and name for your gist.
-![Gist name description](/assets/images/help/gist/gist_name_description.png)
+1. 登录 {% data variables.product.product_name %}。
+2. 导航到 {% data variables.gists.gist_homepage %}。
+3. 键入 Gist 的说明（可选）和名称。 ![Gist 名称说明](/assets/images/help/gist/gist_name_description.png)
 
-4. Type the text of your gist into the gist text box.
-![Gist text box](/assets/images/help/gist/gist_text_box.png)
+4. 在 Gist 文本框中键入 Gist 的文本内容。 ![Gist 文本框](/assets/images/help/gist/gist_text_box.png)
 
-5. Optionally, to create {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gist**. 
-![Drop-down menu to select gist visibility]{% if currentVersion == "github-ae@latest" %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
+5. （可选）要创建{% ifversion ghae %}内部{% else %}公共{% endif %} gist，请单击 {% octicon "triangle-down" aria-label="The downwards triangle icon" %}，然后单击**创建{% ifversion ghae %}内部{% else %}公共{% endif %} gist**。 ![选择 Gist 可见性的下拉菜单]{% ifversion ghae %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 
-6. Click **Create secret Gist** or **Create {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gist**. 
-  ![Button to create gist](/assets/images/help/gist/create-secret-gist-button.png)
+6. 单击 **Create secret Gist（创建秘密 Gist）**或**创建{% ifversion ghae %}内部{% else %}公共{% endif %} gist**。 ![创建 Gist 的按钮](/assets/images/help/gist/create-secret-gist-button.png)

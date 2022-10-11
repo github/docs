@@ -4,8 +4,8 @@ intro: '您可以配置用户如何登录到 {% data variables.product.product_n
 redirect_from:
   - /enterprise/admin/authentication
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

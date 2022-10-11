@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import readJsonFile from '../../lib/read-json-file.js'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 const previews = readJsonFile('./lib/graphql/static/previews.json')
 const upcomingChanges = readJsonFile('./lib/graphql/static/upcoming-changes.json')
 const changelog = readJsonFile('./lib/graphql/static/changelog.json')

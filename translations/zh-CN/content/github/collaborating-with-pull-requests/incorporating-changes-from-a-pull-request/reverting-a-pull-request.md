@@ -6,18 +6,18 @@ redirect_from:
   - /articles/reverting-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
-### 关于还原拉取请求
+## 关于还原拉取请求
 
 在 {% data variables.product.product_name %} 上还原拉取请求会创建一个新拉取请求。其中包含原始合并拉取请求中一个还原的合并提交。
 
-### 还原拉取请求
+## 还原拉取请求
 
 {% note %}
 

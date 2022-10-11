@@ -4,7 +4,7 @@ intro: 'Puedes monitorear tu aplicativo, mejorar a una versión nueva y configur
 redirect_from:
   - /enterprise/admin/enterprise-management
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -12,5 +12,6 @@ children:
   - /updating-the-virtual-machine-and-physical-resources
   - /configuring-clustering
   - /configuring-high-availability
+shortTitle: 'Monitorear, administrar & actualizar'
 ---
 

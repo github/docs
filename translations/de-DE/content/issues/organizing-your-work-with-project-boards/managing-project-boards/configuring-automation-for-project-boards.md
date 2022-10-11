@@ -6,12 +6,15 @@ redirect_from:
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Configure automation
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.automate-project-board-permissions %} Weitere Informationen findest Du unter „[Informationen zur Automatisierung für Projektboards](/articles/about-automation-for-project-boards).“
 
@@ -32,5 +35,5 @@ topics:
 5. Wählen Sie die Workflow-Automatisierungen aus, die Sie für die Spalte konfigurieren möchten. ![Liste der Optionen für die Automatisierung der Spalte](/assets/images/help/projects/select-automation-options-existing-column.png)
 6. Klicke auf **Update automation** (Automatisierung aktualisieren).
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 - „[Informationen zur Automatisierung für Projektboards](/articles/about-automation-for-project-boards)“

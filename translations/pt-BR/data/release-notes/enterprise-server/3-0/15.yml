@@ -1,0 +1,18 @@
+---
+date: '2021-09-07'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Attempting to tear down a newly-added replica node by specifying its UUID with `ghe-repl-teardown` would fail without reporting an error if replication was not started.
+    - GitHub Pages builds were being passed through an external proxy if there was one configured.
+    - Custom pre-receive hooks that created sub-processes would lack a `PATH` variable in their environment, resulting in "No such file or directory" errors.
+    - MySQL could failover during an upgrade if `mysql-auto-failover` was enabled.
+  known_issues:
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

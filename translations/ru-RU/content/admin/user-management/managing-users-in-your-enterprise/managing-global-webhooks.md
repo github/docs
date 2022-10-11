@@ -6,15 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/managing-global-webhooks
   - /admin/user-management/managing-global-webhooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Webhooks
 ---
 
-### About global webhooks
+## About global webhooks
 
 You can use global webhooks to automatically monitor, respond to, or enforce rules for user and organization management for your enterprise. For example, you can configure your webhooks to execute whenever:
 - A user account is created or deleted
@@ -26,7 +26,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-### Adding a global webhook
+## Adding a global webhook
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -49,7 +49,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 12. Confirm that the **Active** checkbox is selected (it is selected by default). ![Selected Active checkbox](/assets/images/enterprise/site-admin-settings/add-global-webhook-active-checkbox.png)
 13. Click **Add webhook**.
 
-### Editing a global webhook
+## Editing a global webhook
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -58,7 +58,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 6. Update the webhook's settings.
 7. Click **Update webhook**.
 
-### Deleting a global webhook
+## Deleting a global webhook
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -66,7 +66,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 5. Next to the webhook you'd like to delete, click **Delete**. ![Delete button next to a webhook](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
 6. Read the information about deleting a webhook, then click **Yes, delete webhook**. ![Pop-up box with warning information and button to confirm deleting the webhook](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
 
-### Viewing recent deliveries and responses
+## Viewing recent deliveries and responses
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

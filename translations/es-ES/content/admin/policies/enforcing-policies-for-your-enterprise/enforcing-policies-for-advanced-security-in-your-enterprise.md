@@ -3,8 +3,8 @@ title: Requerir políticas para la seguridad avanzada en tu empresa
 intro: 'Los propietarios de empresa pueden requerir políticas para adminsitrar las características de la {% data variables.product.prodname_GH_advanced_security %} en las organizaciones de {% data variables.product.product_location %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  enterprise-server: '>=3.1'
-  github-ae: next
+  ghes: '>=3.1'
+  ghae: next
 type: how_to
 topics:
   - Advanced Security
@@ -14,13 +14,14 @@ topics:
   - Security
 redirect_from:
   - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
+shortTitle: Políticas de seguridad avanzada
 ---
 
-### Acerca de {% data variables.product.prodname_GH_advanced_security %}
+## Acerca de {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-### Requerir una política para las características de la {% data variables.product.prodname_advanced_security %}
+## Requerir una política para las características de la {% data variables.product.prodname_advanced_security %}
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 

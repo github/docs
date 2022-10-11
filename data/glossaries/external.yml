@@ -9,6 +9,7 @@
     access token.
 - term: account recovery token
   description: >-
+    **Deprecated and will be disabled December 1st, 2021.**
     The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - term: API preview
   description: >-
@@ -597,6 +598,7 @@
     the HEAD of that branch to the result.
 - term: Recover Accounts Elsewhere
   description: >-
+    **Deprecated and will be disabled December 1st, 2021.**
     Allows users to add an extra security factor to their GitHub account in case they
     lose access to their two-factor authentication method or recovery codes.
     Users can associate their GitHub account with their Facebook account by

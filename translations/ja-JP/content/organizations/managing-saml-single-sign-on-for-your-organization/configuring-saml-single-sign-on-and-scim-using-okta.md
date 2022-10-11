@@ -6,13 +6,14 @@ redirect_from:
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: OktaでSAMLとSCIMを設定する
 ---
 
-### Okta での SAML と SCIM について
+## Okta での SAML と SCIM について
 
 Organization がアイデンティティプロバイダ (IdP) である Okta を使う SAML SSO と SCIM を使用するように設定すれば、{% data variables.product.prodname_dotcom %} Organization や他の Web アプリケーションへのアクセスを、1 つの集中インターフェースから制御することができます。
 
@@ -27,11 +28,11 @@ SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_clo
 | プロフィール更新のプッシュ | Okta でユーザのプロフィールを更新すると、そのユーザの {% data variables.product.prodname_dotcom %} の Organization でのメンバーシップに関するメタデータが更新されます。 |
 | ユーザの再アクティブ化   | Okta でユーザを再アクティブ化すると、{% data variables.product.prodname_dotcom %} の Organization に復帰するための招待メールがそのユーザに届きます。           |
 
-### 必要な環境
+## 必要な環境
 
 {% data reusables.saml.use-classic-ui %}
 
-### Okta で {% data variables.product.prodname_ghe_cloud %} アプリケーションを追加する
+## Okta で {% data variables.product.prodname_ghe_cloud %} アプリケーションを追加する
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.add-okta-application %}
@@ -42,7 +43,7 @@ SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_clo
 
 6. [**Done**] をクリックします。
 
-### SAML SSO の有効化とテスト
+## SAML SSO の有効化とテスト
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
@@ -51,7 +52,7 @@ SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_clo
 {% data reusables.saml.okta-view-setup-instructions %}
 6. SAML 2.0 の設定方法に関するガイドから、サインオン URL、発行者 URL、公開の証明書を使用して、{% data variables.product.prodname_dotcom %} での SAML SSO を有効化してテストします。 詳細は「[Organization での SAML シングルサインオンの有効化とテスト](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)」を参照してください。
 
-### Okta で SCIM を使ってアクセスのプロビジョニングを設定する
+## Okta で SCIM を使ってアクセスのプロビジョニングを設定する
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
@@ -73,9 +74,9 @@ SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_clo
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
 
-### 参考リンク
+## 参考リンク
 
-- [Okta を使用して Enterprise アカウントの SAML シングルサインオンおよび SCIM を設定する](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)
+- 「[Okta を使用して Enterprise アカウントの SAML シングルサインオンを設定する](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta)」
 - [Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)
 - Okta ドキュメントの「[Understanding SAML](https://developer.okta.com/docs/concepts/saml/)」
 - Okta ドキュメントの「[Understanding SCIM](https://developer.okta.com/docs/concepts/scim/)」

@@ -7,29 +7,29 @@ redirect_from:
   - /articles/about-pull-request-merges
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-merges
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
 {% data reusables.pull_requests.default_merge_option %}
 
-### プルリクエストのコミットのsquashとマージ
+## プルリクエストのコミットのsquashとマージ
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-#### squash マージのマージメッセージ
+### squash マージのマージメッセージ
 
-squash してマージすると、{% data variables.product.prodname_dotcom %} はコミットメッセージを生成します。メッセージは必要に応じて変更できます。 メッセージのデフォルトは、プルリクエストに複数のコミットが含まれているか、1 つだけ含まれているかによって異なります。
+squash してマージすると、{% data variables.product.prodname_dotcom %} はコミットメッセージを生成します。メッセージは必要に応じて変更できます。 メッセージのデフォルトは、プルリクエストに複数のコミットが含まれているか、1 つだけ含まれているかによって異なります。 We do not include merge commits when we count the total number of commits.
 
 | コミット数   | 概要                                      | 説明                                   |
 | ------- | --------------------------------------- | ------------------------------------ |
 | 単一のコミット | 単一のコミットのコミットメッセージのタイトルと、その後に続くプルリクエスト番号 | 単一のコミットのコミットメッセージの本文テキスト             |
 | 複数のコミット | プルリクエストのタイトルと、その後に続くプルリクエスト番号           | squash されたすべてのコミットのコミットメッセージの日付順のリスト |
 
-#### 長時間にわたるブランチを squash してマージする
+### 長時間にわたるブランチを squash してマージする
 
 プルリクエストがマージされた後、プルリクエストの [head ブランチ](/github/getting-started-with-github/github-glossary#head-branch)で作業を継続する場合は、プルリクエストを squash してマージしないことをお勧めします。
 
@@ -37,7 +37,7 @@ squash してマージすると、{% data variables.product.prodname_dotcom %} �
 
 このコミットはベースブランチのみで行われ、head ブランチでは行われないため、2 つのブランチの共通の先祖は変更されません。 head ブランチでの作業を続行し、2 つのブランチ間に新しいプルリクエストを作成すると、プルリクエストには、共通の先祖以降のすべてのコミットが含まれます。これには、前のプルリクエストで squash してマージしたコミットも含まれます。 コンフリクトがない場合は、これらのコミットを安全にマージできます。 ただし、このワークフローでは高確率でマージコンフリクトが発生します。 長時間にわたる head ブランチのプルリクエストを squash してマージし続ける場合は、同じコンフリクトを繰り返し解決する必要があります。
 
-### プルリクエストコミットのリベースとマージ
+## プルリクエストコミットのリベースとマージ
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
@@ -53,7 +53,7 @@ squash してマージすると、{% data variables.product.prodname_dotcom %} �
 
 リポジトリに書き込み権限を持つ人は、続いて{% data variables.product.product_location %}上のリベース及びマージボタンを使って[変更をマージ](/articles/merging-a-pull-request/)できます。
 
-### 参考リンク
+## 参考リンク
 
 - [プルリクエストについて](/articles/about-pull-requests/)
 - [マージコンフリクトへの対処](/articles/addressing-merge-conflicts)

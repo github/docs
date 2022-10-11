@@ -6,15 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/managing-global-webhooks
   - /admin/user-management/managing-global-webhooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Webhooks
 ---
 
-### Acerca de los webhooks locales
+## Acerca de los webhooks locales
 
 Puedes utilizar webhooks globales para monitorear, responder, o requerir reglas automáticamente para la administración de usuarios y organizaciones de tu empresa. Por ejemplo, puedes configurar tus webhooks para ejecutar lo siguiente:
 - Se crea o se elimina una cuenta de usuario.
@@ -26,7 +26,7 @@ Puedes utilizar webhooks globales para monitorear, responder, o requerir reglas 
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-### Agregar un webhook local
+## Agregar un webhook local
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -49,7 +49,7 @@ Puedes utilizar webhooks globales para monitorear, responder, o requerir reglas 
 12. Confirma que la casilla de verificación **Activo** esté seleccionada (se selecciona por defecto). ![Casilla de verificación Activo seleccionada](/assets/images/enterprise/site-admin-settings/add-global-webhook-active-checkbox.png)
 13. Haz clic en **Add webhook** (Agregar webhook).
 
-### Editar un webhook global
+## Editar un webhook global
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -58,7 +58,7 @@ Puedes utilizar webhooks globales para monitorear, responder, o requerir reglas 
 6. Actualiza los parámetros del webhook.
 7. Haz clic en **Actualizar webhook**.
 
-### Eliminar un webhook global
+## Eliminar un webhook global
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -66,7 +66,7 @@ Puedes utilizar webhooks globales para monitorear, responder, o requerir reglas 
 5. Al lado del webhook que quieres eliminar, haz clic en **Eliminar**. ![Botón Eliminar al lado de una webhook](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
 6. Lee la información sobre cómo eliminar un webhook, luego haz clic en **Sí, eliminar webhook**. ![Casilla emergente con información de advertencia y botón para confirmar la eliminación del webhook](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
 
-### Visualizar respuestas y entregas recientes
+## Visualizar respuestas y entregas recientes
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

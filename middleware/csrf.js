@@ -1,7 +1,7 @@
 import cookieSettings from '../lib/cookie-settings.js'
-import xCsurf from 'csurf'
+import csurf from 'csurf'
 
-export default xCsurf({
+export default csurf({
   cookie: cookieSettings,
   ignoreMethods: ['GET', 'HEAD', 'OPTIONS'],
 })

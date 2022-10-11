@@ -4,7 +4,7 @@ shortTitle: 自动扫描
 intro: '您可以在 {% data variables.product.prodname_dotcom %} 上查找项目代码中的漏洞和错误。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 children:

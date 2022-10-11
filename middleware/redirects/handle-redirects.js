@@ -1,13 +1,25 @@
 import patterns from '../../lib/patterns.js'
 import { URL } from 'url'
+import languages from '../../lib/languages.js'
 
 export default function handleRedirects(req, res, next) {
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
-  // blanket redirects for languageless homepage to English homepage
+  // blanket redirects for languageless homepage
   if (req.path === '/') {
-    return res.redirect(301, '/en')
+    let language = 'en'
+
+    // if set, redirect to user's preferred language translation or else English
+    if (
+      req.context.userLanguage &&
+      languages[req.context.userLanguage] &&
+      !languages[req.context.userLanguage].wip
+    ) {
+      language = req.context.userLanguage
+    }
+
+    return res.redirect(301, `/${language}`)
   }
 
   // begin redirect handling

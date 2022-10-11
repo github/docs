@@ -3,11 +3,12 @@ title: Actividad
 redirect_from:
   - /v3/activity
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
@@ -144,10 +145,11 @@ Hay una lista potencial de `reason` para recibir una notificación:
 | `assign`           | Se te asignó al informe de problemas.                                                                                                                                                                      |
 | `autor`            | Creaste el hilo.                                                                                                                                                                                           |
 | `comentario`       | Comentaste en el hilo.                                                                                                                                                                                     |
+| `ci_activity`      | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.                                                                                                             |
 | `invitación`       | Aceptaste una invitación para colaborar en el repositorio.                                                                                                                                                 |
 | `manual`           | Te suscribiste al hilo (a través de un informe de problemas o solicitud de extracción).                                                                                                                    |
 | `mención`          | Se te **@mencionó** específicamente en el contenido.                                                                                                                                                       |
-| `review_requested` | Se te solicitó, o se solicitó a un equipo del cual eres miembro, revisar una solicitud de extracción.{% if currentVersion == "free-pro-team@latest" %}
+| `review_requested` | Se te solicitó, o se solicitó a un equipo del cual eres miembro, revisar una solicitud de extracción.{% ifversion fpt %}
 | `security_alert`   | {% data variables.product.prodname_dotcom %} descubrió una [vulnerabilidad de seguridad](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) en tu repositorio.{% endif %}
 | `state_change`     | Cambiaste el estado del hilo (por ejemplo, cerraste un informe de problemas o fusionaste una solicitud de extracción).                                                                                     |
 | `subscribed`       | Estás observando el repositorio.                                                                                                                                                                           |

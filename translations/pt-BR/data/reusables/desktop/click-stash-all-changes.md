@@ -1,13 +1,13 @@
-1. Click **Stash All Changes**.
+1. Clique em **Ocultar todas as alterações**.
 
   {% mac %}
 
-  ![The Stash All Changes menu item](/assets/images/help/desktop/mac-stash-all-changes.png)
+  ![O item de menu Ocultar Todas as Alterações](/assets/images/help/desktop/mac-stash-all-changes.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The Stash all changes menu item](/assets/images/help/desktop/windows-stash-all-changes.png)
+  ![O item do menu Ocultar Todas as Alterações](/assets/images/help/desktop/windows-stash-all-changes.png)
 
   {% endwindows %}

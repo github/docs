@@ -5,7 +5,7 @@ redirect_from:
   - /articles/dmca-counter-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-counter-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ Wenn Sie der Meinung sind, dass Ihre Inhalte auf GitHub irrtümlicherweise durch
 
 Wie bei allen Rechtsfragen ist es immer am besten, sich mit einem Fachmann über Ihre spezifischen Fragen oder Situationen zu beraten. Wir empfehlen dringend, dies zu tun, bevor Sie Maßnahmen ergreifen, die sich auf Ihre Rechte auswirken könnten. Diese Übersicht ist keine Rechtsberatung und sollte nicht als solche betrachtet werden.
 
-### Bevor Sie beginnen
+## Bevor Sie beginnen
 
 ***Sagen Sie die Wahrheit.*** Der DMCA verlangt, dass Sie auf Ihre Counter Notice * unter Strafe des Meineids * schwören. Es ist ein Bundesverbrechen, vorsätzlich in einer eidesstattlichen Erklärung zu lügen. (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability—that is, you could get sued for money damages.
 
@@ -40,7 +40,7 @@ Dies sind nur einige Beispiele für die Komplexität des Urheberrechts. Da es in
 
 ***Zusätzliche Ressourcen.*** Wenn Sie zusätzliche Hilfe benötigen, gibt es viele Selbsthilferessourcen online. Lumen hat eine informative Reihe über [Copyright](https://www.lumendatabase.org/topics/5) und [DMCA Safe Harbor](https://www.lumendatabase.org/topics/14). Wenn Sie an einem Open-Source-Projekt beteiligt sind, das Rechtsberatung benötigt, können Sie sich an das [Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/) wenden. Und wenn Sie glauben, dass Sie es mit einem besonders herausfordernden Fall zu tun haben, sind möglicherweise gemeinnützige Organisationen wie die [Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) bereit, Ihnen direkt zu helfen oder Sie an einen Anwalt zu verweisen.
 
-### Ihre Counter Notice muss...
+## Ihre Counter Notice muss...
 
 1. **Die folgende Aussage enthalten: „Ich habe GitHubs Leitfaden zum Einreichen einer DMCA-Counter Notice gelesen und verstanden."** Wir werden uns nicht weigern, eine ansonsten vollständige Counter Notice zu bearbeiten, wenn Sie diese Erklärung nicht beifügen; allerdings werden wir wissen, dass Sie diese Richtlinien nicht gelesen haben und Sie möglicherweise bitten, sie noch einmal durchzugehen und dies zu tun.
 
@@ -54,7 +54,7 @@ Dies sind nur einige Beispiele für die Komplexität des Urheberrechts. Da es in
 
 6. **Es muss Ihre physische oder elektronische Unterschrift enthalten sein;**
 
-### So reichen Sie Ihre DMCA Counter Notice ein
+## So reichen Sie Ihre DMCA Counter Notice ein
 
 Der schnellste Weg, um eine Antwort zu erhalten, ist, Ihre Informationen einzugeben und alle Fragen auf unserer {% data variables.contact.contact_dmca %} zu beantworten.
 

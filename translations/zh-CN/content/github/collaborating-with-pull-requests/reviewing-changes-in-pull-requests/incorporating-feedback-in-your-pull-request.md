@@ -6,14 +6,15 @@ redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
   - /github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 包含反馈
 ---
 
-### 应用建议的更改
+## 应用建议的更改
 
 其他人可对您的拉取请求提出具体的更改建议。 如果您可以写入仓库，便可直接在拉取请求中应用这些提议的更改。 如果拉取请求创建自复刻，并且作者允许维护员编辑，则您也可以应用提议的更改（如果您可以写入上游仓库）。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)”和“[允许更改创建自复刻的拉取请求分支](/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork)”。
 
@@ -29,15 +30,15 @@ topics:
 4. 在提交消息字段中，输入简短、有意义的提交消息，以描述对文件的更改。 ![提交消息字段](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. 单击 **Commit changes（提交更改）**。 ![提交更改按钮](/assets/images/help/pull_requests/commit-changes-button.png)
 
-### 重新请求审核
+## 重新请求审核
 
 {% data reusables.pull_requests.re-request-review %}
 
-### 为范围外建议开一个议题
+## 为范围外建议开一个议题
 
 如果有人建议更改您的拉取请求，并且更改超出拉请求的范围，则可以新开一个议题来跟踪反馈。 更多信息请参阅“[从评论打开议题](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)”。
 
-### 延伸阅读
+## 延伸阅读
 
 - “[关于拉取请求审查](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)”
 - "[审查拉取请求中提议的更改](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)"

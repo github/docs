@@ -1,7 +1,6 @@
 ---
 title: Personalizing Codespaces for your account
 intro: 'You can personalize {% data variables.product.prodname_codespaces %} by using a `dotfiles` repository on {% data variables.product.product_name %} or by using Settings Sync.'
-permissions: 'Anyone can personalize {% data variables.product.prodname_codespaces %} for their user account.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
   - /github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
@@ -13,10 +12,10 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
+product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Personalize your account
 ---
 
-{% data reusables.codespaces.release-stage %}
 
 ## About personalizing {% data variables.product.prodname_codespaces %}
 
@@ -33,7 +32,7 @@ Project maintainers can also define a default configuration that applies to ever
 
 Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode %}.
 
-Settings Sync is on by default. To configure any settings, in the bottom-left corner of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Settings Sync is on**. From the dialog, you can choose to configure, show settings and data, or turn off Settings Sync.
+To enable Settings Sync, in the bottom-left corner of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Turn on Settings Sync…**. From the dialog, select which settings you'd like to sync.
 
 ![Setting Sync option in manage menu](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
 
@@ -68,7 +67,32 @@ Any changes to your `dotfiles` repository will apply only to each new codespace,
 
 {% endnote %}
 
-You can also configure settings for your user account to add encrypted secrets, enable GPG verification, and allow your codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
+### Enabling your dotfiles repository for {% data variables.product.prodname_codespaces %}
+
+You can use your public `dotfiles` repository to personalize your {% data variables.product.prodname_codespaces %} environment. Once you set up that repository, you can add your scripts, preferences, and configurations to it. You then need to enable your dotfiles from your personal {% data variables.product.prodname_codespaces %} settings page.
+
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.codespaces-tab %}
+1. Under "Dotfiles", select "Automatically install dotfiles" so that {% data variables.product.prodname_codespaces %} automatically installs your dotfiles into every new codespace you create.
+   ![Installing dotfiles](/assets/images/help/codespaces/install-dotfiles.png)
+
+   {% note %}
+
+   **Note:** This option is only available if you've created a public `dotfiles` repository for your user account.
+
+   {% endnote %}
+
+You can add further script, preferences, configuration files to your dotfiles repository or edit existing files whenever you want. Changes to settings will only be picked up by new codespaces.
+
+## Other available settings
+
+You can also personalize {% data variables.product.prodname_codespaces %} using additional [Codespaces settings](https://github.com/settings/codespaces):
+
+- To set your default region, see "[Setting your default region for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
+- To set your editor, see "[Setting your default editor for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)."
+- To add encrypted secrets, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)."
+- To enable GPG verification, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
+- To allow your codespaces to access other repositories, see "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
 
 ## Further reading
 

@@ -5,7 +5,7 @@ intro: 'Puedes configurar cómo {% data variables.product.prodname_dotcom %} uti
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -17,14 +17,14 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### Acerca de {% data variables.product.prodname_codeql_workflow %} y los lenguajes compilados
+## Acerca de {% data variables.product.prodname_codeql_workflow %} y los lenguajes compilados
 
 Puedes configurar a {% data variables.product.prodname_dotcom %} para que ejecute el {% data variables.product.prodname_code_scanning %} en tu repositorio si agregas un flujo de trabajo de {% data variables.product.prodname_actions %} a este. **Note**: This article refers to {% data variables.product.prodname_code_scanning %} powered by {% data variables.product.prodname_codeql %}, not to {% data variables.product.prodname_code_scanning %} resulting from the upload of third-party static analysis tools. Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} en un repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)".
 
 {% data reusables.code-scanning.edit-workflow %}
 Para obtener información general acerca de cómo configurar el {% data variables.product.prodname_code_scanning %} y de cómo editar los archivos de flujo de trabajo, consulta las secciones "[Configurar el {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" y "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-### Acerca de autobuild para {% data variables.product.prodname_codeql %}
+## Acerca de autobuild para {% data variables.product.prodname_codeql %}
 
 El escaneo de código funciona ejecutando consultas contra una o más bases de datos. Cada base de datos contiene una representación de todo el código de tu repositorio en un solo lenguaje. Para los lenguajes compilados de C/C++, C#, y Java, el proceso de poblar esta base de datos involucra compilar el código y extraer los datos. {% data reusables.code-scanning.analyze-go %}
 
@@ -38,7 +38,7 @@ Si tu flujo de trabajo utiliza una matriz de `language`, el `autobuild` intentar
 
 {% endnote %}
 
-#### C/C++
+### C/C++
 
 | Tipo de sistema compatible | Nombre del sistema                                                                                                                                         |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,7 +56,7 @@ En Linux y macOS, el paso de `autobuild` revisa los archivos presentes en el rep
 2. Si no se encuentra ninguno, busca un directorio único en los subdirectorios, el cual cuente con un sistema de compilación para C/C++.
 3. Ejecuta un comando adecuado para configurar el sistema.
 
-#### C
+### C
 
 | Tipo de sistema compatible | Nombre del sistema                                  |
 | -------------------------- | --------------------------------------------------- |
@@ -69,7 +69,7 @@ El proceso de `autobuild` intenta autodetectar un método de compilación adecua
 2. Invoca a `MSbuild` (Linux) o a `MSBuild.exe` (Windows) en el archivo de la solución o del proyecto más cercano a la raíz. Si `autobuild` detecta soluciones o archivos de proyecto múltiples en la misma profundidad (la más corta) desde el directorio de nivel superior, entonces intentará compilarlos todos.
 3. Invoca un script que se parece a un script de compilación—_build_ y _build.sh_ (en ese orden, para Linux) o _build.bat_, _build.cmd_, _y build.exe_ (en ese orden, para Windows).
 
-#### Java
+### Java
 
 | Tipo de sistema compatible | Nombre del sistema                        |
 | -------------------------- | ----------------------------------------- |
@@ -82,7 +82,7 @@ El proceso de `autobuild` intenta determinar el sistema de compilación para las
 2. Ejecuta el primer archivo de compilación que encuentre. Si tanto los archivos de Gradle como los de Maven están presentes, se utiliza el archivo de Gradle.
 3. De lo contrario, usca los archivos de compilación en los subidrectorios directos del directorio raíz. Si solo un subdirectorio contiene archivos de compilación, ejecuta el primer archivo identificado en este subdirectorio (utilizando la misma preferencia que para 1). Si más de un subdirectorio contiene archivos de compilación, reporta un error.
 
-### Agregar pasos de compilación para un lenguaje compilado
+## Agregar pasos de compilación para un lenguaje compilado
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} Para obtener más información sobre cómo editar el archivo de flujo de trabajo, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)".
 

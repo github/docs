@@ -1,14 +1,15 @@
 ---
 title: Comenzar con GitHub Desktop
 intro: 'Aprende cómo ajustar, autenticar y configurar {% data variables.product.prodname_desktop %} para permitirte contribuir en proyectos directamente desde tu máquina.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop
+shortTitle: Empezar
 ---
 
-### Introducción
+## Introducción
 {% data variables.product.prodname_desktop %} es una aplicación que te habilita para interactuar con {% data variables.product.prodname_dotcom %} utilizando una GUI en vez de la línea de comandos o de un buscador web. {% data variables.product.prodname_desktop %} fomenta que tú y tu equipo colaboren utilizando las mejoras prácticas con Git y {% data variables.product.prodname_dotcom %}. Puedes utilizar {% data variables.product.prodname_desktop %} para completar la mayoría de los comandos de Git desde tu computadora de escritorio con confirmaciones visuales para los cambios. Puedes subir, extraer y clonar repositorios remotos con {% data variables.product.prodname_desktop %} y utilizar herramientas colaborativas tales como atribuir confirmaciones y crear solicitudes de extracción.
 
 Esta guía te ayudará a iniciar con {% data variables.product.prodname_desktop %} mediante la configuración de la aplicación, la autenticación en tu cuenta, la configuración de ajustes básicos y la introducción de las bases fundamentales para administrar los proyectos con {% data variables.product.prodname_desktop %}. Podrás utilizar {% data variables.product.prodname_desktop %} para colaborar en proyectos y conectarte a repositorios remotos después de seguir esta guía.
@@ -21,7 +22,7 @@ Puede que te sea útil el entender los conceptos básicos de Git y de {% data va
 
 {% data variables.product.prodname_desktop %} es un proyecto de código abierto. Puedes ver el itinerario, contribuir con el proyecto, o abrir un informe de problemas para proporcionar retroalimentación o solicitudes de características. Para obtener más información, consulta el repositorio [`desktop/desktop`](https://github.com/desktop/desktop).
 
-### Parte 1: Instalación y autenticación
+## Parte 1: Instalación y autenticación
 Puedes instalar {% data variables.product.prodname_desktop %} o cualquier sistema operativo compatible. Para obtener más información, consulta la sección "[Sistemas operativos compatibles](/desktop/getting-started-with-github-desktop/supported-operating-systems)".
 
 Para instalar {% data variables.product.prodname_desktop %}, visita la página de descargas para [{% data variables.product.prodname_desktop %}](https://desktop.github.com/). Para obtener más información, consulta la sección "[Instalar {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/installing-github-desktop)".
@@ -44,7 +45,7 @@ Después de que hayas instalado {% data variables.product.prodname_desktop %}, p
 
 {% endwindows %}
 
-### Parte 2: Configurar y personalizar {% data variables.product.prodname_desktop %}
+## Parte 2: Configurar y personalizar {% data variables.product.prodname_desktop %}
 Después de que instales {% data variables.product.prodname_desktop %}, puedes configurar y personalizar la app para que se adapte mejor a tus necesidades.
 
 {% mac %}
@@ -63,10 +64,10 @@ Puedes conectar o eliminar cuentas en {% data variables.product.prodname_dotcom 
 
 {% endwindows %}
 
-### Parte 3: Colaborar en proyectos con {% data variables.product.prodname_desktop %}
+## Parte 3: Colaborar en proyectos con {% data variables.product.prodname_desktop %}
 Después deinstalar, autenticarte y configurar la app, estás listo para comenzar a utilizar {% data variables.product.prodname_desktop %}. Puedes crear, agregar, o clonar los repositorios y utilizar {% data variables.product.prodname_desktop %} para administrar las contribuciones a tus repositorios.
 
-#### Crear, agregar y clonar repositorios
+### Crear, agregar y clonar repositorios
 Puedes crear un repositorio nuevo si seleccionas el menú de archivo y das clic en **Repositorio nuevo...**. Para obtener más información, consulta la sección "[Crear tu primer repositorio utilizando {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/creating-your-first-repository-using-github-desktop)".
 
 Puedes agregar un repositorio desde tu computadora local si seleccionas el menú de Archivo y das clic en **Agregar Repositorio Local...**. Para obtener más información, consulta la sección [Agregar un repositorio a {% data variables.product.prodname_desktop %} desde tu computadora local](/desktop/contributing-and-collaborating-using-github-desktop/adding-a-repository-from-your-local-computer-to-github-desktop)".
@@ -85,7 +86,7 @@ Puedes clonar un repositorio desde {% data variables.product.prodname_dotcom %} 
 
 {% endwindows %}
 
-#### Realizar cambios en una rama
+### Realizar cambios en una rama
 Puedes utilizar {% data variables.product.prodname_desktop %} para crearuna rama de un proyecto. Las ramas aislan tu trabajo de desarrollo de otras ramas en el repositorio para que puedas experimentar con varios cambios de manera segura. Para obtener más información, consulta la sección "[Administrar ramas](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches)".
 
   ![El botón de Rama Nueva](/assets/images/help/desktop/new-branch-button-mac.png)
@@ -96,14 +97,14 @@ Después de que hagas cambios a una rama, puedes revisarlos en {% data variables
 
 Si quieres acceder a tus cambios de manera remota o si quieres compartirlos con otras personas, puedes cargar tus confirmaciones en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Subir los cambios a {% data variables.product.prodname_dotcom %}](/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github)".
 
-#### Colaborar con {% data variables.product.prodname_desktop %}
+### Colaborar con {% data variables.product.prodname_desktop %}
 Puedes utilizar {% data variables.product.prodname_desktop %} para crear informes de problemas o solicitudes de extracción para colaborar en proyectos con otras personas. Los informes de problemas te ayudan a llevar un seguimiento de las ideas y debatir los posibles cambios a los proyectos. Las solicitudes de extracción te permiten compartir tus cambios propuestos con los demás, recibir retroalimentación y fusionar los cambios en un proyecto. Para obtener más información, consulta la sección "[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request)."''
 
 Puedes ver tus propias solicitudes de extracción o las de tus colaboradores en {% data variables.product.prodname_desktop %}. El visualizar una solicitud de extracción en {% data variables.product.prodname_desktop %} te permite ver cualquier cambio propuesto y hacer cambios adicionales si abres los repositorios y archivos del proyecto en tu editor de texto predeterminado. Para obtener más información, consulta la sección "[Visualizar una solicitud de extracción en {% data variables.product.prodname_desktop %}](/desktop/contributing-and-collaborating-using-github-desktop/viewing-a-pull-request-in-github-desktop)".
 
-#### Mantener tu repositorio local sincronizado
+### Mantener tu repositorio local sincronizado
 Cuando haces cambios a tus repositorios locales o cuando otros hacen cambios a los repositorios remotos, necesitarás sincronizar tu copia local del proyecto con el repositorio remoto. {% data variables.product.prodname_desktop %} puede mantener sincronizada tu copia local de un proyecto con la versión remota al subir y extraer las confirmaciones. Para obtener más información, consulta la sección "[Sincronizar tu rama](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)".
 
-### Leer más
+## Leer más
 - "[Instalar y autenticarse en {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/installing-and-authenticating-to-github-desktop)"
 - "[Colaborar y contribuir utilizando {% data variables.product.prodname_desktop %}](/desktop/contributing-and-collaborating-using-github-desktop)"

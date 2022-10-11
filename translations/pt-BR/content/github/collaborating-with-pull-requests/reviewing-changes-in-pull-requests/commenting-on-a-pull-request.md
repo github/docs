@@ -9,14 +9,15 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
 intro: 'Depois de abrir uma pull request em um repositório, os colaboradores ou integrantes da equipe podem comentar na comparação dos arquivos entre os dois branches especificados ou deixar os comentários gerais no projeto como um todo.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Comentar em um PR
 ---
 
-### Sobre comentários da pull request
+## Sobre comentários da pull request
 
 Você pode fazer comentários na guia **Conversation** (Conversa) de uma pull request para deixar comentários gerais, perguntas ou complementos. Você também pode sugerir alterações que o autor da pull request pode aplicar diretamente a partir do seu comentário.
 
@@ -42,7 +43,7 @@ Para responder a um comentário em linha existente, é preciso navegar até o co
 
 {% endtip %}
 
-### Adicionar comentários em linha a uma pull request
+## Adicionar comentários em linha a uma pull request
 
 {% data reusables.repositories.sidebar-pr %}
 2. Na lista de pull requests, clique na pull request onde deseja deixar comentários em linha.
@@ -56,8 +57,8 @@ Qualquer pessoa que inspeciona a pull request ou o repositório receberá uma no
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Leia mais
+## Leia mais
 
 - "[Escrevendo no GitHub](/github/writing-on-github)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Relatar abuso ou spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+{% ifversion fpt %}- "[Denunciar abuso ou spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

@@ -1,13 +1,15 @@
 ---
 title: Reacciones
+intro: 'La API de Reacciones te permite crear, listar y borrar las reacciones en los comentarios.'
 redirect_from:
   - /v3/reactions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Tipos de reacción

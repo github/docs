@@ -6,18 +6,18 @@ redirect_from:
   - /articles/reverting-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
-### Acerca de revertir una solicitud de extraccción
+## Acerca de revertir una solicitud de extraccción
 
 Revertir una solicitud de extracción en {% data variables.product.product_name %} genera una nueva solicitud de extracción que contiene una reversión de la confirmación de fusión de la solicitud de extracción fusionada original.
 
-### Revertir una solicitud de extracción
+## Revertir una solicitud de extracción
 
 {% note %}
 

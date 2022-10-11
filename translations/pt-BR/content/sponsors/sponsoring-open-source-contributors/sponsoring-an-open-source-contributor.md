@@ -7,17 +7,18 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Patrocinar um contribuidor
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### Sobre patrocínios
+## Sobre patrocínios
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -27,7 +28,7 @@ Você pode patrocinar uma conta em nome de sua conta de usuário para investir e
 - Desenvolver a conscientização da marca como uma organização que valoriza o código aberto
 - Agradecer aos desenvolvedores de código aberto para a criação de bibliotecas que complementam os produtos que a sua organização oferece
 
-Você pode usar um cartão de crédito para patrocinar uma conta em {% data variables.product.product_name %}. Se sua organização desejar pagar por fatura, [entre em contato conosco](https://support.github.com/contact/org-sponsors-waitlist).
+Você pode usar um cartão de crédito para patrocinar uma conta em {% data variables.product.product_name %}. If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
 
 {% data reusables.sponsors.no-fees %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)".
 
@@ -47,7 +48,7 @@ Se a conta que você deseja patrocinar não tiver um perfil em {% data variables
 
 {% endnote %}
 
-### Patrocinar uma conta
+## Patrocinar uma conta
 
 Antes de poder patrocinar uma conta, você deve ter um endereço de e-mail verificado. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/github/getting-started-with-github/verifying-your-email-address)".
 

@@ -1,7 +1,7 @@
 import { defaults } from 'lodash-es'
 import webhookPayloads from '../../lib/webhooks/index.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 
 export default function webhooksContext(req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]

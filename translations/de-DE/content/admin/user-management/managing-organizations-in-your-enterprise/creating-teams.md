@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
   - /admin/user-management/creating-teams
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
@@ -20,7 +20,7 @@ Ein Team kann eine Gruppe in Ihrem Unternehmen darstellen oder Personen mit best
 
 Organisationen können mehrere Ebenen untergeordneter Teams erstellen, um die Hierarchiestruktur eines Unternehmens oder einer Gruppe abzubilden. Weitere Informationen finden Sie unter „[Informationen zu Teams](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)“.
 
-### Ein Team erstellen
+## Ein Team erstellen
 
 Eine umsichtige Kombination von Teams ist ein wirksames Mittel, um den Zugriff auf das Repository zu steuern. For example, if your organization allows only your release engineering team to push code to the default branch of any repository, you could give only the release engineering team **admin** permissions to your organization's repositories and give all other teams **read** permissions.
 
@@ -33,7 +33,7 @@ Eine umsichtige Kombination von Teams ist ein wirksames Mittel, um den Zugriff a
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
 
-### Teams mit aktivierter LDAP-Synchronisierung erstellen
+## Teams mit aktivierter LDAP-Synchronisierung erstellen
 
 Instanzen, die LDAP für die Benutzerauthentifizierung verwenden, können die LDAP-Synchronisierung zum Verwalten der Mitglieder eines Teams verwenden. Wenn Sie den **Distinguished Name** (DN) der Gruppe im Feld **LDAP group** (LDAP-Gruppe) festlegen, wird einer LDAP-Gruppe auf Ihrem LDAP-Server ein Team zugeordnet. Wenn Sie die LDAP-Synchronisierung zum Verwalten der Mitglieder eines Teams verwenden, können Sie Ihr Team in {% data variables.product.product_location %} nicht verwalten. Das zugeordnete Team synchronisiert seine Mitglieder im Hintergrund und regelmäßig in dem Intervall, das bei aktivierter LDAP-Synchronisierung konfiguriert wurde. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
 

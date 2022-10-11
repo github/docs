@@ -6,11 +6,12 @@ redirect_from:
   - /articles/about-comparing-branches-in-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Compare branches
 ---
 
 {% note %}
@@ -20,14 +21,14 @@ topics:
 {% endnote %}
 
 プルリクエスト中で提案された変更は、Files changed（変更されたファイル）タブで表示できます。
-{% if currentVersion ver_lt "github-enterprise@3.0" %}
+{% ifversion ghes < 3.0 %}
 ![プルリクエストの変更されたファイルタブ](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
 ![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
 {% endif %}
 
 コミットそのものを見るよりは、プルリクエストがマージされた際に提案された変更がファイルに現れるのを見ることができます。 Files changed（変更されたファイル）タブ内では、ファイルはアルファベット順に表示されます。 ファイルへの追加は緑で表示され、先頭に`+`サインが付きます。削除されたコンテンツは赤で表示され、先頭に`-`サインが付きます。
 
-### diff 表示の選択肢
+## diff 表示の選択肢
 
 {% tip %}
 
@@ -49,7 +50,7 @@ diff の見方には複数の選択肢があります。
 
   ![ファイルフィルタのドロップダウンメニュー](/assets/images/help/pull_requests/file-filter-menu.png)
 
-### スリードットおよびツードット Git diff での比較
+## スリードットおよびツードット Git diff での比較
 
 デフォルトでは、{% data variables.product.prodname_dotcom %} のプルリクエストはスリードットdiff、すなわちトピックブランチの最新バージョンと、トピックブランチが最後に base ブランチと同期されたコミットとの比較を表示します。
 
@@ -63,11 +64,11 @@ diff の見方には複数の選択肢があります。
 
 変更を比較するための Git コマンドに関する詳しい情報については、_Pro Git_ ブックサイトの「[Git diff のオプション](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)」を参照してください。
 
-### diffが表示されない理由
-- ファイルあるいは特定のファイルタイプの合計での制限を超えた。 詳しい情報については[リポジトリ中のコンテンツとdiffの表示の制限](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)を参照してください。
+## diffが表示されない理由
+- ファイルあるいは特定のファイルタイプの合計での制限を超えた。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
 - ファイルが、デフォルトで表示をブロックするリポジトリの*.gitattributes*ファイルのルールにマッチした。 詳しい情報については[GitHubでの変更されたファイルの表示方法のカスタマイズ](/articles/customizing-how-changed-files-appear-on-github)を参照してください。
 
-### 参考リンク
+## 参考リンク
 
 - [プルリクエストについて](/articles/about-pull-requests)
 - [フォークについて](/articles/about-forks)

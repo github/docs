@@ -1,7 +1,7 @@
 ---
 title: GitHubs Hinweis zum „California Consumer Privacy Act"
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -9,11 +9,11 @@ topics:
 
 Datum des Inkrafttretens: 1. Januar 2020
 
-### GitHubs Hinweis für Einwohner Kaliforniens:
+## GitHubs Hinweis für Einwohner Kaliforniens:
 
 Der [California Consumer Privacy Act](https://leginfo.legislature.ca.gov/faces/billCompareClient.xhtml?bill_id=201720180AB375) 2018 (Cal. Civ. Code §1798.100 ff. in der geänderten Fassung, „CCPA") gibt den Einwohnern Kaliforniens Rechte und Kontrolle über ihre personenbezogenen Daten. GitHub, Inc. („GitHub", „wir") veröffentlicht diese Erklärung für diese Einwohner („Sie") in Übereinstimmung mit den Anforderungen des CCPA zur Verfügung, wonach bestimmte Angaben über die Erfassung und Verarbeitung ihrer persönlichen Daten gemacht werden müssen. Hierbei handelt es sich um eine für Kalifornien spezifische Beschreibung von GitHub bezüglich der Datenschutzrechte der Verbraucher im Rahmen des CCPA. Informationen darüber, wie wir die die zentralen Rechte des CCPA zur Kontrolle personenbezogener Daten freiwillig auf alle unserer Nutzer in den Vereinigten Staaten ausdehnen, finden Sie in unserer [Datenschutzerklärung](/github/site-policy/github-privacy-statement).
 
-### Wir verkaufen Ihre personenbezogenen Daten nicht
+## Wir verkaufen Ihre personenbezogenen Daten nicht
 
 Im Rahmen des CCPA muss ein Unternehmen, das die personenbezogenen Daten von Einwohnern Kaliforniens an andere verkauft: 1) die Einwohner Kaliforniens informieren, bevor es ihre personenbezogenen Daten an andere verkauft; und 2) das Recht zum Ablehnen (Opt-Out) des Verkaufs ihrer personenbezogenen Daten bieten.
 
@@ -21,29 +21,29 @@ GitHub _verkauft keine_ personenbezogenen Daten, einschließlich personenbezogen
 
 ## Ihre Rechte unter dem CCPA
 
-Der CCPA gibt den Einwohnern von Kalifornien bestimmte Rechte in Bezug auf ihre personenbezogenen Daten. Um eine Anfrage auf der Grundlage dieser Rechte zu stellen, kontaktieren Sie uns bitte über unser [Kontaktformular](https://support.github.com/contact).
+Der CCPA gibt den Einwohnern von Kalifornien bestimmte Rechte in Bezug auf ihre personenbezogenen Daten. To submit a request based on these rights, please contact us via our [contact form](https://support.github.com/contact?tags=docs-policy).
 
 Wenn wir eine Anfrage erhalten, werden wir überprüfen, ob es sich bei der Person, die die Anfrage stellt, um den Einwohner handelt, auf den sich die persönlichen Daten, die Gegenstand der Anfrage sind, beziehen. Einwohner Kaliforniens können ihre Rechte selbst ausüben oder einen bevollmächtigten Vertreter einsetzen, um Anfragen zur Offenlegung bestimmter Informationen über die Verarbeitung ihrer personenbezogenen Daten oder zur Löschung personenbezogener Daten in ihrem Namen zu stellen. Wenn Sie einen bevollmächtigten Vertreter mit der Einreichung einer Anfrage beauftragen, können wir verlangen, dass Sie uns zusätzliche Informationen zur Verfügung stellen, die belegen, dass der Vertreter in Ihrem Namen handelt.
 
 In Bezug auf ihre personenbezogenen Daten können Einwohner Kaliforniens die unten beschriebenen Rechte ausüben.
 
-### 1. Das Recht zu erfahren, welche personenbezogenen Daten zu welchen Zwecken erfasst und mit wem sie geteilt werden
+## 1. Das Recht zu erfahren, welche personenbezogenen Daten zu welchen Zwecken erfasst und mit wem sie geteilt werden
 
 In Kalifornien ansässige Personen haben das Recht, von einem Unternehmen die Offenlegung der Kategorien und spezifischen Teile der personenbezogenen Daten zu verlangen, die es in den vorangegangenen 12 Monaten von ihnen erhoben hat, die Kategorien der Quellen, aus denen diese personenbezogenen Daten erhoben werden, den geschäftlichen oder kommerziellen Zweck der Erhebung oder des Verkaufs dieser personenbezogenen Daten und die Kategorien von Dritten, mit denen das Unternehmen personenbezogene Daten teilt.
 
 Wenn Sie ein Unternehmen auffordern, Kategorien und bestimmte über Sie erfasste personenbezogene Daten offenzulegen, haben Sie das Recht, diese Informationen zweimal im Jahr kostenlos zu erhalten. Die Informationen können per Post oder elektronisch übermittelt werden und müssen, wenn sie elektronisch bereitgestellt werden, in einem portablen und, soweit technisch machbar, leicht verwendbaren Format erfolgen, das es dem in Kalifornien ansässigen Einwohner ermöglicht, diese Informationen relativ einfach an eine andere Stelle zu übermitteln. You can use GitHub’s [User Migration API](/rest/reference/migrations#users) to access and download your data. Weitere Informationen finden Sie [hier](https://github.blog/2018-12-19-download-your-data/).
 
-### 2. Recht zu erfahren, ob Ihre personenbezogenen Daten für einen geschäftlichen Zweck verkauft oder offengelegt werden und an wen
+## 2. Recht zu erfahren, ob Ihre personenbezogenen Daten für einen geschäftlichen Zweck verkauft oder offengelegt werden und an wen
 
 Einwohner Kaliforniens haben das Recht, von einem Unternehmen, das personenbezogene Daten für geschäftliche Zwecke verkauft oder offenlegt, getrennte Listen der Kategorien personenbezogener Daten zu verlangen, die in den letzten 12 Monaten für einen geschäftlichen Zweck gesammelt, verkauft oder offengelegt wurden, einschließlich der Kategorien von Dritten, an die die personenbezogenen Daten für einen geschäftlichen Zweck verkauft oder offengelegt wurden.
 
-### 3. Recht, den Verkauf Ihrer persönlichen Daten abzulehnen
+## 3. Recht, den Verkauf Ihrer persönlichen Daten abzulehnen
 
 Wie oben erläutert, verlangt der CCPA von Unternehmen, die personenbezogene Daten verkaufen, dass die Gebietsansässigen den Verkauf ihrer Informationen ablehnen können.
 
 Wie bereits erwähnt, verkauft GitHub keine personenbezogenen Daten.
 
-### 4. Recht auf Nichtdiskriminierung der Dienstleistung oder des Preises, wenn Sie Ihr Recht auf Privatsphäre ausüben
+## 4. Recht auf Nichtdiskriminierung der Dienstleistung oder des Preises, wenn Sie Ihr Recht auf Privatsphäre ausüben
 
 Der CCPA verbietet es Unternehmen, in Kalifornien ansässige Personen für die Ausübung ihrer Rechte im Rahmen der CCPA zu diskriminieren, einschließlich durch
 - die Verweigerung von Waren oder Dienstleistungen
@@ -51,7 +51,7 @@ Der CCPA verbietet es Unternehmen, in Kalifornien ansässige Personen für die A
 - der Bereitstellung einer anderen Stufe oder einer anderen Qualität von Waren oder Dienstleistungen
 - der Person, die ihre Rechte ausübt, einen anderen Preis oder Tarif für Waren oder Dienstleistungen oder eine andere Stufe oder eine andere Qualität von Waren oder Dienstleistungen anzubieten.
 
-### 5. Recht auf Löschung
+## 5. Recht auf Löschung
 
 Einwohner Kaliforniens haben das Recht, zu verlangen, dass ein Unternehmen alle personenbezogenen Daten, die das Unternehmen von ihnen erfasst hat, löscht, vorbehaltlich der Ausnahmen in CCPA §1798.105.
 
@@ -73,4 +73,4 @@ Der CCPA sieht bis zum 31. Dezember 2020 Ausnahmen von einigen der oben beschrie
 
   personenbezogene Daten, die eine schriftliche oder mündliche Kommunikation oder eine Transaktion zwischen GitHub und einer natürlichen Person widerspiegeln, wobei die natürliche Person als Angestellter, Eigentümer, Direktor, leitender Angestellter oder Auftragnehmer eines Unternehmens, einer Partnerschaft, eines Einzelunternehmens, einer gemeinnützigen oder staatlichen Behörde handelt und deren Kommunikation oder Transaktion mit GitHub ausschließlich im Zusammenhang mit der Durchführung einer Due-Diligence-Prüfung durch GitHub in Bezug auf ein Produkt oder eine Dienstleistung für oder von einem solchen Unternehmen, einer Partnerschaft, einem Einzelunternehmen, einer gemeinnützigen oder staatlichen Behörde erfolgt.
 
-Um eine Frage zu dieser Seite zu stellen, kontaktieren Sie uns bitte über unser [Kontaktformular](https://support.github.com/contact).
+If you have any questions about this page, please contact us via our [contact form](https://support.github.com/contact?tags=docs-policy).

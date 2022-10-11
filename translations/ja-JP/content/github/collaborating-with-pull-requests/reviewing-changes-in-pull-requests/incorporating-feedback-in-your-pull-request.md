@@ -6,14 +6,15 @@ redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
   - /github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Incorporate feedback
 ---
 
-### 提案された変更を適用する
+## 提案された変更を適用する
 
 他の人はプルリクエストに特定の変更を提案することができます。 リポジトリに対する書き込みアクセスがある場合は、プルリクエストで提案されたこれらの変更を直接適用することができます。 プルリクエストがフォークから作成されたもので、作者がメンテナーによる編集を許可していれば、上流リポジトリへの書き込みアクセスがある場合でも、提案された変更を適用できます。 詳細は「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)」および「[フォークから作成されたプルリクエストブランチへの変更を許可する](/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork)」を参照してください。
 
@@ -29,15 +30,15 @@ topics:
 4. コミットメッセージのフィールドに、ファイルに対する変更内容を説明する、短くわかりやすいコミットメッセージを入力します。 ![Commit messageフィールド](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. [**Commit changes**] をクリックします。 ![[Commit changes] ボタン](/assets/images/help/pull_requests/commit-changes-button.png)
 
-### レビューを再リクエストする
+## レビューを再リクエストする
 
 {% data reusables.pull_requests.re-request-review %}
 
-### スコープ外の提案に対する Issue のオープン
+## スコープ外の提案に対する Issue のオープン
 
 プルリクエストの変更が提案され、その変更がプルリクエストのスコープ外である場合、フィードバックを追跡するために新しい Issue をオープンすることができます。 詳しい情報については「[コメントからIssueを開く](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)」を参照してください。
 
-### 参考リンク
+## 参考リンク
 
 - "[プルリクエストのレビューについて](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)"
 - 「[プルリクエストで提案された変更をレビューする](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)」

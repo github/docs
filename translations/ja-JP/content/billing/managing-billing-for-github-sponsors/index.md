@@ -6,7 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors
   - /articles/managing-billing-for-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-billing-for-github-sponsors
   - /upgrading-a-sponsorship

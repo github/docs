@@ -5,9 +5,9 @@ redirect_from:
   - /articles/about-saved-replies
   - /github/writing-on-github/about-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 
 ![返信テンプレート](/assets/images/help/settings/saved-replies.png)
@@ -20,7 +20,7 @@ versions:
 
 また、{% data variables.product.product_name %}が提供する "Duplicate issue" 返信テンプレートを使い、Issue を重複としてマークして、類似 Issue と合わせて追跡できます。
 
-### 参考リンク
+## 参考リンク
 
 - [返信テンプレートの作成](/articles/creating-a-saved-reply)
 - 「[返信テンプレートを利用する](/articles/using-saved-replies)」

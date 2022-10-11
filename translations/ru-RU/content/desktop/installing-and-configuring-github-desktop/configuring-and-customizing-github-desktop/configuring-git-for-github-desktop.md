@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/configuring-git-for-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% data variables.product.prodname_desktop %} uses the email address you set in your local Git configuration to connect commits with your account on {% data variables.product.product_name %}.
@@ -55,7 +55,7 @@ versions:
 
 {% endwindows %}
 
-### Дополнительная литература
+## Дополнительная литература
 
 - "[Adding an email address to your GitHub account](/articles/adding-an-email-address-to-your-github-account/)"
 - "[Setting your commit email address](/articles/setting-your-commit-email-address/)"

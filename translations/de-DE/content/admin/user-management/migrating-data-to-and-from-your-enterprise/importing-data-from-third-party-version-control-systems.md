@@ -6,14 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import from another VCS
 ---
 
-### Projekte aus Mercurial importieren
+## Projekte aus Mercurial importieren
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Erstellen Sie einen Klon im Rohdatenformat des Projekts. Führen Sie dazu den folgenden Befehl aus. Geben Sie dazu die URL des Quellprojekts und einen Pfad zum temporären Repository an:
@@ -33,7 +34,7 @@ topics:
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Projekte aus Subversion importieren
+## Projekte aus Subversion importieren
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Erstellen Sie einen Klon im Rohdatenformat des Projekts. Führen Sie dazu den folgenden Befehl aus. Geben Sie dazu die URL des Quellprojekts und einen Pfad zum temporären Repository an:
@@ -53,7 +54,7 @@ topics:
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Projekte aus der Team Foundation-Versionskontrolle importieren
+## Projekte aus der Team Foundation-Versionskontrolle importieren
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Erstellen Sie einen Klon im Rohdatenformat des Projekts. Führen Sie dazu den folgenden Befehl aus. Geben Sie dazu die URL des Quellprojekts und einen Pfad zum temporären Repository an:
@@ -73,6 +74,6 @@ topics:
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"

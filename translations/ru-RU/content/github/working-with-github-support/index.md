@@ -4,7 +4,7 @@ redirect_from:
   - /categories/working-with-github-support
   - /forum
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
 children:
@@ -13,5 +13,6 @@ children:
   - /about-github-premium-support-for-github-enterprise-cloud
   - /github-marketplace-support
   - /submitting-a-ticket
+shortTitle: GitHub Support
 ---
 
