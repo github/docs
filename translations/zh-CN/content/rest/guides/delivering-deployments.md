@@ -6,9 +6,9 @@ redirect_from:
   - /guides/automating-deployments-to-integrators/
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -29,7 +29,7 @@ topics:
 
 注：您可以[从平台样本仓库][platform samples]下载此项目的完整源代码。
 
-### 编写服务器
+## 编写服务器
 
 我们将编写一个快速的 Sinatra 应用程序，以证明我们的本地连接工作正常。 首先编写以下代码：
 
@@ -76,7 +76,7 @@ end
 
 要测试此概念验证，请在测试仓库的分支中进行一些更改，打开拉取请求，然后合并它。 您的服务器应该会做出相应的响应！
 
-### 处理部署
+## 处理部署
 
 服务器已就位，代码在接受审查，拉取请求已合并，现在我们需要部署项目。
 
@@ -136,13 +136,13 @@ end
 
 部署完成后，我们将状态设置为 `success`。
 
-### 结论
+## 结论
 
-在 GitHub，我们多年来一直使用 [Heaven][heaven] 版本来管理部署。 基本流程本质上与我们上面构建的服务器完全相同。 在 GitHub，我们：
+在 GitHub，我们多年来一直使用 [Heaven][heaven] 版本来管理部署。 A common flow is essentially the same as the server we've built above:
 
-* 等待关于 CI 状态的响应
-* 如果代码为绿色，我们将合并拉取请求
-* Heaven 提取合并的代码，并将其部署到我们的生产和暂存服务器上
+* Wait for a response on the state of the CI checks (success or failure)
+* If the required checks succeed, merge the pull request
+* Heaven takes the merged code, and deploys it to staging and production servers
 * 同时。Heaven 还通过坐在我们聊天室中的 [Hubot][hubot] 通知所有人有关构建的信息
 
 搞定！ 使用此示例并不需要构建自己的部署设置。 您始终可以依赖 [GitHub 集成][integrations]。

@@ -8,9 +8,10 @@ redirect_from:
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Visualizar las métricas de listado
 ---
 
 Puedes ver las métricas del día anterior (24 horas), de la semana, el mes, o de la duración total de tiempo que ha estado listada tu {% data variables.product.prodname_github_app %}.
@@ -21,7 +22,7 @@ Puedes ver las métricas del día anterior (24 horas), de la semana, el mes, o d
 
 {% endnote %}
 
-### Métricas de rendimiento
+## Métricas de rendimiento
 
 La página de perspectivas muestra estas métricas de rendimiento para el periodo de tiempo que selecciones:
 
@@ -35,7 +36,7 @@ La página de perspectivas muestra estas métricas de rendimiento para el period
 
 {% endnote %}
 
-#### Rendimiento de conversión
+### Rendimiento de conversión
 
 * **Visitantes únicos en la página de llegada:** Cantidad de personas que vieron la página de llegada de tu GitHub App.
 * **Visitantes únicos de la página pago:** Cantidad de personas que vieron una de tus páginas de pago para tu GitHub App.

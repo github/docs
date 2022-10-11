@@ -6,11 +6,13 @@ redirect_from:
   - /articles/about-scim
   - /github/setting-up-and-managing-organizations-and-teams/about-scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
 ---
+
+{% data reusables.enterprise-accounts.emu-scim-note %}
 
 如果在组织中使用 [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)，您可以实施 SCIM 来添加、管理和删除组织成员对 {% data variables.product.product_name %} 的访问权限。 例如，管理员可以使用 SCIM 撤销配置组织成员，以及从组织中自动删除成员。
 
@@ -21,9 +23,9 @@ topics:
 - Okta
 - OneLogin
 
-{% data reusables.scim.enterprise-account-scim %}更多信息请参阅“[关于企业帐户中组织的用户配置](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)”。
+{% data reusables.scim.enterprise-account-scim %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[将身份提供程序连接到组织](/articles/connecting-your-identity-provider-to-your-organization)"

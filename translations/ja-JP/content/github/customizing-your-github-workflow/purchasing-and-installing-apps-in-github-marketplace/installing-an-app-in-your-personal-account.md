@@ -5,7 +5,8 @@ redirect_from:
   - /articles/installing-an-app-in-your-personal-account
   - /github/customizing-your-github-workflow/installing-an-app-in-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Install app user account
 ---
 
 {% data reusables.marketplace.marketplace-apps-only %}
@@ -14,7 +15,7 @@ versions:
 
 {% data reusables.marketplace.free-trials %}
 
-### 個人アカウントで {% data variables.product.prodname_github_app %} をインストールする
+## 個人アカウントで {% data variables.product.prodname_github_app %} をインストールする
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -27,7 +28,7 @@ versions:
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-### 個人アカウントで {% data variables.product.prodname_oauth_app %}をインストールする
+## 個人アカウントで {% data variables.product.prodname_oauth_app %}をインストールする
 
 {% data reusables.saml.saml-session-oauth %}
 
@@ -40,7 +41,7 @@ versions:
 {% data reusables.marketplace.complete-order-begin-installation %}
 8. 個人アカウントおよびデータに対するアプリケーションのアクセスについての情報を確認し、[**Authorize application**] をクリックします。
 
-### 参考リンク
+## 参考リンク
 
 - 「[個人アカウントの支払い方法を更新する](/articles/updating-your-personal-account-s-payment-method)」
 - 「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」

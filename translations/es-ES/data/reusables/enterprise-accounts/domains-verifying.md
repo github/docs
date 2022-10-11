@@ -11,5 +11,5 @@ Para verificar el dominio de tu cuenta empresarial, debes tener acceso para modi
    dig _github-challenge-<em>ENTERPRISE-ACCOUNT</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```
 1. Después de confirmar, tu registro de TXT se agrega a tu DNS, sigue los pasos uno a cuatro, los cuales se explican anteriormente, para navegar a los dominios aprobados y verificados de tu cuenta empresarial.
-{% data reusables.organizations.continue-verifying-domain %}
+{% data reusables.enterprise-accounts.continue-verifying-domain %}
 1. Opcionalmente, después de que la insignia de "Verificado" se pueda ver en el perfil de tus organizaciones, borra la entrada de TxT del registro de DNS en tu servicio de hospedaje de dominio. ![Insignia Verificado](/assets/images/help/organizations/verified-badge.png)

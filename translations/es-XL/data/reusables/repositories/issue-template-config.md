@@ -1,1 +1,0 @@
-Puedes personalizar el selector de plantilla de informe de problemas que ven las personas cuando crean un nuevo informe de problemas en tu repositorio si añades un archivo *config.yml* a la carpeta `.github/ISSUE_TEMPLATE`.

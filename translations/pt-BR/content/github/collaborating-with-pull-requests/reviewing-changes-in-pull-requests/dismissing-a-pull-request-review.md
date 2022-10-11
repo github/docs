@@ -6,11 +6,12 @@ redirect_from:
   - /articles/dismissing-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Ignorar uma revisão de PR
 ---
 
 {% data reusables.pull_requests.dismiss_review %}
@@ -24,7 +25,7 @@ Isso altera o status da revisão para um comentário de revisão. Quando você i
 4. Clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e depois em **Dismiss review** (Ignorar revisão). ![Ícone de kebab na caixa de merge](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 5. Digite o motivo para ignorá-la e clique em **Dismiss review** (Ignorar revisão). ![Botão Dismiss review (Ignorar revisão)](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre revisões de solicitação pull](/articles/about-pull-request-reviews)"
 - "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"

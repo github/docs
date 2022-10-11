@@ -7,7 +7,7 @@ redirect_from:
   - /articles/about-campus-experts
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 作为 {% data variables.product.prodname_dotcom %} Campus Expert，学习公共演讲技能、技术写作、社区领导和软件开发技能。

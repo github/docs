@@ -6,11 +6,12 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-milestone
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-milestone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter by milestone
 ---
 
 {% tip %}
@@ -28,10 +29,7 @@ topics:
 3. Wähle **Milestones** (Meilensteine) aus, um eine Liste aller Meilensteine anzuzeigen, die für das Repository verfügbar sind. ![Schaltfläche „Milestones“ (Meilensteine)](/assets/images/help/issues/issues_milestone_button.png)
 4. Wähle den Meilenstein, für den Du dich interessierst, aus der Liste aus. Auf der Meilenstein-Seite kannst Du relevante Informationen für den Meilenstein anzeigen, einschließlich aller mit ihm verknüpften Issues und Pull Requests. Weitere Informationen findest Du unter „[Informationen zu Meilensteinen](/articles/about-milestones).“
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
-- „[Issues und Pull Requests filtern](/articles/filtering-issues-and-pull-requests)“
-- „[Issues und Pull Requests sortieren](/articles/sorting-issues-and-pull-requests)“
-- „[Issues und Pull Requests mit der Suchfunktion filtern](/articles/using-search-to-filter-issues-and-pull-requests)“
-- „[Filter freigeben](/articles/sharing-filters)“
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
 - „[Tickets auf einem Projektboard filtern](/articles/filtering-cards-on-a-project-board)“

@@ -6,22 +6,23 @@ redirect_from:
   - /articles/configuring-issue-templates-for-your-repository
   - /github/building-a-strong-community/configuring-issue-templates-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: Configurar
 ---
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 
-### Crear plantillas de reporte de problemas
+## Crear plantillas de reporte de problemas
 
 {% endif %}
 
@@ -37,8 +38,31 @@ topics:
 10. Debajo de los campos del mensaje de confirmación, decide si deseas confirmar tu plantilla directamente en la rama predeterminada o si deseas crear una nueva rama y abrir una solicitud de extracción. Para obtener más información acerca de las solicitudes de extracción, consulta "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)". ![Elecciòn de la plantilla de propuesta para mantener o abrir una solicitud de cambios](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Haz clic en **Commit changes** (Confirmar cambios). Una vez que estos cambios se fusionen en la rama predeterminada, la plantilla estará disponible para que la usen los colaboradores cuando abran nuevas propuestas en el repositorio.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### Configurar el selector de plantillas
+{% ifversion fpt %}
+
+## Crear formatos de propuestas
+
+{% data reusables.community.issue-forms-beta %}
+
+Con los formatos de propuestas, puedes crear plantillas de propuestas que tengan campos de formato web personalizables. Puedes fomentar que los contribuyentes incluyan información específica y estructurada si utilizas formatos de propuestas en tu repositorio. Los formatos de propuesta se escriben en YAML utilizando el modelado de formatos de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Sintaxis para el modelado de formatos de {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)". {% data reusables.actions.learn-more-about-yaml %}
+
+Para utilizar un formato de propuesta en tu repositorio, debes crear un archivo nuevo y agregarlo a la carpeta `.github/ISSUE_TEMPLATE` en tu repositorio.
+
+Aquí tienes un ejemplo de un archivo de confguración de un formato de propuesta.
+
+{% data reusables.community.issue-forms-sample %}
+
+Aquí está la versión interpretada de un formato de propuesta.  ![Un formato de propuesta interpretado](/assets/images/help/repository/sample-issue-form.png)
+
+1. Elige un repositorio en donde quieras crear un formato de propuesta. Puedes utilizar un repositorio existente al cual tengas acceso de escritura o puedes crear un repositorio nuevo. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)."
+2. En tu repositorio, crea un archivo que se llame `.github/ISSUE_TEMPLATE/FORM-NAME.yml`, reemplazando `FORM-NAME` con el nombre para tu formato de propueta. Para obtener más información acerca de cómo crear archivos nuevos en GitHub, consulta la sección "[Crear archivos nuevos](/github/managing-files-in-a-repository/creating-new-files)".
+3. En el campo del archivo nuevo, teclea el contenido de tu formato de propuesta. Para obtener más información, consulta la sección "[Sintaxis para formatos de propuestas](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)".
+4. Confirma tu archivo en la rama predeterminada de tu repositorio. Para obtener más información, consulta "[Crear nuevos archivos](/github/managing-files-in-a-repository/creating-new-files)."
+
+{% endif %}
+
+{% ifversion fpt or ghae or ghes %}
+## Configurar el selector de plantillas
 
 {% data reusables.repositories.issue-template-config %}
 
@@ -46,7 +70,7 @@ Puedes alentar a los colaboradores para que utilicen plantillas de informe de pr
 
 {% note %}
 
-**Nota:** Si utilizaste tu flujo de trabajo tradicional para crear manualmente un archivo de `issue_template.md` fy habilitaste el reporte de problemas en blanco en tu archivo de *config.yml* se utilizará la plantilla en `issue_template.md` cuando las personas decidan abrir un reporte de problema en blanco. Si inhabilitas los reportes de problemas en blanco, la plantilla nunca se utilizará.
+**Nota:**Si utilizaste el flujo de trabajo tradicional para crear un archivo de `issue_template.md` manualmente en la carpeta de `.github` y habilitar así las propuestas en blanco en tu archivo de *config.yml*, la plantilla en el archivo `issue_template.md` se utilizará cuando las personas decidan abrir una propuesta en blanco. Si inhabilitas los reportes de problemas en blanco, la plantilla nunca se utilizará.
 
 {% endnote %}
 
@@ -76,7 +100,7 @@ Tu archivo de configuración personalizará el selector de plantilla cuando el a
 {% data reusables.files.propose_new_file %}
 {% endif %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de las plantillas de propuestas y de solicitudes de extracción](/articles/about-issue-and-pull-request-templates)"
 - "[Crear de forma manual una plantilla de propuesta única para tu repositorio](/articles/manually-creating-a-single-issue-template-for-your-repository)"

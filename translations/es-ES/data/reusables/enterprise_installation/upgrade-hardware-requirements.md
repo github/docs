@@ -1,4 +1,4 @@
-{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+{% ifversion ghes < 3.2 %}
 
 ### Acerca de los requisitos mínimos para {% data variables.product.prodname_ghe_server %} 3.0 y superior
 
@@ -14,7 +14,7 @@ Los requisitos que incrementan para {% data variables.product.prodname_ghe_serve
 | 5000-8000                                | **16**<br/>_Aumentando desde 12_ |                                            96 GB |                                           750 GB |              200 GB |
 | 8000-10000+                              | **20**<br/>_Aumentando desde 16_ | **160 GB**<br/>_Aumentando desde 128 GB_ |                                          1000 GB |              200 GB |
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
 Para obtener más información acerca de los requisitos de hardware para las {% data variables.product.prodname_actions %}, consulta la sección "[Comenzar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
 

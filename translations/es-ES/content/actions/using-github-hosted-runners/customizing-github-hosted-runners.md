@@ -3,13 +3,15 @@ title: Personalizar los ejecutores hospedados en GitHub
 intro: Puedes instalar software adicional en los ejecutores hospedados en GitHub como parte de tu flujo de trabajo.
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Workflows
+shortTitle: Personalizar los ejecutores
 ---
 
+{% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 Si requieres paquetes de software adicionales en los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes crear un job que instale los paquetes como parte de tu flujo de trabajo.
@@ -18,7 +20,7 @@ Para ver los paquetes que ya se instalaron predeterminadamente, consulta la secc
 
 Esta guía demuestra cómo crear un job que instala software adicional en un ejecutor hospedado en {% data variables.product.prodname_dotcom %}.
 
-### Instalar software en ejecutores Ubuntu
+## Instalar software en ejecutores Ubuntu
 
 El siguiente ejemplo demuestra cómo instalar un paquete de `apt` como parte de un job.
 
@@ -46,7 +48,7 @@ jobs:
 
 {% endnote %}
 
-### Instalar el software en los ejecutores de macOS
+## Instalar el software en los ejecutores de macOS
 
 El siguiente ejemplo demuestra cómo instalar paquetes y barriles de Brew como parte de un job.
 
@@ -72,7 +74,7 @@ jobs:
 ```
 {% endraw %}
 
-### Instalar software en ejecutores Windows
+## Instalar software en ejecutores Windows
 
 El siguiente ejemplo demuestra cómo utilizar [Chocolatey](https://community.chocolatey.org/packages) para instalar el CLI de {% data variables.product.prodname_dotcom %} como parte de un job.
 

@@ -18,19 +18,19 @@ redirect_from:
   - /articles/adding-seats-to-your-organization/
   - /articles/upgrading-your-github-billing-plan/
   - /articles/upgrading-your-github-subscription
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - Troubleshooting
   - Upgrades
   - User account
+shortTitle: Atualizar a sua assinatura
 ---
 
-### Atualizar a assinatura da sua conta pessoal
+## Atualizar a assinatura da sua conta pessoal
 
 Você pode atualizar sua conta pessoal do {% data variables.product.prodname_free_user %} para o {% data variables.product.prodname_pro %} para obter ferramentas de revisão de código avançadas em repositórios privados. {% data reusables.gated-features.more-info %}
 
@@ -40,10 +40,11 @@ Você pode atualizar sua conta pessoal do {% data variables.product.prodname_fre
 2. Em "Pro" na página "Comparar planos", clique em **Fazer atualização para Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
+{% data reusables.dotcom_billing.enter-billing-info %}
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### Atualizar a assinatura da organização
+## Atualizar a assinatura da organização
 
 Você pode atualizar sua organização de {% data variables.product.prodname_free_team %} para uma organização para {% data variables.product.prodname_team %} para acessar ferramentas avançadas de gerenciamento e colaboração para equipes ou atualizar sua organização para o {% data variables.product.prodname_ghe_cloud %} para obter controles adicionais de segurança, conformidade e implantação. {% data reusables.gated-features.more-info-org-products %}
 
@@ -58,13 +59,13 @@ Você pode atualizar sua organização de {% data variables.product.prodname_fre
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-#### Próximas etapas para organizações que usam o {% data variables.product.prodname_ghe_cloud %}
+### Próximas etapas para organizações que usam o {% data variables.product.prodname_ghe_cloud %}
 
 Se você tiver atualizado sua organização para o {% data variables.product.prodname_ghe_cloud %}, você poderá configurar a identidade e a gestão de acesso para a sua organização. For more information, see "[Gerenciar logon único de SAML para sua organização](/organizations/managing-saml-single-sign-on-for-your-organization)".
 
 Caso queira usar uma conta corporativa com o {% data variables.product.prodname_ghe_cloud %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}. Para obter mais informações, consulte "[Sobre contas corporativas](/articles/about-enterprise-accounts)".
 
-### Adicionar estações à organização
+## Adicionar estações à organização
 
 Se você quiser que outros usuários tenham acesso aos repositórios privados da organização {% data variables.product.prodname_team %}, você poderá comprar mais estações a qualquer momento.
 
@@ -73,7 +74,7 @@ Se você quiser que outros usuários tenham acesso aos repositórios privados da
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-### Trocar o plano de cobrança da organização de preços por repositório para por usuário
+## Trocar o plano de cobrança da organização de preços por repositório para por usuário
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)".
 
@@ -85,11 +86,11 @@ Se você quiser que outros usuários tenham acesso aos repositórios privados da
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### Solucionar problemas de erro 500 ao atualizar
+## Solucionar problemas de erro 500 ao atualizar
 
 {% data reusables.dotcom_billing.500-error %}
 
-### Leia mais
+## Leia mais
 
 - "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
 - "[Como a atualização ou o downgrade afetam o processo de cobrança?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"

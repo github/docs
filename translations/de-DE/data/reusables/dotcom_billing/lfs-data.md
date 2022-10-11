@@ -1,1 +1,3 @@
-1. Details zu Deiner Bandbreite und Speichernutzung findest Du unter „{% data variables.large_files.product_name_short %} Daten". ![Details der Git LFS-Datennutzung](/assets/images/help/billing/lfs-data.png)
+1. View details of your bandwidth and storage usage under "{% data variables.large_files.product_name_short %} Data." To view your organization's LFS data usage by repository, click the arrows next to "Storage" and "Bandwidth."
+
+  ![Details der Git LFS-Datennutzung](/assets/images/help/billing/lfs-data.png)

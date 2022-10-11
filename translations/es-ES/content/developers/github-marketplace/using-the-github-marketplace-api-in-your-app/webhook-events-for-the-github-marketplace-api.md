@@ -7,12 +7,13 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Eventos de webhook
 ---
 
-### Carga útil del webhook de compras en {% data variables.product.prodname_marketplace %}
+## Carga útil del webhook de compras en {% data variables.product.prodname_marketplace %}
 
 Las solicitudes de `POST` de los webhooks tienen encabezados especiales. Consulta la sección "[Encabezados de entrega de Webhooks](/webhooks/event-payloads/#delivery-headers)" para encontrar más detalles. GitHub no reenvía los intentos fallidos de entrega. Asegúrate de que tu app pueda recibir toda la carga útil del webhook que envíe GitHub.
 
@@ -58,17 +59,17 @@ El objeto `plan` tiene las siguientes claves:
 
 <br/>
 
-#### Ejemplo de la carga útil de un webhook para un evento de `purchased`
+### Ejemplo de la carga útil de un webhook para un evento de `purchased`
 Este ejemplo proporciona la carga útil del evento `purchased`.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
-#### Ejemplo de la carga útil de un webhook para un evento de `changed`
+### Ejemplo de la carga útil de un webhook para un evento de `changed`
 
 Los cambios en un plan incluyen mejoras y degradaciones. Este ejemplo representa las cargas útiles de los eventos `changed`,`pending_change`, y `pending_change_cancelled`. La acción identifica cuál de estos tres eventos ha ocurrido.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
 
-#### Ejemplo de carga útil del webhook para un evento de `cancelled`
+### Ejemplo de carga útil del webhook para un evento de `cancelled`
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

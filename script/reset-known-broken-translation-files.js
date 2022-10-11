@@ -1,18 +1,4 @@
 #!/usr/bin/env node
-import xDotenv from 'dotenv'
-import xGithub from './helpers/github.js'
-import { promisify } from 'util'
-import xChildProcess from 'child_process'
-
-xDotenv.config()
-const github = xGithub()
-const exec = promisify(xChildProcess.exec)
-
-// Check for required PAT
-if (!process.env.GITHUB_TOKEN) {
-  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
-  process.exit(1)
-}
 
 // [start-readme]
 //
@@ -20,6 +6,21 @@ if (!process.env.GITHUB_TOKEN) {
 // files and run script/reset-translated-file.js on them.
 //
 // [end-readme]
+
+import dotenv from 'dotenv'
+import Github from './helpers/github.js'
+import { promisify } from 'util'
+import ChildProcess from 'child_process'
+
+dotenv.config()
+const github = Github()
+const exec = promisify(ChildProcess.exec)
+
+// Check for required PAT
+if (!process.env.GITHUB_TOKEN) {
+  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
+  process.exit(1)
+}
 
 main()
 

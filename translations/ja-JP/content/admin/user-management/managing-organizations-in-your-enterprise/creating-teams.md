@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
   - /admin/user-management/creating-teams
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
@@ -20,7 +20,7 @@ Teamは、企業内のグループを表したり、特定の関心や専門分�
 
 Organizationには、企業やグループの階層構造を反映させた入れ子チームを複数レベルで作成できます。 詳しい情報については"[Teamについて](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)"を参照してください。
 
-### Team の作成
+## Team の作成
 
 Teamの良く考えられた組み合わせは、リポジトリへのアクセスを制御する強力な方法です。 たとえば、Organization が、任意のリポジトリのデフォルトブランチにコードのプッシュすることを、 リリースエンジニアリングの Team にのみ許可する場合、Organization のリポジトリに対する**管理者**権限をリリースエンジニアリングの Team にのみ与え、他のすべての Team には**読み取り**権限だけを与えることができます。
 
@@ -33,7 +33,7 @@ Teamの良く考えられた組み合わせは、リポジトリへのアクセ�
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
 
-### LDAP Syncを有効化したTeamの作成
+## LDAP Syncを有効化したTeamの作成
 
 ユーザ認証にLDAPを使っているインスタンスでは、Teamのメンバー管理にLDAP Syncが使えます。 **LDAP group** フィールド内のグループの **Distinguished Name** (DN) を設定すれば、Team を LDAP サーバ上の LDAP グループにマッピングできます。 Teamのメンバー管理にLDAP Syncを使う場合、{% data variables.product.product_location %}内でTeamを管理することはできません。 LADP Syncを有効化すると、マッピングされたTeamはそのメンバーをバックグラウンドで定期的に設定された間隔で同期します。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
 

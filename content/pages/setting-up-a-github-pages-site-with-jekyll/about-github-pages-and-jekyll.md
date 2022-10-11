@@ -61,7 +61,7 @@ By default, Jekyll doesn't build files or folders that:
 - end with `~`
 - are excluded by the `exclude` setting in your configuration file
 
-If you want Jekyll to process any of these files, you can use the `includes` setting in your configuration file.
+If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
 
 ## Front matter
 

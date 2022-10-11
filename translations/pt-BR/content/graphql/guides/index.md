@@ -4,9 +4,9 @@ intro: 'Saiba mais sobre como começar com o GraphQL, migrando da REST para o Gr
 redirect_from:
   - /v4/guides
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 children:

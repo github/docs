@@ -6,18 +6,19 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/viewing-your-github-actions-usage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Actions
   - Enterprise
   - Organizations
   - User account
+shortTitle: View your Actions usage
 ---
 
 Du kannst auch die verrechenbaren Auftrags-Ausführungsminuten für eine einzelne Workflow-Ausführung anzeigen. For more information, see "[Viewing job execution time](/actions/managing-workflow-runs/viewing-job-execution-time)."
 
-### {% data variables.product.prodname_actions %}-Nutzung für Dein Benutzerkonto anzeigen
+## {% data variables.product.prodname_actions %}-Nutzung für Dein Benutzerkonto anzeigen
 
 Jeder kann die Nutzung von {% data variables.product.prodname_actions %} für sein eigenes Benutzerkonto anzeigen.
 
@@ -27,7 +28,7 @@ Jeder kann die Nutzung von {% data variables.product.prodname_actions %} für se
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### {% data variables.product.prodname_actions %}-Nutzung für Deine Organisation anzeigen
+## {% data variables.product.prodname_actions %}-Nutzung für Deine Organisation anzeigen
 
 Organization owners and billing managers can view {% data variables.product.prodname_actions %} usage for an organization. For organizations managed by an enterprise account, only the organization owners can view {% data variables.product.prodname_actions %} usage in the organization billing page.
 
@@ -36,7 +37,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### {% data variables.product.prodname_actions %}-Nutzung für Dein Enterprise-Konto anzeigen
+## {% data variables.product.prodname_actions %}-Nutzung für Dein Enterprise-Konto anzeigen
 
 Enterprise-Inhaber und Abrechnungsmanager können die Nutzung von {% data variables.product.prodname_actions %} für ein Enterprise-Konto anzeigen.
 

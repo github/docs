@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 1. Klicke in der linken Seitenleiste auf **Enterprise licensing** (Enterprise-Lizenzierung). !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 

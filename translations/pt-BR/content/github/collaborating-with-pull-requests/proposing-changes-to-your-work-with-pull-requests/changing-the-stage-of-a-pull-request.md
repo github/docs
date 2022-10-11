@@ -1,6 +1,6 @@
 ---
 title: Alterar o stage de uma pull request
-intro: 'Você pode marcar um pull request como pronto para a revisão{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %} ou converter um pull request em rascunho{% endif %}.'
+intro: 'Você pode marcar uma pull request de rascunho como pronta para revisão{% ifversion fpt or ghae or ghes %} ou converter uma pull request para rascunho{% endif %}.'
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -8,18 +8,19 @@ redirect_from:
   - /articles/changing-the-stage-of-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Alterar o estado
 ---
 
-### Marcando uma pull request como pronta para revisão
+## Marcando uma pull request como pronta para revisão
 
 {% data reusables.pull_requests.mark-ready-review %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 {% tip %}
 
 **Dicas**: Você também pode marcar um pull request como pronto para revisão usando {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)na documentação de {% data variables.product.prodname_cli %}.
@@ -31,9 +32,9 @@ topics:
 2. Na lista "Pull requests", clique na pull request que deseja marcar como pronta para revisão.
 3. Na caixa de merge, clique em **Pronto para revisar**. ![Botão Ready for review (Pronta para revisão)](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% ifversion fpt or ghae or ghes %}
 
-### Convertendo uma pull request em rascunho
+## Convertendo uma pull request em rascunho
 
 Você pode converter uma pull request em rascunho a qualquer momento. Por exemplo, se você abriu uma pull request acidentalmente em vez de um rascunho, ou se você recebeu feedback sobre sua pull request que precisa ser resolvida, você pode converter a pull request em um rascunho para indicar outras mudanças necessárias. Ninguém poderá fazer o merge da pull request até que você marque a pull request como pronta para revisão novamente. Pessoas que já estão inscritas em notificações para a pull request não serão descadastradas quando você converter a pull request em um rascunho.
 
@@ -44,6 +45,6 @@ Você pode converter uma pull request em rascunho a qualquer momento. Por exempl
 
 {% endif %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)"

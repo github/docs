@@ -5,12 +5,13 @@ redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Add a child team
 ---
 
 Wenn Du das Hinzufügen eines untergeordneten Teams anforderst, wird an die Betreuer dieses Teams eine Anfrage gesendet. Sobald ein Betreuer dieses Teams Deiner Anfrage zustimmt, wird das Team innerhalb der Hierarchie Deiner Organisation unter Deinem Team eingeordnet.
@@ -29,7 +30,7 @@ Wenn Du Organisationsinhaber bist oder über Team-Betreuer-Berechtigungen sowohl
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Klicke auf **Confirm changes** (Änderungen bestätigen), um eine Anfrage zum Hinzufügen des untergeordneten Teams zu senden. ![Modales Feld mit Informationen zu den Änderungen an den Berechtigungen für den Repositoryzugriff](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Teams](/articles/about-teams)“
 - „[Team innerhalb der Hierarchie Deiner Organisation verschieben](/articles/moving-a-team-in-your-organization-s-hierarchy)“

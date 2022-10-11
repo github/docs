@@ -229,7 +229,7 @@
 - 
   term: GPG
   description: >-
-    GNU Privacy Guard. 중요한 데이터가 포함된 파일을 암호화(및 해독)하는 데 사용할 수 있는 암호화 소프트웨어입니다.
+    GNU Privacy Guard. Encryption software that you can use to encrypt (and decrypt) files that contain sensitive data
 - 
   term: GPG 키
   description: GPG에 사용되는 암호화 키입니다.

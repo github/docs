@@ -4,9 +4,9 @@ intro: 'A API do GraphQL de {% data variables.product.prodname_dotcom %} tem lim
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

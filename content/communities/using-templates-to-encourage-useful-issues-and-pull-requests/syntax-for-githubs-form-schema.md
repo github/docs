@@ -61,6 +61,7 @@ For each form element, you can set the following keys.
 | Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `type` | The type of element that you want to define. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
+| `id` | The identifier for the element, except when `type` is set to `markdown`. {% data reusables.form-schema.id-must-be-unique %} If provided, the `id` is the canonical identifier for the field in URL query parameter prefills. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `attributes` | A set of key-value pairs that define the properties of the element.  | Required | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `validations` | A set of key-value pairs that set constraints on the element. | Optional | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
@@ -118,7 +119,6 @@ You can use a `textarea` element to add a multi-line text field to your form. Co
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | A brief description of the expected user input, which is also displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | A description of the text area to provide context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
-| `id` | The identifier for the text area. {% data reusables.form-schema.id-must-be-unique %} If provided, the `id` is the canonical identifier for the field in URL query parameter prefills. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `placeholder` | A semi-opaque placeholder that renders in the text area when empty. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
 | `value` | Text that is pre-filled in the text area. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `render` | If a value is provided, submitted text will be formatted into a codeblock. When this key is provided, the text area will not expand for file attachments or Markdown editing. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | Languages known to {% data variables.product.prodname_dotcom %}. For more information, see [the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml). |
@@ -161,7 +161,6 @@ You can use an `input` element to add a single-line text field to your form.
 | Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | A brief description of the expected user input, which is also displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `id` | The identifier for the input. {% data reusables.form-schema.id-must-be-unique %} If provided, the `id` is the canonical identifier for the field in URL query parameter prefills. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | A description of the field to provide context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
 | `placeholder` | A semi-transparent placeholder that renders in the field when empty. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
 | `value` | Text that is pre-filled in the field. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
@@ -199,7 +198,6 @@ You can use a `dropdown` element to add a dropdown menu in your form.
 | Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | A brief description of the expected user input, which is displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `id` | The identifier for the dropdown. {% data reusables.form-schema.id-must-be-unique %} | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | A description of the dropdown to provide extra context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
 | `multiple` | Determines if the user can select more than one option. | Optional | Boolean | false | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | An array of options the user can choose from. Cannot be empty and all choices must be distinct. | Required | String array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
@@ -240,7 +238,6 @@ You can use the `checkboxes` element to add a set of checkboxes to your form.
 | Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | A brief description of the expected user input, which is displayed in the form. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `id` | The identifier for the set of checkboxes. {% data reusables.form-schema.id-must-be-unique %}| Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | A description of the set of checkboxes, which is displayed in the form. Supports Markdown formatting. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | An array of checkboxes that the user can select. For syntax, see below. | Required | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 

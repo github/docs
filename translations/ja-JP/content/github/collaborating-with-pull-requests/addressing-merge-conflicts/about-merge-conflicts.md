@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-merge-conflicts
   - /github/collaborating-with-issues-and-pull-requests/about-merge-conflicts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -19,7 +19,7 @@ Git がブランチ間の差異を自動的に解決してマージできる場�
 
 ![マージコンフリクトのエラーメッセージ](/assets/images/help/pull_requests/merge_conflict_error_on_github.png)
 
-### マージコンフリクトを解決する
+## マージコンフリクトを解決する
 
 マージコンフリクトを解決するには、競合しているファイルを手作業で編集し、最終のマージに残したい変更を選択しなければなりません。 マージコンフリクトを解決するにはいくつかの方法があります。
 
@@ -34,7 +34,7 @@ $ git merge <em>BRANCH-NAME</em>
 > Automatic merge failed; fix conflicts and then commit the result
 ```
 
-### 参考リンク
+## 参考リンク
 
 - [プルリクエストのマージについて](/articles/about-pull-request-merges/)
 - [プルリクエストについて](/articles/about-pull-requests/)

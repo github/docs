@@ -10,7 +10,7 @@ redirect_from:
   - /admin/configuration/network-ports
 intro: 'Abre los puertos de red de forma selectiva en base a los servicios de red que necesitas exponer a los administradores, usuarios finales y apoyo de correo electrónico.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -19,7 +19,7 @@ topics:
   - Security
 ---
 
-### Puertos administrativos
+## Puertos administrativos
 
 Se requieren algunos puertos administrativos para configurar {% data variables.product.product_location %} y ejecutar determinadas funciones. No se requieren puertos administrativos para el uso de la aplicación básica por parte de los usuarios finales.
 
@@ -32,7 +32,7 @@ Se requieren algunos puertos administrativos para configurar {% data variables.p
 | 123/UDP       | NTP      | Se requiere para operar el protocolo de tiempo.                                                                                                                                                                                                                                      |
 | 161/UDP       | SNMP     | Se requiere para operar el protocolo de revisión de red.                                                                                                                                                                                                                             |
 
-### Puertos de la aplicación para usuarios finales
+## Puertos de la aplicación para usuarios finales
 
 Los puertos de la aplicación permiten que los usuarios finales accedan a Git y a las aplicaciones web.
 
@@ -45,7 +45,7 @@ Los puertos de la aplicación permiten que los usuarios finales accedan a Git y 
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### Puertos de correo electrónico
+## Puertos de correo electrónico
 
 Los puertos de correo electrónico deben ser accesibles directamente o por medio de la retransmisión del correo electrónico entrante para los usuarios finales.
 

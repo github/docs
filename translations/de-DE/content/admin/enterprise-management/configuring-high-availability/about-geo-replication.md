@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-geo-replication
   - /admin/enterprise-management/about-geo-replication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
@@ -21,15 +21,15 @@ Git requests and specific file server requests, such as LFS and file uploads, ca
 
 Damit die Geo-Replikation ordnungsgemäß funktioniert, ist Geo DNS, beispielsweise [der Route 53-Dienst von Amazon](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geo), erforderlich. Der Hostname für die Instanz sollte im Replikat aufgelöst werden, das dem Standort des Benutzers am nächsten liegt.
 
-### Einschränkungen
+## Einschränkungen
 
 Zum Senden von Anforderungen an das Replikat müssen die Daten an die primäre Instanz und an alle Replikate gesendet werden. This means that the performance of all writes are limited by the slowest replica, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary. Von der Geo-Replikation werden einer {% data variables.product.prodname_ghe_server %}-Instanz weder Kapazitäten hinzugefügt noch werden Leistungsprobleme in Bezug auf unzureichende CPU- oder Arbeitsspeicherressourcen behoben. Wenn die primäre Appliance offline ist, können aktive Replikate keine Lese- oder Schreibanforderungen verarbeiten.
 
 {% data reusables.enterprise_installation.replica-limit %}
 
-### Geo-Replikationskonfiguration überwachen
+## Geo-Replikationskonfiguration überwachen
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 - „[Geo-Replikationsreplikate erstellen](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)“

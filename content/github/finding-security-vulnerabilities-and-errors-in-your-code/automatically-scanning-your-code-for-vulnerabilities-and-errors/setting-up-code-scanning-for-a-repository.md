@@ -44,7 +44,8 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 In the default {% data variables.product.prodname_codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
 ## Bulk set up of {% data variables.product.prodname_code_scanning %} 
-You can set up {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository.
+
+You can set up {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using Powershell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have Powershell and instead would like to use NodeJS. 
 
 ## Viewing the logging output from {% data variables.product.prodname_code_scanning %}
 
@@ -84,7 +85,7 @@ The names of the {% data variables.product.prodname_code_scanning %} analysis ch
 
 When the {% data variables.product.prodname_code_scanning %} jobs complete, {% data variables.product.prodname_dotcom %} works out whether any alerts were added by the pull request and adds the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" entry to the list of checks. After {% data variables.product.prodname_code_scanning %} has been performed at least once, you can click **Details** to view the results of the analysis. If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see a "Missing analysis" message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.
 
-  ![Missing analysis for commit message](/assets/images/help/repository/code-scanning-missing-analysis.png)
+  ![Missing analysis for commit message](/assets/images/enterprise/2.22/repository/code-scanning-missing-analysis.png)
 
 ### Reasons for the "missing analysis" message
 

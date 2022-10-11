@@ -137,20 +137,11 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency
+  // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
     asyncMiddleware(
       instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
     )
-  ) // Must come before static/assets
-  app.use(
-    '/dist',
-    express.static('dist', {
-      index: false,
-      etag: false,
-      immutable: true,
-      lastModified: false,
-      maxAge: '28 days', // Could be infinite given our fingerprinting
-    })
   )
   app.use(
     '/assets',

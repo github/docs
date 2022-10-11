@@ -2,8 +2,8 @@
 title: 发行说明
 layout: release-notes
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
   - Upgrades

@@ -11,6 +11,6 @@ To verify your enterprise account's domain, you must have access to modify domai
    dig _github-challenge-<em>ENTERPRISE-ACCOUNT</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```
 1. After confirming your TXT record is added to your DNS, follow steps one through four above to navigate to your enterprise account's approved and verified domains.
-{% data reusables.organizations.continue-verifying-domain %}
+{% data reusables.enterprise-accounts.continue-verifying-domain %}
 1. Optionally, after the "Verified" badge is visible on your organizations' profiles, delete the TXT entry from the DNS record at your domain hosting service.
 ![Verified badge](/assets/images/help/organizations/verified-badge.png)

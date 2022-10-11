@@ -7,12 +7,14 @@ redirect_from:
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Los tableros de proyecto están compuestos por propuestas, solicitudes de extracción y notas que se categorizan como tarjetas en columnas a tu elección. Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas dentro de una columna, mover tarjetas de columna a columna y cambiar el orden de las columnas.
 
@@ -26,7 +28,7 @@ Tipos de tableros de proyecto:
 - Los **tableros de proyecto para toda la organización** pueden contener propuestas y solicitudes de extracción de cualquier repositorio que pertenezca a una organización.  {% data reusables.project-management.link-repos-to-project-board %} Para obtener más información, consulta "[Enlazar un repositorio a un tablero de proyecto](/articles/linking-a-repository-to-a-project-board)".
 - Los **tableros de proyecto para un repositorio** están limitados a las propuestas y las solicitudes de extracción dentro de un único repositorio. También pueden incluir notas que hacen referencia a las propuestas y las solicitudes de extracción en otros repositorios.
 
-### Crear y ver tableros de proyecto
+## Crear y ver tableros de proyecto
 
 Para crear un tablero de proyecto para tu organización, debes ser un miembro de la organización. Los propietarios de la organización y las personas con permisos de administrador para el tablero de proyecto pueden personalizar el acceso al tablero de proyecto.
 
@@ -44,7 +46,7 @@ También puedes [desactivar tableros de proyecto en un repositorio](/articles/di
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### Plantillas para tableros de proyecto
+## Plantillas para tableros de proyecto
 
 Puedes usar plantillas para configurar de forma rápida un nuevo tablero de proyecto. Cuando usas una plantilla para crear un tablero de proyecto, tu nuevo tablero incluirá columnas, así como tarjetas con sugerencias para usar los tableros de proyecto. También puedes elegir una plantilla con la automatización ya configurada.
 
@@ -61,10 +63,10 @@ Para obtener más información, consulta "[Acerca de la automatización para tab
 
 {% data reusables.project-management.copy-project-boards %}
 
-### Leer más
+## Leer más
 
 - "[Crear un tablero de proyecto](/articles/creating-a-project-board)"
-- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% ifversion fpt %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
 - "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"

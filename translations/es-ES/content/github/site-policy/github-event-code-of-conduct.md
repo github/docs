@@ -3,7 +3,7 @@ title: Código de conducta del evento de GitHub
 redirect_from:
   - /articles/github-event-code-of-conduct
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -15,7 +15,7 @@ Valoramos la participación de cada miembro y deseamos que todos los asistentes 
 
 Para dejar en claro lo que se espera, todos los asistentes, oradores, expositores, organizadores y voluntarios en cualquier evento en el espacio de GitHub están obligados a cumplir con el siguiente código de conducta. Los organizadores aplicarán este código a lo largo de todo el evento.
 
-### Código de conducta
+## Código de conducta
 
 GitHub se dedica a brindar una experiencia de evento positiva y sin acoso para todo el mundo, independientemente de su edad, género, identidad y expresión de género, orientación sexual, discapacidad, apariencia personal, complexión, etnia, raza, religión, nacionalidad o nivel de experiencia. No toleramos el acoso a los participantes del evento en ninguna forma, ni toleramos ningún comportamiento que razonablemente conduzca a que otro participante del evento se sienta en peligto, inseguro o asustado por su bienestar físico o emocional. Todas las comunicaciones deben ser adecuadas para un público profesional que incluya personas de muchos orígenes diferentes.
 
@@ -41,12 +41,12 @@ Cada huésped del evento es totalmente responsable de sus propias acciones.
 
 Gracias por ayudar a hacer de este un espacio acogedor y agradable para todos.
 
-#### Informe de un incidente
+### Informe de un incidente
 
 Si estás siendo hostigado, notas que alguien más está siendo acosado, o tienes alguna otra inquietud, comunícate con el organizador por correo electrónico (events@github.com) o por teléfono/texto (+ 1 415 842 2837), o habla con otro empleado de GitHub o un oficial de seguridad.
 
 GitHubbers estará encantado de ayudar a los participantes a ponerse en contacto con la seguridad o la aplicación de la ley local, acompañar a seguridad o de otro modo ayudar a aquellos que experimentan acoso a sentirse seguros durante la conferencia. Valoramostu asistencia.
 
-### Crédito
+## Crédito
 
 Algunas partes de este código de conducta se basan en el [ejemplo de política anti-acoso](https://geekfeminism.wikia.org/wiki/Conference_anti-harassment/Policy) de Geek Feminism wiki, creado por la iniciativa Ada y otros voluntarios, bajo una licencia Creative Commons Zero.

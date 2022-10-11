@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop
   - /desktop/installing-and-configuring-github-desktop/about-git-large-file-storage-and-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% data variables.product.prodname_desktop %} をインストールすると、{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）もインストールされます。 {% data variables.large_files.product_name_short %} では、通常の制限の {% data variables.large_files.max_github_size %} を超えるファイルを {% data variables.product.prodname_dotcom %} にプッシュできます。 {% data variables.large_files.product_name_short %} の詳細については、「[{% data variables.large_files.product_name_long %} について](/github/managing-large-files/about-git-large-file-storage)」を参照してください。
@@ -15,6 +15,6 @@ versions:
 
 リポジトリ内のファイルを追跡するように {% data variables.large_files.product_name_short %} を設定すると、リポジトリ内の他のファイルと同様に、{% data variables.product.prodname_desktop %} を使用して大きなファイルにシームレスにアクセスして管理できます。
 
-### 参考リンク
+## 参考リンク
 - 「[大きなファイルを扱う](/github/managing-large-files/working-with-large-files)」
 - 「[大きなファイルのバージョン付け](/github/managing-large-files/versioning-large-files)」

@@ -1,0 +1,24 @@
+---
+date: '2021-08-24'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Attaching very large images or animated GIFs to images or pull requests would fail.
+    - Journald messages related to automatic updates (`Adding h/m/s random time.`) were logged to syslog.
+    - Custom pre-receive hooks that created named pipes (FIFOs) would crash or hang, resulting in a timeout error.
+    - Adding filters to the audit log advanced search page did not populate the query text box in real-time with the correct facet prefix and value.
+    - Git hooks to the internal API that result in failing requests returned the exception `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.
+    - When an integration was removed, it was possible for an unrelated OAuth application or integration to also be removed.
+    - When a mandatory message containing an emoji character was added, attempting to view or change the message would return a 500 Internal Server Error.
+  changes:
+    - Adds `triage` and `maintain` to the list of permissions returned by the REST API.
+  known_issues:
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

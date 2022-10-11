@@ -8,16 +8,17 @@ redirect_from:
   - /github/working-with-github-pages/about-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: Errores de compilación de Jekyll para las páginas
 ---
 
-### Acerca de los errores de compilación de Jekyll
+## Acerca de los errores de compilación de Jekyll
 
-Algunas veces, {% data variables.product.prodname_pages %} no intentará compilar tu sitio después de que subas cambios a la fuente de publicación del mismo.{% if currentVersion == "free-pro-team@latest" %}
+Algunas veces, {% data variables.product.prodname_pages %} no intentará compilar tu sitio después de que subas los cambios a la fuente de publicación de tu sitio.{% ifversion fpt %}
 - La persona que subió los cambios no ha verificado su dirección de correo electrónico. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".{% endif %}
 - Estás subiendo con una llave de despliegue. Si deseas automatizar las subidas al repositorio de tu sitio, puedes configurar un usuario de máquina en su lugar. Para obtener más información, consulta la sección "[Administrar las llaves de despliegue](/developers/overview/managing-deploy-keys#machine-users)".
 - Estás usando un servicio CI que no está configurado para compilar tu fuente de publicación. Por ejemplo, Travis CI no creará la rama `gh-pages` a menos de que agregues la rama a una lista de seguridad. Para obtener más información, consulta "[Personalizar la compilación](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" en Travis CI o en la documentación del servicio de CI.
@@ -34,7 +35,7 @@ Si Jekyll intenta compilar tu sitio y encuentra un error, recibirás un mensaje 
 
 Para obtener más información sobre cómo resolver errores de compilación, consulta "[Solución de problemas de errores de compilación de Jekyll para los sitios de {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)".
 
-### Ver mensajes de error de construcción de Jekyll
+## Ver mensajes de error de construcción de Jekyll
 
 Recomendamos probar su sitio localmente, lo que le permite ver mensajes de error de compilación en la línea de comandos, y abordar cualquier fallo de construcción antes de presionar los cambios a {% data variables.product.product_name %}. Para obtener más información, consulta "[Verificar tu sitio de {% data variables.product.prodname_pages %} localmente con Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)".
 

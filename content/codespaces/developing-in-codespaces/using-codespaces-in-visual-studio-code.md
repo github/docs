@@ -1,6 +1,7 @@
 ---
 title: Using Codespaces in Visual Studio Code
 intro: 'You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your account on {% data variables.product.product_name %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
@@ -15,7 +16,7 @@ topics:
 shortTitle: Visual Studio Code
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 ## Prerequisites
 
@@ -78,7 +79,6 @@ You can change the machine type of your codespace at any time.
 3. Click the codespace that you want to change.
    ![Searching for a branch to create a new {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/vscode-change-machine-choose-repo.png)
 4. Choose the machine type you want to use. 
-   ![Searching for a branch to create a new {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/vscode-change-machine-choose-type.png)
 
 If the codespace is currently running, a message is displayed asking if you would like to restart and reconnect to your codespace now. Click **Yes** if you want to change the machine type used for this codespace immediately. If you click **No**, or if the codespace is not currently running, the change will take effect the next time the codespace restarts.
 

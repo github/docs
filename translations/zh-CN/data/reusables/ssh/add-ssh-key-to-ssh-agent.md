@@ -1,1 +1,1 @@
-如果您创建了不同名称的密钥，或者您要添加不同名称的现有密钥，请将命令中的 *id_ed25519* 替换为您的私钥文件的名称。
+If you created your key with a different name, or if you are adding an existing key that has a different name, replace *id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}* in the command with the name of your private key file.

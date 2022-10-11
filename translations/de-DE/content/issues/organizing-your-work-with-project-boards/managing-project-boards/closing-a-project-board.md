@@ -7,12 +7,14 @@ redirect_from:
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Wenn Du ein Projektboard schließt, wird jede konfigurierte Workflow-Automatisierung standardmäßig pausiert.
 
@@ -22,7 +24,7 @@ Wenn Du ein Projekt erneut öffnest, hast Du die Möglichkeit, die Automatisieru
 2. Klicken Sie in der Projektliste neben dem Projektboard, das Sie schließen möchten, auf {% octicon "chevron-down" aria-label="The chevron icon" %}. ![Spitze-Klammer-Symbol rechts neben dem Namen des Projektboards](/assets/images/help/projects/project-list-action-chevron.png)
 3. Klicke auf **Close** (Schließen). ![Option „Close“ (Schließen) im Dropdownmenü des Projektboards](/assets/images/help/projects/close-project.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“
 - „[Ein Projektboard löschen](/articles/deleting-a-project-board)“

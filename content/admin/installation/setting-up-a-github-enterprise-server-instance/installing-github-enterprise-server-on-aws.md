@@ -26,7 +26,9 @@ This guide assumes you are familiar with the following AWS concepts:
  - [EC2 and Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (If you plan to launch into a Virtual Private Cloud)
  - [AWS Pricing](https://aws.amazon.com/pricing/) (For calculating and managing costs)
 
- This guide recommends the principle of least privilege when setting up {% data variables.product.product_location %} on AWS. For more information, refer to the [AWS Identity and Access Management (IAM) documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
+For an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)". 
+
+This guide recommends the principle of least privilege when setting up {% data variables.product.product_location %} on AWS. For more information, refer to the [AWS Identity and Access Management (IAM) documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
 ## Hardware considerations
 

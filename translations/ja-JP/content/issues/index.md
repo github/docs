@@ -1,16 +1,40 @@
 ---
-title: Issueとプロジェクト
-shortTitle: Issueとプロジェクト
-intro: 'Issueとプロジェクトを使って{% data variables.product.prodname_dotcom %}上の作業を管理してください。'
+title: GitHubのIssue
+shortTitle: GitHubのIssue
+intro: '作業を計画し、追跡するために{% data variables.product.prodname_github_issues %}を使う方法を学んでください。'
+introLinks:
+  overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
+  quickstart: /issues/tracking-your-work-with-issues/quickstart
+featuredLinks:
+  guides:
+    - /issues/tracking-your-work-with-issues/creating-issues/creating-an-issue
+    - /issues/trying-out-the-new-projects-experience/quickstart
+    - /issues/trying-out-the-new-projects-experience/best-practices-for-managing-projects
+    - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+    - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
+  guideCards:
+    - /issues/trying-out-the-new-projects-experience/automating-projects
+    - /issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue
+    - /issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards
+  popular:
+    - /issues/tracking-your-work-with-issues/creating-issues/about-issues
+    - /issues/trying-out-the-new-projects-experience/about-projects
+    - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
+    - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
+    - /issues/using-labels-and-milestones-to-track-work/managing-labels
+    - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests
+    - /issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards
+changelog:
+  label: issues
+layout: product-landing
+beta_product: false
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
-topics:
-  - Issues
-  - Projects
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /tracking-your-work-with-issues
+  - /trying-out-the-new-projects-experience
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
 redirect_from:

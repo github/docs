@@ -5,7 +5,7 @@ intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
 permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -17,7 +17,7 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### 关于 {% data variables.product.prodname_code_scanning %} 的 SARIF 文件上传
+## 关于 {% data variables.product.prodname_code_scanning %} 的 SARIF 文件上传
 
 {% data variables.product.prodname_dotcom %} 使用静态分析结果交换格式 (SARIF) 文件中的信息创建 {% data variables.product.prodname_code_scanning %} 警报。 SARIF 文件可通过在用于上传文件的 {% data variables.product.prodname_actions %} 工作流程中运行的 SARIF 兼容分析工具生成。 或者，当文件生成为仓库外部的构件时， 您可以直接将 SARIF 文件推送到仓库，并使用工作流程上传 SARIF 文件。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
@@ -32,7 +32,7 @@ redirect_from:
 
 {% data reusables.code-scanning.not-available %}
 
-### 通过 {% data variables.product.prodname_actions %} 上传 {% data variables.product.prodname_code_scanning %} 分析
+## 通过 {% data variables.product.prodname_actions %} 上传 {% data variables.product.prodname_code_scanning %} 分析
 
 要将第三方 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}，需要 {% data variables.product.prodname_actions %} 工作流程。 更多信息请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”和“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
@@ -44,7 +44,7 @@ redirect_from:
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-#### 在存储库外部生成的 SARIF 文件的工作流程示例
+### 在存储库外部生成的 SARIF 文件的工作流程示例
 
 您可以创建一个新的工作流程，以在将 SARIF 文件提交到仓库后上传它们。 这在 SARIF 文件生成为仓库外部的构件时很有用。
 
@@ -66,7 +66,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -80,7 +80,7 @@ jobs:
           sarif_file: results.sarif
 ```
 
-#### 运行 ESLint 分析工具的示例工作流程
+### 运行 ESLint 分析工具的示例工作流程
 
 如果将第三方 SARIF 文件生成为持续集成 (CI) 工作流程的一部分，您可以将 `upload-sarif` 操作添加为运行 CI 测试后的一个步骤。 如果您还没有 CI 工作流程，可以使用 {% data variables.product.prodname_actions %} 模板创建一个。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
@@ -100,7 +100,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -118,7 +118,7 @@ jobs:
           sarif_file: results.sarif
 ```
 
-### 延伸阅读
+## 延伸阅读
 
 - "[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions)"
 - "[查看工作流程历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)"

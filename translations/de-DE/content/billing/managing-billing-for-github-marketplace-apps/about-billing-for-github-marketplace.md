@@ -4,13 +4,13 @@ intro: 'Wenn Sie eine kostenpflichtige App in {% data variables.product.prodname
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /articles/about-billing-for-github-marketplace
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Marketplace
+shortTitle: Billing for GitHub Marketplace
 ---
 
 {% data variables.product.prodname_marketplace %} enthält kostenlose und kostenpflichtige Apps. Nachdem Du eine App gekauft und installiert hast, kannst Du sie jederzeit heraufstufen, herabstufen oder kündigen.
@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-### Zahlungsmethoden und Abrechnungszeitraum für {% data variables.product.prodname_marketplace %}-Käufe
+## Zahlungsmethoden und Abrechnungszeitraum für {% data variables.product.prodname_marketplace %}-Käufe
 
 Sie verwenden die gleiche Zahlungsmethode für alle kostenpflichtigen Pläne und Abonnements über {% data variables.product.prodname_dotcom %} hinweg.
 
@@ -40,11 +40,13 @@ Wenn Du einen kostenpflichtigen Plan mit einer kostenlosen Testperiode auswähls
 - Wenn Du weitere kostenpflichtige Pläne oder Abonnements hast, wird am Ende der 14-tägigen kostenlosen Testperiode basierend auf der verbleibenden Zeit bis zu Deinem nächsten Abrechnungsdatum sofort ein anteiliger Betrag über Deine hinterlegte Zahlungsmethode abgerechnet.
 - Wenn Sie weitere kostenpflichtige Pläne oder Abonnements haben, werden an Ihrem nächsten Abrechnungsdatum auf Ihrer Quittung die Gebühren für Ihren kostenpflichtigen {% data variables.product.prodname_dotcom %}-Plan und Ihr App-Abonnement aufgeführt.
 
-### Begrenzungen für einheitenbasierte Pläne
+{% data reusables.user_settings.context_switcher %}
+
+## Begrenzungen für einheitenbasierte Pläne
 
 Wenn Du eine kostenlose Testperiode für einen kostenpflichtigen Plan kündigst, endet Dein Abonnement sofort und Du verlierst den Zugang zur App. Weitere Informationen findest Du unter „[Eine {% data variables.product.prodname_marketplace %}-App kündigen](/articles/canceling-a-github-marketplace-app).“
 
-### Eine {% data variables.product.prodname_marketplace %}-App herabstufen
+## Eine {% data variables.product.prodname_marketplace %}-App herabstufen
 
 Wenn Du Dein App-Abonnement auf einen günstigeren Plan herabstufst oder ein bezahltes App-Abonnement kündigst, werden Deine Änderungen am Ende Deines aktuellen Abrechnungszeitraums wirksam. Dein Abonnement wird am nächsten Abrechnungsdatum auf Deinen neuen Plan umgestellt.
 
@@ -54,7 +56,7 @@ Wenn Du eine App mit einem kostenlosen Plan kündigst, endet Dein Abonnement sof
 
 If you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. Weitere Informationen findest Du unter „[Abrechnungsplan für eine {% data variables.product.prodname_marketplace %}-App heraufstufen](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app).“
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)“
 - „[Apps in {% data variables.product.prodname_marketplace %} kaufen und installieren](/articles/purchasing-and-installing-apps-in-github-marketplace)“

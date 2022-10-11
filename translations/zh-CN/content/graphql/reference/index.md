@@ -4,9 +4,9 @@ intro: '查看参考文档，了解 {% data variables.product.prodname_dotcom %}
 redirect_from:
   - /v4/reference
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /queries
   - /mutations

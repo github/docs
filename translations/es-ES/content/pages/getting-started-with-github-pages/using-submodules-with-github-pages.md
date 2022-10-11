@@ -7,9 +7,10 @@ redirect_from:
   - /github/working-with-github-pages/using-submodules-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Utilizar submódulos con páginas
 ---
 
 Si el repositorio para tu sitio de {% data variables.product.prodname_pages %} contiene submódulos, sus contenidos se extraerán automáticamente cuando se compile tu sitio.
@@ -18,7 +19,7 @@ Solo puedes usar submódulos que apunten a los repositorios públicos, porque el
 
 Utiliza la URL de solo lectura `https://` para tus submódulos, incluidos los submódulos anidados. Puedes hacer este cambio en tu archivo _.gitmodules_.
 
-### Leer más
+## Leer más
 
 - "[Heramientas Git - Submódulos](https://git-scm.com/book/en/Git-Tools-Submodules)" del libro _Pro Git_
 - "[Solucionar problemas de errores de construcción de Jekyll para sitios de {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"

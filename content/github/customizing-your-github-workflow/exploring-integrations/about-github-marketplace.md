@@ -15,7 +15,7 @@ You may also have the option to select a free 14-day trial on some tools. You ca
 
 ## Finding tools on {% data variables.product.prodname_marketplace %}
 
-You can discover, browse, and install apps and actions created by others on {% data variables.product.prodname_marketplace %}, see "[Searching {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)."
+You can discover, browse, and install apps and actions created by others on {% data variables.product.prodname_marketplace %}, see "[Searching {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)."
 
 {% data reusables.actions.actions-not-verified %}
 

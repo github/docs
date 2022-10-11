@@ -6,10 +6,11 @@ redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 更改洞察可见性
 ---
 
 组织所有者可设置查看组织依赖项洞察图的限制。 默认情况下，组织的所有成员都可以查看组织依赖项洞察图。

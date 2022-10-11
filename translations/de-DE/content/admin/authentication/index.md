@@ -4,8 +4,8 @@ intro: 'You can configure how users sign into {% data variables.product.product_
 redirect_from:
   - /enterprise/admin/authentication
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

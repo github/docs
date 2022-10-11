@@ -1,0 +1,1 @@
+{% data variables.product.prodname_cli %} は、コンピューターのコマンドラインから {% data variables.product.product_name %} を使用するためのオープンソースツールです。 コマンドラインから作業しているときは、{% data variables.product.prodname_cli %} を使用して時間を節約し、コンテキストの切り替えを回避できます。

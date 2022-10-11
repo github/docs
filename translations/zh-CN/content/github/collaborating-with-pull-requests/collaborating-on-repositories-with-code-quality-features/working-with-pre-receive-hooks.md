@@ -6,7 +6,8 @@ redirect_from:
   - /articles/working-with-pre-receive-hooks
   - /github/collaborating-with-issues-and-pull-requests/working-with-pre-receive-hooks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: 预接收挂钩
 ---
 
 预接收挂钩对推送到仓库的代码运行测试，以确保贡献符合仓库或组织策略。 如果提交内容通过测试，将接受推送进入仓库。 如果提交内容未通过测试，将不接受推送。
