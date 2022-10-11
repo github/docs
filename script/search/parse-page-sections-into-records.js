@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { render } from 'cheerio-to-text'
+
 import { maxContentLength } from '../../lib/search/config.js'
 
 // This module takes cheerio page object and divides it into sections
@@ -67,7 +69,7 @@ export default function parsePageSectionsIntoRecords(page) {
   // pages that yields some decent content to be searched on, because
   // when you view these pages in a browser, there's clearly text there.
   if ($root.length > 0) {
-    body = getAllText($root)
+    body = render($root)
   }
 
   if (!body && !intro) {
@@ -94,44 +96,4 @@ export default function parsePageSectionsIntoRecords(page) {
     content,
     topics,
   }
-}
-
-function getAllText($root) {
-  const inlineElements = new Set(
-    `a,abbr,acronym,audio,b,bdi,bdo,big,br,button,canvas,cite,code,data,
-    datalist,del,dfn,em,embed,i,iframe,img,input,ins,kbd,label,map,mark,
-    meter,noscript,object,output,picture,progress,q,ruby,s,samp,script,
-    select,slot,small,span,strong,sub,sup,svg,template,textarea,time,
-    tt,u,var,video,wbr`
-      .split(',')
-      .map((s) => s.trim())
-  )
-
-  const walkTree = (node, callback, index = 0, level = 0) => {
-    callback(node, index, level)
-    for (let i = 0; i < (node.children || []).length; i++) {
-      walkTree(node.children[i], callback, i, ++level)
-      level--
-    }
-  }
-
-  const fragments = []
-
-  walkTree($root[0], (element) => {
-    if (element.name === 'body') return
-
-    if (element.type === 'text') {
-      const parentElement = element.parent || {}
-      const previousElement = element.prev || {}
-      let { data } = element
-      if (data.trim()) {
-        if (!inlineElements.has(parentElement.name) && !inlineElements.has(previousElement.name)) {
-          data = `\n${data}`
-        }
-        fragments.push(data)
-      }
-    }
-  })
-
-  return fragments.join('').trim()
 }
