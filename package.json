@@ -87,7 +87,7 @@
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.0",
     "url-template": "^3.0.0",
-    "uuid": "^8.3.2",
+    "uuid": "^9.0.0",
     "walk-sync": "^3.0.0"
   },
   "devDependencies": {
