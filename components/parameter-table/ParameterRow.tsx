@@ -20,6 +20,10 @@ export function ParameterRow({
   isChild = false,
 }: Props) {
   const { t } = useTranslation(['parameter_table', 'products'])
+
+  // This will be true if `rowParams` does not have a key called `default`
+  // and it will be true if it does and its actual value is `undefined`.
+  const hasDefault = rowParams.default !== undefined
   return (
     <>
       <tr className={`${isChild ? 'color-bg-subtle' : ''}`}>
@@ -47,11 +51,15 @@ export function ParameterRow({
                   {numPreviews > 1 ? ` ${t('see_preview_notices')}` : ` ${t('see_preview_notice')}`}
                 </a>
               )}
-              <div className={cx(`${rowParams.default || rowParams.enum ? 'pt-2' : 'pt-0'}`)}>
-                {rowParams.default && (
+              <div className={cx(`${hasDefault || rowParams.enum ? 'pt-2' : 'pt-0'}`)}>
+                {hasDefault && (
                   <p>
                     <span>{t('default')}: </span>
-                    <code>{rowParams.default}</code>
+                    <code>
+                      {typeof rowParams.default === 'string'
+                        ? rowParams.default
+                        : JSON.stringify(rowParams.default)}
+                    </code>
                   </p>
                 )}
                 {rowParams.enum && rowParams.enum.length && (
