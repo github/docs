@@ -125,7 +125,7 @@ export type MainContextT = {
   fullUrl: string
 }
 
-export const getMainContext = (req: any, res: any): MainContextT => {
+export const getMainContext = async (req: any, res: any): Promise<MainContextT> => {
   // Our current translation process adds 'ms.*' frontmatter properties to files
   // it translates including when data/ui.yml is translated. We don't use these
   // properties and their syntax (e.g. 'ms.openlocfilehash',
