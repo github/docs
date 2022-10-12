@@ -53,6 +53,8 @@ The URL of a label can be found by navigating to the labels page and clicking on
 https://github.com/github/docs/labels/enhancement
 ```
 
+**Note** : If the URL contains labels with a period `.`, e.g. : `Github.Doc` or `Github.best`; the labels **don't** automatically render as shown above
+
 ## Commit SHAs
 
 References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.
