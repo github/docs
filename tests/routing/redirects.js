@@ -126,7 +126,7 @@ describe('redirects', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store, max-age=0')
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('trailing slash on languaged homepage should permantently redirect', async () => {
