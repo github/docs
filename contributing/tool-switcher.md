@@ -21,9 +21,9 @@ Do not use the tool switcher just to show examples in different languages. Only 
 ### How to use tool tags
 Tool tags are Liquid tags that wrap content specific to a tool. For more information on using tool tags in an article, see the [content markup reference](./content-markup-reference.md#tool-tags).
 
-Only include a maximum of eight different tools in an article. Including more tools causes the tool switcher tabs to overflow with an article's table of contents, which prevents people from using either the tool switcher or table of contents. It is unlikely that you will ever need to include eight separate tools in an article. In general, plan to use as few separate tools as possible in an article.
+Put tools in alphabetical order. By default, the first tool tag will be selected for an article. You can define a different default tool for an article in the article's frontmatter. For more information, see the [content README](../content/README.md#defaulttool). You can also link to an article with a specific tool selected by adding `?tool=TOOLNAME` to the end of the link. For more information, see the [content style guide](./content-style-guide.md#links-to-a-specific-tool).
 
-Tool tags are displayed alphabetically. You can define a default tool for an article in the article's frontmatter. For more information, see the [content README](../content/README.md#defaulttool).
+Only include a maximum of eight different tools in an article. Including more tools causes the tool switcher tabs to overflow with an article's table of contents, which prevents people from using either the tool switcher or table of contents. It is unlikely that you will ever need to include eight separate tools in an article. In general, plan to use as few separate tools as possible in an article.
 
 ## Adding new tools
 If a writer determines that adding a new tool is the only way to accurately document something, they should explain their reasoning in the content planning stage. Whoever reviews content plan should consider if there are any alternative ways to address the documentation need without adding a new tool. If a new tool is the only way to create accurate documentation, the new tool should be added. If there is an alternative content solution that does not add a new tool, that option should be used.
