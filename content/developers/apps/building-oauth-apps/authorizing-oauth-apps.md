@@ -299,15 +299,17 @@ subdirectory of the callback URL.
     BAD:  http://oauth.example.com:8080/path
     BAD:  http://example.org
 
-### Localhost redirect urls
+### Loopback redirect urls
 
-The optional `redirect_uri` parameter can also be used for localhost URLs. If the application specifies a localhost URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback url for the app.
+The optional `redirect_uri` parameter can also be used for loopback URLs. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
 
 For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
 
 ```
 http://127.0.0.1:1234/path
 ```
+
+Note that OAuth RFC [recommends not to use `localhost`](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), but instead to use loopback literal `127.0.0.1` or IPv6 `::1`.
 
 ## Creating multiple tokens for OAuth Apps
 
