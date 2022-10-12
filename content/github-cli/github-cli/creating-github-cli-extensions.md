@@ -35,7 +35,7 @@ You can use the `gh extension create` command to create a project for your exten
 1. Set up a new extension by using the `gh extension create` subcommand. Replace `EXTENSION-NAME` with the name of your extension.
 
     ```shell
-    gh extension create <em>EXTENSION-NAME</em>
+    gh extension create EXTENSION-NAME
     ```
 
 1. Follow the printed instructions to finalize and optionally publish your extension.
@@ -47,7 +47,7 @@ You can use the `--precompiled=go` argument to create a Go-based project for you
 1. Set up a new extension by using the `gh extension create` subcommand. Replace `EXTENSION-NAME` with the name of your extension and specify `--precompiled=go`.
 
     ```shell
-    gh extension create --precompiled=go <em>EXTENSION-NAME</em>
+    gh extension create --precompiled=go EXTENSION-NAME
     ```
 
 1. Follow the printed instructions to finalize and optionally publish your extension.
@@ -59,7 +59,7 @@ You can use the `--precompiled=other` argument to create a project for your non-
 1. Set up a new extension by using the `gh extension create` subcommand. Replace `EXTENSION-NAME` with the name of your extension and specify `--precompiled=other`.
 
     ```shell
-    gh extension create --precompiled=other <em>EXTENSION-NAME</em>
+    gh extension create --precompiled=other EXTENSION-NAME
     ```
 
 1. Add some initial code for your extension in your compiled language of choice.
@@ -97,7 +97,7 @@ You can use the `--precompiled=other` argument to create a project for your non-
 1. Verify that your extension works. Replace `EXTENSION-NAME` with the name of your extension. For example, `whoami`.
 
    ```shell
-   gh <em>EXTENSION-NAME</em>
+   gh EXTENSION-NAME
    ```
 
 1. From your directory, create a repository to publish your extension. Replace `EXTENSION-NAME` with the name of your extension.
@@ -105,7 +105,7 @@ You can use the `--precompiled=other` argument to create a project for your non-
    ```shell
    git init -b main
    git add . && git commit -m "initial commit"
-   gh repo create gh-<em>EXTENSION-NAME</em> --source=. --public --push
+   gh repo create gh-EXTENSION-NAME --source=. --public --push
    ```
 
 1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
@@ -217,7 +217,7 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 1. Build your code. For example, with Go, replacing `YOUR-USERNAME` with your GitHub username:
 
     ```shell
-    go mod init github.com/<em>YOUR-USERNAME</em>/gh-whoami
+    go mod init github.com/YOUR-USERNAME/gh-whoami
     go mod tidy
     go build
     ```
@@ -225,7 +225,7 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 1. Verify that your extension works. Replace `EXTENSION-NAME` with the name of your extension. For example, `whoami`.
 
     ```shell
-    gh <em>EXTENSION-NAME</em>
+    gh EXTENSION-NAME
     ```
 
 1. From your directory, create a repository to publish your extension. Replace `EXTENSION-NAME` with the name of your extension.
@@ -238,12 +238,12 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 
     ```shell
     git init -b main
-    echo "gh-<em>EXTENSION-NAME</em>" >> .gitignore
-    git add main.go go.* .gitignore && git commit -m'Initial commit'
-    gh repo create "gh-<em>EXTENSION-NAME</em>"
+    echo "gh-EXTENSION-NAME" >> .gitignore
+    git add main.go go.* .gitignore && git commit -m 'Initial commit'
+    gh repo create "gh-EXTENSION-NAME"
     ```
 
-1. Create a release to share your precompiled extension with others. Compile for each platform you want to support, attaching each binary to a release as an asset. Binary executables attached to releases must follow a naming convention and have a suffix of <em>OS-ARCHITECTURE\[EXTENSION\]</em>.
+1. Create a release to share your precompiled extension with others. Compile for each platform you want to support, attaching each binary to a release as an asset. Binary executables attached to releases must follow a naming convention and have a suffix of OS-ARCHITECTURE\[EXTENSION\].
 
   For example, an extension named `whoami` compiled for Windows 64bit would have the name `gh-whoami-windows-amd64.exe` while the same extension compiled for Linux 32bit would have the name `gh-whoami-linux-386`. To see an exhaustive list of OS and architecture combinations recognized by `gh`, see [this source code](https://github.com/cli/cli/blob/14f704fd0da58cc01413ee4ba16f13f27e33d15e/pkg/cmd/extension/manager.go#L696).
 
@@ -258,9 +258,9 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
   ```shell
   git tag v1.0.0
   git push origin v1.0.0
-  GOOS=windows GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-windows-amd64.exe
-  GOOS=linux GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-linux-amd64
-  GOOS=darwin GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-darwin-amd64
+  GOOS=windows GOARCH=amd64 go build -o gh-EXTENSION-NAME-windows-amd64.exe
+  GOOS=linux GOARCH=amd64 go build -o gh-EXTENSION-NAME-linux-amd64
+  GOOS=darwin GOARCH=amd64 go build -o gh-EXTENSION-NAME-darwin-amd64
   gh release create v1.0.0 ./*amd64*
 
 1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."

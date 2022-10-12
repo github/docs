@@ -1,5 +1,6 @@
 ---
 title: Creating a composite action
+shortTitle: Create a composite action
 intro: 'In this guide, you''ll learn how to build a composite action.'
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
@@ -11,7 +12,6 @@ versions:
 type: tutorial
 topics:
   - Action development
-shortTitle: Composite action
 ---
 
 {% data reusables.actions.enterprise-beta %}

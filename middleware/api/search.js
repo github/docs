@@ -7,7 +7,7 @@ import { allVersions } from '../../lib/all-versions.js'
 import statsd from '../../lib/statsd.js'
 import { defaultCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
-import { getSearchResults, ELASTICSEARCH_URL } from './es-search.js'
+import { getSearchResults } from './es-search.js'
 
 // Used by the legacy search
 const versions = new Set(Object.values(searchVersions))
@@ -65,32 +65,17 @@ function convertLegacyVersionName(version) {
   return legacyEnterpriseServerVersions[version] || version
 }
 
-function notConfiguredMiddleware(req, res, next) {
-  if (!ELASTICSEARCH_URL) {
-    if (process.env.NODE_ENV === 'production') {
-      // Temporarily, this is OKish. The Docs Engineering team is
-      // currently working on setting up an Elasticsearch cloud
-      // instance that we can use. We don't currently have that,
-      // but this code is running in production. We just don't want
-      // to unnecessarily throw errors when it's actually a known thing.
-      return res.status(500).send('ELASTICSEARCH_URL not been set up yet')
-    }
-    throw new Error(
-      'process.env.ELASTICSEARCH_URL is not set. ' +
-        "If you're working on this locally, add `ELASTICSEARCH_URL=http://localhost:9200` in your .env file"
-    )
-  }
-
-  return next()
-}
-
 router.get(
   '/legacy',
-  notConfiguredMiddleware,
   catchMiddlewareError(async function legacySearch(req, res) {
     const { query, version, language, filters, limit: limit_ } = req.query
+    const topics = []
     if (filters) {
-      throw new Error('not implemented yet')
+      if (Array.isArray(filters)) {
+        topics.push(...filters)
+      } else {
+        topics.push(filters)
+      }
     }
     const limit = Math.min(parseInt(limit_, 10) || 10, 100)
     if (!versions.has(version)) {
@@ -108,10 +93,8 @@ router.get(
     )}-${language}`
 
     const hits = []
-    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
-      'version:legacy',
-      `indexName:${indexName}`,
-    ])
+    const tags = ['version:legacy', `indexName:${indexName}`]
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', tags)
     const options = {
       indexName,
       query,
@@ -126,10 +109,13 @@ router.get(
       // send the query 'google cl' they hope to find 'Google Cloud'
       // even though they didn't type that fully.
       usePrefixSearch: true,
+      topics,
     }
     try {
-      const searchResults = await timed(options)
-      hits.push(...searchResults.hits)
+      const { hits: hits_, meta } = await timed(options)
+      hits.push(...hits_)
+      statsd.timing('api.search.total', meta.took.total_msec, tags)
+      statsd.timing('api.search.query', meta.took.query_msec, tags)
     } catch (error) {
       // If we don't catch here, the `catchMiddlewareError()` wrapper
       // will take any thrown error and pass it to `next()`.
@@ -238,7 +224,6 @@ const validationMiddleware = (req, res, next) => {
 router.get(
   '/v1',
   validationMiddleware,
-  notConfiguredMiddleware,
   catchMiddlewareError(async function search(req, res) {
     const { indexName, query, page, size, debug, sort } = req.search
 
@@ -248,14 +233,15 @@ router.get(
     // This measurement then combines both the Node-work and the total
     // network-work but we know that roughly 99.5% of the total time is
     // spent in the network-work time so this primarily measures that.
-    const timed = statsd.asyncTimer(getSearchResults, 'api.search', [
-      'version:v1',
-      `indexName:${indexName}`,
-    ])
+    const tags = ['version:v1', `indexName:${indexName}`]
+    const timed = statsd.asyncTimer(getSearchResults, 'api.search', tags)
 
     const options = { indexName, query, page, size, debug, sort }
     try {
       const { meta, hits } = await timed(options)
+
+      statsd.timing('api.search.total', meta.took.total_msec, tags)
+      statsd.timing('api.search.query', meta.took.query_msec, tags)
 
       if (process.env.NODE_ENV !== 'development') {
         // The assumption, at the moment is that searches are never distinguished

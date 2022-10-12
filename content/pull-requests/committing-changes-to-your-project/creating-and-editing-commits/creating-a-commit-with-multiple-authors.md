@@ -61,8 +61,8 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
   $ git commit -m "Refactor usability tests.
   >
   >
-  Co-authored-by: <em>name</em> &lt;<em>name@example.com</em>&gt;
-  Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
+  Co-authored-by: NAME NAME@EXAMPLE.COM
+  Co-authored-by: AUTHOR-NAME ANOTHER-NAME@EXAMPLE.COM"
   ```
 
 The new commit and message will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."

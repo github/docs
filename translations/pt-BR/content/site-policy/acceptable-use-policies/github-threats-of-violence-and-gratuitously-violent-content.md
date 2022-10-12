@@ -10,9 +10,13 @@ redirect_from:
   - /github/site-policy/github-threats-of-violence-and-gratuitously-violent-content
   - /github/site-policy/github-community-guidelines#threats-of-violence
   - /github/site-policy/github-community-guidelines#gratuitously-violent-content
+ms.openlocfilehash: 4dc5d6eb2b79dc500b29d3a3bf8bfc9b77244680
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556398'
 ---
-
-
 É vedado usar o GitHub para organizar, promover, encorajar, ameaçar ou incitar atos de violência. É vedado publicar conteúdo que descreva ou glorifique a violência ou danos físicos contra seres humanos ou animais. Isso inclui:
 
 - Ameaçar outro indivíduo ou grupo com abuso, dano, violência sexual ou morte

@@ -1,6 +1,6 @@
 ---
-title: Sobre restrições de acesso do aplicativo OAuth
-intro: 'As organizações podem escolher quais {% data variables.product.prodname_oauth_apps %} têm acesso aos seus repositórios e outros recursos, habilitando as restrições de acesso de {% data variables.product.prodname_oauth_app %}.'
+title: About OAuth App access restrictions
+intro: 'Organizations can choose which {% data variables.product.prodname_oauth_apps %} have access to their repositories and other resources by enabling {% data variables.product.prodname_oauth_app %} access restrictions.'
 redirect_from:
   - /articles/about-third-party-application-restrictions
   - /articles/about-oauth-app-access-restrictions
@@ -12,60 +12,60 @@ topics:
   - Organizations
   - Teams
 shortTitle: OAuth App access
-ms.openlocfilehash: 43e12066ec9381a94fe45187d066300479aa495e
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145128298'
 ---
-## Sobre restrições de acesso do aplicativo OAuth
 
-Quando as restrições de acesso do {% data variables.product.prodname_oauth_app %} são habilitadas, os integrantes da organização não podem autorizar o acesso do {% data variables.product.prodname_oauth_app %} aos recursos da organização. Os integrantes da organização podem solicitar a aprovação do proprietário para {% data variables.product.prodname_oauth_apps %} que gostariam de usar, e os proprietários da organização receberão uma notificação de solicitações pendentes.
+## About OAuth App access restrictions
+
+{% data reusables.apps.oauth-app-access-restrictions %}
+
+{% ifversion limit-app-access-requests %}
+{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
 {% tip %}
 
-**Dica**: quando uma organização não tiver configurado as restrições de acesso ao {% data variables.product.prodname_oauth_app %}, qualquer {% data variables.product.prodname_oauth_app %} autorizado por um membro da organização também poderá acessar os recursos privados da organização.
+**Tip**: When an organization has not set up {% data variables.product.prodname_oauth_app %} access restrictions, any {% data variables.product.prodname_oauth_app %} authorized by an organization member can also access the organization's private resources.
 
 {% endtip %}
 
-{% ifversion fpt %} Para proteger ainda mais os recursos da sua organização, você pode fazer upgrade para o {% data variables.product.prodname_ghe_cloud %}, que inclui recursos de segurança, como o logon único do SAML. {% data reusables.enterprise.link-to-ghec-trial %} {% endif %}
+{% ifversion fpt %}
+To further protect your organization's resources, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes security features like SAML single sign-on. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
 
-## Configurar as restrições de acesso do {% data variables.product.prodname_oauth_app %}
+## Setting up {% data variables.product.prodname_oauth_app %} access restrictions
 
-Quando um proprietário da organização configura as restrições de acesso do {% data variables.product.prodname_oauth_app %} pela primeira vez:
+When an organization owner sets up {% data variables.product.prodname_oauth_app %} access restrictions for the first time:
 
-- Os **aplicativos que pertencem à organização** recebem automaticamente acesso aos recursos da organização.
-- Os **{% data variables.product.prodname_oauth_apps %}** perdem imediatamente o acesso aos recursos da organização.
-- As **chaves SSH criadas antes de fevereiro de 2014** perdem imediatamente o acesso aos recursos da organização (isso inclui as chaves de usuário e de implantação).
-- As **chaves SSH criadas pelos {% data variables.product.prodname_oauth_apps %} durante ou após fevereiro de 2014** perdem imediatamente o acesso aos recursos da organização.
-- As **entregas de gancho de repositórios privados da organização** não serão mais enviadas para {% data variables.product.prodname_oauth_apps %} não aprovados.
-- O **acesso à API** aos recursos privados da organização não fica disponível para {% data variables.product.prodname_oauth_apps %} não aprovados. Além disso, não há ações de criação, atualização ou exclusão com privilégios em recursos de organização pública.
-- Os **ganchos criados por usuários e os ganchos criados antes de maio de 2014** não serão afetados.
-- Os **forks privados dos repositórios pertencentes à organização** estão sujeitos às restrições de acesso da organização.
+- **Applications that are owned by the organization** are automatically given access to the organization's resources.
+- **{% data variables.product.prodname_oauth_apps %}** immediately lose access to the organization's resources.
+- **SSH keys created before February 2014** immediately lose access to the organization's resources (this includes user and deploy keys).
+- **SSH keys created by {% data variables.product.prodname_oauth_apps %} during or after February 2014** immediately lose access to the organization's resources.
+- **Hook deliveries from private organization repositories** will no longer be sent to unapproved {% data variables.product.prodname_oauth_apps %}.
+- **API access** to private organization resources is not available for unapproved {% data variables.product.prodname_oauth_apps %}. In addition, there are no privileged create, update, or delete actions on public organization resources.
+- **Hooks created by users and hooks created before May 2014** will not be affected.
+- **Private forks of organization-owned repositories** are subject to the organization's access restrictions.
 
-## Resolver falhas de acesso de SSH
+## Resolving SSH access failures
 
-Quando uma chave SSH criada antes de fevereiro de 2014 perde acesso a uma organização com restrições de acesso do {% data variables.product.prodname_oauth_app %} habilitadas, as tentativas de acesso subsequentes do SSH falharão. Os usuários encontrarão uma mensagem de erro direcionando-as a uma URL onde podem aprovar a chave ou fazer upload de uma chave confiável.
+When an SSH key created before February 2014 loses access to an organization with {% data variables.product.prodname_oauth_app %} access restrictions enabled, subsequent SSH access attempts will fail. Users will encounter an error message directing them to a URL where they can approve the key or upload a trusted key in its place.
 
 ## Webhooks
 
-Quando um {% data variables.product.prodname_oauth_app %} receber acesso à organização depois que as restrições forem habilitadas, os webhooks preexistentes criados por esse {% data variables.product.prodname_oauth_app %} retomarão o envio.
+When an {% data variables.product.prodname_oauth_app %} is granted access to the organization after restrictions are enabled, any pre-existing webhooks created by that {% data variables.product.prodname_oauth_app %} will resume dispatching.
 
-Quando uma organização remover o acesso de um {% data variables.product.prodname_oauth_app %} anteriormente aprovado, todos os webhooks preexistentes criados por esse aplicativo não serão mais enviados (esses hooks serão desabilitados, mas não excluídos).
+When an organization removes access from a previously-approved {% data variables.product.prodname_oauth_app %}, any pre-existing webhooks created by that application will no longer be dispatched (these hooks will be disabled, but not deleted).
 
-## Reabilitando restrições de acesso
+## Re-enabling access restrictions
 
-Se uma organização desabilitar as restrições de acesso do {% data variables.product.prodname_oauth_app %} e, posteriormente, reabilitá-las, os {% data variables.product.prodname_oauth_app %}s anteriormente aprovados receberão acesso automaticamente aos recursos da organização.
+If an organization disables {% data variables.product.prodname_oauth_app %} access application restrictions, and later re-enables them, previously approved {% data variables.product.prodname_oauth_app %} are automatically granted access to the organization's resources.
 
-## Leitura adicional
+## Further reading
 
-- "[Como habilitar as restrições de acesso ao {% data variables.product.prodname_oauth_app %} para sua organização](/articles/enabling-oauth-app-access-restrictions-for-your-organization)"
-- "[Como aprovar {% data variables.product.prodname_oauth_apps %} para sua organização](/articles/approving-oauth-apps-for-your-organization)"
-- "[Como revisar as integrações instaladas da organização](/articles/reviewing-your-organization-s-installed-integrations)"
-- "[Como negar o acesso a um {% data variables.product.prodname_oauth_app %} já aprovado para sua organização](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization)"
-- "[Como desabilitar as restrições de acesso ao {% data variables.product.prodname_oauth_app %} para sua organização](/articles/disabling-oauth-app-access-restrictions-for-your-organization)"
-- "[Como solicitar aprovação da organização para {% data variables.product.prodname_oauth_apps %}](/articles/requesting-organization-approval-for-oauth-apps)"
-- "[Como autorizar {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
+- "[Enabling {% data variables.product.prodname_oauth_app %} access restrictions for your organization](/articles/enabling-oauth-app-access-restrictions-for-your-organization)"
+- "[Approving {% data variables.product.prodname_oauth_apps %} for your organization](/articles/approving-oauth-apps-for-your-organization)"
+- "[Reviewing your organization's installed integrations](/articles/reviewing-your-organization-s-installed-integrations)"
+- "[Denying access to a previously approved {% data variables.product.prodname_oauth_app %} for your organization](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization)"
+- "[Disabling {% data variables.product.prodname_oauth_app %} access restrictions for your organization](/articles/disabling-oauth-app-access-restrictions-for-your-organization)"
+- "[Requesting organization approval for {% data variables.product.prodname_oauth_apps %}](/articles/requesting-organization-approval-for-oauth-apps)"
+- "[Authorizing {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"

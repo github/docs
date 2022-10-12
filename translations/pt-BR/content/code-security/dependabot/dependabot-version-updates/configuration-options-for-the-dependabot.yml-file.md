@@ -33,6 +33,12 @@ You must store this file in the `.github` directory of your repository. When you
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
+{% note %}
+
+**Note:** You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the *dependabot.yml* file.
+
+{% endnote %}
+
 The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
 
 ## Configuration options for the *dependabot.yml* file
@@ -778,15 +784,7 @@ registries:
 
 ### `docker-registry`
 
-{% data variables.product.prodname_dependabot %} works with container registries that implement the OCI container registry. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central service. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation.
-
-We currently support the container registries listed here:
-
-* Docker Hub
-* {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}
-* GCR (Google Cloud)
-* Private ECR (AWS) - public ECR support is tracked in [https://github.com/dependabot/dependabot-core/issues/4212](https://github.com/dependabot/dependabot-core/issues/4212).
-
+{% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
 The `docker-registry` type supports username and password.
 

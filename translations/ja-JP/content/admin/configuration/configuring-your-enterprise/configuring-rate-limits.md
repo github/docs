@@ -13,9 +13,9 @@ topics:
   - Infrastructure
   - Performance
 ---
-## Enabling rate limits for {% data variables.product.prodname_enterprise_api %}
+## Enabling rate limits for the {% data variables.product.prodname_enterprise_api %}
 
-Enabling rate limits on {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Enabling rate limits on the {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 {% ifversion ghes %}
 You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
@@ -93,7 +93,7 @@ By default, the rate limit for {% data variables.product.prodname_actions %} is 
 
    ```shell
    ghe-config actions-rate-limiting.enabled true
-   ghe-config actions-rate-limiting.queue-runs-per-minute <em>RUNS-PER-MINUTE</em>
+   ghe-config actions-rate-limiting.queue-runs-per-minute RUNS-PER-MINUTE
    ```
 1. To disable the rate limit after it's been enabled, run the following command.
 

@@ -60,7 +60,7 @@ For more information, see "[{% data variables.product.prodname_codeql_cli %}](ht
 
 ## Downloading the {% data variables.product.prodname_codeql_runner %}
 
-You can download the {% data variables.product.prodname_codeql_runner %} from https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases. On some operating systems, you may need to change permissions for the downloaded file before you can run it.
+You can download the {% data variables.product.prodname_codeql_runner %} from https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/github/codeql-action/releases. On some operating systems, you may need to change permissions for the downloaded file before you can run it.
 
 On Linux:
 
@@ -82,7 +82,7 @@ On Windows, the `codeql-runner-win.exe` file usually requires no change to permi
 Once you download the {% data variables.product.prodname_codeql_runner %} and verify that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. For example, you might configure each server to copy the runner from a central, internal location. Alternatively, you could use the REST API to get the runner directly from {% data variables.product.prodname_dotcom %}, for example: 
 
 ```shell
-wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
+wget https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
 chmod +x codeql-runner-linux
 ```
 
@@ -93,7 +93,7 @@ In addition to this, each CI server also needs:
 
 The options for providing access to the {% data variables.product.prodname_codeql %} bundle are:
 
-1. Allow the CI servers access to https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action so that the {% data variables.product.prodname_codeql_runner %} can download the bundle automatically.
+1. Allow the CI servers access to https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/github/codeql-action so that the {% data variables.product.prodname_codeql_runner %} can download the bundle automatically.
 1. Manually download/extract the bundle, store it with other central resources, and use the <nobr>`--codeql-path`</nobr> flag to specify the location of the bundle in calls to initialize the {% data variables.product.prodname_codeql_runner %}.
 
 ## Calling the {% data variables.product.prodname_codeql_runner %}

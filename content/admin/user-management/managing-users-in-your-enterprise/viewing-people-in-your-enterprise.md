@@ -36,6 +36,10 @@ For more information about {% data variables.product.prodname_github_connect %},
 
 {% endif %}
 
+{% ifversion enterprise-member-csv %}
+You can also export membership information for your enterprise. For more information, see "[Exporting membership information for your enterprise](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
+{% endif %}
+
 ## Viewing enterprise administrators
 
 You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise.{% ifversion enterprise-membership-view-improvements %} You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}.{% endif %} You can find a specific person by searching for their username or display name.

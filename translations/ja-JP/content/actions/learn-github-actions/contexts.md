@@ -74,6 +74,9 @@ The following table indicates where each context and special function can be use
 
 | Workflow key | Context | Special functions |
 | ---- | ------- | ----------------- |
+{%- ifversion actions-run-name %}
+| <code>run-name</code> | <code>github, inputs</code> | |
+{%- endif %}
 | <code>concurrency</code> | <code>github, inputs</code> | |
 | <code>env</code> | <code>github, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | |
@@ -198,7 +201,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.ref` | `string` | {% data reusables.actions.ref-description %} |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
-| `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} |
+| `github.ref_protected` | `boolean` | {% data reusables.actions.ref_protected-description %} |
 | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} |
 {%- endif %}
 | `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." |
@@ -210,6 +213,9 @@ The `github` context contains information about the workflow run and the event t
 | `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
+{%- endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+| `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`, `Dependabot`, or `Codespaces`. |
 {%- endif %}
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} |

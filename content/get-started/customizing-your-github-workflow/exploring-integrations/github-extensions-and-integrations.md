@@ -13,11 +13,7 @@ shortTitle: Extensions & integrations
 ---
 ## Editor tools
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and {% data variables.product.prodname_vs %}.
-
-### {% data variables.product.product_name %} for Atom
-
-With the {% data variables.product.product_name %} for Atom extension, you can commit, push, pull, resolve merge conflicts, and more from the Atom editor. For more information, see the official [{% data variables.product.product_name %} for Atom site](https://github.atom.io/).
+You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
 
 ### {% data variables.product.product_name %} for Unity
 
