@@ -52,6 +52,11 @@ The URL of a label can be found by navigating to the labels page and clicking on
 ```md
 https://github.com/github/docs/labels/enhancement
 ```
+{% note %}
+
+**Note:** If the label name contains a period (`.`), the label will not automatically render from the label URL.
+
+{% endnote %}
 
 ## Commit SHAs
 
