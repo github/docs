@@ -62,7 +62,7 @@ For a complete reference of `gh` commands for {% data variables.product.prodname
 
 {% note %}
 
-**Note**: The `-c <em>codespace-name</em>` flag, used with many commands, is optional. If you omit it a list of codespaces is displayed for you to choose from.
+**Note**: The `-c CODESPACE_NAME` flag, used with many commands, is optional. If you omit it a list of codespaces is displayed for you to choose from.
 
 {% endnote %}
 
@@ -77,7 +77,7 @@ The list includes the unique name of each codespace, which you can use in other 
 ### Create a new codespace
 
 ```shell
-gh codespace create -r <em>owner/repository</em> [-b <em>branch</em>]
+gh codespace create -r OWNER/REPO_NAME [-b BRANCH]
 ```
 
 For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
@@ -85,7 +85,7 @@ For more information, see "[Creating a codespace](/codespaces/developing-in-code
 ### Stop a codespace
 
 ```shell
-gh codespace stop -c <em>codespace-name</em>
+gh codespace stop -c CODESPACE-NAME
 ```
 
 For more information, see "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
@@ -93,7 +93,7 @@ For more information, see "[Deep dive into {% data variables.product.prodname_gi
 ### Delete a codespace
 
 ```shell
-gh codespace delete -c <em>codespace-name</em>
+gh codespace delete -c CODESPACE-NAME
 ```
 
 For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
@@ -103,7 +103,7 @@ For more information, see "[Deleting a codespace](/codespaces/developing-in-code
 To run commands on the remote codespace machine, from your terminal, you can SSH into the codespace.
 
 ```shell
-gh codespace ssh -c <em>codespace-name</em>
+gh codespace ssh -c CODESPACE-NAME
 ```
 
 {% data variables.product.prodname_github_codespaces %} copies your GitHub SSH keys into the codespace on creation for a seamless authentication experience. You may be asked to enter the passphrase for your SSH key, after which you will get a command prompt from the remote codespace machine.
@@ -113,7 +113,7 @@ If you don't have any SSH keys, follow the instructions in "[Generating a new SS
 ### Open a codespace in {% data variables.product.prodname_vscode %}
 
 ```shell
-gh codespace code -c <em>codespace-name</em>
+gh codespace code -c CODESPACE-NAME
 ```
 
 For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)."
@@ -121,13 +121,13 @@ For more information, see "[Using {% data variables.product.prodname_github_code
 ### Open a codespace in JupyterLab
 
 ```shell
-gh codespace jupyter -c <em>codespace-name</em>
+gh codespace jupyter -c CODESPACE-NAME
 ```
 
 ### Copy a file to/from a codespace
 
 ```shell
-gh codespace cp [-r] <em>source(s)</em> <em>destination</em> 
+gh codespace cp [-r] SOURCE(S) DESTINATION
 ```
 
 Use the prefix `remote:` on a file or directory name to indicate that it's on the codespace. As with the UNIX `cp` command, the first argument specifies the source and the last specifies the destination. If the destination is a directory, you can specify multiple sources. Use the `-r` (recursive) flag if any of the sources is a directory.
@@ -171,7 +171,7 @@ For more information about the `gh codespace cp` command, including additional f
 You can forward a port on a codespace to a local port. The port remains forwarded as long as the process is running. To stop forwarding the port, press <kbd>Control</kbd>+<kbd>C</kbd>.
 
 ```shell
-gh codespace ports forward <em>codespace-port-number</em>:<em>local-port-number</em> -c <em>codespace-name</em>
+gh codespace ports forward CODESPACE-PORT_NAME:LOCAL-PORT-NAME -c CODESPACE-NAME
 ```
 
 To see details of forwarded ports enter `gh codespace ports` and then choose a codespace.
@@ -179,13 +179,13 @@ To see details of forwarded ports enter `gh codespace ports` and then choose a c
 You can set the visibility of a forwarded port. {% data reusables.codespaces.port-visibility-settings %}
 
 ```shell
-gh codespace ports visibility <em>codespace-port</em>:<em>private|org|public</em> -c <em>codespace-name</em>
+gh codespace ports visibility CODESPACE-PORT:private|org|public -c CODESPACE-NAME
 ```
 
 You can set the visibility for multiple ports with one command. For example:
 
 ```shell
-gh codespace ports visibility 80:private 3000:public 3306:org -c <em>codespace-name</em>
+gh codespace ports visibility 80:private 3000:public 3306:org -c CODESPACE-NAME
 ```
 
 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
@@ -195,7 +195,7 @@ For more information, see "[Forwarding ports in your codespace](/codespaces/deve
 You can see the creation log for a codespace. After entering this command you will be asked to enter the passphrase for your SSH key.
 
 ```shell
-gh codespace logs -c <em>codespace-name</em>
+gh codespace logs -c CODESPACE-NAME
 ```
 
 For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."

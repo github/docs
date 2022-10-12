@@ -1,6 +1,6 @@
 ---
 title: Configuring OpenID Connect in Azure
-shortTitle: Configuring OpenID Connect in Azure
+shortTitle: OpenID Connect in Azure
 intro: Use OpenID Connect within your workflows to authenticate with Azure.
 miniTocMaxHeadingLevel: 3
 versions:

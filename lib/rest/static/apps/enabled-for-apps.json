@@ -4115,13 +4115,13 @@
         "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun"
       },
       {
-        "slug": "get-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository",
+        "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
         "subcategory": "oidc",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
       },
       {
-        "slug": "set-the-opt-in-flag-of-an-oidc-subject-claim-customization-for-a-repository",
+        "slug": "set-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
         "subcategory": "oidc",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
@@ -22133,7 +22133,7 @@
         "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
       },
       {
-        "slug": "provision-a-scim-enterprise-group-and-invite-users",
+        "slug": "provision-a-scim-enterprise-group",
         "subcategory": "scim",
         "verb": "post",
         "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
@@ -22169,7 +22169,7 @@
         "requestPath": "/scim/v2/enterprises/{enterprise}/Users"
       },
       {
-        "slug": "provision-and-invite-a-scim-enterprise-user",
+        "slug": "provision-a-scim-enterprise-user",
         "subcategory": "scim",
         "verb": "post",
         "requestPath": "/scim/v2/enterprises/{enterprise}/Users"

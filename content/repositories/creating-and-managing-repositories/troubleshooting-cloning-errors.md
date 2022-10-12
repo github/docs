@@ -29,18 +29,18 @@ Here's an example of an HTTPS error you might receive:
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
-> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs?service=git-receive-pack
 > fatal: HTTP request failed
 ```
 
 ```shell
 > Error: The requested URL returned error: 403 while accessing
-> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
+> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs
 > fatal: HTTP request failed
 ```
 
 ```shell
-> Error: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
+> Error: https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs not found: did you run git
 > update-server-info on the server?
 ```
 
@@ -124,7 +124,7 @@ the following into the command line:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
-> Hi <em>username</em>! You've successfully authenticated, but GitHub does not
+> Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
@@ -152,7 +152,7 @@ This error occurs if the default branch of a repository has been deleted on {% d
 Detecting this error is simple; Git will warn you when you try to clone the repository:
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
 # Clone a repo
 > Cloning into 'repo'...
 > remote: Counting objects: 66179, done.

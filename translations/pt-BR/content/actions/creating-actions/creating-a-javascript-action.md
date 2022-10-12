@@ -1,5 +1,6 @@
 ---
 title: Creating a JavaScript action
+shortTitle: Create a JavaScript action
 intro: 'In this guide, you''ll learn how to build a JavaScript action using the actions toolkit.'
 redirect_from:
   - /articles/creating-a-javascript-action
@@ -15,7 +16,6 @@ type: tutorial
 topics:
   - Action development
   - JavaScript
-shortTitle: JavaScript action
 ---
 
 {% data reusables.actions.enterprise-beta %}

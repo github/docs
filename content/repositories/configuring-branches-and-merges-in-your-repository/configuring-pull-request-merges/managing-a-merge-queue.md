@@ -57,6 +57,10 @@ With other CI providers, you may need to update your CI configuration to run whe
 
 Repository administrators can require a merge queue by enabling the branch protection setting "Require merge queue" in the protection rules for the base branch.
 
+### About the merge group size setting
+
+You can configure a merge queue's merge group size, which determines how many pull requests are included in each merge group. When there are no status check failures or merge conflicts, choosing the default "small" merge group size will form groups containing 2 pull requests. If you want to group more pull requests per group, you may choose the "medium" merge group size to form groups containing 5 pull requests each.
+
 For information about how to enable the merge queue protection setting, see "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
 
 ## Further reading
