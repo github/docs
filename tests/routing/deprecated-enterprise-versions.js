@@ -4,8 +4,6 @@ import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get, getDOM } from '../helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 
-const NO_CACHE_CONTROL = 'private, no-store, max-age=0'
-
 jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('enterprise deprecation', () => {
@@ -98,7 +96,7 @@ describe('recently deprecated redirects', () => {
     expect(res.headers.location).toBe('/en/enterprise-server@3.0')
     expect(res.headers['set-cookie']).toBeUndefined()
     // Deliberately no cache control because it is user-dependent
-    expect(res.headers['cache-control']).toBe(NO_CACHE_CONTROL)
+    expect(res.headers['cache-control']).toBe('private, no-store')
   })
 
   test('already languaged enterprise 3.0 redirects', async () => {
@@ -117,7 +115,7 @@ describe('recently deprecated redirects', () => {
     expect(res.statusCode).toBe(302)
     expect(res.headers['set-cookie']).toBeUndefined()
     // Deliberately no cache control because it is user-dependent
-    expect(res.headers['cache-control']).toBe(NO_CACHE_CONTROL)
+    expect(res.headers['cache-control']).toBe('private, no-store')
     // This is based on
     // https://github.com/github/help-docs-archived-enterprise-versions/blob/master/3.0/redirects.json
     expect(res.headers.location).toBe(

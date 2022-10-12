@@ -9,7 +9,6 @@ import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import { getPathWithoutVersion } from '../../lib/path-utils.js'
 import { describe, jest } from '@jest/globals'
 
-const NO_CACHE_CONTROL = 'private, no-store, max-age=0'
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 const activeProducts = Object.values(productMap).filter(
   (product) => !product.wip && !product.hidden
@@ -607,7 +606,7 @@ describe('server', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
-      expect(res.headers['cache-control']).toBe(NO_CACHE_CONTROL)
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirects old articles to their slugified URL', async () => {
@@ -621,7 +620,7 @@ describe('server', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe(NO_CACHE_CONTROL)
+      expect(res.headers['cache-control']).toBe('private, no-store')
       expect(res.headers['set-cookie']).toBeUndefined()
     })
 
@@ -640,7 +639,7 @@ describe('server', () => {
 
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe(NO_CACHE_CONTROL)
+      expect(res.headers['cache-control']).toBe('private, no-store')
       expect(res.headers['set-cookie']).toBeUndefined()
     })
 
@@ -654,7 +653,7 @@ describe('server', () => {
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe(NO_CACHE_CONTROL)
+      expect(res.headers['cache-control']).toBe('private, no-store')
       expect(res.headers['set-cookie']).toBeUndefined()
     })
 
@@ -664,7 +663,7 @@ describe('server', () => {
       expect(res.headers.location.startsWith('/en/')).toBe(true)
       expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
-      expect(res.headers['cache-control']).toBe(NO_CACHE_CONTROL)
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirects that not only injects /en/ should have cache-control', async () => {
