@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions のワークフロー コマンド
+title: Workflow commands for GitHub Actions
 shortTitle: Workflow commands
-intro: ワークフロー内あるいはアクションのコード内でシェルコマンドを実行する際には、ワークフローコマンドを利用できます。
+intro: You can use workflow commands when running shell commands in a workflow or in an action's code.
 defaultTool: bash
 redirect_from:
   - /articles/development-tools-for-github-actions
@@ -16,22 +16,18 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: 80f10d807cf7f8978173225c17ed4dc0eedeeb22
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147770898'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## ワークフローコマンドについて
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-アクションは、 環境変数を設定する、他のアクションに利用される値を出力する、デバッグメッセージを出力ログに追加するなどのタスクを行うため、ランナーマシンとやりとりできます。
+## About workflow commands
 
-ほとんどのワークフロー コマンドが特定の形式で `echo` コマンドを使用しますが、他のコマンドはファイルへの書き込みによって呼び出されます。 詳しくは、「[環境ファイル](#environment-files)」を参照してください。
+Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
-### 例
+Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see "[Environment files](#environment-files)."
+
+### Example
 
 {% bash %}
 
@@ -51,27 +47,62 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 {% note %}
 
-**注:** ワークフロー コマンドとパラメーター名では、大文字と小文字は区別されません。
+**Note:** Workflow command and parameter names are not case-sensitive.
 
 {% endnote %}
 
 {% warning %}
 
-**警告:** コマンド プロンプトを使用している場合は、ワークフロー コマンドを使うときに二重引用符 (`"`) を省略してください。
+**Warning:** If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
 
 {% endwarning %}
 
-## ワークフローコマンドを使ったツールキット関数へのアクセス
+## Using workflow commands to access toolkit functions
 
-[actions/toolkit](https://github.com/actions/toolkit) には、ワークフロー コマンドとして実行できる多数の関数が含まれています。 `::` 構文を使用して、YAML ファイル内でワークフロー コマンドを実行してください。そうすると、それらのコマンドが `stdout` を通じてランナーに送信されます。 たとえば、コードを使用して出力を設定する代わりに、以下のようにします。
+The [actions/toolkit](https://github.com/actions/toolkit) includes a number of functions that can be executed as workflow commands. Use the `::` syntax to run the workflow commands within your YAML file; these commands are then sent to the runner over `stdout`.
+
+{%- ifversion actions-save-state-set-output-envs %}
+For example, instead of using code to create an error annotation, as below:
+
+```javascript{:copy}
+core.error('Missing semicolon', {file: 'app.js', startLine: 1})
+```
+
+### Example: Creating an annotation for an error
+
+You can use the `error` command in your workflow to create the same error annotation:
+
+{% bash %}
+
+{% raw %}
+```yaml{:copy}
+      - name: Create annotation for build error
+        run: echo "::error file=app.js,line=1::Missing semicolon"
+```
+{% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+```yaml{:copy}
+      - name: Create annotation for build error
+        run: Write-Output "::error file=app.js,line=1::Missing semicolon"
+```
+{% endraw %}
+
+{% endpowershell %}
+{%- else %}
+For example, instead of using code to set an output, as below:
 
 ```javascript{:copy}
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-### 例: 値の設定
+### Example: Setting a value
 
-ワークフローで `set-output` コマンドを使用して、同じ値を設定できます。
+You can use the `set-output` command in your workflow to set the same value:
 
 {% bash %}
 
@@ -101,32 +132,44 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 {% endpowershell %}
 
-以下の表は、ワークフロー内で使えるツールキット関数を示しています。
+{% endif %}
 
-| ツールキット関数 | 等価なワークフローのコマンド |
+The following table shows which toolkit functions are available within a workflow:
+
+| Toolkit function | Equivalent workflow command |
 | ----------------- |  ------------- |
-| `core.addPath`    | `GITHUB_PATH` 環境ファイルを使用してアクセス可能 |
+| `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
 | `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`     | `notice` |{% endif %}
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
-| `core.exportVariable` | `GITHUB_ENV` 環境ファイルを使用してアクセス可能 |
-| `core.getInput`   | `INPUT_{NAME}` 環境変数を使用してアクセス可能 |
-| `core.getState`   | `STATE_{NAME}` 環境変数を使用してアクセス可能 |
-| `core.isDebug`    |  `RUNNER_DEBUG` 環境変数を使用してアクセス可能 |
-{%- ifversion actions-job-summaries %} | `core.summary` | `GITHUB_STEP_SUMMARY` 環境変数を使用してアクセス可能 | {%- endif %} | `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | `::error` と `exit 1` のショートカットとして使用 | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV` |
+| `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
+| `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
+| `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
+{%- ifversion actions-job-summaries %}
+| `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
+{%- endif %}
+| `core.saveState`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment variable `GITHUB_STATE`{% else %}`save-state`{% endif %} |
+| `core.setCommandEcho` | `echo` |
+| `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
+| `core.setOutput`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment variable `GITHUB_OUTPUT`{% else %}`set-output`{% endif %} |
+| `core.setSecret`  | `add-mask` |
+| `core.startGroup` | `group` |
+| `core.warning`    | `warning` |
 
-## 出力パラメータの設定
+{% ifversion actions-save-state-set-output-envs %}{% else %}
+## Setting an output parameter
 
-アクションの出力パラメータを設定します。
+Sets an action's output parameter.
 
 ```{:copy}
 ::set-output name={name}::{value}
 ```
 
-あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 詳細については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)」を参照してください。
+Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
 
-### 例: 出力パラメーターの設定
+### Example: Setting an output parameter
 
 {% bash %}
 
@@ -143,16 +186,17 @@ Write-Output "::set-output name=action_fruit::strawberry"
 ```
 
 {% endpowershell %}
+{% endif %}
 
-## デバッグメッセージの設定
+## Setting a debug message
 
-デバッグメッセージをログに出力します。 このコマンドによって設定されたデバッグ メッセージをログで表示するには、`ACTIONS_STEP_DEBUG` という名前のシークレットを作成し、値を `true` に設定する必要があります。 詳細については、「[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)」(デバッグ ログの有効化) を参照してください。
+Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
 
 ```{:copy}
 ::debug::{message}
 ```
 
-### 例: デバッグ メッセージの設定
+### Example: Setting a debug message
 
 {% bash %}
 
@@ -172,9 +216,9 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
-## 通知メッセージの設定
+## Setting a notice message
 
-通知メッセージを作成し、ログにそのメッセージを出力します。 {% data reusables.actions.message-annotation-explanation %}
+Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
@@ -182,7 +226,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% data reusables.actions.message-parameters %}
 
-### 例: 通知メッセージの設定
+### Example: Setting a notice message
 
 {% bash %}
 
@@ -198,11 +242,12 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
-{% endpowershell %} {% endif %}
+{% endpowershell %}
+{% endif %}
 
-## 警告メッセージの設定
+## Setting a warning message
 
-警告メッセージを作成し、ログにそのメッセージを出力します。 {% data reusables.actions.message-annotation-explanation %}
+Creates a warning message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::warning file={name},line={line},endLine={endLine},title={title}::{message}
@@ -210,7 +255,7 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% data reusables.actions.message-parameters %}
 
-### 例: 警告メッセージの設定
+### Example: Setting a warning message
 
 {% bash %}
 
@@ -227,9 +272,9 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% endpowershell %}
 
-## エラーメッセージの設定
+## Setting an error message
 
-エラーメッセージを作成し、ログにそのメッセージを出力します。 {% data reusables.actions.message-annotation-explanation %}
+Creates an error message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
@@ -237,7 +282,7 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% data reusables.actions.message-parameters %}
 
-### 例: エラー メッセージの設定
+### Example: Setting an error message
 
 {% bash %}
 
@@ -255,16 +300,16 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% endpowershell %}
 
-## ログの行のグループ化
+## Grouping log lines
 
-展開可能なグループをログ中に作成します。 グループを作成するには、`group` コマンドを使用して `title` を指定します。 ログに出力する `group` と `endgroup` コマンド間のすべての内容は、ログで展開可能なエントリ内で入れ子になります。
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
 ```{:copy}
 ::group::{title}
 ::endgroup::
 ```
 
-### 例: ログの行のグループ化
+### Example: Grouping log lines
 
 {% bash %}
 
@@ -298,19 +343,19 @@ jobs:
 
 {% endpowershell %}
 
-![ワークフローの実行ログ中の折りたたみ可能なグループ](/assets/images/actions-log-group.png)
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
 
-## ログ中での値のマスク
+## Masking a value in log
 
 ```{:copy}
 ::add-mask::{value}
 ```
 
-値をマスクすることにより、文字列または値がログに出力されることを防ぎます。 空白で区切られた、マスクされる各単語は、`*` という文字に置き換えられます。 マスクの `value` には、環境変数または文字列を使用できます。 値をマスクすると、シークレットとして扱われ、ランナーで編集されます。 たとえば、値をマスクした後は、その値を出力として設定することはできません。
+Masking a value prevents a string or variable from being printed in the log. Each masked word separated by whitespace is replaced with the `*` character. You can use an environment variable or string for the mask's `value`. When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
 
-### 例: 文字列のマスク
+### Example: Masking a string
 
-ログに `"Mona The Octocat"` を出力すると、`"***"` と表示されます。
+When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 
 {% bash %}
 
@@ -330,13 +375,13 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% warning %}
 
-**警告:** シークレットをビルド ログに出力したり、その他のワークフロー コマンド内で使ったりする前に、シークレットを "add-mask" に必ず登録してください。
+**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
 
 {% endwarning %}
 
-### 例: 環境変数のマスク
+### Example: Masking an environment variable
 
-ログに変数 `MY_NAME` または値 `"Mona The Octocat"` を出力すると、`"Mona The Octocat"` の代わりに `"***"` と表示されます。
+When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
 
 {% bash %}
 
@@ -368,19 +413,19 @@ jobs:
 
 {% endpowershell %}
 
-## ワークフローコマンドの停止と開始
+## Stopping and starting workflow commands
 
-ワークフローコマンドの処理を停止します。 この特殊コマンドを使うと、意図せずワークフローコマンドを実行することなくいかなるログも取れます。 たとえば、コメントがあるスクリプト全体を出力するためにログ取得を停止できます。
+Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
 ```{:copy}
 ::stop-commands::{endtoken}
 ```
 
-ワークフロー コマンドの処理を停止するには、固有のトークンを `stop-commands` に渡します。 ワークフロー コマンドの処理を再開するには、ワークフロー コマンドを停止するために使用したトークンと同じものを渡します。
+To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
 {% warning %}
 
-**警告:** ランダムに生成された、実行ごとに固有のトークンを使用するようにしてください。
+**Warning:** Make sure the token you're using is randomly generated and unique for each run.
 
 {% endwarning %}
 
@@ -388,7 +433,7 @@ jobs:
 ::{endtoken}::
 ```
 
-### 例: ワークフロー コマンドの停止と開始
+### Example: Stopping and starting workflow commands
 
 {% bash %}
 
@@ -434,22 +479,22 @@ jobs:
 
 {% endpowershell %}
 
-## コマンド出力のエコー
+## Echoing command outputs
 
-ワークフロー コマンドのエコーを有効または無効にします。 たとえば、ワークフローで `set-output` コマンドを使用すると、出力パラメーターが設定されますが、ワークフロー実行のログにはコマンド自体は表示されません。 コマンドのエコーを有効にした場合、`::set-output name={name}::{value}` のようにコマンドがログに表示されます。
+Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
 ```{:copy}
 ::echo::on
 ::echo::off
 ```
 
-コマンドのエコーは既定では無効になっています。 ただし、コマンドの処理中にエラーが発生した場合は、ワークフロー コマンドがエコーされます。
+Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
 
-`add-mask`、`debug`、`warning`、`error` コマンドは、出力が既にログにエコーされるようになっているため、エコーをサポートしていません。
+The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
 
-`ACTIONS_STEP_DEBUG` シークレットを使用してステップのデバッグ ログを有効にすることで、コマンドのエコーをグローバルに有効にすることもできます。 詳しくは、「[デバッグ ロギングの有効化](/actions/managing-workflow-runs/enabling-debug-logging)」をご覧ください。 対照的に、`echo` ワークフロー コマンドを使用すると、リポジトリ内のすべてのワークフローに対してコマンドのエコーを有効にするのではなく、より詳細なレベルで有効にすることができます。
+You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
 
-### 例: コマンドのエコーの切り替え
+### Example: Toggling command echoing
 
 {% bash %}
 
@@ -487,44 +532,58 @@ jobs:
 
 {% endpowershell %}
 
-上記の例では、次の行がログに出力されます。
+The example above prints the following lines to the log:
 
 ```{:copy}
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
 
-ログには 2 番目の `set-output` と `echo` ワークフロー コマンドのみが含まれています。これは、それらのコマンドが実行されたときにのみコマンドのエコーが有効になったからです。 出力パラメーターは、常にエコーされるとは限りませんが、すべての場合において設定されます。
+Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
 
-## pre及びpostアクションへの値の送信
+## Sending values to the pre and post actions
 
-`save-state` コマンドを使用して、ワークフローの `pre:` または `post:` アクションと共有するための環境変数を作成できます。 たとえば、`pre:` アクションでファイルを作成し、そのファイルの場所を `main:` アクションに渡し、`post:` アクションを使用してファイルを削除できます。 あるいは、`main:` アクションでファイルを作成し、そのファイルの場所を `post:` アクションに渡し、さらに `post:` アクションを使用してファイルを削除することもできます。
+{% ifversion actions-save-state-set-output-envs %}You can create environment variables for sharing with your workflow's `pre:` or `post:` actions by writing to the file located at `GITHUB_STATE`{% else %}You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions{% endif %}. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
-複数の `pre:` または `post:` アクションがある場合、`save-state` が使用されたアクションでのみ保存された値にアクセスできます。 `post:` アクションについて詳しくは、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)」をご覧ください。
+If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where {% ifversion actions-save-state-set-output-envs %}it was written to `GITHUB_STATE`{% else %}`save-state` was used{% endif %}. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
 
-`save-state` コマンドはアクション内でしか実行できず、YAML ファイルでは利用できません。 保存された値は、`STATE_` というプレフィックスが付いた環境変数として保存されます。
+{% ifversion actions-save-state-set-output-envs %}The `GITHUB_STATE` file is only available within an action{% else %}The `save-state` command can only be run within an action, and is not available to YAML files{% endif %}. The saved value is stored as an environment value with the `STATE_` prefix.
 
-この例では JavaScript を使用して `save-state` コマンドを実行します。 結果の環境変数は、`STATE_processID` という名前になり、値が `12345` になります。
+{% ifversion actions-save-state-set-output-envs %}
+This example uses JavaScript to write to the `GITHUB_STATE` file. The resulting environment variable is named `STATE_processID` with the value of `12345`:
+
+```javascript{:copy}
+import * as fs from 'fs'
+import * as os from 'os'
+
+fs.appendFileSync(process.env.GITHUB_STATE, `processID=12345${os.EOL}`, {
+  encoding: 'utf8'
+})
+```
+
+{% else %}
+This example uses JavaScript to run the `save-state` command. The resulting environment variable is named `STATE_processID` with the value of `12345`:
 
 ```javascript{:copy}
 console.log('::save-state name=processID::12345')
 ```
+{% endif %}
 
-この後、`STATE_processID` 変数は `main` アクションで実行されるクリーンアップ スクリプトでのみ利用できます。 この例は `main` で実行され、JavaScript を使用して `STATE_processID` 環境変数に割り当てられた値を表示します。
+The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
 
 ```javascript{:copy}
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## 環境ファイル
+## Environment files
 
-ワークフローの実行中に、ランナーは特定のアクションを実行する際に使用できる一時ファイルを生成します。 これらのファイルへのパスは、環境変数を介して公開されます。 コマンドを適切に処理するには、これらのファイルに書き込むときに UTF-8 エンコーディングを使用する必要があります。 複数のコマンドを、改行で区切って同じファイルに書き込むことができます。
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 
 {% powershell %}
 
 {% note %}
 
-**注:** PowerShell バージョン 5.1 以下 (`shell: powershell`) では UTF-8 が既定で使用されないため、UTF-8 エンコードを指定する必要があります。 次に例を示します。
+**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. For example:
 
 ```yaml{:copy}
 jobs:
@@ -536,7 +595,7 @@ jobs:
           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-PowerShell Core バージョン 6 以上 (`shell: pwsh`) では、UTF-8 が既定で使用されます。 次に例を示します。
+PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
 
 ```yaml{:copy}
 jobs:
@@ -552,7 +611,7 @@ jobs:
 
 {% endpowershell %}
 
-## 環境変数の設定
+## Setting an environment variable
 
 {% bash %}
 
@@ -564,13 +623,13 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% powershell %}
 
-- PowerShell バージョン 6 以上を使用:
+- Using PowerShell version 6 and higher:
 
   ```pwsh{:copy}
   "{environment_variable_name}={value}" >> $env:GITHUB_ENV
   ```
 
-- PowerShell バージョン 5.1 以下を使用:
+- Using PowerShell version 5.1 and below:
 
   ```powershell{:copy}
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
@@ -578,9 +637,9 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% endpowershell %}
 
-環境変数を定義または更新し、これを `GITHUB_ENV` 環境ファイルに書き込むことで、ワークフロー ジョブの後続のステップで環境変数が利用できるようになります。 環境変数を作成または更新するステップは、新しい値にアクセスできませんが、ジョブにおける後続のすべてのステップはアクセスできます。 環境変数の名前では、大文字と小文字が区別され、句読点を含めることができます。 詳しくは、「[環境変数](/actions/learn-github-actions/environment-variables)」をご覧ください。
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables)."
 
-### 例
+### Example
 
 {% bash %}
 
@@ -618,9 +677,9 @@ steps:
 
 {% endpowershell %}
 
-### 複数行の文字列
+### Multiline strings
 
-複数行の文字列の場合、次の構文で区切り文字を使用できます。 
+For multiline strings, you may use a delimiter with the following syntax.
 
 ```{:copy}
 {name}<<{delimiter}
@@ -630,13 +689,13 @@ steps:
 
 {% warning %}
 
-**警告:** ランダムに生成された、実行ごとに固有の区切り記号を使用するようにしてください。 詳細については、「[スクリプト インジェクションのリスクを理解する](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)」を参照してください。
+**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
 
 {% endwarning %}
 
-#### 例
+#### Example
 
-この例では、区切り文字として `EOF` を使用し、`JSON_RESPONSE` 環境変数を `curl` の応答の値に設定します。
+This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
 {% bash %}
 
@@ -667,9 +726,65 @@ steps:
 
 {% endpowershell %}
 
+{% ifversion actions-save-state-set-output-envs %}
+## Setting an output parameter
+
+Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value.
+
+{% bash %}
+
+```bash{:copy}
+echo "{name}={value}" >> $GITHUB_OUTPUT
+```
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{name}=value" >> $env:GITHUB_OUTPUT
+```
+
+{% endpowershell %}
+
+### Example
+
+{% bash %}
+
+This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
+
+{% raw %}
+```yaml{:copy}
+      - name: Set color
+        id: random-color-generator
+        run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
+
+```yaml{:copy}
+      - name: Set color
+        id: random-color-generator
+        run: |
+            "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
+      - name: Get color
+        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% endpowershell %}
+{% endif %}
+
 {% ifversion actions-job-summaries %}
 
-## ジョブの概要の追加
+## Adding a job summary
 
 {% bash %}
 
@@ -687,13 +802,13 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-ジョブごとにいくつかのカスタム Markdown を設定して、ワークフロー実行の概要ページに表示されるようにすることができます。 ジョブの概要を使用して、テスト結果の概要といった独自の内容を表示およびグループ化できます。これにより、ワークフロー実行の結果を表示するユーザーが、実行に関連する重要な情報 (エラーなど) を確認するためにログを調べる必要がなくなります。
+You can set some custom Markdown for each job so that it will be displayed on the summary page of a workflow run. You can use job summaries to display and group unique content, such as test result summaries, so that someone viewing the result of a workflow run doesn't need to go into the logs to see important information related to the run, such as failures.
 
-ジョブの概要では [{% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/gfm/) がサポートされていて、ステップの Markdown コンテンツを `GITHUB_STEP_SUMMARY` 環境ファイルに追加できます。 `GITHUB_STEP_SUMMARY` は、ジョブのステップごとに固有のものです。 `GITHUB_STEP_SUMMARY` が参照するステップごとのファイルについて詳しくは、「[環境ファイル](#environment-files)」をご覧ください。
+Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` is unique for each step in a job. For more information about the per-step file that `GITHUB_STEP_SUMMARY` references, see "[Environment files](#environment-files)."
 
-ジョブが完了すると、ジョブにおけるすべてのステップの概要が 1 つのジョブの概要にグループ化され、ワークフロー実行の概要ページに表示されます。 複数のジョブが概要を生成する場合、ジョブの概要の順序はジョブの完了時間順になります。
+When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
 
-### 例
+### Example
 
 {% bash %}
 
@@ -711,13 +826,13 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-![Markdown の概要の例](/assets/images/actions-job-summary-simple-example.png)
+![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
 
-### 複数行の Markdown コンテンツ
+### Multiline Markdown content
 
-複数行の Markdown コンテンツの場合は、`>>` を使用して、現在のステップのコンテンツを連続して追加できます。 追加操作のたびに、改行文字が自動的に追加されます。
+For multiline Markdown content, you can use `>>` to continuously append content for the current step. With every append operation, a newline character is automatically added.
 
-#### 例
+#### Example
 
 {% bash %}
 
@@ -747,11 +862,11 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-### ジョブの概要の上書き
+### Overwriting job summaries
 
-現在のステップのすべてのコンテンツをクリアするには、`>` を使用して、以前に追加したコンテンツを上書きします。
+To clear all content for the current step, you can use `>` to overwrite any previously added content.
 
-#### 例
+#### Example
 
 {% bash %}
 
@@ -775,11 +890,11 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-### ジョブの概要の削除
+### Removing job summaries
 
-現在のステップの概要を完全に削除するには、`GITHUB_STEP_SUMMARY` が参照するファイルを削除します。
+To completely remove a summary for the current step, the file that `GITHUB_STEP_SUMMARY` references can be deleted.
 
-#### 例
+#### Example
 
 {% bash %}
 
@@ -803,17 +918,17 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-ステップが完了すると、ジョブの概要がアップロードされ、後続のステップは以前にアップロードされた Markdown コンテンツを変更できません。 概要では、誤って追加された可能性があるシークレットが自動的にマスクされます。 ジョブの概要に削除する必要がある機密情報が含まれている場合は、ワークフロー実行全体を削除して、そのジョブの概要をすべて削除できます。 詳しくは、「[ワークフロー実行の削除](/actions/managing-workflow-runs/deleting-a-workflow-run)」をご覧ください。
+After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
 
-### ステップの分離と制限
+### Step isolation and limits
 
-ジョブの概要はステップ間で分離されていて、各ステップのサイズは最大 1 MiB に制限されています。 分離がステップ間で適用されるため、1 つのステップにおいて Markdown の形式が誤っている可能性があっても、後続のステップで Markdown のレンダリングが中断することはありません。 ステップに 1 MiB を超えるコンテンツが追加された場合、ステップのアップロードは失敗し、エラーの注釈が作成されます。 ジョブの概要のアップロード エラーは、ステップまたはジョブの全体的な状態には影響しません。 ジョブごとに、ステップのジョブの概要が最大 20 件表示されます。
+Job summaries are isolated between steps and each step is restricted to a maximum size of 1MiB. Isolation is enforced between steps so that potentially malformed Markdown from a single step cannot break Markdown rendering for subsequent steps. If more than 1MiB of content is added for a step, then the upload for the step will fail and an error annotation will be created. Upload failures for job summaries do not affect the overall status of a step or a job. A maximum of 20 job summaries from steps are displayed per job.
 
 {% endif %}
 
-## システムパスの追加
+## Adding a system path
 
-システムの `PATH` 変数の先頭にディレクトリを追加し、自動的に現在のジョブにおける後続のすべてのアクションで利用できるようにします。現在実行中のアクションは、更新されたパス変数にアクセスできません。 ジョブに現在定義されているパスを確認するには、ステップまたはアクションで `echo "$PATH"` を使うことができます。
+Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 {% bash %}
 
@@ -830,11 +945,11 @@ echo "{path}" >> $GITHUB_PATH
 
 {% endpowershell %}
 
-### 例
+### Example
 
 {% bash %}
 
-この例では、ユーザーの `$HOME/.local/bin` ディレクトリを `PATH` に追加する方法を示しています。
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
 
 ```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -844,7 +959,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% powershell %}
 
-この例では、ユーザーの `$env:HOMEPATH/.local/bin` ディレクトリを `PATH` に追加する方法を示しています。
+This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

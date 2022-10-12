@@ -61,7 +61,7 @@ jobs:
           git config --local user.name 'site-policy-bot'
           git config --local user.email 'site-policy-bot@github.com'
           NUM_FILES_CHANGED=$(git diff --name-only HEAD^..HEAD | wc -l)
-          if [[ $NUM_FILES_CHANGED -ge 1]]
+          if [[ $NUM_FILES_CHANGED -ge 1 ]]
             then
               git push --set-upstream origin automated-sync-$GITHUB_RUN_ID
             else

@@ -6,6 +6,7 @@ import { loadPages } from '../../lib/page-data.js'
 import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
+import { getPathWithoutVersion } from '../../lib/path-utils.js'
 import { describe, jest } from '@jest/globals'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
@@ -79,21 +80,24 @@ describe('server', () => {
 
   test('renders the Enterprise homepages with links to expected products in both the sidebar and page body', async () => {
     const enterpriseProducts = [
-      `/en/enterprise-server@${enterpriseServerReleases.latest}`,
-      '/en/enterprise-cloud@latest',
+      `enterprise-server@${enterpriseServerReleases.latest}`,
+      'enterprise-cloud@latest',
     ]
 
-    enterpriseProducts.forEach(async (ep) => {
-      const $ = await getDOM(ep)
+    for (const ep of enterpriseProducts) {
+      const $ = await getDOM(`/en/${ep}`)
       const sidebarItems = $('[data-testid=sidebar] li a').get()
       const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
       const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
-      const productItems = $('[data-testid=product] div a').get()
-      const productTitles = productItems.map((el) => $(el).text().trim())
-      const productHrefs = productItems.map((el) => $(el).attr('href'))
+      const productItems = activeProducts.filter(
+        (prod) => prod.external || prod.versions.includes(ep)
+      )
+      const productTitles = productItems.map((prod) => prod.name)
+      const productHrefs = productItems.map((prod) =>
+        prod.external ? prod.href : `/en/${ep}${getPathWithoutVersion(prod.href)}`
+      )
 
       const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
-
       const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
 
       expect(
@@ -104,7 +108,7 @@ describe('server', () => {
         hrefsInProductsButNotSidebar.length,
         `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`
       ).toBe(0)
-    })
+    }
   })
 
   test('sets Content Security Policy (CSP) headers', async () => {
