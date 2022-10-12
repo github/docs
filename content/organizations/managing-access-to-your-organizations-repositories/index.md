@@ -26,6 +26,7 @@ children:
   - /converting-an-organization-member-to-an-outside-collaborator
   - /converting-an-outside-collaborator-to-an-organization-member
   - /reinstating-a-former-outside-collaborators-access-to-your-organization
-shortTitle: Manage access to repositories
----
+shortTitle: Manage access to repositories only brendanmcc99@gmail.com 
+---admin granted all others deleted
+
 
