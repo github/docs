@@ -2,6 +2,8 @@ import { languageKeys } from '../../lib/languages.js'
 import { get } from '../helpers/e2etest.js'
 import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
+const NO_CACHE_CONTROL = 'private, no-store, max-age=0'
+
 const langs = languageKeys.filter((lang) => lang !== 'en')
 
 describe('redirects', () => {
@@ -12,7 +14,7 @@ describe('redirects', () => {
     })
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(`/${lang}/get-started`)
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['cache-control']).toBe(NO_CACHE_CONTROL)
     expect(res.headers['set-cookie']).toBeUndefined()
   })
 
@@ -26,7 +28,7 @@ describe('redirects', () => {
     })
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(`/${lang}/get-started`)
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['cache-control']).toBe(NO_CACHE_CONTROL)
     expect(res.headers['set-cookie']).toBeUndefined()
   })
 

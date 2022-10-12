@@ -26,6 +26,7 @@ export function cacheControlFactory(
     maxAge && immutable && 'immutable',
     !maxAge && 'private',
     !maxAge && 'no-store',
+    maxAge === 0 && 'max-age=0',
   ]
     .filter(Boolean)
     .join(', ')
