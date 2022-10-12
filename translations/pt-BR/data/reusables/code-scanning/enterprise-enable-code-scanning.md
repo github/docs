@@ -1,16 +1,10 @@
----
-ms.openlocfilehash: cd30225961136524faf23bf1fc353c0c400cdc2b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145094681"
----
 {% ifversion ghes %}
 
 {% note %}
 
-**Observação:** o administrador do site precisa habilitar a {% data variables.product.prodname_code_scanning %} para o {% data variables.product.product_location %} para que você possa usar esse recurso. Para obter mais informações, confira "[Como configurar a {% data variables.product.prodname_code_scanning %} para seu dispositivo](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance)".1
+**Note:** Your site administrator must enable {% data variables.product.prodname_code_scanning %} for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance)."
+
+{% ifversion security-feature-enablement-policies %} You may not be able to enable or disable {% data variables.product.prodname_code_scanning %} if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing policies for code security and analysis for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."{% endif %}
 
 {% endnote %}
 

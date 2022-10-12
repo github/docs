@@ -14,10 +14,10 @@ topics:
   - SSH
 shortTitle: Permission denied (publickey)
 ms.openlocfilehash: fdf69ae9777127851e1e0a1e85b5907ebd4a3557
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084575'
 ---
 ## 是否应将 `sudo` 命令或提升的权限与 Git 一起使用？

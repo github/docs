@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: db4d0f2e82f8d7044c4c1c53f0ba2e19bec59dcc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147423237"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882828"
 ---
 {% data reusables.profile.access_profile %}
 1. プロファイルで、{% octicon "table" aria-label="The project icon" %} **[プロジェクト]** をクリックします。

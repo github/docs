@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 632a3ac2c6b2d5d074ef3b1db598ed57a89195c5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "147369247"
 ---
 1. 运行以下命令，将 KEY-ID 替换为 PGP 密钥 ID。

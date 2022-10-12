@@ -18,10 +18,10 @@ topics:
   - Access management
 shortTitle: GitHub's IP addresses
 ms.openlocfilehash: ab598fa408512a43ab07c069119480b5ae03278e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145119985'
 ---
 Puede recuperar una lista de las direcciones IP de {% data variables.product.prodname_dotcom %} del punto de conexión de API [meta](https://api.github.com/meta). Para más información, vea "[Meta](/rest/reference/meta)".

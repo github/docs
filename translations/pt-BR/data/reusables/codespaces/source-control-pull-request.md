@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 32ab6120ced32f068eda9d9b9b1823352685f4ed
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145127925"
 ---
 1. Depois de fazer commit das alterações na cópia local do repositório, clique no ícone **Criar Solicitação de Pull**. 

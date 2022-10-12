@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 42db13f770c5fb0dfca31614f9481ca713718dd2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145129687"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147877218"
 ---
 如果讨论属于接受答案的类别，您可以将讨论中的评论标记为讨论的答案。 有关详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
 

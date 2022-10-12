@@ -13,11 +13,11 @@ topics:
   - Legal
 shortTitle: Request account archive
 ms.openlocfilehash: f296796810978f6d884fabc699c01fbc3eabf5eb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145135612'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879383'
 ---
 {% data variables.product.product_name %} almacena metadatos del repositorio y del perfil desde tu actividad de cuenta personal. Puedes exportar tus datos de cuenta personal a través de los parámetros {% data variables.product.prodname_dotcom_the_website %} o con la API de migración de usuarios.
 

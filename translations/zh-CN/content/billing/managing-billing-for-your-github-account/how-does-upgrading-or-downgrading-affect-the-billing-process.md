@@ -16,10 +16,10 @@ topics:
   - User account
 shortTitle: Billing process
 ms.openlocfilehash: 9908e230f5b34b00ee7e62865a26a4796632c329
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084481'
 ---
 对付费个人帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款，例如 {% data variables.large_files.product_name_long %} 或在 {% data variables.product.prodname_marketplace %} 中购买的付费应用程序。

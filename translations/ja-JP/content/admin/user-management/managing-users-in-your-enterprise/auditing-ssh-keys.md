@@ -15,10 +15,10 @@ topics:
   - Security
   - SSH
 ms.openlocfilehash: 6ffcbdc698b6eb3a4736fdb2b4713e2871dcaac2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '147508433'
 ---
 監査が開始されると、現在の SSHキーがすべて無効となります。リポジトリのクローン、プル、プッシュといった操作をするためには、ユーザは SSH キーの承認または拒否をしなければなりません。 監査は、従業員の退職時や請負業者の撤収時など、すべてのキーを検証する必要があるときに役立ちます。

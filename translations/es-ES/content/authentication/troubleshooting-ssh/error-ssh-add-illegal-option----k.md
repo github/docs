@@ -15,10 +15,10 @@ topics:
   - SSH
 shortTitle: 'ssh-add: illegal option -- K'
 ms.openlocfilehash: a9c563f637d2deb544611c8b357761ff1148fa1c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145091740'
 ---
 La opción `-K` es una versión estándar de Apple de `ssh-add`, que almacena la contraseña en su cadena de claves cuando agrega una clave SSH al ssh-agent. Si ha instalado una versión diferente de `ssh-add`, puede que no sea compatible con `-K`.

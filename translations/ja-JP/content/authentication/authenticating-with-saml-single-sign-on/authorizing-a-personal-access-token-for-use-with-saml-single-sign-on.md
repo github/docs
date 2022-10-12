@@ -1,6 +1,6 @@
 ---
-title: SAMLシングルサインオンで利用するために個人アクセストークンを認可する
-intro: SAMLシングルサインオン (SSO) を使う Organization で個人アクセストークンを使うためには、まずそのキーを認可しなければなりません。
+title: Authorizing a personal access token for use with SAML single sign-on
+intro: 'To use a personal access token with an organization that uses SAML single sign-on (SSO), you must first authorize the token.'
 redirect_from:
   - /articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
@@ -11,26 +11,23 @@ versions:
 topics:
   - SSO
 shortTitle: PAT with SAML
-ms.openlocfilehash: a6e1d4c2e1fa5cf1f4738e06127c5e7875a2ef5d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145116190'
 ---
-既存の個人用アクセス トークンを承認することも、[新しい個人用アクセス トークンを作成](/github/authenticating-to-github/creating-a-personal-access-token)して承認することもできます。
+You can authorize an existing personal access token, or [create a new personal access token](/github/authenticating-to-github/creating-a-personal-access-token) and then authorize it.
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
 {% data reusables.saml.authorized-creds-info %}
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.personal_access_tokens %}
-3. 承認するトークンの横にある **[SSO の構成]** をクリックします。
-   ![個人用アクセス トークンの SSO を構成するドロップダウン メニューのスクリーンショット](/assets/images/help/settings/sso-allowlist-button.png)
-4. トークンを承認する Organization の右側にある **[承認]** をクリックします。
-   ![トークンの承認ボタン](/assets/images/help/settings/token-authorize-button.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+3. Next to the token you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
 
-## 参考資料
+   ![Screenshot of the dropdown menu to configure SSO for a personal access token](/assets/images/help/settings/sso-allowlist-button.png)
+4. To the right of the organization you'd like to authorize the token for, click **Authorize**.
+   ![Token authorize button](/assets/images/help/settings/token-authorize-button.png)
 
-- 「[個人用アクセス トークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」
-- 「[SAML のシングル サインオンでの認証について](/articles/about-authentication-with-saml-single-sign-on)」
+## Further reading
+
+- "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"
+- "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"

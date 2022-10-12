@@ -1,11 +1,10 @@
 ---
 title: Configuring OpenID Connect in Amazon Web Services
-shortTitle: Configuring OpenID Connect in Amazon Web Services
+shortTitle: OpenID Connect in AWS
 intro: Use OpenID Connect within your workflows to authenticate with Amazon Web Services.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial

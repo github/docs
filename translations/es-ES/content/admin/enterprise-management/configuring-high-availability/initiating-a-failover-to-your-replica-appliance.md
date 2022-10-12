@@ -13,14 +13,14 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
-ms.openlocfilehash: 65e522d2a7b466c4f75cea087760ecb3001317a7
-ms.sourcegitcommit: 3ea3ccb5af64bd7d9e4699757db38fdd8f98cde7
+ms.openlocfilehash: d1e9c579d431e03154040392a2b58405fef8ab42
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2022
-ms.locfileid: '147076726'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147770893'
 ---
-El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para impulsar la réplica y redireccionar el tráfico de forma manual. El tiempo promedio varía entre 2 y 10 minutos.
+El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para impulsar la réplica y redireccionar el tráfico de forma manual. El tiempo promedio varía entre 20 y 30 minutos.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
@@ -66,6 +66,6 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-## <a name="further-reading"></a>Información adicional
+## Información adicional
 
 - "[Utilidades para la administración de la replicación](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

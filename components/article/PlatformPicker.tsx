@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { SubNav, TabNav, UnderlineNav } from '@primer/react'
 import { sendEvent, EventType } from 'components/lib/events'
@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { useArticleContext } from 'components/context/ArticleContext'
 import { parseUserAgent } from 'components/lib/user-agent'
 
+const platformQueryKey = 'platform'
 const platforms = [
   { id: 'mac', label: 'Mac' },
   { id: 'windows', label: 'Windows' },
@@ -49,9 +50,10 @@ type Props = {
   variant?: 'subnav' | 'tabnav' | 'underlinenav'
 }
 export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
+  const router = useRouter()
+  const { query, asPath, locale } = router
   const { defaultPlatform, detectedPlatforms } = useArticleContext()
   const [currentPlatform, setCurrentPlatform] = useState(defaultPlatform || '')
-  const { asPath } = useRouter()
 
   // Run on mount for client-side only features
   useEffect(() => {
@@ -60,7 +62,15 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
       userAgent = 'mac'
     }
 
-    const platform = defaultPlatform || Cookies.get('osPreferred') || userAgent || 'linux'
+    // If it's a valid platform option, set platform from query param
+    let platform =
+      query[platformQueryKey] && Array.isArray(query[platformQueryKey])
+        ? query[platformQueryKey][0]
+        : query[platformQueryKey] || ''
+    if (!platform || !platforms.some((platform) => platform.id === query.platform)) {
+      platform = defaultPlatform || Cookies.get('osPreferred') || userAgent || 'linux'
+    }
+
     setCurrentPlatform(platform)
 
     // always trigger this on initial render. if the default doesn't change the other useEffect won't fire
@@ -75,23 +85,31 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
     }
   }, [currentPlatform, detectedPlatforms.join(',')])
 
-  const onClickPlatform = (platform: string) => {
-    setCurrentPlatform(platform)
+  const onClickPlatform = useCallback(
+    (platform: string) => {
+      // Set platform in query param without altering other query params
+      const [pathRoot, pathQuery = ''] = asPath.split('?')
+      const params = new URLSearchParams(pathQuery)
+      params.set(platformQueryKey, platform)
+      router.push({ pathname: pathRoot, query: params.toString() }, undefined, {
+        shallow: true,
+        locale,
+      })
 
-    // imperatively modify the article content
-    showPlatformSpecificContent(platform)
+      sendEvent({
+        type: EventType.preference,
+        preference_name: 'os',
+        preference_value: platform,
+      })
 
-    sendEvent({
-      type: EventType.preference,
-      preference_name: 'os',
-      preference_value: platform,
-    })
-
-    Cookies.set('osPreferred', platform, {
-      sameSite: 'strict',
-      secure: true,
-    })
-  }
+      Cookies.set('osPreferred', platform, {
+        sameSite: 'strict',
+        secure: document.location.protocol !== 'http:',
+        expires: 365,
+      })
+    },
+    [asPath]
+  )
 
   // only show platforms that are in the current article
   const platformOptions = platforms.filter((platform) => detectedPlatforms.includes(platform.id))
@@ -128,15 +146,20 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
   }
 
   if (variant === 'underlinenav') {
+    const [, pathQuery = ''] = asPath.split('?')
+    const params = new URLSearchParams(pathQuery)
     return (
       <UnderlineNav {...sharedContainerProps}>
         {platformOptions.map((option) => {
+          params.set(platformQueryKey, option.id)
           return (
             <UnderlineNav.Link
+              href={`?${params.toString()}`}
               key={option.id}
               data-platform={option.id}
               selected={option.id === currentPlatform}
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault()
                 onClickPlatform(option.id)
               }}
             >

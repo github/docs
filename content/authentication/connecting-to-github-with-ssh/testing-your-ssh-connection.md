@@ -38,7 +38,7 @@ When you test your connection, you'll need to authenticate this action using you
 
 3. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
   ```shell
-  > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
+  > Hi USERNAME! You've successfully authenticated, but GitHub does not
   > provide shell access.
   ```
 

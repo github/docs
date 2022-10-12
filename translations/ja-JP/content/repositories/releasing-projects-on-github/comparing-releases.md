@@ -1,6 +1,6 @@
 ---
-title: リリースの比較
-intro: リリースタグを比較して、異なるリリース間でのリポジトリの変更を確認できます。
+title: Comparing releases
+intro: You can compare release tags to see changes to your repository between different releases.
 permissions: People with read access to a repository can view and compare releases.
 versions:
   fpt: '*'
@@ -12,15 +12,18 @@ topics:
 redirect_from:
   - /github/administering-a-repository/comparing-releases
   - /github/administering-a-repository/releasing-projects-on-github/comparing-releases
-ms.openlocfilehash: 12ec28717e8de8575a58487b02d5665044f471eb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145132097'
 ---
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
-3. ベースとして使用するリリースの横にある **[比較]** をクリックします。
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %} ![[リリース タグの比較]](/assets/images/help/releases/refreshed-compare-tags.png) メニュー {% else %} ![[リリース タグの比較] メニュー](/assets/images/help/releases/compare-tags-menu.png) {% endif %}
-4. [Compare] ドロップダウンメニューを使用して、比較するタグを選択します。
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %} ![[リリース タグの比較] メニュー](/assets/images/help/releases/refreshed-compare-tags-menu-options.png) {% else %} ![[リリース タグの比較] メニュー オプション](/assets/images/help/releases/compare-tags-menu-options.png) {% endif %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
+3. Next to the release you want to use as your base, click **Compare**.
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
+  ![Compare release tags menu](/assets/images/help/releases/refreshed-compare-tags.png)
+  {% else %}
+  ![Compare release tags menu](/assets/images/help/releases/compare-tags-menu.png)
+  {% endif %}
+4. Use the "Compare" drop-down menu and select the tags you want to compare.
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
+  ![Compare release tags menu](/assets/images/help/releases/refreshed-compare-tags-menu-options.png)
+  {% else %}
+  ![Compare release tags menu options](/assets/images/help/releases/compare-tags-menu-options.png)
+  {% endif %}

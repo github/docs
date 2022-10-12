@@ -9,14 +9,14 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: a75c94b609bd166971e23516e8b2af318236a026
-ms.sourcegitcommit: 95e6f3d3aba8c637a3f72b571a6beacaa38d367f
+ms.openlocfilehash: 59567f92afddb8941005146a3fa92fd20549fa61
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2022
-ms.locfileid: '147067963'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147687053'
 ---
-## <a name="about-the-deployments-api"></a>デプロイ API について
+## デプロイ API について
 
 デプロイメントとは、特定の ref (ブランチ、SHA、タグ) を配備するためるリクエストです。 GitHub では、[`deployment` イベント](/developers/webhooks-and-events/webhook-events-and-payloads#deployment)がディスパッチされますが、このイベントでは、新しいデプロイが作成されるタイミングを外部サービスがリッスンし、それに応じて動作できます。 デプロイメントにより、開発者や Organization はデプロイメントを中心として、さまざまな種類のアプリケーション (ウェブ、ネイティブなど) を提供するための実装に関する詳細を気にすることなく、疎結合ツールを構築できます。
 
@@ -24,7 +24,7 @@ ms.locfileid: '147067963'
 
 デプロイ状態には、任意で `description` と `log_url` も追加できます。デプロイ状態がさらに便利になるため、これらの状態は高く推奨されます。 `log_url` はデプロイ出力の完全 URL です。`description` は、デプロイで起こったことの概要がまとめられたものです。
 
-GitHub では、新しいデプロイとデプロイ状態が作成されたとき、`deployment` イベントと `deployment_status` イベントがディスパッチされます。 これらのイベントにより、サードパーティのインテグレーションがデプロイメントのリクエストに対する応答を受けとり、進展があるたびにステータスを更新できます。
+GitHub では、新しいデプロイとデプロイ状態が作成されたとき、`deployment` イベントと `deployment_status` イベントがディスパッチされます。 これらのイベントにより、サードパーティの統合がデプロイの要求を受け取って応答し、進行状況に応じてデプロイの状態を更新できるようになります。
 
 以下は、これらの相互作用がどのように機能するかを示す簡単なシーケンス図です。
 
@@ -59,7 +59,7 @@ GitHub は、あなたのサーバーに実際にアクセスすることはな�
 
 `repo_deployment` [OAuth スコープ](/developers/apps/scopes-for-oauth-apps)は、リポジトリ コードにアクセスを許可 **せずに**、デプロイとデプロイの状態へのターゲット アクセスを許可しますが、{% ifversion not ghae %}`public_repo` スコープと {% endif %}`repo` スコープもコードにアクセス許可を付与することに注意してください。
 
-### <a name="inactive-deployments"></a>非アクティブのデプロイメント
+### 非アクティブのデプロイメント
 
 デプロイ状態を `success` に設定すると、同じ環境名で同じリポジトリにある以前の一時的ではない非運用環境デプロイが `inactive` になります。 これを回避するため、デプロイ状態を作成するとき、`auto_inactive` を `false` に設定できます。
 

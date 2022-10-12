@@ -15,10 +15,10 @@ topics:
   - Pull requests
 shortTitle: Permanent links to code
 ms.openlocfilehash: d1c363eba2a45558f3fdc9b55025309544ef677b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145066774'
 ---
 ## 链接到代码

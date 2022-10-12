@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: bca2838e65fedf0ec5d512a21891b594dc90c1f6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "147521531"
 ---
 `jobs.<job_id>.runs-on` を使って、ジョブを実行するマシンの種類を定義します。 {% ifversion fpt or ghec %}マシンは {% data variables.product.prodname_dotcom %} ホステッド ランナーかセルフホステッド ランナーのいずれかです。{% endif %}`runs-on` は単一の文字列か、文字列の配列として指定できます。 文字列の配列を指定した場合、ワークフローは、ラベルが指定された `runs-on` 値のすべてに一致するセルフホステッド ランナーで実行されます (使用可能な場合)。 複数のマシンでワークフローを実行する場合は、[`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy) を使います。

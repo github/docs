@@ -23,10 +23,10 @@ children:
   - /working-with-the-nuget-registry
   - /migrating-to-the-container-registry-from-the-docker-registry
 ms.openlocfilehash: 69cfbe84b6c443a29066a4234ae29f557c305d38
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145140444'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %} {% ifversion fpt or ghec %} ![Docker、コンテナー レジストリ、RubyGems、npm、Apache Maven、NuGet、Gradle のパッケージ サポートを示した図](/assets/images/help/package-registry/packages-diagram-with-container-registry.png) {% else %} ![Docker、RubyGems、npm、Apache Maven、Gradle、NuGet、Docker のパッケージ サポートを示した図](/assets/images/help/package-registry/packages-diagram-without-container-registry.png) {% endif %}

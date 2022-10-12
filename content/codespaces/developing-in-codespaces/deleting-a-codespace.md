@@ -24,9 +24,8 @@ There are costs associated with storing codespaces. You should therefore delete 
 
 {% webui %}
 
-1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
-
-2. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**
+{% data reusables.codespaces.your-codespaces-procedure-step %}
+1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**
 
    ![Delete button](/assets/images/help/codespaces/delete-codespace.png)
 
@@ -125,3 +124,4 @@ You can also use the REST API to delete codespaces for your organization. For mo
 
 ## Further reading
 - "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"
+- "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"

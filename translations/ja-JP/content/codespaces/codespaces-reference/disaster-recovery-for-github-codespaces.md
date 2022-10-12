@@ -1,6 +1,6 @@
 ---
-title: GitHub Codespaces のディザスター リカバリー
-intro: この記事では、大規模な自然災害や広範囲にわたるサービスの中断により、地域全体で障害が発生した場合のシステム災害復旧シナリオのガイダンスについて説明します。
+title: Disaster recovery for GitHub Codespaces
+intro: 'This article describes guidance for a disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,49 +10,44 @@ topics:
 shortTitle: Disaster recovery
 redirect_from:
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
-ms.openlocfilehash: 447bdfb2b89d5d880bfd43be9941597c6729f36c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147111551'
 ---
-当社は、ユーザーが {% data variables.product.prodname_github_codespaces %} をいつでも確実にご利用いただけるよう努力しています。 しかし、当社の管理できる範囲を超えてサービスに影響を及ぼし、計画外のサービスの中断を引き起こす不可抗力が発生する可能性があります。
 
-システム災害復旧シナリオはまれにしか発生しませんが、リージョン全体にわたる停止が発生する可能性に備えておくことをお勧めします。 リージョン全体でサービスが中断した場合、ローカルで冗長化されたデータのコピーは一時的に利用できなくなります。
+We work hard to make sure that {% data variables.product.prodname_github_codespaces %} is always available to you. However, forces beyond our control sometimes impact the service in ways that can cause unplanned service disruptions.
 
-次のガイダンスでは、codespace がデプロイされているリージョン全体へのサービスの中断を処理する方法を説明します。
+Although disaster recovery scenarios are rare occurrences, we recommend that you prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would be temporarily unavailable.
+
+The following guidance provides options on how to handle service disruption to the entire region where your codespace is deployed.
 
 {% note %}
 
-**注:** リモート リポジトリに頻繁にプッシュすることで、サービス全体の停止による潜在的な影響を減らすことができます。
+**Note:** You can reduce the potential impact of service-wide outages by pushing to remote repositories frequently.
 
 {% endnote %}
 
-## オプション 1: 別のリージョンに新しい codespace を作る
+## Option 1: Create a new codespace in another region
 
-リージョンが停止した場合、影響を受けていないリージョンで codespace を再び作り、作業を続けることをお勧めします。 この新しい codespace には、{% data variables.product.prodname_dotcom %} への最後のプッシュ時点までのすべての変更が含まれます。 別リージョンの手動設定について詳しくは、「[{% data variables.product.prodname_github_codespaces %} の既定のリージョンの設定](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)」を参照してください。
+In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. This new codespace will have all of the changes as of your last push to {% data variables.product.prodname_dotcom %}. For information on manually setting another region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
-プロジェクトのリポジトリで、開発環境を自動的に復元するために必要なツール、ランタイム、フレームワーク、エディター設定、機能拡張、その他の設定を定義できる `devcontainer.json` を設定することで、リカバリ時間を最適化できます。 詳細については、[開発コンテナーの概要](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)に関するページをご覧ください。
+You can optimize recovery time by configuring a `devcontainer.json` in the project's repository, which allows you to define the tools, runtimes, frameworks, editor settings, extensions, and other configuration necessary to restore the development environment automatically. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
-## オプション 2: 復旧を待つ
+## Option 2: Wait for recovery
 
-この場合、ユーザーによる操作は必要ありません。 サービスを利用できるようにするために鋭意取り組んでいることをご理解ください。 
+In this case, no action on your part is required. Know that we are working diligently to restore service availability. 
 
-現在のサービスの状態は、[ステータス ダッシュボード](https://www.githubstatus.com/)で確認できます。
+You can check the current service status on the [Status Dashboard](https://www.githubstatus.com/).
 
-## オプション 3: リポジトリをローカルでクローンする、またはブラウザーで編集する
+## Option 3: Clone the repository locally or edit in the browser
 
-{% data variables.product.prodname_codespaces %} では事前構成された開発者環境を利用できるメリットがありますが、ソースコードは常に {% data variables.product.prodname_dotcom_the_website %} でホストされているリポジトリからアクセス可能である必要があります。 {% data variables.product.prodname_codespaces %} が停止した場合でも、リポジトリをローカルでクローンしたり、{% data variables.product.company_short %} ブラウザエディタでファイルを編集したりすることができます。 詳細については、「[ファイルの編集](/repositories/working-with-files/managing-files/editing-files)」を参照してください。
+While {% data variables.product.prodname_github_codespaces %} provides the benefit of a pre-configured developer environmnent, your source code should always be accessible through the repository hosted on {% data variables.product.prodname_dotcom_the_website %}. In the event of a {% data variables.product.prodname_github_codespaces %} outage, you can still clone the repository locally or edit files in the {% data variables.product.company_short %} browser editor. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
 
-このオプションでは開発環境を設定しませんが、サービスの中断が解決するのを待つ間、必要に応じてソースコードを変更できます。
+While this option does not configure a development environment for you, it will allow you to make changes to your source code as needed while you wait for the service disruption to resolve.
 
-## オプション 4: ローカルのコンテナ化された環境にリモート コンテナーと Docker を使う
+## Option 4: Use the Dev Containers extension and Docker for a local containerized environment
 
-リポジトリに `devcontainer.json` がある場合、{% data variables.product.prodname_vscode %} で [リモート コンテナーの拡張機能](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)を使って、ビルドしてリポジトリ用のローカル開発コンテナーにアタッチすることを検討してください。 このオプションのセットアップ時間は、ローカル仕様と開発コンテナセットアップの複雑さによって異なります。
+If your repository has a `devcontainer.json`, consider using the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in {% data variables.product.prodname_vscode %} to build and attach to a local development container for your repository. The setup time for this option will vary depending on your local specifications and the complexity of your dev container setup. For more information, see "[Developing inside a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 {% note %}
 
-**注:** このオプションを試す前に、ローカルのセットアップが [最小要件](https://code.visualstudio.com/docs/remote/containers#_system-requirements)を満たしていることを確認してください。
+**Note:** Be sure your local setup meets the [minimum requirements](https://code.visualstudio.com/docs/remote/containers#_system-requirements) before attempting this option.
 
 {% endnote %}

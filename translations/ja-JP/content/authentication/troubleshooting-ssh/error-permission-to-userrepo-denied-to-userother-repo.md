@@ -15,10 +15,10 @@ topics:
   - SSH
 shortTitle: Permission denied other-repo
 ms.openlocfilehash: 4d4898e947338e39c5ade86b5ea0a71f54f36f03
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145088205'
 ---
 これを修正するには、リポジトリからデプロイ キーを削除し、代わりに[個人アカウントにキーを追加](/articles/adding-a-new-ssh-key-to-your-github-account)します。

@@ -16,10 +16,10 @@ topics:
   - Pull requests
 shortTitle: Request a PR review
 ms.openlocfilehash: b7b797d7e9ad2fdf9c1df29e7e5aad66f942b538
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145139594'
 ---
 Los repositorios pertenecen a una cuenta personal (un solo propietario individual) o a una cuenta organizacional (una cuenta compartida con varios colaboradores o mantenedores). Para obtener más información, vea "[Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)". Los propietarios y colaboradores de un repositorio que pertenece a una cuenta personal pueden asignar revisiones de solicitudes de cambio. Los miembros de las organizaciones con permisos de clasificación también pueden asignar a un revisor para una solicitud de cambios. 

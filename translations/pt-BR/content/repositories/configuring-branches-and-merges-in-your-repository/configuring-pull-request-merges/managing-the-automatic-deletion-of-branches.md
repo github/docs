@@ -1,6 +1,6 @@
 ---
-title: Gerenciar a exclusão automática de branches
-intro: É possível excluir branches head automaticamente após o merge de pull requests no repositório.
+title: Managing the automatic deletion of branches
+intro: You can have head branches automatically deleted after pull requests are merged in your repository.
 redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
   - /github/administering-a-repository/managing-the-automatic-deletion-of-branches
@@ -13,19 +13,14 @@ versions:
 topics:
   - Repositories
 shortTitle: Automatic branch deletion
-ms.openlocfilehash: feaeb7c2178beab4dc23a310df6924c6e1c52e0f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145127120'
 ---
-Qualquer pessoa com permissões de administrador em um repositório pode habilitar ou desabilitar a exclusão automática de branches.
+Anyone with admin permissions to a repository can enable or disable the automatic deletion of branches.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
-3. Em {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Solicitações de pull"{% else %}"Botão Mesclar"{% endif %}, marque ou desmarque **Excluir branches principais automaticamente**.
-  ![Caixa de seleção usada para habilitar ou desabilitar a exclusão automática de branches](/assets/images/help/repository/automatically-delete-branches.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or unselect **Automatically delete head branches**.
+  ![Checkbox to enable or disable automatic deletion of branches](/assets/images/help/repository/automatically-delete-branches.png)
 
-## Leitura adicional
-- "[Como mesclar uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
-- "[Como criar e excluir branches no seu repositório](/articles/creating-and-deleting-branches-within-your-repository)"
+## Further reading
+- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
+- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"

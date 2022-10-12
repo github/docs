@@ -50,7 +50,7 @@ Changing the display name of a codespace can be useful if you have multiple code
 To rename a codespace, use the `gh codespace edit` subcommand:
 
 ```shell
-gh codespace edit -c <em>permanent name of the codespace</em> -d <em>new display name</em>
+gh codespace edit -c PERMANENT-NAME-OF-CODESPACE -d NEW-DISPLAY-NAME
 ```
 
 In this example, replace `permanent name of the codespace` with the permanent name of the codespace. Replace `new display name` with the desired display name.

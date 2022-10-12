@@ -13,10 +13,10 @@ topics:
   - Community
 shortTitle: About templates
 ms.openlocfilehash: b95b31ae4171a54d9261fab6cbe93c43361296ab
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145095196'
 ---
 Depois que você cria modelos de problema e pull request no repositório, os contribuidores podem usá-los para abrir problemas ou descrever as alterações propostas nas respectivas pull requests, de acordo com as diretrizes de contribuição do repositório. Para obter mais informações sobre como adicionar diretrizes de contribuição a um repositório, confira "[Diretrizes de configuração para colaboradores do repositório](/articles/setting-guidelines-for-repository-contributors)".

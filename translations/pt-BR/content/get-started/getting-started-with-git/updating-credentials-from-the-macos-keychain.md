@@ -14,10 +14,10 @@ versions:
   ghec: '*'
 shortTitle: macOS Keychain credentials
 ms.openlocfilehash: ce2e225bcff1aca0c034e564fe3233e5f9cb68d2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145126726'
 ---
 {% tip %}

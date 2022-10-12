@@ -1,5 +1,6 @@
 ---
 title: Deleting a workflow run
+shortTitle: Delete a workflow run
 intro: 'You can delete a workflow run that has been completed, or is more than two weeks old.'
 versions:
   fpt: '*'

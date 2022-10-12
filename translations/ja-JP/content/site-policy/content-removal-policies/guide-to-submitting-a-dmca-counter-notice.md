@@ -11,10 +11,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 6bc5091c47401b3d55ef7ccd681d6c9eba48fd1a
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556577'
 ---
 このガイドでは、DMCA 削除要求に対する反論通知を処理するために GitHub が必要とする情報について説明します。 DMCA の内容や、GitHub による DMCA 削除要求の処理方法など、一般的な事項については [DMCA 削除ポリシー](/articles/dmca-takedown-policy)をご覧ください。
@@ -23,7 +23,7 @@ GitHub 上のお客様のコンテンツが DMCA 削除要求により誤って�
 
 すべての法的問題と同様に、お客様固有の疑問または状況については常に専門家と相談することが最善策です。 当社は、お客様の権利に影響を与える可能性がある行動を起こす前に、専門家と相談すること強くお勧めします。 このガイドは法的助言ではなく、そのように解釈されるべきものでもありません。
 
-## <a name="before-you-start"></a>提出前の準備
+## 提出前の準備
 
 ***真実を語ってください。***
 DMCA では、宣誓を行い、*偽証罪で罰せられるという条件で*、反論通知を行うことを義務付けています。 宣誓宣言で意図的に虚偽の陳述を行うと連邦犯罪になります  ([合衆国法典、第 18 編、第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)*を参照*)。虚偽の情報を提出すると、民事責任が発生する可能性もあります。つまり、金銭的損害で訴えられる可能性があります。
@@ -54,7 +54,7 @@ GitHub は、通知が DMCA の最小要件を満たしているかどうかを�
 ***その他のリソース。***
 さらにサポートが必要な場合は、インターネット上に利用できるリソースが数多く用意されています。 Lumen には、[著作権](https://www.lumendatabase.org/topics/5)と [DMCA セーフ ハーバー](https://www.lumendatabase.org/topics/14)に関する有益なガイドがあります。 法的助言が必要なオープン ソース プロジェクトに関与している場合は、[Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/) に問い合わせることができます。 また、特に困難な事態に直面したと思われる場合は、[Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) などの非営利団体から直接支援を受けることも、弁護士を紹介してもらうこともできる場合があります。
 
-## <a name="your-counter-notice-must"></a>反論通知の要件
+## 反論通知の要件
 
 1. **以下の文言を含めてください。「GitHub の DMCA 反論通知提出ガイドを読んで理解しました。」**
 この文言が含まれていないとしても、反論通知に不備がなければ当社は処理を拒否しません。ただし、このガイドラインを読んでいないと判断できるため、ガイドラインを読むように求める場合があります。
@@ -72,7 +72,7 @@ GitHub は、通知が DMCA の最小要件を満たしているかどうかを�
 
 6. **お客様の直筆または電子署名を入れてください。**
 
-## <a name="how-to-submit-your-counter-notice"></a>反論通知の提出方法
+## 反論通知の提出方法
 
 {% data variables.contact.contact_dmca %}で情報を入力し、すべての質問に答えることで、最も早く回答を得ることができます。
 

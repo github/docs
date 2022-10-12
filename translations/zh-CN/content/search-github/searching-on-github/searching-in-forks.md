@@ -13,10 +13,10 @@ versions:
 topics:
   - GitHub search
 ms.openlocfilehash: 6375fdecd7dba47447b37207467e008f0e7b3fc0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147785788'
 ---
 若要在[存储库搜索](/search-github/searching-on-github/searching-for-repositories)结果中显示分支，请将 `fork:true` 或 `fork:only` 添加到查询。

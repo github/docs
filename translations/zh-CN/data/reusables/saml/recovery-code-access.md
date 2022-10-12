@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 94344f2a86c1220c8046aea759e96e895eeb52a8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145127336"
 ---
 1. 在单一登录对话框底部，单击“使用恢复代码”绕过单一登录。

@@ -1,7 +1,7 @@
 ---
-title: Billing and payments on GitHub
+title: GitHubの請求と支払
 shortTitle: Billing and payments
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade or downgrade your account''s subscription and manage your billing settings at any time.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} bills for your enterprise members'' {% ifversion ghec or ghae %}usage of {% data variables.product.product_name %}{% elsif ghes %} licence seats for {% data variables.product.product_name %}{% ifversion ghes %} and any additional services that you purchase{% endif %}{% endif %}. {% endif %}{% ifversion ghec %} You can view your subscription and manage your billing settings at any time. {% endif %}{% ifversion fpt or ghec %} You can also view usage and manage spending limits for {% data variables.product.product_name %} features such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %}.{% endif %}'
+intro: '{% ifversion fpt %}{% data variables.product.product_name %}は、すべてのアカウントに対して無料及び有料の製品を提供します。 アカウントのサブスクリプションのアップグレードやダウングレード、支払い設定の管理はいつでも行えます。{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} は、Enterprise のメンバーの {% ifversion ghec or ghae %}{% data variables.product.product_name %} の利用{% elsif ghes %}{% data variables.product.product_name %} のライセンス シート{% ifversion ghes %}および購入された追加のサービス{% endif %}に対して課金します。{% endif %} {% endif %}{% ifversion ghec %} サブスクリプションの表示と支払い設定の管理は、いつでも行えます。 {% endif %}{% ifversion fpt or ghec %}{% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %}、{% data variables.product.prodname_github_codespaces %} などの {% data variables.product.product_name %} 機能の利用状況や利用限度の表示もできます。{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
@@ -54,4 +54,11 @@ children:
   - /managing-billing-for-github-marketplace-apps
   - /managing-billing-for-git-large-file-storage
   - /setting-up-paid-organizations-for-procurement-companies
+ms.openlocfilehash: 816bfb699135974a180ccf350aa04bc36dfbf25a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147110899'
 ---
+

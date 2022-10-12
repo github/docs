@@ -9,10 +9,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: ac0cd2da67f8cc9158709e17e16084aea7cf33b1
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556738'
 ---
 *2018 年の声明*
@@ -26,7 +26,7 @@ GitHub は、現代の奴隷制と児童労働が存在し続けていること�
 
 [英国現代奴隷法](https://www.legislation.gov.uk/ukpga/2015/30/section/54/enacted)に従い、また、[ILO 強制労働条約 2014 年議定書](https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:P029)、[労働における基本的原則及び権利に関する ILO 宣言](https://www.ilo.org/declaration/thedeclaration/textdeclaration/lang--en/index.htm)、および[国連の持続可能な開発目標ターゲット 8.7](https://www.unodc.org/roseap/en/sustainable-development-goals.html#:~:text=Target%208.7%20%2D%20Take%20immediate%20and,labour%20in%20all%20its%20forms) に沿って、この 2018 年の現代奴隷制と児童労働に反対する声明 (以下「声明」といいます) は、GitHub がビジネスまたはサプライ チェーンで現代奴隷制と児童労働が発生するのを防ぐために講じた措置を説明しています。
 
-## <a name="githubs-structure-business-and-supply-chains"></a>GitHub の構造、ビジネス、サプライ チェーン
+## GitHub の構造、ビジネス、サプライ チェーン
 
 GitHub は、サンフランシスコに本社を置くソフトウェア開発プラットフォームであり、従業員および請負業者は多くの国で働いています。
 
@@ -43,9 +43,9 @@ GitHub は、世界中のお客様に無料ソフトウェア、有料ソフト�
 
 GitHub のサプライ チェーンは、コンピューティング サービス、イベント企画、小売・販促品の購入、事務用品、オフィス スペースやデータ センターなどの施設のリースなど、当社の製品および事業の商品・サービスで構成されています。
 
-## <a name="policies-in-relation-to-modern-slavery-and-child-labor"></a>現代奴隷制と児童労働に関するポリシー
+## 現代奴隷制と児童労働に関するポリシー
 
-### <a name="modern-slavery-and-child-labor"></a>現代奴隷制と児童労働
+### 現代奴隷制と児童労働
 
 **GitHub の倫理規定** では、現代奴隷制 (奴隷制、強制または意思に反した労働、人身売買、隷属、および拘禁、年季奉公、拘束された労働者) や児童労働を事業活動において故意に使用、関与、支援、または容認することを禁じています。 この禁止事項に違反した GitHub の従業員や請負業者は、雇用または事業関係の終了の対象となります。
 
@@ -59,7 +59,7 @@ GitHub は、[人身売買との闘いに関する米国連邦調達規則 22.17
 
 GitHub は、職場に関する懸念事項の報告について報復禁止ポリシーを持っています。 この声明に沿って、GitHub は従業員や請負業者が報復を恐れることなく現代奴隷制と児童労働に関する問題を報告できるようにしています。
 
-## <a name="labor-laws-and-practices"></a>労働法および慣行
+## 労働法および慣行
 
 GitHub の労働慣行は、以下のとおりです。
 
@@ -80,17 +80,17 @@ GitHub の労働慣行は、以下のとおりです。
    - GitHub は、業界において期待される水準以上の福利厚生を従業員に提供します
    - GitHub は、職場におけるあらゆる苦情を報告するよう従業員に奨励し、報告に対する報復を容認しません
 
-## <a name="due-diligence-processes-in-relation-to-modern-slavery-and-child-labor-in-its-business-and-supply-chains"></a>事業およびサプライ チェーンにおける現代奴隷制と児童労働に関するデュー デリジェンス プロセス
+## 事業およびサプライ チェーンにおける現代奴隷制と児童労働に関するデュー デリジェンス プロセス
 
 GitHub は、現代奴隷制と児童労働に関するリスクについて、事業およびサプライ チェーンを評価します。 人権に関する社内外の専門家の意見を参考に、当社事業およびサプライ チェーンのどこに労務が存在するかを究明し、現代奴隷制や児童労働に関する潜在的なリスクを特定するため、GitHub は部門横断的な分析 (ポリシー、法律、調達、財務、および事業 (特に人事)) を行いました。 GitHub では、重大性、規模、および確率の観点からよりリスクの高い分野に対し、より重点的なデュー デリジェンス、監視、検証を行います。 GitHub は、リスクが生じ得る部分と、それらにどう対処していくかを継続的に検討します。 さらに、現在、GitHub は、現代奴隷制や児童労働に関する法律の遵守を含めて、この声明に沿った慣行を持っているという保証をサプライヤーから得ています。
 
-## <a name="places-in-githubs-business-and-supply-chains-where-there-is-a-risk-of-modern-slavery-and-child-labor-and-steps-github-has-taken-to-assess-and-manage-that-risk"></a>GitHub の事業およびサプライ チェーンにおいて現代奴隷制と児童労働のリスクが存在する場所、ならびにそのようなリスクを評価・管理するために GitHub が講じている措置
+## GitHub の事業およびサプライ チェーンにおいて現代奴隷制と児童労働のリスクが存在する場所、ならびにそのようなリスクを評価・管理するために GitHub が講じている措置
 
 GitHub では、現在のところ高リスクのサプライヤーは認識していません。ただし、イベントのサポート、建設、施設サービス、食品サービスなどの肉体労働が含まれるサービスのサプライヤーでは、現代奴隷制や児童労働が起こる可能性が高くなります。 GitHub は、既存のサプライヤーを監査し、このような高いリスクの分野のサプライヤーに対し、この声明に沿ったサービスを提供していることを確認するように要求します。
 
 GitHub では、当社の知る限りにおいて、事業やサプライ チェーンにおいて現代奴隷制や児童労働は実際に存在せず、またその疑いもありませんが、もし GitHub 自体が現代奴隷制や児童労働を直接引き起こした場合は救済策を提供すること、また GitHub の制度やプロセスの欠陥により生じた、この声明に準拠しないさまざまな形態の問題に対して救済措置を講じることを表明しています。 個々の被害者に対する GitHub の救済措置には、現代奴隷制および児童労働を直ちに排除するための適切な措置の規定、および経験した被害を相殺するために策定された、被害者に対する合理的かつ適切なサービスのリソースが含まれます。
 
-## <a name="effectiveness-in-ensuring-neither-modern-slavery-nor-child-labor-is-occurring-in-githubs-business-or-supply-chains"></a>GitHub の事業やサプライ チェーンにおいて、現代奴隷制や児童労働が発生していないことを確認することの効果
+## GitHub の事業やサプライ チェーンにおいて、現代奴隷制や児童労働が発生していないことを確認することの効果
 
 GitHub は、現代奴隷制と児童労働に関する法律を遵守しており、これを引き続き遵守していきます。
 
@@ -109,7 +109,7 @@ GitHub は、現代奴隷制と児童労働に関する法律を遵守してお�
 
 GitHub で従業員が企業購買を行うための調達指示には、マイクロソフトのサプライヤー業務規範またはこの声明をサプライヤーが遵守するという要件への言及が含まれるようになりました。
 
-## <a name="training-for-github-staff-about-modern-slavery-and-human-trafficking"></a>現代奴隷制と人身売買に関する GitHub スタッフのための研修
+## 現代奴隷制と人身売買に関する GitHub スタッフのための研修
 
 GitHub は、GitHub の事業とサプライ チェーンを視野に入れ、すべての従業員に義務付けられる現代奴隷制と児童労働に関する研修を開発しています。 GitHub は、イベントのサポート、建設、施設サービス、食品サービスなどの肉体労働が含まれるサービスを提供するサプライヤーを、潜在的なリスクがより高い分野として特に重点を置きます。
 

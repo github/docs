@@ -17,10 +17,10 @@ topics:
   - Migration
 shortTitle: Prepare to migrate data
 ms.openlocfilehash: 7b552f2bc0d79eb1a70a09d61b8384983b0908fc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145094847'
 ---
 ## Preparar os dados migrados para importação para {% data variables.product.prodname_ghe_server %}

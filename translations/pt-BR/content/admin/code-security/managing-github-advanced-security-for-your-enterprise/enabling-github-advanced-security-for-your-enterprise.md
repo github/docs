@@ -15,11 +15,11 @@ topics:
   - Secret scanning
   - Security
 ms.openlocfilehash: bc516af0c0788eeafe1b833c5627e471982e1c05
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147145276'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875525'
 ---
 ## Sobre habilitar {% data variables.product.prodname_GH_advanced_security %}
 

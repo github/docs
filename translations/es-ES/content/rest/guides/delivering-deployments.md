@@ -13,10 +13,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 60ef610d4134eaddee3f40c5d50d72e463fedd27
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145135955'
 ---
 La [API de implementaciones][deploy API] proporciona a sus proyectos hospedados en {% data variables.product.product_name %} la capacidad de iniciarse en un servidor del que sea propietario. En combinación con la [API de estados][status API], podrá coordinar sus implementaciones en el momento en que el código llegue a la rama predeterminada.

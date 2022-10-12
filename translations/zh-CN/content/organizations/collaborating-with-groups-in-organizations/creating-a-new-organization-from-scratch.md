@@ -15,11 +15,11 @@ topics:
   - Teams
 shortTitle: Create new organization
 ms.openlocfilehash: d9443aa84964fcc1202fee41d95800cf8e9ccd4c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145128600'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147876102'
 ---
 从头开始创建新组织时，它没有任何与之关联的仓库。 有关将存储库添加到组织的详细信息，请参阅“[创建新存储库](/articles/creating-a-new-repository)”和“[传输存储库](/articles/transferring-a-repository)”。
 

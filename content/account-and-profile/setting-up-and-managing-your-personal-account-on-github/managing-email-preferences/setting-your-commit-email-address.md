@@ -51,7 +51,7 @@ To ensure that commits are attributed to you and appear in your contributions gr
 
 {% note %}
 
-**Note:** If you created your account on {% data variables.product.product_location %} _after_ July 18, 2017, your `noreply` email address for {% data variables.product.product_name %} is a seven-digit ID number and your username in the form of <code><em>ID+username</em>@users.noreply.github.com</code>. If you created your account on {% data variables.product.product_location %} _prior to_ July 18, 2017, your `noreply` email address from {% data variables.product.product_name %} is <code><em>username</em>@users.noreply.github.com</code>. You can get an ID-based `noreply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
+**Note:** If you created your account on {% data variables.product.product_location %} _after_ July 18, 2017, your `noreply` email address for {% data variables.product.product_name %} is a seven-digit ID number and your username in the form of <code>ID+USERNAME@users.noreply.github.com</code>. If you created your account on {% data variables.product.product_location %} _prior to_ July 18, 2017, your `noreply` email address from {% data variables.product.product_name %} is <code>USERNAME@users.noreply.github.com</code>. You can get an ID-based `noreply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
 
 {% endnote %}
 
@@ -76,7 +76,7 @@ You can use the `git config` command to change the email address you associate w
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. {% data reusables.user-settings.set_your_email_address_in_git %}
    ```shell
-   $ git config --global user.email "<em>email@example.com</em>"
+   $ git config --global user.email "YOUR_EMAIL"
    ```
 3. {% data reusables.user-settings.confirm_git_email_address_correct %}
    ```shell
@@ -95,7 +95,7 @@ You can change the email address associated with commits you make in a single re
 2. Change the current working directory to the local repository where you want to configure the email address that you associate with your Git commits.
 3. {% data reusables.user-settings.set_your_email_address_in_git %}
    ```shell
-   $ git config user.email "<em>email@example.com</em>"
+   $ git config user.email "YOUR_EMAIL"
    ```
 4. {% data reusables.user-settings.confirm_git_email_address_correct %}
    ```shell

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 973fe98cbaff849fa234134175d35ae042510638
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145093744"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147880473"
 ---
 1. Se você estiver substituindo o nó MySQL ou Redis principal no `cluster.conf`, modifique o valor `mysql-master` ou `redis-master` pelo nome do nó de substituição.
 

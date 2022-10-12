@@ -14,10 +14,10 @@ topics:
   - Collaboration
 shortTitle: Remove collaborators
 ms.openlocfilehash: ced0edd0614304c0d33ddd40dce3c6a24a9ffcfd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145119358'
 ---
 セキュリティアドバイザリの管理者権限を持つユーザは、セキュリティアドバイザリからコラボレータを削除できます。

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: beb94442275da611c58bf0697acdf1caf02bfa0e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145129872"
 ---
 当 {% data variables.product.prodname_dependabot %} 提出拉取请求时，这些拉取请求可以是安全更新或版本更新： 

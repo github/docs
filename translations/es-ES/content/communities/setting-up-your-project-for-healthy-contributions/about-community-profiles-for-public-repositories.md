@@ -12,10 +12,10 @@ topics:
   - Community
 shortTitle: Community profiles
 ms.openlocfilehash: 08a993bd20a63d21c156a80b0d46d19e1735d68b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145092363'
 ---
 La lista de verificación del perfil de comunidad se comprueba para ver si un proyecto incluye un archivo de salud de comunidad recomendado, como README, CODE_OF_CONDUCT, LICENSE o CONTRIBUTING, en una ubicación admitida. Para obtener más información, vea "[Acceso al perfil de comunidad de un proyecto](/articles/accessing-a-project-s-community-profile)".

@@ -15,11 +15,11 @@ topics:
   - Pull requests
 shortTitle: Dismiss a PR review
 ms.openlocfilehash: 658f0b69a24c622a3b5f75d6e330d132040d62c5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145139539'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878688'
 ---
 {% data reusables.pull_requests.dismiss_review %} これにより、ステータスが「レビュー」から「レビューコメント」に変更されます。 レビューを却下する場合は、却下の理由を説明するコメントを追加する必要があります。 コメントはプルリクエストの会話に追加されます。
 

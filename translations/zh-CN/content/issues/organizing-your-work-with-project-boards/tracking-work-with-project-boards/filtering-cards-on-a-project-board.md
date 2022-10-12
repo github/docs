@@ -12,11 +12,11 @@ topics:
 shortTitle: 'Filter cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ms.openlocfilehash: 337c84415fefad0c542c6b46706de716e71c29b9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423570'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882309'
 ---
 {% data reusables.projects.project_boards_old %}
 

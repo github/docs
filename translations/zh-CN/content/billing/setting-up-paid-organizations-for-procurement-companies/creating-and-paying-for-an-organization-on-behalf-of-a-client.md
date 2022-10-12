@@ -15,10 +15,10 @@ topics:
   - Upgrades
 shortTitle: On behalf of a client
 ms.openlocfilehash: 6c0cdaa09d3e2bf476b6314c38d369ec89840aad
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084432'
 ---
 ## 要求

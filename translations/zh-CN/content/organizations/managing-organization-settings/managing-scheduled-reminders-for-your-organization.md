@@ -11,10 +11,10 @@ topics:
   - Teams
 shortTitle: Manage scheduled reminders
 ms.openlocfilehash: 870e22581488689a72cc70f317b6d97fdc4f5ed5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145109452'
 ---
 ## 关于拉取请求的预定提醒

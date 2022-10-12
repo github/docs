@@ -13,10 +13,10 @@ redirect_from:
   - /developers/overview/viewing-deployment-history
   - /actions/deployment/viewing-deployment-history
 ms.openlocfilehash: 2941d8de6af3b7505a3c05a6b15436d32becea9b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145091389'
 ---
 {% data variables.product.prodname_actions %} と環境を介して、または REST API とサード パーティ アプリを使ってデプロイを配信することができます。 {% ifversion fpt or ghae ghes > 3.0 or ghec %}{% data variables.product.prodname_actions %} と共に環境を使ってデプロイする方法については、「[デプロイに環境を使用する](/actions/deployment/using-environments-for-deployment)」を参照してください。 {% endif %}REST API を使ったデプロイの詳細については、「[リポジトリ](/rest/reference/repos#deployments)」を参照してください。

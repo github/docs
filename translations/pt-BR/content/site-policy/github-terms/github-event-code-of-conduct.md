@@ -9,10 +9,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: c9e910ccec8e281359fb21feca5957c3360530bd
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556422'
 ---
 Os eventos do GitHub são eventos da comunidade destinados a networking e colaboração na comunidade de tecnologia.
@@ -21,7 +21,7 @@ Valorizamos a participação de cada membro e queremos que todos os participante
 
 Para deixar claro o que é esperado, todos os participantes, palestrantes, expositores, organizadores e voluntários em qualquer evento no espaço do GitHub devem estar em conformidade com o seguinte Código de Conduta. Os organizadores aplicarão este código durante todo o evento.
 
-## <a name="code-of-conduct"></a>Código de Conduta
+## Código de Conduta
 
 O GitHub se dedica a proporcionar eventos positivos e sem assédio para todos, independentemente de idade, gênero, identidade e expressão de gênero, orientação sexual, deficiência, aparência pessoal, tamanho do corpo, etnia, raça, religião, nacionalidade ou nível de experiência. Não toleramos nenhuma forma de assédio aos participantes do evento, nem toleramos qualquer comportamento que possa razoavelmente levar outro participante do evento a se sentir inseguro ou temeroso por seu bem-estar físico ou emocional. Toda comunicação deve ser apropriada para um público profissional, incluindo pessoas de diversas origens.
 
@@ -47,12 +47,12 @@ Cada convidado do evento é inteiramente responsável por suas próprias ações
 
 Obrigado por ajudar a tornar este espaço acolhedor e amigável para todos.
 
-### <a name="reporting-an-incident"></a>Denunciar um incidente
+### Denunciar um incidente
 
 Se você estiver sendo assediado, perceber que outra pessoa está sendo assediada ou se tiver outras preocupações, entre em contato com o organizador por email (events@github.com) ou telefone/texto (+1 415 842 2837), ou fale com outro funcionário do GitHub ou um agente de segurança.
 
 Os GitHubbers terão prazer em ajudar os participantes a entrar em contato com a segurança ou autoridade policial local, escoltar para garantir segurança ou ajudar aqueles que sofrem assédio a se sentirem seguros durante a conferência. Valorizamos sua presença.
 
-## <a name="credit"></a>Crédito
+## Crédito
 
 Partes deste Código de Conduta são baseadas no [exemplo de política antiassédio](https://geekfeminism.wikia.org/wiki/Conference_anti-harassment/Policy) do wiki Geek Feminism, criado pela Ada Initiative e por outros voluntários, sob uma licença da Creative Commons Zero.

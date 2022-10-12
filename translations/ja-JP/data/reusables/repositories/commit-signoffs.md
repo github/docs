@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 50db50aff42d977575a89a2e22287b1672081ee4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147410782"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881390"
 ---
 強制コミットのサインオフは、Web インターフェイスを介して行われたコミットにのみ適用されます。 Git コマンド ライン インターフェイスを使用して行われたコミットは、コミット作成者が `--signoff` オプションを使用してコミットにサインオフする必要があります。 詳しくは、[Git ドキュメント](https://git-scm.com/docs/git-commit)を参照してください。
 
