@@ -18,7 +18,7 @@ jobs:
     if: github.repository == 'github/docs' && github.event.pull_request.merged && github.event.pull_request.base.ref == github.event.repository.default_branch && github.event.pull_request.user.login != 'Octomerger'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+      - uses: actions/github-script@100527700e8b29ca817ac0e0dfbfc5e8ff38edda
         with:
           script: |
             github.issues.createComment({

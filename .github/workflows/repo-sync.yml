@@ -41,7 +41,7 @@ jobs:
 
       - name: Close pull request if unwanted
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@100527700e8b29ca817ac0e0dfbfc5e8ff38edda
         with:
           github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
           script: |
@@ -147,7 +147,7 @@ jobs:
       # Because we get far too much spam ;_;
       - name: Lock conversations
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@100527700e8b29ca817ac0e0dfbfc5e8ff38edda
         with:
           script: |
             try {
@@ -165,7 +165,7 @@ jobs:
       # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
       - name: Update branch
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@100527700e8b29ca817ac0e0dfbfc5e8ff38edda
         with:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |
@@ -214,7 +214,7 @@ jobs:
 
       - name: Check pull request file count after updating
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@100527700e8b29ca817ac0e0dfbfc5e8ff38edda
         id: pr-files
         env:
           PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
