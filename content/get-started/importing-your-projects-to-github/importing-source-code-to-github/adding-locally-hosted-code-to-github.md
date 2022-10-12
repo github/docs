@@ -38,7 +38,7 @@ If you have existing source code or repositories stored locally on your computer
     git init -b main
     ```
 
-1. Stage and commit all the files in your project
+1. Stage and commit all the files in your project.
 
    ```shell
    git add . && git commit -m "initial commit"

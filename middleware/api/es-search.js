@@ -30,6 +30,9 @@ export async function getSearchResults({
   includeTopics,
   usePrefixSearch,
 }) {
+  if (topics && !Array.isArray(topics)) {
+    throw new Error("'topics' has to be an array")
+  }
   const t0 = new Date()
   const client = getClient()
   const from = size * (page - 1)
@@ -47,8 +50,18 @@ export async function getSearchResults({
       should: matchQueries,
     },
   }
-  if (topics) {
-    throw new Error('Not implemented yet')
+
+  const topicsFilter = (topics || []).map((topic) => {
+    return {
+      term: {
+        // Remember, 'topics' is a keyword field, meaning you need
+        // to filter by "Webhooks", not "webhooks"
+        topics: topic,
+      },
+    }
+  })
+  if (topicsFilter.length) {
+    matchQuery.bool.filter = topicsFilter
   }
 
   const highlight = getHighlightConfiguration(query)

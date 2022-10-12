@@ -276,7 +276,7 @@ async function indexVersion(
           headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
           headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
           breadcrumbs: { type: 'text' },
-          topics: { type: 'text' },
+          topics: { type: 'keyword' },
           popularity: { type: 'float' },
         },
       },
