@@ -26,7 +26,7 @@ export function getUserEventsId() {
   if (cookieValue) return cookieValue
   cookieValue = uuidv4()
   Cookies.set(COOKIE_NAME, cookieValue, {
-    secure: true,
+    secure: document.location.protocol !== 'http:',
     sameSite: 'strict',
     expires: 365,
   })
