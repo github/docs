@@ -157,7 +157,11 @@ On macOS, `ssh-agent` will "forget" this key, once it gets restarted during rebo
 ```shell
 $ ssh-add -K YOUR-KEY
 ```
+or 
 
+```shell
+$ ssh-add --apple-use-keychain YOUR-KEY
+```
 {% endtip %}
 
 [tech-tips]: http://www.unixwiz.net/techtips/ssh-agent-forwarding.html
