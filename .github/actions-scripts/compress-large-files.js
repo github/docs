@@ -5,7 +5,7 @@ import fs from 'fs'
 import zlib from 'zlib'
 import walk from 'walk-sync'
 
-const DRY_RUN = Boolean(JSON.parse(process.env.DRY_RUN || 'false'))
+const DRY_RUN = Boolean(JSON.parse(process.env.DRY_RUN || 'true'))
 // Roughly 100KiB means about 25 files at the moment.
 // Set this too low and the overheads will be more than the disk and
 // network I/O that this intends to serve.
