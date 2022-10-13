@@ -102,6 +102,7 @@ export const LearningTrack = ({ track }: Props) => {
         )}
         {
           <button
+            data-search="hide"
             className={
               'Box-footer btn-link border-top-0 position-relative text-center text-bold color-fg-accent pt-1 pb-3 col-12 ' +
               ((track?.guides?.length || 0) <= numVisible && cx(styles.removeHoverEvents))
