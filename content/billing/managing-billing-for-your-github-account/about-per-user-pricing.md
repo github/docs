@@ -20,6 +20,7 @@ topics:
 ## About per-user pricing
 
 {% ifversion fpt %}
+
 New organizations on {% data variables.product.prodname_dotcom_the_website %} can build public and open-source projects with {% data variables.product.prodname_free_team %}, or upgrade to a paid product with per-user pricing. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
 
 Organizations using a paid subscription before May 11, 2016 can choose to stay on their existing per-repository plan or switch to per-user pricing. {% data variables.product.company_short %} will notify you twelve months before any mandated change to your subscription. For more information on switching your subscription, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
@@ -37,48 +38,70 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 
 ## People that consume a license
 
-Each person consumes one license, and {% data variables.product.company_short %} identifies individuals by primary email address.
+{% ifversion fpt %}
 
-{% data variables.product.company_short %} bills for the following people.
+{% data variables.product.company_short %} bills for the following people:
 
-{%- ifversion ghec %}
-- Enterprise owners who are a member or owner of at least one organization in the enterprise
-{%- endif %}
 - Organization members, including owners
-- Outside collaborators on private{% ifversion ghec %} or internal{% endif %} repositories owned by your organization, excluding forks
-- Anyone with a pending invitation to become an organization owner or member
-- Anyone with a pending invitation to become an outside collaborator on private{% ifversion ghec %} or internal{% endif %} repositories owned by your organization, excluding forks
-{%- ifversion ghec %}
-- Each user on any {% data variables.product.prodname_ghe_server %} instance that you deploy
-{%- endif %}
+- Outside collaborators on private repositories owned by your organization, excluding forks
+- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
 - Dormant users
-
-{% data variables.product.company_short %} does not bill for any of the following people.
-
-{%- ifversion ghec %}
-- Enterprise owners who are not a member or owner of at least one organization in the enterprise
-- Enterprise billing managers
-{%- endif %}
-- Organization billing managers{% ifversion ghec %} for individual organizations on {% data variables.product.prodname_ghe_cloud %}{% endif %}
-- Anyone with a pending invitation to become an{% ifversion ghec %} enterprise or{% endif %} organization billing manager
-- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
-{%- ifversion ghes %}
-- Suspended users
-{%- endif %}
 
 {% note %}
 
-**Note**: {% data reusables.organizations.org-invite-scim %}
+**Notes:** 
+- {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
+- {% data reusables.organizations.org-invite-scim %}
 
 {% endnote %}
 
-For more information, see {% ifversion not fpt %}"[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" or {% endif %}"[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+{% data variables.product.company_short %} does not bill for the following people:
 
-{% data variables.product.company_short %} counts each {% ifversion not fpt %}member or {% endif %}outside collaborator once for billing purposes, even if the user account has {% ifversion not fpt %}membership in multiple organizations in an enterprise or {% endif %}access to multiple repositories owned by your organization. For more information about outside collaborators, see "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
+- Billing managers
+- Anyone with a pending invitation to become a billing manager
+- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
 
-{% ifversion ghes %}Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see "[Suspending and unsuspending users](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."{% endif %}
+{% else %}
 
-Dormant users do occupy a seat license.{% ifversion ghes %} As such, you can choose to suspend dormant users to release user licenses.{% endif %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+{% data variables.product.company_short %} bills for the following accounts for each deployment of {% data variables.product.prodname_enterprise %}.
+
+### Accounts that consume a license on {% data variables.product.prodname_ghe_cloud %}
+
+{% data variables.product.company_short %} bills for each of the following accounts on {% data variables.product.prodname_ghe_cloud %}:
+
+- Enterprise owners who are a member or owner of at least one organization in the enterprise
+- Organization members, including owners
+- Outside collaborators on private or internal repositories owned by your organization, excluding forks
+- Anyone with a pending invitation to become an organization owner or member
+- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
+- Dormant users
+
+{% note %}
+
+**Notes:** 
+  - {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
+  - {% data reusables.organizations.org-invite-scim %}
+
+{% endnote %}
+
+{% data variables.product.company_short %} does not bill for any of the following accounts:
+
+- {% data variables.product.prodname_managed_users_caps %} that are suspended
+- Enterprise owners who are not a member or owner of at least one organization in the enterprise
+- Enterprise billing managers
+- Billing managers for individual organizations
+- Anyone with a pending invitation to become a billing manager
+- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+
+### Accounts that consume a license on {% data variables.product.prodname_ghe_server %}
+
+Each user account on {% data variables.product.prodname_ghe_server %} consumes a seat.
+
+Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see "[Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+
+Dormant users do occupy a seat license. As such, you can choose to suspend dormant users to release user licenses. For more information, see "[Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+
+{% endif %}
 
 ## About changes to your subscription
 
@@ -123,5 +146,7 @@ When you downgrade to a legacy paid plan with fewer private repositories, your n
 
 {%- ifversion not fpt %}
 - "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
+- "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
 {%- endif %}
-- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+- "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+- "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
