@@ -2,7 +2,6 @@
 title: Managing repository access for your organization's codespaces
 shortTitle: Repository access
 intro: 'You can manage the repositories in your organization that {% data variables.product.prodname_github_codespaces %} can access.'
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access and security for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'

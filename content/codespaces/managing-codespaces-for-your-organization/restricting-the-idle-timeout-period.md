@@ -2,7 +2,6 @@
 title: Restricting the idle timeout period
 shortTitle: Restrict timeout periods
 intro: You can set a maximum timeout period for any codespaces owned by your organization.
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage timeout constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'

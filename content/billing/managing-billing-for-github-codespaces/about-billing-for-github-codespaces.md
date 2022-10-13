@@ -8,7 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
   - Billing

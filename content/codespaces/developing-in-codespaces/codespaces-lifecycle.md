@@ -8,7 +8,6 @@ type: overview
 topics:
   - Codespaces
   - Developer
-product: '{% data reusables.gated-features.codespaces %}'
 ---
 
 ## About the lifecycle of a codespace

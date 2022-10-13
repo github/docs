@@ -4,7 +4,6 @@ intro: 'This section contains references that will allow you to be successful wi
 versions:
   fpt: '*'
   ghec: '*'
-product: '{% data reusables.gated-features.codespaces %}'
 children:
   - /allowing-your-codespace-to-access-a-private-image-registry
   - /using-github-copilot-in-github-codespaces

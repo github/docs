@@ -1,7 +1,6 @@
 ---
 title: Forwarding ports in your codespace
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

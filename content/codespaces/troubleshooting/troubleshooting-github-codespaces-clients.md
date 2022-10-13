@@ -2,7 +2,6 @@
 title: Troubleshooting GitHub Codespaces clients
 shortTitle: Codespaces clients
 intro: 'This article provides troubleshooting information for issues you may encounter with the client you use for {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

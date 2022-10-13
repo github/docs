@@ -1,7 +1,6 @@
 ---
 title: Creating a codespace
 intro: You can create a codespace for a branch in a repository to develop online.
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace

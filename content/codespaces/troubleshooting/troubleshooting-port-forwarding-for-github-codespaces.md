@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting port forwarding for GitHub Codespaces
 intro: Troubleshooting steps for common port forwarding issues.
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

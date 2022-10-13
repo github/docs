@@ -7,7 +7,6 @@ versions:
   ghec: '*'
 topics:
   - Codespaces
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
 ---

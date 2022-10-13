@@ -3,7 +3,6 @@ title: Setting up your Java project for GitHub Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Setting up with your Java project
 intro: 'Get started with your Java project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
 versions:

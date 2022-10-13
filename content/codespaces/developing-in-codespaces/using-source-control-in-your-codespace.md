@@ -1,7 +1,6 @@
 ---
 title: Using source control in your codespace
 intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

@@ -8,7 +8,6 @@ versions:
 type: reference
 topics:
   - Codespaces
-product: '{% data reusables.gated-features.codespaces %}'
 ---
 
 ## About the {% data variables.product.prodname_github_codespaces %} plugin

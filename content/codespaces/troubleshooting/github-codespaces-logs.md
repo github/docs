@@ -1,7 +1,6 @@
 ---
 title: GitHub Codespaces logs
 intro: 'Overview of the logs used by {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

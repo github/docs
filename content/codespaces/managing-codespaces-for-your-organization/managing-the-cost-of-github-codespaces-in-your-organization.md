@@ -2,7 +2,6 @@
 title: Managing the cost of GitHub Codespaces in your organization
 shortTitle: Manage Codespaces costs
 intro: 'You can check your {% data variables.product.prodname_github_codespaces %} usage and set usage limits.'
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'

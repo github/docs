@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
   - Enterprise

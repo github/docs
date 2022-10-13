@@ -3,7 +3,6 @@ title: Setting up your Node.js project for GitHub Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Setting up your Node.js project
 intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

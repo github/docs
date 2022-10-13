@@ -1,7 +1,6 @@
 ---
 title: Deleting a codespace
 intro: You can delete a codespace you no longer need.
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
   - /github/developing-online-with-codespaces/deleting-a-codespace

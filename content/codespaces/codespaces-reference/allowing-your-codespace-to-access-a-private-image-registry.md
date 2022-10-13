@@ -6,7 +6,6 @@ versions:
   ghec: '*'
 topics:
   - Codespaces
-product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Private image registry
 ---
 
