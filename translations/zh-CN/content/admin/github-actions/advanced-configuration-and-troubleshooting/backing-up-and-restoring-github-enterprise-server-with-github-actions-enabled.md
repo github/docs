@@ -1,7 +1,7 @@
 ---
-title: 在启用 GitHub Actions 的情况下备份和恢复 GitHub Enterprise Server
+title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
 shortTitle: Backing up and restoring
-intro: '外部存储提供程序上的 {% data variables.product.prodname_actions %} 数据不会包含在常规 {% data variables.product.prodname_ghe_server %} 备份中，必须单独备份。'
+intro: 'To restore a backup of {% data variables.product.product_location %} when {% data variables.product.prodname_actions %} is enabled, you must configure {% data variables.product.prodname_actions %} before restoring the backup with {% data variables.product.prodname_enterprise_backup_utilities %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -12,50 +12,33 @@ topics:
   - Infrastructure
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
-ms.openlocfilehash: def12b4e9e93a75ee1aa58f8290ca1b6e7d13cd5
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145100008'
 ---
-{% data reusables.actions.enterprise-storage-ha-backups %}
 
-如果您使用 {% data variables.product.prodname_enterprise_backup_utilities %} 来备份 {% data variables.product.product_location %}，请务必注意，存储在外部存储提供程序上的 {% data variables.product.prodname_actions %} 数据不会包含在备份中。
+## About backups of {% data variables.product.product_name %} when using {% data variables.product.prodname_actions %}
 
-以下是将带有 {% data variables.product.prodname_actions %} 的 {% data variables.product.product_location %} 恢复到新设备所需步骤的概述：
+You can use {% data variables.product.prodname_enterprise_backup_utilities %} to back up and restore the data and configuration for {% data variables.product.product_location %} to a new instance. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."
 
-1. 确认原始设备处于脱机状态。
-1. 在替换 {% data variables.product.prodname_ghe_server %} 设备上手动配置网络设置。 网络设置被排除在备份快照之外，不会被 `ghe-restore` 覆盖。
-1. 若要将替换设备配置为使用与原始设备相同的 {% data variables.product.prodname_actions %} 外部存储配置，请从新设备使用 `ghe-config` 命令设置所需的参数。
-    
-    - Azure Blob 存储
-    ```shell
-    ghe-config secrets.actions.storage.blob-provider "azure"
-    ghe-config secrets.actions.storage.azure.connection-string "_Connection_String_"
-    ```
-    - Amazon S3
-    ```shell
-    ghe-config secrets.actions.storage.blob-provider "s3"
-    ghe-config secrets.actions.storage.s3.bucket-name "_S3_Bucket_Name"
-    ghe-config secrets.actions.storage.s3.service-url "_S3_Service_URL_"
-    ghe-config secrets.actions.storage.s3.access-key-id "_S3_Access_Key_ID_"
-    ghe-config secrets.actions.storage.s3.access-secret "_S3_Access_Secret_"
-    ```
-    - （可选）要启用 S3 强制路径样式，请输入以下命令：
-    ```shell
-    ghe-config secrets.actions.storage.s3.force-path-style true
-    ```
-      
+However, not all the data for {% data variables.product.prodname_actions %} is included in these backups. {% data reusables.actions.enterprise-storage-ha-backups %}
 
-1. 在替换设备上启用 {% data variables.product.prodname_actions %}。 这将把替换设备连接到 {% data variables.product.prodname_actions %} 的相同外部存储。
+## Restoring a backup of {% data variables.product.product_name %} when {% data variables.product.prodname_actions %} is enabled
 
-    ```shell
-    ghe-config app.actions.enabled true
-    ghe-config-apply
-    ```
+To restore a backup of {% data variables.product.product_location %} with {% data variables.product.prodname_actions %}, you must manually configure network settings and external storage on the destination instance before you restore your backup from {% data variables.product.prodname_enterprise_backup_utilities %}. 
 
-1. 配置并启用 {% data variables.product.prodname_actions %} 后，使用 `ghe-restore` 命令从备份中还原其余数据。 有关详细信息，请参阅“[还原备份](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)”。
-1. 在替换设备上重新注册自托管运行器。 有关详细信息，请参阅[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)。
+1. Confirm that the source instance is offline.
+1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} instance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
+1. SSH into the destination instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
 
-有关备份和还原 {% data variables.product.prodname_ghe_server %} 的详细信息，请参阅“[在设备上配置备份](/admin/configuration/configuring-backups-on-your-appliance)”。
+   ```shell{:copy}
+   $ ssh -p 122 admin@HOSTNAME
+   ```
+1. Configure the destination instance to use the same external storage service for {% data variables.product.prodname_actions %} as the source instance by entering one of the following commands.
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
+{% data reusables.actions.configure-storage-provider %}
+1. To prepare to enable {% data variables.product.prodname_actions %} on the destination instance, enter the following command.
+
+   ```shell{:copy}
+   ghe-config app.actions.enabled true
+   ```
+{% data reusables.actions.apply-configuration-and-enable %}
+1. After {% data variables.product.prodname_actions %} is configured and enabled, to restore the rest of the data from the backup, use the `ghe-restore` command. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
+1. Re-register your self-hosted runners on the destination instance. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."

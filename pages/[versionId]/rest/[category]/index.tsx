@@ -193,7 +193,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   return {
     props: {
       restOperations,
-      mainContext: getMainContext(req, res),
+      mainContext: await getMainContext(req, res),
       automatedPageContext: getAutomatedPageContextFromRequest(req),
       tocLandingContext,
     },
