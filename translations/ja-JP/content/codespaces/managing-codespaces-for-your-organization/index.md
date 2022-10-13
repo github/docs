@@ -11,7 +11,7 @@ topics:
 children:
   - /enabling-github-codespaces-for-your-organization
   - /listing-the-codespaces-in-your-organization
-  - /managing-billing-for-github-codespaces-in-your-organization
+  - /managing-the-cost-of-github-codespaces-in-your-organization
   - /managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces
   - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-github-codespaces
