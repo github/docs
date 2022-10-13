@@ -169,6 +169,8 @@ Sets an action's output parameter.
 
 Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
 
+You can escape multiline strings for setting an output parameter by creating an environment variable and using it in a workflow command. For more information, see "[Setting an environment variable](#setting-an-environment-variable)."
+
 ### Example: Setting an output parameter
 
 {% bash %}
