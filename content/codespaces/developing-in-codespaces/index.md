@@ -11,12 +11,12 @@ children:
   - /codespaces-lifecycle
   - /developing-in-a-codespace
   - /creating-a-codespace
+  - /deleting-a-codespace
   - /opening-an-existing-codespace
   - /using-source-control-in-your-codespace
   - /using-github-codespaces-for-pull-requests
   - /stopping-and-starting-a-codespace
   - /renaming-a-codespace
-  - /deleting-a-codespace
   - /forwarding-ports-in-your-codespace
   - /default-environment-variables-for-your-codespace
   - /connecting-to-a-private-network
