@@ -75,6 +75,10 @@ childGroups:
     octicon: ShieldLockIcon
     children:
       - code-security
+      - code-security/supply-chain-security
+      - code-security/dependabot
+      - code-security/code-scanning
+      - code-security/secret-scanning
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
