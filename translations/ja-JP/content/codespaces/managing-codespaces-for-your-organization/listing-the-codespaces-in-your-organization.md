@@ -1,7 +1,7 @@
 ---
-title: 組織内の codespace を一覧表示する
+title: Listing the codespaces in your organization
 shortTitle: List organization codespaces
-intro: 組織に対して現在アクティブになっているまたは停止している codespace をすべて一覧表示できます。
+intro: 'You can list all of the currently active or stopped codespaces for your organization.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To list all of the current codespaces for your organization, you must be an organization owner.'
 versions:
@@ -11,34 +11,31 @@ type: how_to
 topics:
   - Codespaces
   - Administrator
-ms.openlocfilehash: 72d59c35641dd77b4d3623cc70b12b5be880be34
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147865220'
 ---
-## 概要
 
-組織の所有者は、組織に対して現在アクティブになっているまたは停止している codespace をすべて一覧表示できます。 これを行って、ユーザーが作成している codespace の数を確認し、不要なコストが発生していないことを確認することをお勧めします。
+## Overview
 
-組織用の codespace を一覧表示する最も簡単な方法は、{% data variables.product.prodname_cli %} を使用することです。 REST API を使用することもできます。これにより、各 codespace に関する詳しい情報を確認できます。
+As an organization owner, you can list all of the currently active and stopped codespaces for your organization. You might want to do this to check how many codespaces users are creating, to make sure they aren't incurring unnecessary costs. For information about pricing, see "[About billing for GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
-### {% data variables.product.prodname_cli %} を使用して codespace を一覧表示する
+The easiest way to list the codespaces for an organization is by using {% data variables.product.prodname_cli %}. You can also use the REST API, which provides more information about each codespace.
 
-指定した組織に対する現在の codespace をすべて一覧表示するには、次のコマンドを使用します。
+For information on how to see the current total {% data variables.product.prodname_codespaces %} usage for your organization or enterprise, and generate a detailed report, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+
+### Using {% data variables.product.prodname_cli %} to list codespaces
+
+To list all of the current codespaces for a specified organization, use the following command.
 
 ```shell{:copy}
 gh codespace list --org ORGANIZATION 
 ```
 
-このコマンドを実行すると、codespace ごとに次の情報を含むリストが返されます。 
-    - 名前と表示名 
-    - codespace を作成したユーザー
-    - リポジトリとブランチ
-    - codespace の現在の状態
+This command returns a list that includes the following information for each codespace: 
+	- The name and display name 
+	- The user who created the codespace
+	- The repository and branch
+	- The current state of the codespace
 
-特定のユーザーによって作成された、組織向けの現在の codespace をすべて一覧表示するには、次のコマンドを使用します。
+To list all of the current codespaces for an organization that were created by a specific user, use the following command.
 
 ```shell{:copy}
 gh codespace list --org ORGANIZATION --user USER
@@ -46,12 +43,12 @@ gh codespace list --org ORGANIZATION --user USER
 
 {% note %}
 
-**注**: 上記のコマンドでは、`ORGANIZATION` を、クエリを実行する組織の名前に置き換えます。 組織の所有者でなければなりません。
+**Note**: In the above commands, replace `ORGANIZATION` with the name of the organization you are querying. You must be an owner of the organization.
 
 {% endnote %}
 
-### REST API を使用して codespace を一覧表示する
+### Using the REST API to list codespaces
 
-組織に対する現在の codespace を一覧表示する別の方法として、`/orgs/{org}/codespaces` API エンドポイントを使用することもできます。 これを使用すると、{% data variables.product.prodname_cli %} よりも多くの情報が返されます。たとえば、マシンの種類に関する詳しい情報などです。
+You can use the `/orgs/{org}/codespaces` API endpoint as an alternative method of listing the current codespaces for an organization. This returns more information than {% data variables.product.prodname_cli %}; for example, the machine type details.
 
-このエンドポイントについて詳しくは、「[Codespaces Organizations](/rest/codespaces/organizations#list-codespaces-for-the-organization)」を参照してください。
+For more information about this endpoint, see "[Codespaces organizations](/rest/codespaces/organizations#list-codespaces-for-the-organization)."
