@@ -94,7 +94,7 @@ jobs:
               const response = await github.repos.getBranch({
                 owner: 'github',
                 repo: 'docs-early-access',
-                BRANCH_NAME,
+                branch: BRANCH_NAME,
               })
               console.log(`Using docs-early-access branch called '${BRANCH_NAME}'.`)
               return BRANCH_NAME
