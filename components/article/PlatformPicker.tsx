@@ -51,7 +51,7 @@ type Props = {
 }
 export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
   const router = useRouter()
-  const { query, asPath } = router
+  const { query, asPath, locale } = router
   const { defaultPlatform, detectedPlatforms } = useArticleContext()
   const [currentPlatform, setCurrentPlatform] = useState(defaultPlatform || '')
 
@@ -91,7 +91,10 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
       const [pathRoot, pathQuery = ''] = asPath.split('?')
       const params = new URLSearchParams(pathQuery)
       params.set(platformQueryKey, platform)
-      router.push({ pathname: pathRoot, query: params.toString() }, undefined, { shallow: true })
+      router.push({ pathname: pathRoot, query: params.toString() }, undefined, {
+        shallow: true,
+        locale,
+      })
 
       sendEvent({
         type: EventType.preference,

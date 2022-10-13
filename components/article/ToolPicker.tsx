@@ -53,7 +53,7 @@ type Props = {
 }
 export const ToolPicker = ({ variant = 'subnav' }: Props) => {
   const router = useRouter()
-  const { asPath, query } = router
+  const { asPath, query, locale } = router
   // allTools comes from the ArticleContext which contains the list of tools available
   const { defaultTool, detectedTools, allTools } = useArticleContext()
   const [currentTool, setCurrentTool] = useState(getDefaultTool(defaultTool, detectedTools))
@@ -97,7 +97,10 @@ export const ToolPicker = ({ variant = 'subnav' }: Props) => {
       const [pathRoot, pathQuery = ''] = asPath.split('?')
       const params = new URLSearchParams(pathQuery)
       params.set(toolQueryKey, tool)
-      router.push({ pathname: pathRoot, query: params.toString() }, undefined, { shallow: true })
+      router.push({ pathname: pathRoot, query: params.toString() }, undefined, {
+        shallow: true,
+        locale,
+      })
 
       sendEvent({
         type: EventType.preference,
