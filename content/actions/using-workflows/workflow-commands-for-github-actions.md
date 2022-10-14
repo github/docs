@@ -148,12 +148,12 @@ The following table shows which toolkit functions are available within a workflo
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
 {%- ifversion actions-job-summaries %}
-| `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
+| `core.summary` | Accessible using environment file `GITHUB_STEP_SUMMARY` |
 {%- endif %}
-| `core.saveState`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment variable `GITHUB_STATE`{% else %}`save-state`{% endif %} |
+| `core.saveState`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment file `GITHUB_STATE`{% else %}`save-state`{% endif %} |
 | `core.setCommandEcho` | `echo` |
 | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
-| `core.setOutput`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment variable `GITHUB_OUTPUT`{% else %}`set-output`{% endif %} |
+| `core.setOutput`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment file `GITHUB_OUTPUT`{% else %}`set-output`{% endif %} |
 | `core.setSecret`  | `add-mask` |
 | `core.startGroup` | `group` |
 | `core.warning`    | `warning` |
