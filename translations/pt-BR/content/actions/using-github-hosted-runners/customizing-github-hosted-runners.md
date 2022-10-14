@@ -7,14 +7,19 @@ versions:
 type: tutorial
 topics:
   - Workflows
-shortTitle: Personalize executores
+shortTitle: Customize runners
+ms.openlocfilehash: d6793216b099fe3dcec44572da0b3d65cbb13fd9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145096070'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Se você precisar de pacotes de software adicionais em executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá criar um trabalho que instale os pacotes como parte de seu fluxo de trabalho.
+Se você precisar de pacotes de software adicionais em executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá criar um trabalho que instale os pacotes como parte de seu fluxo de trabalho. 
 
-Para ver quais pacotes já estão instalados por padrão, consulte "[Software pré-instalado](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)".
+Para ver os pacotes que já estão instalados por padrão, confira "[Programas de software pré-instalados](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)".
 
 Este guia demonstra como criar um trabalho que instale software adicional em um executor hospedado em {% data variables.product.prodname_dotcom %}.
 
@@ -40,7 +45,7 @@ jobs:
 
 {% note %}
 
-**Observação:** Sempre execute `sudo apt-get update` antes de instalar um pacote. Caso o índice `apt` seja obsoleto, este comando busca e indexa novamente quaisquer pacotes disponíveis, o que ajuda a prevenir falhas na instalação do pacote.
+**Observação:** sempre execute `sudo apt-get update` antes de instalar um pacote. Caso o índice `apt` esteja obsoleto, esse comando busca e indexa novamente todos os pacotes disponíveis, o que ajuda a evitar falhas de instalação do pacote. 
 
 {% endnote %}
 
@@ -70,7 +75,7 @@ jobs:
 
 ## Instalando software em executores do Windows
 
-O exemplo a seguir demonstra como usar o [Chocolatey](https://community.chocolatey.org/packages) para instalar a CLI de {% data variables.product.prodname_dotcom %} como parte de um trabalho.
+O exemplo a seguir demonstra como usar o [Chocolatey](https://community.chocolatey.org/packages) para instalar a CLI do {% data variables.product.prodname_dotcom %} como parte de um trabalho.
 
 {% raw %}
 ```yaml

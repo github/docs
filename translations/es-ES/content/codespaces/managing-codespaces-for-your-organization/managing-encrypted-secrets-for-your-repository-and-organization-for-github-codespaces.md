@@ -1,7 +1,7 @@
 ---
 title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
-shortTitle: Secretos cifrados
-intro: 'Los secretos cifrados te permiten almacenar información sensible en tu organización, repositorio o {% data variables.product.prodname_github_codespaces %}.'
+shortTitle: Encrypted secrets
+intro: 'Encrypted secrets allow you to store sensitive information in your organization, repository, or {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
@@ -17,63 +17,68 @@ redirect_from:
 
  
 
-## Acerca de los secretos
+## About secrets
 
-Los secretos son variables de ambiente cifradas que creas en una organización o repositorio. Los secretos que creas están disponibles para utilizarse en {% data variables.product.prodname_github_codespaces %}. GitHub utiliza una [caja sellada de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para cifrar los secretos antes de que lleguen a GitHub y solo los decifra cuando los utilizas en un codespace.
+Secrets are encrypted environment variables that you create in an organization or  repository. The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. GitHub uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach GitHub and only decrypts them when you use them in a codespace.
 
-Los secretos a nivel organizacional te permiten compartir secretos entre repositorios múltiples, lo cual reduce la necesidad de crear secretos duplicados. Puedes utilizar las políticas de acceso para controlar qué repositorios pueden utilizar los secretos de la organización.
+Organization-level secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets. 
 
 {% data reusables.codespaces.secrets-on-start %}
 
-### Nombrar secretos
+### Naming secrets
 
-{% data reusables.codespaces.secrets-naming %} Por ejemplo, un secreto que se creó a nivel de repositorio debe tener un nombre único en dicho repositorio y uno que se haya cerado a nivel organizacional debe tener un nombre único en dicho nivel.
+{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
   {% data reusables.codespaces.secret-precedence %}
 
-### Límites para los secretos
+### Limits for secrets
 
-Puedes almacenar hasta 100 secretos por organización y 100 por repositorio.
+You can store up to 100 secrets per organization and 100 secrets per repository.
 
-Los secretos tienen un tamaño máximo de 64 KB.
+Secrets are limited to 64 KB in size.
 
-## Agregar secretos para un repositorio
+## Adding secrets for a repository
 
-Para crear secretos para un repositorio de la organización, debes tener acceso adminsitrativo.
+To create secrets for an organization repository, you must have administrator access.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. En la sección de "Seguridad" de la barra lateral, selecciona **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secretos** y luego haz clic en **{% data variables.product.prodname_codespaces %}**.
-2. En la parte superior de la página, haz clci en **Secreto de repositorio nuevo**.
-3. Teclea un nombre para tu secreto en el cuadro de entrada **Name**.
-4. Ingresa el valor de tu secreto.
-5. Haz clic en **Agregar secreto** (Agregar secreto).
+{% data reusables.codespaces.sidebar-secret %}
 
-## Agregar secretos para una organización
+2. At the top of the page, click **New repository secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the value for your secret.
+5. Click **Add secret**.
 
-Cuando creas un secreto en una organización, puedes utilizar una política para limitar el acceso de los repositorios a este. Por ejemplo, puedes otorgar acceso a todos los repositorios, o limitarlo a solo los repositorios privados o a una lista específica de estos.
+## Adding secrets for an organization
+
+When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-1. En la sección de "Seguridad" de la barra lateral, selecciona **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secretos** y luego haz clic en **{% data variables.product.prodname_codespaces %}**.
-2. En la parte superior de la página, haz clic en **Nuego secreto de organización**.
-3. Teclea un nombre para tu secreto en el cuadro de entrada **Name**.
-4. Ingresa el **Valor** para tu secreto.
-5. Desde la lista desplegable **Acceso de los repositorios**, elige una política de acceso. ![Lista de acceso a los repositorios con los repositorios privados seleccionados](/assets/images/help/codespaces/secret-repository-access.png)
-6. Haz clic en **Agregar secreto** (Agregar secreto).
+{% data reusables.codespaces.sidebar-secret %}
 
-## Revisar el acceso a los secretos de nivel organizacional
+2. At the top of the page, click **New organization secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the **Value** for your secret.
+5. From the **Repository access** dropdown list, choose an access policy.
+    ![Repository Access list with private repositories selected](/assets/images/help/codespaces/secret-repository-access.png)
+6. Click **Add secret**.
 
-Puedes revisar qué políticas de acceso se aplican a un secreto en tu organización.
+## Reviewing access to organization-level secrets
+
+You can check which access policies are applied to a secret in your organization.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-1. La lista de secretos incluye cualquier política y permiso configurado. Por ejemplo: ![Lista de secretos](/assets/images/help/settings/actions-org-secrets-list.png)
-1. Para encontrar más detalles sobre los permisos configurados para cada secreto, da clic en **Actualizar**.
+{% data reusables.codespaces.sidebar-secret %}
 
-## Leer más
+1. The list of secrets includes any configured permissions and policies. For example:
+![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
+1. For more details on the configured permissions for each secret, click **Update**.
 
-- "[Administrar los secretos cifrados para tus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
+## Further reading
+
+- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

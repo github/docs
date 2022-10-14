@@ -1,5 +1,5 @@
-vCPU と RAM の量を調整したり、[ドットファイルを追加して環境をパーソナライズ](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)したり、インストールされているツールやスクリプトを変更したりして、codespace をカスタマイズできます。
+You can customize your codespace by adjusting the amount of vCPUs and RAM, adding dotfiles to personalize your environment, or by modifying the tools and scripts installed. For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)."
 
-{% data variables.product.prodname_codespaces %}は`devcontainer.json`というファイルを使って、codespaceで作業する際に使用する開発コンテナを設定します。 それぞれのリポジトリには1つ以上の`devcontainer.json`ファイルを含めて、codespaceでコードの作業をするのに必要なとおりの開発環境を提供できます。
+{% data variables.product.prodname_github_codespaces %} uses a file called `devcontainer.json` to configure the development container that you use when you work in a codespace. Each repository can contain one or more  `devcontainer.json` files, to give you exactly the development environment you need to work on your code in a codespace. 
 
-起動時に{% data variables.product.prodname_codespaces %}は`devcontainer.json`ファイルと開発コンテナの設定を構成する依存ファイルを使い、ツールやランタイムをンストールし、プロジェクトが必要とするその他のセットアップタスクを行います。 詳しい情報については「[開発コンテナの紹介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)」を参照してください。
+On launch, {% data variables.product.prodname_github_codespaces %} uses a `devcontainer.json` file, and any dependent files that make up the dev container configuration, to install tools and runtimes, and perform other setup tasks that the project requires. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."

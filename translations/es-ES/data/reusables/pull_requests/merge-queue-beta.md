@@ -1,7 +1,7 @@
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
-**Nota:** La característica de cola de fusión para las solicitudes de cambios se encuentra actualmente en un beta público limitado y está sujeta a cambios.
+**Note:** The pull request merge queue feature is currently in limited public beta and subject to change.
 
 {% endnote %}
 

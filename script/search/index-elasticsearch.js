@@ -10,13 +10,19 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import { Client } from '@elastic/elasticsearch'
+import { Client, errors } from '@elastic/elasticsearch'
 import { program, Option } from 'commander'
 import chalk from 'chalk'
+import dotenv from 'dotenv'
 
+import { retryOnErrorTest } from '../helpers/retry-on-error-test.js'
 import { languageKeys } from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { decompress } from '../../lib/search/compress.js'
+import statsd from '../../lib/statsd.js'
+
+// Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
+dotenv.config()
 
 // Create an object that maps the "short name" of a version to
 // all information about it. E.g
@@ -44,12 +50,10 @@ const shortNames = Object.fromEntries(
 
 const allVersionKeys = Object.keys(shortNames)
 
-const DEFAULT_SOURCE_DIRECTORY = path.join('lib', 'search', 'indexes')
-
 program
   .description('Creates Elasticsearch index from records')
   .option('-v, --verbose', 'Verbose outputs')
-  .addOption(new Option('-V, --version <VERSION...>', 'Specific versions').choices(allVersionKeys))
+  .addOption(new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeys))
   .addOption(
     new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys)
   )
@@ -57,22 +61,26 @@ program
     new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys)
   )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
-  .option(
-    '-s, --source-directory <DIRECTORY>',
-    `Directory where records files are (default ${DEFAULT_SOURCE_DIRECTORY})`
-  )
+  .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
+  .argument('<source-directory>', 'where the indexable files are')
   .parse(process.argv)
 
-main(program.opts())
+main(program.opts(), program.args)
 
-async function main(opts) {
-  if (!opts.elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
+async function main(opts, args) {
+  if (!args.length) {
+    throw new Error('Must pass the source as the first argument')
+  }
+
+  const { verbose, language, notLanguage, elasticsearchUrl } = opts
+
+  if (!elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must passed the elasticsearch URL option or ' +
         'set the environment variable ELASTICSEARCH_URL'
     )
   }
-  let node = opts.elasticsearchUrl || process.env.ELASTICSEARCH_URL
+  let node = elasticsearchUrl || process.env.ELASTICSEARCH_URL
 
   // Allow the user to lazily set it to `localhost:9200` for example.
   if (!node.startsWith('http') && !node.startsWith('://') && node.split(':').length === 2) {
@@ -84,9 +92,8 @@ async function main(opts) {
     if (!parsed.hostname) throw new Error('no valid hostname')
   } catch (err) {
     console.error(chalk.bold('URL for Elasticsearch not a valid URL', err))
+    throw err
   }
-
-  const { verbose, language, notLanguage } = opts
 
   // The notLanguage is useful you want to, for example, index all languages
   // *except* English.
@@ -97,7 +104,7 @@ async function main(opts) {
   if (verbose) {
     console.log(`Connecting to ${chalk.bold(safeUrlDisplay(node))}`)
   }
-  const sourceDirectory = opts.sourceDirectory || DEFAULT_SOURCE_DIRECTORY
+  const sourceDirectory = args[0]
   try {
     await fs.stat(sourceDirectory)
   } catch (error) {
@@ -107,25 +114,47 @@ async function main(opts) {
     throw error
   }
 
-  const client = new Client({
-    node,
-    sniffOnStart: true,
-  })
+  try {
+    await indexAll(node, sourceDirectory, opts)
+  } catch (error) {
+    // If any error is thrown from within the SDK, that error object will
+    // contain a `Connection` object which, when printed, can reveal the
+    // username/password or the base64 Basic auth credentials.
+    // So we want to carefully re-throw it so it only contains the minimal
+    // information for debugging without exposing the Connection credentials
+    // in Actions logs.
+    if (error instanceof errors.ElasticsearchClientError) {
+      // All ElasticsearchClientError error subclasses have a `name` and
+      // `message` but only some have a `meta`.
+      if (error.meta) console.error(error.meta)
+      throw new Error(error.message)
+    }
+    // If any other error happens that isn't from the elasticsearch SDK,
+    // let it bubble up.
+    throw error
+  }
+}
+async function indexAll(node, sourceDirectory, opts) {
+  const client = new Client({ node })
+
+  const { version, language, verbose, notLanguage, indexPrefix } = opts
 
   // This will throw if it can't ping
   await client.ping()
 
-  const versionKeys = opts.version || allVersionKeys
+  const versionKeys = version || allVersionKeys
   const languages =
-    opts.language || languageKeys.filter((lang) => !notLanguage || !notLanguage.includes(lang))
+    language || languageKeys.filter((lang) => !notLanguage || !notLanguage.includes(lang))
   if (verbose) {
     console.log(`Indexing on languages ${chalk.bold(languages.join(', '))}`)
   }
 
+  const prefix = indexPrefix ? `${indexPrefix}_` : ''
+
   for (const language of languages) {
     for (const versionKey of versionKeys) {
       console.log(chalk.yellow(`Indexing ${chalk.bold(versionKey)} in ${chalk.bold(language)}`))
-      const indexName = `github-docs-${versionKey}-${language}`
+      const indexName = `${prefix}github-docs-${versionKey}-${language}`
 
       console.time(`Indexing ${indexName}`)
       await indexVersion(client, indexName, versionKey, language, sourceDirectory, verbose)
@@ -195,6 +224,21 @@ async function indexVersion(
   const settings = {
     analysis: {
       analyzer: {
+        // We defined to analyzers. Both based on a "common core" with the
+        // `standard` tokenizer. But the second one adds Snowball filter.
+        // That means the tokenization of "Dependency naming" becomes
+        // `[dependency, naming]` in the explicit one and `[depend, name]`
+        // in the Snowball one.
+        // We do this to give a chance to boost the more exact spelling a
+        // bit higher with the assumption that if the user knew exactly
+        // what it was called, we should show that higher.
+        // A great use-case of this when users search for keywords that are
+        // code words like `dependency-name`.
+        text_analyzer_explicit: {
+          filter: ['lowercase', 'stop', 'asciifolding'],
+          tokenizer: 'standard',
+          type: 'custom',
+        },
         text_analyzer: {
           filter: ['lowercase', 'stop', 'asciifolding'],
           tokenizer: 'standard',
@@ -221,36 +265,39 @@ async function indexVersion(
 
   await client.indices.create({
     index: thisAlias,
-    mappings: {
-      properties: {
-        url: { type: 'keyword' },
-        title: { type: 'text', analyzer: 'text_analyzer', norms: false },
-        title_autocomplete: {
-          type: 'search_as_you_type',
-          doc_values: false,
-          max_shingle_size: 3,
+    body: {
+      mappings: {
+        properties: {
+          url: { type: 'keyword' },
+          title: { type: 'text', analyzer: 'text_analyzer', norms: false },
+          title_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
+          content: { type: 'text', analyzer: 'text_analyzer' },
+          content_explicit: { type: 'text', analyzer: 'text_analyzer_explicit' },
+          headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
+          headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
+          breadcrumbs: { type: 'text' },
+          topics: { type: 'keyword' },
+          popularity: { type: 'float' },
         },
-        content: { type: 'text', analyzer: 'text_analyzer' },
-        headings: { type: 'text' },
-        breadcrumbs: { type: 'text' },
-        topics: { type: 'text' },
-        popularity: { type: 'float' },
       },
+      settings,
     },
-    settings,
   })
 
   // POPULATE
   const allRecords = Object.values(records).sort((a, b) => b.popularity - a.popularity)
   const operations = allRecords.flatMap((doc) => {
     const { title, objectID, content, breadcrumbs, headings, topics } = doc
+    const contentEscaped = escapeHTML(content)
     const record = {
       url: objectID,
       title,
-      title_autocomplete: title,
-      content: escapeHTML(content),
+      title_explicit: title,
+      content: contentEscaped,
+      content_explicit: contentEscaped,
       breadcrumbs,
       headings,
+      headings_explicit: headings,
       topics: topics.filter(Boolean),
       // This makes sure the popularities are always greater than 1.
       // Generally the 'popularity' is a ratio where the most popular
@@ -262,7 +309,16 @@ async function indexVersion(
     return [{ index: { _index: thisAlias } }, record]
   })
 
-  const bulkResponse = await client.bulk({ refresh: true, operations })
+  // It's important to use `client.bulk.bind(client)` here because
+  // `client.bulk` is a meta-function that is attached to the Client
+  // class. Internally, it depends on `this.` even though it's a
+  // free-standing function. So if called indirectly by the `statsd.asyncTimer`
+  // the `this` becomes undefined.
+  const timed = statsd.asyncTimer(client.bulk.bind(client), 'search.bulk_index', [
+    `version:${version}`,
+    `language:${language}`,
+  ])
+  const bulkResponse = await timed({ refresh: true, body: operations })
 
   if (bulkResponse.errors) {
     // Some day, when we're more confident how and why this might happen
@@ -274,7 +330,9 @@ async function indexVersion(
     throw new Error('Bulk errors happened.')
   }
 
-  const { count } = await client.count({ index: thisAlias })
+  const {
+    body: { count },
+  } = await client.count({ index: thisAlias })
   console.log(`Documents now in ${chalk.bold(thisAlias)}: ${chalk.bold(count.toLocaleString())}`)
 
   // To perform an atomic operation that creates the new alias and removes
@@ -293,14 +351,33 @@ async function indexVersion(
   ]
   console.log(`Alias ${indexName} -> ${thisAlias}`)
 
-  const indices = await client.cat.indices({ format: 'json' })
+  // const indices = await client.cat.indices({ format: 'json' })
+  const { body: indices } = await retryOnErrorTest(
+    (error) => {
+      return error instanceof errors.ResponseError && error.statusCode === 404
+    },
+    () => client.cat.indices({ format: 'json' }),
+    {
+      // Combined, this is a total of 30 seconds which is not long
+      // for an Action that runs based on automation.
+      attempts: 10,
+      sleepTime: 3000,
+      onError: (error, attempts) => {
+        console.warn(
+          chalk.yellow(
+            `Failed to get a list of indexes for '${indexName}' (${error.message}). Will attempt ${attempts} more times.`
+          )
+        )
+      },
+    }
+  )
   for (const index of indices) {
     if (index.index !== thisAlias && index.index.startsWith(indexName)) {
       aliasUpdates.push({ remove_index: { index: index.index } })
       console.log('Deleting index', index.index)
     }
   }
-
+  if (verbose) console.log('Updating alias actions:', aliasUpdates)
   await client.indices.updateAliases({ body: { actions: aliasUpdates } })
 }
 

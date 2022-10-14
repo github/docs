@@ -41,6 +41,7 @@ export const PlaygroundContentBlock = ({ sectionIndex, contentBlock }: Props) =>
   const isActive = sectionIndex === activeSectionIndex
   const anchorLink = getAnchorLink(contentBlock.title || '')
   const showDivider = !isActive && activeSectionIndex - 1 !== sectionIndex
+
   return (
     <div
       className={cx(

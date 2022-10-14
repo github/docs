@@ -66,7 +66,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
-      mainContext: getMainContext(req, res),
+      mainContext: await getMainContext(req, res),
       gettingStartedLinks: req.context.featuredLinks.gettingStarted.map(
         ({ title, href, intro }: any) => ({ title, href, intro })
       ),

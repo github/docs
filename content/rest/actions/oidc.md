@@ -7,6 +7,6 @@ topics:
   - API
 versions:
   ghec: '*'
-  fpt: '*'
+  ghes: '>=3.7'
 ---
 

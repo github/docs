@@ -1,4 +1,5 @@
-#Reference: Issue #6631 - Dependabot alerts: surface information about development dependencies - [GA]
+# Reference: Issue #6631 - Dependabot alerts: surface information about development dependencies - [GA]
+
 versions:
   fpt: '*'
   ghec: '*'

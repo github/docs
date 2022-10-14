@@ -234,9 +234,9 @@ An overview of some of the most common actions that are recorded as events in th
 | `create` | Triggered when a user [creates a codespace](/github/developing-online-with-codespaces/creating-a-codespace).
 | `resume` | Triggered when a user resumes a suspended codespace.
 | `delete` | Triggered when a user [deletes a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).
-| `create_an_org_secret` | Triggered when a user creates an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
-| `update_an_org_secret` | Triggered when a user updates an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
-| `remove_an_org_secret` | Triggered when a user removes an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `create_an_org_secret` | Triggered when a user creates an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
+| `update_an_org_secret` | Triggered when a user updates an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `remove_an_org_secret` | Triggered when a user removes an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
 | `manage_access_and_security` | Triggered when a user updates [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 {% endif %}
 
@@ -831,7 +831,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 {% data reusables.actions.actions-audit-events-workflow %}
 ## Further reading
 
-- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5146 %}
+- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {%- ifversion fpt or ghec %}
 - "[Exporting member information for your organization](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
 {%- endif %}

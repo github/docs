@@ -112,9 +112,13 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
   
 5. Once authentication and provisioning are configured, you can start provisioning members and managing teams. For more information, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
 
+If members of your enterprise must use one workstation to contribute to repositories on {% data variables.product.product_location %} from both a  {% data variables.product.prodname_managed_user %} and a personal account, you can provide support. For more information, see "[Supporting developers with multiple user accounts on {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom)."
+
 ## Authenticating as a {% data variables.product.prodname_managed_user %}
 
-{% data variables.product.prodname_managed_users_caps %} must authenticate through their identity provider. To authenticate, a {% data variables.product.prodname_managed_user %} can visit their IdP application portal or use the login page on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_managed_users_caps %} must authenticate through their identity provider. To authenticate, a {% data variables.product.prodname_managed_user %} can visit their IdP application portal or use the login page on {% data variables.product.prodname_dotcom_the_website %}. 
+
+By default, when an unauthenticated user attempts to access an enterprise that uses {% data variables.product.prodname_emus %}, {% data variables.product.company_short %} displays a 404 error. An enterprise owner can optionally enable automatic redirects to single sign-on (SSO) instead of the 404. For more information, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)."
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
 
@@ -131,6 +135,12 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 {% data variables.product.product_name %} automatically creates a username for each person by normalizing an identifier provided by your IdP. For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
 
-A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[Resolving username conflicts](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts)."
+A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. {% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %} If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[Resolving username conflicts](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts)."
 
 The profile name and email address of a {% data variables.product.prodname_managed_user %} is also provided by the IdP. {% data variables.product.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}, and the IdP can only provide a single email address.
+
+## Supporting developers with multiple user accounts on {% data variables.product.product_location %}
+
+People on your team may need to contribute to resources on {% data variables.product.product_location %} that are outside of your {% data variables.product.prodname_emu_enterprise %}. For example, you may wish to maintain a separate enterprise for your company's open source projects. Because a {% data variables.product.prodname_managed_user %} cannot contribute to public resources, users will need to maintain a separate, personal account for this work.
+
+People who must contribute from two user accounts on {% data variables.product.product_location %} using one workstation can configure Git to simplify the process. For more information, see "[Managing multiple accounts](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."

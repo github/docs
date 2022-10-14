@@ -11,9 +11,14 @@ type: how_to
 topics:
   - Enterprise
   - Migration
-shortTitle: 从另一个 VCS 导入
+shortTitle: Import from another VCS
+ms.openlocfilehash: 2647bf8eb0a08e4188d36ddc8bd7057ee1e2f208
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146332000'
 ---
-
 ## 从 Mercurial 导入项目
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
@@ -27,7 +32,7 @@ shortTitle: 从另一个 VCS 导入
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/user/articles/creating-a-new-repository)。
+5. 如果你还没有，[请在 {% data variables.product.prodname_ghe_server %} 上创建一个新的空存储库](/enterprise/user/articles/creating-a-new-repository)。
 {% data reusables.command_line.switching_directories_procedural %}
 7. 将导入的仓库推送到 {% data variables.product.prodname_ghe_server %}：
   ```shell
@@ -47,7 +52,7 @@ shortTitle: 从另一个 VCS 导入
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/user/articles/creating-a-new-repository)。
+5. 如果你还没有，[请在 {% data variables.product.prodname_ghe_server %} 上创建一个新的空存储库](/enterprise/user/articles/creating-a-new-repository)。
 {% data reusables.command_line.switching_directories_procedural %}
 7. 将导入的仓库推送到 {% data variables.product.prodname_ghe_server %}：
   ```shell
@@ -67,7 +72,7 @@ shortTitle: 从另一个 VCS 导入
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/user/articles/creating-a-new-repository)。
+5. 如果你还没有，[请在 {% data variables.product.prodname_ghe_server %} 上创建一个新的空存储库](/enterprise/user/articles/creating-a-new-repository)。
 {% data reusables.command_line.switching_directories_procedural %}
 7. 将导入的仓库推送到 {% data variables.product.prodname_ghe_server %}：
   ```shell
@@ -76,4 +81,4 @@ shortTitle: 从另一个 VCS 导入
 
 ## 延伸阅读
 
-- "[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)"
+- [命令行实用工具](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)

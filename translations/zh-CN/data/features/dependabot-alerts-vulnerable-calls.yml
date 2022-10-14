@@ -1,7 +1,5 @@
----
-#Reference: Issue #6076 introduction of label for "vulnerable calls" in Dependabot alerts
+# Reference: Issue #6076 introduction of label for "vulnerable calls" in Dependabot alerts
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.5'
-  ghae: 'issue-6076'
+  ghae: '问题-6076'

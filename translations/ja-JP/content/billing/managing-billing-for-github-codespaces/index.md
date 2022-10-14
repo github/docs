@@ -1,7 +1,7 @@
 ---
-title: GitHub Codespacesの支払いの管理
+title: Managing billing for GitHub Codespaces
 shortTitle: Codespaces
-intro: '{% data variables.product.prodname_codespaces %} の利用状況を確認し、利用上限を設定することができます。'
+intro: 'You can view your usage and set a spending limit for {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,4 +11,3 @@ children:
   - /viewing-your-github-codespaces-usage
   - /managing-spending-limits-for-github-codespaces
 ---
-

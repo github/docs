@@ -1,50 +1,46 @@
 ---
-title: Seguir organizaciones
-intro: 'Puedes seguir organizaciones en {% data variables.product.product_name %} para recibir notificaciones sobre su actividad.'
+title: Following organizations
+intro: 'You can follow organizations on {% data variables.product.product_name %} to receive notifications about their activity.'
 versions:
   feature: for-you-feed
 topics:
   - Profile
 ---
 
-{% note %}
+{% data reusables.organizations.follow-organizations-beta %}
 
-**Nota:** La capacidad de seguir organizaciones se encuentra actualmente en beta público y está sujeta a cambios.
+## About followers on {% data variables.product.product_name %}
 
-{% endnote %}
+{% data reusables.organizations.about-following-organizations %} For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 
-## Aceca de los seguidores en {% data variables.product.product_name %}
+You can unfollow an organization if you do not wish to see their {% ifversion fpt or ghec %}public{% endif %} activity on {% data variables.product.product_name %}.
 
-Cuando sigues organizaciones, puedes ver su actividad pública en tu tablero personal. Para obtener más información, consulta "[Acerca de tu tablero personal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
+## Following an organization on {% data variables.product.product_name %}
 
-Puedes dejar de seguir a una organización si no quieres ver su actividad {% ifversion fpt or ghec %}pública{% endif %} en {% data variables.product.product_name %}.
+1. Go to the organization page you want to follow
+2. Click **Follow** in the top-right corner of the header
 
-## Seguir a una organización en {% data variables.product.product_name %}
+  ![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
 
-1. Dirígete a la página de la organización que quieras seguir
-2. Haz clic en **Seguir** en la esquina superior derecha del encabezado
+## Unfollowing an organization on {% data variables.product.product_name %}
 
-  ![Captura de pantalla del encabezado de la organización con el botón de seguir resaltado](/assets/images/help/profile/organization-profile-following.png)
+1. Go to the organization page you want to unfollow
+2. Click **Unfollow** in the top-right corner of the header.
 
-## Dejar de seguir a una organización en {% data variables.product.product_name %}
+  ![Screenshot of the organization header, with the unfollow button highlighted](/assets/images/help/profile/organization-profile-unfollowing.png)
 
-1. Dirígete a la página de la organización que quieres dejar de seguir
-2. Haz clic en **Dejar de seguir** en la esquina superior derecha del encabezado.
+## Viewing people and organizations a user follows on {% data variables.product.product_name %}
 
-  ![Captura de pantalla del encabezado de la organización con el botón de dejar de seguir resaltado](/assets/images/help/profile/organization-profile-unfollowing.png)
+1. Click a user image to display that user's profile.
 
-## Ver a las personas y organizaciones que sigue un usuario en {% data variables.product.product_name %}
+  ![User image](/assets/images/help/profile/user-profile-image.png)
 
-1. Haz clic en una imagen de usuario para mostrar el perfil de este.
+2. Click **following** under their profile image.
 
-  ![Imagen de usuario](/assets/images/help/profile/user-profile-image.png)
-
-2. Haz clic en **siguiendo** debajo de su imagen de perfil.
-
-  ![Siguiendo a usuario](/assets/images/help/profile/user-profile-following.png)
+  ![User following](/assets/images/help/profile/user-profile-following.png)
 
 {% ifversion fpt or ghec %}
-## Leer más
+## Further reading
 
-- "[Seguir personas](/get-started/exploring-projects-on-github/following-people)"
+- "[Following people](/get-started/exploring-projects-on-github/following-people)"
 {% endif %}

@@ -60,14 +60,17 @@ export function RestCodeSamples({ operation, slug }: Props) {
   }))
 
   // Menu options for the language selector
-  const languageSelectOptions: LanguageOptionT[] = [
-    { key: CURLKEY, text: 'cURL' },
-    { key: JSKEY, text: 'JavaScript' },
-  ]
-  // Not all examples support the GH CLI language option. If any of
-  // the examples don't support it, we don't show GH CLI as an option.
-  if (!languageExamples.some((example) => example.ghcli === undefined)) {
-    languageSelectOptions.push({ key: GHCLIKEY, text: 'GitHub CLI' })
+  const languageSelectOptions: LanguageOptionT[] = [{ key: CURLKEY, text: 'cURL' }]
+
+  // Management Console operations are not supported by Octokit
+  if (operation.subcategory !== 'management-console') {
+    languageSelectOptions.push({ key: JSKEY, text: 'JavaScript' })
+
+    // Not all examples support the GH CLI language option. If any of
+    // the examples don't support it, we don't show GH CLI as an option.
+    if (!languageExamples.some((example) => example.ghcli === undefined)) {
+      languageSelectOptions.push({ key: GHCLIKEY, text: 'GitHub CLI' })
+    }
   }
 
   // Menu options for the example selector
@@ -99,7 +102,7 @@ export function RestCodeSamples({ operation, slug }: Props) {
     setSelectedLanguage(languageKey)
     Cookies.set('codeSampleLanguagePreferred', languageKey, {
       sameSite: 'strict',
-      secure: true,
+      secure: document.location.protocol !== 'http:',
     })
   }
 

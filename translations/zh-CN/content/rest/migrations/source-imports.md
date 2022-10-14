@@ -7,11 +7,16 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 339b7f9543e91d2d33566435289b2092ef8c02e8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147065768'
 ---
-
 ## 关于源导入 API
 
-{% data variables.migrations.source_imports_intro %}如果导入中存在大型文件，则典型的源导入将开始导入，然后（可选）更新作者和/或更新使用 Git LFS 的首选项。 您也可以创建侦听 [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) 的 web 挂钩来了解导入的状态。
+{% data variables.migrations.source_imports_intro %} 如果导入中存在大型文件，则典型的源导入将开始导入，然后（可选）更新作者和/或更新使用 Git LFS 的首选项。 还可以创建一个用于侦听 [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) 的 Webhook 来了解导入状态。
 
 在此图中可以看到更详细的示例：
 

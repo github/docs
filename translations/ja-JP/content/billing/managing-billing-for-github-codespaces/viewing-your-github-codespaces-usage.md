@@ -1,7 +1,7 @@
 ---
-title: GitHub Codespacesの使用状況の表示
-shortTitle: 使用状況の表示
-intro: '{% data variables.product.prodname_github_codespaces %}によるコンピュートの分とストレージを見ることができます。'
+title: Viewing your GitHub Codespaces usage
+shortTitle: Viewing your usage
+intro: 'You can view the compute minutes and storage used by {% data variables.product.prodname_github_codespaces %}.'
 permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -15,25 +15,43 @@ redirect_from:
   - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
 ---
 
-## Organizationの {% data variables.product.prodname_github_codespaces %} の使用状況を表示する
+## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization
 
-Organization については、Organization のオーナーと支払いマネージャーが {% data variables.product.prodname_github_codespaces %} の使用状況を管理できます。 Enterpriseアカウントが管理しているOrganizationでは、OrganizationのオーナーはOrganizationの支払いページで{% data variables.product.prodname_codespaces %}の使用状況を見ることができ、Enterpriseの管理者はEnterprise全体の使用状況を見ることができます。
+Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an organization. For organizations managed by an enterprise account, the organization owners can view {% data variables.product.prodname_github_codespaces %} usage in the organization billing page, and enterprise admins can view the usage for the entire enterprise.
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.codespaces-minutes %}
-{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
-1. レポートをフィルタして、`Product`フィールドで"Codespaces"をメンションしている行だけを表示させてください。
+1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
 
-   ![Codespacesでフィルターされた使用状況レポート](/assets/images/help/codespaces/CSV-usage-report.png)
+   ![Details of minute usage](/assets/images/help/billing/codespaces-compute-storage.png)
+
+   You can also see and update your current spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
+
+   {% note %}
+
+   **Notes**: 
+   * The costs shown here are the cumulative costs within the current monthly billing period. The metered costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each monthly billing period. Outstanding costs from previous months are not shown.
+   * The figures on this page are updated every hour.
+
+   {% endnote %}
+
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
+   The data used for this report is updated daily. 
+1. Filter the report to show only rows that mention "Codespaces" in the `Product` field.
+
+   ![A usage report filtered for Codespaces](/assets/images/help/codespaces/CSV-usage-report.png)
 
 {% ifversion ghec %}
-## Enterprise アカウントの {% data variables.product.prodname_codespaces %} の使用状況を表示する
+## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
 
-Enterprise アカウントについては、Enterprise オーナーと支払いマネージャーが {% data variables.product.prodname_codespaces %} の使用状況を確認できます。
+Enterprise owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an enterprise account.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. 「{% data variables.product.prodname_codespaces %}」の下で、Enterpriseアカウント内の各Organizationの使用状況の詳細を見ます。
+1. Under "{% data variables.product.prodname_codespaces %} monthly usage", view the usage details of each organization in your enterprise account.
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
 {% endif %}
+
+## Further reading
+
+- "[Listing the codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"

@@ -1,71 +1,76 @@
 ---
-title: 'Fase 1: Alinhe sua estratégia e objetivos'
-intro: 'Antes de habilitar {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_secret_scanning %}, planeje como o GHAS deve ser implantado em toda a sua empresa.'
+title: 'Fase 1: Alinhar a estratégia de distribuição e as metas'
+intro: 'Antes de habilitar o {% data variables.product.prodname_code_scanning %} e o {% data variables.product.prodname_secret_scanning %}, planeje a distribuição do GHAS em toda a empresa.'
 versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
-shortTitle: 1. Alinhar a estratégia
+shortTitle: 1. Align on strategy
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 63154ac960e4b3a9d29f41e72cd925230838069c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145321'
 ---
-
 {% note %}
 
-Este artigo faz parte de uma série sobre adoção de {% data variables.product.prodname_GH_advanced_security %} em escala. Para introdução a essa série, consulte "[Introdução à adoção de {% data variables.product.prodname_GH_advanced_security %} em escala](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)".
+Este artigo faz parte de uma série sobre a adoção do {% data variables.product.prodname_GH_advanced_security %} em escala. Para ver a introdução desta série, confira "[Introdução à adoção do {% data variables.product.prodname_GH_advanced_security %} em escala](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)".
 
 {% endnote %}
 
-### Defina metas claras para a implantação da sua empresa
+### Definir metas claras para a distribuição na empresa
 
-Para criar uma base para a direção da implantação de sua empresa, descreva as metas para o GHAS na sua empresa e comunique essas metas à sua equipe. Seus objetivos podem ser simples ou complexos, contanto que sua equipe esteja alinhada. Se você precisar de ajuda com as suas metas, {% data variables.product.prodname_professional_services %} pode fornecer recomendações com base na nossa experiência com sua empresa ou com outros clientes.
+Crie uma base que guie a distribuição elaborando metas para o GHAS em sua empresa e comunique essas metas à equipe. Seus objetivos podem ser simples ou complexos, desde que sua equipe esteja alinhada. Se você precisar de ajuda com suas metas, o {% data variables.product.prodname_professional_services %} pode fornecer recomendações com base em nossa experiência com sua empresa e outros clientes.
 
 Aqui estão alguns exemplos de alto nível de como seus objetivos para implementar GHAS podem parecer:
 
-  - **Reduzindo o número de vulnerabilidades:** Isso pode ser geral ou porque sua empresa foi recentemente afetada por uma vulnerabilidade significativa que você acredita que poderia ter sido prevenida por uma ferramenta como o GHAS.
-  - **Identificando repositórios de alto risco**: Algumas empresas simplesmente querem localizar repositórios que contêm o maior risco, permitir que reduzam os riscos, remediando vulnerabilidades.
-  -  **Aumentando as taxas de remediação**: Para evitar a acumulação de dívida de segurança, você pode desejar levar o desenvolvedor à adoção de conclusões e garantir que essas vulnerabilidades sejam corrigidas em tempo oportuno.
-  - **Atendendo aos requisitos de conformidade**: Por exemplo, muitas empresas de saúde usam GHAS para prevenir a exposição do PHI (Informações de Saúde Pessoal).
-  - **Prevenir o vazamento de segredos**: Muitas empresas querem evitar o vazamento de informações confidenciais, como chaves de software ou dados financeiros.
+  - **Redução do número de vulnerabilidades**: isso pode ser em geral ou porque sua empresa foi impactada recentemente por uma vulnerabilidade significativa que você acredita que poderia ter sido evitada por uma ferramenta como o GHAS.
+  - **Identificação dos repositórios de alto risco**: algumas empresas desejam ter apenas os repositórios de maior risco como foco, a fim de reduzir o risco por meio da correção de vulnerabilidades.
+  -  **Aumento das taxas de correção:** isso pode ser feito incentivando a adoção das descobertas pelos desenvolvedores e garantindo que essas vulnerabilidades sejam corrigidas em tempo hábil, o que impede o acúmulo da dívida de segurança.  
+  - **Atendimento dos requisitos de conformidade**: por exemplo, muitas empresas de saúde usam o GHAS para evitar a exposição de PHI (Informações de Saúde Pessoais).
+  - **Prevenção do vazamento de segredos**: muitas empresas desejam evitar o vazamento de informações críticas, como chaves de software ou dados financeiros.
 
-### Conduza a sua implementação com os seus grupos de segurança e desenvolvimento
+### Incluir os grupos de segurança e desenvolvimento na liderança da distribuição
 
-As empresas que envolvem as suas equipas de segurança e desenvolvimento nas suas implementações do GHAS tendem a ser mais bem sucedidas do que as empresas que envolvem apenas o seu grupo de segurança e que esperam incluir as equipes de desenvolvimento assim que o piloto tiver terminado.
+As empresas que envolvem suas equipes de segurança e de desenvolvimento nas distribuições do GHAS normalmente têm mais sucesso do que aquelas que envolvem apenas o grupo de segurança, e que esperam para incluir as equipes de desenvolvimento após a conclusão do piloto. 
 
-O GHAS adota uma abordagem centrada no desenvolvedor para a segurança do software, integrando-se perfeitamente ao fluxo de trabalho do desenvolvedor. Ter a representação chave do seu grupo de desenvolvimento no início do processo diminui o risco da sua implantação e incentiva a adesão da organização.
+O GHAS adota uma abordagem centrada no desenvolvedor para a segurança do software, integrando-se perfeitamente ao fluxo de trabalho do desenvolvedor. É importante ter uma representação central do grupo de desenvolvimento no início do processo para diminuir o risco da distribuição e encorajar a adesão da empresa.
 
-O envolvimento dos grupos de desenvolvimento de modo mais antecipado, preferivelmente no momento da compra, ajuda as empresas a utilizar o GHAS para resolver as questões de segurança mais cedo no processo de desenvolvimento. Quando ambos os grupos trabalham em conjunto, eles fazem o alinhamento antecipadamente no processo, removem silos, criam e reforçam as suas relações de trabalho e assumem mais responsabilidade pela implantação.
+Envolver os grupos de desenvolvimento mais cedo, de preferência desde o momento da compra, ajuda as empresas a utilizar o GHAS para abordar questões de segurança no início do processo de desenvolvimento. Quando os dois grupos trabalham juntos, eles alcançam o alinhamento no início do processo, resolvem os silos, criam e fortalecem suas relações de trabalho e assumem mais responsabilidade pela distribuição. 
 
 
-### Conheça o GHAS
+### Saiba mais sobre o GHAS
 
-Para estabelecer expectativas realistas para a divulgação, certifique-se de que todas as partes interessadas compreendam os seguintes fatos fundamentais sobre como funciona o GHAS.
+Certifique-se de que todos os stakeholders entendam os principais fatos a seguir sobre o funcionamento do GHAS a fim de definir expectativas realistas para a distribuição.
 
-#### 1. O GHAS é um conjunto de ferramentas de segurança que requerem ação para proteger seu código
+#### 1. O GHAS é um conjunto de ferramentas de segurança que exigem ação para a proteção do código
 
-O GHAS é um conjunto de ferramentas que aumentam com valor quando configurados, mantidos, usados em fluxos de trabalho diários e em combinação com outras ferramentas.
+O GHAS é um conjunto de ferramentas que agrega valor quando configurado, mantido e usado em fluxos de trabalho diários em combinação com outras ferramentas. 
 
-#### 2. O GHAS exigirá um ajuste inovador
+#### 2. O GHAS exigirá ajustes imediatos
 
-Depois que o GHAS estiver configurado nos seus repositórios, você deverá configurar o GHAS para atender às necessidades da sua empresa. A verificação de código, em particular, exige uma personalização adicional, como a avaliação dos resultados iniciais e a realização de ajustes para futuras digitalizações. Muitos clientes descobrem que as digitalizações iniciais retornam resultados limitados ou irrelevantes até que a verificação de código seja ajustada com base no modelo de ameaças ddo aplicativo.
+Depois que o GHAS for configurado nos repositórios, será preciso configurá-lo para atender às necessidades de sua empresa. O exame de códigos, em particular, requer uma personalização adicional, como avaliação dos resultados iniciais e ajustes para exames futuros. Muitos clientes acham que os exames iniciais retornam resultados limitados ou irrelevantes até que o exame de códigos seja ajustado com base no modelo de ameaça do aplicativo.
 
-#### 3. As ferramentas de GHAS são mais eficazes quando usadas em conjunto e integradas ao seu programa de segurança do aplicativo
+#### 3. As ferramentas do GHAS são mais eficazes quando usadas em conjunto e integradas ao programa de segurança de aplicativos
 
-O GHAS é mais eficaz quando todas as ferramentas são utilizadas em conjunto. A eficácia do seu programa de segurança de aplicativos é melhorada pela integração do GHAS a outras ferramentas e atividades, como testes de penetração e digitalizações dinâmicas. Recomendamos sempre a utilização de múltiplas camadas de proteção.
+O GHAS é mais eficaz quando todas as ferramentas são utilizadas em conjunto. A eficácia do programa de segurança de aplicativos é aprimorada integrando o GHAS a outras ferramentas e atividades, como testes de penetração e exames dinâmicos. Recomendamos sempre a utilização de múltiplas camadas de proteção.
 
-#### 4. As consultas personalizadas de {% data variables.product.prodname_codeql %} são usadas por algumas empresas para personalizar e apontar para resultados de digitalização
+#### 4. Consultas personalizadas do {% data variables.product.prodname_codeql %} são usadas por algumas empresas para personalizar e direcionar os resultados do exame 
 
-A digitalização de código é fornecida por {% data variables.product.prodname_codeql %}, o mecanismo de análise de código mais poderoso do mundo. Para muitos de nossos clientes, as consultas básicas e as consultas adicionais disponíveis na comunidade são mais do que suficientes. No entanto, outras empresas podem exigir consultas personalizadas {% data variables.product.prodname_codeql %} para direcionar resultados diferentes ou reduzir falsos positivos.
+O exame de códigos é fornecido pelo {% data variables.product.prodname_codeql %}, o mecanismo de análise de código mais poderoso do mundo. Para muitos de nossos clientes, o conjunto de consultas básico e as consultas adicionais disponíveis na comunidade são mais do que suficientes. No entanto, outras empresas podem precisar de consultas personalizadas do {% data variables.product.prodname_codeql %} para focar em diferentes resultados ou reduzir falsos positivos.
 
-Se sua empresa estiver interessada em consultas personalizadas de {% data variables.product.prodname_codeql %}, recomendamos que você conclua sua implementação do GHAS primeiro. Em seguida, quando a sua empresa estiver pronta, {% data variables.product.prodname_professional_services %} poderá ajudar você a navegar pelas exigências e garantir que a sua empresa precisa de consultas personalizadas.
+Se a sua empresa estiver interessada nas consultas personalizadas do {% data variables.product.prodname_codeql %}, primeiro conclua a implementação e a distribuição do GHAS. Assim, quando sua empresa estiver pronta, o {% data variables.product.prodname_professional_services %} poderá ajudar com seus requisitos e garantir que haja real necessidade de consultas personalizadas.  
 
-#### 5. {% data variables.product.prodname_codeql %} digitaliza toda a base de código, não apenas as alterações feitas em um pull request
+#### 5. O {% data variables.product.prodname_codeql %} examina toda a base de código, não apenas as alterações feitas em uma solicitação de pull
 
-Quando a verificação de código é executada a partir de um pull request, a digitalização incluirá a base de código completa e não apenas as alterações feitas no pull request. A digitalização de toda a base de código é um passo importante para garantir que a alteração tenha sido revisada todas para todas as interações na base de código.
+Quando a verificação de código é executada a partir de um pull request, a digitalização incluirá a base de código completa e não apenas as alterações feitas no pull request. O exame de toda a base de código é uma etapa importante para garantir que a alteração tenha sido revisada em relação a todas as interações na base de código.
 
 {% note %}
 
-Para o próximo artigo dessa série, consulte "[Fase 2: Preparando para habilitar em escala](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)".
+Para ver o próximo artigo desta série, confira "[Fase 2: Preparo para a habilitação em escala](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)".
 
 {% endnote %}

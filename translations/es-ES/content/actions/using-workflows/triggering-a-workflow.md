@@ -1,7 +1,7 @@
 ---
-title: Activar un flujo de trabajo
-shortTitle: Activar un flujo de trabajo
-intro: 'Cómo activar flujos de trabajo de {% data variables.product.prodname_actions %} automàticamente'
+title: Triggering a workflow
+shortTitle: Trigger a workflow
+intro: 'How to automatically trigger {% data variables.product.prodname_actions %} workflows'
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,27 +18,27 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Acerca de los activadores de los flujos de trabajo
+## About workflow triggers
 
 {% data reusables.actions.about-triggers %}
 
-Los activadores de los flujos de trabajo se definen con la clave `on`. Para obtener más información, consulta la sección "[Sintaxis del flujo de trabajo para las {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)".
+Workflow triggers are defined with the `on` key. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)."
 
-Los siguientes pasos se producen para activar una ejecución de flujo de trabajo:
+The following steps occur to trigger a workflow run:
 
-1. Un eventto ocurre en tu repositorio. El evento tiene un SHA de confirmación asociado y una ref de Git.
-1. {% data variables.product.product_name %} busca el directorio `.github/workflows` en tu repositorio para el caso de los archivos de flujo de trabajo que están presentes en el SHA de confirmación asociado o Git Ref del evento.
-1. Un flujo de trabajo se activará para cualquier flujo de trabajo que tenga valores de `on:` que empaten con el evento que s eactivó. Algunos eventos también requieren que el flujo de trabajo esté presente en la rama predeterminada del repositorio para poder ejecutarse.
+1. An event occurs on your repository. The event has an associated commit SHA and Git ref.
+1. {% data variables.product.product_name %} searches the `.github/workflows` directory in your repository for workflow files that are present in the associated commit SHA or Git ref of the event.
+1. A workflow run is triggered for any workflows that have `on:` values that match the triggering event. Some events also require the workflow file to be present on the default branch of the repository in order to run.
 
-  Cada ejecución de flujo de trabajo utiliza la versión de este que esté presente en el SHA de confirmación asociado o Git Ref del evento. Cuando se ejecuta un flujo de trabajo, {% data variables.product.product_name %} establece las variables de entorno `GITHUB_SHA` (confirmar SHA) y `GITHUB_REF` (referencia de Git) en el entorno del ejecutor. Para obtener más información, consulta "[Usar variables de entorno](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
+  Each workflow run will use the version of the workflow that is present in the associated commit SHA or Git ref of the event. When a workflow runs, {% data variables.product.product_name %} sets the `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) environment variables in the runner environment. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
-### Activar un flujo de trabajo desde otro
+### Triggering a workflow from a workflow
 
-{% data reusables.actions.actions-do-not-trigger-workflows %} Para obtener más información, consulta la sección "[Autenticarse con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
-Si no quieres activar un flujo de trabajo dentro una ejecución de flujo de trabajo, puedes utilizar un token de acceso personal en vez de un `GITHUB_TOKEN` para activar los eventos que requieren tu token. Necesitaras crear un token de acceso personal y almacenarlo como un secreto. Para minimizar tus costos de uso de {% data variables.product.prodname_actions %}, asegúrate de no crear ejecuciones de flujo de trabajo recurrentes o involuntarias. Para obtener más información acerca de cómo crear un token de acceso personal, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)". Para obtener más información sobre cómo almacenr un token de acceso personal como secreto, consulta la sección "[Crear y almacenar secretos cifrados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+If you do want to trigger a workflow from within a workflow run, you can use a personal access token instead of `GITHUB_TOKEN` to trigger events that require a token. You'll need to create a personal access token and store it as a secret. To minimize your {% data variables.product.prodname_actions %} usage costs, ensure that you don't create recursive or unintended workflow runs. For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about storing a personal access token as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
-Por ejemplo, el siguiente flujo de trabajo utiliza un token de acceso personal (almacenado como secreto y llamado `MY_TOKEN`) para agregar una etiqueta a una propuesta de cambios a través del cli.{% data variables.product.prodname_cli %}. Cualquier flujo de trabajo que se ejecute cuando una etiqueta se agrega se ejecutará una vez mediante este espejo.
+For example, the following workflow uses a personal access token (stored as a secret called `MY_TOKEN`) to add a label to an issue via {% data variables.product.prodname_cli %}. Any workflows that run when a label is added will run once this step is performed.
 
 ```yaml
 on:
@@ -57,7 +57,7 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-Por el contrario, el siguiente flujo de trabajo utiliza un `GITHUB_TOKEN` para agregar una etiqueta a una propuesta. No activará ningún flujo de trabajo que se ejecute cuando se agregue una etiqueta.
+Conversely, the following workflow uses `GITHUB_TOKEN` to add a label to an issue. It will not trigger any workflows that run when a label is added.
 
 ```yaml
 on:
@@ -76,68 +76,68 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-## Utilizar eventos para activar flujos de trabajo
+## Using events to trigger workflows
 
-Utiliza la clave `on` para especificar qué eventos activan tu flujo de trabajo. Para obtener más información sobre los eventos que puedes utilizar, consulta la sección "[Eventos que activan flujos de trabajo](/actions/using-workflows/events-that-trigger-workflows)".
+Use the `on` key to specify what events trigger your workflow. For more information about events you can use, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
 
-### Utilizar un evento simple
+### Using a single event
 
 {% data reusables.actions.on-single-example %}
 
-### Utilizar eventos múltiples
+### Using multiple events
 
 {% data reusables.actions.on-multiple-example %}
 
-### Utilizar los tipos de actividad y filtros con eventos múltiples
+### Using activity types and filters with multiple events
 
-Puedes utilizar tipos de actividad y filtros para controlar aún más cuándo se ejecutará tu flujo de trabajo. Para obtener más información, consulta las secciones [Utilizar tipos de actividad de eventos](#using-event-activity-types) y [Utilizar filtros](#using-filters). {% data reusables.actions.actions-multiple-types %}
+You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.actions.actions-multiple-types %}
 
-## Utilizar tipos de actividad de eventos
+## Using event activity types
 
 {% data reusables.actions.actions-activity-types %}
 
-## Utilizar filtros
+## Using filters
 
 {% data reusables.actions.actions-filters %}
 
-### Utilizar filtros para apuntar a ramas específicas para los eventos de solicitudes de cambios
+### Using filters to target specific branches for pull request events
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
 
-### Utilizar filtros para apuntar a ramas o etiquetas específicas para los eventos de subida
+### Using filters to target specific branches or tags for push events
 
 {% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
 
-### Utilizar filtros para apuntar a rutas específicas para los eventos de subida o solicitudes de cambios
+### Using filters to target specific paths for pull request or push events
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
 
-### Utilizar filtros para apuntar a ramas específicas para los eventos de ejecución de flujos de trabajo
+### Using filters to target specific branches for workflow run events
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
-## Definir entradas para los flujos de trabajo que se activan manualmente
+## Defining inputs for manually triggered workflows
 
 {% data reusables.actions.workflow-dispatch-inputs %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
-## Definir entradas, salidas y secretos para los flujos de trabajo reutilizables
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+## Defining inputs, outputs, and secrets for reusable workflows
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-Puedes definir entradas y secretos que deben recibir los flujos de trabajo reutilizables desde un flujo de trabajo llamante. También puedes especificar las salidas que un flujo de trabajo reutilizable pondrá a disposición de un flujo de trabajo llamante. Para obtener más información, consulta la sección "[Reutilizar flujos de trabajo](/actions/using-workflows/reusing-workflows)".
+You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
 
 {% endif %}
 
-## Utilizar la información de los eventos
+## Using event information
 
-La información acerca del evento que activó una ejecución de flujo de trabajo se encuentra disponible en el contexto `github.event`. Las propiedades en el contexto `github.event` dependen del tipo de evento que activó el flujo de trabajo. Por ejemplo, un flujo de trabajo que se activa cuando se etiqueta una propuesta tendrá la información sobre la propuesta y etiqueta.
+Information about the event that triggered a workflow run is available in the `github.event` context. The properties in the `github.event` context depend on the type of event that triggered the workflow. For example, a workflow triggered when an issue is labeled would have information about the issue and label.
 
-### Ver todas las propiedades de un evento
+### Viewing all properties of an event
 
-Referencia la documentación de evento de webhook para las propiedades comunes y cargas útiles de ejemplo. Para obtener más información, consulta la sección "[Eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)".
+Reference the webhook event documentation for common properties and example payloads. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
 
-También puedes imprimir todo el contexto `github.event` para ver qué propiedades están disponibles para el evento que activó tu flujo de trabajo:
+You can also print the entire `github.event` context to see what properties are available for the event that triggered your workflow:
 
 ```yaml
 jobs:
@@ -150,9 +150,9 @@ jobs:
           echo $EVENT_CONTEXT
 ```
 
-### Acceder y utilizar las propiedades de evento
+### Accessing and using event properties
 
-Puedes utilizar el contexto `github.event` en tu flujo de trabajo. Por ejemplo, el siguiente flujo de trabajo se ejecuta cuando se abre una solicitud de cambios que cambia a `package*.json`, `.github/CODEOWNERS` o `.github/workflows/**`. Si el autor de la solicitud de cambios (`github.event.pull_request.user.login`) no es `octobot` o `dependabot[bot]`, entonces el flujo de trabajo utilizará el {% data variables.product.prodname_cli %} para etiquetar y comentar en la solicitud de cambios (`github.event.pull_request.number`).
+You can use the `github.event` context in your workflow. For example, the following workflow runs when a pull request that changes `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**` is opened. If the pull request author (`github.event.pull_request.user.login`) is not `octobot` or `dependabot[bot]`, then the workflow uses the {% data variables.product.prodname_cli %} to label and comment on the pull request (`github.event.pull_request.number`).
 
 ```yaml
 on:
@@ -177,22 +177,22 @@ jobs:
           PR: {% raw %}${{ github.event.pull_request.html_url }}{% endraw %}
         run: |
           gh pr edit $PR --add-label 'invalid'
-          gh pr comment $PR --body 'It looks like you edited `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**`. No permitimos contribuciones a estos archivos. Por favor, revisa nuestros [lineamientos de contribución](https://github.com/octo-org/octo-repo/blob/main/CONTRIBUTING.md) para ver qué tipo de contribuciones se aceptan.'
+          gh pr comment $PR --body 'It looks like you edited `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**`. We do not allow contributions to these files. Please review our [contributing guidelines](https://github.com/octo-org/octo-repo/blob/main/CONTRIBUTING.md) for what contributions are accepted.'
 ```
 
-Para obtener más información sobre los contextos, consulta la sección "[Contextos](/actions/learn-github-actions/contexts)". Para obtener más información sobre las cargas útiles de los eventos, consulta la sección "[Eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)".
+For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)." For more information about event payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
 
-## Controlar aún más la forma en la que se ejecutará tu flujo de trabajo
+## Further controlling how your workflow will run
 
-Si quieres un control más granular que el que proporcionan los eventos, tipos de actividad de eventos o filtros de evento, puedes utilizar condicionales y ambientes para controlar si se ejecutarán los jobs o pasos individuales en tu flujo de trabajo.
+If you want more granular control than events, event activity types, or event filters provide, you can use conditionals and environments to control whether individual jobs or steps in your workflow will run.
 
-### Utilziar condicionales
+### Using conditionals
 
-Puedes utilizar condicionales para controlar aún más si se ejecutarán los jobs o pasos de tu flujo de trabajo.
+You can use conditionals to further control whether jobs or steps in your workflow will run.
 
-#### Ejemplo utilizando un valor en la carga útil del evento
+#### Example using a value in the event payload
 
-Por ejemplo, si quieres que el flujo de trabajo se ejecute cuando se agrega una etiqueta específica a una propuesta, puedes activar el tipo de actividad de evento `issues labeled` y utilizar una condicional para verificar qué etiqueta activó el flujo de trabajo. El siguiente flujo de trabajo se ejecutará cuando se agregue cualquier etiqueta a una propuesta en su repositorio, pero el job `run_if_label_matches` solo se ejecutará si la etiqueta se nombra `bug`.
+For example, if you want the workflow to run when a specific label is added to an issue, you can trigger on the `issues labeled` event activity type and use a conditional to check what label triggered the workflow. The following workflow will run when any label is added to an issue in the workflow's repository, but the `run_if_label_matches` job will only execute if the label is named `bug`.
 
 ```yaml
 on:
@@ -208,9 +208,9 @@ jobs:
       - run: echo 'The label was bug'
 ```
 
-#### Ejemplo utilizando un tipo de evento
+#### Example using event type
 
-Por ejemplo, si quieres ejecutar jobs o pasos diferentes dependiendo de qué evento activó el flujo de trabajo, puedes utilizar una condicional para verificar si un tipo de evento específico existe en el contexto del mismo. El siguiente flujo de trabajo se ejecutará cada que se cierre una propuesta o solicitud de cambios. Si el flujo de trabajo se ejecutó debido a que se cerró una propuesta, el contexto `github.event` contendrá un valor para la `issue` pero no para la `pull_request`. Por lo tanto, el paso de `if_issue` se ejecutará, pero el de `if_pr` no lo hará. Por el contrario, si el flujo de trabajo se ejecutó porque se cerró una solicitud de cambios, el paso de `if_pr` se ejecutará pero el de `if_issue` no lo hará.
+For example, if you want to run different jobs or steps depending on what event triggered the workflow, you can use a conditional to check whether a specific event type exists in the event context. The following workflow will run whenever an issue or pull request is closed. If the workflow ran because an issue was closed, the `github.event` context will contain a value for `issue` but not for `pull_request`. Therefore, the `if_issue` step will run but the `if_pr` step will not run. Conversely, if the workflow ran because a pull request was closed, the `if_pr` step will run but the `if_issue` step will not run.
 
 ```yaml
 on:
@@ -235,13 +235,13 @@ jobs:
         echo A pull request was closed
 ```
 
-Para obtener más información sobre qué tipo de información está disponible ene l contexto del evento, consulta la sección "[Utilizar la información de los eventos](#using-event-information)". Para obtener más información sobre cómo utilizar las condicionales, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
+For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-### Utilizar ambientes para activar jobs de flujos de trabajo manualmente
+### Using environments to manually trigger workflow jobs
 
-Si quieres activar manualmente un job específico en un flujo de trabajo, puedes utilizar un ambiente que requiera aprobación de un equipo o usuario específico. Primero, configura un ambiente con revisores requeridos. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/targeting-different-environments/using-environments-for-deployment)". Luego, referencia el nombre del ambiente en un job de tu flujo de trabajo utilizando la clave `environment:`. No se ejecutará ningún job que referencie el ambiente hasta que por lo menos un revisor lo apruebe.
+If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)." Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
 
-Por ejemplo, el siguiente fluljo de trabajo se ejecutará siempre que haya una subida a la rama principal (main). El job `build` siempre se ejecutará. El job `publish` solo se ejecutará después de que el job `build` se complete con éxito (debido a `needs: [build]`) y después de que pasen todas las reglas (incluyendo a los revisores requeridos) para el ambiente llamado `production` (debido a `environment: production`).
+For example, the following workflow will run whenever there is a push to main. The `build` job will always run. The `publish` job will only run after the `build` job successfully completes (due to `needs: [build]`) and after all of the rules (including required reviewers) for the environment called `production` pass (due to `environment: production`).
 
 ```yaml
 on:
@@ -271,6 +271,6 @@ jobs:
 
 {% endnote %}
 
-## Eventos disponibles
+## Available events
 
-Para encontrar una lista completa de todos los eventos disponibles, consulta la sección "[Eventos que activan flujos de trabajo](/actions/using-workflows/events-that-trigger-workflows)".
+For a full list of available events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."

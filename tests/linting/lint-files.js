@@ -11,8 +11,7 @@ import fs from 'fs/promises'
 import frontmatter from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
 import { tags } from '../../lib/liquid-tags/extended-markdown.js'
-import ghesReleaseNotesSchema from '../helpers/schemas/ghes-release-notes-schema.js'
-import ghaeReleaseNotesSchema from '../helpers/schemas/ghae-release-notes-schema.js'
+import releaseNotesSchema from '../helpers/schemas/release-notes-schema.js'
 import learningTracksSchema from '../helpers/schemas/learning-tracks-schema.js'
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
@@ -277,6 +276,7 @@ if (!process.env.TEST_TRANSLATION) {
   )
   learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
 } else {
+  // Remove this `else` when removing translations directory B504EDD0
   // get all translated markdown or yaml files by comparing files changed to main branch
   const changedFilesRelPaths = execSync(
     'git -c diff.renameLimit=10000 diff --name-only origin/main',
@@ -857,7 +857,7 @@ describe('lint GHES release notes', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, ghesReleaseNotesSchema)
+      const { errors } = revalidator.validate(dictionary, releaseNotesSchema)
       const errorMessage = errors
         .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
         .join('\n')
@@ -913,7 +913,7 @@ describe('lint GHAE release notes', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, ghaeReleaseNotesSchema)
+      const { errors } = revalidator.validate(dictionary, releaseNotesSchema)
       const errorMessage = errors
         .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
         .join('\n')

@@ -1,23 +1,31 @@
-ユーザは、以下のいずれかのアクティビティを{% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}上で行った場合にアクティブと見なされます。
+---
+ms.openlocfilehash: f89c8ea56df60e14b5735d160104d332ff1e804b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "146680982"
+---
+ユーザーが {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} で次のいずれかのアクティビティを実行した場合、そのユーザーはアクティブと見なされます。
 
-- {% data variables.product.product_location %}へのサインイン
+- {% data variables.product.product_location %} にサインインする
 - リポジトリを作成する
-- リポジトリへのプッシュ
+- リポジトリにプッシュする
 - リポジトリに追加される
-- リポジトリの可視性の変更
+- リポジトリの表示を変更する
 - Issueもしくはプルリクエストの作成
-- IssueあるいはPull Requestへのコメント
-- IssueもしくはPull Requestのクローズもしくは再オープン
-- IssueもしくはPull Requestへのラベルの適用、あるいはラベルの削除
-- IssueもしくはPull Requestの割り当てあるいは割り当て解除
-- Pull Requestへのレビューのリクエスト、あるいはレビューリクエストの削除
-- Pull Requestレビューのコメントの作成もしくは編集
-- Pull Requestのコメントの却下
-- Pull Requestの同期
-- コミットへのコメント
-- リリースの公開
-- Wikiへのプッシュ
+- イシューまたは pull request にコメントする
+- イシューまたは pull request をクローズまたは再オープンする
+- イシューまたは pull request にラベルを適用する、またはラベルを削除する
+- イシューまたは pull request の割り当てまたは割り当て解除を行う
+- pull request のレビューを要求する、またはレビュー要求を削除する
+- pull request レビューのコメントを作成または編集する
+- pull request のコメントを無視する 
+- pull request を同期する
+- コミットにコメントする
+- リリースを公開する
+- wiki にプッシュする
 - リポジトリを Watch する
-- リポジトリのStar付け
+- リポジトリの Star 付け
 - リポジトリの削除
-- 個人アクセストークンもしくはSSHキーを使ったリソースへのアクセス
+- 個人用アクセス トークンまたは SSH キーを使ってリソースにアクセスする

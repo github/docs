@@ -23,12 +23,12 @@ On {% data variables.product.prodname_dotcom %} if you have the required access,
 - an entire private package
 - an entire public package, if there's not more than 5000 downloads of any version of the package
 - a specific version of a private package
-- a specific version of a public package, if the package version doesn't have more than 5000 downloads
+- a specific version of a public package, if the package version doesn't have more than 5,000 downloads
 
 {% note %}
 
 **Note:**
-- You cannot delete a public package if any version of the package has more than 5000 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact?tags=docs-packages) for further assistance.
+- You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact?tags=docs-packages) for further assistance.
 - When deleting public packages, be aware that you may break projects that depend on your package.
 
 {% endnote %}
@@ -46,7 +46,7 @@ You can use the REST API to manage your packages. For more information, see the 
 
 {% endif %}
 
-For packages that inherit their permissions and access from repositories, you can use GraphQL to delete a specific package version.{% ifversion fpt or ghec %} The {% data variables.product.prodname_registry %} GraphQL API does not support containers or Docker images that use the package namespace `https://ghcr.io/OWNER/PACKAGE-NAME`.{% endif %} For more information about GraphQL support, see "[Deleting a version of a repository-scoped package with GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)."
+For packages that inherit their permissions and access from repositories, you can use GraphQL to delete a specific package version.{% data reusables.package_registry.no-graphql-to-delete-packages %} For more information about GraphQL support, see "[Deleting a version of a repository-scoped package with GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)."
 
 {% endif %}
 
@@ -54,18 +54,19 @@ For packages that inherit their permissions and access from repositories, you ca
 
 For packages that inherit their access permissions from repositories, you can delete a package if you have admin permissions to the repository.
 
-Repository-scoped packages on {% data variables.product.prodname_registry %} include these packages:
-- npm
-- RubyGems
-- maven
-- Gradle
-- NuGet
-{% ifversion not fpt or ghec %}- Docker images at `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
+The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
+
+  {% ifversion not fpt or ghec %}- Docker images at `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
+  {% ifversion packages-npm-v2 %}{% else %}- npm{% endif %}
+  - RubyGems registry
+  - Apache Maven registry
+  - NuGet registry
+
+{% ifversion packages-npm-v2 %}For {% data variables.packages.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-To delete a package that has granular permissions separate from a repository, such as container images stored at `https://ghcr.io/OWNER/PACKAGE-NAME`, you must have admin access to the package.
-For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+To delete a package that has granular permissions separate from a repository, such as container images stored at `https://ghcr.io/OWNER/PACKAGE-NAME` or `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`, you must have admin access to the package. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
 {% endif %}
 
@@ -89,9 +90,7 @@ To delete a version of a repository-scoped package, you must have admin permissi
 
 For packages that inherit their permissions and access from repositories, you can use the GraphQL to delete a specific package version.
 
-{% ifversion fpt or ghec %}
-For containers or Docker images at `ghcr.io`, GraphQL is not supported but you can use the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
-{% endif %}
+{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %} You can however use the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."{% endif %}
 
 Use the `deletePackageVersion` mutation in the GraphQL API. You must use a token with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
 

@@ -58,12 +58,12 @@ You can clone your fork with the command line, {% data variables.product.prodnam
 {% data reusables.command_line.change-current-directory-clone %}
 4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   ```
 
 5. Press **Enter**. Your local clone will be created.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   > Cloning into `Spoon-Knife`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -80,7 +80,7 @@ You can clone your fork with the command line, {% data variables.product.prodnam
 To create a clone of your fork, use the `--clone` flag.
 
 ```shell
-gh repo fork <em>repository</em> --clone=true
+gh repo fork REPOSITORY --clone=true
 ```
 
 {% endcli %}

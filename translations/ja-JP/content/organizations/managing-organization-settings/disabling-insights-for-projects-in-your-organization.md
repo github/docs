@@ -1,25 +1,32 @@
 ---
-title: 'Organizationでの{% data variables.projects.projects_v2 %}のインサイトの無効化'
-intro: 'Organizationのオーナーは、自分のOrganizationで{% data variables.product.prodname_projects_v2 %}をオフにできます。'
+title: 'Organization で {% data variables.projects.projects_v2 %} の分析情報を無効にする'
+intro: 'Organization 所有者は、Organization 内の {% data variables.product.prodname_projects_v2 %} の分析情報を無効にすることができます。'
 versions:
   feature: projects-v2
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
-shortTitle: '{% data variables.product.prodname_projects_v2 %}インサイトの無効化'
+shortTitle: 'Disable {% data variables.product.prodname_projects_v2 %} insights'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 06ab0f550603e3810bf860f01efe9113766c0fb3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147424083'
 ---
+Organization 内のプロジェクトの分析情報を無効にした後、Organization が所有するプロジェクトの分析情報にアクセスできなくなります。
 
-Organizationのプロジェクトのインサイトを無効化したあとは、Organizationが所有するいずれのプロジェクトでもインサイトにアクセスすることはできなくなります。
 
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. サイドバーで、 **[{% octicon "sliders" aria-label="The sliders icon" %} 機能]** をクリックします。
+   ![[機能] のメニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/features-org-menu.png)
+1. [分析情報] で、 **[Organization の分析情報を有効にする]** の選択を解除します。
+   ![[Organization の分析情報を有効にする] チェックボックスを示すスクリーンショット](/assets/images/help/projects-v2/disable-insights-checkbox.png)
+1. **[保存]** をクリックします。
+   ![[保存] ボタンを示すスクリーンショット](/assets/images/help/projects-v2/disable-insights-save.png)
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. サイドバーで**{% octicon "sliders" aria-label="The sliders icon" %} Features（機能）**をクリックしてください。 ![機能メニューアイコンを表示しているスクリーンショット](/assets/images/help/projects-v2/features-org-menu.png)
-1. "Insights（インサイト）"の下で、**Enable Insights for the organization（Organizationでインサイトを有効化）**の選択を解除してください。 ![Organizationのインサイトの有効化チェックボックスを表示しているスクリーンショット](/assets/images/help/projects-v2/disable-insights-checkbox.png)
-1. [**Save**] をクリックします。 ![保存ボタンを表示しているスクリーンショット](/assets/images/help/projects-v2/disable-insights-save.png)
+## 参考資料
 
-## 参考リンク
-
-- [{% data variables.product.prodname_projects_v2 %}について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-- 「[{% data variables.projects.projects_v2 %}のインサイトについて](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)」
+- [{% data variables.product.prodname_projects_v2 %} について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+- [{% data variables.projects.projects_v2 %} の分析情報について](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)

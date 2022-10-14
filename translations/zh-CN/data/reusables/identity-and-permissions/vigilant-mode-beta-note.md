@@ -1,5 +1,7 @@
+{% ifversion ghes < 3.7 %}
 {% note %}
 
-**注：**警戒模式目前处于测试阶段，可能会更改。
+**Note:** Vigilant mode is currently in beta and subject to change.
 
 {% endnote %}
+{% endif %}

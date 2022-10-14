@@ -1,7 +1,7 @@
 ---
-title: Utilizar la API de bitácora de auditoría para tu empresa
-intro: 'Puedes recuperar los eventos de empresa con programación utilizando la API de {% ifversion ghec or ghes > 3.2 %} REST o de{% endif %} GraphQL.'
-shortTitle: API de bitácora de auditoría
+title: Using the audit log API for your enterprise
+intro: 'You can programmatically retrieve enterprise events with the{% ifversion ghec or ghes > 3.2 %} REST or{% endif %} GraphQL API.'
+shortTitle: Audit log API
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -16,26 +16,26 @@ topics:
   - API
 ---
 
-## Utilizar la API de bitácoras de auditoría
+## Using the audit log API
 
-Puedes interactuar con la bitácora de audotaría si utilizas la API de GraphQL{% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %} o la API de REST{% endif %}.
+You can interact with the audit log using the GraphQL API{% ifversion ghec or ghes > 3.2 or ghae %} or the REST API{% endif %}. 
 
-Las marcas de tiempo y campos de fecha en la respuesta de la API se miden en [milisegundos de época UTC](http://en.wikipedia.org/wiki/Unix_time).
+Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
 
-## Consultar la API de bitácora de auditoría de GraphQL
+## Querying the audit log GraphQL API
 
-Para garantizar que tu propiedad intelectual está segura y que mantienes el cumplimiento para tu empresa, puedes utilizar la API de GraphQL para bitácoras de auditoría para mantener copias de tus datos de bitácoras de auditoría y monitorear:
+To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audit-log-api-info %}
 
-Toma en cuenta que no puedes recuperar eventos de Git utilizando la {% ifversion not ghec %}API de bitácora de auditoría.{% else %}API de GraphQL. Para recuperar eventos de Git, utiliza mejor la API de REST. Para obtener más información, consulta las acciones de la categoría `git` en la sección "[Acciones de bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)" y también las terminales de bitácoras de auditoría de [Administración de empresas](/rest/reference/enterprise-admin#audit-log)" y "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization) en la documentación de la API de REST".{% endif %}
+Note that you can't retrieve Git events using the {% ifversion not ghec %}audit log API.{% else %}GraphQL API. To retrieve Git events, use the REST API instead. For more information, see `git` category actions in "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)", and also the "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization) audit log endpoints in the REST API documentation."{% endif %}
 
-La respuesta de GraphQL puede incluir datos de hasta 90 a 120 días.
+The GraphQL response can include data for up to 90 to 120 days.
 
-### Ejemplo 1: Los miembros que se agregaron o eliminaron de las organizaciones en una empresa
+### Example 1: Members added to or removed from organizations in an enterprise
 
-La siguiente consulta recupera las bitácoras de auditoría para la empresa `avocado-corp` y devuelve a las primeras 10 organizaciones en ella, en donde las únicas acciones que se llevaron a cabo fue la adición o eliminación de un miembro de una organización. Se devuelven las primeras 20 entradas de bitácora de auditoría para cada organización.
+The query below fetches the audit logs for the `avocado-corp` enterprise and returns the first 10 organizations in the enterprise, where the only actions performed were adding or removing a member from an organization. The first 20 audit log entries for each organization are returned. 
 
-Esta consulta utiliza el campo [auditlog](/graphql/reference/objects) del objeto de organización y los objetos [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) y [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry). La cuenta de {% data variables.product.prodname_dotcom %} que está consultando la bitácora de auditoría empresarial debe ser un propietario de organización para cada organización dentro de la empresa.
+This query uses the [auditlog](/graphql/reference/objects) field from the Organization object, and the [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) and [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry) objects. The  {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an organization owner for each organization within the enterprise.
 
 ```shell
 {
@@ -69,14 +69,14 @@ Esta consulta utiliza el campo [auditlog](/graphql/reference/objects) del objeto
 }
 ```
 
-La API de GraphQL devolverá por mucho 100 nodos por consulta. Para recuperar los resultados adicionales, necesitarás implementar la paginación. Para obtener más información, consulta la sección "[Limitaciones de recursos](/graphql/overview/resource-limitations#node-limit)" en la documentación de la API de GraphQL y [Paginación](https://graphql.org/learn/pagination/) en la documentación oficial de GraphQL.
-### Ejemplo 2: Eventos en una organización para una fecha y actor específicos
+The GraphQL API will return at most 100 nodes per query. To retrieve additional results, you'll need to implement pagination. For more information, see "[Resource limitations](/graphql/overview/resource-limitations#node-limit)" in the GraphQL API documentation and [Pagination](https://graphql.org/learn/pagination/) in the official GraphQL documentation.
+### Example 2: Events in an organization, for a specific date and actor
 
-Puedes especificar frases de búsqueda múltiples, tales como `created` y `actor`, si las separas en tu secuencia de consulta con un espacio.
+You can specify multiple search phrases, such as `created` and `actor`, by separating them in your query string with a space.
 
-La siguiente consulta recupera todas las bitácoras de auditoría para la empresa `avocado-corp` que se relaciona con la organización `octo-org`, en donde el usuario `octocat` realizó las acciones en el 1 de enero de 2022 o después de esta fecha. Se devuelven las primeras 20 entradas de la bitácora de auditoría y la entrada más nueva se muestra primero.
+The query below fetches all the audit logs for the `avocado-corp` enterprise that relate to the `octo-org` organization, where the actions were performed by the `octocat` user on or after the 1 Jan, 2022. The first 20 audit log entries are returned, with the newest log entry appearing first. 
 
-Esta consulta utiliza la interfaz [AuditEntry](/graphql/reference/interfaces#auditentry). La cuenta de {% data variables.product.prodname_dotcom %} que está consultando la bitácora de auditoría empresarial debe ser propietaria de la organización `octo-org`.
+This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) interface. The {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an owner of the `octo-org` organization.
 
 ```shell
 {
@@ -104,36 +104,36 @@ Esta consulta utiliza la interfaz [AuditEntry](/graphql/reference/interfaces#aud
 }
 ```
 
-Para obtener más ejemplos de consultas, dirígete al [repositorio platform-samples](https://github.com/github/platform-samples/blob/master/graphql/queries).
+For more query examples, see the [platform-samples repository](https://github.com/github/platform-samples/blob/master/graphql/queries).
 
-{% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
-## Consultar la API de REST de la bitácora de auditoría
+{% ifversion ghec or ghes > 3.2 or ghae %}
+## Querying the audit log REST API
 
-Para garantizar que tu propiedad intelectual está segura y que mantienes el cumplimiento para tu empresa, puedes utilizar la API de REST para bitácoras de auditoría para mantener copias de tus datos de bitácoras de auditoría y monitorear:
+To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log REST API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.retention-periods %}
 
-Para obtener más información sobre la API de REST de la bitácora de auditoría, consulta la sección "[Administración de empresas](/rest/reference/enterprise-admin#audit-log)" y "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization)".
+For more information about the audit log REST API, see "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
 
-### Ejemplo 1: Todos los eventos de una empresa, para una fecha específica, con paginación
+### Example 1: All events in an enterprise, for a specific date, with pagination
 
-La siguiente consulta busca los eventos de la bitácora de auditoría que se crearon el 1 de enero de 2022 en la empresa `avocado-corp` y devolvió la primera página con un máximo de 100 elementos por página utilizando la [Paginación de la API de REST](/rest/overview/resources-in-the-rest-api#pagination):
+The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination):
 
 ```shell
-curl -H "Authorization: token <em>TOKEN</em>" \
+curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
 
-### Ejemplo 2: Eventos para las solicitudes de cambio en una empresa, para un actor y fecha específicos
+### Example 2: Events for pull requests in an enterprise, for a specific date and actor
 
-Puedes especificar frases de búsqueda múltiples, tales como `created` y `actor`, si las separas en tu URL formada con el símbolo `+` o con el código de caracteres ASCII `%20`.
+You can specify multiple search phrases, such as `created` and `actor`, by separating them in your formed URL with the `+` symbol or ASCII character code `%20`.
 
-La siguiente consulta busca los eventos de bitácora de auditoría para las solicitudes de cambios, en donde el evento ocurrió en o después del 1 de enero de 2022 en la empresa `avocado-corp` y el usuario `octocat` realizó la acción:
+The query below searches for audit log events for pull requests, where the event occurred on or after Jan 1st, 2022 in the `avocado-corp` enterprise, and the action was performed by the `octocat` user:
 
 ```shell
-curl -H "Authorization: token <em>TOKEN</em>" \
+curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```

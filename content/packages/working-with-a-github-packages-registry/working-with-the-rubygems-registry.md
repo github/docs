@@ -60,7 +60,7 @@ For example, you would create or edit a *~/.gem/credentials* to include the foll
 
 ```shell
 ---
-:github: Bearer <em>TOKEN</em>
+:github: Bearer TOKEN
 ```
 
 To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by editing the *~/.gemrc* file for your project to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. You must replace:
@@ -89,7 +89,7 @@ If you don't have a *~/.gemrc* file, create a new *~/.gemrc* file using this exa
 To authenticate with Bundler, configure Bundler to use your personal access token, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *OWNER* with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes %} Replace `REGISTRY-URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.product.product_location %}.{% endif %}
 
 ```shell
-$ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
+$ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER USERNAME:TOKEN
 ```
 
 ## Publishing a package
@@ -107,8 +107,8 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
 
   ```shell
   $ gem push --key github \
-  --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER</em> \
-  <em>OCTO-GEM-0.0.1</em>.gem
+  --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER \
+  OCTO-GEM-0.0.1.gem
   ```
 
 ## Publishing multiple packages to the same repository

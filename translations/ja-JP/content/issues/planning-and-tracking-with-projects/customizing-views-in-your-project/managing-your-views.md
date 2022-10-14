@@ -1,18 +1,22 @@
 ---
 title: ビューの管理
-intro: プロジェクトビューの作成、保存、管理の方法を学んでください。
+intro: プロジェクト ビューを作成、保存、管理する方法について説明します。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
   - Projects
+ms.openlocfilehash: d434b4b086c1ec8526c3214161ac00d58dced4fd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147424162'
 ---
-
-
 ## プロジェクトビューの作成
 
-プロジェクトビューを使うと、プロジェクトの特定の側面を素早く見ることができます。 それぞれのビューは、プロジェクト内の個別のタブに表示されます。
+プロジェクトビューを使うと、プロジェクトの特定の側面を素早く見ることができます。 それぞれのビューは、プロジェクト内の個別のタブに表示されます。 
 
 たとえば、以下のようなビューを持つことができます:
 - まだ開始されていないすべてのアイテムを表示するビュー（"Status"でフィルタ）。
@@ -23,21 +27,22 @@ topics:
 
 {% data reusables.projects.new-view %}
 
-または、{% data variables.projects.command-palette-shortcut %}を押してプロジェクトのコマンドパレットをオープンし、"New view"と入力していってください。
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「New view」と入力を始めます。
 
 新しいビューは自動的に保存されます。
 
 ## ビューの複製
 
-既存のビューを複製し、さらに変更を加えるための基盤として利用できます。
+既存のビューを複製し、それをベースとして使用して、さらに変更を加えることができます。
 
-1. 複製したいビューに切り替えます。
+1. 複製するビューに切り替えます。
 {% data reusables.projects.open-view-menu %}
-1. {% octicon "versions" aria-label="the versions icon" %} **Duplicate view（ビューの複製）**をクリックしてください。 ![複製メニューアイテムが表示されているスクリーンショット](/assets/images/help/projects-v2/duplicate-view.png)
+1. [{% octicon "versions" aria-label="the versions icon" %} **ビューの複製**] をクリックします。
+   ![複製のメニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/duplicate-view.png)
 
 ## ビューへの変更の保存
 
-ビューのデータのソート、並び替え、フィルタリング、グループ化など、ビューに変更を加えた場合、ビュー名の隣にはドットが表示され、保存されていない変更があることを示します。
+ビューのデータのソート、並び替え、フィルタリング、グループ化など、ビューに変更を加えた場合、ビュー名の隣にはドットが表示され、保存されていない変更があることを示します。 
 
 ![未保存の変更インジケータ](/assets/images/help/projects/unsaved-changes.png)
 
@@ -45,7 +50,7 @@ topics:
 
 {% data reusables.projects.save-view %}
 
-または、{% data variables.projects.command-palette-shortcut %}を押してプロジェクトのコマンドパレットをオープンし、"Save view"と入力していってください。
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Save view」と入力を始めます。
 
 ## 保存されたビューの並び替え
 
@@ -55,16 +60,18 @@ topics:
 
 保存したビューの名前を変更できます。 名前の変更は自動的に保存されます。
 
-1. 名前を変更したいビューに切り替えます。
+1. 名前を変更するビューに切り替えます。
 {% data reusables.projects.open-view-menu %}
-1. {% octicon "pencil" aria-label="the pencil icon" %} **Rename view（ビューの名前の変更）**をクリックしてください。 ![名前の変更のメニューアイテムが表示されているスクリーンショット](/assets/images/help/projects-v2/rename-view.png)
-1. ビューの新しい名前を入力してください。
-1. 変更を保存するには<kbd>Return</kbd>を押してください。
+1. [{% octicon "pencil" aria-label="the pencil icon" %} **ビューの名前変更**] をクリックします。
+   ![名前変更のメニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/rename-view.png)
+1. ビューの新しい名前を入力します。
+1. 変更を保存するには、<kbd>Return</kbd> キーを押します。
 
 ## 保存されたビューの削除
 
-1. 削除したいビューに切り替えます。
+1. 削除するテナントに切り替えます。
 {% data reusables.projects.open-view-menu %}
-1. {% octicon "trash" aria-label="the trasj icon" %} **Delete view（ビューの削除）**をクリックしてください。 ![削除アイテムを表示しているスクリーンショット](/assets/images/help/projects-v2/delete-view.png)
+1. [{% octicon "trash" aria-label="the trasj icon" %} **ビューの削除**] をクリックします。
+   ![項目の名前変更、削除を示すスクリーンショット](/assets/images/help/projects-v2/delete-view.png)
 
-または、{% data variables.projects.command-palette-shortcut %}を押してプロジェクトのコマンドパレットをオープンし、"Delete view"と入力していってください。
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Delete view」と入力を始めます。

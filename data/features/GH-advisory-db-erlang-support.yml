@@ -4,4 +4,4 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>=3.7'
-  ghae: 'issue-6207'
+  ghae: '>= 3.7'

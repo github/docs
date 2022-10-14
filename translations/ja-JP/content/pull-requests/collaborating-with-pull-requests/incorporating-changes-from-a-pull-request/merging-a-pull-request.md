@@ -1,6 +1,6 @@
 ---
-title: プルリクエストをマージする
-intro: 作業が完了したら、プルリクエストを上流ブランチにマージします。 リポジトリに対してプッシュアクセスを持つユーザなら誰でもマージを実行できます。
+title: Merging a pull request
+intro: Merge a pull request into the upstream branch when work is completed. Anyone with push access to the repository can complete the merge.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request
   - /articles/merging-a-pull-request
@@ -14,63 +14,65 @@ versions:
 topics:
   - Pull requests
 ---
+## About pull request merges
 
-## プルリクエストのマージについて
-
-プルリクエストでは、head ブランチに加えた変更をベースブランチにマージすることを提案します。 デフォルトでは、head ブランチがベースブランチとコンフリクトしていない限り、どのプルリクエストもいつでもマージできます。 ただし、プルリクエストを特定のブランチにマージできるタイミングには制限がある場合があります。 たとえば、必須のステータスチェックに合格した場合にのみ、プルリクエストをデフォルトブランチにマージできます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。
+In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. By default, any pull request can be merged at any time, unless the head branch is in conflict with the base branch. However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
 {% data reusables.pull_requests.you-can-auto-merge %}
 
-プルリクエストでマージコンフリクトが発生する場合、またはマージの前に変更をテストしたい場合は、コマンドラインを使用して、[プルリクエストをローカルでチェックアウト](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)してマージすることができます。
+If the pull request has merge conflicts, or if you'd like to test the changes before merging, you can [check out the pull request locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally) and merge it using the command line.
 
-ドラフトのプルリクエストをマージすることはできません。 ドラフトのプルリクエストに関する詳しい情報については「[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)」を参照してください。
+You can't merge a draft pull request. For more information about draft pull requests, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
 
-プルリクエストをマージするとプルリクエストの head ブランチが自動的に削除されるようにリポジトリを設定できます。 詳しい情報については「[ブランチの自動削除の管理](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)」を参照してください。
+The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. For more information, see "[Managing the automatic deletion of branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."
 
 {% note %}
 
-**注釈:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-詳しい情報については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。
+**Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
+For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
 {% endnote %}
 
-プルリクエストは [`--no-ff` オプション](https://git-scm.com/docs/git-merge#_fast_forward_merge)を使用してマージされますが、[squash またはリベースされたコミット](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)は例外で、fast-forward オプションを使用してマージされます。
+Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge), except for [pull requests with squashed or rebased commits](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges), which are merged using the fast-forward option.
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-トピックブランチでの変更を上流ブランチにマージしたくなければ、マージせずに[プルリクエストをクローズする](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)ことができます。
+If you decide you don't want the changes in a topic branch to be merged to the upstream branch, you can [close the pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request) without merging.
 
-## プルリクエストをマージする
+## Merging a pull request
 
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. [Pull Requests] リストで、マージしたいプルリクエストをクリックします。
-3. リポジトリで有効なマージオプションに応じて、以下の操作が可能です:
-    - [**Merge pull request**] をクリックして、すべてのコミットを[ベース ブランチにマージ](/articles/about-pull-request-merges/)します。 [**Merge pull request**] オプションが表示されない場合は、マージのドロップダウン メニューをクリックして [**Create a merge commit**] をクリックします。 ![[Merge pull request] ボタン](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
-    - [複数のコミットを 1 つのコミットに squash する](/articles/about-pull-request-merges/#squash-and-merge-your-pull-request-commits)には、マージのドロップダウン メニューをクリックして [**Squash and merge**] を選択し、[**Squash and merge**] ボタンをクリックします。 ![[Squash and merge] ボタンをクリック](/assets/images/help/pull_requests/select-squash-and-merge-from-drop-down-menu.png)
-    - [コミットを個々にベース ブランチにリベースする](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)には、マージのドロップダウンをクリックして [**Rebase and merge**] を選択し、[**Rebase and merge**] ボタンをクリックします。 ![ドロップダウン メニューから [Rebase and merge] を選択](/assets/images/help/pull_requests/select-rebase-and-merge-from-drop-down-menu.png)
+2. In the "Pull Requests" list, click the pull request you'd like to merge.
+3. Depending on the merge options enabled for your repository, you can:
+    - [Merge all of the commits into the base branch](/articles/about-pull-request-merges/) by clicking **Merge pull request**. If the **Merge pull request** option is not shown, then click the merge drop down menu and select **Create a merge commit**.
+    ![merge-pull-request-button](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
+    - [Squash the commits into one commit](/articles/about-pull-request-merges/#squash-and-merge-your-pull-request-commits) by clicking the merge drop down menu, selecting **Squash and merge** and then clicking the **Squash and merge** button.
+    ![click-squash-and-merge-button](/assets/images/help/pull_requests/select-squash-and-merge-from-drop-down-menu.png)
+    - [Rebase the commits individually onto the base branch](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits) by clicking the merge drop down menu, selecting **Rebase and merge** and then clicking the **Rebase and merge** button.
+    ![select-rebase-and-merge-from-drop-down-menu](/assets/images/help/pull_requests/select-rebase-and-merge-from-drop-down-menu.png)
 
     {% note %}
 
-    **メモ:** リベースおよびコミットを行うと、常にコミッターの情報が更新され、新しいコミット SHA が作成されます。 詳細は「[プルリクエストのマージについて](/articles/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)」を参照してください。
+    **Note:** Rebase and merge will always update the committer information and create new commit SHAs. For more information, see "[About pull request merges](/articles/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)."
 
     {% endnote %}
-4. 要求されたら、コミットメッセージを入力するか、デフォルトのメッセージのままにします。
+4. If prompted, type a commit message, or accept the default message.
 
    {% data reusables.pull_requests.default-commit-message-squash-merge %}
-   ![Commit messageフィールド](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)
+   ![Commit message field](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)
 
 {% data reusables.files.choose-commit-email %}
 
    {% note %}
 
-   **注釈:** メールセレクタは、マージコミットを作成しないリベースマージ、またはプルリクエストを作成したユーザを squash コミットの作者としてクレジットする squash マージには使用できません。
+   **Note:** The email selector is not available for rebase merges, which do not create a merge commit{% ifversion squash-merge-email %}. For squash merges, the email selector is only shown if you are the pull request author and you have more than one email address associated with your account.{% else %}, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.{% endif %}
 
    {% endnote %}
 
-6. [**Confirm merge**]、[**Confirm squash and merge**] をクリックするか、[**Confirm rebase and merge**] をクリックします。
-6. また、代わりに[ブランチを削除](/articles/deleting-unused-branches)することもできます。 こうすることで、リポジトリにあるブランチのリストが整理された状態を保てます。
+6. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
+6. Optionally, [delete the branch](/articles/deleting-unused-branches). This keeps the list of branches in your repository tidy.
 
 {% endwebui %}
 
@@ -81,7 +83,7 @@ topics:
 To merge a pull request, use the `gh pr merge` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
 
 ```shell
-gh pr merge <em>pull-request</em>
+gh pr merge PULL-REQUEST
 ```
 
 Follow the interactive prompts to complete the merge. For more information about the merge methods that you can choose, see "[About pull request merges](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
@@ -94,9 +96,9 @@ gh pr merge 523 --squash --body "my squash commit" --delete-branch
 
 {% endcli %}
 
-## 参考リンク
+## Further reading
 
-- [Pull Request を元に戻す](/articles/reverting-a-pull-request)
-- 「[{% data variables.product.prodname_desktop %} を使用してブランチを同期する](/desktop/guides/contributing-to-projects/syncing-your-branch/)」
-- [プルリクエストのマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)
-- [マージコンフリクトへの対処](/github/collaborating-with-pull-requests/addressing-merge-conflicts)
+- "[Reverting a pull request](/articles/reverting-a-pull-request)"
+- "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)" using {% data variables.product.prodname_desktop %}
+- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
+- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"

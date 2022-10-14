@@ -14,9 +14,14 @@ versions:
   ghec: '*'
 topics:
   - Profiles
+ms.openlocfilehash: edbe34a38c2ab23de22e3b5ea466e35276c6bc35
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '146199955'
 ---
-
-以前の職場、コントリビュートしたプロジェクト、あなたが興味を持っていることなど、他者が知りたいあなたに関する個人情報を略歴に追加できます。 詳細は「[プロフィールに略歴を追加する](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)」を参照してください。
+以前の職場、コントリビュートしたプロジェクト、あなたが興味を持っていることなど、他者が知りたいあなたに関する個人情報を略歴に追加できます。 詳細については、「[プロフィールに略歴を追加する](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)」を参照してください。
 
 {% ifversion fpt or ghes or ghec %}
 
@@ -26,19 +31,19 @@ topics:
 
 {% endif %}
 
-あなたのプロフィールにアクセスすると、あなたがオープンした Issue やプルリクエスト、行ったコミット、レビューしたプルリクエストなど、あなたのコントリビューションのアクティビティのタイムラインが表示されます。 パブリックコントリビューションだけを表示させることも、プライベートな匿名化されたコントリビューションも表示させることもできます。 詳細は「[プロフィールページ上にコントリビューションを表示する](/articles/viewing-contributions-on-your-profile-page)」または「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
+あなたのプロフィールにアクセスすると、あなたがオープンした Issue やプルリクエスト、行ったコミット、レビューしたプルリクエストなど、あなたのコントリビューションのアクティビティのタイムラインが表示されます。 パブリックコントリビューションだけを表示させることも、プライベートな匿名化されたコントリビューションも表示させることもできます。 詳細については、「[プロフィール ページでコントリビューションを表示する](/articles/viewing-contributions-on-your-profile-page)」または「[プライベート コントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
 
 あなたのプロフィールにアクセスしたユーザは、次の情報も見ることができます。
 
-- あなたが所有している、もしくはコントリビューションしたリポジトリと Gist。 {% ifversion fpt or ghes or ghec %}You can showcase your best work by pinning repositories and gists to your profile. 詳細は「[プロフィールにアイテムをピン止めする](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)」を参照してください。{% endif %}
-- Repositories you've starred{% ifversion fpt or ghec %} and organized into lists.{% endif %} For more information, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)."
-- あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 詳しい情報については、「[プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。{% ifversion fpt or ghec %}
-- Badges and Achievements that highlight your activity and show if you use {% data variables.product.prodname_pro %} or participate in programs like the {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %}, or the {% data variables.product.company_short %} Developer Program. 詳細は「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)」を参照してください。{% endif %}
+- あなたが所有している、もしくはコントリビューションしたリポジトリと Gist。 {% ifversion fpt or ghes or ghec %}リポジトリと gist をプロフィールにピン留めすることで、自分の最も優れた作業を紹介できます。 詳細については、「[プロフィールにアイテムをピン留めする](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)」を参照してください。{% endif %}
+- 星を付けたリポジトリ{% ifversion fpt or ghec %}およびリストに編成したリポジトリ{% endif %}。詳細については、「[星を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」を参照してください。
+- あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 詳細については、「[プロフィールでアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。{% ifversion fpt or ghec %}
+- アクティビティを強調し、{% data variables.product.prodname_pro %} の使用や {% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %}、{% data variables.product.company_short %} 開発者プログラムなどのプログラムへの参加を示すバッジとアチーブメント。 詳細については、「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)」を参照してください。{% endif %}
 
-プロフィールにステータスを設定して、可用性に関する情報を提供することもできます。 詳細は「[ステータスを設定する](/articles/personalizing-your-profile/#setting-a-status)」を参照してください。
+プロフィールにステータスを設定して、可用性に関する情報を提供することもできます。 詳細については、「[状態を設定する](/articles/personalizing-your-profile/#setting-a-status)」を参照してください。
 
-## 参考リンク
+## 参考資料
 
-- [プロフィール画像のセットアップ方法](/articles/how-do-i-set-up-my-profile-picture)
-- [プロフィールでプライベートコントリビューションを公開または非表示にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)
-- [プロフィール上でのコントリビューションの表示](/articles/viewing-contributions-on-your-profile)
+- [プロフィール画像を設定する方法](/articles/how-do-i-set-up-my-profile-picture)
+- [プライベート コントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)
+- [プロフィールでコントリビューションを表示する](/articles/viewing-contributions-on-your-profile)

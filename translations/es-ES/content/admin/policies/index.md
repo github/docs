@@ -13,6 +13,12 @@ topics:
 children:
   - /enforcing-policies-for-your-enterprise
   - /enforcing-policy-with-pre-receive-hooks
-shortTitle: Configurar políticas
+shortTitle: Set policies
+ms.openlocfilehash: 075d4f949435539c9c45ae651aedb0878f3317db
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147400374'
 ---
 

@@ -1,45 +1,50 @@
 ---
-title: Getting started with GitHub Community Exchange
-shortTitle: 入门
-intro: 'Learn how to access {% data variables.product.prodname_community_exchange %} and submit your repository.'
+title: GitHub Community Exchange 入门
+shortTitle: Get started
+intro: '了解如何访问 {% data variables.product.prodname_community_exchange %} 并提交存储库。'
 versions:
   fpt: '*'
+ms.openlocfilehash: f9280e380b251c52d2b582aadb55eb319d5c342d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574002'
 ---
-
 ## 简介
 
-{% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} can help you make your first open source contribution or grow your own open source project.
+{% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} 可以帮助你做出第一个开放源代码贡献或开发你自己的开放源代码项目。
 
-For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)."
+有关 {% data variables.product.prodname_community_exchange %} 如何为学生提供帮助的详细信息，请参阅“[关于 {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)”。
 
-## Accessing {% data variables.product.prodname_community_exchange %}
+## 评估 {% data variables.product.prodname_community_exchange %}
 
 {% data reusables.education.access-github-community-exchange %}
 
-## Finding interesting repositories
+## 寻找有趣的存储库
 
-You can browse repositories submitted to {% data variables.product.prodname_community_exchange %} from the gallery page.
+可以从图库页面浏览提交给 {% data variables.product.prodname_community_exchange %} 的存储库。
 
-As you think about what open source repositories may be interesting, consider if you're wanting to learn or collaborate, or if there are particular topics or languages that could be a good starting point.
+当你思考哪些开源存储库可能令人感兴趣时，请考虑你是否希望学习或协作，或者是否有特定的主题或语言可以作为一个良好的起点。
 
-When exploring repositories in the {% data variables.product.prodname_community_exchange %} gallery, you can filter available repositories by purpose, topics, or languages, and search for repositories by name and description. You can sort the list of repositories in the gallery by submission date, or by the number of stars, forks, or issues a repository has.
+在 {% data variables.product.prodname_community_exchange %} 库中浏览存储库时，可以按用途、主题或语言筛选可用存储库，并按名称和说明搜索存储库。 可以按提交日期或按存储库所拥有的星标、分支或问题数量对库中的存储库列表进行排序。
 
-![Screenshot of Community Exchange search box and dropdown filters](/assets/images/help/education/community-exchange-search-and-filter.png)
+![Community Exchange 搜索框和下拉列表筛选器的屏幕截图](/assets/images/help/education/community-exchange-search-and-filter.png)
 
-## Starring repositories
+## 对存储库标星
 
-You can star repositories listed in the {% data variables.product.prodname_community_exchange %} gallery. Starring makes it easy to find a repository in the gallery again later. 对仓库加星标也可表示赞赏仓库维护员的工作。
+可以为 {% data variables.product.prodname_community_exchange %} 库中列出的存储库标星。 标星操作便于以后再次找到存储库或主题。 对仓库加星标也可表示赞赏仓库维护员的工作。
 
-Repository listings in the {% data variables.product.prodname_community_exchange %} gallery can be sorted on the number of stars a repository has.
+{% data variables.product.prodname_community_exchange %} 库中的存储库列表可以根据存储库拥有的星标进行排序。
 
-To star a repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to star, and click {% octicon "star" aria-label="The star icon" %} **Star** button found right by its name.
+若要为存储库加星标：请转到 {% data variables.product.prodname_community_exchange %} 主页，找到要标星的存储库，然后单击其名称右侧的 {% octicon "star" aria-label="The star icon" %} 星形按钮。
 
-## Reporting abuse
+## 举报滥用行为
 
-The {% data variables.product.prodname_community_exchange %} community moderates repository submissions. You can report abusive repositories, spammy, or disruptive content at any time.
+{% data variables.product.prodname_community_exchange %} 社区审查存储库提交。 可以随时报告滥用存储库行为、垃圾信息或破坏性内容。
 
-To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click {% octicon "report" aria-label="The report symbol" %} **Report abuse**.
+若要报告滥用存储库行为：请转到 {% data variables.product.prodname_community_exchange %} 主页，找到要报告的存储库，单击 {% octicon "kebab-horizontal" aria-label="The edit icon" %} 下拉列表，然后单击 {% octicon "report" aria-label="The report symbol" %}“报告滥用行为”。
 
 ## 延伸阅读
 
-- ""[关于 {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)""
+- [关于 {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)

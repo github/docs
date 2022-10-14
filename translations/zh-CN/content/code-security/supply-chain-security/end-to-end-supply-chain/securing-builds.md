@@ -1,8 +1,8 @@
 ---
-title: 保护构建系统的最佳做法
-shortTitle: 保护构建
+title: 保护生成系统的最佳做法
+shortTitle: Securing builds
 allowTitleToDifferFromFilename: true
-intro: 有关如何保护供应链末端（用于构建和分发构件的系统）的指南。
+intro: 关于如何保护供应链末端（用于构建和分发工件的系统）的指南。
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,50 +14,55 @@ topics:
   - Security
   - CI
   - CD
+ms.openlocfilehash: f184bb668ba1594a77099fab734686b9c550c238
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147518854'
 ---
-
 ## 关于本指南
 
-本指南介绍为提高构建系统的安全性而可以进行的影响最大的更改。 每个部分都概述了为提高安全性而可以对流程进行的更改。 影响最大的更改列在最前面。
+本指南介绍为提高生成系统的安全性而做出的影响最大的更改。 每个部分都概述了可以对流程进行的更改，以提高安全性。 影响最大的更改列在前面。
 
 ## 风险是什么？
 
-对软件供应链的一些攻击直接针对构建系统。 如果攻击者可以修改构建过程，他们就可以利用您的系统，而无需攻击个人帐户或代码。 请务必确保不要忘记保护构建系统以及个人帐户和代码。
+对软件供应链的一些攻击直接面向生成系统。 如果攻击者可以修改生成过程，则他们可以利用你的系统，而无需破坏个人帐户或代码。 请务必确保不要忘记保护生成系统以及个人帐户和代码。
 
-## 保护构建系统
+## 保护生成系统
 
-构建系统应具有以下几种安全功能：
+生成系统应具有以下几种安全功能：
 
-1. 构建步骤应清晰且可重复。
+1. 生成步骤应清晰且可重复。
 
-2. 您应该确切地知道在构建过程中运行的内容。
+2. 应确切地知道在生成过程中运行的内容。
 
-3. 每个构建都应在新的环境中启动，这样受损的构建不会持续影响将来的构建。
+3. 每个生成都应在新的环境中启动，因此泄露的生成不会持久影响将来的生成。
 
-{% data variables.product.prodname_actions %} 可以帮助您满足这些功能。 构建说明与代码一起存储在存储库中。 您可以选择在哪个环境中运行构建，包括 Windows、Mac、Linux 或您自己托管的运行器。 Each build starts with a fresh runner image, making it difficult for an attack to persist in your build environment.
+{% data variables.product.prodname_actions %} 可以帮助你满足这些功能。 生成说明与代码一起存储在存储库中。 选择生成在哪些环境中运行，包括 Windows、Mac、Linux 或自己托管的运行程序。 每次生成都从一个新的运行器映像开始，这使得攻击很难在生成环境中持续存在。
 
-除了安全优势之外， {% data variables.product.prodname_actions %} 还允许您手动、定期或在存储库中的 git 事件上触发构建，以实现频繁、快速的构建。
+除了安全优势之外，{% data variables.product.prodname_actions %} 还允许你手动、定期或针对存储库中的 git 事件触发生成，以实现频繁快速的生成。
 
-{% data variables.product.prodname_actions %} 是一个很大的话题，但良好的开始是“[了解 GitHub Actions](/actions/learn-github-actions/understanding-github-actions)”以及“[选择 GitHub 托管的运行器](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)”和“[触发工作流程](/actions/using-workflows/triggering-a-workflow)”。
+{% data variables.product.prodname_actions %} 是一个很大的主题，但一个很好的起点是“[了解 GitHub Actions](/actions/learn-github-actions/understanding-github-actions)”，以及“[选择 GitHub 托管的运行器](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)”和“[触发工作流](/actions/using-workflows/triggering-a-workflow)”。
 
-## 对构建签名
+## 对生成进行签名
 
-在构建过程安全之后，你希望防止有人篡改构建过程的最终结果。 执行此操作的好方法是对内部版本签名。 公开分发软件时，通常使用公共/私有加密密钥对来完成此操作。 使用私钥对构建签名，并发布公钥，以便软件用户可以在使用构建之前验证上面的签名。 如果修改了构建的字节，则不会验证签名。
+生成过程安全后，需要防止有人篡改生成过程的最终结果。 一种很好的方法是对生成进行签名。 公开分发软件时，这通常是使用加密公钥/私钥对完成的。 使用私钥对生成进行签名，并发布公钥，以便软件用户在使用生成之前验证其签名。 如果修改生成的字节，则不会验证签名。
 
-如何对构建签名取决于您编写的代码类型以及用户是谁。 通常很难知道如何安全地存储私钥。 此处的一个基本选项是使用 {% data variables.product.prodname_actions %} 加密机密，但您需要小心地限制谁有权访问这些 {% data variables.product.prodname_actions %} 工作流程。 {% ifversion fpt or ghec %}如果您的私钥存储在可通过公共互联网访问的另一个系统中（如 Microsoft Azure 或 HashiCorp Vault），则更高级的选择是使用 OpenID Connect 进行身份验证，因此您不必在系统之间共享机密。{% endif %} 如果您的私钥只能从专用网络访问，则另一种选择是对 {% data variables.product.prodname_actions %} 使用自托管运行器。
+具体如何签名取决于所编写的代码类型以及用户是谁。 通常很难知道如何安全地存储私钥。 此处的一个基本选项是使用 {% data variables.product.prodname_actions %} 加密的机密，但需要谨慎限制谁有权访问这些 {% data variables.product.prodname_actions %} 工作流。 {% ifversion fpt or ghec %}如果私钥存储在另一个可以通过公共 Internet 访问的系统中（例如 Microsoft Azure 或 HashiCorp Vault），则更高级的选项是使用 OpenID Connect 进行身份验证，因此无需跨系统共享机密。{% endif %} 如果私钥只能通过专用网络访问，另一个选项是为 {% data variables.product.prodname_actions %} 使用自托管运行程序。
 
-更多信息请参阅“[加密机密](/actions/security-guides/encrypted-secrets){% ifversion fpt or ghec %}”、“[关于使用 OpenID Connect 进行安全强化](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)”、{% endif %} 和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
+有关详细信息，请参阅“[加密机密](/actions/security-guides/encrypted-secrets)”{% ifversion fpt or ghec %}、“[关于使用 OpenID Connect 进行安全强化](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)”{% endif %}和“[关于自托管运行程序](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
 
 ## 强化 {% data variables.product.prodname_actions %} 的安全性
 
-您可以采取许多其他步骤来进一步保护 {% data variables.product.prodname_actions %}。 特别是，在评估第三方工作流程时要小心，并考虑使用 `CODEOWNERS` 来限制谁可以对您的工作流进行更改。
+可以采取许多进一步的步骤来确保 {% data variables.product.prodname_actions %} 的安全。 具体而言，请谨慎评估第三方工作流，并考虑使用 `CODEOWNERS` 限制谁可以对工作流进行更改。
 
-更多信息请参阅“[GitHub 操作的安全性强化](/actions/security-guides/security-hardening-for-github-actions)”，特别是“[使用第三方操作](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)”和“[使用 `CODEOWNERS` 监控更改](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)”。
+有关详细信息，请参阅“[GitHub Actions 的安全强化](/actions/security-guides/security-hardening-for-github-actions)”，特别是“[使用第三方操作](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)”和“[使用 `CODEOWNERS` 监视更改](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)”。
 
 ## 后续步骤
 
-- “[保护您的端到端供应链](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)”
+- [保护端到端供应链](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)
 
-- “[保护帐户的最佳实践](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)”
+- [确保帐户安全的最佳做法](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)
 
-- “[保护供应链中代码的最佳实践](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)”
+- [保护供应链中的代码的最佳做法](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)
