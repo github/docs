@@ -250,6 +250,7 @@ translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-pers
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps.md,rendering error
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization.md,broken liquid tags
 translations/zh-CN/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
 translations/zh-CN/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
 translations/zh-CN/content/actions/deployment/about-deployments/about-continuous-deployment.md,rendering error
@@ -277,7 +278,10 @@ translations/zh-CN/content/actions/learn-github-actions/environment-variables.md
 translations/zh-CN/content/actions/learn-github-actions/expressions.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/zh-CN/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
+translations/zh-CN/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,broken liquid tags
+translations/zh-CN/content/actions/managing-workflow-runs/manually-running-a-workflow.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
+translations/zh-CN/content/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time.md,broken liquid tags
 translations/zh-CN/content/actions/publishing-packages/publishing-docker-images.md,rendering error
 translations/zh-CN/content/actions/publishing-packages/publishing-nodejs-packages.md,broken liquid tags
 translations/zh-CN/content/actions/quickstart.md,rendering error
