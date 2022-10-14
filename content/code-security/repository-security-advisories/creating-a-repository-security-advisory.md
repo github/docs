@@ -25,7 +25,7 @@ Anyone with admin permissions to a repository can create a security advisory.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
-4. Click **New draft security advisory**.
+4. Click **New draft security advisory** to open the draft advisory form.
   ![Open draft advisory button](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
 5. Type a title for your security advisory.
 {% data reusables.repositories.security-advisory-edit-details %}

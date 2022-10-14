@@ -270,6 +270,7 @@ translations/es-ES/content/account-and-profile/setting-up-and-managing-your-pers
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository.md,rendering error
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository.md,rendering error
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps.md,rendering error
+translations/es-ES/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization.md,broken liquid tags
 translations/es-ES/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
 translations/es-ES/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
 translations/es-ES/content/actions/deployment/about-deployments/about-continuous-deployment.md,rendering error
@@ -295,7 +296,10 @@ translations/es-ES/content/actions/learn-github-actions/environment-variables.md
 translations/es-ES/content/actions/learn-github-actions/expressions.md,rendering error
 translations/es-ES/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/es-ES/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
+translations/es-ES/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,broken liquid tags
+translations/es-ES/content/actions/managing-workflow-runs/manually-running-a-workflow.md,broken liquid tags
 translations/es-ES/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
+translations/es-ES/content/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time.md,broken liquid tags
 translations/es-ES/content/actions/publishing-packages/publishing-docker-images.md,rendering error
 translations/es-ES/content/actions/publishing-packages/publishing-nodejs-packages.md,broken liquid tags
 translations/es-ES/content/actions/quickstart.md,broken liquid tags
@@ -355,6 +359,7 @@ translations/es-ES/content/billing/managing-billing-for-github-codespaces/managi
 translations/es-ES/content/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage.md,broken liquid tags
 translations/es-ES/content/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot.md,broken liquid tags
 translations/es-ES/content/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription.md,broken liquid tags
+translations/es-ES/content/billing/managing-billing-for-your-github-account/about-per-user-pricing.md,broken liquid tags
 translations/es-ES/content/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
@@ -508,7 +513,7 @@ translations/es-ES/content/organizations/restricting-access-to-your-organization
 translations/es-ES/content/organizations/restricting-access-to-your-organizations-data/approving-oauth-apps-for-your-organization.md,broken liquid tags
 translations/es-ES/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
 translations/es-ES/content/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility.md,rendering error
-translations/es-ES/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,broken liquid tags
+translations/es-ES/content/packages/learn-github-packages/deleting-and-restoring-a-package.md,rendering error
 translations/es-ES/content/packages/learn-github-packages/introduction-to-github-packages.md,rendering error
 translations/es-ES/content/packages/learn-github-packages/viewing-packages.md,rendering error
 translations/es-ES/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
