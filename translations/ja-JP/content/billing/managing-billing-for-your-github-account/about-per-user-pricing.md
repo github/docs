@@ -1,6 +1,6 @@
 ---
-title: ユーザごとの価格付けについて
-intro: '{% ifversion fpt or ghec %}Organization{% ifversion ghec %} と Enterprise{% endif %} の場合、{% else %}{% endif %}課金はお客様が選んだライセンス シートの数から始まります。'
+title: About per-user pricing
+intro: '{% ifversion fpt or ghec %}For organizations{% ifversion ghec %} and enterprises{% endif %}, your {% else %}Your {% endif %}bill begins with the number of licensed seats you choose.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
@@ -15,109 +15,138 @@ topics:
   - Enterprise
   - Licensing
   - Organizations
-ms.openlocfilehash: 037e0e0cfbb04552a370cf8fd0f3e05c2e09423f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145910839'
 ---
-## ユーザごとの価格付けについて
 
-{% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %} 上の新しい Organization は、{% data variables.product.prodname_free_team %} でパブリックのオープンソース プロジェクトを構築するか、ユーザーごとに料金がかかる有料製品にアップグレードすることができます。 詳細については、「[{% data variables.product.company_short %} の製品](/get-started/learning-about-github/githubs-products)」および「[{% data variables.product.prodname_dotcom %} サブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)」を参照してください。
+## About per-user pricing
 
-2016 年 5 月 11 日以前に有料プランを使っていた Organization は、既存のリポジトリ単位のプランに留まるか、ユーザごとの価格付けに切り替えることができます。 {% data variables.product.company_short %}は、プランへの強制的な変更の前に12ヶ月間通知します。 サブスクリプションの切り替えに関する詳細については、「[{% data variables.product.prodname_dotcom %} サブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)」を参照してください。
+{% ifversion fpt %}
+
+New organizations on {% data variables.product.prodname_dotcom_the_website %} can build public and open-source projects with {% data variables.product.prodname_free_team %}, or upgrade to a paid product with per-user pricing. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
+
+Organizations using a paid subscription before May 11, 2016 can choose to stay on their existing per-repository plan or switch to per-user pricing. {% data variables.product.company_short %} will notify you twelve months before any mandated change to your subscription. For more information on switching your subscription, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
 
 {% else %}
 
-課金の基になるのは、お客様が{% ifversion ghec %} Organization または{% endif %} Enterprise に対して選んだ標準ライセンス シートの数です。
+The foundation of your bill is the number of standard licensed seats that you choose for your{% ifversion ghec %} organization or{% endif %} enterprise.
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
-同じユーザーが複数の Enterprise デプロイで複数のライセンスを使わないようにするには、{% data variables.product.prodname_ghe_server %} 環境と {% data variables.product.prodname_ghe_cloud %} 環境の間でライセンスの使用状況を同期できます。 詳しくは、「[GitHub Enterprise のライセンスについて](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)」をご覧ください。
+To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. For more information, see "[About licenses for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
 
-ライセンス シートに加えて、課金には {% data variables.product.prodname_GH_advanced_security %} などの他の料金が含まれる場合があります。 詳しくは、「[Enterprise の支払いについて](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)」をご覧ください。
+In addition to licensed seats, your bill may include other charges, such as {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
 {% endif %}
 
-## ライセンスを使用するユーザー
+## People that consume a license
 
-各ユーザーは 1 つのライセンスを使い、{% data variables.product.company_short %} はプライマリ メール アドレスによって個人を識別します。
+{% ifversion fpt %}
 
-{% data variables.product.company_short %} は、次のユーザーに課金します。
+{% data variables.product.company_short %} bills for the following people:
 
-{%- ifversion ghec %}
-- エンタープライズ内の少なくとも 1 つの組織のメンバーまたは所有者である Enterprise 所有者 {%- endif %}
-- 所有者を含む組織のメンバー
-- フォークを除く、組織が所有するプライベート{% ifversion ghec %}または内部{% endif %}のリポジトリでの外部コラボレーター
-- 組織の所有者かメンバーになるための保留中の招待があるユーザー
-- フォークを除く、組織が所有するプライベート{% ifversion ghec %}または内部{% endif %}のリポジトリで、外部コラボレーターになるための保留中の招待があるユーザー{%- ifversion ghec %}
-- デプロイした {% data variables.product.prodname_ghe_server %} インスタンス上の各ユーザー{%- endif %}
-- 休眠ユーザ
-
-{% data variables.product.company_short %} は、次のどのユーザーに対しても課金しません。
-
-{%- ifversion ghec %}
-- エンタープライズ内の少なくとも 1 つの組織のメンバーまたは所有者でない Enterprise 所有者
-- Enterprise 課金マネージャー{%- endif %}
-- {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %} 上の個々の{% endif %}組織の課金マネージャー
-- {% ifversion ghec %}エンタープライズまたは{% endif %}組織の課金マネージャーになるための保留中の招待があるユーザー
-- Organization が所有するパブリック リポジトリの外部コラボレーターになるための保留中の招待があるユーザー {%- ifversion ghes %}
-- 停止されたユーザー {%- endif %}
+- Organization members, including owners
+- Outside collaborators on private repositories owned by your organization, excluding forks
+- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
+- Dormant users
 
 {% note %}
 
-**注**: {% data reusables.organizations.org-invite-scim %}
+**Notes:** 
+- {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
+- {% data reusables.organizations.org-invite-scim %}
 
 {% endnote %}
 
-詳しくは、{% ifversion not fpt %}「[Enterprise でのロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)」または{% endif %}「[Organization でのロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」をご覧ください。
+{% data variables.product.company_short %} does not bill for the following people:
 
-ユーザー アカウントが {% ifversion not fpt %}Enterprise 内の複数の Organization のメンバーになっているか、または {% endif %}Organization によって所有される複数のリポジトリにアクセスできる場合であっても、{% data variables.product.company_short %} では、各{% ifversion not fpt %}メンバーまたは{% endif %}外部コラボレーターが課金のためにカウントされるのは 1 回だけです。 外部コラボレーターの詳細については、「[外部のコラボレータを Organization のリポジトリに追加する](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)」を参照してください。
-
-{% ifversion ghes %}停止されているユーザーは、シートを使用しているライセンス ユーザーの数を計算するときにカウントされません。 詳しくは、「[ユーザーの一時停止と一時停止解除](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)」をご覧ください。{% endif %}
-
-休眠ユーザーは、シート ライセンスを占有します。{% ifversion ghes %}そのため、休眠ユーザーを停止してユーザー ライセンスを解放することができます。{% endif %}詳しくは、「[休眠ユーザーの管理](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)」をご覧ください。
-
-## プランの変更について
-
-{% ifversion fpt %}
-
-{% data variables.product.prodname_dotcom %}プランは、いつでも変更できます。
-
-### ユーザごとのプランのOrganizationでの変更について
-
-{% endif %}
-
-いつでも、{% ifversion fpt or ghec %}Organization{% endif %}{% ifversion ghec %} または {% endif %}{% ifversion ghec or ghes %}Enterprise{% endif %} にライセンス シートを追加できます。 使われている数より多くのシートに支払っている場合は、シートの数を減らすこともできます。{% ifversion fpt %}詳しくは、「[{% data variables.product.prodname_dotcom %} サブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)」と「[{% data variables.product.prodname_dotcom %} サブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)」をご覧ください。
-
-プランに関する質問がある場合は、{% data variables.contact.contact_support %}にお問い合わせください。
-
-チームのコラボレーション機能をさらにサポートするために、SAML シングル サインオンや高度な監査のような機能を含む {% data variables.product.prodname_ghe_cloud %} にアップグレードできます。 {% data reusables.enterprise.link-to-ghec-trial %}
-
-ユーザー 1 人あたりの {% data variables.product.prodname_ghe_cloud %} の支払い関する詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)を参照してください。
+- Billing managers
+- Anyone with a pending invitation to become a billing manager
+- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
 
 {% else %}
 
-{% data variables.product.prodname_dotcom_the_website %}でEnterpriseアカウントを使用しており、プランの変更に関する疑問がある場合は、{% data variables.contact.contact_enterprise_sales %}にお問い合わせください。
+{% data variables.product.company_short %} bills for the following accounts for each deployment of {% data variables.product.prodname_enterprise %}.
 
-{% endif %} {% ifversion ghec %}
+### Accounts that consume a license on {% data variables.product.prodname_ghe_cloud %}
 
-{% data variables.product.prodname_ghe_cloud %}上の個々のOrganizationを使っている場合は、プランをアップグレードもしくはダウングレードできます。 詳細については、「[{% data variables.product.prodname_dotcom %} サブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)」または「[{% data variables.product.prodname_dotcom %} サブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)」を参照してください。 プランに関する質問がある場合は、{% data variables.contact.contact_support %}にお問い合わせください。
+{% data variables.product.company_short %} bills for each of the following accounts on {% data variables.product.prodname_ghe_cloud %}:
+
+- Enterprise owners who are a member or owner of at least one organization in the enterprise
+- Organization members, including owners
+- Outside collaborators on private or internal repositories owned by your organization, excluding forks
+- Anyone with a pending invitation to become an organization owner or member
+- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
+- Dormant users
+
+{% note %}
+
+**Notes:** 
+  - {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
+  - {% data reusables.organizations.org-invite-scim %}
+
+{% endnote %}
+
+{% data variables.product.company_short %} does not bill for any of the following accounts:
+
+- {% data variables.product.prodname_managed_users_caps %} that are suspended
+- Enterprise owners who are not a member or owner of at least one organization in the enterprise
+- Enterprise billing managers
+- Billing managers for individual organizations
+- Anyone with a pending invitation to become a billing manager
+- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+
+### Accounts that consume a license on {% data variables.product.prodname_ghe_server %}
+
+Each user account on {% data variables.product.prodname_ghe_server %} consumes a seat.
+
+Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see "[Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+
+Dormant users do occupy a seat license. As such, you can choose to suspend dormant users to release user licenses. For more information, see "[Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+
+{% endif %}
+
+## About changes to your subscription
+
+{% ifversion fpt %}
+
+You can change your {% data variables.product.prodname_dotcom %} subscription at any time.
+
+### About changes for organizations on per-user plans
+
+{% endif %}
+
+You can add more licensed seats to your {% ifversion fpt or ghec %} organization{% endif %}{% ifversion ghec %} or{% endif %}{% ifversion ghec or ghes %} enterprise{% endif %} at any time. If you pay for more seats than are being used, you can also reduce the number of seats.{% ifversion fpt %} For more information, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" and "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
+
+If you have questions about your subscription, contact {% data variables.contact.contact_support %}.
+
+To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like SAML single sign-on and advanced auditing. {% data reusables.enterprise.link-to-ghec-trial %}
+
+For more information about per-user pricing for {% data variables.product.prodname_ghe_cloud %}, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing).
+
+{% else %}
+
+If you use an enterprise account on {% data variables.product.prodname_dotcom_the_website %} and have questions about changes to your subscription, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% endif %}
+{% ifversion ghec %}
+
+If you use an individual organization on {% data variables.product.prodname_ghe_cloud %}, you can upgrade or downgrade your subscription. For more information, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" or "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)." If you have questions about your subscription, contact {% data variables.contact.contact_support %}.
 
 {% endif %}
 
 {% ifversion fpt %}
 
-### リポジトリごとのプランのOrganizationの変更について
+### About changes for organizations on per-repository plans
 
-レガシーの有料プラン間でのアップグレード及びダウングレードは、Organizationの支払い設定から行えます。 より多くのプライベートリポジトリを持つプランにアップグレードするなら、{% data variables.product.company_short %}は即座にアカウントを新しいプランに移行し、支払いサイクル中に残っている日数に比例した価格の差異を課金します。
+You can upgrade or downgrade between legacy paid plans in your organization's billing settings. When you upgrade to a plan with more private repositories, {% data variables.product.company_short %} immediately moves your account to your new plan and bills you for the difference in price, prorated for the number of days left in your billing cycle.
 
-プライベートリポジトリ数が少ないレガシーの有料プランにダウングレードする場合、新しいプランは次の支払日に有効になります。 新しいプランで利用できる以上のプライベートリポジトリを持っている場合、新しいプランが有効になった時点でプライベートリポジトリはロックされます。 プライベートリポジトリの数を減らすには、プライベートリポジトリの一部をパブリックにするか、プライベートリポジトリをローカルにクローンして {% data variables.product.prodname_dotcom %} 上のコピーを削除します。
+When you downgrade to a legacy paid plan with fewer private repositories, your new plan will take effect on your next billing date. If you have more private repositories than your new plan allows for, your private repositories will be locked when your new plan takes effect. To reduce your number of private repositories, you can make some of your private repositories public, or you can clone your private repositories locally and delete the copies on {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 
-## 参考資料
+## Further reading
 
 {%- ifversion not fpt %}
-- 「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」 {%- endif %}
-- 「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」
+- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
+- "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
+{%- endif %}
+- "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+- "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."

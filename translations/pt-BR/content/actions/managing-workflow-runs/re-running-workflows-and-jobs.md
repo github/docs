@@ -28,16 +28,18 @@ Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-{% ifversion fpt or ghes > 3.4 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.4 or ghae or ghec -%}
+1. In the upper-right corner of the workflow, use the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu, and select **Re-run all jobs**.
+
+   If no jobs failed, you will not see the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu. Instead, click **Re-run all jobs**.
+
+   ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+{%- endif %}
+{% ifversion ghes < 3.5 or ghae -%}
 1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.
 
-   If no jobs failed, you will not see the **Re-run jobs** drop-down menu. Instead, click **Re-run all jobs**.
-    ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
-{% endif %}
-{% ifversion ghes < 3.5 or ghae %}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.
-    ![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
-{% endif %}
+   ![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
+{%- endif %}
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
@@ -80,8 +82,9 @@ If any jobs in a workflow run failed, you can re-run just the jobs that failed. 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run failed jobs**.
-    ![Re-run failed jobs drop-down menu](/assets/images/help/repository/rerun-failed-jobs-drop-down.png)
+1. In the upper-right corner of the workflow, use the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu, and select **Re-run failed jobs**.
+
+   ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}

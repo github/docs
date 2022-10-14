@@ -41,6 +41,10 @@ You can make extra features for code security available to users by buying and u
 
 {% data reusables.advanced-security.license-overview %}
 
+{% ifversion ghes %}
+You can determine how many licenses you'll need for {% data variables.product.prodname_GH_advanced_security %} by generating a count of your instance's active committers in the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."
+{% endif %}
+
 To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## About committer numbers for {% data variables.product.prodname_GH_advanced_security %}
