@@ -14,7 +14,7 @@ We accept different [types of contributions](https://github.com/github/docs/blob
 
 On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
 
-<img src="./assets/images/contribution_cta.png" width="400">
+<img src="./assets/images/contribution_cta.png" width="500">
 
 For more complex contributions, you can open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
 
