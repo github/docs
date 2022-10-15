@@ -141,7 +141,9 @@ export async function getBodyParams(schema, topLevel = false) {
     if (param.enum) {
       paramDecorated.enum = param.enum
     }
-    if (param.default) {
+
+    // we also want to catch default values of `false` for booleans
+    if (param.default !== undefined) {
       paramDecorated.default = param.default
     }
 

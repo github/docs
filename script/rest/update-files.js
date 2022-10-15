@@ -311,8 +311,9 @@ async function decorate() {
       const categorizedWebhooks = {}
 
       webhooks.forEach((webhook) => {
-        if (!webhook.action) categorizedWebhooks[webhook.category] = { default: webhook }
-        else if (categorizedWebhooks[webhook.category]) {
+        if (!webhook.action) webhook.action = 'default'
+
+        if (categorizedWebhooks[webhook.category]) {
           categorizedWebhooks[webhook.category][webhook.action] = webhook
         } else {
           categorizedWebhooks[webhook.category] = {}

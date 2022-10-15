@@ -1,6 +1,6 @@
 ---
-title: 密码扫描合作伙伴计划
-intro: '作为服务提供者，您可以与 {% data variables.product.prodname_dotcom %} 合作，通过密码扫描保护您的密码令牌格式，该扫描将搜索意外提交的密码格式，并且可以发送到服务提供者的验证端点。'
+title: Secret scanning partner program
+intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /partnerships/token-scanning
@@ -12,113 +12,146 @@ versions:
 topics:
   - API
 shortTitle: Secret scanning
-ms.openlocfilehash: f935b849bb43e99fd3959db3920fd4d632bf54f7
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145097997'
 ---
-{% data variables.product.prodname_dotcom %} 扫描仓库查找已知的密码格式，以防止欺诈性使用意外提交的凭据。 {% data variables.product.prodname_secret_scanning_caps %} 默认情况下发生在公共仓库上，但仓库管理员或组织所有者可以在私有仓库上启用它。 作为服务提供者，您可以与 {% data variables.product.prodname_dotcom %} 合作，让您的密码格式包含在我们的 {% data variables.product.prodname_secret_scanning %} 中。
 
-在公共仓库中找到密码格式的匹配项时，将发送有效负载到您选择的 HTTP 端点。
+{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
 
-在为 {% data variables.product.prodname_secret_scanning %} 配置的私有仓库中找到密码格式的匹配项时，仓库管理员和提交者将收到警报，并且可以查看和管理 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_secret_scanning %} 结果。 有关详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)。”
+When a match of your secret format is found in a public repository, a payload is sent to an HTTP endpoint of your choice.
 
-本文介绍作为服务提供者如何与 {% data variables.product.prodname_dotcom %} 合作并加入 {% data variables.product.prodname_secret_scanning %} 合作伙伴计划。
+When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
 
-## {% data variables.product.prodname_secret_scanning %} 流程
+This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
 
-#### {% data variables.product.prodname_secret_scanning %} 如何在公共仓库中工作
+## The {% data variables.product.prodname_secret_scanning %} process
 
-下图总结了在公共仓库中进行 {% data variables.product.prodname_secret_scanning %} 并将任何匹配项发送到服务提供者的验证端点的流程。
+#### How {% data variables.product.prodname_secret_scanning %} works in a public repository
 
-![显示扫描密码并向服务提供者的验证终结点发送匹配项的流程图](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} 流程")
+The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
 
-## 在 {% data variables.product.prodname_dotcom %} 上加入 {% data variables.product.prodname_secret_scanning %} 计划
+![Flow diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} flow")
 
-1. 联系 {% data variables.product.prodname_dotcom %} 以启动流程。
-1. 识别要扫描的相关密码，并创建正则表达式来捕获它们。
-1. 针对在公共仓库中发现的密码匹配项，创建一个密码警报服务，以便从 {% data variables.product.prodname_dotcom %} 接受包含 {% data variables.product.prodname_secret_scanning %} 消息有效负载的 web 挂钩。
-1. 在密码警报服务中实施签名验证。
-1. 在密码警报服务中实施密码撤销和用户通知。
-1. 提供误报的反馈（可选）。
+## Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
 
-### 联系 {% data variables.product.prodname_dotcom %} 以启动流程
+1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
+1. Identify the relevant secrets you want to scan for and create regular expressions to capture them.
+1. For secret matches found in public repositories, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
+1. Implement signature verification in your secret alert service.
+1. Implement secret revocation and user notification in your secret alert service.
+1. Provide feedback for false positives (optional).
 
-若要开始注册过程，请发送电子邮件到 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
+### Contact {% data variables.product.prodname_dotcom %} to get the process started
 
-您将收到有关 {% data variables.product.prodname_secret_scanning %} 计划的详细信息，您需要同意 {% data variables.product.prodname_dotcom %} 的参与条款才能继续。
+To get the enrollment process started, email <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-### 识别您的密码并创建正则表达式
+You will receive details on the {% data variables.product.prodname_secret_scanning %} program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
 
-要扫描您的密码，{% data variables.product.prodname_dotcom %} 需要您要包含在 {% data variables.product.prodname_secret_scanning %} 计划中的每个密码的以下信息：
+### Identify your secrets and create regular expressions
 
-* 密码类型的唯一、人类可读的名称。 稍后我们将使用它在消息有效负载中生成 `Type` 值。
-* 查找密码类型的正则表达式。 尽可能精确，因为这样可以减少误报的数量。
-* 从 {% data variables.product.prodname_dotcom %} 接收消息的端点的 URL。 对于每个密码类型，这不必是唯一的。
+To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
 
-将此信息发送到 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
+* A unique, human readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
+* A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
+* The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
 
-### 创建密码警报服务
+Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-在您提供给我们的 URL 上创建一个可访问互联网的公共 HTTP 端点。 在公共存储库中找到正则表达式的匹配项时，{% data variables.product.prodname_dotcom %} 将发送 HTTP `POST` 消息到你的终结点。
+### Create a secret alert service
 
-#### 发送到端点的 POST 示例
+Create a public, internet accessible HTTP endpoint at the URL you provided to us. When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
 
-```http
-POST / HTTP/2
-Host: HOST
-Accept: */*
-Content-Type: application/json
-GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
-Content-Length: 0123
+#### Example request body
 
-[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt"}]
+```json
+[
+  {
+    "token":"NMIfyYncKcRALEXAMPLE",
+    "type":"mycompany_api_token",
+    "url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt",
+    "source":"content"
+  }
+]
 ```
 
-消息正文是一个 JSON 数组，其中包含一个或多个具有以下内容的对象。 找到多个匹配项时，{% data variables.product.prodname_dotcom %} 可能发送一条包含多个密码匹配项的消息。 您的端点应该能够在不超时的情况下处理包含大量匹配项的请求。
+The message body is a JSON array that contains one or more objects, with each object representing a single secret match. Your endpoint should be able to handle requests with a large number of matches without timing out. The keys for each secret match are:
 
-* 令牌：机密匹配的值。
-* 类型：提供用于标识正则表达式的唯一名称。
-* URL：匹配项所处的公共提交 URL。
+* **token**: The value of the secret match.
+* **type**: The unique name you provided to identify your regular expression.
+* **url**: The public URL where the match was found (may be empty)
+* **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
 
-### 在密码警报服务中实施签名验证
+The list of valid values for `source` are:
 
-我们强烈建议您在密码警报服务中实施签名验证，以确保您收到的消息确实来自 {% data variables.product.prodname_dotcom %}，而不是恶意消息。
+* content
+* commit
+* pull_request_description
+* pull_request_comment
+* issue_description
+* issue_comment
+* discussion_body
+* discussion_comment
+* commit_comment
+* gist_content
+* gist_comment
+* unknown
 
-可以从 https://api.github.com/meta/public_keys/secret_scanning 检索 {% data variables.product.prodname_dotcom %} 机密扫描公钥并使用 `ECDSA-NIST-P256V1-SHA256` 算法验证消息。
+### Implement signature verification in your secret alert service
+
+The HTTP request to your service will also contain headers that we strongly recommend using
+to validate the messages you receive are genuinely from {% data variables.product.prodname_dotcom %}, and are not malicious.
+
+The two HTTP headers to look for are:
+
+* `GITHUB-PUBLIC-KEY-IDENTIFIER`: Which `key_identifier` to use from our API
+* `GITHUB-PUBLIC-KEY-SIGNATURE`: Signature of the payload
+
+You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm. The endpoint
+will provide several `key_identifier` and public keys. You can determine which public
+key to use based on the value of `GITHUB-PUBLIC-KEY-IDENTIFIER`.
 
 {% note %}
 
-注意：向上述公钥终结点发送请求时，可能会达到速率限制。 为了避免达到速率限制，您可以使用下面示例建议的个人访问令牌（无需范围），或使用条件请求。 有关详细信息，请参阅“[REST API 入门](/rest/guides/getting-started-with-the-rest-api#conditional-requests)”。
+**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a personal access token (no scopes required) as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
 
 {% endnote %}
-
-假设您收到以下消息，下面的代码段演示如何执行签名验证。
-代码片段假定已使用生成的 PAT (https://github.com/settings/tokens) 设置名为 `GITHUB_PRODUCTION_TOKEN` 的环境变量以避免达到速率限制。 PAT 不需要任何范围/权限。
 
 {% note %}
 
-注意：签名是使用原始消息正文生成的。 因此，您也必须使用原始消息正文进行签名验证，而不是解析和串联 JSON，以避免重新排列消息或更改间距，这一点很重要。
+**Note**: The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
 
 {% endnote %}
 
-发送的用于验证终结点的消息示例
+**Sample HTTP POST sent to verify endpoint**
+
 ```http
 POST / HTTP/2
 Host: HOST
 Accept: */*
 content-type: application/json
-GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc=
-Content-Length: 0000
+GITHUB-PUBLIC-KEY-IDENTIFIER: f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d
+GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY=
+Content-Length: 83
 
-[{"token":"some_token","type":"some_type","url":"some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
 ```
 
-Go 中的验证示例
+{% note %}
+
+**Note**: The key id and signature from the example payload is derived from a test key.
+The public key for them is:
+
+```
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsz9ugWDj5jK5ELBK42ynytbo38gP
+HzZFI03Exwz8Lh/tCfL3YxwMdLjB+bMznsanlhK0RwcGP3IDb34kQDIo3Q==
+-----END PUBLIC KEY-----
+```
+
+{% endnote %}
+
+The following code snippets demonstrate how you could perform signature validation.
+The code examples assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated [personal access token](https://github.com/settings/tokens) (PAT) to avoid hitting rate limits. The PAT does not need any scopes/permissions.
+
+**Validation sample in Go**
 ```golang
 package main
 
@@ -138,11 +171,11 @@ import (
 )
 
 func main() {
-  payload := `[{"token":"some_token","type":"some_type","url":"some_url"}]`
+  payload := `[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]`
 
-  kID := "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
+  kID := "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
 
-  kSig := "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
+  kSig := "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
 
   // Fetch the list of GitHub Public Keys
   req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/secret_scanning", nil)
@@ -248,7 +281,7 @@ type asn1Signature struct {
 }
 ```
 
-Ruby 中的验证示例
+**Validation sample in Ruby**
 ```ruby
 require 'openssl'
 require 'net/http'
@@ -257,14 +290,14 @@ require 'json'
 require 'base64'
 
 payload = <<-EOL
-[{"token":"some_token","type":"some_type","url":"some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
 EOL
 
 payload = payload
 
-signature = "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
+signature = "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
 
-key_id = "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
+key_id = "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
 
 url = URI.parse('https://api.github.com/meta/public_keys/secret_scanning')
 
@@ -288,7 +321,7 @@ openssl_key = OpenSSL::PKey::EC.new(current_key)
 puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), payload.chomp)
 ```
 
-JavaScript 中的验证示例
+**Validation sample in JavaScript**
 ```js
 const crypto = require("crypto");
 const axios = require("axios");
@@ -330,17 +363,17 @@ const verify_signature = async (payload, signature, keyID) => {
 };
 ```
 
-### 在密码警报服务中实施密码撤销和用户通知
+### Implement secret revocation and user notification in your secret alert service
 
-对于公共仓库中的 {% data variables.product.prodname_secret_scanning %}，您可以增强密码警报服务，以撤销泄露的密码并通知受影响的用户。 如何在密码警报服务中实现此功能取决于您，但我们建议您考虑 {% data variables.product.prodname_dotcom %}向您发送的公开和泄露示警消息所涉及的任何密码。
+For {% data variables.product.prodname_secret_scanning %} in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
 
-### 提供误报的反馈
+### Provide feedback for false positives
 
-我们在合作伙伴响应中收集有关检测到的各个密码有效性的反馈。 如果你想参加，请发送电子邮件至 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
+We collect feedback on the validity of the detected individual secrets in partner responses. If you wish to take part, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-向您报告密码时，我们会发送一个 JSON 数组，其中有包含令牌、类型标识符和提交 URL 的每个元素。 当您向我们发送反馈时，您将向我们发送有关检测到的令牌是真凭据还是假凭据的信息。 我们接受以下格式的反馈。
+When we report secrets to you, we send a JSON array with each element containing the token, type identifier, and commit URL. When you send us feedback, you send us information about whether the detected token was a real or false credential. We accept feedback in the following formats.
 
-您可以向我们发送原始令牌：
+You can send us the raw token:
 
 ```
 [
@@ -351,7 +384,7 @@ const verify_signature = async (payload, signature, keyID) => {
   }
 ]
 ```
-您还可以使用 SHA-256 对原始令牌执行单向加密哈希后，以哈希形式提供令牌：
+You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
 
 ```
 [
@@ -362,13 +395,13 @@ const verify_signature = async (payload, signature, keyID) => {
   }
 ]
 ```
-重要事项：
-- 您应该只向我们发送令牌的原始形式 ("token_raw") 或哈希形式，而不要同时发送这两种形式。
-- 对于原始令牌的哈希形式，您只能使用 SHA-256 对令牌进行哈希处理，而不能使用任何其他哈希算法。
-- 用标签指示令牌为实报 ("true_positive") 还是误报 ("false_positive")。 只允许使用这两个小写的文字字符串。
+A few important points:
+- You should only send us either the raw form of the token ("token_raw"), or the hashed form ("token_hash"), but not both.
+- For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.
+- The label indicates whether the token is a true ("true_positive") or a false positive ("false_positive"). Only these two lowercased literal strings are allowed.
 
 {% note %}
 
-注意：对于提供误报数据的合作伙伴，我们的请求超时设置得更高（即 30 秒）。 如果需要超过 30 秒的超时时间，请发送电子邮件至 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
+**Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 {% endnote %}

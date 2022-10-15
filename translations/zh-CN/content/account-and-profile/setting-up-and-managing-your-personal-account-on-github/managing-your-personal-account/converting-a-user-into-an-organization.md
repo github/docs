@@ -1,5 +1,5 @@
 ---
-title: 将用户转换为组织
+title: Converting a user into an organization
 redirect_from:
   - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization
   - /articles/explaining-the-account-transformation-warning
@@ -8,7 +8,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/converting-a-user-into-an-organization
-intro: 可以将个人帐户转换为组织。 这样可以对属于组织的仓库设置更细化的权限。
+intro: You can convert your personal account into an organization. This allows more granular permissions for repositories that belong to the organization.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,60 +17,58 @@ versions:
 topics:
   - Accounts
 shortTitle: User into an organization
-ms.openlocfilehash: 8b99bd119a9fa061c025a4fcc299d7ace31d23eb
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147687079'
 ---
 {% warning %}
 
-警告：在将用户转换为组织之前，请记住以下几点。
+**Warning**: Before converting a user into an organization, keep these points in mind.
 
-* 你将无法再登录转换后的个人帐户。
-* 你将无法再创建或修改转换后的个人帐户所拥有的 Gist。
-* 组织无法转换回用户。
-* 不会将 SSH 密钥、OAuth 标记、作业配置文件、反应和关联的用户信息传输到组织。 这只适用于被转换的个人帐户，而不适用于该个人帐户的任何协作者。
-* 使用转换后的个人帐户所做的任何提交将不再链接到该帐户。 提交本身将保持不变。
-* 转换后的个人帐户所做的任何现有注释将不再链接至该帐户。 注释本身将保持不变，但会与 `ghost` 用户关联。
-* 将删除使用转换后的个人帐户创建的任何专用存储库的分支。
+* You will **no longer** be able to sign into the converted personal account.
+* You will **no longer** be able to create or modify gists owned by the converted personal account.
+* An organization **cannot** be converted back to a user.
+* The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. This is only true for the personal account that's being converted, not any of the personal account's collaborators.
+* Any {% data variables.product.prodname_github_apps %} installed on the converted personal account will be uninstalled.
+* Any commits made with the converted personal account **will no longer be linked** to that account. The commits themselves **will** remain intact.
+* Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
+* Any forks of private repositories made with the converted personal account will be deleted.
 {% endwarning %}
 
 {% ifversion fpt or ghec or ghes %}
-## 保留个人帐户并手动创建新组织
+## Keep your personal account and create a new organization manually
 
-如果希望组织的名称与目前用于个人帐户的名称相同，或者要保留个人帐户的信息不变，则必须创建一个新组织，然后将存储库转让给该组织，而不是将个人帐户转换为组织。
+If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your personal account into an organization.
 
-1. 要保留当前个人帐户名称以供个人使用，[请将个人帐户名称更改为](/articles/changing-your-github-username)一个好听的新名称。
-2. 使用个人帐户的原始名称[创建新组织](/articles/creating-a-new-organization-from-scratch)。
-3. [将存储库转移到](/articles/transferring-a-repository)新的组织帐户。{% endif %}
+1. To retain your current personal account name for your personal use, [change the name of your personal account](/articles/changing-your-github-username) to something new and wonderful.
+2. [Create a new organization](/articles/creating-a-new-organization-from-scratch) with the original name of your personal account.
+3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.{% endif %}
 
-## 自动将个人帐户转换为组织
+## Convert your personal account into an organization automatically
 
-也可以将个人帐户直接转换为组织。 转换帐户：
- - 按原样保留仓库，无需手动将其转让给另一个帐户
- - 自动邀请协作者加入具有与其之前相同权限的团队 {% ifversion fpt or ghec %}- 对于 {% data variables.product.prodname_pro %} 上的个人帐户，自动将计费转换到[付费的 {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts)，无需重新输入付款信息、调整计费周期或随时双倍付款{% endif %}
+You can also convert your personal account directly into an organization. Converting your account:
+ - Preserves the repositories as they are without the need to transfer them to another account manually
+ - Automatically invites collaborators to teams with permissions equivalent to what they had before
+ {% ifversion fpt or ghec %}- For personal accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
 
-1. 创建新的个人帐户，转换后您将用它来登录 GitHub 以及访问组织和仓库。
-2.  [退出组织](/articles/removing-yourself-from-an-organization)（你要转换的个人帐户已加入的组织）。
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %}
-5. 在“转换帐户”下，单击“将 <username> 转换为组织”。
-    ![组织转换按钮](/assets/images/help/settings/convert-to-organization.png)
-6. 在 Account Transformation Warning（帐户转换警告）对话框中，查看并确认转换。 请注意，此框中的信息与本文顶部的警告信息相同。
-    ![转换警告](/assets/images/help/organizations/organization-account-transformation-warning.png)
-7. 在“Transform your user into an organization（将用户转换为组织）”页面的“Choose an organization owner（选择组织所有者）”下，选择您在前面创建的备用个人帐户或您信任的其他用户来管理组织。
-    ![添加组织所有者页面](/assets/images/help/organizations/organization-add-owner.png)
-8. 选择新组织的订阅，并在提示时输入帐单信息。
-9. 单击“创建组织”。
-10. 登录在第一步中创建的新个人帐户，然后使用上下文切换器访问新组织。
+1. Create a new personal account, which you'll use to sign into GitHub and access the organization and your repositories after you convert.
+2.  [Leave any organizations](/articles/removing-yourself-from-an-organization) the personal account you're converting has joined.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
+5. Under "Transform account", click **Turn <username> into an organization**.
+ 	![Organization conversion button](/assets/images/help/settings/convert-to-organization.png)
+6. In the Account Transformation Warning dialog box, review and confirm the conversion. Note that the information in this box is the same as the warning at the top of this article.
+ 	![Conversion warning](/assets/images/help/organizations/organization-account-transformation-warning.png)
+7. On the "Transform your user into an organization" page, under "Choose an organization owner", choose either the secondary personal account you created in the previous section or another user you trust to manage the organization.
+ 	![Add organization owner page](/assets/images/help/organizations/organization-add-owner.png)
+8. Choose your new organization's subscription and enter your billing information if prompted.
+9. Click **Create Organization**.
+10. Sign in to the new personal account you created in step one, then use the context switcher to access your new organization.
 
 {% tip %}
 
-提示：将个人帐户转换为组织时，我们会将属于该帐户的存储库中的协作者作为外部协作者添加到新组织。 然后，你可以根据需要邀请外部协作者成为新组织的成员。 有关详细信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)”。
+**Tip**: When you convert a personal account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as *outside collaborators*. You can then invite *outside collaborators* to become members of your new organization if you wish. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 
 {% endtip %}
 
-## 延伸阅读
-- [设置团队](/articles/setting-up-teams) {% ifversion fpt or ghec %}- [邀请用户加入组织](/articles/inviting-users-to-join-your-organization){% endif %}
-- [访问组织](/articles/accessing-an-organization)
+## Further reading
+- "[Setting up teams](/articles/setting-up-teams)"
+{% ifversion fpt or ghec %}- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"{% endif %}
+- "[Accessing an organization](/articles/accessing-an-organization)"

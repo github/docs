@@ -102,7 +102,7 @@ export function RestCodeSamples({ operation, slug }: Props) {
     setSelectedLanguage(languageKey)
     Cookies.set('codeSampleLanguagePreferred', languageKey, {
       sameSite: 'strict',
-      secure: true,
+      secure: document.location.protocol !== 'http:',
     })
   }
 
