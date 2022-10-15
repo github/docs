@@ -292,21 +292,21 @@ jobs:
 
 ## Using headers
 
-Most operations specify that you should pass an `Accept` header with a value of `application/vnd.github.v3+json`. Other operations may specify that you should send a different `Accept` header or additional headers.
+Most operations specify that you should pass an `Accept` header with a value of `application/vnd.github+json`. Other operations may specify that you should send a different `Accept` header or additional headers.
 
 {% cli %}
 
 To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /octocat
+gh api --header 'Accept: application/vnd.github+json' --method GET /octocat
 ```
 
 {% endcli %}
 
 {% javascript %}
 
-The Octokit.js library automatically passes the `Accept: application/vnd.github.v3+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument to the `request` method. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
+The Octokit.js library automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument to the `request` method. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
 
 ```javascript
 await octokit.request("GET /octocat", {
@@ -325,7 +325,7 @@ To send a header with cURL, use the `--header` or `-H` flag followed by the head
 ```shell
 curl --request GET \
 --url "https://api.github.com/octocat" \
---header "Accept: application/vnd.github.v3+json" \
+--header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN"
 ```
 
@@ -348,7 +348,7 @@ Path parameters modify the operation path. For example, the "List repository iss
 To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`.
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues
+gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues
 ```
 
 {% endcli %}
@@ -389,7 +389,7 @@ To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with 
 ```shell
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
---header "Accept: application/vnd.github.v3+json" \
+--header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN"
 ```
 
@@ -414,7 +414,7 @@ For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a param
 {% endnote %}
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 -f sort=updated -f direction=asc
+gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 -f sort=updated -f direction=asc
 ```
 
 {% endcli %}
@@ -442,7 +442,7 @@ For cURL, add a `?` to the end of the path, then append your query parameter nam
 ```shell
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2&sort=updated&direction=asc" \
---header "Accept: application/vnd.github.v3+json" \
+--header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN"
 ```
 
@@ -467,7 +467,7 @@ For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a param
 {% endnote %}
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method POST /repos/octocat/Spoon-Knife/issues -f title="Created with the REST API" -f body="This is a test issue created by the REST API"
+gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octocat/Spoon-Knife/issues -f title="Created with the REST API" -f body="This is a test issue created by the REST API"
 ```
 
 {% endcli %}
@@ -494,7 +494,7 @@ For cURL, use the `--data` flag to pass the body parameters in a JSON object.
 ```shell
 curl --request POST \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
---header "Accept: application/vnd.github.v3+json" \
+--header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --data '{
   "title": "Created with the REST API",
@@ -521,7 +521,7 @@ To view the status code and headers, use the `--include` or `--i` flag when you 
 For example, this request:
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 --include
+gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 --include
 ```
 
 returns the response code and headers like:
@@ -592,7 +592,7 @@ For example, this request:
 ```shell
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
---header "Accept: application/vnd.github.v3+json" \
+--header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --include
 ```
@@ -638,7 +638,7 @@ Many operations will return a response body. Unless otherwise specified, the res
 {% cli %}
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2
+gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2
 ```
 
 {% endcli %}
@@ -660,7 +660,7 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 ```shell
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
---header "Accept: application/vnd.github.v3+json" \
+--header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN"
 ```
 
@@ -673,7 +673,7 @@ Unlike the GraphQL API where you specify what information you want, the REST API
 For example, you can use `>` to redirect the response to a file:
 
 ```shell
-gh api --header 'Accept: application/vnd.github.v3+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 > data.json
+gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 > data.json
 ```
 
 Then you can use jq to get the title and author ID of each issue:
@@ -729,7 +729,7 @@ For example, you can use `>` to redirect the response to a file:
 ```shell
 curl --request GET \
 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
---header "Accept: application/vnd.github.v3+json" \
+--header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN" > data.json
 ```
 
