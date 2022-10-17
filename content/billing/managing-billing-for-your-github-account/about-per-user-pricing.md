@@ -86,7 +86,7 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 
 {% data variables.product.company_short %} does not bill for any of the following accounts:
 
-- {% data variables.product.prodname_managed_users_caps %} that are suspended
+- {% data variables.enterprise.prodname_managed_users_caps %} that are suspended
 - Enterprise owners who are not a member or owner of at least one organization in the enterprise
 - Enterprise billing managers
 - Billing managers for individual organizations

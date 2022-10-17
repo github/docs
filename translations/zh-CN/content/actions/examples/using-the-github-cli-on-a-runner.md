@@ -1,7 +1,7 @@
 ---
-title: 在运行器上使用 GitHub CLI
-shortTitle: Using the GitHub CLI on a runner
-intro: '如何使用高级 {% data variables.product.prodname_actions %} 功能进行持续集成 (CI)。'
+title: Using the GitHub CLI on a runner
+shortTitle: Use the GitHub CLI on a runner
+intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
   ghes: '> 3.1'
@@ -10,34 +10,40 @@ versions:
 type: how_to
 topics:
   - Workflows
-ms.openlocfilehash: cd731804c1e1c0c36ca95a30c6b7e9e074de030b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146749535'
 ---
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 示例概述
+## Example overview
 
-{% data reusables.actions.example-workflow-intro-ci %} 此工作流触发后，会自动运行一个脚本，用于检查 {% data variables.product.prodname_dotcom %} Docs 站点是否有任何损坏的链接。 如果找到任何损坏的链接，工作流将使用 {% data variables.product.prodname_dotcom %} CLI 创建包含详细信息的 {% data variables.product.prodname_dotcom %} 问题。
+{% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it automatically runs a script that checks whether the {% data variables.product.prodname_dotcom %} Docs site has any broken links. If any broken links are found, the workflow uses the {% data variables.product.prodname_dotcom %} CLI to create a {% data variables.product.prodname_dotcom %} issue with the details.
 
 {% data reusables.actions.example-diagram-intro %}
 
-![工作流步骤概述图](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
+![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
 
-## 此示例中使用的功能
+## Features used in this example
 
 {% data reusables.actions.example-table-intro %}
 
-| **功能**  | **实现** |
+| **Feature**  | **Implementation** |
 | --- | --- |
-{% data reusables.actions.cron-table-entry %} {% data reusables.actions.permissions-table-entry %} {% data reusables.actions.if-conditions-table-entry %} {% data reusables.actions.secrets-table-entry %} {% data reusables.actions.checkout-action-table-entry %} {% data reusables.actions.setup-node-table-entry %} | 使用第三方操作：| [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)| | 在运行器上运行 shell 命令：| [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) | | 在运行器上运行脚本：| 使用 `script/check-english-links.js` | | 生成输出文件：| 使用 `>` 运算符通过管道传输输出 | | 使用 {% data variables.product.prodname_cli %} 检查现有问题：| [`gh issue list`](https://cli.github.com/manual/gh_issue_list) | | 使用 {% data variables.product.prodname_cli %} 对问题进行注释：| [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
+{% data reusables.actions.cron-table-entry %}
+{% data reusables.actions.permissions-table-entry %}
+{% data reusables.actions.if-conditions-table-entry %}
+{% data reusables.actions.secrets-table-entry %}
+{% data reusables.actions.checkout-action-table-entry %}
+{% data reusables.actions.setup-node-table-entry %}
+| Using a third-party action: | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)|
+| Running shell commands on the runner: | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) |
+| Running a script on the runner: | Using `script/check-english-links.js` |
+| Generating an output file: | Piping the output using the `>` operator |
+| Checking for existing issues using {% data variables.product.prodname_cli %}: | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) |
+| Commenting on an issue using {% data variables.product.prodname_cli %}: | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
 
-## 示例工作流
+## Example workflow
 
-{% data reusables.actions.example-docs-engineering-intro %} [`check-all-english-links.yml`](https://github.com/github/docs/blob/main/.github/workflows/check-all-english-links.yml)。
+{% data reusables.actions.example-docs-engineering-intro %} [`check-all-english-links.yml`](https://github.com/github/docs/blob/main/.github/workflows/check-all-english-links.yml).
 
 {% data reusables.actions.note-understanding-example %}
 
@@ -103,7 +109,11 @@ jobs:
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
@@ -168,15 +178,15 @@ jobs:
 </tbody>
 </table>
 
-## 了解示例
+## Understanding the example
 
 {% data reusables.actions.example-explanation-table-intro %}
 
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>代码</b></th>
-    <th style="width:40%"><b>解释</b></th>
+    <th style="width:60%"><b>Code</b></th>
+    <th style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
@@ -204,10 +214,10 @@ on:
 </td>
 <td>
 
-将 `workflow_dispatch` 和 `scheduled` 定义为工作流的触发器：
+Defines the `workflow_dispatch` and `scheduled` as triggers for the workflow:
 
-* 通过 `workflow_dispatch`，可从 UI 手动运行此工作流。 有关详细信息，请参阅 [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)。
-* 通过 `schedule` 事件，可使用 `cron` 语法来定义自动触发工作流的定期间隔。 有关详细信息，请参阅 [`schedule`](/actions/reference/events-that-trigger-workflows#schedule)。
+* The `workflow_dispatch` lets you manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
+* The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. For more information, see [`schedule`](/actions/reference/events-that-trigger-workflows#schedule).
 </td>
 </tr>
 <tr>
@@ -221,7 +231,7 @@ permissions:
 </td>
 <td>
 
-修改授予 `GITHUB_TOKEN` 的默认权限。 这将因工作流的需求而异。 有关详细信息，请参阅“[为作业分配权限](/actions/using-jobs/assigning-permissions-to-jobs)”。
+Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
 </td>
 </tr>
 <tr>
@@ -233,7 +243,7 @@ jobs:
 </td>
 <td>
 
-将工作流文件中运行的所有作业组合在一起。
+Groups together all the jobs that run in the workflow file.
 </td>
 </tr>
 <tr>
@@ -246,7 +256,7 @@ jobs:
 </td>
 <td>
 
-定义 ID 为 `check_all_english_links`、名称为 `Check all links` 的作业，该作业存储在 `jobs` 密钥中。
+Defines a job with the ID `check_all_english_links`, and the name `Check all links`, that is stored within the `jobs` key.
 </td>
 </tr>
 <tr>
@@ -258,7 +268,7 @@ if: github.repository == 'github/docs-internal'
 </td>
 <td>
 
-仅当存储库名为 `docs-internal` 且位于 `github` 组织内时，才运行 `check_all_english_links` 作业。 否则，作业会被标记为“跳过”。
+Only run the `check_all_english_links` job if the repository is named `docs-internal` and is within the `github` organization. Otherwise, the job is marked as _skipped_.
 </td>
 </tr>
 <tr>
@@ -270,7 +280,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-配置作业在 Ubuntu Linux 运行器上运行。 这意味着作业将在 {% data variables.product.prodname_dotcom %}. 托管的新虚拟机上执行。 有关使用其他运行器的语法示例，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
+Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by {% data variables.product.prodname_dotcom %}. For syntax examples using other runners, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 </td>
 </tr>
 <tr>
@@ -286,7 +296,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-创建自定义环境变量，并重新定义内置的 `GITHUB_TOKEN` 变量以使用自定义[机密](/actions/security-guides/encrypted-secrets)。 稍后将在工作流中引用这些变量。
+Creates custom environment variables, and redefines the built-in `GITHUB_TOKEN` variable to use a custom [secret](/actions/security-guides/encrypted-secrets). These variables will be referenced later in the workflow.
 </td>
 </tr>
 <tr>
@@ -298,7 +308,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-将作为 `check_all_english_links` 作业一部分运行的所有步骤组合在一起。 工作流中的每个作业都有其自己的 `steps` 部分。
+Groups together all the steps that will run as part of the `check_all_english_links` job. Each job in the workflow has its own `steps` section.
 </td>
 </tr>
 <tr>
@@ -311,7 +321,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-`uses` 关键字指示作业检索名为 `actions/checkout` 的操作。 这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。 只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。
+The `uses` keyword tells the job to retrieve the action named `actions/checkout`. This is an action that checks out your repository and downloads it to the runner, allowing you to run actions against your code (such as testing tools). You must use the checkout action any time your workflow will run against the repository's code or you are using an action defined in the repository.
 </td>
 </tr>
 <tr>
@@ -327,7 +337,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-此步骤使用 `actions/setup-node` 操作在运行器上安装指定版本的 `node` 软件包，以便你可访问 `npm` 命令。
+This step uses the `actions/setup-node` action to install the specified version of the `node` software package on the runner, which gives you access to the `npm` command.
 </td>
 </tr>
 <tr>
@@ -342,7 +352,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-`run` 关键字指示作业在运行器上执行命令。 在这种情况下，`npm ci` 和 `npm run build` 命令作为单独的步骤运行，用于在存储库中安装和生成 Node.js 应用程序。
+The `run` keyword tells the job to execute a command on the runner. In this case, the `npm ci` and `npm run build` commands are run as separate steps to install and build the Node.js application in the repository.
 </td>
 </tr>
 <tr>
@@ -356,7 +366,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-此 `run` 命令执行存储库 (`script/check-english-links.js`) 中存储的脚本，并通过管道将输出传递给名为 `broken_links.md` 的文件。
+This `run` command executes a script that is stored in the repository at `script/check-english-links.js`, and pipes the output to a file called `broken_links.md`.
 </td>
 </tr>
 <tr>
@@ -366,12 +376,16 @@ runs-on: ubuntu-latest
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
 ```
 </td>
 <td>
 
-如果 `check-english-links.js` 脚本检测到损坏的链接并返回非零（失败）退出状态，则使用[工作流命令](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)设置具有 `broken_links.md` 文件第一行值的输出（下一步中会用到它）。
+If the `check-english-links.js` script detects broken links and returns a non-zero (failure) exit status, then use a [workflow command](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter) to set an output that has the value of the first line of the `broken_links.md` file (this is used the next step).
 </td>
 </tr>
 <tr>
@@ -393,7 +407,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-使用 `peter-evans/create-issue-from-file` 操作创建新的 {% data variables.product.prodname_dotcom %} 问题。 此示例使用 `b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e` SHA 固定到操作的特定版本。
+Uses the `peter-evans/create-issue-from-file` action to create a new {% data variables.product.prodname_dotcom %} issue. This example is pinned to a specific version of the action, using the `b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e` SHA.
 </td>
 </tr>
 <tr>
@@ -421,9 +435,9 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-使用 [`gh issue list`](https://cli.github.com/manual/gh_issue_list) 查找之前在早期运行中创建的问题。 在后续步骤中，为了简化处理，这将[别名](https://cli.github.com/manual/gh_alias_set)设置为 `gh list-reports`。 若要获取问题 URL，`jq` 表达式将处理生成的 JSON 输出。
+Uses [`gh issue list`](https://cli.github.com/manual/gh_issue_list) to locate the previously created issue from earlier runs. This is [aliased](https://cli.github.com/manual/gh_alias_set) to `gh list-reports` for simpler processing in later steps. To get the issue URL, the `jq` expression processes the resulting JSON output.
 
-然后，使用 [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) 向链接到上一个问题的新问题添加注释。
+[`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) is then used to add a comment to the new issue that links to the previous one.
 </td>
 </tr>
 <tr>
@@ -441,7 +455,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-如果上一次运行中的问题已打开且已分配给某人，则使用 [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) 添加注释并附上指向新问题的链接。
+If an issue from a previous run is open and assigned to someone, then use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
 </td>
 </tr>
 <tr>
@@ -462,16 +476,16 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-如果上一次运行中的问题已打开但未分配给任何人，则：
+If an issue from a previous run is open and is not assigned to anyone, then:
 
-* 使用 [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) 添加一个的注释并附上指向新问题的链接。
-* 使用 [`gh issue close`](https://cli.github.com/manual/gh_issue_close) 关闭旧问题。
-* 使用 [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit) 编辑旧问题，将其从特定的 {% data variables.product.prodname_dotcom %} 项目板中删除。
+* Use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
+* Use [`gh issue close`](https://cli.github.com/manual/gh_issue_close) to close the old issue.
+* Use [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit) to edit the old issue to remove it from a specific {% data variables.product.prodname_dotcom %} project board.
 </td>
 </tr>
 </tbody>
 </table>
 
-## 后续步骤
+## Next steps
 
 {% data reusables.actions.learning-actions %}

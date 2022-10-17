@@ -107,6 +107,7 @@ translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learni
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount.md,file deleted because it no longer exists in main
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/index.md,file deleted because it no longer exists in main
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved.md,file deleted because it no longer exists in main
+translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom.md,file deleted because it no longer exists in main
 translations/zh-CN/content/github/copilot/about-github-copilot-telemetry.md,file deleted because it no longer exists in main
 translations/zh-CN/content/github/copilot/github-copilot-telemetry-terms.md,file deleted because it no longer exists in main
 translations/zh-CN/content/github/copilot/index.md,file deleted because it no longer exists in main
@@ -251,6 +252,8 @@ translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-pers
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization.md,broken liquid tags
+translations/zh-CN/content/actions/creating-actions/creating-a-composite-action.md,broken liquid tags
+translations/zh-CN/content/actions/creating-actions/creating-a-docker-container-action.md,broken liquid tags
 translations/zh-CN/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
 translations/zh-CN/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
 translations/zh-CN/content/actions/deployment/about-deployments/about-continuous-deployment.md,rendering error
@@ -265,13 +268,16 @@ translations/zh-CN/content/actions/deployment/deploying-to-your-cloud-provider/d
 translations/zh-CN/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app.md,rendering error
 translations/zh-CN/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine.md,rendering error
 translations/zh-CN/content/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect.md,broken liquid tags
+translations/zh-CN/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers.md,broken liquid tags
 translations/zh-CN/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault.md,broken liquid tags
+translations/zh-CN/content/actions/examples/using-the-github-cli-on-a-runner.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups.md,rendering error
 translations/zh-CN/content/actions/hosting-your-own-runners/removing-self-hosted-runners.md,rendering error
+translations/zh-CN/content/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/contexts.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/environment-variables.md,rendering error
@@ -456,6 +462,7 @@ translations/zh-CN/content/codespaces/troubleshooting/working-with-support-for-g
 translations/zh-CN/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/zh-CN/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,broken liquid tags
 translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
+translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
 translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
 translations/zh-CN/content/copilot/quickstart.md,broken liquid tags
@@ -474,9 +481,13 @@ translations/zh-CN/content/developers/webhooks-and-events/events/issue-event-typ
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion.md,broken liquid tags
+translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student.md,broken liquid tags
+translations/zh-CN/content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
-translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom.md,broken liquid tags
+translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,broken liquid tags
+translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms.md,broken liquid tags
+translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment.md,broken liquid tags
 translations/zh-CN/content/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations.md,broken liquid tags
 translations/zh-CN/content/get-started/exploring-projects-on-github/following-organizations.md,broken liquid tags
 translations/zh-CN/content/get-started/getting-started-with-git/associating-text-editors-with-git.md,broken liquid tags
@@ -611,6 +622,7 @@ translations/zh-CN/data/reusables/actions/actions-audit-events-workflow.md,rende
 translations/zh-CN/data/reusables/actions/actions-billing.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/create-runner-group.md,rendering error
 translations/zh-CN/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
+translations/zh-CN/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/jobs/section-running-jobs-in-a-container.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/ref_name-description.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/reusable-workflow-artifacts.md,rendering error
@@ -653,11 +665,13 @@ translations/zh-CN/data/reusables/codespaces/rebuild-command.md,broken liquid ta
 translations/zh-CN/data/reusables/codespaces/secrets-on-start.md,broken liquid tags
 translations/zh-CN/data/reusables/codespaces/use-chrome.md,broken liquid tags
 translations/zh-CN/data/reusables/codespaces/your-codespaces-procedure-step.md,broken liquid tags
+translations/zh-CN/data/reusables/copilot/install-copilot-in-neovim.md,broken liquid tags
 translations/zh-CN/data/reusables/dependabot/beta-security-and-version-updates.md,rendering error
 translations/zh-CN/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/zh-CN/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/zh-CN/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
 translations/zh-CN/data/reusables/dotcom_billing/actions-packages-report-download-org-account.md,broken liquid tags
+translations/zh-CN/data/reusables/education/submit-application.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/actions-packages-report-download-enterprise-accounts.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/billing-microsoft-ea-overview.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/repo-creation-policy.md,broken liquid tags

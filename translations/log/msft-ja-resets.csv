@@ -116,6 +116,7 @@ translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learni
 translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount.md,file deleted because it no longer exists in main
 translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/index.md,file deleted because it no longer exists in main
 translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved.md,file deleted because it no longer exists in main
+translations/ja-JP/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom.md,file deleted because it no longer exists in main
 translations/ja-JP/content/github/copilot/about-github-copilot-telemetry.md,file deleted because it no longer exists in main
 translations/ja-JP/content/github/copilot/github-copilot-telemetry-terms.md,file deleted because it no longer exists in main
 translations/ja-JP/content/github/copilot/index.md,file deleted because it no longer exists in main
@@ -267,8 +268,10 @@ translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-pers
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository.md,rendering error
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username.md,rendering error
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps.md,rendering error
-translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization.md,broken liquid tags
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization.md,rendering error
 translations/ja-JP/content/actions/automating-builds-and-tests/about-continuous-integration.md,rendering error
+translations/ja-JP/content/actions/creating-actions/creating-a-composite-action.md,broken liquid tags
+translations/ja-JP/content/actions/creating-actions/creating-a-docker-container-action.md,broken liquid tags
 translations/ja-JP/content/actions/creating-actions/creating-a-javascript-action.md,rendering error
 translations/ja-JP/content/actions/creating-actions/metadata-syntax-for-github-actions.md,rendering error
 translations/ja-JP/content/actions/creating-actions/releasing-and-maintaining-actions.md,broken liquid tags
@@ -283,12 +286,15 @@ translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/d
 translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-kubernetes-service.md,rendering error
 translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app.md,rendering error
 translations/ja-JP/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine.md,rendering error
+translations/ja-JP/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers.md,broken liquid tags
 translations/ja-JP/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault.md,broken liquid tags
+translations/ja-JP/content/actions/examples/using-the-github-cli-on-a-runner.md,broken liquid tags
 translations/ja-JP/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/hosting-your-own-runners/removing-self-hosted-runners.md,rendering error
+translations/ja-JP/content/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job.md,broken liquid tags
 translations/ja-JP/content/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/contexts.md,rendering error
 translations/ja-JP/content/actions/learn-github-actions/environment-variables.md,rendering error
@@ -351,7 +357,7 @@ translations/ja-JP/content/billing/managing-billing-for-github-codespaces/managi
 translations/ja-JP/content/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription.md,broken liquid tags
-translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-per-user-pricing.md,broken liquid tags
+translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-per-user-pricing.md,rendering error
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
@@ -447,6 +453,7 @@ translations/ja-JP/content/codespaces/troubleshooting/troubleshooting-your-conne
 translations/ja-JP/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/ja-JP/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,broken liquid tags
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
+translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
 translations/ja-JP/content/copilot/quickstart.md,broken liquid tags
@@ -463,8 +470,13 @@ translations/ja-JP/content/developers/webhooks-and-events/events/issue-event-typ
 translations/ja-JP/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/ja-JP/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
 translations/ja-JP/content/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion.md,broken liquid tags
+translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student.md,broken liquid tags
+translations/ja-JP/content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary.md,broken liquid tags
 translations/ja-JP/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
 translations/ja-JP/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
+translations/ja-JP/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,broken liquid tags
+translations/ja-JP/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms.md,broken liquid tags
+translations/ja-JP/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment.md,broken liquid tags
 translations/ja-JP/content/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations.md,broken liquid tags
 translations/ja-JP/content/get-started/getting-started-with-git/associating-text-editors-with-git.md,broken liquid tags
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
@@ -601,6 +613,7 @@ translations/ja-JP/data/reusables/actions/create-runner-group.md,rendering error
 translations/ja-JP/data/reusables/actions/creating-a-runner-group-for-an-organization.md,rendering error
 translations/ja-JP/data/reusables/actions/hosted-runner-security.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/moving-a-runner-to-a-group.md,rendering error
 translations/ja-JP/data/reusables/actions/ref_name-description.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/reusable-workflow-artifacts.md,rendering error
@@ -641,6 +654,7 @@ translations/ja-JP/data/reusables/codespaces/prebuilds-crossreference.md,broken 
 translations/ja-JP/data/reusables/codespaces/secrets-on-start.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/use-chrome.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/your-codespaces-procedure-step.md,broken liquid tags
+translations/ja-JP/data/reusables/copilot/install-copilot-in-neovim.md,broken liquid tags
 translations/ja-JP/data/reusables/dependabot/beta-security-and-version-updates.md,rendering error
 translations/ja-JP/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/ja-JP/data/reusables/dependabot/dependabot-alerts-filters.md,rendering error
@@ -648,6 +662,7 @@ translations/ja-JP/data/reusables/dependabot/enabling-disabling-dependency-graph
 translations/ja-JP/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
 translations/ja-JP/data/reusables/desktop/get-an-account.md,rendering error
 translations/ja-JP/data/reusables/dotcom_billing/actions-packages-report-download-org-account.md,broken liquid tags
+translations/ja-JP/data/reusables/education/submit-application.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-packages-report-download-enterprise-accounts.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/billing-microsoft-ea-overview.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/security-tab.md,rendering error

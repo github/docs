@@ -6,7 +6,7 @@
 
 - Use <code>{% data variables.product.api_url_pre %}</code> to access the API for {% data variables.product.product_name %}. 
 
-- The guide specifies usernames and repositories that may not exist on {% data variables.product.product_location %}. You may need to use different names to see similar output.
+- The guide specifies usernames and repositories that may not exist on {% data variables.location.product_location %}. You may need to use different names to see similar output.
 
 {% endnote %}
 

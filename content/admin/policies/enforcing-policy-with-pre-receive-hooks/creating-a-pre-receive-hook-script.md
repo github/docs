@@ -18,10 +18,10 @@ shortTitle: Pre-receive hook scripts
 You can see examples of pre-receive hooks for {% data variables.product.prodname_ghe_server %} in the [`github/platform-samples` repository](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
 ## Writing a pre-receive hook script
-A pre-receive hook script executes in a pre-receive hook environment on {% data variables.product.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.
+A pre-receive hook script executes in a pre-receive hook environment on {% data variables.location.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.
 
 ### Input (`stdin`)
-After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.product.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
+After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.location.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
 
 ```
 <old-value> SP <new-value> SP <ref-name> LF
@@ -123,7 +123,7 @@ The following variables are available in the pre-receive hook environment when t
 
 ## Setting permissions and pushing a pre-receive hook to {% data variables.product.prodname_ghe_server %}
 
-A pre-receive hook script is contained in a repository on {% data variables.product.product_location %}. A site administrator must take into consideration the repository permissions and ensure that only the appropriate users have access.
+A pre-receive hook script is contained in a repository on {% data variables.location.product_location %}. A site administrator must take into consideration the repository permissions and ensure that only the appropriate users have access.
 
 We recommend consolidating hooks to a single repository. If the consolidated hook repository is public, the `README.md` can be used to explain policy enforcements. Also, contributions can be accepted via pull requests. However, pre-receive hooks can only be added from the default branch. For a testing workflow, forks of the repository with configuration should be used.
 
@@ -138,7 +138,7 @@ We recommend consolidating hooks to a single repository. If the consolidated hoo
    git update-index --chmod=+x SCRIPT_FILE.sh
    ```
 
-2. Commit and push to the designated repository for pre-receive hooks on {% data variables.product.product_location %}.
+2. Commit and push to the designated repository for pre-receive hooks on {% data variables.location.product_location %}.
 
    ```shell
    $ git commit -m "YOUR COMMIT MESSAGE"
@@ -148,7 +148,7 @@ We recommend consolidating hooks to a single repository. If the consolidated hoo
 3. [Create the pre-receive hook](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
 
 ## Testing pre-receive scripts locally
-You can test a pre-receive hook script locally before you create or update it on {% data variables.product.product_location %}. One method is to create a local Docker environment to act as a remote repository that can execute the pre-receive hook.
+You can test a pre-receive hook script locally before you create or update it on {% data variables.location.product_location %}. One method is to create a local Docker environment to act as a remote repository that can execute the pre-receive hook.
 
 {% data reusables.linux.ensure-docker %}
 

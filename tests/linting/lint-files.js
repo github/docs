@@ -36,8 +36,14 @@ const glossariesDir = path.join(rootDir, 'data/glossaries')
 const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes/enterprise-server')
 const ghaeReleaseNotesDir = path.join(rootDir, 'data/release-notes/github-ae')
 const learningTracks = path.join(rootDir, 'data/learning-tracks')
+const fbvDir = path.join(rootDir, 'data/features')
 
 const languageCodes = Object.keys(languages)
+
+// This is a string that contributors can use in markdown and yaml files as a placeholder.
+// If any placeholders slip through, this test will flag them.
+const placeholder = 'TODOCS'
+const placeholderRegex = new RegExp(`\\b${placeholder}\\b`, 'g')
 
 // WARNING: Complicated RegExp below!
 //
@@ -253,7 +259,10 @@ if (!process.env.TEST_TRANSLATION) {
   const glossariesYamlRelPaths = glossariesYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
   const glossariesYamlTuples = zip(glossariesYamlRelPaths, glossariesYamlAbsPaths)
 
-  ymlToLint = [...variableYamlTuples, ...glossariesYamlTuples]
+  // data/features (feature-based versioning)
+  const FbvYamlAbsPaths = walk(fbvDir, yamlWalkOptions).sort()
+  const FbvYamlRelPaths = FbvYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
+  const fbvTuples = zip(FbvYamlRelPaths, FbvYamlAbsPaths)
 
   // GHES release notes
   const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
@@ -275,6 +284,16 @@ if (!process.env.TEST_TRANSLATION) {
     slash(path.relative(rootDir, p))
   )
   learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
+
+  // Put all the yaml files together
+  ymlToLint = [].concat(
+    variableYamlTuples, // These "tuples" not tested independently; they are only tested as part of ymlToLint.
+    glossariesYamlTuples,
+    fbvTuples,
+    ghesReleaseNotesToLint,
+    ghaeReleaseNotesToLint,
+    learningTracksToLint
+  )
 } else {
   // Remove this `else` when removing translations directory B504EDD0
   // get all translated markdown or yaml files by comparing files changed to main branch
@@ -411,13 +430,15 @@ describe('lint markdown content', () => {
       isSitePolicy,
       isSearch,
       hasExperimentalAlternative,
-      frontmatterData
+      frontmatterData,
+      rawContent
 
     beforeAll(async () => {
       const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
       const { data, content: bodyContent } = frontmatter(fileContents)
 
       content = bodyContent
+      rawContent = fileContents
       frontmatterData = data
       ast = fromMarkdown(content)
       isHidden = data.hidden === true
@@ -458,6 +479,14 @@ describe('lint markdown content', () => {
       )
         .flat()
         .map((schedule) => schedule.cron)
+    })
+
+    test('placeholder string is not present in any markdown files', async () => {
+      const matches = rawContent.match(placeholderRegex) || []
+      const errorMessage = `
+        Found ${matches.length} placeholder string '${placeholder}' in this file! Please update all placeholders.
+      `
+      expect(matches.length, errorMessage).toBe(0)
     })
 
     test('hidden docs must be Early Access, Site Policy, Search, or Experimental', async () => {
@@ -636,14 +665,14 @@ describe('lint markdown content', () => {
 describe('lint yaml content', () => {
   if (ymlToLint.length < 1) return
   describe.each(ymlToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-    let dictionary, isEarlyAccess
+    let dictionary, isEarlyAccess, fileContents
     // This variable is used to determine if the file was parsed successfully.
     // When `yaml.load()` fails to parse the file, it is overwritten with the error message.
     // `false` is intentionally chosen since `null` and `undefined` are valid return values.
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
+      fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -655,6 +684,14 @@ describe('lint yaml content', () => {
 
     test('it can be parsed as a single yaml document', () => {
       expect(dictionaryError).toBe(false)
+    })
+
+    test('placeholder string is not present in any yaml files', () => {
+      const matches = fileContents.match(placeholderRegex) || []
+      const errorMessage = `
+        Found ${matches.length} placeholder string '${placeholder}'! Please update all placeholders.
+      `
+      expect(matches.length, errorMessage).toBe(0)
     })
 
     test('relative URLs must start with "/"', async () => {
