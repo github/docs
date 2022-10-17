@@ -1,5 +1,5 @@
 ---
-title: GitHub Impersonation
+title: GitHub でのなりすまし
 shortTitle: Impersonation
 versions:
   fpt: '*'
@@ -9,15 +9,20 @@ topics:
 redirect_from:
   - /github/site-policy/github-impersonation
   - /github/site-policy/github-community-guidelines#impersonation
+ms.openlocfilehash: ffcac80a077693728b475150093c298420d9ba6f
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556537'
 ---
+お客様は、自身の身元、または他の人や組織と自身の関係について虚偽の表示をすることはできません。 これには、他の人を誤解させたりだましたりするような以下の行為が含まれます。
 
-You may not misrepresent your identity or your association with another person or organization. This includes doing any of the following in a way that misleads or deceives others:
+- 他のユーザーのアバターまたは他人のプロファイル情報をコピーすること
+- 他のユーザーの電子メール アドレスを使用してコンテンツを投稿すること
+- 似たような紛らわしいユーザー名、組織名、またはその他の名前空間を使用すること
+- その他の方法で他人または他の組織の振りをすること
 
-- Copying another user's avatar or other personal profile information
-- Posting content under another user's email address
-- Using a deceptively similar username, organization name, or other namespace
-- Otherwise posing as another individual or organization
+なりすましは一種の嫌がらせであり、本ポリシーの違反となるため、アカウントにアクセスできなくなる場合があります。
 
-Impersonation is a form of harassment and violation of this policy may lead to loss of access to your account.
-
-Please note, having a username similar to another is not necessarily impersonation. GitHub will take context into account. For example, as in cases involving claims of [misinformation or disinformation](/github/site-policy/github-misinformation-and-disinformation), we generally allow parody and satire that is in line with our [Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
+他のユーザー名に似たユーザー名が、必ずしもなりすましとは限りません。 GitHub は状況を考慮します。 たとえば、[誤報または偽情報](/github/site-policy/github-misinformation-and-disinformation)の申し立てに関する場合と同様に、一般に[利用規約](/github/site-policy/github-acceptable-use-policies)に従うパロディおよび風刺は容認されます。

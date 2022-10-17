@@ -12,7 +12,7 @@ topics:
   - Codespaces
 ---
 
-{% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.
+{% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_github_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.
 
 ## Creating your codespace
 
@@ -35,7 +35,7 @@ When you create a codespace, a [shallow clone](https://github.blog/2020-12-21-ge
 
 ### Step 2: Container is created
 
-{% data variables.product.prodname_codespaces %} uses a container as the development environment. This container is created based on the configurations that you can define in a `devcontainer.json` file and/or Dockerfile in your repository. If you don't [configure a container](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project), {% data variables.product.prodname_codespaces %} uses a [default image](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#using-the-default-configuration), which has many languages and runtimes available. For information on what the default image contains, see the [`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) repository.
+{% data variables.product.prodname_github_codespaces %} uses a container as the development environment. This container is created based on the configurations that you can define in a `devcontainer.json` file and/or Dockerfile in your repository. If you don't [configure a container](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project), {% data variables.product.prodname_github_codespaces %} uses a [default image](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#using-the-default-configuration), which has many languages and runtimes available. For information on what the default image contains, see the [`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) repository.
 
 {% note %}
 
@@ -73,7 +73,7 @@ As you develop in your codespace, it will save any changes to your files every f
 
 ### Closing or stopping your codespace
 
-To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes. 
+To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes. 
 
 When you close or stop your codespace, all uncommitted changes are preserved until you connect to the codespace again.
 
@@ -86,7 +86,7 @@ Port forwarding determines which ports are made accessible to you from the remot
 
 ![Diagram showing how port forwarding works in a codespace](/assets/images/help/codespaces/port-forwarding.png)
 
-When an application running inside {% data variables.product.prodname_codespaces %} outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal or in the toast message to open the port in a browser. By default, {% data variables.product.prodname_codespaces %} forwards the port using HTTP. For more information on port forwarding, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+When an application running inside {% data variables.product.prodname_github_codespaces %} outputs a port to the console, {% data variables.product.prodname_github_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal or in the toast message to open the port in a browser. By default, {% data variables.product.prodname_github_codespaces %} forwards the port using HTTP. For more information on port forwarding, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
 While ports can be forwarded automatically, they are not publicly accessible to the internet. By default, all ports are private, but you can manually make a port available to your organization or public, and then share access through a URL. For more information, see "[Sharing a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)."
 
@@ -98,7 +98,9 @@ Git is available by default in your codespace and so you can rely on your existi
 
 ![Running git status in Codespaces Terminal](/assets/images/help/codespaces/git-status.png)
 
-You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_github_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. You can create more than one codespace per repository or even per branch. However, each personal account has a limit of 10 codespaces. If you've reached the limit and want to create a new codespace, you must delete a codespace first.
+You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_github_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. 
+
+You can create more than one codespace per repository or even per branch. However, there are limits to the number of codespaces you can create, and the number of codespaces you can run at the same time. If you reach the maximum number of codespaces and try to create another, a message is displayed telling you that you must remove an existing codespace before you can create a new one.
 
 {% note %}
 
@@ -108,13 +110,13 @@ You can create a codespace from any branch, commit, or pull request in your proj
 
 ## Personalizing your codespace with extensions
 
-Using {% data variables.product.prodname_vscode_shortname %} in your codespace gives you access to the {% data variables.product.prodname_vscode_marketplace %} so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} docs. 
+Using {% data variables.product.prodname_vscode_shortname %} in your codespace gives you access to the {% data variables.product.prodname_vscode_marketplace %} so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_github_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} documentation. 
 
-If you already use {% data variables.product.prodname_vscode_shortname %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any {% data variables.product.prodname_codespaces %} you create.
+If you already use {% data variables.product.prodname_vscode_shortname %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any codespaces you create.
 
 ## Further reading
 
-- [Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
-- [Setting up your project for Codespaces](/codespaces/setting-up-your-project-for-codespaces)
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
+- "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+- "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)"
+- "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"

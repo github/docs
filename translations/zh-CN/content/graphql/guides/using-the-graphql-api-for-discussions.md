@@ -3,20 +3,25 @@ title: 使用 GraphQL API for Discussions
 intro: '了解如何使用 {% data variables.product.prodname_discussions %} GraphQL API。'
 versions:
   feature: discussions
-shortTitle: 使用 GraphQL 进行讨论
+shortTitle: Use GraphQL for Discussions
+ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408841'
 ---
+{% data variables.product.prodname_discussions %} GraphQL API 允许您获取、创建、编辑和删除讨论帖子。 有关 {% data variables.product.prodname_discussions %} 的详细信息，请参阅“[‎关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
-{% data variables.product.prodname_discussions %} GraphQL API 允许您获取、创建、编辑和删除讨论帖子。 有关 {% data variables.product.prodname_discussions %} 的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
-
-此 API 适用于经过验证的用户、OAuth 应用程序和 GitHub 应用程序。 访问令牌需要 `repo` 作用域（对于私有仓库）和 `public_repo` 作用域（对于公共仓库）。 更多信息请参阅“[OAuth 应用程序的作用域](/developers/apps/scopes-for-oauth-apps)”。
+此 API 适用于经过验证的用户、OAuth 应用程序和 GitHub 应用程序。 对于专用存储库，访问令牌需要 `repo` 范围，对于公共存储库，则需要 `public_repo` 范围。 有关详细信息，请参阅“[OAuth 应用的范围](/developers/apps/scopes-for-oauth-apps)”。
 
 ## 字段
 
 ### Repository.discussions
 
-列出仓库中的讨论。 如果指定了 `categoryId` ，则仅返回该类别中的结果。
+列出仓库中的讨论。 如果指定了 `categoryId`，则仅返回该类别中的结果。
 
-_Signature:_
+_签名：_
 
 ```graphql
 discussions(
@@ -67,9 +72,9 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-返回此仓库中定义的可用讨论类别。 每个仓库最多可以有 10 个类别。 有关讨论类别的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
+返回此仓库中定义的可用讨论类别。 每个仓库最多可以有 10 个类别。 有关讨论类别的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
 
-_Signature:_
+_签名：_
 
 ```graphql
 discussionCategories(
@@ -84,7 +89,7 @@ discussionCategories(
 
 获取讨论. 如果使用指定 ID 的讨论不存在则返回 `null`。
 
-_Signature:_
+_签名：_
 
 ```graphql
 discussion(number: Int!) : Discussion
@@ -94,7 +99,7 @@ discussion(number: Int!) : Discussion
 
 返回固定到此仓库的讨论，按固定位置排序。
 
-_Signature:_
+_签名：_
 
 ```graphql
 pinnedDiscussions(
@@ -107,7 +112,7 @@ pinnedDiscussions(
 
 ## 对象
 
-**注意：**为简洁起见，连接类型不会在此扩展。 架构中提到的每个连接类型都遵循与 GraphQL API 中其他连接相同的模式。 更多信息请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#connection)”。
+注意：为简洁起见，此处不会扩展连接类型。 架构中提到的每个连接类型都遵循与 GraphQL API 中其他连接相同的模式。 有关详细信息，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#connection)”。
 
 ```graphql
 query {
@@ -142,10 +147,10 @@ query {
 }
 ```
 
-### 讨论
+### 讨论 (Discussion)
 
 <details>
-<summary>字段:</summary>
+<summary>字段：</summary>
 
 ```graphql
 """
@@ -705,7 +710,7 @@ type DiscussionCategory implements Node & RepositoryNode {
 ### PinnedDiscussion
 
 <details>
-<summary>字段:</summary>
+<summary>字段：</summary>
 
 ```graphql
 """
@@ -849,7 +854,7 @@ enum PinnedDiscussionGradient {
 
 ### RepositoryDiscussionAuthor
 
-由`用户`和`组织`类型实施。 **注意：** `组织`仅有在转换自`用户`时才会关联讨论。
+由 `User` 和 `Organization` 类型实现。 注意：只有从 `User` 转换来的 `Organization` 才会有与之关联的讨论。
 
 <details>
 <summary>字段</summary>
@@ -869,8 +874,8 @@ interface RepositoryDiscussionAuthor {
     after: String
 
     """
-    Filter discussions to only those that have been answered or not. 默认
-    包括已回答和未回答的讨论。
+    Filter discussions to only those that have been answered or not. Defaults to
+    including both answered and unanswered discussions.
     """
     answered: Boolean = null
 
@@ -906,7 +911,7 @@ interface RepositoryDiscussionAuthor {
 
 ### RepositoryDiscussionCommentAuthor
 
-还由`用户`和`组织`类型实施。
+还由 `User` 和 `Organization` 类型实现。
 
 <details>
 <summary>字段</summary>
@@ -957,9 +962,9 @@ interface RepositoryDiscussionCommentAuthor {
 
 ## 突变
 
-这些突变遵循与 GraphQL API 中其他突变相同的实现模式。 每个突变接受一个`输入`类型的参数，以突变命名，并返回包含指定字段的`有效载荷`类型。
+这些突变遵循与 GraphQL API 中其他突变相同的实现模式。 每个突变都接受以突变命名的 `Input` 类型的单个参数，并返回包含指定字段的 `Payload` 类型。
 
-例如，这是一个基本的 `createDiscussion` 突变，将会创建一个新的讨论：
+例如，这是一个基本 `createDiscussion` 突变，将会创建一个新的讨论：
 
 ```graphql
 mutation {
@@ -980,14 +985,14 @@ mutation {
 
 * `body: String!` 新讨论的正文。
 * `title: String!` 新讨论的标题。
-* `repositoryId: ID!` 在其中创建讨论的仓库的 ID。
-* `categoryId: ID!` 此仓库中 `DiscussionCategory` 的 ID。
-* `clientMutationId: String` 执行突破的客户端的唯一标识符。
+* `repositoryId: ID!` 在其中创建讨论的存储库的 ID。
+* `categoryId: ID!` 此存储库中的 `DiscussionCategory` 的 ID。
+* `clientMutationId: String` 进行突变的客户端的唯一标识符。
 
 返回类型字段：
 
 * `clientMutationId: String` 作为输入提供的唯一标识符。
-* `discussion: Discussion` 创建的讨论。
+* `discussion: Discussion` 已创建的讨论。
 
 ### updateDiscussion
 
@@ -995,89 +1000,89 @@ mutation {
 
 * `discussionId: ID!` 要更新的讨论的节点 ID。
 * `body: String` 讨论正文的新内容。
-* `title: String` 新讨论标题。
-* `categoryId: ID` 同一仓库中此讨论切换到的 `DiscussionCategory` 的节点 ID。
-* `clientMutationId: String` 执行突破的客户端的唯一标识符。
+* `title: String` 新的讨论标题。
+* `categoryId: ID` 要此讨论将更改为的同一存储库中的 `DiscussionCategory` 的节点 ID。
+* `clientMutationId: String` 进行突变的客户端的唯一标识符。
 
 返回类型字段：
 
 * `clientMutationId: String` 作为输入提供的唯一标识符。
-* `discussion: Discussion` 修改的讨论。
+* `discussion: Discussion` 已修改的讨论。
 
 ### deleteDiscussion
 输入字段:
 
 * `id: ID!` 要删除的讨论的节点 ID。
-* `clientMutationId: String` 执行突破的客户端的唯一标识符。
+* `clientMutationId: String` 进行突变的客户端的唯一标识符。
 
 返回类型字段：
 
 * `clientMutationId: String` 作为输入提供的唯一标识符。
-* `discussion: Discussion` 删除的讨论。
+* `discussion: Discussion` 已删除的讨论。
 
 ### addDiscussionComment
 
 输入字段:
 
-* `body: String!` 评论的内容。
-* `discussionId: ID!` 要评论的讨论的节点 ID。
-* `replyToId: ID` 要回复的讨论评论的节点 ID。 如果不存在，创建的评论将是顶层评论。
-* `clientMutationId: String` 执行突破的客户端的唯一标识符。
+* `body: String!` 注释的内容。
+* `discussionId: ID!` 要注释的讨论的节点 ID。
+* `replyToId: ID` 要答复的讨论注释的节点 ID。 如果不存在，创建的评论将是顶层评论。
+* `clientMutationId: String` 进行突变的客户端的唯一标识符。
 
 返回类型字段：
 
 * `clientMutationId: String` 作为输入提供的唯一标识符。
-* `comment: DiscussionComment` 创建的讨论评论。
+* `comment: DiscussionComment` 已创建的讨论注释。
 
 ### updateDiscussionComment
 
 输入字段:
 
-* `body: String!` 评论正文的新内容。
-* `commentId: ID!` 要更新的评论评论的节点 ID。
-* `clientMutationId: String` 执行突破的客户端的唯一标识符。
+* `body: String!` 注释正文的新内容。
+* `commentId: ID!` 要更新的讨论注释的节点 ID。
+* `clientMutationId: String` 进行突变的客户端的唯一标识符。
 
 返回类型字段：
 
 * `clientMutationId: String` 作为输入提供的唯一标识符。
-* `comment: DiscussionComment` 更新的讨论评论。
+* `comment: DiscussionComment` 已更新的讨论注释。
 
 ### deleteDiscussionComment
 
 输入字段:
 
-* `id: ID!` 要删除的讨论评论的节点 ID。
-* `clientMutationId: String` 执行突破的客户端的唯一标识符。
+* `id: ID!` 要删除的讨论注释的节点 ID。
+* `clientMutationId: String` 进行突变的客户端的唯一标识符。
 
 返回类型字段：
 
 * `clientMutationId: String` 作为输入提供的唯一标识符。
-* `comment: DiscussionComment` 删除的讨论评论。
+* `comment: DiscussionComment` 已删除的讨论注释。
 
 ### markDiscussionCommentAsAnswer
 
 输入字段:
 
-* `id: ID!` 要标记为答案的讨论评论的节点 ID。
-* `clientMutationId: String` 执行突破的客户端的唯一标识符。
+* `id: ID!` 要标记为答案的讨论注释的节点 ID。
+* `clientMutationId: String` 进行突变的客户端的唯一标识符。
 
 返回类型字段：
 
 * `clientMutationId: String` 作为输入提供的唯一标识符。
-* `discussion: Discussion` 包括所选评论的讨论。
+* `discussion: Discussion` 包含所选注释的讨论。
 
 ### unmarkDiscussionCommentAsAnswer
 
 输入字段:
 
-* `id: ID!` 要取消标记为答案的讨论评论的节点 ID。
-* `clientMutationId: String` 执行突破的客户端的唯一标识符。
+* `id: ID!` 要取消标记为答案的讨论注释的节点 ID。
+* `clientMutationId: String` 进行突变的客户端的唯一标识符。
 
 返回类型字段：
 
 * `clientMutationId: String` 作为输入提供的唯一标识符。
-* `discussion: Discussion` 包括未标记注释的讨论。
+* `discussion: Discussion` 包含未标记注释的讨论。
 
 ## 搜索
 
-讨论可从顶层`搜索`字段返回。 要搜索讨论，请将`类型`指定为 `DISCUSSION`。 `SearchResultItemConnect` 类型有一个 `discussionCount` 字段来报告返回的讨论数。`讨论`类型已添加到 `SearchResultItem` 并集。 更多信息请参阅“[查询](/graphql/reference/queries#searchresultitemconnection)”和“[搜索讨论](/search-github/searching-on-github/searching-discussions)”。
+可以从顶层 `search` 字段返回讨论。 若要搜索讨论，请指定 `type` 为 `DISCUSSION`。 `SearchResultItemConnection` 类型有一个 `discussionCount` 字段来报告返回的讨论数，并且 `Discussion` 类型已添加到 `SearchResultItem` 并集。 有关详细信息，请参阅“[查询](/graphql/reference/queries#searchresultitemconnection)”和“[搜索讨论](/search-github/searching-on-github/searching-discussions)”。

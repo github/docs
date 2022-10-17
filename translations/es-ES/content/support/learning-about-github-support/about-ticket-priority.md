@@ -1,15 +1,20 @@
 ---
 title: Acerca de la prioridad de los tickets
 intro: Puedes comunicar la severidad de tu problema y la forma en la que está afectándote a ti y a tu equipo si configuras la prioridad de tu ticket de soporte.
-shortTitle: Prioridad de los Tickets
+shortTitle: Ticket priority
 versions:
   ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
   - Support
+ms.openlocfilehash: bce2a30ad25b93274e982991f81be5b1b796c685
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145140098'
 ---
-
 Cuando contactas al {% data variables.contact.enterprise_support %}, puedes elegir una de {% ifversion ghes or ghae %}cuatro{% else %}tres{% endif %} prioridades para el ticket: {% ifversion ghes or ghae %}{% data variables.product.support_ticket_priority_urgent %},{% endif %} {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} o {% data variables.product.support_ticket_priority_low %}.
 
 {% ifversion ghes or ghae %}
@@ -24,15 +29,13 @@ Cuando contactas al {% data variables.contact.enterprise_support %}, puedes eleg
 
 ## Prioridad de los tickets para la {% data variables.product.prodname_advanced_security %}
 
-|                           Prioridad                           | Descripción                                                                                                                                                                                                                                                       |
-|:-------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  {% data variables.product.support_ticket_priority_high %}  | {% data variables.product.prodname_advanced_security %} no funciona o se detiene o se ve gravemente afectado de tal manera que el usuario final no puede seguir utilizando el software razonablemente y no hay solución disponible para solucionar el problema. |
-| {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} está funcionando de forma inconsistente, lo que provoca un deterioro de la productividad y el uso del usuario final.                                                                                    |
-|  {% data variables.product.support_ticket_priority_low %}   | {% data variables.product.prodname_advanced_security %} funciona consistentemente, pero el usuario final solicita cambios menores en el software, tales como actualizaciones de documentación, defectos cosméticos o mejoras.                                   |
+| Prioridad | Descripción |
+| :---: | --- |
+| {% data variables.product.support_ticket_priority_high %} | {% data variables.product.prodname_advanced_security %} no funciona o se detiene o se ve gravemente afectado de tal manera que el usuario final no puede seguir utilizando el software razonablemente y no hay solución disponible para solucionar el problema. |
+| {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} está funcionando de forma inconsistente, lo que provoca un deterioro de la productividad y el uso del usuario final. |
+| {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} funciona consistentemente, pero el usuario final solicita cambios menores en el software, tales como actualizaciones de documentación, defectos cosméticos o mejoras.|
 
-{% elsif ghae %}
-{% data reusables.support.ghae-priorities %}
-{% endif %}
+{% elsif ghae %} {% data reusables.support.ghae-priorities %} {% endif %}
 
 {% elsif ghec %}
 
@@ -49,7 +52,7 @@ Preguntas que califican para recibir respuestas prioritarias:
 - Incluyen preguntas acerca de organizaciones que actualmente usan {% data variables.product.prodname_ghe_cloud %}
 
 Para calificar para una respuesta prioritaria, debes hacer lo siguiente:
-- Enviar tu pregunta a [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) desde una dirección de correo verificada que esté asociada con la organización que actualmente usa {% data variables.product.prodname_ghe_cloud %}
+- Enviar la pregunta a [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) desde una dirección de correo electrónico verificada asociada a una organización que actualmente use {% data variables.product.prodname_ghe_cloud %}
 - Enviar un ticket de asistencia nuevo para cada situación prioritaria particular
 - Enviar tu pregunta de lunes a viernes en tu zona horaria local
 - Comprender que la respuesta a una pregunta prioritaria será recibida por correo electrónico
@@ -57,7 +60,7 @@ Para calificar para una respuesta prioritaria, debes hacer lo siguiente:
 
 {% note %}
 
-**Nota:** Las preguntas no califican para una respuesta prioritaria si se emiten en un día feriado local de tu jurisdicción.
+**Nota:** Las preguntas no recibirán respuestas prioritarias si se envían durante un festivo local en su jurisdicción.
 
 {% endnote %}
 
@@ -68,12 +71,12 @@ El tiempo de respuesta objetivo de ocho horas:
 
 {% note %}
 
-**Nota:** {% data variables.contact.github_support %} no garantiza una resolución para tu pregunta prioritaria. {% data variables.contact.github_support %} puede escalar problemas al estado de pregunta prioritaria o bajarlos en función de nuestra evaluación razonable de la información que nos proporcionas.
+**Nota:** {% data variables.contact.github_support %}no garantiza una resolución para la pregunta prioritaria. {% data variables.contact.github_support %} puede escalar problemas al estado de pregunta prioritaria o bajarlos en función de nuestra evaluación razonable de la información que nos proporcionas.
 
 {% endnote %}
 
 {% endif %}
 
-## Leer más
+## Información adicional
 
-- "[Crear un ticket de soporte](/support/contacting-github-support/creating-a-support-ticket)"
+- "[Creación de una incidencia de soporte técnico](/support/contacting-github-support/creating-a-support-ticket)"

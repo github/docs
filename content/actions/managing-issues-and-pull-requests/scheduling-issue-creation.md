@@ -1,5 +1,6 @@
 ---
 title: Scheduling issue creation
+shortTitle: Schedule issue creation
 intro: 'You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.'
 redirect_from:
   - /actions/guides/scheduling-issue-creation

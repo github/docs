@@ -1,6 +1,6 @@
-#Issue 7299
-#Push protection custom links
-#See "push-protection-custom-link-orgs-beta" for the beta flags
+# Issue 7299
+# Push protection custom links
+# See "push-protection-custom-link-orgs-beta" for the beta flags
 versions:
   fpt: '*'
   ghec: '*'

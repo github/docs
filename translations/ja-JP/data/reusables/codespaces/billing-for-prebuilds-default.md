@@ -1,3 +1,0 @@
-デフォルトでは、{% data variables.product.prodname_actions %}ワークフローは事前ビルドを作成あるいは更新するたび、あるいは事前ビルドが有効化されたブランチにプッシュするたびにトリガーされます。 他のワークフローと同じように、事前ビルドされたワークフローはアカウントに含まれるActionsの分があればその一部を消費し、そうでない場合はActionsの分に対する課金を生じさせます。 Actionsの分の価格に関する詳しい情報については「[{% data variables.product.prodname_actions %}の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
-
-{% data variables.product.prodname_actions %}の分と合わせて、指定されたリポジトリとリージョンについて、それぞれの事前ビルドの設定と関連づけられた事前ビルドのストレージに対しても課金されます。 事前ビルドのストレージは、Codespacesのストレージと同じレートで課金されます。

@@ -1,6 +1,6 @@
 ---
 title: Managing workflow runs
-shortTitle: Managing workflow runs
+shortTitle: Manage workflow runs
 intro: 'You can re-run or cancel a workflow, {% ifversion fpt or ghes or ghae %}review deployments, {% endif %}view billable job execution minutes, and download artifacts.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run

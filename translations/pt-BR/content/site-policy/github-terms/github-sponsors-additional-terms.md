@@ -8,197 +8,202 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 46f8df3877563406dc3f9094a8d9a33466132cd0
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556438'
 ---
-
-Sua participação no Programa GitHub Sponsors (o "Programa") está sujeita aos [Termos de Serviço do GitHub](/github/site-policy/github-terms-of-service) (o "Contrato"), assim como aos seguintes termos adicionais ("Termos Adicionais"). Qualquer uso do Programa GitHub Sponsors que viole o Acordo também será uma violação destes Termos Adicionais. Quaisquer termos que iniciem em letra maiúscula, mas que não estejam definidos abaixo, têm os significados no Contrato. Esses Termos Adicionais para o Programa GitHub Sponsors descrevem a relação entre o GitHub e você, "Desenvolvedor Patrocinado", no Programa. Os Termos Adicionais têm efeito a partir da data que você os aceita ("Início da Vigência").
+Sua participação no Programa GitHub Sponsors (o “Programa”) está sujeita aos [Termos de Serviço do GitHub](/github/site-policy/github-terms-of-service) (o “Contrato”), bem como aos seguintes termos adicionais (“Termos Adicionais”). Qualquer uso do Programa GitHub Sponsors que viole o Contrato também será uma violação destes Termos Adicionais. Os termos em letras maiúsculas usados, mas não definidos abaixo, possuem os mesmos significados que constam no Contrato. Estes Termos Adicionais para o Programa GitHub Sponsors descrevem a relação entre o GitHub e você, o “Desenvolvedor Patrocinado”, para o Programa. Os Termos Adicionais entram em vigor na data em que você os aceita (“Data de Início de Vigência”).
 
 ## 1. Definições.
 
-"**Políticas do GitHub**" são todas as políticas e procedimentos vigentes do GitHub que o Desenvolvedor Patrocinado deve seguir, como observado no Programa, inclusive as [Diretrizes da Comunidade GitHub](/github/site-policy/github-community-guidelines).
+“**Políticas do GitHub**” são todas as políticas e procedimentos vigentes do GitHub que o Desenvolvedor Patrocinado deve seguir conforme indicado no Programa, incluindo as [Diretrizes da Comunidade do GitHub](/github/site-policy/github-community-guidelines).
 
-"**Patrocinador**" é o Usuário que comprou uma Assinatura ou pagou um Patrocínio para você por intermédio da sua Conta de Desenvolvedor Patrocinado.
+“**Patrocinador**” significa o Usuário que comprou uma Assinatura ou pagou um Patrocínio a você por meio de sua Conta do Desenvolvedor Patrocinado.
 
-"**Conta de Desenvolvedor Patrocinado**" é a conta que você estabelece por meio do Programa para receber pagamentos de Patrocinadores.
+“**Conta do Desenvolvedor Patrocinado**” significa a conta que você estabelece por meio do Programa para receber o pagamento dos Patrocinadores.
 
-"**Conteúdo de Desenvolvedor Patrocinado**" significa todo o conteúdo que você envia ao GitHub relacionado ao Programa, inclusive Conteúdo Gerado pelo Usuário e Seu Conteúdo; suas marcas comerciais, marcas registradas, marcas de serviço, nomes comerciais, logotipos ou elementos identificadores ("**Marcas do Desenvolvedor Patrocinado**"); e dados associados à sua Conta de Desenvolvedor Patrocinado.
+“**Conteúdo do Desenvolvedor Patrocinado**” significa todo o conteúdo que você envia ao GitHub em conexão com o Programa, incluindo Conteúdo Gerado pelo Usuário e Seu Conteúdo; seus nomes de marca, marcas, marcas de serviço, nomes comerciais, logotipos ou indícios de origem (“**Marcas do Desenvolvedor Patrocinado**”) e dados associados à sua Conta do Desenvolvedor Patrocinado.
 
-"**Patrocínio**" significa um pagamento feito a você pelo Programa e Serviço.
+“**Patrocínio**” significa um pagamento pago a você por meio do Programa e do Serviço.
 
-"**Assinatura**" significa um patrocínio recorrente ou único em troca de bens, serviços ou outras ofertas que você fornece para os Sponsors.
+“**Assinatura**” significa um Patrocínio recorrente ou único em troca de bens, serviços ou outras ofertas que você fornece aos Patrocinadores.
 
-"**Pagamento de Desenvolvedor Patrocinado**" significa cem por cento (100%) líquido dos pagamentos mensais brutos do GitHub recebidos de Patrocinadores e Assinaturas para Contas de Desenvolvedor Patrocinado, mais qualquer mecanismo de Contrapartida Financeira aplicável e outros que provenham de opções de monetização que o Desenvolvedor Patrocinado escolheu usar, conforme aplicável, menos descontos, impostos, taxas, valores que o GitHub não coletou ou que foram reembolsados ou debitados valores devidos a qualquer terceiro em conexão com o Programa no que diz respeito a uma Conta de Desenvolvedor Patrocinado, e outras Exclusões descritas na Seção 4.
+“**Pagamento do Desenvolvedor Patrocinado**” significa o valor líquido de 100% (cem por cento) dos pagamentos mensais brutos do GitHub recebidos de Patrocínios e Assinaturas para Contas de Desenvolvedor Patrocinado, mais quaisquer Fundos Correspondentes aplicáveis e outros rendimentos de opções de monetização que o Desenvolvedor Patrocinado opte por usar, conforme aplicável, menos quaisquer descontos, impostos, taxas, valores que o GitHub não coletou ou que foram reembolsados ou estornados, valores devidos a terceiros em conexão com o Programa em relação a uma Conta do Desenvolvedor Patrocinado e outras Exclusões conforme descrito na Seção 4.
 
-"**USD**" significa dólares americanos.
+“**USD**” significa dólares americanos.
 
 ## 2. Uso Aceitável.
 
 ### 2.1. Programa de Patrocinadores do GitHub
 
-Para participar do Programa, você deve cumprir as leis de idade mínima do seu país (por exemplo, você deve ter pelo menos 13 anos de idade se você vive nos Estados Unidos), ter uma conta no GitHub válida e concordar com a [ seção de Uso Aceitável](/github/site-policy/github-terms-of-service#c-acceptable-use) no Contrato e Políticas do GitHub aplicáveis, e estes Termos Adicionais do GitHub Sponsors.
+Para participar do Programa, você deve cumprir as leis de idade mínima do seu país (por exemplo, deve ter pelo menos 13 anos de idade se morar nos Estados Unidos), ter uma conta do GitHub válida e concordar com a [seção Uso Aceitável](/github/site-policy/github-terms-of-service#c-acceptable-use) do Contrato e das Políticas do GitHub aplicáveis, e destes Termos Adicionais do GitHub Sponsors.
 
-Se você tem mais de 13 anos, mas tem menos de 18 anos, você pode dar e receber fundos do Patrocinador, desde que o Stripe, nosso processador de pagamentos, possa coletar informações de verificação de seu responsável legal.
+Se você tiver mais de 13 anos, mas menos de 18 anos, poderá dar e receber fundos do Patrocinador, desde que o Stripe, nosso processador de pagamentos, possa coletar informações de verificação de seu responsável legal.
 
-Você, sob nenhuma circunstância, permitirá pagamentos ou arrecadará fundos que envolvam:
+Você não permitirá, sob nenhuma circunstância, pagamentos nem arrecadará fundos envolvendo:
 
-* fraudes, extorsões, violações de propriedade intelectual ou outros propósitos ilícitos;
+* fraude, resgate, violações de propriedade intelectual ou outros fins ilegais;
 
-* declaração falsa ou embuste relacionados aos motivos pelos quais você está arrecadando fundos ou solicitando patrocínio;
+* declaração falsa ou engano relacionado aos motivos pelos quais você está levantando fundos ou solicitando patrocínio;
 
-* a compra ou venda de ICOs, tokens de utilidade ou outros tipos de criptomoedas;
+* a compra ou venda de ICOs, tokens de utilidade ou outros tipos de criptomoeda;
 
-* a compra ou venda de seguros, títulos ou outros tipos de ofertas de investimentos;
+* a compra ou venda de títulos, ações ou outros tipos de ofertas de investimento;
 
-* a venda de informação pessoal ou o processamento de informação pessoal que viole quaisquer leis;
+* a venda de informações pessoais ou o processamento de informações pessoais em violação a quaisquer leis;
 
-* loterias, rifas, jogos de azar, esquemas de pirâmide, esquemas do tipo "enriqueça rápido", esquemas de marketing enganoso, esquemas de "doação para doação" ou quaisquer tentativas de burlar os sistemas ou serviços do GitHub e de terceiros; e,
+* loterias, sorteios, jogos de azar, esquemas de pirâmide, autonegociação, esquemas de “enriquecimento rápido”, esquemas de marketing enganosos, esquemas de “doação por doação” ou quaisquer tentativas de enganar os sistemas ou serviços do GitHub ou de terceiros; e
 
-* atividades com, em ou envolvendo países, regiões, governos, pessoas ou entidades não permitidas pelos EUA e outras sanções econômicas nos termos da lei aplicável. e outras sanções econômicas ao abrigo da lei aplicável.
+* atividades com, em ou envolvendo países, regiões, governos, pessoas ou entidades que não são permitidas pelos EUA e outras sanções econômicas de acordo com a lei aplicável.
 
-### 2.2. Fundo Correspondentes para Patrocinadores do GitHub
-A Contrapartida Financeira para Patrocinadores do GitHub tem como objetivo incentivar a comunidade que participa do ecossistema de Software de Código Aberto (OSS) a contribuir com financiamento sustentável para indivíduos qualificados com Contas de Desenvolvedor Patrocinado. Todos os indivíduos que se candidataram ao Programa antes de 1 de Janeiro de 2020 terão sua qualificação revista para o Fundo Correspondente, mas nem todas as Contas de Desenvolvedor Patrocinado individuais qualificadas receberão correspondência de fundos. As organizações não podem participar do Fundo Correspondente para Patrocinadores GitHub, e o Patrocínio de uma organização para uma Conta de Desenvolvedor Patrocinado qualificada não terá correspondência. Veja abaixo as regras adicionais.
+### 2.2. Fundo Correspondente do GitHub Sponsors
+O Fundo Correspondente do GitHub Sponsors visa incentivar a comunidade que participa do ecossistema de Software Livre (OSS) a contribuir com financiamento sustentável para indivíduos qualificados com Contas do Desenvolvedor Patrocinado. Todos os indivíduos que se inscreveram no Programa antes de 1º de janeiro de 2020 serão analisados quanto à elegibilidade para o Fundo Correspondente, mas nem todas as Contas do Desenvolvedor Patrocinado individuais elegíveis receberão a correspondência. As organizações não podem participar do Fundo Correspondente do GitHub Sponsors, e o Patrocínio de uma organização para uma Conta do Desenvolvedor Patrocinado elegível não será correspondido. Confira abaixo as regras adicionais.
 
 #### 2.2.1. Termos do Fundo Correspondente.
-A qualificação para o Fundo Correspondentes para Patrocinadores do GitHub é avaliada caso a caso e está sujeita às seguintes limitações:
+A elegibilidade para o Fundo Correspondente do GitHub Sponsors é avaliada caso a caso e está sujeita às seguintes limitações:
 
-* Você deve ter uma conta no GitHub, ser aceito no Programa como indivíduo e estar contribuindo ativamente para o OSS. Observe que o GitHub não permite operar mais de uma conta de usuário grátis. Dessa forma, a correspondência está disponível individualmente e não será aprovada para várias contas.
+* Você deve ter uma conta no GitHub, ser aceito no Programa como indivíduo e contribuir ativamente com o OSS. Observe que o GitHub não permite operar mais de uma conta pessoal gratuita. Como tal, a correspondência está disponível individualmente e não será aprovada em várias contas.
 
-* Seu uso do GitHub e de sua Conta de Desenvolvedor Patrocinado deve ser, com base em nossas determinações, a nosso exclusivo critério, de acordo com a missão do GitHub Sponsors de expandir as oportunidades de contribuir para o código aberto que defende as [Diretrizes da Comunidade do GitHub](/github/site-policy/github-community-guidelines).
+* O uso que você faz do GitHub e da Conta do Desenvolvedor Patrocinado deve ser, com base em nossa determinação, a nosso exclusivo critério, de acordo com a missão do GitHub Sponsors de expandir as oportunidades de contribuir para o software livre que mantém as [Diretrizes da Comunidade do GitHub](/github/site-policy/github-community-guidelines).
 
-* Você não pode receber correspondência para qualquer patrocínio que tenha origem em uma conta de usuário ou organização com um perfil publicado do GitHub Sponsors.
+* Você não pode receber correspondência para qualquer patrocínio originado de uma conta de usuário ou organização com um perfil do GitHub Sponsors publicado.
 
-* O GitHub reserva-se o direito de reter o dinheiro ou cancelar o Fundo Correspondente e bloquear qualquer usuário da participação no Fundo Correspondentes para Patrocinadores do GitHub por qualquer motivo, incluindo, mas não se limitando a postar conteúdo ou projetos que o GitHub determina serem ofensivos ou de outra forma censuráveis.
+* O GitHub reserva para si o direito de reter ou rescindir o dinheiro do Fundo Correspondente e bloquear a participação de qualquer usuário no Fundo Correspondente do GitHub Sponsors por qualquer motivo, incluindo, entre outros, a publicação de conteúdo ou projetos que o GitHub determinar serem ofensivos ou censuráveis.
 
-#### 2.2.2. Período de correspondência.
-O período correspondente começa depois que o GitHub aceita uma conta de desenvolvedor patrocinada individual no GitHub Sponsors. Para cada Conta de Desenvolvedor Patrocinado individual qualificada para o Fundo Correspondentes para Patrocinadores do GitHub, o GitHub pode igualar o patrocínio da comunidade até US$ 5.000 no total durante os primeiros 12 meses da Conta de Desenvolvedor Patrocinado no Programa. O período de correspondência não pode ser prorrogado por nenhum motivo. Durante o período de correspondência, o GitHub não cobrará nenhuma taxa, então 100% dos patrocínios irão para o desenvolvedor patrocinado. No futuro, poderemos cobrar uma taxa nominal de processamento.
+#### 2.2.2. Período Correspondente.
+O período correspondente começa depois que o GitHub aceita uma Conta do Desenvolvedor Patrocinado individual no GitHub Sponsors. Para cada Conta do Desenvolvedor Patrocinado elegível para o Fundo Correspondente do GitHub Sponsors, o GitHub pode igualar o patrocínio da comunidade até o total de US$ 5.000,00 durante os primeiros 12 meses da Conta do Desenvolvedor Patrocinado no Programa. O período correspondente não pode ser estendido por qualquer motivo. Durante o período correspondente, o GitHub não cobrará nenhuma taxa, portanto, 100% dos patrocínios serão destinados ao desenvolvedor patrocinado. No futuro, poderemos cobrar uma taxa nominal de processamento.
 
-* Se uma Assinatura de Patrocínio ou Patrocínio forem interrompidos por qualquer motivo, a correspondência associada também se interrompe. Os fundos que são cobrados de volta ao Patrocinador antes da data de pagamento do Desenvolvedor Patrocinado não são qualificados para correspondência.
+* Se um Patrocínio ou Assinatura de Patrocínio for interrompido por qualquer motivo, a correspondência associada também será interrompida. Os fundos que são estornados do Patrocinador antes da data de Pagamento do Desenvolvedor Patrocinado não são elegíveis para correspondência.
 
-* Se você deixar o GitHub Sponsors e voltar mais tarde, a diferença entre seus períodos de participação pode contar para o período de correspondência ou seu período de correspondência pode expirar.
+* Se você sair do GitHub Sponsors e ingressar novamente mais tarde, o intervalo entre os períodos de participação poderá contar para o período correspondente ou o período correspondente poderá expirar.
 
 
-* Se o GitHub descobrir uma potencial violação da política, antes do pagamento de quaisquer fundos correspondentes concedidos durante o período de correspondência, o GitHub pode desativar os pagamentos até que uma investigação seja concluída, e os fundos correspondentes contribuídos em prol do desenvolvedor patrocinado podem ser revogados caso se verifique que estão em violação desta política.
+* Se o GitHub descobrir uma possível violação da política, antes do pagamento de quaisquer fundos correspondentes concedidos durante o período correspondente, o GitHub poderá desativar os pagamentos até que uma investigação seja concluída, e os fundos correspondentes contribuídos para o desenvolvedor patrocinado poderão ser revogados se violarem esta política.
 
 * {% data reusables.sponsors.github-contact-applicants %}
 
 ## 3. Obrigações do Desenvolvedor Patrocinado.
 
-### 3.1. Geral.
-Você deverá: (A) criar uma Conta de Desenvolvedor Patrocinado; (B) disponibilizar Conteúdo de Desenvolvedor Patrocinado por meio do Programa e Serviço; e, (C) cumprir as Políticas do GitHub. Você é o único responsável pelo suporte, desenvolvimento e manutenção de sua Conta de Desenvolvedor Patrocinado e Conteúdo de Desenvolvedor Patrocinado e por quaisquer reclamações sobre eles.
+### 3.1. Disposições gerais.
+Você: (A) criará uma Conta do Desenvolvedor Patrocinado; (B) disponibilizará o Conteúdo do Desenvolvedor Patrocinado por meio do Programa e Serviço; e (C) cumprirá todas as Políticas do GitHub. Você será o único responsável pelo suporte, pelo desenvolvimento e pela manutenção de sua Conta do Desenvolvedor Patrocinado, pelo Conteúdo do Desenvolvedor Patrocinado e quaisquer reclamações sobre eles.
 
-### 3.2. Inscrição.
-Se você escolher candidatar-se ao Programa, a entrada no Programa está contingenciada à finalização do processo de inscrição e ao aceite no Programa pelo GitHub. Complementarmente, você pode ser solicitado a se registrar no(s) fornecedor(es) de serviços de pagamento selecionado(s) pelo GitHub (como o Stripe) para acessar e usar certos recursos do Programa. Você deverá se registrar com sua identidade verdadeira e você concorda em fornecer e manter informações verdadeiras, exatas, atuais e completas sobre você mesmo como solicitado no formulário de inscrição do Programa. Os dados de registro e outras informações sobre você são regulamentadas pela nossa [Declaração de Privacidade](/github/site-policy/github-privacy-statement), assim como por qualquer outra declaração de privacidade fornecida pelo nosso processador de pagamentos. O GitHub reserva-se o direito de recusar o aceite no Programa.
+### 3.2. Registro.
+Se você optar por se inscrever no Programa, a entrada no Programa dependerá da conclusão do processo de registro e da aceitação no Programa pelo GitHub. Além disso, pode ser solicitado que você se registre nos provedores de serviços de pagamento selecionados pelo GitHub (como Stripe) para acessar e usar determinados recursos do Programa. Você deve se registrar com sua identidade verdadeira e concorda em fornecer e manter informações verdadeiras, precisas, atuais e completas sobre você, conforme solicitado pelo formulário de registro do Programa. Os dados de registro e algumas outras informações sobre você são regidos pela [Política de Privacidade](/github/site-policy/github-privacy-statement), bem como qualquer política de privacidade fornecida pelo nosso processador de pagamentos. O GitHub reserva para si o direito de recusar a aceitação no Programa.
 
 ### 3.3. Monetização de Conteúdo.
-Por intermédio do Programa e Serviço, o GitHub pode oferecer a você diversas opções para monetizar seu Conteúdo de Desenvolvedor Patrocinado. Algumas opções podem solicitar que você atualize determinadas configurações em sua Conta de Desenvolvedor Patrocinado. Além disso, as formas pelas quais o Programa dá suporte a cada opção de monetização podem variar. Se você utilizar uma (ou mais) dessas opções ao alterar as configurações aplicáveis, você concorda com os termos que se referem àquela opção. Algumas opções de monetização podem solicitar que você forneça informações adicionais ao GitHub ou fornecedores de serviços dele, ou ainda, para aceitar termos adicionais do GitHub ou termos de terceiros.
+Por meio do Programa e Serviço, o GitHub pode fornecer várias opções para monetizar seu Conteúdo do Desenvolvedor Patrocinado. Algumas opções podem exigir que você atualize determinadas configurações em sua Conta do Desenvolvedor Patrocinado. Além disso, as formas como o Programa oferece suporte a cada opção de monetização podem variar. Se você usar uma (ou mais) dessas opções alterando as configurações aplicáveis, você concorda com os termos que se aplicam a essa opção. Algumas opções de monetização podem exigir que você forneça informações adicionais ao GitHub ou a seus provedores de serviços ou aceite termos adicionais do GitHub ou termos de terceiros.
 
 #### 3.3.1. Assinaturas.
-O Programa fornece a você a capacidade de oferecer Assinaturas. Se você decidir oferecer Assinaturas, o GitHub lhe pagará o Patrocínio de Assinatura como indicado na Seção 4. Você é responsável por estabelecer a natureza, o conteúdo e os recursos que sua Assinatura oferece, sujeitos a estes Termos Adicionais e Políticas do GithHub aplicáveis.
+O Programa oferece a você a capacidade de oferecer Assinaturas. Se você optar por oferecer Assinaturas, o GitHub pagará o Patrocínio da Assinatura conforme previsto na Seção 4. Você é responsável por determinar a natureza, o conteúdo e os recursos de sua oferta de Assinatura, sujeito a estes Termos Adicionais e às Políticas do GitHub aplicáveis.
 
-#### 3.3.2. Outros patrocinadores.
-O Programa ou Serviço pode fornecer a você a possibilidade de aceitar uma doação ou outro tipo de Patrocínio direto de outro Usuário, sem uma oferta de Assinatura. Entretanto, como o GitHub não concretiza esses tipos de Patrocínios, você deve estabelecer uma conta comercial com um fornecedor de serviços de pagamento terceiro (por exemplo, Stripe) e estar sujeito aos termos, condições e políticas de privacidade da conta comercial daquele fornecedor de serviços. Quaisquer valores disponibilizados a você, doações ou outros, serão pagos diretamente na sua conta comercial e não serão incluídos em quaisquer Pagamentos ao Desenvolvedor Patrocinado. Você concorda que não apresentará nenhuma reivindicação ou recurso contra o GitHub relacionado a doações, e quaisquer disputas relacionadas a uma doação serão unicamente entre você e o fornecedor de serviços de pagamento terceiro. Você é responsável pelo cumprimento de quaisquer contratos, políticas, leis ou regulamentos de fornecedores de serviços de pagamento terceiros que possam ser aplicáveis. Para sua comodidade, o GitHub pode optar por fornecer a você informações ou um relatório sobre o valor de doações feitas.
+#### 3.3.2. Outros Patrocínios.
+O Programa ou Serviço pode fornecer a você a capacidade de aceitar uma doação ou outro tipo de Patrocínio direto de outro Usuário sem uma oferta de Assinatura. No entanto, como o GitHub não atende a esses tipos de Patrocínios, você deve estabelecer uma conta de comerciante com um provedor de serviços de pagamento terceirizado (como Stripe) e estar sujeito aos termos, às condições e políticas de privacidade da conta de comerciante desse provedor de serviços. Quaisquer valores contribuídos para você, seja por doação ou de outra forma, serão pagos diretamente em sua conta de comerciante e não serão incluídos em nenhum Pagamento do Desenvolvedor Patrocinado. Você concorda que não fará nenhuma reclamação nem tentará uma tutela contra o GitHub com relação a doações, e quaisquer controvérsias relacionadas a uma doação são exclusivamente entre você e o provedor de serviços de pagamento terceirizado. Você é responsável pela conformidade com os contratos, as políticas e leis ou regulamentos de qualquer provedor de serviços de pagamento terceirizado que possam ser aplicáveis. O GitHub pode optar por fornecer informações ou um relatório sobre a quantidade de doações feitas a você para sua conveniência.
 
 #### 3.3.3. Publicidade.
-Embora entendamos que você pode querer promover seus Patrocinadores publicando seus nomes ou logotipos em sua conta, o foco principal do Conteúdo de Desenvolvedor Patrocinado não deve ser a publicidade ou o marketing promocional. Além disso, você não poderá aderir a qualquer contrato de publicidade para promover qualquer produto ou marca, pois isso é proibido pelo [Contrato](/github/site-policy/github-terms-of-service) ou pelas Diretrizes da Comunidade GitHub. Se você decidir hospedar quaisquer materiais publicitários ou promocionais em seu Conteúdo de Desenvolvedor Patrocinado, você é o único responsável por cumprir todas as leis e regulamentos aplicáveis, inclusive, sem limitações, as Diretrizes sobre Endossos e Testemunhos da Comissão Federal de Comércio dos EUA. Diretrizes da Comissão Federal do Comércio sobre Recomendações e Depoimentos.
+Embora entendamos que você talvez queira promover seus Patrocinadores postando seus nomes ou logotipos em sua conta, o foco principal do Conteúdo do Desenvolvedor Patrocinado não deve ser publicidade nem marketing promocional. Além disso, você não pode celebrar nenhum contrato de publicidade para promover qualquer produto ou marca se isso for proibido pelo [Contrato](/github/site-policy/github-terms-of-service) ou pelas Diretrizes da Comunidade do GitHub. Se você optar por hospedar qualquer material promocional ou publicitário em seu Conteúdo do Desenvolvedor Patrocinado, você será o único responsável por cumprir todas as leis e regulamentos aplicáveis, incluindo as Diretrizes sobre Endossos e Depoimentos da Comissão Federal de Comércio dos EUA.
 
 ## 4. Termos Financeiros.
 
 ### 4.1. Pagamento.
-O GitHub fará o Pagamento ao Desenvolvedor Patrocinado de acordo com esta Seção 4, desde que você cumpra as Obrigações do Desenvolvedor Patrocinado descritas na Seção 3 e não viole estes Termos Adicionais. Se você não cumprir essas obrigações em qualquer dado mês, exclusivamente a nosso critério poderemos reter o Pagamento ao Desenvolvedor Patrocinado daquele mês. Se você não cumprir ou manter as Obrigações do Desenvolvedor Patrocinado por dois (2) ou mais meses durante o Termo (consecutivamente ou não consecutivamente), o GitHub pode rescindir esses Termos Adicionais, conforme previsto na Seção 6.
+O GitHub fará para você o Pagamento do Desenvolvedor Patrocinado de acordo com esta Seção 4 desde que você cumpra as Obrigações do Desenvolvedor Patrocinado na Seção 3 e não viole estes Termos Adicionais. Se você deixar de cumprir essas obrigações em um determinado mês, poderemos, a nosso exclusivo critério, reter o Pagamento do Desenvolvedor Patrocinado do referido mês. Se você deixar de cumprir ou manter as Obrigações do Desenvolvedor Patrocinado por 2 (dois) ou mais meses durante a Vigência (consecutivamente ou não), o GitHub poderá rescindir estes Termos Adicionais conforme previsto na Seção 6.
 
-### 4.2. Exclusões de Pagamento ao Desenvolvedor Patrocinado.
-Os seguintes valores não estão incluídos nos Pagamentos ao Desenvolvedor Patrocinado ou poderão ser retidos pelo GitHub, se aplicável.
+###  4.2. Exclusões de Pagamento do Desenvolvedor Patrocinado.
+Os valores a seguir não estão incluídos nos Pagamentos do Desenvolvedor Patrocinado ou podem ser retidos pelo GitHub, conforme aplicável.
 
-#### 4.2.1. Despesas de Desenvolvedor patrocinado.
-Você arcará com todas as despesas que incorrer em relação ao seu desempenho sob estes Termos Adicionais. Não reembolsaremos ou adiantaremos quaisquer despesas a você.
+#### 4.2.1. Despesas do Desenvolvedor Patrocinado.
+Você arcará com todas as despesas incorridas em relação ao seu desempenho segundo estes Termos Adicionais. Não reembolsaremos nem faremos adiantamentos por quaisquer despesas.
 
-#### 4.2.2. Impostos.
-O GitHub pretende cumprir todas as leis aplicáveis sobre relatórios de informações fiscais e retenção de impostos que o GitHub acredita, razoavelmente, aplicarem-se a esses pagamentos. Se for necessária a retenção de impostos sobre quaisquer valores a serem pagos pelo GitHub para você ou de contas que estejam sujeitas a declarações de informações de impostos de acordo com a lei aplicável, o GitHub deduzirá tais impostos do valor devido e os pagará à autoridade de impostos competente e, se solicitado, obterá e entregará a você um recibo oficial de quaisquer retenções de impostos conforme exigido pelas leis aplicáveis. O GitHub envidará esforços razoáveis para minimizar tais impostos até o limite permitido pela lei aplicável, e cada parte cooperará na medida do possível com a outra para obter as menores alíquotas tributárias ou a eliminação de tais impostos, observados os tratados ou leis de impostos sobre rendimentos aplicáveis. Isso inclui que você forneça ao GitHub informações adequadas exigidas pelas leis aplicáveis, como os formulários W-8 e W-9 do IRS (Internal Revenue Service), ou outras informações para estabelecer exceções de retenção. Você também será responsável por cumprir quaisquer termos e condições de processadores de pagamentos terceiros relacionados a declaração e retenção de impostos, caso aplicável. Além disso, o GitHub reserva-se o direito de suspender pagamentos em sua conta até que você forneça ao GitHub a documentação ou as informações adequadas exigidas pelas leis aplicáveis para o GitHub determinar quaisquer obrigações de retenção e declaração de impostos aplicáveis que recaem sobre os pagamentos com base nestes Termos Adicionais ou Contrato.
+#### 4.2.2. Tributos.
+O GitHub pretende cumprir todas as leis de retenção de impostos e de relatórios de informações fiscais aplicáveis que o GitHub determinar razoavelmente em seu julgamento que se aplicam a esses pagamentos. Se os impostos precisarem ser retidos sobre quaisquer valores a serem pagos pelo GitHub a você ou de valores sujeitos a relatórios de informações fiscais de acordo com as leis aplicáveis, o GitHub deduzirá esses impostos do valor devido e os pagará à autoridade tributária apropriada e, conforme necessário, garantirá e entregará a você um recibo oficial de quaisquer impostos retidos, conforme exigido pelas leis aplicáveis. O GitHub envidará esforços para minimizar tais impostos até o máximo limite permitido de acordo com a lei aplicável, e cada parte deverá cooperar razoavelmente uma com a outra para obter as taxas tributárias mais baixas ou para a eliminação de tais impostos de acordo com os tratados ou leis de imposto de renda aplicáveis. Isso inclui você fornecer ao GitHub as informações adequadas exigidas pelas leis aplicáveis, como os Formulários IRS W-8, W-9 ou outras informações para estabelecer isenções de retenção. Você também será responsável por cumprir os termos e condições de qualquer processador de pagamento de terceiros em relação à retenção e aos relatórios de impostos, se aplicável. Além disso, o GitHub reserva para si o direito de suspender os pagamentos em sua conta até que você forneça a ele a documentação ou as informações adequadas exigidas pelas leis aplicáveis para que o GitHub determine quaisquer obrigações de retenção ou relatório de impostos aplicáveis aos pagamentos previstos nestes Termos Adicionais ou no Contrato.
 
-#### 4.2.3. Retenção de Pagamento ao Desenvolvedor Patrocinado por violação.
-No caso de uma violação provocada pelo Desenvolvedor Patrocinado, ou suspeita de violação destes Termos Adicionais ou do Contrato, o GitHub reserva-se o direito de reter o pagamento devido ao Desenvolvedor Patrocinado de acordo com estes Termos Adicionais ou, de outra forma, ficará pendente de uma investigação adequada do GitHub para o caso. Caso o GitHub concluir, a seu critério exclusivo, que o Desenvolvedor Patrocinado infringiu estes Termos Adicionais ou o Contrato, o GitHub poderá reter permanentemente quaisquer valores devidos ao Desenvolvedor Patrocinado.
+#### 4.2.3. Retenção de Pagamento do Desenvolvedor Patrocinado por Violação.
+No caso de violação ou suspeita de violação por um Desenvolvedor Patrocinado destes Termos Adicionais ou do Contrato, o GitHub reserva para si o direito de reter o pagamento ao Desenvolvedor Patrocinado previsto nestes Termos Adicionais ou de outra forma, enquanto o GitHub investiga. Se o GitHub determinar, a seu exclusivo critério, que um Desenvolvedor Patrocinado está violando estes Termos Adicionais ou o Contrato, ele poderá reter permanentemente quaisquer valores devidos ao Desenvolvedor Patrocinado.
 
-### 4.3. Prazo de pagamento.
-Durante a vigência, o GitHub enviará a você todos os Pagamentos para Desenvolvedores Patrocinados recebidos em um determinado mês dentro de 30 dias após o encerramento daquele mês, sujeito às variáveis ​​abaixo. Os pagamentos são enviados por Stripe Connect, transferência ACH ou transferência eletrônica para a conta bancária fornecida durante sua solicitação para ingressar no GitHub Sponsors. Não somos responsáveis por atrasos ou aplicações incorretas de quaisquer Pagamentos ao Desenvolvedor Patrocinado em virtude de informações incorretas ou incompletas fornecidas por você ou por um banco, ou ainda por falha de um banco ao creditar a sua conta.
+### 4.3. Cronograma de Pagamento.
+Durante a vigência, o GitHub enviará a você todos os Pagamentos do Desenvolvedor Patrocinado recebidos em um determinado mês dentro de 30 dias após o fechamento desse mês, sujeito às variáveis abaixo. Os pagamentos são enviados por meio do Stripe Connect, transferência ACH ou transferência eletrônica para a conta bancária fornecida quando você se inscreveu no GitHub Sponsors. Nós não somos responsáveis por atrasos nem pelo uso incorreto do Pagamento do Desenvolvedor Patrocinado devido a informações incorretas ou incompletas fornecidas por você ou um banco nem por falha de um banco em efetuar o pagamento na sua conta.
 
-- Para Contas de Desenvolvedor Patrocinado recém-criadas, o GitHub remeterá a você todos os Pagamentos de Desenvolvedor Patrocinado recebidos em um determinado mês dentro de 90 dias após a criação de sua Conta de Desenvolvedor Patrocinado, sujeito às variáveis abaixo. Os pagamentos subsequentes serão novamente enviados no prazo de 30 dias após o encerramento desse mês, de acordo com esta seção.
+- Para Contas do Desenvolvedor Patrocinado recém-criadas, o GitHub enviará a você todos os Pagamentos do Desenvolvedor Patrocinado recebidos em um determinado mês dentro de 90 dias da criação de sua Conta do Desenvolvedor Patrocinado, sujeito às variáveis abaixo. Os pagamentos posteriores serão remetidos no prazo de 30 dias após o encerramento desse mês, de acordo com esta seção.
 
-- Se você for pago pelo Stripe Connect, você receberá pagamentos no dia 22 de cada mês pelo saldo acumulado desde o último pagamento, independentemente do montante do saldo. As datas de início dos pagamentos variam de país para país e podem mudar de mês para mês, em razão de feriados, fins de semana e outros fatores.
+- Se você for pago por meio do Stripe Connect, receberá os pagamentos no dia 22 do mês pelo saldo acumulado desde o último pagamento, independentemente do valor do saldo. As datas de início do pagamento variam de acordo com o país e podem mudar de mês para mês devido a feriados, fins de semana e outros fatores.
 
-- Se você for receber por meio de transferência ACH ou transferência eletrônica, você receberá pagamentos na terceira quinta-feira do mês. O GitHub emitirá um pagamento para você em qualquer mês que seu saldo atingir US$ 100. Contribuições do Fundo Correspondentes para Patrocinadores do GitHub não contam para esse limite. Se o seu saldo ficar abaixo de US$ 100 no fim do mês, ele será acumulado até que ultrapasse o limite no fim do mês. Se você deixar o GitHub Sponsors, o GitHub emitirá um pagamento a partir do seu saldo restante, mesmo que o saldo esteja abaixo de US$ 100.
+- Se você for pago por transferência ACH ou transferência eletrônica, receberá os pagamentos na terceira quinta-feira do mês. O GitHub emitirá um pagamento para você por qualquer mês em que seu saldo atingir US$ 100,00. As contribuições do Fundo Correspondente do GitHub Sponsors não contam para esse limite. Se seu saldo estiver abaixo de US$ 100,00 no final do mês, o saldo será acumulado até a próxima vez que seu saldo estiver acima do limite no final do mês. Se você sair do GitHub Sponsors, o GitHub emitirá um pagamento do saldo restante, mesmo que o saldo esteja abaixo de US$ 100,00.
 
-- Após a rescisão, enviaremos a você todos os Pagamentos ao Desenvolvedor Patrocinado recebidos e não pagos dentro de aproximadamente 90 dias após o fim do mês do calendário no qual reconheçamos que estes Termos Adicionais tenham sido encerrrados.
+- Após a rescisão, enviaremos a você todos os Pagamentos do Desenvolvedor Patrocinado recebidos e não pagos em aproximadamente 90 dias após o final do mês em que reconhecemos que estes Termos Adicionais foram rescindidos.
 
-### 4.4. Método de Pagamento.
-Enviaremos os Pagamentos ao Desenvolvedor Patrocinado por ACH/SEPA ou transferência eletrônica para uma conta especificada por você, sujeitos aos limites, formas e cronograma previstos em nossas políticas de pagamentos vigentes, que poderão ser atualizadas de tempos em tempos. A forma de pagamento e o limite podem variar dependendo do país e das informações da conta. Poderemos, a nosso critério, juntar o Pagamento ao Desenvolvedor Patrocinado a outros pagamentos que possam ser devidos a você.
+### 4.4. Forma de pagamento.
+Enviaremos Pagamentos do Desenvolvedor Patrocinado por ACH/SEPA ou transferência eletrônica para uma conta que você especificar, sujeitos aos limites, métodos e prazos fornecidos em nossas políticas de pagamento ora vigentes, que podemos atualizar periodicamente. O método de pagamento e o limite podem variar dependendo do país e das informações da conta que você fornecer. Podemos, a nosso exclusivo critério, combinar o Pagamento do Desenvolvedor Patrocinado com quaisquer outros pagamentos que possam ser devidos a você.
 
 ### 4.5. Moeda.
-Todas as referências em moedas são em USD. Caso você esteja fora dos Estados Unidos, poderemos converter USD para a moeda local de seu endereço de pagamento, usando as taxas de conversão vigentes.
+Todas as referências à moeda são em USD. Se você estiver fora dos Estados Unidos, podemos converter USD para a moeda local do seu endereço para pagamento, usando nossas taxas de conversão atuais.
 
-### 4.6. Requisitos para Reembolsos.
-Você será responsável por especificar os termos e condições relacionados a quaisquer reembolsos, caso existam, a seus Patrocinadores. Em nenhuma circunstância o GitHub será responsável por oferecer suporte para reembolsos e o GitHUb não terá responsabilidade pelo pagamento de quaisquer reembolsos.
+### 4.6. Requisitos para Reembolso.
+Você será responsável por especificar os termos e condições referentes a reembolsos, se houver, para seus Patrocinadores. Em hipótese alguma o GitHub será responsável por fornecer qualquer suporte para reembolsos, nem o GitHub será responsável pelo pagamento de qualquer reembolso.
 
-### 4.7. Informações de Pagamento Necessárias.
-Para ser pago, você deverá fornecer as informações financeiras, tributárias e bancárias completas e exatas que forem solicitadas (por exemplo, por meio da criação ou configuração de uma conta, ou de outra forma). Você será notificado, por qualquer meio de comunicação, das alterações de quais informações são necessárias. Caso não forneça (ou mantenha) tais informações com precisão, (a) poderemos deduzir de seu Pagamento ao Desenvolvedor Patrocinado quaisquer taxas bancárias e (b) poderemos encerrar estes Termos Adicionais e você poderá perder o direito sobre quaisquer valores devidos a você pelo GitHub.
+### 4.7. Informações de Pagamento Solicitadas.
+Para pagar você, você deverá nos fornecer informações financeiras, fiscais e bancárias completas e precisas que solicitamos (por exemplo, por meio da criação ou configuração de conta ou de outra forma). Nós o notificaremos, por qualquer meio de comunicação, sobre alterações nas informações necessárias. Se você não fornecer com precisão (ou mantiver com precisão) essas informações, (a) poderemos deduzir do seu Pagamento do Desenvolvedor Patrocinado quaisquer taxas bancárias relacionadas e (b) poderemos rescindir estes Termos Adicionais, e você poderá perder quaisquer valores devidos a você pelo GitHub.
 
 ### 4.8. Stripe Connect
 
-Se você é pago pelo do Stripe Connect, aplicam-se os seguintes termos adicionais ao seu uso do GitHub Sponsors:
+Se você for pago por meio do Stripe Connect, os seguintes termos adicionais se aplicarão ao seu uso do GitHub Sponsors:
 
-**Contrato de Serviço Completo**
+**Contrato de serviço integral**
 
-_Aplica-se às contas de desenvolvedor patrocinadas registradas na Austrália, Áustria, Bélgica, Canadá, Dinamarca, Estônia, Finlândia, França, Alemanha, Grécia, Hong Kong, Irlanda, Itália, Japão, Letônia, Lituânia, Luxemburgo, Países Baixos, Nova Zelândia, Noruega, Polônia, Portugal, Eslováquia, Eslovênia, Espanha, Suécia, Suíça, Reino Unido e Estados Unidos._
+_Aplica-se a Contas do Desenvolvedor Patrocinado registradas na Austrália, Áustria, Bélgica, Canadá, Dinamarca, Estônia, Finlândia, França, Alemanha, Grécia, Hong Kong, Irlanda, Itália, Japão, Letônia, Lituânia, Luxemburgo, Holanda, Nova Zelândia, Noruega, Polônia, Portugal, Eslováquia, Eslovênia, Espanha, Suécia, Suíça, Reino Unido, Estados Unidos._
 
-Os serviços de processamento de pagamento para Contas de Desenvolvedores Patrocinados no GitHub Sponsors são fornecidos pelo Stripe e estão sujeitos ao [Contrato de Conta Conectada do Stripe](https://stripe.com/connect-account/legal/full), que inclui os [Termos de serviço do Stripe](https://stripe.com/legal) (coletivamente, o "Contrato de Serviços do Stripe"). Ao concordar com estes termos ou continuar a operar como uma conta de desenvolvedor patrocinada no GitHub Sponsors, você concorda em estar vinculado ao Acordo de Serviços do Stripe, já que o mesmo pode ser modificado pelo Stripe de vez em quando. Como condição do GitHub, que permite que os serviços de processamento de pagamentos sejam efetuados por meio do Stripe, você concorda em fornecer ao GitHub informações precisas e completas sobre você e seus negócios, e você autoriza o GitHub a compartilhar o negócio e as informações de transação relacionadas ao seu uso dos serviços de processamento de pagamento fornecidos pelo Stripe.
+Os serviços de processamento de pagamentos para Contas do Desenvolvedor Patrocinado no GitHub Sponsors são fornecidos pelo Stripe e estão sujeitos ao [Contrato de Conta Conectada ao Stripe](https://stripe.com/connect-account/legal/full), que inclui os [Termos de Serviço do Stripe](https://stripe.com/legal) (coletivamente, o “Contrato de Serviços do Stripe”). Ao concordar com estes termos ou continuar operando como uma Conta do Desenvolvedor Patrocinado no GitHub Sponsors, você concorda em estar vinculado ao Contrato de Serviços do Stripe, pois este pode ser modificado pelo Stripe de tempos em tempos. Como condição para o GitHub habilitar os serviços de processamento de pagamentos por meio do Stripe, você concorda em fornecer ao GitHub informações precisas e completas sobre você e sua empresa, autorizando o GitHub a compartilhá-las, bem como informações de transações relacionadas ao uso que você faz dos serviços de processamento de pagamentos fornecidos pelo Stripe.
 
-**Contrato de serviço destinatário**
+**Contrato de serviço do destinatário**
 
-_Aplica-se às Contas de Desenvolvedor Patrocinado em todos os outros países._
+_Aplica-se a Contas do Desenvolvedor Patrocinado em todos os outros países._
 
-Nós usamos o Stripe para fazer pagamentos para contas de desenvolvedor patrocinado. O [Contrato de Beneficiário do Struoe](https://stripe.com/connect-account/legal/recipient) aplica-se ao recebimento de tais pagamentos. Para receber os pagamentos dos GitHub Sponsors você deve nos fornecer informações precisas e completas sobre você e seu negócio e você deve autorizar-nos a compartilhar os seus negócios e as informações de transação relacionadas ao seu pagamento com Stripe.
+Usamos o Stripe para fazer pagamentos nas Contas do Desenvolvedor Patrocinado. O [Contrato do Destinatário do Stripe](https://stripe.com/connect-account/legal/recipient) se aplica ao seu recebimento de tais pagamentos. Para receber pagamentos do GitHub Sponsors, você deve nos fornecer informações precisas e completas sobre você e sua empresa, autorizando-nos a compartilhá-las, bem como informações de transações relacionadas ao seu pagamento com o Stripe.
 
-## 5. Representações e garantias; Limitação de Responsabilidade; Indenização.
+## 5. Declarações e Garantias; Limitação de Responsabilidade; Indenização.
 
-### 5.1. Pelo Desenvolvedor Patrocinado.
-O Desenvolvedor Patrocinado declara expressamente por meio do presente que:
+### 5.1. Por Desenvolvedor Patrocinado.
+O Desenvolvedor Patrocinado declara e garante que:
 
-* Tem a autoridade para celebrar e cumprir estes Termos Adicionais;
+* tem autoridade para celebrar e exercer completamente estes Termos Adicionais;
 
-* A execução e cumprimento destes Termos Adicionais não violarão qualquer outro contrato ou obrigação entre você e qualquer outro terceiro;
+* sua execução e desempenho destes Termos Adicionais não violarão nenhum outro contrato ou obrigação entre você e terceiros;
 
-* O Conteúdo do Desenvolvedor Patrocinado não infringe, viola ou se apropria indevidamente de qualquer direito de terceiros, incluindo quaisquer direitos autorais, marcas comerciais, segredos comerciais, direitos morais, direitos de privacidade, direitos de publicidade, ou qualquer outra propriedade intelectual;
+* o Conteúdo do Desenvolvedor Patrocinado não infringe, viola ou se apropria indevidamente de qualquer direito de terceiros, incluindo qualquer direito autoral, marca, patente, segredo comercial, direito moral, direito de privacidade, direito de publicidade ou qualquer outra propriedade intelectual;
 
-* Cumprirá todas as leis e regulamentos, e que seu Conteúdo de Desenvolvedor Patrocinado não é ilícito ou não viola quaisquer leis ou regulamentos.
+* você cumprirá todas as leis e regulamentos, e seu Conteúdo do Desenvolvedor Patrocinado não é ilegal e não viola nenhuma lei ou regulamento.
 
-### 5.2. Exclusão de Garantias; Limitação de Responsabilidade; Indenização.
-VOCÊ CONCORDA EXPRESSAMENTE QUE AS SEÇÕES O (EXCLUSÃO DE GARANTIAS), P (LIMITAÇÃO DE RESPONSABILIDADE) E Q (QUITAÇÃO E INDENIZAÇÃO) DO CONTRATO APLICAM-SE A ESTES TERMOS ADICIONAIS.
+### 5.2. Isenção de Garantias; Limitação de Responsabilidade; Indenização.
+VOCÊ CONCORDA EXPRESSAMENTE QUE AS SEÇÕES O (ISENÇÃO DE GARANTIAS), P (LIMITAÇÃO DE RESPONSABILIDADE) E Q (ISENÇÃO E INDENIZAÇÃO) DO CONTRATO SE APLICAM A ESTES TERMOS ADICIONAIS.
 
-## 6. Vigência e Rescisão.
+## 6. Vigência e Rescisão do Contrato.
 
-### 6.1. Vigência.
-Estes Termos Adicionais têm efeito a partir do Início da Vigência e permancerão em efeito pelo período em que você participar do Programa.
+### 6.1. Prazo de Vigência.
+Estes Termos Adicionais começam na Data de Início de Vigência e permanecem vigentes enquanto você participar do Programa.
 
 ### 6.2. Suspensão.
-O GitHub pode suspender sua Conta de Desenvolvedor Patrocinado imediatamente se você violar estes Termos Adicionais ou o Contrato de qualquer forma, ou se você estiver alocado em uma lista restrita de comércio ou localizado em ou habitualmente residente em um país ou território sujeito a sanções abrangentes impostas pelo Office of Foreign Assets Control (OFAC) dos Estados Unidos. Escritório do Controle de Ativos Estrangeiros (OFAC). A falha em corrigir ou sanar a causa da suspensão pode resultar no encerramento da sua Conta de Desenvolvedor Patrocinado.
+O GitHub poderá suspender sua Conta do Desenvolvedor Patrocinado imediatamente se você violar estes Termos Adicionais ou o Contrato de alguma forma ou se você for colocado em uma lista comercial restrita ou se estiver localizado ou normalmente residente em um país ou território sujeito a sanções abrangentes administradas pela Agência de Controle de Ativos Estrangeiros (OFAC). Não corrigir ou sanar a causa da suspensão pode resultar no encerramento de sua Conta do Desenvolvedor Patrocinado.
 
 ### 6.3. Rescisão.
-Qualquer parte pode rescindir estes Termos Adicionais esua Conta de Desenvolvedor Patrocinado em qualquer momento, com ou sem justa causa, com ou sem aviso prévio. Se você infringir quaisquer Termos Adicionais ou o Contrato, poderemos, mas não somos obrigados a, oferecer a você um tempo para sanar a infração.
+Qualquer uma das partes poderá rescindir estes Termos Adicionais e sua Conta do Desenvolvedor Patrocinado a qualquer momento com ou sem justa causa, com ou sem aviso prévio. Se você violar estes Termos Adicionais ou o Contrato, poderemos, mas não somos obrigados a, oferecer a você um período para sanar a violação.
 
-### 6.4. Efeito da Rescisão.
-Se qualquer parte rescindir nos termos da Seção 6.3, a única obrigação do GitHub será pagar ao Desenvolvedor Patrocinado o montante do Pagamento ao Desenvolvedor Patrocinado acumulado até a data de rescisão, a menos que tais pagamentos sejam proibidos por lei.
+### 6.4. Efeitos da Rescisão ou Término.
+Se qualquer uma das Partes rescindir de acordo com a Seção 6.3, a única obrigação do GitHub será pagar ao Desenvolvedor Patrocinado o valor do Pagamento do Desenvolvedor Patrocinado acumulado até a data de rescisão, a menos que tais pagamentos sejam proibidos por lei.
 
 ## 7. Disposições Gerais.
 
-### 7.1. Integralidade do acordado.
-Estes Termos Adicionais, em conjunto com o Contrato, as Políticas do GitHub, a Declaração de Privacidade do GitHub e quaisquer termos adicionais para diferentes opções de monetização, representam o acordo em sua integralidade entre você e o GitHub.
+### 7.1. Acordo integral.
+Estes Termos Adicionais, juntamente com o Contrato, as Políticas do GitHub, a Política de Privacidade do GitHub e quaisquer termos adicionais para diferentes opções de monetização representam o acordo integral entre você e o GitHub.
 
-### 7.2. Alterações nos Termos.
-Reservamo-nos o direito, a nosso critério exclusivo, de alterar estes Termos Adicionais em qualquer momento. Notificaremos você sobre alterações materiais nestes Termos Adicionais, tais como alterações de preços, no mínimo com 30 dias de antecedência à entrada em vigor, por meio da publicação de uma observação em nosso site. Sua participação contínua no Progtama constitui concordância com nossas revisões destes Termos Adicionais. Você pode ver todas as alterações nestes Termos Adicionais em nosso repositório [Política do Site](https://github.com/github/site-policy).
+### 7.2. Alterações nestes Termos.
+Reservamo-nos o direito, a nosso exclusivo critério, de alterar estes Termos Adicionais a qualquer momento. Notificaremos você sobre alterações substanciais nestes Termos Adicionais, como alterações de preço, pelo menos 30 dias antes da alteração entrar em vigor, publicando uma notificação em nosso site. Sua participação continuada no Programa constitui concordância com nossas revisões destes Termos Adicionais. Você pode visualizar todas as alterações feitas nestes Termos em nosso repositório de [Política do Site](https://github.com/github/site-policy).
 
 ### 7.3. Beneficiários Terceiros.
-Exceto se declarado expressamente, nenhuma pessoa, empresa, grupo ou corporação além das partes serão considerados como tendo adquirido quaisquer direitos por motivo de qualquer coisa contida nestes Termos Adicionais.
+Exceto conforme expressamente declarado, nenhuma pessoa, empresa, grupo ou corporação além das partes será considerada como tendo adquirido quaisquer direitos em razão de qualquer coisa contida nestes Termos Adicionais.
 
-### 7.4. Contratados Independentes.
-As partes são contratantes independentes. Nenhuma parte é um empregador, empregado, agente, parceiro ou representante legal da outra parte para qualquer propósito, e não tem o direito, poder ou autoridade para criar qualquer obrigação ou responsabilidade em nome da outra.
+### 7.4. Prestadores de Serviços Independentes.
+As partes são prestadoras de serviços. Nenhuma parte será um empregador, funcionário, agente, parceiro ou representante legal do outro para qualquer finalidade, nem terá qualquer direito, poder ou autoridade para criar qualquer obrigação ou responsabilidade em nome do outro.
 
-### 7.5. Comunicação.
-Poderemos publicar um comunicado de imprensa ou outra comunicação pública relacionada à sua participação no Programa.
+### 7.5. Publicidade.
+Podemos emitir um comunicado à imprensa ou outra comunicação pública relacionada à sua participação no Programa.

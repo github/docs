@@ -91,7 +91,7 @@ $ curl -u "username" {% data variables.product.api_url_pre %}
 ### OAuth2 token (sent in a header)
 
 ```shell
-$ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
@@ -150,7 +150,7 @@ the API will temporarily reject all authentication attempts for that user
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
--u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% ifversion ghes %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
+-u VALID_USERNAME:VALID_TOKEN {% endif %}{% ifversion ghes %}-u VALID_USERNAME:VALID_PASSWORD {% endif %}
 > HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
@@ -185,7 +185,7 @@ You can issue a `GET` request to the root endpoint to get all the endpoint categ
 
 ```shell
 $ curl {% ifversion fpt or ghae or ghec %}
--u <em>username</em>:<em>token</em> {% endif %}{% ifversion ghes %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+-u USERNAME:TOKEN {% endif %}{% ifversion ghes %}-u USERNAME:PASSWORD {% endif %}{% data variables.product.api_url_pre %}
 ```
 
 ## GraphQL global node IDs

@@ -1,6 +1,6 @@
 ---
-title: 外部コラボレーターを Organization リポジトリから削除する
-intro: オーナーあるいはリポジトリ管理者は、外部コラボレーターのリポジトリへのアクセスを削除できます。
+title: Removing an outside collaborator from an organization repository
+intro: Owners and repository admins can remove an outside collaborator's access to a repository.
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-repository
@@ -12,51 +12,58 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: コラボレータの削除
+shortTitle: Remove collaborator
 ---
 
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**警告:**
-- 外部コラボレーターをプライベートリポジトリから削除しても、有料ライセンスのカウントは自動ではダウングレードしません。 Organization からユーザを削除したあとに有料シートの数を減らすには、「[Organization の有料ライセンスをダウングレードする](/articles/downgrading-your-organization-s-paid-seats)」の手順に従ってください。
+**Warning:**
+- When removing an outside collaborator from a private repository, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[Downgrading your organization's paid seats](/articles/downgrading-your-organization-s-paid-seats)."
 
-- リポジトリへのアクセスを失った個人に、機密情報や知的財産を確実に削除してもらうのは、あなたの責任です。
+- You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 
 {% endwarning %}
 
 {% endif %}
 
-コラボレーターが削除される一方でプライベートリポジトリのフォークが削除されると、その個人はリポジトリのローカルクローンをそのまま保持します。
+While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
 
-## 外部コラボレーターを Organization のすべてのリポジトリから削除する
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.people_tab_outside_collaborators %}
-5. Organization から削除する外部コラボレーターを 1 人以上選択します。 ![外部コラボレーターのリストで外部コラボレーターを 2 名選択](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
-6. 外部コラボレーターのリストの上のドロップダウンメニューで [**Remove from all repositories**] をクリックします。 ![外部コラボレーターを削除するオプションのあるドロップダウンメニュー ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
-7. Organization から削除される外部コラボレーターをレビューしてから、[**Remove outside collaborators**] をクリックします。 ![削除される外部コラボレーターのリストおよび [Remove outside collaborators] ボタン](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
-
-## 外部コラボレーターを Organization の特定のリポジトリから削除する
-
-外部コラボレーターを Organization の特定のリポジトリからのみ削除する場合、特定のリポジトリごとにアクセスを削除していきます。
+## Removing outside collaborators from all repositories in an organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
-5. 削除する個人のユーザ名の右側にある {% octicon "gear" aria-label="The Settings gear" %}ドロップダウンメニューで、[**Manage**] をクリックします。 ![[Manage access] ボタン](/assets/images/help/organizations/member-manage-access.png)
-6. 外部コラボレーターを削除するリポジトリの右側で [**Manage access**] をクリックします。 ![外部コラボレーターがアクセスできるリポジトリの横にある [Manage access] ボタンを選択](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
-7. 外部コラボレーターのリポジトリへのアクセスを完全に削除するため、右上隅の [**Remove access to this repository**] をクリックします。 ![[Remove access to this repository] ボタン](/assets/images/help/organizations/remove-access-to-this-repository.png)
-8. 確定するため、[**Remove access**] をクリックします。 ![リポジトリから削除する外部コラボレータの確定](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
+5. Select the outside collaborator or outside collaborators you'd like to remove from the organization.
+![List of outside collaborators with two outside collaborators selected](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
+6. Above the list of outside collaborators, use the drop-down menu, and click **Remove from all repositories**.
+![Drop-down menu with option to remove outside collaborators ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
+7. Review the outside collaborator or outside collaborators who will be removed from the organization, then click **Remove outside collaborators**.
+  ![List of outside collaborators who will be removed and Remove outside collaborators button](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
-リポジトリ設定のアクセス概要でも、リポジトリから外部のコラボレータを削除できます。 詳細は、「[リポジトリへのアクセス権を持つ Team と人を管理する](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)」を参照してください。
+## Removing an outside collaborator from a particular repository in an organization
+
+If you only want to remove an outside collaborator from certain repositories in your organization, you can remove this person's access to one specific repository at a time.
+
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
+5. To the right of the username of the person you want to remove, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.
+  ![Manage access button](/assets/images/help/organizations/member-manage-access.png)
+6. To the right of the repository that you want to remove the outside collaborator from, click **Manage access**.
+![Select manage access button next to a repository the outside collaborator has access to](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
+7. To completely remove the outside collaborator's access to the repository, in the upper right corner, click **Remove access to this repository**.
+![Remove access to this repository button](/assets/images/help/organizations/remove-access-to-this-repository.png)
+8. To confirm, click **Remove access**.
+![Confirm outside collaborator who will be removed from the repository](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+You can also remove an outside collaborator from a repository in the access overview in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)."
 {% endif %}
-## 参考リンク
+## Further reading
 
-- [外部コラボレーターを Organization のリポジトリに追加する](/articles/adding-outside-collaborators-to-repositories-in-your-organization)
-- [Organizatin のメンバーを外部のコラボレータに変換する](/articles/converting-an-organization-member-to-an-outside-collaborator)
+- "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
+- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"

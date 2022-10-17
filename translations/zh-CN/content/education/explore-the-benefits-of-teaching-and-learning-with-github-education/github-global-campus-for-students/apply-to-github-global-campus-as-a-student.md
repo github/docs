@@ -1,5 +1,5 @@
 ---
-title: Apply to GitHub Global Campus as a student
+title: 'Apply to GitHub Global Campus as a student'
 intro: 'As a student, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the student resources and benefits offered by {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
@@ -11,24 +11,23 @@ versions:
   fpt: '*'
 shortTitle: Apply to Global Campus
 ---
-
 {% data reusables.education.about-github-education-link %}
 
-## 要求
+## Requirements
 
 To be eligible for {% data variables.product.prodname_global_campus %}, including {% data variables.product.prodname_student_pack %} and other benefits, you must:
-- 现正攻读学位或文凭授予课程，如高中、初中、大专、大学、自主学习或类似教育机构
-- 具有学校发放的可验证电子邮件地址，或者上传能证明您目前学生身份的文档
-- 拥有 [{% data variables.product.prodname_dotcom %} 个人帐户](/articles/signing-up-for-a-new-github-account)
-- 至少年满 13 岁
+- Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
+- Have a verifiable school-issued email address or upload documents that prove your current student status
+- Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)
+- Be at least 13 years old
 
-证明您现任学生身份的文件包括具有当前注册日期的学校 ID 照片、班级课程表、成绩单以及附属关系或入学签到函。
+Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
 
-在作为学生期间，可能会提示您定期重新验证目前的学业身份。
+During your tenure as a student, you may be prompted to periodically re-verify your current academic status.
 
 {% note %}
 
-**注：**不能在不同帐户之间转让学生折扣。 如有多个帐户想申请折扣，请考虑[合并](/articles/merging-multiple-user-accounts)您的个人帐户并根据需要[重命名](/articles/changing-your-github-username)保留的帐户。
+**Note:** You cannot transfer academic discounts from one account to another. If you have more than one account you want to apply the discount to, consider [merging](/articles/merging-multiple-user-accounts) your personal accounts and [renaming](/articles/changing-your-github-username) the retained account if desired.
 
 {% endnote %}
 
@@ -37,25 +36,28 @@ For information about renewing your {% data variables.product.prodname_global_ca
 ## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
-3. 在 "Which best describes your academic status?"（哪一项最准确描述了您的学业身份？）下，选择 **Student（学生）**。 ![选择学籍](/assets/images/help/education/academic-status-student.png)
+1. Under "Individuals", click **Get student benefits**.
+  !["Get student benefits" on {% data variables.product.prodname_education %} homepage](/assets/images/help/education/click-get-student-benefits.png)
+1. Under "Select the academic status", select **Student**.
+  ![Select academic status](/assets/images/help/education/academic-status-student.png)
 {% data reusables.education.select-email-address %}
-{% data reusables.education.upload-proof-status %}
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}
+{% data reusables.education.upload-proof-status %}
 {% data reusables.education.submit-application %}
 
-## 到期和续订
+## Expiration and renewals
 
-Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. 合作伙伴的大多数计时特惠在您设置后便开始。 要重新申请，只需返回 https://education.github.com，点击您的个人资料图片，然后点击 **Reverify your academic affiliation（重新验证您的学术关系）**。
+Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
 
-![用于重新验证学术关系的菜单选项](/assets/images/help/education/reverify-academic-affiliation.png)
+![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
 
-更多信息请参阅 [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) 页面。
+For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 
-要查看您对 {% data variables.product.prodname_student_pack %} 的免费访问何时到期，请访问您帐户的[帐单设置](https://github.com/settings/billing)。
+To see when your free access to the {% data variables.product.prodname_student_pack %} expires, visit your account's [billing settings](https://github.com/settings/billing).
 
-## 延伸阅读
+## Further reading
 
-- "[我的 {% data variables.product.prodname_student_pack %} 申请为什么未获得批准？](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)"
-- "[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)"
+- "[Why wasn't my application for a {% data variables.product.prodname_student_pack %} approved?](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)"
+- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)

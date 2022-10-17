@@ -1,5 +1,5 @@
-#Issue 7629
-#Improved UI for manually syncing a fork
+# Issue 7629
+# Improved UI for manually syncing a fork
 versions:
   fpt: '*'
   ghec: '*'

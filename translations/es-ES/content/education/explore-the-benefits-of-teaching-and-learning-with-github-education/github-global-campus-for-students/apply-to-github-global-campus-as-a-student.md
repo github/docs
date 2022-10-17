@@ -1,5 +1,5 @@
 ---
-title: Apply to GitHub Global Campus as a student
+title: 'Apply to GitHub Global Campus as a student'
 intro: 'As a student, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the student resources and benefits offered by {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
@@ -11,51 +11,53 @@ versions:
   fpt: '*'
 shortTitle: Apply to Global Campus
 ---
-
 {% data reusables.education.about-github-education-link %}
 
-## Requisitos
+## Requirements
 
 To be eligible for {% data variables.product.prodname_global_campus %}, including {% data variables.product.prodname_student_pack %} and other benefits, you must:
-- Estar inscrito actualmente en un curso que otorgue un título o diploma que garantice un curso de estudio como colegio, escuela secundaria, facultad, universidad, escolarización en casa o institución educativa similar
-- Tener una dirección de correo electrónico verificable suministrada por la escuela o cargar documentos que demuestren tu situación de estudiante actual
-- Tener una [cuenta personal de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
-- Tener al menos 13 años
+- Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
+- Have a verifiable school-issued email address or upload documents that prove your current student status
+- Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)
+- Be at least 13 years old
 
-Entre los documentos que comprueban tu estado actual de alumno se incluye una foto de la ID de tu escuela con la fecha de inscripción actual, horario de clases, transcripción y carta de verificación de inscripción o de afiliación.
+Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
 
-Es posible que se te pida periódicamente que vuelvas a verificar tu estado académico actual para confirmar que eres estudiante.
+During your tenure as a student, you may be prompted to periodically re-verify your current academic status.
 
 {% note %}
 
-**Nota:** No puedes transferir tus descuentos académicos de una cuenta a otra. Si tienes más de una cuenta para la cual quieras aplicar el descuento, considera [fusionar](/articles/merging-multiple-user-accounts) tus cuentas personales y [renombrar](/articles/changing-your-github-username) la cuenta retenida si así lo quieres.
+**Note:** You cannot transfer academic discounts from one account to another. If you have more than one account you want to apply the discount to, consider [merging](/articles/merging-multiple-user-accounts) your personal accounts and [renaming](/articles/changing-your-github-username) the retained account if desired.
 
 {% endnote %}
 
-Para obtener información sobre cómo renovar tu acceso al {% data variables.product.prodname_global_campus %}, consulta la sección "[Vencimiento y renovaciones](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student/#expiration-and-renewals)".
+For information about renewing your {% data variables.product.prodname_global_campus %} access, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student/#expiration-and-renewals)."
 
 ## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
-3. En "¿Qué es lo que mejor describe tu estado académico?", selecciona **Student** (Estudiante). ![Selecciona el estado académico](/assets/images/help/education/academic-status-student.png)
+1. Under "Individuals", click **Get student benefits**.
+  !["Get student benefits" on {% data variables.product.prodname_education %} homepage](/assets/images/help/education/click-get-student-benefits.png)
+1. Under "Select the academic status", select **Student**.
+  ![Select academic status](/assets/images/help/education/academic-status-student.png)
 {% data reusables.education.select-email-address %}
-{% data reusables.education.upload-proof-status %}
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}
+{% data reusables.education.upload-proof-status %}
 {% data reusables.education.submit-application %}
 
-## Caducidad y renovaciones
+## Expiration and renewals
 
-Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. La mayoría de las ofertas regulares de nuestros socios comiencen una vez que las configuraste. Para volver a aplicar, simplemente regresa a https://education.github.com, haz clic en tu foto de perfil y luego en **Volver a verificar tu afiliación académica**.
+Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
 
-![Opción de menú para volver a verificar tu afiliación académica](/assets/images/help/education/reverify-academic-affiliation.png)
+![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
 
-Para obtener más información, consulta la página [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
+For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 
-Para ver cuándo caduca tu acceso gratis al {% data variables.product.prodname_student_pack %}, visita los [ajustes de facturación](https://github.com/settings/billing).
+To see when your free access to the {% data variables.product.prodname_student_pack %} expires, visit your account's [billing settings](https://github.com/settings/billing).
 
-## Leer más
+## Further reading
 
-- "[¿Por qué no aprobaron mi aplicación para un {% data variables.product.prodname_student_pack %}?](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)"
-- "[Registrarse para una nueva cuenta de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"
+- "[Why wasn't my application for a {% data variables.product.prodname_student_pack %} approved?](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)"
+- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)

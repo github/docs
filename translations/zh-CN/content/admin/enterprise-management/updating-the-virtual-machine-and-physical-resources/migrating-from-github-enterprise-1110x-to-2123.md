@@ -18,25 +18,30 @@ topics:
   - Enterprise
   - Migration
   - Upgrades
-shortTitle: 从 11.10.x 迁移到 2.1.23
+shortTitle: Migrate from 11.10.x to 2.1.23
+ms.openlocfilehash: 4dcd93b41d8edc75388d34785c4c149d6627cc5e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146332598'
 ---
+支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。 不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 有关详细信息，请参阅 11.10.348 升级过程“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。
 
-支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。 不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 更多信息请参阅 11.10.348 升级程序“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。
-
-要升级到最新版 {% data variables.product.prodname_enterprise %}，您必须先迁移到 {% data variables.product.prodname_ghe_server %} 2.1，然后才能执行正常升级过程。 更多信息请参阅“[升级 {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。
+要升级到最新版 {% data variables.product.prodname_enterprise %}，您必须先迁移到 {% data variables.product.prodname_ghe_server %} 2.1，然后才能执行正常升级过程。 有关详细信息，请参阅“[升级 {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。
 
 ## 准备迁移
 
-1. 查看配置和安装指南，并检查在您的环境中配置 {% data variables.product.prodname_enterprise %} 2.1.23 的所有基本要求是否已得到满足。 更多信息请参阅“[配置和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”。
+1. 查看配置和安装指南，并检查在您的环境中配置 {% data variables.product.prodname_enterprise %} 2.1.23 的所有基本要求是否已得到满足。 有关详细信息，请参阅“[预配和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”。
 2. 验证当前实例正在运行受支持的升级版本。
-3. 设置最新版本的 {% data variables.product.prodname_enterprise_backup_utilities %}。 更多信息请参阅“[{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils)”。
+3. 设置最新版本的 {% data variables.product.prodname_enterprise_backup_utilities %}。 有关详细信息，请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils)。
     - 如果已使用 {% data variables.product.prodname_enterprise_backup_utilities %} 配置排定的备份，请确保您已更新为最新版本。
     - 如果您当前未运行排定的备份，请设置 {% data variables.product.prodname_enterprise_backup_utilities %}。
 4. 使用 `ghe-backup` 命令生成当前实例的初始完整备份快照。 如果您已为当前实例配置排定的备份，则不需要生成实例快照。
 
    {% tip %}
 
-   **提示**：在快照生成期间，您可以使实例保持在线激活状态。 您将在迁移的维护过程中生成另一个快照。 由于备份的递增，此初始快照会减少在最终快照中传输的数据量，从而可能缩短维护窗口。
+   **提示：** 在快照生成期间，可以使实例保持在线激活状态。 您将在迁移的维护过程中生成另一个快照。 由于备份的递增，此初始快照会减少在最终快照中传输的数据量，从而可能缩短维护窗口。
 
    {% endtip %}
 
@@ -47,23 +52,26 @@ shortTitle: 从 11.10.x 迁移到 2.1.23
 
 ## 执行迁移
 
-1. 配置新的 {% data variables.product.prodname_enterprise %} 2.1 实例。 更多信息请参阅您的目标平台的“[配置和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”指南。
+1. 配置新的 {% data variables.product.prodname_enterprise %} 2.1 实例。 有关详细信息，请参阅适用于你的目标平台的“[预配和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”指南。
 2. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。
 3. 设置管理员密码。
-5. 单击 **Migrate**。 ![选择安装类型](/assets/images/enterprise/migration/migration-choose-install-type.png)
-6. 将备份主机访问 SSH 密钥粘贴到“Add new SSH key”中。 ![授权备份](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
-7. 单击 **Add key（添加密钥）**，然后单击 **Continue（继续）**。
-8. 复制您将在备份主机上运行的 `ghe-restore` 命令，将数据迁移到新实例。 ![开始迁移](/assets/images/enterprise/migration/migration-restore-start.png)
-9. 在旧实例上启用维护模式，并等待所有活动进程完成。 更多信息请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+5. 单击“迁移”。
+![选择安装类型](/assets/images/enterprise/migration/migration-choose-install-type.png)
+6. 将备份主机访问 SSH 密钥粘贴到“Add new SSH key”中。
+![授权备份](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
+7. 单击“添加密钥”，然后单击“继续” 。
+8. 复制你将在备份主机上运行的 `ghe-restore` 命令，将数据迁移到新实例。
+![开始迁移](/assets/images/enterprise/migration/migration-restore-start.png)
+9. 在旧实例上启用维护模式，并等待所有活动进程完成。 有关详细信息，请参阅“[启用和安排维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
   {% note %}
 
-  **注**：从现在开始，此实例将无法正常使用。
+  **注意：** 从现在开始，此实例将无法正常使用。
 
   {% endnote %}
 
 10. 在备份主机上，运行 `ghe-backup` 命令以生成最终的备份快照。 这样可以确保捕获来自旧实例的所有数据。
-11. 在备份主机上，运行您在新实例的恢复状态屏幕上复制的 `ghe-restore` 命令以恢复最新快照。
+11. 在备份主机上，运行你在新实例的恢复状态屏幕上复制的 `ghe-restore` 命令以恢复最新快照。
   ```shell
   $ ghe-restore 169.254.1.1
   The authenticity of host '169.254.1.1:122' can't be established.
@@ -84,15 +92,17 @@ shortTitle: 从 11.10.x 迁移到 2.1.23
   Visit https://169.254.1.1/setup/settings to review appliance configuration.
   ```
 
-12. 返回到新实例的恢复状态屏幕，查看恢复是否已完成。 ![恢复整个屏幕](/assets/images/enterprise/migration/migration-status-complete.png)
-13. 单击 **Continue to settings**，检查并调整从之前的实例中导入的配置信息和设置。 ![检查导入的设置](/assets/images/enterprise/migration/migration-status-complete.png)
-14. 单击 **Save settings（保存设置）**。
+12. 返回到新实例的恢复状态屏幕，查看恢复是否已完成。
+![恢复整个屏幕](/assets/images/enterprise/migration/migration-status-complete.png)
+13. 单击“继续设置”，检查并调整从之前的实例中导入的配置信息和设置。
+![检查导入的设置](/assets/images/enterprise/migration/migration-status-complete.png)
+14. 单击“保存设置”。 
 
   {% note %}
 
-  **注**：您可以在应用配置设置并重新启动服务器后使用新实例。
+  **注意：** 可以在应用配置设置并重新启动服务器后使用新实例。
 
   {% endnote %}
 
 15. 使用 DNS 或 IP 地址分配将用户网络流量从旧实例切换到新实例。
-16. 升级到 {% data variables.product.prodname_ghe_server %} 的最新修补程序版本。 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)。”
+16. 升级到 {% data variables.product.prodname_ghe_server %} 的最新补丁版本。 有关详细信息，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。

@@ -84,7 +84,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Raise all npm pull requests with reviewers
     reviewers:
       - "my-org/team-name"
@@ -118,7 +118,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Raise all npm pull requests with custom labels
     labels:
       - "npm dependencies"
@@ -128,7 +128,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Raise pull requests for Docker version updates
     # against the "develop" branch. The Docker configuration
     # no longer affects security update pull requests.

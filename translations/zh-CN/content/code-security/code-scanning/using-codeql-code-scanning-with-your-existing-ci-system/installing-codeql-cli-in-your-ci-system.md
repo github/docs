@@ -47,7 +47,7 @@ You should download the {% data variables.product.prodname_codeql %} bundle from
 {% ifversion ghes or ghae %}
 
 {% note %}
-For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }},{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
+For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }}{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
 {% endnote %}
 
 {% endif %}
@@ -69,6 +69,14 @@ After you extract the {% data variables.product.prodname_codeql_cli %} bundle, y
 
 - By executing `/<extraction-root>/codeql/codeql`, where `<extraction-root>` is the folder where you extracted the {% data variables.product.prodname_codeql_cli %} bundle.
 - By adding `/<extraction-root>/codeql` to your `PATH`, so that you can run the executable as just `codeql`.
+
+{% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+{% note %}
+
+If you use the {% data variables.product.prodname_codeql_cli %} to analyze code written in Python, you must make sure that your CI system has Python 3 installed.
+
+{% endnote %}
+{% endif %}
 
 ## Testing the {% data variables.product.prodname_codeql_cli %} set up
 

@@ -1,6 +1,6 @@
 ---
-title: ブランチの自動的削除を管理する
-intro: プルリクエストがリポジトリにマージされた後、head ブランチを自動的に削除することができます。
+title: Managing the automatic deletion of branches
+intro: You can have head branches automatically deleted after pull requests are merged in your repository.
 redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
   - /github/administering-a-repository/managing-the-automatic-deletion-of-branches
@@ -14,13 +14,13 @@ topics:
   - Repositories
 shortTitle: Automatic branch deletion
 ---
-
-リポジトリに対する管理者権限があるユーザなら誰でも、ブランチの自動的削除を有効化または無効化できます。
+Anyone with admin permissions to a repository can enable or disable the automatic deletion of branches.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or unselect **Automatically delete head branches**. ![ブランチの自動的削除を有効化または無効化するチェックボックス](/assets/images/help/repository/automatically-delete-branches.png)
+3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or unselect **Automatically delete head branches**.
+  ![Checkbox to enable or disable automatic deletion of branches](/assets/images/help/repository/automatically-delete-branches.png)
 
-## 参考リンク
-- [プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)
-- [リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository)
+## Further reading
+- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
+- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"

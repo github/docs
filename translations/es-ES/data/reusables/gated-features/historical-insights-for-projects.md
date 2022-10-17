@@ -1,1 +1,9 @@
-Historical charts are available with {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} for organizations. You can save unlimited charts in private projects with {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} for organizations and {% data variables.product.prodname_pro %} for users. Users and organizations using a public project can also save unlimited charts. Users and organizations using {% data variables.product.prodname_free_team %} or a legacy plan can save two charts in private projects.  {% data reusables.gated-features.more-info %}
+---
+ms.openlocfilehash: fd865e1bcf0fb2af69739d4d81fa27796e2e0b33
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147424452"
+---
+Los gráficos históricos están disponibles con {% data variables.product.prodname_team %} y {% data variables.product.prodname_ghe_cloud %} para las organizaciones. Puedes guardar gráficos ilimitados en proyectos privados con {% data variables.product.prodname_team %} y {% data variables.product.prodname_ghe_cloud %} para organizaciones y con {% data variables.product.prodname_pro %} para usuarios. Los usuarios y las organizaciones que utilicen un proyecto público también pueden guardar gráficos ilimitados. Los usuarios y las organizaciones que utilicen {% data variables.product.prodname_free_team %} o un plan heredado pueden guardar dos gráficos en proyectos privados.  {% data reusables.gated-features.more-info %}

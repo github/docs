@@ -1,6 +1,6 @@
 ---
-title: Leave feedback with pull requests
-intro: You can leave feedback for your students in a special pull request within the repository for each assignment.
+title: Deja retroalimentación con solicitudes de cambios
+intro: Puedes dejar retroalimentación para tus alumnos en una solicitud de cambio especial dentro del repositorio de cada tarea.
 permissions: People with read permissions to a repository can leave feedback in a pull request for the repository.
 versions:
   fpt: '*'
@@ -8,27 +8,32 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/leaving-feedback-in-github
   - /education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests
 shortTitle: Pull requests
+ms.openlocfilehash: 6315904aaaa02acc66249039e99a402b455a8871
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145119530'
 ---
-## About feedback pull requests for assignments
+## Acerca de las solicitudes de cambio de retroalimentación de las tareas
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
-When you enable the pull request for feedback for an assignment, {% data variables.product.prodname_classroom %} will create a special pull request titled **Feedback** in the assignment repository for each student or team. The pull request automatically shows every commit that a student pushed to the assignment repository's default branch.
+Cuando habilita las solicitudes de incorporación de cambios para agregar comentarios a una asignación, {% data variables.product.prodname_classroom %} crea una solicitud de incorporación de cambios especial denominada **Comentarios** en el repositorio de la asignación de cada alumno o equipo. La solicitud de cambios mostrará automáticamente todas las confirmaciones que subió el alumno a la rama predeterminada del repositorio de la tarea.
 
-## Prerequisites
+## Prerrequisitos
 
-To create and access the feedback pull request, you must enable the feedback pull request when you create the assignment. {% data reusables.classroom.for-more-information-about-assignment-creation %}
+Para crear y acceder a la solicitud de cambios de retroalimentación, debes habilitarla cuando creas la tarea. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-## Leaving feedback in a pull request for an assignment
+## Dejar retroalimentación en una solicitud de cambios para una tarea
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. In the list of classrooms, click the classroom with the assignment you want to review.
-  ![Classroom in list of classrooms for an organization](/assets/images/help/classroom/click-classroom-in-list.png)
-{% data reusables.classroom.click-assignment-in-list %}
-1. To the right of the submission, click **Review**.
-  ![Review button for assignment in list of submissions for an assignment](/assets/images/help/classroom/assignments-click-review-button.png)
-1. Review the pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
+1. En la lista de aulas, da clic en aquella con la tarea que quieres revisar.
+  ![Clase en la lista de clases de una organización](/assets/images/help/classroom/click-classroom-in-list.png) {% data reusables.classroom.click-assignment-in-list %}
+1. A la derecha de un envío, haga clic en **Review**.
+  ![Botón Review de la asignación en una lista de envíos de una asignación](/assets/images/help/classroom/assignments-click-review-button.png)
+1. Revise la solicitud de incorporación de cambios. Para obtener más información, consulte "[Comentarios en una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)".
 
-## Further reading
+## Información adicional
 
-- "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)"
+- "[Integración de {% data variables.product.prodname_classroom %} con un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)".

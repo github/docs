@@ -39,6 +39,12 @@ children:
   - /configuring-the-referrer-policy-for-your-enterprise
   - /configuring-custom-footers
   - /configuring-web-commit-signing
-shortTitle: 配置企业
+shortTitle: Configure your enterprise
+ms.openlocfilehash: 3cc7deccfdf71a0e339fca8055f0cd4b5027a32c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147409229'
 ---
 

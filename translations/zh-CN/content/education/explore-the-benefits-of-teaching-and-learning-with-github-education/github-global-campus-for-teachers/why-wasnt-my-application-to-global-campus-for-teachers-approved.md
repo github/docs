@@ -1,6 +1,6 @@
 ---
-title: Why wasn't my application to Global Campus for teachers approved?
-intro: 'Review common reasons that applications for {% data variables.product.prodname_global_campus %} are not approved and learn tips for reapplying successfully.'
+title: 为什么我的教师版 Global Campus 申请未获批准？
+intro: '查看申请 {% data variables.product.prodname_global_campus %} 未获批准的常见原因，并了解成功重新申请的窍门。'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -11,12 +11,17 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
   fpt: '*'
-shortTitle: 申请未被批准
+shortTitle: Application not approved
+ms.openlocfilehash: 86d1f0c3bc1bfe451be611ce47cc3f715fd8ba92
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574175'
 ---
-
 {% tip %}
 
-**提示：** {% data reusables.education.about-github-education-link %}
+提示：{% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
@@ -42,8 +47,8 @@ shortTitle: 申请未被批准
 
 ## 非学生申请学生开发包
 
-Teachers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). 当您重新申请时，确保选择 **Faculty（教职工）**来描述您的学术地位。
+教师没有资格获得 [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) 随附的合作伙伴优惠。 重新申请时，确保选择“教职工”来描述你的学术状态。
 
 ## 延伸阅读
 
-- "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"
+- [以教师身份申请加入 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)

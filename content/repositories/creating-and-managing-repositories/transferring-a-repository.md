@@ -24,13 +24,13 @@ topics:
 ---
 ## About repository transfers
 
-When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, project boards, and settings.
+When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, {% data variables.product.prodname_projects_v1 %}, and settings.
 
 Prerequisites for repository transfers:
 - When you transfer a repository that you own to another personal account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
 - To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
 - The target account must not have a repository with the same name, or a fork in the same network.
-- The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 %}
+- The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 or ghae %}
 - Internal repositories can't be transferred.{% endif %}
 - Private forks can't be transferred.
 
@@ -48,7 +48,7 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 - All links to the previous repository location are automatically redirected to the new location. When you use `git clone`, `git fetch`, or `git push` on a transferred repository, these commands will redirect to the new repository location or URL. However, to avoid confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using `git remote` on the command line:
 
   ```shell
-  $ git remote set-url origin <em>new_url</em>
+  $ git remote set-url origin NEW_URL
   ```
 
 - When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}

@@ -12,33 +12,36 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: 创建 HA 副本
+shortTitle: Create HA replica
+ms.openlocfilehash: 0b838049fe0d520be8cb88382314b25c5bba2b28
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '146332758'
 ---
-
 {% data reusables.enterprise_installation.replica-limit %}
 
-## 创建高可用性副本
+## <a name="creating-a-high-availability-replica"></a>创建高可用性副本
 
-1. 在所需平台上设置新的 {% data variables.product.prodname_ghe_server %} 设备。 副本设备应镜像主设备的 CPU、RAM 和存储设置。 建议您在独立环境中安装副本设备。 底层硬件、软件和网络组件应与主设备的相应部分隔离。 如果要使用云提供商，请使用单独的区域或分区。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
-1. Ensure that the new appliance can communicate with all other appliances in this high availability environment over ports 122/TCP and 1194/UDP. 更多信息请参阅“[网络端口](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)”。
+1. 在所需平台上设置新的 {% data variables.product.prodname_ghe_server %} 设备。 副本设备应镜像主设备的 CPU、RAM 和存储设置。 建议您在独立环境中安装副本设备。 底层硬件、软件和网络组件应与主设备的相应部分隔离。 如果要使用云提供商，请使用单独的区域或分区。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
+1. 确保主设备和新的副本设备可以通过端口 122/TCP 和 1194/UDP 相互通信。 有关详细信息，请参阅“[网络端口](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)”。
 1. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。
 {% data reusables.enterprise_installation.replica-steps %}
 1. 使用 SSH 连接到副本设备的 IP 地址。
   ```shell
   $ ssh -p 122 admin@<em>REPLICA IP</em>
   ```
-{% data reusables.enterprise_installation.generate-replication-key-pair %}
-{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
-1. 要验证与主设备的连接并为新副本启用副本模式，请再次运行 `ghe-repl-setup`。
+{% data reusables.enterprise_installation.generate-replication-key-pair %} {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
+1. 要验证到主设备的连接并为新副本启用副本模式，请再次运行 `ghe-repl-setup`。
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{% data reusables.enterprise_installation.replication-command %}
-{% data reusables.enterprise_installation.verify-replication-channel %}
+{% data reusables.enterprise_installation.replication-command %} {% data reusables.enterprise_installation.verify-replication-channel %}
 
-## 创建 Geo-replication 副本
+## <a name="creating-geo-replication-replicas"></a>创建 Geo-replication 副本
 
-此示例配置使用一个主设备和两个副本，它们位于三个不同的地理区域。 由于三个节点可以位于不同网络中，要求所有节点均可从其他所有节点到达。 必需的管理端口至少应向其他所有节点开放。 有关端口要求的更多信息，请参阅“[网络端口](/enterprise/admin/guides/installation/network-ports/#administrative-ports)”。
+此示例配置使用一个主设备和两个副本，它们位于三个不同的地理区域。 由于三个节点可以位于不同网络中，要求所有节点均可从其他所有节点到达。 必需的管理端口至少应向其他所有节点开放。 有关端口要求的详细信息，请参阅“[网络端口](/enterprise/admin/guides/installation/network-ports/#administrative-ports)”。
 
 1. 在第一个副本上运行 `ghe-repl-setup`，采用与创建标准双节点配置相同的方式创建第一个副本。
   ```shell
@@ -66,7 +69,7 @@ shortTitle: 创建 HA 副本
   ```
   {% tip %}
 
-  **提示：**您可以同时设置 `--datacenter` 和 `--activity` 选项。
+  提示：可以同时设置 `--datacenter` 和 `--active` 选项。
 
   {% endtip %}
 4. 活动副本节点将存储设备数据的副本并为最终用户请求提供服务。 非活动节点将存储设备数据的副本，但无法为最终用户请求提供服务。 使用 `--active` 标志启用活动模式，或使用 `--inactive` 标志启用非活动模式。
@@ -84,11 +87,11 @@ shortTitle: 创建 HA 副本
   (primary)$ ghe-config-apply
   ```
 
-## 为 Geo-replication 配置 DNS
+## <a name="configuring-dns-for-geo-replication"></a>为 Geo-replication 配置 DNS
 
-使用主节点和副本节点的 IP 地址配置 Geo DNS。 您还可以为主节点（例如 `primary.github.example.com`）创建 DNS CNAME，以通过 SSH 访问主节点或通过 `backup-utils` 备份主节点。
+使用主节点和副本节点的 IP 地址配置 Geo DNS。 还可为主节点（例如 `primary.github.example.com`）创建 DNS CNAME，以通过 SSH 访问主节点或通过 `backup-utils` 进行备份。
 
-要进行测试，您可以将条目添加到本地工作站的 `hosts` 文件（如 `/etc/hosts`）。 这些示例条目会将 `HOSTNAME` 的请求解析到 `replica2`。 您可以注释不同的行，以特定主机为目标。
+要进行测试，可以将条目添加到本地工作站的 `hosts` 文件（例如 `/etc/hosts`）。 这些示例条目会将 `HOSTNAME` 的请求解析到 `replica2`。 您可以注释不同的行，以特定主机为目标。
 
 ```
 # <primary IP>     <em>HOSTNAME</em>
@@ -96,8 +99,8 @@ shortTitle: 创建 HA 副本
 <replica2 IP>    <em>HOSTNAME</em>
 ```
 
-## 延伸阅读
+## <a name="further-reading"></a>延伸阅读
 
-- "[关于高可用性配置](/enterprise/admin/guides/installation/about-high-availability-configuration)"
-- "[用于复制管理的实用程序](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
-- “[关于 Geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)”
+- [关于高可用性配置](/enterprise/admin/guides/installation/about-high-availability-configuration)
+- [用于复制管理的实用程序](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)
+- [关于异地复制](/enterprise/admin/guides/installation/about-geo-replication/)

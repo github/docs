@@ -11,9 +11,14 @@ topics:
   - Organizations
   - Teams
   - Billing
-shortTitle: Remover gerente de cobrança
+shortTitle: Remove billing manager
+ms.openlocfilehash: a67f8a5644c063f64235bb25044c8364c0daa657
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145095602'
 ---
-
 {% warning %}
 
 **Observação:** {% data reusables.dotcom_billing.org-billing-perms %}
@@ -21,4 +26,5 @@ shortTitle: Remover gerente de cobrança
 {% endwarning %}
 
 {% data reusables.organizations.billing-settings %}
-1. Na lista "Gerentes de cobrança" em "Gerenciamento de corbrança", ao lado do nome da pessoa que deseja remover, clique em **Remover**. ![Remover gerente de cobrança](/assets/images/help/billing/settings_billing_managers_remove_manager.png)
+1. Na lista "Gerentes de cobrança" em "Gerenciamento do orçamento", ao lado do nome da pessoa que você deseja remover, clique em **Remover**.
+![Remover gerente de cobrança](/assets/images/help/billing/settings_billing_managers_remove_manager.png)

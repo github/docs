@@ -14,7 +14,7 @@ redirect_from:
   - /codespaces/codespaces-quickstart
 ---
 
-## はじめに
+## Introduction
 
 In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace.
 
@@ -22,31 +22,26 @@ From this quickstart, you'll learn how to create a codespace, connect to a forwa
 
 For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
 
-## codespace を作成する
+## Creating your codespace
 
-1. Navigate to the [template repository](https://github.com/github/haikus-for-codespaces) and select **Use this template**.
-
-1. Choose an owner for the new repository, enter a repository name, select your preferred privacy setting, and click **Create repository from template**.
-
-1. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
-
-  ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
+1. Navigate to the [template repository](https://github.com/github/haikus-for-codespaces) and select **Use this template**. 
+{% data reusables.codespaces.open-codespace-from-template-repo %}
 
 ## Running the application
 
 Once your codespace is created, your repository will be automatically cloned into it. Now you can run the application and launch it in a browser.
 
 1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the _package.json_ file, which starts up the web application defined in the sample repository.
-
-   ![ターミナルで dev を実行する npm](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
+   
+   ![npm run dev in terminal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
    If you're following along with a different application type, enter the corresponding start command for that project.
 
-1. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded.
+1. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
 
-  ![ポートフォワーディングトースト](/assets/images/help/codespaces/quickstart-port-toast.png)
+  ![Port forwarding toast](/assets/images/help/codespaces/quickstart-port-toast.png)
 
-1. [**Open in Browser**] をクリックして、実行中のアプリケーションを新しいタブで表示します。
+1. Click **Open in Browser** to view your running application in a new tab.
 
 ## Edit the application and view changes
 
@@ -55,7 +50,7 @@ Once your codespace is created, your repository will be automatically cloned int
 1. Edit the `text` field of the first haiku to personalize the application with your own haiku.
 
 1. Go back to the running application tab in your browser and refresh to see your changes.
-
+   
   {% octicon "light-bulb" aria-label="The lightbulb icon" %}  If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
 
   ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
@@ -65,24 +60,24 @@ Once your codespace is created, your repository will be automatically cloned int
 Now that you've made a few changes, you can use the integrated terminal or the source view to commit and push the changes back to the remote.
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. 変更をステージングするには、変更したファイルの隣にある [**+**] をクリックするか、複数のファイルを変更してすべてをステージングする場合は [**Changes**] の隣をクリックします。
+1. To stage your changes, click  **+** next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
-   ![ステージングボタンが強調表示されたソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
-1. 行った変更について説明するコミットメッセージを入力します。
+1. Type a commit message describing the change you've made.
 
-   ![コミットメッセージがあるソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
+   ![Source control side bar with a commit message](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
 
-1. ステージングされた変更をコミットするには、ソースコントロールサイドバーの上部にあるチェックマークをクリックします。
+1. To commit your staged changes, click the check mark at the top the source control side bar.
 
-   ![チェックマークアイコンをクリックする](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
+   ![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)  
 
-   行なった変更はプッシュできます。 それにより、変更がリモートリポジトリの上流ブランチに適用されます。 プルリクエストの作成準備が整っていない場合、または {% data variables.product.prodname_dotcom %} でプルリクエストを作成する場合は、この操作を行うことをお勧めします。
-1. サイドバーの上部にある省略記号(**...**) をクリックします。
+   You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
+1. At the top of the side bar, click the ellipsis (**...**).
+ 
+   ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
 
-   ![[View] および [More Actions] の省略記号ボタン](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-
-1. ドロップダウンメニューで、[**Push**] をクリックします。
+1. In the drop-down menu, click **Push**.
 1. Go back to your new repository on {% data variables.product.prodname_dotcom %} and view the _haikus.json_ file. Check that the change you made in your codespace has been successfully pushed to the repository.
 
 ## Personalizing with an extension
@@ -95,25 +90,25 @@ Within a codespace, you have access to the {% data variables.product.prodname_vs
 
 {% endnote %}
 
-1. 左サイトバーで、[Extensions] アイコンをクリックします。
+1. In the left sidebar, click the Extensions icon.
 
-1. 検索バーに「`fairyfloss`」と入力し、fairyfloss の機能拡張をインストールします。
+1. In the search bar, enter `fairyfloss` and install the fairyfloss extension.
 
-   ![機能拡張を追加](/assets/images/help/codespaces/add-extension.png)
+   ![Add an extension](/assets/images/help/codespaces/add-extension.png)
 
 1. Click **Install in Codespaces**.
-1. リストから `fairyfloss` のテーマを選択します。
+1. Select the `fairyfloss` theme by selecting it from the list.
 
-   ![fairyfloss のテーマを選択](/assets/images/help/codespaces/fairyfloss.png)
+   ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
 
-## 次のステップ
+## Next Steps
 
-codespace で最初のアプリケーションを正常に作成、パーソナライズ、および実行しましたが、その他にもできることはまだまだたくさんあります。 {% data variables.product.prodname_codespaces %} で次のステップを実行するための役立つリソースは以下のとおりです。
-  - [Deep dive](/codespaces/getting-started/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-  - [Setting up your project for {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): These guides provide information on setting up your project to use {% data variables.product.prodname_codespaces %} with specific languages.
-  - [Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project): This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
+You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_codespaces %}.
+  - "[Deep dive](/codespaces/getting-started/deep-dive)": This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
+  - "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)": These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
+  - "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)": This guide provides details on configuring a development container for your codespace.
 
-## 参考リンク
+## Further reading
 
-- [Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
+- "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
+- "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"

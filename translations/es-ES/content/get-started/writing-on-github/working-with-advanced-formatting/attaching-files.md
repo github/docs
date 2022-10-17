@@ -1,6 +1,6 @@
 ---
-title: Adjuntar archivos
-intro: Puedes transmitir información si adjuntas varios tipos de archivo a tus propuestas y solicitudes de cambio.
+title: Attaching files
+intro: You can convey information by attaching a variety of file types to your issues and pull requests.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
   - /articles/issue-attachments
@@ -18,24 +18,26 @@ topics:
 
 {% data reusables.repositories.anyone-can-view-anonymized-url %}
 
-Para adjuntar un archivo a una propuesta o una conversación de una solicitud de extracción, arrástralo y suéltalo en el cuadro de comentarios. Como alternativa, puedes dar clic en la barra al final del recuadro de comentarios para buscar, seleccionar y agregar un archivo desde tu ordenador.
+To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
 
-![Seleccionar adjuntos desde el ordenador](/assets/images/help/pull_requests/select-bar.png)
+![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
+
+When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% tip %}
 
-**Tip:** En varios buscadores, puedes copiar y pegar las imágenes directamente en el campo.
+**Tip:** In many browsers, you can copy-and-paste images directly into the box.
 
 {% endtip %}
 
-El tamaño máximo de archivo es:
-- 10MB de imágenes y gifs{% ifversion fpt or ghec %}
-- 10MB para videos que se suban a un repositorio que pertenezca a un usuario u organización en un plan gratuito de GitHub
-- 100MB para videos que se suban a los repositorios que pertenezcan a un usuario u organización de un plan de pago de GitHub{% elsif ghes or ghae-issue-7575 %}
-- 100MB para videos{% endif %}
-- 25MB para el resto de los archivos
+The maximum file size is:
+- 10MB for images and gifs{% ifversion fpt or ghec %}
+- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
+- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif ghes %}
+- 100MB for videos{% endif %}
+- 25MB for all other files
 
-Archivos compatibles:
+We support these files:
 
 * PNG (*.png*)
 * GIF (*.gif*)
@@ -43,17 +45,17 @@ Archivos compatibles:
 {%- ifversion svg-support %}
 * SVG (*.svg*)
 {%- endif %}
-* Archivos de registro (*.log*)
-* Documentos de Microsoft Word (*.docx*), Powerpoint (*.pptx*) y Excel (*.xlsx*)
-* Archivos de texto (*.txt*)
-* PDF (*.pdf*)
-* ZIP (*.zip*, *.gz*){% ifversion fpt or ghec or ghes or ghae-issue-7575 %}
+* Log files (*.log*)
+* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
+* Text files (*.txt*)
+* PDFs (*.pdf*)
+* ZIP (*.zip*, *.gz*){% ifversion fpt or ghec or ghes %}
 * Video (*.mp4*, *.mov*){% endif %}
 
-{% ifversion fpt or ghec or ghes or ghae-issue-7575 %}{% note %}
+{% ifversion fpt or ghec or ghes %}{% note %}
 
-**Nota:** La compatibilidad con los codecs de video es específica del buscador y es posible que un video que cargues en uno de los buscadores no se pueda ver en otro de ellos. Por el momento, recomendamos utilizar h.264 para una mejor compatibilidad.
+**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
 
 {% endnote %}{% endif %}
 
-![GIF animados adjuntos](/assets/images/help/pull_requests/dragging_images.gif)
+![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)

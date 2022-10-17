@@ -13,16 +13,20 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Usar e-mail verificado na chave GPG
+shortTitle: Use verified email in GPG key
+ms.openlocfilehash: bb9f4fbbfdb70ba55870ab068a33c566791fbaf2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145083566'
 ---
+{% ifversion fpt or ghec %} Caso precise verificar seu endereço de email do GitHub, confira "[Como verificar seu endereço de email](/articles/verifying-your-email-address/)". {% endif %}Caso precise atualizar ou adicionar um endereço de email à sua chave GPG, confira "[Como associar um email à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)".
 
-{% ifversion fpt or ghec %}
-Se precisar verificar seu endereço de e-mail do GitHub, consulte "[Verificar seu endereço de e-mail](/articles/verifying-your-email-address/)". {% endif %}Se precisar atualizar ou adicionar um endereço de e-mail à sua chave GPG, consulte "[Acessar um e-mail com sua chave GPG](/articles/associating-an-email-with-your-gpg-key)".
+Commits e tags podem conter vários endereços de e-mail. Nos commits, há o autor — a pessoa que escreveu o código — e o committer — a pessoa que adicionou o commit à árvore. Durante a assinatura de um commit com o Git, seja durante uma mesclagem, um cherry-pick ou um `git commit` normal, o endereço de email do autor do commit será seu, mesmo que o endereço de email do autor não seja. As tags são mais simples: o endereço de e-mail do tagger é sempre o do usuário que criou a tag.
 
-Commits e tags podem conter vários endereços de e-mail. Nos commits, há o autor — a pessoa que escreveu o código — e o committer — a pessoa que adicionou o commit à árvore. Ao assinar um commit com Git, seja durante um `git commit` normal, cherry-pick ou merge, o endereço de e-mail do committer será o seu, mesmo que o endereço de e-mail do autor não seja. As tags são mais simples: o endereço de e-mail do tagger é sempre o do usuário que criou a tag.
+Caso precise alterar seu endereço de email para commit ou tag, confira "[Como definir seu endereço de email de commit](/articles/setting-your-commit-email-address/)".
 
-Caso você precise alterar o endereço de e-mail do committer ou tagger, consulte "[Configurar endereço de e-mail do commit](/articles/setting-your-commit-email-address/)".
+## Leitura adicional
 
-## Leia mais
-
-- "[Sobre a verificação de assinatura de commit](/articles/about-commit-signature-verification)"
+- "[Sobre a verificação da assinatura de commit](/articles/about-commit-signature-verification)"

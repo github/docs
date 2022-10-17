@@ -26,6 +26,7 @@ shortTitle: User into an organization
 * You will **no longer** be able to create or modify gists owned by the converted personal account.
 * An organization **cannot** be converted back to a user.
 * The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. This is only true for the personal account that's being converted, not any of the personal account's collaborators.
+* Any {% data variables.product.prodname_github_apps %} installed on the converted personal account will be uninstalled.
 * Any commits made with the converted personal account **will no longer be linked** to that account. The commits themselves **will** remain intact.
 * Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
 * Any forks of private repositories made with the converted personal account will be deleted.

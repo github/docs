@@ -155,18 +155,6 @@ async function main(opts, nameTuple) {
       )
     }
   }
-
-  const redirectsCachingFile = 'lib/redirects/.redirects-cache.json'
-  if (fs.existsSync(redirectsCachingFile)) {
-    fs.unlinkSync(redirectsCachingFile)
-    if (verbose) {
-      console.log(
-        chalk.yellow(
-          `Deleted the redirects caching file ${redirectsCachingFile} to stale cache in local server testing.`
-        )
-      )
-    }
-  }
 }
 
 function validateFileInputs(oldPath, newPath, isFolder) {

@@ -1,6 +1,6 @@
 ---
 title: Configurar o GitLarge File Storage
-intro: 'Assim que o [{% data variables.large_files.product_name_short %} estiver instalado](/articles/installing-git-large-file-storage/), você precisará associá-lo a um arquivo grande no seu repositório.'
+intro: 'Assim que o [{% data variables.large_files.product_name_short %} for instalado](/articles/installing-git-large-file-storage/), você precisará associá-lo a um arquivo grande no seu repositório.'
 redirect_from:
   - /articles/configuring-large-file-storage
   - /articles/configuring-git-large-file-storage
@@ -11,10 +11,15 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Configurar o LFS do Git
+shortTitle: Configure Git LFS
+ms.openlocfilehash: 363e89be0c729b8ea6d5313cec0c7ce61654f229
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331757'
 ---
-
-Se houver arquivos no seu repositório com os quais deseja usar o {% data variables.product.product_name %}, você precisará primeiramente removê-los do repositório e, em seguida, adicioná-los ao {% data variables.large_files.product_name_short %} no local. Para obter mais informações, consulte "[Mover um arquivo do repositório para o {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)".
+Se houver arquivos no seu repositório com os quais deseja usar o {% data variables.product.product_name %}, você precisará primeiramente removê-los do repositório e, em seguida, adicioná-los ao {% data variables.large_files.product_name_short %} no local. Para obter mais informações, confira "[Como mover um arquivo do seu repositório para o {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)".
 
 {% data reusables.large_files.resolving-upload-failures %}
 
@@ -22,7 +27,7 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
 
 {% tip %}
 
-**Observação:** antes de tentar fazer push de um arquivo grande no {% data variables.product.product_name %}, certifique-se de que habilitou o {% data variables.large_files.product_name_short %} no seu aplicativo. Para obter mais informações, consulte "[Configurar o Git Large File Storage no GitHub Enterprise Server](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
+**Observação:** antes de tentar efetuar push de um arquivo grande no {% data variables.product.product_name %}, verifique se você habilitou o {% data variables.large_files.product_name_short %} no seu aplicativo. Para obter mais informações, confira "[Como configurar o Git Large File Storage no GitHub Enterprise Server](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
 
 {% endtip %}
 
@@ -30,22 +35,22 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Altere o diretório de trabalho atual para um repositório existente que deseja usar com o {% data variables.large_files.product_name_short %}.
-3. Para associar um tipo de arquivo no repositório ao {% data variables.large_files.product_name_short %}, digite `git {% data variables.large_files.command_name %} track` seguido pelo nome da extensão do arquivo do qual deseja fazer upload automaticamente no {% data variables.large_files.product_name_short %}.
+3. Para associar um tipo de arquivo no seu repositório ao {% data variables.large_files.product_name_short %}, insira `git {% data variables.large_files.command_name %} track` seguido do nome da extensão de arquivo que deseja carregar automaticamente no {% data variables.large_files.product_name_short %}.
 
-  Por exemplo, para associar um arquivo _.psd_, digite o seguinte comando:
+  Por exemplo, para associar um arquivo _.psd_, insira o seguinte comando:
   ```shell
   $ git {% data variables.large_files.command_name %} track "*.psd"
   > Adding path *.psd
   ```
-  Cada tipo de arquivo que desejar associar ao {% data variables.large_files.product_name_short %} precisará ser adicionado com `git {% data variables.large_files.command_name %} track`. Esse comando corrige o arquivo *.gitattributes* do repositório e associa arquivos grandes ao {% data variables.large_files.product_name_short %}.
+  Todos os tipos de arquivos que você deseja associar ao {% data variables.large_files.product_name_short %} precisarão ser adicionados com `git {% data variables.large_files.command_name %} track`. Esse comando corrige o arquivo *.gitattributes* do repositório e associa arquivos grandes ao {% data variables.large_files.product_name_short %}.
 
   {% note %}
 
-  **Observação:** É altamente recomendável que você faça o commit do seu arquivo local *.gitattributes* no seu repositório.
+  **Observação:** sugerimos fortemente que você faça commit do arquivo *.gitattributes* local no seu repositório.
 
     - Depender de um arquivo *.gitattributes* global associado ao {% data variables.large_files.product_name_short %} pode causar conflitos durante a contribuição com outros projetos do Git.
-    - Incluir o arquivo *.gitattributes* no repositório permite que as pessoas que criam bifurcações ou clones frescos colaborem mais facilmente usando {% data variables.large_files.product_name_short %}.
-    - Incluir o arquivo *.gitattributes* no repositório permite que os objetos de {% data variables.large_files.product_name_short %} sejam incluídos opcionalmente no arquivo ZIP e nos arquivos do tarball.
+    - A inclusão do arquivo *.gitattributes* no repositório permite que as pessoas que criam bifurcações ou clones novos colaborem com mais facilidade usando o {% data variables.large_files.product_name_short %}.
+    - A inclusão do arquivo *.gitattributes* no repositório permite que objetos do {% data variables.large_files.product_name_short %} sejam incluídos opcionalmente em arquivos ZIP e arquivos tarball.
 
   {% endnote %}
 
@@ -56,7 +61,7 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
 5. Faça commit do arquivo e faça push dele no {% data variables.product.product_name %}:
   ```shell
   $ git commit -m "add file.psd"
-  $ git push origin master
+  $ git push
   ```
   Você deve ver algumas informações de diagnóstico sobre o upload do arquivo:
   ```shell
@@ -65,7 +70,7 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
   > 64.74 MB / 81.04 MB  79.21 % 3s
   ```
 
-## Leia mais
+## Leitura adicional
 
-- "[Colaboração com {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
-- "[Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
+- "[Colaboração com o {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
+- "[Como gerenciar objetos do {% data variables.large_files.product_name_short %} nos arquivos do repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

@@ -38,7 +38,7 @@ If you have existing source code or repositories stored locally on your computer
     git init -b main
     ```
 
-1. Stage and commit all the files in your project
+1. Stage and commit all the files in your project.
 
    ```shell
    git add . && git commit -m "initial commit"
@@ -66,10 +66,10 @@ If you have existing source code or repositories stored locally on your computer
    $ git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git symbolic-ref HEAD refs/heads/main`.
 
    ``` shell
-   $ git init && git branch -m main
+   $ git init && git symbolic-ref HEAD refs/heads/main
    ```
 5. Add the files in your new local repository. This stages them for the first commit.
   
@@ -86,7 +86,7 @@ If you have existing source code or repositories stored locally on your computer
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  $ git remote add origin &lt;REMOTE_URL>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -113,10 +113,10 @@ If you have existing source code or repositories stored locally on your computer
    $ git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git symbolic-ref HEAD refs/heads/main`.
 
    ``` shell
-   $ git init && git branch -m main
+   $ git init && git symbolic-ref HEAD refs/heads/main
    ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -132,7 +132,7 @@ If you have existing source code or repositories stored locally on your computer
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In the Command prompt, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  $ git remote add origin &lt;REMOTE_URL>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -159,10 +159,10 @@ If you have existing source code or repositories stored locally on your computer
    $ git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git branch -m`.
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `&& git symbolic-ref HEAD refs/heads/main`.
 
    ``` shell
-   $ git init && git branch -m main
+   $ git init && git symbolic-ref HEAD refs/heads/main
    ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -178,7 +178,7 @@ If you have existing source code or repositories stored locally on your computer
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  $ git remote add origin &lt;REMOTE_URL>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL

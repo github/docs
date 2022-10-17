@@ -1,28 +1,28 @@
 date: '2021-11-09'
 sections:
   security_fixes:
-    - A path traversal vulnerability was identified in {% data variables.product.prodname_pages %} builds on {% data variables.product.prodname_ghe_server %} that could allow an attacker to read system files. To exploit this vulnerability, an attacker needed permission to create and build a {% data variables.product.prodname_pages %} site on the {% data variables.product.prodname_ghe_server %} instance. This vulnerability affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.3, and was fixed in versions 3.0.19, 3.1.11, and 3.2.3. This vulnerability was reported through the {% data variables.product.company_short %} Bug Bounty program and has been assigned CVE-2021-22870.
-    - Packages have been updated to the latest security versions.
+    - "{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_pages %} のビルドで、攻撃者によるシステム ファイルの読み取りを可能にするパス トラバーサルの脆弱性が見つかりました。攻撃者がこの脆弱性を悪用するには、{% data variables.product.prodname_ghe_server %} インスタンス上に {% data variables.product.prodname_pages %} サイトを作成してビルドするためのアクセス許可が必要です。{% data variables.product.prodname_ghe_server %} の 3.3 より前のすべてのバージョンがこの脆弱性による影響を受け、バージョン 3.0.19、3.1.11、3.2.3 で修正されました。この脆弱性は、{% data variables.product.company_short %} Bug Bounty プログラムによって報告され、CVE-2021-22870 を割り当てられました。"
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - Some Git operations failed after upgrading a {% data variables.product.prodname_ghe_server %} 3.x cluster because of the HAProxy configuration.
-    - Unicorn worker counts might have been set incorrectly in clustering mode.
-    - Resqued worker counts might have been set incorrectly in clustering mode.
-    - If Ubuntu's Uncomplicated Firewall (UFW) status was inactive, a client could not clearly see it in the logs.
-    - Upgrading from {% data variables.product.prodname_ghe_server %} 2.x to 3.x failed when there were UTF8 characters in an LDAP configuration.
-    - Some pages and Git-related background jobs might not run in cluster mode with certain cluster configurations.
-    - When a new tag was created, the [push](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) webhook payload did not display a correct `head_commit` object. Now, when a new tag is created, the push webhook payload now always includes a `head_commit` object that contains the data of the commit that the new tag points to. As a result, the `head_commit` object will always contain the commit data of the payload's `after` commit.
-    - The enterprise audit log page would not display audit events for {% data variables.product.prodname_secret_scanning %}.
-    - There was an insufficient job timeout for replica repairs.
-    - 'Users were not warned about potentially dangerous bidirectional unicode characters when viewing files. For more information, see "[Warning about bidirectional Unicode text](https://github.co/hiddenchars)" in {% data variables.product.prodname_blog %}.'
-    - Hookshot Go sent distribution type metrics that Collectd could not handle, which caused a ballooning of parsing errors.
+    - "HAProxy の構成のため、{% data variables.product.prodname_ghe_server %} 3.x クラスターをアップグレードした後、Git の一部の操作が失敗しました。"
+    - クラスタリング モードでは、Unicorn ワーカーの数が正しく設定されないことがありました。
+    - クラスタリング モードでは、Resqued ワーカーの数が正しく設定されないことがありました。
+    - Ubuntu の Uncomplicated Firewall (UFW) の状態が非アクティブの場合、クライアントはそのことをログに明確に表示できませんでした。
+    - "LDAP の構成に UTF8 文字が含まれている場合、{% data variables.product.prodname_ghe_server %} 2.x から 3.x へのアップグレードが失敗しました。"
+    - 特定のクラスター構成のクラスター モードでは、一部のページおよび Git 関連のバックグラウンド ジョブが実行しない場合がありました。
+    - "新しいタグが作成されたとき、[プッシュ](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) Webhook のペイロードに正しい \"head_commit\" オブジェクトが表示されませんでした。現在は、新しいタグが作成されると、プッシュ Webhook のペイロードに、新しいタグが指すコミットのデータを含む \"head_commit\" オブジェクトが常に含まれるようになりました。その結果、\"head_commit\" オブジェクトにはペイロードの \"after\" コミットのコミット データが常に含まれます。"
+    - "Enterprise の監査ログのページに、{% data variables.product.prodname_secret_scanning %} の監査イベントが表示されませんでした。"
+    - ジョブのタイムアウトが、レプリカの修復に対して十分ではありませんでした。
+    - 'ユーザーがファイルを表示するとき、危険性がある双方向 Unicode 文字に関する警告が表示されませんでした。詳しくは、{% data variables.product.prodname_blog %} の「[双方向 Unicode テキストに関する警告](https://github.co/hiddenchars)」をご覧ください。'
+    - Hookshot Go が、Collectd で処理できない分散の種類のメトリックを送信しており、解析のバルーニング エラーが発生しました。
   changes:
-    - Kafka configuration improvements have been added. When deleting repositories, package files are now immediately deleted from storage account to free up space. `DestroyDeletedPackageVersionsJob` now deletes package files from storage account for stale packages along with metadata records.
+    - "Kafka の構成の改善が追加されました。リポジトリを削除するとき、領域を解放するため、パッケージ ファイルがストレージ アカウントからすぐに削除されるようになりました。\"DestroyDeletedPackageVersionsJob\" で、メタデータ レコードと共に古いパッケージのパッケージ ファイルがストレージ アカウントから削除されるようになりました。"
   known_issues:
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、\"ghe-repl-teardown\" でのレプリカ ノードの破棄は成功しますが、\"エラー: 移行の実行\" が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

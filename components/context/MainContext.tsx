@@ -27,9 +27,9 @@ type VersionItem = {
   currentRelease: string
   latestVersion: string
   shortName: string
-  // api.github.com, ghes-3.3, github.ae
+  // api.github.com, ghec, ghes-3.3, github.ae
   openApiVersionName: string
-  // api.github.com, ghes-, github.ae
+  // api.github.com, ghec, ghes-, github.ae
   openApiBaseName: string
 }
 
@@ -125,7 +125,7 @@ export type MainContextT = {
   fullUrl: string
 }
 
-export const getMainContext = (req: any, res: any): MainContextT => {
+export const getMainContext = async (req: any, res: any): Promise<MainContextT> => {
   // Our current translation process adds 'ms.*' frontmatter properties to files
   // it translates including when data/ui.yml is translated. We don't use these
   // properties and their syntax (e.g. 'ms.openlocfilehash',

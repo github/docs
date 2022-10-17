@@ -221,7 +221,7 @@ For Enterprise Marketing Pages, we may also use non-essential cookies to  (i) ga
 
 Our emails to users may contain a pixel tag, which is a small, clear image that can tell us whether or not you have opened an email and what your IP address is. We use this pixel tag to make our email communications more effective and to make sure we are not sending you unwanted email.
 
-The length of time a cookie will stay on your browser or device depends on whether it is a “persistent” or “session” cookie. Session cookies will only stay on your device until you stop browsing. Persistent cookies stay until they expire or are deleted. The expiration time or retention period applicable to persistent cookies depends on the purpose of the cookie collection and tool used. You may be able to delete cookie data as described here.
+The length of time a cookie will stay on your browser or device depends on whether it is a “persistent” or “session” cookie. Session cookies will only stay on your device until you stop browsing. Persistent cookies stay until they expire or are deleted. The expiration time or retention period applicable to persistent cookies depends on the purpose of the cookie collection and tool used. You may be able to delete cookie data as described [here](/site-policy/privacy-policies/github-privacy-statement#what-are-your-cookie-choices-and-controls).
 
 #### What are cookies and similar technologies?
 
@@ -256,7 +256,7 @@ The table below provides additional information about how we use different types
 
   1. **Specifically on GitHub Enterprise Marketing Pages**
    
-     Any GitHub page that serves non-essential cookies will have a link in the page’s footer to Cookie settings. You can express your preferences at any time by clicking on that linking and updating your settings.
+     Any GitHub page that serves non-essential cookies will have a link in the page’s footer to cookie settings. You can express your preferences at any time by clicking on that linking and updating your settings.
 
      Some users will also be able to manage non-essential cookies via a cookie consent banner, including the options to accept, manage, and reject all non-essential cookies.
   2. **Generally for all websites**
@@ -265,7 +265,7 @@ The table below provides additional information about how we use different types
      - If your browser sends a [Do Not Track](https://en.wikipedia.org/wiki/Do_Not_Track) (DNT) signal, GitHub will not set non-essential cookies and will not load third party resources which set non-essential cookies.
      - Many browsers provide cookie controls which may limit the types of cookies you encounter online. Check out the documentation for your browser to learn more.
      - If you enable a browser extension designed to block tracking, such as [Privacy Badger](https://en.wikipedia.org/wiki/Privacy_Badger), non-essential cookies set by a website or third parties may be disabled.
-     - If you enable a browser extension designed to block unwanted content, such as [uBlock Origin](https://en.wikipedia.org/wiki/UBlock_Origin), non-essential cookies will be disabled to the extent content that sets non-essential cookies is blocked.
+     - If you enable a browser extension designed to block unwanted content, such as [uBlock Origin](https://en.wikipedia.org/wiki/UBlock_Origin), non-essential cookies will be disabled to the extent that content that sets non-essential cookies will be blocked.
      - Advertising controls. Our advertising partners may participate in associations that provide simple ways to opt out of ad targeting, which you can access at:
        - United States: [NAI](http://optout.networkadvertising.org) and [DAA](http://optout.aboutads.info/)
        - Canada: [Digital Advertising Alliance of Canada](https://youradchoices.ca/)
@@ -308,7 +308,7 @@ United States<br>
 
 **If you are outside of North America:**<br>
 Github Data Protection Officer<br>
-co/ DP Dock DPO Services GmbH,<br>
+c/o DP Dock DPO Services GmbH,<br>
 Attn: GitHub BV, Gut Projensdorf,<br>
 24161 Altenholz, Germany<br>
 github@dp-officer.com  cc: **privacy [at] github [dot] com**<br>
@@ -372,9 +372,9 @@ The CCPA provides California residents with certain rights related to their pers
 When receiving a request, we will verify that the individual making the request is the resident to whom the personal information subject to the request pertains. California residents may exercise their rights themselves or may use an authorized agent, designated in writing or through a power of attorney, to make requests on their behalf. If you use an authorized agent to submit a request, we may require that you provide us additional information demonstrating that the agent is acting on your behalf, and we may need you to verify your identity directly with us.
 With respect to your personal information, California residents may exercise the rights described below.
 #### Right to Know. 
-You have a right to request that we disclose to you the personal information we have collected about you.  You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information.  Note that we have provided much of this information in this privacy statement. You can use GitHub’s User Migration API to access and download your data. Learn more here. You may also make such a “request to know” by contacting us here.
+You have a right to request that we disclose to you the personal information we have collected about you.  You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information.  Note that we have provided much of this information in this privacy statement. You can use GitHub’s User Migration tool to access and download your data. Learn more [here](/get-started/privacy-on-github/requesting-an-archive-of-your-personal-accounts-data). You may also make such a “request to know” by contacting us [here](https://support.github.com/contact/privacy).
 #### Right to Request Deletion. 
-You also have a right to request that we delete personal information under certain circumstances, subject to a number of exceptions. To make a request to delete, You can use GitHub’s User Migration API to access and download your data. Learn more here. You may also make such a “request to delete” by contacting us here.
+You also have a right to request that we delete personal information under certain circumstances, subject to a number of exceptions. To make a request to delete, you can contact us [here](https://support.github.com/contact/privacy) or use the account settings [here](https://github.com/settings/admin).
 
 #### Right to Opt-Out. 
 You have a right to opt-out from future “sales” of personal information. Note that we do not “sell” personal information as defined by the CCPA and have not done so in the past 12 months. 

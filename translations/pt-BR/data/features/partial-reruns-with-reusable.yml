@@ -1,5 +1,4 @@
----
-#Issue #7062
+# Issue #7062
 versions:
   fpt: '*'
   ghec: '*'
