@@ -94,7 +94,7 @@ jobs:
               const response = await github.repos.getBranch({
                 owner: 'github',
                 repo: 'docs-early-access',
-                BRANCH_NAME,
+                branch: BRANCH_NAME,
               })
               console.log(`Using docs-early-access branch called '${BRANCH_NAME}'.`)
               return BRANCH_NAME
@@ -164,7 +164,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies

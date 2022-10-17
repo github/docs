@@ -1,12 +1,10 @@
----
-ms.openlocfilehash: bd7874652702ab4b0b337910d9093486ea35dfe0
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145124237"
----
-8. アプリケーションの詳細を確認し、 **[情報を送信する]** をクリックします。
- ![[情報を送信する] ボタン](/assets/images/help/education/submit-your-information-button.png)
+8. Verify your application details, then click **Process my application**.
+ ![Process my application button](/assets/images/help/education/submit-your-information-button.png)
 
- 応募が承認されると、確認のメールを受け取ることになります。 応募は通常数日中に処理されますが、新しい学期の開始時期など、ピークの時期にはもっと長くかかることがあります。
+    {% note %}
+
+    **Note:** If, after clicking the **Process my application** button, you see a banner asking you to fix something in your application, you should fix it and then click **Reprocess my application**.
+
+    {% endnote %}
+
+ If your application is approved, you'll receive a confirmation email. Applications are usually processed within a few days, but it may take longer during peak times, such as during the start of a new semester.

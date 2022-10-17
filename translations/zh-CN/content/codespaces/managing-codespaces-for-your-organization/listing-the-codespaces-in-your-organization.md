@@ -1,7 +1,7 @@
 ---
-title: 列出组织中的 codespace
+title: Listing the codespaces in your organization
 shortTitle: List organization codespaces
-intro: 可以列出组织当前处于活动状态或已停止的所有 codespace。
+intro: 'You can list all of the currently active or stopped codespaces for your organization.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To list all of the current codespaces for your organization, you must be an organization owner.'
 versions:
@@ -11,34 +11,31 @@ type: how_to
 topics:
   - Codespaces
   - Administrator
-ms.openlocfilehash: 72d59c35641dd77b4d3623cc70b12b5be880be34
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147865209'
 ---
-## 概述
 
-作为组织所有者，可以列出组织当前处于活动状态和已停止的所有 codespace。 你可能想要执行此操作来检查用户正在创建多少 codespace，以确保不会产生不必要的成本。
+## Overview
 
-列出组织的 codespace 的最简单方法是使用 {% data variables.product.prodname_cli %}。 还可以使用 REST API，该 API 提供有关每个 codespace 的详细信息。
+As an organization owner, you can list all of the currently active and stopped codespaces for your organization. You might want to do this to check how many codespaces users are creating, to make sure they aren't incurring unnecessary costs. For information about pricing, see "[About billing for GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
-### 使用 {% data variables.product.prodname_cli %} 列出 codespace
+The easiest way to list the codespaces for an organization is by using {% data variables.product.prodname_cli %}. You can also use the REST API, which provides more information about each codespace.
 
-若要列出指定组织的所有当前 codespace，请使用以下命令。
+For information on how to see the current total {% data variables.product.prodname_codespaces %} usage for your organization or enterprise, and generate a detailed report, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+
+### Using {% data variables.product.prodname_cli %} to list codespaces
+
+To list all of the current codespaces for a specified organization, use the following command.
 
 ```shell{:copy}
 gh codespace list --org ORGANIZATION 
 ```
 
-此命令返回一个列表，其中包含每个 codespace 的以下信息： 
-    - 名称和显示名称 
-    - 创建 codespace 的用户
-    - 存储库和分支
-    - codespace 的当前状态
+This command returns a list that includes the following information for each codespace: 
+	- The name and display name 
+	- The user who created the codespace
+	- The repository and branch
+	- The current state of the codespace
 
-若要列出由特定用户创建的组织的所有当前 codespace，请使用以下命令。
+To list all of the current codespaces for an organization that were created by a specific user, use the following command.
 
 ```shell{:copy}
 gh codespace list --org ORGANIZATION --user USER
@@ -46,12 +43,12 @@ gh codespace list --org ORGANIZATION --user USER
 
 {% note %}
 
-**注意**：在上述命令中，将 `ORGANIZATION` 替换为要查询的组织的名称。 你必须是组织的所有者。
+**Note**: In the above commands, replace `ORGANIZATION` with the name of the organization you are querying. You must be an owner of the organization.
 
 {% endnote %}
 
-### 使用 REST API 列出 codespace
+### Using the REST API to list codespaces
 
-可以将 `/orgs/{org}/codespaces` API 终结点用作列出组织当前 codespace 的替代方法。 这将返回比 {% data variables.product.prodname_cli %} 更详细的信息；例如，计算机类型详细信息。
+You can use the `/orgs/{org}/codespaces` API endpoint as an alternative method of listing the current codespaces for an organization. This returns more information than {% data variables.product.prodname_cli %}; for example, the machine type details.
 
-有关此终结点的详细信息，请参阅“[Codespaces 组织](/rest/codespaces/organizations#list-codespaces-for-the-organization)”。
+For more information about this endpoint, see "[Codespaces organizations](/rest/codespaces/organizations#list-codespaces-for-the-organization)."

@@ -33,6 +33,7 @@ export const CodeExamples = () => {
   return (
     <div>
       <form
+        data-search="hide"
         className="pr-lg-3 mb-5 mt-3"
         onSubmit={(event) => {
           event.preventDefault()
