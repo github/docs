@@ -13,10 +13,10 @@ versions:
 topics:
   - GitHub search
 ms.openlocfilehash: b2c01cdb1bc1df9d4ae4247886b1471211b2714b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145099634'
 ---
 使用 Sort（排序）菜单可按相关性、星号数量、复刻数量以及项目最近更新时间来排序结果。

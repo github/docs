@@ -10,10 +10,10 @@ redirect_from:
   - /github/site-policy/github-sexually-obscene-content
   - /github/site-policy/github-community-guidelines#sexually-obscene-content
 ms.openlocfilehash: f96694fa5b36be9e607786551dbd03542c0961bb
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556395'
 ---
 Não toleramos conteúdo associado a abuso ou exploração sexual de outro indivíduo, inclusive quando se trata de menores. Não permitimos conteúdo com temas sexuais ou sugestivos que sirvam pouco ou a nenhum propósito além de solicitar uma resposta erótica ou chocante, principalmente quando esse conteúdo é exacerbado por sua colocação em perfis ou em outros contextos sociais. Isso inclui:

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 50f5872ca3ee3cc64b6a65a0507dd1a92b9b4cbf
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145122618"
 ---
 1. A la derecha de "Entidades de certificación SSH", haga clic en **Nueva CA**.

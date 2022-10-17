@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: b2f91982841899ea65993a71edec22ee264e1aad
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145067502"
 ---
 スポンサーが選択できる 1 回かぎりのスポンサーシップ層を最大 10、月次の層を最大 10 作成できます。 各層には、それぞれの1回あるいは月次の支払い額が米ドルであり、カスタム金額の層を有効化することもできます。 加えて、カスタムの額（月額及び1回）の層の有効化を選択することもできます。

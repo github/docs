@@ -13,10 +13,10 @@ topics:
   - Billing
 shortTitle: Add a billing manager
 ms.openlocfilehash: f7b4e6d17ff0e6680fdf9509b467f314b1a9e4ec
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145119226'
 ---
 Los miembros del equipo de propietarios de la organización pueden conceder permisos de *administradores de facturación* a los usuarios. Una vez que una persona acepta la invitación para convertirse en gerente de facturación para tu organización, puede invitar a otras personas para convertirse en gerentes de facturación.

@@ -13,10 +13,10 @@ topics:
   - Marketplace
 shortTitle: Plan cancellations
 ms.openlocfilehash: 253506f1ac32f55649dd533559a7a16508cca98f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084949'
 ---
 有关与计费相关的取消的更多信息，请参阅“[在 {% data variables.product.prodname_marketplace %} 中向客户计费](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)”。

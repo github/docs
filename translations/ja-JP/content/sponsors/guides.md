@@ -16,10 +16,10 @@ includeGuides:
   - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization
   - /sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
 ms.openlocfilehash: 334f25f2ee44fb7a69c13745f3b0d883ed499fbc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145139780'
 ---
 

@@ -40,7 +40,8 @@ For general information about configuring {% data variables.product.prodname_cod
 
 ##  About autobuild for {% data variables.product.prodname_codeql %}
 
-Code scanning works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository. For the compiled languages C/C++, C#, and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
+{% data variables.product.prodname_code_scanning_capc %} works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository.   
+For the compiled languages C/C++, C#, and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 

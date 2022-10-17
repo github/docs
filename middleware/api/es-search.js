@@ -1,17 +1,23 @@
 import { Client } from '@elastic/elasticsearch'
 
-// The reason this is exported is so the middleware endpoints can
-// find out if the environment variable has been set (and is truthy)
-// before attempting to call the main function in this file.
-export const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
+const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
 const isDevMode = process.env.NODE_ENV !== 'production'
 
 function getClient() {
+  if (!ELASTICSEARCH_URL) {
+    // If this was mistakenly not set, it will eventually fail
+    // when you use the Client. But `new Client({node: undefined})`
+    // won't throw. And the error you get when you actually do try
+    // to use that Client instance is cryptic compared to this
+    // plain and simple thrown error.
+    throw new Error(`$ELASTICSEARCH_URL is not set`)
+  }
   return new Client({
     node: ELASTICSEARCH_URL,
   })
 }
+
 // The true work horse that actually performs the Elasticsearch query
 export async function getSearchResults({
   indexName,
@@ -24,6 +30,9 @@ export async function getSearchResults({
   includeTopics,
   usePrefixSearch,
 }) {
+  if (topics && !Array.isArray(topics)) {
+    throw new Error("'topics' has to be an array")
+  }
   const t0 = new Date()
   const client = getClient()
   const from = size * (page - 1)
@@ -41,8 +50,18 @@ export async function getSearchResults({
       should: matchQueries,
     },
   }
-  if (topics) {
-    throw new Error('Not implemented yet')
+
+  const topicsFilter = (topics || []).map((topic) => {
+    return {
+      term: {
+        // Remember, 'topics' is a keyword field, meaning you need
+        // to filter by "Webhooks", not "webhooks"
+        topics: topic,
+      },
+    }
+  })
+  if (topicsFilter.length) {
+    matchQuery.bool.filter = topicsFilter
   }
 
   const highlight = getHighlightConfiguration(query)
@@ -68,9 +87,10 @@ export async function getSearchResults({
     // ],
   }
 
-  if (includeTopics) {
-    searchQuery._source_includes.push('topics')
-  }
+  // See note above why this is excluded in ES 7.11
+  // if (includeTopics) {
+  //   searchQuery._source_includes.push('topics')
+  // }
 
   if (sort === 'best') {
     // To sort by a function score, you need to wrap the primary
@@ -135,6 +155,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   const BOOST_HEADINGS = 3.0
   const BOOST_CONTENT = 1.0
   const BOOST_AND = 2.5
+  const BOOST_EXPLICIT = 3.5
   // Number doesn't matter so much but just make sure it's
   // boosted low. Because we only really want this to come into
   // play if nothing else matches. E.g. a search for `Acions`
@@ -172,9 +193,24 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
     const matchPhraseStrategy = usePrefixSearch ? 'match_phrase_prefix' : 'match_phrase'
     matchQueries.push(
       ...[
+        {
+          [matchPhraseStrategy]: {
+            title_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE * BOOST_TITLE, query },
+          },
+        },
         { [matchPhraseStrategy]: { title: { boost: BOOST_PHRASE * BOOST_TITLE, query } } },
+        {
+          [matchPhraseStrategy]: {
+            headings_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE * BOOST_HEADINGS, query },
+          },
+        },
         { [matchPhraseStrategy]: { headings: { boost: BOOST_PHRASE * BOOST_HEADINGS, query } } },
         { [matchPhraseStrategy]: { content: { boost: BOOST_PHRASE, query } } },
+        {
+          [matchPhraseStrategy]: {
+            content_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE, query },
+          },
+        },
       ]
     )
   }
@@ -184,6 +220,11 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
     if (usePrefixSearch && !isMultiWordQuery) {
       matchQueries.push(
         ...[
+          { prefix: { title_explicit: { boost: BOOST_EXPLICIT * BOOST_TITLE, value: query } } },
+          {
+            prefix: { headings_explicit: { boost: BOOST_EXPLICIT * BOOST_HEADINGS, value: query } },
+          },
+          { prefix: { content_explicit: { boost: BOOST_EXPLICIT * BOOST_CONTENT, value: query } } },
           { prefix: { title: { boost: BOOST_TITLE, value: query } } },
           { prefix: { headings: { boost: BOOST_HEADINGS, value: query } } },
           { prefix: { content: { boost: BOOST_CONTENT, value: query } } },
@@ -193,6 +234,33 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
       if (isMultiWordQuery) {
         matchQueries.push(
           ...[
+            {
+              match: {
+                title_explicit: {
+                  boost: BOOST_EXPLICIT * BOOST_TITLE * BOOST_AND,
+                  query,
+                  operator: 'AND',
+                },
+              },
+            },
+            {
+              match: {
+                headings_explicit: {
+                  boost: BOOST_EXPLICIT * BOOST_HEADINGS * BOOST_AND,
+                  query,
+                  operator: 'AND',
+                },
+              },
+            },
+            {
+              match: {
+                content_explicit: {
+                  boost: BOOST_EXPLICIT * BOOST_CONTENT * BOOST_AND,
+                  query,
+                  operator: 'AND',
+                },
+              },
+            },
             { match: { title: { boost: BOOST_TITLE * BOOST_AND, query, operator: 'AND' } } },
             { match: { headings: { boost: BOOST_HEADINGS * BOOST_AND, query, operator: 'AND' } } },
             { match: { content: { boost: BOOST_CONTENT * BOOST_AND, query, operator: 'AND' } } },
@@ -201,6 +269,9 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
       }
       matchQueries.push(
         ...[
+          { match: { title_explicit: { boost: BOOST_EXPLICIT * BOOST_TITLE, query } } },
+          { match: { headings_explicit: { boost: BOOST_EXPLICIT * BOOST_HEADINGS, query } } },
+          { match: { content_explicit: { boost: BOOST_EXPLICIT * BOOST_CONTENT, query } } },
           { match: { title: { boost: BOOST_TITLE, query } } },
           { match: { headings: { boost: BOOST_HEADINGS, query } } },
           { match: { content: { boost: BOOST_CONTENT, query } } },

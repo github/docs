@@ -1,17 +1,11 @@
----
-ms.openlocfilehash: bd2ea7e2ff0c8e9f60c3d011ee30573e3702cbed
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145084932"
----
-{% ifversion ghae %} 要允许自托管运行器与 {% data variables.product.prodname_dotcom %} 通信，请将自托管运行器的 IP 地址或 IP 地址范围添加到 IP 允许列表。 有关详细信息，请参阅“[添加允许的 IP 地址](#adding-an-allowed-ip-address)”。
-{% else %} {% warning %}
+{% ifversion ghae %}
+To allow your self-hosted runners to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your self-hosted runners to the IP allow list. For more information, see "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
+{% else %}
+{% warning %}
 
-警告：如果使用 IP 允许列表，并且还希望使用 {% data variables.product.prodname_actions %}，则必须使用自托管运行器。 有关详细信息，请参阅“[托管自己的运行器](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)”。
+**Warning**: If you use an IP allow list and would also like to use {% data variables.product.prodname_actions %}, you must use self-hosted runners{% ifversion actions-hosted-runners %} or {% data variables.product.prodname_dotcom %}-hosted larger runners with a static IP address range{% endif %}. For more information, see "[Hosting your own runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)" {% ifversion actions-hosted-runners %} or "[Using larger runners](/actions/using-github-hosted-runners/using-larger-runners)"{% endif %}.
 
 {% endwarning %}
 
-要允许自托管运行器与 {% data variables.product.prodname_dotcom %} 通信，请将自托管运行器的 IP 地址或 IP 地址范围添加到 IP 允许列表。 有关详细信息，请参阅“[添加允许的 IP 地址](#adding-an-allowed-ip-address)”。
+To allow your self-hosted {% ifversion actions-hosted-runners %}or larger hosted{% endif %} runners to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your runners to the IP allow list. For more information, see "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
 {% endif %}

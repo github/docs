@@ -9,10 +9,10 @@ topics:
   - Policy
   - Legal
 ms.openlocfilehash: 13a5143dbc6013c71d97078e9a8e44c96c5def3c
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556463'
 ---
 GitHub 十分幸运，有很多开发人员与我们的平台集成。 我们非常高兴，并希望在此基础上打造更好的体验。  GitHub 的开发人员计划（以下简称“计划”）有助于我们与您建立联系、共享信息，并有助于我们更好地为您的创造性工作提供支持。 该计划将打造 GitHub 与开发人员社区之间的特殊关系，而这种关系需要一组特殊的条款来约束。 欢迎签订注册开发人员协议（以下简称“协议”）。

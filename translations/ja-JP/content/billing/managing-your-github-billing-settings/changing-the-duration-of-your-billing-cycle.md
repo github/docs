@@ -18,10 +18,10 @@ topics:
   - User account
 shortTitle: Billing cycle
 ms.openlocfilehash: 164b0192f1b055b95ad83fc2845e9af59058b6a7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145087863'
 ---
 支払いサイクル期間を変更すると、{% data variables.product.prodname_dotcom %}のプランおよびその他の有料機能、有料製品は、次の支払日から新しい支払いサイクルに移行します。

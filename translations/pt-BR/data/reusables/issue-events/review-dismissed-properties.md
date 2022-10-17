@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 78d6d0b4d9cf98f834352dca2df0de06275e4db9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: "145096674"
 ---
 `dismissed_review` | `object` | As informações da revisão ignorada.

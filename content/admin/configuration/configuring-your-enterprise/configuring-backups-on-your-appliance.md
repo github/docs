@@ -244,7 +244,11 @@ Optionally, to validate the restore, configure an IP exception list to allow acc
 
 {% note %}
 
-**Note:** The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
+**Note:** 
+
+- The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
+
+- When restoring to new disks on an existing or empty {% data variables.product.prodname_ghe_server %} instance, stale UUIDs may be present, resulting in Git and/or Alambic replication reporting as out of sync. Stale server entry IDs can be the result of a retired node in a high availability configuration still being present in the application database, but not in the restored replication configuration. To remediate, stale UUIDs can be torn down using `ghe-repl-teardown` once the restore has completed and prior to starting replication. In this scenario, contact {% data variables.contact.contact_ent_support %} for further assistance.
 
 {% endnote %}
 

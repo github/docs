@@ -17,10 +17,10 @@ topics:
   - Accounts
 shortTitle: Manage access project boards
 ms.openlocfilehash: 4cbf968cee79ac8e4aafbc5eea8220949cf80a30
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145165218'
 ---
 Un colaborador es una persona que tiene permisos a tablero de proyecto de tu propiedad. Un colaborador tendrá como predeterminado permisos de acceso de lectura. Para obtener más información, consulte "[Niveles de permisos para paneles de proyecto propiedad del usuario](/articles/permission-levels-for-user-owned-project-boards)".

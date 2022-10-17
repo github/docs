@@ -24,7 +24,7 @@ Changing the name associated with your Git commits using `git config` will only 
 
 2. {% data reusables.user-settings.set_your_git_username %}
    ```shell
-   $ git config --global user.name "<em>Mona Lisa</em>"
+   $ git config --global user.name "Mona Lisa"
    ```
 
 3. {% data reusables.user-settings.confirm_git_username_correct %}
@@ -41,7 +41,7 @@ Changing the name associated with your Git commits using `git config` will only 
 
 3. {% data reusables.user-settings.set_your_git_username %}
    ```shell
-   $ git config user.name "<em>Mona Lisa</em>"
+   $ git config user.name "Mona Lisa"
    ```
 
 3. {% data reusables.user-settings.confirm_git_username_correct %}

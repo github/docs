@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ddf4c16f9ad5399acbfc05a58412a15e1bc5dd4b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: "145096830"
 ---
 1. Em "Segurança avançada do GitHub", selecione o menu suspenso e clique em uma política para as organizações pertencentes à sua empresa.

@@ -14,14 +14,14 @@ type: tutorial
 topics:
   - Workflows
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 558d5f186ce75d9ace6f6c6be63e2e3eaeff3230
-ms.sourcegitcommit: b0323777cfe4324a09552d0ea268d1afacc3da37
+ms.openlocfilehash: efae730b48d2423821bb95ac639df355e6b9b5d9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2022
-ms.locfileid: '147580672'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710308'
 ---
-## <a name="about-caching-workflow-dependencies"></a>ワークフローの依存関係のキャッシングについて
+## ワークフローの依存関係のキャッシングについて
 
 ワークフローの実行は、しばしば他の実行と同じ出力あるいはダウンロードされた依存関係を再利用します。 たとえばMaven、Gradle、npm、Yarnといったパッケージ及び依存関係管理ツールは、ダウンロードされた依存関係のローカルキャッシュを保持します。
 
@@ -52,15 +52,15 @@ ms.locfileid: '147580672'
 
 ワークフロー実行のアーティファクトについて詳しくは、「[アーティファクトを使用してワークフロー データを永続化する](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
 
-## <a name="restrictions-for-accessing-a-cache"></a>キャッシュへのアクセスについての制限
+## キャッシュへのアクセスについての制限
 
 ワークフローは、現在のブランチ、ベース ブランチ (フォークされたリポジトリのベース ブランチを含む)、または既定のブランチ (通常 `main`) で作成されたキャッシュにアクセスして復元できます。 たとえば、デフォルトブランチで作成されたキャッシュは、どのPull Requestからもアクセスできます。 また、ブランチ `feature-b` にベース ブランチ `feature-a` がある場合、`feature-b` でトリガーされたワークフローは、既定のブランチ (`main`)、`feature-a`、および `feature-b` で作成されたキャッシュにアクセスすることができます。
 
-アクセス制限は、さまざまなブランチ間に論理境界を作成することで、キャッシュの分離とセキュリティを提供します。 たとえば、ブランチ `feature-a` (ベース `main` を使用) のために作成されたキャッシュは、ブランチ `feature-c` (ベース`main` を使用) の pull request にはアクセスできません。
+アクセス制限を使用すると、さまざまなブランチまたはタグ間に論理境界を作成することで、キャッシュを分離しセキュリティで保護することができます。 たとえば、ブランチ `feature-a` (ベース `main` を使用) のために作成されたキャッシュは、ブランチ `feature-c` (ベース`main` を使用) の pull request にはアクセスできません。 同様の行上で、(ベースの `main` からの) タグ `release-a` 用に作成されるキャッシュは、(ベース `main` を使用して) タグ `release-b` に対してトリガーされるワークフローにアクセスできません。
 
 リポジトリ内の複数のワークフローは、キャッシュ エントリを共有します。 ワークフロー内のブランチ用に作成されたキャッシュは、同じリポジトリとブランチの別のワークフローからアクセスおよび復元できます。
 
-## <a name="using-the-cache-action"></a>`cache` アクションの使用
+## `cache` アクションの使用
 
 [`cache` action](https://github.com/actions/cache) アクションは、指定した `key` に基づいてキャッシュの復元を試みます。 アクションでキャッシュが見つかると、アクションは、キャッシュされたファイルを構成した `path` に復元します。
 
@@ -68,7 +68,7 @@ ms.locfileid: '147580672'
 
 必要に応じて、`key` が既存のキャッシュと一致しない場合に使用する `restore-keys` のリストを指定できます。 `restore-keys` はキャッシュ キーと部分的に一致する可能性があるため、`restore-keys` のリストは別のブランチからキャッシュを復元する場合に便利です。 `restore-keys` の照合の詳細については、「[キャッシュ キーのマッチング](#matching-a-cache-key)」を参照してください。
 
-### <a name="input-parameters-for-the-cache-action"></a>`cache` アクションの入力パラメーター
+### `cache` アクションの入力パラメーター
 
 - `key`: **必須** キャッシュの保存時に作成されたキーと、キャッシュの検索に使用されるキー。 変数、コンテキスト値、静的な文字列、関数の任意の組み合わせが使えます。 キーの長さは最大で512文字であり、キーが最大長よりも長いとアクションは失敗します。
 - `path`: **必須** キャッシュまたは復元するランナー上のパス。
@@ -95,11 +95,11 @@ ms.locfileid: '147580672'
   ```
   {% endraw %}
 
-### <a name="output-parameters-for-the-cache-action"></a>`cache` アクションの出力パラメーター
+### `cache` アクションの出力パラメーター
 
 - `cache-hit`: キーに対して完全一致が見つかったかどうかを示すブール値。
 
-### <a name="example-using-the-cache-action"></a>`cache` アクションの使用例
+### `cache` アクションの使用例
 
 次の例では、`package-lock.json` ファイル内のパッケージが変更されたとき、またはランナーのオペレーティング システムが変更されたときに、新しいキャッシュを作成します。 キャッシュ キーは、コンテキストと式を使用して、ランナーのオペレーティング システムと `package-lock.json` ファイルの SHA-256 ハッシュを含むキーを生成します。
 
@@ -155,7 +155,7 @@ jobs:
 
 キャッシュ照合プロセスの詳細については、「[キャッシュキーのマッチング](#matching-a-cache-key)」を参照してください。 キャッシュをいったん作成すると、既存のキャッシュの内容を変更することはできませんが、新しいキーで新しいキャッシュを作成することはできます。
 
-### <a name="using-contexts-to-create-cache-keys"></a>コンテキストを使ったキャッシュキーの作成
+### コンテキストを使ったキャッシュキーの作成
 
 キャッシュキーには、コンテキスト、関数、リテラル、{% data variables.product.prodname_actions %}がサポートする演算子を含めることができます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」および「[式](/actions/learn-github-actions/expressions)」を参照してください。
 
@@ -175,7 +175,7 @@ npm-${{ hashFiles('package-lock.json') }}
 npm-d5ea0750
 ```
 
-### <a name="using-the-output-of-the-cache-action"></a>`cache` アクションの出力の使用
+### `cache` アクションの出力の使用
 
 `cache` アクションの出力を使用すると、キャッシュ ヒットやキャッシュ ミスが発生したどうかに基づいて操作を実行することができます。 指定した `key` のキャッシュに完全一致が見つかった場合、`cache-hit` の出力は `true` に設定されます。
 
@@ -188,13 +188,13 @@ npm-d5ea0750
   run: npm list
 ```
 
-## <a name="matching-a-cache-key"></a>キャッシュキーのマッチング
+## キャッシュキーのマッチング
 
 `cache` アクションは、最初にワークフロー実行を含むブランチで、`key` および `restore-keys` のキャッシュ ヒットを検索します。 現在のブランチにヒットがない場合、`cache` アクションは親ブランチとアップストリーム ブランチの `key` および `restore-keys` を検索します。
 
 `restore-keys` では、`key` でキャッシュ ミスが発生した場合に使用する代替復元キーのリストを指定できます。 特定の度合いが強いものから弱いものへ並べて複数のリストアキーを作成できます。 `cache` アクションは `restore-keys` を順番に検索します。 キーが直接マッチしなかった場合、アクションはリストアキーでプレフィックスされたキーを検索します。 リストアキーに対して複数の部分一致があった場合、アクションは最も最近に作成されたキャッシュを返します。
 
-### <a name="example-using-multiple-restore-keys"></a>複数のリストアキーの利用例
+### 複数のリストアキーの利用例
 
 {% raw %}
 ```yaml
@@ -222,7 +222,7 @@ restore-keys: |
 1. **`npm-feature-`** は `npm-feature-` というプレフィックスが付いたキャッシュ キーと一致します。
 1. **`npm-`** は `npm-` というプレフィックスが付いたすべてのキーと一致します。
 
-#### <a name="example-of-search-priority"></a>検索の優先度の例
+#### 検索の優先度の例
 
 ```yaml
 key:
@@ -241,7 +241,7 @@ restore-keys: |
 1. `main` ブランチ内のキー `npm-feature-`
 1. `main` ブランチ内のキー `npm-`
 
-## <a name="usage-limits-and-eviction-policy"></a>利用制限と退去のポリシー
+## 利用制限と退去のポリシー
 
 {% data variables.product.prodname_dotcom %}は、7日間以上アクセスされていないキャッシュエントリを削除します。 保存できるキャッシュの数に制限はありませんが、リポジトリ内のすべてのキャッシュの合計サイズは制限されています{% ifversion actions-cache-policy-apis %}。 既定では、リポジトリあたり 10 GB の制限ですが、この制限は、エンタープライズ所有者やリポジトリ管理者が設定したポリシーによって変わる場合があります。{% else %} (最大 10 GB)。{% endif %} 
 
@@ -252,7 +252,7 @@ restore-keys: |
 
 {% ifversion actions-cache-management %}
 
-## <a name="managing-caches"></a>キャッシュの管理
+## キャッシュの管理
 
 {% data variables.product.product_name %} REST API を使用してキャッシュを管理できます。 {% ifversion actions-cache-list-delete-apis %}API を使って、キャッシュ エントリの一覧表示と削除を行い、キャッシュの使用状況を確認できます。{% elsif actions-cache-management %}現時点では、API を使ってキャッシュの使用状況を確認できます。今後の更新で、さらに多くの機能が追加される予定です。{% endif %}詳しくは、REST API のドキュメント「[{% data variables.product.prodname_actions %} キャッシュ](/rest/actions/cache)」をご覧ください。
 

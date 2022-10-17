@@ -15,10 +15,10 @@ topics:
   - Marketplace
 shortTitle: Webhooks for plan changes
 ms.openlocfilehash: 85ffaa8809860ff4b693075e416723717296f86c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084971'
 ---
 {% data variables.product.prodname_marketplace %} 事件 web 挂钩只能在应用程序的 {% data variables.product.prodname_marketplace %} 上架页面中进行设置。 可在[应用程序的开发人员设置页面](https://github.com/settings/developers)中配置所有其他事件。 如果尚未创建 {% data variables.product.prodname_marketplace %} 上架信息，请阅读“[创建 {% data variables.product.prodname_marketplace %} 上架信息草稿](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)”了解方法。

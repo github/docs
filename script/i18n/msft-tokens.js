@@ -5,7 +5,7 @@ import gitDiff from 'git-diff'
 import _ from 'lodash'
 
 function getGitDiff(a, b) {
-  return gitDiff(a, b, { flags: '--ignore-all-space' })
+  return gitDiff(a, b, { flags: '--text --ignore-all-space' })
 }
 
 function getMissingLines(diff) {

@@ -16,11 +16,11 @@ topics:
   - Teams
 shortTitle: Manage Pages site publication
 ms.openlocfilehash: cce086c19dd6f20de28dde599c13074c48851753
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145130358'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876027'
 ---
 {% ifversion fpt %} 可以选择允许或禁止组织成员发布 {% data variables.product.prodname_pages %} 站点。 使用 {% data variables.product.prodname_ghe_cloud %} 的组织还可以选择允许公开发布的站点和/或私下发布的站点。 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)。
 {% elsif ghec %} 你可以选择允许组织成员创建公开发布的站点和/或私下发布的站点。 有关 {% data variables.product.prodname_pages %} 站点的访问控制的详细信息，请参阅“[更改 {% data variables.product.prodname_pages %} 站点的可见性](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)”。

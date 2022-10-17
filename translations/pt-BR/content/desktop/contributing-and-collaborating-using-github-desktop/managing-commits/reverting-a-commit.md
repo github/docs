@@ -7,10 +7,10 @@ redirect_from:
 versions:
   fpt: '*'
 ms.openlocfilehash: f6cf6f120beff99bdb1c8bfd7868bb157e68d5dd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145084066'
 ---
 Ao reverter para um commit anterior, a reversão também passa a ser um commit. Além disso, o commit original fica no histórico do repositório.

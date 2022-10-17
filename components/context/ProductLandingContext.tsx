@@ -54,7 +54,7 @@ export type ProductLandingContextT = {
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
   hasGuidesPage: boolean
-  releases: Array<{
+  ghesReleases: Array<{
     version: string
     firstPreviousRelease: string
     secondPreviousRelease: string
@@ -115,7 +115,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
     changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
     productCommunityExamples: req.context.productCommunityExamples || [],
-    releases: req.context.releases || [],
+    ghesReleases: req.context.ghesReleases || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({
@@ -134,10 +134,6 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       .filter(([key]) => {
         return key === 'guides' || key === 'popular' || key === 'videos'
       })
-      // This is currently only used to filter out videos with a blank title
-      // indicating that the video is not available for the currently selected
-      // version
-      .filter(([, links]: any) => links.every((link: FeaturedLink) => link.title))
       .map(([key, links]: any) => {
         return {
           label:

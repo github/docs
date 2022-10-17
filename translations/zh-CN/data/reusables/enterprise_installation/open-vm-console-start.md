@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 13d472e0a5235a70a4f2b98bc969034b19a42baa
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: "147785844"
 ---
 1. 使用虚拟平台工具，打开虚拟机器控制台。

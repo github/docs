@@ -9,20 +9,20 @@ versions:
 topics:
   - API
 shortTitle: Get started - Checks API
-ms.openlocfilehash: b08d5a0a3c95f052c08a38b1aa46dbc0dc83da0e
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.openlocfilehash: 6d98940d9cf4f4fd534034e142aa3d86a0900406
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '147062227'
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147710244'
 ---
-## <a name="overview"></a>概要
+## 概要
 
 GitHub Appは、単に合格/不合格の二択ではない、情報量の多いビルドステータスを報告し、コードの行について詳細な情報が付いたアノテーションをつけ、テストを再実行することができます。 Checks APIの機能は、GitHub Appのみで利用できます。
 
 Checks API を {% data variables.product.prodname_github_app %} で使用する方法の例については、「[Checks API で CI テストを作成する](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)」を参照してください。
 
-## <a name="about-check-suites"></a>チェックスイートについて
+## チェックスイートについて
 
 誰かがリポジトリにコードをプッシュすると、その直近のコミットについてGitHubはチェックスイートを作成します。 チェック スイートは、特定のコミットに対して単一の GitHub App によって作成された[チェック実行](/rest/reference/checks#check-runs)のコレクションです。 チェックスイートは、スイートに含まれるチェックを実行し、ステータスとチェック結果をまとめます。
 
@@ -40,7 +40,7 @@ Checks API を {% data variables.product.prodname_github_app %} で使用する�
 
 {% data reusables.shortdesc.authenticating_github_app %}
 
-## <a name="about-check-runs"></a>チェックの実行について
+## チェックの実行について
 
 チェックの実行は、個別のテストであり、チェックスイートの一機能です。 各実行にステータスと結果が含まれます。
 
@@ -58,7 +58,7 @@ Checks API を {% data variables.product.prodname_github_app %} で使用する�
 
 チェック実行 API を使用するには、GitHub App に `checks:write` アクセス許可が必要であり、[check_run](/webhooks/event-payloads#check_run) Webhook をサブスクライブすることもできます。
 
-## <a name="check-runs-and-requested-actions"></a>チェック実行とリクエストされたアクション
+## チェック実行とリクエストされたアクション
 
 チェック実行をリクエストされたアクション ({% data variables.product.prodname_actions %}と混同しないこと) で設定すると、 {% data variables.product.prodname_dotcom %}のプルリクエストビューでボタンを表示でき、そのボタンで{% data variables.product.prodname_github_app %}に追加のタスクを実行するようリクエストできるます。
 
@@ -81,6 +81,6 @@ Checks API を {% data variables.product.prodname_github_app %} で使用する�
 Checks API を使用して要求されたアクションを設定する方法の詳細な例については、「[Checks API で CI テストを作成する](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)」を参照してください。
 
 {% ifversion fpt or ghec %}
-## <a name="retention-of-checks-data"></a>チェック データの保持
+## チェック データの保持
 
 {% data reusables.pull_requests.retention-checks-data %} {% endif %}

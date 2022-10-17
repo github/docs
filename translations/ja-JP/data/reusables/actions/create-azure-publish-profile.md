@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 00bdf100d02b27ce76aff35582cb4a1f5a2469a3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145116974"
 ---
 1. Azure 発行プロファイルを構成し、`AZURE_WEBAPP_PUBLISH_PROFILE` シークレットを作成します。

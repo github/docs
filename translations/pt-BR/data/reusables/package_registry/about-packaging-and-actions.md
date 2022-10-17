@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 9e47cc05dec3bbdef729dfc6a06eff8056dd9502
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145096318"
 ---
 ### Empacotamento em fluxos de trabalho de integração contínua

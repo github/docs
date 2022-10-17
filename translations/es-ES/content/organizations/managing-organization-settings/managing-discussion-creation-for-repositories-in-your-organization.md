@@ -11,11 +11,11 @@ topics:
   - Teams
 shortTitle: Manage repository discussions
 ms.openlocfilehash: 0fba2cb5ad49411d8027cef61202cabe9d37d2b3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410135'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879381'
 ---
 ## Permitir o dejar de permitir usuarios con acceso de lectura para crear debates
 

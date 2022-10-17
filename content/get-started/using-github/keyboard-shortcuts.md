@@ -50,7 +50,8 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 | Keyboard shortcut | Description
 |-----------|------------{% ifversion fpt or ghec %}
-|<kbd>.</kbd> | Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
+|<kbd>.</kbd> | Opens a repository or pull request in the web-based editor in the same browser tab. You must be signed in to use the editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."
+|<kbd>></kbd> | Opens a repository or pull request in the web-based editor in a new browser tab. You must be signed in to use the editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
 |<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text
 |<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text
 |<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
@@ -89,12 +90,12 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |-----------|------------
 |<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text
 |<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text
-|<kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserts Markdown formatting for code or a command within a line{% ifversion fpt or ghae-issue-5434 or ghes or ghec %}
-|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
+|<kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserts Markdown formatting for code or a command within a line{% ifversion fpt or ghae > 3.3 or ghes or ghec %}
+|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %}
 |<kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux) | Creates a Markdown link when applied over highlighted text{% endif %}
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserts Markdown formatting for an ordered list
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserts Markdown formatting for an unordered list{% endif %}
 |<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Submits a comment
@@ -149,7 +150,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
+|<kbd>Command</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
 |<kbd>←</kbd> | Move cell focus to the left
 |<kbd>→</kbd> | Move cell focus to the right
 |<kbd>↑</kbd> | Move cell focus up
@@ -161,7 +162,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |-----------|------------
 |<kbd>Enter</kbd> | Toggle edit mode for the focused cell
 |<kbd>Escape</kbd> | Cancel editing for the focused cell
-|<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
 |<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item
 |<kbd>Space</kbd> | Open selected item
 |<kbd>e</kbd> | Archive selected items

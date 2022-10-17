@@ -16,10 +16,10 @@ topics:
   - User account
 shortTitle: Spending limits for Actions
 ms.openlocfilehash: c1bd595a866b9e48fa4e82ebe93718328514fad9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145091705'
 ---
 ## Acerca de los límites de gastos para {% data variables.product.prodname_actions %}

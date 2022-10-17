@@ -33,7 +33,10 @@ We recommend auditing and unsubscribing from your subscriptions as a part of a h
 
 When your inbox has too many notifications to manage, consider whether you have oversubscribed or how you can change your notification settings to reduce the subscriptions you have and the types of notifications you're receiving. For example, you may consider disabling the settings to automatically watch all repositories and all team discussions whenever you've joined a team or repository.
 
-![Automatic watching](/assets/images/help/notifications-v2/automatic-watching-example.png)
+{% ifversion update-notification-settings-22 %}
+![Screenshot of automatic watching options for teams and repositories](/assets/images/automatically-watch-repos-and-teams.png)
+{% else %}
+![Screenshot of automatic watching options for teams and repositories](/assets/images/help/notifications-v2/automatic-watching-example.png){% endif %}
 
 For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)."
 

@@ -12,11 +12,11 @@ topics:
   - SSH
 shortTitle: Use SSH over HTTPS port
 ms.openlocfilehash: 47bdb96fac65d9432dfc54f671366d1b6c153556
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145084556'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883399'
 ---
 {% tip %}
 

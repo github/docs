@@ -10,12 +10,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: 9ce642d1fad5502d7f38d72a4d12fbbb094a556c
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.openlocfilehash: 32ce117172ece21540b71457cd7a75b1c90bc7a0
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
-ms.locfileid: '144556746'
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099195'
 ---
 世界中の何百万人もの開発者が、GitHub で何百万ものプロジェクト (オープン ソースとクローズド ソースの両方) をホストしています。 当社は、開発者コミュニティの日々のコラボレーションに貢献できて幸いに思います。これは軽々しく考えてはならない当社の責任です。 同時に、当社には誇りに思うことができるこのコミュニティを実現するための絶好の機会があります。
 
@@ -26,7 +26,7 @@ GitHub で考えられている[安全、好意的、生産的なコミュニテ
 当社では、コミュニティのメンバーが、期待を明確に伝え、可能な限りプロジェクトを[モデレート](#what-if-something-or-someone-offends-you)し、当社の[ポリシー](/github/site-policy/github-terms-of-service)に違反するコンテンツがある場合は[報告](https://github.com/contact/report-abuse)することをお勧めします。 GitHub スタッフ当社は不正行為の報告を調査し、当社のサービス条件に違反していると当社が判断したサイト内の公開コンテンツをモデレートすることがあります。
 
 
-## <a name="maintaining-a-strong-community"></a>強力なコミュニティの維持
+## 強力なコミュニティの維持
 
 GitHub コミュニティの主な目的は、ソフトウェア プロジェクトでコラボレーションすることです。 私たちは、ユーザーが自由に自己表現し、技術的な内容であるかにかかわらず、お互いのアイデアについて意見を交換できるコミュニティを維持できるように取り組んでいます。 同時に、ユーザーが敬意を払い、他のユーザーがオープンに投稿できる場を許容することが重要です。 安全で生産性の高い環境を作るために、当社では、コミュニティ メンバーにプラットフォーム上で対話を行う方法を示すこれらのガイドラインに目を向けるよう推奨しています。  GitHub コミュニティの重要なメンバーとして適切に対話を行う方法について、いくつかの提案を以下に示します。
 
@@ -37,25 +37,25 @@ GitHub コミュニティの主な目的は、ソフトウェア プロジェク
 * **共感的になる** - GitHub は、その多くが自分とは異なる可能性があるさまざまな背景や視点を持つ人々とのグローバル コミュニティです。 他の人の立場になって考えてみて、彼らの気持ちを理解してから対応してください。 GitHub を他の人が安心して投稿し、ディスカッションに参加し、さまざまなアイデアを共有できるコミュニティにするために最善を尽くしてください。  
 
 
-## <a name="what-if-something-or-someone-offends-you"></a>何かまたは何ものかがお客様の感情を害した場合
+## 何かまたは何ものかがお客様の感情を害した場合
 
 意見の相違には、コミュニティ メンバーの間の直接的で敬意を払ったコミュニケーションによって解決できるものもありますが、必ずしもそうはならないことを当社は理解しています。 当社では、コミュニティ内のコンテンツやアクティビティが当社のポリシーに違反していると思われる場合は、[当社にお知らせいただく](https://support.github.com/contact/report-abuse?category=report-abuse&report=other&report_type=unspecified)ことをお勧めします。 ただし、サイト上上の何かまたは何ものかがお客様の感情を害した場合、GitHub でアクションを起こす方法がいくつかあります。 
 
-* **期待を伝える** - 管理者は、リポジトリの README、[CONTRIBUTING ファイル](/articles/setting-guidelines-for-repository-contributors/)、または[専用の行動規範](/articles/adding-a-code-of-conduct-to-your-project/)など、ユーザーが自分のプロジェクトと対話する方法をユーザーが理解できるように、コミュニティ専用のガイドラインを設定できます。 コミュニティの構築に関する詳細については、[こちら](/communities)をご覧ください。
+* **期待を伝える** - 管理者は、リポジトリの README、[CONTRIBUTING ファイル](/articles/setting-guidelines-for-repository-contributors/)、または [専用の行動規範](/articles/adding-a-code-of-conduct-to-your-project/)など、ユーザーが自分のプロジェクトと対話する方法をユーザーが理解できるように、コミュニティ専用のガイドラインを設定できます。 コミュニティの構築に関する詳細については、[こちら](/communities)をご覧ください。
 
 
-* **コメントをモデレートする** - リポジトリの[書き込みアクセス権](/articles/repository-permission-levels-for-an-organization/)を持つユーザーは、コミット、プル リクエスト、およびイシューに関する[ユーザーのコメントを編集、削除、または非表示にする](/communities/moderating-comments-and-conversations/managing-disruptive-comments)ことができます。 リポジトリへの読み取りアクセス権を持つユーザーは、コメントの編集履歴を表示できます。 コメント作成者とリポジトリへの書き込みアクセス権を持つユーザーは、[コメントの編集履歴](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)から機密情報を削除することもできます。 多くのアクティビティがある場合、プロジェクトのモデレートは大きな作業のように感じるかもしれませんが、[コラボレーター](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)を追加してコミュニティの管理を支援することができます。
+* **コメントをモデレートする** - リポジトリの [書き込みアクセス権](/articles/repository-permission-levels-for-an-organization/)を持つユーザーは、コミット、プル リクエスト、およびイシューに関する [ユーザーのコメントを編集、削除、または非表示にする](/communities/moderating-comments-and-conversations/managing-disruptive-comments)ことができます。 リポジトリへの読み取りアクセス権を持つユーザーは、コメントの編集履歴を表示できます。 コメント作成者とリポジトリへの書き込みアクセス権を持つユーザーは、[コメントの編集履歴](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)から機密情報を削除することもできます。 多くのアクティビティがある場合、プロジェクトのモデレートは大きな作業のように感じるかもしれませんが、[コラボレーター](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)を追加してコミュニティの管理を支援することができます。
 
-* **会話をロックする**  - イシュー、プル リクエスト、またはコミットのディスカッションが手に負えなくなったり、トピックから外れたり、プロジェクトの行動規範や GitHub のポリシーに違反した場合、オーナー、コラボレーター、および書き込みアクセス権を持つその他のユーザーは、会話に一時的または恒久的な[ロック](/articles/locking-conversations/)をかけることができます。
+* **会話をロックする**  - イシュー、プル リクエスト、またはコミットのディスカッションが手に負えなくなったり、トピックから外れたり、プロジェクトの行動規範や GitHub のポリシーに違反した場合、オーナー、コラボレーター、および書き込みアクセス権を持つその他のユーザーは、会話に一時的または恒久的な [ロック](/articles/locking-conversations/)をかけることができます。
 
-* **ユーザーをブロックする**  - 関与したくない特定のユーザーがある場合、[個人アカウント](/articles/blocking-a-user-from-your-personal-account/)または[組織からそのユーザーをブロック](/articles/blocking-a-user-from-your-organization/)できます。
+* **ユーザーをブロックする**  - 関与したくない特定のユーザーがある場合、[個人アカウント](/articles/blocking-a-user-from-your-personal-account/)または [組織からそのユーザーをブロック](/articles/blocking-a-user-from-your-organization/)できます。
 
 * **やり取りを制限する** - パブリック プロジェクトが不要な注目を集めたり、トロールされたり、スパムされたりした場合、[やり取りの一時的な制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)を設定して、特定のユーザーがリポジトリとやり取りできないようにすることができます。 [コード レビューの制限](https://github.blog/2021-11-01-github-keeps-getting-better-for-open-source-maintainers/#preventing-drive-by-pull-request-approvals-and-requested-changes)を設定して、プロジェクトへの質の高い貢献を保証することもできます。
 
 
 当社では、管理者が自分のプロジェクトをモデレートできるようにすることに積極的に取り組んでいますが、状況に対処するために追加のサポートが必要な場合は、{% data variables.contact.report_abuse %}ために当社までご連絡ください。
 
-## <a name="what-happens-if-someone-violates-githubs-policies"></a>何ものかが GitHub のポリシーに違反した場合
+## 何ものかが GitHub のポリシーに違反した場合
 
 当社では、GitHub がソフトウェア開発者にとって安全で歓迎的で生産的なプラットフォームであることを保証するために、コミュニティからの報告と積極的な検出を頼りにしています。 GitHub のポリシーにそぐわない行動やコンテンツに気づいた場合、考慮を必要とするさまざまな要因があります。 ただし、ポリシー強制とコンテンツのモデレーションのアプローチでは、すべての開発者のホームになるというビジョンが優先されます。 これは、以下のようなことを意味します。
 
@@ -74,11 +74,11 @@ GitHub コミュニティの主な目的は、ソフトウェア プロジェク
 * ユーザー アカウントまたは組織を停止する
 
 
-## <a name="appeal-and-reinstatement"></a>異議申し立ておよび復活
+## 異議申し立ておよび復活
 
 コンテンツまたはアカウントが無効化または制限されており、お客様が復活を求めている場合、または異議申し立てを希望する場合は、[異議申し立ておよび復活ページ](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement)を参照してプロセスに関する情報を確認し、[異議申し立ておよび復活フォーム](https://support.github.com/contact/reinstatement)を使用して要求を送信してください。
 
-## <a name="legal-notices"></a>法定通知
+## 法定通知
 
 本コミュニティ ガイドラインは、[CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) の条件に基づいて、誰でも使用、再利用、改作、その他あらゆることが可能になるようにパブリック ドメインになっています。
 

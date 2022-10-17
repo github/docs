@@ -8,10 +8,10 @@ type: tutorial
 topics:
   - Projects
 ms.openlocfilehash: ab1373e5bea18c01ba97f37a7e77441d0bb70422
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147717547'
 ---
 {% data reusables.projects.project-settings %}

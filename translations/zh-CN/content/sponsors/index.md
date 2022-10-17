@@ -39,11 +39,11 @@ children:
   - /integrating-with-github-sponsors
   - /guides
 ms.openlocfilehash: 1878df4a6915a3e1336f79705d4ac4e70794e7ed
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147431870'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876002'
 ---
 <!---->
 <!---->

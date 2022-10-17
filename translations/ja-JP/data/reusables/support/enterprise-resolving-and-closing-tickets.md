@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: eaad0d11cd3a86394c0ec4e547ed63dbcac7483f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145068824"
 ---
 {% data variables.contact.enterprise_support %} は、説明、推薦事項、利用方法の指示、{% ifversion ghae %}または{% endif %}回避策の指示{% ifversion ghes %}、その問題が解決されている利用可能なリリースをアドバイスすることをもって、チケットが解決されたものと見なすことがあります{% endif %}。

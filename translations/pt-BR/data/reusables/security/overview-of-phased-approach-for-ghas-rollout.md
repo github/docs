@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 0bc2ac8ffeba49903cd3bd5763eea28819b5f8f9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145127986"
 ---
 Criamos uma abordagem em fases para distribuições do GHAS ({% data variables.product.prodname_GH_advanced_security %}) desenvolvidas com base nas melhores práticas do setor e do GitHub. Você pode utilizar essa abordagem para a sua implementação, em parceria com {% data variables.product.prodname_professional_services %} ou de forma independente.

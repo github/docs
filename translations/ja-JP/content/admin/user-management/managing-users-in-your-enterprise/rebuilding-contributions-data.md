@@ -14,10 +14,10 @@ topics:
   - User account
 shortTitle: Rebuild contributions
 ms.openlocfilehash: 66a4aff597be725eb06dd4c8743ee2ad8691c7e4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145116221'
 ---
 コミットは、{% data variables.product.prodname_enterprise %}にプッシュされるたびに、プッシュのメールアドレスとユーザのメールアドレスが同じ場合は、ユーザアカウントに関連付けられます。 ただし、ユーザーが新しいメール アドレスを登録したり、新しいアカウントを作成したりする場合、既存のコミットはさかのぼってリンク *されません*。

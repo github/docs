@@ -1,7 +1,7 @@
 ---
-title: Enterprise administrator documentation
+title: Enterprise 管理者のドキュメント
 shortTitle: Enterprise administrators
-intro: 'Documentation and guides for enterprise administrators{% ifversion ghes %}, system administrators,{% endif %} and security specialists who {% ifversion ghes %}deploy, {% endif %}configure{% ifversion ghes %},{% endif %} and manage {% data variables.product.product_name %}.'
+intro: 'Enterprise 管理者{% ifversion ghes %}、システム管理者、{% endif %}、および {% data variables.product.product_name %} を{% ifversion ghes %}デプロイ、{% endif %}構成{% ifversion ghes %}、{% endif %}および管理するセキュリティ スペシャリスト向けのドキュメントとガイド。'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise
@@ -133,5 +133,11 @@ children:
   - /guides
   - /release-notes
   - /all-releases
+ms.openlocfilehash: ebd1473538d42928ff3d9abb3c0e2bd9f12767f5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881156'
 ---
 

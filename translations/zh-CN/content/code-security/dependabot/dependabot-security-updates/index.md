@@ -17,10 +17,10 @@ children:
   - /about-dependabot-security-updates
   - /configuring-dependabot-security-updates
 ms.openlocfilehash: 046ef28084ce31c1a4178355f5db6644b5ba0f12
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145101115'
 ---
 

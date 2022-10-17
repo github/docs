@@ -15,10 +15,10 @@ children:
   - /about-github-marketplace
   - /github-extensions-and-integrations
 ms.openlocfilehash: ba97623756a53352fb8a9d1d34db9f5dd6c3bede
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145097917'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883391'
 ---
 

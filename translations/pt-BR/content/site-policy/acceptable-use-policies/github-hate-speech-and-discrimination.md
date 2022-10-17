@@ -10,10 +10,10 @@ redirect_from:
   - /github/site-policy/github-hate-speech-and-discrimination
   - /github/site-policy/github-community-guidelines#hate-speech-and-discrimination
 ms.openlocfilehash: f05e10bb8938ed47a6f05ab555c05edd4fab47f0
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556403'
 ---
 O GitHub não tolera discursos que ataquem ou promovam ódio contra um indivíduo ou grupo de pessoas com base em quem são, incluindo idade, tamanho corporal, habilidade, etnia, identidade e expressão de gênero, nível de experiência, nacionalidade, aparência pessoal, raça, religião, identidade ou orientação sexual. Isso inclui:

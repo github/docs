@@ -13,10 +13,10 @@ topics:
 allowTitleToDifferFromFilename: true
 permissions: Organization owners can manage the visibility of project boards in their organization. Organization owners can also allow collaborators with admin permissions to manage project visibility. Visibility of user projects can be managed by the owner of the project and collaborators with admin permissions.
 ms.openlocfilehash: 0fcd51dc996f28103179835f05fc74941eb1daee
-ms.sourcegitcommit: fd8ebcd1ce75cc30bf063dbcc886e3df98c4c871
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147854064'
 ---
 ## Acerca de la visibilidad de los proyectos

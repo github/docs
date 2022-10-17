@@ -15,10 +15,10 @@ topics:
   - Workflows
 type: how_to
 ms.openlocfilehash: 3455e4f082acf26215ad050c5c381df53c0c2713
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145120898'
 ---
 {% data reusables.cli.cli-learn-more %}

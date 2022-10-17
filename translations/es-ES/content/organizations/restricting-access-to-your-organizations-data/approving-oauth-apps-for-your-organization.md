@@ -1,6 +1,6 @@
 ---
-title: Aprobar aplicaciones OAuth para tu organización
-intro: 'Cuando un miembro de la organización solicita a {% data variables.product.prodname_oauth_app %} que acceda a los recursos de la organización, los propietarios de la organización pueden aprobar o rechazar la solicitud.'
+title: Approving OAuth Apps for your organization
+intro: 'When an organization member or outside collaborator requests {% data variables.product.prodname_oauth_app %} access to organization resources, organization owners can approve or deny the request.'
 redirect_from:
   - /articles/approving-third-party-applications-for-your-organization
   - /articles/approving-oauth-apps-for-your-organization
@@ -12,21 +12,20 @@ topics:
   - Organizations
   - Teams
 shortTitle: Approve OAuth Apps
-ms.openlocfilehash: b4f8f81b9ad773af86c7e2b488459d8865de3a49
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145140605'
 ---
-Cuando se habilitan las restricciones de acceso de {% data variables.product.prodname_oauth_app %}, los miembros de la organización deben [solicitar la aprobación](/articles/requesting-organization-approval-for-oauth-apps) de un propietario de la organización para poder autorizar una instancia de {% data variables.product.prodname_oauth_app %} que tenga acceso a los recursos de la organización.
+When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, organization members and outside collaborators must [request approval](/articles/requesting-organization-approval-for-oauth-apps) from an organization owner before they can authorize an {% data variables.product.prodname_oauth_app %} that has access to the organization's resources.
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.oauth_app_access %}
-5. Junto a la aplicación que quiera aprobar, haga clic en **Revisar**.
-![Vínculo Revisar solicitud](/assets/images/help/settings/settings-third-party-approve-review.png)
-6. Después de revisar la información sobre la aplicación solicitada, haga clic en **Conceder acceso**.
-![Botón Conceder acceso](/assets/images/help/settings/settings-third-party-approve-grant.png)
+{% ifversion limit-app-access-requests %}
+{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
 
-## Información adicional
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.oauth_app_access %}
+5. Next to the application you'd like to approve, click **Review**.
+![Review request link](/assets/images/help/settings/settings-third-party-approve-review.png)
+6. After you review the information about the requested application, click **Grant access**.
+![Grant access button](/assets/images/help/settings/settings-third-party-approve-grant.png)
 
-- "[Acerca de las restricciones de acceso a {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)"
+## Further reading
+
+- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"

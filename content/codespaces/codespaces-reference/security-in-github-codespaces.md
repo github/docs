@@ -18,7 +18,7 @@ redirect_from:
 
 {% data variables.product.prodname_github_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace. 
 
-This guide describes the way Codespaces keeps your development environment secure and provides some of the good practices that will help maintain your security as you work. As with any development tool, remember that you should only open and work within repositories you know and trust.
+This guide describes the way {% data variables.product.prodname_github_codespaces %} keeps your development environment secure and provides some of the good practices that will help maintain your security as you work. As with any development tool, remember that you should only open and work within repositories you know and trust.
 
 ### Environment isolation
 
@@ -43,7 +43,7 @@ Every time a codespace is created or restarted, it's assigned a new {% data vari
 The token's scope will vary depending on the access you have to the repository where the codespace was created:
 
 - **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you attempt to push to a private repo where you only have read access, {% data variables.product.prodname_codespaces %} will prompt you to create a personal fork of the repository. The token will then be updated to have read/write access to the new personal fork. 
+- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you attempt to push to a private repo where you only have read access, {% data variables.product.prodname_github_codespaces %} will prompt you to create a personal fork of the repository. The token will then be updated to have read/write access to the new personal fork. 
 - **If you've enabled your codespace to access other repositories**: When a codespace has been granted [access to other repositories](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces), any codespace created from that repository will have read/write tokens scoped to the source repository. In addition, the tokens will also receive read access to other repositories indicated by the user or organization.
 
 An organization's administrators specify which repositories should be considered trusted. An admin can [choose to trust](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces) none, all, or some of the organization's repositories. A codespace can't have greater permissions to access resources than the person who created it, even if the organization administrator has granted access to all users and all repositories.
@@ -101,7 +101,7 @@ We also further protect you in these scenarios by not injecting any of your [cod
 
 ### Additional good practices
 
-There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_codespaces %}. 
+There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_github_codespaces %}. 
 
 #### Understanding a repository's devcontainer.json file
 

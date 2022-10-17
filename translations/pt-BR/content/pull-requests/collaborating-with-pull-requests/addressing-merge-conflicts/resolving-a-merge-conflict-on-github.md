@@ -16,10 +16,10 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts
 ms.openlocfilehash: 48613d8c8974d14a1de70e0dee5a7f4819d37fd9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145127603'
 ---
 Você só pode resolver conflitos de merge no {% data variables.product.product_name %} causados por alterações concorrentes na linha, como quando as pessoas fazem alterações diferentes na mesma linha do mesmo arquivo em diferentes branches no seu repositório Git. Para todos os outros tipos de conflito de merge, você deve resolver o conflito localmente na linha de comando. Para obter mais informações, confira "[Como resolver um conflito de mesclagem usando a linha de comando](/articles/resolving-a-merge-conflict-using-the-command-line/)".

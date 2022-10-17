@@ -15,10 +15,10 @@ versions:
 topics:
   - Profiles
 ms.openlocfilehash: edbe34a38c2ab23de22e3b5ea466e35276c6bc35
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '146199958'
 ---
 Puedes agregar información personal acerca de ti mismo en tu biobiografía, como lugares en los que has trabajado previamente, proyectos con los que has colaborado o intereses que tengas que a otras personas les pueda interesar conocer sobre tí. Para obtener más información, vea "[Incorporación de una biografía a su perfil](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)".

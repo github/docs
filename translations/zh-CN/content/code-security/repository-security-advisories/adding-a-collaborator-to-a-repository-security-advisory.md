@@ -16,11 +16,11 @@ topics:
   - Collaboration
 shortTitle: Add collaborators
 ms.openlocfilehash: 6fa4062fab8e4ffc59724ceb0ba3b6b536871df9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145084363'
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147877165'
 ---
 对安全通告具有管理员权限的人员可向安全通告添加协作者。
 

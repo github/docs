@@ -10,12 +10,12 @@ versions:
 topics:
   - Policy
   - Legal
-ms.openlocfilehash: ee7ad9a57437858e33a51bedf6b03fcf48606079
-ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.openlocfilehash: 991c060af22a9161e026aa396037a1d52e66fcea
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2022
-ms.locfileid: '144556832'
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858626'
 ---
 ¿Es un agente de la ley que está realizando una investigación para la que podría necesitar contenido de usuario alojado en GitHub?
 ¿O tal vez es una persona a la que le preocupa la privacidad y le gustaría saber qué información compartimos con las fuerzas del orden y en qué circunstancias?
@@ -215,7 +215,7 @@ c/o Corporation Service Company
 Sacramento, CA 95833-3505
 ```
 
-Como cortesía, se pueden enviar copias por correo electrónico a legal@support.github.com.
+Como cortesía, se pueden enviar copias por correo electrónico a legal-support@github.com.
 
 Procure que sus solicitudes sean lo más específicas y concretas posible, y que incluyan la siguiente información:
 

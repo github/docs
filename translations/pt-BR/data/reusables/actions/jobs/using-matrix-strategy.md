@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 02f279903abd69f50ad55aa88462c9c8e4b9a1a8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: "145085278"
 ---
 Use `jobs.<job_id>.strategy.matrix` para definir uma matriz de diferentes configurações de trabalho. Dentro de sua matriz, defina uma ou mais variáveis seguidas por uma matriz de valores. Por exemplo, a matriz a seguir tem uma variável chamada `version` com o valor `[10, 12, 14]` e uma variável chamada `os` com o valor `[ubuntu-latest, windows-latest]`:

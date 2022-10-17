@@ -10,10 +10,10 @@ redirect_from:
   - /github/site-policy/github-sexually-obscene-content
   - /github/site-policy/github-community-guidelines#sexually-obscene-content
 ms.openlocfilehash: f96694fa5b36be9e607786551dbd03542c0961bb
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556425'
 ---
 我们不容忍与对他人进行性剥削或性虐待相关的内容，包括其中涉及未成年人的内容。 如果以性为主题的内容或性暗示的内容，其目的只是引起性反应或使人震惊，则不被允许，尤其是在通过将此类内容放置在个人资料或其他社交环境中而扩大影响的情况下。 其中包括：

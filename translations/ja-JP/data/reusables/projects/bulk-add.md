@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: b8288219bd82b857d0bbeeefef3b27a3c8f0d3de
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147424885"
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884713"
 ---
 1. 必要に応じて、リポジトリを変更するには、ドロップダウンをクリックしてリポジトリを選びます。 特定の issue や pull request を検索することもできます。
   ![[リポジトリ] ドロップダウン示すスクリーンショット](/assets/images/help/projects-v2/add-bulk-select-repo.png)

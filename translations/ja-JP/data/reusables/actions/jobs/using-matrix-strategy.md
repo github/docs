@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 02f279903abd69f50ad55aa88462c9c8e4b9a1a8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145091342"
 ---
 `jobs.<job_id>.strategy.matrix` を使用して、さまざまなジョブの設定のマトリックスを定義します。 マトリックス内で、1 つ以上の変数と、それに続く値の配列を定義します。 たとえば、次のマトリックスには、値 `[10, 12, 14]` を伴う `version` という名前の変数と、値 `[ubuntu-latest, windows-latest]` を伴う `os` という名前の変数があります。

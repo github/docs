@@ -18,10 +18,10 @@ children:
   - /working-with-pre-receive-hooks
 shortTitle: Code quality features
 ms.openlocfilehash: ba28472ee86b566f5b72d445d9a06d7b4756f01a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145130111'
 ---
 

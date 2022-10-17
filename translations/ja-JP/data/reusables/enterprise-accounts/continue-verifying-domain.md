@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: f34820900f17c3c1c5a33d2aab1feb0533ea6a0e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "145124054"
 ---
 9. 確認待ちのドメインの右にある [{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}] をクリックし、 **[確認の続行]** をクリックします。

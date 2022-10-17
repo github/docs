@@ -10,10 +10,10 @@ versions:
 topics:
   - Community
 ms.openlocfilehash: 288ba817cfeaeec0d695157fb6310ba6ab6a662f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084116'
 ---
 Proprietários, colaboradores, contribuidores anteriores e pessoas com acesso de gravação podem denunciar problemas, pull requests e comentários em problemas, pull requests e commits. Qualquer pessoa pode denunciar apps no {% data variables.product.prodname_marketplace %}.

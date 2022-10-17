@@ -1,7 +1,7 @@
 ---
-title: シークレット スキャンのカスタム パターンの定義
+title: Defining custom patterns for secret scanning
 shortTitle: Define custom patterns
-intro: '{% data variables.product.prodname_secret_scanning_GHAS %} を拡張して、既定のパターン以外のシークレットを検出できます。'
+intro: 'You can extend {% data variables.product.prodname_secret_scanning_GHAS %} to detect secrets beyond the default patterns.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
@@ -13,74 +13,82 @@ type: how_to
 topics:
   - Advanced Security
   - Secret scanning
-ms.openlocfilehash: 7182de1985019ab2c0a3244f923944f78dc6060e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147549101'
 ---
-{% ifversion ghes < 3.3 %} {% note %}
 
-**注:** {% data variables.product.prodname_secret_scanning %} のカスタム パターンは現在、ベータ版であり、変更される可能性があります。
+{% ifversion ghes < 3.3 %}
+{% note %}
 
-{% endnote %} {% endif %}
+**Note:** Custom patterns for {% data variables.product.prodname_secret_scanning %} is currently in beta and is subject to change.
 
-## {% data variables.product.prodname_secret_scanning %}のカスタムパターンについて
+{% endnote %}
+{% endif %}
 
-カスタム パターンを定義して、{% data variables.product.prodname_secret_scanning %} でサポートされている既定のパターンで検出されないシークレットを特定できます。 たとえば、Organizationの内部的なシークレットのパターンを持っていることもあるかもしれません。 サポートされているシークレットとサービス プロバイダーの詳細については、「[{% data variables.product.prodname_secret_scanning_caps %} パターン](/code-security/secret-scanning/secret-scanning-patterns)」を参照してください。
+## About custom patterns for {% data variables.product.prodname_secret_scanning %}
 
-Enterprise、Organization、またはリポジトリのカスタム パターンを定義できます。 {% data variables.product.prodname_secret_scanning_caps %} では、{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-7297 %}Organization または Enterprise アカウントごとに最大 500 個のカスタム パターンと、リポジトリごとに最大 100 個のカスタム パターンがサポートされます。
-{%- elsif ghes = 3.2 %}Organization または Enterprise アカウントごと、およびリポジトリごとに、最大 20 個のカスタム パターンがサポートされます。
-{%- else %}Organization または Enterprise アカウントごとに最大 100 個のカスタム パターンと、リポジトリごとに最大 20 個のカスタム パターンがサポートされます。
+You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+
+You can define custom patterns for your enterprise, organization, or repository. {% data variables.product.prodname_secret_scanning_caps %} supports up to 
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
+{%- elsif ghes = 3.2 %} 20 custom patterns for each organization or enterprise account, and per repository.
+{%- else %} 100 custom patterns for each organization or enterprise account, and 20 per repository.
 {%- endif %}
 
-{% ifversion ghes < 3.3 %} {% note %}
+{% ifversion ghes < 3.3 %}
+{% note %}
 
-**注:** ベータ版では、{% data variables.product.prodname_secret_scanning %} のカスタム パターンを使用するときにいくつかの制限があります。
+**Note:** During the beta, there are some limitations when using custom patterns for {% data variables.product.prodname_secret_scanning %}:
 
-* dry-runの機能はありません。
-* 作成後にカスタムパターンを編集することはできません。 パターンを変更するには、削除してから再作成しなければなりません。
-* カスタムパターンの作成、編集、削除のためのAPIはありません。 しかし、カスタム パターンの結果は [secret scanning alerts API](/rest/reference/secret-scanning) で返されます。
+* There is no dry-run functionality.
+* You cannot edit custom patterns after they're created. To change a pattern, you must delete it and recreate it.
+* There is no API for creating, editing, or deleting custom patterns. However, results for custom patterns are returned in the [secret scanning alerts API](/rest/reference/secret-scanning).
 
-{% endnote %} {% endif %}
+{% endnote %}
+{% endif %}
 
-## カスタムパターンの正規表現構文
+## Regular expression syntax for custom patterns
 
-{% data variables.product.prodname_secret_scanning_GHAS %} のカスタム パターンを 1 つまたは複数の正規表現として指定できます。
+You can specify custom patterns for {% data variables.product.prodname_secret_scanning_GHAS %} as one or more regular expressions.
 
-- **シークレット形式:** シークレット自体の形式を記述する式。
-- **シークレットの前:**  シークレットの前にある文字を記述する式。 既定では、これは `\A|[^0-9A-Za-z]` に設定されます。これは、シークレットが行の先頭にあるか、前に英数字以外の文字を付ける必要があることを意味します。
-- **シークレットの後:** シークレットの後に来る文字を記述する式。 既定では、これは `\z|[^0-9A-Za-z]` に設定されます。これは、シークレットの後に新しい行または英数字以外の文字が続く必要があることを意味します。
-- **追加の一致要件:** シークレット自体が一致しなければならない、または一致してはならない 1 つまたは複数の省略可能な式。
+- **Secret format:** an expression that describes the format of the secret itself.
+- **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
+- **After secret:** an expression that describes the characters that come after the secret. By default, this is set to `\z|[^0-9A-Za-z]` which means that the secret must be followed by a new line or a non-alphanumeric character.
+- **Additional match requirements:** one or more optional expressions that the secret itself must or must not match.
 
-単純なトークンの場合、通常はシークレット形式のみを指定する必要があります。 他のフィールドでは柔軟性が提供されるため、複雑な正規表現を作成せずに、より複雑なシークレットを指定できます。  カスタム パターンの例については、以下の「[追加の要件を使用して指定されたカスタム パターンの例](#example-of-a-custom-pattern-specified-using-additional-requirements)」を参照してください。
+For simple tokens you will usually only need to specify a secret format. The other fields provide flexibility so that you can specify more complex secrets without creating complex regular expressions.  For an example of a custom pattern, see "[Example of a custom pattern specified using additional requirements](#example-of-a-custom-pattern-specified-using-additional-requirements)" below.
 
-{% data variables.product.prodname_secret_scanning_caps %} では [ Hyperscan ライブラリ](https://github.com/intel/hyperscan)が使用され、PCRE 構文のサブセットである Hyperscan の正規コンストラクトのみがサポートされます。 Hyperscanのオプション修飾子はサポートされません。  Hyperscan パターン コンストラクトの詳細については、Hyperscan ドキュメントの「[パターンのサポート](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)」を参照してください。
+{% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
 
-## リポジトリのカスタムパターンの定義
+## Defining a custom pattern for a repository
 
-カスタムパターンを定義する前に、リポジトリで{% data variables.product.prodname_secret_scanning %}が有効化されていることを確認しておかなければなりません。 詳細については、「[リポジトリの {% data variables.product.prodname_secret_scanning %} の構成](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)」を参照してください。
+Before defining a custom pattern, you must ensure that {% data variables.product.prodname_secret_scanning %} is enabled on your repository. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)."
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-new-custom-pattern %} {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. 新しいカスタム パターンをテストする準備ができたら、アラートを作成せずにリポジトリで一致するものを特定するために、 **[保存してドライ ラン]** をクリックします。
-{% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {% endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+{% data reusables.repositories.navigate-to-ghas-settings %}
+{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
+{% endif %}
+{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-パターンが作成された後、{% data reusables.secret-scanning.secret-scanning-process %} {% data variables.product.prodname_secret_scanning %} アラートの表示について詳しくは、「[{% data variables.product.prodname_secret_scanning %} からのアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。
+After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
-### 追加の要件を使用して指定されたカスタム パターンの例
+### Example of a custom pattern specified using additional requirements
 
-ある会社には、5 つの特性を持つ内部トークンがあります。 さまざまなフィールドを使用して、トークンを特定する方法を次のように指定します。
+A company has an internal token with five characteristics. They use the different fields to specify how to identify tokens as follows:
 
-| **特徴** | **フィールドと正規表現** |
+| **Characteristic** | **Field and regular expression** |
 |----------------|------------------------------|
-| 5 から 10 文字の長さ | シークレット形式: `[$#%@AA-Za-z0-9]{5,10}` |
-| `.` で終わらない | シークレットの後: `[^\.]` |
-| 数字と大文字を含む | 追加の要件: シークレットは `[A-Z]` および `[0-9]` と一致する必要がある |
-| 1 行に複数の小文字を含まない | 追加の要件: シークレットは `[a-z]{2,}` と一致してはならない |
-| `$%@!` のいずれかを含む | 追加の要件: シークレットは `[$%@!]` と一致する必要がある |
+| Length between 5 and 10 characters | Secret format: `[$#%@AA-Za-z0-9]{5,10}` |
+| Does not end in a `.` | After secret: `[^\.]` |
+| Contains numbers and uppercase letters | Additional requirements: secret must match `[A-Z]` and `[0-9]` |
+| Does not include more than one lowercase letter in a row | Additional requirements: secret must not match `[a-z]{2,}` |
+| Contains one of `$%@!` | Additional requirements: secret must match `[$%@!]` |
 
-これらのトークンは、上記のカスタム パターンと一致します。
+These tokens would match the custom pattern described above:
 
 ```
 a9@AAfT!         # Secret string match: a9@AAfT
@@ -88,7 +96,7 @@ ee95GG@ZA942@aa  # Secret string match: @ZA942@a
 a9@AA!ee9        # Secret string match: a9@AA
 ```
 
-これらの文字列は、上記のカスタム パターンと一致しません。
+These strings would not match the custom pattern described above:
 
 ```
 a9@AA.!
@@ -97,75 +105,100 @@ aa9@AA!ee9
 aAAAe9
 ```
 
-## Organizationのカスタムパターンの定義
+## Defining a custom pattern for an organization
 
-カスタム パターンを定義する前に、Organization 内でスキャンするリポジトリに対して {% data variables.product.prodname_secret_scanning %} を有効にしていることを確かめる必要があります。 Organization 内のすべてのリポジトリで {% data variables.product.prodname_secret_scanning %} を有効にする場合は、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
+Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-{% ifversion ghes < 3.5 or ghae %} {% note %}
+{% ifversion ghes < 3.5 or ghae %}
+{% note %}
 
-**注:** ドライラン機能がないため、Organization 全体に対して定義する前に、リポジトリでカスタム パターンをテストすることをお勧めします。 そうすることで、過剰な誤検知 {% data variables.product.prodname_secret_scanning %} アラートを作成しないようにすることができます。
+**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire organization. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
 
-{% endnote %} {% endif %}
+{% endnote %}
+{% endif %}
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-new-custom-pattern %} {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %} {%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. 新しいカスタム パターンをテストする準備ができたら、アラートを作成せずにリポジトリの選択で一致するものを特定するために、 **[保存してドライ ラン]** をクリックします。
-{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %} {% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {%- endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security-and-analysis %}
+{% data reusables.repositories.navigate-to-ghas-settings %}
+{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+1. When you're ready to test your new custom pattern, to identify matches in select repositories without creating alerts, click **Save and dry run**.
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
+{%- endif %}
+{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-パターンが作成された後、{% data variables.product.prodname_secret_scanning %} により、すべてのブランチの Git 履歴全体を含め、Organization 内のリポジトリですべてのシークレットがスキャンされます。 Organization のオーナーとリポジトリの管理者は、シークレットが見つかるとアラートを受け、シークレットが見つかったリポジトリでアラートをレビューできます。 {% data variables.product.prodname_secret_scanning %} アラートの表示について詳しくは、「[{% data variables.product.prodname_secret_scanning %} からのアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。
+After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
-## Enterprise アカウントのカスタム パターンの定義
+## Defining a custom pattern for an enterprise account
 
 {% ifversion fpt or ghec or ghes %}
 
-カスタム パターンを定義する前に、Enterprise アカウントのシークレット スキャンを必ず有効にする必要があります。 詳細については、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} の有効化]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)」を参照してください。
+Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
 
 {% endif %}
 
 {% note %}
 
-{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %} **注:**
-- エンタープライズ レベルでは、カスタム パターンの作成者のみがパターンを編集し、ドライ ランで使用できます。 
-- Enterprise 所有者は、アクセスできるリポジトリ上でのみドライ ランを利用できます。また、Enterprise 所有者は、Enterprise 内のすべての Organization またはリポジトリに必ずしもアクセスできるとは限りません。
-{% else %} **注:** ドライラン機能がないため、Enterprise 全体に対してカスタム パターンを定義する前に、リポジトリでテストすることをお勧めします。 そうすることで、過剰な誤検知 {% data variables.product.prodname_secret_scanning %} アラートを作成しないようにすることができます。
+{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
+**Notes:**
+- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run. 
+- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
+{% else %}
+**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
 
 {% endif %}
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.advanced-security-policies %} {% data reusables.enterprise-accounts.advanced-security-security-features %}
-1. [シークレット スキャン カスタム パターン] で、{% ifversion ghes = 3.2 %} **[新しいカスタム パターン]** {% else %} **[新しいパターン]** {% endif %} をクリックします。
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %} {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
-1. 新しいカスタム パターンをテストする準備ができたら、アラートを作成せずに Enterprise で一致するものを特定するため、 **[保存してドライ ラン]** をクリックします。
-{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %} {% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {%- endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
+{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. Under "Code security and analysis", click **Security features**.{% else %}
+{% data reusables.enterprise-accounts.advanced-security-policies %}
+{% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
+1. Under "Secret scanning custom patterns", click {% ifversion ghes = 3.2 %}**New custom pattern**{% else %}**New pattern**{% endif %}.
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
+1. When you're ready to test your new custom pattern, to identify matches in the enterprise without creating alerts, click **Save and dry run**.
+{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %}
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
+{%- endif %}
+{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-パターンが作成された後、{% data variables.product.prodname_secret_scanning %}により、すべてのブランチの Git 履歴全体を含め、{% data variables.product.prodname_GH_advanced_security %} が有効になっている Enterprise の Organization 内のリポジトリですべてのシークレットがスキャンされます。 Organizationのオーナーとリポジトリの管理者は、シークレットが見つかるとアラートを受け、シークレットが見つかったリポジトリでアラートをレビューできます。 {% data variables.product.prodname_secret_scanning %} アラートの表示について詳しくは、「[{% data variables.product.prodname_secret_scanning %} からのアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。
+After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
 {% ifversion fpt or ghes > 3.2 or ghec or ghae %}
-## カスタム パターンの編集
+## Editing a custom pattern
 
-カスタム パターンへの変更を保存すると、以前のバージョンのパターンを使用して作成されたすべての {% data variables.product.prodname_secret_scanning %} アラートが閉じられます。
-1. カスタム パターンが作成された場所に移動します。 カスタム パターンは、リポジトリ、Organization または Enterprise アカウントに作成できます。
-   * リポジトリまたは Organization の場合、カスタム パターンが作成されたリポジトリまたは Organization の [セキュリティと分析] 設定を表示します。 詳細については、上記の「[リポジトリのカスタム パターンの定義](#defining-a-custom-pattern-for-a-repository)」または「[Organization のカスタム パターンの定義](#defining-a-custom-pattern-for-an-organization)」を参照してください。
-   * Enterprise の場合、[ポリシー] の下にある [高度なセキュリティ] 領域を表示してから、 **[セキュリティ機能]** をクリックします。 詳細については、上記の「[Enterprise アカウントのカスタム パターンの定義](#defining-a-custom-pattern-for-an-enterprise-account)」を参照してください。
-2. [{% data variables.product.prodname_secret_scanning_caps %}] で、編集するカスタム パターンの右側にある {% octicon "pencil" aria-label="The edit icon" %} をクリックします。
+When you save a change to a custom pattern, this closes all the {% data variables.product.prodname_secret_scanning %} alerts that were created using the previous version of the pattern.
+1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
+   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
+   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**. For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
+2. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
 {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
-3. 編集したカスタム パターンをテストする準備ができたら、アラートを作成せずに一致するものを特定するため、 **[保存してドライ ラン]** をクリックします。
+3. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
 {%- endif %}
-4. 変更をレビューしてテストしたら、 **[変更の保存]** をクリックします。
+4. When you have reviewed and tested your changes, click **Save changes**.
 {% endif %}
 
-## カスタムパターンの削除
+## Removing a custom pattern
 
-1. カスタム パターンが作成された場所に移動します。 カスタム パターンは、リポジトリ、Organization または Enterprise アカウントに作成できます。
+1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
 
-   * リポジトリまたは Organization の場合、カスタム パターンが作成されたリポジトリまたは Organization の [セキュリティと分析] 設定を表示します。 詳細については、上記の「[リポジトリのカスタム パターンの定義](#defining-a-custom-pattern-for-a-repository)」または「[Organization のカスタム パターンの定義](#defining-a-custom-pattern-for-an-organization)」を参照してください。
-   * Enterprise の場合、[ポリシー] の下にある [高度なセキュリティ] 領域を表示してから、 **[セキュリティ機能]** をクリックします。  詳細については、上記の「[Enterprise アカウントのカスタム パターンの定義](#defining-a-custom-pattern-for-an-enterprise-account)」を参照してください。
+   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
+   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**.  For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
 {%- ifversion ghec or ghes > 3.2 or ghae %}
-1. 削除するカスタム パターンの右側にある {% octicon "trash" aria-label="The trash icon" %} をクリックします。
-1. 確認をレビューし、カスタム パターンに関連する開いているアラートを処理する方法を選択します。
-1. **[はい、このパターンを削除します]** をクリックします。
+1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
+1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
+1. Click **Yes, delete this pattern**.
 
-   ![カスタム {% data variables.product.prodname_secret_scanning %} パターンの削除の確認 ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png) {%- elsif ghes = 3.2 %}
-1. 削除するカスタム パターンの右側にある **[削除]** をクリックします。
-1. 確認をレビューし、 **[カスタム パターンの削除]** をクリックします。
+   ![Confirming deletion of a custom {% data variables.product.prodname_secret_scanning %} pattern ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)
+{%- elsif ghes = 3.2 %}
+1. To the right of the custom pattern you want to remove, click **Remove**.
+1. Review the confirmation, and click **Remove custom pattern**.
 {%- endif %}

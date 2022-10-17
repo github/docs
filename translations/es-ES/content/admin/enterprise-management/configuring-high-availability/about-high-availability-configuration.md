@@ -14,10 +14,10 @@ topics:
   - Infrastructure
 shortTitle: About HA configuration
 ms.openlocfilehash: 921a1a935bbfa930c77e2c72d7856f00d54d6016
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '146332755'
 ---
 Cuando configuras la alta disponibilidad, hay una configuración automática unidireccional, una replicación asincrónica de todos los almacenes de datos (repositorios de Git, MySQL, Redis y Elasticsearch) desde el aparato principal hacia la réplica. La mayoría de los ajustes de configuración de {% data variables.product.prodname_ghe_server %} también se replican, incluyendo la contraseña de la {% data variables.enterprise.management_console %}. Para obtener más información, consulta "[Acceso a la consola de administración](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".

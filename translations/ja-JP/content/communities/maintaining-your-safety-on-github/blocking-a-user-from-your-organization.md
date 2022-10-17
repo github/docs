@@ -11,10 +11,10 @@ topics:
   - Community
 shortTitle: Block from your org
 ms.openlocfilehash: 3264bb71f157c2ec34f42b859857eed4253379f3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145090298'
 ---
 組織の設定内、もしくはユーザーが作成した特定のコメントから、メンバー以外の人をブロックできます。 コメント内でユーザをブロックした場合、そのユーザに、ブロックされたこととその理由を説明する通知を送信できます。 そうしない場合、ブロックされたことはユーザには直接通知されません。 ユーザは、ブロックされても既存のコンテンツを削除できます。

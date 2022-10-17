@@ -1,6 +1,6 @@
 ---
-title: プルリクエストで提案された変更をレビューする
-intro: pull request では、コミット、変更されたファイル、ベース ブランチと比較ブランチでのファイル間の違い (つまり "diff") をレビューしたり話し合ったりできます。
+title: Reviewing proposed changes in a pull request
+intro: 'In a pull request, you can review and discuss commits, changed files, and the differences (or "diff") between the files in the base and compare branches.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
   - /articles/reviewing-proposed-changes-in-a-pull-request
@@ -14,94 +14,98 @@ versions:
 topics:
   - Pull requests
 shortTitle: Review proposed changes
-ms.openlocfilehash: bf5e21609ae198bd415b9f3dedc2e44b060b09b5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147111363'
 ---
-## プルリクエストのレビューについて
+## About reviewing pull requests
 
-プルリクエストの変更は、1 ファイルごとにレビューできます。 プルリクエストでファイルを確認しているときに、特定の変更について個別のコメントを残すことができます。 各ファイルの確認が終了したら、ファイルを閲覧済みとしてマークできます。 これによりファイルが折りたたまれるので、まだレビューを必要とするファイルを特定するのに役立ちます。 プルリクエストヘッダのプログレスバーには、閲覧したファイル数が表示されます。 必要な数のファイルを確認した後、要約コメントを付けて確認を送信することにより、プルリクエストを承認するか、追加の変更をリクエストできます。
+You can review changes in a pull request one file at a time. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. This collapses the file, helping you identify the files you still need to review. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
-## レビューを開始する
+## Starting a review
 
 {% webui %}
 
-{% data reusables.repositories.sidebar-pr %} {% data reusables.repositories.choose-pr-review %} {% data reusables.repositories.changed-files %} {% ifversion fpt or ghec or ghes > 3.3 or ghae %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
+{% data reusables.repositories.changed-files %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae %}
 
-   このタブで差分ビューの形式を変更するには、{% octicon "gear" aria-label="The Settings gear" %} をクリックし、統合または分割ビューを選びます。 他の pull request の差分を表示する場合も、この選択が適用されます。
+   You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
 
-   ![差分ビューの設定](/assets/images/help/pull_requests/diff-view-settings.png)
+   ![Diff view settings](/assets/images/help/pull_requests/diff-view-settings.png)
 
-   空白の違いを非表示にすることもできます。 この選択は、この pull request にのみ適用され、次回このページにアクセスするときに記録されます。
+   You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
 {% endif %}
-1. 必要に応じて、ファイルをフィルター処理して、レビューするファイルのみを表示{% ifversion pr-tree-view %}するか、ファイル ツリーを使って特定のファイルに移動{% endif %}します。 詳しくは、「[pull request 内のファイルをフィルタリングする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)」を参照してください。
-{% data reusables.repositories.start-line-comment %} {% data reusables.repositories.type-line-comment %} {% data reusables.repositories.suggest-changes %}
-1. 終了したら **[レビューの開始]** をクリックします。 レビューを既に開始していた場合は、 **[レビューコメントを追加]** をクリックします。
+1. Optionally, filter the files to show only the files you want to review{% ifversion pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+{% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.type-line-comment %}
+{% data reusables.repositories.suggest-changes %}
+1. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
 
-   ![[Start a review] ボタン](/assets/images/help/pull_requests/start-a-review-button.png)
+   ![Start a review button](/assets/images/help/pull_requests/start-a-review-button.png)
 
-レビューを提出する前は、行のコメントは _保留中_ であり、ご自分にしか見えません。 レビューを提出する前ならばいつでも、保留中のコメントを編集できます。 その保留中のコメントのすべてを含めて、保留中のレビューをキャンセルするには、[会話] タブでタイムラインの最後まで下にスクロールし、 **[レビューをキャンセルする]** をクリックします。
+Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, scroll down to the end of the timeline on the Conversation tab, then click **Cancel review**.
 
-![[レビューのキャンセル] ボタン](/assets/images/help/pull_requests/cancel-review-button.png) {% endwebui %}
+![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
+{% endwebui %}
 
 {% ifversion fpt or ghec %}
 
 {% codespaces %}
 
-[{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) を使って、pull request をテスト、実行、レビューすることができます。
+You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
 
 {% data reusables.codespaces.review-pr %}
 
-{% data variables.product.prodname_codespaces %} で pull request をレビューする方法について詳しくは、「[pull request で {% data variables.product.prodname_github_codespaces %} を使用する](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)」をご覧ください。
+For more information on reviewing pull requests in {% data variables.product.prodname_github_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
-{% endcodespaces %} {% endif %}
+{% endcodespaces %}
+{% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## 依存関係の変更をレビューする
+## Reviewing dependency changes
 
 {% data reusables.dependency-review.beta %}
 
-プルリクエストに依存関係への変更が含まれている場合は、マニフェストまたはロックファイルの依存関係のレビューを使用して、何が変更されたかを確認し、変更によるセキュリティの脆弱性の発生の有無を確認できます。 詳細については、「[プル リクエスト内の依存関係の変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。
+If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
 {% data reusables.repositories.changed-files %}
 
-1. マニフェストまたはロック ファイルのヘッダーの右側で、 **[{% octicon "file" aria-label="The rich diff icon" %}]** リッチ diff ボタンをクリックして、依存関係レビューを表示します。
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
-   ![リッチ diff ボタン](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-{% data reusables.repositories.return-to-source-diff %} {% endif %}
+{% data reusables.repositories.return-to-source-diff %}
+{% endif %}
 
-## ファイルをレビュー済みとしてマークする
+## Marking a file as viewed
 
-ファイルのレビュー後は、そのファイルをレビュー済みとしてマークできます。マークしたファイルは折りたたまれます。 ファイルを表示後に変更すると、レビュー済みマークが解除されます。
+After you finish reviewing a file, you can mark the file as viewed, and the file will collapse. If the file changes after you view the file, it will be unmarked as viewed.
 
 {% data reusables.repositories.changed-files %}
-2. レビューを完了したファイルの、ヘッダーの右側にある **[表示済み]** を選びます。
+2. On the right of the header of the file you've finished reviewing, select **Viewed**.
 
-   ![[Viewed] チェックボックス](/assets/images/help/pull_requests/viewed-checkbox.png)
+   ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
 
-## レビューを提出する
+## Submitting your review
 
-プルリクエスト内でレビューしたいファイルをすべてレビューし終えたら、レビューをサブミットします。
+After you've finished reviewing all the files you want in the pull request, submit your review.
 
-{% data reusables.repositories.changed-files %} {% data reusables.repositories.review-changes %} {% data reusables.repositories.review-summary-comment %}
-4. 残しておくレビューの種類を選択します。
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.review-changes %}
+{% data reusables.repositories.review-summary-comment %}
+4. Select the type of review you'd like to leave:
 
-   ![レビュー オプションを選択するラジオ ボタン](/assets/images/help/pull_requests/pull-request-review-statuses.png)
+   ![Radio buttons with review options](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
-    - 変更を明示的に承認したり、追加の変更を要求したりせずに、一般的なフィードバックを残すには、 **[コメント]** を選びます。
-    - フィードバックを提出して、pull request で提案された変更をマージすることを承認するには、 **[承認]** を選びます。
-    - pull request をマージする前に対処する必要があるフィードバックを送信するには、 **[変更の要求]** を選びます。
+    - Select **Comment** to leave general feedback without explicitly approving the changes or requesting additional changes.
+    - Select **Approve** to submit your feedback and approve merging the changes proposed in the pull request.
+    - Select **Request changes** to submit feedback that must be addressed before the pull request can be merged.
 {% data reusables.repositories.submit-review %}
 
 {% data reusables.repositories.request-changes-tips %}
 
-## 参考資料
+## Further reading
 
-- 「[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)」 (保護されたブランチについて)
-- "[pull request をレビュー ステータスでフィルター処理する](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"
+- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

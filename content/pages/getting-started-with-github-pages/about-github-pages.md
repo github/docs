@@ -83,6 +83,7 @@ If you're a {% data variables.product.prodname_managed_user %}, your use of {% d
 
   - {% data variables.product.prodname_pages %} sites can only be published from repositories owned by organizations.
   - {% data variables.product.prodname_pages %} sites are only visible to other members of the enterprise.
+  - You cannot create an organization site (a site published from a repository named `<organization>.github.io`)
 
 For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
 {% endif %}

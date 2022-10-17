@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: e4791f436b38961954337b39fab5ec277663eb4f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: "147389980"
 ---
 チームは、共有作業のコンテナーとして機能し、作業に一意の名前とブランドを与える Organization アカウントを使って、{% data variables.product.product_name %} で共同作業を行うことができます。 

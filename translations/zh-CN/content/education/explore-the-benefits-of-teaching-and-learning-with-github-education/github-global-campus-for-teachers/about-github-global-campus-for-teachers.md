@@ -1,6 +1,6 @@
 ---
-title: 'About GitHub Global Campus for teachers'
-intro: '{% data variables.product.prodname_global_campus %} offers teachers a central place to access tools and resources for working more effectively inside and outside of the classroom.'
+title: 关于教师版 GitHub Global Campus
+intro: '{% data variables.product.prodname_global_campus %} 为教师提供了一个访问工具和资源的中心位置，使他们能够在课堂内外更高效地工作。'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education-for-educators-and-researchers
   - /github/teaching-and-learning-with-github-education/about-github-education-for-educators-and-researchers
@@ -10,26 +10,30 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
+ms.openlocfilehash: d4e823cc97b9c75f264b856c39021e30ca0e4fed
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574167'
 ---
+作为认证教育机构的教职员工，你可以申请 {% data variables.product.prodname_global_campus %}，其中包括 {% data variables.product.prodname_education %} 权益和资源。 有关详细信息，请参阅“[以教师身份申请加入 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)”。
 
-As a faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_global_campus %}, which includes {% data variables.product.prodname_education %} benefits and resources. For more information, see "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)."
+{% data variables.product.prodname_global_campus %} 是一个门户，使 GitHub Education Community 能够在一个位置访问其教育权益。 当你成为经过验证的 {% data variables.product.prodname_global_campus %} 教师后，可随时转到 [{% data variables.product.prodname_education %} 网站](https://education.github.com)来访问 {% data variables.product.prodname_global_campus %}。
 
-{% data variables.product.prodname_global_campus %} is a portal that allows the GitHub Education Community to access their education benefits, all in one place. Once you are a verified {% data variables.product.prodname_global_campus %} teacher, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
+![教师版 {% data variables.product.prodname_global_campus %} 门户](/assets/images/help/education/global-campus-portal-teachers.png)
 
-![{% data variables.product.prodname_global_campus %} portal for teachers](/assets/images/help/education/global-campus-portal-teachers.png)
+在申请个人折扣之前，请检查你的学习社区是否已作为 {% data variables.product.prodname_campus_program %} 学校与我们合作。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_campus_program %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program)”。
 
-Before applying for an individual discount, check if your learning community is already partnered with us as a {% data variables.product.prodname_campus_program %} school. For more information, see "[About {% data variables.product.prodname_campus_program %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program)."
+## 教师版 {% data variables.product.prodname_global_campus %} 功能
 
-## {% data variables.product.prodname_global_campus %} features for teachers
+{% data variables.product.prodname_global_campus %} 是一个一站式门户，你可从中访问 {% data variables.product.prodname_education %} 权益和资源。 在 {% data variables.product.prodname_global_campus %} 门户中，各级教师都可以：{% data reusables.education.apply-for-team %}
+  - 查看活动 [{% data variables.product.prodname_classroom %}](https://classroom.github.com) 的概览，其中包括一目了然的最近作业和课堂进度，以及指向 {% data variables.product.prodname_classroom %} 的链接。
+  - 查看世界各地的同行发布的 [{% data variables.product.prodname_discussions %}](https://github.com/orgs/community/discussions/categories/github-education) 并在其中互动来讨论技术教育的当前趋势，并查看 [{% data variables.product.prodname_education %} 博客](https://github.blog/category/education/)的最新文章。
+  - 查看 {% data variables.product.prodname_education %} 和学生领袖策划的学生活动。
+  - 重新观看最近的 [Campus TV](https://www.twitch.tv/githubeducation) 剧集，了解学生社区对什么感兴趣。 Campus TV 由 {% data variables.product.prodname_dotcom %} 和学生社区领袖创建，可观看直播或按需观看。
+  - 请求一个 {% data variables.product.prodname_dotcom %} swag 包，其中包含为学生提供的教育材料和超值服务。
 
-{% data variables.product.prodname_global_campus %} is a portal from which you can access your {% data variables.product.prodname_education %} benefits and resources, all in one place. On the {% data variables.product.prodname_global_campus %} portal, teachers of all levels can:
-  {% data reusables.education.apply-for-team %}
-  - View an overview of your active [{% data variables.product.prodname_classroom %}](https://classroom.github.com), including recent assignments and your class's progress at a glance, as well as links to {% data variables.product.prodname_classroom %}.
-  - View and interact with [{% data variables.product.prodname_discussions %}](https://github.com/orgs/community/discussions/categories/github-education) posted by your peers from around the world to discuss current trends in technology education, and see the latest posts from our [{% data variables.product.prodname_education %} blog](https://github.blog/category/education/).
-  - See student events curated by {% data variables.product.prodname_education %} and student leaders.
-  - Stay in the know on what the student community is interested in by rewatching recent [Campus TV](https://www.twitch.tv/githubeducation) episodes. Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
-  - Request a {% data variables.product.prodname_dotcom %} swag bag with educational materials and goodies for your students.
+## 延伸阅读
 
-## Further reading
-
-- "[About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)"
+- [关于学生版 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)

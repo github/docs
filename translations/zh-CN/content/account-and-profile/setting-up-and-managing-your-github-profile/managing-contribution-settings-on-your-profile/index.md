@@ -21,10 +21,10 @@ children:
   - /troubleshooting-commits-on-your-timeline
 shortTitle: Manage contribution settings
 ms.openlocfilehash: 022a9afdb91a5c65cea12c4bbeef5c4ba9673be6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079526'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881209'
 ---
 

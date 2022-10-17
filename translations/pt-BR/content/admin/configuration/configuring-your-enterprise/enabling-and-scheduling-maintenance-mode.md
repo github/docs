@@ -21,10 +21,10 @@ topics:
   - Upgrades
 shortTitle: Configure maintenance mode
 ms.openlocfilehash: 45ac412b1ae13e69d710c4dd93072143f6ffa502
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '146331765'
 ---
 ## Sobre o modo de manutenção

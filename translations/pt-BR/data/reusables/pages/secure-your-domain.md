@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c32095fa49627698da6e8bb888409fec2cda2d4b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145096183"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147876193"
 ---
 Se o site do {% data variables.product.prodname_pages %} estiver desabilitado, mas tiver um domínio personalizado configurado, ele correrá o risco de uma tomada de controle de domínio. Ter um domínio personalizado configurado com o provedor DNS enquanto o site está desabilitado pode fazer com que outra pessoa acabe hospedando um site em um de seus subdomínios.
 

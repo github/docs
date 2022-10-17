@@ -15,10 +15,10 @@ versions:
 topics:
   - Pull requests
 ms.openlocfilehash: 5902f74a9c51772dc3f1d8883b60723ffec3e1d1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129653'
 ---
 Git 通常可以自动解决分支之间的冲突并合并它们。 通常，更改发生在不同的行，甚至不同的文件，因此计算机容易理解合并。 但是，有时存在竞争更改的情况，如果没有您的帮助，Git 无法解决。 通常，当人们对相同文件的相同行进行不同的更改时，或者一个人编辑文件而另一个人删除同一文件时，就会发生合并冲突。

@@ -27,9 +27,7 @@ Before you can configure prebuilds for your project the following must be true:
 
 ## Configuring a prebuild
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %}**.
+{% data reusables.codespaces.accessing-prebuild-configuration %}
 1. In the "Prebuild configuration" section of the page, click **Set up prebuild**.
 
    ![The 'Set up prebuilds' button](/assets/images/help/codespaces/prebuilds-set-up.png)
@@ -63,8 +61,8 @@ Before you can configure prebuilds for your project the following must be true:
    {% note %}
 
    **Notes**: 
-   * The prebuild for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)."
-   * Developers can set their default region for {% data variables.product.prodname_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+   * The prebuild for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
+   * Developers can set their default region for {% data variables.product.prodname_github_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
    {% endnote %}
 
@@ -72,7 +70,7 @@ Before you can configure prebuilds for your project the following must be true:
 
    Depending on your prebuild trigger settings, your prebuild could change with each push or on each dev container configuration change. Retaining older versions of prebuilds enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild. Since there is a storage cost associated with retaining prebuild versions, you can choose the number of versions to be retained based on the needs of your team. For more information on billing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
-   If you set the number of prebuild versions to save to 1, {% data variables.product.prodname_codespaces %} will only save the latest version of the prebuild and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you go back to an older dev container configuration.
+   If you set the number of prebuild versions to save to 1, {% data variables.product.prodname_github_codespaces %} will only save the latest version of the prebuild and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you go back to an older dev container configuration.
 
    ![The prebuild history setting](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
 
@@ -80,11 +78,17 @@ Before you can configure prebuilds for your project the following must be true:
 
    ![The prebuild failure notification setting](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
+1. Optionally, at the bottom of the page, click **Show advanced options**.
+
+   ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
+
+   In the "Advanced options" section, if you select **Disable prebuild optimization**, codespaces will be created without a prebuild if the latest prebuild workflow has failed or is currently running. For more information, see "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds#preventing-out-of-date-prebuilds-being-used)."
+
 1. Click **Create**.
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
-After you create a prebuild configuration it is listed on the {% data variables.product.prodname_codespaces %} page of your repository settings. A {% data variables.product.prodname_actions %} workflow is queued and then run to create prebuilds in the regions you specified, based on the branch and dev container configuration file you selected. 
+After you create a prebuild configuration it is listed on the {% data variables.product.prodname_github_codespaces %} page of your repository settings. A {% data variables.product.prodname_actions %} workflow is queued and then run to create prebuilds in the regions you specified, based on the branch and dev container configuration file you selected. 
 
 ![Screenshot of the list of prebuild configurations](/assets/images/help/codespaces/prebuild-configs-list.png)
 

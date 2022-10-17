@@ -14,10 +14,10 @@ topics:
   - Pages
 shortTitle: Add content to Pages site
 ms.openlocfilehash: 90bd0d067837364eb2767739da286da7906399c0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145130245'
 ---
 拥有仓库写入权限的人员可以使用 Jekyll 向 {% data variables.product.prodname_pages %} 站点添加内容。

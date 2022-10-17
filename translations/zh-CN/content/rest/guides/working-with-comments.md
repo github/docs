@@ -12,10 +12,10 @@ versions:
 topics:
   - API
 ms.openlocfilehash: 9b3b768d66199fda62bc5e644da9539d5425215e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145129040'
 ---
 对于任何拉取请求，{% data variables.product.product_name %} 提供三种类型的注释视图：针对整个拉取请求的[拉取请求注释][PR comment]、针对拉取请求内的[特定行的注释][PR line comment]，以及针对拉取请求内的[特定提交的注释][commit comment]。 

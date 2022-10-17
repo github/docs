@@ -13,10 +13,10 @@ topics:
   - Enterprise
 shortTitle: Troubleshoot service hooks
 ms.openlocfilehash: 224a0071d87407f9f6bb15ababbdb0c7171f8799
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/12/2022
 ms.locfileid: '145116281'
 ---
 ## Obtener información sobre las entregas

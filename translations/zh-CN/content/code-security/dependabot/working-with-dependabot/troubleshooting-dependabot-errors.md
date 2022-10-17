@@ -2,6 +2,7 @@
 title: 排查 Dependabot 错误
 intro: '有时，{% data variables.product.prodname_dependabot %} 无法提出拉取请求以更新依赖项。 您可以查看错误并取消阻止 {% data variables.product.prodname_dependabot %}。'
 shortTitle: Troubleshoot errors
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
   - /github/managing-security-vulnerabilities/troubleshooting-dependabot-errors
@@ -21,12 +22,12 @@ topics:
   - Troubleshooting
   - Errors
   - Dependencies
-ms.openlocfilehash: 74c614d2bf4bc1dadb3b5be90b743d46b1f869e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: ad3449768246ea8659ddffe4957fd3d6801edd2c
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146455475'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147861658'
 ---
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
@@ -85,7 +86,23 @@ ms.locfileid: '146455475'
 
 每个具有依赖项的应用程序都有一个依赖关系图，即应用程序直接或间接依赖的每个包版本的定向非循环图。 每次更新依赖项时，必须解决此图，否则将无法构建应用程序。 当生态系统具有深刻而复杂的依赖关系图（例如 npm 和 RubyGems）时，如果不升级整个生态系统，往往难以升级单个依赖项。
 
-避免这个问题的最佳办法是跟上最新发布的版本，例如启用版本更新。 这增加了通过不破坏依赖关系图的简单升级解决一个依赖项中的漏洞的可能性。 有关详细信息，请参阅“[配置 {% data variables.product.prodname_dependabot %} 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)”。
+避免这个问题的最佳办法是跟上最新发布的版本，例如启用版本更新。 这增加了通过不破坏依赖关系图的简单升级解决一个依赖项中的漏洞的可能性。 有关详细信息，请参阅“[配置 {% data variables.product.prodname_dependabot %} 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)”。{% ifversion dependabot-security-updates-unlock-transitive-dependencies %}
+
+### {% data variables.product.prodname_dependabot %} 尝试在没有警报的情况下更新依赖项
+
+仅限安全更新。 {% data variables.product.prodname_dependabot %} 更新显式定义的可传递依赖项，这些依赖项对于所有生态系统而言易受攻击。 对于 npm，{% data variables.product.prodname_dependabot %} 会引发拉取请求，如果这是修复可传递依赖项的唯一方法，则该请求还会更新父依赖项。
+
+例如，在 `A` 版本 `~2.0.0` 上有一个依赖项的项目在 `B` 版本 `~1.0.0`（已解析为 `1.0.1`）上有一个可传递依赖项。
+```
+my project
+|
+--> A (2.0.0) [~2.0.0]
+       |
+       --> B (1.0.1) [~1.0.0]
+```       
+如果针对 `B` 版本 `<2.0.0` 发布安全漏洞，而修补程序在 `2.0.0` 上可用，则 {% data variables.product.prodname_dependabot %} 将尝试更新 `B`，但会发现无法更新，因为 `A` 具有限制，仅允许较低的易受攻击版本。 为了修复漏洞，{% data variables.product.prodname_dependabot %} 将查找允许使用固定版本的 `B` 的依赖项 `A` 的更新。 
+
+{% data variables.product.prodname_dependabot %} 会自动生成一个拉取请求以同时升级父级和子级可传递依赖项。{% endif %}
 
 ### {% data variables.product.prodname_dependabot %} 无法更新到所需的版本，因为已经为最新版本打开了拉取请求
 

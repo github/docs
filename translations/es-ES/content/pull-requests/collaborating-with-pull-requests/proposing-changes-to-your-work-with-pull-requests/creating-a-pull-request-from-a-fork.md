@@ -16,11 +16,11 @@ topics:
   - Pull requests
 shortTitle: Create a PR from a fork
 ms.openlocfilehash: 5a4aceef12c214d157dbdac7bf838bbe80e81731
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145139613'
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883291'
 ---
 Si tu solicitud de extracción compara tu rama de tema con una rama del repositorio ascendente como la rama base, entonces tu rama de tema también se llamará rama de comparación de la solicitud de extracción. Para obtener más información sobre las ramas de solicitudes de incorporación de cambios, con ejemplos incluidos, consulte "[Creación de una solicitud de incorporación de cambios](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)".
 

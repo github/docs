@@ -1,6 +1,6 @@
 ---
-title: Issue イベントタイプ
-intro: 'Issues イベント API とタイムライン API について、各イベントタイプ、{% data variables.product.prodname_dotcom %} でのトリガーアクション、および各イベントの一意のプロパティについて学びます。'
+title: Issue event types
+intro: 'For the Issues Events API and Timeline API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
 redirect_from:
   - /v3/issues/issue-event-types
   - /developers/webhooks-and-events/issue-event-types
@@ -11,713 +11,742 @@ versions:
   ghec: '*'
 topics:
   - Events
-ms.openlocfilehash: c777d321c0ad1b7c6774119707d15646b4e941c4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080825'
 ---
-Issue イベントは、Issue と pull request のアクティビティによってトリガーされ、[Issue Events API](/rest/reference/issues#events) と [Timeline Events API](/rest/reference/issues#timeline) で使用できます。 各イベントタイプでは、イベントが Issue イベントやタイムラインイベント API で使用可能かどうかを指定します。
+Issue events are triggered by activity in issues and pull requests and are available in the [Issue Events API](/rest/reference/issues#events) and the [Timeline Events API](/rest/reference/issues#timeline). Each event type specifies whether the event is available in the Issue Events or Timeline Events APIs.
 
-GitHub の REST API は、すべてのプルリクエストを Issue と見なしますが、すべての Issue がプルリクエストであるとは限りません。 このため、Issue イベントエンドポイントとタイムラインイベントエンドポイントは、レスポンスで Issue とプルリクエストの両方を返す場合があります。 pull request の `issue` オブジェクトには `pull_request` プロパティがあります。 プルリクエストは Issue のため、リポジトリ内で Issue とプルリクエストの番号が重複することはありません。 たとえば、リポジトリで最初の Issue を開くと、番号は 1 になります。 次にプルリクエストを開くと、番号は 2 になります。 各イベントタイプでは、イベントがプルリクエスト、Issue、またはその両方で発生するかどうかを指定します。
+GitHub's REST API considers every pull request to be an issue, but not every issue is a pull request. For this reason, the Issue Events and Timeline Events endpoints may return both issues and pull requests in the response. Pull requests have a `pull_request` property in the `issue` object. Because pull requests are issues, issue and pull request numbers do not overlap in a repository. For example, if you open your first issue in a repository, the number will be 1. If you then open a pull request, the number will be 2. Each event type specifies if the event occurs in pull request, issues, or both.
 
-## Issue イベントオブジェクトの共通プロパティ
+## Issue event object common properties
 
-タイムラインイベント API でのみ使用可能なイベントを除いて、Issue イベントはすべて同じオブジェクト構造になっています。 一部のイベントには、イベントリソースに関するより多くのコンテキストを提供する追加のプロパティも含まれています。 このオブジェクト形式とは異なるプロパティの詳細については、特定のイベントを参照してください。
+Issue events all have the same object structure, except events that are only available in the Timeline Events API. Some events also include additional properties that provide more context about the event resources. Refer to the specific event to for details about any properties that differ from this object format.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## added_to_project
 
-Issue またはプルリクエストがプロジェクトボードに追加された。 {% data reusables.projects.disabled-projects %}
+The issue or pull request was added to a project board. {% data reusables.projects.disabled-projects %}
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull request</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
 
-## 割り当て済み
+## assigned
 
-Issueまたはプルリクエストがユーザに割り当てられた。
+The issue or pull request was assigned to a user.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X**  |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X**  |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.assignee-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.assignee-properties %}
 
 ## automatic_base_change_failed
 
-GitHub がプルリクエストのベースブランチを自動的に変更しようとしたが失敗した。
+GitHub unsuccessfully attempted to automatically change the base branch of the pull request.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** |  |
+| <ul><li>Pull requests</li></ul> | **X** |  |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## automatic_base_change_succeeded
 
-GitHub がプルリクエストのベースブランチを自動的に変更しようとした。
+GitHub successfully attempted to automatically change the base branch of the pull request.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | |
+| <ul><li>Pull requests</li></ul> | **X** | |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## base_ref_changed
 
-プルリクエストのベースリファレンスブランチが変更された。
+The base reference branch of the pull request changed.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | |
+| <ul><li>Pull requests</li></ul> | **X** | |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## closed
 
-Issue またはプルリクエストがクローズされた。 `commit_id` が存在する場合は、"closes / fixes" 構文を使用して Issue を閉じたコミットを示します。 構文の詳細については、「[pull request を Issue にリンクする](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)」を参照してください。
+The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## コメント済み
+## commented
 
-Issue またはプルリクエストにコメントが追加された。
+A comment was added to the issue or pull request.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> |  | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-名前 | 型 | 説明
+Name | Type | Description
 -----|------|--------------
-`url` | `string` | Issue コメントを取得する REST API URL。
-`html_url` | `string` | Issue コメントの HTML URL。
-`issue_url` | `string` | Issue の HTML URL。
-`id` | `integer` | イベントの一意識別子。
-`node_id` | `string` | イベントの[グローバル ノード ID](/graphql/guides/using-global-node-ids)。
-`user` | `object` | この Issue についてコメントしたユーザ。
-`created_at` | `string` | コメントの追加日時を示すタイムスタンプ。
-`updated_at` | `string` | コメントが更新されていない場合に、コメントの更新または作成日時を示すタイムスタンプ。
-`author_association` | `string` | Issue のリポジトリでユーザが保持している権限。 たとえば、リポジトリの所有者がコメントを作成した場合は、値は `"OWNER"` です。
-`body` | `string` | コメント本文テキスト。
-`event` | `string` | イベントの値は `"commented"` です。
-`actor` | `object` | イベントを生成したユーザ。
+`url` | `string` | The REST API URL to retrieve the issue comment.
+`html_url` | `string` | The HTML URL of the issue comment.
+`issue_url` | `string` | The HTML URL of the issue.
+`id` | `integer` | The unique identifier of the event.
+`node_id` | `string` | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.
+`user` | `object` | The person who commented on the issue.
+`created_at` | `string` | The timestamp indicating when the comment was added.
+`updated_at` | `string` | The timestamp indicating when the comment was updated or created, if the comment is never updated.
+`author_association` | `string` | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment.
+`body` | `string` | The comment body text.
+`event` | `string` | The event value is `"commented"`.
+`actor` | `object` | The person who generated the event.
 
-## コミット (committed)
+## committed
 
-コミットが pull request の `HEAD` ブランチに追加されました。
+A commit was added to the pull request's `HEAD` branch.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> |  | **X** |
+| <ul><li>Pull requests</li></ul> |  | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-名前 | 型 | 説明
+Name | Type | Description
 -----|------|--------------
-`sha` | `string` | プルリクエスト内のコミットの SHA。
-`node_id` | `string` | イベントの[グローバル ノード ID](/graphql/guides/using-global-node-ids)。
-`url` | `string` | コミットを取得する REST API URL。
-`html_url` | `string` | コミットの HTML URL。
-`author` | `object` | コミットの作者。
-`committer` | `object` | 作者に代わってコミットしたユーザ。
-`tree` | `object` | コミットの Git ツリー。
-`message` | `string` | コミットメッセージ。
-`parents` | `array of objects` | 親コミットのリスト。
-`verification` | `object` | コミットの署名の検証結果。 詳細については、「[署名検証オブジェクト](/rest/reference/git#get-a-commit)」を参照してください。
-`event` | `string` | イベントの値は `"committed"` です。
+`sha` | `string` | The SHA of the commit in the pull request.
+`node_id` | `string` | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.
+`url` | `string` | The REST API URL to retrieve the commit.
+`html_url` | `string` | The HTML URL of the commit.
+`author` | `object` | The person who authored the commit.
+`committer` | `object` | The person who committed the commit on behalf of the author.
+`tree` | `object` | The Git tree of the commit.
+`message` | `string` | The commit message.
+`parents` | `array of objects` | A list of parent commits.
+`verification` | `object` | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#get-a-commit)."
+`event` | `string` | The event value is `"committed"`.
 
 ## connected
 
-Issue またはプルリクエストが、別の Issue またはプルリクエストにリンクされた。 詳細については、「[pull request を Issue にリンクする](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)」を参照してください。
+The issue or pull request was linked to another issue or pull request. For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## convert_to_draft
 
-プルリクエストがドラフトモードに変換された。
+The pull request was converted to draft mode.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## converted_note_to_issue
 
-Issue がプロジェクトボードのメモを Issue に変換して作成された。 {% data reusables.projects.disabled-projects %}
+The issue was created by converting a note in a project board to an issue. {% data reusables.projects.disabled-projects %}
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li></ul> | **X** | **X** |
+| <ul><li>Issues</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
+
+## converted_to_discussion
+
+The issue was closed and converted to a discussion.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|-----|-----|-----|
+| <ul><li>Issues</li></ul> | **X** | |
+
+### Event Object Properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ## cross-referenced
 
-Issue またはプルリクエストが、別の Issue またはプルリクエストから参照された。
+The issue or pull request was referenced from another issue or pull request.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> |  | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-名前 | 型 | 説明
+Name | Type | Description
 -----|------|--------------
-`actor` | `object` | イベントを生成したユーザ。
-`created_at` | `string` | クロスリファレンスの追加日時を示すタイムスタンプ。
-`updated_at` | `string` | クロスリファレンスが更新されていない場合、クロスリファレンスの更新または作成時期を示すタイムスタンプ。
-`source` | `object` | クロスリファレンスを追加した Issue またはプルリクエスト。
-`source[type]` | `string` | pull request は Issue 型であるため、この値は常に `"issue"` になります。 タイムラインイベント API では、Issue またはプルリクエストによってトリガーされたクロスリファレンスイベントのみが返されます。 イベントをトリガーした Issue が pull request であるかどうかを判断するには、`source[issue][pull_request` オブジェクトが存在するかどうかをチェックします。
-`source[issue]` | `object` | クロスリファレンスを追加した `issue` オブジェクト。
-`event` | `string` | イベントの値は `"cross-referenced"` です。
+`actor` | `object` | The person who generated the event.
+`created_at` | `string` | The timestamp indicating when the cross-reference was added.
+`updated_at` | `string` | The timestamp indicating when the cross-reference was updated or created, if the cross-reference is never updated.
+`source` | `object` | The issue or pull request that added a cross-reference.
+`source[type]` | `string` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the Timeline Events API. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request]` object exists.
+`source[issue]` | `object` | The `issue` object that added the cross-reference.
+`event` | `string` | The event value is `"cross-referenced"`.
 
 ## demilestoned
 
-Issue またはプルリクエストがマイルストーンから削除された。
+The issue or pull request was removed from a milestone.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} `milestone` | `object` | マイルストーン オブジェクト。
-`milestone[title]` | `string` | マイルストーンのタイトル。
+{% data reusables.issue-events.issue-event-common-properties %}
+`milestone` | `object` | The milestone object.
+`milestone[title]` | `string` | The title of the milestone.
 
 ## deployed
 
-プルリクエストがデプロイされた。
+The pull request was deployed.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## deployment_environment_changed
 
-プルリクエストのデプロイメント環境が変更された。
+The pull request deployment environment was changed.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** |  |
+| <ul><li>Pull requests</li></ul> | **X** |  |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## 切断
+## disconnected
 
-Issue またはプルリクエストが、別の Issue またはプルリクエストからリンク解除された。 詳細については、「[pull request を Issue にリンクする](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)」を参照してください。
+The issue or pull request was unlinked from another issue or pull request. For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## head_ref_deleted
 
-pull request の `HEAD` ブランチが削除されました。
+The pull request's `HEAD` branch was deleted.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## head_ref_restored
 
-pull request の `HEAD` ブランチが、最後の既知のコミットに復元されました。
+The pull request's `HEAD` branch was restored to the last known commit.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
 ## head_ref_force_pushed
 
-pull request の HEAD ブランチが強制的にプッシュされました。
+The pull request's HEAD branch was force pushed.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## ラベル付け済み
+## labeled
 
-Issue またはプルリクエストにラベルが追加された。
+A label was added to the issue or pull request.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.label-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.label-properties %}
 
 ## locked
 
-Issue またはプルリクエストがロックされた。
+The issue or pull request was locked.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} `lock_reason` | `string` | Issue または pull request の会話がロックされた理由 (指定されている場合)。
+{% data reusables.issue-events.issue-event-common-properties %}
+`lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.
 
 ## mentioned
 
-`actor` は Issue または pull request 本文内の `@mentioned` でした。
+The `actor` was `@mentioned` in an issue or pull request body.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## marked_as_duplicate
 
-書き込み権限を持つユーザが、Issue を別の Issue の複製としてマークしたか、プルリクエストを別のプルリクエストの複製としてマークした。
+A user with write permissions marked an issue as a duplicate of another issue, or a pull request as a duplicate of another pull request.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## マージされた
+## merged
 
-プルリクエストがマージされた。 `commit_id` 属性は、マージされた `HEAD` コミットの SHA1 です。 `commit_repository` は、常にメイン リポジトリと同じです。
+The pull request was merged. The `commit_id` attribute is the SHA1 of the `HEAD` commit that was merged. The `commit_repository` is always the same as the main repository.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## milestoned
 
-Issue またはプルリクエストがマイルストーンに追加された。
+The issue or pull request was added to a milestone.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} `milestone` | `object` | マイルストーン オブジェクト。
-`milestone[title]` | `string` | マイルストーンのタイトル。
+{% data reusables.issue-events.issue-event-common-properties %}
+`milestone` | `object` | The milestone object.
+`milestone[title]` | `string` | The title of the milestone.
 
 ## moved_columns_in_project
 
-Issue またはプルリクエストがプロジェクトボードの列間で移動された。 {% data reusables.projects.disabled-projects %}
+The issue or pull request was moved between columns in a project board. {% data reusables.projects.disabled-projects %}
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %} `previous_column_name` | `string` | Issue の移動元の列の名前。
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
+`previous_column_name` | `string` | The name of the column the issue was moved from.
 
 ## pinned
 
-Issue がピン留めされた。
+The issue was pinned.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li></ul> | **X** | **X** |
+| <ul><li>Issues</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## ready_for_review
 
-ドラフト pull request はレビューの準備完了とマークされました。
+A draft pull request was marked as ready for review.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## referenced
 
-Issue がコミットメッセージから参照された。 `commit_id` 属性はそれが発生した場所のコミット SHA1 であり、commit_repository はそのコミットがプッシュされた場所です。
+The issue was referenced from a commit message. The `commit_id` attribute is the commit SHA1 of where that happened and the commit_repository is where that commit was pushed.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## removed_from_project
 
-Issue またはプルリクエストがプロジェクトボードから削除された。 {% data reusables.projects.disabled-projects %}
+The issue or pull request was removed from a project board. {% data reusables.projects.disabled-projects %}
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.pre-release-program.starfox-preview %} {% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.project-card-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
 
 ## renamed
 
-Issue またはプルリクエストのタイトルが変更された。
+The issue or pull request title was changed.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} `rename` | `object` | 名前の詳細。
-`rename[from]` | `string` | 以前の名前。
-`rename[to]` | `string` | 新しい名前。
+{% data reusables.issue-events.issue-event-common-properties %}
+`rename` | `object` | The name details.
+`rename[from]` | `string` | The previous name.
+`rename[to]` | `string` | The new name.
 
 ## reopened
 
-Issue またはプルリクエストが再開された。
+The issue or pull request was reopened.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## review_dismissed
 
-プルリクエストのレビューが却下された。
+The pull request review was dismissed.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.review-dismissed-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-dismissed-properties %}
 
 ## review_requested
 
-プルリクエストのレビューがリクエストされた。
+A pull request review was requested.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.review-request-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-request-properties %}
 
 ## review_request_removed
 
-プルリクエストのレビューリクエストが削除された。
+A pull request review request was removed.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.review-request-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-request-properties %}
 
 ## reviewed
 
-プルリクエストがレビューされた。
+The pull request was reviewed.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull Request</li></ul> |  | **X** |
+| <ul><li>Pull requests</li></ul> |  | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-名前 | 型 | 説明
+Name | Type | Description
 -----|------|--------------
-`id` | `integer` | イベントの一意識別子。
-`node_id` | `string` | イベントの[グローバル ノード ID](/graphql/guides/using-global-node-ids)。
-`user` | `object` | この Issue についてコメントしたユーザ。
-`body` | `string` | レビューの概要テキスト。
-`commit_id` | `string` | レビュー時のプルリクエストの最新コミットの SHA。
-`submitted_at` | `string` | レビューの送信日時を示すタイムスタンプ。
-`state` | `string` | サブミットされたレビューの状態。 `commented`、`changes_requested`、または `approved` のいずれかにすることができます。
-`html_url` | `string` | レビューの HTML URL。
-`pull_request_url` | `string` | プルリクエストを取得する REST API URL。
-`author_association` | `string` | Issue のリポジトリでユーザが保持している権限。 たとえば、リポジトリの所有者がコメントを作成した場合は、値は `"OWNER"` です。
-`_links` | `object` | `html_url` と `pull_request_url`。
-`event` | `string` | イベントの値は `"reviewed"` です。
+`id` | `integer` | The unique identifier of the event.
+`node_id` | `string` | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.
+`user` | `object` | The person who commented on the issue.
+`body` | `string` | The review summary text.
+`commit_id` | `string` | The SHA of the latest commit in the pull request at the time of the review.
+`submitted_at` | `string` | The timestamp indicating when the review was submitted.
+`state` | `string` | The state of the submitted review. Can be one of: `commented`, `changes_requested`, or `approved`.
+`html_url` | `string` | The HTML URL of the review.
+`pull_request_url` | `string` | The REST API URL to retrieve the pull request.
+`author_association` | `string` | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment.
+`_links` | `object` | The `html_url` and `pull_request_url`.
+`event` | `string` | The event value is `"reviewed"`.
 
 ## subscribed
 
-誰かが Issue またはプルリクエストの通知を受信するようにサブスクライブした。
+Someone subscribed to receive notifications for an issue or pull request.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## transferred
 
-Issue が別のリポジトリに転送された。
+The issue was transferred to another repository.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li></ul> | **X** | **X** |
+| <ul><li>Issues</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-## 未割り当て
+## unassigned
 
-ユーザが Issue から割り当て解除された。
+A user was unassigned from the issue.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.assignee-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.assignee-properties %}
 
 ## unlabeled
 
-Issue からラベルが削除された。
+A label was removed from the issue.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} {% data reusables.issue-events.label-properties %}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.label-properties %}
 
 ## unlocked
 
-Issue がロック解除された。
+The issue was unlocked.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
-{% data reusables.issue-events.issue-event-common-properties %} `lock_reason` | `string` | Issue または pull request の会話がロックされた理由 (指定されている場合)。
+{% data reusables.issue-events.issue-event-common-properties %}
+`lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.
 
 ## unmarked_as_duplicate
 
-ユーザが以前に別の Issue の複製としてマークした Issue が重複と見なされなくなった。または、ユーザが以前に別のプルリクエストの複製としてマークしたプルリクエストが重複と見なされなくなった。
+An issue that a user had previously marked as a duplicate of another issue is no longer considered a duplicate, or a pull request that a user had previously marked as a duplicate of another pull request is no longer considered a duplicate.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## unpinned
 
-Issue がピン留め解除された。
+The issue was unpinned.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li></ul> | **X** | **X** |
+| <ul><li>Issues</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 ## unsubscribed
 
-誰かが Issue またはプルリクエストの通知を受信しないようにサブスクライブ解除した。
+Someone unsubscribed from receiving notifications for an issue or pull request.
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> |  | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
 {% ifversion fpt or ghec %}
 ## user_blocked
 
-Organization のオーナーがユーザを Organization からブロックした。 これは、[Issue でブロックされたユーザーのコメントの 1 つを通じて](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)行われました。
+An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
 
-### 可用性
+### Availability
 
-|問題の種類 | Issue イベント API | タイムラインイベント API|
+|Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>発行</li><li>Pull Request</li></ul> | **X** | **X** |
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### イベントオブジェクトのプロパティ
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 

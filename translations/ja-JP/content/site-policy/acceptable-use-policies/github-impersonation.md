@@ -10,10 +10,10 @@ redirect_from:
   - /github/site-policy/github-impersonation
   - /github/site-policy/github-community-guidelines#impersonation
 ms.openlocfilehash: ffcac80a077693728b475150093c298420d9ba6f
-ms.sourcegitcommit: b4a21aae50ad008af3a0785703d93e958a878a0e
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2022
+ms.lasthandoff: 08/29/2022
 ms.locfileid: '144556537'
 ---
 お客様は、自身の身元、または他の人や組織と自身の関係について虚偽の表示をすることはできません。 これには、他の人を誤解させたりだましたりするような以下の行為が含まれます。

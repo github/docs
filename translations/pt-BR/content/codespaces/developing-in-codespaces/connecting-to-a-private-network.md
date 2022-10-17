@@ -1,6 +1,6 @@
 ---
-title: Conectando-se a uma rede privada
-intro: 'Você pode conectar {% data variables.product.prodname_github_codespaces %} a recursos de uma rede privada, incluindo registros de pacotes, servidores de licenças e bancos de dados no local.'
+title: Connecting to a private network
+intro: 'You can connect {% data variables.product.prodname_github_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,56 +10,51 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-ms.openlocfilehash: 80bf210d2090833e6057fcc89989170b1f68f2f4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147546303'
 ---
-## Sobre a rede do codespace
 
-Por padrão, os seus códigos têm acesso a todos os recursos na internet pública, incluindo os gestores de pacotes, servidores de licença, bancos de dados e APIs da plataforma em nuvem, mas eles não têm acesso a recursos em redes privadas.
+## About codespace networking
 
-## Conectando-se a recursos em uma rede privada
+By default, your codespaces have access to all resources on the public internet, including package managers, license servers, databases, and cloud platform APIs, but they have no access to resources on private networks.
 
-Atualmente, existem dois métodos de acesso a recursos em uma rede privada dentro de Codespaces.
-- Com uma extensão {% data variables.product.prodname_cli %} para configurar seu computador local como um gateway para recursos remotos.
-- Como usar uma VPN. 
+## Connecting to resources on a private network
 
-### Como usar a extensão da CLI do GitHub para acessar recursos remotos
+There are currently two methods of accessing resources on a private network within {% data variables.product.prodname_github_codespaces %}.
+- Using a {% data variables.product.prodname_cli %} extension to configure your local machine as a gateway to remote resources.
+- Using a VPN. 
+
+### Using the GitHub CLI extension to access remote resources
 
 {% note %}
 
-**Observação**: a extensão {% data variables.product.prodname_cli %} está atualmente na versão beta e sujeita a alterações. 
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
 
 {% endnote %}
 
-A extensão {% data variables.product.prodname_cli %} permite que você crie uma ponte entre um codespace e seu computador local para que o codespace possa acessar qualquer recurso remoto que esteja acessível em seu computador. O codespace usa seu computador local como um gateway de rede para alcançar esses recursos. Para obter mais informações, confira "[Como usar {% data variables.product.prodname_cli %} para acessar recursos remotos](https://github.com/github/gh-net#codespaces-network-bridge)."
+The {% data variables.product.prodname_cli %} extension allows you to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. The codespace uses your local machine as a network gateway to reach those resources. For more information, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
 
    
    
 
-### Usar uma VPN para acessar recursos por trás de uma rede privada
+### Using a VPN to access resources behind a private network
 
-Como alternativa à extensão {% data variables.product.prodname_cli %}, você pode usar uma VPN para acessar recursos por trás de uma rede privada de dentro do seu codespace.
+As an alternative to the {% data variables.product.prodname_cli %} extension, you can use a VPN to access resources behind a private network from within your codespace.
 
-Recomendamos o uso de ferramentas de VPN como o [OpenVPN](https://openvpn.net/) para acessar recursos em uma rede privada. Para obter mais informações, confira "[Como usar o cliente do OpenVPN no GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)".
+We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources on a private network. For more information, see "[Using the OpenVPN client from GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)."
 
-Há também um número de soluções de terceiros que, embora não explicitamente aprovadas por {% data variables.product.prodname_dotcom %}, forneceu exemplos de como fazer a integração com {% data variables.product.prodname_codespaces %}.
+There are also a number of third party solutions that, while not explicitly endorsed by {% data variables.product.prodname_dotcom %}, have provided examples of how to integrate with {% data variables.product.prodname_github_codespaces %}.
 
-Essas soluções de terceiros incluem:
+These third party solutions include:
 
 - [Tailscale](https://tailscale.com/kb/1160/github-codespaces/)
 
-### Permitir a listagem de recursos privados para codespaces
+### Allowlisting private resources for codespaces
 
-Embora {% data variables.product.prodname_dotcom %} publica intervalos de IP para vários produtos na sua Meta API, os IPs dos codespaces são atribuídos dinamicamente, o que significa que o seu código não tem a garantia de ter o mesmo endereço IP dia após dia. É altamente desaconselhável que os usuários de permitam toda uma faixa de IP, pois isso daria acesso excessivamente amplo a todos os codespaces (incluindo usuários não associados aos seus codespaces).
+While {% data variables.product.prodname_dotcom %} publishes IP ranges for several products on its Meta API, codespaces IPs are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. We highly discourage users from allowlisting an entire IP range, as this would give overly broad access to all codespaces (including users not affiliated with your codespaces).
 
-Para obter mais informações sobre a Meta API, confira "[Meta](/rest/reference/meta)".
+For more information about the Meta API, see "[Meta](/rest/reference/meta)."
 
-## Restringindo o acesso à internet pública
+## Restricting access to the public internet
 
-Atualmente, não há forma de restringir os codespaces de acessar a Internet pública ou de restringir o acesso de usuários devidamente autenticados a uma porta encaminhada.
+At present, there is no way to restrict codespaces from accessing the public internet, or to restrict appropriately authenticated users from accessing a forwarded port.
 
-Para ver mais informações sobre como proteger seus codespaces, confira "[Segurança em {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)".
+For more information on how to secure your codespaces, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)."

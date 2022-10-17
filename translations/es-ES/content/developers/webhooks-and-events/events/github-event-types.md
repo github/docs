@@ -12,10 +12,10 @@ versions:
 topics:
   - Events
 ms.openlocfilehash: 0cd519f6dcf84fc5edd6356f1f734d23030a6711
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '146064247'
 ---
 La API de eventos puede devolver diferentes tipos de ventos que se activan de acuerdo a la actividad en GitHub. Cada respuesta de evento contiene propiedades compartidas, pero tiene un objeto `payload` único determinado por su tipo de evento. En [Propiedades comunes del objeto de evento](#event-object-common-properties) se describen las propiedades compartidas por todos los eventos y cada tipo de evento describe las propiedades `payload` que son únicas para el evento específico.

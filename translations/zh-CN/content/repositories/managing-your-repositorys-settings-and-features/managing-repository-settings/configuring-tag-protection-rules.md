@@ -5,7 +5,7 @@ intro: 可以为存储库配置标记保护规则，防止参与者创建或删�
 product: '{% data reusables.gated-features.tag-protection-rules %}'
 versions:
   fpt: '*'
-  ghae: issue-6337
+  ghae: '>= 3.5'
   ghec: '*'
   ghes: '>3.4'
 ms.openlocfilehash: 3b7b84cb26d8994c89222b2e4f642592fd45b72f

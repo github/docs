@@ -24,16 +24,26 @@ export default function handleRedirects(req, res, next) {
     return res.redirect(302, `/${language}`)
   }
 
-  // Don't try to redirect if the URL is `/search` which is the XHR
-  // endpoint. It should not become `/en/search`.
-  // It's unfortunate and looks a bit needlessly complicated. But
-  // it comes from the legacy that the JSON API endpoint was and needs to
-  // continue to be `/search` when it would have been more neat if it
-  // was something like `/api/search`.
-  // If someone types in `/search?query=foo` manually, they'll get JSON.
-  // Maybe sometime in 2023 we remove `/search` as an endpoint for the
-  // JSON.
-  if (req.path === '/search') return next()
+  // The URL `/search` was the old JSON API. We no longer use it anywhere
+  // and neither does support.github.com any more.
+  // But there could be legacy third-party integrators which we don't know
+  // about.
+  // In the future we might want to re-use this for our dedicated search
+  // result page which is `/$lang/search` but until we're certain all
+  // third-party search apps have noticed, we can't do that. Perhaps
+  // some time in mid to late 2023.
+  if (req.path === '/search') {
+    let url = '/api/search/legacy'
+    if (Object.keys(req.query).length) {
+      url += `?${new URLSearchParams(req.query)}`
+    }
+    // This is a 302 redirect.
+    // Why not a 301? Because permanent redirects tend to get very stuck
+    // in client caches (e.g. browsers) which would make it hard to one
+    // day turn this redirect into a redirect to `/en/search` which is
+    // how all pages work when typed in without a language prefix.
+    return res.redirect(url)
+  }
 
   // begin redirect handling
   let redirect = req.path

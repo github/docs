@@ -16,11 +16,11 @@ topics:
   - Identity
   - Access management
 ms.openlocfilehash: 4f15ea8fd56994de4d9b30c21e6afb081e20a327
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145083614'
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875484'
 ---
 Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas) para evitar que invasores tenham acesso aos seus repositórios. Você também pode aprovar as chaves SSh que são válidas.
 

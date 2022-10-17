@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 2bdab95a93e5eff4bc68d8da73fd9d7d9a93580a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145083883"
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879700"
 ---
 Uma execução de fluxo de trabalho é composta por um ou mais `jobs`, que são executados em paralelo por padrão. Para executar trabalhos sequencialmente, você pode definir dependências em outros trabalhos usando a palavra-chave `jobs.<job_id>.needs`.
 

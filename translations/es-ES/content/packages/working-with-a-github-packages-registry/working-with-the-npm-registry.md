@@ -15,10 +15,10 @@ versions:
   ghec: '*'
 shortTitle: npm registry
 ms.openlocfilehash: adcaf9cadc6202075e4f89e2287cdf2b733efc3f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/09/2022
 ms.locfileid: '147705023'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
@@ -58,7 +58,7 @@ Para autenticarse mediante la adición del token de acceso personal al archivo *
 //{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
 ```
 
-{% ifversion ghes %}Si en la instancia se ha deshabilitado el aislamiento de subdominios:
+{% ifversion ghes %} Si en la instancia se deshabilitado el aislamiento de subdominios:
 
 ```shell
 //<em>HOSTNAME</em>/_registry/npm/:_authToken=<em>TOKEN</em>
@@ -79,7 +79,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt or ghec 
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 
-{% ifversion ghes %}Si en la instancia se ha deshabilitado el aislamiento de subdominios:
+{% ifversion ghes %} Si en la instancia se deshabilitado el aislamiento de subdominios:
 
 ```shell
 $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
@@ -197,7 +197,7 @@ Por defecto, solo puedes usar paquetes de {% data variables.product.prodname_reg
 @<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
 ```
 
-{% ifversion ghes %}Si en la instancia se ha deshabilitado el aislamiento de subdominios:
+{% ifversion ghes %} Si en la instancia se deshabilitado el aislamiento de subdominios:
 
 ```shell
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm

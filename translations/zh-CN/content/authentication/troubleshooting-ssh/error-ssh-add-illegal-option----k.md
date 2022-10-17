@@ -15,10 +15,10 @@ topics:
   - SSH
 shortTitle: 'ssh-add: illegal option -- K'
 ms.openlocfilehash: a9c563f637d2deb544611c8b357761ff1148fa1c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/11/2022
 ms.locfileid: '145084572'
 ---
 `-K` 选项位于 Apple 的 `ssh-add` 标准版本中，当你将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在你的密钥链中。 如果安装了其他版本的 `ssh-add`，则该版本可能缺少对 `-K` 的支持。

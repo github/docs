@@ -15,10 +15,10 @@ topics:
   - Teams
 shortTitle: Convert collaborator to member
 ms.openlocfilehash: bac55802407b46344c807798e4d8eade5f608e01
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
+ms.lasthandoff: 09/10/2022
 ms.locfileid: '145130731'
 ---
 {% ifversion fpt or ghec %} Organization がユーザーごとのサブスクリプションの有料プランを利用している場合、新しいメンバーを招待して参加させる、または Organization の以前のメンバーを復帰させる前に、未使用のライセンスが使用可能になっている必要があります。 詳細については、「[ユーザーごとの価格について](/articles/about-per-user-pricing)」を参照してください。 {% data reusables.organizations.org-invite-expiration %}{% endif %}
