@@ -29,6 +29,7 @@ env:
 
 jobs:
   test:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     # Run on ubuntu-20.04-xl if the private repo or ubuntu-latest if the public repo
     # See pull # 17442 in the private repo for context
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
