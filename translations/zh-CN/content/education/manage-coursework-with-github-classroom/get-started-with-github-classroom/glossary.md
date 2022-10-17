@@ -1,59 +1,53 @@
 ---
-title: 术语表
-intro: '您可以查看 {% data variables.product.prodname_classroom %} 的术语解释。'
+title: Glossary
+intro: 'You can review explanations of terminology for {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/glossary
-ms.openlocfilehash: ac81489db055ef019789ae77a6ca44bd235f5eaa
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145097950'
 ---
-## 分配
+## assignment
 
-作业是 {% data variables.product.prodname_classroom %} 中的课程。 教师可以将作业分配给单个学生或一组学生。 教师可以导入作业的启动代码，指派学生，并为每项作业设定最后期限。 有关详细信息，请参阅“[个人分配](#individual-assignment)”和“[小组分配](#group-assignment)”的定义。
+An assignment is coursework in {% data variables.product.prodname_classroom %}. A teacher can assign an assignment to an individual student or a group of students. Teachers can import starter code for the assignment, assign students, and create a deadline for each assignment. For more information, see the definitions for "[individual assignment](#individual-assignment)" and "[group assignment](#group-assignment)."
 
 ---
 
-## 教室
+## classroom
 
-教室是 {% data variables.product.prodname_classroom %} 的基本单位。 教师可以利用教室组织和管理学生、教务助理和单门课程的作业。 教室属于 {% data variables.product.prodname_dotcom_the_website %} 上的组织。 要管理教室，您必须是 {% data variables.product.prodname_dotcom %} 上组织的组织所有者。 有关详细信息，请参阅“[管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms)”。
+A classroom is the basic unit of {% data variables.product.prodname_classroom %}. Teachers can use a classroom to organize and manage students, teaching assistants, and assignments for a single course. A classroom belongs to an organization on {% data variables.product.prodname_dotcom_the_website %}. To administer a classroom, you must be an organization owner for the organization on {% data variables.product.prodname_dotcom %}. For more information, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms)."
 
 ---
 
 ## {% data variables.product.prodname_classroom %}
 
-{% data variables.product.prodname_classroom %} 是一个面向教育工作者的网络应用程序，提供与 {% data variables.product.prodname_dotcom %} 集成的课程管理工具。 有关详细信息，请参阅 [{% data variables.product.prodname_classroom %}](https://classroom.github.com/) 网站。
+{% data variables.product.prodname_classroom %} is a web application for educators that provides course administration tools integrated with {% data variables.product.prodname_dotcom %}. For more information, see the [{% data variables.product.prodname_classroom %}](https://classroom.github.com/) website.
 
 ---
 
-## 小组作业  
+## group assignment  
 
-{% data reusables.classroom.assignments-group-definition %}有关详细信息，请参阅“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
-
----
-
-## 标识符
-
-{% data variables.product.prodname_classroom %} 中的标识符是学生参加课程的唯一 ID。 例如，标识符可以是学生姓名、字母数字 ID 或电子邮件地址。
+{% data reusables.classroom.assignments-group-definition %} For more information, see "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
 
 ---
 
-## 个人作业
+## identifier
 
-{% data reusables.classroom.assignments-individual-definition %}有关详细信息，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”。
-
----
-
-## 名册
-
-名册可让教师在 {% data variables.product.prodname_classroom %} 课堂中管理学生和作业提交。 教师可以通过输入学生标识符列表或连接 {% data variables.product.prodname_classroom %} 到学习管理系统 (LMS) 来创建名册。 有关标识符的详细信息，请参阅“[标识符](#identifier)”的定义。 有关将 {% data variables.product.prodname_classroom %} 连接到 LMS 的详细信息，请参阅“[将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)”。
+An identifier in {% data variables.product.prodname_classroom %} is a unique ID for a student participating in a course. For example, an identifier can be a student name, alphanumeric ID, or email address.
 
 ---
 
-## 延伸阅读
+## individual assignment
 
-- [{% data variables.product.prodname_dotcom %} 术语表](/github/getting-started-with-github/github-glossary)
+{% data reusables.classroom.assignments-individual-definition %} For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
+
+---
+
+## roster
+
+A roster allows a teacher to manage students and assignment submissions in a classroom on {% data variables.product.prodname_classroom %}. Teachers can create a roster by entering a list of student identifiers, or by connecting {% data variables.product.prodname_classroom %} to a learning management system (LMS). For more information about identifiers, see the definition of "[identifier](#identifier)." For more information about connecting {% data variables.product.prodname_classroom %} to an LMS, see "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+
+---
+
+## Further reading
+
+- "[{% data variables.product.prodname_dotcom %} glossary](/github/getting-started-with-github/github-glossary)"
