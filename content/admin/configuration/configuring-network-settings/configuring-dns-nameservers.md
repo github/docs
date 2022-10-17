@@ -16,7 +16,7 @@ topics:
   - Networking
 shortTitle: Configure DNS servers
 ---
-The nameservers you specify must resolve {% data variables.product.product_location %}'s hostname.
+The nameservers you specify must resolve {% data variables.location.product_location %}'s hostname.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -36,7 +36,7 @@ The nameservers you specify must resolve {% data variables.product.product_locat
   ghe-setup-network -v
   ```
 
-5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
+5. To add your new nameserver entries to {% data variables.location.product_location %}, run the following:
 
   ```shell
   sudo service resolvconf restart

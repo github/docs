@@ -36,7 +36,7 @@ This article explains how site administrators can configure {% data variables.pr
 
 {%- ifversion ghes < 3.6 %}
 
-The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss. {% data reusables.actions.minimum-hardware %}
+The CPU and memory resources available to {% data variables.location.product_location %} determine the number of jobs that can be run concurrently without performance loss. {% data reusables.actions.minimum-hardware %}
 
 The peak quantity of concurrent jobs running without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
 
@@ -44,7 +44,7 @@ The peak quantity of concurrent jobs running without performance loss depends on
 
 {%- ifversion ghes > 3.5 %}
 
-The CPU and memory resources available to {% data variables.product.product_location %} determine the number of runners that can be configured without performance loss. {% data reusables.actions.minimum-hardware %}
+The CPU and memory resources available to {% data variables.location.product_location %} determine the number of runners that can be configured without performance loss. {% data reusables.actions.minimum-hardware %}
 
 The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
 
@@ -107,7 +107,7 @@ Maximum concurrency was measured using multiple repositories, job duration of ap
 
 If you plan to enable {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
 
-For more information about minimum hardware requirements for {% data variables.product.product_location %}, see the hardware considerations for your instance's platform.
+For more information about minimum hardware requirements for {% data variables.location.product_location %}, see the hardware considerations for your instance's platform.
 
 - [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
 - [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
@@ -121,7 +121,7 @@ For more information about minimum hardware requirements for {% data variables.p
 
 {% ifversion ghes > 3.4 %}
 
-Optionally, you can limit resource consumption on {% data variables.product.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
+Optionally, you can limit resource consumption on {% data variables.location.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
 
 {% endif %}
 

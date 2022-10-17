@@ -92,7 +92,7 @@ shortTitle: Export from your enterprise
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. Close the connection to {% data variables.product.product_location %}:
+8. Close the connection to {% data variables.location.product_location %}:
   ```shell
   $ exit
   > logout

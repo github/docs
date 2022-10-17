@@ -47,7 +47,7 @@ To configure provisioning with Okta, you must set your enterprise's name in the 
 
 ## Setting your enterprise name
 
-After your {% data variables.product.prodname_emu_enterprise %} has been created, you can begin to configure provisioning by setting your enterprise name in Okta.
+After your {% data variables.enterprise.prodname_emu_enterprise %} has been created, you can begin to configure provisioning by setting your enterprise name in Okta.
 
 1. Navigate to your {% data variables.product.prodname_emu_idp_application %} application on Okta.
 1. Click the **Sign On** tab.
