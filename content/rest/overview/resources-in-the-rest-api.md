@@ -362,7 +362,7 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 
 ## Rate limiting
 
-Different types of API requests to {% data variables.product.product_location %} are subject to different rate limits. 
+Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. 
 
 Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
@@ -398,7 +398,7 @@ Requests from a GitHub App may be either user-to-server or server-to-server requ
 
 You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
 
-When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.product.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.location.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
 
 ### Checking your rate limit status
 

@@ -1,6 +1,6 @@
 ---
 title: Preventing unauthorized access
-intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.product.product_location %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
+intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.location.product_location %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
 redirect_from:
   - /articles/preventing-unauthorized-access
   - /github/authenticating-to-github/preventing-unauthorized-access
