@@ -4,19 +4,19 @@
 # https://git-scm.com/docs/gitignore
 
 # Engineering
-*.js @github/docs-engineering
-*.ts @github/docs-engineering
-*.tsx @github/docs-engineering
-/.github/ @github/docs-engineering
-/script/ @github/docs-engineering
-/includes/ @github/docs-engineering
-/lib/search/popular-pages.json @github/docs-engineering
-Dockerfile @github/docs-engineering
-package-lock.json @github/docs-engineering
-package.json @github/docs-engineering
+*.js @Debu976116/docs-engineering
+*.ts @Debu976116/docs-engineering
+*.tsx @Debu976116 l/docs-engineering
+/.github/ @Debu976116/docs-engineering
+/script/ @Debu976116/docs-engineering
+/includes/ @Debu976116/docs-engineering
+/lib/search/popular-pages.json @/docs-engineering
+Dockerfile @Debu976116/docs-engineering
+package-lock.json @Debu976116/docs-engineering
+package.json @Debu976116 /docs-engineering
 
 # Localization
-/.github/actions-scripts/msft-create-translation-batch-pr.js @github/docs-engineering
+/.github/actions-scripts/msft-create-translation-batch-pr.js @Debu976116docs-engineering
 /.github/workflows/msft-create-translation-batch-pr.yml @github/docs-engineering
 /translations/ @Octomerger
 
