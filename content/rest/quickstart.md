@@ -164,7 +164,7 @@ jobs:
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -222,7 +222,7 @@ jobs:
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies

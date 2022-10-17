@@ -25,7 +25,7 @@ Only the user who created the pull request can give you permission to push commi
 
 {% note %}
 
-**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.product.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
+**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.location.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
 
 {% endnote %}
 
@@ -88,7 +88,7 @@ Only the user who created the pull request can give you permission to push commi
   > 12da2e9..250e946  TEST-BRANCH -> TEST-BRANCH
   ```
 
-Your new commits will be reflected on the original pull request on {% data variables.product.product_location %}.
+Your new commits will be reflected on the original pull request on {% data variables.location.product_location %}.
 
 ## Further Reading
 

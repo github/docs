@@ -29,13 +29,13 @@ With {% data variables.product.product_name %}, you can store and collaborate on
 - Organization accounts
 - Enterprise accounts
 
-Every person who uses {% data variables.product.product_name %} signs into a personal account. An organization account enhances collaboration between multiple personal accounts, and {% ifversion fpt or ghec %}an enterprise account{% else %}the enterprise account for {% data variables.product.product_location %}{% endif %} allows central management of multiple organizations.
+Every person who uses {% data variables.product.product_name %} signs into a personal account. An organization account enhances collaboration between multiple personal accounts, and {% ifversion fpt or ghec %}an enterprise account{% else %}the enterprise account for {% data variables.location.product_location %}{% endif %} allows central management of multiple organizations.
 
 ## Personal accounts
 
-Every person who uses {% data variables.product.product_location %} signs into a personal account. Your personal account is your identity on {% data variables.product.product_location %} and has a username and profile. For example, see [@octocat's profile](https://github.com/octocat).
+Every person who uses {% data variables.location.product_location %} signs into a personal account. Your personal account is your identity on {% data variables.location.product_location %} and has a username and profile. For example, see [@octocat's profile](https://github.com/octocat).
 
-Your personal account can own resources such as repositories, packages, and projects. Any time you take any action on {% data variables.product.product_location %}, such as creating an issue or reviewing a pull request, the action is attributed to your personal account.
+Your personal account can own resources such as repositories, packages, and projects. Any time you take any action on {% data variables.location.product_location %}, such as creating an issue or reviewing a pull request, the action is attributed to your personal account.
 
 {% ifversion fpt or ghec %}Each personal account uses either {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}. All personal accounts can own an unlimited number of public and private repositories, with an unlimited number of collaborators on those repositories. If you use {% data variables.product.prodname_free_user %}, private repositories owned by your personal account have a limited feature set. You can upgrade to {% data variables.product.prodname_pro %} to get a full feature set for private repositories. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)." {% else %}You can create an unlimited number of repositories owned by your personal account, with an unlimited number of collaborators on those repositories.{% endif %}
 
@@ -78,7 +78,7 @@ For more information about all the features of organizations, see "[About organi
 {% elsif ghec %}
 Enterprise accounts allow central policy management and billing for multiple organizations. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 {% elsif ghes or ghae %}
-Your enterprise account is a collection of all the organizations {% ifversion ghae %}owned by{% elsif ghes %}on{% endif %} {% data variables.product.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+Your enterprise account is a collection of all the organizations {% ifversion ghae %}owned by{% elsif ghes %}on{% endif %} {% data variables.location.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 {% endif %}
 
 ## Further reading
