@@ -31,6 +31,7 @@ versions:
   ghec: '*'
 children:
   - /overview
+  - [![OpenAPI dev mode check](https://github.com/zakwarlord7/GitHub-doc/actions/workflows/openapi-schema-check.yml/badge.svg)](https://github.com/zakwarlord7/GitHub-doc/actions/workflows/openapi-schema-check.yml)
   - /webhooks-and-events
   - /apps
   - /github-marketplace
