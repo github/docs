@@ -21,7 +21,7 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 > fatal: bad object 1095ff3d0153115e75b7bca2c09e5136845b5592
 ```
 
-However, when you view the commit on {% data variables.product.product_location %}, you'll be able to see it without any problems:
+However, when you view the commit on {% data variables.location.product_location %}, you'll be able to see it without any problems:
 
 `github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 

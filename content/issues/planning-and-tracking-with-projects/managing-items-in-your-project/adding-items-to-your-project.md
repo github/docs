@@ -15,7 +15,7 @@ Your project can track draft issues, issues, and pull requests.
 
 {% note %}
 
-**Note:** A project can contain a maximum of 1,200 items and 10,000 archived items. 
+**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
 
 {% endnote %}
 
@@ -44,7 +44,7 @@ Your project can track draft issues, issues, and pull requests.
 
 #### Adding multiple issues or pull requests from a repository
 
-1. On {% data variables.product.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+1. On {% data variables.location.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
 {% data reusables.repositories.sidebar-issue-pr %}
 1. To the left of each issue title, select the issues that you want to add to your project.
   ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)

@@ -64,7 +64,7 @@ If you configured two-factor authentication using a security key, you can use yo
 {% ifversion fpt or ghec %}
 ## Authenticating with a verified device, SSH token, or personal access token
 
-If you know your password for {% data variables.product.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+If you know your password for {% data variables.location.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
 
 {% note %}
 

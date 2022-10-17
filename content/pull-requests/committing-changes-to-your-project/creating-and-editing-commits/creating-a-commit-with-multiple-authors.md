@@ -14,7 +14,7 @@ shortTitle: With multiple authors
 ---
 ## Required co-author information
 
-Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 
 {% ifversion fpt or ghec %}
 
@@ -65,7 +65,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
   Co-authored-by: AUTHOR-NAME ANOTHER-NAME@EXAMPLE.COM"
   ```
 
-The new commit and message will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+The new commit and message will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
 ## Creating co-authored commits on {% data variables.product.product_name %}
 
@@ -79,7 +79,7 @@ After you've made changes in a file using the web editor on {% data variables.pr
   ![Commit message co-author trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
 4. Click **Commit changes** or **Propose changes**.
 
-The new commit and message will appear on {% data variables.product.product_location %}.
+The new commit and message will appear on {% data variables.location.product_location %}.
 
 ## Further reading
 {% ifversion ghes or ghae %}

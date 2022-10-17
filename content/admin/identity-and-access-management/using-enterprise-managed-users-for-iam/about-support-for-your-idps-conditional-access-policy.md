@@ -18,7 +18,7 @@ topics:
 
 {% data reusables.enterprise-accounts.emu-cap-validates %}
 
-CAP support is enabled automatically for any {% data variables.product.prodname_emu_enterprise %} that enables OIDC SSO and cannot be disabled. {% data variables.product.prodname_dotcom %} enforces your IdP's IP conditions but not device compliance conditions.
+CAP support is enabled automatically for any {% data variables.enterprise.prodname_emu_enterprise %} that enables OIDC SSO and cannot be disabled. {% data variables.product.prodname_dotcom %} enforces your IdP's IP conditions but not device compliance conditions.
 
 For more information about using OIDC with {% data variables.product.prodname_emus %}, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)" and "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
 
