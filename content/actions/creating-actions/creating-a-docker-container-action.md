@@ -38,7 +38,7 @@ You may find it helpful to have a basic understanding of {% data variables.produ
 - "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 {% ifversion ghae %}
 - "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
-{% else %} 
+{% else %}
 - "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
 {% endif %}
 
@@ -104,7 +104,7 @@ This metadata defines one `who-to-greet`  input and one `time` output parameter.
 
 You can choose any base Docker image and, therefore, any language for your action. The following shell script example uses the `who-to-greet` input variable to print "Hello [who-to-greet]" in the log file.
 
-Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must use a workflow command in a specific syntax: `echo "::set-output name=<output name>::<value>"`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)."
+Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must {% ifversion actions-save-state-set-output-envs %}write them to the `$GITHUB_OUTPUT` environment file: `echo "<output name>=<value>" >> $GITHUB_OUTPUT`{% else %}use a workflow command in a specific syntax: `echo "::set-output name=<output name>::<value>"`{% endif %}. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)."
 
 1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
 
@@ -116,7 +116,11 @@ Next, the script gets the current time and sets it as an output variable that ac
 
   echo "Hello $1"
   time=$(date)
+{%- ifversion actions-save-state-set-output-envs %}
+  echo "time=$time" >> $GITHUB_OUTPUT
+{%- else %}
   echo "::set-output name=time::$time"
+{%- endif %}
   ```
   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
@@ -126,7 +130,7 @@ Next, the script gets the current time and sets it as an output variable that ac
   ```shell{:copy}
   $ git update-index --chmod=+x entrypoint.sh
   ```
-  
+
 1. Optionally, to check the permission mode of the file in the git index, run the following command.
 
   ```shell{:copy}
@@ -168,7 +172,7 @@ The time we greeted you.
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
+uses: actions/hello-world-docker-action@{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
 with:
   who-to-greet: 'Mona the Octocat'
 ```
@@ -196,7 +200,6 @@ Now you're ready to test your action out in a workflow. When an action is in a p
 
 The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
@@ -208,14 +211,13 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: actions/hello-world-docker-action@v1
+        uses: actions/hello-world-docker-action{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
-{% endraw %}
 
 ### Example using a private action
 

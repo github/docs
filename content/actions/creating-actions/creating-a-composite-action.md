@@ -81,11 +81,15 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
       steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
-        - id: random-number-generator
+        - id: random-number-generator{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+          run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+{%- else %}
           run: echo "::set-output name=random-number::$(echo $RANDOM)"
+{%- endif %}{% raw %}
           shell: bash
         - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-          shell: bash          
+          shell: bash
         - run: goodbye.sh
           shell: bash
     ```

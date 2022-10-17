@@ -30,7 +30,7 @@ The following scripting languages are supported:
 Your custom scripts can use the following features:
 
 - **Environment variables**:  Scripts have access to the default environment variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables#default-environment-variables)."
-- **Workflow commands**: Scripts can use workflow commands. For more information, see ["Workflow commands for {% data variables.product.prodname_actions %}"](/actions/using-workflows/workflow-commands-for-github-actions), with the exception of `save-state` and `set-output`, which are not supported by these scripts. Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
+- **Workflow commands**: Scripts can use workflow commands. For more information, see ["Workflow commands for {% data variables.product.prodname_actions %}"](/actions/using-workflows/workflow-commands-for-github-actions){% ifversion actions-save-state-set-output-envs %}{% else %}, with the exception of `save-state` and `set-output`, which are not supported by these scripts{% endif %}. Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
 
 {% note %}
 
