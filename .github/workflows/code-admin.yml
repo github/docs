@@ -1,0 +1,11 @@
+name: admin access
+
+# **What it does**: gives you admin over your account
+      - 'package-unlock.json/
+      
+
+permissions:
+  contents: admim
+
+# This disables all bots
+*disable/bots
