@@ -15,7 +15,7 @@ Your project can track draft issues, issues, and pull requests.
 
 {% note %}
 
-**Note:** A project can contain a maximum of 1,200 items and 10,000 archived items. 
+**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
 
 {% endnote %}
 
