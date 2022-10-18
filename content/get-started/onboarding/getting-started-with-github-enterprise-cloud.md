@@ -109,8 +109,8 @@ To audit access to enterprise-owned resources or user license usage, you can vie
 ## Part 4: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
 * [Managing security for a single organization](#managing-security-for-a-single-organization)
-* [Managing security for an {% data variables.product.prodname_emu_enterprise %}](#managing-security-for-an-enterprise-with-managed-users)
-* [Managing security for an enterprise account without {% data variables.product.prodname_managed_users %}](#managing-security-for-an-enterprise-account-without-managed-users)
+* [Managing security for an {% data variables.enterprise.prodname_emu_enterprise %}](#managing-security-for-an-enterprise-with-managed-users)
+* [Managing security for an enterprise account without {% data variables.enterprise.prodname_managed_users %}](#managing-security-for-an-enterprise-account-without-managed-users)
 
 ### Managing security for a single organization
 You can help keep your organization secure by requiring two-factor authentication, configuring security features, reviewing your organization's audit log and integrations, and enabling SAML single sign-on and team synchronization.
@@ -129,26 +129,26 @@ Organization owners can choose to disable, enable but not enforce, or enable and
 #### 5. Managing team synchronization for your organization
 Organization owners can enable team synchronization between your identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organization owners and team maintainers to connect teams in your organization with IdP groups. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
-### Managing security for an {% data variables.product.prodname_emu_enterprise %}
+### Managing security for an {% data variables.enterprise.prodname_emu_enterprise %}
 
 With {% data variables.product.prodname_emus %}, access and identity is managed centrally through your identity provider. Two-factor authentication and other login requirements should be enabled and enforced on your IdP. 
 
-#### 1. Enabling and SAML single sign-on and provisioning in your {% data variables.product.prodname_emu_enterprise %}
+#### 1. Enabling and SAML single sign-on and provisioning in your {% data variables.enterprise.prodname_emu_enterprise %}
 
-In an {% data variables.product.prodname_emu_enterprise %}, all members are provisioned and managed by your identity provider. You must enable SAML SSO and SCIM provisioning before you can start using your enterprise. For more information on configuring SAML SSO and provisioning for an {% data variables.product.prodname_emu_enterprise %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+In an {% data variables.enterprise.prodname_emu_enterprise %}, all members are provisioned and managed by your identity provider. You must enable SAML SSO and SCIM provisioning before you can start using your enterprise. For more information on configuring SAML SSO and provisioning for an {% data variables.enterprise.prodname_emu_enterprise %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
-#### 2. Managing teams in your {% data variables.product.prodname_emu_enterprise %} with your identity provider
+#### 2. Managing teams in your {% data variables.enterprise.prodname_emu_enterprise %} with your identity provider
 
 You can connect teams in your organizations to security groups in your identity provider, managing membership of your teams and access to repositories through your IdP. For more information, see "[Managing team memberships with identity provider groups](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
 
-#### 3. Managing allowed IP addresses for organizations in your {% data variables.product.prodname_emu_enterprise %}
+#### 3. Managing allowed IP addresses for organizations in your {% data variables.enterprise.prodname_emu_enterprise %}
 
-You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your {% data variables.product.prodname_emu_enterprise %}. For more information, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
+You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your {% data variables.enterprise.prodname_emu_enterprise %}. For more information, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
 
-#### 4. Enforcing policies for Advanced Security features in your {% data variables.product.prodname_emu_enterprise %}
+#### 4. Enforcing policies for Advanced Security features in your {% data variables.enterprise.prodname_emu_enterprise %}
 {% data reusables.getting-started.enterprise-advanced-security %}
 
-### Managing security for an enterprise account without {% data variables.product.prodname_managed_users %}
+### Managing security for an enterprise account without {% data variables.enterprise.prodname_managed_users %}
 To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization at an enterprise level, and sign up for and enforce GitHub Advanced Security features. 
 
 #### 1. Requiring two-factor authentication and managing allowed IP addresses for organizations in your enterprise account

@@ -32,6 +32,7 @@ env:
 
 jobs:
   build:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - name: Install a local Elasticsearch for testing
@@ -58,7 +59,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies

@@ -48,7 +48,7 @@ OAuth tokens and personal access tokens pushed to public repositories and public
 
 You can revoke your authorization of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} from your account settings which will revoke any tokens associated with the app. For more information, see "[Reviewing your authorized integrations](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)" and "[Reviewing your authorized applications (OAuth)](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)."
 
-Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To re-authorize an application, follow the instructions from the third-party application or website to connect your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} again.
+Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To re-authorize an application, follow the instructions from the third-party application or website to connect your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} again.
 
 ## Token revoked by the {% data variables.product.prodname_oauth_app %}
 

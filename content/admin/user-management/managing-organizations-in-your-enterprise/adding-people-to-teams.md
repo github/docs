@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams
   - /enterprise/admin/user-management/adding-people-to-teams
   - /admin/user-management/adding-people-to-teams
-intro: 'Once a team has been created, organization admins can add users from {% data variables.product.product_location %} to the team and determine which repositories they have access to.'
+intro: 'Once a team has been created, organization admins can add users from {% data variables.location.product_location %} to the team and determine which repositories they have access to.'
 versions:
   ghes: '*'
   ghae: '*'

@@ -19,7 +19,7 @@ topics:
 
 You must configure provisioning for {% data variables.product.prodname_emus %} to create, manage, and deactivate user accounts for your enterprise members. When you configure provisioning for {% data variables.product.prodname_emus %}, users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your identity provider are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} via SCIM, and the users are added to your enterprise. 
 
-When you update information associated with a user's identity on your IdP, your IdP will update the user's account on GitHub.com. When you unassign the user from the {% data variables.product.prodname_emu_idp_application %} application or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. The disabled account's information is maintained and their username is changed to a hash of their original username with the short code appended. If you reassign a user to the {% data variables.product.prodname_emu_idp_application %} application or reactivate their account on your IdP, the {% data variables.product.prodname_managed_user %} account on {% data variables.product.prodname_dotcom %} will be reactivated and username restored.
+When you update information associated with a user's identity on your IdP, your IdP will update the user's account on GitHub.com. When you unassign the user from the {% data variables.product.prodname_emu_idp_application %} application or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. The disabled account's information is maintained and their username is changed to a hash of their original username with the short code appended. If you reassign a user to the {% data variables.product.prodname_emu_idp_application %} application or reactivate their account on your IdP, the {% data variables.enterprise.prodname_managed_user %} account on {% data variables.product.prodname_dotcom %} will be reactivated and username restored.
 
 Groups in your IdP can be used to manage team membership within your enterprise's organizations, allowing you to configure repository access and permissions through your IdP. For more information, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
 
@@ -32,7 +32,7 @@ Before you can configure provisioning for {% data variables.product.prodname_emu
 
 ## Creating a personal access token
 
-To configure provisioning for your {% data variables.product.prodname_emu_enterprise %}, you need a personal access token with the **admin:enterprise** scope that belongs to the setup user.
+To configure provisioning for your {% data variables.enterprise.prodname_emu_enterprise %}, you need a personal access token with the **admin:enterprise** scope that belongs to the setup user.
 
 {% warning %}
 
