@@ -53,7 +53,7 @@ type Props = {
 }
 export const ToolPicker = ({ variant = 'subnav' }: Props) => {
   const router = useRouter()
-  const { asPath, query } = router
+  const { asPath, query, locale } = router
   // allTools comes from the ArticleContext which contains the list of tools available
   const { defaultTool, detectedTools, allTools } = useArticleContext()
   const [currentTool, setCurrentTool] = useState(getDefaultTool(defaultTool, detectedTools))
@@ -94,10 +94,11 @@ export const ToolPicker = ({ variant = 'subnav' }: Props) => {
   const onClickTool = useCallback(
     (tool: string) => {
       // Set tool in query param without altering other query params
-      const [pathRoot, pathQuery = ''] = asPath.split('?')
-      const params = new URLSearchParams(pathQuery)
+      const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
+      const params = new URLSearchParams(asPathQuery)
       params.set(toolQueryKey, tool)
-      router.push({ pathname: pathRoot, query: params.toString() }, undefined, { shallow: true })
+      const newPath = `/${locale}${asPathRoot}?${params}`
+      router.push(newPath, undefined, { shallow: true, locale })
 
       sendEvent({
         type: EventType.preference,
@@ -110,7 +111,7 @@ export const ToolPicker = ({ variant = 'subnav' }: Props) => {
         expires: 365,
       })
     },
-    [asPath]
+    [asPath, locale]
   )
 
   if (variant === 'underlinenav') {

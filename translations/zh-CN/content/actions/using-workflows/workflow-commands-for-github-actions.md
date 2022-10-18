@@ -169,6 +169,8 @@ Sets an action's output parameter.
 
 Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
 
+You can escape multiline strings for setting an output parameter by creating an environment variable and using it in a workflow command. For more information, see "[Setting an environment variable](#setting-an-environment-variable)."
+
 ### Example: Setting an output parameter
 
 {% bash %}
@@ -479,6 +481,7 @@ jobs:
 
 {% endpowershell %}
 
+{% ifversion actions-save-state-set-output-envs %}{% else %}
 ## Echoing command outputs
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
@@ -540,6 +543,8 @@ The example above prints the following lines to the log:
 ```
 
 Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+ 
+{% endif %}
 
 ## Sending values to the pre and post actions
 

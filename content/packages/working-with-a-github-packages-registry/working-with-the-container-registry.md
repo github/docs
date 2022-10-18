@@ -46,7 +46,7 @@ When installing or publishing a Docker image, the {% data variables.product.prod
 To authenticate to the {% data variables.product.prodname_container_registry %} (`ghcr.io`) within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 {% endif %}
 
-{% ifversion ghes %}Ensure that you replace `HOSTNAME` with {% data variables.product.product_location_enterprise %} hostname or IP address in the examples below.{% endif %}
+{% ifversion ghes %}Ensure that you replace `HOSTNAME` with {% data variables.location.product_location_enterprise %} hostname or IP address in the examples below.{% endif %}
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 

@@ -1,7 +1,7 @@
 ---
 title: Using SAML for enterprise IAM
 shortTitle: SAML for enterprise IAM
-intro: 'You can centrally manage {% ifversion ghes or ghae %}accounts and {% endif %}access to {% ifversion ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise{% elsif ghec %}your enterprise''s resources{% endif %} with SAML single sign-on (SSO){% ifversion ghec or ghae %} and System for Cross-domain Identity Management (SCIM){% endif %}.'
+intro: 'You can centrally manage {% ifversion ghes or ghae %}accounts and {% endif %}access to {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise{% elsif ghec %}your enterprise''s resources{% endif %} with SAML single sign-on (SSO){% ifversion ghec or ghae %} and System for Cross-domain Identity Management (SCIM){% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'

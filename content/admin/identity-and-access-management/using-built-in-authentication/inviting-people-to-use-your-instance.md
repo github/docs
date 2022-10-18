@@ -27,4 +27,4 @@ You can disable unauthenticated sign-ups and require an invitation to create a n
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
-If you've configured email for notifications on {% data variables.product.product_location %}, your instance will send the invitation to the provided email address. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+If you've configured email for notifications on {% data variables.location.product_location %}, your instance will send the invitation to the provided email address. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."

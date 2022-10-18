@@ -36,13 +36,30 @@ You can also disable and enable a workflow using the REST API. For more informat
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. In the left sidebar, click the workflow you want to disable.
-![actions select workflow](/assets/images/actions-select-workflow.png)
+
+   {% ifversion workflow-nav-2022 -%}
+   ![Actions select workflow](/assets/images/help/repository/actions-select-workflow-2022.png)
+   {%- else -%}
+   ![Actions select workflow](/assets/images/help/repository/actions-select-workflow.png)
+   {%- endif %}
 1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-![actions kebab menu](/assets/images/help/repository/actions-workflow-menu-kebab.png)
+
+   {% ifversion workflow-nav-2022 -%}
+   ![actions kebab menu](/assets/images/help/repository/actions-workflow-menu-kebab-2022.png)
+   {%- else -%}
+   ![Actions kebab menu](/assets/images/help/repository/actions-workflow-menu-kebab.png)
+   {%- endif %}
 1. Click **Disable workflow**.
-![actions disable workflow](/assets/images/help/repository/actions-disable-workflow.png)
-The disabled workflow is marked {% octicon "stop" aria-label="The stop icon" %} to indicate its status.
-![actions list disabled workflow](/assets/images/help/repository/actions-find-disabled-workflow.png)
+
+   {% ifversion workflow-nav-2022 -%}
+   ![actions disable workflow](/assets/images/help/repository/actions-disable-workflow-2022.png)
+   {%- else -%}
+   ![actions disable workflow](/assets/images/help/repository/actions-disable-workflow.png)
+
+   The disabled workflow is marked {% octicon "stop" aria-label="The stop icon" %} to indicate its status.
+
+   ![actions list disabled workflow](/assets/images/help/repository/actions-find-disabled-workflow.png)
+   {%- endif %}
 
 {% endwebui %}
 
@@ -67,9 +84,19 @@ You can re-enable a workflow that was previously disabled.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. In the left sidebar, click the workflow you want to enable.
-![actions select disabled workflow](/assets/images/help/repository/actions-select-disabled-workflow.png)
+
+   {% ifversion workflow-nav-2022 -%}
+   ![Actions select disabled workflow](/assets/images/help/repository/actions-select-disabled-workflow-2022.png)
+   {%- else -%}
+   ![Actions select disabled workflow](/assets/images/help/repository/actions-select-disabled-workflow.png)
+   {%- endif %}
 1. Click **Enable workflow**.
-![actions enable workflow](/assets/images/help/repository/actions-enable-workflow.png)
+
+   {% ifversion workflow-nav-2022 -%}
+   ![Actions enable workflow](/assets/images/help/repository/actions-enable-workflow-2022.png)
+   {%- else -%}
+   ![Actions enable workflow](/assets/images/help/repository/actions-enable-workflow.png)
+   {%- endif %}
 
 {% endwebui %}
 

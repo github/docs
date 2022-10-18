@@ -22,7 +22,7 @@ After you configure a retention period, you can enable or disable Git-related ev
 
 ## Configuring a retention period for audit log data
 
-You can configure a retention period for audit log data for {% data variables.product.product_location %}. Data that exceeds the period you configure will be permanently removed from disk.
+You can configure a retention period for audit log data for {% data variables.location.product_location %}. Data that exceeds the period you configure will be permanently removed from disk.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

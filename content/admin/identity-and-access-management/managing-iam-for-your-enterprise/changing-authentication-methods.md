@@ -17,7 +17,7 @@ topics:
   - Identity
 shortTitle: Change authentication methods
 ---
-User accounts on {% data variables.product.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
+User accounts on {% data variables.location.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
 
 If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
 
@@ -39,4 +39,4 @@ Other issues you should take into consideration include:
 
 * **Two-factor authentication:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.product.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.location.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."

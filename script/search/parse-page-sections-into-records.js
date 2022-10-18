@@ -19,6 +19,11 @@ export default function parsePageSectionsIntoRecords(page) {
     .get()
     .slice(0, -1)
 
+  // Like in printing from DOM, some elements should not be included in
+  // the records for search. This might be navigational elements of the
+  // page that don't make much sense to find in a site search.
+  $('[data-search=hide]').remove()
+
   const breadcrumbs = breadcrumbsArray.join(' / ') || ''
   const metaKeywords = $('meta[name="keywords"]').attr('content')
   const topics = (metaKeywords ? metaKeywords.split(',') : [])

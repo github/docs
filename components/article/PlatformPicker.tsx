@@ -51,7 +51,7 @@ type Props = {
 }
 export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
   const router = useRouter()
-  const { query, asPath } = router
+  const { query, asPath, locale } = router
   const { defaultPlatform, detectedPlatforms } = useArticleContext()
   const [currentPlatform, setCurrentPlatform] = useState(defaultPlatform || '')
 
@@ -88,10 +88,11 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
   const onClickPlatform = useCallback(
     (platform: string) => {
       // Set platform in query param without altering other query params
-      const [pathRoot, pathQuery = ''] = asPath.split('?')
-      const params = new URLSearchParams(pathQuery)
+      const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
+      const params = new URLSearchParams(asPathQuery)
       params.set(platformQueryKey, platform)
-      router.push({ pathname: pathRoot, query: params.toString() }, undefined, { shallow: true })
+      const newPath = `/${locale}${asPathRoot}?${params}`
+      router.push(newPath, undefined, { shallow: true, locale })
 
       sendEvent({
         type: EventType.preference,
@@ -105,7 +106,7 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
         expires: 365,
       })
     },
-    [asPath]
+    [asPath, locale]
   )
 
   // only show platforms that are in the current article

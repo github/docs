@@ -60,17 +60,17 @@ Because this commit is only on the base branch and not the head branch, the comm
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
-You aren't able to automatically rebase and merge on {% data variables.product.product_location %} when:
+You aren't able to automatically rebase and merge on {% data variables.location.product_location %} when:
 - The pull request has merge conflicts.
 - Rebasing the commits from the base branch into the head branch runs into conflicts.
 - Rebasing the commits is considered "unsafe," such as when a rebase is possible without merge conflicts but would produce a different result than a merge would.
 
-If you still want to rebase the commits but can't rebase and merge automatically on {% data variables.product.product_location %} you must:
+If you still want to rebase the commits but can't rebase and merge automatically on {% data variables.location.product_location %} you must:
 - Rebase the topic branch (or head branch) onto the base branch locally on the command line
 - [Resolve any merge conflicts on the command line](/articles/resolving-a-merge-conflict-using-the-command-line/).
 - Force-push the rebased commits to the pull request's topic branch (or remote head branch).
 
-Anyone with write permissions in the repository, can then [merge the changes](/articles/merging-a-pull-request/) using the rebase and merge button on {% data variables.product.product_location %}.
+Anyone with write permissions in the repository, can then [merge the changes](/articles/merging-a-pull-request/) using the rebase and merge button on {% data variables.location.product_location %}.
 
 ## Indirect merges
 
