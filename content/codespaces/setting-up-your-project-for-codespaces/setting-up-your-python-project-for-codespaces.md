@@ -192,9 +192,9 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 
 1. Run your application by pressing `F5` or entering `python -m flask run` in the codespace terminal.
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, containing a prompt to connect to the port your project uses.
 
-  ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
+  ![Port forwarding "toast" notification](/assets/images/help/codespaces/python-port-forwarding.png)
 
 ## Step 5: Commit your changes
 

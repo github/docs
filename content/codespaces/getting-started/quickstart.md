@@ -39,7 +39,7 @@ Once your codespace is created, your repository will be automatically cloned int
 
 1. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
 
-   ![Port forwarding toast](/assets/images/help/codespaces/quickstart-port-toast.png)
+   ![Port forwarding "toast" notification](/assets/images/help/codespaces/quickstart-port-toast.png)
 
 1. Click **Open in Browser** to view your running application in a new tab.
 
