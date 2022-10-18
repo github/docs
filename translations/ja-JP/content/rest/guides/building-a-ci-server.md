@@ -1,6 +1,6 @@
 ---
-title: CIサーバーの構築
-intro: Status APIで独自のCIシステムを構築しましょう。
+title: Building a CI server
+intro: Build your own CI system using the Status API.
 redirect_from:
   - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
@@ -11,31 +11,35 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 5c2fcd462e9c07fb9c359525ece7896e10dd9649
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145131382'
 ---
-[Status API][status API] は、コミットをテスト サービスと結びつけて、行うすべてのプッシュがテストされ、{% data variables.product.product_name %} の pull request で表すことができるようにする役割を果たします。
 
-このAPIでは、ステータスAPIを使って、利用できる設定を示します。
-このシナリオでは、以下を行います。
 
-* プルリクエストが開かれたときにCIスイートを実行します (CIステータスを保留中に設定します)。
-* CIが終了したら、それに応じてプルリクエストのステータスを設定します。
 
-このCIシステムとホストサーバーは、想像上のものです。 Travis でも、Jenkins でも、何でも構いません。 このガイドのポイントは、通信を管理するサーバーを設定し、構成することにあります。
+The [Status API][status API] is responsible for tying together commits with
+a testing service, so that every push you make can be tested and represented
+in a {% data variables.product.product_name %} pull request.
 
-まだ行ってない場合は必ず [ngrok をダウンロード][ngrok]し、その[使い方][using ngrok]を確認してください。 これはローカル接続を公開するために非常に役立つツールです。
+This guide will use that API to demonstrate a setup that you can use.
+In our scenario, we will:
 
-注: このプロジェクトの完全なソース コードは、[platform-samples リポジトリから][platform samples]ダウンロードできます。
+* Run our CI suite when a Pull Request is opened (we'll set the CI status to pending).
+* When the CI is finished, we'll set the Pull Request's status accordingly.
 
-## サーバーを書く
+Our CI system and host server will be figments of our imagination. They could be
+Travis, Jenkins, or something else entirely. The crux of this guide will be setting up
+and configuring the server managing the communication.
 
-ローカル接続が機能していることを証明するための、簡単なSinatraアプリケーションを書きます。
-まずは以下のソースから始めましょう。
+If you haven't already, be sure to [download ngrok][ngrok], and learn how
+to [use it][using ngrok]. We find it to be a very useful tool for exposing local
+connections.
+
+Note: you can download the complete source code for this project
+[from the platform-samples repo][platform samples].
+
+## Writing your server
+
+We'll write a quick Sinatra app to prove that our local connections are working.
+Let's start with this:
 
 ``` ruby
 require 'sinatra'
@@ -47,24 +51,29 @@ post '/event_handler' do
 end
 ```
 
-(Sinatra のしくみに詳しくない場合は、[Sinatra ガイド][Sinatra]を読むことをお勧めします。)
+(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
 
-このサーバーを起動してください。 既定では、Sinatra はポート `4567` で起動するため、これのリッスンも開始するよう ngrok を構成するとよいでしょう。
+Start this server up. By default, Sinatra starts on port `4567`, so you'll want
+to configure ngrok to start listening for that, too.
 
-このサーバーが機能するには、webhookでリポジトリを設定する必要があります。
-プルリクエストが作成やマージされるたびに、webhookが起動するよう設定すべきです。
-なんでも好きにして構わないようなリポジトリを作成しましょう。 [@octocat の Spoon/Knife リポジトリ](https://github.com/octocat/Spoon-Knife)などはどうでしょうか。
-その後、リポジトリ内に新しい Webhook を作成し、ngrok で提供された URL を指定し、コンテンツ タイプとして `application/x-www-form-urlencoded` を選びます。
+In order for this server to work, we'll need to set a repository up with a webhook.
+The webhook should be configured to fire whenever a Pull Request is created, or merged.
+Go ahead and create a repository you're comfortable playing around in. Might we
+suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
+After that, you'll create a new webhook in your repository, feeding it the URL
+that ngrok gave you, and choosing `application/x-www-form-urlencoded` as the
+content type:
 
-![新しいngrok URL](/assets/images/webhook_sample_url.png)
+![A new ngrok URL](/assets/images/webhook_sample_url.png)
 
-**[Webhook の更新]** をクリックします。 `Well, it worked!` という本文の応答が表示されます。
-すばらしい。 **[個々のイベントの選択]** をクリックし、以下を選びます。
+Click **Update webhook**. You should see a body response of `Well, it worked!`.
+Great! Click on **Let me select individual events**, and select the following:
 
-* 状態
+* Status
 * Pull Request
 
-これらは、関係するアクションが発生するたびに {% data variables.product.product_name %} によってこのサーバーに送信されるイベントです。 ここで pull request のシナリオ *だけ* を処理するようサーバーを更新しましょう。
+These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
+occurs. Let's update our server to *just* handle the Pull Request scenario right now:
 
 ``` ruby
 post '/event_handler' do
@@ -85,16 +94,26 @@ helpers do
 end
 ```
 
-何が起こっているのでしょうか。 {% data variables.product.product_name %} によって送信されるすべてのイベントには、`X-GitHub-Event` HTTP ヘッダーが添付されています。 ここではPRイベントのみに注目しましょう。 そこから、情報のペイロードを取得し、タイトルのフィールドを返します。 理想的なシナリオにおいては、pull request が開かれたときだけではなく、更新されるたびにサーバーが関与します。 そうすると、すべての新しいプッシュがCIテストに合格するようになります。
-しかしこのデモでは、開かれたときについてのみ気にすることにしましょう。
+What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event`
+HTTP header. We'll only care about the PR events for now. From there, we'll
+take the payload of information, and return the title field. In an ideal scenario,
+our server would be concerned with every time a pull request is updated, not just
+when it's opened. That would make sure that every new push passes the CI tests.
+But for this demo, we'll just worry about when it's opened.
 
-この概念実証を試すため、テスト リポジトリのブランチで何か変更を行い、pull request を開きます。 そうすると、サーバーはそれに応じてレスポンスを返すはずです。
+To test out this proof-of-concept, make some changes in a branch in your test
+repository, and open a pull request. Your server should respond accordingly!
 
-## ステータスを扱う
+## Working with statuses
 
-サーバーの環境を整えたところで、最初の要件、つまり CI 状態の設定 (と更新) を始める準備が整いました。 いつでもサーバーを更新するときに、 **[再配信]** をクリックして同じペイロードを送信できることに留意してください。 変更を行うたびに新しい pull request を作成する必要はありません。
+With our server in place, we're ready to start our first requirement, which is
+setting (and updating) CI statuses. Note that at any time you update your server,
+you can click **Redeliver** to send the same payload. There's no need to make a
+new pull request every time you make a change!
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API とやり取りしているので、そのやり取りを管理するために [Octokit.rb][octokit.rb] を使います。 [個人用アクセス トークン][access token]を使ってそのクライアントを構成します。
+Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb]
+to manage our interactions. We'll configure that client with
+[a {% data variables.product.pat_generic %}][access token]:
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -106,7 +125,8 @@ before do
 end
 ```
 
-その後、CI で処理していることを明確にするため、{% data variables.product.product_name %} の pull request を更新するだけでよいのです。
+After that, we'll just need to update the pull request on {% data variables.product.product_name %} to make clear
+that we're processing on the CI:
 
 ``` ruby
 def process_pull_request(pull_request)
@@ -115,13 +135,16 @@ def process_pull_request(pull_request)
 end
 ```
 
-ここでは3つの基本的なことを行っています。
+We're doing three very basic things here:
 
-* リポジトリのフルネームを検索する
-* プルリクエストの最後のSHAを検索する
-* ステータスを「保留中」に設定する
+* we're looking up the full name of the repository
+* we're looking up the last SHA of the pull request
+* we're setting the status to "pending"
 
-これで完了です。 これで、テスト スイートを実行するために必要なあらゆるプロセスを実行できます。 コードを Jenkins に渡すことも、API 経由で [Travis][travis api] のような別の Web サービスを呼び出すこともできます。 その後は、状態をもう一度更新するようにしてください。 この例では、単に `"success"` に設定します。
+That's it! From here, you can run whatever process you need to in order to execute
+your test suite. Maybe you're going to pass off your code to Jenkins, or call
+on another web service via its API, like [Travis][travis api]. After that, you'd
+be sure to update the status once more. In our example, we'll just set it to `"success"`:
 
 ``` ruby
 def process_pull_request(pull_request)
@@ -132,18 +155,19 @@ def process_pull_request(pull_request)
 end
 ``` 
 
-## まとめ
+## Conclusion
 
-GitHub では長年、CI を管理するためにあるバージョンの [Janky][janky] を使ってきました。
-その基本的なフローは、上記で構築してきたサーバーと本質的にまったく同じです。
-GitHubでは、以下を実行しています。
+At GitHub, we've used a version of [Janky][janky] to manage our CI for years.
+The basic flow is essentially the exact same as the server we've built above.
+At GitHub, we:
 
-* プルリクエストが作成または更新されたときにJenkinsに送信する (Janky経由)
-* CIのステータスについてのレスポンスを待つ
-* コードが緑色なら、プルリクエストにマージする
+* Fire to Jenkins when a pull request is created or updated (via Janky)
+* Wait for a response on the state of the CI
+* If the code is green, we merge the pull request
 
-これら全ての通信は、チャットルームに集約されます。 この例を使うために、独自の CI 設定をビルドする必要はありません。
-いつでも [GitHub 統合][integrations]に頼ることができます。
+All of this communication is funneled back to our chat rooms. You don't need to
+build your own CI setup to use this example.
+You can always rely on [GitHub integrations][integrations].
 
 [deploy API]: /rest/reference/repos#deployments
 [status API]: /rest/reference/commits#commit-statuses
