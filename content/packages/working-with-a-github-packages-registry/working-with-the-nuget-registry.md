@@ -46,7 +46,7 @@ You must replace:
 - `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your personal access token.
 - `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes or ghae %}
-- `HOSTNAME` with the host name for {% data variables.product.product_location %}.{% endif %}
+- `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
 
 {% ifversion ghes %}If your instance has subdomain isolation enabled:
 {% endif %}
@@ -93,7 +93,7 @@ You can publish a package to {% data variables.product.prodname_registry %} by a
 
 ### Publishing a package using a GitHub PAT as your API key
 
-If you don't already have a PAT to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+If you don't already have a PAT to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 1. Create a new project.
   ```shell
@@ -124,7 +124,7 @@ When publishing, you need to use the same value for `OWNER` in your *csproj* fil
     - `OWNER` with the name of the user or organization account that owns the repository containing your project.
     - `REPOSITORY` with the name of the repository containing the package you want to publish.                      
     - `1.0.0` with the version number of the package.{% ifversion ghes or ghae %}
-    - `HOSTNAME` with the host name for {% data variables.product.product_location %}.{% endif %}
+    - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 

@@ -18,10 +18,18 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-      - id: step1
+      - id: step1{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "test=hello" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=test::hello"
-      - id: step2
+{%- endif %}{% raw %}
+      - id: step2{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "test=world" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=test::world"
+{%- endif %}{% raw %}
   job2:
     runs-on: ubuntu-latest
     needs: job1

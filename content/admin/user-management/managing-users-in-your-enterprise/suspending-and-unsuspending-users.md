@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/articles/suspending-and-unsuspending-users
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
   - /admin/user-management/suspending-and-unsuspending-users
-intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.product.product_location %}.'
+intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.location.product_location %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -34,7 +34,7 @@ Before suspending site administrators, you must demote them to regular users. Fo
 
 {% tip %}
 
-**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) for {% data variables.product.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
+**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) for {% data variables.location.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
 
 {% endtip %}
 

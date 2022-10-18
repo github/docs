@@ -37,7 +37,7 @@ shortTitle: Monitor & troubleshoot
 
 ### Checking self-hosted runner network connectivity
 
-You can use the self-hosted runner application's `run` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.product.product_location %}.
+You can use the self-hosted runner application's `run` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.location.product_location %}.
 
 In addition to `--check`, you must provide two arguments to the script:
 
@@ -260,7 +260,7 @@ User=runner-user
 {% endlinux %}
 
 {% ifversion ghes %}
-## Resolving runners that are offline after an upgrade of {% data variables.product.product_location %}
+## Resolving runners that are offline after an upgrade of {% data variables.location.product_location %}
 
 {% data reusables.actions.upgrade-runners-before-upgrade-ghes %} 
 

@@ -1,6 +1,6 @@
-A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
 
-- Signing into {% data variables.product.product_location %}
+- Signing into {% data variables.location.product_location %}
 - Creating a repository
 - Pushing to a repository
 - Being added to a repository
