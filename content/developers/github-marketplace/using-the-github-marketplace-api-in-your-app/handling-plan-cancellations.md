@@ -21,12 +21,13 @@ If a customer chooses to cancel a {% data variables.product.prodname_marketplace
 
 ## Step 2. Deactivating customer accounts
 
-When a customer cancels a free or paid plan, your app must perform these steps to complete cancellation:
+When a customer cancels a plan, you must:
 
-1. Deactivate the account of the customer who cancelled their plan.
-1. Revoke the OAuth token your app received for the customer.
-1. If your app is an OAuth App, remove all webhooks your app created for repositories.
-1. Remove all customer data within 30 days of receiving the `cancelled` event.
+* Automatically downgrade them to the free plan, if it exists.
+
+    When a customer cancels a GitHub Marketplace subscription, GitHub does not automatically uninstall the app, so the customer can expect that free features will continue to function.
+
+* Enable them to upgrade the plan through GitHub if they would like to continue the plan at a later time.
 
 {% note %}
 
