@@ -39,6 +39,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 |------------------|-------------------{% ifversion fpt or ghec %}
 | [`account`](#account-category-actions) | Contains all activities related to your organization account.
 | [`advisory_credit`](#advisory_credit-category-actions) | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+| [`auto_approve_personal_access_token_requests`](#auto_approve_personal_access_token_requests-category-actions) | Contains activities related to your organization's approval policy for {% data variables.product.pat_v2 %}s. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
 | [`billing`](#billing-category-actions) | Contains all activities related to your organization's billing.
 | [`business`](#business-category-actions) | Contains activities related to business settings for an enterprise. |
 | [`codespaces`](#codespaces-category-actions) | Contains all activities related to your organization's codespaces. |{% endif %}{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
@@ -67,6 +68,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps.
 | [`packages`](#packages-category-actions) | Contains all activities related to {% data variables.product.prodname_registry %}.{% ifversion fpt or ghec %}
 | [`payment_method`](#payment_method-category-actions) | Contains all activities related to how your organization pays for GitHub.{% endif %}
+| [`personal_access_token`](#personal_access_token-category-actions) | Contains activities related to {% data variables.product.pat_v2 %}s in your organization. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 | [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your organization's profile picture.
 | [`project`](#project-category-actions) | Contains all activities related to project boards.
 | [`protected_branch`](#protected_branch-category-actions) | Contains all activities related to protected branches.
@@ -207,6 +209,17 @@ An overview of some of the most common actions that are recorded as events in th
 | `create` | Triggered when the administrator of a security advisory adds someone to the credit section.
 | `decline` | Triggered when someone declines credit for a security advisory.
 | `destroy` | Triggered when the administrator of a security advisory removes someone from the credit section.
+{% endif %}
+
+{% ifversion pat-v2 %}
+
+### `auto_approve_personal_access_token_requests` category actions
+
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when the organization must approve {% data variables.product.pat_v2 %}s before the tokens can access organization resources. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+| `enable` | Triggered when {% data variables.product.pat_v2 %}s can access organization resources without prior approval. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -552,6 +565,20 @@ For more information, see "[Managing the publication of {% data variables.produc
 |------------------|-------------------
 | `create` |  Triggered when a new payment method is added, such as a new credit card or PayPal account.
 | `update` | Triggered when an existing payment method is updated.
+
+{% endif %}
+
+{% ifversion pat-v2 %}
+
+### `personal_access_token` category actions
+
+| Action | Description
+|------------------|-------------------
+| `access_granted` | Triggered when a {% data variables.product.pat_v2 %} is granted access to organization resources. For more information, see "[Managing requests for {% data variables.product.pat_generic %} in your organization](/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization)."
+| `access_revoked` | Triggered when access to organization resources by a {% data variables.product.pat_v2 %} is revoked. The token can still read public organization resources. For more information, see "[Reviewing and revoking {% data variables.product.pat_generic %} in your organization](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization)."
+| `request_cancelled` | Triggered when a member of the organization cancels a request for their {% data variables.product.pat_v2 %} to access organization resources.
+| `request_created` | Triggered when a member of the organization creates a {% data variables.product.pat_v2 %} to access organization resources and the organization requires approval before a {% data variables.product.pat_v2 %} can access organization resources. For more information, see "[Managing requests for {% data variables.product.pat_generic %} in your organization](/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization)."
+| `request_denied` | Triggered when a request for a {% data variables.product.pat_v2 %} to access organization resources is denied. For more information, see "[Managing requests for {% data variables.product.pat_generic %} in your organization](/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization)."
 
 {% endif %}
 

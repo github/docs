@@ -42,7 +42,7 @@ You can use the self-hosted runner application's `run` script with the `--check`
 In addition to `--check`, you must provide two arguments to the script:
 
 * `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
-* `--pat` with the value of a personal access token, which must have the `workflow` scope. For example, `--pat ghp_abcd1234`. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope{% ifversion pat-v2%}, or a {% data variables.product.pat_v2 %} with workflows read and write access {% endif %}. For example, `--pat ghp_abcd1234`. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 For example:
 

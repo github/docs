@@ -573,7 +573,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-`oauth_access.create`   | An [OAuth access token][] was generated for a user account. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+`oauth_access.create`   | An [OAuth access token][] was generated for a user account. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 `oauth_access.destroy`  | An [OAuth access token][] was deleted from a user account.
 
   [OAuth access token]: /developers/apps/building-oauth-apps/authorizing-oauth-apps

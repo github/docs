@@ -42,13 +42,13 @@ When installing or publishing a Docker image, the Docker registry does not curre
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Authenticating with a personal access token
+### Authenticating with a {% data variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
 You can authenticate to {% data variables.product.prodname_registry %} with Docker using the `docker` login command.
 
-To keep your credentials secure, we recommend you save your personal access token in a local file on your computer and use Docker's `--password-stdin` flag, which reads your token from a local file.
+To keep your credentials secure, we recommend you save your {% data variables.product.pat_generic %} in a local file on your computer and use Docker's `--password-stdin` flag, which reads your token from a local file.
 
 {% ifversion fpt or ghec %}
 {% raw %}
@@ -79,7 +79,7 @@ If your instance has subdomain isolation disabled:
 
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.location.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.location.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your {% data variables.product.pat_generic %} for {% data variables.product.product_name %}.
 
 For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
