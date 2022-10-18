@@ -40,11 +40,11 @@ shortTitle: Large files
 
 {% endnote %}
 
-{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
 
 To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[About {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
+If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
 
 Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using [Dropbox](https://www.dropbox.com/).
 
@@ -62,13 +62,13 @@ Git is not designed to serve as a backup tool. However, there are many solutions
 
 {% warning %}
 
-**Warning**: These procedures will permanently remove files from the repository on your computer and {% data variables.product.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
+**Warning**: These procedures will permanently remove files from the repository on your computer and {% data variables.location.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
 
 {% endwarning %}
 
 ### Removing a file added in the most recent unpushed commit
 
-If the file was added with your most recent commit, and you have not pushed to {% data variables.product.product_location %}, you can delete the file and amend the commit:
+If the file was added with your most recent commit, and you have not pushed to {% data variables.location.product_location %}, you can delete the file and amend the commit:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
@@ -84,7 +84,7 @@ If the file was added with your most recent commit, and you have not pushed to {
   # Simply making a new commit won't work, as you need
   # to remove the file from the unpushed history as well
   ```
-5. Push your commits to {% data variables.product.product_location %}:
+5. Push your commits to {% data variables.location.product_location %}:
   ```shell
   $ git push
   # Push our rewritten, smaller commit
@@ -96,7 +96,7 @@ If you added a file in an earlier commit, you need to remove it from the reposit
 
 ## Distributing large binaries
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
+If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
 
 {% ifversion fpt or ghec %}
 

@@ -1,6 +1,6 @@
 ---
-title: 关于预接收挂钩
-intro: '预接收挂钩是在 {% data variables.product.prodname_ghe_server %} 设备上运行的脚本，可用于实施质量检查。'
+title: About pre-receive hooks
+intro: '*Pre-receive hooks* are scripts that run on the {% data variables.product.prodname_ghe_server %} appliance that you can use to implement quality checks.'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
@@ -12,26 +12,20 @@ topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
-ms.openlocfilehash: a62d5391f9733c4a79ea8ba5d5f8f0d821d47d5c
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145098022'
 ---
-当发生推送时，每个脚本都在隔离的环境中运行，并且可以对推送的内容执行检查。 如果 exit status 为 0，脚本将导致接受推送，如果 exit status 不为零，则会拒绝接受推送。
+When a push occurs, each script runs in an isolated environment and can perform checks on the content of the push. The scripts will cause the push to be accepted if the exit status is 0, or rejected if the exit status is non-zero.
 
-## 使用方案
-使用预接收挂钩来满足业务规则、强制执行法规遵从性，并防止出现某些常见错误。
+## Usage scenarios
+Use pre-receive hooks to satisfy business rules, enforce regulatory compliance, and prevent certain common mistakes.
 
-如何使用预接收挂钩的示例：
+Examples of how you can use pre-receive hooks:
 
-- 需要提交消息来遵循特定的模式或格式，例如包括有效的事件单号或超过一定长度。
-- 通过拒绝所有推送来锁定分支或仓库。
-- 通过阻止关键词、模式或文件类型来防止将敏感数据添加到仓库。
-- 防止 PR 作者合并他们自己的更改。
+- Require commit messages to follow a specific pattern or format, such as including a valid ticket number or being over a certain length.
+- Lock a branch or repository by rejecting all pushes.
+- Prevent sensitive data from being added to the repository by blocking keywords, patterns or file types.
+- Prevent a PR author from merging their own changes.
 
-## 对性能和工作流程的影响
-对开发者及其工作流程的影响可能很大，因此必须谨慎考虑。 基于业务需求并经过深思熟虑实施的预接收挂钩将为整个组织带来最大好处。
+## Impact on performance and workflows
+Impact to developers and their workflows can be significant and must be considered carefully. Pre-receive hooks that are based on business needs and implemented thoughtfully will provide the most benefit to the organization as a whole.
 
-预接收挂钩可能会对 {% data variables.product.product_location %} 的性能产生意外影响，因此应谨慎实施和审查。
+Pre-receive hooks can have unintended effects on the performance of {% data variables.location.product_location %} and should be carefully implemented and reviewed.
