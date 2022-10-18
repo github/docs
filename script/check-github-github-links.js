@@ -112,7 +112,10 @@ async function main() {
               (contents.substring(numIndex, numIndex + 11) === 'GitHub.help' &&
                 contents.charAt(numIndex + 16) === '#') ||
               (contents.substring(numIndex, numIndex + 16) === 'GitHub.developer' &&
-                contents.charAt(numIndex + 26) === '#')
+                contents.charAt(numIndex + 26) === '#') ||
+              // See internal issue #2180
+              contents.slice(numIndex, numIndex + 'GitHub.help_url}/github/#{'.length) ===
+                'GitHub.help_url}/github/#{'
             ) {
               return
             }
