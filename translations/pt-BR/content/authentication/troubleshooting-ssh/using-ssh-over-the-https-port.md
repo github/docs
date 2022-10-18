@@ -1,6 +1,6 @@
 ---
-title: Usar SSH na porta HTTPS
-intro: 'Às vezes, os firewalls se recusam a permitir conexões SSH completamente.  Se usar [clonagem de HTTPS com armazenamento de credenciais em cache](/github/getting-started-with-github/caching-your-github-credentials-in-git) não for uma opção, experimente clonar usando uma conexão SSH na porta HTTPS.  A maioria das regras de firewall deve permitir isso, mas o servidores proxy podem interferir.'
+title: Using SSH over the HTTPS port
+intro: 'Sometimes, firewalls refuse to allow SSH connections entirely.  If using [HTTPS cloning with credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git) is not an option, you can attempt to clone using an SSH connection made over the HTTPS port.  Most firewall rules should allow this, but proxy servers may interfere.'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
   - /github/authenticating-to-github/using-ssh-over-the-https-port
@@ -11,34 +11,28 @@ versions:
 topics:
   - SSH
 shortTitle: Use SSH over HTTPS port
-ms.openlocfilehash: 47bdb96fac65d9432dfc54f671366d1b6c153556
-ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147883398'
 ---
 {% tip %}
 
-**Usuários {% data variables.product.prodname_ghe_server %}** : acessar {% data variables.product.prodname_ghe_server %} via SSH por porta HTTPS atualmente não tem suporte.
+**{% data variables.product.prodname_ghe_server %} users**: Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
 
 {% endtip %}
 
-Para testar se o SSH na porta HTTPS é possível, execute este comando SSH:
+To test if SSH over the HTTPS port is possible, run this SSH command:
 
 ```shell
 $ ssh -T -p 443 git@ssh.github.com
-> Hi <em>username</em>! You've successfully authenticated, but GitHub does not
+> Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-Se deu certo, ótimo! Caso contrário, talvez seja necessário [seguir nosso guia de solução de problemas](/articles/error-permission-denied-publickey).
+If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
 
-## Habilitar conexões SSH por HTTPS
+## Enabling SSH connections over HTTPS
 
-Se você conseguir fazer SSH para `git@ssh.{% data variables.command_line.backticks %}` por meio da porta 443, você poderá substituir as configurações SSH para forçar qualquer conexão ao {% data variables.product.product_location %} a ser executada nesse servidor e nessa porta.
+If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.location.product_location %} to run through that server and port.
 
-Para definir isso em seu arquivo de configuração SSH, edite o arquivo em `~/.ssh/config` e adicione esta seção:
+To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
 
 ```
 Host {% data variables.command_line.codeblock %}
@@ -47,10 +41,10 @@ Port 443
 User git
 ```
 
-Para testar se funciona, conecte-se mais uma vez ao {% data variables.product.product_location %}:
+You can test that this works by connecting once more to {% data variables.location.product_location %}:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
-> Hi <em>username</em>! You've successfully authenticated, but GitHub does not
+> Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```

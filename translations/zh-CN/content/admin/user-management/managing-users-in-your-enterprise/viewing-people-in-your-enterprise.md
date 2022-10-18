@@ -114,7 +114,7 @@ If you use {% data variables.product.prodname_vss_ghe %}, the list of pending in
 
    ![Screenshot of the "Members", "Administrators", and "Outside collaborators" tabs](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
 
-## Viewing suspended members in an {% data variables.product.prodname_emu_enterprise %}
+## Viewing suspended members in an {% data variables.enterprise.prodname_emu_enterprise %}
 
 If your enterprise uses {% data variables.product.prodname_emus %}, you can also view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
 
