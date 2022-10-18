@@ -101,7 +101,7 @@ For more information about Docker and the {% data variables.product.prodname_con
 ## Managing packages
 
 {% ifversion fpt or ghec %}
-You can delete a package in the {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} user interface or using the REST API. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+You can delete a package in the {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} user interface or using the REST API. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
 
 {% data reusables.package_registry.no-graphql-to-delete-packages %}
 {% endif %}

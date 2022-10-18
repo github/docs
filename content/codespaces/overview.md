@@ -21,7 +21,9 @@ topics:
 
 A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_github_codespaces %} by committing [configuration files](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
 
-Each codespace runs on a virtual machine hosted by {% data variables.product.product_location %}. You can choose the type of machine you want to use, depending on the resources you need. Options range from 2 core machines up to 32 core machines. You can connect to your codespaces from your browser, from {% data variables.product.prodname_vscode %}, from the JetBrains Gateway application, or by using {% data variables.product.prodname_cli %}.
+Each codespace runs on a virtual machine hosted by {% data variables.product.product_location %}. You can choose the type of machine you want to use, depending on the resources you need. Various types of machine are available, starting with a 2-core processor, 4 GB of RAM, and 32 GB of storage. 
+
+You can connect to your codespaces from your browser, from {% data variables.product.prodname_vscode %}, from the JetBrains Gateway application, or by using {% data variables.product.prodname_cli %}.
 
 ![A diagram showing how {% data variables.product.prodname_github_codespaces %} works](/assets/images/help/codespaces/codespaces-diagram.png)
 

@@ -45,7 +45,7 @@ You can see your current usage in your [Azure account portal](https://portal.azu
 
 {% ifversion ghec %}
 
-When you use an enterprise account on {% data variables.product.product_location %}, the enterprise account is the central point for all billing within your enterprise, including the organizations that your enterprise owns.
+When you use an enterprise account on {% data variables.location.product_location %}, the enterprise account is the central point for all billing within your enterprise, including the organizations that your enterprise owns.
 
 If you use {% data variables.product.product_name %} with an individual organization and do not yet have an enterprise account, you create an enterprise account and add your organization. For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
 
@@ -53,7 +53,7 @@ If you use {% data variables.product.product_name %} with an individual organiza
 
 {% elsif ghes %}
 
-Each user on {% data variables.product.product_location %} consumes a seat on your license. {% data variables.product.company_short %} bills monthly for the total number of seats consumed on your license.
+Each user on {% data variables.location.product_location %} consumes a seat on your license. {% data variables.product.company_short %} bills monthly for the total number of seats consumed on your license.
 
 {% endif %}
 

@@ -27,7 +27,7 @@ For more information, see:
 
 {% ifversion ghes %}
 
-You can also use LDAP Sync to synchronize {% data variables.product.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.product_location %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+You can also use LDAP Sync to synchronize {% data variables.location.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.location.product_location %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
 
 {% endif %}
 

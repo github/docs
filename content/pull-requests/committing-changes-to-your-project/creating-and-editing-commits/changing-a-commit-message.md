@@ -20,7 +20,7 @@ In Git, the text of the commit message is part of the commit. Changing the commi
 
 ## Commit has not been pushed online
 
-If the commit only exists in your local repository and has not been pushed to {% data variables.product.product_location %}, you can amend the commit message with the `git commit --amend` command.
+If the commit only exists in your local repository and has not been pushed to {% data variables.location.product_location %}, you can amend the commit message with the `git commit --amend` command.
 
 1. On the command line, navigate to the repository that contains the commit you want to amend.
 2. Type `git commit --amend` and press **Enter**.
@@ -30,7 +30,7 @@ If the commit only exists in your local repository and has not been pushed to {%
     - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 
-The new commit and message will appear on {% data variables.product.product_location %} the next time you push.
+The new commit and message will appear on {% data variables.location.product_location %} the next time you push.
 
 {% tip %}
 
@@ -40,7 +40,7 @@ You can change the default text editor for Git by changing the `core.editor` set
 
 ## Amending older or multiple commit messages
 
-If you have already pushed the commit to {% data variables.product.product_location %}, you will have to force push a commit with an amended message.
+If you have already pushed the commit to {% data variables.location.product_location %}, you will have to force push a commit with an amended message.
 
 {% warning %}
 

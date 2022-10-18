@@ -73,7 +73,7 @@ For more information, see "[About {% data variables.large_files.product_name_lon
 {% data reusables.large_files.storage_assets_location %}
 {% data reusables.large_files.rejected_pushes %}
 
-1. Disable {% data variables.large_files.product_name_short %} on {% data variables.product.product_location %}. For more information, see "[Configuring {% data variables.large_files.product_name_long %} for your enterprise](#configuring-git-large-file-storage-for-your-enterprise)."
+1. Disable {% data variables.large_files.product_name_short %} on {% data variables.location.product_location %}. For more information, see "[Configuring {% data variables.large_files.product_name_long %} for your enterprise](#configuring-git-large-file-storage-for-your-enterprise)."
 
 2. Create a {% data variables.large_files.product_name_short %} configuration file that points to the third party server.
   ```shell

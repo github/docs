@@ -127,7 +127,7 @@ If you don't receive an initial response within the guaranteed response time to 
 The credit request must be made within 30 days of the end of the quarter during which {% data variables.contact.premium_support %} did not respond to your tickets within the designated response time. Credit requests will not be honored if the respective deadline has passed. Once the respective deadline passes, you have waived the ability to claim a refund for the qualified credit.
 
 To receive a refund, you must submit a completed credit request to <supportcredits@github.com>. To be eligible, the credit request must:
-- Be sent from an email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
+- Be sent from an email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
 - Be received by {% data variables.product.company_short %} by the end of the 30th day after the quarter in which the four qualifying credits occurred
 - Include "Credit Request" in the subject line
 

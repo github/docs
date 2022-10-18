@@ -12,11 +12,11 @@ miniTocMaxHeadingLevel: 3
 
 ## About accessibility settings
 
-To create an experience on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.product_name %} clashes with another application shortcut.
+To create an experience on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.product_name %} clashes with another application shortcut.
 
 ## Managing accessibility settings
 
-You can decide whether you want to use some or all keyboard shortcuts on {% ifversion fpt or ghec %}{% data variables.product.product_location %}{% elsif ghes or ghae %}the website for {% data variables.product.product_location %}{% endif %}, and you can control the display of animated images.
+You can decide whether you want to use some or all keyboard shortcuts on {% ifversion fpt or ghec %}{% data variables.location.product_location %}{% elsif ghes or ghae %}the website for {% data variables.location.product_location %}{% endif %}, and you can control the display of animated images.
 
 ### Managing keyboard shortcuts
 

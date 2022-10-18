@@ -225,7 +225,7 @@ jobs:
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -556,7 +556,7 @@ X-Ratelimit-Used: 4
 X-Xss-Protection: 0
 ```
 
-In this example, the response code is `200`, which indicates a successful request. 
+In this example, the response code is `200`, which indicates a successful request.
 
 {% endcli %}
 
@@ -627,7 +627,7 @@ content-length: 4936
 x-github-request-id: 14E0:4BC6:F1B8BA:208E317:62EC2715
 ```
 
-In this example, the response code is `200`, which indicates a successful request. 
+In this example, the response code is `200`, which indicates a successful request.
 
 {% endcurl %}
 
