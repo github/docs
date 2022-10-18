@@ -30,9 +30,9 @@ Before you can configure provisioning for {% data variables.product.prodname_emu
 - For more information on configuring OIDC, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)"
 - {% endif %}For information on configuring SAML, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
-## Creating a personal access token
+## Creating a {% data variables.product.pat_generic %}
 
-To configure provisioning for your {% data variables.enterprise.prodname_emu_enterprise %}, you need a personal access token with the **admin:enterprise** scope that belongs to the setup user.
+To configure provisioning for your {% data variables.enterprise.prodname_emu_enterprise %}, you need a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope that belongs to the setup user.
 
 {% warning %}
 
@@ -59,7 +59,7 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 
 ## Configuring provisioning for {% data variables.product.prodname_emus %}
 
-After creating your personal access token and storing it securely, you can configure provisioning on your identity provider. 
+After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your identity provider. 
 
 {% data reusables.scim.emu-scim-rate-limit %}
 

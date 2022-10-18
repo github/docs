@@ -99,7 +99,7 @@ Many operations require authentication or return additional information if you a
 
 You can authenticate your request by adding a token.
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a personal access token (PAT). The REST API operations used in this article require `repo` scope for personal access tokens. Other operations may require different scopes. For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. The REST API operations used in this article require `repo` scope for {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} or, unless otherwise noted, read-only access to public repositories for {% data variables.product.pat_v2 %}s{% endif %}. Other operations may require different scopes{% ifversion pat-v2%} or permissions{% endif %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
 
@@ -474,6 +474,16 @@ gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octoc
 
 {% javascript %}
 
+{% ifversion pat-v2 %}
+
+{% note %}
+
+If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+{% endnote %}
+
+{% endif %}
+
 When you make a request with Octokit.js, all parameters, including body parameters, are passed in an object as the second argument to the `request` method.
 
 ```javascript
@@ -488,6 +498,16 @@ await octokit.request("POST /repos/{owner}/{repo}/issues", {
 {% endjavascript %}
 
 {% curl %}
+
+{% ifversion pat-v2 %}
+
+{% note %}
+
+If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+{% endnote %}
+
+{% endif %}
 
 For cURL, use the `--data` flag to pass the body parameters in a JSON object.
 

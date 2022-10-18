@@ -89,11 +89,11 @@ Use these attributes to finish configuring LDAP for {% data variables.location.p
 
 ### Disabling password authentication for Git operations
 
-Select **Disable username and password authentication for Git operations** in your LDAP settings to enforce use of personal access tokens or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests. We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
+Select **Disable username and password authentication for Git operations** in your LDAP settings to enforce use of {% data variables.product.pat_generic %}s or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests. We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
 
 ![Disable LDAP password auth for Git check box](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
 
-When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a personal access token.`
+When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
 
 ### Enabling LDAP certificate verification
 
