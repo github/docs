@@ -14,7 +14,7 @@ shortTitle: Your profile README
 ---
 ## About your profile README
 
-You can share information about yourself with the community on {% data variables.product.product_location %} by creating a profile README. {% data variables.product.prodname_dotcom %} shows your profile README at the top of your profile page.
+You can share information about yourself with the community on {% data variables.location.product_location %} by creating a profile README. {% data variables.product.prodname_dotcom %} shows your profile README at the top of your profile page.
 
 You decide what information to include in your profile README, so you have full control over how you present yourself on {% data variables.product.prodname_dotcom %}. Here are some examples of information that visitors may find interesting, fun, or useful in your profile README.
 

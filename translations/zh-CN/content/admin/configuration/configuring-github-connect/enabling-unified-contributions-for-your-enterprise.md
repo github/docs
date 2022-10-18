@@ -1,7 +1,7 @@
 ---
-title: 为企业启用统一贡献
+title: Enabling unified contributions for your enterprise
 shortTitle: Unified contributions
-intro: '可以允许用户将经过匿名处理的工作贡献计数包含在 {% data variables.product.prodname_dotcom_the_website %} 上贡献图的 {% data variables.product.product_location %} 中。'
+intro: 'You can allow users to include anonymized contribution counts for their work on {% data variables.location.product_location %} in their contribution graphs on {% data variables.product.prodname_dotcom_the_website %}.'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-and-github-com
   - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-github-com
@@ -11,7 +11,7 @@ redirect_from:
   - /admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-contributions-between-your-enterprise-account-and-githubcom
-permissions: 'Enterprise owners can enable unified contributions between {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.'
+permissions: 'Enterprise owners can enable unified contributions between {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -19,37 +19,36 @@ type: how_to
 topics:
   - Enterprise
   - GitHub Connect
-ms.openlocfilehash: af07f30a8f164f6bec3d3c0f44c77181f1e8db7b
-ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147875978'
 ---
+
 {% data reusables.github-connect.beta %}
 
-## 关于统一贡献
+## About unified contributions
 
-作为企业所有者，你可以允许最终用户将进行过匿名处理的工作贡献计数从 {% data variables.product.product_location %} 发送到其 {% data variables.product.prodname_dotcom_the_website %} 贡献图。
+As an enterprise owner, you can allow end users to send anonymized contribution counts for their work from {% data variables.location.product_location %} to their {% data variables.product.prodname_dotcom_the_website %} contribution graph.
 
-启用 {% data variables.product.prodname_unified_contributions %} 后，每个用户还必须将自己在 {% data variables.product.product_name %} 上的用户帐户与 {% data variables.product.prodname_dotcom_the_website %} 上的个人帐户连接起来，个人用户才能将贡献计数从 {% data variables.product.product_location %} 发送到 {% data variables.product.prodname_dotcom_the_website %}。 有关详细信息，请参阅“[将企业贡献发送到自己的 {% data variables.product.prodname_dotcom_the_website %} 配置文件](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)”。
+After you enable {% data variables.enterprise.prodname_unified_contributions %}, before individual users can send contribution counts from {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, each user must also connect their user account on {% data variables.product.product_name %} with a personal account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
 
 {% data reusables.github-connect.sync-frequency %}
 
-如果企业所有者禁用了该功能或个人用户选择退出连接，则系统将删除 {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.product_name %} 贡献计数。 如果用户在禁用该功能后重新连接自己的配置文件，则系统将恢复过去 90 天的贡献计数。
+If the enterprise owner disables the functionality or individual users opt out of the connection, the contribution counts from {% data variables.product.product_name %} will be deleted on {% data variables.product.prodname_dotcom_the_website %}. If the user reconnects their profiles after disabling them, the contribution counts for the past 90 days are restored.
 
-{% data variables.product.product_name %} 仅为已连接的用户发送贡献计数和来源 ({% data variables.product.product_name %})。 它不会发送有关贡献或做出该贡献的方式的任何信息。
+{% data variables.product.product_name %} **only** sends the contribution count and source ({% data variables.product.product_name %}) for connected users. It does not send any information about the contribution or how it was made.
 
-## 启用统一贡献
+## Enabling unified contributions
 
-在 {% data variables.product.product_location %} 上启用 {% data variables.product.prodname_unified_contributions %} 之前，必须先启用 {% data variables.product.prodname_github_connect %}。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)”。
+Before enabling {% data variables.enterprise.prodname_unified_contributions %} on {% data variables.location.product_location %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
-{% ifversion ghes %} {% data reusables.github-connect.access-dotcom-and-enterprise %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.business %} {% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
-1. 登录到 {% data variables.product.product_location %} 和 {% data variables.product.prodname_dotcom_the_website %}。
+{% ifversion ghes %}
+{% data reusables.github-connect.access-dotcom-and-enterprise %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
+1. Sign in to {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
-1. 在“用户可将贡献计数分享到 {% data variables.product.prodname_dotcom_the_website %}”下，单击“请求访问”。
-  ![请求访问统一贡献选项](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}
-2. [登录](https://enterprise.github.com/login)到站点 {% data variables.product.prodname_ghe_server %} 以接收其他说明。
+1. Under "Users can share contribution counts to {% data variables.product.prodname_dotcom_the_website %}", click **Request access**.
+  ![Request access to unified contributions option](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}
+2. [Sign in](https://enterprise.github.com/login) to the {% data variables.product.prodname_ghe_server %} site to receive further instructions.
 
-当你请求访问时，我们可能会将你重定向到 {% data variables.product.prodname_ghe_server %} 站点，以检查当前的服务条款。
+When you request access, we may redirect you to the {% data variables.product.prodname_ghe_server %} site to check your current terms of service.
 {% endif %}
