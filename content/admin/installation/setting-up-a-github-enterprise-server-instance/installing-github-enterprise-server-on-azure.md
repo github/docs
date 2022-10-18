@@ -65,7 +65,7 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 
 4. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see "[`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
-  Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `100`), and a name for the resulting VHD.
+  Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `200`), and a name for the resulting VHD.
 
   ```shell
   $ az vm disk attach --vm-name VM_NAME -g RESOURCE_GROUP --sku Premium_LRS --new -z SIZE_IN_GB --name ghe-data.vhd --caching ReadWrite
@@ -73,7 +73,7 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 
   {% note %}
 
-   **Note:** For non-production instances to have sufficient I/O throughput, the recommended minimum disk size is 40 GiB with read/write cache enabled (`--caching ReadWrite`).
+   **Note:** For non-production instances to have sufficient I/O throughput, the recommended minimum disk size is 150 GiB with read/write cache enabled (`--caching ReadWrite`).
 
    {% endnote %}
 

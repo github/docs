@@ -101,6 +101,26 @@ In the table layout, you can group items by a custom field value. When items are
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Group by."
 
+{% ifversion projects-v2-numeric-summary %}
+
+## Showing the sum of a number field
+
+You can configure a view to show the sum of one of more number fields, including a count of items in the group or column. For example, if you have a number field tracking the number of hours each item may take to complete, you can display of sum of those hours for each group or column.
+
+In board layout, field sums are displayed at the top of each column. In table layout, when you enable grouping by a field, field sums are included in each group's header.
+
+{% data reusables.projects.open-view-menu %}
+1. Click {% octicon "number" aria-label="the number icon" %} **Field sum**.
+   
+   ![Screenshot showing the field sum menu item](/assets/images/help/projects-v2/field-sum-menu.png)
+   
+1. Select the fields you want to include.
+   
+   ![Screenshot showing the field sum menu](/assets/images/help/projects-v2/field-sum-select-field.png)
+   
+
+{% endif %}
+
 ## Setting the column field in board layout
 
 In the board layout, you choose any single select or iteration field for your columns. If you drag an item to a new column, the value of that column is applied to the dragged item. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
@@ -112,3 +132,19 @@ In the board layout, you choose any single select or iteration field for your co
    ![Screenshot showing the column field menu](/assets/images/help/projects-v2/column-field-menu.png)
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Column field by."
+
+{% ifversion projects-v2-column-visibility %}
+
+## Showing and hiding columns in board layout
+
+In the board layout, you can can choose which columns to display. The available columns are made up of the contents of your selected column field.
+
+1. In the board layout, scroll to the right of your columns, and click {% octicon "plus" aria-label="the plus icon" %}.
+   
+   ![Screenshot showing the plus symbol button](/assets/images/help/projects-v2/board-add-column.png)
+   
+1. Select the columns you want to show.
+   
+   ![Screenshot showing the list of columns](/assets/images/help/projects-v2/board-select-columns.png)
+   
+{% endif %}
