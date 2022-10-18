@@ -115,7 +115,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    {% endraw %}
    For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
    {% ifversion actions-inherit-secrets-reusable-workflows %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step. 
+1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
 
    {% note %}
 
@@ -338,7 +338,7 @@ For information on how to use the API to determine which workflow files were inv
 
 A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.{% ifversion actions-reusable-workflow-matrix %}
 
-If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value. 
+If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value.
 That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.{% endif %}
 
 The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
@@ -367,10 +367,18 @@ jobs:
       output1: ${{ steps.step1.outputs.firstword }}
       output2: ${{ steps.step2.outputs.secondword }}
     steps:
-      - id: step1
+      - id: step1{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=firstword::hello"
-      - id: step2
+{%- endif %}{% raw %}
+      - id: step2{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "secondword=world" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=secondword::world"
+{%- endif %}{% raw %}
 ```
 {% endraw %}
 

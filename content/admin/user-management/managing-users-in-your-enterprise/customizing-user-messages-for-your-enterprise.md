@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
-intro: 'You can create custom messages that users will see on {% data variables.product.product_location %}.'
+intro: 'You can create custom messages that users will see on {% data variables.location.product_location %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -67,13 +67,13 @@ You can use Markdown to format your message. For more information, see "[About w
 {% ifversion ghes or ghae %}
 ## Creating a mandatory message
 
-You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}.
+You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.location.product_location %}.
 
 Mandatory messages have a variety of uses.
 
 - Providing onboarding information for new employees
-- Telling users how to get help with {% data variables.product.product_location %}
-- Ensuring that all users read your terms of service for using {% data variables.product.product_location %}
+- Telling users how to get help with {% data variables.location.product_location %}
+- Ensuring that all users read your terms of service for using {% data variables.location.product_location %}
 
 If you include Markdown checkboxes in the message, all checkboxes must be selected before the user can dismiss the message. For example, if you include your terms of service in the mandatory message, you can require that each user selects a checkbox to confirm the user has read the terms.
 
@@ -81,7 +81,7 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 
 {% note %}
 
-**Note:** If you change the mandatory message for {% data variables.product.product_location %}, users who have already acknowledged the message will not see the new message.
+**Note:** If you change the mandatory message for {% data variables.location.product_location %}, users who have already acknowledged the message will not see the new message.
 
 {% endnote %}
 

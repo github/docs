@@ -749,7 +749,9 @@ Key | Type | Description
 `merge_group`|`object` | The merge group.
 `merge_group[head_sha]`|`string` | The SHA of the merge group.
 `merge_group[head_ref]`|`string` | The full ref of the merge group.
+`merge_group[base_sha]`|`string` | The SHA of the merge group's parent commit.
 `merge_group[base_ref]`|`string` | The full ref of the branch the merge group will be merged into.
+`merge_group[head_commit]`|`object` | An expanded representation of the `head_sha` commit.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}

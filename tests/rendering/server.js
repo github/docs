@@ -238,7 +238,7 @@ describe('server', () => {
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
 
     const categories = JSON.parse(res.text)
     expect(Array.isArray(categories)).toBe(true)

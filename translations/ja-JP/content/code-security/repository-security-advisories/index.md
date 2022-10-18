@@ -25,6 +25,7 @@ children:
   - /publishing-a-repository-security-advisory
   - /editing-a-repository-security-advisory
   - /withdrawing-a-repository-security-advisory
+  - /best-practices-for-writing-repository-security-advisories
 ms.openlocfilehash: 43efe7ceaf307da4a8a7c02c45f744a4967b05b0
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT

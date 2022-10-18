@@ -44,7 +44,7 @@ Files that you add to a repository via a browser are limited to {% data variable
 
 ## Adding a file to a repository using the command line
 
-You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} using the command line.
+You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} using the command line.
 
 {% tip %}
 

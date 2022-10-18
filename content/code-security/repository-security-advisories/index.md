@@ -25,5 +25,6 @@ children:
   - /publishing-a-repository-security-advisory
   - /editing-a-repository-security-advisory
   - /withdrawing-a-repository-security-advisory
+  - /best-practices-for-writing-repository-security-advisories
 ---
 

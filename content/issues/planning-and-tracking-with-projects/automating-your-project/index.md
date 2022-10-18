@@ -11,5 +11,6 @@ children:
   - /using-the-built-in-automations
   - /using-the-api-to-manage-projects
   - /automating-projects-using-actions
+  - /archiving-items-automatically
 allowTitleToDifferFromFilename: true
 ---

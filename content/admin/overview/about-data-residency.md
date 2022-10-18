@@ -9,7 +9,7 @@ topics:
   - Fundamentals
 ---
 
-{% data reusables.github-ae.github-ae-enables-you %} You can choose the geography where you store all the customer data for {% data variables.product.product_location %}, and members of your enterprise can access {% data variables.product.product_name %} from anywhere in the world.
+{% data reusables.github-ae.github-ae-enables-you %} You can choose the geography where you store all the customer data for {% data variables.location.product_location %}, and members of your enterprise can access {% data variables.product.product_name %} from anywhere in the world.
 
 When creating your enterprise, you can tell {% data variables.contact.contact_enterprise_sales %} where to store your customer data. {% data variables.product.company_short %} will not store or move any of your enterprise's data outside of the geography you choose.
 
