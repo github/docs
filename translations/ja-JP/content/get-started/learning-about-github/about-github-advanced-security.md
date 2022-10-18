@@ -62,7 +62,7 @@ To learn about what you need to know to plan your {% data variables.product.prod
 ## Enabling {% data variables.product.prodname_advanced_security %} features
 
 {%- ifversion ghes %}
-The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.product.product_location %} before you can use these features. For more information, see "[Configuring Advanced Security features](/admin/configuration/configuring-advanced-security-features).
+The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.location.product_location %} before you can use these features. For more information, see "[Configuring Advanced Security features](/admin/configuration/configuring-advanced-security-features).
 
 Once your system is set up, you can enable and disable these features at the organization or repository level.
 

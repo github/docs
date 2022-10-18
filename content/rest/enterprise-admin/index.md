@@ -43,6 +43,8 @@ children:
 
 {% endif %}
 
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+
 ### Endpoint URLs
 
 REST API endpoints{% ifversion ghes %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:

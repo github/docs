@@ -1,6 +1,6 @@
 ---
-title: 创建文件的永久链接
-intro: '在 {% data variables.product.product_location %} 上查看文件时，您可以按 "y" 键将 URL 更新为指向所查看文件精确版本的永久链接。'
+title: Getting permanent links to files
+intro: 'When viewing a file on {% data variables.location.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
@@ -15,49 +15,43 @@ versions:
 topics:
   - Repositories
 shortTitle: Permanent links to files
-ms.openlocfilehash: 4e3d5ec282f7f7ba820094240698c88e298cdb69
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145129232'
 ---
 {% tip %}
 
-提示：在 {% data variables.product.product_name %} 的任意页面上按“?”可查看所有可用的键盘快捷键。
+**Tip**: Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
 
 {% endtip %}
 
-## 文件视图显示分支上的最新版本
+## File views show the latest version on a branch
 
-在 {% data variables.product.product_location %} 上查看文件时，通常会在分支头部看到当前版本。  例如：
+When viewing a file on {% data variables.location.product_location %}, you usually see the version at the current head of a branch.  For example:
 
-* [https://github.com/github/codeql/blob/ main/README.md](https://github.com/github/codeql/blob/main/README.md)
+* [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-引用 GitHub 的 `codeql` 存储库，并显示 `main` 分支中 `README.md` 文件的当前版本。
+refers to GitHub's `codeql` repository, and shows the `main` branch's current version of the `README.md` file.
 
-分支头部的文件版本可能会随着新的提交而改变，因此如果您复制常规的 URL，当以后有人查看时，文件内容可能会不同。
+The version of a file at the head of branch can change as new commits are made, so if you were to copy the normal URL, the file contents might not be the same when someone looks at it later.
 
-## 按 <kbd>Y</kbd> 永久链接到特定提交中的文件
+## Press <kbd>Y</kbd> to permalink to a file in a specific commit
 
-要永久链接到所查看的特定版本的文件，请不要在 URL 中使用分支名称（即上面示例中的 `main` 部分），而是使用提交 ID。这将永久链接到与该提交中完全相同的文件版本。  例如：
+For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  This will permanently link to the exact version of the file in that commit.  For example:
 
-* [https://github.com/github/codeql/blob/ b212af08a6cffbb434f3c8a2795a579e092792fd/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
+* [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-将 `main` 替换为特定的提交 ID，文件内容将不会发生变化。
+replaces `main` with a specific commit id and the file content will not change.
 
-但是，手动查找提交 SHA 比较麻烦，因此可以采用便捷方式，通过键入 <kbd>y</kbd> 将 URL 自动更新为永久链接版本。  然后，您可以复制该 URL，以后访问它的任何人都将看到与您所见完全一致的内容。
+Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you can type <kbd>y</kbd> to automatically update the URL to the permalink version.  Then you can copy the URL knowing that anyone you share it with will see exactly what you saw.
 
 {% tip %}
 
-提示：可以将可解析为提交的任何标识符放在 URL 中，包括分支名称、特定提交 SHA 或标记！
+**Tip**: You can put any identifier that can be resolved to a commit in the URL, including branch names, specific commit SHAs, or tags!
 
 {% endtip %}
 
-## 创建指向代码段的永久链接
+## Creating a permanent link to a code snippet
 
-您可以创建指向特定版本的文件或拉取请求中特定代码行或行范围的永久链接。 有关详细信息，请参阅“[创建代码片段的永久链接](/articles/creating-a-permanent-link-to-a-code-snippet/)”。
+You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)."
 
-## 延伸阅读
+## Further reading
 
-- [存档 GitHub 存储库](/articles/archiving-a-github-repository)
+- "[Archiving a GitHub repository](/articles/archiving-a-github-repository)"

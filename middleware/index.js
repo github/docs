@@ -45,6 +45,7 @@ import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
+import productGroups from './contextualizers/product-groups.js'
 import featuredLinks from './featured-links.js'
 import learningTrack from './learning-track.js'
 import next from './next.js'
@@ -267,6 +268,7 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
   app.use(instrument(features, './contextualizers/features'))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
+  app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
 
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))

@@ -1,5 +1,5 @@
 ---
-title: 使用 LDAP
+title: Using LDAP
 redirect_from:
   - /enterprise/admin/articles/configuring-ldap-authentication
   - /enterprise/admin/articles/about-ldap-authentication
@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
-intro: '如果使用轻型目录访问协议 (LDAP) 集中访问应用程序，可以通过为实例配置 LDAP 身份验证来集成 {% data variables.product.product_name %}。'
+intro: 'If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.product_name %} by configuring LDAP authentication for your instance.'
 versions:
   ghes: '*'
 type: how_to
@@ -20,24 +20,19 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-ms.openlocfilehash: bed91adf09819869204f40b1a9e09c63925904ff
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147062992'
 ---
-## 关于 {% data variables.product.product_name %} 的 LDAP 身份验证
 
-LDAP 是一种用于访问和维护目录信息服务的热门应用程序协议，是将第三方软件与大型公司用户目录集成时使用的最常见协议之一。 有关详细信息，请参阅 Wikipedia 上的“[轻型目录访问协议](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)”。
+## About LDAP authentication for {% data variables.product.product_name %}
 
-如果使用 LDAP 目录进行集中式身份验证，则可以为使用 {% data variables.product.product_location %} 的用户配置 LDAP 身份验证。
+LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" on Wikipedia.
+
+If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.location.product_location %}.
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-## 支持的 LDAP 服务
+## Supported LDAP services
 
-{% data variables.product.prodname_ghe_server %} 可与下列 LDAP 服务集成：
+{% data variables.product.prodname_ghe_server %} integrates with these LDAP services:
 
 * Active Directory
 * FreeIPA
@@ -46,165 +41,173 @@ LDAP 是一种用于访问和维护目录信息服务的热门应用程序协议
 * Open Directory
 * 389-ds
 
-## 使用 LDAP 时的用户名考量因素
+## Username considerations with LDAP
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} 有关详细信息，请参阅“[外部身份验证的用户名注意事项](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)”。
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
 
-## 使用 {% data variables.product.product_location %} 配置 LDAP
+## Configuring LDAP with {% data variables.location.product_location %}
 
-在您配置 LDAP 后，用户将能够使用他们的 LDAP 凭据登录您的实例。 在用户首次登录时，他们个人资料中的姓名、电子邮件地址和 SSH 密钥将使用您的目录中的 LDAP 属性进行设置。
+After you configure LDAP, users will be able to sign into your instance with their LDAP credentials. When users sign in for the first time, their profile names, email addresses, and SSH keys will be set with the LDAP attributes from your directory.
 
-当您通过 {% data variables.enterprise.management_console %} 为用户配置 LDAP 访问权限时，在用户首次登录您的实例前，用户许可不可用。 但是，如果您使用站点管理员设置手动创建帐户，用户许可将立即可用。
+When you configure LDAP access for users via the {% data variables.enterprise.management_console %}, your user licenses aren't used until the first time a user signs in to your instance. However, if you create an account manually using site admin settings, the user license is immediately accounted for.
 
 {% warning %}
 
-警告：在 {% data variables.product.product_location %} 上配置 LDAP 之前，请确保你的 LDAP 服务支持分页结果。
+**Warning:** Before configuring LDAP on {% data variables.location.product_location %}, make sure that your LDAP service supports paged results.
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.authentication %}
-3. 在“身份验证”下选择“LDAP”。
-![选择 LDAP](/assets/images/enterprise/management-console/ldap-select.png)
-4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![选中 LDAP 内置身份验证复选框](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
-5. 添加您的配置设置。
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.authentication %}
+3. Under "Authentication", select **LDAP**.
+![LDAP select](/assets/images/enterprise/management-console/ldap-select.png)
+4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Select LDAP built-in authentication checkbox](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
+5. Add your configuration settings.
 
-## LDAP 属性
-使用以下属性完成 {% data variables.product.product_location %} 的 LDAP 配置。
+## LDAP attributes
+Use these attributes to finish configuring LDAP for {% data variables.location.product_location %}.
 
-| 特性名           | 类型     | 说明 |
+| Attribute name           | Type     | Description |
 |--------------------------|----------|-------------|
-| `Host`                   | 必需 | LDAP 主机，例如 `ldap.example.com` 或 `10.0.0.30`。 如果主机名只能在内部网络中使用，需要先配置 {% data variables.product.product_location %} 的 DNS，以便它可以使用内部域名服务器解析主机名。 |
-| `Port`                   | 必需 | 主机的 LDAP 服务侦听的端口。 示例包括：389 和 636（适用于 LDAPS）。 |
-| `Encryption`             | 必需 | 用于确保与 LDAP 服务器之间的通信安全的加密方法。 示例包括明文（无加密）、SSL/LDAPS（从一开始就加密）和 StartTLS（在连接后升级为加密通信）。 |
-| `Domain search user`     | 可选 | 查找其他登录用户的 LDAP 用户，以允许身份验证。 这一般是一个专为第三方集成创建的服务帐户。 使用完全限定的名称，例如 `cn=Administrator,cn=Users,dc=Example,dc=com`。 对于 Active Directory，还可为域搜索用户使用 `[DOMAIN]\[USERNAME]` 语法（例如 `WINDOWS\Administrator`）。 |
-| `Domain search password` | 可选 | 域搜索用户的密码。 |
-| `Administrators group`   | 可选 | 登录您的设备后，此组中的用户将被升级为站点管理员。 如果您不配置 LDAP 管理员组，则登录您的设备的第一个 LDAP 用户帐户将被自动升级为站点管理员。 |
-| `Domain base`            | 必需 | 想要搜索其用户和组的 LDAP 子树的完全限定 `Distinguished Name` (DN)。 您可以添加任意数量的组；不过，每个组和它所包含的用户都必须在相同的基础域中定义。 如果您指定受限的用户组，那么只有属于这些组的用户将在作用域内。 我们建议您将 LDAP 目录树的顶级指定为您的基础域，并使用受限的用户组来控制权限。 |
-| `Restricted user groups` | 可选 | 如果指定，将仅允许这些组中的用户登录。 您只需要指定组的常用名 (CN)，您可以添加任意数量的组。 如果未指定组，则指定基础域作用域中的所有用户都将可以登录你的 {% data variables.product.prodname_ghe_server %} 实例。 |
-| `User ID`                | 必需 | 标识尝试身份验证的 LDAP 用户的 LDAP 属性。 建立映射后，用户可以更改他们的 {% data variables.product.prodname_ghe_server %} 用户名。 对于大多数 Active Directory 安装来说，此字段应为 `sAMAccountName`，但对其他 LDAP 解决方案（例如 OpenLDAP）来说，可能是 `uid`。 默认值为 `uid`。 |
-| `Profile name`           | 可选 | 将在用户的 {% data variables.product.prodname_ghe_server %} 个人资料页面上显示的姓名。 除非启用 LDAP 同步，否则用户可以更改他们的个人资料姓名。 |
-| `Emails`                 | 可选 | 用户的 {% data variables.product.prodname_ghe_server %} 帐户的电子邮件地址。 |
-| `SSH keys`               | 可选 | 连接到用户的 {% data variables.product.prodname_ghe_server %} 帐户的 SSH 公钥。 密钥必须采用 OpenSSH 格式。 |
-| `GPG keys`               | 可选 | 连接到用户的 {% data variables.product.prodname_ghe_server %} 帐户的 GPG 密钥。 |
-| `Disable LDAP authentication for Git operations` | 可选 |如果选择，将[禁止](#disabling-password-authentication-for-git-operations)用户使用 LDAP 密码对 Git 操作进行身份验证。 |
-| `Enable LDAP certificate verification` | 可选 |如果选择，[请启用](#enabling-ldap-certificate-verification) LDAP 证书验证。 |
-| `Synchronization` | 可选 |如果选择，将[启用](#enabling-ldap-sync) LDAP 同步。 |
+| `Host`                   | Required | The LDAP host, e.g. `ldap.example.com` or `10.0.0.30`. If the hostname is only available from your internal network, you may need to configure {% data variables.location.product_location %}'s DNS first so it can resolve the hostname using your internal nameservers. |
+| `Port`                   | Required | The port the host's LDAP services are listening on. Examples include: 389 and 636 (for LDAPS). |
+| `Encryption`             | Required | The encryption method used to secure communications to the LDAP server. Examples include plain (no encryption), SSL/LDAPS (encrypted from the start), and StartTLS (upgrade to encrypted communication once connected). |
+| `Domain search user`     | Optional | The LDAP user that looks up other users that sign in, to allow authentication. This is typically a service account created specifically for third-party integrations. Use a fully qualified name, such as `cn=Administrator,cn=Users,dc=Example,dc=com`. With Active Directory, you can also use the `[DOMAIN]\[USERNAME]` syntax (e.g. `WINDOWS\Administrator`) for the domain search user with Active Directory. |
+| `Domain search password` | Optional | The password for the domain search user. |
+| `Administrators group`   | Optional | Users in this group are promoted to site administrators when signing into your appliance. If you don't configure an LDAP Administrators group, the first LDAP user account that signs into your appliance will be automatically promoted to a site administrator. |
+| `Domain base`            | Required | The fully qualified `Distinguished Name` (DN) of an LDAP subtree you want to search for users and groups. You can add as many as you like; however, each group must be defined in the same domain base as the users that belong to it. If you specify restricted user groups, only users that belong to those groups will be in scope. We recommend that you specify the top level of your LDAP directory tree as your domain base and use restricted user groups to control access. |
+| `Restricted user groups` | Optional | If specified, only users in these groups will be allowed to log in. You only need to specify the common names (CNs) of the groups, and you can add as many groups as you like. If no groups are specified, *all* users within the scope of the specified domain base will be able to sign in to your {% data variables.product.prodname_ghe_server %} instance. |
+| `User ID`                | Required | The LDAP attribute that identifies the LDAP user who attempts authentication. Once a mapping is established, users may change their {% data variables.product.prodname_ghe_server %} usernames. This field should be `sAMAccountName` for most Active Directory installations, but it may be `uid` for other LDAP solutions, such as OpenLDAP. The default value is `uid`. |
+| `Profile name`           | Optional | The name that will appear on the user's {% data variables.product.prodname_ghe_server %} profile page. Unless LDAP Sync is enabled, users may change their profile names. |
+| `Emails`                 | Optional | The email addresses for a user's {% data variables.product.prodname_ghe_server %} account. |
+| `SSH keys`               | Optional | The public SSH keys attached to a user's {% data variables.product.prodname_ghe_server %} account. The keys must be in OpenSSH format. |
+| `GPG keys`               | Optional | The GPG keys attached to a user's {% data variables.product.prodname_ghe_server %} account. |
+| `Disable LDAP authentication for Git operations` | Optional |If selected, [turns off](#disabling-password-authentication-for-git-operations) users' ability to use LDAP passwords to authenticate Git operations. |
+| `Enable LDAP certificate verification` | Optional |If selected, [turns on](#enabling-ldap-certificate-verification) LDAP certificate verification. |
+| `Synchronization` | Optional |If selected, [turns on](#enabling-ldap-sync) LDAP Sync. |
 
-### 为 Git 操作禁用密码身份验证
+### Disabling password authentication for Git operations
 
-在 LDAP 设置中选择“禁用 Git 操作的用户名和密码身份验证”，为 Git 权限强制使用个人访问令牌或 SSH 密钥，这样有助于防止服务器被 LDAP 身份验证请求过载。 我们建议使用此设置，因为响应慢的 LDAP 服务器是性能问题和故障的常见来源，尤其是在遇到轮询导致的大量请求时。
+Select **Disable username and password authentication for Git operations** in your LDAP settings to enforce use of {% data variables.product.pat_generic %}s or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests. We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
 
-![为 Git 禁用 LDAP 密码身份验证的复选框](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
+![Disable LDAP password auth for Git check box](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
 
-选择此选项时，如果用户通过命令行尝试为 Git 操作使用密码，他们将收到一条错误消息，内容为 `Password authentication is not allowed for Git operations. You must use a personal access token.`
+When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
 
-### 启用 LDAP 证书验证
+### Enabling LDAP certificate verification
 
-在 LDAP 设置中选择“启用 LDAP 证书验证”，验证用于 TLS 的 LDAP 服务器证书。
+Select **Enable LDAP certificate verification** in your LDAP settings to validate the LDAP server certificate you use with TLS.
 
-![LDAP 证书验证复选框](/assets/images/enterprise/management-console/ldap-enable-certificate-verification.png)
+![LDAP certificate verification box](/assets/images/enterprise/management-console/ldap-enable-certificate-verification.png)
 
-选择此选项时，将对证书进行验证，以确保：
-- 如果证书至少包含一个使用者可选名称 (SAN)，则其中的一个 SAN 将匹配 LDAP 主机名。 否则，常用名 (CN) 将匹配 LDAP 主机名。
-- 证书未过期。
-- 证书由受信任的证书颁发机构 (CA) 签名。
+When this option is selected, the certificate is validated to make sure:
+- If the certificate contains at least one Subject Alternative Name (SAN), one of the SANs matches the LDAP hostname. Otherwise, the Common Name (CN) matches the LDAP hostname.
+- The certificate is not expired.
+- The certificate is signed by a trusted certificate authority (CA).
 
-### 启用 LDAP 同步
-
-{% note %}
-
-注意：使用 LDAP 同步的团队限制为最多 1499 名成员。
-
-{% endnote %}
-
-借助 LDAP 同步，您可以将 {% data variables.product.prodname_ghe_server %} 用户和团队成员关系与建立的 LDAP 组同步。 这样，您可以在 LDAP 服务器中为用户建立基于角色的权限控制，而不用在 {% data variables.product.prodname_ghe_server %} 中手动建立。 有关详细信息，请参阅“[创建团队](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)”。
-
-若要启用 LDAP 同步，请在 LDAP 设置中选择“同步电子邮件”、“同步 SSH 密钥”或“同步 GPG 密钥”  。
-
-![Synchronization 复选框](/assets/images/enterprise/management-console/ldap-synchronize.png)
-
-启用 LDAP 同步后，某个同步作业将以指定的时间间隔运行，在每个用户帐户上执行以下操作：
-
-- 如果您已允许对您的身份提供程序覆盖范围以外的用户进行内置身份验证，并且该用户使用内置身份验证，请前进到下一个用户。
-- 如果用户没有 LDAP 映射，请尝试将用户映射到目录中的 LDAP 条目。 如果用户无法映射到 LDAP 条目，请挂起该用户并前进到下一个用户。
-- 如果存在 LDAP 映射但目录中相应的 LDAP 条目缺失，请挂起该用户并前进到下一个用户。
-- 如果相应的 LDAP 条目已被标记为禁用并且该用户尚未被挂起，请挂起该用户并前进到下一个用户。
-- 如果相应的 LDAP 条目未标记为禁用，用户已被挂起，并在管理中心启用了“重新激活挂起的用户”，请取消挂起该用户。
-- 如果在实例中配置了一个或多个受限用户组，并且相应的 LDAP 条目不在其中，请挂起该用户。
-- 如果在实例上配置了一个或多个受限用户组，相应的 LDAP 条目位于其中一个组中，并在管理中心启用了“重新激活挂起的用户”，请取消挂起该用户。
-- 如果相应的 LDAP 条目包括 `name` 属性，请更新用户的个人资料姓名。
-- 如果相应的 LDAP 条目位于管理员组中，请将该用户升级为站点管理员。
-- 如果相应的 LDAP 条目不位于管理员组中，请将该用户降级为普通帐户。
-- 如果为电子邮件定义了一个 LDAP 用户字段，请将该用户的电子邮件设置与 LDAP 条目同步。 将第一个 LDAP `mail` 条目设为主电子邮件。
-- 如果为 SSH 公钥定义了一个 LDAP 用户字段，请将该用户的 SSH 公钥与 LDAP 条目同步。  
-- 如果为 GPG 密钥定义了一个 LDAP 用户字段，请将该用户的 GPG 密钥与 LDAP 条目同步。  
+### Enabling LDAP Sync
 
 {% note %}
 
-注意：只有当使用 Active Directory、`userAccountControl` 属性存在并用 `ACCOUNTDISABLE` 标记时，才可以将 LDAP 条目标记为禁用。 Active Directory 的某些变体（例如 AD LDS 和 ADAM）不支持 `userAccountControl` 属性。
+**Note:** Teams using LDAP Sync are limited to a maximum 1499 members.
 
 {% endnote %}
 
-某个同步作业也将以指定的时间间隔运行，在已经映射到 LDAP 组的每个团队上执行以下操作：
+LDAP Sync lets you synchronize {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.prodname_ghe_server %}. For more information, see "[Creating teams](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)."
 
-- 如果已移除团队的相应 LDAP 组，请移除团队中的所有成员。
-- 如果已从 LDAP 组中移除 LDAP 成员条目，请从团队中移除相应的用户。 如果用户不再是组织中任何团队的成员，请从组织中删除该用户。 如果用户因此失去了任何仓库的访问权限，请删除用户在这些仓库中的任何私有分叉。
-- 如果已向 LDAP 组中添加 LDAP 成员条目，请将相应的用户添加到团队中。 如果用户因此重新获得了任何仓库的访问权限，请恢复过去 90 天内因为用户失去访问权限而被删除的仓库中的任何私有分叉。
+To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys** .
+
+![Synchronization check box](/assets/images/enterprise/management-console/ldap-synchronize.png)
+
+After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
+
+- If you've allowed built-in authentication for users outside your identity provider, and the user is using built-in authentication, move on to the next user.
+- If no LDAP mapping exists for the user, try to map the user to an LDAP entry in the directory. If the user cannot be mapped to an LDAP entry, suspend the user and move on to the next user.
+- If there is an LDAP mapping and the corresponding LDAP entry in the directory is missing, suspend the user and move on to the next user.
+- If the corresponding LDAP entry has been marked as disabled and the user is not already suspended, suspend the user and move on to the next user.
+- If the corresponding LDAP entry is not marked as disabled, and the user is suspended, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
+- If one or more restricted user groups are configured on the instance and the corresponding LDAP entry is not in one of these groups, suspend the user.
+- If one or more restricted user groups are configured on the instance, the corresponding LDAP entry is in one of these groups, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
+- If the corresponding LDAP entry includes a `name` attribute, update the user's profile name.
+- If the corresponding LDAP entry is in the Administrators group, promote the user to site administrator.
+- If the corresponding LDAP entry is not in the Administrators group, demote the user to a normal account.
+- If an LDAP User field is defined for emails, synchronize the user's email settings with the LDAP entry. Set the first LDAP `mail` entry as the primary email.
+- If an LDAP User field is defined for SSH public keys, synchronize the user's public SSH keys with the LDAP entry.  
+- If an LDAP User field is defined for GPG keys, synchronize the user's GPG keys with the LDAP entry.  
+
+{% note %}
+
+**Note**: LDAP entries can only be marked as disabled if you use Active Directory and the `userAccountControl` attribute is present and flagged with `ACCOUNTDISABLE`. Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
+
+{% endnote %}
+
+A synchronization job will also run at the specified time interval to perform the following operations on each team that has been mapped to an LDAP group:
+
+- If a team's corresponding LDAP group has been removed, remove all members from the team.
+- If LDAP member entries have been removed from the LDAP group, remove the corresponding users from the team. If the user is no longer a member of any team in the organization, remove the user from the organization. If the user loses access to any repositories as a result, delete any private forks the user has of those repositories.
+- If LDAP member entries have been added to the LDAP group, add the corresponding users to the team. If the user regains access to any repositories as a result, restore any private forks of the repositories that were deleted because the user lost access in the past 90 days.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% warning %}
 
-**安全警告：**
+**Security Warning:**
 
-启用 LDAP 同步后，站点管理员和组织所有者可以搜索要映射团队的目标组的 LDAP 目录。
+When LDAP Sync is enabled, site admins and organization owners can search the LDAP directory for groups to map the team to.
 
-这样有可能将敏感的组织信息披露给合同工或其他没有权限的用户，包括：
+This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
 
-- 对“域搜索用户”可见的特定 LDAP 组的存在性。
-- 具有 {% data variables.product.prodname_ghe_server %} 用户帐户的 LDAP 组的成员，如果创建与该 LDAP 组同步的团队，此信息将被披露。
+- The existence of specific LDAP Groups visible to the *Domain search user*.
+- Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
 
-如果不需要披露此类信息，您的公司或组织应在管理员控制台中限制配置的“域搜索用户”的权限。 如果无法进行此类限制，请联系 {% data variables.contact.contact_ent_support %}。
+If disclosing such information is not desired, your company or organization should restrict the permissions of the configured *Domain search user* in the admin console. If such restriction isn't possible, contact {% data variables.contact.contact_ent_support %}.
 
 {% endwarning %}
 
-### 支持的 LDAP 组对象类
+### Supported LDAP group object classes
 
-{% data variables.product.prodname_ghe_server %} 支持下列 LDAP 组对象类。 可以嵌套组。
+{% data variables.product.prodname_ghe_server %} supports these LDAP group object classes. Groups can be nested.
 
 - `group`
 - `groupOfNames`
 - `groupOfUniqueNames`
 - `posixGroup`
 
-## 查看和创建 LDAP 用户
+## Viewing and creating LDAP users
 
-您可以查看具有您的实例访问权限的 LDAP 用户的完整列表和配置新用户。
+You can view the full list of LDAP users who have access to your instance and provision new users.
 
-{% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. 在左边栏中，单击“LDAP 用户”。
-![LDAP 用户选项卡](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
-4. 若要搜索用户，请输入完整或部分用户名，然后单击“搜索”。 现有用户将显示在搜索结果中。 如果用户不存在，请单击“创建”以预配新用户帐户。
-![LDAP 搜索](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+3. In the left sidebar, click **LDAP users**.
+![LDAP users tab](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
+4. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
+![LDAP search](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
 
-## 更新 LDAP 帐户
+## Updating LDAP accounts
 
-除非[启用 LDAP 同步](#enabling-ldap-sync)，否则 LDAP 帐户的变更将不会自动与 {% data variables.product.prodname_ghe_server %} 同步。
+Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are not automatically synchronized with {% data variables.product.prodname_ghe_server %}.
 
-* 要使用新的 LDAP 管理员组，必须在 {% data variables.product.prodname_ghe_server %} 上手动升级和降级用户，以反映 LDAP 中的变更。
-* 若要在 LDAP 管理员组中添加或移除 LDAP 帐户，请[在 {% data variables.product.prodname_ghe_server %} 上升级或降级帐户](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator)。
-* 若要删除 LDAP 帐户，请[挂起 {% data variables.product.prodname_ghe_server %} 帐户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)。
+* To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
+* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
+* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users).
 
-### 手动同步 LDAP 帐户
+### Manually syncing LDAP accounts
 
-{% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.search-user %} {% data reusables.enterprise_site_admin_settings.click-user %} {% data reusables.enterprise_site_admin_settings.admin-top-tab %} {% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. 在“LDAP”下，单击“立即同步”，使用 LDAP 服务器中的数据手动更新帐户。
-![LDAP“立即同步”按钮](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.search-user %}
+{% data reusables.enterprise_site_admin_settings.click-user %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
+5. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
+![LDAP sync now button](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
 
-也可以[使用 API 触发手动同步](/enterprise/user/rest/reference/enterprise-admin#ldap)。
+You can also [use the API to trigger a manual sync](/enterprise/user/rest/reference/enterprise-admin#ldap).
 
-## 撤消对 {% data variables.product.product_location %} 的访问权限
+## Revoking access to {% data variables.location.product_location %}
 
-如果[启用 LDAP 同步](#enabling-ldap-sync)，删除用户的 LDAP 凭据将在下一次同步操作后挂起他们的帐户。
+If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 
-如果未启用 LDAP 同步，则必须在删除 LDAP 凭据后手动挂起 {% data variables.product.prodname_ghe_server %} 帐户。 有关详细信息，请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
+If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".

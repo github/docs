@@ -1,7 +1,7 @@
 ---
-title: SAML認証
+title: Troubleshooting SAML authentication
 shortTitle: Troubleshoot SAML SSO
-intro: 'SAML シングル サインオン (SSO) を使っていて、ユーザーが {% data variables.product.product_location %} へのアクセスで認証できない場合、問題のトラブルシューティングを行うことができます。'
+intro: 'If you use SAML single sign-on (SSO) and people are unable to authenticate to access {% data variables.location.product_location %}, you can troubleshoot the problem.'
 versions:
   ghes: '*'
   ghec: '*'
@@ -14,67 +14,64 @@ topics:
   - Security
   - SSO
   - Troubleshooting
-ms.openlocfilehash: 977431b9c9872f405a2c8491372f11d8e4ada907
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147093039'
 ---
+
 {% ifversion ghes %}
-## SAML 認証に関する問題について
+## About problems with SAML authentication
 
-{% data variables.product.product_name %} は、 _/var/log/github/auth.log_ の認証ログに失敗した SAML 認証のエラーメッセージをログ記録します。 このログ ファイルで応答を確認したり、より詳細なログ記録を構成したりすることもできます。
+{% data variables.product.product_name %} logs error messages for failed SAML authentication in the authentication log at _/var/log/github/auth.log_. You can review responses in this log file, and you can also configure more verbose logging.
 
-SAML 応答の要件の詳細については、「[SAML 構成リファレンス](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)」を参照してください。
+For more information about SAML response requirements, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)."
 
-## SAML デバッグの構成
+## Configuring SAML debugging
 
-{% data variables.product.product_name %} を構成して、SAML 認証の試行ごとに詳細なデバッグ ログを _/var/log/github/auth.log_ に書き込むことができます。 この追加の出力を使用して、失敗した認証試行のトラブルシューティングを行うことができる場合があります。
+You can configure {% data variables.product.product_name %} to write verbose debug logs to _/var/log/github/auth.log_ for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
 
 {% warning %}
 
-**警告**:
+**Warnings**:
 
-- SAML デバッグは一時的にのみ有効にし、トラブルシューティングが完了したらすぐにデバッグを無効にします。 デバッグを有効のままにすると、ログのサイズが通常よりも大幅に速くなり、{% data variables.product.product_name %} のパフォーマンスに悪影響を及ぼす可能性があります。
-- 運用環境で設定を適用する前に、ステージング環境で {% data variables.product.product_location %} の新しい認証設定をテストします。 詳細については、「[ステージング インスタンスのセットアップ](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)」を参照してください。
+- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of your log may increase much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
+- Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 {% endwarning %}
 
-{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.options-tab %}
-1. [SAML デバッグ] でドロップダウンを選択し、 **[有効]** をクリックします。
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
+1. Under "SAML debugging", select the drop-down and click **Enabled**.
 
-   ![SAML デバッグを有効にするドロップダウンのスクリーンショット](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-enabled.png)
+   ![Screenshot of drop-down to enable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-enabled.png)
 
-1. SAML IdP を介して {% data variables.product.product_location %} へのサインインを試みます。
+1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
 
-1. {% data variables.product.product_location %} の _/var/log/github/auth.log_ のデバッグ出力を確認します。
+1. Review the debug output in _/var/log/github/auth.log_ on {% data variables.location.product_location %}.
 
-1. トラブルシューティングが完了したら、ドロップダウンを選択し、 **[無効]** をクリックします。
+1. When you're done troubleshooting, select the drop-down and click **Disabled**.
 
-   ![SAML デバッグを無効にするドロップダウンのスクリーンショット](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-disabled.png)
+   ![Screenshot of drop-down to disable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-disabled.png)
 
-## _auth.log_ での応答のデコード
+## Decoding responses in _auth.log_
 
-_auth.log_ の一部の出力は Base64 でエンコードされる場合があります。 管理シェルにアクセスし、{% data variables.product.product_location %} の `base64` ユーティリティを使用して、これらの応答をデコードできます。 詳細については、「[管理シェル (SSH) にアクセスする](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)」を参照してください。
+Some output in _auth.log_ may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 ```shell
-$ base64 --decode <em>ENCODED OUTPUT</em>
+$ base64 --decode ENCODED_OUTPUT
 ```
 
-## エラー:「別のユーザがすでにアカウントを所有しています」
+## Error: "Another user already owns the account"
 
-ユーザーが SAML 認証を使用して初めて {% data variables.product.product_location %} にサインインすると、{% data variables.product.product_name %} によってインスタンスにユーザー アカウントが作成され、SAML `NameID` がアカウントにマップされます。
+When a user signs into {% data variables.location.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` to the account.
 
-ユーザーが再びサインインすると、{% data variables.product.prodname_ghe_server %} は、アカウントの `NameID` マッピングと IdP の応答を比較します。 IdP の応答の `NameID` が、{% data variables.product.product_name %} がユーザーに対して想定している `NameID` と一致しなくなると、サインインは失敗します。 ユーザには次のメッセージが表示されます。
+When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` mapping to the IdP's response. If the `NameID` in the IdP's response no longer matches the `NameID` that {% data variables.product.product_name %} expects for the user, the sign-in will fail. The user will see the following message.
 
-> 別のユーザが既にアカウントを所有しています。 管理者に認証ログを確認するようご依頼ください。
+> Another user already owns the account. Please have your administrator check the authentication log.
 
-このメッセージは通常、その人のユーザ名またはメールアドレスが IdP で変更されたということを示します。 {% data variables.product.prodname_ghe_server %} のユーザー アカウントの `NameID` マッピングが、IdP 上のユーザーの `NameID` と一致していることを確認します。 詳細については、「[ユーザーの SAML `NameID` の更新](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)」を参照してください。
+The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
 
-## SAMLレスポンスが署名されていなかった場合、あるいは署名が内容とマッチしなかった場合、authログに以下のエラーメッセージが残されます。
+## Error: Recipient in SAML response was blank or not valid
 
-`Recipient` が {% data variables.product.product_location %} の ACS URL と一致しない場合、ユーザーが認証を試みたときに、次の 2 つのエラー メッセージのいずれかが認証ログに表示されます。
+If the `Recipient` does not match the ACS URL for {% data variables.location.product_location %}, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
 
 ```
 Recipient in the SAML response must not be blank.
@@ -84,29 +81,31 @@ Recipient in the SAML response must not be blank.
 Recipient in the SAML response was not valid.
 ```
 
-IdP の `Recipient` の値を、{% data variables.product.product_location %} の完全な ACS URL に設定してください。 たとえば、`https://ghe.corp.example.com/saml/consume` のようにします。
+Ensure that you set the value for `Recipient` on your IdP to the full ACS URL for {% data variables.location.product_location %}. For example, `https://ghe.corp.example.com/saml/consume`.
 
-## エラー:「SAML レスポンスが署名されていないか、変更されています」
+## Error: "SAML Response is not signed or has been modified"
 
-IdP が SAML レスポンスに署名しない場合、または署名が内容と一致しない場合、次のエラーメッセージが認証ログに表示されます。
+If your IdP does not sign the SAML response, or the signature does not match the contents, the following error message will appear in the authentication log.
 
 ```
 SAML Response is not signed or has been modified.
 ```
 
-IdP で {% data variables.product.product_name %} アプリケーションの署名済みアサーションを設定していることを確認してください。
+Ensure that you configure signed assertions for the {% data variables.product.product_name %} application on your IdP.
 
-## エラー:「Audience が無効です」または「アサーションが見つかりません」
+## Error: "Audience is invalid" or "No assertion found"
 
-IdP の応答に `Audience` の値がないか、または正しくない場合は、認証ログに次のエラー メッセージが表示されます。
+If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 
 ```
 Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
 ```
 
-IdP の `Audience` の値を {% data variables.product.product_location %} の `EntityId` に設定します。これは、インスタンスの完全な URL です。 たとえば、「 `https://ghe.corp.example.com` 」のように入力します。
+Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.location.product_location %}, which is the full URL to your instance. For example, `https://ghe.corp.example.com`.
 {% endif %}
 
 {% data reusables.saml.current-time-earlier-than-notbefore-condition %}
 
-{% ifversion ghec %} {% data reusables.saml.authentication-loop %} {% endif %}
+{% ifversion ghec %}
+{% data reusables.saml.authentication-loop %}
+{% endif %}

@@ -19,7 +19,7 @@ topics:
 
 You must configure provisioning for {% data variables.product.prodname_emus %} to create, manage, and deactivate user accounts for your enterprise members. When you configure provisioning for {% data variables.product.prodname_emus %}, users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your identity provider are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} via SCIM, and the users are added to your enterprise. 
 
-When you update information associated with a user's identity on your IdP, your IdP will update the user's account on GitHub.com. When you unassign the user from the {% data variables.product.prodname_emu_idp_application %} application or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. The disabled account's information is maintained and their username is changed to a hash of their original username with the short code appended. If you reassign a user to the {% data variables.product.prodname_emu_idp_application %} application or reactivate their account on your IdP, the {% data variables.product.prodname_managed_user %} account on {% data variables.product.prodname_dotcom %} will be reactivated and username restored.
+When you update information associated with a user's identity on your IdP, your IdP will update the user's account on GitHub.com. When you unassign the user from the {% data variables.product.prodname_emu_idp_application %} application or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. The disabled account's information is maintained and their username is changed to a hash of their original username with the short code appended. If you reassign a user to the {% data variables.product.prodname_emu_idp_application %} application or reactivate their account on your IdP, the {% data variables.enterprise.prodname_managed_user %} account on {% data variables.product.prodname_dotcom %} will be reactivated and username restored.
 
 Groups in your IdP can be used to manage team membership within your enterprise's organizations, allowing you to configure repository access and permissions through your IdP. For more information, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
 
@@ -30,9 +30,9 @@ Before you can configure provisioning for {% data variables.product.prodname_emu
 - For more information on configuring OIDC, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)"
 - {% endif %}For information on configuring SAML, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
-## Creating a personal access token
+## Creating a {% data variables.product.pat_generic %}
 
-To configure provisioning for your {% data variables.product.prodname_emu_enterprise %}, you need a personal access token with the **admin:enterprise** scope that belongs to the setup user.
+To configure provisioning for your {% data variables.enterprise.prodname_emu_enterprise %}, you need a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope that belongs to the setup user.
 
 {% warning %}
 
@@ -59,7 +59,7 @@ To configure provisioning for your {% data variables.product.prodname_emu_enterp
 
 ## Configuring provisioning for {% data variables.product.prodname_emus %}
 
-After creating your personal access token and storing it securely, you can configure provisioning on your identity provider. 
+After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your identity provider. 
 
 {% data reusables.scim.emu-scim-rate-limit %}
 

@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas
-intro: Aprenda a resolver os problemas mais comuns que as pessoas enfrentam na API REST.
+title: Troubleshooting
+intro: Learn how to resolve the most common problems people encounter in the REST API.
 redirect_from:
   - /v3/troubleshooting
 versions:
@@ -10,57 +10,62 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 0aa55fae9b33604b95e0eeee78e0712e60aaa5c7
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147717674'
 ---
-Se você estiver encontrando situações estranhas na API, veja uma lista de resoluções de alguns dos problemas que pode estar enfrentando.
 
-## Erro `404` em um repositório existente
 
-Normalmente, enviamos um erro `404` quando o cliente não está autenticado corretamente.
-Você poderá esperar ver um erro `403 Forbidden` nesses casos. No entanto, como não queremos fornecer _nenhuma_ informação sobre os repositórios privados, a API retorna um erro `404`.
 
-Para a solução de problemas, verifique se [você está se autenticando corretamente](/guides/getting-started/), se [o token de acesso OAuth tem os escopos necessários](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), se as [restrições de aplicativo de terceiros][oap-guide] não estão bloqueando o acesso e se [o token não expirou ou foi revogado](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+If you're encountering some oddities in the API, here's a list of resolutions to
+some of the problems you may be experiencing.
 
-## Nem todos os resultados retornados
+## `404` error for an existing repository
 
-A maioria das chamadas à API que acessa uma lista de recursos (_por exemplo_, usuários, problemas _etc._ ) dá suporte à paginação. Se você está fazendo solicitações e recebendo um conjunto incompleto de resultados, provavelmente, só está vendo a primeira página. Você precisará solicitar as páginas restantes para obter mais resultados.
+Typically, we send a `404` error when your client isn't properly authenticated.
+You might expect to see a `403 Forbidden` in these cases. However, since we don't
+want to provide _any_ information about private repositories, the API returns a
+`404` error instead.
 
-É importante *não* tentar adivinhar o formato da URL de paginação. Nem todas as chamadas à API usam a mesma estrutura. Em vez disso, extraia as informações de paginação do [cabeçalho Link](/rest#pagination), que é enviado com cada solicitação.
+To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+
+## Not all results returned
+
+Most API calls accessing a list of resources (_e.g._, users, issues, _etc._) support
+pagination. If you're making requests and receiving an incomplete set of results, you're
+probably only seeing the first page. You'll need to request the remaining pages
+in order to get more results.
+
+It's important to *not* try and guess the format of the pagination URL. Not every
+API call uses the same structure. Instead, extract the pagination information from
+[the Link Header](/rest#pagination), which is sent with every request.
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
 {% ifversion fpt or ghec %}
-## Erros de autenticação básica
+## Basic authentication errors
 
-Em 13 de novembro de 2020 a autenticação de nome de usuário e senha da API REST e da API de Autorizações OAuth tornaram-se obsoletas e já não funcionaram mais.
+On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.
 
-### Como usar `username`/`password` para a autenticação básica
+### Using `username`/`password` for basic authentication
 
-Se você estiver usando `username` e `password` para as chamadas à API, elas não poderão mais ser autenticadas. Por exemplo:
+If you're using `username` and `password` for API calls, then they are no longer able to authenticate. For example:
 
 ```bash
 curl -u my_user:my_password https://api.github.com/user/repos
 ```
 
-Em vez disso, use um [token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) ao testar pontos de extremidade ou fazer o desenvolvimento local:
+Instead, use a [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
 
 ```bash
 curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
-Para os Aplicativos OAuth, você deve usar o [fluxo do aplicativo Web](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para gerar um token OAuth a ser usado no cabeçalho da chamada à API:
+For OAuth Apps, you should use the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate an OAuth token to use in the API call's header:
 
 ```bash
 curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
 
-## Tempos limite
+## Timeouts
 
-Se  {% data variables.product.product_name %} demorar mais de 10 segundos para processar uma solicitação de API, {% data variables.product.product_name %} encerrará a solicitação e você receberá uma resposta de tempo esgotado.
+If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
 
 {% endif %}

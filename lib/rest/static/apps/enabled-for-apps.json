@@ -1356,6 +1356,12 @@
     ],
     "dependabot": [
       {
+        "slug": "list-dependabot-alerts-for-an-organization",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/dependabot/alerts"
+      },
+      {
         "slug": "list-organization-secrets",
         "subcategory": "secrets",
         "verb": "get",
@@ -5138,6 +5144,12 @@
       }
     ],
     "dependabot": [
+      {
+        "slug": "list-dependabot-alerts-for-an-organization",
+        "subcategory": "alerts",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/dependabot/alerts"
+      },
       {
         "slug": "list-organization-secrets",
         "subcategory": "secrets",

@@ -30,7 +30,7 @@ If you publish a container image to {% data variables.packages.prodname_ghcr_or_
 
 By default, when you publish a container image to {% data variables.packages.prodname_ghcr_or_npm_registry %}, the image inherits the access setting of the repository from which the image was published. For example, if the repository is public, the image is also public. If the repository is private, the image is also private, but is accessible from the repository.
 
-This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.packages.prodname_ghcr_or_npm_registry %} using a Personal Access Token (PAT).
+This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.packages.prodname_ghcr_or_npm_registry %} using a % data variables.product.pat_generic %}.
 
 If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)."
 
@@ -46,13 +46,13 @@ If you want to allow a subset of an organization's repositories to access a cont
 
 ### Publishing a container image from a codespace
 
-Seamless access from a codespace to {% data variables.packages.prodname_ghcr_or_npm_registry %} is limited to pulling container images. If you want to publish a container image from inside a codespace, you must use a personal access token (PAT) with the `write:packages` scope.
+Seamless access from a codespace to {% data variables.packages.prodname_ghcr_or_npm_registry %} is limited to pulling container images. If you want to publish a container image from inside a codespace, you must use a {% data variables.product.pat_v1 %} with the `write:packages` scope.
 
 We recommend publishing images via {% data variables.product.prodname_actions %}. For more information, see "[Publishing Docker images](/actions/publishing-packages/publishing-docker-images)" and "[Publishing Node.js packages](/actions/publishing-packages/publishing-nodejs-packages)."
 
 ## Accessing images stored in other container registries
 
-If you are accessing a container image from a registry that isn't {% data variables.packages.prodname_ghcr_or_npm_registry %}, {% data variables.product.prodname_github_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_github_codespaces %} will make the registry available inside your codespace.
+If you are accessing a container image from a registry that isn't {% data variables.packages.prodname_ghcr_or_npm_registry %}, {% data variables.product.prodname_github_codespaces %} checks for the presence of three secrets, which define the server name, username, and {% data variables.product.pat_generic %} for a container registry. If these secrets are found, {% data variables.product.prodname_github_codespaces %} will make the registry available inside your codespace.
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
@@ -71,7 +71,7 @@ For a private image registry in Azure, you could create the following secrets:
 ```
 ACR_CONTAINER_REGISTRY_SERVER = mycompany.azurecr.io
 ACR_CONTAINER_REGISTRY_USER = acr-user-here
-ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
+ACR_CONTAINER_REGISTRY_PASSWORD = <PERSONAL_ACCESS_TOKEN>
 ```
 
 For information on common image registries, see "[Common image registry servers](#common-image-registry-servers)." Note that accessing AWS Elastic Container Registry (ECR) is different.
