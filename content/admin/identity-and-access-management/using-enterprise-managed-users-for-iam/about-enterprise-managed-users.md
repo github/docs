@@ -71,6 +71,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 * {% data variables.enterprise.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise. 
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
 * Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.enterprise.prodname_managed_user %} to collaborate.
 * You can choose whether {% data variables.enterprise.prodname_managed_users %} are able to create repositories owned by their user accounts. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."

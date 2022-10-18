@@ -64,7 +64,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`org`](#org-category-actions) | Contains activities related to organization membership.{% ifversion ghec %}
 | [`org_credential_authorization`](#org_credential_authorization-category-actions) | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 | [`org_secret_scanning_custom_pattern`](#org_secret_scanning_custom_pattern-category-actions) | Contains organization-level activities related to secret scanning custom patterns. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}
-| [`organization_label`](#organization_label-category-actions) | Contains all activities related to default labels for repositories in your organization.
+| [`organization_default_label`](#organization_default_label-category-actions) | Contains all activities related to default labels for repositories in your organization.
 | [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps.
 | [`packages`](#packages-category-actions) | Contains all activities related to {% data variables.product.prodname_registry %}.{% ifversion fpt or ghec %}
 | [`payment_method`](#payment_method-category-actions) | Contains all activities related to how your organization pays for GitHub.{% endif %}
@@ -455,6 +455,16 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 {% endif %}
 
+### `oauth_application` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a new {% data variables.product.prodname_oauth_app %} is created.
+| `destroy` | Triggered when an existing {% data variables.product.prodname_oauth_app %} is deleted.
+| `reset_secret` | Triggered when an {% data variables.product.prodname_oauth_app %}'s client secret is reset.
+| `revoke_tokens` | Triggered when an {% data variables.product.prodname_oauth_app %}'s user tokens are revoked.
+| `transfer` |  Triggered when an existing {% data variables.product.prodname_oauth_app %} is transferred to a new organization.
+
 ### `org` category actions
 
 | Action | Description
@@ -491,9 +501,15 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 | `runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see [Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
 | `runner_group_runner_removed` |  Triggered when the REST API is used to remove a self-hosted runner from a group. For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
-| `runner_group_runners_updated`|  Triggered when a runner group's list of members is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."{% ifversion secret-scanning-audit-log-custom-patterns %}
+| `runner_group_runners_updated`|  Triggered when a runner group's list of members is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
+{%- ifversion code-security-audit-log-events %}
+| `secret_scanning_push_protection_custom_message_disabled` | Triggered when an organization owner or admin disables the custom message triggered by an attempted push to a push-protected repository. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
+| `secret_scanning_push_protection_custom_message_enabled` | Triggered when an organization owner or admin enables the custom message triggered by an attempted push to a push-protected repository. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
+| `secret_scanning_push_protection_custom_message_updated` | Triggered when an organization owner or admin updates the custom message triggered by an attempted push to a push-protected repository. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
+{%- endif %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `secret_scanning_push_protection_disable ` | Triggered when an organization owner or person with admin access to the organization disables push protection for secret scanning. For more information, see "[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `secret_scanning_push_protection_enable ` | Triggered when an organization owner or person with admin access to the organization enables push protection for secret scanning.{% endif %}
+| `secret_scanning_push_protection_enable ` | Triggered when an organization owner or person with admin access to the organization enables push protection for {% data variables.product.prodname_secret_scanning %}.{%- endif %}
 | `self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
 | `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% ifversion fpt or ghes or ghec %}
 | `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}
@@ -529,23 +545,13 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `delete` | Triggered when a custom pattern is removed from secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
 
 {% endif %}
-### `organization_label` category actions
+### `organization_default_label` category actions
 
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when a default label is created.
 | `update` | Triggered when a default label is edited.
 | `destroy` | Triggered when a default label is deleted.
-
-### `oauth_application` category actions
-
-| Action | Description
-|------------------|-------------------
-| `create` | Triggered when a new {% data variables.product.prodname_oauth_app %} is created.
-| `destroy` | Triggered when an existing {% data variables.product.prodname_oauth_app %} is deleted.
-| `reset_secret` | Triggered when an {% data variables.product.prodname_oauth_app %}'s client secret is reset.
-| `revoke_tokens` | Triggered when an {% data variables.product.prodname_oauth_app %}'s user tokens are revoked.
-| `transfer` |  Triggered when an existing {% data variables.product.prodname_oauth_app %} is transferred to a new organization.
 
 ### `packages` category actions
 

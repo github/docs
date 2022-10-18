@@ -23,7 +23,8 @@ describe('server', () => {
     // The first page load takes a long time so let's get it out of the way in
     // advance to call out that problem specifically rather than misleadingly
     // attributing it to the first test
-    await get('/en')
+    const res = await get('/en')
+    expect(res.statusCode).toBe(200)
   })
 
   test('supports HEAD requests', async () => {
@@ -113,6 +114,7 @@ describe('server', () => {
 
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
+    expect(res.statusCode).toBe(200)
     expect('content-security-policy' in res.headers).toBe(true)
 
     const csp = new CspParse(res.headers['content-security-policy'])
@@ -134,6 +136,7 @@ describe('server', () => {
 
   test('sets Fastly cache control headers', async () => {
     const res = await get('/en')
+    expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toMatch(/public, max-age=/)
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
@@ -231,6 +234,7 @@ describe('server', () => {
 
   test('serves /categories.json for support team usage', async () => {
     const res = await get('/categories.json')
+    expect(res.statusCode).toBe(200)
 
     // check for CORS header
     expect(res.headers['access-control-allow-origin']).toBe('*')
@@ -611,6 +615,7 @@ describe('server', () => {
 
     test('redirects old articles to their slugified URL', async () => {
       const res = await get('/articles/about-github-s-ip-addresses')
+      expect(res.statusCode).toBe(302)
       expect(res.text).toBe(
         'Found. Redirecting to /en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses'
       )
@@ -878,12 +883,14 @@ describe('search', () => {
 describe('?json query param for context debugging', () => {
   it('uses query param value as a key', async () => {
     const res = await get('/en?json=page')
+    expect(res.statusCode).toBe(200)
     const page = JSON.parse(res.text)
     expect(typeof page.title).toBe('string')
   })
 
   it('returns a helpful message with top-level keys if query param has no value', async () => {
     const res = await get('/en?json')
+    expect(res.statusCode).toBe(200)
     const context = JSON.parse(res.text)
 
     expect(context.message.includes('context object is too big to display')).toBe(true)
