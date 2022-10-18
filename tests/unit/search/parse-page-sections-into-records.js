@@ -119,5 +119,7 @@ describe('search parsePageSectionsIntoRecords module', () => {
     // But note also that it would also concatenate the text of the heading
     // with the text of the paragraph without a whitespace in between.
     expect(record.content.includes('email addressYou can set')).toBeFalsy()
+    // Make sure that inline elements are still together.
+    expect(record.content).toMatch(/Paragraph\./)
   })
 })

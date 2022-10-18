@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dotcom %} only checks for conflicts within an {% data variables.enterprise.prodname_emu_enterprise %}. {% data variables.enterprise.prodname_managed_users_caps %} can have the same username or email address as a user account outside of the enterprise on {% data variables.product.prodname_dotcom_the_website %}.

@@ -1,6 +1,7 @@
 ---
-title: 创建 Docker 容器操作
-intro: '本指南向您展示构建 Docker 容器操作所需的最少步骤。 '
+title: Creating a Docker container action
+shortTitle: Create a Docker container action
+intro: 'This guide shows you the minimal steps required to build a Docker container action. '
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
@@ -15,50 +16,47 @@ type: tutorial
 topics:
   - Action development
   - Docker
-shortTitle: Docker container action
-ms.openlocfilehash: f22b361f25f406dfdb1233f4d9ce62f2b6b919dc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147518782'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 简介
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-在本指南中，您将了解创建和使用打包的 Docker 容器操作所需的基本组件。 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 操作将在日志文件中打印“Hello World”或“Hello [who-to-greet]”（如果您提供自定义名称）。
+## Introduction
 
-完成此项目后，您应了解如何构建自己的 Docker 容器操作和在工作流程测试该操作。
+In this guide, you'll learn about the basic components needed to create and use a packaged Docker container action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" in the logs or "Hello [who-to-greet]" if you provide a custom name.
+
+Once you complete this project, you should understand how to build your own Docker container action and test it in a workflow.
 
 {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 {% data reusables.actions.context-injection-warning %}
 
-## 先决条件
+## Prerequisites
 
-您可能会发现它有助于基本了解 {% data variables.product.prodname_actions %} 环境变量和 Docker 容器文件系统：
+You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %} environment variables and the Docker container filesystem:
 
-- “[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)”{% ifversion ghae %}
-- “[Docker 容器文件系统](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)”
-{% else %} 
-- “[关于 {% data variables.product.prodname_dotcom %} 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)”{% endif %}
+- "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
+{% ifversion ghae %}
+- "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
+{% else %}
+- "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
+{% endif %}
 
-在开始之前，您需要创建 {% data variables.product.prodname_dotcom %} 仓库。
+Before you begin, you'll need to create a {% data variables.product.prodname_dotcom %} repository.
 
-1. 在 {% data variables.product.product_location %} 上新建存储库。 您可以选择任何仓库名称或如本例一样使用“hello-world-docker-action”。 有关详细信息，请参阅“[创建新存储库](/articles/creating-a-new-repository)”。
+1. Create a new repository on {% data variables.product.product_location %}. You can choose any repository name or use "hello-world-docker-action" like this example. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
 
-1. 将仓库克隆到计算机。 有关详细信息，请参阅“[克隆存储库](/articles/cloning-a-repository)”。
+1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
 
-1. 从您的终端，将目录更改为新仓库。
+1. From your terminal, change directories into your new repository.
 
   ```shell{:copy}
   cd hello-world-docker-action
   ```
 
-## 创建 Dockerfile
+## Creating a Dockerfile
 
-在新的 `hello-world-docker-action` 目录中，创建一个新的 `Dockerfile` 文件。 如果你有问题，请确保你的文件名正确大写（使用大写字母 `D` 但不要大写 `f`）。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的 Dockerfile 支持](/actions/creating-actions/dockerfile-support-for-github-actions)”。
+In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. For more information, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)."
 
 **Dockerfile**
 ```Dockerfile{:copy}
@@ -72,11 +70,12 @@ COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-## 创建操作元数据文件
+## Creating an action metadata file
 
-在上面创建的 `hello-world-docker-action` 目录中创建一个新的 `action.yml` 文件。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”。
+Create a new `action.yml` file in the `hello-world-docker-action` directory you created above. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
-{% raw %} action.yml
+{% raw %}
+**action.yml**
 ```yaml{:copy}
 # action.yml
 name: 'Hello World'
@@ -97,50 +96,63 @@ runs:
 ```
 {% endraw %}
 
-此元数据定义一个 `who-to-greet` 输入和一个 `time` 输出参数。 若要将输入传递给 Docker 容器，应使用 `inputs` 声明输入并在 `args` 关键字中传递输入。 你包含在 `args` 中的所有内容都会传递给容器，但为了让用户更好地发现你的操作，建议使用输入。
+This metadata defines one `who-to-greet`  input and one `time` output parameter. To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
 
-{% data variables.product.prodname_dotcom %} 将从 `Dockerfile` 构建映像，然后使用此映像在新容器中运行命令。
+{% data variables.product.prodname_dotcom %} will build an image from your `Dockerfile`, and run commands in a new container using this image.
 
-## 编写操作代码
+## Writing the action code
 
-您可以选择任何基础 Docker 映像，并因此为您的操作选择任何语言。 以下 shell 脚本示例使用 `who-to-greet` 输入变量在日志文件中打印“Hello [who-to-greet]”。
+You can choose any base Docker image and, therefore, any language for your action. The following shell script example uses the `who-to-greet` input variable to print "Hello [who-to-greet]" in the log file.
 
-接下来，该脚本会获取当前时间并将其设置为作业中稍后运行的操作可以使用的输出变量。 为便于 {% data variables.product.prodname_dotcom %} 识别输出变量，必须以特定语法使用工作流命令：`echo "::set-output name=<output name>::<value>"`。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流命令](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)”。
+Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must {% ifversion actions-save-state-set-output-envs %}write them to the `$GITHUB_OUTPUT` environment file: `echo "<output name>=<value>" >> $GITHUB_OUTPUT`{% else %}use a workflow command in a specific syntax: `echo "::set-output name=<output name>::<value>"`{% endif %}. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)."
 
-1. 在 `hello-world-docker-action` 目录中创建一个新的 `entrypoint.sh` 文件。
+1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
 
-1. 将以下代码添加到 `entrypoint.sh` 文件。
+1. Add the following code to your `entrypoint.sh` file.
 
-  entrypoint.sh
+  **entrypoint.sh**
   ```shell{:copy}
   #!/bin/sh -l
 
   echo "Hello $1"
   time=$(date)
+{%- ifversion actions-save-state-set-output-envs %}
+  echo "time=$time" >> $GITHUB_OUTPUT
+{%- else %}
   echo "::set-output name=time::$time"
+{%- endif %}
   ```
-  如果 `entrypoint.sh` 执行没有任何错误，则操作的状态设置为 `success`。 您还可以在操作的代码中显式设置退出代码以提供操作的状态。 有关详细信息，请参阅“[为操作设置退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
+  If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
-1. 通过在系统上运行以下命令使 `entrypoint.sh` 文件可执行。
+
+1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
   ```shell{:copy}
-  $ chmod +x entrypoint.sh
+  $ git update-index --chmod=+x entrypoint.sh
   ```
 
-## 创建自述文件
+1. Optionally, to check the permission mode of the file in the git index, run the following command.
 
-要让人们了解如何使用您的操作，您可以创建自述文件。 自述文件在您计划公开分享操作时最有用，但也是提醒您或您的团队如何使用该操作的绝佳方式。
+  ```shell{:copy}
+  $ git ls-files --stage entrypoint.sh
+  ```
 
-在 `hello-world-docker-action` 目录中，创建一个用于指定以下信息的 `README.md` 文件：
+   An output like `100755 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       entrypoint.sh` means the file has the executable permission. In this example, `755` denotes the executable permission.
 
-- 操作用途的详细说明。
-- 必需的输入和输出参数。
-- 可选输入和输出参数。
-- 操作使用的密钥。
-- 操作使用的环境变量。
-- 如何在工作流中使用操作的示例。
+## Creating a README
 
-README.md
+To let people know how to use your action, you can create a README file. A README is most helpful when you plan to share your action publicly, but is also a great way to remind you or your team how to use the action.
+
+In your `hello-world-docker-action` directory, create a `README.md` file that specifies the following information:
+
+- A detailed description of what the action does.
+- Required input and output arguments.
+- Optional input and output arguments.
+- Secrets the action uses.
+- Environment variables the action uses.
+- An example of how to use your action in a workflow.
+
+**README.md**
 ```markdown{:copy}
 # Hello world docker action
 
@@ -160,16 +172,16 @@ The time we greeted you.
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
+uses: actions/hello-world-docker-action@{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
 with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-## 提交、标记和推送操作到 {% data variables.product.product_name %}
+## Commit, tag, and push your action to {% data variables.product.product_name %}
 
-从终端中提交 `action.yml`、`entrypoint.sh`、`Dockerfile` 和 `README.md` 文件。
+From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and `README.md` files.
 
-最佳做法是同时为操作版本添加版本标记。 有关对操作进行版本控制的详细信息，请参阅“[关于操作](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)”。
+It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
 
 ```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
@@ -178,17 +190,17 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-## 在工作流程中测试您的操作
+## Testing out your action in a workflow
 
-现在，您已准备好在工作流程中测试您的操作。 当某项操作位于专用存储库中时，该操作只能在同一存储库的工作流中使用。 位于任何存储库内的工作流均可使用公共操作。
+Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-### 使用公共操作的示例
+### Example using a public action
 
-以下工作流代码使用公共 [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) 存储库中已完成的 hello world 操作。 将以下工作流示例代码复制到 `.github/workflows/main.yml` 文件中，但将 `actions/hello-world-docker-action` 替换为存储库和操作名称。 还可以将 `who-to-greet` 输入替换为你的名称。 {% ifversion fpt or ghec %}公共操作即使未发布到 {% data variables.product.prodname_marketplace %} 也可使用。 有关详细信息，请参阅“[发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)”。 {% endif %}
+The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
 
-{% raw %} .github/workflows/main.yml
+**.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
 
@@ -199,20 +211,19 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: actions/hello-world-docker-action@v1
+        uses: actions/hello-world-docker-action{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
-{% endraw %}
 
-### 使用私有操作的示例
+### Example using a private action
 
-将以下示例工作流代码复制到操作存储库中的 `.github/workflows/main.yml` 文件中。 还可以将 `who-to-greet` 输入替换为你的名称。 {% ifversion fpt or ghec %}此操作不能发布到 {% data variables.product.prodname_marketplace %}，并且只能在此仓库中使用。{% endif %}
+Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
 
-.github/workflows/main.yml
+**.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
 
@@ -235,7 +246,7 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
 
-从存储库中，单击“操作”选项卡，然后选择最新的工作流运行。 在“作业”下或可视化图中，单击“表示问候的作业” 。 应会看到“Hello Mona the Octocat”或你用于 `who-to-greet` 输入的名称以及日志中打印的时间戳。
+From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-![在工作流中使用操作的屏幕截图](/assets/images/help/repository/docker-action-workflow-run-updated.png)
+![A screenshot of using your action in a workflow](/assets/images/help/repository/docker-action-workflow-run-updated.png)
 

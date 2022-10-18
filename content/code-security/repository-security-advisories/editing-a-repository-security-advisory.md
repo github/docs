@@ -32,7 +32,7 @@ If you believe you should be credited for a security advisory, please contact th
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
 4. In the "Security Advisories" list, click the security advisory you'd like to edit.
-5. In the upper-right corner of the details for the security advisory, click {% octicon "pencil" aria-label="The edit icon" %}.
+5. In the upper-right corner of the details for the security advisory, click {% octicon "pencil" aria-label="The edit icon" %}. This will open the security advisory form in edit mode.
   ![Edit button for a security advisory](/assets/images/help/security/security-advisory-edit-button.png)
 {% data reusables.repositories.security-advisory-edit-details %}
 {% data reusables.repositories.security-advisory-edit-severity %}

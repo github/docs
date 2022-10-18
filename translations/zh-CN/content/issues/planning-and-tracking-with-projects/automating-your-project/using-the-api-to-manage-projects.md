@@ -95,7 +95,7 @@ You can also find the node ID of all projects in your organization. The followin
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"{organization(login: \"ORGANIZATION") {projectsV2(first: 20) {nodes {id title}}}}"}'
+  --data '{"query":"{organization(login: \"ORGANIZATION\") {projectsV2(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
 
@@ -489,7 +489,7 @@ The following example will add a draft issue to your project. Replace `PROJECT_I
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: "PROJECT_ID" title: "TITLE" body: "BODY"}) {projectItem {id}}}"}'
+  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: \"PROJECT_ID\" title: \"TITLE\" body: \"BODY\"}) {projectItem {id}}}"}'
 ```
 {% endcurl %}
 
@@ -566,7 +566,7 @@ The following example will update the value of a text field for an item. Replace
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "PROJECT_ID" itemId: "ITEM_ID" fieldId: "FIELD_ID" value: { text: "Updated text" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { text: \"Updated text\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 
@@ -620,7 +620,7 @@ The following example will update the value of a single select field for an item
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "PROJECT_ID" itemId: "ITEM_ID" fieldId: "FIELD_ID" value: { singleSelectOptionId: "OPTION_ID" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 
@@ -660,7 +660,7 @@ The following example will update the value of an iteration field for an item.
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "PROJECT_ID" itemId: "ITEM_ID" fieldId: "FIELD_ID" value: { singleSelectOptionId: "OPTION_ID" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 

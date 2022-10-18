@@ -155,9 +155,11 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
+{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. Under "Code security and analysis", click **Security features**.{% else %}
 {% data reusables.enterprise-accounts.advanced-security-policies %}
-{% data reusables.enterprise-accounts.advanced-security-security-features %}
+{% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
 1. Under "Secret scanning custom patterns", click {% ifversion ghes = 3.2 %}**New custom pattern**{% else %}**New pattern**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}

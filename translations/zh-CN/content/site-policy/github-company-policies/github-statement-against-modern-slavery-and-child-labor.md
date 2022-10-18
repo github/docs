@@ -8,6 +8,12 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: ac0cd2da67f8cc9158709e17e16084aea7cf33b1
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556492'
 ---
 *2018 年声明*
 
@@ -20,7 +26,7 @@ GitHub 强烈谴责现代奴役制和童工制的存在和持续，并严格履�
 
 依照[《英国现代奴隶法案》](https://www.legislation.gov.uk/ukpga/2015/30/section/54/enacted)，以及 [ILO 强迫劳动公约 2014 年议定书](https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:P029)、[ILO 关于工作中基本原则和权利的宣言](https://www.ilo.org/declaration/thedeclaration/textdeclaration/lang--en/index.htm) 以及 [联合国可持续发展目标 8.7](https://www.unodc.org/roseap/en/sustainable-development-goals.html#:~:text=Target%208.7%20%2D%20Take%20immediate%20and,labour%20in%20all%20its%20forms)，本 2018 年反对现代奴役制和童工制的声明（以下简称“声明”）阐述了 GitHub 采取了哪些措施避免在其业务经营或供应链中存在现代奴隶和童工。
 
-## <a name="githubs-structure-business-and-supply-chains"></a>GitHub 的结构、业务和供应链
+## GitHub 的结构、业务和供应链
 
 GitHub 是一个软件开发平台，总部位于旧金山，在许多国家/地区拥有雇员和合同工。
 
@@ -37,9 +43,9 @@ GitHub 向全球各地的客户提供免费和付费的软件及基于 Web 的�
 
 GitHub 的供应链包括用于我们的产品和经营的商品和服务，包括计算服务、活动计划、零售和促销物品的采购、办公用品，以及设施租赁（例如，办公场所和数据中心）。
 
-## <a name="policies-in-relation-to-modern-slavery-and-child-labor"></a>关于现代奴役制和童工制的政策
+## 关于现代奴役制和童工制的政策
 
-### <a name="modern-slavery-and-child-labor"></a>现代奴役制和童工制
+### 现代奴役制和童工制
 
 **《GitHub 道德准则》** 禁止故意在其业务经营中采用、参与、支持或容忍现代奴役制（奴役、强迫或强制劳动、人口贩卖、劳役，或囚禁、契约或抵债劳工）或童工制。 任何 GitHub 雇员或合同工如果违反此项禁令，将被解除雇佣或业务关系。
 
@@ -53,7 +59,7 @@ GitHub 在其开展经营的司法辖区遵守关于禁止人口贩卖和童工�
 
 GitHub 实行禁止对举报工作场所相关问题的人员实施报复的政策。 根据本声明，GitHub 允许雇员和合同工举报有关现代奴役制和童工制的问题，无需害怕遭到报复。
 
-## <a name="labor-laws-and-practices"></a>劳工法律和实践
+## 劳工法律和实践
 
 GitHub 劳工实践
 
@@ -74,17 +80,17 @@ GitHub 劳工实践
    - GitHub 为员工提供达到或高于行业标准的福利
    - GitHub 鼓励员工举报有关工作场所的任何投诉，并且不容许对举报者实施报复
 
-## <a name="due-diligence-processes-in-relation-to-modern-slavery-and-child-labor-in-its-business-and-supply-chains"></a>与其业务经营和供应链中的现代奴隶和童工有关的尽职调查流程
+## 与其业务经营和供应链中的现代奴隶和童工有关的尽职调查流程
 
 GitHub 评估其业务经营和供应链中与现代奴隶和童工有关的风险。 利用在人权方面的内部和外部专业资源，GitHub 实施跨职能分析（包括政策、法务、采购、财务和运营，尤其是人力资源），以确定其业务经营和供应链中的哪些部分存在劳动服务，并识别与现代奴隶和童工相关的潜在风险。 GitHub 优先对可能具有更高的严重程度、影响范围或发生概率的风险领域进行更严格的尽职调查、监督和核查。 GitHub 将会继续思考哪里可能存在风险以及如何解决风险。 此外，GitHub 目前要求其供应商保证采取符合本声明的实践，包括遵守与现代奴役制或童工制相关的法律法规。
 
-## <a name="places-in-githubs-business-and-supply-chains-where-there-is-a-risk-of-modern-slavery-and-child-labor-and-steps-github-has-taken-to-assess-and-manage-that-risk"></a>GitHub 的业务经营和供应链中存在现代奴役制和童工制风险的领域，GitHub 为评估和控制该风险而采取的措施
+## GitHub 的业务经营和供应链中存在现代奴役制和童工制风险的领域，GitHub 为评估和控制该风险而采取的措施
 
 GitHub 未发现任何高风险供应商，但是，现代奴役制或童工制更有可能伴随在服务中涉及人工劳动（例如，活动支持、施工、设施服务和食品服务）的供应商发生。 GitHub 将审查其现有供应商，并要求这些高风险领域的供应商确认其根据本声明提供服务。
 
 尽管 GitHub 未获知其业务经营或供应链中确实或涉嫌存在现代奴役制或童工制，并且没有可靠的依据认为正在发生这种情况，但如果 GitHub 本身直接造成了现代奴役制或童工制的发生，GitHub 承诺将提供补救，并纠正由于 GitHub 的制度或流程缺陷而在更广泛的范围内造成的违反本声明的实践模式。 GitHub 对受害者个人提供的补救包括制定方案以立即采取行动消除现代奴役制和童工制实践，并提供资源为受害者提供合理和适当的服务，以补偿受害者受到的伤害。
 
-## <a name="effectiveness-in-ensuring-neither-modern-slavery-nor-child-labor-is-occurring-in-githubs-business-or-supply-chains"></a>在确保 GitHub 的业务经营或供应链中不存在现代奴役制和童工制方面所达到的成效
+## 在确保 GitHub 的业务经营或供应链中不存在现代奴役制和童工制方面所达到的成效
 
 GitHub 遵守并将继续遵守关于现代奴役制和童工制的法律法规。
 
@@ -103,8 +109,8 @@ GitHub 遵守并将继续遵守关于现代奴役制和童工制的法律法规�
 
 从现在起，GitHub 向进行公司采购的雇员提供的采购说明中将提及要求供应商遵守微软的“供应商行为准则”或本声明。
 
-## <a name="training-for-github-staff-about-modern-slavery-and-human-trafficking"></a>为 GitHub 员工提供的关于现代奴役制和人口贩卖的培训
+## 为 GitHub 员工提供的关于现代奴役制和人口贩卖的培训
 
 GitHub 将针对 GitHub 的业务经营和供应链提供关于现代奴役制和童工制的培训，并要求所有员工接受该培训。 对于在所提供的服务中涉及到人工劳动（例如，活动支持、施工、设施服务和食品服务）的供应商，GitHub 会将其重点标记为具有更高潜在风险的领域。
 
-**GitHub 董事会已批准[本声明](/assets/images/help/site-policy/github-statement-against-modern-slavery-and-child-labor.pdf)。**
+**GitHub 董事会已批准 [本声明](/assets/images/help/site-policy/github-statement-against-modern-slavery-and-child-labor.pdf)。**

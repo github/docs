@@ -8,6 +8,12 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 13a5143dbc6013c71d97078e9a8e44c96c5def3c
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556668'
 ---
 GitHub tiene la suerte de contar con muchos desarrolladores que integran su código en nuestra plataforma. Creemos que es algo fantástico y queremos hacer que esta experiencia resulte aún mejor.  El Programa para Desarrolladores de GitHub (el «Programa») nos ayuda a contactar con usted, a compartir información y a apoyar sus esfuerzos creativos mejor que nunca. La relación especial entre GitHub y la comunidad de desarrolladores que crea el Programa requiere una serie especial de términos. Este es el Acuerdo de Desarrollador Registrado («Acuerdo»).
 

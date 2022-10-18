@@ -36043,6 +36043,11 @@ enum SecurityAdvisoryEcosystem {
   PIP
 
   """
+  Dart packages hosted at pub.dev
+  """
+  PUB
+
+  """
   Ruby gems hosted at RubyGems.org
   """
   RUBYGEMS
