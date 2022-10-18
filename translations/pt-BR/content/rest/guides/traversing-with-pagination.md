@@ -1,6 +1,6 @@
 ---
-title: Deslocamento com paginação
-intro: Explore como usar a paginação para gerenciar as suas respostas com alguns exemplos usando a API de pesquisa.
+title: Traversing with pagination
+intro: Explore how to use pagination to manage your responses with some examples using the Search API.
 redirect_from:
   - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
@@ -12,84 +12,104 @@ versions:
 topics:
   - API
 shortTitle: Traverse with pagination
-ms.openlocfilehash: be0e961847e187b72848eda558636fe3ecb800bd
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145126758'
 ---
-A {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API fornece uma vasta riqueza de informações para os desenvolvedores consumirem.
-Na maioria das vezes, você poderá até descobrir que está solicitando _muita_ informação e, para manter nossos servidores satisfeitos, a API [paginará automaticamente os itens solicitados](/rest/overview/resources-in-the-rest-api#pagination).
 
-Neste guia, faremos algumas chamadas à API de Pesquisa e iterar nos resultados usando a paginação. Encontre o código-fonte completo deste projeto no repositório [platform-samples][platform samples].
+The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume.
+Most of the time, you might even find that you're asking for _too much_ information,
+and in order to keep our servers happy, the API will automatically [paginate the requested items](/rest/overview/resources-in-the-rest-api#pagination).
+
+In this guide, we'll make some calls to the Search API, and iterate over
+the results using pagination. You can find the complete source code for this project
+in the [platform-samples][platform samples] repository.
 
 {% data reusables.rest-api.dotcom-only-guide-note %}
 
-## Fundamentos da paginação
+## Basics of Pagination
 
-Para começar, é importante conhecer alguns fatos sobre o recebimento de itens paginados:
+To start with, it's important to know a few facts about receiving paginated items:
 
-1. Diferentes chamadas de API respondem com diferentes padrões. Por exemplo, uma chamada a [Listar repositórios públicos](/rest/reference/repos#list-public-repositories) fornece itens paginados em conjuntos de 30, enquanto uma chamada à API de Pesquisa do GitHub fornece itens em conjuntos de 100
-2. Você pode especificar quantos itens receber (até um máximo de 100); mas
-3. Por razões técnicas, nem todos os pontos de referência comportam-se da mesma forma. Por exemplo, os [eventos](/rest/reference/activity#events) não permitirão que você defina um número máximo para os itens a serem recebidos.
-Leia a documentação sobre como lidar com resultados paginados para pontos de extremidade específicos.
+1. Different API calls respond with different defaults. For example, a call to
+[List public repositories](/rest/reference/repos#list-public-repositories)
+provides paginated items in sets of 30, whereas a call to the GitHub Search API
+provides items in sets of 100
+2. You can specify how many items to receive (up to a maximum of 100); but,
+3. For technical reasons, not every endpoint behaves the same. For example,
+[events](/rest/reference/activity#events) won't let you set a maximum for items to receive.
+Be sure to read the documentation on how to handle paginated results for specific endpoints.
 
-Informações sobre paginação são fornecidas no [cabeçalho Link](https://datatracker.ietf.org/doc/html/rfc5988) de uma chamada à API. Por exemplo, vamos fazer uma solicitação do cURL à API de pesquisa para descobrir quantas vezes os projetos da Mozilla usam a frase `addClass`:
+Information about pagination is provided in [the Link header](https://datatracker.ietf.org/doc/html/rfc5988)
+of an API call. For example, let's make a curl request to the search API, to find
+out how many times Mozilla projects use the phrase `addClass`:
 
 ```shell
 $ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla"
 ```
 
-O parâmetro `-I` indica que só nos importamos com os cabeçalhos, não com o conteúdo real. Ao examinar o resultado, você notará algumas informações no cabeçalho
-Link parecidas com estas:
+The `-I` parameter indicates that we only care about the headers, not the actual
+content. In examining the result, you'll notice some information in the Link header
+that looks like this:
 
     Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
-Vamos explicar isso. `rel="next"` indica que a próxima página é `page=2`. Isso faz sentido, pois, por padrão, todas as consultas paginadas começam na página `1.` `rel="last"` fornece mais informações, indicando que a última página de resultados está na página `34`.
-Assim, temos mais 33 páginas de informações sobre o `addClass` que podemos consumir.
-Ótimo!
+Let's break that down. `rel="next"` says that the next page is `page=2`. This makes
+sense, since by default, all paginated queries start at page `1.` `rel="last"`
+provides some more information, stating that the last page of results is on page `34`.
+Thus, we have 33 more pages of information about `addClass` that we can consume.
+Nice!
 
-**Sempre** confie nessas relações de vínculo fornecidas a você. Não tente adivinhar nem construir a sua própria URL.
+**Always** rely on these link relations provided to you. Don't try to guess or construct your own URL.
 
-### Navegando pelas páginas
+### Navigating through the pages
 
-Agora que você sabe quantas páginas há para receber, comece a navegar por elas para consumir os resultados. Faça isso transmitindo um parâmetro `page`. Por padrão, `page` sempre começa em `1`. Vamos pular para a página 14 e ver o que acontece:
+Now that you know how many pages there are to receive, you can start navigating
+through the pages to consume the results. You do this by passing in a `page`
+parameter. By default, `page` always starts at `1`. Let's jump ahead to page 14
+and see what happens:
 
 ```shell
 $ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&page=14"
 ```
 
-Aqui está o cabeçalho do link mais uma vez:
+Here's the link header once more:
 
     Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
-Como esperado, `rel="next"` está em 15, e `rel="last"` ainda é 34. Mas agora temos mais informações: `rel="first"` indica a URL da _primeira_ página e o mais importante: `rel="prev"` informa o número da página anterior. Ao usar essas informações, você pode construir uma interface do usuário que permite que os usuários pulem entre a primeira, a anterior, a seguinte ou a última lista de resultados em uma chamada à API.
+As expected, `rel="next"` is at 15, and `rel="last"` is still 34. But now we've
+got some more information: `rel="first"` indicates the URL for the _first_ page,
+and more importantly, `rel="prev"` lets you know the page number of the previous
+page. Using this information, you could construct some UI that lets users jump
+between the first, previous, next, or last list of results in an API call.
 
-### Alterar o número de itens recebidos
+### Changing the number of items received
 
-Ao transmitir o parâmetro `per_page`, você pode especificar quantos itens deseja retornar em cada página, até o limite de 100 itens. Vamos experimentar solicitar 50 itens sobre `addClass`:
+By passing the `per_page` parameter, you can specify how many items you want
+each page to return, up to 100 items. Let's try asking for 50 items about `addClass`:
 
 ```shell
 $ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
-Observe o que ele faz com a resposta do cabeçalho:
+Notice what it does to the header response:
 
     Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
-Como você deve ter imaginado, as informações de `rel="last"` indicam que a última página agora é a 20. Isso ocorre porque estamos solicitando mais informações por página sobre os resultados.
+As you might have guessed, the `rel="last"` information says that the last page
+is now 20. This is because we are asking for more information per page about
+our results.
 
-## Consumir informações
+## Consuming the information
 
-Você não deseja fazer chamadas de baixo nível ao cURL apenas para trabalhar com a paginação. Portanto, vamos escrever um pequeno script do Ruby que faz tudo o que descrevemos acima.
+You don't want to be making low-level curl calls just to be able to work with
+pagination, so let's write a little Ruby script that does everything we've
+just described above.
 
-Como sempre, primeiro, precisaremos da [biblioteca Octokit.rb do Ruby do GitHub][octokit.rb] e transmitiremos nosso [token de acesso pessoal][personal token]:
+As always, first we'll require [GitHub's Octokit.rb][octokit.rb] Ruby library, and
+pass in our [{% data variables.product.pat_generic %}][personal token]:
 
 ``` ruby
 require 'octokit'
@@ -99,17 +119,26 @@ require 'octokit'
 client = Octokit::Client.new :access_token => ENV['MY_PERSONAL_TOKEN']
 ```
 
-Em seguida, executaremos a pesquisa usando o método `search_code` do Octokit. Ao contrário do uso do `curl`, também podemos recuperar imediatamente o número de resultados. Portanto, vamos fazer isso:
+Next, we'll execute the search, using Octokit's `search_code` method. Unlike
+using `curl`, we can also immediately retrieve the number of results, so let's
+do that:
 
 ``` ruby
 results = client.search_code('addClass user:mozilla')
 total_count = results.total_count
 ```
 
-Agora, vamos usar o número da última página, de maneira similar as informações de `page=34>; rel="last"` no cabeçalho Link. O Octokit.rb dá suporte a informações de paginação por meio de uma implementação chamada "[Relações de vínculo de hipermídia][hypermedia-relations]".
-Não entraremos em detalhes sobre o que ela é, mas basta dizer que cada elemento na variável `results` tem um hash chamado `rels`, que pode conter informações sobre `:next`, `:last`, `:first` e `:prev`, dependendo do resultado em que você está. Essas relações também contêm informações sobre a URL resultante, pela chamada a `rels[:last].href`.
+Now, let's grab the number of the last page, similar to `page=34>; rel="last"`
+information in the link header. Octokit.rb support pagination information through
+an implementation called "[Hypermedia link relations][hypermedia-relations]."
+We won't go into detail about what that is, but, suffice to say, each element
+in the `results` variable has a hash called `rels`, which can contain information
+about `:next`, `:last`, `:first`, and `:prev`, depending on which result you're
+on. These relations also contain information about the resulting URL, by calling
+`rels[:last].href`.
 
-Sabendo disso, vamos usar o número de página do último resultado e apresentar todas essas informações ao usuário:
+Knowing this, let's grab the page number of the last result, and present all
+this information to the user:
 
 ``` ruby
 last_response = client.last_response
@@ -118,8 +147,13 @@ number_of_pages = last_response.rels[:last].href.match(/page=(\d+).*$/)[1]
 puts "There are #{total_count} results, on #{number_of_pages} pages!"
 ```
 
-Finalmente, vamos iterar entre os resultados. Você pode fazer isso com um loop `for i in 1..number_of_pages.to_i`, mas vamos seguir os cabeçalhos `rels[:next]` para recuperar as informações de cada página. Para simplificar, vamos apenas usar o caminho do arquivo do primeiro resultado de cada página. Para fazer isso, precisaremos de um loop, e, no final de cada loop, recuperaremos o conjunto de dados da próxima página seguindo as informações de `rels[:next]`.
-O loop será concluído quando não houver informações de `rels[:next]` a serem consumidas (em outras palavras, estivermos em `rels[:last]`). Poderá ser semelhante ao seguinte:
+Finally, let's iterate through the results. You could do this with a loop `for i in 1..number_of_pages.to_i`,
+but instead, let's follow the `rels[:next]` headers to retrieve information from
+each page. For the sake of simplicity, let's just grab the file path of the first
+result from each page. To do this, we'll need a loop; and at the end of every loop,
+we'll retrieve the data set for the next page by following the `rels[:next]` information.
+The loop will finish when there is no `rels[:next]` information to consume (in other
+words, we are at `rels[:last]`). It might look something like this:
 
 ``` ruby
 puts last_response.data.items.first.path
@@ -129,7 +163,9 @@ until last_response.rels[:next].nil?
 end
 ```
 
-Alterar o número de itens por página é extremamente simples com Octokit.rb. Basta transmitir um hash de opções `per_page` para a construção inicial do cliente. Depois disso, o código permanecerá intacto:
+Changing the number of items per page is extremely simple with Octokit.rb. Simply
+pass a `per_page` options hash to the initial client construction. After that,
+your code should remain intact:
 
 ``` ruby
 require 'octokit'
@@ -156,15 +192,17 @@ until last_response.rels[:next].nil?
 end
 ```
 
-## Construir links de paginação
+## Constructing Pagination Links
 
-Normalmente, com a paginação, sua meta não é concatenar todos os resultados possíveis, mas produzir um conjunto de navegação, como este:
+Normally, with pagination, your goal isn't to concatenate all of the possible
+results, but rather, to produce a set of navigation, like this:
 
-![Amostra dos links de paginação](/assets/images/pagination_sample.png)
+![Sample of pagination links](/assets/images/pagination_sample.png)
 
-Vamos esboçar uma microversão do que isso poderia implicar.
+Let's sketch out a micro-version of what that might entail.
 
-Com base no código acima, já sabemos que podemos obter o `number_of_pages` nos resultados paginados com a primeira chamada:
+From the code above, we already know we can get the `number_of_pages` in the
+paginated results from the first call:
 
 ``` ruby
 require 'octokit'
@@ -183,7 +221,7 @@ puts last_response.rels[:last].href
 puts "There are #{total_count} results, on #{number_of_pages} pages!"
 ```
 
-A partir daí, podemos construir uma linda representação em ASCII das caixas numéricas:
+From there, we can construct a beautiful ASCII representation of the number boxes:
 ``` ruby
 numbers = ""
 for i in 1..number_of_pages.to_i
@@ -192,7 +230,8 @@ end
 puts numbers
 ```
 
-Vamos simular um usuário clicando em uma dessas caixas, construindo um número aleatório:
+Let's simulate a user clicking on one of these boxes, by constructing a random
+number:
 
 ``` ruby
 random_page = Random.new
@@ -201,13 +240,15 @@ random_page = random_page.rand(1..number_of_pages.to_i)
 puts "A User appeared, and clicked number #{random_page}!"
 ```
 
-Agora que temos um número de página, podemos usar o Octokit para recuperar explicitamente essa página individual transmitindo a opção `:page`:
+Now that we have a page number, we can use Octokit to explicitly retrieve that
+individual page, by passing the `:page` option:
 
 ``` ruby
 clicked_results = client.search_code('addClass user:mozilla', :page => random_page)
 ```
 
-Caso desejemos incrementar um pouco, também podemos usar as páginas anterior e a próxima a fim de gerar links para os elementos anterior (`<<`) e posterior (`>>`):
+If we wanted to get fancy, we could also grab the previous and next pages, in
+order to generate links for back (`<<`) and forward (`>>`) elements:
 
 ``` ruby
 prev_page_href = client.last_response.rels[:prev] ? client.last_response.rels[:prev].href : "(none)"

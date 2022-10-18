@@ -17,7 +17,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About staging instances
 
-{% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.product.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
+{% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.location.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
 
 For example, to protect against loss of data, you can regularly validate the backup of your production instance. You can regularly restore the backup of your production data to a separate {% data variables.product.product_name %} instance in a staging environment. On this staging instance, you could also test the upgrade to the latest feature release of {% data variables.product.product_name %}.
 
@@ -136,7 +136,7 @@ To access the staging instance using the same hostname, update your local hosts 
 
 {% note %}
 
-**Note**: Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.product.product_location %} is not supported. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+**Note**: Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.location.product_location %} is not supported. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
 
 {% endnote %}
 

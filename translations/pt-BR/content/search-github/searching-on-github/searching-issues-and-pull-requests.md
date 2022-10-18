@@ -20,7 +20,7 @@ You can search for issues and pull requests globally across all of {% data varia
 {% tip %}
 
 **Tips:**{% ifversion ghes or ghae %}
-  - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.product.product_location %}.{% endif %}
+  - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
   - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
   - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
