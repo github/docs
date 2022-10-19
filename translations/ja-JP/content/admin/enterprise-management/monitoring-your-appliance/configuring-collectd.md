@@ -1,6 +1,6 @@
 ---
-title: collectd のコンフィグレーション
-intro: '{% data variables.product.prodname_enterprise %} では、`collectd` でデータを収集し、外部の `collectd` サーバーに送信することができます。 CPU の使用率やメモリーとディスクの消費、ネットワークインタフェーストラフィックとエラー、仮想マシンの全体的な負荷などのデータを収集しています。'
+title: Configuring collectd
+intro: '{% data variables.product.prodname_enterprise %} can gather data with `collectd` and send it to an external `collectd` server. Among other metrics, we gather a standard set of data such as CPU utilization, memory and disk consumption, network interface traffic and errors, and the VM''s overall load.'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
   - /enterprise/admin/articles/configuring-collectd
@@ -15,21 +15,15 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
-ms.openlocfilehash: f63eb940681be3131a470a7786e134550fdba152
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145120518'
 ---
-## 外部 `collectd` サーバーを設定する
+## Set up an external `collectd` server
 
-外部 `collectd` サーバーをまだ設定していない場合、{% data variables.product.product_location %} で `collectd` 転送を有効にする前に設定する必要があります。 `collectd`サーバーでバージョン 5.x 以降を実行している`collectd`必要があります。
+If you haven't already set up an external `collectd` server, you will need to do so before enabling `collectd` forwarding on {% data variables.location.product_location %}. Your `collectd` server must be running `collectd` version 5.x or higher.
 
-1. `collectd` サーバーにログインします。
-2. `collectd` を作成、または編集することで、ネットワークプラグインをロードし、適切な値をサーバとポートのディレクティブに追加します。 ほとんどのディストリビューションでこれは `/etc/collectd/collectd.conf` にあります。
+1. Log into your `collectd` server.
+2. Create or edit the `collectd` configuration file to load the network plugin and populate the server and port directives with the proper values. On most distributions, this is located at `/etc/collectd/collectd.conf`
 
-`collectd` サーバーを実行する *collectd.conf* 例:
+An example *collectd.conf* to run a `collectd` server:
 
     LoadPlugin network
     ...
@@ -38,32 +32,34 @@ ms.locfileid: '145120518'
         Listen "0.0.0.0" "25826"
     </Plugin>
 
-## {% data variables.product.prodname_enterprise %}でcollectd転送を有効にする
+## Enable collectd forwarding on {% data variables.product.prodname_enterprise %}
 
-既定では、`collectd` 転送は {% data variables.product.prodname_enterprise %} で無効になっています。 次の手順に従って、`collectd` 転送を有効にして設定します。
+By default, `collectd` forwarding is disabled on {% data variables.product.prodname_enterprise %}. Follow the steps below to enable and configure `collectd` forwarding:
 
-{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
-1. ログの転送設定の下にある **[collectd 転送を有効にする]** を選択します。
-1. **[サーバー アドレス]** フィールドには {% data variables.product.prodname_enterprise %} のアプライアンスの統計を転送したい`collectd` サーバーのアドレスを入力します。
-1. **[ポート]** フィールドに、`collectd` サーバーへの接続に使用するポートを入力します。 (デフォルトは 25826)
-1. **[暗号化のセットアップ]** ドロップダウン メニューで、`collectd` サーバーとの通信のセキュリティ レベルを選択します。 (なし、署名付きパケット、パケットの暗号化) {% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+1. Below the log forwarding settings, select **Enable collectd forwarding**.
+1. In the **Server address** field, type the address of the `collectd` server to which you'd like to forward {% data variables.product.prodname_enterprise %} appliance statistics.
+1. In the **Port** field, type the port used to connect to the `collectd` server. (Defaults to 25826)
+1. In the **Cryptographic setup** dropdown menu, select the security level of communications with the `collectd` server. (None, signed packets, or encrypted packets.)
+{% data reusables.enterprise_management_console.save-settings %}
 
-## 収集されたデータを `ghe-export-graphs` でエクスポートする
+## Exporting collectd data with `ghe-export-graphs`
 
-コマンドライン ツール `ghe-export-graphs` では、`collectd` によって RRD データベースに格納されるデータがエクスポートされます。 このコマンドは、データを XML にして、1 つの TAR 書庫 (`.tgz`) にエクスポートします。
+The command-line tool `ghe-export-graphs` will export the data that `collectd` stores in RRD databases. This command turns the data into XML and exports it into a single tarball (`.tgz`).
 
-その主な用途は、Support Bundleを一括ダウンロードする必要なく、{% data variables.contact.contact_ent_support %}のチームに仮想マシンのパフォーマンスに関するデータ提供することです。 定期的なバックアップエクスポートに含めてはなりません。また、その逆のインポートもありません。 {% data variables.contact.contact_ent_support %}に連絡したとき、問題解決を容易にするため、このデータが必要となる場合があります。
+Its primary use is to provide the {% data variables.contact.contact_ent_support %} team with data about a VM's performance, without the need for downloading a full Support Bundle. It shouldn't be included in your regular backup exports and there is no import counterpart. If you contact {% data variables.contact.contact_ent_support %}, we may ask for this data to assist with troubleshooting.
 
-### 使用
+### Usage
 
 ```shell
 ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname]:~/graphs.tar.gz .
 ```
 
-## トラブルシューティング
+## Troubleshooting
 
-### 中心の collectd サーバはデータを受信していない
+### Central collectd server receives no data
 
-{% data variables.product.prodname_enterprise %} は `collectd` バージョン 5.x に付属しています。 `collectd` 5.x には、4.x リリース シリーズとの下位互換性がありません。 {% data variables.product.product_location %} から送られるデータを受信するには、中心の `collectd` サーバーは 5.x 以上のバージョンでなければなりません。
+{% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. Your central `collectd` server needs to be at least version 5.x to accept data sent from {% data variables.location.product_location %}.
 
-他に質問や問題がある場合、{% data variables.contact.contact_ent_support %}までお問い合わせください。
+For help with further questions or issues, contact {% data variables.contact.contact_ent_support %}.

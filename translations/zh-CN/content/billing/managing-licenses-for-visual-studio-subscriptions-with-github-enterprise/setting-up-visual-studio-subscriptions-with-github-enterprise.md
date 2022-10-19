@@ -1,6 +1,6 @@
 ---
-title: 使用 GitHub Enterprise 设置 Visual Studio 订阅
-intro: '您的团队订阅 {% data variables.product.prodname_vs %} 还可以获得 {% data variables.product.prodname_enterprise %} 的访问权限。'
+title: Setting up Visual Studio subscriptions with GitHub Enterprise
+intro: 'Your team''s subscription to {% data variables.product.prodname_vs %} can also provide access to {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
 type: how_to
@@ -8,67 +8,64 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: Set up
-ms.openlocfilehash: 644a106a749a8c8324b6a3e83dcaa72c8ad878b1
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147717955'
 ---
-## 关于 {% data variables.product.prodname_vss_ghe %} 的设置
 
-{% data reusables.enterprise-accounts.vss-ghe-description %} 有关详细信息，请参阅“[关于 {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)”。
+## About setup of {% data variables.product.prodname_vss_ghe %}
 
-本指南展示团队如何获得 {% data variables.product.prodname_vs %} 订阅者的许可，以及 {% data variables.product.prodname_enterprise %} 使用入门。
+{% data reusables.enterprise-accounts.vss-ghe-description %} For more information, see "[About {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)."
 
-如果你更喜欢视频，可以观看 Microsoft Visual Studio 的 YouTube 频道上的[使用 {% data variables.product.prodname_vs %} 订阅设置 {% data variables.product.prodname_enterprise %} 许可证](https://www.youtube.com/watch?v=P_zBgp_BE_I)。
+This guide shows you how your team can get {% data variables.product.prodname_vs %} subscribers licensed and started with {% data variables.product.prodname_enterprise %}.
 
-## {% data variables.product.prodname_vss_ghe %} 的角色
+If you prefer video, you can watch [Setting up your {% data variables.product.prodname_enterprise %} licenses with {% data variables.product.prodname_vs %} subscriptions](https://www.youtube.com/watch?v=P_zBgp_BE_I) on 
+Microsoft Visual Studio's YouTube channel.
 
-在设置 {% data variables.product.prodname_vss_ghe %} 之前，请务必了解此组合产品的角色。
+## Roles for {% data variables.product.prodname_vss_ghe %}
 
-| 角色 | 服务 | 说明 | 详细信息 |
+Before setting up {% data variables.product.prodname_vss_ghe %}, it's important to understand the roles for this combined offering.
+
+| Role | Service | Description | More information |
 | :- | :- | :- | :- |
-| **订阅管理员** | {% data variables.product.prodname_vs %} 订阅 | 为 {% data variables.product.prodname_vs %} 订阅分配许可证的人员 | Microsoft Docs 中的[管理员职责概述](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities) |
-| **订阅服务器** | {% data variables.product.prodname_vs %} 订阅 | 使用许可证进行 {% data variables.product.prodname_vs %} 订阅的人员 | Microsoft Docs 中的 [Visual Studio 订阅文档](https://docs.microsoft.com/en-us/visualstudio/subscriptions/)。 |
-| **企业所有者** | {% data variables.product.prodname_dotcom %} | 在 {% data variables.product.product_location %} 上拥有企业管理员个人帐户的人 | [企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner) |
-| **组织所有者** | {% data variables.product.prodname_dotcom %} | 在 {% data variables.product.product_location %} 上拥有团队企业中组织所有者个人帐户的人员 | [组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners) |
-| **企业成员** | {% data variables.product.prodname_dotcom %} | 在 {% data variables.product.product_location %} 上拥有企业成员个人帐户的人员 | [企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members)  |
+| **Subscriptions admin** | {% data variables.product.prodname_vs %} subscription | Person who assigns licenses for {% data variables.product.prodname_vs %} subscription | [Overview of admin responsibilities](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities) in Microsoft Docs |
+| **Subscriber** | {% data variables.product.prodname_vs %} subscription | Person who uses a license for {% data variables.product.prodname_vs %} subscription | [Visual Studio Subscriptions documentation](https://docs.microsoft.com/en-us/visualstudio/subscriptions/) in Microsoft Docs |
+| **Enterprise owner** | {% data variables.product.prodname_dotcom %} | Person who has a personal account that's an administrator of an enterprise on {% data variables.location.product_location %} | "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)" |
+| **Organization owner** | {% data variables.product.prodname_dotcom %} | Person who has a personal account that's an owner of an organization in your team's enterprise on {% data variables.location.product_location %} | "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)" |
+| **Enterprise member** | {% data variables.product.prodname_dotcom %} | Person who has a personal account that's a member of an enterprise on {% data variables.location.product_location %} | "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members)"  |
 
-## 先决条件
+## Prerequisites
 
-- 团队的 {% data variables.product.prodname_vs %} 订阅必须包含 {% data variables.product.prodname_enterprise %}。 有关详细信息，请参阅 {% data variables.product.prodname_vs %} 网站上的 [{% data variables.product.prodname_vs %} 订阅和权益](https://visualstudio.microsoft.com/subscriptions/)以及 Microsoft 文档中的[管理员职责概述](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities)。
+- Your team's {% data variables.product.prodname_vs %} subscription must include {% data variables.product.prodname_enterprise %}. For more information, see [{% data variables.product.prodname_vs %} Subscriptions and Benefits](https://visualstudio.microsoft.com/subscriptions/) on the {% data variables.product.prodname_vs %} website and
+ [Overview of admin responsibilities](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities) in Microsoft Docs.
  
- - 您的团队必须在 {% data variables.product.product_location %} 上有企业。 如果您不确定您的团队是否拥有企业，请与您的 {% data variables.product.prodname_dotcom %} 管理员联系。 如果您不确定团队中谁负责 {% data variables.product.prodname_dotcom %}，请联系 {% data variables.contact.contact_enterprise_sales %}。 有关详细信息，请参阅“[关于企业帐户](/admin/overview/about-enterprise-accounts)”。
+ - Your team must have an enterprise on {% data variables.location.product_location %}. If you're not sure whether your team has an enterprise, contact your {% data variables.product.prodname_dotcom %} administrator. If you're not sure who on your team is responsible for {% data variables.product.prodname_dotcom %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 
-## 设置 {% data variables.product.prodname_vss_ghe %}
+## Setting up {% data variables.product.prodname_vss_ghe %}
 
-要设置 {% data variables.product.prodname_vss_ghe %}，团队成员必须完成以下任务。
+To set up {% data variables.product.prodname_vss_ghe %}, members of your team must complete the following tasks.
 
-一个人或许能够完成任务，因为此人具有所有角色，但您可能需要与多个人协调任务。 有关详细信息，请参阅“[{% data variables.product.prodname_vss_ghe %} 的角色](#roles-for-visual-studio-subscriptions-with-github-enterprise)”。
+One person may be able to complete the tasks because the person has all of the roles, but you may need to coordinate the tasks with multiple people. For more information, see "[Roles for {% data variables.product.prodname_vss_ghe %}](#roles-for-visual-studio-subscriptions-with-github-enterprise)."
 
-1. 企业所有者必须在 {% data variables.product.product_location %} 上创建至少一个组织。 有关详细信息，请参阅“[将组织添加到企业](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)”。
+1. An enterprise owner must create at least one organization in your enterprise on {% data variables.location.product_location %}. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 
-1. 订阅管理员必须将 {% data variables.product.prodname_vs %} 许可证分配给 {% data variables.product.prodname_vss_admin_portal_with_url %} 中的订阅者。 更多信息请参阅 Microsoft 文档中的 [{% data variables.product.prodname_vs %} 订阅管理员门户概述](https://docs.microsoft.com/en-us/visualstudio/subscriptions/using-admin-portal)和[在 {% data variables.product.prodname_vs %} 订阅管理员门户中分配 {% data variables.product.prodname_vs %} 许可证](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-license)。
+1. The subscription admin must assign a license for {% data variables.product.prodname_vs %} to a subscriber in {% data variables.product.prodname_vss_admin_portal_with_url %}. For more information, see [Overview of the {% data variables.product.prodname_vs %} Subscriptions Administrator Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/using-admin-portal) and [Assign {% data variables.product.prodname_vs %} Licenses in the {% data variables.product.prodname_vs %} Subscriptions Administration Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-license) in Microsoft Docs.
 
-1. （可选）如果订阅管理员在将 {% data variables.product.prodname_enterprise %} 添加到订阅之前将许可证分配给 {% data variables.product.prodname_vs %} 中的订阅者，则订阅管理员可以在 {% data variables.product.prodname_vs %} 管理门户中将订阅者移动到组合产品/服务。 有关详细信息，请参阅 Microsoft Docs 中的[使用 {% data variables.product.prodname_enterprise %} 管理 {% data variables.product.prodname_vs %} 订阅](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-github#moving-to-visual-studio-with-github-enterprise)。
+1. Optionally, if the subscription admin assigned licenses to subscribers in {% data variables.product.prodname_vs %} before adding {% data variables.product.prodname_enterprise %} to the subscription, the subscription admin can move the subscribers to the combined offering in the {% data variables.product.prodname_vs %} administration portal. For more information, see [Manage {% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-github#moving-to-visual-studio-with-github-enterprise) in Microsoft Docs.
 
-1. 如果订阅管理员尚未禁用电子邮件通知，则订阅者将收到两封确认电子邮件。 有关详细信息，请参阅Microsoft 文档中的[包含 {% data variables.product.prodname_enterprise %} 的 {% data variables.product.prodname_vs %} 订阅](https://docs.microsoft.com/en-us/visualstudio/subscriptions/access-github#what-is-the-visual-studio-subscription-with-github-enterprise-setup-process)。
+1. If the subscription admin has not disabled email notifications, the subscriber will receive two confirmation emails. For more information, see [{% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/en-us/visualstudio/subscriptions/access-github#what-is-the-visual-studio-subscription-with-github-enterprise-setup-process) in Microsoft Docs.
 
-1. 组织所有者必须在步骤 1 中的 {% data variables.product.product_location %} 上邀请订阅者加入组织。 订阅者可以使用 {% data variables.product.prodname_dotcom_the_website %} 上的现有个人帐户或新建一个帐户来接受邀请。 订阅者加入组织后，订阅者将成为企业成员。 有关详细信息，请参阅“[邀请用户加入你的组织](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)”。
+1. An organization owner must invite the subscriber to the organization on {% data variables.location.product_location %} from step 1. The subscriber can accept the invitation with an existing personal account on {% data variables.product.prodname_dotcom_the_website %} or create a new account. After the subscriber joins the organization, the subscriber becomes an enterprise member. For more information, see "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
 
    {% tip %}
 
-   **提示**：
+   **Tips**:
 
-   - 虽然不是必需的，但我们建议组织所有者向订阅者的用户主名 (UPN) 使用的同一电子邮件地址发送邀请。 当 {% data variables.product.product_location %} 上的电子邮件地址与订阅者的 UPN 匹配时，可以确保其他企业不会索要该订阅者的许可证。
-   - 如果订阅者在 {% data variables.product.product_location %} 上接受具有现有个人帐户的组织邀请，我们建议订阅者在 {% data variables.product.product_location %} 上将他们用于 {% data variables.product.prodname_vs %} 的电子邮件地址添加到其个人帐户。 有关详细信息，请参阅“[将电子邮件地址添加到 {% data variables.product.prodname_dotcom %} 帐户](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)”。
-   - 如果组织所有者必须邀请大量订阅者，脚本可以使进程更快。 有关详细信息，请参阅 `github/platform-samples` 存储库中的[示例 PowerShell 脚本](https://github.com/github/platform-samples/blob/master/api/powershell/invite_members_to_org.ps1)。
+   - While not required, we recommend that the organization owner sends an invitation to the same email address used for the subscriber's User Primary Name (UPN). When the email address on {% data variables.location.product_location %} matches the subscriber's UPN, you can ensure that another enterprise does not claim the subscriber's license.
+   - If the subscriber accepts the invitation to the organization with an existing personal account on {% data variables.location.product_location %}, we recommend that the subscriber add the email address they use for {% data variables.product.prodname_vs %} to their personal account on {% data variables.location.product_location %}. For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
+   - If the organization owner must invite a large number of subscribers, a script may make the process faster. For more information, see [the sample PowerShell script](https://github.com/github/platform-samples/blob/master/api/powershell/invite_members_to_org.ps1) in the `github/platform-samples` repository.
 
     {% endtip %}
 
-为团队中的订阅者设置 {% data variables.product.prodname_vss_ghe %} 后，企业所有者可以在 {% data variables.product.product_location %} 上查看许可信息。 有关详细信息，请参阅“[查看企业帐户的订阅和使用情况](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)”。
+After {% data variables.product.prodname_vss_ghe %} is set up for subscribers on your team, enterprise owners can review licensing information on {% data variables.location.product_location %}. For more information, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
-## 延伸阅读
+## Further reading
 
-- “[{% data variables.product.prodname_ghe_cloud %} 入门](/get-started/onboarding/getting-started-with-github-enterprise-cloud)”
+- "[Getting started with {% data variables.product.prodname_ghe_cloud %}](/get-started/onboarding/getting-started-with-github-enterprise-cloud)"

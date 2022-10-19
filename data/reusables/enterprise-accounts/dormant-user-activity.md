@@ -20,4 +20,4 @@ A user is considered active if the user has performed any of the following activ
 - Watching a repository
 - Starring a repository
 - Deleting a repository
-- Accessing resources by using a personal access token or SSH key
+- Accessing resources by using a {% data variables.product.pat_generic %} or SSH key

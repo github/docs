@@ -1,6 +1,6 @@
 ---
-title: NuGetレジストリの利用
-intro: '{% data variables.product.prodname_registry %} に NuGet パッケージを公開し、{% data variables.product.prodname_registry %} に保存されたパッケージを依存関係として .NET プロジェクトで利用するよう `dotnet` コマンドライン インターフェイス (CLI) を構成できます。'
+title: Working with the NuGet registry
+intro: 'You can configure the `dotnet` command-line interface (CLI) to publish NuGet packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a .NET project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-nuget-for-use-with-github-package-registry
@@ -15,24 +15,20 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: NuGet registry
-ms.openlocfilehash: d97a5645a3d945bb79cf6d3b9e8e09eb6b5d7a42
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147580512'
 ---
-{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
+
+{% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-## {% data variables.product.prodname_registry %} への認証を行う
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-### {% data variables.product.prodname_actions %} における `GITHUB_TOKEN` での認証
+### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
 
-リポジトリ内の nuget.config ファイルでトークンをハードコーディングする代わりに、`GITHUB_TOKEN` を使用して {% data variables.product.prodname_actions %} ワークフローで {% data variables.product.prodname_registry %} に対して認証を行うには、以下のコマンドを使用してください。
+Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a {% data variables.product.pat_generic %} in a nuget.config file in the repository:
 
 ```shell
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
@@ -40,19 +36,20 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### 個人アクセストークンでの認証
+### Authenticating with a {% data variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
-`dotnet` コマンド ライン インターフェイス (CLI) で {% data variables.product.prodname_registry %} に対して認証を行うには、`dotnet` CLI クライアントの `packageSources` に {% data variables.product.prodname_registry %} をソースとして指定して、プロジェクト ディレクトリに *nuget.config* ファイルを作成してください。
+To authenticate to {% data variables.product.prodname_registry %} with the `dotnet` command-line interface (CLI), create a *nuget.config* file in your project directory specifying {% data variables.product.prodname_registry %} as a source under `packageSources` for the `dotnet` CLI client.
 
-以下のように置き換えてください。
-- `USERNAME` を {% data variables.product.prodname_dotcom %} の個人アカウントの名前に。
-- `TOKEN` を個人用アクセス トークンに。
-- `OWNER` を、プロジェクトを含むリポジトリを所有しているユーザーまたは Organization アカウントの名前に。{% ifversion ghes or ghae %}
-- `HOSTNAME` を {% data variables.product.product_location %} のホスト名に。{% endif %}
+You must replace:
+- `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
+- `TOKEN` with your {% data variables.product.pat_v1 %}.
+- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes or ghae %}
+- `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
 
-{% ifversion ghes %}インスタンスで Subdomain Isolation が有効になっている場合:{% endif %}
+{% ifversion ghes %}If your instance has subdomain isolation enabled:
+{% endif %}
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -70,7 +67,8 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 </configuration>
 ```
 
-{% ifversion ghes %}インスタンスで Subdomain Isolation が無効になっている場合:
+{% ifversion ghes %}
+If your instance has subdomain isolation disabled:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -89,44 +87,44 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 ```
 {% endif %}
 
-## パッケージの公開
+## Publishing a package
 
-*nuget.config* ファイルを使用して認証を行うか、コマンド ライン オプションの `--api-key` と {% data variables.product.prodname_dotcom %} 個人用アクセス トークン (PAT) を使うことで、パッケージを {% data variables.product.prodname_registry %} に公開できます。
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}.
 
-### GitHub PATをAPIキーとして使用してパッケージを公開する
+### Publishing a package using a GitHub {% data variables.product.pat_generic %} as your API key
 
-{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} のアカウントで使う PAT がまだない場合は、「[個人アクセス トークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」をご覧ください。
+If you don't already have a PAT to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-1. 新しいプロジェクトを作成します。
+1. Create a new project.
   ```shell
   dotnet new console --name OctocatApp
   ```
-2. プロジェクトをパッケージ化してください。
+2. Package the project.
   ```shell
   dotnet pack --configuration Release
   ```
 
-3. PATをAPIキーとして使用して、パッケージを公開します。
+3. Publish the package using your {% data variables.product.pat_generic %} as the API key.
   ```shell
-  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
+  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
   ```
 
 {% data reusables.package_registry.viewing-packages %}
 
-### *nuget.config* ファイルを使用してパッケージを公開する
+### Publishing a package using a *nuget.config* file
 
-公開の際には、*nuget.config* 認証ファイルで使う *csproj* ファイルで、`OWNER` に同じ値を使う必要があります。 *.csproj* ファイルでバージョン番号を指定もしくはインクリメントし、`dotnet pack` コマンドを使用してそのバージョンのための *.nuspec* ファイルを作成してください。 パッケージの作成について詳しくは、Microsoft のドキュメントの「[パッケージの作成と公開](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)」をご覧ください。
+When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
 
 {% data reusables.package_registry.authenticate-step %}
-2. 新しいプロジェクトを作成します。
+2. Create a new project.
   ```shell
   dotnet new console --name OctocatApp
   ```
-3. プロジェクト固有の情報をプロジェクト ファイル (末尾が *.csproj* のファイル) に追加します。  以下のように置き換えてください。
-    - `OWNER` を、プロジェクトを含むリポジトリを所有しているユーザーまたは Organization アカウントの名前に。
-    - `REPOSITORY` を、公開したいパッケージを含むリポジトリの名前に。                      
-    - `1.0.0` をパッケージのバージョン番号に。{% ifversion ghes or ghae %}
-    - `HOSTNAME` を {% data variables.product.product_location %} のホスト名に。{% endif %}
+3. Add your project's specific information to your project's file, which ends in *.csproj*.  You must replace:
+    - `OWNER` with the name of the user or organization account that owns the repository containing your project.
+    - `REPOSITORY` with the name of the repository containing the package you want to publish.                      
+    - `1.0.0` with the version number of the package.{% ifversion ghes or ghae %}
+    - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -143,23 +141,23 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
   </Project>
   ```
-4. プロジェクトをパッケージ化してください。
+4. Package the project.
   ```shell
   dotnet pack --configuration Release
   ```
 
-5. *nuget.config* ファイルで指定した `key` を使用してパッケージを公開します。
+5. Publish the package using the `key` you specified in the *nuget.config* file.
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg" --source "github"
   ```
 
 {% data reusables.package_registry.viewing-packages %}
 
-## 同じリポジトリへの複数パッケージの公開
+## Publishing multiple packages to the same repository
 
-複数のパッケージを同じリポジトリに公開するには、同じ {% data variables.product.prodname_dotcom %} リポジトリの URL をすべての *.csproj* プロジェクト ファイルの `RepositoryURL` フィールドに含めることができます。 {% data variables.product.prodname_dotcom %}は、そのフィールドに基づいてリポジトリをマッチします。
+To publish multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
 
-たとえば、以下の *OctodogApp* と *OctocatApp* プロジェクトは同じリポジトリに公開されます。
+For example, the *OctodogApp* and *OctocatApp* projects will publish to the same repository:
 
 ``` xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -195,13 +193,13 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 </Project>
 ```
 
-## パッケージのインストール
+## Installing a package
 
-プロジェクトで {% data variables.product.prodname_dotcom %} のパッケージを使うことは、*nuget.org* のパッケージを使うことと似ています。パッケージの名前とバージョンを指定して、パッケージの依存関係を *.csproj* ファイルに追加してください。 プロジェクトで *.csproj* ファイルを使う方法について詳しくは、[NuGet パッケージの利用](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)に関する Microsoft のドキュメントをご覧ください。
+Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 
-2. パッケージを使用するには、 *.csproj* プロジェクト ファイルで `ItemGroup` を追加し、`PackageReference` フィールドを構成します。 `Include="OctokittenApp"` の `OctokittenApp` の値をパッケージの依存関係に置き換え、`Version="12.0.2"` の `12.0.2` の値を使用するバージョンに置き換えます。
+2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file. Replace the `OctokittenApp` value in `Include="OctokittenApp"` with your package dependency, and replace the `12.0.2` value in `Version="12.0.2"` with the version you want to use:
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -223,19 +221,19 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
   </Project>
   ```
 
-3. `restore` コマンドを使用してパッケージをインストールします。
+3. Install the packages with the `restore` command.
   ```shell
   dotnet restore
   ```
 
-## トラブルシューティング
+## Troubleshooting
 
-*.csproj* 内の `RepositoryUrl` が想定されているリポジトリに設定されていない場合、NuGet パッケージのプッシュに失敗する可能性があります。
+Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
 
-nuspec ファイルを使用している場合は、`repository` 要素と必須の `type` および `url` 属性が含まれていることを確認してください。
+If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
 
-`GITHUB_TOKEN` を使って {% data variables.product.prodname_actions %} ワークフロー内の {% data variables.product.prodname_registry %} レジストリの認証を受けている場合、そのトークンからは、ワークフローの実行場所とは異なるリポジトリ内にあるプライベート リポジトリベースのパッケージにアクセスできません。 他のリポジトリに関連付けられたパッケージにアクセスするには、代わりにスコープが `read:packages` の PAT を生成し、このトークンをシークレットとして渡します。
+If you're using a `GITHUB_TOKEN` to authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, the token cannot access private repository-based packages in a different repository other than where the workflow is running in. To access packages associated with other repositories, instead generate a {% data variables.product.pat_v1 %} with the `read:packages` scope and pass this token in as a secret.
  
-## 参考資料
+## Further reading
 
-- 「[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package)」
+- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"

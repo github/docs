@@ -1,12 +1,12 @@
 ---
-title: 创建存储库分支
+title: Fork a repo
 redirect_from:
   - /fork-a-repo
   - /forking
   - /articles/fork-a-repo
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
-intro: 分叉是存储库的副本。 通过复刻仓库，您可以自由地尝试更改而不会影响原始项目。
+intro: A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
@@ -18,67 +18,61 @@ topics:
   - Issues
   - Notifications
   - Accounts
-ms.openlocfilehash: b6f98f30c67f14fab1da3658e42e8eba67f5f50c
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147717571'
 ---
-## 关于分叉
+## About forks
 
-最常见的是，分支用于对其他人的项目提出你没有写入权限的项目的更改，或者使用其他人的项目作为你自己想法的起点。 您可以复刻仓库以创建仓库的副本，并在不影响上游仓库的情况下进行更改。 有关详细信息，请参阅“[使用分支](/github/collaborating-with-issues-and-pull-requests/working-with-forks)”。
+Most commonly, forks are used to either propose changes to someone else's project to which you do not have write access, or to use someone else's project as a starting point for your own idea. You can fork a repository to create a copy of the repository and make changes without affecting the upstream repository. For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
 
-### 对其他人的项目提出更改
+### Propose changes to someone else's project
 
-例如，可以使用复刻提出与修复 Bug 相关的更改。 无需为你发现的漏洞创建问题，你可以：
+For example, you can use forks to propose changes related to fixing a bug. Rather than logging an issue for a bug you have found, you can:
 
-- 创建存储库分支。
-- 进行修复
-- 向项目所有者提交拉取请求。
+- Fork the repository.
+- Make the fix.
+- Submit a pull request to the project owner.
 
-### 将其他人的项目用作自己创意的起点。
+### Use someone else's project as a starting point for your own idea.
 
-开源软件的理念是通过共享代码，可以开发出更好、更可靠的软件。 有关详细信息，请参阅开放源代码计划上的“[关于开放源代码计划](https://opensource.org/about)”。
+Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](https://opensource.org/about)" on the Open Source Initiative.
 
-有关将开放源代码原则应用于组织在 {% data variables.product.product_location %} 上的开发工作的详细信息，请参阅 {% data variables.product.prodname_dotcom %} 的白皮书“[内部源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
+For more information about applying open source principles to your organization's development work on {% data variables.location.product_location %}, see {% data variables.product.prodname_dotcom %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
 {% ifversion fpt or ghes or ghec %}
 
-从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 有关详细信息，请参阅 choosealicense 上的“[选择开放源代码许可](https://choosealicense.com/)”。
+When creating your public repository from a fork of someone's project, make sure to include a license file that determines how you want your project to be shared with others. For more information, see "[Choose an open source license](https://choosealicense.com/)" at choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endif %}
 
-## 先决条件
+## Prerequisites
 
-如果尚未设置，应首先 [设置 Git](/articles/set-up-git)。 不要忘记[从 Git 向 {% data variables.product.product_location %} 设置身份验证](/articles/set-up-git#next-steps-authenticating-with-github-from-git)。
+If you have not yet, you should first [set up Git](/articles/set-up-git). Don't forget to [set up authentication to {% data variables.location.product_location %} from Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git) as well.
 
-## 复刻仓库
+## Forking a repository
 
 {% webui %}
 
-您可能为了对上游或原始仓库提议更改而复刻项目。 在这种情况下，最好定期将您的复刻与上游仓库同步。 为此，您需要在命令行上使用 Git。 可以使用刚才已创建分支的同一 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 存储库来练习设置上游存储库。
+You might fork a project to propose changes to the upstream, or original, repository. In this case, it's good practice to regularly sync your fork with the upstream repository. To do this, you'll need to use Git on the command line. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
 
-1. 在 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 存储库。
-2. 在页面右上角，单击“分支”。
-   ![分支按钮](/assets/images/help/repository/fork_button.png)
-3. 为分支存储库选择所有者。
-   ![创建一个突出显示所有者下拉菜单的新分支页](/assets/images/help/repository/fork-choose-owner.png)
-4. 默认情况下，分支的名称与其父存储库的相同。 可更改分支的名称以进一步区分它。 
-   ![创建一个突出显示存储库名称字段的新分支页](/assets/images/help/repository/fork-choose-repo-name.png)
-5. 可以选择性地添加分支的说明。
-   ![创建一个突出显示说明字段的新分支页](/assets/images/help/repository/fork-description.png)
-6. 选择是仅将默认分支还是将所有分支复制到新分支。 对于许多分支场景（例如参与开源项目），你只需复制默认分支。 默认情况下，只复制默认分支。
-   ![只复制默认分支的选项](/assets/images/help/repository/copy-default-branch-only.png)
-7. 单击“创建分支”。
-   ![突出显示的“创建分支”按钮](/assets/images/help/repository/fork-create-button.png)
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+2. In the top-right corner of the page, click **Fork**.
+   ![Fork button](/assets/images/help/repository/fork_button.png)
+3. Select an owner for the forked repository.
+   ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
+4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. 
+   ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
+5. Optionally, add a description of your fork.
+   ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
+6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied.
+   ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
+7. Click **Create fork**.
+   ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
 
 
 {% note %}
 
-注意：如果要从父存储库复制其他分支，可从“分支”页执行此操作 。 有关详细信息，请参阅“[在存储库中创建和删除分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)”。{% endnote %}
+**Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."{% endnote %}
 
 {% endwebui %}
 
@@ -86,38 +80,41 @@ ms.locfileid: '147717571'
 
 {% data reusables.cli.cli-learn-more %}
 
-若要创建存储库的分支，请使用 `gh repo fork` 子命令。
+To create a fork of a repository, use the `gh repo fork` subcommand.
 
 ```shell
-gh repo fork <em>repository</em>
+gh repo fork REPOSITORY
 ```
 
-若要在组织中创建分支，请使用 `--org` 标记。
+To create the fork in an organization, use the `--org` flag.
 
 ```shell
-gh repo fork <em>repository</em> --org "octo-org"
+gh repo fork REPOSITORY --org "octo-org"
 ```
 
 {% endcli %}
 
-{% desktop %} {% enddesktop %}
+{% desktop %}
+{% enddesktop %}
 
-## 克隆复刻的仓库
+## Cloning your forked repository
 
-现在，你有了 Spoon-Knife 存储库的分支，但你的计算机本地还没有该存储库中的文件。
+Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
 
 {% webui %}
 
-1. 在 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %} 上，导航到 Spoon-Knife 存储库的分支。
-{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %}
-4. 键入 `git clone`，然后粘贴之前复制的 URL。 它将如下所示，使用你的 {% data variables.product.product_name %} 用户名替换 `YOUR-USERNAME`：
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   ```
 
-5. 按 **Enter**。 将创建您的本地克隆。
+5. Press **Enter**. Your local clone will be created.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   > Cloning into `Spoon-Knife`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -131,55 +128,60 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 {% data reusables.cli.cli-learn-more %}
 
-若要创建分支的克隆，请使用 `--clone` 标记。
+To create a clone of your fork, use the `--clone` flag.
 
 ```shell
-gh repo fork <em>repository</em> --clone=true
+gh repo fork REPOSITORY --clone=true
 ```
 
 {% endcli %}
 
 {% desktop %}
 
-{% data reusables.desktop.choose-clone-repository %} {% data reusables.desktop.cloning-location-tab %} {% data reusables.desktop.cloning-repository-list %} {% data reusables.desktop.choose-local-path %} {% data reusables.desktop.click-clone %}
+{% data reusables.desktop.choose-clone-repository %}
+{% data reusables.desktop.cloning-location-tab %}
+{% data reusables.desktop.cloning-repository-list %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
 {% enddesktop %}
 
-## 配置 Git 以将您的复刻与原始仓库同步
+## Configuring Git to sync your fork with the original repository
 
-为了对原始仓库提议更改而复刻项目时，您可以配置 Git 以将更改从原始或上游仓库拉取到复刻的本地克隆。
+When you fork a project in order to propose changes to the original repository, you can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
 
 {% webui %}
 
-1. 在 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 存储库。
-{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %}
-4. 将目录更改为您克隆的复刻的位置。
-    - 若要转到主目录，请只键入 `cd`，不要键入其他文本。
-    - 若要列出当前目录中的文件和文件夹，请键入 `ls`。
-    - 若要进入列出的某个目录，请键入 `cd your_listed_directory`。
-    - 若要回到上一个目录，请键入 `cd ..`。
-5. 键入 `git remote -v`，然后按“Enter”。 你将看到当前为分支配置的远程存储库。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+4. Change directories to the location of the fork you cloned.
+    - To go to your home directory, type just `cd` with no other text.
+    - To list the files and folders in your current directory, type `ls`.
+    - To go into one of your listed directories, type `cd your_listed_directory`.
+    - To go up one directory, type `cd ..`.
+5. Type `git remote -v` and press **Enter**. You will see the current configured remote repository for your fork.
   ```shell
   $ git remote -v
-  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
   ```
 
-6. 键入 `git remote add upstream`，然后粘贴在步骤 3 中复制的 URL，然后按 Enter。 它将如下所示：
+6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. It will look like this:
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
-7. 若要验证为分支指定的新上游存储库，请再次键入 `git remote -v`。 你应该会看到分支的 URL 为 `origin`，原始存储库的 URL 为 `upstream`。
+7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the original repository as `upstream`.
   ```shell
   $ git remote -v
-  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
-  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)
-  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
+  > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/ YOUR_FORK</em>.git (fetch)
+  > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
+  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ ORIGINAL_REPOSITORY.git (fetch)
+  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ ORIGINAL_REPOSITORY.git (push)
   ```
 
-现在，您可以使用一些 Git 命令使您的复刻与上游仓库保持同步。 有关详细信息，请参阅“[同步分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)”。
+Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
 
 {% endwebui %}
 
@@ -187,41 +189,41 @@ gh repo fork <em>repository</em> --clone=true
 
 {% data reusables.cli.cli-learn-more %}
 
-若要为分支存储库配置远程存储库，请使用 `--remote` 标志。
+To configure a remote repository for the forked repository, use the `--remote` flag.
 
 ```shell
-gh repo fork <em>repository</em> --remote=true
+gh repo fork REPOSITORY --remote=true
 ```
 
-若要指定远程存储库的名称，请使用 `--remote-name` 标志。
+To specify the remote repository's name, use the `--remote-name` flag.
 
 ```shell
-gh repo fork <em>repository</em> --remote-name "main-remote-repo"
+gh repo fork REPOSITORY --remote-name "main-remote-repo"
 ```
 
 {% endcli %}
 
-### 编辑分支
+### Editing a fork
 
-您可以对复刻进行任何更改，包括：
+You can make any changes to a fork, including:
 
-- 创建分支：[分支](/articles/creating-and-deleting-branches-within-your-repository/)支持在不影响主项目的情况下构建新功能或测试创意。
-- 打开拉取请求：如果希望回馈原始存储库，可以通过提交[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)，请求原作者将你的分支拉取到他们的存储库。
+- **Creating branches:** [*Branches*](/articles/creating-and-deleting-branches-within-your-repository/) allow you to build new features or test out ideas without putting your main project at risk.
+- **Opening pull requests:** If you are hoping to contribute back to the original repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-## 另找一个仓库进行复刻
-复刻仓库，开始参与项目。 {% data reusables.repositories.you-can-fork %}
+## Find another repository to fork
+Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt or ghec %}你可以查看[浏览](https://github.com/explore)，查找项目并开始参与开放源代码存储库。 有关详细信息，请参阅“[查找为 {% data variables.product.prodname_dotcom %} 上的开放源代码做贡献的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
+{% ifversion fpt or ghec %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 
-## 后续步骤
+## Next Steps
 
-您现在已经复刻了仓库、练习了克隆复刻并配置了上游仓库。
+You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
 
-* 有关克隆分支和从计算机同步分支存储库更改的详细信息，请参阅“[设置 Git](/articles/set-up-git)”。
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/articles/set-up-git)."
 
-* 您也可以创建一个新的仓库，以将所有项目放在 {% data variables.product.prodname_dotcom %} 上并共享代码。 {% data reusables.getting-started.create-a-repository %}"
+* You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
 * {% data reusables.getting-started.being-social %}
 
