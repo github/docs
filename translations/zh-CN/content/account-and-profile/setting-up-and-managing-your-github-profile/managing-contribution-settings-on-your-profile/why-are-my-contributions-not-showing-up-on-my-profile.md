@@ -1,6 +1,6 @@
 ---
-title: 为什么我的贡献没有在我的个人资料中显示？
-intro: 了解贡献图表中可能缺少贡献的常见原因。
+title: Why are my contributions not showing up on my profile?
+intro: Learn common reasons that contributions may be missing from your contributions graph.
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
   - /github/setting-up-and-managing-your-github-profile/why-are-my-contributions-not-showing-up-on-my-profile
@@ -14,54 +14,49 @@ versions:
 topics:
   - Profiles
 shortTitle: Missing contributions
-ms.openlocfilehash: c1f4c9481a5e3ac9328b353ced826c982e1160e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079520'
 ---
-## 关于您的贡献图
 
-您的个人资料贡献图是您参与{% data variables.product.product_location %}{% ifversion ghae %}拥有{% else %}上{% endif %} 的存储库的记录。 贡献按照协调世界时 (UTC) 而不是您当地的时区加时间戳。 只有在满足特定标准时才会计算贡献。 在某些情况下，我们可能需要重建您的图表才能显示贡献。
+## About your contribution graph
 
-如果您是使用 SAML 单点登录 (SSO) 的组织的成员，则在没有活动的 SSO 会话时，您将无法在配置文件上看到来自该组织的贡献活动。 从组织外部查看您个人资料的用户将看到您组织的贡献活动的匿名贡献活动。
+Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.location.product_location %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
 
-## 计算的贡献
+If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
 
-### 议题、拉取请求和讨论
+## Contributions that are counted
 
-如果议题、拉取请求和讨论在独立的仓库而不是复刻中打开，它们将在您的贡献图中显示。
+### Issues, pull requests and discussions
 
-### 提交
-如果提交符合以下所有条件，则会在贡献图中显示：
-- 用于提交的电子邮件地址与您在 {% data variables.product.product_location %} 上的帐户关联。
-- 提交在独立的仓库而不是复刻中进行。
-- 提交在以下位置进行：
-  - 在仓库的默认分支中
-  - 在 `gh-pages` 分支（对于具有项目网站的存储库）中
+Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
-有关项目网站的详细信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
+### Commits
+Commits will appear on your contributions graph if they meet **all** of the following conditions:
+- The email address used for the commits is associated with your account on {% data variables.location.product_location %}.
+- The commits were made in a standalone repository, not a fork.
+- The commits were made:
+  - In the repository's default branch
+  - In the `gh-pages` branch (for repositories with project sites)
 
-此外，以下至少一项必须为 true：
-- 您是仓库中的协作者，或者是拥有该仓库的组织的成员。
-- 您已复刻该仓库。
-- 您已打开仓库中的拉取请求或议题。
-- 您已为仓库加星标。
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
-## 贡献未计算的常见原因
+In addition, **at least one** of the following must be true:
+- You are a collaborator on the repository or are a member of the organization that owns the repository.
+- You have forked the repository.
+- You have opened a pull request or issue in the repository.
+- You have starred the repository.
+
+## Common reasons that contributions are not counted
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
-### 24 小时内进行的提交
+### Commit was made less than 24 hours ago
 
-进行满足计为贡献要求的提交后，您可能需要等待最长 24 小时才能看到在贡献图中显示的贡献。
+After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph.
 
-### 您的本地 Git 提交电子邮件地址未连接到您的帐户
+### Your local Git commit email isn't connected to your account
 
-提交必须使用与你在 {% data variables.product.product_location %}{% ifversion fpt or ghec %} 上的帐户连接的电子邮件地址进行，或者使用在电子邮件设置中提供给你的 {% data variables.product.prodname_dotcom %} 提供的 `noreply` 电子邮件地址进行，{% endif %}才能显示在你的贡献图上。{% ifversion fpt or ghec %} 有关 `noreply` 电子邮件地址的详细信息，请参阅“[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)”。{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.location.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
-可以通过将 `.patch` 添加到提交 URL 的末尾（例如 <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>）来检查用于提交的电子邮件地址：
+You can check the email address used for a commit by adding `.patch` to the end of a commit URL, e.g. <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
 ```
 From 67c0afc1da354d8571f51b6f0af8f2794117fd10 Mon Sep 17 00:00:00 2001
@@ -70,37 +65,37 @@ Date: Sun, 27 Apr 2014 15:36:39 +0530
 Subject: [PATCH] updated index for better welcome message
 ```
 
-`From:` 字段中的电子邮件地址是在[本地 git 配置设置](/articles/set-up-git)中设置的地址。 在此示例中，用于提交的电子邮件地址为 `octocat@nowhere.com`。
+The email address in the `From:` field is the address that was set in the [local git config settings](/articles/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
 
-如果用于提交的电子邮件地址未连接到您的 {% data variables.product.product_location %} 帐户，{% ifversion ghae %}请更改用于在 Git 中创作提交的电子邮件地址。 有关详细信息，请参阅“[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)”。{% else %}必须[将电子邮件地址添加](/articles/adding-an-email-address-to-your-github-account)到 {% data variables.product.product_location %} 上的帐户。 您的贡献图将在添加新地址后自动重建。{% endif %}
-
-{% warning %}
-
-警告：通用电子邮件地址（如 `jane@computer.local`）无法添加到 {% data variables.product.prodname_dotcom %} 帐户。 如果为您的提交使用这类电子邮件，则提交不会链接到您的 {% data variables.product.prodname_dotcom %} 个人资料，并且不会在您的贡献图中显示。
-
-{% endwarning %}
-
-### 未在默认分支或 `gh-pages` 分支中执行提交
-
-仅发生在默认分支或 `gh-pages` 分支（对于包含项目网站的存储库）中的提交才会计入。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
-
-如果提交位于非默认或非 `gh-pages` 分支中，并且你希望将其计入你的贡献，则需要执行以下操作之一：
-- [打开拉取请求](/articles/creating-a-pull-request)，将更改合并到默认分支或 `gh-pages` 分支中。
-- [更改存储库的默认分支](/github/administering-a-repository/changing-the-default-branch)。
+If the email address used for the commit is not connected to your account on {% data variables.location.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your account on {% data variables.location.product_location %}. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
 
 {% warning %}
 
-警告：更改存储库的默认分支将会更改所有存储库协作者的默认分支。 仅当您希望新分支成为进行所有未来拉取请求和提交的基础时才执行此操作。
+**Warning**: Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts. If you use such an email for your commits, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
 
 {% endwarning %}
 
-### 提交在复刻中进行
+### Commit was not made in the default or `gh-pages` branch
 
-在复刻中进行的提交不会计入您的贡献。 要将其计入，您必须执行以下操作之一：
-- [打开拉取请求](/articles/creating-a-pull-request)，将更改合并到父存储库中。
-- 要分离复刻并将其变为 {% data variables.product.product_location %} 上独立的仓库，请联系 {% data variables.contact.contact_support %}。 如果该复刻有自己的复刻，让 {% data variables.contact.contact_support %} 了解这些复刻是随您的仓库移入新网络还是留在当前网络中。 有关详细信息，请参阅“[关于分支](/articles/about-forks/)”。
+Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
-## 延伸阅读
+If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
+- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
+- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
-- [在个人资料中公开或隐藏你的私人贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)
-- [在个人资料页中查看贡献](/articles/viewing-contributions-on-your-profile-page)
+{% warning %}
+
+**Warning**: Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
+
+{% endwarning %}
+
+### Commit was made in a fork
+
+Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
+- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the parent repository.
+- To detach the fork and turn it into a standalone repository on {% data variables.location.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see "[About forks](/articles/about-forks/)."
+
+## Further reading
+
+- "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
+- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"

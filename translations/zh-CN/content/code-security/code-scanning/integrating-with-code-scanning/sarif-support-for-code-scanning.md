@@ -130,7 +130,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 |----|----|
 | `tool.driver` | **Required.** A `toolComponent` object that describes the analysis tool. For more information, see the [`toolComponent` object](#toolcomponent-object). |
 | `tool.extensions[]` | **Optional.** An array of `toolComponent` objects that represent any plugins or extensions used by the tool during analysis. For more information, see the [`toolComponent` object](#toolcomponent-object). |
-| `invocation.workingDirectory.uri` | **Optional.** This field is used only when `checkout_uri` (SARIF upload API only) or `checkout_path` (% data variables.product.prodname_actions %} only) are not provided. The value is used to convert absolute URIs used in [`physicalLocation` objects](#physicallocation-object) to relative URIs. For more information, see "[Specifying the root for source files](#specifying-the-root-for-source-files)."|
+| `invocation.workingDirectory.uri` | **Optional.** This field is used only when `checkout_uri` (SARIF upload API only) or `checkout_path` ({% data variables.product.prodname_actions %} only) are not provided. The value is used to convert absolute URIs used in [`physicalLocation` objects](#physicallocation-object) to relative URIs. For more information, see "[Specifying the root for source files](#specifying-the-root-for-source-files)."|
 | `results[]` | **Required.** The results of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the results on {% data variables.product.prodname_dotcom %}. For more information, see the [`result` object](#result-object).
 
 ### `toolComponent` object

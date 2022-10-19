@@ -1,6 +1,6 @@
 ---
-title: 向 GitHub 支持提供数据
-intro: '由于 {% data variables.contact.github_support %} 无法访问环境，因此有时需要你提供一些额外的信息。'
+title: Providing data to GitHub Support
+intro: 'Since {% data variables.contact.github_support %} doesn''t have access to your environment, we sometimes require some additional information from you.'
 shortTitle: Providing data
 versions:
   ghes: '*'
@@ -13,22 +13,17 @@ redirect_from:
   - /admin/enterprise-support/receiving-help-from-github-support/providing-data-to-github-support
 topics:
   - Support
-ms.openlocfilehash: 56a90a9449a92577d08e068095e5b0dc5b443bb2
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '146331910'
 ---
-## 关于诊断文件和支持包
 
-{% data variables.contact.github_support %} 可能会要求以清理日志文件的形式提供其他数据。 可能需要提供三种类型的日志文件。
+## About diagnostic files and support bundles
 
-诊断文件包含有关 {% data variables.product.prodname_ghe_server %} 实例的设置和环境的信息，支持包包含过去两天的诊断和日志，而扩展支持包还包含诊断和日志，但仅限于过去七天。
+{% data variables.contact.github_support %} may ask you to provide additional data in the form of sanitized log files. There are three types of log file you may be asked to provide.
 
-## 关于日志文件清理
+Diagnostic files contain information about a {% data variables.product.prodname_ghe_server %} instance's settings and environment, support bundles contain diagnostics and logs from the past two days, and extended support bundles also contain diagnostics and logs but from the past seven days.
 
-身份验证令牌、密钥和机密将从支持包或诊断文件中包含的以下日志目录中的日志文件中删除：
+## About log file sanitization
+
+Authentication tokens, keys, and secrets are removed from log files in the following log directories contained within a support bundle or diagnostics file:
 
 * `alambic-logs`
 * `babeld-logs`
@@ -44,136 +39,146 @@ ms.locfileid: '146331910'
 * `render-logs`
 * `svn-bridge-logs`
 
-## 创建和共享诊断文件
+## Creating and sharing diagnostic files
 
-诊断文件是 {% data variables.product.prodname_ghe_server %} 实例的设置和环境的概述，其中包含：
+Diagnostic files are an overview of a {% data variables.product.prodname_ghe_server %} instance's settings and environment that contains:
 
-- 客户端许可信息，包括公司名称、到期日期和用户许可数量
-- 版本号和 SHA
-- VM 架构
-- 主机名、私有模式、SSL 设置
-- 加载和处理列表
-- 网络设置
-- 身份验证方法和详情
-- 仓库、用户和其他安装数据的数量
+- Client license information, including company name, expiration date, and number of user licenses
+- Version numbers and SHAs
+- VM architecture
+- Host name, private mode, SSL settings
+- Load and process listings
+- Network settings
+- Authentication method and details
+- Number of repositories, users, and other installation data
 
-可以从 {% data variables.enterprise.management_console %} 或通过运行 `ghe-diagnostics` 命令行实用程序下载实例的诊断。
+You can download the diagnostics for your instance from the {% data variables.enterprise.management_console %} or by running the `ghe-diagnostics` command-line utility.
 
-### 从 {% data variables.enterprise.management_console %} 创建诊断文件
+### Creating a diagnostic file from the {% data variables.enterprise.management_console %}
 
-如果您没有随时可用的 SSH 密钥，则可以使用此方法。
+You can use this method if you don't have your SSH key readily available.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.type-management-console-password %} {% data reusables.enterprise_management_console.support-link %}
-5. 单击“下载诊断信息”。
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.type-management-console-password %}
+{% data reusables.enterprise_management_console.support-link %}
+5. Click **Download diagnostics info**.
 
-### 使用 SSH 创建诊断文件
+### Creating a diagnostic file using SSH
 
-您无需登录 {% data variables.enterprise.management_console %} 即可使用此方法。
+You can use this method without signing into the {% data variables.enterprise.management_console %}.
 
-使用 [ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) 命令行实用程序检索实例的诊断。
+Use the [ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
 
 ```shell
-$ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
+$ ssh -p122 admin@HOSTNAME -- 'ghe-diagnostics' > diagnostics.txt
 ```
 
-## 创建和共享支持包
+## Creating and sharing support bundles
 
-您提交支持请求后，我们可能会要求您与我们团队共享支持包。 支持包是一个 gzip 压缩的 tar 存档，其中包含来自您的实例的诊断和重要日志，例如：
+After you submit your support request, we may ask you to share a support bundle with our team. The support bundle is a gzip-compressed tar archive that includes diagnostics and important logs from your instance, such as:
 
-- 在对身份验证错误进行故障排查或者配置 LDAP、CAS 或 SAML 时，与身份验证相关的日志可能会十分有用
-- {% data variables.enterprise.management_console %} 日志
-- `github-logs/exceptions.log`：关于站点上遇到的 500 个错误的信息
-- `github-logs/audit.log`{% data variables.product.prodname_ghe_server %} 审核日志
-- `babeld-logs/babeld.log`：Git 代理日志
-- `system-logs/haproxy.log`：HAProxy 日志
-- `elasticsearch-logs/github-enterprise.log`：Elasticsearch 日志
-- `configuration-logs/ghe-config.log`：{% data variables.product.prodname_ghe_server %} 配置日志
-- `collectd/logs/collectd.log`：收集的日志
-- `mail-logs/mail.log`：SMTP 电子邮件传递日志
+- Authentication-related logs that may be helpful when troubleshooting authentication errors, or configuring LDAP, CAS, or SAML
+- {% data variables.enterprise.management_console %} log
+- `github-logs/exceptions.log`: Information about 500 errors encountered on the site
+- `github-logs/audit.log`: {% data variables.product.prodname_ghe_server %} audit logs
+- `babeld-logs/babeld.log`: Git proxy logs
+- `system-logs/haproxy.log`: HAProxy logs
+- `elasticsearch-logs/github-enterprise.log`: Elasticsearch logs
+- `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} configuration logs
+- `collectd/logs/collectd.log`: Collectd logs
+- `mail-logs/mail.log`: SMTP email delivery logs
 
-有关详细信息，请参阅“[关于你企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)”。
+For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
-支持包包含过去两天的日志。 要获取过去七天的日志，您可以下载扩展支持包。 有关详细信息，请参阅“[创建和共享扩展支持包](#creating-and-sharing-extended-support-bundles)”。
+Support bundles include logs from the past two days. To get logs from the past seven days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
 
 {% tip %}
 
-**提示：** 联系 {% data variables.contact.github_support %} 时，你将收到一封确认电子邮件，其中包含票证参考链接。 如果 {% data variables.contact.github_support %} 要求您上传支持包，则可以使用事件单参考链接来上传支持包。
+**Tip:** When you contact {% data variables.contact.github_support %}, you'll be sent a confirmation email that will contain a ticket reference link. If {% data variables.contact.github_support %} asks you to upload a support bundle, you can use the ticket reference link to upload the support bundle.
 
 {% endtip %}
 
-### 从 {% data variables.enterprise.management_console %} 创建支持包
+### Creating a support bundle from the {% data variables.enterprise.management_console %}
 
-如果您可以访问基于 web 的 {% data variables.enterprise.management_console %} 并具有出站互联网访问权限，则可以使用下列步骤来创建和共享支持包。
+You can use these steps to create and share a support bundle if you can access the web-based {% data variables.enterprise.management_console %} and have outbound internet access.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.type-management-console-password %} {% data reusables.enterprise_management_console.support-link %}
-5. 单击“下载支持包”。
-{% data reusables.enterprise_enterprise_support.sign-in-to-support %} {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.type-management-console-password %}
+{% data reusables.enterprise_management_console.support-link %}
+5. Click **Download support bundle**.
+{% data reusables.enterprise_enterprise_support.sign-in-to-support %}
+{% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-### 使用 SSH 创建支持包
+### Creating a support bundle using SSH
 
-如果您可以通过 SSH 访问 {% data variables.product.product_location %} 并且拥有出站互联网访问权限，则可以使用下列步骤来创建和共享支持包。
+You can use these steps to create and share a support bundle if you have SSH access to {% data variables.location.product_location %} and have outbound internet access.
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
-1. 通过 SSH 下载支持包：
+1. Download the support bundle via SSH:
   ```shell
-  $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o' > support-bundle.tgz
+  $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
   ```
-  有关 `ghe-support-bundle` 命令的详细信息，请参阅“[命令行实用工具](/enterprise/admin/guides/installation/command-line-utilities#ghe-support-bundle)”。
-{% data reusables.enterprise_enterprise_support.sign-in-to-support %} {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
+  For more information about the `ghe-support-bundle` command, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-support-bundle)".
+{% data reusables.enterprise_enterprise_support.sign-in-to-support %}
+{% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-### 使用您的企业帐户上传支持包
+### Uploading a support bundle using your enterprise account
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %}
-3. 在左侧边栏中，单击“企业许可”。
-  ![显示企业帐户设置侧边栏中的“企业许可”链接的屏幕截图。](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. 在“{% data variables.product.prodname_enterprise %} 帮助”下，单击“上传支持包”。
-  ![显示“上传支持包链接”的屏幕截图。](/assets/images/enterprise/support/upload-support-bundle.png)
-5. 在“Select an enterprise account（选择企业帐户）”下，从下拉菜单选择支持包的相关帐户。
-  ![显示下拉菜单的屏幕截图，用于选择支持包的企业帐户。](/assets/images/enterprise/support/support-bundle-account.png)
-6. 在“为 {% data variables.contact.enterprise_support %} 上传支持包”下，选择你的支持包，单击“选择文件”，或将你的支持包文件拖到“选择文件” 。
-  ![显示“选择文件”按钮的屏幕截，用于上传支持包文件。](/assets/images/enterprise/support/choose-support-bundle-file.png)
-7. 单击“上载” 。
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% data reusables.enterprise-accounts.settings-tab %}
+3. In the left sidebar, click **Enterprise licensing**.
+  ![Screenshot showing "Enterprise licensing" link in the enterprise account settings sidebar.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+4. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
+  ![Screenshot showing "Upload a support bundle link".](/assets/images/enterprise/support/upload-support-bundle.png)
+5. Under "Select an enterprise account", select the support bundle's associated account from the drop-down menu.
+  ![Screenshot showing the dropdown menu to select the support bundle's enterprise account.](/assets/images/enterprise/support/support-bundle-account.png)
+6. Under "Upload a support bundle for {% data variables.contact.enterprise_support %}", to select your support bundle, click **Choose file**, or drag your support bundle file onto **Choose file**.
+  ![Screenshot showing the "Choose file" button to upload a support bundle file.](/assets/images/enterprise/support/choose-support-bundle-file.png)
+7. Click **Upload**.
 
-### 使用 SSH 直接上传支持包
+### Uploading a support bundle directly using SSH
 
-在以下情况下您可以直接将支持包上传到我们的服务器：
-- 您可以通过 SSH 访问 {% data variables.product.product_location %}。
-- 通过 TCP 端口 443 的出站 HTTPS 连接允许从 {% data variables.product.product_location %} 连接到 _enterprise-bundles.github.com_ 和 _esbtoolsproduction.blob.core.windows.net_。
+You can directly upload a support bundle to our server if:
+- You have SSH access to {% data variables.location.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
-1. 将包上传到我们的支持包服务器：
+1. Upload the bundle to our support bundle server:
   ```shell
-  $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'
-  ```
-
-## 创建和共享扩展支持包
-
-支持包包括过去两天的日志，而扩展支持包包括过去七天的日志。 如果 {% data variables.contact.github_support %} 调查的事件发生在两天之前，我们可能会要求您分享扩展支持包。 需要 SSH 权限才能下载扩展包 - 不能从 {% data variables.enterprise.management_console %} 下载扩展包。
-
-为避免体积变得太大，支持包只包含尚未轮换和压缩的日志。 关于 {% data variables.product.prodname_ghe_server %} 上的日志轮换，可针对不同的日志文件设置不同的频率（每日或每周），具体取决于我们期望的日志大小。
-
-### 使用 SSH 创建扩展支持包
-
-如果您可以通过 SSH 访问 {% data variables.product.product_location %} 并有拥有出站互联网访问权限，则可以使用下列步骤来创建和共享扩展支持包。
-
-1. 将 `-x` 标记添加到 `ghe-support-bundle` 命令，通过 SSH 下载扩展支持包：
-  ```shell
-  $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o -x' > support-bundle.tgz
-  ```
-{% data reusables.enterprise_enterprise_support.sign-in-to-support %} {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
-
-### 使用 SSH 直接上传扩展支持包
-
-在以下情况下您可以直接将支持包上传到我们的服务器：
-- 您可以通过 SSH 访问 {% data variables.product.product_location %}。
-- 通过 TCP 端口 443 的出站 HTTPS 连接允许从 {% data variables.product.product_location %} 连接到 _enterprise-bundles.github.com_ 和 _esbtoolsproduction.blob.core.windows.net_。
-
-1. 将包上传到我们的支持包服务器：
-  ```shell
-  $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u -x'
+  $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u'
   ```
 
-## 延伸阅读
+## Creating and sharing extended support bundles
 
-- [关于 GitHub 支持](/support/learning-about-github-support/about-github-support)
-- [为企业生成运行状况检查](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)
+Support bundles include logs from the past two days, while _extended_ support bundles include logs from the past seven days. If the events that {% data variables.contact.github_support %} is investigating occurred more than two days ago, we may ask you to share an extended support bundle. You will need SSH access to download an extended bundle - you cannot download an extended bundle from the {% data variables.enterprise.management_console %}.
+
+To prevent bundles from becoming too large, bundles only contain logs that haven't been rotated and compressed. Log rotation on {% data variables.product.prodname_ghe_server %} happens at various frequencies (daily or weekly) for different log files, depending on how large we expect the logs to be.
+
+### Creating an extended support bundle using SSH
+
+You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.location.product_location %} and you have outbound internet access.
+
+1. Download the extended support bundle via SSH by adding the `-x` flag to the `ghe-support-bundle` command:
+  ```shell
+  $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o -x' > support-bundle.tgz
+  ```
+{% data reusables.enterprise_enterprise_support.sign-in-to-support %}
+{% data reusables.enterprise_enterprise_support.upload-support-bundle %}
+
+### Uploading an extended support bundle directly using SSH
+
+You can directly upload a support bundle to our server if:
+- You have SSH access to {% data variables.location.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
+
+1. Upload the bundle to our support bundle server:
+  ```shell
+  $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u -x'
+  ```
+
+## Further reading
+
+- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Generating a Health Check for your enterprise](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

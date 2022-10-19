@@ -1,6 +1,6 @@
 ---
-title: 还原已删除的组织
-intro: '可以部分还原以前在 {% data variables.product.product_location %} 上删除的组织。'
+title: Restoring a deleted organization
+intro: 'You can partially restore an organization that was previously deleted on {% data variables.location.product_location %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -10,49 +10,44 @@ topics:
   - Organizations
 shortTitle: Restore organization
 permissions: 'Site administers can restore an organization on {% data variables.product.product_name %}.'
-ms.openlocfilehash: 1963b1e55a9c8047c19bafd087162caa8d5085f2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147063752'
 ---
-## 关于组织还原
 
-只要审核日志 Elasticsearch 索引包含 `org.delete` 事件的数据，你就可以使用站点管理仪表板还原之前在 {% data variables.product.product_location %} 上删除的组织。
+## About organization restoration
 
-还原组织后，该组织将不会与删除前完全相同。 必须手动还原组织拥有的所有存储库。 有关详细信息，请参阅“[还原已删除的存储库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。
+You can use the site admin dashboard to restore an organization that was previously deleted on {% data variables.location.product_location %}, as long as the audit log Elasticsearch indices contain the data for the `org.delete` event.
 
-你也可以使用审核日志来帮助手动重新添加团队和组织成员。 有关详细信息，请参阅“[还原成员和团队](#restoring-members-and-teams)”。
+Immediately after you restore an organization, the organization will not be exactly the same as it was prior to the deletion. You'll have to manually restore any repositories that were owned by the organization. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)."
 
-## 还原组织
+You can also use the audit log to help you manually re-add teams and organization members. For more information, see "[Restoring members and teams](#restoring-members-and-teams)."
+
+## Restoring an organization
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-1. 在“搜索用户、组织、企业、团队、存储库、Gist 和应用程序”下，搜索组织。
+1. Under "Search users, organizations, enterprises, teams, repositories, gists, and applications", search for the organization.
 
-  ![搜索字段和“搜索”按钮的屏幕截图](/assets/images/enterprise/stafftools/search-field.png)
+  ![Screenshot of the search field and Search button](/assets/images/enterprise/stafftools/search-field.png)
 
-1. 在“已删除的帐户”下，在要还原的组织右侧，选择“{% octicon "kebab-horizontal" aria-label="The edit icon" %}”下拉菜单，然后单击“重新创建”。
+1. Under "Deleted accounts", to the right of the organization you want to restore, select the {% octicon "kebab-horizontal" aria-label="The edit icon" %} dropdown menu, then click **Recreate**.
 
-   ![已删除组织的下拉菜单屏幕截图](/assets/images/enterprise/stafftools/recreate-organization.png)
+   ![Screenshot of the dropdown menu for a deleted organization](/assets/images/enterprise/stafftools/recreate-organization.png)
 
-## 还原成员和团队
+## Restoring members and teams
 
-可以使用审核日志查找组织以前的成员和团队的列表，然后手动进行重新创建。 有关使用审核日志的详细信息，请参阅“[审核整个企业的用户](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise)”。
+You can use the audit log to find a list of the previous members and teams of the organization, then recreate them manually. For more information about using the audit log, see "[Auditing users across your enterprise](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise)."
 
-在下面的所有搜索词组中，将 ORGANIZATION 替换为组织名称，将 TEAM 替换为团队名称。
+In all the search phrases below, replace ORGANIZATION with the name of the organization and TEAM with the name of the team.
 
-### 还原组织成员
+### Restoring organization members
 
-1. 要查找在组织中添加和删除的所有用户，请在审核日志中搜索 `action:org.add_member org:ORGANIZATION` 和 `action:org.remove_member org:ORGANIZATION`。
-1. 手动将每个仍应是成员的用户添加到组织中。 有关详细信息，请参阅“[将人员添加到组织](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)”。
+1. To find all users who were added to and removed from the organization, search the audit log for `action:org.add_member org:ORGANIZATION` and `action:org.remove_member org:ORGANIZATION`.
+1. Manually add to the organization each user that should still be a member. For more information, see "[Adding people to your organization](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)."
 
-### 还原团队
+### Restoring teams
 
-1. 要查找每个团队名称，请在审核日志中搜索 `action:team.create org:ORGANIZATION`。
-1. 手动重新创建团队。 有关详细信息，请参阅“[创建团队](/organizations/organizing-members-into-teams/creating-a-team)”。
-1. 要查找已添加到每个团队的成员，请搜索 `action:team.add_member team:"ORGANIZATION/TEAM"`。
-1. 手动重新添加团队成员。 有关详细信息，请参阅“[将组织成员添加到团队](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)”。
-1. 要查找团队有权访问的存储库，请搜索 `action:team.add_repository team:"ORGANIZATION/TEAM"`。
-1. 要查找团队被授予对每个存储库的访问级别，请搜索 `action:team.update_repository_permission team:"ORGANIZATION/TEAM"`。
-1. 再次手动授予团队访问权限。 有关详细信息，请参阅“[管理团队对组织存储库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)”。
+1. To find each team name, search the audit log for `action:team.create org:ORGANIZATION`.
+1. Manually recreate the team. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+1. To find the members that have been added to each team, search for `action:team.add_member team:"ORGANIZATION/TEAM"`.
+1. Manually re-add the team members. For more information, see "[Adding organization members to a team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
+1. To find the repositories that the team was granted access to, search for `action:team.add_repository team:"ORGANIZATION/TEAM"`.
+1. To find the access level that the team was granted for each repository, search for `action:team.update_repository_permission team:"ORGANIZATION/TEAM"`.
+1. Manually give the team access again. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."

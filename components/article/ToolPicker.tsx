@@ -1,11 +1,7 @@
-import { useCallback, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
-import { UnderlineNav } from '@primer/react'
-import { sendEvent, EventType } from 'components/lib/events'
 import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
 import { useArticleContext } from 'components/context/ArticleContext'
+import { InArticlePicker } from './InArticlePicker'
 
 // example: http://localhost:4000/en/codespaces/developing-in-codespaces/creating-a-codespace
 
@@ -48,97 +44,29 @@ function getDefaultTool(defaultTool: string | undefined, detectedTools: Array<st
 }
 
 const toolQueryKey = 'tool'
-type Props = {
-  variant?: 'subnav' | 'tabnav' | 'underlinenav'
-}
-export const ToolPicker = ({ variant = 'subnav' }: Props) => {
-  const router = useRouter()
-  const { asPath, query, locale } = router
+export const ToolPicker = () => {
   // allTools comes from the ArticleContext which contains the list of tools available
   const { defaultTool, detectedTools, allTools } = useArticleContext()
-  const [currentTool, setCurrentTool] = useState(getDefaultTool(defaultTool, detectedTools))
 
-  const sharedContainerProps = {
-    'data-testid': 'tool-picker',
-    'aria-label': 'Tool picker',
-    'data-default-tool': defaultTool,
-    className: 'mb-4',
-  }
+  if (!detectedTools.length) return null
 
-  // Run on mount for client-side only features
-  useEffect(() => {
-    // If the user selected a tool preference and the tool is present on this page
-    // Has to be client-side only for cookie reading
-    const cookieValue = Cookies.get('toolPreferred')
-    if (cookieValue && detectedTools.includes(cookieValue)) {
-      setCurrentTool(cookieValue)
-    }
-  }, [])
+  const options = detectedTools.map((value) => {
+    return { value, label: allTools[value] }
+  })
 
-  // Whenever the currentTool is changed, update the article content or selected tool from query param
-  useEffect(() => {
-    preserveAnchorNodePosition(document, () => {
-      showToolSpecificContent(currentTool, Object.keys(allTools))
-    })
-
-    // If tool from query is a valid option, use it
-    const tool =
-      query[toolQueryKey] && Array.isArray(query[toolQueryKey])
-        ? query[toolQueryKey][0]
-        : query[toolQueryKey] || ''
-    if (tool && detectedTools.includes(tool)) {
-      setCurrentTool(tool)
-    }
-  }, [currentTool, asPath])
-
-  const onClickTool = useCallback(
-    (tool: string) => {
-      // Set tool in query param without altering other query params
-      const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
-      const params = new URLSearchParams(asPathQuery)
-      params.set(toolQueryKey, tool)
-      const newPath = `/${locale}${asPathRoot}?${params}`
-      router.push(newPath, undefined, { shallow: true, locale })
-
-      sendEvent({
-        type: EventType.preference,
-        preference_name: 'application',
-        preference_value: tool,
-      })
-      Cookies.set('toolPreferred', tool, {
-        sameSite: 'strict',
-        secure: document.location.protocol !== 'http:',
-        expires: 365,
-      })
-    },
-    [asPath, locale]
+  return (
+    <InArticlePicker
+      fallbackValue={getDefaultTool(defaultTool, detectedTools)}
+      cookieKey="toolPreferred"
+      queryStringKey={toolQueryKey}
+      onValue={(value: string) => {
+        preserveAnchorNodePosition(document, () => {
+          showToolSpecificContent(value, Object.keys(allTools))
+        })
+      }}
+      preferenceName="application"
+      ariaLabel="Tool"
+      options={options}
+    />
   )
-
-  if (variant === 'underlinenav') {
-    const [, pathQuery = ''] = asPath.split('?')
-    const params = new URLSearchParams(pathQuery)
-    return (
-      <UnderlineNav {...sharedContainerProps}>
-        {detectedTools.map((tool) => {
-          params.set(toolQueryKey, tool)
-          return (
-            <UnderlineNav.Link
-              href={`?${params.toString()}`}
-              key={tool}
-              data-tool={tool}
-              selected={tool === currentTool}
-              onClick={(event) => {
-                event.preventDefault()
-                onClickTool(tool)
-              }}
-            >
-              {allTools[tool]}
-            </UnderlineNav.Link>
-          )
-        })}
-      </UnderlineNav>
-    )
-  }
-
-  return null
 }
