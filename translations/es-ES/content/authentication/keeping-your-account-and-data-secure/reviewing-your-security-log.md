@@ -144,8 +144,8 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when you [add a new public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/adding-a-new-ssh-key-to-your-github-account).
-| `delete` | Triggered when you [remove a public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/reviewing-your-ssh-keys).
+| `create` | Triggered when you [add a new public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}](/articles/adding-a-new-ssh-key-to-your-github-account).
+| `delete` | Triggered when you [remove a public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}](/articles/reviewing-your-ssh-keys).
 
 ### `repo` category actions
 
@@ -242,7 +242,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `change_password` | Triggered when you change your password.
 | `forgot_password` | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
 | `hide_private_contributions_count` | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
-| `login` | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
+| `login` | Triggered when you log in to {% data variables.location.product_location %}.{% ifversion ghes or ghae %}
 `mandatory_message_viewed`   | Triggered when you view a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
 | `failed_login` | Triggered when you failed to log in successfully.
 | `remove_email` | Triggered when you remove an email address.

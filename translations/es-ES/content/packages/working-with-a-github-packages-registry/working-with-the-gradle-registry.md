@@ -1,6 +1,6 @@
 ---
-title: Trabajar con el registro de Gradle
-intro: 'Puedes configurar a Gradle para que publique paquetes en el registro de Gradle del {% data variables.product.prodname_registry %} y para utilizar los paquetes almacenados en el {% data variables.product.prodname_registry %} como dependencias en un proyecto de Java.'
+title: Working with the Gradle registry
+intro: 'You can configure Gradle to publish packages to the {% data variables.product.prodname_registry %} Gradle registry and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-gradle-for-use-with-github-package-registry
@@ -14,42 +14,40 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Gradle registry
-ms.openlocfilehash: 65475c04ea3c6934bdf126500f16c3a907b7efd6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061663'
 ---
-{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
+
+{% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-## Autenticar a {% data variables.product.prodname_registry %}
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% data reusables.package_registry.authenticate-packages-github-token %} Para más información sobre el uso de `GITHUB_TOKEN` con Gradle, vea "[Publicación de paquetes de Java con Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)".
+{% data reusables.package_registry.authenticate-packages-github-token %} For more information about using `GITHUB_TOKEN` with Gradle, see "[Publishing Java packages with Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)."
 
-### Autenticarte con un token de acceso personal
+### Authenticating with a {% data variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
-Se puede autenticar en {% data variables.product.prodname_registry %} con Gradle mediante Gradle Groovy o Kotlin DSL si edita el archivo *build.gradle* (Gradle Groovy) o *build.gradle.kts* (Kotlin DSL) para incluir el token de acceso personal. También puedes configurar Gradle Groovy y Kotlin DSL para que reconozcan un paquete único o múltiples paquetes en un repositorio.
+You can authenticate to {% data variables.product.prodname_registry %} with Gradle using either Gradle Groovy or Kotlin DSL by editing your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file to include your {% data variables.product.pat_v1 %}. You can also configure Gradle Groovy and Kotlin DSL to recognize a single package or multiple packages in a repository.
 
-{% ifversion ghes %} Reemplace *REGISTRY-URL* con la URL del registro Maven de la instancia. Si en la instancia se ha habilitado el aislamiento de subdominios, use `maven.HOSTNAME`. Si en la instancia se ha deshabilitado el aislamiento de subdominios, use `HOSTNAME/_registry/maven`. En cualquier caso, reemplace *HOSTNAME* por el nombre de host de la instancia de {% data variables.product.prodname_ghe_server %}.
-{% elsif ghae %} Reemplace *REGISTRY-URL* por la dirección URL del registro de Maven de la empresa, `maven.HOSTNAME`. Reemplace *HOSTNAME* por el nombre de host de {% data variables.product.product_location %}.
+{% ifversion ghes %}
+Replace *REGISTRY-URL* with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.
+{% elsif ghae %}
+Replace *REGISTRY-URL* with the URL for your enterprise's Maven registry, `maven.HOSTNAME`. Replace *HOSTNAME* with the host name of {% data variables.location.product_location %}.
 {% endif %}
 
-Reemplace *USERNAME* por el nombre de usuario de {% data variables.product.prodname_dotcom %}, *TOKEN* por el token de acceso personal, *REPOSITORY* por el nombre del repositorio que contiene el paquete que quiera publicar y *OWNER* por el nombre de la cuenta de usuario o de organización en {% data variables.product.prodname_dotcom %} propietaria del repositorio. Dado que las letras mayúsculas no son compatibles, debes usar minúsculas para el propietario del repositorio si el nombre de usuario o el nombre de la organización de {% data variables.product.prodname_dotcom %} contiene letras mayúsculas.
+Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your {% data variables.product.pat_v1 %}, *REPOSITORY* with the name of the repository containing the package you want to publish, and *OWNER* with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
 {% note %}
 
-**Nota:** {% data reusables.package_registry.apache-maven-snapshot-versions-supported %} Para obtener un ejemplo, vea "[Configuración de Apache Maven para su uso con {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)".
+**Note:** {% data reusables.package_registry.apache-maven-snapshot-versions-supported %} For an example, see "[Configuring Apache Maven for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)."
 
 {% endnote %}
 
-#### Ejemplo de uso de Gradle Groovy para un paquete único en un repositorio
+#### Example using Gradle Groovy for a single package in a repository
 
 ```shell
 plugins {
@@ -59,10 +57,10 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+            url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/REPOSITORY")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("<em>USERNAME</em>")
-                password = project.findProperty("gpr.key") ?: System.getenv("<em>TOKEN</em>")
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
             }
         }
     }
@@ -74,7 +72,7 @@ publishing {
 }
 ```
 
-#### Ejemplo usando Gradle Groovy para múltiples paquetes en el mismo repositorio
+#### Example using Gradle Groovy for multiple packages in the same repository
 
 ```shell
 plugins {
@@ -86,10 +84,10 @@ subprojects {
         repositories {
             maven {
                 name = "GitHubPackages"
-                url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+                url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/REPOSITORY")
                 credentials {
-                    username = project.findProperty("gpr.user") ?: System.getenv("<em>USERNAME</em>")
-                    password = project.findProperty("gpr.key") ?: System.getenv("<em>TOKEN</em>")
+                    username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                    password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
                 }
             }
         }
@@ -102,7 +100,7 @@ subprojects {
 }
 ```
 
-#### Ejemplo de uso de Kotlin DSL para un paquete único en el mismo repositorio
+#### Example using Kotlin DSL for a single package in the same repository
 
 ```shell
 plugins {
@@ -112,10 +110,10 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+            url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/REPOSITORY")
             credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
             }
         }
     }
@@ -127,7 +125,7 @@ publishing {
 }
 ```
 
-#### Ejemplo de uso de Kotlin DSL para múltiples paquetes en el mismo repositorio
+#### Example using Kotlin DSL for multiple packages in the same repository
 
 ```shell
 plugins {
@@ -139,10 +137,10 @@ subprojects {
         repositories {
             maven {
                 name = "GitHubPackages"
-                url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+                url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/REPOSITORY")
                 credentials {
-                    username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
-                    password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
+                    username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                    password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
                 }
             }
         }
@@ -155,67 +153,67 @@ subprojects {
 }
 ```
 
-## Publicación de un paquete
+## Publishing a package
 
-{% data reusables.package_registry.default-name %} Por ejemplo, {% data variables.product.prodname_dotcom %} publicará un paquete denominado `com.example.test` en el repositorio `OWNER/test` de {% data variables.product.prodname_registry %}.
+{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example.test` in the `OWNER/test` {% data variables.product.prodname_registry %} repository.
 
 {% data reusables.package_registry.viewing-packages %}
 
 {% data reusables.package_registry.authenticate-step %}
-2. Después de crear tu paquete, puedes publicar el paquete.
+2. After creating your package, you can publish the package.
 
   ```shell
    $ gradle publish
   ```
 
-## Utilizar un paquete publicado
+## Using a published package
 
-Para utiliza run paquete publicado del {% data variables.product.prodname_registry %}, agrégalo como una dependencia y luego agrega el repositorio a tu proyecto. Para más información, vea "[Declaración de dependencias](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" en la documentación de Gradle.
+To use a published package from {% data variables.product.prodname_registry %}, add the package as a dependency and add the repository to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
 
 {% data reusables.package_registry.authenticate-step %}
-2. Agregue las dependencias del paquete al archivo *build.gradle* (Gradle Groovy) o al archivo *build.gradle.kts* (Kotlin DSL).
+2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
-  Ejemplo utilizando Gradle Groovy:
+  Example using Gradle Groovy:
   ```shell
   dependencies {
       implementation 'com.example:package'
   }
   ```
-  Ejemplo de uso de Kotlin DSL:
+  Example using Kotlin DSL:
   ```shell
   dependencies {
       implementation("com.example:package")
   }
   ```
 
-3. Agregue el repositorio al archivo *build.gradle* (Gradle Groovy) o al archivo *build.gradle.kts* (Kotlin DSL).
+3. Add the repository to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
-  Ejemplo utilizando Gradle Groovy:
+  Example using Gradle Groovy:
   ```shell
   repositories {
       maven {
-          url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+          url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/REPOSITORY")
           credentials {
-              username = project.findProperty("gpr.user") ?: System.getenv("<em>USERNAME</em>")
-              password = project.findProperty("gpr.key") ?: System.getenv("<em>TOKEN</em>")
+              username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+              password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
           }
       }
   }
   ```
-  Ejemplo de uso de Kotlin DSL:
+  Example using Kotlin DSL:
   ```shell
   repositories {
       maven {
-          url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+          url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/REPOSITORY")
           credentials {
-              username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
-              password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
+              username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+              password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
           }
       }
   }
   ```
 
-## Información adicional
+## Further reading
 
-- "[Trabajo con el registro de Apache Maven](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
-- "[Eliminación y restauración de un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- "[Working with the Apache Maven registry](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
+- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
