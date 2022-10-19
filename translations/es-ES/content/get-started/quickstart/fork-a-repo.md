@@ -1,12 +1,12 @@
 ---
-title: Bifurcar un repositorio
+title: Fork a repo
 redirect_from:
   - /fork-a-repo
   - /forking
   - /articles/fork-a-repo
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
-intro: Una bifurcación es una copia de un repositorio. Bifurcar un repositorio te permite experimentar libremente con cambios sin afectar el proyecto original.
+intro: A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
@@ -18,67 +18,61 @@ topics:
   - Issues
   - Notifications
   - Accounts
-ms.openlocfilehash: b6f98f30c67f14fab1da3658e42e8eba67f5f50c
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147717577'
 ---
-## Acerca de las bifurcaciones
+## About forks
 
-Lo más común es que las bifurcaciones se utilicen ya sea para proponer cambios en el proyecto de alguien más, en el que no tienes acceso de escritura, o para utilizar el proyecto de alguien más como punto de inicio para tu idea propia. Puedes bifurcar un repositorio para crear una copia del mismo y hacer cambios sin afectar al repositorio ascendente. Para obtener más información, vea "[Trabajar con bifurcaciones](/github/collaborating-with-issues-and-pull-requests/working-with-forks)".
+Most commonly, forks are used to either propose changes to someone else's project to which you do not have write access, or to use someone else's project as a starting point for your own idea. You can fork a repository to create a copy of the repository and make changes without affecting the upstream repository. For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
 
-### Proponer cambios para el proyecto de otra persona
+### Propose changes to someone else's project
 
-Por ejemplo, puedes utilizar ramificaciones para proponer cambios relacionados con arreglar un error. En lugar de registrar una incidencia para un error que has encontrado, puedes hacer lo siguiente:
+For example, you can use forks to propose changes related to fixing a bug. Rather than logging an issue for a bug you have found, you can:
 
-- Bifurque el repositorio.
-- Solucionar el problema.
-- Emitir solicitudes de cambios al propietario del proyecto.
+- Fork the repository.
+- Make the fix.
+- Submit a pull request to the project owner.
 
-### Usar el proyecto de otra persona como inicio de tu propia idea
+### Use someone else's project as a starting point for your own idea.
 
-El software de código abierto se basa en la idea de que, si compartimos el código, podemos crear software más confiable y mejor. Para obtener más información, vea "[Acerca de la iniciativa de código abierto](https://opensource.org/about)" en la iniciativa de código abierto.
+Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](https://opensource.org/about)" on the Open Source Initiative.
 
-Para obtener más información acerca de cómo aplicar los principios de código abierto al trabajo de desarrollo de su organización en {% data variables.product.product_location %}, vea las notas del producto de {% data variables.product.prodname_dotcom %} "[Introducción a InnerSource](https://resources.github.com/whitepapers/introduction-to-innersource/)".
+For more information about applying open source principles to your organization's development work on {% data variables.location.product_location %}, see {% data variables.product.prodname_dotcom %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
 {% ifversion fpt or ghes or ghec %}
 
-Cuando creas tu repositorio público desde una ramificación del proyecto de alguien más, asegúrate de incluir el archivo de licencia que determine cómo quieres que se comparta tu proyecto con los demás. Para obtener más información, vea "[Elegir una licencia de código abierto](https://choosealicense.com/)" en choosealicense.com.
+When creating your public repository from a fork of someone's project, make sure to include a license file that determines how you want your project to be shared with others. For more information, see "[Choose an open source license](https://choosealicense.com/)" at choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endif %}
 
-## Prerrequisitos
+## Prerequisites
 
-Si aún no lo has hecho, primero debes [configurar Git](/articles/set-up-git). No olvide [configurar la autenticación en {% data variables.product.product_location %} también desde Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git).
+If you have not yet, you should first [set up Git](/articles/set-up-git). Don't forget to [set up authentication to {% data variables.location.product_location %} from Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git) as well.
 
-## Bifurcar un repositorio
+## Forking a repository
 
 {% webui %}
 
-Puedes ramificar un proyecto para proponer cambios en los repositorios precedentes u originales. En este caso, es una buena práctica sincronizar tu bifurcación periódicamente con el repositorio ascendente. Para hacerlo, deberás usar Git en la línea de comando. Puede practicar la configuración del repositorio ascendente con el mismo repositorio [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) que acaba de bifurcar.
+You might fork a project to propose changes to the upstream, or original, repository. In this case, it's good practice to regularly sync your fork with the upstream repository. To do this, you'll need to use Git on the command line. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
 
-1. En {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, vaya al repositorio [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
-2. En la esquina superior derecha de la página, haga clic en **Fork** (Bifurcar).
-   ![Botón Fork (Bifurcar)](/assets/images/help/repository/fork_button.png)
-3. Selecciona un propietario para el repositorio bifurcado.
-   ![Creación de una página de bifurcación con la lista desplegable Propietario resaltada](/assets/images/help/repository/fork-choose-owner.png)
-4. De forma predeterminada, las bifurcaciones tienen el mismo nombre que sus repositorios primarios. Puedes cambiar el nombre de la bifurcación para distinguirlo aún más. 
-   ![Creación de una página de bifurcación con el campo Nombre del repositorio resaltado](/assets/images/help/repository/fork-choose-repo-name.png)
-5. Opcionalmente, puedes agregar una descripción de la bifurcación.
-   ![Creación de una página de bifurcación con el campo Descripción resaltado](/assets/images/help/repository/fork-description.png)
-6. Elige si quieres copiar solo la rama predeterminada, o bien todas las ramas en la nueva bifurcación. En muchos escenarios de bifurcación, como los de contribución a proyectos de código abierto, solo tienes que copiar la rama predeterminada. De forma predeterminada, solo se copia la rama predeterminada.
-   ![Opción para copiar solo la rama predeterminada](/assets/images/help/repository/copy-default-branch-only.png)
-7. Haz clic en **Crear bifurcación**.
-   ![Botón Crear bifurcación resaltado](/assets/images/help/repository/fork-create-button.png)
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+2. In the top-right corner of the page, click **Fork**.
+   ![Fork button](/assets/images/help/repository/fork_button.png)
+3. Select an owner for the forked repository.
+   ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
+4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. 
+   ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
+5. Optionally, add a description of your fork.
+   ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
+6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied.
+   ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
+7. Click **Create fork**.
+   ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
 
 
 {% note %}
 
-**Nota:** Si quieres copiar ramas adicionales del repositorio primario, puedes hacerlo desde la página **Ramas**. Para más información, consulta "[Creación y eliminación de ramas dentro del repositorio](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".{% endnote %}
+**Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."{% endnote %}
 
 {% endwebui %}
 
@@ -86,38 +80,41 @@ Puedes ramificar un proyecto para proponer cambios en los repositorios precedent
 
 {% data reusables.cli.cli-learn-more %}
 
-Para crear una bifurcación de un repositorio, use el subcomando `gh repo fork`.
+To create a fork of a repository, use the `gh repo fork` subcommand.
 
 ```shell
-gh repo fork <em>repository</em>
+gh repo fork REPOSITORY
 ```
 
-Para crear la bifurcación en una organización, use la marca `--org`.
+To create the fork in an organization, use the `--org` flag.
 
 ```shell
-gh repo fork <em>repository</em> --org "octo-org"
+gh repo fork REPOSITORY --org "octo-org"
 ```
 
 {% endcli %}
 
-{% desktop %} {% enddesktop %}
+{% desktop %}
+{% enddesktop %}
 
-## Clonar tu repositorio bifurcado
+## Cloning your forked repository
 
-Ahora mismo, tienes una bifurcación del repositorio Spoon-Knife, pero no tienes los archivos de ese repositorio localmente en tu equipo.
+Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
 
 {% webui %}
 
-1. En {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, vaya a **la bifurcación** del repositorio Spoon-Knife.
-{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %}
-4. Escriba `git clone` y pegue la dirección URL que ha copiado antes. Tendrá este aspecto, con su nombre de usuario de {% data variables.product.product_name %} en lugar de `YOUR-USERNAME`:
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   ```
 
-5. Presione **ENTRAR**. Se creará tu clon local.
+5. Press **Enter**. Your local clone will be created.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   > Cloning into `Spoon-Knife`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -131,55 +128,60 @@ Ahora mismo, tienes una bifurcación del repositorio Spoon-Knife, pero no tienes
 
 {% data reusables.cli.cli-learn-more %}
 
-Para crear un clon de la bifurcación, use la marca `--clone`.
+To create a clone of your fork, use the `--clone` flag.
 
 ```shell
-gh repo fork <em>repository</em> --clone=true
+gh repo fork REPOSITORY --clone=true
 ```
 
 {% endcli %}
 
 {% desktop %}
 
-{% data reusables.desktop.choose-clone-repository %} {% data reusables.desktop.cloning-location-tab %} {% data reusables.desktop.cloning-repository-list %} {% data reusables.desktop.choose-local-path %} {% data reusables.desktop.click-clone %}
+{% data reusables.desktop.choose-clone-repository %}
+{% data reusables.desktop.cloning-location-tab %}
+{% data reusables.desktop.cloning-repository-list %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
 {% enddesktop %}
 
-## Configurar a Git para sincronizar tu bifurcación con el repositorio original
+## Configuring Git to sync your fork with the original repository
 
-Cuando bifurcas un proyecto para proponer cambios en el repositorio original, puedes configurar Git para extraer cambios del repositorio original o ascendente en el clon local de tu bifurcación.
+When you fork a project in order to propose changes to the original repository, you can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
 
 {% webui %}
 
-1. En {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, vaya al repositorio [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
-{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %}
-4. Cambia el directorio de la ubicación de la bifurcación que clonaste.
-    - Para ir al directorio principal, escriba solo `cd` sin ningún otro texto.
-    - Para generar una lista de los archivos y carpetas en su directorio actual, escriba `ls`.
-    - Para ir a uno de los directorios mostrados, escriba `cd your_listed_directory`.
-    - Para subir un directorio, escriba `cd ..`.
-5. Escriba `git remote -v` y presione **Entrar**. Verás el repositorio remoto configurado actualmente para tu bifurcación.
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+4. Change directories to the location of the fork you cloned.
+    - To go to your home directory, type just `cd` with no other text.
+    - To list the files and folders in your current directory, type `ls`.
+    - To go into one of your listed directories, type `cd your_listed_directory`.
+    - To go up one directory, type `cd ..`.
+5. Type `git remote -v` and press **Enter**. You will see the current configured remote repository for your fork.
   ```shell
   $ git remote -v
-  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
   ```
 
-6. Escribe `git remote add upstream`, pega la dirección URL que has copiado en el paso 3 y presiona **Enter** (Entrar). Tendrá este aspecto:
+6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. It will look like this:
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
-7. A fin de verificar el nuevo repositorio ascendente que has especificado para tu bifurcación, escribe `git remote -v` otra vez. Debería ver la dirección URL de la bifurcación como `origin` y la dirección URL del repositorio original como `upstream`.
+7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the original repository as `upstream`.
   ```shell
   $ git remote -v
-  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
-  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)
-  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
+  > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/ YOUR_FORK</em>.git (fetch)
+  > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
+  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ ORIGINAL_REPOSITORY.git (fetch)
+  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ ORIGINAL_REPOSITORY.git (push)
   ```
 
-Ahora, puedes mantener tu bifurcación sincronizada con el repositorio ascendente con unos pocos comandos Git. Para obtener más información, vea "[Sincronizar una bifurcación](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
+Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
 
 {% endwebui %}
 
@@ -187,41 +189,41 @@ Ahora, puedes mantener tu bifurcación sincronizada con el repositorio ascendent
 
 {% data reusables.cli.cli-learn-more %}
 
-A fin de configurar un repositorio remoto para el repositorio bifurcado, utilice la marca `--remote`.
+To configure a remote repository for the forked repository, use the `--remote` flag.
 
 ```shell
-gh repo fork <em>repository</em> --remote=true
+gh repo fork REPOSITORY --remote=true
 ```
 
-Para especificar el nombre del repositorio remoto, use la marca `--remote-name`.
+To specify the remote repository's name, use the `--remote-name` flag.
 
 ```shell
-gh repo fork <em>repository</em> --remote-name "main-remote-repo"
+gh repo fork REPOSITORY --remote-name "main-remote-repo"
 ```
 
 {% endcli %}
 
-### Edición de una bifurcación
+### Editing a fork
 
-Puedes hacer cualquier cambio a una ramificación, incluyendo:
+You can make any changes to a fork, including:
 
-- **Crear ramas**: las [*ramas*](/articles/creating-and-deleting-branches-within-your-repository/) permiten compilar características o probar ideas sin poner en riesgo el proyecto principal.
-- **Abrir solicitudes de incorporación de cambios**: si espera colaborar en el repositorio original, puede enviar una solicitud al autor original para extraer su bifurcación en su repositorio enviando una [solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+- **Creating branches:** [*Branches*](/articles/creating-and-deleting-branches-within-your-repository/) allow you to build new features or test out ideas without putting your main project at risk.
+- **Opening pull requests:** If you are hoping to contribute back to the original repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-## Encontrar otro repositorio para bifurcar
-Bifurca un repositorio para comenzar a colaborar con un proyecto. {% data reusables.repositories.you-can-fork %}
+## Find another repository to fork
+Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt or ghec %}Puede examinar [Explore](https://github.com/explore) (Explorar) para encontrar proyectos y comenzar a colaborar en repositorios de código abierto. Para obtener más información, vea "[Buscar formas de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".
+{% ifversion fpt or ghec %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 
-## Pasos siguientes
+## Next Steps
 
-Ahora ya has bifurcado un repositorio, has practicado la clonación de tu bifurcación y has configurado un repositorio ascendente.
+You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
 
-* Para obtener más información sobre cómo clonar la bifurcación y sincronizar los cambios en un repositorio bifurcado desde tu equipo, consulta "[Configuración de Git](/articles/set-up-git)".
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/articles/set-up-git)."
 
-* También puedes crear un repositorio nuevo en donde pongas todos tus proyectos y compartir el código en {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
+* You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
 * {% data reusables.getting-started.being-social %}
 
