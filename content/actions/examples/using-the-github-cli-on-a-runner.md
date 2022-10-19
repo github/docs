@@ -1,6 +1,6 @@
 ---
 title: Using the GitHub CLI on a runner
-shortTitle: Using the GitHub CLI on a runner
+shortTitle: Use the GitHub CLI on a runner
 intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
@@ -109,7 +109,11 @@ jobs:
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
@@ -372,7 +376,11 @@ This `run` command executes a script that is stored in the repository at `script
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
 ```
 </td>
 <td>

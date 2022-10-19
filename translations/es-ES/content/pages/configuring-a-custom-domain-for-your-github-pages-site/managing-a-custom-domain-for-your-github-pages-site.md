@@ -62,11 +62,11 @@ For more information on Punycodes, see [Internationalized domain name](https://e
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your subdomain.
 ```shell
-    $ dig <em>WWW.EXAMPLE.COM</em> +nostats +nocomments +nocmd
-    > ;<em>WWW.EXAMPLE.COM.</em>                     IN      A
-    > <em>WWW.EXAMPLE.COM.</em>              3592    IN      CNAME   <em>YOUR-USERNAME</em>.github.io.
-    > <em>YOUR-USERNAME</em>.github.io.      43192   IN      CNAME   <em> GITHUB-PAGES-SERVER </em>.
-    > <em> GITHUB-PAGES-SERVER </em>.         22      IN      A       192.0.2.1
+    $ dig WWW.EXAMPLE.COM +nostats +nocomments +nocmd
+    > ;WWW.EXAMPLE.COM.                    IN      A
+    > WWW.EXAMPLE.COM.             3592    IN      CNAME   YOUR-USERNAME.github.io.
+    > YOUR-USERNAME.github.io.      43192   IN      CNAME   GITHUB-PAGES-SERVER .
+    > GITHUB-PAGES-SERVER .         22      IN      A       192.0.2.1
 ```
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
@@ -104,19 +104,19 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
 6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _EXAMPLE.COM_ with your apex domain. Confirm that the results match the IP addresses for {% data variables.product.prodname_pages %} above.
    - For `A` records.
     ```shell
-    $ dig <em>EXAMPLE.COM</em> +noall +answer -t A
-    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
-    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.109.153
-    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
-    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
+    $ dig EXAMPLE.COM +noall +answer -t A
+    > EXAMPLE.COM    3600    IN A     185.199.108.153
+    > EXAMPLE.COM    3600    IN A     185.199.109.153
+    > EXAMPLE.COM    3600    IN A     185.199.110.153
+    > EXAMPLE.COM    3600    IN A     185.199.111.153
     ```
    - For `AAAA` records.
     ```shell
-    $ dig <em>EXAMPLE.COM</em> +noall +answer -t AAAA
-    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8000::153
-    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8001::153
-    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8002::153
-    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8003::153
+    $ dig EXAMPLE.COM +noall +answer -t AAAA
+    > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8000::153
+    > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8001::153
+    > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8002::153
+    > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8003::153
     ```
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
@@ -132,11 +132,11 @@ After you configure the apex domain, you must configure a CNAME record with your
 1. Navigate to your DNS provider and create a `CNAME` record that points `www.example.com` to the default domain for your site: `<user>.github.io` or `<organization>.github.io`. Do not include the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 2. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your `www` subdomain variant.
 ```shell
-    $ dig <em>WWW.EXAMPLE.COM</em> +nostats +nocomments +nocmd
-    > ;<em>WWW.EXAMPLE.COM.</em>                     IN      A
-    > <em>WWW.EXAMPLE.COM.</em>              3592    IN      CNAME   <em>YOUR-USERNAME</em>.github.io.
-    > <em>YOUR-USERNAME</em>.github.io.      43192   IN      CNAME   <em> GITHUB-PAGES-SERVER </em>.
-    > <em> GITHUB-PAGES-SERVER </em>.         22      IN      A       192.0.2.1
+    $ dig WWW.EXAMPLE.COM +nostats +nocomments +nocmd
+    > ;WWW.EXAMPLE.COM                     IN      A
+    > WWW.EXAMPLE.COM.              3592    IN      CNAME   YOUR-USERNAME.github.io.
+    > YOUR-USERNAME.github.io.      43192   IN      CNAME   GITHUB-PAGES-SERVER.
+    > GITHUB-PAGES-SERVER.         22      IN      A       192.0.2.1
 ```
 ## Removing a custom domain
 

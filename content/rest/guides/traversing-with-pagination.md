@@ -109,7 +109,7 @@ pagination, so let's write a little Ruby script that does everything we've
 just described above.
 
 As always, first we'll require [GitHub's Octokit.rb][octokit.rb] Ruby library, and
-pass in our [personal access token][personal token]:
+pass in our [{% data variables.product.pat_generic %}][personal token]:
 
 ``` ruby
 require 'octokit'

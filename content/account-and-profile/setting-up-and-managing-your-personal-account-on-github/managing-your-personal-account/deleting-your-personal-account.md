@@ -1,6 +1,6 @@
 ---
 title: Deleting your personal account
-intro: 'You can delete your personal account on {% data variables.product.product_location %} at any time.'
+intro: 'You can delete your personal account on {% data variables.location.product_location %} at any time.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
@@ -25,13 +25,13 @@ Deleting your personal account removes all repositories, forks of private reposi
 
 {% note %}
 
-**Note**: If your enterprise manages your account and you sign into {% data variables.product.product_location %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+**Note**: If your enterprise manages your account and you sign into {% data variables.location.product_location %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% endnote %}
 
 {% endif %}
 
-{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
+{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.location.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
 
 If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
 

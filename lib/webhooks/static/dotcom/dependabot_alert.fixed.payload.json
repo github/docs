@@ -1,0 +1,230 @@
+{
+  "action": "fixed",
+  "alert": {
+    "number": 1,
+    "state": "fixed",
+    "dependency": {
+      "package": {
+        "ecosystem": "pip",
+        "name": "ansible"
+      },
+      "manifest_path": "path/to/requirements.txt",
+      "scope": "runtime"
+    },
+    "security_advisory": {
+      "ghsa_id": "GHSA-8f4m-hccc-8qph",
+      "cve_id": "CVE-2021-20191",
+      "summary": "Insertion of Sensitive Information into Log File in ansible",
+      "description": "A flaw was found in ansible. Credentials, such as secrets, are being disclosed in console log by default and not protected by no_log feature when using those modules. An attacker can take advantage of this information to steal those credentials. The highest threat from this vulnerability is to data confidentiality.",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "pip",
+            "name": "ansible"
+          },
+          "severity": "medium",
+          "vulnerable_version_range": ">= 2.9.0, < 2.9.18",
+          "first_patched_version": {
+            "identifier": "2.9.18"
+          }
+        },
+        {
+          "package": {
+            "ecosystem": "pip",
+            "name": "ansible"
+          },
+          "severity": "medium",
+          "vulnerable_version_range": "< 2.8.19",
+          "first_patched_version": {
+            "identifier": "2.8.19"
+          }
+        },
+        {
+          "package": {
+            "ecosystem": "pip",
+            "name": "ansible"
+          },
+          "severity": "medium",
+          "vulnerable_version_range": ">= 2.10.0, < 2.10.7",
+          "first_patched_version": {
+            "identifier": "2.10.7"
+          }
+        }
+      ],
+      "severity": "medium",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+        "score": 5.5
+      },
+      "cwes": [
+        {
+          "cwe_id": "CWE-532",
+          "name": "Insertion of Sensitive Information into Log File"
+        }
+      ],
+      "identifiers": [
+        {
+          "type": "GHSA",
+          "value": "GHSA-8f4m-hccc-8qph"
+        },
+        {
+          "type": "CVE",
+          "value": "CVE-2021-20191"
+        }
+      ],
+      "references": [
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-20191"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/cve-2021-20191"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1916813"
+        }
+      ],
+      "published_at": "2021-06-01T17:38:00Z",
+      "updated_at": "2021-08-12T23:06:00Z",
+      "withdrawn_at": null
+    },
+    "security_vulnerability": {
+      "package": {
+        "ecosystem": "pip",
+        "name": "ansible"
+      },
+      "severity": "medium",
+      "vulnerable_version_range": "< 2.8.19",
+      "first_patched_version": {
+        "identifier": "2.8.19"
+      }
+    },
+    "url": "https://api.github.com/repos/octocat/hello-world/dependabot/alerts/1",
+    "html_url": "https://github.com/octocat/hello-world/security/dependabot/1",
+    "created_at": "2022-06-14T15:21:52Z",
+    "updated_at": "2022-06-15T13:55:40Z",
+    "dismissed_at": null,
+    "dismissed_by": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "fixed_at": "2022-06-15T13:55:40Z"
+  },
+  "repository": {
+    "id": 1296269,
+    "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+    "name": "hello-world",
+    "full_name": "octocat/hello-world",
+    "private": false,
+    "owner": {
+      "login": "octocat",
+      "id": 1,
+      "node_id": "MDQ6VXNlcjE=",
+      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/octocat",
+      "html_url": "https://github.com/octocat",
+      "followers_url": "https://api.github.com/users/octocat/followers",
+      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+      "organizations_url": "https://api.github.com/users/octocat/orgs",
+      "repos_url": "https://api.github.com/users/octocat/repos",
+      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/octocat/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/octocat/hello-world",
+    "description": null,
+    "fork": false,
+    "url": "https://api.github.com/repos/octocat/hello-world",
+    "archive_url": "https://api.github.com/repos/octocat/hello-world/{archive_format}{/ref}",
+    "assignees_url": "https://api.github.com/repos/octocat/hello-world/assignees{/user}",
+    "blobs_url": "https://api.github.com/repos/octocat/hello-world/git/blobs{/sha}",
+    "branches_url": "https://api.github.com/repos/octocat/hello-world/branches{/branch}",
+    "collaborators_url": "https://api.github.com/repos/octocat/hello-world/collaborators{/collaborator}",
+    "comments_url": "https://api.github.com/repos/octocat/hello-world/comments{/number}",
+    "commits_url": "https://api.github.com/repos/octocat/hello-world/commits{/sha}",
+    "compare_url": "https://api.github.com/repos/octocat/hello-world/compare/{base}...{head}",
+    "contents_url": "https://api.github.com/repos/octocat/hello-world/contents/{+path}",
+    "contributors_url": "https://api.github.com/repos/octocat/hello-world/contributors",
+    "deployments_url": "https://api.github.com/repos/octocat/hello-world/deployments",
+    "downloads_url": "https://api.github.com/repos/octocat/hello-world/downloads",
+    "events_url": "https://api.github.com/repos/octocat/hello-world/events",
+    "forks_url": "https://api.github.com/repos/octocat/hello-world/forks",
+    "git_commits_url": "https://api.github.com/repos/octocat/hello-world/git/commits{/sha}",
+    "git_refs_url": "https://api.github.com/repos/octocat/hello-world/git/refs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/octocat/hello-world/git/tags{/sha}",
+    "issue_comment_url": "https://api.github.com/repos/octocat/hello-world/issues/comments{/number}",
+    "issue_events_url": "https://api.github.com/repos/octocat/hello-world/issues/events{/number}",
+    "issues_url": "https://api.github.com/repos/octocat/hello-world/issues{/number}",
+    "keys_url": "https://api.github.com/repos/octocat/hello-world/keys{/key_id}",
+    "labels_url": "https://api.github.com/repos/octocat/hello-world/labels{/name}",
+    "languages_url": "https://api.github.com/repos/octocat/hello-world/languages",
+    "merges_url": "https://api.github.com/repos/octocat/hello-world/merges",
+    "milestones_url": "https://api.github.com/repos/octocat/hello-world/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/octocat/hello-world/notifications{?since,all,participating}",
+    "pulls_url": "https://api.github.com/repos/octocat/hello-world/pulls{/number}",
+    "releases_url": "https://api.github.com/repos/octocat/hello-world/releases{/id}",
+    "stargazers_url": "https://api.github.com/repos/octocat/hello-world/stargazers",
+    "statuses_url": "https://api.github.com/repos/octocat/hello-world/statuses/{sha}",
+    "subscribers_url": "https://api.github.com/repos/octocat/hello-world/subscribers",
+    "subscription_url": "https://api.github.com/repos/octocat/hello-world/subscription",
+    "tags_url": "https://api.github.com/repos/octocat/hello-world/tags",
+    "teams_url": "https://api.github.com/repos/octocat/hello-world/teams",
+    "trees_url": "https://api.github.com/repos/octocat/hello-world/git/trees{/sha}",
+    "hooks_url": "https://api.github.com/repos/octocat/hello-world/hooks",
+    "created_at": "2022-06-07T14:08:11Z",
+    "updated_at": "2022-06-09T16:29:20Z",
+    "pushed_at": "2022-06-08T15:58:49Z",
+    "git_url": "git://github.com/octocat/hello-world.git",
+    "ssh_url": "git@github.com:octocat/hello-world.git",
+    "clone_url": "https://github.com/octocat/hello-world.git",
+    "svn_url": "https://github.com/octocat/hello-world",
+    "homepage": null,
+    "size": 0,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "language": "Python",
+    "has_issues": true,
+    "has_projects": true,
+    "has_downloads": true,
+    "has_wiki": true,
+    "has_pages": false,
+    "forks_count": 0,
+    "mirror_url": null,
+    "archived": false,
+    "disabled": false,
+    "open_issues_count": 0,
+    "license": null,
+    "allow_forking": true,
+    "is_template": false,
+    "web_commit_signoff_required": false,
+    "topics": [],
+    "visibility": "public",
+    "forks": 0,
+    "open_issues": 0,
+    "watchers": 0,
+    "default_branch": "main"
+  },
+  "sender": {
+    "login": "github",
+    "id": 9919,
+    "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/github",
+    "html_url": "https://github.com/github",
+    "followers_url": "https://api.github.com/users/github/followers",
+    "following_url": "https://api.github.com/users/github/following{/other_user}",
+    "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+    "organizations_url": "https://api.github.com/users/github/orgs",
+    "repos_url": "https://api.github.com/users/github/repos",
+    "events_url": "https://api.github.com/users/github/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/github/received_events",
+    "type": "Organization",
+    "site_admin": false
+  }
+}

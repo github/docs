@@ -1,6 +1,6 @@
 ---
 title: Caching dependencies to speed up workflows
-shortTitle: Caching dependencies
+shortTitle: Cache dependencies
 intro: 'To make your workflows faster and more efficient, you can create and use caches for dependencies and other commonly reused files.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows

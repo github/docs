@@ -1,8 +1,8 @@
 ---
-title: Configuración de claves de host para la instancia
+title: Configuring host keys for your instance
 shortTitle: Configure host keys
-intro: 'Puedes aumentar la seguridad de {% data variables.product.product_location %} configurando los algoritmos que usa la instancia para generar y anunciar claves de host para las conexiones SSH entrantes.'
-permissions: 'Site administrators can configure the host keys for a {% data variables.product.product_name %} instance.'
+intro: 'You can increase the security of {% data variables.location.product_location %} by configuring the algorithms that your instance uses to generate and advertise host keys for incoming SSH connections.'
+permissions: "Site administrators can configure the host keys for a {% data variables.product.product_name %} instance."
 versions:
   ghes: '>= 3.6'
 type: how_to
@@ -13,38 +13,33 @@ topics:
   - Networking
   - Security
   - SSH
-ms.openlocfilehash: d7ab49b814500ac2c35fa65f82c0fb480122ed1b
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147410838'
 ---
-## Acerca de las claves de host de la instancia
 
-Los servidores que aceptan conexiones SSH anuncian una o varias claves de host criptográficas para identificar de forma segura el servidor a los clientes SSH. Para confirmar la identidad del servidor durante la inicialización de una conexión, los clientes almacenan y comprueban la clave de host. Para obtener más información, consulte [SSH Host Key - What, Why, How](https://ssh.com/academy/ssh/host-key) (Clave de host SSH: qué, por qué y cómo) en el sitio web de la SSH Academy.
+## About host keys for your instance
+
+Servers that accept SSH connections advertise one or more cryptographic host keys to securely identify the server to SSH clients. To confirm the server's identity during the initialization of a connection, clients store and verify the host key. For more information, see [SSH Host Key - What, Why, How](https://ssh.com/academy/ssh/host-key) on the SSH Academy website.
 
 {% data reusables.enterprise.about-ssh-ports %}
 
-De forma predeterminada, {% data variables.product.product_location %} genera y anuncia claves de host con rotación de claves de host de estilo OpenSSH. Para aumentar la seguridad de SSH en su entorno, puede habilitar algoritmos adicionales para la generación de claves de host.
+By default, {% data variables.location.product_location %} generates and advertises host keys with OpenSSH-style host key rotation. To increase the security of SSH in your environment, you can enable additional algorithms for the generation of host keys.
 
 {% note %}
 
-**Nota**: Si habilita algoritmos de clave de host adicionales, los clientes que no usan OpenSSH para las conexiones SSH pueden experimentar advertencias durante la conexión o es posible que la conexión falle por completo. Algunas implementaciones de SSH pueden omitir algoritmos no admitidos y revertir a otro algoritmo. Si el cliente no admite la reversión, se producirá un error en la conexión. Por ejemplo, la biblioteca SSH para Go no admite la reversión a un algoritmo diferente.
+**Note**: If you enable additional host key algorithms, clients that do not use OpenSSH for SSH connections may experience warnings during connection, or fail to connect entirely. Some SSH implementations can ignore unsupported algorithms and fall back to a different algorithm. If the client does not support fallback, the connection will fail. For example, the SSH library for Go does not support fallback to a different algorithm.
 
 {% endnote %}
 
-## Administración de una clave de host Ed25519
+## Managing an Ed25519 host key
 
-Para mejorar la seguridad de los clientes que se conectan a {% data variables.product.product_location %}, puedes habilitar la generación y el anuncio de una clave de host Ed25519. Ed25519 es inmune a algunos ataques dirigidos a algoritmos de firma más antiguos, sin sacrificar la velocidad. Es posible que los clientes SSH anteriores no admitan Ed25519. De forma predeterminada, las instancias de {% data variables.product.product_name %} no generan ni anuncian una clave de host Ed25519. Para obtener más información, consulta el [sitio web de Ed25519](https://ed25519.cr.yp.to).
+To improve security for clients that connect to {% data variables.location.product_location %}, you can enable the generation and advertisement of an Ed25519 host key. Ed25519 is immune to some attacks that target older signature algorithms, without sacrificing speed. Older SSH clients may not support Ed25519. By default, {% data variables.product.product_name %} instances do not generate or advertise an Ed25519 host key. For more information, see [the Ed25519 website](https://ed25519.cr.yp.to).
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. Para habilitar la generación y el anuncio de la clave de host Ed25519, escribe el siguiente comando.
+1. To enable generation and advertisement of the Ed25519 host key, enter the following command.
 
    ```shell
    ghe-config app.babeld.host-key-ed25519 true
    ```
-1. Opcionalmente, escribe el siguiente comando para deshabilitar la generación y el anuncio de la clave de host Ed25519.
+1. Optionally, enter the following command to disable generation and advertisement of the Ed25519 host key.
 
    ```shell
    ghe-config app.babeld.host-key-ed25519 false

@@ -1,6 +1,6 @@
 ---
-title: 建议的警报阈值
-intro: '您可以配置警报来提前通知系统资源问题，以免它们影响您的 {% data variables.product.prodname_ghe_server %} 设备的性能。'
+title: Recommended alert thresholds
+intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
@@ -17,42 +17,36 @@ topics:
   - Performance
   - Storage
 shortTitle: Recommended alert thresholds
-ms.openlocfilehash: 73adc62a8a322666e08da01a76568c16ed18458c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145098076'
 ---
-## 监视存储
+## Monitoring storage
 
-建议您同时对根存储设备和用户存储设备进行监视，并为警报配置合适的值，在可用磁盘空间不足时提供足够长的响应时间。
+We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.
 
-| 严重性 | 阈值 |
+| Severity | Threshold |
 | -------- | --------- |
-| **警告** | 已用磁盘空间超出总大小的 70% |
-| **严重** | 已用磁盘空间超出总大小的 85% |
+| **Warning** | Disk use exceeds 70% of total available |
+| **Critical** | Disk use exceeds 85% of total available |
 
-您可以根据分配的总存储空间、历史增长模式和预期响应时间调整这些值。 我们建议多分配一些存储资源，以便考虑增长情况并避免因分配额外存储空间而需要停机。
+You can adjust these values based on the total amount of storage allocated, historical growth patterns, and expected time to respond. We recommend over-allocating storage resources to allow for growth and prevent the downtime required to allocate additional storage.
 
-## 监视 CPU 和平均负载使用情况
+## Monitoring CPU and load average usage
 
-虽然 CPU 利用率随资源密集型 Git 操作上下波动属于正常情况，但我们建议配置警报来监视异常增高的 CPU 利用率，因为 CPU 利用率长时间处于高水平可能说明实例配置不足。 建议监视 15 分钟系统平均负载，以获取接近或超过分配给虚拟机的 CPU 核心数的值。
+Although it is normal for CPU usage to fluctuate based on resource-intense Git operations, we recommend configuring an alert for abnormally high CPU utilization, as prolonged spikes can mean your instance is under-provisioned. We recommend monitoring the fifteen-minute system load average for values nearing or exceeding the number of CPU cores allocated to the virtual machine.
 
-| 严重性 | 阈值 |
+| Severity | Threshold |
 | -------- | --------- |
-| **警告** | 十五分钟平均负载超出 1 倍的 CPU 核心 |
-| **严重** | 十五分钟平均负载超出 2 倍的 CPU 核心 |
+| **Warning** | Fifteen minute load average exceeds 1x CPU cores |
+| **Critical** | Fifteen minute load average exceeds 2x CPU cores |
 
-我们还建议监视虚拟化“盗取”时间，以确保在同一主机系统上运行的虚拟机不会用掉所有实例资源。
+We also recommend that you monitor virtualization "steal" time to ensure that other virtual machines running on the same host system are not using all of the instance's resources.
 
-## 监视内存使用量
+## Monitoring memory usage
 
-分配给 {% data variables.product.product_location %} 的物理内存大小对整体性能和应用程序响应能力有着极大的影响。 系统设计为通过大量使用内核磁盘缓存来加快 Git 操作速度。 建议将正常 RSS 工作使用量设置在最高使用量时总可用 RAM 的 50% 之内。
+The amount of physical memory allocated to {% data variables.location.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
 
-| 严重性 | 阈值 |
+| Severity | Threshold |
 | -------- | --------- |
-| **警告**  | 持续 RSS 使用量超出总可用内存大小的 50% |
-| **严重** | 持续 RSS 使用量超出总可用内存大小的 70% |
+| **Warning**  | Sustained RSS usage exceeds 50% of total available memory |
+| **Critical** | Sustained RSS usage exceeds 70% of total available memory |
 
-如果内存已耗尽，内核 OOM 终止程序将尝试终止占用 RAM 较多的应用程序进程以释放内存资源，这样可能导致服务中断。 建议为虚拟机分配的内存大小应大于正常操作过程所需的内存。
+If memory is exhausted, the kernel OOM killer will attempt to free memory resources by forcibly killing RAM heavy application processes, which could result in a disruption of service. We recommend allocating more memory to the virtual machine than is required in the normal course of operations.

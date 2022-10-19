@@ -1,11 +1,11 @@
 ---
 title: Using larger runners
+shortTitle: 'Larger runners'
 intro: '{% data variables.product.prodname_dotcom %} offers larger runners with more RAM and CPU.'
 miniTocMaxHeadingLevel: 3
 product: '{% data reusables.gated-features.hosted-runners %}'
 versions:
   feature: 'actions-hosted-runners'
-shortTitle: Using {% data variables.actions.hosted_runner %}s
 ---
 
 ## Overview of {% data variables.actions.hosted_runner %}s
@@ -13,6 +13,16 @@ shortTitle: Using {% data variables.actions.hosted_runner %}s
 In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans a range of {% data variables.actions.hosted_runner %}s with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled.
 
 When you add a {% data variables.actions.hosted_runner %} to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the job demands of your organization, based on the autoscaling limits you define.
+
+## Machine specs for {% data variables.actions.hosted_runner %}s 
+
+|Size (vcpu) | Memory (GB) | Storage (SSD) |
+| ------------- | ------------- | ------------- |
+|4 cores | 16  RAM  | 150 GB|
+| 8 cores | 32 RAM | 300 GB |
+|16 cores| 64 RAM | 600 GB |
+|32 cores| 128 RAM| 1200 GB|
+|64 cores| 256 RAM | 2040 GB|
 
 ## Architectural overview of {% data variables.actions.hosted_runner %}s
 
@@ -87,7 +97,7 @@ You can add a {% data variables.actions.hosted_runner %} to an organization, whe
 
 ## Running jobs on your runner
 
-Once your runner type has been been defined, you can update your workflows to send jobs to the runner instances for processing. In this example, a runner group is populated with Ubuntu 16-core runners, which have been assigned the label `ubuntu-20.04-16core`. If you have a runner matching this label, the `check-bats-version` job then uses the `runs-on` key to target that runner whenever the job is run:
+Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. In this example, a runner group is populated with Ubuntu 16-core runners, which have been assigned the label `ubuntu-20.04-16core`. If you have a runner matching this label, the `check-bats-version` job then uses the `runs-on` key to target that runner whenever the job is run:
 
 ```yaml
 name: learn-github-actions
@@ -103,6 +113,8 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
 ```
+
+To find out which runners are enabled for your repository and organization, you must contact your organization admin. Your organization admin can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group.
 
 ## Managing access to your runners
 

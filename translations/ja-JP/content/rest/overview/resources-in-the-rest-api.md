@@ -1,6 +1,6 @@
 ---
-title: REST API のリソース
-intro: '{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIが提供するリソースにアクセスする方法を学んでください。'
+title: Resources in the REST API
+intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
 redirect_from:
   - /rest/initialize-the-repo
 versions:
@@ -11,18 +11,15 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
-ms.openlocfilehash: 68c49caf457c8339bbe52ae750b901c2e9d74c26
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147718174'
 ---
-公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。
 
-## スキーマ
 
-{% ifversion fpt or ghec %}すべての API アクセスは HTTPS 経由であり、{% else %}API は {% endif %}`{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは JSON として送受信されます。
+This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
+
+## Schema
+
+{% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
+sent and received as JSON.
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
@@ -43,66 +40,76 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-Content-Type-Options: nosniff
 ```
 
-空白のフィールドは、省略されるのではなく `null` として含まれます。
+Blank fields are included as `null` instead of being omitted.
 
-すべてのタイムスタンプは、 ISO 8601フォーマットのUTC時間で返されます。
+All timestamps return in UTC time, ISO 8601 format:
 
     YYYY-MM-DDTHH:MM:SSZ
 
-タイムスタンプのタイムゾーンの詳細については、[このセクション](#timezones)を参照してください。
+For more information about timezones in timestamps, see [this section](#timezones).
 
-### 要約表現
+### Summary representations
 
-リソースのリストをフェッチすると、レスポンスにはそのリソースの属性の _サブセット_ が含まれます。 これは、リソースの「要約」表現です。 （一部の属性では、API が提供する計算コストが高くなります。
-パフォーマンス上の理由から、要約表現はそれらの属性を除外します。
-これらの属性を取得するには、「詳細な」表現をフェッチします。）
+When you fetch a list of resources, the response includes a _subset_ of the
+attributes for that resource. This is the "summary" representation of the
+resource. (Some attributes are computationally expensive for the API to provide.
+For performance reasons, the summary representation excludes those attributes.
+To obtain those attributes, fetch the "detailed" representation.)
 
-**例**: リポジトリのリストを取得すると、各リポジトリの要約表現が表示されます。 ここで、[octokit](https://github.com/octokit) 組織が所有するリポジトリの一覧を取得します。
+**Example**: When you get a list of repositories, you get the summary
+representation of each repository. Here, we fetch the list of repositories owned
+by the [octokit](https://github.com/octokit) organization:
 
     GET /orgs/octokit/repos
 
-### 詳細な表現
+### Detailed representations
 
-個々のリソースをフェッチすると、通常、レスポンスにはそのリソースの _すべて_ の属性が含まれます。 これは、リソースの「詳細」表現です。 (承認によって、表現に含まれる詳細の内容に影響する場合があることにご注意ください。)
+When you fetch an individual resource, the response typically includes _all_
+attributes for that resource. This is the "detailed" representation of the
+resource. (Note that authorization sometimes influences the amount of detail
+included in the representation.)
 
-**例**: 個別のリポジトリを取得すると、リポジトリの詳細表現が表示されます。 ここで、[octokit/octokit.rb](https://github.com/octokit/octokit.rb) リポジトリを取得します。
+**Example**: When you get an individual repository, you get the detailed
+representation of the repository. Here, we fetch the
+[octokit/octokit.rb](https://github.com/octokit/octokit.rb) repository:
 
     GET /repos/octokit/octokit.rb
 
-ドキュメントには、各 API メソッドのレスポンス例が記載されています。 レスポンス例は、そのメソッドによって返されるすべての属性を示しています。
+The documentation provides an example response for each API method. The example
+response illustrates all attributes that are returned by that method.
 
-## 認証
+## Authentication
 
-{% ifversion ghae %} [Web アプリケーション フロー](/developers/apps/authorizing-oauth-apps#web-application-flow)を通じて OAuth2 トークンを作成して、{% data variables.product.product_name %} REST API に対して認証することをお勧めします。 {% else %}{% data variables.product.product_name %} REST API を使用して認証する方法は 2 つあります。{% endif %} 認証を必要とするリクエストは、場所によって `403 Forbidden` ではなく `404 Not Found` を返します。  これは、許可されていないユーザにプライベートリポジトリが誤って漏洩するのを防ぐためです。
+{% ifversion ghae %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
 
-### [基本認証]
+### Basic authentication
 
 ```shell
 $ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
-### OAuth2 トークン（ヘッダに送信）
+### OAuth2 token (sent in a header)
 
 ```shell
-$ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
 
-注: GitHub では、Authorization ヘッダを使用して OAuth トークンを送信することをお勧めしています。
+Note: GitHub recommends sending OAuth tokens using the Authorization header.
 
 {% endnote %}
 
 {% note %}
 
-**注:** {% data reusables.getting-started.bearer-vs-token %}
+**Note:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
-[OAuth2 の詳細](/apps/building-oauth-apps/)を確認します。  OAuth2 トークンは、実稼働アプリケーションの [Web アプリケーション フロー](/developers/apps/authorizing-oauth-apps#web-application-flow)を使用して取得できます。
+Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
 {% ifversion fpt or ghes or ghec %}
-### OAuth2 キー/シークレット
+### OAuth2 key/secret
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -110,20 +117,22 @@ $ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-`client_id` と `client_secret` を使用しても、ユーザーとして認証されることは _ありません_。OAuth アプリを識別してレート制限を引き上げるだけです。 アクセス許可はユーザにのみ付与され、アプリケーションには付与されません。また、認証されていないユーザに表示されるデータのみが返されます。 このため、サーバー間のシナリオでのみ OAuth2 キー/シークレットを使用する必要があります。 OAuth アプリケーションのクライアントシークレットをユーザーに漏らさないようにしてください。
+Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth App's client secret to your users.
 
-{% ifversion ghes %} プライベート モードでは、OAuth2 キーとシークレットを使用して認証することはできません。認証しようとすると `401 Unauthorized` が返されます。 詳細については、「[プライベート モードの有効化](/admin/configuration/configuring-your-enterprise/enabling-private-mode)」を参照してください。
-{% endif %} {% endif %}
+{% ifversion ghes %}
+You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
+{% endif %}
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
-[認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-apps)を確認します。
+Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 
-### ログイン失敗の制限
+### Failed login limit
 
-無効な資格情報で認証すると、`401 Unauthorized` が返されます。
+Authenticating with invalid credentials will return `401 Unauthorized`:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
@@ -135,11 +144,13 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 > }
 ```
 
-無効な認証情報を含むリクエストを短期間に複数回検出すると、API は、`403 Forbidden` で、そのユーザに対するすべての認証試行 (有効な認証情報による試行を含む) を一時的に拒否します。
+After detecting several requests with invalid credentials within a short period,
+the API will temporarily reject all authentication attempts for that user
+(including ones with valid credentials) with `403 Forbidden`:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
--u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% ifversion ghes %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
+-u VALID_USERNAME:VALID_TOKEN {% endif %}{% ifversion ghes %}-u VALID_USERNAME:VALID_PASSWORD {% endif %}
 > HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
@@ -147,55 +158,62 @@ $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae o
 > }
 ```
 
-## パラメーター
+## Parameters
 
-多くの API メソッドはオプションのパラメータを選択しています。 `GET` リクエストでは、パスのセグメントとして指定されていないパラメーターは、HTTP クエリ文字列型パラメータとして渡すことができます。
+Many API methods take optional parameters. For `GET` requests, any parameters not
+specified as a segment in the path can be passed as an HTTP query string
+parameter:
 
 ```shell
 $ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
-この例では、'vmg' の値と 'redcarpet' の値がパスの `:owner` パラメーターと `:repo` パラメーターに指定されているいっぽうで、`:state` はクエリ文字列で渡されています。
+In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner`
+and `:repo` parameters in the path while `:state` is passed in the query
+string.
 
-`POST`、`PATCH`、`PUT`、`DELETE` の要求については、URL に含まれていないパラメーターは Content-Type が 'application/json' の JSON としてエンコードする必要があります。
+For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be encoded as JSON
+with a Content-Type of 'application/json':
 
 ```shell
 $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
-## ルート エンドポイント
+## Root endpoint
 
-ルート エンドポイントに `GET` 要求を発行して、REST API がサポートするすべてのエンドポイント カテゴリを取得できます。
+You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
 
 ```shell
 $ curl {% ifversion fpt or ghae or ghec %}
--u <em>username</em>:<em>token</em> {% endif %}{% ifversion ghes %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+-u USERNAME:TOKEN {% endif %}{% ifversion ghes %}-u USERNAME:PASSWORD {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-## GraphQL グローバルノード ID
+## GraphQL global node IDs
 
-REST API を使用して `node_id` を検索し、GraphQL 演算で使用する方法の詳細については、「[グローバル ノード ID の使用](/graphql/guides/using-global-node-ids)」に関するガイドを参照してください。
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
-## クライアントエラー
+## Client errors
 
-要求の本文を受信する API 呼び出しのクライアント エラーには、次の 3 つの種類があります。
+There are three possible types of client errors on API calls that
+receive request bodies:
 
-1. 無効な JSON を送信すると、`400 Bad Request` 応答が返されます。
+1. Sending invalid JSON will result in a `400 Bad Request` response.
 
         HTTP/2 400
         Content-Length: 35
 
         {"message":"Problems parsing JSON"}
 
-2. 間違った種類の JSON 値を送信すると、`400 Bad
-   Request` 応答が発生します。
+2. Sending the wrong type of JSON values will result in a `400 Bad
+   Request` response.
 
         HTTP/2 400
         Content-Length: 40
 
         {"message":"Body should be a JSON object"}
 
-3. 無効なフィールドを送信すると、`422 Unprocessable Entity` 応答が発生します。
+3. Sending invalid fields will result in a `422 Unprocessable Entity`
+   response.
 
         HTTP/2 422
         Content-Length: 149
@@ -211,47 +229,60 @@ REST API を使用して `node_id` を検索し、GraphQL 演算で使用する�
           ]
         }
 
-すべてのエラー オブジェクトにはリソースとフィールドのプロパティがあるため、クライアントは何が問題かを認識することができます。  また、フィールドの問題点を知らせるエラー コードもあります。  発生する可能性のある検証エラー コードは次のとおりです。
+All error objects have resource and field properties so that your client
+can tell what the problem is.  There's also an error code to let you
+know what is wrong with the field.  These are the possible validation error
+codes:
 
-エラーコード名 | 説明
+Error code name | Description
 -----------|-----------|
-`missing` | リソースが存在しません。
-`missing_field` | リソースの必須フィールドが設定されていません。
-`invalid` | フィールドのフォーマットが無効です。  詳細については、ドキュメントを参照してください。
-`already_exists` | 別のリソースに、このフィールドと同じ値があります。  これは、一意のキー（ラベル名など）が必要なリソースで発生する可能性があります。
-`unprocessable` | 入力が無効です。
+`missing` | A resource does not exist.
+`missing_field` | A required field on a resource has not been set.
+`invalid` | The formatting of a field is invalid.  Review the documentation for more specific information.
+`already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
+`unprocessable` | The inputs provided were invalid.
 
-リソースは、カスタム検証エラー (ここで`code` は `custom`) を送信する場合もあります。 カスタム エラーには常にエラーを説明する `message` フィールドがあり、ほとんどのエラーには、エラーの解決に役立つ可能性があるコンテンツを指す `documentation_url` フィールドも含まれます。
+Resources may also send custom validation errors (where `code` is `custom`). Custom errors will always have a `message` field describing the error, and most errors will also include a `documentation_url` field pointing to some content that might help you resolve the error.
 
-## HTTP リダイレクト
+## HTTP redirects
 
-{% data variables.product.product_name %} REST API では、必要に応じて HTTP リダイレクトが使用されます。 クライアントは、要求がリダイレクトされる可能性があることを想定する必要があります。 HTTP リダイレクトの受信はエラーでは *なく*、クライアントはそのリダイレクトに従う必要があります。 リダイレクトのレスポンスには、クライアントが要求を繰り返す必要があるリソースの URI を含む `Location` ヘッダー フィールドがあります。
+The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
+request may result in a redirection. Receiving an HTTP redirection is *not* an
+error and clients should follow that redirect. Redirect responses will have a
+`Location` header field which contains the URI of the resource to which the
+client should repeat the requests.
 
-状態コード | 説明
+Status Code | Description
 -----------|-----------|
-`301` | Permanent redirection（恒久的なリダイレクト）。 要求に使用した URI は、`Location` ヘッダー フィールドで指定されたものに置き換えられています。 このリソースに対する今後のすべてのリクエストは、新しい URI に送信する必要があります。
-`302`, `307` | Temporary redirection（一時的なリダイレクト）。 要求は、`Location` ヘッダー フィールドで指定された URI に逐語的に繰り返される必要がありますが、クライアントは今後の要求で元の URI を引き続き使用する必要があります。
+`301` | Permanent redirection. The URI you used to make the request has been superseded by the one specified in the `Location` header field. This and all future requests to this resource should be directed to the new URI.
+`302`, `307` | Temporary redirection. The request should be repeated verbatim to the URI specified in the `Location` header field but clients should continue to use the original URI for future requests.
 
-その他のリダイレクトステータスコードは、HTTP 1.1 仕様に従って使用できます。
+Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 
-## HTTP 動詞
+## HTTP verbs
 
-{% data variables.product.product_name %} REST API では、可能な限り、各アクションに適した HTTP 動詞を使用しようとします。 HTTP 動詞では大文字と小文字が区別されることにご注意ください。
+Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
+action. Note that HTTP verbs are case-sensitive.
 
-動詞 | 説明
+Verb | Description
 -----|-----------
-`HEAD` | HTTP ヘッダ情報のみを取得するために、任意のリソースに対して発行できます。
-`GET` | リソースを取得するために使用します。
-`POST` | リソースを作成するために使用します。
-`PATCH` | 部分的な JSON データでリソースを更新するために使用します。 たとえば、Issue リソースには `title` 属性と `body` 属性があります。 `PATCH` 要求は、リソースを更新するために 1 つ以上の属性を受け入れることができます。
-`PUT` | リソースまたはコレクションを置き換えるために使用します。 `body` 属性のない `PUT` 要求の場合は、必ず `Content-Length` ヘッダーを 0 に設定してください。
-`DELETE` |リソースを削除するために使用します。
+`HEAD` | Can be issued against any resource to get just the HTTP header info.
+`GET` | Used for retrieving resources.
+`POST` | Used for creating resources.
+`PATCH` | Used for updating resources with partial JSON data. For instance, an Issue resource has `title` and `body` attributes. A `PATCH` request may accept one or more of the attributes to update the resource.
+`PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
+`DELETE` |Used for deleting resources.
 
-## ハイパーメディア
+## Hypermedia
 
-すべてのリソースには、他のリソースにリンクしている 1 つ以上の `*_url` プロパティがある場合があります。  これらは、適切な API クライアントが自身で URL を構築する必要がないように、明示的な URL を提供することを目的としています。  API クライアントでは、これらを使用することを強くお勧めしています。  そうすることで、開発者が将来の API のアップグレードを容易に行うことができます。  すべての URL は、適切な [RFC 6570][rfc] URI テンプレートであることが想定されています。
+All resources may have one or more `*_url` properties linking to other
+resources.  These are meant to provide explicit URLs so that proper API clients
+don't need to construct URLs on their own.  It is highly recommended that API
+clients use these.  Doing so will make future upgrades of the API easier for
+developers.  All URLs are expected to be proper [RFC 6570][rfc] URI templates.
 
-その後、[uri_template][uri] gem などを使用して、これらのテンプレートを展開できます。
+You can then expand these templates using something like the [uri_template][uri]
+gem:
 
     >> tmpl = URITemplate.new('/notifications{?since,all,participating}')
     >> tmpl.expand
@@ -266,56 +297,60 @@ REST API を使用して `node_id` を検索し、GraphQL 演算で使用する�
 [rfc]: https://datatracker.ietf.org/doc/html/rfc6570
 [uri]: https://github.com/hannesg/uri_template
 
-## 改ページ位置の自動修正
+## Pagination
 
-複数の項目を返す要求は、既定では 30 項目ごとにページ分けされます。  `page` パラメーターを使用すると、さらにページを指定できます。 一部のリソースでは、`per_page` パラメーターを使用してカスタム ページ サイズを最大 100 に設定することもできます。
-技術的な理由から、すべてのエンドポイントで `per_page` パラメーターが考慮されるわけではないことに注意してください。たとえば、[イベント](/rest/reference/activity#events)を参照してください。
+Requests that return multiple items will be paginated to 30 items by
+default.  You can specify further pages with the `page` parameter. For some
+resources, you can also set a custom page size up to 100 with the `per_page` parameter.
+Note that for technical reasons not all endpoints respect the `per_page` parameter,
+see [events](/rest/reference/activity#events) for example.
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-ページ番号は 1 から始まり、`page` パラメーターを省略すると最初のページが返されることに注意してください。
+Note that page numbering is 1-based and that omitting the `page`
+parameter will return the first page.
 
-カーソルベースのページネーションを使用するエンドポイントもあります。 カーソルとは、結果セットで場所を示す文字列です。
-カーソルベースのページネーションでは、結果セットで「ページ」という概念がなくなるため、特定のページに移動することはできません。
-代わりに、`before` パラメーターまたは `after` パラメーターを使用して結果を走査できます。
+Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set.
+With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page.
+Instead, you can traverse the results by using the `before` or `after` parameters.
 
-改ページ位置の詳細については、「[改ページ位置を使用した走査][pagination-guide]」に関するガイドを参照してください。
+For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
 
-### リンクヘッダ
+### Link header
 
 {% note %}
 
-**注**: 独自の URL を作成するのではなく、Link ヘッダー値を使用して呼び出しを形成することが重要です。
+**Note:** It's important to form calls with Link header values instead of constructing your own URLs.
 
 {% endnote %}
 
-[Link ヘッダー](https://datatracker.ietf.org/doc/html/rfc5988)には、改ページ位置の情報が含まれています。 次に例を示します。
+The [Link header](https://datatracker.ietf.org/doc/html/rfc5988) includes pagination information. For example:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
-_この例は、読みやすいように改行されています。_
+_The example includes a line break for readability._
 
-エンドポイントでカーソルベースのページネーションを使用する場合:
+Or, if the endpoint uses cursor-based pagination:
 
     Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
-この `Link` 応答ヘッダーには 1 つ以上の [Hypermedia](/rest#hypermedia) リンク関係が含まれており、その一部は [URI テンプレート](https://datatracker.ietf.org/doc/html/rfc6570)として展開が必要な場合があります。
+This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](https://datatracker.ietf.org/doc/html/rfc6570).
 
-取りうる可能性のある `rel` の値は次のようになります。
+The possible `rel` values are:
 
-名前 | 説明
+Name | Description
 -----------|-----------|
-`next` |結果のすぐ次のページのリンク関係。
-`last` |結果の最後のページのリンク関係。
-`first` |結果の最初のページのリンク関係。
-`prev` |結果の直前のページのリンク関係。
+`next` |The link relation for the immediate next page of results.
+`last` |The link relation for the last page of results.
+`first` |The link relation for the first page of results.
+`prev` |The link relation for the immediate previous page of results.
 
 ## Timeouts
 
-{% data variables.product.prodname_dotcom %} が API を処理するのに 10 秒以上かかると、次に示すように、{% data variables.product.prodname_dotcom %} はリクエストを終了させ、タイムアウトの応答が返されます。
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
 
 ```json
 {
@@ -323,23 +358,23 @@ _この例は、読みやすいように改行されています。_
 }
 ```
 
-{% data variables.product.product_name %} は、API の速度と信頼性を保護するためにタイムアウト ウィンドウを変更する権利を留保します。
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
-## レート制限
+## Rate limiting
 
-{% data variables.product.product_location %}への様々な種類のAPIリクエストは、様々なレート制限に従います。 
+Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. 
 
-加えて、Search APIには専用の制限があります。 詳細については、REST API のドキュメントの「[検索](/rest/reference/search#rate-limit)」を参照してください。
+Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### 個人アカウントからの要求
+### Requests from personal accounts
 
-個人アクセストークンで認証された直接のAPIリクエストは、user-to-serverリクエストです。 OAuth AppあるいはGitHub Appは、ユーザが認可した後、user-to-serverリクエストをユーザの代わりに発行することもできます。 詳細については、「[個人用アクセス トークンの作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」、「[OAuth アプリの承認](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)」、「[GitHub アプリの承認](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)」を参照してください。
+Direct API requests that you authenticate with a {% data variables.product.pat_generic %} are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
 
-{% data variables.product.product_name %}は、すべてのuser-to-serverリクエストを認証されたユーザと関連づけます。 OAuth App及びGitHubについては、これはアプリケーションを認可したユーザです。 すべてのuser-to-serverリクエストは、認証されたユーザのレート制限に対してカウントされます。
+{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
 
 {% data reusables.apps.user-to-server-rate-limits %}
 
@@ -349,33 +384,33 @@ _この例は、読みやすいように改行されています。_
 
 {% ifversion fpt or ghec or ghes %}
 
-認証されていないリクエストでは、レート制限により 1 時間あたり最大 60 リクエストまで可能です。 認証されていないリクエストは、リクエストを発行した人ではなく、発信元の IP アドレスに関連付けられます。
+For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
 
 {% endif %}
 
 {% endif %}
 
-### GitHub Appからのリクエスト
+### Requests from GitHub Apps
 
-GitHub Appからのリクエストは、user-to-serverあるいはserver-to-serverリクエストのいずれかになります。 GitHub アプリのレート制限の詳細については、「[GitHub アプリのレート制限](/developers/apps/building-github-apps/rate-limits-for-github-apps)」を参照してください。 
+Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)." 
 
-### GitHub Actionsからのリクエスト
+### Requests from GitHub Actions
 
-GitHub Actions ワークフロー内の要求の認証には、組み込みの `GITHUB_TOKEN` を使用できます。 詳細については、「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。
+You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
 
-`GITHUB_TOKEN` を使用する場合、レート制限はリポジトリごとに 1 時間あたり 1,000 要求です。{% ifversion fpt or ghec %}{% data variables.product.product_location %} 上の Enterprise アカウントに属するリソースへのアクセスについては、{% data variables.product.prodname_ghe_cloud %} のレート制限が適用され、その制限はリポジトリごとに 1 時間あたり 15,000 要求です。{% endif %}
+When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.location.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
 
-### レート制限のステータスのチェック
+### Checking your rate limit status
 
-レート制限APIとレスポンスのHTTPヘッダは、任意の時点におけるユーザまたはユーザのアプリケーションが利用できるAPIコール数の信頼できるソースです。
+The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
 
-#### レート制限API
+#### Rate Limit API
 
-レート制限APIを使って、現在の制限に達することなくレート制限のステータスをチェックできます。 詳細については、「[レート制限](/rest/reference/rate-limit)」を参照してください。
+You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
 
-#### レート制限HTTPヘッダ
+#### Rate limit HTTP headers
 
-API リクエストの返された HTTP ヘッダは、現在のレート制限ステータスを示しています。
+The returned HTTP headers of any API request show your current rate limit status:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
@@ -387,21 +422,21 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > x-ratelimit-reset: 1372700873
 ```
 
-ヘッダー名 | [説明]
+Header Name | Description
 -----------|-----------|
-`x-ratelimit-limit` | 1 時間あたりのリクエスト数の上限。
-`x-ratelimit-remaining` | 現在のレート制限ウィンドウに残っているリクエストの数。
-`x-ratelimit-used` | 現在のレート制限ウィンドウに残っているリクエストの数。
-`x-ratelimit-reset` | 現在のレート制限ウィンドウが [UTC エポック秒単位](http://en.wikipedia.org/wiki/Unix_time)でリセットされる時刻。
+`x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
+`x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
+`x-ratelimit-used` | The number of requests you've made in the current rate limit window.
+`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
-時刻に別の形式を使用する必要がある場合は、最新のプログラミング言語で作業を完了できます。 たとえば、Web ブラウザでコンソールを開くと、リセット時刻を JavaScript の Date オブジェクトとして簡単に取得できます。
+If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
 
 ``` javascript
 new Date(1372700873 * 1000)
 // => Mon Jul 01 2013 13:47:53 GMT-0400 (EDT)
 ```
 
-レート制限を超えると、次のようなエラーレスポンスが返されます。
+If you exceed the rate limit, an error response returns:
 
 ```shell
 > HTTP/2 403
@@ -417,9 +452,9 @@ new Date(1372700873 * 1000)
 > }
 ```
 
-### OAuth Appの認証されていないレート制限の増加
+### Increasing the unauthenticated rate limit for OAuth Apps
 
-OAuth Appが認証されていない呼び出しをより高いレート制限で行う必要がある場合は、エンドポイントルートの前にアプリのクライアント ID とシークレットを渡すことができます。
+If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
 $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
@@ -433,21 +468,21 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 
 {% note %}
 
-**注**: クライアント シークレットを他のユーザーと共有したり、クライアント側のブラウザー コードに含めたりしないでください。 こちらに示す方法は、サーバー間の呼び出しにのみ使用してください。
+**Note:** Never share your client secret with anyone or include it in client-side browser code. Use the method shown here only for server-to-server calls.
 
 {% endnote %}
 
-### レート制限内に収める
+### Staying within the rate limit
 
-基本認証または OAuth を使用してレート制限を超えた場合は、API 応答をキャッシュし、[条件付き要求](#conditional-requests)を使用することで問題を解決できる可能性があります。
+If you exceed your rate limit using Basic Authentication or OAuth, you can likely fix the issue by caching API responses and using [conditional requests](#conditional-requests).
 
-### セカンダリレート制限
+### Secondary rate limits
 
-{% data variables.product.product_name %} で高品質のサービスを提供するにあたって、API を使用するときに、いくつかのアクションに追加のレート制限が適用される場合があります。 たとえば、API を使用してコンテンツを急速に作成する、webhook を使用する代わりに積極的にポーリングする、複数の同時リクエストを行う、計算コストが高いデータを繰り返しリクエストするなどの行為によって、セカンダリレート制限が適用される場合があります。
+In order to provide quality service on {% data variables.product.product_name %}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in secondary rate limiting.
 
-セカンダリレート制限は、API の正当な使用を妨げることを意図したものではありません。 通常のレート制限が、ユーザにとって唯一の制限であるべきです。 優良な API ユーザーにふさわしい振る舞いをしているかどうかを確認するには、「[ベスト プラクティスのガイドライン](/guides/best-practices-for-integrators/)」を参照してください。
+Secondary rate limits are not intended to interfere with legitimate use of the API. Your normal rate limits should be the only limit you target. To ensure you're acting as a good API citizen, check out our [Best Practices guidelines](/guides/best-practices-for-integrators/).
 
-アプリケーションがこのレート制限をトリガーすると、次のような有益なレスポンスを受け取ります。
+If your application triggers this rate limit, you'll receive an informative response:
 
 ```shell
 > HTTP/2 403
@@ -462,17 +497,19 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 
 {% ifversion fpt or ghec %}
 
-## User agent の必要性
+## User agent required
 
-すべての API 要求に有効な `User-Agent` ヘッダーを含める必要があります。 `User-Agent` ヘッダーのない要求は拒否されます。 `User-Agent` ヘッダの値には、{% data variables.product.product_name %} のユーザー名またはアプリケーション名を使用してください。 そうすることで、問題がある場合にご連絡することができます。
+All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent`
+header will be rejected. We request that you use your {% data variables.product.product_name %} username, or the name of your
+application, for the `User-Agent` header value. This allows us to contact you if there are problems.
 
-次に例を示します。
+Here's an example:
 
 ```shell
 User-Agent: Awesome-Octocat-App
 ```
 
-cURL は、既定で有効な `User-Agent` ヘッダーを送信します。 cURL を介して (または別のクライアントを介して) 無効な `User-Agent` ヘッダーを指定すると、`403 Forbidden` 応答を受け取ります。
+cURL sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via cURL (or via an alternative client), you will receive a `403 Forbidden` response:
 
 ```shell
 $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
@@ -487,15 +524,20 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 {% endif %}
 
-## 条件付きリクエスト
+## Conditional requests
 
-ほとんどの応答では `ETag` ヘッダーが返されます。 多くの応答では `Last-Modified` ヘッダーも返されます。 これらのヘッダーの値を使用して、それぞれ `If-None-Match` のヘッダーと `If-Modified-Since` のヘッダーを使用してそれらのリソースに対する後続の要求を行うことができます。 リソースが変更されていない場合、サーバーは `304 Not Modified` を返します。
+Most responses return an `ETag` header. Many responses also return a `Last-Modified` header. You can use the values
+of these headers to make subsequent requests to those resources using the
+`If-None-Match` and `If-Modified-Since` headers, respectively. If the resource
+has not changed, the server will return a `304 Not Modified`.
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**注**: 条件付き要求を作成して 304 レスポンスを受け取る場合、[レート制限](#rate-limiting)にはカウントされないため、可能な限り使用することをお勧めします。
+**Note**: Making a conditional request and receiving a 304 response does not
+count against your [Rate Limit](#rate-limiting), so we encourage you to use it
+whenever possible.
 
 {% endtip %}
 
@@ -532,12 +574,16 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: T
 > x-ratelimit-reset: 1372700873
 ```
 
-## クロス オリジン リソース共有
+## Cross origin resource sharing
 
-API では、任意のオリジンからの AJAX 要求に対して、オリジン間リソース共有 (CORS) がサポートされています。
-「[CORS W3C の推奨事項](http://www.w3.org/TR/cors/)」、または HTML 5 セキュリティ ガイドの「[この概要](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki)」をお読みください。
+The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
+any origin.
+You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors/), or
+[this intro](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki) from the
+HTML 5 Security Guide.
 
-`http://example.com` をヒットするブラウザーから送信されたサンプル要求を次に示します。
+Here's a sample request sent from a browser hitting
+`http://example.com`:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
@@ -546,7 +592,7 @@ Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
 
-CORS プリフライトリクエストは次のようになります。
+This is what the CORS preflight request looks like:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
@@ -558,9 +604,13 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ra
 Access-Control-Max-Age: 86400
 ```
 
-## JSON-P コールバック
+## JSON-P callbacks
 
-`?callback` パラメーターを任意の GET 呼び出しに送信して、結果を JSON 関数でラップできます。  これは通常、クロス ドメインの問題を回避することにより、ブラウザーが {% data variables.product.product_name %} のコンテンツを Web ページに埋め込む場合に使用されます。  応答には、通常の API と同じデータ出力と、関連する HTTP ヘッダー情報が含まれます。
+You can send a `?callback` parameter to any GET call to have the results
+wrapped in a JSON function.  This is typically used when browsers want
+to embed {% data variables.product.product_name %} content in web pages by getting around cross domain
+issues.  The response includes the same data output as the regular API,
+plus the relevant HTTP Header information.
 
 ```shell
 $ curl {% data variables.product.api_url_pre %}?callback=foo
@@ -581,7 +631,7 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 > })
 ```
 
-JavaScript ハンドラを記述して、コールバックを処理できます。 以下は、試すことができる最も簡易な例です。
+You can write a JavaScript handler to process the callback. Here's a minimal example you can try out:
 
     <html>
     <head>
@@ -605,13 +655,15 @@ JavaScript ハンドラを記述して、コールバックを処理できます
     </body>
     </html>
 
-すべてのヘッダーは HTTP ヘッダーと同じ文字列型の値ですが、例外の 1 つとして "Link" があります。  Link ヘッダーは事前に解析され、`[url, options]` タプルの配列として渡されます。
+All of the headers are the same String value as the HTTP Headers with one
+notable exception: Link.  Link headers are pre-parsed for you and come
+through as an array of `[url, options]` tuples.
 
-リンクは次のようになります。
+A link that looks like this:
 
     Link: <url1>; rel="next", <url2>; rel="foo"; bar="baz"
 
-... コールバック出力では次のようになります。
+... will look like this in the Callback output:
 
 ```json
 {
@@ -633,39 +685,39 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 }
 ```
 
-## タイムゾーン
+## Timezones
 
-新しいコミットの作成など、新しいデータを作成する一部のリクエストでは、タイムスタンプを指定または生成するときにタイムゾーン情報を提供できます。 そういったAPI 呼び出しのタイムゾーン情報を決定する際に、優先順位に従って次のルールを適用します。
+Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for such API calls.
 
-* [ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
-* [`Time-Zone` ヘッダーの使用](#using-the-time-zone-header)
-* [ユーザーが最後に認識されたタイムゾーンを使用する](#using-the-last-known-timezone-for-the-user)
-* [他のタイムゾーン情報を含まない UTC を既定値に設定する](#defaulting-to-utc-without-other-timezone-information)
+* [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
+* [Using the `Time-Zone` header](#using-the-time-zone-header)
+* [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
+* [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
 
-これらのルールは、APIに渡されたデータに対してのみ適用され、APIが返す日付には適用されないことに注意してください。 "[スキーマ](#schema)" にあるように、API が返すタイムスタンプは UTC 時間であり、ISO 8601 形式です。
+Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
 
-### ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する
+### Explicitly providing an ISO 8601 timestamp with timezone information
 
-タイムスタンプを指定できる API 呼び出しの場合、その正確なタイムスタンプを使用します。 その例として、[Commits API](/rest/reference/git#commits) があります。
+For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
 
-これらのタイムスタンプは `2014-02-27T15:05:06+01:00` のようになります。 これらのタイムスタンプを指定する方法については、[この例](/rest/reference/git#example-input)も参照してください。
+These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
-### `Time-Zone` ヘッダーの使用
+### Using the `Time-Zone` header
 
-[Olson データベースの名前の一覧](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)に従ってタイムゾーンを定義する `Time-Zone` ヘッダーを指定できます。
+It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-つまり、このヘッダが定義するタイムゾーンで API 呼び出しが行われた時のタイムスタンプが生成されます。 たとえば、[Contents API](/rest/reference/repos#contents) は追加または変更ごとに git コミットを生成し、タイムスタンプとして現在の時刻を使用します。 このヘッダは、現在のタイムスタンプの生成に使用されたタイムゾーンを決定します。
+This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
 
-### ユーザが最後に認識されたタイムゾーンを使用する
+### Using the last known timezone for the user
 
-`Time-Zone` ヘッダーが指定されておらず、API への認証された呼び出しを行う場合、認証されたユーザーが最後に認識されたタイムゾーンが使用されます。 最後に認識されたタイムゾーンは、{% data variables.product.product_name %} Web サイトを閲覧するたびに更新されます。
+If no `Time-Zone` header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the {% data variables.product.product_name %} website.
 
-### 他のタイムゾーン情報を含まない UTC をデフォルトにする
+### Defaulting to UTC without other timezone information
 
-上記の手順で情報が得られない場合は、UTC をタイムゾーンとして使用して git コミットを作成します。
+If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
 
 [pagination-guide]: /guides/traversing-with-pagination

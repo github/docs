@@ -1,6 +1,6 @@
 ---
 title: GitHub Mobile
-intro: '从移动设备对 {% data variables.product.product_name %} 上的工作进行分类、协作和管理。'
+intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,87 +11,84 @@ redirect_from:
   - /get-started/using-github/github-for-mobile
   - /github/getting-started-with-github/github-for-mobile
   - /github/getting-started-with-github/using-github/github-for-mobile
-ms.openlocfilehash: a9af0848fdc26c5efd3dfb2d00076e3af5fb00bc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147508446'
 ---
-## 关于 {% data variables.product.prodname_mobile %}
+
+## About {% data variables.product.prodname_mobile %}
 
 {% data reusables.mobile.about-mobile %}
 
-{% data variables.product.prodname_mobile %} 让你可以随时随地快速高效地在 {% data variables.product.product_name %} 上执行重要工作。 {% data variables.product.prodname_mobile %} 通过可信的第一方客户端应用程序可以安全可靠地访问 {% data variables.product.product_name %} 数据。
+{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.product_name %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your {% data variables.product.product_name %} data through a trusted, first-party client application.
 
-通过 {% data variables.product.prodname_mobile %}，您可以：
+With {% data variables.product.prodname_mobile %} you can:
 
-- 管理、分类和清除通知
-- 阅读、审查及协作处理问题和拉取请求
-- 搜索、浏览用户、仓库和组织以及与之交互
-- 当有人提到用户名时收到推送通知 {% ifversion fpt or ghec %}- 使用双因素身份验证保护 GitHub.com 帐户
-- 在无法识别的设备上验证登录尝试{% endif %}
+- Manage, triage, and clear notifications
+- Read, review, and collaborate on issues and pull requests
+- Edit files in pull requests
+- Search for, browse, and interact with users, repositories, and organizations
+- Receive a push notification when someone mentions your username
+{% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication
+- Verify your sign in attempts on unrecognized devices{% endif %}
 
-有关 {% data variables.product.prodname_mobile %} 的通知的详细信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)”。
+For more information about notifications for {% data variables.product.prodname_mobile %}, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
 
-{% ifversion fpt or ghec %}- 有关使用 {% data variables.product.prodname_mobile %} 进行双因素身份验证的详细信息，请参阅“[配置 {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) 和[使用 {% data variables.product.prodname_mobile %} 进行身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication##verifying-with-github-mobile)”。 {% endif %}
+{% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see "[Configuring {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication##verifying-with-github-mobile)." {% endif %}
 
-## 安装 {% data variables.product.prodname_mobile %}
+## Installing {% data variables.product.prodname_mobile %}
 
-若要为 Android 或 iOS 安装 {% data variables.product.prodname_mobile %}，请参阅 [{% data variables.product.prodname_mobile %}](https://github.com/mobile)。
+To install {% data variables.product.prodname_mobile %} for Android or iOS, see [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
 
-## 管理帐户
+## Managing accounts
 
-可以使用 {% data variables.product.prodname_dotcom_the_website %} 上的一个个人帐户和 {% data variables.product.prodname_ghe_server %} 上的一个个人帐户同时登录到移动设备。 有关不同产品的详细信息，请参阅“[{% data variables.product.company_short %} 的产品](/get-started/learning-about-github/githubs-products)”。
+You can be simultaneously signed into mobile with one personal account on {% data variables.product.prodname_dotcom_the_website %} and one personal account on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
-如果您需要通过 VPN 访问企业，{% data variables.product.prodname_mobile %} 可能不适用于您的企业。
+{% data variables.product.prodname_mobile %} may not work with your enterprise if you're required to access your enterprise over VPN.
 
-### 先决条件
+### Prerequisites
 
-您必须在设备上安装 {% data variables.product.prodname_mobile %} 1.4 或更高版本，才能使用 {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}。
+You must install {% data variables.product.prodname_mobile %} 1.4 or later on your device to use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}.
 
-要同时使用 {% data variables.product.prodname_mobile %} 与 {% data variables.product.prodname_ghe_server %}，{% data variables.product.product_location %} 必须为 3.0 或更高版本，并且企业所有者必须为企业启用移动版支持。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_server %} 文档中的 {% ifversion ghes %}“[发行说明](/enterprise-server/admin/release-notes)”和{% endif %}“[为企业管理 {% data variables.product.prodname_mobile %}]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}”。{% else %}。{% endif %}
+To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.location.product_location %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
-在具有 {% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_mobile %} beta 版本期间，必须使用 {% data variables.product.prodname_dotcom_the_website %} 上的个人帐户登录。
+During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 
-### 添加、切换或登出账户
+### Adding, switching, or signing out of accounts
 
-可以使用 {% data variables.product.prodname_ghe_server %} 上的个人帐户登录到移动设备。 在应用的底部，长按 {% octicon "person" aria-label="The person icon" %}“个人资料”，然后点击 {% octicon "plus" aria-label="The plus icon" %}“添加企业帐户” 。 按提示登录。
+You can sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
 
-在 {% data variables.product.prodname_ghe_server %} 上使用个人帐户登录移动设备后，就可以在帐户和 {% data variables.product.prodname_dotcom_the_website %} 上的帐户之间进行切换。 在应用的底部，长按 {% octicon "person" aria-label="The person icon" %}“个人资料”，然后点击要切换到的帐户。
+After you sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap the account you want to switch to.
 
-如果不再需要从 {% data variables.product.prodname_mobile %} 访问 {% data variables.product.prodname_ghe_server %} 上的个人帐户数据，则可以退出登录该帐户。 在应用底部，长按 {% octicon "person" aria-label="The person icon" %}“个人资料”，向左滑动要退出的帐户，然后点击“退出” 。
+If you no longer need to access data for your personal account on {% data variables.product.prodname_ghe_server %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
 
-## {% data variables.product.prodname_mobile %} 支持的语言
+## Supported languages for {% data variables.product.prodname_mobile %}
 
-{% data variables.product.prodname_mobile %} 支持以下语言。
+{% data variables.product.prodname_mobile %} is available in the following languages.
 
-- 英语
-- 日语
-- 巴西葡萄牙语
-- 简体中文
-- 西班牙语
+- English
+- Japanese
+- Brazilian Portuguese
+- Simplified Chinese
+- Spanish
 
-如果将设备上的语言配置为受支持的语言，则 {% data variables.product.prodname_mobile %} 默认为该语言。 你可以在 {% data variables.product.prodname_mobile %} 的“设置”菜单中更改 {% data variables.product.prodname_mobile %} 的语言。
+If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
 
-## 管理 iOS 上 {% data variables.product.prodname_mobile %} 的通用链接
+## Managing Universal Links for {% data variables.product.prodname_mobile %} on iOS
 
-{% data variables.product.prodname_mobile %} 自动启用 iOS 的通用链接。 当您点击任何 {% data variables.product.product_name %} 链接时，目标 URL 都会在 {% data variables.product.prodname_mobile %} 中打开，而不是在 Safari 中打开。 有关详细信息，请参阅 Apple 开发人员网站上的[通用链接](https://developer.apple.com/ios/universal-links/)。
+{% data variables.product.prodname_mobile %} automatically enables Universal Links for iOS. When you tap any {% data variables.product.product_name %} link, the destination URL will open in {% data variables.product.prodname_mobile %} instead of Safari. For more information, see [Universal Links](https://developer.apple.com/ios/universal-links/) on the Apple Developer site.
 
-若要禁用通用链接，请长按任何 {% data variables.product.product_name %} 链接，然后点击“打开”。 以后每次点击 {% data variables.product.product_name %} 链接时，目标 URL 将在 Safari 中打开，而不是在 {% data variables.product.prodname_mobile %} 中打开。
+To disable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open**. Every time you tap a {% data variables.product.product_name %} link in the future, the destination URL will open in Safari instead of {% data variables.product.prodname_mobile %}.
 
-若要重新启用通用链接，请长按任意 {% data variables.product.product_name %} 链接，然后点击“在 {% data variables.product.prodname_dotcom %} 中打开”。
+To re-enable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open in {% data variables.product.prodname_dotcom %}**.
 
-## 分享反馈
+## Sharing feedback
 
-可以在 [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile) 上为 {% data variables.product.prodname_mobile %} 提交功能请求或其他反馈。
+You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile).
 
-## 选择退出 iOS 的测试版
+## Opting out of beta releases for iOS
 
-如果您正在使用 TestFlight 参加 iOS 版 {% data variables.product.prodname_mobile %} 的测试，可以随时退出。
+If you're testing a beta release of {% data variables.product.prodname_mobile %} for iOS using TestFlight, you can leave the beta at any time.
 
-1. 在 iOS 设备上，打开 TestFlight app。
-2. 在“应用”下，点击 {% data variables.product.prodname_dotcom %}。
-3. 在页面底部，点击“停止测试”。
+1. On your iOS device, open the TestFlight app.
+2. Under "Apps", tap **{% data variables.product.prodname_dotcom %}**.
+3. At the bottom of the page, tap **Stop Testing**.

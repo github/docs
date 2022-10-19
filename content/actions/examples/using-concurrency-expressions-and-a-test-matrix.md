@@ -1,6 +1,6 @@
 ---
 title: 'Using concurrency, expressions, and a test matrix'
-shortTitle: 'Using concurrency, expressions, and a test matrix'
+shortTitle: 'Use concurrency, expressions, and a test matrix'
 intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
@@ -112,7 +112,7 @@ jobs:
           # NOT clone them initially and instead, include them manually
           # only for the test groups that we know need the files.
           lfs: {% raw %}${{ matrix.test-group == 'content' }}{% endraw %}
-          # Enables cloning the Early Access repo later with the relevant PAT
+          # Enables cloning the Early Access repo later with the relevant {% data variables.product.pat_generic %}
           persist-credentials: 'false'
 
       - name: Figure out which docs-early-access branch to checkout, if internal repo

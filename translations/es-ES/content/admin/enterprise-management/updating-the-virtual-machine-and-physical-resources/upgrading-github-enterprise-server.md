@@ -32,11 +32,11 @@ shortTitle: Upgrading GHES
 
   {% note %}
 
-  **Note:** Your {% data variables.product.prodname_enterprise_backup_utilities %} version needs to be the same version as, or at most two versions ahead of, {% data variables.product.product_location %}. For more information, see "[Upgrading GitHub Enterprise Server Backup Utilities](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#upgrading-github-enterprise-server-backup-utilities)."
+  **Note:** Your {% data variables.product.prodname_enterprise_backup_utilities %} version needs to be the same version as, or at most two versions ahead of, {% data variables.location.product_location %}. For more information, see "[Upgrading GitHub Enterprise Server Backup Utilities](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#upgrading-github-enterprise-server-backup-utilities)."
 
   {% endnote %}
 
-1. If {% data variables.product.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run.
+1. If {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run.
 1. If you are upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users. If you are using a hotpatch, maintenance mode is not required.
 
   {% note %}
@@ -84,7 +84,7 @@ Using the {% data variables.enterprise.management_console %}, you can install a 
 **{% ifversion ghes %}Notes{% else %}Note{% endif %}**:
 
 {% ifversion ghes %}
-- If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
+- If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
 
 - {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
 
@@ -118,7 +118,7 @@ If the upgrade target you're presented with is a feature release instead of a pa
 {% data reusables.enterprise_installation.download-package %}
 4. Run the `ghe-upgrade` command using the package file name:
   ```shell
-  admin@<em>HOSTNAME</em>:~$ ghe-upgrade <em>GITHUB-UPGRADE.hpkg</em>
+  admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
   *** verifying upgrade package signature...
   ```
 5. If a reboot is required for updates for kernel, MySQL, Elasticsearch or other programs, the hotpatch upgrade script notifies you.
@@ -170,21 +170,21 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
 5. Run the `ghe-upgrade` command using the package file name:
   ```shell
-  admin@<em>HOSTNAME</em>:~$ ghe-upgrade <em>GITHUB-UPGRADE.pkg</em>
+  admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.pkg
   *** verifying upgrade package signature...
   ```
 6. Confirm that you'd like to continue with the upgrade and restart after the package signature verifies. The new root filesystem writes to the secondary partition and the instance automatically restarts in maintenance mode:
   ```shell
   *** applying update...
-  This package will upgrade your installation to version <em>version-number</em>
-  Current root partition: /dev/xvda1 [<em>version-number</em>]
+  This package will upgrade your installation to version VERSION-NUMBER
+  Current root partition: /dev/xvda1 [VERSION-NUMBER]
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
 {% ifversion ip-exception-list %}
 1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 {% endif %}
-7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.product.product_location %}.
+7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.location.product_location %}.
 
   {% note %}
 
@@ -239,7 +239,7 @@ Appliances configured for high-availability and geo-replication use replica inst
    - If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
    {%- endif %}
    - {% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
-6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location %}.
+6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.location.product_location %}.
 
 ## Restoring from a failed upgrade
 

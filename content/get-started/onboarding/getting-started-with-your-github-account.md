@@ -20,11 +20,11 @@ The first steps in starting with {% data variables.product.product_name %} are t
 The first steps in starting with {% data variables.product.product_name %} are to access your account and view your profile.
 {% endif %}
 
-{% ifversion fpt or ghec %}There are several types of accounts on {% data variables.product.prodname_dotcom %}. {% endif %} Every person who uses {% data variables.product.product_name %} has their own personal account, which can be part of multiple organizations and teams. Your personal account is your identity on {% data variables.product.product_location %} and represents you as an individual.
+{% ifversion fpt or ghec %}There are several types of accounts on {% data variables.product.prodname_dotcom %}. {% endif %} Every person who uses {% data variables.product.product_name %} has their own personal account, which can be part of multiple organizations and teams. Your personal account is your identity on {% data variables.location.product_location %} and represents you as an individual.
 
 {% ifversion fpt or ghec %}
 ### 1. Creating an account
-To sign up for an account on {% data variables.product.product_location %}, navigate to https://github.com/ and follow the prompts.
+To sign up for an account on {% data variables.location.product_location %}, navigate to https://github.com/ and follow the prompts.
 
 To keep your {% data variables.product.prodname_dotcom %} account secure you should use a strong and unique password. For more information, see "[Creating a strong password](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password)."
 
@@ -64,7 +64,7 @@ If you plan to use Git locally on your computer, whether through the command lin
 
 If you prefer to use a visual interface, you can download and use {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} comes packaged with Git, so there is no need to install Git separately. For more information, see "[Getting started with {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop)."
 
-Once you install Git, you can connect to {% data variables.product.product_name %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH. For more information, see "[About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)."
+Once you install Git, you can connect to {% data variables.product.product_name %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH. For more information, see "[About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)."
 
 ### 3. Choosing how to interact with {% data variables.product.product_name %}
 Everyone has their own unique workflow for interacting with {% data variables.product.prodname_dotcom %}; the interfaces and methods you use depend on your preference and what works best for your needs.
@@ -134,7 +134,7 @@ You can use GitHub Issues to organize your work with issues and pull requests an
 Notifications provide updates about the activity on {% data variables.product.prodname_dotcom %} you've subscribed to or participated in. If you're no longer interested in a conversation, you can unsubscribe, unwatch, or customize the types of notifications you'll receive in the future. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
 ### 8. Working with {% data variables.product.prodname_pages %}
-You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
+You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 
 {% ifversion discussions %}
 ### 9. Using {% data variables.product.prodname_discussions %}

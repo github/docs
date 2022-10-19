@@ -1,16 +1,10 @@
----
-ms.openlocfilehash: 173ad67b9b54108c16978dc5f1a8f01768c7bb37
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145127841"
----
 {% ifversion ghes > 3.2 %}
 
 {% note %}
 
-**Observação:** o administrador do site precisa configurar as {% data variables.product.prodname_dependabot_updates %} para o {% data variables.product.product_location %} para que você possa usar esse recurso. Para obter mais informações, confira "[Como habilitar o {% data variables.product.prodname_dependabot %} para sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+**Note:** Your site administrator must set up {% data variables.product.prodname_dependabot_updates %} for {% data variables.location.product_location %} before you can use this feature. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."  
+  
+{% ifversion security-feature-enablement-policies %} You may not be able to enable or disable {% data variables.product.prodname_dependabot_updates %} if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing policies for code security and analysis for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."{% endif %}
 
 {% endnote %}
 

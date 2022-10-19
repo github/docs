@@ -13,7 +13,7 @@ allowTitleToDifferFromFilename: true
 
 ## Archiving items
 
-You can archive an item to keep the context about the item in the project but remove it from the project views. 
+You can archive an item to keep the context about the item in the project but remove it from the project views. {% ifversion projects-v2-auto-archive %}You can also configure your project's built-in workflows to automatically archive items that meet certain criteria. For more information, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
 
 {% data reusables.projects.select-an-item %}
 {% data reusables.projects.open-item-menu %}
