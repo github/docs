@@ -1,7 +1,7 @@
 ---
-title: コンカレンシー、式、テスト マトリックスの使用
-shortTitle: 'Using concurrency, expressions, and a test matrix'
-intro: '継続的インテグレーション (CI) のために高度な {% data variables.product.prodname_actions %} 機能を使用する方法。'
+title: 'Using concurrency, expressions, and a test matrix'
+shortTitle: 'Use concurrency, expressions, and a test matrix'
+intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
   ghes: '>= 3.5'
@@ -10,34 +10,40 @@ versions:
 type: how_to
 topics:
   - Workflows
-ms.openlocfilehash: f4edac59fdbcc8f8825a51e25b737b94b17128b0
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147496581'
 ---
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## サンプルの概要
+## Example overview
 
-{% data reusables.actions.example-workflow-intro-ci %}このワークフローがトリガーされると、`npm test` とテストの組み合わせのマトリックスを使ってコードがテストされます。
+{% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it tests your code using a matrix of test combinations with `npm test`.
 
 {% data reusables.actions.example-diagram-intro %}
 
-![ワークフローのステップの概要図](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
+![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
 
-## この例で使用されている機能
+## Features used in this example
 
 {% data reusables.actions.example-table-intro %}
 
-| **機能**  | **実装** |
+| **Feature**  | **Implementation** |
 | --- | --- |
-{% data reusables.actions.workflow-dispatch-table-entry %} {% data reusables.actions.pull-request-table-entry %} {% data reusables.actions.cron-table-entry %} {% data reusables.actions.permissions-table-entry %} {% data reusables.actions.concurrency-table-entry %} | リポジトリに応じたさまざまなランナー上のジョブの実行: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)| {% data reusables.actions.if-conditions-table-entry %} | さまざまなテスト構成を作成するマトリックスの使用: | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)| {% data reusables.actions.checkout-action-table-entry %} {% data reusables.actions.setup-node-table-entry %} | 依存関係のキャッシュ: | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)| | ランナー上のテストの実行: | `npm test`|
+{% data reusables.actions.workflow-dispatch-table-entry %}
+{% data reusables.actions.pull-request-table-entry %}
+{% data reusables.actions.cron-table-entry %}
+{% data reusables.actions.permissions-table-entry %}
+{% data reusables.actions.concurrency-table-entry %}
+| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+{% data reusables.actions.if-conditions-table-entry %}
+| Using a matrix to create different test configurations: | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)|
+{% data reusables.actions.checkout-action-table-entry %}
+{% data reusables.actions.setup-node-table-entry %}
+| Caching dependencies: | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)|
+| Running tests on the runner: | `npm test`|
 
-## ワークフローの例
+## Example workflow
 
-{% data reusables.actions.example-docs-engineering-intro %} [`test.yml`](https://github.com/github/docs/blob/main/.github/workflows/test.yml)。
+{% data reusables.actions.example-docs-engineering-intro %} [`test.yml`](https://github.com/github/docs/blob/main/.github/workflows/test.yml).
 
 {% data reusables.actions.note-understanding-example %}
 
@@ -106,7 +112,7 @@ jobs:
           # NOT clone them initially and instead, include them manually
           # only for the test groups that we know need the files.
           lfs: {% raw %}${{ matrix.test-group == 'content' }}{% endraw %}
-          # Enables cloning the Early Access repo later with the relevant PAT
+          # Enables cloning the Early Access repo later with the relevant {% data variables.product.pat_generic %}
           persist-credentials: 'false'
 
       - name: Figure out which docs-early-access branch to checkout, if internal repo
@@ -205,15 +211,15 @@ jobs:
 </tbody>
 </table>
 
-## 例の説明
+## Understanding the example
 
- {% data reusables.actions.example-explanation-table-intro %}
+ {% data reusables.actions.example-explanation-table-intro %}
 
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%">"<b>コード</b>"</th>
-    <th style="width:40%"><b>説明</b></th>
+    <th style="width:60%"><b>Code</b></th>
+    <th style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
@@ -238,7 +244,7 @@ on:
 </td>
 <td>
 
-`on` キーワードを使うと、ワークフローの実行時にトリガーするイベントを定義できます。 ここでは複数のイベントを定義できます。 詳細については、「[ワークフローのトリガー](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)」を参照してください。
+The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
 </td>
 </tr>
 <tr>
@@ -250,7 +256,7 @@ on:
 </td>
 <td>
 
-UI でこのワークフローを手動で実行できるようにする場合は、`workflow_dispatch` イベントを追加します。 詳細については、「[`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
+Add the `workflow_dispatch` event if you want to be able to manually run this workflow in the UI. For more information, see [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch).
 </td>
 </tr>
 <tr>
@@ -262,7 +268,7 @@ UI でこのワークフローを手動で実行できるようにする場合�
 </td>
 <td>
 
-pull request が作成または更新されるたびにワークフローが自動的に実行されるようにするには、`pull_request` イベントを追加します。 詳細については、「[`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request)」を参照してください。
+Add the `pull_request` event, so that the workflow runs automatically every time a pull request is created or updated. For more information, see [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
 </td>
 </tr>
 <tr>
@@ -276,7 +282,7 @@ pull request が作成または更新されるたびにワークフローが自�
 </td>
 <td>
 
-フィルター `main` に一致するブランチにコミットがプッシュされるたびに、ワークフローが自動的に実行されるようにするには、`push` イベントを追加します。 詳細については、「[`push`](/actions/using-workflows/events-that-trigger-workflows#push)」を参照してください。
+Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `main`. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>
@@ -290,7 +296,7 @@ permissions:
 </td>
 <td>
 
-`GITHUB_TOKEN` に付与される既定のアクセス許可を変更します。 これはワークフローのニーズによって異なります。 詳細については、「[ジョブへのアクセス許可の割り当て](/actions/using-jobs/assigning-permissions-to-jobs)」を参照してください。
+Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
 </td>
 </tr>
 <tr>
@@ -304,7 +310,7 @@ concurrency:
 </td>
 <td>
 
-特定のイベントに対するコンカレンシー グループを作成し、`||` 演算子を使ってフォールバック値を定義します。 詳細については、「[コンカレンシーの使用](/actions/using-jobs/using-concurrency)」を参照してください。
+Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[Using concurrency](/actions/using-jobs/using-concurrency)."
 </td>
 </tr>
 <tr>
@@ -316,7 +322,7 @@ concurrency:
 </td>
 <td>
 
-同じコンカレンシー グループ内の現在実行中のジョブまたはワークフローを取り消します。
+Cancels any currently running job or workflow in the same concurrency group.
 </td>
 </tr>
 <tr>
@@ -328,7 +334,7 @@ jobs:
 </td>
 <td>
 
-ワークフロー ファイルで実行されるすべてのジョブをグループ化します。
+Groups together all the jobs that run in the workflow file.
 </td>
 </tr>
 <tr>
@@ -340,7 +346,7 @@ jobs:
 </td>
 <td>
 
-`jobs` キー内に格納されている ID `test` を持つジョブを定義します。
+Defines a job with the ID `test` that is stored within the `jobs` key.
 </td>
 </tr>
 <tr>
@@ -352,7 +358,7 @@ jobs:
 </td>
 <td>
 
-ワークフローを実行するリポジトリに応じて、{% data variables.product.prodname_dotcom %} ホステッド ランナーまたはセルフホステッド ランナー上で実行するようにジョブを構成します。 この例では、リポジトリ名が `docs-internal` であり、`github` 組織内にある場合、ジョブはセルフホステッド ランナー上で実行されます。 このパスに一致しないリポジトリは、{% data variables.product.prodname_dotcom %} によってホストされる `ubuntu-latest` ランナー上で実行されます。 これらのオプションの詳細については、「[ジョブのランナーを選択する](/actions/using-jobs/choosing-the-runner-for-a-job)」を参照してください。
+Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
 </td>
 </tr>
 <tr>
@@ -364,7 +370,7 @@ jobs:
 </td>
 <td>
 
-実行したジョブが自動的に取り消されるまでの最大分数を設定します。 詳細については、「[`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)」を参照してください。
+Sets the maximum number of minutes to let the job run before it is automatically canceled. For more information, see [`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes).
 </td>
 </tr>
 <tr>
@@ -375,7 +381,7 @@ jobs:
 ```
 </td>
 <td>
-  このセクションで、ジョブのビルド マトリックスを定義します。
+  This section defines the build matrix for your jobs.
 </td>
 </tr>
 <tr>
@@ -387,7 +393,7 @@ jobs:
 </td>
 <td>
 
-`fail-fast` を `false` に設定すると、マトリックス ジョブのいずれかが失敗した場合に、進行中のすべてのジョブが {% data variables.product.prodname_dotcom %} によって取り消されなくなります。
+Setting `fail-fast` to `false` prevents {% data variables.product.prodname_dotcom %} from cancelling all in-progress jobs if any matrix job fails.
 </td>
 </tr>
 <tr>
@@ -410,7 +416,7 @@ jobs:
 </td>
 <td>
 
-テスト グループの配列を含む `test-group` というマトリックスを作成します。 これらの値は `npm test` によって実行されるテスト グループの名前と一致します。
+Creates a matrix named `test-group`, with an array of test groups. These values match the names of test groups that will be run by `npm test`.
 </td>
 </tr>
 <tr>
@@ -422,7 +428,7 @@ jobs:
 </td>
 <td>
 
-`test` ジョブの一部として実行されるすべてのステップをグループ化します。 ワークフロー内の各ジョブには、独自の `steps` セクションがあります。
+Groups together all the steps that will run as part of the `test` job. Each job in a workflow has its own `steps` section.
 </td>
 </tr>
 <tr>
@@ -438,7 +444,7 @@ jobs:
 </td>
 <td>
 
-`uses` キーワードは、`actions/checkout` という名前のアクションを取得するようにジョブに指示します。 これは、リポジトリをチェックアウトしてランナーにダウンロードし、コードに対してアクション（テストツールなど）を実行できるようにします。 ワークフローがリポジトリのコードに対して実行されるとき、またはリポジトリで定義されたアクションを使用しているときはいつでも、チェックアウトアクションを使用する必要があります。 このアクションには、`with` キーを使ういくつかの追加オプションが用意されています。
+The `uses` keyword tells the job to retrieve the action named `actions/checkout`. This is an action that checks out your repository and downloads it to the runner, allowing you to run actions against your code (such as testing tools). You must use the checkout action any time your workflow will run against the repository's code or you are using an action defined in the repository. Some extra options are provided to the action using the `with` key.
 </td>
 </tr>
 <tr>
@@ -478,7 +484,7 @@ jobs:
 </td>
 <td>
 
-現在のリポジトリが `github/docs-internal` リポジトリである場合、この手順では `actions/github-script` アクションを使ってスクリプトを実行し、`docs-early-access` というブランチがあるかどうかを確認します。
+If the current repository is the `github/docs-internal` repository, this step uses the `actions/github-script` action to run a script to check if there is a branch called `docs-early-access`.
 </td>
 </tr>
 <tr>
@@ -497,7 +503,7 @@ jobs:
 </td>
 <td>
 
-現在のリポジトリが `github/docs-internal` リポジトリである場合、この手順では前の手順で特定された `github/docs-early-access` のブランチをチェックアウトします。
+If the current repository is the `github/docs-internal` repository, this step checks out the branch from the `github/docs-early-access` that was identified in the previous step.
 </tr>
 <tr>
 <td>
@@ -514,7 +520,7 @@ jobs:
 </td>
 <td>
 
-現在のリポジトリが `github/docs-internal` リポジトリである場合、この手順では `run` キーワードを使ってシェル コマンドを実行し、`docs-early-access` リポジトリのフォルダーをメイン リポジトリのフォルダーに移動します。
+If the current repository is the `github/docs-internal` repository, this step uses the `run` keyword to execute shell commands to move the `docs-early-access` repository's folders into the main repository's folders.
 </td>
 </tr>
 <tr>
@@ -527,7 +533,7 @@ jobs:
 </td>
 <td>
 
-この手順では、リポジトリから LFS オブジェクトをチェックアウトするコマンドを実行します。
+This step runs a command to check out LFS objects from the repository.
 </td>
 </tr>
 <tr>
@@ -546,7 +552,7 @@ jobs:
 </td>
 <td>
 
-この手順では、`trilom/file-changes-action` アクションを使って、pull request で変更されたファイルを収集し、次の手順で分析できるようにします。 この例は、`a6ca26c14274c33b15e6499323aac178af06ad4b` SHA を使用して、特定のバージョンのアクションに合わせて固定されています。
+This step uses the `trilom/file-changes-action` action to gather the files changed in the pull request, so they can be analyzed in the next step. This example is pinned to a specific version of the action, using the `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA.
 </td>
 </tr>
 <tr>
@@ -560,7 +566,7 @@ jobs:
 </td>
 <td>
 
-この手順では、前の手順の出力を使って、pull request で変更されたファイルの一覧を含むファイルを作成するシェル コマンドを実行します。
+This step runs a shell command that uses an output from the previous step to create a file containing the list of files changed in the pull request.
 </td>
 </tr>
 <tr>
@@ -576,7 +582,7 @@ jobs:
 </td>
 <td>
 
-この手順では、`actions/setup-node` アクションを使用して、指定したバージョンの `node` ソフトウェア パッケージをランナーにインストールします。これにより、`npm` コマンドにアクセスできるようになります。
+This step uses the `actions/setup-node` action to install the specified version of the `node` software package on the runner, which gives you access to the `npm` command.
 </td>
 </tr>
 <tr>
@@ -589,7 +595,7 @@ jobs:
 </td>
 <td>
 
-この手順では、`npm ci` シェル コマンドを実行して、プロジェクトの npm ソフトウェア パッケージをインストールします。
+This step runs the `npm ci` shell command to install the npm software packages for the project.
 </td>
 </tr>
 <tr>
@@ -605,7 +611,7 @@ jobs:
 </td>
 <td>
 
-この手順では、ワークフローでビルドのキャッシュを取得し、毎回ゼロからリビルドしなくて済むように、`actions/cache` アクションを使って Next.js ビルドをキャッシュします。 詳細については、「[依存関係をキャッシュしてワークフローのスピードを上げる](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
+This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 </td>
 </tr>
 <tr>
@@ -618,7 +624,7 @@ jobs:
 </td>
 <td>
 
-この手順では、ビルド スクリプトを実行します。
+This step runs the build script.
 </td>
 </tr>
 <tr>
@@ -634,12 +640,12 @@ jobs:
 </td>
 <td>
 
-この手順では、`npm test` を使ってテストを実行します。テスト マトリックスには、マトリックス内の各ジョブに対する {% raw %}`${{ matrix.test-group }}`{% endraw %} のさまざまな値を指定されています。 これには、変更されたファイルがわかる `DIFF_FILE` 環境変数が使用され、変更ログ キャッシュ ファイル用の `CHANGELOG_CACHE_FILE_PATH` 環境変数が使用されています。
+This step runs the tests using `npm test`, and the test matrix provides a different value for {% raw %}`${{ matrix.test-group }}`{% endraw %} for each job in the matrix. It uses the `DIFF_FILE` environment variable to know which files have changed, and uses the `CHANGELOG_CACHE_FILE_PATH` environment variable for the changelog cache file.
 </td>
 </tr>
 </tbody>
 </table>
 
-## 次の手順
+## Next steps
 
 {% data reusables.actions.learning-actions %}

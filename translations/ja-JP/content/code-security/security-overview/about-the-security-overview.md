@@ -43,7 +43,7 @@ In the security overview, you can view, sort, and filter alerts to understand th
 
 {% ifversion security-overview-views %}
 
-In the security overview, there are dedicated views for each type of security alert, such as Dependabot, code scanning, and secret scanning alerts. You can use these views to limit your analysis to a specific set of alerts, and narrow the results further with a range of filters specific to each view. For example, in the secret scanning alert view, you can use the `Secret type` filter to view only secret scanning alerts for a specific secret, like a GitHub Personal Access Token. At the repository level, you can use the security overview to assess the specific repository's current security status, and configure any additional security features not yet in use on the repository.
+In the security overview, there are dedicated views for each type of security alert, such as Dependabot, code scanning, and secret scanning alerts. You can use these views to limit your analysis to a specific set of alerts, and narrow the results further with a range of filters specific to each view. For example, in the secret scanning alert view, you can use the `Secret type` filter to view only secret scanning alerts for a specific secret, like a GitHub {% data variables.product.pat_generic %}. At the repository level, you can use the security overview to assess the specific repository's current security status, and configure any additional security features not yet in use on the repository.
 
 {% endif %}
 

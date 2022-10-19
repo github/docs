@@ -1,109 +1,118 @@
 ---
-title: Gerenciando discussões
-intro: 'Você pode categorizar, destacar e transferir ou excluir as discussões.'
+title: Managing discussions
+intro: 'You can categorize, spotlight, transfer, or delete the discussions.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
   feature: discussions
 shortTitle: Manage discussions
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository
-ms.openlocfilehash: 95e806959eef023fd05e91a43f9269c98b5db052
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147786211'
 ---
-## Sobre o gerenciamento de discussões
 
-{% data reusables.discussions.about-discussions %} Para obter mais informações sobre as discussões, confira "[Sobre as discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-Os proprietários da organização podem escolher as permissões necessárias para criar uma discussão em repositórios pertencentes à organização. Da mesma forma, para escolher as permissões necessárias para criar uma discussão da organização, os proprietários da organização podem alterar as permissões necessárias no repositório de origem. Para obter mais informações, confira "[Como gerenciar a criação de discussões para repositórios na sua organização](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
+## About management of discussions
 
-Como mantenedor de discussões, você pode criar recursos da comunidade para incentivar discussões alinhadas com o objetivo geral do projeto e manter um fórum aberto amigável para os colaboradores. Criar{% ifversion fpt or ghec %} um código de conduta ou{% endif %} diretrizes de contribuição para os colaboradores a seguir ajudará a facilitar um fórum colaborativo e produtivo. Para obter mais informações sobre como criar recursos da comunidade, confira{% ifversion fpt or ghec %} "[Como adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e{% endif %} "[Como definir diretrizes para colaboradores do repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
+{% data reusables.discussions.about-discussions %} For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
-Quando uma discussão fornece uma ideia ou um erro que está pronto para ser trabalhado, você pode criar um novo problema a partir de uma discussão. Para obter mais informações, confira "[Como criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)".
+Organization owners can choose the permissions required to create a discussion in repositories owned by the organization. Similarly, to choose the permissions required to create an organization discussion, organization owners can change the permissions required in the source repository. For more information, see "[Managing discussion creation for repositories in your organization](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."
 
-Para obter mais informações sobre como facilitar uma discussão útil, confira "[Como moderar comentários e conversas](/communities/moderating-comments-and-conversations)".
+As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and{% endif %} "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+
+When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)."
+
+For more information on facilitating a healthy discussion, see "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)."
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-## Pré-requisitos
+## Prerequisites
 
-Para gerenciar as discussões em um repositório, {% data variables.product.prodname_discussions %} deve estar habilitado para o repositório. Para obter mais informações, confira "[Como habilitar ou desabilitar o {% data variables.product.prodname_discussions %} para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
+To manage discussions in a repository, {% data variables.product.prodname_discussions %} must be enabled for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
-Para gerenciar as discussões em uma organização, o {% data variables.product.prodname_discussions %} deve estar habilitado na organização. Para obter mais informações, confira "[Como habilitar ou desabilitar o {% data variables.product.prodname_discussions %} em uma organização](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
+To manage discussions in an organization, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
 
-## Alterar a categoria para uma discussão
+## Changing the category for a discussion
 
-Você pode categorizar discussões para ajudar os integrantes da comunidade a encontrar discussões relacionadas. Para obter mais informações, confira "[Gerenciar categorias para discussões](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
+You can categorize discussions to help community members find related discussions. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
 
-Você também pode mover a discussão para uma categoria diferente. Não é possível mover uma discussão para ou da categoria de votação.
+You can also move a discussion to a different category. It's not possible to move a discussion to or from the polls category.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
-1. Na barra lateral direita, à direita da "Categoria", clique em {% octicon "gear" aria-label="The gear icon" %}.
-  !["Categoria" com o ícone de engrenagem](/assets/images/help/discussions/category-in-sidebar.png)
-1. Clique em uma categoria.
-  ![Menu suspenso "Alterar categoria"](/assets/images/help/discussions/change-category-drop-down.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. In the right sidebar, to the right of "Category", click {% octicon "gear" aria-label="The gear icon" %}.
+  !["Category" with gear icon](/assets/images/help/discussions/category-in-sidebar.png)
+1. Click a category.
+  !["Change category" drop-down menu](/assets/images/help/discussions/change-category-drop-down.png)
 
-## Fixar uma discussão
+## Pinning a discussion
 
-Você pode fixar até quatro discussões importantes acima da lista de discussões do repositório ou da organização.
+You can pin up to four important discussions above the list of discussions for the repository or organization.
 
-{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
-1. Na barra lateral direita, clique em {% octicon "pin" aria-label="The pin icon" %} **Fixar discussão**.
-  !["Fixar discussão" na barra lateral direita da discussão](/assets/images/help/discussions/click-pin-discussion.png)
-1. Opcionalmente, personalize a aparência da discussão fixada.
-  ![Opções de personalização para uma discussão fixa](/assets/images/help/discussions/customize-pinned-discussion.png)
-1. Clique em **Fixar discussão**.
-  ![Botão "Fixar discussão" nas opções de personalização da discussão fixa](/assets/images/help/discussions/click-pin-discussion-button.png)
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Pin discussion**.
+  !["Pin discussion" in right sidebar for discussion](/assets/images/help/discussions/click-pin-discussion.png)
+1. Optionally, customize the look of the pinned discussion.
+  ![Customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
+1. Click **Pin discussion**.
+  !["Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
 
-## Editar uma discussão fixada
+## Editing a pinned discussion
 
-Editar uma discussão fixada não irá alterar a categoria da discussão. Para obter mais informações, confira "[Gerenciar categorias para discussões](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
+Editing a pinned discussion will not change the discussion's category. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
 
-{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
-1. Na barra lateral direita, clique em {% octicon "pencil" aria-label="The pencil icon" %} **Editar discussão fixa**.
-  !["Editar discussão fixa" na barra lateral direita da discussão](/assets/images/help/discussions/click-edit-pinned-discussion.png)
-1. Personalize a aparência da discussão fixada.
-  ![Opções de personalização para uma discussão fixa](/assets/images/help/discussions/customize-pinned-discussion.png)
-1. Clique em **Fixar discussão**.
-  ![Botão "Fixar discussão" nas opções de personalização da discussão fixa](/assets/images/help/discussions/click-pin-discussion-button.png)
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. In the right sidebar, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion**.
+  !["Edit pinned discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+1. Customize the look of the pinned discussion.
+  ![Customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
+1. Click **Pin discussion**.
+  !["Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
 
-## Desafixar uma discussão
+## Unpinning a discussion
 
-{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
-1. Na barra lateral direita, clique em {% octicon "pin" aria-label="The pin icon" %} **Desafixar discussão**.
-  !["Desafixar discussão" na barra lateral direita da discussão](/assets/images/help/discussions/click-unpin-discussion.png)
-1. Leia o aviso e clique em **Desafixar discussão**.
-  ![Botão "Desafixar discussão" abaixo do aviso na caixa de diálogo modal](/assets/images/help/discussions/click-unpin-discussion-button.png)
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Unpin discussion**.
+  !["Unpin discussion" in right sidebar for discussion](/assets/images/help/discussions/click-unpin-discussion.png)
+1. Read the warning, then click **Unpin discussion**.
+  !["Unpin discussion" button beneath warning in modal](/assets/images/help/discussions/click-unpin-discussion-button.png)
 
-## Transferir uma discussão
+## Transferring a discussion
 
-Para transferir uma discussão, você precisa ter permissão de criar discussões no repositório, em que você deseja transferir a discussão. Se você quiser transferir uma discussão para uma organização, deverá ter permissões para criar discussões no repositório de origem das discussões da organização. Você somente pode transferir discussões entre repositórios pertencentes à mesma conta de usuário ou organização. Você não pode transferir uma discussão de um repositório privado{% ifversion ghec or ghes %} ou interno{% endif %} para um repositório público.
+To transfer a discussion, you must have permissions to create discussions in the repository where you want to transfer the discussion. If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository.
 
-{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
-1. Na barra lateral direita, clique em {% octicon "arrow-right" aria-label="The right arrow icon" %} **Transferir discussão**.
-  !["Transferir discussão" na barra lateral direita da discussão](/assets/images/help/discussions/click-transfer-discussion.png)
-1. Selecione o menu suspenso **Escolher um repositório** e clique no repositório para o qual deseja transferir a discussão. Se você quiser transferir uma discussão para uma organização, escolha o repositório de origem das discussões da organização.
-  ![Menu suspenso "Escolher um repositório", campo de pesquisa "Localizar um repositório" e repositório na lista](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
-1. Clique em **Transferir discussão**.
-  ![Botão "Transferir discussão"](/assets/images/help/discussions/click-transfer-discussion-button.png)
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. In the right sidebar, click {% octicon "arrow-right" aria-label="The right arrow icon" %} **Transfer discussion**.
+  !["Transfer discussion" in right sidebar for discussion](/assets/images/help/discussions/click-transfer-discussion.png)
+1. Select the **Choose a repository** drop-down, and click the repository you want to transfer the discussion to. If you want to transfer a discussion to an organization, choose the source repository for the organization's discussions.
+  !["Choose a repository" drop-down, "Find a repository" search field, and repository in list](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
+1. Click **Transfer discussion**.
+  !["Transfer discussion" button](/assets/images/help/discussions/click-transfer-discussion-button.png)
 
-## Excluir uma discussão
+## Deleting a discussion
 
-{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
-1. Na barra lateral direita, clique em {% octicon "trash" aria-label="The trash arrow icon" %} **Excluir discussão**.
-  !["Excluir discussão" na barra lateral direita da discussão](/assets/images/help/discussions/click-delete-discussion.png)
-1. Leia o aviso e clique em **Excluir esta discussão**.
-  ![Botão "Excluir esta discussão" abaixo do aviso na caixa de diálogo modal](/assets/images/help/discussions/click-delete-this-discussion-button.png)
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. In the right sidebar, click {% octicon "trash" aria-label="The trash arrow icon" %} **Delete discussion**.
+  !["Delete discussion" in right sidebar for discussion](/assets/images/help/discussions/click-delete-discussion.png)
+1. Read the warning, then click **Delete this discussion**.
+  !["Delete this discussion" button beneath warning in modal](/assets/images/help/discussions/click-delete-this-discussion-button.png)
 
-## Converter problemas com base em etiquetas
+## Converting issues based on labels
 
-Você pode converter todos as etiquetas com a mesma etiqueta para discussões em massa. Os problemas futuros com essa etiqueta também serão automaticamente convertidos em discussão e categoria que você configurar.
+You can convert all issues with the same label to discussions in bulk. Future issues with this label will also automatically convert to the discussion and category you configure.
 
-1. No {% data variables.product.product_location %}, navegue até a página principal do repositório ou, para discussões da organização, o repositório de origem.
-{% data reusables.repositories.sidebar-issues %} {% data reusables.project-management.labels %}
-1. Ao lado do rótulo que deseja converter em problemas, clique em **Converter problemas**.
-1. Selecione o menu suspenso **Escolher uma categoria** e clique em uma categoria para ver a discussão.
-1. Clique em **Entendi. Converter este problema em uma discussão**.
+1. On {% data variables.location.product_location %}, navigate to the main page of the repository or, for organization discussions, the source repository.
+{% data reusables.repositories.sidebar-issues %}
+{% data reusables.project-management.labels %}
+1. Next to the label you want to convert to issues, click **Convert issues**.
+1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
+1. Click **I understand, convert this issue to a discussion**.

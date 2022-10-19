@@ -101,7 +101,7 @@ For more information about Docker and the {% data variables.product.prodname_con
 ## Managing packages
 
 {% ifversion fpt or ghec %}
-You can delete a package in the {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} user interface or using the REST API. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+You can delete a package in the {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} user interface or using the REST API. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
 
 {% data reusables.package_registry.no-graphql-to-delete-packages %}
 {% endif %}
@@ -114,7 +114,7 @@ You can delete a private or public package in the {% data variables.product.prod
 You can delete a version of a package in the {% data variables.product.product_name %} user interface or using the GraphQL API.
 {% endif %}
 
-When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}.
+When you use the GraphQL API to query and delete private packages, you must use the same {% data variables.product.pat_v1 %} you use to authenticate to {% data variables.product.prodname_registry %}.
 
 For more information, see {% ifversion ghes or ghae %}"[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and {% endif %}"[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
 

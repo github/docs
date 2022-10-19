@@ -20,28 +20,29 @@ This article explains the possible reasons your {% data variables.product.produc
 
 {% note %}
 
-**Note:** When a personal access token or OAuth token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see "[Reviewing your security log](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+**Note:** When a {% data variables.product.pat_generic %} or OAuth token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see "[Reviewing your security log](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 {% endnote %}
 
 {% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Token revoked after reaching its expiration date
 
-When you create a personal access token, we recommend that you set an expiration for your token. Upon reaching your token's expiration date, the token is automatically revoked. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+When you create a {% data variables.product.pat_generic %}, we recommend that you set an expiration for your token. Upon reaching your token's expiration date, the token is automatically revoked. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
 ## Token revoked when pushed to a public repository or public gist
 
-If a valid OAuth token, {% data variables.product.prodname_github_app %} token, or personal access token is pushed to a public repository or public gist, the token will be automatically revoked. 
+If a valid OAuth token, {% data variables.product.prodname_github_app %} token, or {% data variables.product.pat_generic %} is pushed to a public repository or public gist, the token will be automatically revoked. 
 
-OAuth tokens and personal access tokens pushed to public repositories and public gists will only be revoked if the token has scopes.
+OAuth tokens and personal {% data variables.product.pat_v1_plural %} pushed to public repositories and public gists will only be revoked if the token has scopes.{% ifversion pat-v2 %} {% data variables.product.pat_v2_caps %}s will always be revoked.{% endif %}
+
 {% endif %}
 
 {% ifversion fpt or ghec %}
 ## Token expired due to lack of use
 
-{% data variables.product.product_name %} will automatically revoke an OAuth token or personal access token when the token hasn't been used in one year.
+{% data variables.product.product_name %} will automatically revoke an OAuth token or {% data variables.product.pat_generic %} when the token hasn't been used in one year.
 {% endif %}
 
 ## Token revoked by the user

@@ -54,7 +54,7 @@ gh api /octocat --method GET
 
 To make a request using JavaScript, you can use Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 
-First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
+First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -72,7 +72,7 @@ await octokit.request("GET /octocat", {});
 
 {% curl %}
 
-Prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `{% data variables.product.api_url_code %}`, to the path to get the full URL: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
+Prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `{% data variables.product.api_url_code %}`, to the path to get the full URL: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
 
 Use the `curl` command in your command line. Use the `--request` or `-X` flag followed by the HTTP method. Use the `--url` flag followed by the full URL.
 
@@ -99,7 +99,7 @@ Many operations require authentication or return additional information if you a
 
 You can authenticate your request by adding a token.
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a personal access token (PAT). The REST API operations used in this article require `repo` scope for personal access tokens. Other operations may require different scopes. For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. The REST API operations used in this article require `repo` scope for {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} or, unless otherwise noted, read-only access to public repositories for {% data variables.product.pat_v2 %}s{% endif %}. Other operations may require different scopes{% ifversion pat-v2%} or permissions{% endif %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
 
@@ -133,7 +133,7 @@ If these options are not possible, consider using another service such as [the 1
 
 {% endwarning %}
 
-To authenticate with the Octokit.js library, you can pass your token when you create an instance of `Octokit`. Replace `YOUR-TOKEN` with your token.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.product.product_location %}.{% endif %}
+To authenticate with the Octokit.js library, you can pass your token when you create an instance of `Octokit`. Replace `YOUR-TOKEN` with your token.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -340,7 +340,7 @@ Path parameters modify the operation path. For example, the "List repository iss
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Note:** In order for this command to work for {% data variables.product.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.product.product_location %}. Otherwise, rerun the `gh auth login` command to authenticate to {% data variables.product.prodname_dotcom_the_website %} instead of {% data variables.product.product_location %}.
+**Note:** In order for this command to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, rerun the `gh auth login` command to authenticate to {% data variables.product.prodname_dotcom_the_website %} instead of {% data variables.location.product_location %}.
 
 {% endnote %}
 {% endif %}
@@ -358,7 +358,7 @@ gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octoca
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Note:** In order for this example to work for {% data variables.product.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.product.product_location %}. Otherwise, create a new `Octokit` instance and do not specify `baseURL`.
+**Note:** In order for this example to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, create a new `Octokit` instance and do not specify `baseURL`.
 
 {% endnote %}
 {% endif %}
@@ -381,7 +381,7 @@ To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with 
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Note:** If you want to use {% data variables.product.product_location %} instead of {% data variables.product.prodname_dotcom_the_website %}, use `{% data variables.product.api_url_code %}` instead of `https://api.github.com` and replace `[hostname]` with the name of {% data variables.product.product_location %}. Replace `octocat/Spoon-Knife` with a repository owned by {% data variables.product.product_location %}.
+**Note:** If you want to use {% data variables.location.product_location %} instead of {% data variables.product.prodname_dotcom_the_website %}, use `{% data variables.product.api_url_code %}` instead of `https://api.github.com` and replace `[hostname]` with the name of {% data variables.location.product_location %}. Replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}.
 
 {% endnote %}
 {% endif %}
@@ -474,6 +474,16 @@ gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octoc
 
 {% javascript %}
 
+{% ifversion pat-v2 %}
+
+{% note %}
+
+If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+{% endnote %}
+
+{% endif %}
+
 When you make a request with Octokit.js, all parameters, including body parameters, are passed in an object as the second argument to the `request` method.
 
 ```javascript
@@ -488,6 +498,16 @@ await octokit.request("POST /repos/{owner}/{repo}/issues", {
 {% endjavascript %}
 
 {% curl %}
+
+{% ifversion pat-v2 %}
+
+{% note %}
+
+If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+{% endnote %}
+
+{% endif %}
 
 For cURL, use the `--data` flag to pass the body parameters in a JSON object.
 

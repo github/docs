@@ -62,7 +62,7 @@ Specifically, you can download CSV reports that list
 - all organizations
 - all repositories
 
-You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a personal access token with the `site_admin` scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 For example, here is how you would download the "all users" report using cURL:
 

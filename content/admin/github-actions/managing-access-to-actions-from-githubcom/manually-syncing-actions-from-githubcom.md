@@ -44,7 +44,7 @@ The `actions-sync` tool can only download actions from {% data variables.product
 ## Prerequisites
 
 * Before using the `actions-sync` tool, you must ensure that all destination organizations already exist in your enterprise. The following example demonstrates how to sync actions to an organization named `synced-actions`. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
-* You must create a personal access token (PAT) on your enterprise that can create and write to repositories in the destination organizations. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."{% ifversion ghes %}
+* You must create a {% data variables.product.pat_generic %} on your enterprise that can create and write to repositories in the destination organizations. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."{% ifversion ghes %}
 * If you want to sync the bundled actions in the `actions` organization on {% data variables.location.product_location %}, you must be an owner of the `actions` organization.
 
   {% note %}
@@ -84,7 +84,7 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
    The above command uses the following arguments:
 
    * `--cache-dir`: The cache directory on the machine running the command.
-   * `--destination-token`: A personal access token for the destination enterprise instance.
+   * `--destination-token`: A {% data variables.product.pat_generic %} for the destination enterprise instance.
    * `--destination-url`: The URL of the destination enterprise instance.
    * `--repo-name`: The action repository to sync. This takes the format of `owner/repository:destination_owner/destination_repository`.
      

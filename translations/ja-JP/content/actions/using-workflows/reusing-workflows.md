@@ -76,7 +76,7 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 ## Limitations
 
 {% ifversion nested-reusable-workflow %}
-* You can connect up to four levels of workflows. For more information, see "[Calling a nested reusable workflow](#calling-a-nested-reusable-workflow)."
+* You can connect up to four levels of workflows. For more information, see "[Nesting reusable workflows](#nesting-reusable-workflows)."
 {% else %}
 * Reusable workflows can't call other reusable workflows.
 {% endif %}

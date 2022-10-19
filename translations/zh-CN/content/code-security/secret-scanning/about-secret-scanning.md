@@ -74,6 +74,10 @@ If you're a repository administrator you can enable {% data variables.product.pr
 
 {% ifversion ghes or ghae or ghec %}You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for a repository, organization, or enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."
 {% endif %}
+
+{% ifversion secret-scanning-ghas-store-tokens %}
+{% data variables.product.company_short %} stores detected secrets using symmetric encryption, both in transit and at rest.{% endif %}{% ifversion ghes > 3.7 %} To rotate the encryption keys used for storing the detected secrets, you can contact {% data variables.contact.contact_ent_support %}.{% endif %}
+
 ### About {% data variables.product.prodname_secret_scanning %} alerts
 
 When you enable {% data variables.product.prodname_secret_scanning %} for a repository or push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of those commits for secrets that match patterns defined by service providers{% ifversion ghes or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} also periodically runs a scan of all historical content in repositories with {% data variables.product.prodname_secret_scanning %} enabled.{% endif%}

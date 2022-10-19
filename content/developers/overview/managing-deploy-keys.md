@@ -61,7 +61,7 @@ If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 #### Setup
 
-See [our guide on creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+See [our guide on creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## Deploy keys
 

@@ -10,34 +10,27 @@ const cacheControl = cacheControlFactory(60 * 60 * 24)
 // GitHub Support uses this for internal ZenDesk search functionality.
 export default async function categoriesForSupport(req, res) {
   const englishSiteTree = req.context.siteTree.en
-
   const allCategories = []
-  await Promise.all(
-    Object.keys(englishSiteTree).map(async (version) => {
-      await Promise.all(
-        englishSiteTree[version].childPages.map(async (productPage) => {
-          if (productPage.page.relativePath.startsWith('early-access')) return
-          if (!productPage.childPages) return
 
-          await Promise.all(
-            productPage.childPages.map(async (categoryPage) => {
-              // We can't get the rendered titles from middleware/render-tree-titles
-              // here because that middleware only runs on the current version, and this
-              // middleware processes all versions.
-              const name = categoryPage.page.title.includes('{')
-                ? await categoryPage.page.renderProp('title', req.context, renderOpts)
-                : categoryPage.page.title
+  for (const productPage of Object.values(englishSiteTree['free-pro-team@latest'].childPages)) {
+    if (productPage.page.relativePath.startsWith('early-access')) continue
+    if (!productPage.childPages || !productPage.childPages.length) continue
+    await Promise.all(
+      productPage.childPages.map(async (categoryPage) => {
+        // We can't get the rendered titles from middleware/render-tree-titles
+        // here because that middleware only runs on the current version, and this
+        // middleware processes all versions.
+        const name = categoryPage.page.title.includes('{')
+          ? await categoryPage.page.renderProp('title', req.context, renderOpts)
+          : categoryPage.page.title
 
-              allCategories.push({
-                name,
-                published_articles: await findArticlesPerCategory(categoryPage, [], req.context),
-              })
-            })
-          )
+        allCategories.push({
+          name,
+          published_articles: await findArticlesPerCategory(categoryPage, [], req.context),
         })
-      )
-    })
-  )
+      })
+    )
+  }
 
   // Cache somewhat aggressively but note that it will be soft-purged
   // in every prod deployment.
