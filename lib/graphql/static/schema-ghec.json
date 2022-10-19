@@ -13187,6 +13187,161 @@
       ]
     },
     {
+      "name": "Comparison",
+      "kind": "objects",
+      "id": "comparison",
+      "href": "/graphql/reference/objects#comparison",
+      "description": "<p>Represents a comparison between two commit revisions.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "aheadBy",
+          "description": "<p>The number of commits ahead of the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "baseTarget",
+          "description": "<p>The base revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#gitobject"
+        },
+        {
+          "name": "behindBy",
+          "description": "<p>The number of commits behind the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "commits",
+          "description": "<p>The commits which compose this comparison.</p>",
+          "type": "ComparisonCommitConnection!",
+          "id": "comparisoncommitconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#comparisoncommitconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "headTarget",
+          "description": "<p>The head revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#gitobject"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of this comparison.</p>",
+          "type": "ComparisonStatus!",
+          "id": "comparisonstatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#comparisonstatus"
+        }
+      ]
+    },
+    {
+      "name": "ComparisonCommitConnection",
+      "kind": "objects",
+      "id": "comparisoncommitconnection",
+      "href": "/graphql/reference/objects#comparisoncommitconnection",
+      "description": "<p>The connection type for Commit.</p>",
+      "fields": [
+        {
+          "name": "authorCount",
+          "description": "<p>The total count of authors and co-authors across all commits.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CommitEdge]",
+          "id": "commitedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commitedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Commit]",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "ConnectedEvent",
       "kind": "objects",
       "id": "connectedevent",
@@ -43790,6 +43945,97 @@
       ]
     },
     {
+      "name": "ProjectV2SortByField",
+      "kind": "objects",
+      "id": "projectv2sortbyfield",
+      "href": "/graphql/reference/objects#projectv2sortbyfield",
+      "description": "<p>Represents a sort by field and direction.</p>",
+      "fields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction of the sorting. Possible values are ASC and DESC.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which items are sorted.</p>",
+          "type": "ProjectV2FieldConfiguration!",
+          "id": "projectv2fieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2fieldconfiguration"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2SortByFieldConnection",
+      "kind": "objects",
+      "id": "projectv2sortbyfieldconnection",
+      "href": "/graphql/reference/objects#projectv2sortbyfieldconnection",
+      "description": "<p>The connection type for ProjectV2SortByField.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectV2SortByFieldEdge]",
+          "id": "projectv2sortbyfieldedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2sortbyfieldedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectV2SortByField]",
+          "id": "projectv2sortbyfield",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2sortbyfield"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2SortByFieldEdge",
+      "kind": "objects",
+      "id": "projectv2sortbyfieldedge",
+      "href": "/graphql/reference/objects#projectv2sortbyfieldedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectV2SortByField",
+          "id": "projectv2sortbyfield",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2sortbyfield"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2View",
       "kind": "objects",
       "id": "projectv2view",
@@ -44089,6 +44335,58 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectV2View#sort_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#sort_by_fields</code> API. Check out the <code>ProjectV2View#sort_by_fields</code> API as an example for the more capable alternative. Removal on 2023-04-01 UTC.</p>"
+        },
+        {
+          "name": "sortByFields",
+          "description": "<p>The view's sort-by config.</p>",
+          "type": "ProjectV2SortByFieldConnection",
+          "id": "projectv2sortbyfieldconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2sortbyfieldconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
           ]
         },
         {
@@ -44106,6 +44404,68 @@
           "id": "projectv2fieldconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#projectv2fieldconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2FieldOrder",
+                "id": "projectv2fieldorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2fieldorder"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectV2View#vertical_group_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#vertical_group_by_fields</code> API. Check out the <code>ProjectV2View#vertical_group_by_fields</code> API as an example for the more capable alternative. Removal on 2023-04-01 UTC.</p>"
+        },
+        {
+          "name": "verticalGroupByFields",
+          "description": "<p>The view's vertical-group-by field.</p>",
+          "type": "ProjectV2FieldConfigurationConnection",
+          "id": "projectv2fieldconfigurationconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2fieldconfigurationconnection",
           "arguments": [
             {
               "name": "after",
@@ -49796,6 +50156,26 @@
           "id": "branchprotectionrule",
           "kind": "objects",
           "href": "/graphql/reference/objects#branchprotectionrule"
+        },
+        {
+          "name": "compare",
+          "description": "<p>Compares the current ref as a base ref to another head ref, if the comparison can be made.</p>",
+          "type": "Comparison",
+          "id": "comparison",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#comparison",
+          "arguments": [
+            {
+              "name": "headRef",
+              "description": "<p>The head ref to compare against.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -74540,6 +74920,31 @@
         {
           "name": "OCCURRED_AT",
           "description": "<p>Order commit contributions by when they were made.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ComparisonStatus",
+      "kind": "enums",
+      "id": "comparisonstatus",
+      "href": "/graphql/reference/enums#comparisonstatus",
+      "description": "<p>The status of a git comparison between two refs.</p>",
+      "values": [
+        {
+          "name": "AHEAD",
+          "description": "<p>The head ref is ahead of the base ref.</p>"
+        },
+        {
+          "name": "BEHIND",
+          "description": "<p>The head ref is behind the base ref.</p>"
+        },
+        {
+          "name": "DIVERGED",
+          "description": "<p>The head ref is both ahead and behind of the base ref, indicating git history has diverged.</p>"
+        },
+        {
+          "name": "IDENTICAL",
+          "description": "<p>The head ref and base ref are identical.</p>"
         }
       ]
     },

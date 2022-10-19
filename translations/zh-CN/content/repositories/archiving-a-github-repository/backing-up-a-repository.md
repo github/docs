@@ -1,6 +1,6 @@
 ---
-title: 备份仓库
-intro: '可使用{% ifversion ghes or ghae %} Git 和{% endif %} API {% ifversion fpt or ghec %}或第三方工具{% endif %}备份仓库。'
+title: Backing up a repository
+intro: 'You can use{% ifversion ghes or ghae %} Git and{% endif %} the API {% ifversion fpt or ghec %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
   - /github/creating-cloning-and-archiving-repositories/backing-up-a-repository
@@ -12,39 +12,34 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: 3c9a6b5569563858987e338584b3b42bededf716
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147883447'
 ---
 {% ifversion fpt or ghec %}
 
-要下载仓库的存档，您可以使用 API 进行用户或组织迁移。 有关详细信息，请参阅“[迁移](/rest/reference/migrations)”。
+To download an archive of your repository, you can use the API for user or organization migrations. For more information, see "[Migrations](/rest/reference/migrations)."
 {% else %}
 
-您可以手动下载和备份仓库：
+You can download and back up your repositories manually:
 
-- 要将仓库的 Git 数据下载到本地计算机，您需要克隆该仓库。 有关详细信息，请参阅“[克隆存储库](/articles/cloning-a-repository)”。
-- 还可以下载仓库的 wiki。 有关详细信息，请参阅“[添加或编辑 Wiki 页面](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)”。
+- To download a repository's Git data to your local machine, you'll need to clone the repository. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+- You can also download your repository's wiki. For more information, see "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)."
 
-克隆仓库或 wiki 时，仅下载 Git 数据，例如项目文件和提交历史记录。 您可以使用我们的 API 将 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上存储库的其他元素导出到本地计算机：
+When you clone a repository or wiki, only Git data, such as project files and commit history, is downloaded. You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to your local machine:
 
-- [问题](/rest/reference/issues#list-issues-for-a-repository)
-- [拉取请求](/rest/reference/pulls#list-pull-requests)
-- [前叉](/rest/reference/repos#list-forks)
-- [注释](/rest/reference/issues#list-issue-comments-for-a-repository)
-- [里程碑](/rest/reference/issues#list-milestones)
-- [标签](/rest/reference/issues#list-labels-for-a-repository)
+- [Issues](/rest/reference/issues#list-issues-for-a-repository)
+- [Pull requests](/rest/reference/pulls#list-pull-requests)
+- [Forks](/rest/reference/repos#list-forks)
+- [Comments](/rest/reference/issues#list-issue-comments-for-a-repository)
+- [Milestones](/rest/reference/issues#list-milestones)
+- [Labels](/rest/reference/issues#list-labels-for-a-repository)
 - [Watchers](/rest/reference/activity#list-watchers)
 - [Stargazers](/rest/reference/activity#list-stargazers)
-- [Projects](/rest/reference/projects#list-repository-projects) {% endif %}
+- [Projects](/rest/reference/projects#list-repository-projects)
+{% endif %}
 
-一旦拥有{% ifversion ghes or ghae %}要备份的所有内容的本地版本，可以创建一个 zip 存档并{% else %}下载存档，可以{% endif %}将它复制到外部硬盘驱动器和/或将其上传到基于云的备份或存储服务，例如 [Azure Blob 存储](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/)、[Google Drive](https://www.google.com/drive/) 或 [Dropbox](https://www.dropbox.com/)。
+Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% ifversion fpt or ghec %}
-## 第三方备份工具
+## Third-party backup tools
 
-有许多自助服务工具可自动备份仓库。 存档项目将所有公共存储库存档在未选择退出的 {% data variables.product.product_name %} 上，并让任何人都可以访问数据，而备份工具则不同，它将从特定存储库下载数据并组织在新分支或目录中 。 有关存档项目的详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上存档内容和数据](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。 有关自助备份工具的详细信息，请参阅 [{% data variables.product.prodname_marketplace %} 上的备份实用程序类别](https://github.com/marketplace?category=backup-utilities)。
+A number of self-service tools exist that automate backups of repositories. Unlike archival projects, which archive _all_ public repositories on {% data variables.product.product_name %} that have not opted out and make the data accessible to anyone, backup tools will download data from _specific_ repositories and organize it within a new branch or directory. For more information about archival projects, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)." For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
 {% endif %}

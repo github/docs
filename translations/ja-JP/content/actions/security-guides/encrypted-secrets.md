@@ -60,7 +60,7 @@ You can also manage secrets using the REST API. For more information, see "[Secr
 
 ### Limiting credential permissions
 
-When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
+When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a {% data variables.product.pat_v1 %}, select the fewest scopes necessary.{% ifversion pat-v2 %} When generating a {% data variables.product.pat_v2 %}, select the minimum repository access required.{% endif %}
 
 {% note %}
 

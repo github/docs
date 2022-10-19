@@ -1,6 +1,6 @@
 ---
-title: 配置主机名
-intro: 我们建议为您的设备设置主机名，不建议使用硬编码 IP 地址。
+title: Configuring a hostname
+intro: We recommend setting a hostname for your appliance instead of using a hard-coded IP address.
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-hostnames
   - /enterprise/admin/installation/configuring-a-hostname
@@ -13,27 +13,27 @@ topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
-ms.openlocfilehash: 120827f8eca8061d90d397a7e2a21d46ae33f243
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '146681315'
 ---
-如果配置的是主机名，而不是硬编码 IP 地址，你将能够更改运行 {% data variables.product.product_location %} 的物理硬件，而不会影响用户或客户端软件。
+If you configure a hostname instead of a hard-coded IP address, you will be able to change the physical hardware that {% data variables.location.product_location %} runs on without affecting users or client software.
 
-{% data variables.enterprise.management_console %} 中的主机名设置应设置为合适的完全限定域名 (FQDN)，此域名可在互联网上或您的内部网络内解析。 例如，你的主机名设置可能是 `github.companyname.com.` Web 和 API 请求将自动重定向到 {% data variables.enterprise.management_console %} 中配置的主机名。 请注意，`localhost` 不是有效的主机名设置。
+The hostname setting in the {% data variables.enterprise.management_console %} should be set to an appropriate fully qualified domain name (FQDN) which is resolvable on the internet or within your internal network. For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}. Note that `localhost` is not a valid hostname setting. 
 
-配置主机名后，可以启用子域隔离以进一步提高 {% data variables.product.product_location %} 的安全性。 有关详细信息，请参阅“[启用子域隔离](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)”。
+Hostnames must be less than 63 characters in length per [Section 2.3.4 of the Domain Names Specification RFC](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4).
 
-有关支持的主机名类型的详细信息，请参阅 [HTTP RFC 第 2.1 节](https://tools.ietf.org/html/rfc1123#section-2)。
+After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.location.product_location %}. For more information, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
+
+For more information on the supported hostname types, see [Section 2.1 of the HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.hostname-menu-item %}
-4. 键入要为 {% data variables.product.product_location %} 设置的主机名。
-  ![用于设置主机名的字段](/assets/images/enterprise/management-console/hostname-field.png)
-5. 要测试新主机名的 DNS 和 SSL 设置，请单击“测试域设置”。
-  ![“测试域设置”按钮](/assets/images/enterprise/management-console/test-domain-settings.png) {% data reusables.enterprise_management_console.test-domain-settings-failure %} {% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.hostname-menu-item %}
+4. Type the hostname you'd like to set for {% data variables.location.product_location %}.
+  ![Field for setting a hostname](/assets/images/enterprise/management-console/hostname-field.png)
+5. To test the DNS and SSL settings for the new hostname, click **Test domain settings**.
+  ![Test domain settings button](/assets/images/enterprise/management-console/test-domain-settings.png)
+{% data reusables.enterprise_management_console.test-domain-settings-failure %}
+{% data reusables.enterprise_management_console.save-settings %}
 
-为了帮助缓解各种跨站点脚本漏洞，我们建议您在配置主机名后为 {% data variables.product.product_location %} 启用子域隔离。 有关详细信息，请参阅“[启用子域隔离](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)”。
+To help mitigate various cross-site scripting vulnerabilities, we recommend that you enable subdomain isolation for {% data variables.location.product_location %} after you configure a hostname. For more information, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."

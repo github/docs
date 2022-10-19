@@ -110,7 +110,7 @@ key to use based on the value of `GITHUB-PUBLIC-KEY-IDENTIFIER`.
 
 {% note %}
 
-**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a personal access token (no scopes required) as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
+**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required){% ifversion pat-v2 %} or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required){% endif %} as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
 
 {% endnote %}
 
@@ -149,7 +149,7 @@ HzZFI03Exwz8Lh/tCfL3YxwMdLjB+bMznsanlhK0RwcGP3IDb34kQDIo3Q==
 {% endnote %}
 
 The following code snippets demonstrate how you could perform signature validation.
-The code examples assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated [personal access token](https://github.com/settings/tokens) (PAT) to avoid hitting rate limits. The PAT does not need any scopes/permissions.
+The code examples assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated [{% data variables.product.pat_generic %}](https://github.com/settings/tokens) to avoid hitting rate limits. The {% data variables.product.pat_generic %} does not need any scopes/permissions.
 
 **Validation sample in Go**
 ```golang

@@ -1,6 +1,6 @@
 ---
-title: Enterprise アカウントについて
-intro: '{% data variables.product.product_name %} を使用すると、エンタープライズ アカウントを使って{% ifversion ghec %}組織間のコラボレーションを有効にしつつ、{% elsif ghes or ghae %}{% endif %}管理者に単一の表示と管理のポイントを提供できます。'
+title: About enterprise accounts
+intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion ghec %}enable collaboration between your organizations, while giving{% elsif ghes or ghae %}give{% endif %} administrators a single point of visibility and management.'
 redirect_from:
   - /articles/about-github-business-accounts
   - /articles/about-enterprise-accounts
@@ -18,87 +18,83 @@ topics:
   - Accounts
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 3233b52c1710c07dbd09644f7b38b7da697075c1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147526655'
 ---
-## {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %} の Enterprise アカウントについて
+
+## About enterprise accounts on {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}
 
 {% ifversion ghec %}
 
-{% data variables.product.prodname_dotcom_the_website %} で Enterprise アカウントを使えば、複数の Organization を管理できます。 Enterprise アカウントは、{% data variables.product.prodname_dotcom %} での Organization やユーザー アカウントのように、ハンドルを持っている必要があります。
+Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} allows you to manage multiple organizations. Your enterprise account must have a handle, like an organization or user account on {% data variables.product.prodname_dotcom %}.
 
 {% elsif ghes or ghae %}
 
-{% ifversion ghes %}{% data variables.product.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} の Enterprise アカウントを使用すると、{% ifversion ghes %}{% data variables.product.prodname_ghe_server %} インスタンス{% elsif ghae %}Enterprise{% endif %} {% elsif ghae %}が所有する{% endif %}で Organization{% ifversion ghes %} を管理できます。
+The enterprise account on {% ifversion ghes %}{% data variables.location.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} allows you to manage the organizations{% ifversion ghes %} on{% elsif ghae %} owned by{% endif %} your {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise{% endif %}.
 
 {% endif %}
 
-Organization は、Enterprise メンバーが一度に多くのプロジェクトでコラボレーションできる共有アカウントです。 Organization オーナーは、Organization のデータとプロジェクトへのアクセスを、洗練されたセキュリティおよび管理機能で管理できます。 詳細については、「[Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)」を参照してください。
+Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
 
-{% ifversion ghec %} エンタープライズの所有者は、既存の組織を招待してエンタープライズ アカウントに参加させたり、エンタープライズ設定で新しい組織を作成したりできます。 詳細については、「[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)」 (Enterprise への Organization の追加) を参照してください。
+{% ifversion ghec %} 
+Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 {% endif %}
 
-エンタープライズ アカウントを使用すると、エンタープライズが所有するすべての組織に対してポリシーを管理および適用できます。 {% data reusables.enterprise.about-policies %} 詳細については、「[エンタープライズ ポリシーについて](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)」を参照してください。
+Your enterprise account allows you to manage and enforce policies for all the organizations owned by the enterprise. {% data reusables.enterprise.about-policies %} For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
 
 {% ifversion ghec %}
 
-{% data reusables.enterprise.create-an-enterprise-account %} 詳細については、「[Enterprise アカウントの作成](/admin/overview/creating-an-enterprise-account)」を参照してください。
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
 
 {% endif %}
 
-## Enterprise アカウントの管理について
+## About administration of your enterprise account
 
 {% ifversion ghes or ghae %}
 
-{% ifversion ghae %}{% data variables.product.product_name %} {% elsif ghes %}{% data variables.product.prodname_ghe_server %} インスタンス{% endif %}のエンタープライズ アカウントから、管理者はエンタープライズ メンバーシップを表示{% ifversion remove-enterprise-members %}および管理{% endif %}し、{% ifversion enterprise-owner-join-org %}エンタープライズが所有する組織の独自のメンバーシップを管理し、{% endif %}{% ifversion ghes %}{% data variables.product.prodname_ghe_server %} インスタンス{% elsif ghae %}{% data variables.product.prodname_ghe_managed %} のエンタープライズ{% endif %}について以下を管理できます。
+From your enterprise account on {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}, administrators can view{% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
 {% ifversion ghes %}
-- ライセンスの使用状況{% endif %}
-- セキュリティ ({% ifversion ghae %}シングル サインオン、IP 許可リスト、{% endif %}SSH 証明機関、2 要素認証)
-- Enterprise アカウントが所有する Organization の Enterprise ポリシー
+- License usage{% endif %}
+- Security ({% ifversion ghae %}single sign-on, IP allow lists, {% endif %}SSH certificate authorities, two-factor authentication)
+- Enterprise policies for organizations owned by the enterprise account
 
 {% endif %}
 
 {% ifversion ghes %}
 
-### {% data variables.product.prodname_ghe_cloud %} での Enterprise アカウントの管理について
+### About administration of your enterprise account on {% data variables.product.prodname_ghe_cloud %}
 
 {% endif %}
 
-{% ifversion ghec or ghes %}{% data variables.product.prodname_enterprise %} を試す、または購入する場合は、{% data variables.product.prodname_dotcom_the_website %} で {% data variables.product.prodname_ghe_cloud %} の Enterprise アカウントを{% ifversion ghes %}も{% endif %}作成できます。 {% data variables.product.prodname_dotcom_the_website %} のエンタープライズ アカウントの管理者は、エンタープライズ メンバーシップを表示{% ifversion remove-enterprise-members %}および管理{% endif %}し、{% ifversion enterprise-owner-join-org %}エンタープライズが所有する組織の独自のメンバーシップを管理し、{% endif %}{% ifversion ghes %}{% data variables.product.prodname_dotcom_the_website %} の{% endif %}エンタープライズ アカウントについて、以下を管理できます。
+{% ifversion ghec or ghes %}When you try or purchase {% data variables.product.prodname_enterprise %}, you can{% ifversion ghes %} also{% endif %} create an enterprise account for {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_dotcom_the_website %}. Administrators for the enterprise account on {% data variables.product.prodname_dotcom_the_website %} can view {% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the enterprise account{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
-- 課金と使用 ({% data variables.product.prodname_dotcom_the_website %} のサービス、{% data variables.product.prodname_GH_advanced_security %}、ユーザー ライセンス)
-- セキュリティ (シングル サインオン、IP 許可リスト、SSH 証明機関、2 要素認証)
-- Enterprise アカウントが所有する Organization の Enterprise ポリシー
+- Billing and usage (services on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_GH_advanced_security %}, user licenses)
+- Security (single sign-on, IP allow lists, SSH certificate authorities, two-factor authentication)
+- Enterprise policies for organizations owned by the enterprise account
 
-{% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_ghe_server %} の両方を使用する場合は、{% data variables.product.prodname_dotcom_the_website %} の Enterprise アカウントから {% data variables.product.prodname_ghe_server %} について、以下を管理することもできます。
+If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, you can also manage the following for {% data variables.product.prodname_ghe_server %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.
 
-- {% data variables.product.prodname_ghe_server %} インスタンスの課金と使用
-- {% data variables.contact.enterprise_support %} とのリクエストおよび Support Bundle の共有
+- Billing and usage for {% data variables.product.prodname_ghe_server %} instances
+- Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
 
-{% data variables.product.product_location_enterprise %} の Enterprise アカウントを {% data variables.product.prodname_dotcom_the_website %} のご自分の Enterprise アカウントに接続し、{% data variables.product.prodname_dotcom_the_website %} から {% data variables.product.prodname_enterprise %} サブスクリプションのライセンス使用状況の詳細を確認することもできます。 詳細については、{% data variables.product.prodname_ghe_server %} ドキュメントの{% ifversion ghec %}「[{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間のライセンス使用量の同期](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)」{% elsif ghes %}「[{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間のライセンス使用量の同期](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)」{% endif %}を参照してください。
+You can also connect the enterprise account on {% data variables.location.product_location_enterprise %} to your enterprise account on {% data variables.product.prodname_dotcom_the_website %} to see license usage details for your {% data variables.product.prodname_enterprise %} subscription from {% data variables.product.prodname_dotcom_the_website %}. For more information, see {% ifversion ghec %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
-{% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_ghe_server %} の違いについて詳しくは、「[{% data variables.product.prodname_dotcom %} の製品](/get-started/learning-about-github/githubs-products)」を参照してください。 {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
+For more information about the differences between {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, see "[{% data variables.product.prodname_dotcom %}'s products](/get-started/learning-about-github/githubs-products)." {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
 
 {% endif %}
 
-## Enterprise アカウントの支払いについて
+## About billing for your enterprise account
 
-Enterprise アカウントの請求には、Enterprise の各メンバーの毎月のコストが含まれます。 この請求には、{% ifversion ghec %}Enterprise アカウント外の組織の有料ライセンス、{% data variables.product.prodname_marketplace %} のアプリのサブスクリプション、{% endif %}{% ifversion ghec or ghae %}{% ifversion ghec %}{% data variables.large_files.product_name_long %} のデータ パックのようなエンタープライズの追加有料サービス、{% endif %}および{% endif %}{% data variables.product.prodname_GH_advanced_security %} の使用が含まれます。
+The bill for your enterprise account includes the monthly cost for each member of your enterprise. The bill includes {% ifversion ghec %}any paid licenses in organizations outside of your enterprise account, subscriptions to apps in {% data variables.product.prodname_marketplace %}, {% endif %}{% ifversion ghec or ghae %}additional paid services for your enterprise{% ifversion ghec %} like data packs for {% data variables.large_files.product_name_long %},{% endif %} and{% endif %} usage for {% data variables.product.prodname_GH_advanced_security %}.
 
 {% ifversion ghec %}
 
-{% data variables.product.prodname_ghe_cloud %} サブスクリプションの請求について詳しくは、「[Enterprise アカウントのサブスクリプションおよび利用状況を表示する](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)」と「[Enterprise の支払いについて](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)」を参照してください。
+For more information about billing for your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" and "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
 
 {% elsif ghes %}
 
 {% data reusables.enterprise-accounts.enterprise-accounts-billing %}
 
-{% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %} の支払いについて詳しくは、「[Enterprise の支払いについて](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)」を参照してください。
+For more information about billing for {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
 
 {% endif %}
 
@@ -106,10 +102,10 @@ Enterprise アカウントの請求には、Enterprise の各メンバーの毎�
 
 {% ifversion ghec %}
 
-{% data variables.product.prodname_enterprise %} では 2 つのデプロイ オプションが提供されます。 {% data variables.product.prodname_ghe_cloud %} に加え、{% data variables.product.prodname_ghe_server %} を使用して、データ センターまたはサポートされているクラウド プロバイダーで Enterprise の開発作業をホストできます。 {% endif %}{% data variables.product.prodname_dotcom_the_website %} の Enterprise オーナーは、Enterprise アカウントを使用して、{% data variables.product.prodname_ghe_server %}インスタンスの支払いとライセンスを管理できます。 詳細については、「[{% data variables.product.company_short %} の製品](/get-started/learning-about-github/githubs-products#github-enterprise)」および「[{% data variables.product.prodname_enterprise %}のライセンスの管理](/billing/managing-your-license-for-github-enterprise)」を参照してください。
+{% data variables.product.prodname_enterprise %} offers two deployment options. In addition to {% data variables.product.prodname_ghe_cloud %}, you can use {% data variables.product.prodname_ghe_server %} to host development work for your enterprise in your data center or supported cloud provider. {% endif %}Enterprise owners on {% data variables.product.prodname_dotcom_the_website %} can use an enterprise account to manage payment and licensing for {% data variables.product.prodname_ghe_server %} instances. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products#github-enterprise)" and "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% endif %}
 
-## 参考資料
+## Further reading
 
-- GraphQL API ドキュメントの「[Enterprise アカウント](/graphql/guides/managing-enterprise-accounts)」
+- "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation

@@ -33,3 +33,5 @@ You can also use standard HTTP authentication to send this token. For example:
 ```shell
 $ curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
 ```
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

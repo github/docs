@@ -33,9 +33,9 @@ Other issues you should take into consideration include:
 
 * **Group membership:** When you use LDAP to authenticate, users are automatically [suspended and unsuspended](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) based on restricted group membership and account status with Active Directory.
 
-* **Git authentication:** SAML and CAS only supports Git authentication over HTTP or HTTPS using a [personal access token](/articles/creating-an-access-token-for-command-line-use). Password authentication over HTTP or HTTPS is not supported. LDAP supports password-based Git authentication by default, but we recommend that you [disable that method](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations) and force authentication via a personal access token or SSH key.
+* **Git authentication:** SAML and CAS only supports Git authentication over HTTP or HTTPS using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Password authentication over HTTP or HTTPS is not supported. LDAP supports password-based Git authentication by default, but we recommend that you [disable that method](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations) and force authentication via a {% data variables.product.pat_generic %} or SSH key.
 
-* **API authentication:** SAML and CAS only supports API authentication using a [personal access token](/articles/creating-an-access-token-for-command-line-use). Basic authentication is not supported.
+* **API authentication:** SAML and CAS only supports API authentication using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Basic authentication is not supported.
 
 * **Two-factor authentication:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 

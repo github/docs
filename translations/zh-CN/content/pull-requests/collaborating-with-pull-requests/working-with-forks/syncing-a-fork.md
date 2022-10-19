@@ -1,6 +1,6 @@
 ---
-title: 同步复刻
-intro: 同步仓库的复刻以通过上游仓库使其保持最新。
+title: Syncing a fork
+intro: Sync a fork of a repository to keep it up-to-date with the upstream repository.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/syncing-a-fork
   - /articles/syncing-a-fork
@@ -19,48 +19,44 @@ versions:
 topics:
   - Pull requests
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
-ms.openlocfilehash: 7c4c97c271e6e151c509a33e53c126190e8e5feb
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147540832'
 ---
-## 从 Web UI 同步分叉分支
+
+## Syncing a fork branch from the web UI
 
 {% ifversion syncing-fork-web-ui %}
-1. 在 {% data variables.product.product_name %} 上，导航到您想要与上游版本库同步的复刻仓库主页。
-2. 选择“同步分支”下拉菜单。
-    ![突出显示“同步分支”下拉菜单](/assets/images/help/repository/sync-fork-dropdown.png)
-3. 查看有关上游存储库提交的详细信息，然后单击“更新分支”。
-    ![突出显示“更新分支”按钮的同步分支模式](/assets/images/help/repository/update-branch-button.png) {% else %}
-1. 在 {% data variables.product.product_name %} 上，导航到您想要与上游版本库同步的复刻仓库主页。
-2. 选择“提取上游”下拉菜单。
-    ![“提取上游”下拉菜单](/assets/images/help/repository/fetch-upstream-drop-down.png)
-3. 查看有关上游存储库提交的详细信息，然后单击“提取并合并”。
-    ![“提取并合并”按钮](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
+1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
+2. Select the **Sync fork** dropdown.
+    !["Sync fork" dropdown emphasized](/assets/images/help/repository/sync-fork-dropdown.png)
+3. Review the details about the commits from the upstream repository, then click **Update branch**.
+    ![Sync fork modal with "Update branch" button emphasized](/assets/images/help/repository/update-branch-button.png)
+{% else %}
+1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
+2. Select the **Fetch upstream** dropdown.
+    !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
+3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
+    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
-如果上游仓库的更改导致冲突，{% data variables.product.company_short %} 将提示您创建拉取请求以解决冲突。
+If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
-## 使用 {% data variables.product.prodname_cli %} 同步分叉分支
+## Syncing a fork branch with the {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} 若要详细了解 {% data variables.product.prodname_cli %}，请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)”。
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-要从其父级更新远程分支，请使用 `gh repo sync -b BRANCHNAME` 子命令并提供分叉和分支名作为参数。
+To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
 
 ```shell
-$ gh repo sync owner/cli-fork -b BRANCHNAME
+$ gh repo sync owner/cli-fork -b BRANCH_NAME
 ```
 
-如果上游存储库的更改导致冲突，则 {% data variables.product.prodname_cli %} 无法同步。你可以设置 `-force` 标志以覆盖目标分支。
+If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
 
-## 从命令行同步分叉分支
+## Syncing a fork branch from the command line
 
-必须先在 Git 中[配置指向上游存储库的远程库](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)，然后才能将分支与上游存储库同步。
+Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 将当前工作目录更改为您的本地仓库。
-3. 从上游仓库获取分支及其各自的提交。 对 `BRANCHNAME` 的提交将保存在本地分支 `upstream/BRANCHNAME` 中。
+2. Change the current working directory to your local project.
+3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
 
   ```shell
   $ git fetch upstream
@@ -68,18 +64,18 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
   > remote: Compressing objects: 100% (53/53), done.
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
-  > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
+  > From https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY
   >  * [new branch]      main     -> upstream/main
   ```
 
-4. 签出分支的本地默认分支，在本例中，我们使用 `main`。
+4. Check out your fork's local default branch - in this case, we use `main`.
 
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
 
-5. 将上游默认分支（在本例中为 `upstream/main`）的更改合并到本地默认分支中。 这会使复刻的默认分支与上游仓库同步，而不会丢失本地更改。
+5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
 
   ```shell
   $ git merge upstream/main
@@ -92,7 +88,7 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
   >  create mode 100644 README.md
   ```
   
-  如果本地分支没有任何唯一提交，Git 将执行快速转发。 有关详细信息，请参阅 Git 文档中的[基本分支和合并](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)。
+  If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
@@ -100,10 +96,10 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
   ``` 
-  如果本地分支具有唯一提交，则可能需要解决冲突。 有关详细信息，请参阅“[解决合并冲突](/github/collaborating-with-pull-requests/addressing-merge-conflicts)”。
+  If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
 {% tip %}
 
-**提示**：同步分支只更新存储库的本地副本。 若要在 {% data variables.product.product_location %} 上更新分支，必须[推送更改](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)。
+**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

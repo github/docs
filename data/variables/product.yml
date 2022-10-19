@@ -85,6 +85,20 @@ prodname_project_v1: >-
 prodname_project_v1_caps: >-
   {% ifversion ghes or ghae %}Project board{% else %}Project (classic){% endif %}
 
+# Personal access tokens
+pat_generic: 'personal access token'
+pat_generic_caps: 'Personal access token'
+pat_v2: 'fine-grained personal access token'
+pat_v2_caps: 'Fine-grained personal access token'
+pat_v1: >-
+  {% ifversion pat-v2 %}personal access token (classic){% else %}personal access token{% endif %}
+pat_v1_plural: >-
+  {% ifversion pat-v2 %}personal access tokens (classic){% else %}personal access tokens{% endif %}
+pat_v1_caps: >-
+  {% ifversion pat-v2 %}Personal access token (classic){% else %}Personal access token{% endif %}
+pat_v1_caps_plural: >-
+  {% ifversion pat-v2 %}Personal access tokens (classic){% else %}Personal access tokens{% endif %}
+
 # Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub App'
