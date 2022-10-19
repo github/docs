@@ -29,7 +29,7 @@ You can deploy {% data variables.product.prodname_ghe_server %} on global Azure 
 
 ## Determining the virtual machine type
 
-Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)" in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Before launching {% data variables.location.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)" in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
@@ -65,7 +65,7 @@ Before launching {% data variables.product.product_location %} on Azure, you'll 
 
 4. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see "[`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
-  Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `100`), and a name for the resulting VHD.
+  Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `200`), and a name for the resulting VHD.
 
   ```shell
   $ az vm disk attach --vm-name VM_NAME -g RESOURCE_GROUP --sku Premium_LRS --new -z SIZE_IN_GB --name ghe-data.vhd --caching ReadWrite
@@ -73,7 +73,7 @@ Before launching {% data variables.product.product_location %} on Azure, you'll 
 
   {% note %}
 
-   **Note:** For non-production instances to have sufficient I/O throughput, the recommended minimum disk size is 40 GiB with read/write cache enabled (`--caching ReadWrite`).
+   **Note:** For non-production instances to have sufficient I/O throughput, the recommended minimum disk size is 150 GiB with read/write cache enabled (`--caching ReadWrite`).
 
    {% endnote %}
 

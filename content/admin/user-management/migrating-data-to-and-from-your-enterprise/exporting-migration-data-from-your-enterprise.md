@@ -47,9 +47,9 @@ shortTitle: Export from your enterprise
   ```shell
   Enter username authorized for migration:  admin
   ```
-4. When prompted for a personal access token, enter the access token you created in "[Preparing the {% data variables.product.prodname_ghe_server %} source instance](#preparing-the-github-enterprise-server-source-instance)":
+4. When prompted for a {% data variables.product.pat_generic %}, enter the access token you created in "[Preparing the {% data variables.product.prodname_ghe_server %} source instance](#preparing-the-github-enterprise-server-source-instance)":
   ```shell
-  Enter personal access token:  **************
+  Enter {% data variables.product.pat_generic %}:  **************
   ```
 5. When `ghe-migrator add` has finished it will print the unique "Migration GUID" that it generated to identify this export as well as a list of the resources that were added to the export. You will use the Migration GUID that it generated in subsequent `ghe-migrator add` and `ghe-migrator export` steps to tell `ghe-migrator` to continue operating on the same export.
   ```shell
@@ -92,7 +92,7 @@ shortTitle: Export from your enterprise
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. Close the connection to {% data variables.product.product_location %}:
+8. Close the connection to {% data variables.location.product_location %}:
   ```shell
   $ exit
   > logout

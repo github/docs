@@ -1,7 +1,7 @@
 ---
-title: Configurar el aprovisionamiento de SCIM para los Usuarios Administrados Empresariales
+title: Configuring SCIM provisioning for Enterprise Managed Users
 shortTitle: Provisioning managed users
-intro: Puedes configurar tu proveedor de identidad para que aprovisione usuarios nuevos y administre sus membrecías en tu empresa y equipos.
+intro: You can configure your identity provider to provision new users and manage their membership in your enterprise and teams.
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
@@ -13,58 +13,60 @@ versions:
 topics:
   - Accounts
   - Enterprise
-ms.openlocfilehash: 3ce59680c100004496e761d2a93adc9e9cae0a22
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147881501'
 ---
-## Acerca del aprovisionamiento para los {% data variables.product.prodname_emus %}
 
-Debes configurar el aprovisionamiento de {% data variables.product.prodname_emus %} para crear, administrar y desactivar las cuentas de usuario para los miembros de las empresas. Cuando configuras el aprovisionamiento para {% data variables.product.prodname_emus %}, los usuarios que se asignaron a la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu proveedor de identidad se aprovisionan como cuentas de usuario nuevas en {% data variables.product.prodname_dotcom %} a través de SCIM y los usuarios se agregan a tu empresa. 
+## About provisioning for {% data variables.product.prodname_emus %}
 
-Al actualizar la información asociada a la identidad de un usuario en el IdP, el IdP actualizará la cuenta del usuario en GitHub.com. Cuando desasignes el usuario de la aplicación de {% data variables.product.prodname_emu_idp_application %} o cuando desactives una cuenta de usuario en tu IdP, el IdP se pondrá en contacto con {% data variables.product.prodname_dotcom %} para invalidar las sesiones e inhabilitar la cuenta del miembro. La información de la cuenta inhabilitada se mantiene y su nombre de usuario se cambia por un hash del nombre de usuario original con el código corto anexo. Si reasignas a un usuario a la aplicación de {% data variables.product.prodname_emu_idp_application %} o reactivas su cuenta en tu IdP, la cuenta de {% data variables.product.prodname_managed_user %} en {% data variables.product.prodname_dotcom %} se reactivará y el nombre de usuario se restablecerá.
+You must configure provisioning for {% data variables.product.prodname_emus %} to create, manage, and deactivate user accounts for your enterprise members. When you configure provisioning for {% data variables.product.prodname_emus %}, users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your identity provider are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} via SCIM, and the users are added to your enterprise. 
 
-Los grupos en tu IdP pueden utilizarse para administrar la membrecía de equipo dentro de las organizaciones de tu empresa, permitiéndote configurar el acceso y los permisos del repositorio mediante tu IdP. Para más información sobre cómo administrar equipos, vea "[Administración de pertenencias a equipos con grupos de proveedores de identidades](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)".
+When you update information associated with a user's identity on your IdP, your IdP will update the user's account on GitHub.com. When you unassign the user from the {% data variables.product.prodname_emu_idp_application %} application or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. The disabled account's information is maintained and their username is changed to a hash of their original username with the short code appended. If you reassign a user to the {% data variables.product.prodname_emu_idp_application %} application or reactivate their account on your IdP, the {% data variables.enterprise.prodname_managed_user %} account on {% data variables.product.prodname_dotcom %} will be reactivated and username restored.
 
-## Prerrequisitos
+Groups in your IdP can be used to manage team membership within your enterprise's organizations, allowing you to configure repository access and permissions through your IdP. For more information, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
 
-Para poder configurar el aprovisionamiento para {% data variables.product.prodname_emus %}, primero debes configurar el inicio de sesión único de SAML{% ifversion oidc-for-emu %} o OIDC{% endif %}. {% ifversion oidc-for-emu %}
+## Prerequisites
 
-- Para obtener más información sobre cómo se configura OIDC, consulta "[Configuración de OIDC para Usuarios Administrados de Enterprise](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)".
-- {% endif %}Para obtener información sobre cómo configurar SAML, consulta "[Configuración del inicio de sesión único de SAML para Usuarios Administrados de Enterprise](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)".
+Before you can configure provisioning for {% data variables.product.prodname_emus %}, you must configure SAML{% ifversion oidc-for-emu %} or OIDC{% endif %} single-sign on. {% ifversion oidc-for-emu %}
 
-## Creación de un token de acceso personal
+- For more information on configuring OIDC, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)"
+- {% endif %}For information on configuring SAML, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
-Para configurar el aprovisionamiento de {% data variables.product.prodname_emu_enterprise %}, necesita un token de acceso personal con el ámbito **admin:enterprise** que pertenezca el usuario de configuración.
+## Creating a {% data variables.product.pat_generic %}
+
+To configure provisioning for your {% data variables.enterprise.prodname_emu_enterprise %}, you need a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope that belongs to the setup user.
 
 {% warning %}
 
-**Advertencia:** Si el token expira o lo crea un usuario aprovisionado, el aprovisionamiento de SCIM podría dejar de funcionar inesperadamente. Asegúrate de crear el token mientras tienes iniciada la sesión como usuario de configuración y que el vencimiento del token esté configurado como "Sin vencimiento".
+**Warning:** If the token expires or a provisioned user creates the token, SCIM provisioning may unexpectedly stop working. Make sure that you create the token while signed in as the setup user and that the token expiration is set to "No expiration".
 
 {% endwarning %}
 
-1. Inicie sesión en {% data variables.product.prodname_dotcom_the_website %} como el usuario de configuración de la nueva empresa con el nombre de usuario **@<em>CÓDIGO_BREVE</em>_admin**.
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.personal_access_tokens %} {% data reusables.user-settings.generate_new_token %}
-1. En **Nota**, asigne un nombre descriptivo al token.
-   ![Captura de pantalla en la que se muestra el nombre del token](/assets/images/help/enterprises/emu-pat-name.png)
-1. Seleccione el menú desplegable **Expiración** y, después, haga clic en **Sin expiración**.
-   ![Captura de pantalla en la que se muestra la expiración del token establecida en "Sin expiración"](/assets/images/help/enterprises/emu-pat-no-expiration.png)
-1. Seleccione el ámbito **admin:enterprise**.
-   ![Captura de pantalla en la que se muestra el ámbito admin:enterprise](/assets/images/help/enterprises/enterprise-pat-scope.png)
-1. Haga clic en **Generar token**.
-   ![Botón Generar token](/assets/images/help/settings/generate_token.png)
-1. Para copiar el token a tu portapapeles, haz clic en el {% octicon "paste" aria-label="The copy icon" %}.
-   ![Token recién creado](/assets/images/help/settings/personal_access_tokens.png)
-2. Para guardar el token para utilizarlo posteriormente, almacénalo de forma segura en un administrador de contraseñas.
+1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+{% data reusables.user-settings.generate_new_token %}
+1. Under **Note**, give your token a descriptive name.
+   ![Screenshot showing the token's name](/assets/images/help/enterprises/emu-pat-name.png)
+1. Select the **Expiration** drop-down menu, then click **No expiration**.
+   ![Screenshot showing token expiration set to no expiration](/assets/images/help/enterprises/emu-pat-no-expiration.png)
+1. Select the **admin:enterprise** scope.
+   ![Screenshot showing the admin:enterprise scope](/assets/images/help/enterprises/enterprise-pat-scope.png)
+1. Click **Generate token**.
+   ![Generate token button](/assets/images/help/settings/generate_token.png)
+1. To copy the token to your clipboard, click the {% octicon "paste" aria-label="The copy icon" %}.
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
+2. To save the token for use later, store the new token securely in a password manager.
 
-## Configurar el aprovisionamiento para {% data variables.product.prodname_emus %}
+## Configuring provisioning for {% data variables.product.prodname_emus %}
 
-Después de crear tu token de acceso personal y almacenarlo de forma segura, puedes configurar el aprovisionamiento en tu proveedor de identidad. 
+After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your identity provider. 
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
-Para configurar el aprovisionamiento, sigue el vínculo correspondiente de la siguiente tabla.
+To configure provisioning, follow the appropriate link from the table below.
 
-| Proveedor de identidades | Método de SSO | Más información | |---|---|---|{% ifversion oidc-for-emu %} | Azure AD | OIDC | [Tutorial: Configuración de GitHub Enterprise Managed User (OIDC) para el aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) en la documentación de Azure AD |{% endif %} | Azure AD | SAML | [Tutorial: Configuración de GitHub Enterprise Managed User para el aprovisionamiento automático de usuarios](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) en la documentación de Azure AD | | Okta | SAML | [Configuración del aprovisionamiento de SCIM para los Usuarios Administrados de Enterprise con Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta) |
+| Identity provider | SSO method | More information |
+|---|---|---|{% ifversion oidc-for-emu %}
+| Azure AD | OIDC | [Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) in the Azure AD documentation |{% endif %}
+| Azure AD | SAML | [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Azure AD documentation |
+| Okta | SAML | [Configuring SCIM provisioning for Enterprise Managed Users with Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta) |

@@ -3,7 +3,8 @@ sections:
   security_fixes:
     - "**MEDIUM**: Prevents an attack where a server-side request forgery (SSRF) could potentially force the Subversion (SVN) bridge to execute remote code by injecting arbitrary data into Memcached." 
     - Updates Grafana to version 7.5.16, which addresses various security vulnerabilities including [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) and [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g). 
-    - Packages have been updated to the latest security versions. 
+    - Packages have been updated to the latest security versions.
+    - "**MEDIUM**: A vulnerability involving deserialization of untrusted data was identified in GitHub Enterprise Server that could potentially lead to remote code execution on the Subversion (SVN) bridge. To exploit this vulnerability, an attacker would need to gain access via a server-side request forgery (SSRF) that would let an attacker control the data being deserialized. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23734](https://www.cve.org/CVERecord?id=CVE-2022-23734)."
   bugs:
     - Fixed an issue where the files inside the artifact zip archives had permissions of 000 when unpacked using an unzip tool. Now the files will have the permissions set to 644, the same way as it works in GitHub.com. 
     - In some cases, the collectd daemon could consume excess memory. 

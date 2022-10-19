@@ -1,6 +1,6 @@
 ---
-title: 使用双重身份验证访问 GitHub
-intro: '启用 2FA 后，在登录到 {% data variables.product.product_name %} 时需要提供 2FA 验证码以及密码。'
+title: Accessing GitHub using two-factor authentication
+intro: 'With 2FA enabled, you''ll be asked to provide your 2FA authentication code, as well as your password, when you sign in to {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/providing-your-2fa-security-code
   - /articles/providing-your-2fa-authentication-code
@@ -15,89 +15,83 @@ versions:
 topics:
   - 2FA
 shortTitle: Access GitHub with 2FA
-ms.openlocfilehash: 244cc4b45165cbc327729fd6d1c5ac519a6a6d7a
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145084610'
 ---
-启用双重身份验证后，您在通过浏览器访问 {% data variables.product.product_name %} 时需要提供验证码。 如果使用其他方法访问 {% data variables.product.product_name %}，如 API 或命令行，则需要使用其他形式的身份验证。 有关详细信息，请参阅“[关于对 {% data variables.product.prodname_dotcom %} 的身份验证](/github/authenticating-to-github/about-authentication-to-github)”。
+With two-factor authentication enabled, you'll need to provide an authentication code when accessing {% data variables.product.product_name %} through your browser. If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)."
 
-## 登录网站时提供 2FA 码
+## Providing a 2FA code when signing in to the website
 
-在使用密码登录 {% data variables.product.product_name %} 后，系统会提示你提供{% ifversion fpt or ghec %}短信或{% endif %} TOTP 应用中的验证码。
+After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% ifversion fpt or ghec %}a text message or{% endif %} your TOTP app.
 
-{% data variables.product.product_name %} 仅在您注销后、使用新设备或会话过期时才会要求您再次提供 2FA 验证码。
+{% data variables.product.product_name %} will only ask you to provide your 2FA authentication code again if you've logged out, are using a new device, or your session expires.
 
-### 通过 TOTP 应用程序生成代码
+### Generating a code through a TOTP application
 
-如果选择使用 TOTP 应用程序在智能手机上设置双重身份验证，可随时为 {% data variables.product.product_name %} 生成验证码。 大多数情况下，只有启动应用程序才会生成新代码。 具体说明请参阅应用程序的文档。
+If you chose to set up two-factor authentication using a TOTP application on your smartphone, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
 
-如果在配置双重身份验证后删除移动应用程序，则需要提供恢复代码才可访问您的帐户。 有关详细信息，请参阅“[丢失双因素身份验证凭据时恢复帐户](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)”
+If you delete the mobile application after configuring two-factor authentication, you'll need to provide your recovery code to get access to your account. For more information, see "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
 
 {% ifversion fpt or ghec %}
 
-### 接收短信
+### Receiving a text message
 
-如果设置通过短信进行双重身份验证，{% data variables.product.product_name %} 将通过短信向您发送验证码。
+If you set up two-factor authentication via text messages, {% data variables.product.product_name %} will send you a text message with your authentication code.
 
-### 向 {% data variables.product.prodname_mobile %} 验证
+### Verifying with {% data variables.product.prodname_mobile %}
 
-如果您已安装并登录到 {% data variables.product.prodname_mobile %}，则可以选择向 {% data variables.product.prodname_mobile %} 验证以进行双重身份验证。
+If you have installed and signed in to {% data variables.product.prodname_mobile %}, you may choose to authenticate with {% data variables.product.prodname_mobile %} for two-factor authentication.
 
-1. 使用您的用户名和密码通过浏览器登录 {% data variables.product.product_name %}。
-2. 如果您已向帐号添加了安全密钥，系统将首先提示您插入并使用安全密钥。 若要跳过使用安全密钥，请单击“使用 {% data variables.product.prodname_mobile %} 进行身份验证”。
-  ![突出显示“使用 {% data variables.product.prodname_mobile %} 进行身份验证”的 {% data variables.product.product_name %} 上的双因素身份验证质询](/assets/images/help/2fa/2fa-select-mobile.png)
-3. {% data variables.product.product_name %} 将向您发送推送通知以验证您的登录尝试。 打开推送通知或打开 {% data variables.product.prodname_mobile %} 应用程序将显示提示，要求你批准或拒绝此登录尝试。
+1. Sign in to {% data variables.product.product_name %} with your browser, using your username and password.
+2. If you have added a security key to your account, you'll first be prompted to insert and use a security key. To skip using a security key, click **Authenticate with {% data variables.product.prodname_mobile %}**.
+  ![Two-factor authentication challenge on {% data variables.product.product_name %} with "Authenticate with {% data variables.product.prodname_mobile %}" highlighted](/assets/images/help/2fa/2fa-select-mobile.png)
+3. {% data variables.product.product_name %} will send you a push notification to verify your sign in attempt. Opening the push notification or opening the {% data variables.product.prodname_mobile %} app will display a prompt, asking you to approve or reject this sign in attempt.
   {% note %}
 
-  注意：此提示可能要求你输入正在登录的浏览器中显示的两位数字。
+  **Note**: This prompt may require you to enter a two-digit number displayed within the browser you are signing in to.
 
   {% endnote %}
 
-  ![需要两位数输入的 {% data variables.product.prodname_mobile %} 的双重身份验证质询](/assets/images/help/2fa/2fa-mobile-number-challenge.png)
+  ![Two-factor authentication challenge with {% data variables.product.prodname_mobile %} requiring a two-digit input](/assets/images/help/2fa/2fa-mobile-number-challenge.png)
 
-    - 使用 {% data variables.product.prodname_mobile %} 批准登录尝试后，您的浏览器将自动完成登录尝试。
-    - 拒绝登录尝试将阻止身份验证完成。 有关详细信息，请参阅“[确保帐户和数据安全](/authentication/keeping-your-account-and-data-secure)”。
+    - Upon approving the login attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sign in attempt automatically.
+    - Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[Keeping your account and data secure](/authentication/keeping-your-account-and-data-secure)."
 
 {% endif %}
 
-## 通过命令行使用双重身份验证
+## Using two-factor authentication with the command line
 
-启用 2FA 后，将不再使用密码在命令行上访问 {% data variables.product.product_name %}。 请改用 Git 凭据管理器、个人访问令牌或 SSH 密钥。
+After you've enabled 2FA, you will no longer use your password to access {% data variables.product.product_name %} on the command line. Instead, use Git Credential Manager, a {% data variables.product.pat_generic %}, or an SSH key.
 
-### 使用 Git 凭据管理器在命令行上进行身份验证
+### Authenticating on the command line using Git Credential Manager
 
-[Git 凭据管理器](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md)是一个安全的 Git 凭据帮助程序，可在 Windows、macOS 和 Linux 上运行。 有关 Git 凭据帮助程序的详细信息，请参阅 Pro Git 手册中的[避免重复](https://git-scm.com/docs/gitcredentials#_avoiding_repetition)。
+[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) is a secure Git credential helper that runs on Windows, macOS, and Linux. For more information about Git credential helpers, see [Avoiding repetition](https://git-scm.com/docs/gitcredentials#_avoiding_repetition) in the Pro Git book.
 
-安装说明因计算机操作系统而异。 有关详细信息，请参阅 GitCredentialManager/git-credential-manager 存储库中的[下载和安装](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install)。
+Setup instructions vary based on your computer's operating system. For more information, see [Download and install](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install) in the GitCredentialManager/git-credential-manager repository.
 
-### 在命令行上使用 HTTPS 验证
+### Authenticating on the command line using HTTPS
 
-启用 2FA 后，必须创建个人访问令牌以用作在命令行上使用 HTTPS URL 向 {% data variables.product.product_name %} 验证时的密码。
+After you've enabled 2FA, you must create a {% data variables.product.pat_generic %} to use as a password when authenticating to {% data variables.product.product_name %} on the command line using HTTPS URLs.
 
-当命令行上提供用户名和密码时，使用您的 {% data variables.product.product_name %} 用户名和个人访问令牌。 命令行提示不会指出在要求密码时您应输入个人访问令牌。
+When prompted for a username and password on the command line, use your {% data variables.product.product_name %} username and {% data variables.product.pat_generic %}. The command line prompt won't specify that you should enter your {% data variables.product.pat_generic %} when it asks for your password.
 
-有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-### 在命令行上使用 SSH 验证
+### Authenticating on the command line using SSH
 
-启用 2FA 不会更改您在命令行上使用 SSH URL 向 {% data variables.product.product_name %} 验证的方式。 有关设置和使用 SSH 密钥的详细信息，请参阅“[使用 SSH 连接到 {% data variables.product.prodname_dotcom %}](/articles/connecting-to-github-with-ssh/)”。
+Enabling 2FA doesn't change how you authenticate to {% data variables.product.product_name %} on the command line using SSH URLs. For more information about setting up and using an SSH key, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/articles/connecting-to-github-with-ssh/)."
 
-## 使用双重身份验证通过 Subversion 访问仓库
+## Using two-factor authentication to access a repository using Subversion
 
-通过 Subversion 访问仓库时，必须提供个人人访问令牌，而不是输入密码。 有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+When you access a repository via Subversion, you must provide a {% data variables.product.pat_generic %} instead of entering your password. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-## 故障排除
+## Troubleshooting
 
-如果失去对双重身份验证凭据的访问，您可以使用恢复代码或其他恢复方式（如已设置）重新获取对帐户的访问。 有关详细信息，请参阅“[丢失 2FA 凭据时恢复帐户](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)”。
+If you lose access to your two-factor authentication credentials, you can use your recovery codes or another recovery method (if you've set one up) to regain access to your account. For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
 
-如果身份验证失败多次，您可能要与移动提供商同步手机的时钟。 通常，这需要在手机的时钟上选中 "Set automatically"（自动设置）选项，而不是提供自己的时区。
+If your authentication fails several times, you may wish to synchronize your phone's clock with your mobile provider. Often, this involves checking the "Set automatically" option on your phone's clock, rather than providing your own time zone.
 
-## 延伸阅读
+## Further reading
 
-- [关于双因素身份验证](/articles/about-two-factor-authentication)
-- [配置双因素身份验证](/articles/configuring-two-factor-authentication)
-- [配置双因素身份验证恢复方法](/articles/configuring-two-factor-authentication-recovery-methods)
-- [丢失双因素身份验证凭据时恢复帐户](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)
+- "[About two-factor authentication](/articles/about-two-factor-authentication)"
+- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
+- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
+- "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"

@@ -1,20 +1,20 @@
 date: '2021-05-06'
 release_candidate: true
 deprecated: true
-intro: 'Si {% data variables.product.product_location %} ejecuta una compilación de versión candidata para lanzamiento, no la puedes actualizar con una revisión en caliente. Se recomienda ejecutar las versiones candidatas para lanzamiento solo en entornos de prueba.'
+intro: If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
 sections:
   security_fixes:
-    - '**RIESGO MEDIO** Bajo ciertas circunstancias, los usuarios que se eliminaron de un equipo u organización podrían retener el acceso de escritura a las ramas en las cuales tenían solicitudes de cambio existentes abiertas.'
-    - 'Los paquetes se han actualizado a las últimas versiones de seguridad.'
+    - '**MEDIUM** Under certain circumstances, users who were removed from a team or organization could retain write access to branches they had existing pull requests opened for.'
+    - Packages have been updated to the latest security versions.
   bugs:
-    - 'Un trabajo de limpieza programado puede ocasionar que el rendimiento se degrade en una instancia con una tabla de "check_annotations" muy grande.'
+    - 'A scheduled cleanup job can cause performance to degrade on an instance with a very large `check_annotations` table.'
   changes:
-    - "Se archivarán las anotaciones de verificación más viejas de 4\_meses."
-    - 'El campo "firstPatchedVersion" ahora está disponible en los objetos de "SecurityVulnerability" en la API de GraphQL.'
+    - Check annotations older than 4 months will be archived.
+    - 'The `firstPatchedVersion` field is now available on `SecurityVulnerability` objects in the GraphQL API.'
   known_issues:
-    - 'El registro npm de los paquetes de GitHub ya no devuelve un valor de tiempo en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes.'
-    - 'En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador.'
-    - 'Las reglas de firewall personalizadas no se mantienen durante una actualización.'
-    - 'Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio.'
-    - "Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255\_caracteres."
-    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com.'
+    - The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - Custom firewall rules are not maintained during an upgrade.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.

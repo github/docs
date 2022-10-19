@@ -1,11 +1,20 @@
-import { useMainContext } from 'components/context/MainContext'
-
 import React from 'react'
+
+import type { ProductT } from 'components/context/MainContext'
 import { ProductSelectionCard } from './ProductSelectionCard'
 
-export const ProductSelections = () => {
-  const { productGroups } = useMainContext()
+export type ProductGroupT = {
+  name: string
+  icon: string
+  octicon: string
+  children: Array<ProductT>
+}
 
+type Props = {
+  productGroups: Array<ProductGroupT>
+}
+
+export const ProductSelections = ({ productGroups }: Props) => {
   return (
     <section className="container-xl pb-lg-4 mt-6 px-3 px-md-6" data-testid="product">
       <div className="">

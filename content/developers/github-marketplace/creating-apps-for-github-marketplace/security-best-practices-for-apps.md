@@ -25,7 +25,7 @@ We recommend creating a GitHub App rather than an OAuth App. {% data reusables.m
 - Apps should not share service accounts such as email or database services to manage your SaaS service.
 - All services used in your app should have unique login and password credentials.
 - Admin privilege access to the production hosting infrastructure should only be given to engineers and employees with administrative duties.
-- Apps should not use personal access tokens to authenticate and should authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or a [GitHub App](/apps/about-apps/#about-github-apps):
+- Apps should not use {% data variables.product.pat_generic %}s to authenticate and should authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or a [GitHub App](/apps/about-apps/#about-github-apps):
   - OAuth Apps should authenticate using an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/).
   - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/), or [installation access token](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 

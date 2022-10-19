@@ -113,7 +113,7 @@ new pull request every time you make a change!
 
 Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb]
 to manage our interactions. We'll configure that client with
-[a personal access token][access token]:
+[a {% data variables.product.pat_generic %}][access token]:
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!

@@ -68,7 +68,7 @@
     - DependencyGraphDependencyConnection
     - DependencyGraphPackageRelease.dependencies
   owning_teams:
-    - '@github/dsp-dependency-graph'
+    - '@github/dependency-graph'
 - title: Project Event Details
   description: >-
     This preview adds project, project card, and project column details to

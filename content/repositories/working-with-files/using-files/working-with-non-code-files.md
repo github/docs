@@ -49,7 +49,7 @@ shortTitle: Working with non-code files
 
 ### Viewing images
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}:
 
 ![inline image](/assets/images/help/images/view.png)
 
@@ -144,7 +144,7 @@ GitHub supports rendering tabular data in the form of *.csv* (comma-separated) a
 
 ![Rendered CSV sample](/assets/images/help/repository/rendered_csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
 You can link to a particular row by clicking the row number, or select multiple rows by holding down the shift key. Just copy the URL and send it to a friend.
 
@@ -327,9 +327,9 @@ It may still be possible to render the data by converting the `.geojson` file to
 
 ## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.product.product_location %}, they will render as static HTML files in your repository.
+When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.location.product_location %}, they will render as static HTML files in your repository.
 
-The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.product.product_location %}. For an example, see [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.location.product_location %}. For an example, see [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
 To view your Jupyter notebook with JavaScript content rendered or to share your notebook files with others you can use [nbviewer](https://nbviewer.jupyter.org/). For an example, see [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) rendered on nbviewer.
 

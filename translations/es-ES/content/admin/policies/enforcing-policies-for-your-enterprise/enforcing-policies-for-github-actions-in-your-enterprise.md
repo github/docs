@@ -32,7 +32,7 @@ shortTitle: GitHub Actions policies
 
 {% data variables.product.prodname_actions %} helps members of your enterprise automate software development workflows on {% data variables.product.product_name %}. For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
 
-{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.product.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.location.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
 
 ## Enforcing a policy to restrict the use of {% data variables.product.prodname_actions %} in your enterprise
 
@@ -48,7 +48,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
    {%- ifversion ghes or ghae %}
    {% note %}
 
-   **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.product.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
+   **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.location.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
 
    {% endnote %}
    {%- endif %}
@@ -86,7 +86,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 ## Enforcing a policy for fork pull requests in your enterprise
 
-You can enforce policies to control how {% data variables.product.prodname_actions %} behaves for {% data variables.product.product_location %} when members of your enterprise{% ifversion ghec %} or outside collaborators{% endif %} run workflows from forks.
+You can enforce policies to control how {% data variables.product.prodname_actions %} behaves for {% data variables.location.product_location %} when members of your enterprise{% ifversion ghec %} or outside collaborators{% endif %} run workflows from forks.
 
 {% ifversion ghec %}
 

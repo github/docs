@@ -21,7 +21,7 @@ shortTitle: MinIO Gateway for NAS storage
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 
-* To avoid resource contention on the appliance, we recommend that MinIO be hosted separately from {% data variables.product.product_location %}.
+* To avoid resource contention on the appliance, we recommend that MinIO be hosted separately from {% data variables.location.product_location %}.
 * Create your bucket for storing workflow data. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
   
 {% data reusables.actions.enterprise-common-prereqs %}

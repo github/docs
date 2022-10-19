@@ -59,7 +59,7 @@ You can change the name that is displayed on your profile. This name may also be
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** If you're a member of an {% data variables.product.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+**Note:** If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endnote %}
 {% endif %}

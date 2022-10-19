@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: A API Gitignore busca modelos `.gitignore` que podem ser usados para ignorar arquivos e diretórios.
+intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,21 +11,16 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/gitignore
-ms.openlocfilehash: 082b626aac4af8dcdf435761447caeb015a608db
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147092883'
 ---
-## Sobre a API do Gitignore
 
-Quando você cria um repositório no {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} por meio da API, você pode especificar um [modelo .gitignore](/github/getting-started-with-github/ignoring-files) para aplicá-lo ao repositório após a criação. A API de modelos .gitignore lista modelos do [repositório .gitignore](https://github.com/github/gitignore) do {% data variables.product.product_name %} e efetua fetch deles.
+## About the Gitignore API
 
-### Tipos de mídia personalizados para gitignore
+When you create a new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} via the API, you can specify a [.gitignore template](/github/getting-started-with-github/ignoring-files) to apply to the repository upon creation. The .gitignore templates API lists and fetches templates from the {% data variables.product.product_name %} [.gitignore repository](https://github.com/github/gitignore).
 
-Você pode usar este tipo de mídia personalizada ao obter um modelo de gitignore.
+### Custom media types for gitignore
+
+You can use this custom media type when getting a gitignore template.
 
     application/vnd.github.VERSION.raw
 
-Para obter mais informações, confira "[Tipos de mídia](/rest/overview/media-types)".
+For more information, see "[Media types](/rest/overview/media-types)."

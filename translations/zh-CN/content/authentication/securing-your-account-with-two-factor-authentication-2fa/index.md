@@ -1,6 +1,6 @@
 ---
-title: 使用双重身份验证 (2FA) 保护您的帐户
-intro: '您可以将您在 {% data variables.product.product_location %} 上的帐户设置为在登录时除了密码以外还需要验证码。'
+title: Securing your account with two-factor authentication (2FA)
+intro: 'You can set up your account on {% data variables.location.product_location %} to require an authentication code in addition to your password when you sign in.'
 redirect_from:
   - /categories/84/articles
   - /categories/two-factor-authentication-2fa
@@ -22,11 +22,5 @@ children:
   - /countries-where-sms-authentication-is-supported
   - /disabling-two-factor-authentication-for-your-personal-account
 shortTitle: Secure your account with 2FA
-ms.openlocfilehash: 886af1b083719e4381fcc30fcd4855507d718889
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145084594'
 ---
 
