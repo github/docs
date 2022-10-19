@@ -55063,6 +55063,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "language",
+          "description": "<p>The programming language this file is written in.</p>",
+          "type": "Language",
+          "id": "language",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#language"
+        },
+        {
           "name": "lineCount",
           "description": "<p>Number of lines in the file.</p>",
           "type": "Int",
@@ -69816,7 +69824,7 @@
         },
         {
           "name": "commitBody",
-          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit message is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -69824,7 +69832,7 @@
         },
         {
           "name": "commitHeadline",
-          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit headline is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -69832,7 +69840,7 @@
         },
         {
           "name": "mergeMethod",
-          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>.</p>",
+          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>. NOTE: when merging\nwith a merge queue any input value for merge method is ignored.</p>",
           "type": "PullRequestMergeMethod",
           "id": "pullrequestmergemethod",
           "kind": "enums",
