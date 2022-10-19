@@ -1,7 +1,7 @@
 ---
-title: 使用并发、表达式和测试矩阵
-shortTitle: 'Using concurrency, expressions, and a test matrix'
-intro: '如何使用高级 {% data variables.product.prodname_actions %} 功能进行持续集成 (CI)。'
+title: 'Using concurrency, expressions, and a test matrix'
+shortTitle: 'Use concurrency, expressions, and a test matrix'
+intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
   ghes: '>= 3.5'
@@ -10,34 +10,40 @@ versions:
 type: how_to
 topics:
   - Workflows
-ms.openlocfilehash: f4edac59fdbcc8f8825a51e25b737b94b17128b0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147496578'
 ---
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 示例概述
+## Example overview
 
-{% data reusables.actions.example-workflow-intro-ci %}触发此工作流时，它将使用 `npm test` 的测试组合矩阵来测试代码。
+{% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it tests your code using a matrix of test combinations with `npm test`.
 
 {% data reusables.actions.example-diagram-intro %}
 
-![工作流步骤概述图](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
+![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
 
-## 此示例中使用的功能
+## Features used in this example
 
 {% data reusables.actions.example-table-intro %}
 
-| **功能**  | **实现** |
+| **Feature**  | **Implementation** |
 | --- | --- |
-{% data reusables.actions.workflow-dispatch-table-entry %} {% data reusables.actions.pull-request-table-entry %} {% data reusables.actions.cron-table-entry %} {% data reusables.actions.permissions-table-entry %} {% data reusables.actions.concurrency-table-entry %} | 根据存储库的不同，在不同的运行器上运行作业： | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)| {% data reusables.actions.if-conditions-table-entry %} | 使用矩阵创建不同的测试配置： | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)| {% data reusables.actions.checkout-action-table-entry %} {% data reusables.actions.setup-node-table-entry %} | 缓存依赖项：| [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)| | 在运行器上运行测试：| `npm test`|
+{% data reusables.actions.workflow-dispatch-table-entry %}
+{% data reusables.actions.pull-request-table-entry %}
+{% data reusables.actions.cron-table-entry %}
+{% data reusables.actions.permissions-table-entry %}
+{% data reusables.actions.concurrency-table-entry %}
+| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+{% data reusables.actions.if-conditions-table-entry %}
+| Using a matrix to create different test configurations: | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)|
+{% data reusables.actions.checkout-action-table-entry %}
+{% data reusables.actions.setup-node-table-entry %}
+| Caching dependencies: | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)|
+| Running tests on the runner: | `npm test`|
 
-## 示例工作流
+## Example workflow
 
-{% data reusables.actions.example-docs-engineering-intro %} [`test.yml`](https://github.com/github/docs/blob/main/.github/workflows/test.yml)。
+{% data reusables.actions.example-docs-engineering-intro %} [`test.yml`](https://github.com/github/docs/blob/main/.github/workflows/test.yml).
 
 {% data reusables.actions.note-understanding-example %}
 
@@ -106,7 +112,7 @@ jobs:
           # NOT clone them initially and instead, include them manually
           # only for the test groups that we know need the files.
           lfs: {% raw %}${{ matrix.test-group == 'content' }}{% endraw %}
-          # Enables cloning the Early Access repo later with the relevant PAT
+          # Enables cloning the Early Access repo later with the relevant {% data variables.product.pat_generic %}
           persist-credentials: 'false'
 
       - name: Figure out which docs-early-access branch to checkout, if internal repo
@@ -205,15 +211,15 @@ jobs:
 </tbody>
 </table>
 
-## 了解示例
+## Understanding the example
 
- {% data reusables.actions.example-explanation-table-intro %}
+ {% data reusables.actions.example-explanation-table-intro %}
 
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>代码</b></th>
-    <th style="width:40%"><b>解释</b></th>
+    <th style="width:60%"><b>Code</b></th>
+    <th style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
@@ -238,7 +244,7 @@ on:
 </td>
 <td>
 
-通过 `on` 关键字，可以定义运行工作流时触发的事件。 可在此处定义多个事件。 有关详细信息，请参阅“[触发工作流](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)”。
+The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
 </td>
 </tr>
 <tr>
@@ -250,7 +256,7 @@ on:
 </td>
 <td>
 
-如果要在 UI 中手动运行此工作流，请添加 `workflow_dispatch` 事件。 有关详细信息，请参阅 [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch)。
+Add the `workflow_dispatch` event if you want to be able to manually run this workflow in the UI. For more information, see [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch).
 </td>
 </tr>
 <tr>
@@ -262,7 +268,7 @@ on:
 </td>
 <td>
 
-添加 `pull_request` 事件，以便每次创建或更新拉取请求时，工作流都会自动运行。 有关详细信息，请参阅 [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request)。
+Add the `pull_request` event, so that the workflow runs automatically every time a pull request is created or updated. For more information, see [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
 </td>
 </tr>
 <tr>
@@ -276,7 +282,7 @@ on:
 </td>
 <td>
 
-添加 `push` 事件，以便每次将提交推送到匹配筛选器 `main` 的分支时，工作流都会自动运行。 有关详细信息，请参阅 [`push`](/actions/using-workflows/events-that-trigger-workflows#push)。
+Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `main`. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>
@@ -290,7 +296,7 @@ permissions:
 </td>
 <td>
 
-修改授予 `GITHUB_TOKEN` 的默认权限。 这将因工作流的需求而异。 有关详细信息，请参阅“[为作业分配权限](/actions/using-jobs/assigning-permissions-to-jobs)”。
+Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
 </td>
 </tr>
 <tr>
@@ -304,7 +310,7 @@ concurrency:
 </td>
 <td>
 
-为特定事件创建并发组，并使用 `||` 运算符定义回退值。 有关详细信息，请参阅“[使用并发](/actions/using-jobs/using-concurrency)”。
+Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[Using concurrency](/actions/using-jobs/using-concurrency)."
 </td>
 </tr>
 <tr>
@@ -316,7 +322,7 @@ concurrency:
 </td>
 <td>
 
-取消同一并发组中任何当前正在运行的作业或工作流。
+Cancels any currently running job or workflow in the same concurrency group.
 </td>
 </tr>
 <tr>
@@ -328,7 +334,7 @@ jobs:
 </td>
 <td>
 
-将工作流文件中运行的所有作业组合在一起。
+Groups together all the jobs that run in the workflow file.
 </td>
 </tr>
 <tr>
@@ -340,7 +346,7 @@ jobs:
 </td>
 <td>
 
-定义 ID 为 `test` 的作业，该作业存储在 `jobs` 键中。
+Defines a job with the ID `test` that is stored within the `jobs` key.
 </td>
 </tr>
 <tr>
@@ -352,7 +358,7 @@ jobs:
 </td>
 <td>
 
-根据运行工作流的存储库，将作业配置为在 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管运行器上运行。 在此示例中，如果存储库名为 `docs-internal` 且位于 `github` 组织内，则作业将在自托管运行器上运行。 如果存储库与此路径不匹配，则其会在由 {% data variables.product.prodname_dotcom %} 托管的 `ubuntu-latest` 运行器上运行。 有关这些选项的详细信息，请参阅“[为作业选择运行器](/actions/using-jobs/choosing-the-runner-for-a-job)”。
+Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
 </td>
 </tr>
 <tr>
@@ -364,7 +370,7 @@ jobs:
 </td>
 <td>
 
-设置作业在自动取消之前运行的最大分钟数。 有关详细信息，请参阅 [`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)。
+Sets the maximum number of minutes to let the job run before it is automatically canceled. For more information, see [`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes).
 </td>
 </tr>
 <tr>
@@ -375,7 +381,7 @@ jobs:
 ```
 </td>
 <td>
-  本部分定义作业的生成矩阵。
+  This section defines the build matrix for your jobs.
 </td>
 </tr>
 <tr>
@@ -387,7 +393,7 @@ jobs:
 </td>
 <td>
 
-将 `fail-fast` 设置为 `false` 可以防止 {% data variables.product.prodname_dotcom %} 在矩阵作业失败时取消所有正在进行的作业。
+Setting `fail-fast` to `false` prevents {% data variables.product.prodname_dotcom %} from cancelling all in-progress jobs if any matrix job fails.
 </td>
 </tr>
 <tr>
@@ -410,7 +416,7 @@ jobs:
 </td>
 <td>
 
-创建名为 `test-group` 的矩阵，其中包含测试组数组。 这些值与将由 `npm test` 运行的测试组的名称匹配。
+Creates a matrix named `test-group`, with an array of test groups. These values match the names of test groups that will be run by `npm test`.
 </td>
 </tr>
 <tr>
@@ -422,7 +428,7 @@ jobs:
 </td>
 <td>
 
-将作为 `test` 作业一部分运行的所有步骤组合在一起。 工作流中的每个作业都有其自己的 `steps` 部分。
+Groups together all the steps that will run as part of the `test` job. Each job in a workflow has its own `steps` section.
 </td>
 </tr>
 <tr>
@@ -438,7 +444,7 @@ jobs:
 </td>
 <td>
 
-`uses` 关键字指示作业检索名为 `actions/checkout` 的操作。 这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。 只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。 使用 `with` 键为操作提供了一些额外的选项。
+The `uses` keyword tells the job to retrieve the action named `actions/checkout`. This is an action that checks out your repository and downloads it to the runner, allowing you to run actions against your code (such as testing tools). You must use the checkout action any time your workflow will run against the repository's code or you are using an action defined in the repository. Some extra options are provided to the action using the `with` key.
 </td>
 </tr>
 <tr>
@@ -478,7 +484,7 @@ jobs:
 </td>
 <td>
 
-如果当前存储库是 `github/docs-internal` 存储库，此步骤将使用 `actions/github-script` 操作运行脚本，检查是否存在名为 `docs-early-access` 的分支。
+If the current repository is the `github/docs-internal` repository, this step uses the `actions/github-script` action to run a script to check if there is a branch called `docs-early-access`.
 </td>
 </tr>
 <tr>
@@ -497,7 +503,7 @@ jobs:
 </td>
 <td>
 
-如果当前存储库是 `github/docs-internal` 存储库，此步骤将从上一步中标识的 `github/docs-early-access` 签出分支。
+If the current repository is the `github/docs-internal` repository, this step checks out the branch from the `github/docs-early-access` that was identified in the previous step.
 </tr>
 <tr>
 <td>
@@ -514,7 +520,7 @@ jobs:
 </td>
 <td>
 
-如果当前存储库是 `github/docs-internal` 存储库，则此步骤将使用 `run` 关键字执行 shell 命令，将 `docs-early-access` 存储库的文件夹移动到主存储库的文件夹中。
+If the current repository is the `github/docs-internal` repository, this step uses the `run` keyword to execute shell commands to move the `docs-early-access` repository's folders into the main repository's folders.
 </td>
 </tr>
 <tr>
@@ -527,7 +533,7 @@ jobs:
 </td>
 <td>
 
-此步骤运行一个命令，从存储库签出 LFS 对象。
+This step runs a command to check out LFS objects from the repository.
 </td>
 </tr>
 <tr>
@@ -546,7 +552,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用 `trilom/file-changes-action` 操作收集拉取请求中更改的文件，以便在下一步中分析它们。 此示例使用 `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA 固定到操作的特定版本。
+This step uses the `trilom/file-changes-action` action to gather the files changed in the pull request, so they can be analyzed in the next step. This example is pinned to a specific version of the action, using the `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA.
 </td>
 </tr>
 <tr>
@@ -560,7 +566,7 @@ jobs:
 </td>
 <td>
 
-此步骤运行 shell 命令，该命令使用上一步的输出创建文件，其中包含在拉取请求中更改的文件列表。
+This step runs a shell command that uses an output from the previous step to create a file containing the list of files changed in the pull request.
 </td>
 </tr>
 <tr>
@@ -576,7 +582,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用 `actions/setup-node` 操作在运行器上安装指定版本的 `node` 软件包，以便你可访问 `npm` 命令。
+This step uses the `actions/setup-node` action to install the specified version of the `node` software package on the runner, which gives you access to the `npm` command.
 </td>
 </tr>
 <tr>
@@ -589,7 +595,7 @@ jobs:
 </td>
 <td>
 
-此步骤运行 `npm ci` shell 命令来安装项目的 npm 软件包。
+This step runs the `npm ci` shell command to install the npm software packages for the project.
 </td>
 </tr>
 <tr>
@@ -605,7 +611,7 @@ jobs:
 </td>
 <td>
 
-此步骤使用 `actions/cache` 操作来缓存 Next.js 生成，以便工作流将尝试检索生成的缓存，而不是每次都从头重新生成它。 有关详细信息，请参阅“[缓存依赖项以加快工作流](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
+This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 </td>
 </tr>
 <tr>
@@ -618,7 +624,7 @@ jobs:
 </td>
 <td>
 
-此步骤运行生成脚本。
+This step runs the build script.
 </td>
 </tr>
 <tr>
@@ -634,12 +640,12 @@ jobs:
 </td>
 <td>
 
-此步骤使用 `npm test` 运行测试，测试矩阵为矩阵中的每个作业提供不同的 {% raw %}`${{ matrix.test-group }}`{% endraw %} 值。 它使用 `DIFF_FILE` 环境变量来识别已更改的文件，并将 `CHANGELOG_CACHE_FILE_PATH` 环境变量用于 changelog 缓存文件。
+This step runs the tests using `npm test`, and the test matrix provides a different value for {% raw %}`${{ matrix.test-group }}`{% endraw %} for each job in the matrix. It uses the `DIFF_FILE` environment variable to know which files have changed, and uses the `CHANGELOG_CACHE_FILE_PATH` environment variable for the changelog cache file.
 </td>
 </tr>
 </tbody>
 </table>
 
-## 后续步骤
+## Next steps
 
 {% data reusables.actions.learning-actions %}

@@ -10,6 +10,8 @@ Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair
 Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
 Azure | Azure Active Directory Application Secret
+Azure | Azure Batch Key Identifiable
+Azure | Azure CosmosDB Key Identifiable
 Azure | Azure DevOps Personal Access Token
 Azure | Azure ML Studio (classic) Web Service Key
 Azure | Azure SAS Token

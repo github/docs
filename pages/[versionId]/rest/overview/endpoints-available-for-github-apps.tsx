@@ -92,7 +92,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const req = context.req as object
   const res = context.res as object
   const currentVersion = context.query.versionId as string
-  const mainContext = getMainContext(req, res)
+  const mainContext = await getMainContext(req, res)
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
 
   if (!enabledForApps) {

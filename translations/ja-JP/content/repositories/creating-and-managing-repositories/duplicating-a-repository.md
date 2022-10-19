@@ -1,6 +1,6 @@
 ---
-title: リポジトリを複製する
-intro: リポジトリのミラーをフォークすることなく維持するには、特別なクローン コマンドを実行して、新しいリポジトリにミラープッシュします。
+title: Duplicating a repository
+intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
 redirect_from:
   - /articles/duplicating-a-repo
   - /articles/duplicating-a-repository
@@ -13,98 +13,92 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: c9cc58acd7f3b69ff277830bef8dc50fed02c2b6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145132300'
 ---
 {% ifversion fpt or ghec %}
 
 {% note %}
 
-**注:** 別のバージョン管理システムでホストされているプロジェクトがある場合、インポートツール {% data variables.product.prodname_dotcom %} を使い、プロジェクトを {% data variables.product.prodname_dotcom %} に自動インポートできます。 詳細については、「[インポートツール {% data variables.product.prodname_dotcom %} について](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)」を参照してください。
+**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[About {% data variables.product.prodname_dotcom %} Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
 
 {% endnote %}
 
 {% endif %}
 
-元のリポジトリをリポジトリの新しいコピー (_ミラー_) にプッシュするには、{% data variables.product.product_location %} で [新しいリポジトリを作成する](/articles/creating-a-new-repository)必要があります。 これらの例では、`exampleuser/new-repository` または `exampleuser/mirrored` はミラーです。
+Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.location.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
 
-## リポジトリをミラーする
+## Mirroring a repository
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. リポジトリのベアクローンを作成します。
+2. Create a bare clone of the repository.
   ```shell
-  $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
+  $ git clone --bare https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/OLD-REPOSITORY.git
   ```
-3. 新しいリポジトリをミラープッシュします。
+3. Mirror-push to the new repository.
   ```shell
-  $ cd <em>old-repository.git</em>
-  $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
+  $ cd OLD-REPOSITORY.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/NEW-REPOSITORY.git
   ```
-4. 先ほど作成した一時ローカルリポジトリを削除します。
+4. Remove the temporary local repository you created earlier.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository.git</em>
+  $ rm -rf OLD-REPOSITORY.git
   ```
 
-## {% data variables.large_files.product_name_long %} オブジェクトを含むリポジトリをミラーする
+## Mirroring a repository that contains {% data variables.large_files.product_name_long %} objects
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. リポジトリのベアクローンを作成します。 ユーザ名の例をリポジトリを所有する人や Organization の名前に置き換え、リポジトリ名の例を複製したいリポジトリの名前に置き換えてください。
+2. Create a bare clone of the repository. Replace the example username with the name of the person or organization who owns the repository, and replace the example repository name with the name of the repository you'd like to duplicate.
   ```shell
-  $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
+  $ git clone --bare https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/OLD-REPOSITORY.git
   ```
-3. クローンしたリポジトリに移動します。
+3. Navigate to the repository you just cloned.
   ```shell
-  $ cd <em>old-repository.git</em>
+  $ cd OLD-REPOSITORY.git
   ```
-4. リポジトリの {% data variables.large_files.product_name_long %} オブジェクトをプルします。
+4. Pull in the repository's {% data variables.large_files.product_name_long %} objects.
   ```shell
   $ git lfs fetch --all
   ```
-5. 新しいリポジトリをミラープッシュします。
+5. Mirror-push to the new repository.
   ```shell
-  $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}EXAMPLE-USER/NEW-REPOSITORY.git
   ```
-6. リポジトリの {% data variables.large_files.product_name_long %} オブジェクトをミラーにプッシュします。
+6. Push the repository's {% data variables.large_files.product_name_long %} objects to your mirror.
   ```shell
-  $ git lfs push --all https://github.com/<em>exampleuser/new-repository.git</em>
+  $ git lfs push --all https://github.com/EXAMPLE-USER/NEW-REPOSITORY.git
   ```
-7. 先ほど作成した一時ローカルリポジトリを削除します。
+7. Remove the temporary local repository you created earlier.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository.git</em>
+  $ rm -rf OLD-REPOSITORY.git
   ```
 
-## 別の場所にあるリポジトリをミラーする
+## Mirroring a repository in another location
 
-元のリポジトリから更新を取得するなど、別の場所にあるリポジトリをミラーする場合は、ミラーをクローンして定期的に変更をプッシュできます。
+If you want to mirror a repository in another location, including getting updates from the original, you can clone a mirror and periodically push the changes.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. リポジトリのミラーしたベアクローンを作成します。
+2. Create a bare mirrored clone of the repository.
   ```shell
-  $ git clone --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>repository-to-mirror</em>.git
+  $ git clone --mirror https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/REPOSITORY-TO-MIRROR.git
   ```
-3. プッシュの場所をミラーに設定します。
+3. Set the push location to your mirror.
   ```shell
-  $ cd <em>repository-to-mirror</em>
-  $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
+  $ cd REPOSITORY-TO-MIRROR
+  $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/MIRRORED
   ```
-ベアクローンと同様に、ミラーしたクローンにはすべてのリモートブランチとタグが含まれますが、フェッチするたびにすべてのローカルリファレンスが上書きされるため、常に元のリポジトリと同じになります。 プッシュする URL を設定することで、ミラーへのプッシュが簡素化されます。
+As with a bare clone, a mirrored clone includes all remote branches and tags, but all local references will be overwritten each time you fetch, so it will always be the same as the original repository. Setting the URL for pushes simplifies pushing to your mirror.
 
-4. ミラーを更新するには、更新をフェッチしてプッシュします。
+4. To update your mirror, fetch updates and push.
   ```shell
   $ git fetch -p origin
   $ git push --mirror
   ```
 {% ifversion fpt or ghec %}
-## 参考資料
+## Further reading
 
-* 「[GitHub に変更をプッシュする](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)」
-* 「[GitLarge File Storage と GitHub Desktop について](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)」
-* 「[GitHub Importer について](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)」
+* "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
+* "[About Git Large File Storage and GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* "[About GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
 
 {% endif %}

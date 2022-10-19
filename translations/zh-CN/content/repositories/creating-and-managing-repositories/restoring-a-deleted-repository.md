@@ -1,6 +1,6 @@
 ---
-title: 恢复已删除的仓库
-intro: '{% ifversion ghes or ghae %}企业所有者{% elsif fpt or ghec %}你{% endif %}可还原某些已删除的存储库以恢复其内容。'
+title: Restoring a deleted repository
+intro: '{% ifversion ghes or ghae %}An enterprise owner{% elsif fpt or ghec %}You{% endif %} can restore some deleted repositories to recover their contents.'
 permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
@@ -14,40 +14,43 @@ versions:
 topics:
   - Repositories
 shortTitle: Restore deleted repository
-ms.openlocfilehash: 233785cc42ac6dd97a35d042186ae198dd69502a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146200096'
 ---
+
 {% ifversion ghes or ghae %}
 
-通常，企业所有者{% ifversion ghes %}可在 {% data variables.product.product_location %}{% endif %} 上在删除后的 90 天内还原已删除的存储库。 有关详细信息，请参阅“[还原已删除的存储库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。 
+Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.location.product_location %}{% endif %}. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." 
 
 {% else %}
 
-## 关于仓库恢复
+## About repository restoration
 
-删除的仓库可在 90 天内恢复，除非仓库是目前非空白的复刻网络的一部分。 复刻网络由父仓库、仓库的复刻以及该仓库复刻的复刻组成。 如果仓库是复刻网络的一部分，则在网络中的每个其他仓库被删除或者从网络中脱离之前，无法恢复它。 有关分支的详细信息，请参阅“[关于分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)”。
+A deleted repository can be restored within 90 days, unless the repository was part of a fork network that is not currently empty. A fork network consists of a parent repository, the repository's forks, and forks of the repository's forks. If your repository was part of a fork network, it cannot be restored unless every other repository in the network is deleted or has been detached from the network. For more information about forks, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
-如果要恢复属于当前非空白的复刻网络一部分的仓库，可以联系 {% data variables.contact.contact_support %}。
+If you want to restore a repository that was part of a fork network that is not currently empty, you can contact {% data variables.contact.contact_support %}.
 
-仓库被删除后，可能需要一个小时才能恢复。
+It can take up to an hour after a repository is deleted before that repository is available for restoration.
 
-恢复仓库不会恢复发行版附件或团队权限。 已恢复的议题不会被标记。
+Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
 
-## 还原个人帐户所拥有的已删除存储库
+## Restoring a deleted repository that was owned by a personal account
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.repo-tab %} {% data reusables.user-settings.deleted-repos %} {% data reusables.user-settings.restore-repo %} {% data reusables.user-settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.repo-tab %}
+{% data reusables.user-settings.deleted-repos %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
-## 恢复组织所拥有的已删除仓库
+## Restoring a deleted repository that was owned by an organization
 
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.deleted-repos %} {% data reusables.user-settings.restore-repo %} {% data reusables.user-settings.restore-confirmation %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.deleted-repos %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
-## 延伸阅读
+## Further reading
 
-- [删除存储库](/articles/deleting-a-repository)
+- "[Deleting a repository](/articles/deleting-a-repository)"
 
 {% endif %}

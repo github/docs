@@ -6,7 +6,6 @@ versions:
   ghec: '*'
 product: '{% data reusables.gated-features.codespaces %}'
 children:
-  - /understanding-billing-for-github-codespaces
   - /allowing-your-codespace-to-access-a-private-image-registry
   - /using-github-copilot-in-github-codespaces
   - /using-the-vs-code-command-palette-in-codespaces

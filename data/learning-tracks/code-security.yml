@@ -12,6 +12,7 @@ security_advisories:
     - /code-security/repository-security-advisories/editing-a-repository-security-advisory
     - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
     - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+    - /code-security/repository-security-advisories/best-practices-for-writing-repository-security-advisories
 
 # Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
 dependabot_alerts:

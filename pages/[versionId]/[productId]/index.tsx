@@ -107,7 +107,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const res = context.res as any
 
   const props: Props = {
-    mainContext: getMainContext(req, res),
+    mainContext: await getMainContext(req, res),
   }
   const { currentLayoutName, relativePath } = props.mainContext
 

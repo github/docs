@@ -121,7 +121,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)." 
+  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. The GraphQL API only supports authentication using a {% data variables.product.pat_v1 %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)." 
 
   {% endnote %}
   

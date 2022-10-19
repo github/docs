@@ -51,7 +51,7 @@ For more information on audit logging in general, see "[About the audit log for 
 
 ## Reports
 
-If you need to get information on the users, organizations, and repositories in {% data variables.product.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
+If you need to get information on the users, organizations, and repositories in {% data variables.location.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
 
 Specifically, you can download CSV reports that list
 
@@ -62,7 +62,7 @@ Specifically, you can download CSV reports that list
 - all organizations
 - all repositories
 
-You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a personal access token with the `site_admin` scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 For example, here is how you would download the "all users" report using cURL:
 
@@ -164,7 +164,7 @@ You can create a new index, or you can click on an existing index in the list to
 - Start a new index repair job.
 - Enable or disable index repair jobs.
 
-A progress bar shows the current status of a repair job across background workers. The bar is the percentage difference of the repair offset with the highest record ID in the database. You can ignore the value shown in the progress bar after a repair job has completed. The progress bar shows the difference between the repair offset and the highest record ID in the database, and will decrease as more repositories are added to {% data variables.product.product_location %} even though those repositories are actually indexed.
+A progress bar shows the current status of a repair job across background workers. The bar is the percentage difference of the repair offset with the highest record ID in the database. You can ignore the value shown in the progress bar after a repair job has completed. The progress bar shows the difference between the repair offset and the highest record ID in the database, and will decrease as more repositories are added to {% data variables.location.product_location %} even though those repositories are actually indexed.
 
 To minimize the effects on I/O performance and reduce the chances of operations timing out, run the repair job during off-peak hours. As the job reconciles the search index with database and Git repository data, one CPU will be used. Monitor your system's load averages and CPU usage with a utility like `top`. If you don't notice any significant increase in resource consumption, it should also be safe to run an index repair job during peak hours.
 
@@ -177,7 +177,7 @@ This allows you to enable or disable both search and index operations on source 
 {% endif %}
 ## Reserved logins
 
-Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
+Certain words are reserved for internal use in {% data variables.location.product_location %}, which means that these words cannot be used as usernames.
 
 For example, the following words are reserved, among others:
 
@@ -216,7 +216,7 @@ Refer to this section of the site admin dashboard to manage organizations, peopl
 
 ## Repositories
 
-This is a list of the repositories on {% data variables.product.product_location %}. You can click on a repository name and access functions for administering the repository.
+This is a list of the repositories on {% data variables.location.product_location %}. You can click on a repository name and access functions for administering the repository.
 
 - [Blocking force pushes to a repository](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
 - [Configuring {% data variables.large_files.product_name_long %}](/enterprise/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
@@ -224,21 +224,21 @@ This is a list of the repositories on {% data variables.product.product_location
 
 ## All users
 
-Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
 ## Site admins
 
-Here you can see all of the administrators on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the administrators on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
 ## Dormant users
 {% ifversion ghes %}
-Here you can see and [suspend](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
+Here you can see and [suspend](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 {% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
+Here you can see and suspend all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 
-- Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location %}.
+- Has existed for longer than the dormancy threshold that's set for {% data variables.location.product_location %}.
 - Has not generated any activity within that time period.
 - Is not a site administrator.
 
@@ -246,4 +246,4 @@ Here you can see and suspend all of the inactive users on {% data variables.prod
 
 ## Suspended users
 
-Here you can see all of the users who have been suspended on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users who have been suspended on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).

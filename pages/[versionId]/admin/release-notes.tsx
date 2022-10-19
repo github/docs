@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const { latestPatch = '', latestRelease = '' } = req.context
   return {
     props: {
-      mainContext: getMainContext(req, res),
+      mainContext: await getMainContext(req, res),
       ghesContext:
         currentVersion.plan === 'enterprise-server'
           ? {

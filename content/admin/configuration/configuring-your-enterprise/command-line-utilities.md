@@ -109,7 +109,7 @@ ghe-cleanup-settings
 
 ### ghe-config
 
-With this utility, you can both retrieve and modify the configuration settings of {% data variables.product.product_location %}.
+With this utility, you can both retrieve and modify the configuration settings of {% data variables.location.product_location %}.
 
 ```shell
 $ ghe-config core.github-hostname
@@ -417,7 +417,7 @@ This utility allows you to install a custom root CA certificate on your {% data 
 
 Run this utility to add a certificate chain for S/MIME commit signature verification. For more information, see "[About commit signature verification](/enterprise/user/articles/about-commit-signature-verification/)."
 
-Run this utility when {% data variables.product.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.product.product_location %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
+Run this utility when {% data variables.location.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.location.product_location %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
 
 ```
 SSL-Session:
@@ -457,7 +457,7 @@ ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
 
 ### ghe-ssl-certificate-setup
 
-This utility allows you to update an SSL certificate for {% data variables.product.product_location %}. 
+This utility allows you to update an SSL certificate for {% data variables.location.product_location %}. 
 
 For more information about this command or for additional options, use the `-h` flag.
 
@@ -485,7 +485,7 @@ $ ghe-storage-extend
 
 ### ghe-version
 
-This utility prints the version, platform, and build of {% data variables.product.product_location %}.
+This utility prints the version, platform, and build of {% data variables.location.product_location %}.
 
 ```shell
 $ ghe-version
@@ -672,7 +672,7 @@ You can add the optional `--prune` argument to remove unreachable Git objects th
 
 {% warning %}
 
-**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.location.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 {% endwarning %}
 
@@ -692,7 +692,7 @@ ghe-actions-check
 
 ### ghe-actions-precheck
 
-This utility tests the blob storage configuration for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}. You can use the utility to verify your storage configuration before you enable {% data variables.product.prodname_actions %} for your instance.
+This utility tests the blob storage configuration for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %}. You can use the utility to verify your storage configuration before you enable {% data variables.product.prodname_actions %} for your instance.
 
 For more information about the configuration of {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 

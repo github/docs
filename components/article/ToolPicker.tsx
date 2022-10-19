@@ -1,11 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
-import { UnderlineNav } from '@primer/react'
-import { sendEvent, EventType } from 'components/lib/events'
 import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
 import { useArticleContext } from 'components/context/ArticleContext'
+import { InArticlePicker } from './InArticlePicker'
 
 // example: http://localhost:4000/en/codespaces/developing-in-codespaces/creating-a-codespace
 
@@ -47,67 +43,30 @@ function getDefaultTool(defaultTool: string | undefined, detectedTools: Array<st
   return detectedTools[0]
 }
 
-type Props = {
-  variant?: 'subnav' | 'tabnav' | 'underlinenav'
-}
-export const ToolPicker = ({ variant = 'subnav' }: Props) => {
-  const { asPath } = useRouter()
+const toolQueryKey = 'tool'
+export const ToolPicker = () => {
   // allTools comes from the ArticleContext which contains the list of tools available
   const { defaultTool, detectedTools, allTools } = useArticleContext()
-  const [currentTool, setCurrentTool] = useState(getDefaultTool(defaultTool, detectedTools))
 
-  const sharedContainerProps = {
-    'data-testid': 'tool-picker',
-    'aria-label': 'Tool picker',
-    'data-default-tool': defaultTool,
-    className: 'mb-4',
-  }
+  if (!detectedTools.length) return null
 
-  // Run on mount for client-side only features
-  useEffect(() => {
-    // If the user selected a tool preference and the tool is present on this page
-    // Has to be client-side only for cookie reading
-    const cookieValue = Cookies.get('toolPreferred')
-    if (cookieValue && detectedTools.includes(cookieValue)) {
-      setCurrentTool(cookieValue)
-    }
-  }, [])
+  const options = detectedTools.map((value) => {
+    return { value, label: allTools[value] }
+  })
 
-  // Whenever the currentTool is changed, update the article content
-  useEffect(() => {
-    preserveAnchorNodePosition(document, () => {
-      showToolSpecificContent(currentTool, Object.keys(allTools))
-    })
-  }, [currentTool, asPath])
-
-  function onClickTool(tool: string) {
-    setCurrentTool(tool)
-    sendEvent({
-      type: EventType.preference,
-      preference_name: 'application',
-      preference_value: tool,
-    })
-    Cookies.set('toolPreferred', tool, { sameSite: 'strict', secure: true })
-  }
-
-  if (variant === 'underlinenav') {
-    return (
-      <UnderlineNav {...sharedContainerProps}>
-        {detectedTools.map((tool) => (
-          <UnderlineNav.Link
-            key={tool}
-            data-tool={tool}
-            selected={tool === currentTool}
-            onClick={() => {
-              onClickTool(tool)
-            }}
-          >
-            {allTools[tool]}
-          </UnderlineNav.Link>
-        ))}
-      </UnderlineNav>
-    )
-  }
-
-  return null
+  return (
+    <InArticlePicker
+      fallbackValue={getDefaultTool(defaultTool, detectedTools)}
+      cookieKey="toolPreferred"
+      queryStringKey={toolQueryKey}
+      onValue={(value: string) => {
+        preserveAnchorNodePosition(document, () => {
+          showToolSpecificContent(value, Object.keys(allTools))
+        })
+      }}
+      preferenceName="application"
+      ariaLabel="Tool"
+      options={options}
+    />
+  )
 }

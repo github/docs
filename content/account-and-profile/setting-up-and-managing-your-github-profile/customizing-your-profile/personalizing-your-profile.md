@@ -59,7 +59,7 @@ You can change the name that is displayed on your profile. This name may also be
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** If you're a member of an {% data variables.product.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+**Note:** If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endnote %}
 {% endif %}
@@ -95,8 +95,40 @@ For a longer-form and more prominent way of displaying customized information ab
 
   {% endtip %}
 
-3. Click **Update profile**.
-	![Update profile button](/assets/images/help/profile/update-profile-button.png)
+{% data reusables.profile.update-profile %}
+
+{% ifversion profile-time-zone %}
+
+## Setting your location and time zone
+
+You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
+- on your {% data variables.product.product_name %} profile page.
+- when people hover over your username or avatar on {% data variables.product.product_name %}.
+
+When you view your profile, you will see your location, local time, and your time zone in relation to Universal Time Coordinated.
+
+  ![Screenshot of the Octocat profile page emphasizing the location, local time, and time zone fields.](/assets/images/help/profile/profile-location-and-time.png)
+
+When others view your profile, they will see your location, local time, and the time difference in hours from their own local time.
+
+  ![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-relative-time.png)
+
+{% data reusables.user-settings.access_settings %}
+1. Under **Location**, type the location you want to be displayed on your profile.
+
+  ![Screenshot of the location and local time settings emphasizing the location field.](/assets/images/help/profile/location-field.png)
+
+1. Optionally, to display the current local time on your profile, select **Display current local time**.
+
+  ![Screenshot of the location and local time settings emphasizing the display current local time checkbox.](/assets/images/help/profile/display-local-time-checkbox.png)
+
+   - Select the **Time zone** dropdown menu, then click your local time zone.
+
+     ![Screenshot of the location and local time settings emphasizing the time zone dropdown menu.](/assets/images/help/profile/time-zone-dropdown.png)
+   
+{% data reusables.profile.update-profile %}
+
+{% endif %}
 
 ## Setting a status
 

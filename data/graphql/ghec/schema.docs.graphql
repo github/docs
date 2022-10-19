@@ -5129,6 +5129,117 @@ input CommittableBranch {
 }
 
 """
+Represents a comparison between two commit revisions.
+"""
+type Comparison implements Node {
+  """
+  The number of commits ahead of the base branch.
+  """
+  aheadBy: Int!
+
+  """
+  The base revision of this comparison.
+  """
+  baseTarget: GitObject!
+
+  """
+  The number of commits behind the base branch.
+  """
+  behindBy: Int!
+
+  """
+  The commits which compose this comparison.
+  """
+  commits(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ComparisonCommitConnection!
+
+  """
+  The head revision of this comparison.
+  """
+  headTarget: GitObject!
+  id: ID!
+
+  """
+  The status of this comparison.
+  """
+  status: ComparisonStatus!
+}
+
+"""
+The connection type for Commit.
+"""
+type ComparisonCommitConnection {
+  """
+  The total count of authors and co-authors across all commits.
+  """
+  authorCount: Int!
+
+  """
+  A list of edges.
+  """
+  edges: [CommitEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [Commit]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+The status of a git comparison between two refs.
+"""
+enum ComparisonStatus {
+  """
+  The head ref is ahead of the base ref.
+  """
+  AHEAD
+
+  """
+  The head ref is behind the base ref.
+  """
+  BEHIND
+
+  """
+  The head ref is both ahead and behind of the base ref, indicating git history has diverged.
+  """
+  DIVERGED
+
+  """
+  The head ref and base ref are identical.
+  """
+  IDENTICAL
+}
+
+"""
 Represents a 'connected' event on a given issue or pull request.
 """
 type ConnectedEvent implements Node {
@@ -31326,6 +31437,61 @@ type ProjectV2SortByEdge {
 }
 
 """
+Represents a sort by field and direction.
+"""
+type ProjectV2SortByField {
+  """
+  The direction of the sorting. Possible values are ASC and DESC.
+  """
+  direction: OrderDirection!
+
+  """
+  The field by which items are sorted.
+  """
+  field: ProjectV2FieldConfiguration!
+}
+
+"""
+The connection type for ProjectV2SortByField.
+"""
+type ProjectV2SortByFieldConnection {
+  """
+  A list of edges.
+  """
+  edges: [ProjectV2SortByFieldEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [ProjectV2SortByField]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type ProjectV2SortByFieldEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: ProjectV2SortByField
+}
+
+"""
 A view within a ProjectV2.
 """
 type ProjectV2View implements Node {
@@ -31482,6 +31648,34 @@ type ProjectV2View implements Node {
     """
     last: Int
   ): ProjectV2SortByConnection
+    @deprecated(
+      reason: "The `ProjectV2View#sort_by` API is deprecated in favour of the more capable `ProjectV2View#sort_by_fields` API. Check out the `ProjectV2View#sort_by_fields` API as an example for the more capable alternative. Removal on 2023-04-01 UTC."
+    )
+
+  """
+  The view's sort-by config.
+  """
+  sortByFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ProjectV2SortByFieldConnection
 
   """
   Identifies the date and time when the object was last updated.
@@ -31517,6 +31711,39 @@ type ProjectV2View implements Node {
     """
     orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConnection
+    @deprecated(
+      reason: "The `ProjectV2View#vertical_group_by` API is deprecated in favour of the more capable `ProjectV2View#vertical_group_by_fields` API. Check out the `ProjectV2View#vertical_group_by_fields` API as an example for the more capable alternative. Removal on 2023-04-01 UTC."
+    )
+
+  """
+  The view's vertical-group-by field.
+  """
+  verticalGroupByFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the project v2 fields returned from the connection.
+    """
+    orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
+  ): ProjectV2FieldConfigurationConnection
 
   """
   The view's visible fields.
@@ -35898,6 +36125,16 @@ type Ref implements Node {
   Branch protection rules for this ref
   """
   branchProtectionRule: BranchProtectionRule
+
+  """
+  Compares the current ref as a base ref to another head ref, if the comparison can be made.
+  """
+  compare(
+    """
+    The head ref to compare against.
+    """
+    headRef: String!
+  ): Comparison
   id: ID!
 
   """

@@ -37,7 +37,7 @@ If a user has already created an organization and repository in your enterprise 
 ## Enabling automatic access to all {% data variables.product.prodname_dotcom_the_website %} actions
 
 Before enabling access to all actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must{% ifversion ghes %}:
-- Configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+- Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
 - Enable{% else %} enable{% endif %} {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -50,15 +50,15 @@ Before enabling access to all actions from {% data variables.product.prodname_do
 
 ## Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}
 
-When you enable {% data variables.product.prodname_github_connect %}, users see no change in behavior for existing workflows because {% data variables.product.prodname_actions %} searches {% data variables.product.product_location %} for each action before falling back to {% data variables.product.prodname_dotcom_the_website%}. This ensures that any custom versions of actions your enterprise has created are used in preference to their counterparts on {% data variables.product.prodname_dotcom_the_website%}.
+When you enable {% data variables.product.prodname_github_connect %}, users see no change in behavior for existing workflows because {% data variables.product.prodname_actions %} searches {% data variables.location.product_location %} for each action before falling back to {% data variables.product.prodname_dotcom_the_website%}. This ensures that any custom versions of actions your enterprise has created are used in preference to their counterparts on {% data variables.product.prodname_dotcom_the_website%}.
 
-Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %} blocks the potential for a man-in-the-middle attack by a malicious user with access to {% data variables.product.product_location %}. When an action on {% data variables.product.prodname_dotcom_the_website %} is used for the first time, that namespace is retired in {% data variables.product.product_location %}. This blocks any user creating an organization and repository in your enterprise that matches that organization and repository name on {% data variables.product.prodname_dotcom_the_website %}. This ensures that when a workflow runs, the intended action is always run.
+Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %} blocks the potential for a man-in-the-middle attack by a malicious user with access to {% data variables.location.product_location %}. When an action on {% data variables.product.prodname_dotcom_the_website %} is used for the first time, that namespace is retired in {% data variables.location.product_location %}. This blocks any user creating an organization and repository in your enterprise that matches that organization and repository name on {% data variables.product.prodname_dotcom_the_website %}. This ensures that when a workflow runs, the intended action is always run.
 
-After using an action from {% data variables.product.prodname_dotcom_the_website %}, if you want to create an action in {% data variables.product.product_location %} with the same name, first you need to make the namespace for that organization and repository available.
+After using an action from {% data variables.product.prodname_dotcom_the_website %}, if you want to create an action in {% data variables.location.product_location %} with the same name, first you need to make the namespace for that organization and repository available.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. In the left sidebar, under **Site admin** click **Retired namespaces**.
-3. Locate the namespace that you want use in {% data variables.product.product_location %} and click **Unretire**.
+3. Locate the namespace that you want use in {% data variables.location.product_location %} and click **Unretire**.
    ![Unretire namespace](/assets/images/enterprise/site-admin-settings/unretire-namespace.png)
 4. Go to the relevant organization and create a new repository.
 

@@ -49,7 +49,7 @@ Otherwise, you can use the SSL Converter tool to convert your certificate into t
 
 ## Unresponsive installation after uploading a key
 
-If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included. 
+If {% data variables.location.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included. 
 
 ## Certificate validity errors
 
@@ -83,4 +83,4 @@ If your {% data variables.product.prodname_ghe_server %} appliance interacts wit
 
 ## Updating a TLS certificate
 
-You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)."
+You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.location.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)."
