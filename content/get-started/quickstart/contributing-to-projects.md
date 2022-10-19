@@ -95,6 +95,34 @@ gh repo fork REPOSITORY --clone=true
 
 {% enddesktop %}
 
+## Creating a branch to work on
+
+Before making changes to the project, you should create a new branch to commit them to. By keeping changes in their own branch, you follow [GitHub Flow](/get-started/quickstart/github-flow#following-github-flow) and ensure that it will be easier to contribute to the same project again in the future.
+
+{% webui %}
+
+```shell
+git branch branch-name
+git checkout branch-name
+```
+
+{% endwebui %}
+
+{% cli %}
+
+```shell
+git branch branch-name
+git checkout branch-name
+```
+
+{% endcli %}
+
+{% desktop %}
+
+For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[Managing branches](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
+
+{% enddesktop %}
+
 ## Making and pushing changes
 
 Go ahead and make a few changes to the project using your favorite text editor, like [Visual Studio Code](https://code.visualstudio.com). You could, for example, change the text in `index.html` to add your GitHub username.
