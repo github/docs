@@ -41,7 +41,7 @@ topics:
 
 ## Example workflow
 
-{% data reusables.actions.example-docs-engineering-intro %} [`check-broken-links-github-github.yml`](https://github.com/github/docs/blob/e70e1c44d16a11f40923c7dfd6f7bf1d2ccc06d5/.github/workflows/check-broken-links-github-github.yml).
+{% data reusables.actions.example-docs-engineering-intro %} [`check-broken-links-github-github.yml`](https://github.com/github/docs/blob/main/.github/workflows/check-broken-links-github-github.yml).
 
 {% data reusables.actions.note-understanding-example %}
 
