@@ -1,6 +1,6 @@
 ---
-title: 防止未授权的访问
-intro: '在登录 {% data variables.product.product_location %} 时，你可能会收到媒体中安全事件的警报，如发现 [Heartbleed bug](http://heartbleed.com/) 或计算机被盗。 在这种情况下，更改密码可防止后面对您的帐户和项目的任何非预期访问。'
+title: Preventing unauthorized access
+intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.location.product_location %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
 redirect_from:
   - /articles/preventing-unauthorized-access
   - /github/authenticating-to-github/preventing-unauthorized-access
@@ -13,24 +13,18 @@ topics:
   - Identity
   - Access management
 shortTitle: Unauthorized access
-ms.openlocfilehash: 2b7a29ad3df05ef758c82330f24fe7568e137130
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145084651'
 ---
-{% data variables.product.product_name %} 需要密码来执行敏感的操作，如新增 SSH 密钥、授权应用程序或修改团队成员。
+{% data variables.product.product_name %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
 
-在更改密码后，应执行以下操作，以确保您的帐户安全：
+After changing your password, you should perform these actions to make sure that your account is secure:
 
-- 在帐户上[启用双因素身份验证](/articles/about-two-factor-authentication)，以便访问时不止需要提供密码。
-- [查看 SSH 密钥](/articles/reviewing-your-ssh-keys)、[部署密钥](/articles/reviewing-your-deploy-keys)和[授权集成](/articles/reviewing-your-authorized-integrations)，并在 SSH 和应用程序设置中撤销未经授权的或不熟悉的访问权限。
+- [Enable two-factor authentication](/articles/about-two-factor-authentication) on your account so that access requires more than just a password.
+- [Review your SSH keys](/articles/reviewing-your-ssh-keys), [deploy keys](/articles/reviewing-your-deploy-keys), and [authorized integrations](/articles/reviewing-your-authorized-integrations) and revoke unauthorized or unfamiliar access in your SSH and Applications settings.
 {% ifversion fpt or ghec %}
-- [验证所有电子邮件地址](/articles/verifying-your-email-address)。 如果攻击者在您的帐户中添加了他们的电子邮件地址，他们可能实施非预期的密码重置。
+- [Verify all your email addresses](/articles/verifying-your-email-address). If an attacker added their email address to your account, it could allow them to force an unintended password reset.
 {% endif %}
-- [查看帐户的安全日志](/github/authenticating-to-github/reviewing-your-security-log)。 其中概述了您的仓库的各种配置。 例如，您可以确保没有私有仓库改为公共，或没有仓库被转让。
-- 查看存储库上的 [Webhook](/articles/creating-webhooks)。 Web 挂钩可能允许攻击者拦截到仓库的推送。
-- [确保未创建新的部署密钥](/guides/managing-deploy-keys/#deploy-keys)。 这可能允许外部服务器访问您的项目。
-- 检查最近对仓库的提交。
-- 检查每个仓库的协作者列表。
+- [Review your account's security log](/github/authenticating-to-github/reviewing-your-security-log). This provides an overview on various configurations made to your repositories. For example, you can ensure that no private repositories were turned public, or that no repositories were transferred.
+- [Review the webhooks](/articles/creating-webhooks) on your repositories. Webhooks could allow an attacker to intercept pushes made to your repository.
+- [Make sure that no new deploy keys](/guides/managing-deploy-keys/#deploy-keys) were created. This could enable outside servers access to your projects.
+- Review recent commits made to your repositories.
+- Review the list of collaborators for each repository.

@@ -48,15 +48,15 @@ shortTitle: RubyGems registry
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Authenticating with a personal access token
+### Authenticating with a {% data variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
 You can authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing the  *~/.gem/credentials* file for publishing gems, editing the *~/.gemrc* file for installing a single gem, or using Bundler for tracking and installing one or more gems.
 
-To publish new gems, you need to authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing your *~/.gem/credentials* file to include your personal access token.  Create a new *~/.gem/credentials* file if this file doesn't exist.
+To publish new gems, you need to authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing your *~/.gem/credentials* file to include your {% data variables.product.pat_v1 %}. Create a new *~/.gem/credentials* file if this file doesn't exist.
 
-For example, you would create or edit a *~/.gem/credentials* to include the following, replacing *TOKEN* with your personal access token.
+For example, you would create or edit a *~/.gem/credentials* to include the following, replacing *TOKEN* with your {% data variables.product.pat_generic %}.
 
 ```shell
 ---
@@ -65,7 +65,7 @@ For example, you would create or edit a *~/.gem/credentials* to include the foll
 
 To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by editing the *~/.gemrc* file for your project to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. You must replace:
   - `USERNAME` with your {% data variables.product.prodname_dotcom %} username.
-  - `TOKEN` with your personal access token.
+  - `TOKEN` with your {% data variables.product.pat_v1 %}.
   - `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes %}
   - `REGISTRY-URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the hostname of your {% data variables.product.prodname_ghe_server %} instance.
 {% elsif ghae %}
@@ -86,7 +86,7 @@ If you don't have a *~/.gemrc* file, create a new *~/.gemrc* file using this exa
 
 ```
 
-To authenticate with Bundler, configure Bundler to use your personal access token, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *OWNER* with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes %} Replace `REGISTRY-URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.location.product_location %}.{% endif %}
+To authenticate with Bundler, configure Bundler to use your {% data variables.product.pat_v1 %}, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your {% data variables.product.pat_generic %}, and *OWNER* with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes %} Replace `REGISTRY-URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.location.product_location %}.{% endif %}
 
 ```shell
 $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER USERNAME:TOKEN

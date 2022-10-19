@@ -114,7 +114,7 @@ You can delete a private or public package in the {% data variables.product.prod
 You can delete a version of a package in the {% data variables.product.product_name %} user interface or using the GraphQL API.
 {% endif %}
 
-When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}.
+When you use the GraphQL API to query and delete private packages, you must use the same {% data variables.product.pat_v1 %} you use to authenticate to {% data variables.product.prodname_registry %}.
 
 For more information, see {% ifversion ghes or ghae %}"[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" and {% endif %}"[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
 

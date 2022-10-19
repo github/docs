@@ -65,7 +65,7 @@ For greater security, enable two-factor authentication in addition to changing y
 {% endif %}
 ## Updating your access tokens
 
-See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 {% ifversion not ghae %}
 

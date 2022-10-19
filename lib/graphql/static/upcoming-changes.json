@@ -2,6 +2,22 @@
   "dotcom": {
     "2023-04-01": [
       {
+        "location": "ProjectV2View.verticalGroupBy",
+        "description": "<p><code>verticalGroupBy</code> will be removed. Check out the <code>ProjectV2View#vertical_group_by_fields</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2View#vertical_group_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#vertical_group_by_fields</code> API.</p>",
+        "date": "2023-04-01",
+        "criticality": "breaking",
+        "owner": "traumverloren"
+      },
+      {
+        "location": "ProjectV2View.sortBy",
+        "description": "<p><code>sortBy</code> will be removed. Check out the <code>ProjectV2View#sort_by_fields</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2View#sort_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#sort_by_fields</code> API.</p>",
+        "date": "2023-04-01",
+        "criticality": "breaking",
+        "owner": "traumverloren"
+      },
+      {
         "location": "ProjectV2View.groupBy",
         "description": "<p><code>groupBy</code> will be removed. Check out the <code>ProjectV2View#group_by_fields</code> API as an example for the more capable alternative.</p>",
         "reason": "<p>The <code>ProjectV2View#order_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#group_by_field</code> API.</p>",
@@ -1467,6 +1483,22 @@
   },
   "ghec": {
     "2023-04-01": [
+      {
+        "location": "ProjectV2View.verticalGroupBy",
+        "description": "<p><code>verticalGroupBy</code> will be removed. Check out the <code>ProjectV2View#vertical_group_by_fields</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2View#vertical_group_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#vertical_group_by_fields</code> API.</p>",
+        "date": "2023-04-01",
+        "criticality": "breaking",
+        "owner": "traumverloren"
+      },
+      {
+        "location": "ProjectV2View.sortBy",
+        "description": "<p><code>sortBy</code> will be removed. Check out the <code>ProjectV2View#sort_by_fields</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2View#sort_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#sort_by_fields</code> API.</p>",
+        "date": "2023-04-01",
+        "criticality": "breaking",
+        "owner": "traumverloren"
+      },
       {
         "location": "ProjectV2View.groupBy",
         "description": "<p><code>groupBy</code> will be removed. Check out the <code>ProjectV2View#group_by_fields</code> API as an example for the more capable alternative.</p>",
@@ -3647,6 +3679,22 @@
   },
   "ghae": {
     "2023-04-01": [
+      {
+        "location": "ProjectV2View.verticalGroupBy",
+        "description": "<p><code>verticalGroupBy</code> will be removed. Check out the <code>ProjectV2View#vertical_group_by_fields</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2View#vertical_group_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#vertical_group_by_fields</code> API.</p>",
+        "date": "2023-04-01",
+        "criticality": "breaking",
+        "owner": "traumverloren"
+      },
+      {
+        "location": "ProjectV2View.sortBy",
+        "description": "<p><code>sortBy</code> will be removed. Check out the <code>ProjectV2View#sort_by_fields</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2View#sort_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#sort_by_fields</code> API.</p>",
+        "date": "2023-04-01",
+        "criticality": "breaking",
+        "owner": "traumverloren"
+      },
       {
         "location": "ProjectV2View.groupBy",
         "description": "<p><code>groupBy</code> will be removed. Check out the <code>ProjectV2View#group_by_fields</code> API as an example for the more capable alternative.</p>",

@@ -71,6 +71,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 * {% data variables.enterprise.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise. 
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
 * Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.enterprise.prodname_managed_user %} to collaborate.
 * You can choose whether {% data variables.enterprise.prodname_managed_users %} are able to create repositories owned by their user accounts. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
@@ -135,7 +136,9 @@ By default, when an unauthenticated user attempts to access an enterprise that u
 
 {% data variables.product.product_name %} automatically creates a username for each person by normalizing an identifier provided by your IdP. For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
 
-A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. {% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %} If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[Resolving username conflicts](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts)."
+A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[Resolving username problems](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-problems)."
+
+{% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %} 
 
 The profile name and email address of a {% data variables.enterprise.prodname_managed_user %} is also provided by the IdP. {% data variables.enterprise.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}, and the IdP can only provide a single email address.
 

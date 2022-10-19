@@ -3,7 +3,7 @@
 // [start-readme]
 //
 // Helps you move (a.k.a. rename) a file or a folder and does what's
-// needed with frontmatter redrect_from and equivalent in translations.
+// needed with frontmatter redirect_from.
 //
 // [end-readme]
 

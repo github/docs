@@ -29,7 +29,7 @@ With the {% data variables.product.prodname_dotcom %} for {% data variables.prod
 
 ## Project management tools
 
-You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party project management tools, such as Jira.
+You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party project management tools, such as Jira.
 
 ### Jira Cloud and {% data variables.product.product_name %}.com integration
 
@@ -37,7 +37,7 @@ You can integrate Jira Cloud with your personal or organization account to scan 
 
 ## Team communication tools
 
-You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
+You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
 
 ### Slack and {% data variables.product.product_name %} integration
 

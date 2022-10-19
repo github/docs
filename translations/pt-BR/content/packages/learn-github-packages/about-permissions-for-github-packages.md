@@ -45,11 +45,13 @@ For more information, see "[Configuring a package's access control and visibilit
 
 ## About scopes and permissions for package registries
 
-To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your personal account must have appropriate permissions.
+{% data reusables.package_registry.packages-classic-pat-only %}
+
+To use or manage a package hosted by a package registry, you must use a {% data variables.product.pat_v1 %} with the appropriate scope, and your personal account must have appropriate permissions.
 
 For example:
--  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permission.
-- {% ifversion fpt or ghes or ghec %}To delete a package on {% data variables.product.product_name %}, your token must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+-  To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
+- {% ifversion fpt or ghes or ghec %}To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must have the `delete:packages` and `repo` scope. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
 | Scope | Description | Required permission |
 | --- | --- | --- |
@@ -58,12 +60,12 @@ For example:
 | `delete:packages` | {% ifversion fpt or ghes or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
 | `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write or admin |
 
-When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token.
+When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a {% data variables.product.pat_generic %}.
 
 For more information, see:{% ifversion fpt or ghec %}
 - "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
 - "[Publishing and installing a package with {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
-- "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token/)"
+- "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token/)"
 - "[Available scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)"
 
 ## Maintaining access to packages in {% data variables.product.prodname_actions %} workflows
@@ -75,7 +77,7 @@ For more conceptual background on {% data variables.product.prodname_actions %} 
 ### Access tokens  
 
 - To publish packages associated with the workflow repository, use `GITHUB_TOKEN`.
-- To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a personal access token
+- To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a {% data variables.product.pat_v1 %}
 
 For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
 

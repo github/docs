@@ -4655,6 +4655,117 @@ input CommittableBranch {
 }
 
 """
+Represents a comparison between two commit revisions.
+"""
+type Comparison implements Node {
+  """
+  The number of commits ahead of the base branch.
+  """
+  aheadBy: Int!
+
+  """
+  The base revision of this comparison.
+  """
+  baseTarget: GitObject!
+
+  """
+  The number of commits behind the base branch.
+  """
+  behindBy: Int!
+
+  """
+  The commits which compose this comparison.
+  """
+  commits(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ComparisonCommitConnection!
+
+  """
+  The head revision of this comparison.
+  """
+  headTarget: GitObject!
+  id: ID!
+
+  """
+  The status of this comparison.
+  """
+  status: ComparisonStatus!
+}
+
+"""
+The connection type for Commit.
+"""
+type ComparisonCommitConnection {
+  """
+  The total count of authors and co-authors across all commits.
+  """
+  authorCount: Int!
+
+  """
+  A list of edges.
+  """
+  edges: [CommitEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [Commit]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+The status of a git comparison between two refs.
+"""
+enum ComparisonStatus {
+  """
+  The head ref is ahead of the base ref.
+  """
+  AHEAD
+
+  """
+  The head ref is behind the base ref.
+  """
+  BEHIND
+
+  """
+  The head ref is both ahead and behind of the base ref, indicating git history has diverged.
+  """
+  DIVERGED
+
+  """
+  The head ref and base ref are identical.
+  """
+  IDENTICAL
+}
+
+"""
 Represents a 'connected' event on a given issue or pull request.
 """
 type ConnectedEvent implements Node {
@@ -9517,17 +9628,22 @@ input EnablePullRequestAutoMergeInput {
   clientMutationId: String
 
   """
-  Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.
+  Commit body to use for the commit when the PR is mergable; if omitted, a
+  default message will be used. NOTE: when merging with a merge queue any input
+  value for commit message is ignored.
   """
   commitBody: String
 
   """
-  Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.
+  Commit headline to use for the commit when the PR is mergable; if omitted, a
+  default message will be used. NOTE: when merging with a merge queue any input
+  value for commit headline is ignored.
   """
   commitHeadline: String
 
   """
-  The merge method to use. If omitted, defaults to `MERGE`
+  The merge method to use. If omitted, defaults to `MERGE`. NOTE: when merging
+  with a merge queue any input value for merge method is ignored.
   """
   mergeMethod: PullRequestMergeMethod = MERGE
 
@@ -28738,6 +28854,16 @@ type Ref implements Node {
   Branch protection rules for this ref
   """
   branchProtectionRule: BranchProtectionRule
+
+  """
+  Compares the current ref as a base ref to another head ref, if the comparison can be made.
+  """
+  compare(
+    """
+    The head ref to compare against.
+    """
+    headRef: String!
+  ): Comparison
   id: ID!
 
   """
@@ -39394,6 +39520,11 @@ type TreeEntry {
   Whether or not this tree entry is generated
   """
   isGenerated: Boolean!
+
+  """
+  The programming language this file is written in.
+  """
+  language: Language
 
   """
   Number of lines in the file.

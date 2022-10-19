@@ -30,7 +30,7 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 
 2. Using the `ghe-migrator import` command, start the import process. You'll need:
     * Your Migration GUID. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
-    * Your personal access token for authentication. The personal access token that you use is only for authentication as a site administrator, and does not require any specific scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+    * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
     ```shell
     $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN

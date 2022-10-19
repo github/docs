@@ -1,6 +1,6 @@
 ---
-title: 创建预接收挂钩脚本
-intro: 使用预接收挂钩脚本创建基于内容来接受或拒绝推送的要求。
+title: Creating a pre-receive hook script
+intro: Use pre-receive hook scripts to create requirements for accepting or rejecting a push based on the contents.
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-script
@@ -14,138 +14,145 @@ topics:
   - Policies
   - Pre-receive hooks
 shortTitle: Pre-receive hook scripts
-ms.openlocfilehash: 3d01ba3d5d189e65cbd2b4589af9072571837944
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332350'
 ---
-可以在 [`github/platform-samples` 存储库](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)中查看 {% data variables.product.prodname_ghe_server %} 的预接收挂钩示例。
+You can see examples of pre-receive hooks for {% data variables.product.prodname_ghe_server %} in the [`github/platform-samples` repository](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
-## 编写预接收挂钩脚本
-预接收挂钩脚本在 {% data variables.product.product_location %} 上的预接收挂钩环境中执行。 创建预接收挂钩脚本时，请考虑可用的输入、输出、退出状态和环境变量。
+## Writing a pre-receive hook script
+A pre-receive hook script executes in a pre-receive hook environment on {% data variables.location.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.
 
-### 输入 (`stdin`)
-推送发生后，在为远程存储库更新任何引用之前，在 {% data variables.product.product_location %} 上的 `git-receive-pack` 进程将调用预接收挂钩脚本。 脚本的标准输入 `stdin` 是一个字符串，对每个要更新的 ref 包含一行。 每行都包含 ref 的旧对象名称、引用的新对象名称和 ref 的全名。
+### Input (`stdin`)
+After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.location.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
 
 ```
 <old-value> SP <new-value> SP <ref-name> LF
 ```
 
-此字符串表示以下参数。
+This string represents the following arguments.
 
-| 参数 | 说明     |
+| Argument | Description     |
 | :------------- | :------------- |
-| `<old-value>` | 存储在 ref 中的旧对象名称。<br> 创建一个新的 ref 时，该值为 40 个零。 |
-| `<new-value>` | 要存储在 ref 中的新对象名称。<br> 删除 ref 时，该值为 40 个零。 |
-| `<ref-name>`  | ref 的全名。 |
+| `<old-value>` | Old object name stored in the ref.<br> When you create a new ref, the value is 40 zeroes. |
+| `<new-value>` | New object name to be stored in the ref.<br> When you delete a ref, the value is 40 zeroes. |
+| `<ref-name>`  | The full name of the ref. |
 
-有关 `git-receive-pack` 的详细信息，请参阅 Git 文档中的“[git-receive-pack](https://git-scm.com/docs/git-receive-pack)”。 有关 ref 的详细信息，请参阅“Pro Git”中的“[Git 引用](https://git-scm.com/book/en/v2/Git-Internals-Git-References)”。
+For more information about `git-receive-pack`, see "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" in the Git documentation. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in *Pro Git*.
 
-### 输出 (`stdout`)
+### Output (`stdout`)
 
-脚本的标准输出 `stdout` 将传回客户端。 任何 `echo` 语句将在命令行或用户界面上对用户均可见。
+The standard output for the script, `stdout`, is passed back to the client. Any `echo` statements will be visible to the user on the command line or in the user interface.
 
-### 退出状态
+### Exit status
 
-预接收脚本的退出状态决定是否接受推送。
+The exit status of a pre-receive script determines if the push will be accepted.
 
-| Exit-status 值 | 操作 |
+| Exit-status value | Action |
 | :- | :- |
-| 0 | 将接受推送。 |
-| 非零 | 将拒绝推送。 |
+| 0 | The push will be accepted. |
+| non-zero | The push will be rejected. |
 
-### 环境变量
+### Environment variables
 
-除了预接收挂钩脚本 `stdin` 的标准输入，{% data variables.product.prodname_ghe_server %} 在 Bash 环境中还为脚本执行提供以下变量。 有关预接收挂钩脚本的 `stdin` 的详细信息，请参阅“[输入 (`stdin`)](#input-stdin)”。
+In addition to the standard input for your pre-receive hook script, `stdin`, {% data variables.product.prodname_ghe_server %} makes the following variables available in the Bash environment for your script's execution. For more information about `stdin` for your pre-receive hook script, see "[Input (`stdin`)](#input-stdin)."
 
-预接收挂钩脚本可使用不同的环境变量，具体取决于触发脚本运行的因素。
+Different environment variables are available to your pre-receive hook script depending on what triggers the script to run.
 
-- [始终可用](#always-available)
-- [可用于从 Web 界面或 API 推送](#available-for-pushes-from-the-web-interface-or-api)
-- [可用于拉取请求合并](#available-for-pull-request-merges)
-- [可用于使用 SSH 身份验证的推送](#available-for-pushes-using-ssh-authentication)
+- [Always available](#always-available)
+- [Available for pushes from the web interface or API](#available-for-pushes-from-the-web-interface-or-api)
+- [Available for pull request merges](#available-for-pull-request-merges)
+- [Available for pushes using SSH authentication](#available-for-pushes-using-ssh-authentication)
 
-#### 始终可用
+#### Always available
 
-以下变量在预接收挂钩环境中始终可用。
+The following variables are always available in the pre-receive hook environment.
 
-| 变量 | 说明 | 示例值 |
+| Variable | Description | Example value |
 | :- | :- | :- |
-|  <pre>$GIT_DIR</pre> | 实例上远程仓库的路径 | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
-|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | 客户端使用 `--push-option` 发送的推送选项数。 有关详细信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)”。 | 1 |
-| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | 其中 N 是一个从 0 开始的整数，此变量包含客户端发送的推送选项字符串。 发送的第一个选项存储在 `GIT_PUSH_OPTION_0` 中，发送的第二个选项存储在 `GIT_PUSH_OPTION_1` 中，依此类推。 有关推送选项的详细信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。 | abcd |{% ifversion ghes %}
-|  <pre>$GIT_USER_AGENT</pre> | 推送更改的 Git 客户端发送的 user-agent 字符串。 | git/2.0.0{% endif %}
-|  <pre>$GITHUB_REPO_NAME</pre> | 以 NAME/OWNER 格式更新的存储库名称  | octo-org/hello-enterprise |
-|  <pre>$GITHUB_REPO_PUBLIC</pre> | 表示更新的仓库是否公开的布尔值 | <ul><li>true：仓库的可见性是公开的</li><li>false：仓库的可见性是私密或内部的</li></ul>
-|  <pre>$GITHUB_USER_IP</pre> | 发起推送的客户端 IP 地址 | 192.0.2.1 |
-|  <pre>$GITHUB_USER_LOGIN</pre> | 发起推送的帐户的用户名 | octocat |
+|  <pre>$GIT_DIR</pre> | Path to the remote repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
+|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see "[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)" in the Git documentation. | 1 |
+| <pre>$GIT\_PUSH\_OPTION\_N</pre> | Where _N_ is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation. | abcd |{% ifversion ghes %}
+|  <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes | git/2.0.0{% endif %}
+|  <pre>$GITHUB_REPO_NAME</pre> | Name of the repository being updated in _NAME_/_OWNER_ format | octo-org/hello-enterprise |
+|  <pre>$GITHUB_REPO_PUBLIC</pre> | Boolean representing whether the repository being updated is public | <ul><li>true: Repository's visibility is public</li><li>false: Repository's visibility is private or internal</li></ul>
+|  <pre>$GITHUB_USER_IP</pre> | IP address of client that initiated the push | 192.0.2.1 |
+|  <pre>$GITHUB_USER_LOGIN</pre> | Username for account that initiated the push | octocat |
 
-#### 可用于从 Web 界面或 API 推送
+#### Available for pushes from the web interface or API
 
-当触发挂钩的 ref 更新通过 {% data variables.product.prodname_ghe_server %} 的 Web 界面或 API 进行时，`$GITHUB_VIA` 变量可用于预接收挂钩环境。 该值描述了更新 ref 的操作。
+The `$GITHUB_VIA` variable is available in the pre-receive hook environment when the ref update that triggers the hook occurs via either the web interface or the API for {% data variables.product.prodname_ghe_server %}. The value describes the action that updated the ref.
 
-| 值 | 操作 | 详细信息 |
+| Value | Action | More information |
 | :- | :- | :- |
-| <pre>auto-merge deployment api</pre> | 通过 API 创建的部署自动合并基础分支 | REST API 文档中的“[创建部署](/rest/reference/deployments#create-a-deployment)” |
-| <pre>blob#save</pre> | 在 Web 界面中更改文件的内容 | [编辑文件](/repositories/working-with-files/managing-files/editing-files) |
-| <pre>branch merge api</pre> | 通过 API 合并分支 | REST API 文档中的“[合并分支](/rest/reference/branches#merge-a-branch)” |
-| <pre>branches page delete button</pre> | 在 Web 界面中删除分支 | [在存储库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch) |
-| <pre>git refs create api</pre> | 通过 API 创建 ref | REST API 文档中的“[Git 数据库](/rest/reference/git#create-a-reference)” |
-| <pre>git refs delete api</pre> | 通过 API 删除 ref | REST API 文档中的“[Git 数据库](/rest/reference/git#delete-a-reference)” |
-| <pre>git refs update api</pre> | 通过 API 更新 ref | REST API 文档中的“[Git 数据库](/rest/reference/git#update-a-reference)” |
-| <pre>git repo contents api</pre> | 通过 API 更改文件的内容 | REST API 文档中的“[创建或更新文件内容](/rest/reference/repos#create-or-update-file-contents)” |
-{%- ifversion ghes %} | `merge ` | 使用自动合并合并拉取请求 |“[自动合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)”| {%- endif %} | <pre>merge base into head</pre> | 当基础分支需要严格的状态检查时从基础分支更新主题分支（例如，通过拉取请求中的“更新分支”）|“[关于受保护的分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”| | <pre>pull request branch delete button</pre> | 从 Web 界面中的拉取请求中删除主题分支 |“[在拉取请求中删除和还原分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)”| | <pre>pull request branch undo button</pre> | 从 Web 界面中的拉取请求还原主题分支 |“[在拉取请求中删除和还原分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)”| | <pre>pull request merge api</pre> | 通过 API 合并拉取请求 | REST API 文档中的“[拉取](/rest/reference/pulls#merge-a-pull-request)”| | <pre>pull request merge button</pre> | 在 Web 界面中合并拉取请求 |“[合并拉取请求](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)”| | <pre>pull request revert button</pre> | 拉取请求的还原 |“[还原拉取请求](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)”| | <pre>releases delete button</pre> | 版本删除 |“[管理存储库中的版本](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)”| | <pre>stafftools branch restore</pre> | 从站点管理仪表板还原分支 |“[站点管理仪表板](/admin/configuration/site-admin-dashboard#repositories)”| | <pre>tag create api</pre> | 通过 API 创建标记 | REST API 文档中的“[Git 数据库](/rest/reference/git#create-a-tag-object)”| | <pre>slumlord (#<em>SHA</em>)</pre> | 通过 Subversion 提交 |“[对 Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)”| | <pre>web branch create</pre> | 通过 Web 界面创建分支 |“[在存储库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)”|
+| <pre>auto-merge deployment api</pre> | Automatic merge of the base branch via a deployment created with the API | "[Create a deployment](/rest/reference/deployments#create-a-deployment)" in the REST API documentation |
+| <pre>blob#save</pre> | Change to a file's contents in the web interface | "[Editing files](/repositories/working-with-files/managing-files/editing-files)" |
+| <pre>branch merge api</pre> | Merge of a branch via the API | "[Merge a branch](/rest/reference/branches#merge-a-branch)" in the REST API documentation |
+| <pre>branches page delete button</pre> | Deletion of a branch in the web interface | "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" |
+| <pre>git refs create api</pre> | Creation of a ref via the API | "[Git database](/rest/reference/git#create-a-reference)" in the REST API documentation |
+| <pre>git refs delete api</pre> | Deletion of a ref via the API | "[Git database](/rest/reference/git#delete-a-reference)" in the REST API documentation |
+| <pre>git refs update api</pre> | Update of a ref via the API | "[Git database](/rest/reference/git#update-a-reference)" in the REST API documentation |
+| <pre>git repo contents api</pre> | Change to a file's contents via the API | "[Create or update file contents](/rest/reference/repos#create-or-update-file-contents)" in the REST API documentation |
+{%- ifversion ghes %}
+| `merge ` | Merge of a pull request using auto-merge | "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
+{%- endif %}
+| <pre>merge base into head</pre> | Update of the topic branch from the base branch when the base branch requires strict status checks (via **Update branch** in a pull request, for example) | "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" |
+| <pre>pull request branch delete button</pre> | Deletion of a topic branch from a pull request in the web interface | "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" |
+| <pre>pull request branch undo button</pre> | Restoration of a topic branch from a pull request in the web interface | "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)" |
+| <pre>pull request merge api</pre> | Merge of a pull request via the API | "[Pulls](/rest/reference/pulls#merge-a-pull-request)" in the REST API documentation |
+| <pre>pull request merge button</pre> | Merge of a pull request in the web interface | "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)" |
+| <pre>pull request revert button</pre> | Revert of a pull request | "[Reverting a pull request](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)" |
+| <pre>releases delete button</pre> | Deletion of a release | "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)" |
+| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | "[Site admin dashboard](/admin/configuration/site-admin-dashboard#repositories)" |
+| <pre>tag create api</pre> | Creation of a tag via the API | "[Git database](/rest/reference/git#create-a-tag-object)" in the REST API documentation |
+| <pre>slumlord (#SHA)</pre> | Commit via Subversion | "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)" |
+| <pre>web branch create</pre> | Creation of a branch via the web interface | "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)" |
 
-#### 可用于拉取请求合并
+#### Available for pull request merges
 
-当触发挂钩的推送由于拉取请求请求合并而成为推送时，以下变量在预接收挂钩环境中可用。
+The following variables are available in the pre-receive hook environment when the push that triggers the hook is a push due to the merge of a pull request.
 
-| 变量 | 说明 | 示例值 |
+| Variable | Description | Example value |
 | :- | :- | :- |
-|  <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | 编写拉取请求的帐户的用户名 | octocat |
-|  <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | 拉取请求的主题分支的名称，格式为 `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
-|  <pre>$GITHUB_PULL_REQUEST_BASE</pre> | 拉取请求的基础分支的名称，格式为 `USERNAME:BRANCH` | octocat:main |
+|  <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Username of account that authored the pull request | octocat |
+|  <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | The name of the pull request's topic branch, in the format `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
+|  <pre>$GITHUB_PULL_REQUEST_BASE</pre> | The name of the pull request's base branch, in the format `USERNAME:BRANCH` | octocat:main |
 
-#### 可用于使用 SSH 身份验证的推送
+#### Available for pushes using SSH authentication
 
-| 变量 | 说明 | 示例值 |
+| Variable | Description | Example value |
 | :- | :- | :- |
-|  <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | 推送更改的用户的公钥指纹 | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
+|  <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | The public key fingerprint for the user who pushed the changes | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
 
-## 设置权限并将预接收挂钩推送到 {% data variables.product.prodname_ghe_server %}
+## Setting permissions and pushing a pre-receive hook to {% data variables.product.prodname_ghe_server %}
 
-{% data variables.product.product_location %} 上的仓库中包含预接收挂钩脚本。 站点管理员必须考虑仓库权限，确保只有适当的用户才能访问。
+A pre-receive hook script is contained in a repository on {% data variables.location.product_location %}. A site administrator must take into consideration the repository permissions and ensure that only the appropriate users have access.
 
-我们建议将挂钩合并到单个仓库。 如果统一的挂钩存储库是公共的，则可以使用 `README.md` 来解释策略强制实施。 此外，也可以通过拉取请求接受贡献。 但是，只能从默认分支添加预接收挂钩。 对于测试工作流程，应使用具有配置的仓库的分支。
+We recommend consolidating hooks to a single repository. If the consolidated hook repository is public, the `README.md` can be used to explain policy enforcements. Also, contributions can be accepted via pull requests. However, pre-receive hooks can only be added from the default branch. For a testing workflow, forks of the repository with configuration should be used.
 
-1. 对于 Mac 用户，确保脚本具有执行权限：
+1. For Mac users, ensure the scripts have execute permissions:
 
    ```shell
-   $ sudo chmod +x <em>SCRIPT_FILE.sh</em>
+   $ sudo chmod +x SCRIPT_FILE.sh
    ```
-   对于 Windows 用户，确保脚本具有执行权限：
+   For Windows users, ensure the scripts have execute permissions:
 
    ```shell
-   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
+   git update-index --chmod=+x SCRIPT_FILE.sh
    ```
 
-2. 在 {% data variables.product.product_location %} 提交并推送到指定的预接收挂钩仓库。
+2. Commit and push to the designated repository for pre-receive hooks on {% data variables.location.product_location %}.
 
    ```shell
-   $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
+   $ git commit -m "YOUR COMMIT MESSAGE"
    $ git push
    ```
 
-3. 在 {% data variables.product.prodname_ghe_server %} 实例上[创建预接收挂钩](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks)。
+3. [Create the pre-receive hook](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
 
-## 在本地测试预接收脚本
-在 {% data variables.product.product_location %} 上创建或更新预接收挂钩脚本之前，您可以在本地对其进行测试。 一种方法是创建本地 Docker 环境以充当可以执行预接收挂钩的远程仓库。
+## Testing pre-receive scripts locally
+You can test a pre-receive hook script locally before you create or update it on {% data variables.location.product_location %}. One method is to create a local Docker environment to act as a remote repository that can execute the pre-receive hook.
 
 {% data reusables.linux.ensure-docker %}
 
-2. 创建一个名为 `Dockerfile.dev` 的文件，其中包含：
+2. Create a file called `Dockerfile.dev` containing:
 
    ```dockerfile
    FROM gliderlabs/alpine:3.3
@@ -167,7 +174,7 @@ ms.locfileid: '146332350'
    CMD ["/usr/sbin/sshd", "-D"]
    ```
 
-3. 创建一个名为 `always_reject.sh` 的测试预接收脚本。 此示例脚本将拒绝所有推送，这对于锁定仓库非常有用：
+3. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
 
    ```
    #!/usr/bin/env bash
@@ -176,13 +183,13 @@ ms.locfileid: '146332350'
    exit 1
    ```
 
-4. 确保 `always_reject.sh` 脚本具有执行权限：
+4. Ensure the `always_reject.sh` scripts has execute permissions:
 
    ```shell
    $ chmod +x always_reject.sh
    ```
 
-5. 从包含 `Dockerfile.dev` 的目录中，生成一个映像：
+5. From the directory containing `Dockerfile.dev`, build an image:
 
    ```shell
    $ docker build -f Dockerfile.dev -t pre-receive.dev .
@@ -205,32 +212,32 @@ ms.locfileid: '146332350'
    > Successfully built dd8610c24f82
    ```
 
-6. 运行包含生成的 SSH 密钥的数据容器：
+6. Run a data container that contains a generated SSH key:
 
    ```shell
    $ docker run --name data pre-receive.dev /bin/true
    ```
 
-7. 将测试预接收挂钩 `always_reject.sh` 复制到数据容器中：
+7. Copy the test pre-receive hook `always_reject.sh` into the data container:
 
    ```shell
    $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
    ```
 
-8. 运行运行 `sshd` 并执行挂钩的应用程序容器。 记下返回的容器 ID：
+8. Run an application container that runs `sshd` and executes the hook. Take note of the container id that is returned:
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
    > 7f888bc700b8d23405dbcaf039e6c71d486793cad7d8ae4dd184f4a47000bc58
    ```
 
-9. 将生成的 SSH 密钥从数据容器复制到本地计算机：
+9. Copy the generated SSH key from the data container to the local machine:
 
    ```shell
    $ docker cp data:/home/git/.ssh/id_ed25519 .
    ```
 
-10. 修改测试存储库的远程并推送到 Docker 容器内的 `test.git` 存储库。 此示例使用 `git@github.com:octocat/Hello-World.git`，但你可以使用任何想要的存储库。 此示例假定您的本地计算机 (127.0.0.1) 绑定了端口 52311，但如果 docker 在远程计算机上运行，则可以使用不同的 IP 地址。
+10. Modify the remote of a test repository and push to the `test.git` repo within the Docker container. This example uses `git@github.com:octocat/Hello-World.git` but you can use any repository you want. This example assumes your local machine (127.0.0.1) is binding port 52311, but you can use a different IP address if docker is running on a remote machine.
 
    ```shell
    $ git clone git@github.com:octocat/Hello-World.git
@@ -249,7 +256,7 @@ ms.locfileid: '146332350'
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
    ```
 
-   请注意，在执行预接收挂钩并回显脚本中的输出后，将拒绝推送。
+   Notice that the push was rejected after executing the pre-receive hook and echoing the output from the script.
 
-## 延伸阅读
- - Pro Git 网站中的“[自定义 Git - Git 强制实施策略示例](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)”
+## Further reading
+ - "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the *Pro Git website*

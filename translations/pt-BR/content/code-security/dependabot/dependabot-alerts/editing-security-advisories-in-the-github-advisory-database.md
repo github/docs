@@ -43,9 +43,9 @@ Only repository owners and administrators can edit repository-level security adv
 You can also open a pull request directly on an advisory file in the [github/advisory-database](https://github.com/github/advisory-database) repository. For more information, see the [contribution guidelines](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md). 
 
 {% ifversion security-advisories-ghes-ghae %}
-## Editing advisories from {% data variables.product.product_location %}
+## Editing advisories from {% data variables.location.product_location %}
 
-If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.product.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url. 
+If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.location.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url. 
 
 1. Navigate to `https://HOSTNAME/advisories`.
 2. Select the security advisory you would like to contribute to.

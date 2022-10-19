@@ -37,4 +37,8 @@ if (process.env.ELASTICSEARCH_URL) {
   )
 }
 
+router.get('*', (req, res, next) => {
+  res.status(404).json({ error: `${req.path} not found` })
+})
+
 export default router

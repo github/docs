@@ -1,6 +1,6 @@
 ---
-title: codespaces の暗号化されたシークレットを管理する
-intro: 環境変数を介してコードスペースにアクセスする、トークンなどの機密情報を保存できます。
+title: Managing encrypted secrets for your codespaces
+intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -15,84 +15,89 @@ topics:
   - Security
   - Secret store
 shortTitle: Encrypted secrets
-ms.openlocfilehash: 6951acb82614d35e3394a2af8e58fc8f8442ab3a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147419794'
 ---
-## {% data variables.product.prodname_github_codespaces %} の暗号化されたシークレットについて
 
-コードスペースで使用する個人アカウントに、暗号化されたシークレットを追加できます。 たとえば、次のような機密情報を暗号化されたシークレットとして保存しアクセスするとよいでしょう。
+ 
 
-- クラウドサービスへの個人アクセストークン
-- サービス プリンシパル
-- プラン識別子
-- [プライベート イメージ レジストリの資格情報](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
 
-各シークレットにアクセスできるリポジトリを選択できます。 そして、シークレットへのアクセス権があるリポジトリ用に作成した任意のコードスペースでそのシークレットを使用できます。
+## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
+
+You can add encrypted secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
+
+- {% data variables.product.pat_generic %}s to cloud services
+- Service principals
+- Subscription identifiers
+- [Credentials for a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
+
+You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret.
 
 {% data reusables.codespaces.secrets-on-start %}
 
-### シークレットに名前を付ける
+### Naming secrets
 
-{% data reusables.codespaces.secrets-naming %} たとえば、リポジトリレベルで作成されたシークレットは、そのリポジトリ内で一意の名前である必要があります。
+{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
 
   {% data reusables.codespaces.secret-precedence %}
 
-### シークレットの制限
+### Limits for secrets
 
-{% data variables.product.prodname_github_codespaces %} には最大 100 個のシークレットを保存できます。
+You can store up to 100 secrets for {% data variables.product.prodname_github_codespaces %}.
 
-シークレットの容量は最大64 KBです。
+Secrets are limited to 64 KB in size.
 
-## シークレットを追加する
+## Adding a secret
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
-1. [Codespaces シークレット] の右側にある **[新しいシークレット]** をクリックします。
-  ![[新しいシークレット] ボタン](/assets/images/help/settings/codespaces-new-secret-button.png)
-1. [Name] で、シークレットの名前を入力します。
-  ![[名前] テキスト ボックス](/assets/images/help/settings/codespaces-secret-name-field.png) {% data reusables.user-settings.codespaces-secret-value %} {% data reusables.user-settings.codespaces-secret-repository-access %}
-1. **[シークレットの追加]** をクリックします。
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
+1. To the right of "Codespaces secrets", click **New secret**.
+  !["New secret" button](/assets/images/help/settings/codespaces-new-secret-button.png)
+1. Under "Name", type a name for your secret.
+  !["Name" text box](/assets/images/help/settings/codespaces-secret-name-field.png)
+{% data reusables.user-settings.codespaces-secret-value %}
+{% data reusables.user-settings.codespaces-secret-repository-access %}
+1. Click **Add secret**.
 
-## シークレットを編集する
+## Editing a secret
 
-既存のシークレットの値を更新したり、シークレットがアクセスできるリポジトリを変更したりすることができます。
+You can update the value of an existing secret, and you can change which repositories can access a secret.
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
-1. [Codespaces シークレット] で、編集するシークレットの右側にある **[更新]** をクリックします。
-  ![[更新] ボタン](/assets/images/help/settings/codespaces-secret-update-button.png)
-1. [値] で、 **[新しい値の入力]** をクリックします。
-  ![[新しい値の入力] リンク](/assets/images/help/settings/codespaces-secret-update-value-text.png) {% data reusables.user-settings.codespaces-secret-value %} {% data reusables.user-settings.codespaces-secret-repository-access %}
-1. リポジトリへのシークレットのアクセス権を削除する場合は、リポジトリを選択解除します。
-  ![リポジトリへのアクセス権を削除するチェックボックス](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
-1. **[変更を保存]** をクリックします。
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
+1. Under "Codespaces secrets", to the right of the secret you want to edit, click **Update**.
+  !["Update" button](/assets/images/help/settings/codespaces-secret-update-button.png)
+1. Under "Value", click **enter a new value**.
+  !["enter a new value" link](/assets/images/help/settings/codespaces-secret-update-value-text.png)
+{% data reusables.user-settings.codespaces-secret-value %}
+{% data reusables.user-settings.codespaces-secret-repository-access %}
+1. Optionally, to remove the secret's access to a repository, deselect the repository.
+  ![Checkboxes to remove access to repositories](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
+1. Click **Save changes**.
 
-## シークレットを削除する
+## Deleting a secret
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
-1. [Codespaces シークレット] で、削除するシークレットの右側にある **[削除]** をクリックします。
-  ![[削除] ボタン](/assets/images/help/settings/codespaces-secret-delete-button.png)
-1. 警告を読み、 **[OK]** をクリックします。
-  ![シークレットの削除の確認](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
+1. Under "Codespaces secrets", to the right of the secret you want to delete, click **Delete**.
+  !["Delete" button](/assets/images/help/settings/codespaces-secret-delete-button.png)
+1. Read the warning, then click **OK**.
+  ![Confirmation to delete secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
 
-## シークレットの使用
+## Using secrets
 
-シークレットは環境変数としてユーザーのターミナル セッションにエクスポートされます。
+A secret is exported as an environment variable into the user's terminal session.
 
-  ![エクスポートされたシークレットの値をターミナルに表示する](/assets/images/help/codespaces/exported-codespace-secret.png)
+  ![Displaying the value of an exported secret in the terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
 
-codespace が構築されて実行されたら、codespace でシークレットを使用できます。 たとえば、次のような場合にシークレットを使用できます。
+You can use secrets in a codespace after the codespace is built and is running. For example, a secret can be used:
 
-* 統合ターミナルまたは ssh セッションからアプリケーションを起動するとき。
-* codespace の実行後に実行される開発コンテナー ライフサイクル スクリプト内。 開発コンテナー ライフサイクル スクリプトについて詳しくは、containers.dev の[指定](https://containers.dev/implementors/json_reference/#lifecycle-scripts)に関するドキュメントをご覧ください。
+* When launching an application from the integrated terminal or ssh session.
+* Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
 
-codespace シークレットは、次の間は使用できません。
+Codespace secrets cannot be used during:
 
-* codespace の構築時間 (つまり、Dockerfile 内またはカスタム エントリ ポイント内)。
-* 開発コンテナー機能内。 詳しくは、containers.dev の`features`指定[に関するドキュメントで ](https://containers.dev/implementors/json_reference/#general-properties) 属性をご覧ください。
+* Codespace build time (that is, within a Dockerfile or custom entry point).
+* Within a dev container feature. For more information, see the `features` attribute in the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#general-properties).
 
-## 参考資料
+## Further reading
 
-- 「[リポジトリの暗号化されたシークレットと {% data variables.product.prodname_github_codespaces %} の Organization を管理する](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)」
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"

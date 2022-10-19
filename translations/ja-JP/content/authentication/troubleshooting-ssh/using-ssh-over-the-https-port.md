@@ -1,6 +1,6 @@
 ---
-title: HTTPS ポートを介して SSH を使用する
-intro: '時々、ファイアウォールは SSH 接続を完全に許可することを拒否します。  [認証情報キャッシュを使用した HTTPS クローニング](/github/getting-started-with-github/caching-your-github-credentials-in-git) を使用することが選べない場合は、HTTPS ポート経由の SSH 接続を使用してクローンの作成を試みることができます。  ほとんどのファイアウォールルールでこれを許可する必要がありますが、プロキシサーバーが干渉する可能性があります。'
+title: Using SSH over the HTTPS port
+intro: 'Sometimes, firewalls refuse to allow SSH connections entirely.  If using [HTTPS cloning with credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git) is not an option, you can attempt to clone using an SSH connection made over the HTTPS port.  Most firewall rules should allow this, but proxy servers may interfere.'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
   - /github/authenticating-to-github/using-ssh-over-the-https-port
@@ -11,34 +11,28 @@ versions:
 topics:
   - SSH
 shortTitle: Use SSH over HTTPS port
-ms.openlocfilehash: 47bdb96fac65d9432dfc54f671366d1b6c153556
-ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147883402'
 ---
 {% tip %}
 
-**{% data variables.product.prodname_ghe_server %} ユーザー**: HTTPS ポートを介した SSH 経由での {% data variables.product.prodname_ghe_server %} へのアクセスは現在サポートされていません。
+**{% data variables.product.prodname_ghe_server %} users**: Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
 
 {% endtip %}
 
-HTTPS ポート経由の SSH が可能かどうかをテストするには、次の SSH コマンドを実行します:
+To test if SSH over the HTTPS port is possible, run this SSH command:
 
 ```shell
 $ ssh -T -p 443 git@ssh.github.com
-> Hi <em>username</em>! You've successfully authenticated, but GitHub does not
+> Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-うまく機能すれば、素晴らしいことです。 そうでない場合は、[トラブルシューティング ガイドに従って](/articles/error-permission-denied-publickey)ください。
+If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
 
-## HTTPS を介した SSH 接続を有効化する
+## Enabling SSH connections over HTTPS
 
-ポート 443 経由で `git@ssh.{% data variables.command_line.backticks %}` に SSH 接続できる場合、SSH 設定をオーバーライドして、{% data variables.product.product_location %} への接続をそのサーバーとポート経由で実行するように強制できます。
+If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.location.product_location %} to run through that server and port.
 
-SSH 構成ファイルでこれを設定するには、`~/.ssh/config` でファイルを編集し、次のセクションを追加します。
+To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
 
 ```
 Host {% data variables.command_line.codeblock %}
@@ -47,10 +41,10 @@ Port 443
 User git
 ```
 
-もう一度 {% data variables.product.product_location %} に接続することでこれが機能するかテストできます:
+You can test that this works by connecting once more to {% data variables.location.product_location %}:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
-> Hi <em>username</em>! You've successfully authenticated, but GitHub does not
+> Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```

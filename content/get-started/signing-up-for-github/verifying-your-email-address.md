@@ -23,7 +23,7 @@ If you do not verify your email address, you will not be able to:
   - Create issues or pull requests
   - Comment on issues, pull requests, or commits
   - Authorize {% data variables.product.prodname_oauth_app %} applications
-  - Generate personal access tokens
+  - Generate {% data variables.product.pat_generic %}s
   - Receive email notifications
   - Star repositories
   - Create or update project boards, including adding cards

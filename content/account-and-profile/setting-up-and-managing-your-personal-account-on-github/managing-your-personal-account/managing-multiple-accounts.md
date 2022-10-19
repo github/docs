@@ -36,9 +36,9 @@ You can find both the HTTPS or an SSH URLs for cloning a repository on {% data v
 
 For more information about the use of SSH to access repositories on {% data variables.product.product_name %}, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/authentication/connecting-to-github-with-ssh)."
 
-## Contributing to multiple accounts using HTTPS and PATs
+## Contributing to multiple accounts using HTTPS and {% data variables.product.pat_generic %}s
 
-Alternatively, if you want to use the HTTPS protocol for both accounts, you can use different personal access tokens (PAT) for each account by configuring Git to store different credentials for each repository.
+Alternatively, if you want to use the HTTPS protocol for both accounts, you can use different {% data variables.product.pat_generic %}s for each account by configuring Git to store different credentials for each repository.
 
 {% mac %}
 

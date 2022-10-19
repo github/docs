@@ -11480,6 +11480,161 @@
       ]
     },
     {
+      "name": "Comparison",
+      "kind": "objects",
+      "id": "comparison",
+      "href": "/graphql/reference/objects#comparison",
+      "description": "<p>Represents a comparison between two commit revisions.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "aheadBy",
+          "description": "<p>The number of commits ahead of the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "baseTarget",
+          "description": "<p>The base revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#gitobject"
+        },
+        {
+          "name": "behindBy",
+          "description": "<p>The number of commits behind the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "commits",
+          "description": "<p>The commits which compose this comparison.</p>",
+          "type": "ComparisonCommitConnection!",
+          "id": "comparisoncommitconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#comparisoncommitconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "headTarget",
+          "description": "<p>The head revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#gitobject"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of this comparison.</p>",
+          "type": "ComparisonStatus!",
+          "id": "comparisonstatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#comparisonstatus"
+        }
+      ]
+    },
+    {
+      "name": "ComparisonCommitConnection",
+      "kind": "objects",
+      "id": "comparisoncommitconnection",
+      "href": "/graphql/reference/objects#comparisoncommitconnection",
+      "description": "<p>The connection type for Commit.</p>",
+      "fields": [
+        {
+          "name": "authorCount",
+          "description": "<p>The total count of authors and co-authors across all commits.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CommitEdge]",
+          "id": "commitedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commitedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Commit]",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "ConnectedEvent",
       "kind": "objects",
       "id": "connectedevent",
@@ -39980,6 +40135,26 @@
           "href": "/graphql/reference/objects#branchprotectionrule"
         },
         {
+          "name": "compare",
+          "description": "<p>Compares the current ref as a base ref to another head ref, if the comparison can be made.</p>",
+          "type": "Comparison",
+          "id": "comparison",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#comparison",
+          "arguments": [
+            {
+              "name": "headRef",
+              "description": "<p>The head ref to compare against.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "name",
           "description": "<p>The ref name.</p>",
           "type": "String!",
@@ -54888,6 +55063,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "language",
+          "description": "<p>The programming language this file is written in.</p>",
+          "type": "Language",
+          "id": "language",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#language"
+        },
+        {
           "name": "lineCount",
           "description": "<p>Number of lines in the file.</p>",
           "type": "Int",
@@ -60977,6 +61160,31 @@
         {
           "name": "OCCURRED_AT",
           "description": "<p>Order commit contributions by when they were made.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ComparisonStatus",
+      "kind": "enums",
+      "id": "comparisonstatus",
+      "href": "/graphql/reference/enums#comparisonstatus",
+      "description": "<p>The status of a git comparison between two refs.</p>",
+      "values": [
+        {
+          "name": "AHEAD",
+          "description": "<p>The head ref is ahead of the base ref.</p>"
+        },
+        {
+          "name": "BEHIND",
+          "description": "<p>The head ref is behind the base ref.</p>"
+        },
+        {
+          "name": "DIVERGED",
+          "description": "<p>The head ref is both ahead and behind of the base ref, indicating git history has diverged.</p>"
+        },
+        {
+          "name": "IDENTICAL",
+          "description": "<p>The head ref and base ref are identical.</p>"
         }
       ]
     },
@@ -69616,7 +69824,7 @@
         },
         {
           "name": "commitBody",
-          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit message is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -69624,7 +69832,7 @@
         },
         {
           "name": "commitHeadline",
-          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit headline is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -69632,7 +69840,7 @@
         },
         {
           "name": "mergeMethod",
-          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>.</p>",
+          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>. NOTE: when merging\nwith a merge queue any input value for merge method is ignored.</p>",
           "type": "PullRequestMergeMethod",
           "id": "pullrequestmergemethod",
           "kind": "enums",

@@ -95,8 +95,8 @@ export const ArticlePage = () => {
                 </div>
               )}
 
-              {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
-              {includesToolSpecificContent && <ToolPicker variant="underlinenav" />}
+              {includesPlatformSpecificContent && <PlatformPicker />}
+              {includesToolSpecificContent && <ToolPicker />}
 
               {product && (
                 <Callout

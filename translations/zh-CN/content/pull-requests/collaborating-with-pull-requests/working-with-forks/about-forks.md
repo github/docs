@@ -1,6 +1,6 @@
 ---
-title: 关于分叉
-intro: 复刻是您管理的仓库的副本。 复刻用于更改项目而不影响原始仓库。 您可以通过拉取请求从原始仓库提取更新，或者提交更改到原始仓库。
+title: About forks
+intro: A fork is a copy of a repository that you manage. Forks let you make changes to a project without affecting the original repository. You can fetch updates from or submit changes to the original repository with pull requests.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/about-forks
   - /articles/about-forks
@@ -13,39 +13,33 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-ms.openlocfilehash: d7564598bca7c75a4861f4cc2d20b3f7a986f730
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145130068'
 ---
-复刻仓库类似于复制仓库，主要有两点差异：
+Forking a repository is similar to copying a repository, with two major differences:
 
-* 可以使用拉取请求来建议从用户拥有的分支到其 GitHub 实例中的原始存储库（也称为“上游”存储库）的更改。
-* 您可以通过同步复刻与上游仓库，将更改从上游仓库提交到本地复刻。
+* You can use a pull request to suggest changes from your user-owned fork to the original repository in its GitHub instance, also known as the *upstream* repository.
+* You can bring changes from the upstream repository to your local fork by synchronizing your fork with the upstream repository.
 
 {% data reusables.repositories.you-can-fork %}
 
 {% ifversion fpt or ghec %}
 
-如果您是 {% data variables.product.prodname_emu_enterprise %} 的成员，则可以复刻的存储库有进一步的限制。 {% data reusables.enterprise-accounts.emu-forks %} 有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}”。{% else %}."{% endif %}
+If you're a member of a {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% endif %}
 
 {% data reusables.repositories.desktop-fork %}
 
-删除复刻不会删除原始上游仓库。 可以对分支进行任何所需的更改（添加协作者、重命名文件、生成 {% data variables.product.prodname_pages %}），而不影响原始版本。{% ifversion fpt or ghec %} 无法还原已删除的分支存储库。 有关详细信息，请参阅“[还原已删除的存储库](/articles/restoring-a-deleted-repository)”。{% endif %}
+Deleting a fork will not delete the original upstream repository. You can make any changes you want to your fork—add collaborators, rename files, generate {% data variables.product.prodname_pages %}—with no effect on the original.{% ifversion fpt or ghec %} You cannot restore a deleted forked repository. For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
 
-在开源项目中，复刻常用于迭代想法或更改，然后将其提交回上游仓库。 在用户拥有的复刻中进行更改，然后打开拉取请求以比较您的工作与上游仓库，便可允许对上游仓库具有推送权限的任何推送更改到拉取请求分支（包括删除分支）。 这可加速协作，让仓库维护员在合并之前于本地从用户拥有的复刻对拉取请求进行提交或运行测试。 不可向组织拥有的复刻授予推送权限。 
+In open source projects, forks are often used to iterate on ideas or changes before they are offered back to the upstream repository. When you make changes in your user-owned fork and open a pull request that compares your work to the upstream repository, you can give anyone with push access to the upstream repository permission to push changes to your pull request branch (including deleting the branch). This speeds up collaboration by allowing repository maintainers the ability to make commits or run tests locally to your pull request branch from a user-owned fork before merging. You cannot give push permissions to a fork owned by an organization. 
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-如果以后要从现有仓库的内容创建新仓库，但不想合并上游更改，您可以复制仓库 ，或者，如果该仓库是模板，您可以使用该仓库作为模板。 有关详细信息，请参阅“[复制存储库](/articles/duplicating-a-repository)”和“[从模板创建存储库](/articles/creating-a-repository-from-a-template)”。
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
 
-## 延伸阅读
+## Further reading
 
-- “[关于协作开发模型](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)”
-- “[从分支创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)”
-- [开源指南](https://opensource.guide/){% ifversion fpt or ghec %}
+- "[About collaborative development models](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
+- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+- [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
