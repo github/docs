@@ -149,7 +149,7 @@ You can use `publishConfig` element in the *package.json* file to specify the re
   If your instance has subdomain isolation disabled:
    ```shell
    "publishConfig": {
-     "registry":"https://HOSTNAME/_registry/npm/"
+     "registry": "https://HOSTNAME/_registry/npm/"
    },
   ```
   {% endif %}
