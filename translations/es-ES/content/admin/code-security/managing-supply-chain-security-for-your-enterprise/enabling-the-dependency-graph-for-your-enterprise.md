@@ -1,6 +1,6 @@
 ---
-title: Habilitación del gráfico de dependencias para la empresa
-intro: Puedes permitir que los usuarios identifiquen las dependencias de sus proyectos si habilitas el gráfico de dependencias.
+title: Enabling the dependency graph for your enterprise
+intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
 shortTitle: Enable dependency graph
 permissions: Site administrators can enable the dependency graph.
 versions:
@@ -10,34 +10,37 @@ topics:
   - Enterprise
   - Security
   - Dependency graph
-ms.openlocfilehash: f2e8bdfb4a764c291ab7687c4226f24f7dacce9c
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147773182'
 ---
-## Acerca del gráfico de dependencias
 
-{% data reusables.dependabot.about-the-dependency-graph %} Para más información, vea "[Acerca del gráfico de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
+## About the dependency graph
 
-Después de habilitar el gráfico de dependencias para tu empresa, puedes habilitar {% data variables.product.prodname_dependabot %} para detectar dependencias poco seguras en el repositorio{% ifversion ghes > 3.2 %} y corregir automáticamente las vulnerabilidades{% endif %}. Para obtener más información, consulte "[Habilitación de {% data variables.product.prodname_dependabot %} para la empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+{% data reusables.dependabot.about-the-dependency-graph %} For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 
-{% ifversion ghes %} Puedes habilitar el gráfico de dependencias mediante {% data variables.enterprise.management_console %} o el shell administrativo. Se recomienda usar {% data variables.enterprise.management_console %} a menos que {% data variables.product.product_location %} use la agrupación en clústeres.
+After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository{% ifversion ghes > 3.2 %} and automatically fix the vulnerabilities{% endif %}. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-## Habilitar la gráfica de dependencias a través de la {% data variables.enterprise.management_console %}
+{% ifversion ghes %}
+You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend using the {% data variables.enterprise.management_console %} unless {% data variables.location.product_location %} uses clustering.
 
-Si {% data variables.product.product_location %} usa la agrupación en clústeres, no puedes habilitar el gráfico de dependencias con {% data variables.enterprise.management_console %} y debes usar el shell administrativo en su lugar. Para obtener más información, consulte "[Habilitación del gráfico de dependencias mediante el shell administrativo](#enabling-the-dependency-graph-via-the-administrative-shell)".
+## Enabling the dependency graph via the {% data variables.enterprise.management_console %}
 
-{% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. En "Security" (Seguridad), haga clic en **Dependency graph** (Gráfico de dependencias).
-![Casilla para habilitar o deshabilitar el gráfico de dependencias](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png) {% data reusables.enterprise_management_console.save-settings %}
-1. Haga clic en **Visit your instance** (Visitar la instancia).
+If {% data variables.location.product_location %} uses clustering, you cannot enable the dependency graph with the {% data variables.enterprise.management_console %} and must use the administrative shell instead. For more information, see "[Enabling the dependency graph via the administrative shell](#enabling-the-dependency-graph-via-the-administrative-shell)."
 
-## Habilitar la gráfica de dependencias a través del shell administrativo
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.advanced-security-tab %}
+1. Under "Security," click **Dependency graph**.
+![Checkbox to enable or disable the dependency graph](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+1. Click **Visit your instance**.
 
-{% endif %} {% data reusables.enterprise_site_admin_settings.sign-in %}
-1. En el shell administrativo, habilita el gráfico de dependencias en {% data variables.product.product_location %}:  {% ifversion ghes %}```shell  ghe-config app.dependency-graph.enabled true
+## Enabling the dependency graph via the administrative shell
+
+{% endif %}
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+1. In the administrative shell, enable the dependency graph on {% data variables.location.product_location %}:
+    {% ifversion ghes %}```shell
+    ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled true
@@ -52,4 +55,4 @@ Si {% data variables.product.product_location %} usa la agrupación en clústere
     ```shell
     $ ghe-config-apply
     ```
-3. Regresar a {% data variables.product.prodname_ghe_server %}.
+3. Return to {% data variables.product.prodname_ghe_server %}.

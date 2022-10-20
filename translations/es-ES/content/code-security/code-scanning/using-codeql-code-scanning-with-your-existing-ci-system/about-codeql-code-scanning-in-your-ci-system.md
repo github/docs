@@ -1,7 +1,7 @@
 ---
 title: About CodeQL code scanning in your CI system
 shortTitle: Code scanning in your CI
-intro: 'You can analyze your code with {% data variables.product.prodname_codeql %} in a third-party continuous integration system and upload the results to {% data variables.product.product_location %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.'
+intro: 'You can analyze your code with {% data variables.product.prodname_codeql %} in a third-party continuous integration system and upload the results to {% data variables.location.product_location %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'

@@ -22,7 +22,7 @@ shortTitle: Manage releases
 ---
 ## About release management
 
-You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases.
+You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see "[Releases](/rest/releases/releases)" in the REST API documentation.
 
 {% ifversion fpt or ghec %}
 You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action in the {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)."
@@ -36,43 +36,62 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Click **Draft a new release**.
+1. Click **Draft a new release**.
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
-4. {% ifversion fpt or ghec or ghes > 3.2 or ghae %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec or ghes > 3.2 or ghae %}, and press **Enter**{% endif %}. Alternatively, select an existing tag.
+1. {% ifversion fpt or ghec or ghes > 3.2 or ghae %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec or ghes > 3.2 or ghae %}, and press **Enter**{% endif %}. Alternatively, select an existing tag.
 
    {% ifversion fpt or ghec or ghes > 3.2 or ghae %}![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-5. If you are creating a new tag, click **Create new tag**.
+1. If you are creating a new tag, click **Create new tag**.
 
-   ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+   ![Screenshot of confirming you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
    {% else %}
-   ![Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
+   ![Screenshot of the Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
-5. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
+1. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
 
-   {% ifversion fpt or ghec or ghes > 3.2 or ghae %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
-   {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
+   {% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+   ![Screenshot of dropdown to choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+
+   {% else %}
+   ![Screenshot of the Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
+
 {%- data reusables.releases.previous-release-tag %}
-6. Type a title and description for your release.
+1. Type a title and description for your release.
    {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
    If you @mention anyone in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
    {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
-   ![Releases description](/assets/images/help/releases/releases_description_auto.png){% else %}
-   ![Releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
+
+   ![Screenshot of the releases description](/assets/images/help/releases/releases_description_auto.png){% else %}
+
+   ![Screenshot of the releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
+
 1. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
-   ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
-2. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
-   ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
+
+   ![Animated GIF of Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
+
+1. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
+
+   ![Screenshot of the checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
+
+{%- ifversion releases-set-latest-release %} 
+1. Optionally, you can select **Set as latest release**. If you do not select this option, the latest release label will automatically be assigned based on semantic versioning.
+
+   ![Screenshot of the checkbox to mark a release as the latest release](/assets/images/help/releases/latest-release-checkbox.png)
+
+{%- endif %}  
 {%- ifversion discussions %}
 1. Optionally, if {% data variables.product.prodname_discussions %} are enabled in the repository, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
-  ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+
+   ![Screenshot of the checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+
 {%- endif %}
-9. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
+1. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
    ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
 
    {%- ifversion fpt or ghec or ghes > 3.2 or ghae > 3.3 %}
-   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[Viewing your repository's releases and tags](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[Screenshot of your repository's releases and tags](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
    ![Published release with @mentioned contributors](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)

@@ -1,54 +1,51 @@
 ---
-title: Administrar los ajustes de accesibilidad
+title: Managing accessibility settings
 shortTitle: Manage accessibility settings
-intro: 'La interfaz de usuario de {% data variables.product.product_name %} puede adaptarse a tus necesidades de visión, audición, motrices, cognitivas o de aprendizaje.'
+intro: "{% data variables.product.product_name %}'s user interface can adapt to your vision, hearing, motor, cognitive, or learning needs."
 versions:
   feature: keyboard-shortcut-accessibility-setting
 redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings
 type: how_to
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: d4811368ab825f0b24864283f8be54672f72a787
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147614323'
 ---
-## Acerca de los ajustes de accesibilidad
 
-Para crear una experiencia en {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} que se adapte a tus necesidades, puedes personalizar la interfaz de usuario. La configuración de accesibilidad puede ser esencial para las personas con discapacidad, y también resultar útil a cualquier persona. Por ejemplo, la personalización de métodos abreviados de teclado es esencial para las personas que navegan mediante el control de voz, pero puede ser útil para cualquiera cuando un método abreviado de teclado de {% data variables.product.product_name %} entra en conflicto con otro método abreviado de aplicación.
+## About accessibility settings
 
-## Administrar los ajustes de accesibilidad
+To create an experience on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.product_name %} clashes with another application shortcut.
 
-Puedes decidir si quieres usar algunos o todos los métodos abreviados de teclado en {% ifversion fpt or ghec %}{% data variables.product.product_location %}{% elsif ghes or ghae %}el sitio web para {% data variables.product.product_location %}{% endif %} y puedes controlar la visualización de imágenes animadas.
+## Managing accessibility settings
 
-### Administración de métodos abreviados de teclado
+You can decide whether you want to use some or all keyboard shortcuts on {% ifversion fpt or ghec %}{% data variables.location.product_location %}{% elsif ghes or ghae %}the website for {% data variables.location.product_location %}{% endif %}, and you can control the display of animated images.
 
-Puedes realizar acciones en el sitio web de {% data variables.product.product_name %} solo con el teclado. Los métodos abreviados de teclado pueden ser útiles para ahorrar tiempo, pero se pueden activar accidentalmente o interferir con la tecnología de asistencia.
+### Managing keyboard shortcuts
 
-De forma predeterminada, todos los métodos abreviados de teclado están habilitados en {% data variables.product.product_name %}. Para obtener más información, consulte "[Métodos abreviados de teclado](/get-started/using-github/keyboard-shortcuts)".
+You can perform actions across the {% data variables.product.product_name %} website by using your keyboard alone. Keyboard shortcuts can be useful to save time, but can be activated accidentally or interfere with assistive technology.
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.accessibility_settings %}
-1. En "Métodos abreviados de teclado" puedes administrar la configuración de los métodos abreviados de teclado.
+By default, all keyboard shortcuts are enabled on {% data variables.product.product_name %}. For more information, see "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)."
 
-   - Para deshabilitar teclas de método abreviado que no usan teclas modificadoras como <kbd>Control</kbd> o <kbd>Comando</kbd>, en "General", anula la selección de las **teclas de caracteres**.
-     - Si deshabilitas las teclas de caracteres, podrás desencadenar accesos directos para el explorador web y seguir desencadenando accesos directos para {% data variables.product.product_name %} que usen una tecla modificadora.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.accessibility_settings %}
+1. Under "Keyboard shortcuts", manage settings for your keyboard shortcuts.
+
+   - To disable shortcut keys that don't use modifiers keys like <kbd>Control</kbd> or <kbd>Command</kbd>, under "General", deselect **Character keys**.
+     - If you disable character keys, you may still be able to trigger shortcuts for your web browser, and you can still trigger shortcuts for {% data variables.product.product_name %} that use a modifier key.
    {%- ifversion command-palette %}
-   - Para personalizar los métodos abreviados de teclado para desencadenar la paleta de comandos, en "Command Palette" (Paleta de comandos) usa los menús desplegables para elegir un método abreviado de teclado. Para obtener más información, consulta "[Paleta de comandos de {% data variables.product.company_short %}](/get-started/using-github/github-command-palette)".
+   - To customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see "[{% data variables.product.company_short %} Command Palette](/get-started/using-github/github-command-palette)."
    {%- endif %}
 
 {% ifversion motion-management %}
 
-### Administración del movimiento
+### Managing motion
 
-Puede controlar cómo {% data variables.product.product_name %} muestra imágenes animadas _.gif_.
+You can control how {% data variables.product.product_name %} displays animated _.gif_ images.
 
-De forma predeterminada, {% data variables.product.product_name %} se sincroniza con la preferencia a nivel del sistema para reducir el movimiento. Para obtener más información, revisa la documentación de tu sistema operativo específico.
+By default, {% data variables.product.product_name %} syncs with your system-level preference for reduced motion. For more information, see the documentation or settings for your operating system.
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.accessibility_settings %}
-1. En "Motion" (Movimiento) puedes administrar la configuración del movimiento.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.accessibility_settings %}
+1. Under "Motion", manage settings for motion.
 
-   - Para controlar cómo {% data variables.product.product_name %} muestra las imágenes animadas, en "Autoplay animated images" (Reproducción automática de imágenes animadas), selecciona **Sync with system** (Sincronizar con el sistema), **Enabled** (Habilitado) o **Disabled** (Deshabilitado).
+   - To control how {% data variables.product.product_name %} displays animated images, under "Autoplay animated images", select **Sync with system**, **Enabled**, or **Disabled**.
 
 {% endif %}

@@ -1,18 +1,10 @@
----
-ms.openlocfilehash: 7de065c9dec15e3b92cabf5d3fa711c7d88249ba
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147882791"
----
-- [Requisitos mínimos](#minimum-requirements)
+- [Minimum requirements](#minimum-requirements)
 - [Storage](#storage)
-- [CPU y memoria](#cpu-and-memory)
+- [CPU and memory](#cpu-and-memory)
 
-### Requisitos mínimos
+### Minimum requirements
 
-Le recomendamos usar otras configuraciones de hardware en función de la cantidad de licencias de usuario que tenga para {% data variables.product.product_location %}. Si aprovisionaste más recursos que los de los requisitos mínimos, tu instancia funcionrá y escalará mejor.
+We recommend different hardware configurations depending on the number of user licenses for {% data variables.location.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
@@ -22,25 +14,25 @@ Le recomendamos usar otras configuraciones de hardware en función de la cantida
 
 ### Storage
 
-Recomendamos un SSD de alto rendimiento con operaciones de altas de entrada/salida por segundo (IOPS) y latencia baja para {% data variables.product.prodname_ghe_server %}. Las cargas de trabajo son intensivas para las I/O. Si utilizas un hipervisor de metal puro, te recomendamos adjuntar directamente el disco o utilizar un disco de una red de área de almacenamiento (SAN).
+We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).
 
-Tu instancia requiere un disco de datos persistentes independiente del disco raíz. Para más información, vea "[Información general del sistema](/enterprise/admin/guides/installation/system-overview)".
+Your instance requires a persistent data disk separate from the root disk. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview)."
 
 {% ifversion ghes %}
 
-Para configurar las {% data variables.product.prodname_actions %}, debes proporcionar un almacenamiento de blobs externos. Para más información, vea "[Introducción a {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)".
+To configure {% data variables.product.prodname_actions %}, you must provide external blob storage. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)."
 
 {% endif %}
 
-El espacio disponible en el sistema de archivos raíz será de 50% del tamaño total en disco. Puedes redimensionar el disco raíz de tu instancia si creas una instancia nueva o si utilizas una instancia existente. Para más información, vea "[Información general del sistema](/enterprise/admin/guides/installation/system-overview#storage-architecture)" y "[Aumento de la capacidad de almacenamiento](/enterprise/admin/guides/installation/increasing-storage-capacity)".
+The available space on the root filesystem will be 50% of the total disk size. You can resize your instance's root disk by building a new instance or using an existing instance. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity)."
 
-### CPU y memoria
+### CPU and memory
 
-Los recursos de memoria y CPU que {% data variables.product.prodname_ghe_server %} requiere dependen de los niveles de actividad para los usuarios, automatizaciones e integraciones.
+The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
 
 {% ifversion ghes %}
 
-Si planeas habilitar las {% data variables.product.prodname_actions %} para los usuarios de tu instancia de {% data variables.product.prodname_ghe_server %}, podrías necesitar aprovisionar recursos de memoria y CPU adicionales para esta. Para más información, vea "[Introducción a {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
+If you plan to enable {% data variables.product.prodname_actions %} for the users of your {% data variables.product.prodname_ghe_server %} instance, you may need to provision additional CPU and memory resources for your instance. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 
 {% endif %}
 
@@ -48,10 +40,10 @@ Si planeas habilitar las {% data variables.product.prodname_actions %} para los 
 
 {% warning %}
 
-**Advertencia:** Es recomendable que los usuarios configuren eventos de webhook para notificar a los sistemas externos la actividad en {% data variables.product.prodname_ghe_server %}. Las comprobaciones automáticas de cambios, o _sondeo_, tendrán un impacto negativo en el rendimiento y la escalabilidad de la instancia. Para más información, vea "[Acerca de los webhooks](/github/extending-github/about-webhooks)".
+**Warning:** We recommend that users configure webhook events to notify external systems of activity on {% data variables.product.prodname_ghe_server %}. Automated checks for changes, or _polling_, will negatively impact the performance and scalability of your instance. For more information, see "[About webhooks](/github/extending-github/about-webhooks)."
 
 {% endwarning %}
 
-Para más información sobre la supervisión de la capacidad y el rendimiento de {% data variables.product.prodname_ghe_server %}, vea "[Supervisión del dispositivo](/admin/enterprise-management/monitoring-your-appliance)".
+For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
 
-Puedes incrementar los recursos de memoria o de CPU para tu instancia. Para más información, vea "[Aumento de los recursos de CPU o memoria](/enterprise/admin/installation/increasing-cpu-or-memory-resources)".
+You can increase your instance's CPU or memory resources. For more information, see "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
