@@ -45,4 +45,15 @@ When you enable one or more security and analysis features for existing reposito
 
 1. Optionally, to enable or disable a feature automatically when new repositories are added, select the checkbox below the feature.
    
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/security/enterprise-security-and-analysis-enable-or-disable-feature-checkbox.png)
+   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/security/enterprise-security-and-analysis-enable-or-disable-feature-checkbox.png){% ifversion secret-scanning-custom-link-on-block %}
+
+1. Optionally, to include a resource link in the message that members will see when they attempt to push a secret, select **Add a resource link in the CLI and web UI when a commit is blocked**, then type a URL, and click **Save link**.
+  
+  {% note %}
+
+  **Note**: When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
+
+  {% endnote %}
+
+   ![Screenshot showing checkbox and text field for enabling a custom link](/assets/images/help/organizations/secret-scanning-custom-link.png){% endif %}
+
