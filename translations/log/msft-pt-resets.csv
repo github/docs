@@ -82,6 +82,7 @@ translations/pt-BR/content/codespaces/customizing-your-codespace/personalizing-c
 translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces.md,file deleted because it no longer exists in main
 translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces.md,file deleted because it no longer exists in main
 translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces.md,file deleted because it no longer exists in main
+translations/pt-BR/content/codespaces/developing-in-codespaces/renaming-a-codespace.md,file deleted because it no longer exists in main
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests.md,file deleted because it no longer exists in main
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,file deleted because it no longer exists in main
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,file deleted because it no longer exists in main
@@ -340,6 +341,7 @@ translations/pt-BR/content/actions/security-guides/security-hardening-for-github
 translations/pt-BR/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/using-github-hosted-runners/using-larger-runners.md,rendering error
 translations/pt-BR/content/actions/using-workflows/about-workflows.md,rendering error
+translations/pt-BR/content/actions/using-workflows/caching-dependencies-to-speed-up-workflows.md,broken liquid tags
 translations/pt-BR/content/actions/using-workflows/creating-starter-workflows-for-your-organization.md,rendering error
 translations/pt-BR/content/actions/using-workflows/events-that-trigger-workflows.md,rendering error
 translations/pt-BR/content/actions/using-workflows/reusing-workflows.md,rendering error
@@ -390,6 +392,9 @@ translations/pt-BR/content/admin/configuration/configuring-your-enterprise/manag
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors.md,broken liquid tags
+translations/pt-BR/content/admin/enterprise-management/configuring-clustering/cluster-network-configuration.md,broken liquid tags
+translations/pt-BR/content/admin/enterprise-management/configuring-clustering/configuring-high-availability-replication-for-a-cluster.md,broken liquid tags
+translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/configuring-collectd.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise.md,broken liquid tags
@@ -619,7 +624,6 @@ translations/pt-BR/content/codespaces/developing-in-codespaces/creating-a-codesp
 translations/pt-BR/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,broken liquid tags
-translations/pt-BR/content/codespaces/developing-in-codespaces/renaming-a-codespace.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli.md,broken liquid tags
@@ -794,6 +798,7 @@ translations/pt-BR/content/packages/working-with-a-github-packages-registry/work
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-npm-registry.md,rendering error
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry.md,rendering error
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry.md,rendering error
+translations/pt-BR/content/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages.md,broken liquid tags
 translations/pt-BR/content/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site.md,rendering error
 translations/pt-BR/content/pages/getting-started-with-github-pages/about-github-pages.md,broken liquid tags
 translations/pt-BR/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md,rendering error
@@ -1025,6 +1030,7 @@ translations/pt-BR/data/reusables/dependabot/beta-security-and-version-updates.m
 translations/pt-BR/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/pt-BR/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/pt-BR/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
+translations/pt-BR/data/reusables/dependabot/supported-package-managers.md,broken liquid tags
 translations/pt-BR/data/reusables/desktop/get-an-account.md,broken liquid tags
 translations/pt-BR/data/reusables/discussions/enabling-or-disabling-github-discussions-for-your-organization.md,broken liquid tags
 translations/pt-BR/data/reusables/discussions/navigate-to-repo-or-org.md,broken liquid tags
