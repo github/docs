@@ -36,7 +36,7 @@ Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions
 ![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy.png)
 {%- endif %}
 
-{% ifversion ghec or ghae-issue-4757 %}
+{% ifversion ghec or ghes > 3.4 %}
 Consider combining OpenID Connect (OIDC) with reusable workflows to enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows. For more information, see "[Using OpenID Connect with reusable workflows](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."
 {% endif %}
 
@@ -73,7 +73,7 @@ Think about how your enterprise can use features of {% data variables.product.pr
 
 {% data reusables.actions.internal-actions-summary %}
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
@@ -91,7 +91,7 @@ You should plan for how you'll manage the resources required to use {% data vari
 {% ifversion ghes %}
 ### Hardware requirements
 
-You may need to upgrade the CPU and memory resources for {% data variables.product.product_location %} to handle the load from {% data variables.product.prodname_actions %} without causing performance loss. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+You may need to upgrade the CPU and memory resources for {% data variables.location.product_location %} to handle the load from {% data variables.product.prodname_actions %} without causing performance loss. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
 {% endif %}
 
 ### Runners

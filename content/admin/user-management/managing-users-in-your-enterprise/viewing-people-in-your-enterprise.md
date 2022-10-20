@@ -36,6 +36,10 @@ For more information about {% data variables.product.prodname_github_connect %},
 
 {% endif %}
 
+{% ifversion enterprise-member-csv %}
+You can also export membership information for your enterprise. For more information, see "[Exporting membership information for your enterprise](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
+{% endif %}
+
 ## Viewing enterprise administrators
 
 You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise.{% ifversion enterprise-membership-view-improvements %} You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}.{% endif %} You can find a specific person by searching for their username or display name.
@@ -110,7 +114,7 @@ If you use {% data variables.product.prodname_vss_ghe %}, the list of pending in
 
    ![Screenshot of the "Members", "Administrators", and "Outside collaborators" tabs](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
 
-## Viewing suspended members in an {% data variables.product.prodname_emu_enterprise %}
+## Viewing suspended members in an {% data variables.enterprise.prodname_emu_enterprise %}
 
 If your enterprise uses {% data variables.product.prodname_emus %}, you can also view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
 

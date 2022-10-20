@@ -54,7 +54,7 @@ export type ProductLandingContextT = {
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
   hasGuidesPage: boolean
-  releases: Array<{
+  ghesReleases: Array<{
     version: string
     firstPreviousRelease: string
     secondPreviousRelease: string
@@ -115,7 +115,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
     changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
     productCommunityExamples: req.context.productCommunityExamples || [],
-    releases: req.context.releases || [],
+    ghesReleases: req.context.ghesReleases || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({

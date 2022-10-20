@@ -16,7 +16,7 @@ shortTitle: Use staging environment
 
 ## About staging environments for {% data variables.product.product_name %}
 
-It can be useful to have a staging or testing environment for {% data variables.product.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+It can be useful to have a staging or testing environment for {% data variables.location.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 ## Using a staging environment with {% data variables.product.prodname_actions %}
 
@@ -48,5 +48,5 @@ To more accurately mirror your production environment, you can optionally copy f
 * For Amazon S3 buckets, you can use [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). For example:
 
   ```shell
-  aws s3 sync s3://<em>SOURCE-BUCKET</em> s3://<em>DESTINATION-BUCKET</em>
+  aws s3 sync s3://SOURCE-BUCKET s3://DESTINATION-BUCKET
   ```

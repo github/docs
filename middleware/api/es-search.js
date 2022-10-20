@@ -1,17 +1,31 @@
 import { Client } from '@elastic/elasticsearch'
 
-// The reason this is exported is so the middleware endpoints can
-// find out if the environment variable has been set (and is truthy)
-// before attempting to call the main function in this file.
-export const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
+const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
 const isDevMode = process.env.NODE_ENV !== 'production'
 
 function getClient() {
+  if (!ELASTICSEARCH_URL) {
+    // If this was mistakenly not set, it will eventually fail
+    // when you use the Client. But `new Client({node: undefined})`
+    // won't throw. And the error you get when you actually do try
+    // to use that Client instance is cryptic compared to this
+    // plain and simple thrown error.
+    throw new Error(`$ELASTICSEARCH_URL is not set`)
+  }
   return new Client({
     node: ELASTICSEARCH_URL,
+    // The default is 30,000ms but we noticed that the median time is about
+    // 100ms with some occasional searches taking multiple seconds.
+    // The default `maxRetries` is 5 which is a sensible number.
+    // If a query gets stuck, it's better to (relatively) quickly give up
+    // and retry. So if it takes longer than this time here, we're banking on
+    // that it was just bad luck and that it'll work if we simply try again.
+    // See internal issue #2318.
+    requestTimeout: 500,
   })
 }
+
 // The true work horse that actually performs the Elasticsearch query
 export async function getSearchResults({
   indexName,
@@ -24,6 +38,9 @@ export async function getSearchResults({
   includeTopics,
   usePrefixSearch,
 }) {
+  if (topics && !Array.isArray(topics)) {
+    throw new Error("'topics' has to be an array")
+  }
   const t0 = new Date()
   const client = getClient()
   const from = size * (page - 1)
@@ -41,8 +58,18 @@ export async function getSearchResults({
       should: matchQueries,
     },
   }
-  if (topics) {
-    throw new Error('Not implemented yet')
+
+  const topicsFilter = (topics || []).map((topic) => {
+    return {
+      term: {
+        // Remember, 'topics' is a keyword field, meaning you need
+        // to filter by "Webhooks", not "webhooks"
+        topics: topic,
+      },
+    }
+  })
+  if (topicsFilter.length) {
+    matchQuery.bool.filter = topicsFilter
   }
 
   const highlight = getHighlightConfiguration(query)
@@ -68,9 +95,10 @@ export async function getSearchResults({
     // ],
   }
 
-  if (includeTopics) {
-    searchQuery._source_includes.push('topics')
-  }
+  // See note above why this is excluded in ES 7.11
+  // if (includeTopics) {
+  //   searchQuery._source_includes.push('topics')
+  // }
 
   if (sort === 'best') {
     // To sort by a function score, you need to wrap the primary

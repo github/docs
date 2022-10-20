@@ -47,10 +47,10 @@ Organizations can use the `name@organization.com` email as a public point of con
   $ git commit -m "Refactor usability tests.
   >
   >
-  on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
+  on-behalf-of: @ORG NAME@ORGANIZATION.COM"
   ```
 
-The new commit, message, and badge will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
 ## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
 
@@ -64,7 +64,7 @@ After you've made changes in a file using the web editor on {% data variables.pr
   ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
 4. Click **Commit changes** or **Propose changes**.
 
-The new commit, message, and badge will appear on {% data variables.product.product_location %}.
+The new commit, message, and badge will appear on {% data variables.location.product_location %}.
 
 ## Further reading
 

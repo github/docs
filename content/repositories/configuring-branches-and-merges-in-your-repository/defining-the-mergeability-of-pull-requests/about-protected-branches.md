@@ -54,6 +54,9 @@ For each branch protection rule, you can choose to enable or disable the followi
 {%- ifversion required-deployments %}
 - [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
 {%- endif %}
+{%- ifversion lock-branch %}
+- [Lock branch](#lock-branch)
+{%- endif %}
 {% ifversion bypass-branch-protections %}- [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings){% else %}- [Include administrators](#include-administrators){% endif %}
 - [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
 - [Allow force pushes](#allow-force-pushes)
@@ -84,6 +87,10 @@ Optionally, you can restrict the ability to dismiss pull request reviews to spec
 
 Optionally, you can choose to require reviews from code owners. If you do, any pull request that affects code with a code owner must be approved by that code owner before the pull request can be merged into the protected branch.
 
+{% ifversion last-pusher-require-approval %}
+Optionally, you can require approvals from someone other than the last person to push to a branch before a pull request can be merged. This ensures more than one person sees pull requests in their final state before they are merged into a protected branch. If you enable this feature, the most recent user to push their changes will need an approval regardless of the required approvals branch protection. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement.
+{% endif %}
+
 ### Require status checks before merging
 
 Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)."
@@ -92,7 +99,7 @@ Before you can enable required status checks, you must configure the repository 
 
 After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the protected branch.
 
-Any person or integration with write permissions to a repository can set the state of any status check in the repository{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates.{% endif %} If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
+Any person or integration with write permissions to a repository can set the state of any status check in the repository{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates.{% endif %} If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
 
 You can set up required status checks to either be "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up to date with the base branch before merging.
 
@@ -151,6 +158,13 @@ Before you can require a linear commit history, your repository must allow squas
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
 
+{% ifversion lock-branch %}
+### Lock branch
+
+Locking a branch ensures that no commits can be made to the branch. 
+By default, a forked repository does not support syncing from its upstream repository. You can enable **Allow fork syncing** to pull changes from the upstream repository while preventing other contributions to the fork's branch.
+{%  endif %}
+
 {% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
 ### Include administrators{% endif %}
 
@@ -177,7 +191,7 @@ You can only give push access to a protected branch, or give permission to creat
 
 ### Allow force pushes
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
 
 1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.

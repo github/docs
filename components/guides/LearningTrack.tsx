@@ -7,6 +7,7 @@ import { FeaturedTrack } from 'components/context/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
 import slugger from 'github-slugger'
 import styles from './LearningTrack.module.scss'
+import { Link } from 'components/Link'
 
 type Props = {
   track: FeaturedTrack
@@ -37,7 +38,7 @@ export const LearningTrack = ({ track }: Props) => {
               </TruncateLines>
             </div>
           </div>
-          <a
+          <Link
             {...{ 'aria-label': `${track?.title} - ${t('start_path')}` }}
             className="d-inline-flex btn no-wrap mt-3 mt-md-0 flex-items-center flex-justify-center"
             href={`${track?.guides && track?.guides[0].href}?learn=${
@@ -46,7 +47,7 @@ export const LearningTrack = ({ track }: Props) => {
           >
             <span>{t('start_path')}</span>
             <ArrowRightIcon size={20} className="ml-2" />
-          </a>
+          </Link>
         </div>
 
         {track && track.guides && (
@@ -81,7 +82,7 @@ export const LearningTrack = ({ track }: Props) => {
                       },
                     }}
                   >
-                    <a
+                    <Link
                       className="rounded-0 pl-7 py-4 width-full d-block Box-row d-flex flex-items-center color-fg-default no-underline"
                       href={`${guide.href}?learn=${track?.trackName}&learnProduct=${track?.trackProduct}`}
                     >
@@ -92,7 +93,7 @@ export const LearningTrack = ({ track }: Props) => {
                       <div className="color-fg-muted h6 text-uppercase flex-shrink-0">
                         {t('guide_types')[guide.page?.type || '']}
                       </div>
-                    </a>
+                    </Link>
                   </ActionList.Item>
                 )
               })}
@@ -101,6 +102,7 @@ export const LearningTrack = ({ track }: Props) => {
         )}
         {
           <button
+            data-search="hide"
             className={
               'Box-footer btn-link border-top-0 position-relative text-center text-bold color-fg-accent pt-1 pb-3 col-12 ' +
               ((track?.guides?.length || 0) <= numVisible && cx(styles.removeHoverEvents))

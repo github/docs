@@ -1,6 +1,6 @@
 ---
-title: 組織参加へのユーザーの招待
-intro: '{% data variables.product.product_location %}のためのユーザ名もしくはメールアドレスを使って、Organizationのメンバーになるよう誰でも招待できます。'
+title: Inviting users to join your organization
+intro: 'You can invite anyone to become a member of your organization using their username or email address for {% data variables.location.product_location %}.'
 permissions: Organization owners can invite users to join an organization.
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization
@@ -13,26 +13,30 @@ topics:
   - Organizations
   - Teams
 shortTitle: Invite users to join
-ms.openlocfilehash: f0b5d1c41fc5f348077a77d29ac4be309c1cad0f
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145109774'
 ---
-## Organizationの招待について
 
-Organization がユーザ単位の有料プランである場合、新しいメンバーを招待して参加させる、または Organization の以前のメンバーを復帰させる前に、そのためのライセンスが用意されている必要があります。 詳細については、「[ユーザーごとの価格について](/articles/about-per-user-pricing)」を参照してください。 
+## About organization invitations
+
+If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." 
 
 {% data reusables.organizations.org-invite-scim %}
 
-Organization がメンバーに 2 要素認証を使うことを要求している場合、招待するユーザは招待を受ける前に 2 要素認証を有効化する必要があります。 詳細については、「[Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)」と「[2 要素認証 (2FA) を使用したアカウントのセキュリティ保護](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)」を参照してください。
+If your organization requires members to use two-factor authentication, users that you invite must enable two-factor authentication before accepting the invitation. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)" and "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
 
-{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %}を使用するOrganization{% else %}あなた{% endif %}はSCIMを実装して、アイデンティティプロバイダ（IdP）を通じて{% data variables.product.prodname_dotcom_the_website %}へのメンバーのアクセスを追加、管理、削除できます。 詳しくは、{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %} ドキュメントの{% else %}{% endif %}「[Organization の SCIM について](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)」を参照してください。
+{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.prodname_dotcom_the_website %} through an identity provider (IdP). For more information, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-## Organizationに参加するようユーザを招待する
+## Inviting a user to join your organization
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.invite_member_from_people_tab %} {% data reusables.organizations.invite_to_org %} {% data reusables.organizations.choose-to-restore-privileges %} {% data reusables.organizations.choose-user-role %} {% data reusables.organizations.add-user-to-teams %} {% data reusables.organizations.send-invitation %} {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.invite_to_org %}
+{% data reusables.organizations.choose-to-restore-privileges %}
+{% data reusables.organizations.choose-user-role %}
+{% data reusables.organizations.add-user-to-teams %}
+{% data reusables.organizations.send-invitation %}
+{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 
-## 参考資料
-- 「[Team への Organization メンバーの追加](/articles/adding-organization-members-to-a-team)」
+## Further reading
+- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"

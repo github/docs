@@ -4,7 +4,7 @@ intro: Você pode criar um branch para trabalhar em um problema diretamente da p
 versions:
   fpt: '*'
   ghes: '>=3.5'
-  ghae: issue-6234
+  ghae: '>= 3.5'
   ghec: '*'
 allowTitleToDifferFromFilename: true
 topics:

@@ -1,0 +1,22 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**MÉDIO**: garante que `github.company.com` e `github-company.com` não sejam avaliados por serviços internos como nomes de host idênticos, evitando um possível ataque de SSRF (falsificação de segurança do lado do servidor)."
+    - "**BAIXO**: um invasor pode acessar o Console de gerenciamento com um ataque de passagem de caminho via HTTP, mesmo que regras de firewall externas bloqueiem o acesso HTTP."
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - "Em alguns casos, os administradores do site não foram adicionados automaticamente como proprietários da empresa."
+    - "Depois de mesclar um branch a um branch padrão, o link \"Histórico\" de um arquivo ainda será vinculado ao branch anterior em vez do de destino." 
+  changes:
+    - "A criação ou atualização de execuções de verificação ou conjuntos de verificação poderá retornar `500 Internal Server Error` se o valor de determinados campos, como o nome, for muito longo." 
+  known_issues:
+    - "Depois da atualização para {% data variables.product.prodname_ghe_server %} 3.3, o {% data variables.product.prodname_actions %} pode ter falhas na inicialização automática. Para resolver esse problema, conecte-se ao dispositivo via SSH e execute o comando `ghe-actions-start`."
+    - "Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos LFS do Git [enviados através da interface da Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo de blobs é maior que 255 caracteres."
+    - "Quando \"Usuários podem pesquisar GitHub.com\" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas em repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}."
+    - "O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar esse valor no futuro quando tivermos resolvido os problemas de desempenho existentes."
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando "Forçar estilo de caminho" for selecionado e deverão ser definidas com a ferramenta de linha de comando `ghe-actions-precheck`.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

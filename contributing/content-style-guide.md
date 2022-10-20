@@ -142,9 +142,10 @@ Every image must include an alt attribute that provides a complete description o
 
 ### Filenames
 
-Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. If replacing an image, use the exact filename.
+Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
+- **Avoid:** `purchase-button{% ifversion ghes > 3.2 %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
@@ -165,7 +166,6 @@ Individual words might be small, but together they can create community, belongi
 ### Resources about inclusive language
 
 GitHub Brand Guide:
-- [People and communities](https://brand.github.com/content/grammar#people-and-communities)
 
 The Microsoft Style Guide offers resources on bias-free communication, accessibility terms, and writing for all abilities:
 - [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)
@@ -244,6 +244,7 @@ Introduce links consistently using a standard format that clearly indicates wher
 For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
 For links to another section in the same article: `For more information, see "[Header text]()."`
 For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
+For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
 For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
 Do not include quotation marks within a hyperlink.
 
@@ -282,6 +283,12 @@ To link to a specific header in the same article, use this format:
 
 To link to a specific header in a different article, use this format:
 > For more information, see "[ARTICLE TITLE](path-to-article#HEADER-TITLE)."
+
+### Links to a specific tool
+
+When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
+
+> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).
 
 ### Links to learning paths
 

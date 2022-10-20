@@ -1279,7 +1279,7 @@
       "href": "/graphql/reference/mutations#addprojectdraftissue",
       "description": "<p>Creates a new draft issue and add it to a Project.</p>",
       "isDeprecated": true,
-      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>",
+      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -1306,7 +1306,7 @@
           "href": "/graphql/reference/objects#projectnextitem",
           "description": "<p>The draft issue added to the project.</p>",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -1317,7 +1317,7 @@
       "href": "/graphql/reference/mutations#addprojectnextitem",
       "description": "<p>Adds an existing item (Issue or PullRequest) to a Project.</p>",
       "isDeprecated": true,
-      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>",
+      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -1344,7 +1344,7 @@
           "href": "/graphql/reference/objects#projectnextitem",
           "description": "<p>The item added to the project.</p>",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -2651,6 +2651,40 @@
       ]
     },
     {
+      "name": "createLinkedBranch",
+      "kind": "mutations",
+      "id": "createlinkedbranch",
+      "href": "/graphql/reference/mutations#createlinkedbranch",
+      "description": "<p>Create a branch linked to an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateLinkedBranchInput!",
+          "id": "createlinkedbranchinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createlinkedbranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "linkedBranch",
+          "type": "LinkedBranch",
+          "id": "linkedbranch",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranch",
+          "description": "<p>The new branch issue reference.</p>"
+        }
+      ]
+    },
+    {
       "name": "createMigrationSource",
       "kind": "mutations",
       "id": "createmigrationsource",
@@ -3307,6 +3341,40 @@
       ]
     },
     {
+      "name": "deleteLinkedBranch",
+      "kind": "mutations",
+      "id": "deletelinkedbranch",
+      "href": "/graphql/reference/mutations#deletelinkedbranch",
+      "description": "<p>Unlink a branch from an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteLinkedBranchInput!",
+          "id": "deletelinkedbranchinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deletelinkedbranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue the linked branch was unlinked from.</p>"
+        }
+      ]
+    },
+    {
       "name": "deletePackageVersion",
       "kind": "mutations",
       "id": "deletepackageversion",
@@ -3479,7 +3547,7 @@
       "href": "/graphql/reference/mutations#deleteprojectnextitem",
       "description": "<p>Deletes an item from a Project.</p>",
       "isDeprecated": true,
-      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>",
+      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -3506,7 +3574,7 @@
           "href": "/graphql/reference/scalars#id",
           "description": "<p>The ID of the deleted item.</p>",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -7221,7 +7289,7 @@
       "href": "/graphql/reference/mutations#updateprojectdraftissue",
       "description": "<p>Updates a draft issue within a Project.</p>",
       "isDeprecated": true,
-      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>",
+      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -7257,7 +7325,7 @@
       "href": "/graphql/reference/mutations#updateprojectnext",
       "description": "<p>Updates an existing project (beta).</p>",
       "isDeprecated": true,
-      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>",
+      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -7284,7 +7352,7 @@
           "href": "/graphql/reference/objects#projectnext",
           "description": "<p>The updated Project.</p>",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -7295,7 +7363,7 @@
       "href": "/graphql/reference/mutations#updateprojectnextitemfield",
       "description": "<p>Updates a field of an item from a Project.</p>",
       "isDeprecated": true,
-      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>",
+      "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -7322,7 +7390,7 @@
           "href": "/graphql/reference/objects#projectnextitem",
           "description": "<p>The updated item.</p>",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -13119,6 +13187,161 @@
       ]
     },
     {
+      "name": "Comparison",
+      "kind": "objects",
+      "id": "comparison",
+      "href": "/graphql/reference/objects#comparison",
+      "description": "<p>Represents a comparison between two commit revisions.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "aheadBy",
+          "description": "<p>The number of commits ahead of the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "baseTarget",
+          "description": "<p>The base revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#gitobject"
+        },
+        {
+          "name": "behindBy",
+          "description": "<p>The number of commits behind the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "commits",
+          "description": "<p>The commits which compose this comparison.</p>",
+          "type": "ComparisonCommitConnection!",
+          "id": "comparisoncommitconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#comparisoncommitconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "headTarget",
+          "description": "<p>The head revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#gitobject"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of this comparison.</p>",
+          "type": "ComparisonStatus!",
+          "id": "comparisonstatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#comparisonstatus"
+        }
+      ]
+    },
+    {
+      "name": "ComparisonCommitConnection",
+      "kind": "objects",
+      "id": "comparisoncommitconnection",
+      "href": "/graphql/reference/objects#comparisoncommitconnection",
+      "description": "<p>The connection type for Commit.</p>",
+      "fields": [
+        {
+          "name": "authorCount",
+          "description": "<p>The total count of authors and co-authors across all commits.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CommitEdge]",
+          "id": "commitedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commitedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Commit]",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "ConnectedEvent",
       "kind": "objects",
       "id": "connectedevent",
@@ -15269,7 +15492,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15349,7 +15572,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15411,7 +15634,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15457,7 +15680,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15592,7 +15815,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15654,7 +15877,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -25152,6 +25375,56 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "linkedBranches",
+          "description": "<p>Branches linked to this issue.</p>",
+          "type": "LinkedBranchConnection!",
+          "id": "linkedbranchconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranchconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "locked",
           "description": "<p><code>true</code> if the object is locked.</p>",
           "type": "Boolean!",
@@ -25366,7 +25639,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectNextItems",
@@ -25520,7 +25793,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectsV2",
@@ -27601,6 +27874,96 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "LinkedBranch",
+      "kind": "objects",
+      "id": "linkedbranch",
+      "href": "/graphql/reference/objects#linkedbranch",
+      "description": "<p>A branch linked to an issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "ref",
+          "description": "<p>The branch's ref.</p>",
+          "type": "Ref",
+          "id": "ref",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#ref"
+        }
+      ]
+    },
+    {
+      "name": "LinkedBranchConnection",
+      "kind": "objects",
+      "id": "linkedbranchconnection",
+      "href": "/graphql/reference/objects#linkedbranchconnection",
+      "description": "<p>The connection type for LinkedBranch.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[LinkedBranchEdge]",
+          "id": "linkedbranchedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranchedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[LinkedBranch]",
+          "id": "linkedbranch",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranch"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "LinkedBranchEdge",
+      "kind": "objects",
+      "id": "linkedbranchedge",
+      "href": "/graphql/reference/objects#linkedbranchedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "LinkedBranch",
+          "id": "linkedbranch",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranch"
         }
       ]
     },
@@ -35943,7 +36306,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectV2",
@@ -36116,7 +36479,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectsResourcePath",
@@ -40455,7 +40818,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "closedAt",
@@ -40473,7 +40836,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "creator",
@@ -40483,7 +40846,7 @@
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "databaseId",
@@ -40493,7 +40856,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "description",
@@ -40503,7 +40866,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "fields",
@@ -40555,7 +40918,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "items",
@@ -40607,7 +40970,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "number",
@@ -40617,7 +40980,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "owner",
@@ -40627,7 +40990,7 @@
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#projectnextowner",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "public",
@@ -40637,7 +41000,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "repositories",
@@ -40689,7 +41052,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "resourcePath",
@@ -40699,7 +41062,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "shortDescription",
@@ -40709,7 +41072,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "title",
@@ -40719,7 +41082,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -40729,7 +41092,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "url",
@@ -40739,7 +41102,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "viewerCanUpdate",
@@ -40799,7 +41162,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -40896,7 +41259,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "dataType",
@@ -40906,7 +41269,7 @@
           "kind": "enums",
           "href": "/graphql/reference/enums#projectnextfieldtype",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "databaseId",
@@ -40916,7 +41279,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "name",
@@ -40926,7 +41289,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "project",
@@ -40936,7 +41299,7 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectnext",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "settings",
@@ -40946,7 +41309,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -40956,7 +41319,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -41048,7 +41411,7 @@
           "kind": "unions",
           "href": "/graphql/reference/unions#projectnextitemcontent",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "createdAt",
@@ -41058,7 +41421,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "creator",
@@ -41068,7 +41431,7 @@
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "databaseId",
@@ -41078,7 +41441,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "fieldValues",
@@ -41130,7 +41493,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "isArchived",
@@ -41140,7 +41503,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "project",
@@ -41150,7 +41513,7 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectnext",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "title",
@@ -41160,7 +41523,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "type",
@@ -41170,7 +41533,7 @@
           "kind": "enums",
           "href": "/graphql/reference/enums#projectitemtype",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -41180,7 +41543,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -41272,7 +41635,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "creator",
@@ -41282,7 +41645,7 @@
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "databaseId",
@@ -41292,7 +41655,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectField",
@@ -41302,7 +41665,7 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectnextfield",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectItem",
@@ -41312,7 +41675,7 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectnextitem",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -41322,7 +41685,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "value",
@@ -41332,7 +41695,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -41802,6 +42165,26 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "view",
+          "description": "<p>A view of the project.</p>",
+          "type": "ProjectV2View",
+          "id": "projectv2view",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2view",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The number of a view belonging to the project.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "viewerCanUpdate",
@@ -43562,6 +43945,97 @@
       ]
     },
     {
+      "name": "ProjectV2SortByField",
+      "kind": "objects",
+      "id": "projectv2sortbyfield",
+      "href": "/graphql/reference/objects#projectv2sortbyfield",
+      "description": "<p>Represents a sort by field and direction.</p>",
+      "fields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction of the sorting. Possible values are ASC and DESC.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which items are sorted.</p>",
+          "type": "ProjectV2FieldConfiguration!",
+          "id": "projectv2fieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2fieldconfiguration"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2SortByFieldConnection",
+      "kind": "objects",
+      "id": "projectv2sortbyfieldconnection",
+      "href": "/graphql/reference/objects#projectv2sortbyfieldconnection",
+      "description": "<p>The connection type for ProjectV2SortByField.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectV2SortByFieldEdge]",
+          "id": "projectv2sortbyfieldedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2sortbyfieldedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectV2SortByField]",
+          "id": "projectv2sortbyfield",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2sortbyfield"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2SortByFieldEdge",
+      "kind": "objects",
+      "id": "projectv2sortbyfieldedge",
+      "href": "/graphql/reference/objects#projectv2sortbyfieldedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectV2SortByField",
+          "id": "projectv2sortbyfield",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2sortbyfield"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2View",
       "kind": "objects",
       "id": "projectv2view",
@@ -43717,6 +44191,68 @@
                 "href": "/graphql/reference/input-objects#projectv2fieldorder"
               }
             }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectV2View#order_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#group_by_field</code> API. Check out the <code>ProjectV2View#group_by_fields</code> API as an example for the more capable alternative. Removal on 2023-04-01 UTC.</p>"
+        },
+        {
+          "name": "groupByFields",
+          "description": "<p>The view's group-by field.</p>",
+          "type": "ProjectV2FieldConfigurationConnection",
+          "id": "projectv2fieldconfigurationconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2fieldconfigurationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2FieldOrder",
+                "id": "projectv2fieldorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2fieldorder"
+              }
+            }
           ]
         },
         {
@@ -43799,6 +44335,58 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectV2View#sort_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#sort_by_fields</code> API. Check out the <code>ProjectV2View#sort_by_fields</code> API as an example for the more capable alternative. Removal on 2023-04-01 UTC.</p>"
+        },
+        {
+          "name": "sortByFields",
+          "description": "<p>The view's sort-by config.</p>",
+          "type": "ProjectV2SortByFieldConnection",
+          "id": "projectv2sortbyfieldconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2sortbyfieldconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
           ]
         },
         {
@@ -43816,6 +44404,68 @@
           "id": "projectv2fieldconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#projectv2fieldconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2FieldOrder",
+                "id": "projectv2fieldorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2fieldorder"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectV2View#vertical_group_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#vertical_group_by_fields</code> API. Check out the <code>ProjectV2View#vertical_group_by_fields</code> API as an example for the more capable alternative. Removal on 2023-04-01 UTC.</p>"
+        },
+        {
+          "name": "verticalGroupByFields",
+          "description": "<p>The view's vertical-group-by field.</p>",
+          "type": "ProjectV2FieldConfigurationConnection",
+          "id": "projectv2fieldconfigurationconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2fieldconfigurationconnection",
           "arguments": [
             {
               "name": "after",
@@ -44021,7 +44671,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "databaseId",
@@ -44031,7 +44681,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "filter",
@@ -44041,7 +44691,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "groupBy",
@@ -44051,7 +44701,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "layout",
@@ -44061,7 +44711,7 @@
           "kind": "enums",
           "href": "/graphql/reference/enums#projectviewlayout",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "name",
@@ -44071,7 +44721,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "number",
@@ -44081,7 +44731,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "project",
@@ -44091,7 +44741,7 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectnext",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "sortBy",
@@ -44101,7 +44751,7 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#sortby",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -44111,7 +44761,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "verticalGroupBy",
@@ -44121,7 +44771,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "visibleFields",
@@ -44131,7 +44781,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -45464,7 +46114,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectNextItems",
@@ -45527,7 +46177,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectV2",
@@ -45620,7 +46270,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectsV2",
@@ -49506,6 +50156,26 @@
           "id": "branchprotectionrule",
           "kind": "objects",
           "href": "/graphql/reference/objects#branchprotectionrule"
+        },
+        {
+          "name": "compare",
+          "description": "<p>Compares the current ref as a base ref to another head ref, if the comparison can be made.</p>",
+          "type": "Comparison",
+          "id": "comparison",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#comparison",
+          "arguments": [
+            {
+              "name": "headRef",
+              "description": "<p>The head ref to compare against.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -54970,7 +55640,7 @@
               "DependencyGraphPackageRelease.dependencies"
             ],
             "owning_teams": [
-              "@github/dsp-dependency-graph"
+              "@github/dependency-graph"
             ],
             "accept_header": "application/vnd.github.hawkgirl-preview+json",
             "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -56433,7 +57103,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectV2",
@@ -56606,7 +57276,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectsResourcePath",
@@ -58041,6 +58711,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "failureReason",
@@ -60714,6 +61392,22 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "dashboardResourcePath",
+          "description": "<p>The HTTP path for the Sponsors dashboard for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "dashboardUrl",
+          "description": "<p>The HTTP URL for the Sponsors dashboard for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
           "name": "fullDescription",
           "description": "<p>The full description of the listing.</p>",
           "type": "String!",
@@ -60752,6 +61446,14 @@
           "id": "date",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
         },
         {
           "name": "shortDescription",
@@ -60836,6 +61538,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
         }
       ]
     },
@@ -66034,6 +66744,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "language",
+          "description": "<p>The programming language this file is written in.</p>",
+          "type": "Language",
+          "id": "language",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#language"
+        },
+        {
           "name": "lineCount",
           "description": "<p>Number of lines in the file.</p>",
           "type": "Int",
@@ -67671,7 +68389,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectV2",
@@ -67844,7 +68562,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectsResourcePath",
@@ -71215,6 +71933,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "failureReason",
           "description": "<p>The reason the migration failed.</p>",
           "type": "String",
@@ -71715,7 +72441,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "dataType",
@@ -71725,7 +72451,7 @@
           "kind": "enums",
           "href": "/graphql/reference/enums#projectnextfieldtype",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "databaseId",
@@ -71735,7 +72461,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "name",
@@ -71745,7 +72471,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "project",
@@ -71755,7 +72481,7 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectnext",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "settings",
@@ -71765,7 +72491,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -71775,7 +72501,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -71806,7 +72532,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
           "name": "projectsNext",
@@ -71879,7 +72605,7 @@
             }
           ],
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -74206,6 +74932,31 @@
       ]
     },
     {
+      "name": "ComparisonStatus",
+      "kind": "enums",
+      "id": "comparisonstatus",
+      "href": "/graphql/reference/enums#comparisonstatus",
+      "description": "<p>The status of a git comparison between two refs.</p>",
+      "values": [
+        {
+          "name": "AHEAD",
+          "description": "<p>The head ref is ahead of the base ref.</p>"
+        },
+        {
+          "name": "BEHIND",
+          "description": "<p>The head ref is behind the base ref.</p>"
+        },
+        {
+          "name": "DIVERGED",
+          "description": "<p>The head ref is both ahead and behind of the base ref, indicating git history has diverged.</p>"
+        },
+        {
+          "name": "IDENTICAL",
+          "description": "<p>The head ref and base ref are identical.</p>"
+        }
+      ]
+    },
+    {
       "name": "ContributionLevel",
       "kind": "enums",
       "id": "contributionlevel",
@@ -74293,6 +75044,10 @@
         {
           "name": "PIP",
           "description": "<p>Python packages hosted at PyPI.org.</p>"
+        },
+        {
+          "name": "PUB",
+          "description": "<p>Dart packages hosted at pub.dev.</p>"
         },
         {
           "name": "RUBYGEMS",
@@ -77905,6 +78660,10 @@
           "description": "<p>Python packages hosted at PyPI.org.</p>"
         },
         {
+          "name": "PUB",
+          "description": "<p>Dart packages hosted at pub.dev.</p>"
+        },
+        {
           "name": "RUBYGEMS",
           "description": "<p>Ruby gems hosted at RubyGems.org.</p>"
         },
@@ -80747,7 +81506,7 @@
       "inputFields": [
         {
           "name": "assigneeIds",
-          "description": "<p>The IDs of the assignees of the draft issue.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>assigneeIds</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The IDs of the assignees of the draft issue.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>assigneeIds</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -80756,7 +81515,7 @@
         },
         {
           "name": "body",
-          "description": "<p>The body of the draft issue.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>body</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The body of the draft issue.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>body</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -80772,7 +81531,7 @@
         },
         {
           "name": "projectId",
-          "description": "<p>The ID of the Project to add the draft issue to. This field is required.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The ID of the Project to add the draft issue to. This field is required.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -80781,7 +81540,7 @@
         },
         {
           "name": "title",
-          "description": "<p>The title of the draft issue. This field is required.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>title</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The title of the draft issue. This field is required.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>title</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -80806,7 +81565,7 @@
         },
         {
           "name": "contentId",
-          "description": "<p>The content id of the item (Issue or PullRequest). This field is required.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>contentId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The content id of the item (Issue or PullRequest). This field is required.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>contentId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -80815,7 +81574,7 @@
         },
         {
           "name": "projectId",
-          "description": "<p>The ID of the Project to add the item to. This field is required.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The ID of the Project to add the item to. This field is required.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -83221,6 +83980,57 @@
       ]
     },
     {
+      "name": "CreateLinkedBranchInput",
+      "kind": "inputObjects",
+      "id": "createlinkedbranchinput",
+      "href": "/graphql/reference/input-objects#createlinkedbranchinput",
+      "description": "<p>Autogenerated input type of CreateLinkedBranch.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>ID of the issue to link to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the new branch. Defaults to issue number and title.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The commit SHA to base the new branch on.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#gitobjectid"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>ID of the repository to create the branch in. Defaults to the issue repository.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CreateMigrationSourceInput",
       "kind": "inputObjects",
       "id": "createmigrationsourceinput",
@@ -84154,6 +84964,32 @@
       ]
     },
     {
+      "name": "DeleteLinkedBranchInput",
+      "kind": "inputObjects",
+      "id": "deletelinkedbranchinput",
+      "href": "/graphql/reference/input-objects#deletelinkedbranchinput",
+      "description": "<p>Autogenerated input type of DeleteLinkedBranch.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "linkedBranchId",
+          "description": "<p>The ID of the linked branch.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DeletePackageVersionInput",
       "kind": "inputObjects",
       "id": "deletepackageversioninput",
@@ -84274,7 +85110,7 @@
         },
         {
           "name": "itemId",
-          "description": "<p>The ID of the item to be removed. This field is required.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>itemId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The ID of the item to be removed. This field is required.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>itemId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -84283,7 +85119,7 @@
         },
         {
           "name": "projectId",
-          "description": "<p>The ID of the Project from which the item should be removed. This field is required.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The ID of the Project from which the item should be removed. This field is required.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -84767,7 +85603,7 @@
         },
         {
           "name": "commitBody",
-          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit message is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -84775,7 +85611,7 @@
         },
         {
           "name": "commitHeadline",
-          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit headline is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -84783,7 +85619,7 @@
         },
         {
           "name": "mergeMethod",
-          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>.</p>",
+          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>. NOTE: when merging\nwith a merge queue any input value for merge method is ignored.</p>",
           "type": "PullRequestMergeMethod",
           "id": "pullrequestmergemethod",
           "kind": "enums",
@@ -90069,7 +90905,7 @@
         },
         {
           "name": "closed",
-          "description": "<p>Set the project to closed or open.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>closed</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>Set the project to closed or open.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>closed</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -90077,7 +90913,7 @@
         },
         {
           "name": "description",
-          "description": "<p>Set the readme description of the project.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>description</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>Set the readme description of the project.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>description</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -90085,7 +90921,7 @@
         },
         {
           "name": "projectId",
-          "description": "<p>The ID of the Project to update. This field is required.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The ID of the Project to update. This field is required.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -90094,7 +90930,7 @@
         },
         {
           "name": "public",
-          "description": "<p>Set the project to public or private.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>public</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>Set the project to public or private.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>public</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -90102,7 +90938,7 @@
         },
         {
           "name": "shortDescription",
-          "description": "<p>Set the short description of the project.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>shortDescription</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>Set the short description of the project.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>shortDescription</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -90110,7 +90946,7 @@
         },
         {
           "name": "title",
-          "description": "<p>Set the title of the project.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>title</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>Set the title of the project.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>title</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -90135,7 +90971,7 @@
         },
         {
           "name": "fieldId",
-          "description": "<p>The id of the field to be updated.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>fieldId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The id of the field to be updated.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>fieldId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -90144,7 +90980,7 @@
         },
         {
           "name": "itemId",
-          "description": "<p>The id of the item to be updated. This field is required.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>itemId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The id of the item to be updated. This field is required.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>itemId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -90162,7 +90998,7 @@
         },
         {
           "name": "value",
-          "description": "<p>The value which will be set on the field. This field is required.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>value</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "description": "<p>The value which will be set on the field. This field is required.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>value</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",

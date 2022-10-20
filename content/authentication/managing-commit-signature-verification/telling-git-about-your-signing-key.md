@@ -20,7 +20,7 @@ shortTitle: Tell Git your signing key
 
 ## Telling Git about your GPG key
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
@@ -31,6 +31,7 @@ If you don't have a GPG key that matches your committer identity, you need to as
 If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.configure-gpg-signing %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
@@ -57,7 +58,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 ## Telling Git about your GPG key
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
@@ -68,6 +69,7 @@ If you don't have a GPG key that matches your committer identity, you need to as
 If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.configure-gpg-signing %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
@@ -78,7 +80,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 ## Telling Git about your GPG key
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
@@ -89,6 +91,7 @@ If you don't have a GPG key that matches your committer identity, you need to as
 If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.configure-gpg-signing %}
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}

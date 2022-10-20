@@ -53,18 +53,18 @@ admin@github-example-com:~$ █
 
 ### Troubleshooting SSH connection problems
 
-If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
+If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.location.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
 
 To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
 
 ```shell
-ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
+ssh -i /path/to/ghe_private_key -p 122 admin@HOSTNAME
 ```
 
 You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
-Host <em>hostname</em>
+Host HOSTNAME
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122

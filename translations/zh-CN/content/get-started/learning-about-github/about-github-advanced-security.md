@@ -31,7 +31,7 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 - **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
 {% ifversion ghes < 3.7 or ghae %}
-<!-- Ref: ghae-issue-7114 remove GHAE versioning from this section when the `security-overview-displayed-alerts` flag is toggled for GHAE -->
+<!-- Ref: ghae > 3.6 remove GHAE versioning from this section when the `security-overview-displayed-alerts` flag is toggled for GHAE -->
 - **Security overview** - Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 
@@ -62,7 +62,7 @@ To learn about what you need to know to plan your {% data variables.product.prod
 ## Enabling {% data variables.product.prodname_advanced_security %} features
 
 {%- ifversion ghes %}
-The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.product.product_location %} before you can use these features. For more information, see "[Configuring Advanced Security features](/admin/configuration/configuring-advanced-security-features).
+The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.location.product_location %} before you can use these features. For more information, see "[Configuring Advanced Security features](/admin/configuration/configuring-advanced-security-features).
 
 Once your system is set up, you can enable and disable these features at the organization or repository level.
 

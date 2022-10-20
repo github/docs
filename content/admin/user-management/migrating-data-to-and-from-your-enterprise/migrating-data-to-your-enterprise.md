@@ -30,10 +30,10 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 
 2. Using the `ghe-migrator import` command, start the import process. You'll need:
     * Your Migration GUID. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
-    * Your personal access token for authentication. The personal access token that you use is only for authentication as a site administrator, and does not require any specific scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+    * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
     ```shell
-    $ ghe-migrator import /home/admin/<em>MIGRATION_GUID</em>.tar.gz -g <em>MIGRATION_GUID</em> -u <em>username</em> -p <em>TOKEN</em>
+    $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN
 
     > Starting GitHub::Migrator
     > Import 100% complete /
@@ -95,19 +95,19 @@ The record types match those found in the [migrated data](/enterprise/admin/guid
 With the `ghe-migrator audit` command, you can filter based on the record type using the `-m` flag. Similarly, you can filter on the import state using the `-s` flag. The command looks like this:
 
 ```shell
-$ ghe-migrator audit -m <em>RECORD_TYPE</em> -s <em>STATE</em> -g <em>MIGRATION_GUID</em>
+$ ghe-migrator audit -m RECORD_TYPE -s STATE -g MIGRATION-GUID
 ```
 
 For example, to view every successfully imported organization and team, you would enter:
 ```shell
-$ ghe-migrator audit -m organization,team -s mapped,renamed -g <em>MIGRATION_GUID</em>
+$ ghe-migrator audit -m organization,team -s mapped,renamed -g MIGRATION-GUID
 > model_name,source_url,target_url,state
 > organization,https://gh.source/octo-org/,https://ghe.target/octo-org/,renamed
 ```
 
 **We strongly recommend auditing every import that failed.** To do that, you will enter:
 ```shell
-$ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <em>MIGRATION_GUID</em>
+$ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g MIGRATION-GUID
 > model_name,source_url,target_url,state
 > user,https://gh.source/octocat,https://gh.target/octocat,failed
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
@@ -132,18 +132,19 @@ To unlock the repositories on a {% data variables.product.prodname_dotcom_the_we
   * Your access token for authentication
   * The unique `id` of the migration
   * The name of the repository to unlock
+
 ```shell
-curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
   -H "Accept: application/vnd.github.wyandotte-preview+json" \
-  https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
+  https://api.github.com/orgs/ORG-NAME/migrations/ID/repos/REPO_NAME/lock
 ```
 
 ### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
 After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos/#delete-a-repository). You'll need your access token for authentication:
 ```shell
-curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
-  https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
+curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
+  https://api.github.com/repos/ORG-NAME/REPO_NAME
 ```
 
 ### Unlocking repositories from a {% data variables.product.prodname_ghe_server %} instance

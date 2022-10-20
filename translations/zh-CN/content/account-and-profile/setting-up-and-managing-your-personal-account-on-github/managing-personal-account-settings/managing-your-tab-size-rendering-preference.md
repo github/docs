@@ -3,7 +3,7 @@ title: 管理选项卡大小呈现首选项
 intro: 可以管理选项卡占个人帐户的空间数。
 versions:
   fpt: '*'
-  ghae: issue-5083
+  ghae: '>= 3.4'
   ghes: '>=3.4'
   ghec: '*'
 topics:

@@ -37,12 +37,12 @@ shortTitle: Monitor & troubleshoot
 
 ### Checking self-hosted runner network connectivity
 
-You can use the self-hosted runner application's `run` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.product.product_location %}.
+You can use the self-hosted runner application's `run` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.location.product_location %}.
 
 In addition to `--check`, you must provide two arguments to the script:
 
 * `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
-* `--pat` with the value of a personal access token, which must have the `workflow` scope. For example, `--pat ghp_abcd1234`. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope{% ifversion pat-v2%}, or a {% data variables.product.pat_v2 %} with workflows read and write access {% endif %}. For example, `--pat ghp_abcd1234`. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 For example:
 
@@ -59,7 +59,7 @@ For example:
 {% windows %}
 
 ```shell
-run.cmd --check --url <em>https://github.com/octo-org/octo-repo</em> --pat <em>ghp_abcd1234</em>
+run.cmd --check --url https://github.com/YOUR-ORG/YOUR-REPO --pat GHP_ABCD1234
 ```
 
 {% endwindows %}
@@ -79,7 +79,7 @@ To disable TLS certification verification in the self-hosted runner application,
 
 ```shell
 export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
-./config.sh --url <em>https://github.com/octo-org/octo-repo</em> --token
+./config.sh --url https://github.com/YOUR-ORG/YOUR-REPO --token
 ./run.sh
 ```
 
@@ -260,7 +260,7 @@ User=runner-user
 {% endlinux %}
 
 {% ifversion ghes %}
-## Resolving runners that are offline after an upgrade of {% data variables.product.product_location %}
+## Resolving runners that are offline after an upgrade of {% data variables.location.product_location %}
 
 {% data reusables.actions.upgrade-runners-before-upgrade-ghes %} 
 

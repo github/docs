@@ -43,7 +43,7 @@ In the security overview, you can view, sort, and filter alerts to understand th
 
 {% ifversion security-overview-views %}
 
-In the security overview, there are dedicated views for each type of security alert, such as Dependabot, code scanning, and secret scanning alerts. You can use these views to limit your analysis to a specific set of alerts, and narrow the results further with a range of filters specific to each view. For example, in the secret scanning alert view, you can use the `Secret type` filter to view only secret scanning alerts for a specific secret, like a GitHub Personal Access Token. At the repository level, you can use the security overview to assess the specific repository's current security status, and configure any additional security features not yet in use on the repository.
+In the security overview, there are dedicated views for each type of security alert, such as Dependabot, code scanning, and secret scanning alerts. You can use these views to limit your analysis to a specific set of alerts, and narrow the results further with a range of filters specific to each view. For example, in the secret scanning alert view, you can use the `Secret type` filter to view only secret scanning alerts for a specific secret, like a GitHub {% data variables.product.pat_generic %}. At the repository level, you can use the security overview to assess the specific repository's current security status, and configure any additional security features not yet in use on the repository.
 
 {% endif %}
 
@@ -67,7 +67,7 @@ The security overview displays active alerts raised by security features. If the
 
 At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization. You can filter information by security features at the organization-level.
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
+{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
 ### About the enterprise-level security overview
 At the enterprise-level, the security overview displays aggregate and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
 

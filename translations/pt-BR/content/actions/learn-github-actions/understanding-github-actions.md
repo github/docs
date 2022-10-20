@@ -1,6 +1,6 @@
 ---
 title: Understanding GitHub Actions
-shortTitle: Understanding GitHub Actions
+shortTitle: Understand GitHub Actions
 intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -33,7 +33,7 @@ topics:
 
 {% elsif ghes or ghae %}
 
-You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.location.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
 
 {% endif %}
 
@@ -53,7 +53,7 @@ You can configure a {% data variables.product.prodname_actions %} _workflow_ to 
 
 {% data reusables.actions.about-workflows-long %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
 
 For more information about workflows, see "[Using workflows](/actions/using-workflows)."
 
@@ -87,15 +87,9 @@ For more information, see "[Creating actions](/actions/creating-actions)."
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-## More complex examples
-{% data reusables.actions.link-to-example-library %}
-
 ## Next steps
 
-- To continue learning about {% data variables.product.prodname_actions %}, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
-{% ifversion fpt or ghec or ghes %}
-- To understand how billing works for {% data variables.product.prodname_actions %}, see "[About billing for {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)."
-{% endif %}
+{% data reusables.actions.onboarding-next-steps %}
 
 ## Contacting support
 

@@ -9,6 +9,8 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+
 ### Object attributes
 
 | Name                             | Type      | Description                                               |

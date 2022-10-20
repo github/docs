@@ -1,6 +1,6 @@
 ---
-title: GitHub Packagesの権限について
-intro: パッケージの権限の管理方法を学んでください。
+title: About permissions for GitHub Packages
+intro: Learn about how to manage permissions for your packages.
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
@@ -8,83 +8,82 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: About permissions
-ms.openlocfilehash: 1663fa3bfc8fd6149e43fd9cf09a8362739c7341
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147704940'
 ---
-{% ifversion fpt or ghec %} パッケージの権限は、リポジトリ スコープかユーザー/組織スコープです。
-{% endif %}
-
-## リポジトリスコープのパッケージの権限
-
-リポジトリスコープのパッケージは、パッケージを所有するリポジトリの権限と可視性を継承します。 リポジトリをスコープとするパッケージは、リポジトリのメインページにアクセスし、ページ右にある **パッケージ** リンクをクリックすれば見つかります。 {% ifversion fpt or ghec %}詳細については、「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。{% endif %}
-
-以下の {% data variables.product.prodname_registry %} レジストリでは、リポジトリ スコープのアクセス許可 **のみ** を使います。
-
-  {% ifversion not fpt or ghec %}- Docker レジストリ (`docker.pkg.github.com`){% endif %} {% ifversion packages-npm-v2 %}{% else %}- npm レジストリ{% endif %}
-  - RubyGemsレジストリ
-  - Apache Mavenレジストリ
-  - NuGetレジストリ
-
-{% ifversion packages-npm-v2 %}{% data variables.product.prodname_ghcr_and_npm_registry %}の場合、パッケージのスコープをユーザー、組織に設定、またはリポジトリにリンクすることを許可できます。{% endif %}
 
 {% ifversion fpt or ghec %}
-## ユーザ/Organizationスコープのパッケージの詳細な権限
+The permissions for packages are either repository-scoped or user/organization-scoped.
+{% endif %}
 
-詳細な権限を持つパッケージは、個人ユーザもしくはOrganizationアカウントをスコープとします。 パッケージのアクセス制御と可視性は、パッケージに接続された（あるいはリンクされた）リポジトリは別個に変更できます。
+## Permissions for repository-scoped packages
 
-現在のところ、{% data variables.product.prodname_ghcr_and_npm_registry %}でコンテナ イメージ パッケージに関する細かいアクセス許可を提供しています。
+A repository-scoped package inherits the permissions and visibility of the repository that owns the package. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page. {% ifversion fpt or ghec %}For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."{% endif %}
 
-## コンテナイメージの可視性とアクセス権限
+The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
+
+  {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
+  {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
+  - RubyGems registry
+  - Apache Maven registry
+  - NuGet registry
+
+{% ifversion packages-npm-v2 %}For {% data variables.packages.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
+
+{% ifversion fpt or ghec %}
+## Granular permissions for user/organization-scoped packages
+
+Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of the package separately from a repository that is connected (or linked) to a package.
+
+Currently, the {% data variables.packages.prodname_ghcr_and_npm_registry %} offer granular permissions for your container image packages.
+
+## Visibility and access permissions for container images
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
-詳細については、「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」を参照してください。
+For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
 
 {% endif %}
 
-## パッケージの管理
+## About scopes and permissions for package registries
 
-パッケージ レジストリでホストされているパッケージを使用もしくは管理するためには、適切なスコープを持つトークンを使わなければならず、個人用アカウントが適切な権限を持っていなければなりません。
+{% data reusables.package_registry.packages-classic-pat-only %}
 
-次に例を示します。
--  リポジトリからパッケージをダウンロードしてインストールするには、トークンに `read:packages` スコープが設定されていなければならず、ユーザー アカウントには読み取り権限が設定されていなければなりません。
-- {% ifversion fpt or ghes or ghec %}{% data variables.product.product_name %} 上のパッケージを削除するには、ご利用のトークンに少なくとも `delete:packages` および `read:packages` スコープが設定されている必要があります。 リポジトリをスコープとするパッケージには、`repo` スコープも必要です。 詳細については、「[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。{% elsif ghae %}{% data variables.product.product_name %} で指定したバージョンのパッケージを削除するには、ご利用のトークンに `delete:packages` および `repo` スコープが設定されている必要があります。 詳細については、「[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。{% endif %}
+To use or manage a package hosted by a package registry, you must use a {% data variables.product.pat_v1 %} with the appropriate scope, and your personal account must have appropriate permissions.
 
-| Scope | 説明 | 必要な権限 |
+For example:
+-  To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
+- {% ifversion fpt or ghes or ghec %}To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must have the `delete:packages` and `repo` scope. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+
+| Scope | Description | Required permission |
 | --- | --- | --- |
-|`read:packages`| {% data variables.product.prodname_registry %}からのパッケージのダウンロードとインストール | 読み取り |
-|`write:packages`| {% data variables.product.prodname_registry %}へのパッケージのアップロードと公開 | 書き込み |
-| `delete:packages` | {% ifversion fpt or ghes or ghec %} {% data variables.product.prodname_registry %}からのパッケージの削除{% elsif ghae %}{% data variables.product.prodname_registry %}からの指定したバージョンのパッケージの削除{% endif %} | admin |
-| `repo` | パッケージをアップロードおよび削除する (`write:packages` または `delete:packages` と一緒に) | 書き込みもしくは読み取り |
+|`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
+|`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
+| `delete:packages` | {% ifversion fpt or ghes or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
+| `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write or admin |
 
-{% data variables.product.prodname_actions %} ワークフローを作成する際には、`GITHUB_TOKEN` を使って {% data variables.product.prodname_registry %} にパッケージを公開してインストールでき、個人用アクセス トークンを保存して管理する必要はありません。
+When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a {% data variables.product.pat_generic %}.
 
-詳細については、以下を参照してください: {% ifversion fpt or ghec %}
-- "[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
-- "[{% data variables.product.prodname_actions %} を使用したパッケージの発行とインストール](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
-- 「[個人用アクセス トークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token/)」
-- "[利用できるスコープ](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)"
+For more information, see:{% ifversion fpt or ghec %}
+- "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
+- "[Publishing and installing a package with {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
+- "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token/)"
+- "[Available scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)"
 
-## {% data variables.product.prodname_actions %}ワークフローでのパッケージへのアクセスのメンテナンス
+## Maintaining access to packages in {% data variables.product.prodname_actions %} workflows
 
-ワークフローがパッケージへのアクセスを確実に維持するためには、確実にワークフローで正しいアクセストークンを使用し、パッケージへの{% data variables.product.prodname_actions %}アクセスを有効化してください。
+To ensure your workflows will maintain access to your packages, ensure that you're using the right access token in your workflow and that you've enabled {% data variables.product.prodname_actions %} access to your package.
 
-{% data variables.product.prodname_actions %} の概念的背景や、ワークフローでパッケージを使用する例については、「[GitHub Actions ワークフローを利用した GitHub Packages の管理](/packages/managing-github-packages-using-github-actions-workflows)」を参照してください。
+For more conceptual background on {% data variables.product.prodname_actions %} or examples of using packages in workflows, see "[Managing GitHub Packages using GitHub Actions workflows](/packages/managing-github-packages-using-github-actions-workflows)."
 
-### アクセス トークン  
+### Access tokens  
 
-- ワークフロー リポジトリに関連付けられているパッケージを発行するには、`GITHUB_TOKEN` を使用します。
-- `GITHUB_TOKEN`がアクセスできない他のプライベート リポジトリに関連するパッケージをインストールするには、個人用アクセス トークンを使用してください。
+- To publish packages associated with the workflow repository, use `GITHUB_TOKEN`.
+- To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a {% data variables.product.pat_v1 %}
 
-{% data variables.product.prodname_actions %} ワークフローで使用される `GITHUB_TOKEN` の詳細については、「[ワークフローで認証する](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)」を参照してください。
+For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
 
 {% ifversion fpt or ghec %}
-### コンテナイメージに対する{% data variables.product.prodname_actions %}アクセス
+### {% data variables.product.prodname_actions %} access for container images
 
-ワークフローがコンテナイメージに確実にアクセスできるようにするには、ワークフローが実行されるリポジトリへの{% data variables.product.prodname_actions %}アクセスを有効化しなければなりません。 この設定は、パッケージの設定ページにあります。 詳細については、「[パッケージへのワークフローのアクセスの確保](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)」を参照してください。
+To ensure your workflows have access to your container image, you must enable {% data variables.product.prodname_actions %} access to the repositories where your workflow is run. You can find this setting on your package's settings page. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
 
 {% endif %}

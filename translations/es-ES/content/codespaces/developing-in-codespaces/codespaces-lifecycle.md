@@ -1,6 +1,6 @@
 ---
 title: Codespaces lifecycle
-intro: 'You can develop in a {% data variables.product.prodname_codespaces %} environment and maintain your data throughout the entire codespace lifecycle.'
+intro: 'You can develop in a {% data variables.product.prodname_github_codespaces %} environment and maintain your data throughout the entire codespace lifecycle.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +17,7 @@ The lifecycle of a codespace begins when you create a codespace and ends when yo
 
 ## Creating a codespace
 
-When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your project each time you develop in {% data variables.product.prodname_codespaces %} or keep a long-running codespace for a feature. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your project each time you develop in {% data variables.product.prodname_github_codespaces %} or keep a long-running codespace for a feature. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
 
 {% data reusables.codespaces.max-number-codespaces %} Similarly, if you reach the maximum number of active codespaces and you try to start another, you are prompted to stop one of your active codespaces.
 
@@ -71,12 +71,12 @@ If you try to delete a codespace with unpushed git commits, your editor will not
 
 Codespaces that have been stopped and remain inactive for a specified period of time will be deleted automatically. By default, inactive codespaces are deleted after 30 days, but you can customize your codespace retention period. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
 
-You will be charged for the storage of all your codespaces. When you delete a codespace, you will no longer be charged.
+If you create a codespace, it will continue to accrue storage charges until it is deleted, irrespective of whether it is active or stopped. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)." Deleting a codespace does not reduce the current billable amount for {% data variables.product.prodname_github_codespaces %}, which accumulates during each monthly billing cycle. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 For more information on deleting a codespace, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
 
 ## Losing the connection while using Codespaces
 
-{% data variables.product.prodname_codespaces %} is a cloud-based development environment and requires an internet connection. If you lose connection to the internet while working in a codespace, you will not be able to access your codespace. However, any uncommitted changes will be saved. When you have access to an internet connection again, you can connect to your codespace in the exact same state that it was left in. If you have an unstable internet connection, you should commit and push your changes often.
+{% data variables.product.prodname_github_codespaces %} is a cloud-based development environment and requires an internet connection. If you lose connection to the internet while working in a codespace, you will not be able to access your codespace. However, any uncommitted changes will be saved. When you have access to an internet connection again, you can connect to your codespace in the exact same state that it was left in. If you have an unstable internet connection, you should commit and push your changes often.
 
-If you know that you will often be working offline, you can use your `devcontainer.json` file with the ["{% data variables.product.prodname_vscode %} Remote - Containers" extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to build and attach to a local development container for your repository. For more information, see [Developing inside a container](https://code.visualstudio.com/docs/remote/containers) in the {% data variables.product.prodname_vscode %} documentation.
+If you know that you will often be working offline, you can use your `devcontainer.json` file with the ["Dev Containers" extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for {% data variables.product.prodname_vscode_shortname %} to build and attach to a local development container for your repository. For more information, see [Developing inside a container](https://code.visualstudio.com/docs/remote/containers) in the {% data variables.product.prodname_vscode %} documentation.

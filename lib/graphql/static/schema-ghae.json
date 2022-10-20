@@ -1974,6 +1974,40 @@
       ]
     },
     {
+      "name": "createLinkedBranch",
+      "kind": "mutations",
+      "id": "createlinkedbranch",
+      "href": "/graphql/reference/mutations#createlinkedbranch",
+      "description": "<p>Create a branch linked to an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateLinkedBranchInput!",
+          "id": "createlinkedbranchinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createlinkedbranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "linkedBranch",
+          "type": "LinkedBranch",
+          "id": "linkedbranch",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranch",
+          "description": "<p>The new branch issue reference.</p>"
+        }
+      ]
+    },
+    {
       "name": "createMigrationSource",
       "kind": "mutations",
       "id": "createmigrationsource",
@@ -2490,6 +2524,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteLinkedBranch",
+      "kind": "mutations",
+      "id": "deletelinkedbranch",
+      "href": "/graphql/reference/mutations#deletelinkedbranch",
+      "description": "<p>Unlink a branch from an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteLinkedBranchInput!",
+          "id": "deletelinkedbranchinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deletelinkedbranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue the linked branch was unlinked from.</p>"
         }
       ]
     },
@@ -11377,6 +11445,161 @@
       "href": "/graphql/reference/objects#commithistoryconnection",
       "description": "<p>The connection type for Commit.</p>",
       "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CommitEdge]",
+          "id": "commitedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commitedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Commit]",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "Comparison",
+      "kind": "objects",
+      "id": "comparison",
+      "href": "/graphql/reference/objects#comparison",
+      "description": "<p>Represents a comparison between two commit revisions.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "aheadBy",
+          "description": "<p>The number of commits ahead of the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "baseTarget",
+          "description": "<p>The base revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#gitobject"
+        },
+        {
+          "name": "behindBy",
+          "description": "<p>The number of commits behind the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "commits",
+          "description": "<p>The commits which compose this comparison.</p>",
+          "type": "ComparisonCommitConnection!",
+          "id": "comparisoncommitconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#comparisoncommitconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "headTarget",
+          "description": "<p>The head revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#gitobject"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of this comparison.</p>",
+          "type": "ComparisonStatus!",
+          "id": "comparisonstatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#comparisonstatus"
+        }
+      ]
+    },
+    {
+      "name": "ComparisonCommitConnection",
+      "kind": "objects",
+      "id": "comparisoncommitconnection",
+      "href": "/graphql/reference/objects#comparisoncommitconnection",
+      "description": "<p>The connection type for Commit.</p>",
+      "fields": [
+        {
+          "name": "authorCount",
+          "description": "<p>The total count of authors and co-authors across all commits.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
         {
           "name": "edges",
           "description": "<p>A list of edges.</p>",
@@ -22178,6 +22401,56 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "linkedBranches",
+          "description": "<p>Branches linked to this issue.</p>",
+          "type": "LinkedBranchConnection!",
+          "id": "linkedbranchconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranchconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "locked",
           "description": "<p><code>true</code> if the object is locked.</p>",
           "type": "Boolean!",
@@ -24200,6 +24473,96 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "LinkedBranch",
+      "kind": "objects",
+      "id": "linkedbranch",
+      "href": "/graphql/reference/objects#linkedbranch",
+      "description": "<p>A branch linked to an issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "ref",
+          "description": "<p>The branch's ref.</p>",
+          "type": "Ref",
+          "id": "ref",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#ref"
+        }
+      ]
+    },
+    {
+      "name": "LinkedBranchConnection",
+      "kind": "objects",
+      "id": "linkedbranchconnection",
+      "href": "/graphql/reference/objects#linkedbranchconnection",
+      "description": "<p>The connection type for LinkedBranch.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[LinkedBranchEdge]",
+          "id": "linkedbranchedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranchedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[LinkedBranch]",
+          "id": "linkedbranch",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranch"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "LinkedBranchEdge",
+      "kind": "objects",
+      "id": "linkedbranchedge",
+      "href": "/graphql/reference/objects#linkedbranchedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "LinkedBranch",
+          "id": "linkedbranch",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#linkedbranch"
         }
       ]
     },
@@ -39772,6 +40135,26 @@
           "href": "/graphql/reference/objects#branchprotectionrule"
         },
         {
+          "name": "compare",
+          "description": "<p>Compares the current ref as a base ref to another head ref, if the comparison can be made.</p>",
+          "type": "Comparison",
+          "id": "comparison",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#comparison",
+          "arguments": [
+            {
+              "name": "headRef",
+              "description": "<p>The head ref to compare against.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "name",
           "description": "<p>The ref name.</p>",
           "type": "String!",
@@ -47830,6 +48213,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "failureReason",
           "description": "<p>The reason the migration failed.</p>",
           "type": "String",
@@ -54672,6 +55063,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "language",
+          "description": "<p>The programming language this file is written in.</p>",
+          "type": "Language",
+          "id": "language",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#language"
+        },
+        {
           "name": "lineCount",
           "description": "<p>Number of lines in the file.</p>",
           "type": "Int",
@@ -58815,6 +59214,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "failureReason",
           "description": "<p>The reason the migration failed.</p>",
           "type": "String",
@@ -60753,6 +61160,31 @@
         {
           "name": "OCCURRED_AT",
           "description": "<p>Order commit contributions by when they were made.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ComparisonStatus",
+      "kind": "enums",
+      "id": "comparisonstatus",
+      "href": "/graphql/reference/enums#comparisonstatus",
+      "description": "<p>The status of a git comparison between two refs.</p>",
+      "values": [
+        {
+          "name": "AHEAD",
+          "description": "<p>The head ref is ahead of the base ref.</p>"
+        },
+        {
+          "name": "BEHIND",
+          "description": "<p>The head ref is behind the base ref.</p>"
+        },
+        {
+          "name": "DIVERGED",
+          "description": "<p>The head ref is both ahead and behind of the base ref, indicating git history has diverged.</p>"
+        },
+        {
+          "name": "IDENTICAL",
+          "description": "<p>The head ref and base ref are identical.</p>"
         }
       ]
     },
@@ -63801,6 +64233,10 @@
         {
           "name": "PIP",
           "description": "<p>Python packages hosted at PyPI.org.</p>"
+        },
+        {
+          "name": "PUB",
+          "description": "<p>Dart packages hosted at pub.dev.</p>"
         },
         {
           "name": "RUBYGEMS",
@@ -68179,6 +68615,57 @@
       ]
     },
     {
+      "name": "CreateLinkedBranchInput",
+      "kind": "inputObjects",
+      "id": "createlinkedbranchinput",
+      "href": "/graphql/reference/input-objects#createlinkedbranchinput",
+      "description": "<p>Autogenerated input type of CreateLinkedBranch.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>ID of the issue to link to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the new branch. Defaults to issue number and title.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The commit SHA to base the new branch on.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#gitobjectid"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>ID of the repository to create the branch in. Defaults to the issue repository.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CreateMigrationSourceInput",
       "kind": "inputObjects",
       "id": "createmigrationsourceinput",
@@ -68845,6 +69332,32 @@
       ]
     },
     {
+      "name": "DeleteLinkedBranchInput",
+      "kind": "inputObjects",
+      "id": "deletelinkedbranchinput",
+      "href": "/graphql/reference/input-objects#deletelinkedbranchinput",
+      "description": "<p>Autogenerated input type of DeleteLinkedBranch.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "linkedBranchId",
+          "description": "<p>The ID of the linked branch.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DeleteProjectCardInput",
       "kind": "inputObjects",
       "id": "deleteprojectcardinput",
@@ -69311,7 +69824,7 @@
         },
         {
           "name": "commitBody",
-          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit message is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -69319,7 +69832,7 @@
         },
         {
           "name": "commitHeadline",
-          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit headline is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -69327,7 +69840,7 @@
         },
         {
           "name": "mergeMethod",
-          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>.</p>",
+          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>. NOTE: when merging\nwith a merge queue any input value for merge method is ignored.</p>",
           "type": "PullRequestMergeMethod",
           "id": "pullrequestmergemethod",
           "kind": "enums",
