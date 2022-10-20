@@ -18,12 +18,6 @@ shortTitle: Use SSH over HTTPS port
 
 {% endtip %}
 
-## Getting Started
-
-The hostname for port 443 is `ssh.{% data variables.command_line.backticks %}`, not `{% data variables.command_line.backticks %}`.
-
-## Testing
-
 To test if SSH over the HTTPS port is possible, run this SSH command:
 
 ```shell
@@ -32,12 +26,18 @@ $ ssh -T -p 443 git@ssh.github.com
 > provide shell access.
 ```
 
+{% note %}
+
+**Note**: The hostname for port 443 is `ssh.{% data variables.command_line.backticks %}`, not `{% data variables.command_line.backticks %}`.
+
+{% endnote %} 
+
 If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
 
-## Git Client Repository Example
+Now, to clone the repository, you can run the following command:
 
 ```
->git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
+$ git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
 
 ## Enabling SSH connections over HTTPS
@@ -61,13 +61,18 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-## Known Hosts Requirements
+## Updating known hosts
 
-Add [ssh.github.com]:443 to applications that use known_hosts, see "[Github's SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)"
+The first time you interact with GitHub after switching to port 443, you may get a warning message
+that the host wasn't found in `known_hosts`, or that it was found by another name.
 
+```ShellSession
+> The authenticity of host '[ssh.github.com]:443 ([140.82.112.36]:443)' can't be established.
+> ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+> This host key is known by the following other names/addresses:
+>     ~/.ssh/known_hosts:32: github.com
+> Are you sure you want to continue connecting (yes/no/[fingerprint])? 
 ```
-github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
-github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
-[ssh.github.com]:443 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
-[ssh.github.com]:443 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
-```
+
+It is safe to answer `yes` to this question, assuming that the SSH fingerprint matches
+one of GitHub's published fingerprints. For more information, see "[Github's SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."
