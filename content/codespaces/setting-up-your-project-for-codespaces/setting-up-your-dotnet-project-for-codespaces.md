@@ -104,14 +104,12 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 	//        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
 	//    },
 	//
-	// 3. Do one of the following depending on your scenario:
-	//    * When using GitHub Codespaces and/or Remote - Containers:
-	//      1. Start the container
-	//      2. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer
-	//      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
+	// 3. Start the container.
 	//
-	//    * If only using Remote - Containers with a local container, uncomment this line instead:
-	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
+	// 4. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer.
+	//
+	// 5. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https".
+	//
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "dotnet restore",
