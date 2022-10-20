@@ -84,6 +84,10 @@ Optionally, you can restrict the ability to dismiss pull request reviews to spec
 
 Optionally, you can choose to require reviews from code owners. If you do, any pull request that affects code with a code owner must be approved by that code owner before the pull request can be merged into the protected branch.
 
+{% ifversion last-pusher-require-approval %}
+Optionally, you can require approvals from someone other than the last person to push to a branch before a pull request can be merged. This ensures more than one person sees pull requests in their final state before they are merged into a protected branch. If you enable this feature, the most recent user to push their changes will need an approval regardless of the required approvals branch protection. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement.
+{% endif %}
+
 ### Require status checks before merging
 
 Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)."
