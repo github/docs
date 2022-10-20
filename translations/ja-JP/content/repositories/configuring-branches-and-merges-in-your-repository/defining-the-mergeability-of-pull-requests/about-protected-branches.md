@@ -54,6 +54,9 @@ For each branch protection rule, you can choose to enable or disable the followi
 {%- ifversion required-deployments %}
 - [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
 {%- endif %}
+{%- ifversion lock-branch %}
+- [Lock branch](#lock-branch)
+{%- endif %}
 {% ifversion bypass-branch-protections %}- [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings){% else %}- [Include administrators](#include-administrators){% endif %}
 - [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
 - [Allow force pushes](#allow-force-pushes)
@@ -83,6 +86,10 @@ Optionally, you can choose to dismiss stale pull request approvals when commits 
 Optionally, you can restrict the ability to dismiss pull request reviews to specific people or teams. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 
 Optionally, you can choose to require reviews from code owners. If you do, any pull request that affects code with a code owner must be approved by that code owner before the pull request can be merged into the protected branch.
+
+{% ifversion last-pusher-require-approval %}
+Optionally, you can require approvals from someone other than the last person to push to a branch before a pull request can be merged. This ensures more than one person sees pull requests in their final state before they are merged into a protected branch. If you enable this feature, the most recent user to push their changes will need an approval regardless of the required approvals branch protection. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement.
+{% endif %}
 
 ### Require status checks before merging
 
@@ -150,6 +157,13 @@ Before you can require a linear commit history, your repository must allow squas
 ### Require deployments to succeed before merging
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+
+{% ifversion lock-branch %}
+### Lock branch
+
+Locking a branch ensures that no commits can be made to the branch. 
+By default, a forked repository does not support syncing from its upstream repository. You can enable **Allow fork syncing** to pull changes from the upstream repository while preventing other contributions to the fork's branch.
+{%  endif %}
 
 {% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
 ### Include administrators{% endif %}
