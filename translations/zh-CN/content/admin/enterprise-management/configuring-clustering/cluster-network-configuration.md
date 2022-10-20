@@ -1,6 +1,6 @@
 ---
-title: 群集网络配置
-intro: '{% data variables.product.prodname_ghe_server %} 集群依靠正确的 DNS 名称解析、负载均衡以及节点之间的通信来正常运行。'
+title: Cluster network configuration
+intro: '{% data variables.product.prodname_ghe_server %} clustering relies on proper DNS name resolution, load balancing, and communication between nodes to operate properly.'
 redirect_from:
   - /enterprise/admin/clustering/cluster-network-configuration
   - /enterprise/admin/enterprise-management/cluster-network-configuration
@@ -14,68 +14,62 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure a cluster network
-ms.openlocfilehash: d6e4d50077cccc3e5582be0af39bdae0046cd8c8
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145098083'
 ---
-## 网络注意事项
+## Network considerations
 
-对于集群而言，最简单的网络设计是将节点置于单个 LAN 上。 如果群集必须跨子网，我们不建议在网络之间配置任何防火墙规则。 节点之间的延迟应小于 1 毫秒。
+The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
 
-{% ifversion ghes %}为获取高可用性，具有主动节点的网络与具有被动节点的网络之间的延迟必须小于 70 毫秒。 我们不建议在两个网络之间配置防火墙。{% endif %}
+{% data reusables.enterprise_clustering.network-latency %}
 
-### 最终用户的应用程序端口
+### Application ports for end users
 
-应用程序端口为最终用户提供 Web 应用程序和 Git 访问。
+Application ports provide web application and Git access for end users.
 
-| 端口     | 说明     | 加密  |
+| Port     | Description     | Encrypted  |
 | :------------- | :------------- | :------------- |
-| 22/TCP    | 通过 SSH 访问 Git | 是 |
-| 25/TCP    | SMTP | 需要 STARTTLS |
-| 80/TCP    | HTTP | 否<br>（启用 SSL 后，此端口重定向到 HTTPS） |
-| 443/TCP   | HTTPS | 是 |
-| 9418/TCP  | 简单的 Git 协议端口<br>（以私密模式禁用） | 否 |
+| 22/TCP    | Git over SSH | Yes |
+| 25/TCP    | SMTP | Requires STARTTLS |
+| 80/TCP    | HTTP | No<br>(When SSL is enabled this port redirects to HTTPS) |
+| 443/TCP   | HTTPS | Yes |
+| 9418/TCP  | Simple Git protocol port<br>(Disabled in private mode) | No |
 
-### 管理端口
+### Administrative ports
 
-最终用户在使用基本应用程序时不需要管理端口。
+Administrative ports are not required for basic application use by end users.
 
-| 端口     | 说明     | 加密  |
+| Port     | Description     | Encrypted  |
 | :------------- | :------------- | :------------- |
-| ICMP      | ICMP Ping | 否 |
-| 122/TCP   | 管理 SSH | 是 |
-| 161/UDP    | SNMP | 否 |
-| 8080/TCP  | Management Console HTTP | 否<br>（启用 SSL 后，此端口重定向到 HTTPS） |
-| 8443/TCP  | Management Console HTTPS | 是 |
+| ICMP      | ICMP Ping | No |
+| 122/TCP   | Administrative SSH | Yes |
+| 161/UDP    | SNMP | No |
+| 8080/TCP  | Management Console HTTP | No<br>(When SSL is enabled this port redirects to HTTPS) |
+| 8443/TCP  | Management Console HTTPS | Yes |
 
-### 集群通信端口
+### Cluster communication ports
 
-如果节点之间存在网络级防火墙，则需要访问这些端口。 节点之间的通信未加密。 这些端口不应从外部访问。
+If a network level firewall is in place between nodes, these ports will need to be accessible. The communication between nodes is not encrypted. These ports should not be accessible externally.
 
-| 端口     | 说明     |
+| Port     | Description     |
 | :------------- | :------------- |
-| 1336/TCP  | 内部 API |
-| 3033/TCP  | 内部 SVN 访问 |
-| 3037/TCP  | 内部 SVN 访问 |
+| 1336/TCP  | Internal API |
+| 3033/TCP  | Internal SVN access |
+| 3037/TCP  | Internal SVN access |
 | 3306/TCP  | MySQL |
-| 4486/TCP  | 管理者访问 |
-| 5115/TCP  | 存储后端 |
-| 5208/TCP  | 内部 SVN 访问 |
+| 4486/TCP  | Governor access |
+| 5115/TCP  | Storage backend |
+| 5208/TCP  | Internal SVN access |
 | 6379/TCP  | Redis |
 | 8001/TCP  | Grafana |
-| 8090/TCP  | 内部 GPG 访问 |
-| 8149/TCP  | GitRPC 文件服务器访问 |
+| 8090/TCP  | Internal GPG access |
+| 8149/TCP  | GitRPC file server access |
 | 8300/TCP | Consul |
 | 8301/TCP | Consul |
 | 8302/TCP | Consul |
 | 9000/TCP  | Git Daemon |
-| 9102/TCP  | 页面文件服务器 |
-| 9105/TCP  | LFS 服务器 |
+| 9102/TCP  | Pages file server |
+| 9105/TCP  | LFS server |
 | 9200/TCP  | Elasticsearch |
-| 9203/TCP | 语义代码服务 |
+| 9203/TCP | Semantic code service |
 | 9300/TCP  | Elasticsearch |
 | 11211/TCP | Memcache |
 | 161/UDP   | SNMP |
@@ -84,42 +78,42 @@ ms.locfileid: '145098083'
 | 8302/UDP | Consul |
 | 25827/UDP | Collectd |
 
-## 配置负载均衡器
+## Configuring a load balancer
 
- 我们建议使用基于 TCP 的外部负载均衡器，它支持 PROXY 协议来跨节点分配流量。 请考虑以下负载均衡器配置：
+ We recommend an external TCP-based load balancer that supports the PROXY protocol to distribute traffic across nodes. Consider these load balancer configurations:
 
- - TCP 端口（如下所示）应转发到运行 `web-server` 服务的节点。 这些是提供外部客户端请求的唯一节点。
- - 不应启用粘性会话。
+ - TCP ports (shown below) should be forwarded to nodes running the `web-server` service. These are the only nodes that serve external client requests.
+ - Sticky sessions shouldn't be enabled.
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## 处理客户端连接信息
+## Handling client connection information
 
-由于客户端与集群的连接来自负载均衡器，因此客户端 IP 地址可能会丢失。 要正确捕获客户端连接信息，需要考虑其他因素。
+Because client connections to the cluster come from the load balancer, the client IP address can be lost. To properly capture the client connection information, additional consideration is required.
 
 {% data reusables.enterprise_clustering.proxy_preference %}
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-### 在 {% data variables.product.prodname_ghe_server %} 上启用 PROXY 支持
+### Enabling PROXY support on {% data variables.product.prodname_ghe_server %}
 
-我们强烈建议您为实例和负载均衡器启用 PROXY 支持。
+We strongly recommend enabling PROXY support for both your instance and the load balancer.
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
- - 对于您的实例，请使用以下命令：
+ - For your instance, use this command:
   ```shell
   $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply
   ```
-  - 对于负载均衡器，请使用供应商提供的说明。
+  - For the load balancer, use the instructions provided by your vendor.
 
   {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-### 在 {% data variables.product.prodname_ghe_server %} 上启用 X-Forwarded-For 支持
+### Enabling X-Forwarded-For support on {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
-若要启用 `X-Forwarded-For` 标头，请使用以下命令：
+To enable the `X-Forwarded-For` header, use this command:
 
 ```shell
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
@@ -127,11 +121,12 @@ $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-### 配置状态检查
-如果预配置的检查在该节点上失败，则状态检查允许负载均衡器停止向未响应的节点发送流量。 如果集群节点出现故障，则与冗余节点配对的状态检查可提供高可用性。
+### Configuring Health Checks
+Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If a cluster node fails, health checks paired with redundant nodes provides high availability.
 
-{% data reusables.enterprise_clustering.health_checks %} {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
+{% data reusables.enterprise_clustering.health_checks %}
+{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
-## DNS 要求
+## DNS Requirements
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}

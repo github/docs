@@ -16,6 +16,7 @@ children:
   - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-github-codespaces
   - /restricting-access-to-machine-types
+  - /restricting-the-base-image-for-codespaces
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
   - /restricting-the-retention-period-for-codespaces

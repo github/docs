@@ -36,7 +36,9 @@ When you use external authentication, {% data variables.location.product_locatio
 
 If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)" and "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
 
-{% data variables.product.product_name %} automatically creates a username for each person when their user account is provisioned via SCIM, by normalizing an identifier provided by your IdP. If multiple identifiers are normalized into the same username, a username conflict occurs, and only the first user account is created. {% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %} You can resolve username conflicts by making a change in your IdP so that the normalized usernames will be unique.
+{% data variables.product.prodname_dotcom %} automatically creates a username for each person when their user account is provisioned via SCIM, by normalizing an identifier provided by your IdP, then adding an underscore and short code. If multiple identifiers are normalized into the same username, a username conflict occurs, and only the first user account is created. You can resolve username problems by making a change in your IdP so that the normalized usernames will be unique and within the 39-character limit.
+
+{% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %}
 
 {% elsif ghae %}
 
@@ -62,7 +64,7 @@ These rules may result in your IdP providing the same _IDP-USERNAME_ for multipl
 - `bob@fabrikam.com`
 - `bob#EXT#fabrikamcom@contoso.com`
 
-This will cause a username conflict, and only the first user will be provisioned. For more information, see "[Resolving username conflicts](#resolving-username-conflicts)."
+This will cause a username conflict, and only the first user will be provisioned. For more information, see "[Resolving username problems](#resolving-username-problems)."
 {% endif %}
 
 Usernames{% ifversion ghec %}, including underscore and short code,{% endif %} must not exceed 39 characters.
@@ -83,7 +85,7 @@ When you configure SAML authentication, {% data variables.product.product_name %
 
 1. Usernames created from email addresses are created from the normalized characters that precede the `@` character.
 
-1. If multiple accounts are normalized into the same {% data variables.product.product_name %} username, only the first user account is created. Subsequent users with the same username won't be able to sign in. {% ifversion ghec %}For more information, see "[Resolving username conflicts](#resolving-username-conflicts)."{% endif %}
+1. If multiple accounts are normalized into the same {% data variables.product.product_name %} username, only the first user account is created. Subsequent users with the same username won't be able to sign in. {% ifversion ghec %}For more information, see "[Resolving username problems](#resolving-username-problems)."{% endif %}
 
 ### Examples of username normalization
 
@@ -121,11 +123,16 @@ When you configure SAML authentication, {% data variables.product.product_name %
 {% endif %}
 
 {% ifversion ghec %}
-## Resolving username conflicts
+## Resolving username problems
 
-When a new user is being provisioned, if the user's normalized username conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error. 
+When a new user is being provisioned, if the username is longer than 39 characters (including underscore and short code), or conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error. 
 
-To resolve this problem, you must make a change in your IdP so that the normalized usernames will be unique. If you cannot change the identifier that's being normalized, you can change the attribute mapping for the `userName` attribute. If you change the attribute mapping, usernames of existing {% data variables.enterprise.prodname_managed_users %} will be updated, but nothing else about the accounts will change, including activity history.
+To resolve this problem, you must make one of the following changes in your IdP so that all normalized usernames will be within the character limit and unique.
+- Change the `userName` attribute value for individual users that are causing problems
+- Change the `userName` attribute mapping for all users
+- Configure a custom `userName` attribute for all users
+
+When you change the attribute mapping, usernames of existing {% data variables.enterprise.prodname_managed_users %} will be updated, but nothing else about the accounts will change, including activity history.
 
 {% note %}
 
@@ -133,9 +140,9 @@ To resolve this problem, you must make a change in your IdP so that the normaliz
 
 {% endnote %}
 
-### Resolving username conflicts with Azure AD
+### Resolving username problems with Azure AD
 
-To resolve username conflicts in Azure AD, either modify the User Principal Name value for the conflicting user or modify the attribute mapping for the `userName` attribute. If you modify the attribute mapping, you can choose an existing attribute or use an expression to ensure that all provisioned users have a unique normalized alias.
+To resolve username problems in Azure AD, either modify the User Principal Name value for the conflicting user or modify the attribute mapping for the `userName` attribute. If you modify the attribute mapping, you can choose an existing attribute or use an expression to ensure that all provisioned users have a unique normalized alias.
 
 1. In Azure AD, open the {% data variables.product.prodname_emu_idp_application %} application.
 1. In the left sidebar, click **Provisioning**.
@@ -146,9 +153,9 @@ To resolve username conflicts in Azure AD, either modify the User Principal Name
    - To map an existing attribute in Azure AD to the `userName` attribute in {% data variables.product.prodname_dotcom %}, click your desired attribute field. Then, save and wait for a provisioning cycle to occur within about 40 minutes.
    - To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data) in Microsoft Docs.
 
-### Resolving username conflicts with Okta
+### Resolving username problems with Okta
 
-To resolve username conflicts in Okta, update the attribute mapping settings for the {% data variables.product.prodname_emu_idp_application %} application.
+To resolve username problems in Okta, update the attribute mapping settings for the {% data variables.product.prodname_emu_idp_application %} application.
 
 1. In Okta, open the {% data variables.product.prodname_emu_idp_application %} application.
 1. Click **Sign On**.

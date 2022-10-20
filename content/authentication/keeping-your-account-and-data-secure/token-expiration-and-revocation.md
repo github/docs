@@ -35,8 +35,6 @@ When you create a {% data variables.product.pat_generic %}, we recommend that yo
 
 If a valid OAuth token, {% data variables.product.prodname_github_app %} token, or {% data variables.product.pat_generic %} is pushed to a public repository or public gist, the token will be automatically revoked. 
 
-OAuth tokens and personal {% data variables.product.pat_v1_plural %} pushed to public repositories and public gists will only be revoked if the token has scopes.{% ifversion pat-v2 %} {% data variables.product.pat_v2_caps %}s will always be revoked.{% endif %}
-
 {% endif %}
 
 {% ifversion fpt or ghec %}
