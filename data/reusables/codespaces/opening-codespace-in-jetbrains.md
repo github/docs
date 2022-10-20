@@ -18,3 +18,9 @@ Alternatively, you can also open the JetBrains Gateway and select an existing co
    ![Screenshot of the JetBrains Gateway codespace list](/assets/images/help/codespaces/jetbrains-gateway-ides.png)
 
 1. Click **Connect**.
+
+   {% note %}
+
+   **Note**: _If you are running a firewall:_ the first time you connect to a remote resource, you may be prompted to allow the JetBrains Gateway to communicate across your network.
+
+   {% endnote %}
