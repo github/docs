@@ -1,6 +1,6 @@
 ---
-title: Sobre contas corporativas
-intro: 'Com {% data variables.product.product_name %}, você pode usar uma conta corporativa para {% ifversion ghec %}habilitar a colaboração entre suas organizações, dando{% elsif ghes or ghae %}dando{% endif %} aos administradores um ponto único de visibilidade e gestão.'
+title: About enterprise accounts
+intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion ghec %}enable collaboration between your organizations, while giving{% elsif ghes or ghae %}give{% endif %} administrators a single point of visibility and management.'
 redirect_from:
   - /articles/about-github-business-accounts
   - /articles/about-enterprise-accounts
@@ -20,81 +20,81 @@ topics:
   - Fundamentals
 ---
 
-## Sobre contas corporativas em {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}
+## About enterprise accounts on {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}
 
 {% ifversion ghec %}
 
-Sua conta corporativa no {% data variables.product.prodname_dotcom_the_website %} permite que você gerencie múltiplas organizações. Sua conta corporativa deve ter um manipulador, como uma conta de usuário ou organizacional no {% data variables.product.prodname_dotcom %}.
+Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} allows you to manage multiple organizations. Your enterprise account must have a handle, like an organization or user account on {% data variables.product.prodname_dotcom %}.
 
 {% elsif ghes or ghae %}
 
-A conta corporativa em {% ifversion ghes %}{% data variables.product.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} permite que você gerencie as organizações{% ifversion ghes %} em{% elsif ghae %} pertencentes à{% endif %} sua instância {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% elsif ghae %}empresa{% endif %}.
+The enterprise account on {% ifversion ghes %}{% data variables.location.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} allows you to manage the organizations{% ifversion ghes %} on{% elsif ghae %} owned by{% endif %} your {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise{% endif %}.
 
 {% endif %}
 
-As organizações são contas compartilhadas em que os integrantes da empresa podem colaborar em muitos projetos de uma só vez. Os proprietários da organização podem gerenciar o acesso aos dados e projetos da organização, com recursos sofisticados de segurança e administrativos. Para obter mais informações, consulte "[Sobre organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
+Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
+
+{% ifversion ghec %} 
+Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
+{% endif %}
+
+Your enterprise account allows you to manage and enforce policies for all the organizations owned by the enterprise. {% data reusables.enterprise.about-policies %} For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
 
 {% ifversion ghec %}
-Os proprietários da empresa podem convidar organizações existentes para participar da conta corporativa ou criar novas organizações nas configurações da empresa. Para obter mais informações, consulte "[Adicionando organizações à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)".
-{% endif %}
 
-Sua conta corporativa permite que você gerencie e aplique as políticas para todas as organizações pertencentes à empresa. {% data reusables.enterprise.about-policies %} Para obter mais informações, consulte "[Sobre as políticas corporativas](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)".
-
-{% ifversion ghec %}
-
-{% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, consulte "[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
 
 {% endif %}
 
-## Sobre a administração da conta corporativa
+## About administration of your enterprise account
 
 {% ifversion ghes or ghae %}
 
-Na sua conta corporativa em {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}uma instância de {% data variables.product.prodname_ghe_server %}{% endif %}, os administradores podem visualizar{% ifversion remove-enterprise-members %} e gerenciar{% endif %} membros corporativos{% ifversion enterprise-owner-join-org %}, gerenciar seus próprios integrantes em organizações pertencentes à empresa,{% endif %} e gerenciar o seguinte para a instância da {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% elsif ghae %}empresa em {% data variables.product.prodname_ghe_managed %}{% endif %}.
+From your enterprise account on {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}, administrators can view{% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
 {% ifversion ghes %}
-- Uso da licença{% endif %}
-- Segurança ({% ifversion ghae %}logon único, listas de permissão de IP, {% endif %}autoridades de certificação SSH, autenticação de dois fatores)
-- Políticas corporativas para organizações pertencentes à conta corporativa
+- License usage{% endif %}
+- Security ({% ifversion ghae %}single sign-on, IP allow lists, {% endif %}SSH certificate authorities, two-factor authentication)
+- Enterprise policies for organizations owned by the enterprise account
 
 {% endif %}
 
 {% ifversion ghes %}
 
-### Sobre a administração da conta corporativa em {% data variables.product.prodname_ghe_cloud %}
+### About administration of your enterprise account on {% data variables.product.prodname_ghe_cloud %}
 
 {% endif %}
 
-{% ifversion ghec or ghes %}Ao experimentar ou comprar {% data variables.product.prodname_enterprise %}, você também pode{% ifversion ghes %}{% endif %} criar uma conta corporativa para {% data variables.product.prodname_ghe_cloud %} em {% data variables.product.prodname_dotcom_the_website %}. Os administradores da conta corporativa em {% data variables.product.prodname_dotcom_the_website %} podem ver {% ifversion remove-enterprise-members %} e gerenciar{% endif %} a assoviação corporativa{% ifversion enterprise-owner-join-org %}, gerenciar seus próprios integrantes em organizações pertencentes à empresa,{% endif %} e gerenciar o seguinte para a conta corporativa{% ifversion ghes %} em {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% ifversion ghec or ghes %}When you try or purchase {% data variables.product.prodname_enterprise %}, you can{% ifversion ghes %} also{% endif %} create an enterprise account for {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_dotcom_the_website %}. Administrators for the enterprise account on {% data variables.product.prodname_dotcom_the_website %} can view {% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the enterprise account{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
-- Cobrança e uso (serviços em {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_GH_advanced_security %}, licenças de usuários)
-- Segurança (logon único, listas de permissão de IP, autoridades de certificação SSH, autenticação de dois fatores)
-- Políticas corporativas para organizações pertencentes à conta corporativa
+- Billing and usage (services on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_GH_advanced_security %}, user licenses)
+- Security (single sign-on, IP allow lists, SSH certificate authorities, two-factor authentication)
+- Enterprise policies for organizations owned by the enterprise account
 
-Se você usar {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_server %}, você também pode gerenciar o seguinte para {% data variables.product.prodname_ghe_server %} na sua conta corporativa em {% data variables.product.prodname_dotcom_the_website %}.
+If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, you can also manage the following for {% data variables.product.prodname_ghe_server %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.
 
-- Cobrança e uso para instâncias de {% data variables.product.prodname_ghe_server %}
-- Solicitações e compartilhamento de pacote de suporte com {% data variables.contact.enterprise_support %}
+- Billing and usage for {% data variables.product.prodname_ghe_server %} instances
+- Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
 
-Você também pode conectar a conta corporativa em {% data variables.product.product_location_enterprise %} à sua conta corporativa em {% data variables.product.prodname_dotcom_the_website %} para ver os detalhes de uso da licença para sua assinatura {% data variables.product.prodname_enterprise %} de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte {% ifversion ghec %}"[Sincronizando o uso da licença entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" na documentação de {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}"[Sincronizando o uso da licença entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
+You can also connect the enterprise account on {% data variables.location.product_location_enterprise %} to your enterprise account on {% data variables.product.prodname_dotcom_the_website %} to see license usage details for your {% data variables.product.prodname_enterprise %} subscription from {% data variables.product.prodname_dotcom_the_website %}. For more information, see {% ifversion ghec %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
-Para mais informações sobre as diferenças entre {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_server %}, consulte "[produtos de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/githubs-products)" {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
+For more information about the differences between {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, see "[{% data variables.product.prodname_dotcom %}'s products](/get-started/learning-about-github/githubs-products)." {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
 
 {% endif %}
 
-## Sobre a cobrança para a sua conta corporativa
+## About billing for your enterprise account
 
-A conta corporativa inclui o custo mensal para cada integrante da sua empresa. A conta inclui {% ifversion ghec %}todas as licenças pagas em organizações fora da sua conta corporativa, assinaturas de aplicativos em {% data variables.product.prodname_marketplace %}, {% endif %}{% ifversion ghec or ghae %}serviços adicionais pagos pela empresa{% ifversion ghec %} como pacotes de dados de {% data variables.large_files.product_name_long %},{% endif %} e{% endif %} de uso para {% data variables.product.prodname_GH_advanced_security %}.
+The bill for your enterprise account includes the monthly cost for each member of your enterprise. The bill includes {% ifversion ghec %}any paid licenses in organizations outside of your enterprise account, subscriptions to apps in {% data variables.product.prodname_marketplace %}, {% endif %}{% ifversion ghec or ghae %}additional paid services for your enterprise{% ifversion ghec %} like data packs for {% data variables.large_files.product_name_long %},{% endif %} and{% endif %} usage for {% data variables.product.prodname_GH_advanced_security %}.
 
 {% ifversion ghec %}
 
-Para obter mais informações sobre cobrança para sua assinatura de {% data variables.product.prodname_ghe_cloud %}, consulte "[Visualizando a assinatura e o uso da conta corporativa](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" e "[Sobre cobrança para a sua empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
+For more information about billing for your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" and "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
 
 {% elsif ghes %}
 
 {% data reusables.enterprise-accounts.enterprise-accounts-billing %}
 
-Para obter mais informações sobre a cobrança para {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}, consulte "[Sobre a cobrança para a sua empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+For more information about billing for {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
 
 {% endif %}
 
@@ -102,10 +102,10 @@ Para obter mais informações sobre a cobrança para {% ifversion ghec %}{% data
 
 {% ifversion ghec %}
 
-{% data variables.product.prodname_enterprise %} offers two deployment options. Além de {% data variables.product.prodname_ghe_cloud %}, você pode usar {% data variables.product.prodname_ghe_server %} para hospedar o trabalho de desenvolvimento da sua empresa no centro de dados ou no provedor de nuvem compatível. {% endif %}Os proprietários de empresas em {% data variables.product.prodname_dotcom_the_website %} podem usar uma conta corporativa para gerenciar pagamentos e licenciamento para instâncias de {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[produtos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products#github-enterprise)" e "[Gerenciando sua licença para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)".
+{% data variables.product.prodname_enterprise %} offers two deployment options. In addition to {% data variables.product.prodname_ghe_cloud %}, you can use {% data variables.product.prodname_ghe_server %} to host development work for your enterprise in your data center or supported cloud provider. {% endif %}Enterprise owners on {% data variables.product.prodname_dotcom_the_website %} can use an enterprise account to manage payment and licensing for {% data variables.product.prodname_ghe_server %} instances. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products#github-enterprise)" and "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% endif %}
 
-## Leia mais
+## Further reading
 
-- "[Contas corporativas](/graphql/guides/managing-enterprise-accounts)" na documentação da API do GraphQL
+- "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation

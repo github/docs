@@ -12,25 +12,25 @@ shortTitle: Private image registry
 
 ## About private image registries and {% data variables.product.prodname_github_codespaces %}
 
-A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more images. There are many examples of registries, such as {% data variables.product.prodname_dotcom %} Container Registry, Azure Container Registry, or DockerHub.
+A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more images. There are many examples of registries, such as {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_npm_registry %}, Azure Container Registry, or DockerHub.
 
-{% data variables.product.prodname_dotcom %} Container Registry can be configured to pull container images seamlessly, without having to provide any authentication credentials to {% data variables.product.prodname_github_codespaces %}. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_codespaces %} to access images stored in that registry.
+{% data variables.packages.prodname_ghcr_and_npm_registry %} can be configured to allow container images to be pulled seamlessly into {% data variables.product.prodname_github_codespaces %} during codespace creation, without having to provide any authentication credentials. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_github_codespaces %} to access images stored in that registry.
 
-## Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry
+## Accessing images stored in {% data variables.packages.prodname_ghcr_and_npm_registry %}
 
-{% data variables.product.prodname_dotcom %} Container Registry is the easiest way for {% data variables.product.prodname_codespaces %} to consume devcontainer container images.
+{% data variables.packages.prodname_ghcr_and_npm_registry %} provide the easiest way for {% data variables.product.prodname_github_codespaces %} to consume dev container images.
 
-For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
+For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)" and "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)".
 
 ### Accessing an image published to the same repository as the codespace
 
-If you publish a container image to {% data variables.product.prodname_dotcom %} Container Registry in the same repository that the codespace is being launched in, you will automatically be able to fetch that image on codespace creation. You won't have to provide any additional credentials, unless the **Inherit access from repo** option was unselected when the container image was published.
+If you publish a container image to {% data variables.packages.prodname_ghcr_or_npm_registry %} in the same repository that the codespace is being launched in, you will automatically be able to fetch that image on codespace creation. You won't have to provide any additional credentials, unless the **Inherit access from repo** option was unselected when the container image was published.
 
 #### Inheriting access from the repository from which an image was published
 
-By default, when you publish a container image to {% data variables.product.prodname_dotcom %} Container Registry, the image inherits the access setting of the repository from which the image was published. For example, if the repository is public, the image is also public. If the repository is private, the image is also private, but is accessible from the repository.
+By default, when you publish a container image to {% data variables.packages.prodname_ghcr_or_npm_registry %}, the image inherits the access setting of the repository from which the image was published. For example, if the repository is public, the image is also public. If the repository is private, the image is also private, but is accessible from the repository.
 
-This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.product.prodname_dotcom %} Container Registry using a Personal Access Token (PAT).
+This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.packages.prodname_ghcr_or_npm_registry %} using a % data variables.product.pat_generic %}.
 
 If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)."
 
@@ -46,13 +46,13 @@ If you want to allow a subset of an organization's repositories to access a cont
 
 ### Publishing a container image from a codespace
 
-Seamless access from a codespace to {% data variables.product.prodname_dotcom %} Container Registry is limited to pulling container images. If you want to publish a container image from inside a codespace, you must use a personal access token (PAT) with the `write:packages` scope.
+Seamless access from a codespace to {% data variables.packages.prodname_ghcr_or_npm_registry %} is limited to pulling container images. If you want to publish a container image from inside a codespace, you must use a {% data variables.product.pat_v1 %} with the `write:packages` scope.
 
-We recommend publishing images via {% data variables.product.prodname_actions %}. For more information, see "[Publishing Docker images](/actions/publishing-packages/publishing-docker-images)."
+We recommend publishing images via {% data variables.product.prodname_actions %}. For more information, see "[Publishing Docker images](/actions/publishing-packages/publishing-docker-images)" and "[Publishing Node.js packages](/actions/publishing-packages/publishing-nodejs-packages)."
 
 ## Accessing images stored in other container registries
 
-If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_github_codespaces %} will make the registry available inside your codespace.
+If you are accessing a container image from a registry that isn't {% data variables.packages.prodname_ghcr_or_npm_registry %}, {% data variables.product.prodname_github_codespaces %} checks for the presence of three secrets, which define the server name, username, and {% data variables.product.pat_generic %} for a container registry. If these secrets are found, {% data variables.product.prodname_github_codespaces %} will make the registry available inside your codespace.
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
@@ -71,7 +71,7 @@ For a private image registry in Azure, you could create the following secrets:
 ```
 ACR_CONTAINER_REGISTRY_SERVER = mycompany.azurecr.io
 ACR_CONTAINER_REGISTRY_USER = acr-user-here
-ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
+ACR_CONTAINER_REGISTRY_PASSWORD = <PERSONAL_ACCESS_TOKEN>
 ```
 
 For information on common image registries, see "[Common image registry servers](#common-image-registry-servers)." Note that accessing AWS Elastic Container Registry (ECR) is different.
@@ -118,4 +118,4 @@ Some of the common image registry servers are listed below:
 
 ## Debugging private image registry access
 
-If you are having trouble pulling an image from a private image registry, make sure you are able to run `docker login -u <user> -p <password> <server>`, using the values of the secrets defined above. If login fails, ensure that the login credentials are valid and that you have the apprioriate permissions on the server to fetch a container image. If login succeeds, make sure that these values are copied appropriately into the right {% data variables.product.prodname_codespaces %} secrets, either at the user, repository, or organization level and try again.
+If you are having trouble pulling an image from a private image registry, make sure you are able to run `docker login -u <user> -p <password> <server>`, using the values of the secrets defined above. If login fails, ensure that the login credentials are valid and that you have the apprioriate permissions on the server to fetch a container image. If login succeeds, make sure that these values are copied appropriately into the right {% data variables.product.prodname_github_codespaces %} secrets, either at the user, repository, or organization level and try again.

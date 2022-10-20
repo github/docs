@@ -1,13 +1,21 @@
-   リポジトリの開発コンテナの設定が他のリポジトリへのアクセスの権限を指定しているなら、認可ページが表示されます。 `devcontainer.json`でのこの指定に関する詳しい情報については「[codespace内での他のリポジトリへのアクセス管理](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)」を参照してください。
+---
+ms.openlocfilehash: 21a587f89a71ccd8e9f1a69aa5423a840f26b9a6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147431627"
+---
+   リポジトリの開発コンテナー構成で他のリポジトリにアクセスするためのアクセス許可が指定されている場合は、認可ページが表示されます。 `devcontainer.json` ファイルでこれを指定する方法について詳しくは、「[codespace 内の他のリポジトリへのアクセスを管理する](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)」を参照してください。   
 
-   要求された権限の詳細を表示するには{% octicon "chevron-down" aria-label="The expand down icon" %}をクリックしてください。
+   {% octicon "chevron-down" aria-label="The expand down icon" %} をクリックして、要求されたアクセス許可の詳細を表示します。
 
-   ![事前ビルドのための認可ページのスクリーンショット](/assets/images/help/codespaces/prebuild-authorization-page.png)
+   ![プレビルドの認可ページのスクリーンショット](/assets/images/help/codespaces/prebuild-authorization-page.png)
 
-   **Authorize and continue（認証して続ける）**をクリックして、事前ビルドの作成のためのこれらの権限を付与します。 あるいは**Continue without authorizing（認可せずに続ける）**をクリックすることもできますが、そうした場合にはその結果の事前ビルドから生成されるCodespacesは正しく動作しないかもしれません。
+   **[認可して続行する]** をクリックし、プレビルドを作成するためにこれらのアクセス許可を付与します。 または、 **[認可せずに続行する]** をクリックすることもできますが、その場合は、結果のプレビルドから作られる codespace が正しく機能しない可能性があります。
 
    {% note %}
 
-   **ノート**: この事前ビルドを使ってCodespacesを作成したユーザは、これらの権限の付与も求められます。
+   **注**: このプレビルドを使って codespace を作るユーザーも、これらのアクセス許可を付与するように求められます。
 
    {% endnote %}

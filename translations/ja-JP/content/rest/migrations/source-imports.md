@@ -1,5 +1,5 @@
 ---
-title: ソースのインポート
+title: Source imports
 intro: ''
 versions:
   fpt: '*'
@@ -9,11 +9,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Source imports APIについて
+## About the Source imports API
 
-{% data variables.migrations.source_imports_intro %} 一般的なソースのインポートでは、まずインポートを開始し、次に (オプションで) 作者を更新したり、インポートに大きいファイルが存在する場合に Git LFS 使用の設定を更新したりします。 [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) をリスニングする webhook を作成して、インポートのステータスを確認することもできます。
+{% data reusables.user-settings.imports-api-classic-pat-only %}
 
-詳細な例は、次の図を参照してください。
+{% data variables.migrations.source_imports_intro %} A typical source import would start the import and then (optionally) update the authors and/or update the preference for using Git LFS if large files exist in the import. You can also create a webhook that listens for the [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) to find out the status of the import.
+
+A more detailed example can be seen in this diagram:
 
 ```
 +---------+                     +--------+                              +---------------------+

@@ -1,7 +1,7 @@
 ---
-title: Usando SAML para a IAM corporativo
-shortTitle: SAML para IAM corporativo
-intro: 'Você pode gerenciar centralmente {% ifversion ghes or ghae %}as contas e {% endif %}o acesso a {% ifversion ghes %}{% data variables.product.product_location %}{% elsif ghae %}da sua empresa{% elsif ghec %}os recursos da sua empresa{% endif %} com o logon único (SSO) SAML {% ifversion ghec or ghae %} e o Sistema de Gerenciamento de Identidade entre Domínios (MCIM){% endif %}.'
+title: Using SAML for enterprise IAM
+shortTitle: SAML for enterprise IAM
+intro: 'You can centrally manage {% ifversion ghes or ghae %}accounts and {% endif %}access to {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise{% elsif ghec %}your enterprise''s resources{% endif %} with SAML single sign-on (SSO){% ifversion ghec or ghae %} and System for Cross-domain Identity Management (SCIM){% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'

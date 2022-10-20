@@ -1,7 +1,7 @@
 ---
-title: Usando o GitHub CLI em um executor
-shortTitle: Usando o GitHub CLI em um executor
-intro: 'Como usar funcionalidades avançadas de {% data variables.product.prodname_actions %} para integração contínua (IC).'
+title: Using the GitHub CLI on a runner
+shortTitle: Use the GitHub CLI on a runner
+intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
   ghes: '> 3.1'
@@ -14,30 +14,34 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Visão geral do exemplo
+## Example overview
 
-{% data reusables.actions.example-workflow-intro-ci %} Quando esse fluxo de trabalho é acionado, ele executa automaticamente um script que verifica se o site Docs de {% data variables.product.prodname_dotcom %} tem algum link quebrado. Se algum link quebrado for encontrado, o fluxo de trabalho usará a CLI de {% data variables.product.prodname_dotcom %} para criar um problema de {% data variables.product.prodname_dotcom %} com os detalhes.
+{% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it automatically runs a script that checks whether the {% data variables.product.prodname_dotcom %} Docs site has any broken links. If any broken links are found, the workflow uses the {% data variables.product.prodname_dotcom %} CLI to create a {% data variables.product.prodname_dotcom %} issue with the details.
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Diagrama de visão geral das etapas do fluxo de trabalho](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
+![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
 
-## Características utilizadas neste exemplo
+## Features used in this example
 
 {% data reusables.actions.example-table-intro %}
 
-| **Funcionalidade** | **Implementação** |
-| ------------------ | ----------------- |
-|                    |                   |
+| **Feature**  | **Implementation** |
+| --- | --- |
 {% data reusables.actions.cron-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.if-conditions-table-entry %}
 {% data reusables.actions.secrets-table-entry %}
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Usando uma ação de terceiros: | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)| | Executando comandos de shell no executor: | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) | | Executando um script no executor: | Usando `script/check-english-links.js` | | Gerando um arquivo de saída: | Canalizando a saída usando o operador `>`| | Verificando problemas existentes que usam {% data variables.product.prodname_cli %}: | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) | | Comentando em um problema que usa {% data variables.product.prodname_cli %}: | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
+| Using a third-party action: | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)|
+| Running shell commands on the runner: | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) |
+| Running a script on the runner: | Using `script/check-english-links.js` |
+| Generating an output file: | Piping the output using the `>` operator |
+| Checking for existing issues using {% data variables.product.prodname_cli %}: | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) |
+| Commenting on an issue using {% data variables.product.prodname_cli %}: | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
 
-## Exemplo de fluxo de trabalho
+## Example workflow
 
 {% data reusables.actions.example-docs-engineering-intro %} [`check-all-english-links.yml`](https://github.com/github/docs/blob/main/.github/workflows/check-all-english-links.yml).
 
@@ -105,7 +109,11 @@ jobs:
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
@@ -170,15 +178,15 @@ jobs:
 </tbody>
 </table>
 
-## Entendendo o exemplo
+## Understanding the example
 
 {% data reusables.actions.example-explanation-table-intro %}
 
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Código</b></th>
-    <th style="width:40%"><b>Explicação</b></th>
+    <th style="width:60%"><b>Code</b></th>
+    <th style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
@@ -208,8 +216,8 @@ on:
 
 Defines the `workflow_dispatch` and `scheduled` as triggers for the workflow:
 
-* The `workflow_dispatch` lets you manually run this workflow from the UI. Para obter mais informações, consulte [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
-* The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. Para obter mais informações, consulte ['agendamento'](/actions/reference/events-that-trigger-workflows#schedule).
+* The `workflow_dispatch` lets you manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
+* The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. For more information, see [`schedule`](/actions/reference/events-that-trigger-workflows#schedule).
 </td>
 </tr>
 <tr>
@@ -223,7 +231,7 @@ permissions:
 </td>
 <td>
 
-Modifica as permissões padrão concedidas a "GITHUB_TOKEN". Isso vai variar dependendo das necessidades do seu fluxo de trabalho. Para obter mais informações, consulte "[Atribuindo permissões a trabalhos](/actions/using-jobs/assigning-permissions-to-jobs)."
+Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
 </td>
 </tr>
 <tr>
@@ -235,7 +243,7 @@ jobs:
 </td>
 <td>
 
-Agrupa todos os trabalhos executados no arquivo do fluxo de trabalho.
+Groups together all the jobs that run in the workflow file.
 </td>
 </tr>
 <tr>
@@ -248,7 +256,7 @@ Agrupa todos os trabalhos executados no arquivo do fluxo de trabalho.
 </td>
 <td>
 
-Define um trabalho com o ID "check_all_english_links", e o nome 'Verificar todos os links', que é armazenado na chave "trabalhos".
+Defines a job with the ID `check_all_english_links`, and the name `Check all links`, that is stored within the `jobs` key.
 </td>
 </tr>
 <tr>
@@ -260,7 +268,7 @@ if: github.repository == 'github/docs-internal'
 </td>
 <td>
 
-Só execute o trabalho de "check_all_english_links" se o repositório for denominado "docs-internal" e estiver dentro da organização "github". Caso contrário, o trabalho é marcado como _skipped_.
+Only run the `check_all_english_links` job if the repository is named `docs-internal` and is within the `github` organization. Otherwise, the job is marked as _skipped_.
 </td>
 </tr>
 <tr>
@@ -272,7 +280,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-Configura o trabalho a ser executado em um executor do Ubuntu Linux. Isso significa que o trabalho será executado em uma nova máquina virtual hospedada por {% data variables.product.prodname_dotcom %}. Para obter exemplos de sintaxe usando outros executores, consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by {% data variables.product.prodname_dotcom %}. For syntax examples using other runners, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 </td>
 </tr>
 <tr>
@@ -288,7 +296,7 @@ Configura o trabalho a ser executado em um executor do Ubuntu Linux. Isso signif
 </td>
 <td>
 
-Cria variáveis de ambiente personalizadas e redefine a variável "GITHUB_TOKEN" incorporada para usar um [secret](/actions/security-guides/encrypted-secrets) personalizado. Essas variáveis serão referenciadas posteriormente no fluxo de trabalho.
+Creates custom environment variables, and redefines the built-in `GITHUB_TOKEN` variable to use a custom [secret](/actions/security-guides/encrypted-secrets). These variables will be referenced later in the workflow.
 </td>
 </tr>
 <tr>
@@ -300,7 +308,7 @@ Cria variáveis de ambiente personalizadas e redefine a variável "GITHUB_TOKEN"
 </td>
 <td>
 
-Agrupa todos os passos que serão executados como parte do trabalho "check_all_english_links". Cada trabalho no fluxo de trabalho tem sua própria seção de "etapas".
+Groups together all the steps that will run as part of the `check_all_english_links` job. Each job in the workflow has its own `steps` section.
 </td>
 </tr>
 <tr>
@@ -313,7 +321,7 @@ Agrupa todos os passos que serão executados como parte do trabalho "check_all_e
 </td>
 <td>
 
-A palavra-chave "uses" diz para o trabalho recuperar a ação denominada "actions/checkout". Esta é uma ação que verifica seu repositório e o faz o download do runner, permitindo que você execute ações contra seu código (como, por exemplo, ferramentas de teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório ou você estiver usando uma ação definida no repositório.
+The `uses` keyword tells the job to retrieve the action named `actions/checkout`. This is an action that checks out your repository and downloads it to the runner, allowing you to run actions against your code (such as testing tools). You must use the checkout action any time your workflow will run against the repository's code or you are using an action defined in the repository.
 </td>
 </tr>
 <tr>
@@ -329,7 +337,7 @@ A palavra-chave "uses" diz para o trabalho recuperar a ação denominada "action
 </td>
 <td>
 
-Esta etapa usa a ação `actions/setup-node` para instalar a versão especificada do pacote do "node" de software no executor, que lhe dá acesso ao comando `npm`.
+This step uses the `actions/setup-node` action to install the specified version of the `node` software package on the runner, which gives you access to the `npm` command.
 </td>
 </tr>
 <tr>
@@ -344,7 +352,7 @@ Esta etapa usa a ação `actions/setup-node` para instalar a versão especificad
 </td>
 <td>
 
-A palavra-chave `executar` diz ao trabalho para executar um comando no executor. Neste caso, os comandos "npm ci" e "npm run build" são executados como etapas separadas para instalar e construir o aplicativo Node.js no repositório.
+The `run` keyword tells the job to execute a command on the runner. In this case, the `npm ci` and `npm run build` commands are run as separate steps to install and build the Node.js application in the repository.
 </td>
 </tr>
 <tr>
@@ -358,7 +366,7 @@ A palavra-chave `executar` diz ao trabalho para executar um comando no executor.
 </td>
 <td>
 
-Este comando "executar" executa um script armazenado no repositório em "script/check-english-links.js" e canalizado a saída para um arquivo denominado 'broken_links.md'.
+This `run` command executes a script that is stored in the repository at `script/check-english-links.js`, and pipes the output to a file called `broken_links.md`.
 </td>
 </tr>
 <tr>
@@ -368,12 +376,16 @@ Este comando "executar" executa um script armazenado no repositório em "script/
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
 ```
 </td>
 <td>
 
-Se o script "check-english-links.js" detectar links quebrados e retornar um status de saída não zero (falha) e, em seguida, usar um [comando de fluxo de trabalho](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter) para definir uma saída que tenha o valor da primeira linha do arquivo 'broken_links.md' (este será usado na próxima etapa).
+If the `check-english-links.js` script detects broken links and returns a non-zero (failure) exit status, then use a [workflow command](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter) to set an output that has the value of the first line of the `broken_links.md` file (this is used the next step).
 </td>
 </tr>
 <tr>
@@ -395,7 +407,7 @@ Se o script "check-english-links.js" detectar links quebrados e retornar um stat
 </td>
 <td>
 
-Usa a ação "peter-evans/create-issue-from-file" para criar um novo problema de {% data variables.product.prodname_dotcom %}. Este exemplo é fixado em uma versão específica da ação, usando o SHA de "b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e".
+Uses the `peter-evans/create-issue-from-file` action to create a new {% data variables.product.prodname_dotcom %} issue. This example is pinned to a specific version of the action, using the `b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e` SHA.
 </td>
 </tr>
 <tr>
@@ -423,9 +435,9 @@ Usa a ação "peter-evans/create-issue-from-file" para criar um novo problema de
 </td>
 <td>
 
-Usa [`gh issue list`](https://cli.github.com/manual/gh_issue_list) para localizar a emissão anteriormente criada a partir de execuções anteriores. Este é [aliased](https://cli.github.com/manual/gh_alias_set) para 'gh list-reports' para processamento mais simples em etapas posteriores. Para obter a URL do problema, a expressão "jq" processa a saída do JSON resultante.
+Uses [`gh issue list`](https://cli.github.com/manual/gh_issue_list) to locate the previously created issue from earlier runs. This is [aliased](https://cli.github.com/manual/gh_alias_set) to `gh list-reports` for simpler processing in later steps. To get the issue URL, the `jq` expression processes the resulting JSON output.
 
-[`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) é usado em seguida para adicionar um comentário ao novo problema que vincula com o anterior.
+[`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) is then used to add a comment to the new issue that links to the previous one.
 </td>
 </tr>
 <tr>
@@ -443,7 +455,7 @@ Usa [`gh issue list`](https://cli.github.com/manual/gh_issue_list) para localiza
 </td>
 <td>
 
-Se um problema de uma execução anterior estiver aberto e atribuído a alguém, use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) para adicionar um comentário com um link para a nova edição.
+If an issue from a previous run is open and assigned to someone, then use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
 </td>
 </tr>
 <tr>
@@ -464,7 +476,7 @@ Se um problema de uma execução anterior estiver aberto e atribuído a alguém,
 </td>
 <td>
 
-Se um problema de uma execução anterior estiver aberto e não for atribuído a ninguém, então:
+If an issue from a previous run is open and is not assigned to anyone, then:
 
 * Use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
 * Use [`gh issue close`](https://cli.github.com/manual/gh_issue_close) to close the old issue.
@@ -474,6 +486,6 @@ Se um problema de uma execução anterior estiver aberto e não for atribuído a
 </tbody>
 </table>
 
-## Próximas etapas
+## Next steps
 
 {% data reusables.actions.learning-actions %}

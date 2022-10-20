@@ -1,5 +1,5 @@
 ---
-title: コントリビューションがプロフィールに表示されないのはなぜですか？
+title: Why are my contributions not showing up on my profile?
 intro: Learn common reasons that contributions may be missing from your contributions graph.
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
@@ -18,43 +18,43 @@ shortTitle: Missing contributions
 
 ## About your contribution graph
 
-Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.product.product_location %}. ローカルタイムゾーンではなく、協定世界時 (UTC) に従って、コントリビューションにタイムスタンプが付けられます。 コントリビューションは、一定の基準を満たしている場合にのみカウントされます。 場合によっては、コントリビューションを表示するためにグラフを再構築する必要があります。
+Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.location.product_location %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
 
 If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
 
-## カウントされるコントリビューション
+## Contributions that are counted
 
-### Issue、プルリクエスト、ディスカッション
+### Issues, pull requests and discussions
 
-Issue、プルリクエスト、およびディスカッションは、フォークではなくスタンドアロンリポジトリで開かれた場合、コントリビューショングラフに表示されます。
+Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
-### コミット
-次の条件の**すべて**を満たしている場合、コミットはコントリビューショングラフに表示されます。
-- The email address used for the commits is associated with your account on {% data variables.product.product_location %}.
-- コミットが、フォークではなくスタンドアロンのリポジトリで行われた場合。
-- コミットが以下で行われた場合:
-  - リポジトリのデフォルトブランチ内
-  - `gh-pages` ブランチ (プロジェクトサイトのリポジトリの場合) 内
+### Commits
+Commits will appear on your contributions graph if they meet **all** of the following conditions:
+- The email address used for the commits is associated with your account on {% data variables.location.product_location %}.
+- The commits were made in a standalone repository, not a fork.
+- The commits were made:
+  - In the repository's default branch
+  - In the `gh-pages` branch (for repositories with project sites)
 
-プロジェクトサイトに関する詳しい情報については「[{% data variables.product.prodname_pages %}について](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)」を参照してください。
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
-また、次のうち**少なくとも 1 つ**が該当する必要があります:
-- リポジトリのコラボレーターであるか、またはリポジトリを所有する Organization のメンバーであること。
-- リポジトリをフォークしたこと。
-- リポジトリでプルリクエストまたは Issue を開いていること。
-- リポジトリに Star を付けたこと。
+In addition, **at least one** of the following must be true:
+- You are a collaborator on the repository or are a member of the organization that owns the repository.
+- You have forked the repository.
+- You have opened a pull request or issue in the repository.
+- You have starred the repository.
 
-## コントリビューションがカウントされない一般的な理由
+## Common reasons that contributions are not counted
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
-### コミットしてからまだ 24 時間経過していない
+### Commit was made less than 24 hours ago
 
-コントリビューションとしてカウントするための要件を満たすコミットを行った後、コントリビューションがコントリビューショングラフに表示されるまで、最大 24 時間待つ必要があります。
+After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph.
 
-### ローカルの Git コミットメールがアカウントに接続されていない
+### Your local Git commit email isn't connected to your account
 
-Commits must be made with an email address that is connected to your account on {% data variables.product.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.location.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
 You can check the email address used for a commit by adding `.patch` to the end of a commit URL, e.g. <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
@@ -62,12 +62,12 @@ You can check the email address used for a commit by adding `.patch` to the end 
 From 67c0afc1da354d8571f51b6f0af8f2794117fd10 Mon Sep 17 00:00:00 2001
 From: The Octocat <octocat@nowhere.com>
 Date: Sun, 27 Apr 2014 15:36:39 +0530
-Subject: [PATCH] より良いウェルカムメッセージのためのインデックスを更新
+Subject: [PATCH] updated index for better welcome message
 ```
 
-[`From:`] フィールドのメールアドレスは、[ローカル Git 設定](/articles/set-up-git)で設定されたアドレスです。 この例では、コミットに使用されたメールアドレスは、`octocat@nowhere.com` です。
+The email address in the `From:` field is the address that was set in the [local git config settings](/articles/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
 
-If the email address used for the commit is not connected to your account on {% data variables.product.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your account on {% data variables.product.product_location %}. 新しいアドレスを追加すると、 コントリビューショングラフが自動的に再構築されます。{% endif %}
+If the email address used for the commit is not connected to your account on {% data variables.location.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your account on {% data variables.location.product_location %}. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
 
 {% warning %}
 
@@ -75,27 +75,27 @@ If the email address used for the commit is not connected to your account on {% 
 
 {% endwarning %}
 
-### デフォルトまたは `gh-pages` ブランチでコミットされていません
+### Commit was not made in the default or `gh-pages` branch
 
-コミットがデフォルトのブランチまたは `gh-pages` ブランチ (プロジェクトサイトを持つリポジトリの場合) で行われた場合にのみカウントされます。 For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
-コミットがデフォルト以外または `gh-pages` 以外のブランチにあり、コントリビューションにカウントする場合は、以下のうち 1 つを行う必要があります:
-- 変更をデフォルトのブランチまたは `gh-pages` ブランチにマージするには、[プルリクエストを開きます](/articles/creating-a-pull-request)。
+If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
+- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
 - [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
 {% warning %}
 
-**Warning**: Changing the default branch of the repository will change it for all repository collaborators. これを行うのは、新しいブランチを将来のすべてのプルリクエストとコミットが行われるベースにしたい場合だけにしてください。
+**Warning**: Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
 
 {% endwarning %}
 
-### コミットがフォークで行われました
+### Commit was made in a fork
 
-フォークで行われたコミットは、 コントリビューションにはカウントされません。 カウントには、次のいずれかを実行する必要があります:
-- 変更内容を親リポジトリにマージするために、[プルリクエストを開きます](/articles/creating-a-pull-request)。
-- To detach the fork and turn it into a standalone repository on {% data variables.product.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. 詳細は「[フォークについて](/articles/about-forks/)」を参照してください。
+Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
+- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the parent repository.
+- To detach the fork and turn it into a standalone repository on {% data variables.location.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see "[About forks](/articles/about-forks/)."
 
-## 参考リンク
+## Further reading
 
-- [プロフィールでプライベートコントリビューションを公開または非表示にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)
-- [プロフィールページ上にコントリビューションを表示する](/articles/viewing-contributions-on-your-profile-page)
+- "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
+- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"

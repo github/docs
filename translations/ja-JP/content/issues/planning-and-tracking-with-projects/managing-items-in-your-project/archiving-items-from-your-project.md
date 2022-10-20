@@ -1,39 +1,48 @@
 ---
-title: '{% data variables.projects.project_v2 %}からのアイテムのアーカイブ'
-shortTitle: アイテムのアーカイブ
-intro: アイテムをアーカイブし、復元できるようにしておくか、恒久的に削除できます。
+title: 'Archiving items from your {% data variables.projects.project_v2 %}'
+shortTitle: 'Archiving items'
+intro: 'You can archive items, keeping them available to restore, or permanently delete them.'
 miniTocMaxHeadingLevel: 2
 versions:
-  feature: projects-v2
+  feature: "projects-v2"
 type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
 ---
 
-## アイテムのアーカイブ
+## Archiving items
 
-アイテムをアーカイブして、そのアイテムに関するコンテキストをプロジェクト中に保持しながら、アイテムをプロジェクトのビューから削除できます。
-
-{% data reusables.projects.select-an-item %}
-{% data reusables.projects.open-item-menu %}
-1. [**Archive**] をクリックします。 ![アーカイブのオプションが表示されているスクリーンショット](/assets/images/help/projects-v2/archive-menu-item.png)
-1. プロンプトが表示されたら、**Archive（アーカイブ）**をクリックして選択を確認してください。 ![アーカイブのプロンプトが表示されているスクリーンショット](/assets/images/help/projects-v2/archive-item-prompt.png)
-
-## アーカイブされたアイテムの復元
-
-1. プロジェクトにアクセスします。
-1. 右上で{% octicon "kebab-horizontal" aria-label="The menu icon" %}をクリックしてメニューを開いてください。 ![メニューアイコンを表示しているスクリーンショット](/assets/images/help/projects-v2/open-menu.png)
-1. メニューで{% octicon "archive" aria-label="The archive icon" %} **Archived items（アーカイブされたアイテム）**をクリックしてください。 ![Archived items'メニューアイテムが表示されているスクリーンショット](/assets/images/help/projects-v2/archived-items-menu-item.png)
-1. あるいは、表示されているアーカイブされたアイテムをフィルタリングするには、アイテムのリストの上にあるテキストボックスにフィルタを入力してください。 利用可能なフィルタに関する詳しい情報については「[プロジェクトのフィルタリング](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)」を参照してください。 ![アーカイブされているアイテムをフィルタリングするためのフィールドが表示されているスクリーンショット](/assets/images/help/issues/filter-archived-items.png)
-1. 各アイテムのタイトルの左で、復元したいアイテムを選択してください。 ![アーカイブされたアイテムの隣のチェックボックスが表示されているスクリーンショット](/assets/images/help/issues/select-archived-item.png)
-1. 選択されたアイテムを復元するには、アイテムのリストの上部で**Restore（復元）**をクリックしてください。 !["復元"ボタンが表示されているスクリーンショット](/assets/images/help/issues/restore-archived-item-button.png)
-
-## アイテムの削除
-
-アイテムを削除すれば、それをプロジェクトから完全に取り除くことができます。
+You can archive an item to keep the context about the item in the project but remove it from the project views. {% ifversion projects-v2-auto-archive %}You can also configure your project's built-in workflows to automatically archive items that meet certain criteria. For more information, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
 
 {% data reusables.projects.select-an-item %}
 {% data reusables.projects.open-item-menu %}
-1. **Delete from project（プロジェクトから削除）**をクリックしてください。 ![削除のオプションが表示されているスクリーンショット](/assets/images/help/projects-v2/delete-menu-item.png)
-1. プロンプトが表示されたら、**Delete（削除）**をクリックして選択を確認してください。 ![削除のプロンプトが表示されているスクリーンショット](/assets/images/help/projects-v2/delete-item-prompt.png)
+1. Click **Archive**.
+   ![Screenshot showing archive option](/assets/images/help/projects-v2/archive-menu-item.png)
+1. When prompted, confirm your choice by clicking **Archive**.
+   ![Screenshot showing archive prompt](/assets/images/help/projects-v2/archive-item-prompt.png)
+
+## Restoring archived items
+
+1. Navigate to your project.
+1. In the top-right, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu.
+  ![Screenshot showing the menu icon](/assets/images/help/projects-v2/open-menu.png)
+1. In the menu, click {% octicon "archive" aria-label="The archive icon" %} **Archived items**.
+  ![Screenshot showing the 'Archived items' menu item](/assets/images/help/projects-v2/archived-items-menu-item.png)
+1. Optionally, to filter the archived items displayed, type your filter into the text box above the list of items. For more information about the available filters, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+   ![Screenshot showing field for filtering archived items](/assets/images/help/issues/filter-archived-items.png)   
+1. To the left of each item title, select the items you would like to restore.
+   ![Screenshot showing checkboxes next to archived items](/assets/images/help/issues/select-archived-item.png)   
+1. To restore the selected items, above the list of items, click **Restore**. 
+   ![Screenshot showing the "Restore" button](/assets/images/help/issues/restore-archived-item-button.png)
+
+## Deleting items
+
+You can delete an item to remove it from the project entirely.
+
+{% data reusables.projects.select-an-item %}
+{% data reusables.projects.open-item-menu %}
+1. Click **Delete from project**.
+   ![Screenshot showing delete option](/assets/images/help/projects-v2/delete-menu-item.png)
+1. When prompted, confirm your choice by clicking **Delete**.
+   ![Screenshot showing delete prompt](/assets/images/help/projects-v2/delete-item-prompt.png)

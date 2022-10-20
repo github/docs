@@ -1,48 +1,57 @@
 ---
-title: Submitting your repository to GitHub Community Exchange
+title: GitHub Community Exchange へのリポジトリの送信
 shortTitle: Submit your repository
-intro: 'You can submit your repository to {% data variables.product.prodname_community_exchange %} for others to view or contribute to.'
+intro: '他のユーザーが閲覧または投稿できるように、リポジトリを {% data variables.product.prodname_community_exchange %} に送信できます。'
 versions:
   fpt: '*'
+ms.openlocfilehash: d520f303bf368c9230f26580ba2de9bd744b21e7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409783'
 ---
+## リポジトリの送信について
 
-## About repository submissions
+個人アカウントが所有するパブリック リポジトリのみを {% data variables.product.prodname_community_exchange %} に送信できます。
 
-Only public repositories owned by personal accounts can be submitted to {% data variables.product.prodname_community_exchange %}.
+リポジトリの送信には、次の 3 種類があります。
 
-There are three types of repository submissions:
+- **Learn。** プロジェクトをビルドするための手順を共有するリポジトリ。
+- **Collaborate。** プロジェクトで作業するコラボレーターを求めるリポジトリ。
+- **Learn と Collaborate。** `Learn` と `Collaborate` の組み合わせであるリポジトリ。
 
-- **Learn.** A repository to share step-by-step instructions to build a project.
-- **Collaborate.** A repository seeking collaborators to work on a project.
-- **Learn and Collaborate.** A repository which is a combination of `Learn` and `Collaborate`.
+リポジトリの送信の種類を選ぶときは、リポジトリの主な目的を検討してください。
 
-Consider what the main purpose of your repository is when choosing the type of submission for your repository.
+プロジェクトのレベルを上げ、他の学生が見つけやすくするには、1 つ以上のトピックと {% data variables.product.prodname_student_pack %} オファーをリポジトリに割り当てる必要があります。 詳細については、「[トピックを使用したリポジトリの分類](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)」を参照してください。
 
-To promote your project and make it more discoverable to other students, you should assign one or more topics and {% data variables.product.prodname_student_pack %} offers to your repository. 詳細は「[トピックでリポジトリを分類する](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)」を参照してください。
+リポジトリが {% data variables.product.prodname_community_exchange %} に送信されると、選んだ目的、トピック、オファーですぐに発行されます。 {% data variables.product.prodname_community_exchange %} コミュニティが、すべてのリポジトリの送信をモデレートします。
 
-Once a repository has been submitted to {% data variables.product.prodname_community_exchange %}, it will be published immediately with the purpose, topics, and offers you've chosen. The {% data variables.product.prodname_community_exchange %} community moderates all repository submissions.
+### 送信の要件
 
-### Submission requirements
+リポジトリは、送信を受け入れるための最小要件セットを満たしている必要があります。 送信プロセス中に、選んだリポジトリの送信条件が満たされていない場合は、不足しているアイテムが通知されます。
 
-Your repository must meet a minimum set of requirements for a submission to be accepted. During the submission process, if the submission criteria hasn't been met for your selected repository, you will be notified of the missing items.
+目的が `Learn` の送信の場合、リポジトリには次が必要です。
+- 説明です。
+- プロジェクトのビルド方法に関するテキストやメディアを含む手順を提供する LEARN.md ファイル。 LEARN.md ファイルによってプロジェクトが小さなコンポーネントに分解され、各ステップの詳細が提供されることで、他の学生があなたの指示に従ってプロジェクトをコーディングできるのが理想的です。
+- プロジェクトの詳しい説明を提供する README.md ファイル。
 
-For a submission with a purpose of `Learn`, your repository must have:
-- A description.
-- A LEARN.md file to provide step-by-step instructions, with text and/or media, on how you built your project. Ideally, your LEARN.md file will deconstruct your project into small components and provide thorough details of each step, so that other students can code their project by following your instructions.
-- A README.md file to provide a detailed description of your project.
+目的が `Collaborate` の送信の場合、リポジトリには次が必要です。
+- 説明です。
+- プロジェクトの詳しい説明を提供する README.md ファイル。
+- コラボレーターが作業するための 1 つ以上の issue。
 
-For a submission with a purpose of `Collaborate`, your repository must have:
-- A description.
-- A README.md file to provide a detailed description of your project.
-- One or more issues for collaborators to work on.
+`Learn` と `Collaborate` の両方の目的に適したリポジトリの送信は、コミュニティ標準に従うリポジトリです。 詳しくは、「[パブリック リポジトリのコミュニティ プロフィールについて](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)」を参照してください。
 
-A good repository submission for both `Learn` and `Collaborate` purposes, is a repository that follows community standards. For more information, see "[About community profiles for public repositories](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
+## リポジトリの送信
 
-## Submitting your repository
-
-1. From your {% data variables.product.prodname_global_campus %} dashboard, navigate to the {% data variables.product.prodname_community_exchange %} home page.
-1. Above the list of repositories, to the right of the search and dropdown filters, click **Add repository**. ![Screenshot of the Add repository button](/assets/images/help/education/community-exchange-submission-add-repo.png)
-1. Use the **What is the purpose of your submission?** drop-down menu and select one or more entries matching your submission. ![Screenshot of the purpose dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-purpose.png)
-1. Use the **Which repository would you like to use?** drop-down menu and select the repository for your submission. If the submission criteria hasn't been met, you will be notified of the missing items. ![Screenshot of the repository dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-repo.png)
-1. Use the **Which offers did you use for your project?** drop-down menu and select one or more entries matching your submission. ![Screenshot of the offers dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-offers.png)
-1. Click **Submit the project**.
+1. {% data variables.product.prodname_global_campus %} ダッシュボードから、{% data variables.product.prodname_community_exchange %} ホーム ページに移動します。
+1. リポジトリ一覧の上の、検索とドロップダウンのフィルターの右側にある **[リポジトリの追加]** をクリックします。
+  ![[リポジトリの追加] ボタンのスクリーンショット](/assets/images/help/education/community-exchange-submission-add-repo.png)
+1. **[送信の目的は何ですか?]** ドロップダウン メニューを使用して、送信に一致する 1 つ以上のエントリを選びます。
+  ![リポジトリの送信目的のドロップダウンのスクリーンショット](/assets/images/help/education/community-exchange-repo-submission-purpose.png)
+1. **[どのリポジトリを使用しますか?]** ドロップダウン メニューを使用して、送信に使用するリポジトリを選びます。 送信条件が満たされていない場合は、不足しているアイテムが通知されます。
+  ![リポジトリ送信のリポジトリのドロップダウンのスクリーンショット](/assets/images/help/education/community-exchange-repo-submission-repo.png)
+1. **[どのオファーをプロジェクトに使用しましたか?]** ドロップダウン メニューを使用して、送信に一致する 1 つ以上のエントリを選びます。
+  ![リポジトリ送信のオファーのドロップダウンのスクリーンショット](/assets/images/help/education/community-exchange-repo-submission-offers.png)
+1. **[プロジェクトの送信]** をクリックします。

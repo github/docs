@@ -26,7 +26,7 @@ topics:
 
 LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" on Wikipedia.
 
-If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.product.product_location %}.
+If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.location.product_location %}.
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
@@ -45,7 +45,7 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 {% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
 
-## Configuring LDAP with {% data variables.product.product_location %}
+## Configuring LDAP with {% data variables.location.product_location %}
 
 After you configure LDAP, users will be able to sign into your instance with their LDAP credentials. When users sign in for the first time, their profile names, email addresses, and SSH keys will be set with the LDAP attributes from your directory.
 
@@ -53,7 +53,7 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 
 {% warning %}
 
-**Warning:** Before configuring LDAP on {% data variables.product.product_location %}, make sure that your LDAP service supports paged results.
+**Warning:** Before configuring LDAP on {% data variables.location.product_location %}, make sure that your LDAP service supports paged results.
 
 {% endwarning %}
 
@@ -66,11 +66,11 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 5. Add your configuration settings.
 
 ## LDAP attributes
-Use these attributes to finish configuring LDAP for {% data variables.product.product_location %}.
+Use these attributes to finish configuring LDAP for {% data variables.location.product_location %}.
 
 | Attribute name           | Type     | Description |
 |--------------------------|----------|-------------|
-| `Host`                   | Required | The LDAP host, e.g. `ldap.example.com` or `10.0.0.30`. If the hostname is only available from your internal network, you may need to configure {% data variables.product.product_location %}'s DNS first so it can resolve the hostname using your internal nameservers. |
+| `Host`                   | Required | The LDAP host, e.g. `ldap.example.com` or `10.0.0.30`. If the hostname is only available from your internal network, you may need to configure {% data variables.location.product_location %}'s DNS first so it can resolve the hostname using your internal nameservers. |
 | `Port`                   | Required | The port the host's LDAP services are listening on. Examples include: 389 and 636 (for LDAPS). |
 | `Encryption`             | Required | The encryption method used to secure communications to the LDAP server. Examples include plain (no encryption), SSL/LDAPS (encrypted from the start), and StartTLS (upgrade to encrypted communication once connected). |
 | `Domain search user`     | Optional | The LDAP user that looks up other users that sign in, to allow authentication. This is typically a service account created specifically for third-party integrations. Use a fully qualified name, such as `cn=Administrator,cn=Users,dc=Example,dc=com`. With Active Directory, you can also use the `[DOMAIN]\[USERNAME]` syntax (e.g. `WINDOWS\Administrator`) for the domain search user with Active Directory. |
@@ -89,11 +89,11 @@ Use these attributes to finish configuring LDAP for {% data variables.product.pr
 
 ### Disabling password authentication for Git operations
 
-Select **Disable username and password authentication for Git operations** in your LDAP settings to enforce use of personal access tokens or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests. We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
+Select **Disable username and password authentication for Git operations** in your LDAP settings to enforce use of {% data variables.product.pat_generic %}s or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests. We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
 
 ![Disable LDAP password auth for Git check box](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
 
-When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a personal access token.`
+When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
 
 ### Enabling LDAP certificate verification
 
@@ -206,7 +206,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 
 You can also [use the API to trigger a manual sync](/enterprise/user/rest/reference/enterprise-admin#ldap).
 
-## Revoking access to {% data variables.product.product_location %}
+## Revoking access to {% data variables.location.product_location %}
 
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 

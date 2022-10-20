@@ -1,5 +1,5 @@
-#Issue 6980
-#ProjectV2 GA
+# Issue 6980
+# ProjectV2 GA
 versions:
   fpt: '*'
   ghec: '*'

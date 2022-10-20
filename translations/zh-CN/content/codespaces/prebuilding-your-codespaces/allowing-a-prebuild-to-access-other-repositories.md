@@ -1,7 +1,7 @@
 ---
 title: Allowing a prebuild to access other repositories
 shortTitle: Allow external repo access
-intro: 'You can permit your prebuild to access other {% data variables.product.prodname_dotcom %} repositories so that it can be built successfully.'
+intro: You can permit your prebuild to access other {% data variables.product.prodname_dotcom %} repositories so that it can be built successfully.
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,11 +13,11 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 ---
 
-默认情况下，预构建配置的 {% data variables.product.prodname_actions %} 工作流程只能访问其自己的存储库内容。 Your project may use additional resources, located elsewhere, to build the development environment.
+By default, the {% data variables.product.prodname_actions %} workflow for a prebuild configuration can only access its own repository contents. Your project may use additional resources, located elsewhere, to build the development environment.
 
 ## Allowing a prebuild read access external resources
 
-You can configure read access to other {% data variables.product.prodname_dotcom %} repositories, with the same repository owner, by specifying permissions in the `devcontainer.json` file used by your prebuild configuration. 更多信息请参阅“[管理代码空间中对其他存储库的访问](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)”。
+You can configure read access to other {% data variables.product.prodname_dotcom %} repositories, with the same repository owner, by specifying permissions in the `devcontainer.json` file used by your prebuild configuration. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
 
 {% note %}
 
@@ -25,39 +25,39 @@ You can configure read access to other {% data variables.product.prodname_dotcom
 
 {% endnote %}
 
-When you create or edit a prebuild configuration for a `devcontainer.json` file that sets up read access to other repositories with the same repository owner, you'll be prompted to grant these permissions when you click **Create** or **Update**. 更多信息请参阅“[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。
+When you create or edit a prebuild configuration for a `devcontainer.json` file that sets up read access to other repositories with the same repository owner, you'll be prompted to grant these permissions when you click **Create** or **Update**. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
 
 ## Allowing a prebuild write access external resources
 
-If your project requires write access to resources, or if the external resources reside in a repository with a different owner to the repository for which you are creating a prebuild configuration, you can use a personal access token (PAT) to grant this access.
+If your project requires write access to resources, or if the external resources reside in a repository with a different owner to the repository for which you are creating a prebuild configuration, you can use a {% data variables.product.pat_generic %} to grant this access.
 
-You will need to create a new personal account and then use this account to create a PAT with the appropriate scopes.
+You will need to create a new personal account and then use this account to create a {% data variables.product.pat_v1 %} with the appropriate scopes.
 
-1. 在 {% data variables.product.prodname_dotcom %} 上创建新的个人帐户。
-
+1. Create a new personal account on {% data variables.product.prodname_dotcom %}. 
+   
    {% warning %}
-
-   **警告**：虽然您可以使用现有的个人帐户生成 PAT，但我们强烈建议您创建一个只能访问方案所需目标存储库的新帐户。 这是因为访问令牌的 `repository` 权限授予访问对帐户有权访问的所有存储库。 更多信息请参阅“[注册新的 GitHub 帐户](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)”和“[ {% data variables.product.prodname_actions %} 的安全强化](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)”。
-
+   
+   **Warning**: Although you can generate the {% data variables.product.pat_v1 %} using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[Signing up for a new GitHub account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" and "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
+   
    {% endwarning %}
-1. 向新帐户授予对所需存储库的读取访问权限。 更多信息请参阅“[管理个人对组织仓库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)”。
-1. 登录到新帐户时，创建 `repo` 范围的 PAT。 （可选）如果预构建需要从 {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} 下载包，还要选择 `read:packages` 作用域。 更多信息请参阅“[创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
+1. Give the new account read access to the required repositories. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
+1. While signed into the new account, create a {% data variables.product.pat_v1 %} with the `repo` scope. Optionally, if the prebuild will need to download packages from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, also select the `read:packages` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-   ![为 PAT 选择的 'repo' 和 'packages' 作用域](/assets/images/help/codespaces/prebuilds-select-scopes.png)
+   !['repo' and 'packages' scopes selected for a {% data variables.product.pat_v1 %}](/assets/images/help/codespaces/prebuilds-select-scopes.png) 
+   
+   If the prebuild will use a package from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, you will need to either grant the new account access to the package or configure the package to inherit the access permissions of the repository you are prebuilding. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."   
+{% ifversion ghec %}1. Authorize the token for use with SAML single sign-on (SSO), so that it can access repositories that are owned by organizations with SSO enabled. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
 
-   如果预构建将使用 {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} 中的软件包，则需要向新帐户授予对软件包的访问权限，或者将软件包配置为继承要预构建的存储库的访问权限。 更多信息请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。
-{% ifversion ghec %}1. 授权令牌与 SAML 单点登录 (SSO) 一起使用，以便它可以访问启用了 SSO 的组织所拥有的存储库。 更多信息请参阅“[授权个人访问令牌用于 SAML 单点登录](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”。
-
-   ![用于为 PAT 配置 SSO 的按钮](/assets/images/help/codespaces/configure-SSO-for-PAT.png)
+   ![The button to configure SSO for a {% data variables.product.pat_v1 %}](/assets/images/help/codespaces/configure-SSO-for-PAT.png) 
 
 {% endif %}
-1. 复制令牌字符串。 您将此密钥分配给 {% data variables.product.prodname_codespaces %} 存储库机密。
-1. 重新登录到对存储库具有管理员访问权限的帐户。
-1. 在要为其创建 {% data variables.product.prodname_codespaces %} 预构建的存储库中，创建一个名为 `CODESPACES_PREBUILD_TOKEN` 的新 {% data variables.product.prodname_codespaces %} 存储库机密，为其提供您创建和复制的令牌值。 更多信息请参阅“[管理用于 {% data variables.product.prodname_github_codespaces %} 的仓库和组织的加密密钥](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)”。
+1. Copy the token string. You will assign this to a {% data variables.product.prodname_codespaces %} repository secret.
+1. Sign back into the account that has admin access to the repository. 
+1. In the repository for which you want to create {% data variables.product.prodname_github_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
 
-The PAT will be used for all subsequent prebuilds created for your repository. 与其他 {% data variables.product.prodname_codespaces %} 存储库机密不同， `CODESPACES_PREBUILD_TOKEN` 机密仅用于预构建，不可用于从存储库创建的代码空间。
+The {% data variables.product.pat_generic %} will be used for all subsequent prebuilds created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available to use in codespaces created from your repository.
 
-## 延伸阅读
+## Further reading
 
-- “[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)”
-- “[预构建疑难解答](/codespaces/troubleshooting/troubleshooting-prebuilds)”
+- "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
+- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"

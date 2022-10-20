@@ -1,7 +1,7 @@
 ---
-title: Usando scripts para testar seu código em um executor
-shortTitle: Usando scripts para testar seu código em um executor
-intro: 'Como usar funcionalidades essenciais de {% data variables.product.prodname_actions %} para integração contínua (IC).'
+title: Coo usar scripts para testar seu código em um executor
+shortTitle: Using scripts to test your code on a runner
+intro: 'Como usar recursos essenciais do {% data variables.product.prodname_actions %} para integração contínua (CI).'
 versions:
   fpt: '*'
   ghes: '> 3.1'
@@ -10,36 +10,32 @@ versions:
 type: how_to
 topics:
   - Workflows
+ms.openlocfilehash: f313a294bc2515564787268112f064b72d339d32
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146749525'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Visão geral do exemplo
+## Visão geral de exemplo
 
-{% data reusables.actions.example-workflow-intro-ci %} Quando esse fluxo de trabalho é acionado, ele executa automaticamente um script que verifica se o site Docs de {% data variables.product.prodname_dotcom %} tem algum link quebrado.
+{% data reusables.actions.example-workflow-intro-ci %} Quando esse fluxo de trabalho é disparado, ele executa automaticamente um script que verifica se o site Docs do {% data variables.product.prodname_dotcom %} tem links desfeitos.
 
 {% data reusables.actions.example-diagram-intro %}
 
 ![Diagrama de visão geral das etapas do fluxo de trabalho](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
 
-## Características utilizadas neste exemplo
+## Recursos usados neste exemplo
 
 {% data reusables.actions.example-table-intro %}
 
-| **Funcionalidade** | **Implementação** |
-| ------------------ | ----------------- |
-|                    |                   |
-{% data reusables.actions.push-table-entry %}
-{% data reusables.actions.pull-request-table-entry %}
-{% data reusables.actions.workflow-dispatch-table-entry %}
-{% data reusables.actions.permissions-table-entry %}
-{% data reusables.actions.concurrency-table-entry %}
-| Executando o trabalho em diferentes corredores, dependendo do repositório: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
-{% data reusables.actions.checkout-action-table-entry %}
-{% data reusables.actions.setup-node-table-entry %}
-| Usando a ação de terceiros: | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)| | Executando um script no executor: | Using `./script/rendered-content-link-checker.mjs` |
+| **Recurso**  | **Implementação** |
+| --- | --- | 
+{% data reusables.actions.push-table-entry %} {% data reusables.actions.pull-request-table-entry %} {% data reusables.actions.workflow-dispatch-table-entry %} {% data reusables.actions.permissions-table-entry %} {% data reusables.actions.concurrency-table-entry %} | Como executar o trabalho em diferentes executores, dependendo do repositório: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job) | {% data reusables.actions.checkout-action-table-entry %} {% data reusables.actions.setup-node-table-entry %} | Como usar uma ação de terceiros: | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)| | Como executar um script no executor | Usar `./script/rendered-content-link-checker.mjs` |
 
-## Exemplo de fluxo de trabalho
+## Fluxo de trabalho de exemplo
 
 {% data reusables.actions.example-docs-engineering-intro %} [`link-check-all.yml`](https://github.com/github/docs/blob/main/.github/workflows/link-check-all.yml).
 
@@ -129,7 +125,7 @@ jobs:
 </tbody>
 </table>
 
-## Entendendo o exemplo
+## Compreendendo o exemplo
 
 {% data reusables.actions.example-explanation-table-intro %}
 
@@ -162,7 +158,7 @@ on:
 </td>
 <td>
 
-A palavra-chave 'on' permite definir os eventos que acionam quando o fluxo de trabalho é executado. Você pode definir vários eventos aqui. Para obter mais informações, consulte "[Acionando um fluxo de trabalho](//actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
+A palavra-chave `on` permite definir os eventos que são disparados quando o fluxo de trabalho é executado. Você pode definir vários eventos aqui. Para obter mais informações, confira "[Como disparar um fluxo de trabalho](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)".
 </td>
 </tr>
 <tr>
@@ -174,7 +170,7 @@ A palavra-chave 'on' permite definir os eventos que acionam quando o fluxo de tr
 </td>
 <td>
 
-Adicione o evento "workflow_dispatch" se você quiser poder executar manualmente este fluxo de trabalho a partir da interface do usuário. Para obter mais informações, consulte [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
+Adicione o evento `workflow_dispatch` se você quiser a capacidade de executar manualmente esse fluxo de trabalho a partir da interface do usuário. Para obter mais informações, confira [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
 </td>
 </tr>
 <tr>
@@ -188,7 +184,7 @@ Adicione o evento "workflow_dispatch" se você quiser poder executar manualmente
 </td>
 <td>
 
-Adicione o evento "push", para que o fluxo de trabalho seja executado automaticamente toda vez que um commit for enviado por push para uma branch denominado "main". Para obter mais informações, consulte ['push'](/actions/using-workflows/events-that-trigger-workflows#push).
+Adicione o evento `push` para que o fluxo de trabalho seja executado automaticamente sempre que um commit for enviado por push a um branch denominado `main`. Para obter mais informações, confira [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>
@@ -200,7 +196,7 @@ Adicione o evento "push", para que o fluxo de trabalho seja executado automatica
 </td>
 <td>
 
-Adicione o evento "pull_request", para que o fluxo de trabalho seja executado automaticamente toda vez que um pull request for criado ou atualizado. Para obter mais informações, consulte ['pull_request'](/actions/using-workflows/events-that-trigger-workflows#pull_request).
+Adicione o evento `pull_request` para que o fluxo de trabalho seja executado automaticamente sempre que uma solicitação de pull for criada ou atualizada. Para obter mais informações, confira [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
 </td>
 </tr>
 <tr>
@@ -214,7 +210,7 @@ permissions:
 </td>
 <td>
 
-Modifica as permissões padrão concedidas a "GITHUB_TOKEN". Isso vai variar dependendo das necessidades do seu fluxo de trabalho. Para obter mais informações, consulte "[Atribuindo permissões a trabalhos](/actions/using-jobs/assigning-permissions-to-jobs)."
+Modifica as permissões padrão concedidas a `GITHUB_TOKEN`. Isso variará dependendo das necessidades do fluxo de trabalho. Para obter mais informações, confira "[Como atribuir permissões a trabalhos](/actions/using-jobs/assigning-permissions-to-jobs)".
 </td>
 </tr>
 <tr>
@@ -229,7 +225,7 @@ concurrency:
 </td>
 <td>
 
-Cria um grupo de concorrência para eventos específicos e usa o operador "||" para definir valores de recuo. Para obter mais informações, consulte "[Usando concorrência](/actions/using-jobs/using-concurrency)."
+Cria um grupo de simultaneidade para eventos específicos e usa o operador `||` para definir valores de fallback. Para mais informações, confira "[Como usar a simultaneidade](/actions/using-jobs/using-concurrency)".
 </td>
 </tr>
 <tr>
@@ -241,7 +237,7 @@ Cria um grupo de concorrência para eventos específicos e usa o operador "||" p
 </td>
 <td>
 
-Cancela qualquer trabalho ou fluxo de trabalho em execução no mesmo grupo de concorrência.
+Cancela todos os trabalhos ou fluxos de trabalho em execução no mesmo grupo de simultaneidade.
 </td>
 </tr>
 <tr>
@@ -253,7 +249,7 @@ jobs:
 </td>
 <td>
 
-Agrupa todos os trabalhos executados no arquivo do fluxo de trabalho.
+Agrupa todos os trabalhos executados no arquivo de fluxo de trabalho.
 </td>
 </tr>
 <tr>
@@ -265,7 +261,7 @@ Agrupa todos os trabalhos executados no arquivo do fluxo de trabalho.
 </td>
 <td>
 
-Define uma trabalho com o ID "check-links" que é armazenado dentro da chave "jobs".
+Define um trabalho com a ID `check-links` que é armazenada na chave `jobs`.
 </td>
 </tr>
 <tr>
@@ -279,7 +275,7 @@ Define uma trabalho com o ID "check-links" que é armazenado dentro da chave "jo
 </td>
 <td>
 
-Configura o trabalho a ser executado em um executor hospedado em {% data variables.product.prodname_dotcom %} ou em um executor auto-hospedado, dependendo do repositório que executa o fluxo de trabalho. Neste exemplo, o trabalho será executado em um runner auto-hospedado se o repositório for denominado "docs-internal" e estiver dentro da organização "github". Se o repositório não corresponder a este caminho, então ele será executado em um executor "ubuntu-latest" hospedado por {% data variables.product.prodname_dotcom %}. Para obter mais informações sobre essas opções consulte "[Escolhendo o executor para um trabalho](/actions/using-jobs/choosing-the-runner-for-a-job)".
+Configura o trabalho a ser executado em um executor hospedado no {% data variables.product.prodname_dotcom %} ou um executor auto-hospedado, dependendo do repositório que executa o fluxo de trabalho. Neste exemplo, o trabalho será executado em um executor auto-hospedado se o repositório for chamado `docs-internal` e estiver dentro da organização `github`. Se o repositório não corresponder a esse caminho, ele será executado em um executor `ubuntu-latest` hospedado no {% data variables.product.prodname_dotcom %}. Para obter mais informações sobre essas opções, confira "[Como escolher o executor para um trabalho](/actions/using-jobs/choosing-the-runner-for-a-job)".
 </td>
 </tr>
 <tr>
@@ -291,7 +287,7 @@ Configura o trabalho a ser executado em um executor hospedado em {% data variabl
 </td>
 <td>
 
-Agrupa todos as etapas que serão executados como parte do trabalho `check-links`. Cada trabalho em um fluxo de trabalho tem sua própria seção "etapas".
+Agrupa todas as etapas que serão executadas durante o trabalho `check-links`. Cada trabalho em um fluxo de trabalho tem a própria seção `steps`.
 </td>
 </tr>
 <tr>
@@ -304,7 +300,7 @@ Agrupa todos as etapas que serão executados como parte do trabalho `check-links
 </td>
 <td>
 
-A palavra-chave "uses" diz para o trabalho recuperar a ação denominada "actions/checkout". Esta é uma ação que verifica seu repositório e o faz o download do runner, permitindo que você execute ações contra seu código (como, por exemplo, ferramentas de teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório ou você estiver usando uma ação definida no repositório.
+A palavra-chave `uses` informa que o trabalho deve recuperar a ação chamada `actions/checkout`. Esta é uma ação que verifica seu repositório e o faz o download do runner, permitindo que você execute ações contra seu código (como, por exemplo, ferramentas de teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório ou você estiver usando uma ação definida no repositório.
 </td>
 </tr>
 <tr>
@@ -320,7 +316,7 @@ A palavra-chave "uses" diz para o trabalho recuperar a ação denominada "action
 </td>
 <td>
 
-Esta etapa usa a ação `actions/setup-node` para instalar a versão especificada do pacote do Node.js de software no executor, que lhe dá acesso ao comando `npm`.
+Esta etapa usa a ação `actions/setup-node` para instalar a versão especificada do pacote de software Node.js no executor, o que permite que você acesse o comando `npm`.
 </td>
 </tr>
 
@@ -334,7 +330,7 @@ Esta etapa usa a ação `actions/setup-node` para instalar a versão especificad
 </td>
 <td>
 
-A palavra-chave `executar` diz ao trabalho para executar um comando no executor. Neste caso, o `npm ci` é usado para instalar pacotes de software do npm para o projeto.
+A palavra-chave `run` instrui o trabalho a executar um comando no executor. Nesse caso, `npm ci` é usado para instalar os pacotes de software npm para o projeto.
 </td>
 </tr>
 
@@ -350,7 +346,7 @@ A palavra-chave `executar` diz ao trabalho para executar um comando no executor.
 </td>
 <td>
 
-Usa a ação `trilom/file-changes-action` para coletar todos os arquivos alterados. Este exemplo está fixado a uma versão específica da ação usando o SHA `a6ca26c14274c33b15e6499323aac178af06ad4b`.
+Usa a ação `trilom/file-changes-action` para reunir todos os arquivos alterados. Este exemplo é fixado a uma versão específica da ação, usando o SHA `a6ca26c14274c33b15e6499323aac178af06ad4b`.
 </td>
 </tr>
 
@@ -364,7 +360,7 @@ Usa a ação `trilom/file-changes-action` para coletar todos os arquivos alterad
 </td>
 <td>
 
-Lista o conteúdo de `files.json`. Isso será visível no log da execução do fluxo de trabalho e pode ser útil para depuração.
+Lista o conteúdo de `files.json`. Isso ficará visível no log da execução do fluxo de trabalho e poderá ser útil para depuração.
 </td>
 </tr>
 <tr>
@@ -384,7 +380,7 @@ Lista o conteúdo de `files.json`. Isso será visível no log da execução do f
 </td>
 <td>
 
-Esta etapa usa o comando 'executar' para executar um script armazenado no repositório em 'script/rendered-content-link-checker.mjs' e passa todos os parâmetros necessários para executar.
+Esta etapa usa o comando `run` para executar um script que está armazenado no repositório `script/rendered-content-link-checker.mjs` e passa todos os parâmetros necessários para execução.
 </td>
 </tr>
 <tr>
@@ -403,7 +399,7 @@ Esta etapa usa o comando 'executar' para executar um script armazenado no reposi
 </td>
 <td>
 
-Esta etapa também usa o comando `run` para executar um script que é armazenado no repositório em `script/rendered-content-link-checker.mjs` e passa um conjunto diferente de parâmetros.
+Esta etapa usa o comando `run` para executar um script que está armazenado no repositório `script/rendered-content-link-checker.mjs` e passa todos os parâmetros necessários para execução.
 </tr>
 
 </tbody>

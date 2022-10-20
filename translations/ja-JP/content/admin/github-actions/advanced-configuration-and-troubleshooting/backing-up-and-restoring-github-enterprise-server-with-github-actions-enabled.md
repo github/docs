@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions を有効化して GitHub Enterprise Server をバックアップおよび復元する
-shortTitle: バックアップと復元
-intro: '外部ストレージプロバイダの {% data variables.product.prodname_actions %} データは、通常の {% data variables.product.prodname_ghe_server %} バックアップに含まれていないため、個別にバックアップする必要があります。'
+title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
+shortTitle: Backing up and restoring
+intro: 'To restore a backup of {% data variables.location.product_location %} when {% data variables.product.prodname_actions %} is enabled, you must configure {% data variables.product.prodname_actions %} before restoring the backup with {% data variables.product.prodname_enterprise_backup_utilities %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -14,43 +14,31 @@ redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
 ---
 
-{% data reusables.actions.enterprise-storage-ha-backups %}
+## About backups of {% data variables.product.product_name %} when using {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_enterprise_backup_utilities %} を使用して {% data variables.product.product_location %} をバックアップする場合、外部ストレージプロバイダに保存されている {% data variables.product.prodname_actions %} データはバックアップに含まれないことにご注意ください。
+You can use {% data variables.product.prodname_enterprise_backup_utilities %} to back up and restore the data and configuration for {% data variables.location.product_location %} to a new instance. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."
 
-以下は、{% data variables.product.product_location %} と {% data variables.product.prodname_actions %} を新しいアプライアンスに復元するために必要なステップの概要です。
+However, not all the data for {% data variables.product.prodname_actions %} is included in these backups. {% data reusables.actions.enterprise-storage-ha-backups %}
 
-1. 元のアプライアンスがオフラインであることを確認します。
-1. 交換用の {% data variables.product.prodname_ghe_server %} アプライアンスでネットワーク設定を手動設定します。 ネットワーク設定はバックアップスナップショットから除外され、`ghe-restore` で上書きされません。
-1. To configure the replacement appliance to use the same {% data variables.product.prodname_actions %} external storage configuration as the original appliance, from the new appliance, set the required parameters with `ghe-config` command.
+## Restoring a backup of {% data variables.product.product_name %} when {% data variables.product.prodname_actions %} is enabled
 
-    - Azure Blob Storage
-    ```shell
-    ghe-config secrets.actions.storage.blob-provider "azure"
-    ghe-config secrets.actions.storage.azure.connection-string "_Connection_String_"
-    ```
-    - Amazon S3
-    ```shell
-    ghe-config secrets.actions.storage.blob-provider "s3"
-    ghe-config secrets.actions.storage.s3.bucket-name "_S3_Bucket_Name"
-    ghe-config secrets.actions.storage.s3.service-url "_S3_Service_URL_"
-    ghe-config secrets.actions.storage.s3.access-key-id "_S3_Access_Key_ID_"
-    ghe-config secrets.actions.storage.s3.access-secret "_S3_Access_Secret_"
-    ```
-    - Optionally, to enable S3 force path style, enter the following command:
-    ```shell
-    ghe-config secrets.actions.storage.s3.force-path-style true
-    ```
+To restore a backup of {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}, you must manually configure network settings and external storage on the destination instance before you restore your backup from {% data variables.product.prodname_enterprise_backup_utilities %}. 
 
+1. Confirm that the source instance is offline.
+1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} instance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
+1. SSH into the destination instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
 
-1. 交換用アプライアンスで {% data variables.product.prodname_actions %} を有効化します。 これにより、交換用アプライアンスが {% data variables.product.prodname_actions %} の同じ外部ストレージに接続されます。
+   ```shell{:copy}
+   $ ssh -p 122 admin@HOSTNAME
+   ```
+1. Configure the destination instance to use the same external storage service for {% data variables.product.prodname_actions %} as the source instance by entering one of the following commands.
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
+{% data reusables.actions.configure-storage-provider %}
+1. To prepare to enable {% data variables.product.prodname_actions %} on the destination instance, enter the following command.
 
-    ```shell
-    ghe-config app.actions.enabled true
-    ghe-config-apply
-    ```
-
-1. After {% data variables.product.prodname_actions %} is configured and enabled, use the `ghe-restore` command to restore the rest of the data from the backup. 詳しい情報については、「[バックアップを復元する](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)」を参照してください。
-1. セルフホストランナーを交換用アプライアンスに再登録します。 詳しい情報については、「[セルフホストランナーを追加する](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
-
-{% data variables.product.prodname_ghe_server %} のバックアップと復元の詳細については、「[アプライアンスでバックアップを設定する](/admin/configuration/configuring-backups-on-your-appliance)」を参照してください。
+   ```shell{:copy}
+   ghe-config app.actions.enabled true
+   ```
+{% data reusables.actions.apply-configuration-and-enable %}
+1. After {% data variables.product.prodname_actions %} is configured and enabled, to restore the rest of the data from the backup, use the `ghe-restore` command. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
+1. Re-register your self-hosted runners on the destination instance. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."

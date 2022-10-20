@@ -2,7 +2,6 @@
 title: Audit log
 intro: ''
 versions:
-  fpt: '*'
   ghes: '>=3.3'
   ghec: '*'
   ghae: '*'
@@ -11,3 +10,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

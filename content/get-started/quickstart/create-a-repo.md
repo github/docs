@@ -133,7 +133,7 @@ Now that you have created a project, you can start committing changes.
 
 ## Next steps
 
-You have now created a repository, including a *README* file, and created your first commit on {% data variables.product.product_location %}.
+You have now created a repository, including a *README* file, and created your first commit on {% data variables.location.product_location %}.
 
 {% webui %}
 

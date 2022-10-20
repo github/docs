@@ -1,10 +1,10 @@
 ---
-title: Visualizando a visão geral de segurança
-intro: Acesse as diferentes visualizações disponíveis na visão geral de segurança
+title: Viewing the security overview
+intro: Navigate to the different views available in the security overview
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 versions:
-  ghae: issue-5503
+  ghae: '>= 3.4'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -14,7 +14,7 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: Ver visão geral de segurança
+shortTitle: View the security overview
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
@@ -23,43 +23,49 @@ shortTitle: Ver visão geral de segurança
 
 {% data reusables.security-overview.information-varies-GHAS %}
 
-## Visualizar a visão geral de segurança de uma organização
+## Viewing the security overview for an organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. Para visualizar informações agregadas sobre tipos de alertas, clique em **Mostrar mais**. ![Botão mostrar mais](/assets/images/help/organizations/security-overview-show-more-button.png)
+1. To view aggregate information about alert types, click **Show more**.
+  ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 {% ifversion security-overview-views %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
-  ![Captura de tela da página de digitalização específica do código](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+  ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
-## Visualizando alertas em toda a sua organização
+## Viewing alerts across your organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. Na barra lateral de segurança, selecione o subconjunto de alertas que você deseja visualizar. ![Ver subconjunto de alerta](/assets/images/help/organizations/view-alert-subset.png)
-2. Opcionalmente, filtre a lista de alertas. Cada visualização tem sua própria seleção de filtros disponíveis. Você pode clicar em vários filtros nos menus suspensos de filtro para restringir a sua pesquisa. Você também pode digitar os qualificadores de busca no campo de busca. Para obter mais informações sobre os qualificados disponíveis, consulte "[Filtrando alertas na visão geral de segurança](/code-security/security-overview/filtering-alerts-in-the-security-overview)". ![Os menus de filtro suspenso e o campo de repositórios de pesquisa na visualização de digitalização de segredo](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
+1. In the security sidebar, select the subset of alerts you want to view.
+![View alert subset](/assets/images/help/organizations/view-alert-subset.png)
+2. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
+  ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
-## Visualizando a visão geral de segurança de uma empresa
+{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+## Viewing the security overview for an enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Código de Segurança**.
+1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
 {% ifversion security-overview-feature-specific-alert-page %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
 {% endif %}
 {% endif %}
 
-## Visualizando alertas de um repositório
+## Viewing alerts for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
-1. No nome do repositório, clique em **Segurança**. ![Aba de segurança do repositório](/assets/images/help/repository/security-tab.png)
-2. Na barra lateral de segurança, selecione a visualização que deseja abrir. ![Subconjunto de alerta para visualização do repositório](/assets/images/help/repository/repo-security-side-panel.png)
-3. Opcionalmente, filtre a lista de alertas. Cada visualização tem sua própria seleção de filtros disponíveis. Você pode clicar em vários filtros nos menus suspensos de filtro para restringir a sua pesquisa. Você também pode digitar os qualificadores de busca no campo de busca. Para obter mais informações sobre os qualificados disponíveis, consulte "[Filtrando alertas na visão geral de segurança](/code-security/security-overview/filtering-alerts-in-the-security-overview)". ![Menu de filtros suspenso na visualização de alertas da digitalização de segredo do repositório](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
+1. Under your repository name, click **Security**.
+  ![Repository security tab](/assets/images/help/repository/security-tab.png)
+2. In the security sidebar, select the view you want to open.
+  ![Repository view alert subset](/assets/images/help/repository/repo-security-side-panel.png)
+3. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
+  ![Drop down filter menus in the repository secret scanning alerts view](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
 
 {% endif %}
 
-## Visualizar a visão geral de segurança de uma equipe
+## Viewing the security overview for a team
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

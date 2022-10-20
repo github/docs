@@ -1,6 +1,6 @@
 ---
-title: プルリクエストをローカルでチェック アウトする
-intro: '誰かがリポジトリのフォークまたはブランチからプルリクエストを送信した場合、ローカルでマージして、マージコンフリクトを解決するか、{% data variables.product.product_name %} でマージする前に変更をテストおよび検証できます。'
+title: Checking out pull requests locally
+intro: 'When someone sends you a pull request from a fork or branch of your repository, you can merge it locally to resolve a merge conflict or to test and verify the changes before merging on {% data variables.product.product_name %}.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally
   - /articles/checking-out-pull-requests-locally
@@ -16,22 +16,24 @@ topics:
   - Pull requests
 shortTitle: Check out a PR locally
 ---
-
 {% note %}
 
-  **注釈:** プルリクエストの作者は、上流のリポジトリメンテナ、あるいは上流のリポジトリへのプッシュアクセスを持っている人に対し、ユーザ所有のフォークでプルリクエストの比較ブランチにコミットする権限を与えることができます。 詳しい情報については、「[フォークから作成されたプルリクエストブランチへの変更を許可する](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)」を参照してください。
+  **Note:** Pull request authors can give upstream repository maintainers, or those with push access to the upstream repository, permission to make commits to their pull request's compare branch in a user-owned fork. For more information, see "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
 
   {% endnote %}
 
-## アクティブなプルリクエストをローカルで修正する
+## Modifying an active pull request locally
 
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. プルリクエストのリストで、変更するプルリクエストをクリックします。{% ifversion fpt or ghec %}
-3. プルリクエストをオープンする場所を選択するには、[**Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}**] ドロップダウンを選択して、いずれかのタブをクリックします。 ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
-3. マージボックスで、[**command line instructions**] をクリックします。 手順に従い、提案されたプルリクエストをローカルにダウンロードしてください。 ![コマンドラインのプルリクエスト手順へのリンク](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
-4. オプションで、提案された変更を {% data variables.product.prodname_desktop %} で表示するには、[**open this in {% data variables.product.prodname_desktop %}**] をクリックします。 ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+2. In the list of pull requests, click the pull request you'd like to modify.{% ifversion fpt or ghec %}
+3. To choose where you'd like to open the pull request, select the **Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}** drop-down and click one of the tabs.
+  ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
+3. In the merge box, click **command line instructions**. Follow the sequence of steps to bring down the proposed pull request.
+  ![Link to access command line pull request instructions](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
+4. Optionally, to view proposed changes in {% data variables.product.prodname_desktop %}, click **open this in {% data variables.product.prodname_desktop %}**.
+  ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
 {% endwebui %}
 
@@ -42,56 +44,57 @@ shortTitle: Check out a PR locally
 To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
 
 ```shell
-gh pr checkout <em>pull-request</em>
+gh pr checkout PULL-REQUEST
 ```
 
 {% endcli %}
 
-## アクティブではないプルリクエストをローカルで修正する
+## Modifying an inactive pull request locally
 
-プルリクエストの作者がリクエストに応答しない場合や、フォークを削除した場合でも、プルリクエストをマージできます。 一方、プルリクエストを変更したくても作者が応答しないという場合、プルリクエストを更新するには追加的な手順を踏まなければなりません。
+If a pull request's author is unresponsive to requests or has deleted their fork, the pull request can still be merged. However, if you want to make changes to a pull request and the author is not responding, you'll need to perform some additional steps to update the pull request.
 
-プルリクエストがオープンされると、{% data variables.product.product_name %} はすべての変更をリモートで保存します。 つまり、プルリクエストがマージされる前でも、プルリクエストのコミットはリポジトリで利用できます。 オープンなプルリクエストをフェッチして、自分のものとして再作成できます。
+Once a pull request is opened, {% data variables.product.product_name %} stores all of the changes remotely. In other words, commits in a pull request are available in a repository even before the pull request is merged. You can fetch an open pull request and recreate it as your own.
 
-誰でも、以前にオープンされたプルリクエストを使って、さらに作業を進めたり、テストしたりできます。そこへ変更を追加して新しいプルリクエストをオープンすることもできます。 ただし、プルリクエストをマージできるのは、プッシュアクセスを持つコラボレータだけです。
+Anyone can work with a previously opened pull request to continue working on it, test it out, or even open a new pull request with additional changes. However, only collaborators with push access can merge pull requests.
 
 {% data reusables.repositories.sidebar-issue-pr %}
-2. [Pull Requests] リストで、マージしたいプルリクエストをクリックします。
-3. アクティブではないプルリクエストの ID 番号を検索します。 ID 番号は、プルリクエストのタイトルの後に付いている数字です。 ![プルリクエストの ID 番号](/assets/images/help/pull_requests/pull_request_id_number.png)
+2. In the "Pull Requests" list, click the pull request you'd like to merge.
+3. Find the ID number of the inactive pull request. This is the sequence of digits right after the pull request's title.
+  ![Pull Requests ID number](/assets/images/help/pull_requests/pull_request_id_number.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
-5. ID 番号を元に、プルリクエストへの参照をフェッチします。この過程で、新しいブランチが作成されます。
+5. Fetch the reference to the pull request based on its ID number, creating a new branch in the process.
   ```shell
-  $ git fetch origin pull/<em>ID</em>/head:<em>BRANCHNAME</em>
+  $ git fetch origin pull/ID/head:BRANCH_NAME
   ```
-6. このプルリクエストに基づく新しいブランチに切り替えます。
+6. Switch to the new branch that's based on this pull request:
   ```shell
-  [main] $ git checkout <em>BRANCHNAME</em>
-  > Switched to a new branch '<em>BRANCHNAME</em>'
+  [main] $ git checkout BRANCH_NAME
+  > Switched to a new branch 'BRANCH_NAME'
   ```
-7. これで、このブランチに対して任意の操作を実行できます。 ローカルテストを実行するか、他のブランチをブランチにマージすることができます。
-8. 準備ができたら、新しいブランチをプッシュできます。
+7. At this point, you can do anything you want with this branch. You can run some local tests, or merge other branches into the branch.
+8. When you're ready, you can push the new branch up:
   ```shell
-  [pull-inactive-pull-request] $ git push origin <em>BRANCHNAME</em>
+  [pull-inactive-pull-request] $ git push origin BRANCH_NAME
   > Counting objects: 32, done.
   > Delta compression using up to 8 threads.
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repository</em>.git
-  >  * [new branch]      <em>BRANCHNAME</em> -> <em>BRANCHNAME</em>
+  > To https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
+  >  * [new branch]      BRANCH_NAME -> BRANCH_NAME
   ```
-9. 新しいブランチで[新しいプルリクエストを作成](/articles/creating-a-pull-request)します。
+9. [Create a new pull request](/articles/creating-a-pull-request) with your new branch.
 
-## エラー: 一部の ref をプッシュできませんでした
+## Error: Failed to push some refs
 
-リモートの `refs/pull/` 名前空間は *読み取り専用*です。 ここにコミットをプッシュしようとすると、以下のエラーが表示されます。
+The remote `refs/pull/` namespace is *read-only*. If you try to push any commits there, you'll see this error:
 ```shell
 ! [remote rejected] HEAD -> refs/pull/1/head (deny updating a hidden ref)
-error: failed to push some refs to 'git@github.local:<em>USERNAME</em>/<em>REPOSITORY</em>.git'
+error: failed to push some refs to 'git@github.local:USERNAME/REPOSITORY.git'
 ```
 
 {% tip %}
 
-**ヒント:** リモート参照の削除や名前変更を行った場合、ローカルの `refs/pull/origin/` 名前空間は `git-remote` への呼び出しに影響されません。
+**Tip:** When you remove or rename a remote reference, your local `refs/pull/origin/` namespace will not be affected by calls to `git-remote`.
 
 {% endtip %}

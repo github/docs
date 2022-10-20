@@ -1,1 +1,1 @@
-1. Faça login no {% data variables.product.product_location %} em `http(s)://HOSTNAME/login`.
+1. Sign in to {% data variables.location.product_location %} at `http(s)://HOSTNAME/login`.

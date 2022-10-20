@@ -81,9 +81,9 @@ To enable single sign-on (SSO) for {% data variables.product.prodname_ghe_manage
 
 ## Enabling API integration
 
-The "GitHub AE" app in Okta uses the {% data variables.product.product_name %} API to interact with your enterprise for SCIM and SSO. This procedure explains how to enable and test access to the API by configuring Okta with a personal access token for {% data variables.product.prodname_ghe_managed %}.
+The "GitHub AE" app in Okta uses the {% data variables.product.product_name %} API to interact with your enterprise for SCIM and SSO. This procedure explains how to enable and test access to the API by configuring Okta with a {% data variables.product.pat_generic %} for {% data variables.product.prodname_ghe_managed %}.
 
-1. In {% data variables.product.prodname_ghe_managed %}, generate a personal access token with the `admin:enterprise` scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+1. In {% data variables.product.prodname_ghe_managed %}, generate a {% data variables.product.pat_v1 %} with the `admin:enterprise` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 {% data reusables.saml.okta-ae-applications-menu %}
 {% data reusables.saml.okta-ae-configure-app %}
 {% data reusables.saml.okta-ae-provisioning-tab %}
@@ -93,7 +93,7 @@ The "GitHub AE" app in Okta uses the {% data variables.product.product_name %} A
 
   ![Enable API integration](/assets/images/help/saml/okta-ae-enable-api-integration.png)
 
-1. For "API Token", type the {% data variables.product.prodname_ghe_managed %} personal access token you generated previously.
+1. For "API Token", type the {% data variables.product.prodname_ghe_managed %} {% data variables.product.pat_generic %} you generated previously.
 
 1. Click **Test API Credentials**. 
 

@@ -12,9 +12,14 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
-shortTitle: Solucionar problemas de consultas de pesquisa
+shortTitle: Troubleshoot search queries
+ms.openlocfilehash: 2c90d144401974ebc44f4b80a1509593fe987329
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145095532'
 ---
-
 ## Possíveis tempos limite
 
 Algumas consultas têm uma computação dispendiosa para a nossa infraestrutura de pesquisa executar. Para manter a pesquisa rápida para todos, limitamos o tempo de execução das consultas individuais. Nas raras situações em que uma consulta excede o tempo limite, a pesquisa retorna todas as correspondências encontradas antes do tempo limite e informa a ocorrência dele.
@@ -30,6 +35,6 @@ Há alguns limites no tamanho das consultas ao pesquisar no {% data variables.pr
 
 Determinados tipos de pesquisa, como pesquisa de código, podem ter limitações adicionais. Consulte a documentação desses tipos de pesquisa para obter mais informações.
 
-## Leia mais
+## Leitura adicional
 
 - "[Sobre a pesquisa no GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

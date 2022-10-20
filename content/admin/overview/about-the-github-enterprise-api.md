@@ -24,4 +24,4 @@ With the APIs, you can automate many administrative tasks. Some examples include
 - Collect statistics about your enterprise. For more information, see "[Admin stats](/rest/reference/enterprise-admin#admin-stats)."
 - Manage your enterprise account. For more information, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
 
-For the complete documentation for {% data variables.product.prodname_enterprise_api %}, see [{% data variables.product.prodname_dotcom %} REST API](/rest) and [{% data variables.product.prodname_dotcom%} GraphQL API](/graphql). 
+For the complete documentation for the {% data variables.product.prodname_enterprise_api %}, see [{% data variables.product.prodname_dotcom %} REST API](/rest) and [{% data variables.product.prodname_dotcom%} GraphQL API](/graphql). 

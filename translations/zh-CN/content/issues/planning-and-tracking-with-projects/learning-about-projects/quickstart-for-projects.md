@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.product.prodname_projects_v2 %} 快速入门'
-intro: 'Experience the speed, flexibility, and customization of {% data variables.product.prodname_projects_v2 %} by creating a project in this interactive guide.'
+intro: '通过在此交互式指南中创建项目来体验 {% data variables.product.prodname_projects_v2 %} 的速度、灵活性和自定义。'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,17 +10,22 @@ redirect_from:
 type: quick_start
 topics:
   - Projects
+ms.openlocfilehash: 165f12f1f76bcc571a7f7c47c33106bad2d6ff42
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147423814'
 ---
-
 ## 简介
 
-This guide demonstrates how to use {% data variables.product.prodname_projects_v2 %} to plan and track work. 在本指南中，您将创建一个新项目，并添加自定义字段来跟踪任务的优先级。 您还将学习如何创建保存的视图，帮助您与协作者交流优先事项和进度。
+本指南说明如何使用 {% data variables.product.prodname_projects_v2 %} 来规划和跟踪工作。 在本指南中，您将创建一个新项目，并添加自定义字段来跟踪任务的优先级。 您还将学习如何创建保存的视图，帮助您与协作者交流优先事项和进度。
 
-## 基本要求
+## 先决条件
 
-您可以创建组织项目或用户项目。 要创建组织项目，您需要一个 {% data variables.product.prodname_dotcom %} 组织。 有关创建组织的更多信息，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
+您可以创建组织项目或用户项目。 要创建组织项目，您需要一个 {% data variables.product.prodname_dotcom %} 组织。 有关创建组织的详细信息，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
 
-在本指南中，您将把组织拥有的存储库（对于组织项目）或您拥有的存储库（对于用户项目）的现有议题添加到新项目中。 有关创建议题的更多信息，请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
+在本指南中，您将把组织拥有的存储库（对于组织项目）或您拥有的存储库（对于用户项目）的现有议题添加到新项目中。 有关创建问题的详细信息，请参阅“[创建问题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
 
 ## 创建项目
 
@@ -46,7 +51,7 @@ This guide demonstrates how to use {% data variables.product.prodname_projects_v
 
 重复上述步骤几次，以向项目添加多个议题。
 
-For more information and other ways to add issues to your project, or about other items you can add to your project, see "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)."
+有关向项目添加问题的详细信息和其他方法，或可添加到项目的其他项的详细信息，请参阅“[向项目添加项](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)”。
 
 ## 向项目添加草稿议题
 
@@ -54,24 +59,30 @@ For more information and other ways to add issues to your project, or about othe
 
 {% data reusables.projects.add-draft-issue %}
 
-## Adding an iteration field
+## 添加迭代字段
 
-Next, create an iteration field so you can plan and track your work over repeating blocks of time. Iterations can be configured to suit how you and your team works, with customizable lengths and the ability to insert breaks.
+接下来创建迭代字段，以便可以计划和跟踪重复时间段内的工作。 可根据你和团队的工作方式，使用可自定义的长度和插入中断的功能来配置迭代。
 
 {% data reusables.projects.new-field %}
-1. Select **Iteration** ![Screenshot showing the iteration option](/assets/images/help/projects-v2/new-field-iteration.png)
-3. 要更改每次迭代的持续时间，请键入新数字，然后选择下拉列表并单击**天**或**周**。 ![Screenshot showing the iteration duration](/assets/images/help/projects-v2/iteration-field-duration.png)
-4. 单击 **Save（保存）**。 ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save-and-create.png)
+1. 选择“迭代”
+   ![显示迭代选项的屏幕截图](/assets/images/help/projects-v2/new-field-iteration.png)
+3. 要更改每次迭代的持续时间，请键入一个新数字，然后选择下拉列表，再单击“天”或“周” 。
+   ![显示迭代持续时间的屏幕截图](/assets/images/help/projects-v2/iteration-field-duration.png)
+4. 单击“ **保存**”。
+   ![显示“保存”按钮的屏幕截图](/assets/images/help/projects-v2/new-field-save-and-create.png)
 
 ## 创建字段来跟踪优先级
 
-Now, create a custom field named `Priority` and containing the values: `High`, `Medium`, or `Low`.
+现在，创建一个名为 `Priority` 的自定义字段，并使其包含以下值：`High`、`Medium` 或 `Low`。
 
 {% data reusables.projects.new-field %}
-1. Select **Single select** ![Screenshot showing the single select option](/assets/images/help/projects-v2/new-field-single-select.png)
-1. Below "Options", type the first option, "High". ![Screenshot showing the single select option](/assets/images/help/projects-v2/priority-example.png)
-1. To add additional fields, for "Medium" and "Low", click **Add option**.
-1. 单击 **Save（保存）**。 ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. 选择“单选”
+   ![显示“单选”选项的屏幕截图](/assets/images/help/projects-v2/new-field-single-select.png)
+1. 在“选项”下方，键入第一个选项“高”。
+   ![显示“单选”选项的屏幕截图](/assets/images/help/projects-v2/priority-example.png)
+1. 要添加其他字段（例如“中”和“低”），请单击“添加选项”。
+1. 单击“ **保存**”。
+   ![显示“保存”按钮的屏幕截图](/assets/images/help/projects-v2/new-field-save.png)
 
 指定项目中所有议题的优先级。
 
@@ -82,8 +93,10 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 接下来，按优先级对项目中的所有项进行分组，以便于专注于高优先级项。
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "rows" aria-label="the rows icon" %} **Group**. ![Screenshot showing the group menu item](/assets/images/help/projects-v2/group-menu-item.png)
-1. Click **Priority**. ![Screenshot showing the group menu](/assets/images/help/projects-v2/group-menu.png)
+1. 单击 {% octicon "rows" aria-label="the rows icon" %}“组”。
+   ![显示“组”菜单项的屏幕截图](/assets/images/help/projects-v2/group-menu-item.png)
+1. 单击“优先级”。
+   ![显示“组”菜单的屏幕截图](/assets/images/help/projects-v2/group-menu.png)
 
 现在，在组之间移动议题以更改其优先级。
 
@@ -117,7 +130,8 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 接下来，切换到板布局。
 
 {% data reusables.projects.open-view-menu %}
-1. Under "Layout", click **Board**. ![Screenshot showing layout option](/assets/images/help/projects-v2/table-or-board.png)
+1. 在“布局”下，单击“板”。
+   ![显示“布局”选项的屏幕截图](/assets/images/help/projects-v2/table-or-board.png)
 
 ![示例优先级](/assets/images/help/projects/example_board.png)
 
@@ -128,24 +142,31 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 要指示视图的目的，请给它一个描述性名称。
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-label="the pencil icon" %} **Rename view**. ![Screenshot showing the rename menu item](/assets/images/help/projects-v2/rename-view.png)
-1. Type the new name for your view.
-1. To save changes, press <kbd>Return</kbd>.
+1. 单击 {% octicon "pencil" aria-label="the pencil icon" %}“重命名视图”。
+   ![显示“重命名”菜单项的屏幕截图](/assets/images/help/projects-v2/rename-view.png)
+1. 键入视图的新名称。
+1. 要保存更改，请按<kbd>回车键</kbd>。
 
 ![示例优先级](/assets/images/help/projects/project-view-switch.gif)
 
 ## 配置内置自动化
 
-最后，添加内置工作流程，以便在将项添加到项目时状态设置为**待办事项** 。
+最后，添加内置工作流，以在将项添加到项目时将状态设置为“待办”。
 
-1. In the top-right, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu. ![Screenshot showing the menu icon](/assets/images/help/projects-v2/open-menu.png)
-1. 在菜单中，单击 {% octicon "workflow" aria-label="The workflow icon" %} **Workflows（工作流程）**。 ![Screenshot showing the 'Workflows' menu item](/assets/images/help/projects-v2/workflows-menu-item.png)
-1. 在 **Default workflows（默认工作流程）**下，单击 **Item added to project（已添加到项目的项）**。 ![Screenshot showing default workflows](/assets/images/help/projects-v2/default-workflows.png)
-1. 在 **When（何时）**旁边，确保同时选择 `issues（议题）`和 `pull requests（拉取请求）`。 ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when.png)
-1. 在 **Set（设置）**旁边，选择 **Status:Todo（状态：待办事项）**。 ![Screenshot showing the "set" configuration for a workflow](/assets/images/help/projects-v2/workflow-set.png)
-1. 单击 **Disabled（已禁用）**切换开关以启用工作流程。 ![Screenshot showing the "enable" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
+1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The menu icon" %} 以打开菜单。
+  ![显示菜单图标的屏幕截图](/assets/images/help/projects-v2/open-menu.png)
+1. 在菜单中，单击“{% octicon "workflow" aria-label="The workflow icon" %} 工作流”。
+  ![显示“工作流”菜单项的屏幕截图](/assets/images/help/projects-v2/workflows-menu-item.png)
+1. 在“默认工作流”下，单击“添加到项目的项” 。
+  ![显示默认工作流的屏幕截图](/assets/images/help/projects-v2/default-workflows.png)
+1. 在“何时”旁边，确保同时选择了 `issues` 和 `pull requests`。
+  ![显示工作流的“何时”配置的屏幕截图](/assets/images/help/projects-v2/workflow-when.png)
+1. 在“设置”旁边，选择“状态: 待办” 。
+  ![显示工作流的“设置”配置的屏幕截图](/assets/images/help/projects-v2/workflow-set.png)
+1. 单击“禁用”切换以启用工作流。
+  ![显示工作流的“启用”控件的屏幕截图](/assets/images/help/projects-v2/workflow-enable.png)
 
 ## 延伸阅读
 
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- [为项目添加项](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)
+- [自定义视图](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)

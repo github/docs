@@ -1,21 +1,21 @@
 ---
 title: 'Adding items to your {% data variables.projects.project_v2 %}'
-shortTitle: Adding items
+shortTitle: 'Adding items'
 intro: 'Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.'
 miniTocMaxHeadingLevel: 4
 versions:
-  feature: projects-v2
+  feature: "projects-v2"
 type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
 ---
 
-您的项目可以跟踪草稿议题、议题和拉取请求。
+Your project can track draft issues, issues, and pull requests. 
 
 {% note %}
 
-**Note:** A project can contain a maximum of 1,200 items and 10,000 archived items.
+**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
 
 {% endnote %}
 
@@ -25,34 +25,45 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.add-item-via-paste %}
 
-#### 搜索议题或拉取请求
+#### Searching for an issue or pull request
 
 {% data reusables.projects.add-item-bottom-row %}
-2. 输入 <kbd>#</kbd>。
-3. 选择拉取请求或议题所在的仓库。 您可以输入仓库名称的一部分来缩小选项范围。 ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-repo.png)
-4. 选择议题或拉取请求。 您可以键入标题的一部分以缩小选项范围。 ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-issue.png)
+2. Enter <kbd>#</kbd>.
+3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
+  ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-repo.png)
+4. Select the issue or pull request. You can type part of the title to narrow down your options.
+  ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-issue.png)
 
 #### Bulk adding issues and pull requests
 
-1. In the bottom row of the project, click {% octicon "plus" aria-label="plus icon" %}. ![Screenshot showing + button at the bottom of the project](/assets/images/help/projects-v2/omnibar-add.png)
-1. Click **Add item from repository**. ![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item.png)
+1. In the bottom row of the project, click {% octicon "plus" aria-label="plus icon" %}.
+  ![Screenshot showing + button at the bottom of the project](/assets/images/help/projects-v2/omnibar-add.png)
+1. Click **Add item from repository**.
+  ![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item.png)
 {% data reusables.projects.bulk-add %}
 
-#### 从存储库添加多个议题或拉取请求
+#### Adding multiple issues or pull requests from a repository
 
-1. 在 {% data variables.product.product_location %} 上，导航到包含要添加到项目中的议题或拉取请求的存储库。
+1. On {% data variables.location.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
 {% data reusables.repositories.sidebar-issue-pr %}
-1. 在每个议题标题的左侧，选择要添加到项目中的议题。 ![显示用于选择议题或拉取请求的复选框的屏幕截图](/assets/images/help/issues/select-issue-checkbox.png)
-1. （可选）若要选择页面上的每个议题或拉取请求，请在议题或拉取请求列表的顶部选择全部。 ![显示用于全选的复选框的屏幕截图](/assets/images/help/issues/select-all-checkbox.png)
-1. Above the list of issues or pull requests, click **Projects**. ![Screenshot showing projects option](/assets/images/help/projects-v2/issue-index-project-menu.png)
-1. 单击要向其添加所选议题或拉取请求的项目。 ![显示用于全选的复选框的屏幕截图](/assets/images/help/projects-v2/issue-index-select-project.png)
+1. To the left of each issue title, select the issues that you want to add to your project.
+  ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
+1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all. 
+  ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
+1. Above the list of issues or pull requests, click **Projects**. 
+  ![Screenshot showing projects option](/assets/images/help/projects-v2/issue-index-project-menu.png)
+1. Click the projects you want to add the selected issues or pull requests to.
+  ![Screenshot showing checkbox to select all on screen](/assets/images/help/projects-v2/issue-index-select-project.png)
 
-#### 从议题或拉取请求中分配项目
+#### Assigning a project from within an issue or pull request
 
-1. 导航到要添加到项目的议题或拉取请求。
-2. 在侧边栏中，单击 **Projects（项目）**。 ![Screenshot showing "Projects" in the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-projects.png)
-3. Select the project that you want to add the issue or pull request to. ![Screenshot showing selecting a project from the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
-4. Optionally, populate the custom fields. ![项目侧边栏](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
+1. Navigate to the issue or pull request that you want to add to a project.
+2. In the side bar, click **Projects**.
+  ![Screenshot showing "Projects" in the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-projects.png)
+3. Select the project that you want to add the issue or pull request to.
+  ![Screenshot showing selecting a project from the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
+4. Optionally, populate the custom fields.
+  ![Project sidebar](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
 
 #### Using the command palette to add an issue or pull request
 
@@ -60,16 +71,16 @@ allowTitleToDifferFromFilename: true
 1. Start typing "Add items" and press <kbd>Return</kbd>.
 {% data reusables.projects.bulk-add %}
 
-### 创建草稿议题
+### Creating draft issues
 
-草稿议题有助于快速捕获想法。 Unlike issues and pull requests that are referenced from your repositories, draft issues exist only in your project.
+Draft issues are useful to quickly capture ideas. Unlike issues and pull requests that are referenced from your repositories, draft issues exist only in your project.
 
 {% data reusables.projects.add-draft-issue %}
 
-草稿议题可以具有标题、文本正文、受理人以及项目中的任何自定义字段。 为了填充草稿议题的存储库、标签或里程碑，必须首先将草稿问题转换为议题。 更多信息请参阅“[将草稿议题转换为议题](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)”。
+Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)."
 
 {% note %}
 
-**注意**：用户在草稿议题中被分配或提及时不会收到通知，除非草稿议题已转换为议题。
+**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
 
 {% endnote %}

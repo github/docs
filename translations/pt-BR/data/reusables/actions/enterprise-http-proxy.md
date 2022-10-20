@@ -1,5 +1,5 @@
-Se você tem um **Servidor Proxy HTTP** configurado em {% data variables.product.product_location %}:
-  - Você deve adicionar `localhost` e `127.0.0.1` à lista **Exclusão do Proxy HTTP**.
-  - Se o bucket BYOS não for roteável, você também deverá adicionar a URL do bucket à lista de exclusão.
+If you have an **HTTP Proxy Server** configured on {% data variables.location.product_location %}:
+  - You must add `localhost` and `127.0.0.1` to the **HTTP Proxy Exclusion** list.
+  - If the BYOS bucket is not routable, then you must also add the bucket's URL to the exclusion list.
 
-  Para obter mais informações sobre como alterar as configurações de proxy, consulte "[Configurar um servidor de proxy web de saída](/admin/configuration/configuring-an-outbound-web-proxy-server)".
+  For more information on changing your proxy settings, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-an-outbound-web-proxy-server)."

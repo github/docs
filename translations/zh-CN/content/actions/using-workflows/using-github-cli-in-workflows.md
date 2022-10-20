@@ -1,7 +1,7 @@
 ---
-title: Using GitHub CLI in workflows
+title: 在工作流中使用 GitHub CLI
 shortTitle: GitHub CLI in workflows
-intro: 'You can script with {% data variables.product.prodname_cli %} in {% data variables.product.prodname_actions %} workflows.'
+intro: '可以在 {% data variables.product.prodname_actions %} 工作流中使用 {% data variables.product.prodname_cli %} 编写脚本。'
 redirect_from:
   - /actions/guides/using-github-cli-in-workflows
   - /actions/advanced-guides/using-github-cli-in-workflows
@@ -14,14 +14,18 @@ topics:
   - CLI
   - Workflows
 type: how_to
+ms.openlocfilehash: 3455e4f082acf26215ad050c5c381df53c0c2713
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145100117'
 ---
-
-
 {% data reusables.cli.cli-learn-more %}
 
-{% data variables.product.prodname_cli %} is preinstalled on all {% data variables.product.prodname_dotcom %}-hosted runners. For each step that uses {% data variables.product.prodname_cli %}, you must set an environment variable called `GITHUB_TOKEN` to a token with the required scopes.
+{% data variables.product.prodname_cli %} 预安装在所有 {% data variables.product.prodname_dotcom %} 托管的运行程序上。 对于使用 {% data variables.product.prodname_cli %} 的每个步骤，必须将调用 `GITHUB_TOKEN` 的环境变量设置为具有所需范围的令牌。
 
-You can execute any {% data variables.product.prodname_cli %} command. For example, this workflow uses the `gh issue comment` subcommand to add a comment when an issue is opened.
+可以执行任何 {% data variables.product.prodname_cli %} 命令。 例如，此工作流使用 `gh issue comment` 子命令在打开问题时添加注释。
 
 ```yaml{:copy}
 name: Comment when opened
@@ -39,7 +43,7 @@ jobs:
           ISSUE: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
 ```
 
-You can also execute API calls through {% data variables.product.prodname_cli %}. For example, this workflow first uses the `gh api` subcommand to query the GraphQL API and parse the result. Then it stores the result in an environment variable that it can access in a later step. In the second step, it uses the `gh issue create` subcommand to create an issue containing the information from the first step.
+还可以通过 {% data variables.product.prodname_cli %} 执行 API 调用。 例如，此工作流首先使用 `gh api` 子命令查询 GraphQL API 并分析结果。 然后，它将结果存储在可在后续步骤中访问的环境变量中。 在第二步中，它使用 `gh issue create` 子命令创建包含第一步中信息的问题。
 
 ```yaml{:copy}
 name: Report remaining open issues

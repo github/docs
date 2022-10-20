@@ -1,8 +1,8 @@
 ---
 title: '{% data variables.product.prodname_projects_v1_caps %}'
-shortTitle: Tableros
+shortTitle: Boards
 allowTitleToDifferFromFilename: true
-intro: 'La API de {% data variables.product.prodname_projects_v1 %} te permite crear y fusionar {% data variables.projects.projects_v1_boards %} en un repositorio.'
+intro: 'The {% data variables.product.prodname_projects_v1 %} API lets you create and manage {% data variables.projects.projects_v1_boards %} in a repository.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,3 +14,5 @@ miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

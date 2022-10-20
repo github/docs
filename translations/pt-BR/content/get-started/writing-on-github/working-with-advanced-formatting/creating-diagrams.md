@@ -3,18 +3,23 @@ title: Criando diagramas
 intro: Crie diagramas para transmitir informações sobre gráficos
 versions:
   feature: mermaid
-shortTitle: Crie diagramas
+shortTitle: Create diagrams
+ms.openlocfilehash: 0e588fb771bd7992f75e364624576e216cf84000
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529732'
 ---
-
 ## Sobre a criação de diagramas
 
-Você pode criar diagramas em Markdown usando três sintaxes diferentes: mermaid, geoJSON e topoJSON e ASCII STL. A renderização de diagrama está disponível em arquivos {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, wikis e Markdown.
+Você pode criar diagramas em Markdown usando três sintaxes diferentes: mermaid, geoJSON e topoJSON e ASCII STL. A renderização do diagrama está disponível em {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, solicitações de pull, wikis e arquivos markdown.
 
 ## Criando diagramas do mermaid
 
-O Mermeid é uma ferramenta inspirada em Markdown que transforma texto em diagramas. Por exemplo, o Mermeid pode interpretar gráficos de fluxo, diagramas de sequência, gráficos de pizza e muito mais. Para obter mais informações, consulte a documentação do [Mermaid](https://mermaid-js.github.io/mermaid/#/).
+O Mermeid é uma ferramenta inspirada em Markdown que transforma texto em diagramas. Por exemplo, o Mermeid pode interpretar gráficos de fluxo, diagramas de sequência, gráficos de pizza e muito mais. Para obter mais informações, confira a [documentação do Mermaid](https://mermaid-js.github.io/mermaid/#/).
 
-Para criar um diagrama do Mermaid, adicione a sintaxe do Mermeid dentro de um bloco de código cercado com o identificador da linguagem do `mermaid`. Para obter mais informações sobre a criação de blocos de código, consulte "[Criando e destacando blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
+Para criar um diagrama do Mermaid, adicione a sintaxe do Mermaid dentro de um bloco de código isolado com o identificador de linguagem `mermaid`. Para obter mais informações sobre como criar blocos de código, confira "[Como criar e realçar blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
 
 Por exemplo, você pode criar um fluxograma:
 
@@ -34,15 +39,15 @@ graph TD;
 
 {% note %}
 
-**Observação:** Você pode observar erros se você executar um plugin de terceiros do Mermaid ao usar sintaxe do Mermaid em {% data variables.product.company_short %}.
+**Observação:** talvez você observe erros se executar um plug-in do Mermaid de terceiros ao usar a sintaxe Mermaid no {% data variables.product.company_short %}.
 
 {% endnote %}
 
-## Criando mapas do GeoJSON e TopoJSON
+## Criar mapas GeoJSON e TopoJSON
 
-Você pode usar a sintaxe do GeoJSON/TopoJSON para criar mapas interativos. Para criar um mapa, inclua o GeoJSON ou TopoJSON dentro de um bloco de código isolado com o identificador de sintaxe de `geojson` ou `topojson`. Para obter mais informações, consulte "[Criar e destacar blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
+É possível usar a sintaxe GeoJSON/TopoJSON para criar mapas interativos. Para criar um mapa, adicione GeoJSON ou TopoJSON em um bloco de código protegido com o identificador de sintaxe `geojson` ou `topojson`. Para obter mais informações, confira "[Como criar e realçar blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
 
-### Usando o GeoJSON
+### Uso do GeoJSON
 
 Por exemplo, você pode criar um mapa simples:
 
@@ -77,9 +82,9 @@ Por exemplo, você pode criar um mapa simples:
 
 ![Mapa interpretado](/assets/images/help/writing/fenced-geojson-rendered-map.png)
 
-### Usando o TopoJSON
+### Uso do TopoJSON
 
-Por exemplo, você pode criar um mapa simples do TopoJSON:
+Por exemplo, é possível criar um mapa TopoJSON simples:
 
 <pre>
 ```topojson
@@ -120,12 +125,12 @@ Por exemplo, você pode criar um mapa simples do TopoJSON:
 
 ![Mapa do topojson interpretado](/assets/images/help/writing/fenced-topojson-rendered-map.png)
 
-Para obter mais informações sobre como trabalhar com arquivos `.geojson` e `.topojson`, consulte[Trabalhando com arquivos que não são de código](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)".
+Para obter mais informações sobre como trabalhar com arquivos `.geojson` e `.topojson`, confira "[Como trabalhar com arquivos sem código](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)".
 
 
 ## Criando modelos de STL 3D
 
-Você pode usar a sintaxe do ASCII STL diretamente no markdown para criar modelos 3D interativos. Para exibir um modelo, adicione a sintaxe ASCII STL dentro de um bloco de código isolado com o identificador de sintaxe `stl`. Para obter mais informações, consulte "[Criar e destacar blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
+Você pode usar a sintaxe do ASCII STL diretamente no markdown para criar modelos 3D interativos. Para ver um modelo, adicione a sintaxe STL ASCII dentro de um bloco de código isolado com o identificador de sintaxe `stl`. Para obter mais informações, confira "[Como criar e realçar blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
 
 Por exemplo, você pode criar um modelo 3D simples:
 
@@ -166,5 +171,5 @@ endsolid
 
 ![Modelo 3D interpretado](/assets/images/help/writing/fenced-stl-rendered-object.png)
 
-Para mais informações sobre como trabalhar com arquivos `.stl`, consulte[Trabalhando com arquivos que não são de código](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)".
+Para obter mais informações sobre como trabalhar com arquivos `.stl`, confira "[Como trabalhar com arquivos sem código](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)".
 

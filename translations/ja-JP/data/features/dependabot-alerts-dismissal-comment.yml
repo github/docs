@@ -1,4 +1,5 @@
-#Reference: Issue #7673 - Dependabot alerts: optional comment with dismissal - [GA]
+# Reference: Issue #7673 - Dependabot alerts: optional comment with dismissal - [GA]
+
 versions:
   fpt: '*'
   ghec: '*'

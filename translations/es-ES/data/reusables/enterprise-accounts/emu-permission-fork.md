@@ -1,1 +1,1 @@
-{% ifversion ghec %}Los miembros de una {% data variables.product.prodname_emu_enterprise %} no pueden bifurcar repositorios desde fuera de la empresa ni bifurcar repositorios internos.{% endif %}
+{% ifversion ghec %}Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot fork repositories from outside of the enterprise or fork internal repositories.{% endif %}

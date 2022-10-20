@@ -1,21 +1,20 @@
----
 date: '2021-05-06'
 release_candidate: true
 deprecated: true
-intro: Si {% data variables.product.product_location %} está ejecutando una compilación candidata a lanzamiento, no puedes mejorarla con un hotpatch. Te recomendamos que solo ejecutes candidatos a lanzamiento en ambientes de prueba.
+intro: If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
 sections:
   security_fixes:
-    - '**MEDIA** Bajo ciertas circunstancias, los usuarios que se eliminaron de un equipo u organización pdorían retener el acceso de escritura a las ramas en las cuales tenían solicitudes de cambio existentes abiertas.'
-    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+    - '**MEDIUM** Under certain circumstances, users who were removed from a team or organization could retain write access to branches they had existing pull requests opened for.'
+    - Packages have been updated to the latest security versions.
   bugs:
-    - 'Un job de limpieza programado puede ocasionar que el rendimiento se degrade en una instancia con una tabla de `check_annotations` muy grande.'
+    - 'A scheduled cleanup job can cause performance to degrade on an instance with a very large `check_annotations` table.'
   changes:
-    - Se archivarán las anotaciones de verificación más viejas de 4 meses.
-    - 'El campo `firstPatchedVersion` ahora está disponible en los objetos de `SecurityVulnerability` en la API de GraphQL.'
+    - Check annotations older than 4 months will be archived.
+    - 'The `firstPatchedVersion` field is now available on `SecurityVulnerability` objects in the GraphQL API.'
   known_issues:
-    - El registro de npm de los GitHub Packages ya no devuelve un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos el que este valor se devuelva en el futuro ya que hayamos resuelto los problemas de rendimiento existentes.
-    - En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.
-    - Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.
-    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
-    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.
-    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
+    - The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - Custom firewall rules are not maintained during an upgrade.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.

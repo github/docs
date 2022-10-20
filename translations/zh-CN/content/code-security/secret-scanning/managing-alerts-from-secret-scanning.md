@@ -1,6 +1,6 @@
 ---
-title: 管理来自密码扫描的警报
-intro: 您可以查看并关闭已检入仓库的密码的警报。
+title: Managing alerts from secret scanning
+intro: You can view and close alerts for secrets checked in to your repository.
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
@@ -15,67 +15,72 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: 管理秘密警报
+shortTitle: Manage secret alerts
 ---
 
 {% data reusables.secret-scanning.beta %}
 
-## 管理 {% data variables.product.prodname_secret_scanning %} 警报
+## Managing {% data variables.product.prodname_secret_scanning %} alerts
 
 {% ifversion ghec %}
 {% note %}
 
-**注意：**仅为启用了 {% data variables.product.prodname_secret_scanning_GHAS %} 的存储库创建警报。 使用免费 {% data variables.product.prodname_secret_scanning_partner%} 服务在公共存储库中发现的机密将直接报告给合作伙伴，而无需创建警报。
+**Note:** Alerts are created only for repositories with {% data variables.product.prodname_secret_scanning_GHAS %} enabled. Secrets found in public repositories using the free {% data variables.product.prodname_secret_scanning_partner%} service are reported directly to the partner, without creating an alert.
 
 {% endnote %}
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-1. 在左侧边栏中，单击 **Secret scanning alerts（机密扫描警报）**。
-   {% ifversion fpt or ghes or ghec %}
-   !["Secret scanning alerts（机密扫描警报）" 选项卡](/assets/images/help/repository/sidebar-secrets.png)
+1. In the left sidebar, click **Secret scanning alerts**.
+   {% ifversion ghes or ghec %}
+   !["Secret scanning alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
-   !["Secret scanning alerts（机密扫描警报）" 选项卡](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
+   !["Secret scanning alerts" tab](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
-1. 在“Secret scanning（密码扫描）”下，单击要查看的警报。
-   {% ifversion fpt or ghec %}
-   ![来自密码扫描的警报](/assets/images/help/repository/secret-scanning-click-alert.png)
+1. Under "Secret scanning" click the alert you want to view.
+   {% ifversion ghec %}
+   ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
    {% ifversion ghes %}
-   ![来自密码扫描的警报](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
+   ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
    {% endif %}
    {% ifversion ghae %}
-   ![来自密码扫描的警报](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
-   {% endif %}
-1. （可选）选择 {% ifversion fpt or ghec %}“Close as（关闭为）”{% elsif ghes or ghae %}“Mark as（标记为）”{% endif %} 下拉菜单，然后单击原因以解决警报。
-   {% ifversion fpt or ghec %}
-   ![用于解决来自密码扫描的警报的下拉菜单](/assets/images/help/repository/secret-scanning-resolve-alert.png)
-   {% endif %}
-   {% ifversion ghes or ghae %}
-   ![用于解决来自密码扫描的警报的下拉菜单](/assets/images/help/repository/secret-scanning-resolve-alert-ghe.png)
-   {% endif %}
+   ![List of alerts from secret scanning](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
+   {% endif %}{% ifversion secret-scanning-dismissal-comment %}
+1. To dismiss an alert, select the "Dismiss alert" dropdown menu and click a reason for resolving an alert.
 
-## 保护受到威胁的密码
+   ![Screenshot of the dropdown menu for dismissing an alert from secret scanning](/assets/images/help/repository/secret-scanning-dismiss-alert.png){% else %}
+1. To dismiss an alert, select the "Mark as" dropdown menu and click a reason for resolving an alert. 
+  
+   ![Screenshot of the dropdown menu for resolving an alert from secret scanning](/assets/images/enterprise/3.2/repository/secret-scanning-resolve-alert-ghe.png)
 
-只要密码被提交到仓库，便应视为受到威胁。 {% data variables.product.prodname_dotcom %} 建议对受到威胁的密码执行以下操作：
+   {% endif %}{% ifversion secret-scanning-dismissal-comment %}
+1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
 
-- 对于受到威胁的 {% data variables.product.prodname_dotcom %} 个人访问令牌，请删除该令牌，创建新令牌，然后更新使用旧令牌的任何服务。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)。”
-- 对于所有其他密码，请先确认提交到 {% data variables.product.product_name %} 的密码是有效的。 如果有效，请创建新密码，更新使用旧密码的任何服务，然后删除旧密码。
+  ![Screenshot showing how to dismiss an alert via the "Dismiss alert" dropdown, with the option to add a dismissal comment](/assets/images/help/repository/secret-scanning-dismissal-comment.png)
+
+1. Click **Dismiss alert**.
+{% endif %}
+
+## Securing compromised secrets
+
+Once a secret has been committed to a repository, you should consider the secret compromised. {% data variables.product.prodname_dotcom %} recommends the following actions for compromised secrets:
+
+- For a compromised {% data variables.product.prodname_dotcom %} {% data variables.product.pat_generic %}, delete the compromised token, create a new token, and update any services that use the old token. For more information, see "[Creating a {% data variables.product.pat_generic %} for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
+- For all other secrets, first verify that the secret committed to {% data variables.product.product_name %} is valid. If so, create a new secret, update any services that use the old secret, and then delete the old secret.
 
 {% ifversion ghec %}
 {% note %}
 
-**注意：** 如果在 {% data variables.product.prodname_dotcom_the_website %} 上的公共存储库中检测到机密，并且该机密也与合作伙伴模式匹配，则会生成警报，并将潜在的机密报告给服务提供商。 有关合作伙伴模式的详细信息，请参阅“[合作伙伴模式支持的机密](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)”。
+**Note:** If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
 
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae-issue-4910 or ghec %}
-## 配置 {% data variables.product.prodname_secret_scanning %} 警报的通知
+## Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
 
-当检测到新的机密时，{% data variables.product.product_name %} 会根据用户的通知首选项通知对仓库安全警报具有访问权限的所有用户。 如果您正在关注该仓库，已为仓库的安全警报或所有活动启用通知功能， 或者您是包含机密的提交的作者且未忽略该仓库，您将会收到电子邮件通知。
+When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive an email notification if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, or are the author of the commit that contains the secret and are not ignoring the repository.
 
-更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”和“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
-{% endif %}
+For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."

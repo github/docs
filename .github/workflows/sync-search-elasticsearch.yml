@@ -13,6 +13,11 @@ on:
 permissions:
   contents: read
 
+# This allows a subsequently queued workflow run to cancel previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.head_ref }}'
+  cancel-in-progress: true
+
 env:
   FREEZE: ${{ secrets.FREEZE }}
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
@@ -36,21 +41,10 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
-      # TEMPORARY UNTIL WE HAVE A PRODUCTION ELASTICSEARCH
-      - uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
-        with:
-          elasticsearch version: '7.17.5'
-          host port: 9200
-          container port: 9200
-          host node port: 9300
-          node port: 9300
-          discovery type: 'single-node'
-      # END TEMPORARY
-
       - name: Setup Node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -97,8 +91,8 @@ jobs:
         run: |
           mkdir /tmp/records
           npm run sync-search-indices -- \
-            -l ${{ matrix.language }} \
-            -o /tmp/records \
+            --language ${{ matrix.language }} \
+            --out-directory /tmp/records \
             --no-compression --no-lunr-index
 
           ls -lh /tmp/records
@@ -110,10 +104,21 @@ jobs:
       - name: Index into Elasticsearch
         run: |
           ./script/search/index-elasticsearch.js \
-            --language ${{ matrix.language }} \
-            --source-directory /tmp/records
+            --language ${{ matrix.language }} -- /tmp/records
 
       - name: Check created indexes and aliases
         run: |
-          curl --fail --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
-          curl --fail --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
+          # Not using `--fail` here because I've observed that it can fail
+          # with a rather cryptic 404 error when it should, if anything, be
+          # a 200 OK with a list of no indices.
+          curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
+          curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        if: failure()
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last 'Sync search Elasticsearch' run failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22

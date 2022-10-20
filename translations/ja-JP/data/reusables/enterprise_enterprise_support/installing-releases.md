@@ -1,3 +1,7 @@
-## {% data variables.product.prodname_ghe_server %} リリースをインストールする
+{% ifversion ghes %}
 
-{% data variables.product.product_location %}の安定を保証するには、{% data variables.product.prodname_ghe_server %} リリースをインストールして実行しなければなりません。 {% data variables.product.prodname_ghe_server %} リリースをインストールすることで、最新の機能、修正、拡張とともに、機能へのアップデート、コードの修正、パッチ、あるいはその他の{% data variables.product.prodname_ghe_server %}に対する一般的なアップデートや修正が確実に入手できます。
+## Installing {% data variables.product.prodname_ghe_server %} releases
+
+To ensure that {% data variables.location.product_location %} is stable, you must install and implement {% data variables.product.prodname_ghe_server %} releases. Installing {% data variables.product.prodname_ghe_server %} releases ensures that you have the latest features, modifications, and enhancements as well as any updates to features, code corrections, patches or other general updates and fixes to {% data variables.product.prodname_ghe_server %}.
+
+{% endif %}

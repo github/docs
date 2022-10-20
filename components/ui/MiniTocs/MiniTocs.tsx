@@ -1,9 +1,7 @@
-import React from 'react'
 import { Heading, NavList } from '@primer/react'
 import cx from 'classnames'
 
 import { MiniTocItem } from 'components/context/ArticleContext'
-import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 
 import styles from './Minitocs.module.scss'
@@ -47,7 +45,7 @@ export function MiniTocs({ pageTitle, miniTocItems }: MiniTocsPropsT) {
   return (
     <>
       <Heading as="h2" id="in-this-article" className="mb-1 ml-3" sx={{ fontSize: 1 }}>
-        <Link href="#in-this-article">{t('miniToc')}</Link>
+        {t('miniToc')}
       </Heading>
 
       <NavList className="my-2" key={pageTitle}>

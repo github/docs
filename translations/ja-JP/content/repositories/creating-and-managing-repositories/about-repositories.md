@@ -1,6 +1,6 @@
 ---
-title: リポジトリについて
-intro: リポジトリには、プロジェクトのすべてのファイルと各ファイルの改訂履歴が含まれています。 リポジトリ内でプロジェクトの作業について話し合い、管理できます。
+title: About repositories
+intro: A repository contains all of your project's files and each file's revision history. You can discuss and manage your project's work within the repository.
 redirect_from:
   - /articles/about-repositories
   - /github/creating-cloning-and-archiving-repositories/about-repositories
@@ -20,29 +20,29 @@ topics:
   - Repositories
 ---
 
-## リポジトリについて
+## About repositories
 
-リポジトリを個人として所有することも、リポジトリの所有権を Organization 内の他の人々と共有することもできます。
+You can own repositories individually, or you can share ownership of repositories with other people in an organization.
 
-リポジトリの表示設定を選択して、リポジトリにアクセスできるユーザを制限できます。 詳細は「[リポジトリの可視性について](#about-repository-visibility)」を参照してください。
+You can restrict who has access to a repository by choosing the repository's visibility. For more information, see "[About repository visibility](#about-repository-visibility)."
 
-ユーザが所有するリポジトリでは、他の人々にコラボレーターアクセスを与えて、プロジェクトでコラボレーションするようにできます。 リポジトリが Organization によって所有されている場合は、Organization のメンバーにアクセス権限を与え、リポジトリ上でコラボレーションするようにできます。 For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+For user-owned repositories, you can give other people collaborator access so that they can collaborate on your project. If a repository is owned by an organization, you can give organization members access permissions to collaborate on your repository. For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% ifversion fpt or ghec %}
-With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. プライベートリポジトリの高度なツールを入手するには、 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} にアップグレードします。 {% data reusables.gated-features.more-info %}
+With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 {% else %}
-各個人および Organization は、無制限のリポジトリを所有でき、すべてのリポジトリにコラボレータを何人でも招待できます。
+Each person and organization can own unlimited repositories and invite an unlimited number of collaborators to all repositories.
 {% endif %}
 
-リポジトリを使用して、作業を管理し、他のユーザと共同作業を行うことができます。
-- Issue を使用して、ユーザフィードバックの収集、ソフトウェアバグの報告、および実行するタスクの整理を行うことができます。 詳しい情報については「[Issue について](/github/managing-your-work-on-github/about-issues)」を参照してください。{% ifversion fpt or ghec %}
+You can use repositories to manage your work and collaborate with others.
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% ifversion fpt or ghec %}
 - {% data reusables.discussions.you-can-use-discussions %}{% endif %}
-- プルリクエストを使用して、リポジトリへの変更を提案できます。 詳しい情報については[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)を参照してください。
-- プロジェクトボードを使用して、Issue とプルリクエストを整理して優先順位を付けることができます。 詳細は「[プロジェクトボードについて](/github/managing-your-work-on-github/about-project-boards)」を参照してください。
+- You can use pull requests to propose changes to a repository. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
+- You can use project boards to organize and prioritize your issues and pull requests. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)."
 
 {% data reusables.repositories.repo-size-limit %}
 
-## リポジトリの可視性について
+## About repository visibility
 
 You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
 
@@ -57,84 +57,84 @@ When you create a repository owned by your personal account, the repository is a
 {% endif %}
 
 {%- ifversion fpt or ghec %}
-- パブリックリポジトリには、インターネット上のすべてのユーザがアクセスできます。
-- プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。
+- Public repositories are accessible to everyone on the internet.
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- elsif ghes %}
-- If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. そうではない場合、外部のコラボレータを含め、{% data variables.product.product_location %} を使用するすべてのユーザがパブリックリポジトリを利用できます。
-- プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。
+- If {% data variables.location.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.location.product_location %}, including outside collaborators.
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- elsif ghae %}
-- プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
-- 内部リポジトリには、すべての Enterprise メンバーがアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。
+- Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
 {%- endif %}
 
-Organization のオーナーは、Organization 内で作成されたすべてのリポジトリにいつでもアクセスできます。 詳しい情報については「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
+Organization owners always have access to every repository created in an organization. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-リポジトリの管理者権限を持つユーザは、既存のリポジトリの可視性を変更できます。 詳細は「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」を参照してください。
+People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
 
 {% ifversion ghes or ghec or ghae %}
-## インターナルリポジトリについて
+## About internal repositories
 
-{% data reusables.repositories.about-internal-repos %}インナーソースに関する詳しい情報については、{% data variables.product.prodname_dotcom %}のホワイトペーパー「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」を参照してください。
+{% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
 All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% ifversion ghes %}
 {% note %}
 
-**Note:** A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.product.product_location %} is not a member of any organization, that user will not have access to internal repositories.
+**Note:** A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.location.product_location %} is not a member of any organization, that user will not have access to internal repositories.
 
 {% endnote %}
 {% endif %}
 
 {% data reusables.repositories.internal-repo-default %}
 
-{% ifversion ghec %}Unless your enterprise uses {% data variables.product.prodname_emus %}, members{% else %}Members{% endif %} of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. Enterprise が所有するすべての Organization からユーザが削除されると、そのユーザの内部リポジトリのフォークは自動的に削除されます。
+{% ifversion ghec %}Unless your enterprise uses {% data variables.product.prodname_emus %}, members{% else %}Members{% endif %} of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
 
 {% ifversion ghec %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_managed_users_caps %} cannot fork internal repositories. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+**Note:** {% data variables.enterprise.prodname_managed_users_caps %} cannot fork internal repositories. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
 
 {% endnote %}
 {% endif %}
 {% endif %}
 
-## リポジトリでコンテンツと diff の表示を制限する
+## Limits for viewing content and diffs in a repository
 
-ある種のリソースはきわめて大きくなり、{% data variables.product.product_name %} で負荷の大きな処理が必要になる場合があります。 そのため、リクエストが妥当な時間で終わるように、制限が設けられています。
+Certain types of resources can be quite large, requiring excessive processing on {% data variables.product.product_name %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
 
-以下の制限の多くは {% data variables.product.product_name %}と API の両方に影響します。
+Most of the limits below affect both {% data variables.product.product_name %} and the API.
 
-### テキストの制限
+### Text limits
 
 Text files over **512 KB** are always displayed as plain text. Code is not syntax highlighted, and prose files are not converted to HTML (such as Markdown, AsciiDoc, *etc.*).
 
 Text files over **5 MB** are only available through their raw URLs, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
 
-### diff の制限
+### Diff limits
 
-diff はきわめて大きくなることがあるため、コミット、プルリクエスト、比較ビューには制限が設けられています。
+Because diffs can become very large, we impose these limits on diffs for commits, pull requests, and compare views:
 
 - In a pull request, no total diff may exceed *20,000 lines that you can load* or *1 MB* of raw diff data.
-- No single file's diff may exceed *20,000 lines that you can load* or *500 KB* of raw diff data. 1 つのファイルについては、*400 行*および *20 KB* が自動的にロードされます。
-- 1 つの diff あたりの最大ファイル数は *300* に制限されています。
-- 1 つの diff あたりで表示可能な最大ファイル数 (画像、PDF、GeoJSON ファイル) は、*25* です。
+- No single file's diff may exceed *20,000 lines that you can load* or *500 KB* of raw diff data. *Four hundred lines* and *20 KB* are automatically loaded for a single file.
+- The maximum number of files in a single diff is limited to *300*.
+- The maximum number of renderable files (such as images, PDFs, and GeoJSON files) in a single diff is limited to *25*.
 
-制限された diff の一部が表示される場合もありますが、制限を超える部分は表示されません。
+Some portions of a limited diff may be displayed, but anything exceeding the limit is not shown.
 
-### コミット リストの制限
+### Commit listings limits
 
-比較ビューとプルリクエストのページでは、`base` リビジョンと `head` リビジョンの間にコミットのリストが表示されます。 These lists are limited to **250** commits. その制限を超える場合は、追加のコミットがあるという注意書きが表示されます (コミット自体は表示されません)。
+The compare view and pull requests pages display a list of commits between the `base` and `head` revisions. These lists are limited to **250** commits. If they exceed that limit, a note indicates that additional commits are present (but they're not shown).
 
-## 参考リンク
+## Further reading
 
-- 「[新しいリポジトリを作成する](/articles/creating-a-new-repository)」
-- 「[フォークについて](/github/collaborating-with-pull-requests/working-with-forks/about-forks)」
-- [Issue とプルリクエストでのコラボレーション](/categories/collaborating-with-issues-and-pull-requests)
-- 「[{% data variables.product.prodname_dotcom %}での作業を管理する](/categories/managing-your-work-on-github/)」
-- [リポジトリの管理](/categories/administering-a-repository)
-- [グラフによるリポジトリデータの可視化](/categories/visualizing-repository-data-with-graphs/)
-- 「[ウィキについて](/communities/documenting-your-project-with-wikis/about-wikis)」
-- [{% data variables.product.prodname_dotcom %} 用語集](/articles/github-glossary)
+- "[Creating a new repository](/articles/creating-a-new-repository)"
+- "[About forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[Collaborating with issues and pull requests](/categories/collaborating-with-issues-and-pull-requests)"
+- "[Managing your work on {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
+- "[Administering a repository](/categories/administering-a-repository)"
+- "[Visualizing repository data with graphs](/categories/visualizing-repository-data-with-graphs/)"
+- "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
+- "[{% data variables.product.prodname_dotcom %} glossary](/articles/github-glossary)"

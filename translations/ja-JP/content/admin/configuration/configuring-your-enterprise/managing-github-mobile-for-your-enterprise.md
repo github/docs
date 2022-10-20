@@ -1,6 +1,6 @@
 ---
 title: Managing GitHub Mobile for your enterprise
-intro: 'You can decide whether people can use {% data variables.product.prodname_mobile %} to connect to {% data variables.product.product_location %}.'
+intro: 'You can decide whether people can use {% data variables.product.prodname_mobile %} to connect to {% data variables.location.product_location %}.'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '*'
@@ -14,11 +14,11 @@ redirect_from:
 shortTitle: Manage GitHub Mobile
 ---
 
-## {% data variables.product.prodname_mobile %} について
+## About {% data variables.product.prodname_mobile %}
 
-{% data variables.product.prodname_mobile %} allows people to triage, collaborate, and manage work on {% data variables.product.product_location %} from a mobile device after successful authentication. {% data reusables.mobile.about-mobile %} For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."
+{% data variables.product.prodname_mobile %} allows people to triage, collaborate, and manage work on {% data variables.location.product_location %} from a mobile device after successful authentication. {% data reusables.mobile.about-mobile %} For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."
 
-You can allow or disallow people from using {% data variables.product.prodname_mobile %} to authenticate to {% data variables.product.product_location %} and access your instance's data. By default, {% data variables.product.prodname_mobile %} is{% ifversion ghes > 3.3 %} enabled for people who use {% data variables.product.product_location %}.{% else %} not enabled for people who use {% data variables.product.product_location %}. To allow connection to your instance with {% data variables.product.prodname_mobile %}, you must enable the feature for your instance.{% endif %}
+You can allow or disallow people from using {% data variables.product.prodname_mobile %} to authenticate to {% data variables.location.product_location %} and access your instance's data. By default, {% data variables.product.prodname_mobile %} is{% ifversion ghes > 3.3 %} enabled for people who use {% data variables.location.product_location %}.{% else %} not enabled for people who use {% data variables.location.product_location %}. To allow connection to your instance with {% data variables.product.prodname_mobile %}, you must enable the feature for your instance.{% endif %}
 
 {% ifversion ghes < 3.6 %}
 {% note %}
@@ -28,11 +28,13 @@ You can allow or disallow people from using {% data variables.product.prodname_m
 {% endnote %}
 {% endif %}
 
-## {% data variables.product.prodname_mobile %} の有効化または無効化
+## Enabling or disabling {% data variables.product.prodname_mobile %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
-1. 左サイドバーで、[**Mobile**] をクリックします。 ![{% data variables.product.prodname_ghe_server %} Management Console の左サイドバーにある [Mobile]](/assets/images/enterprise/management-console/click-mobile.png)
-1. Under "GitHub Mobile", select or deselect **Enable GitHub Mobile Apps**. ![{% data variables.product.prodname_ghe_server %} Management Console の [Enable GitHub Mobile Apps] チェックボックス](/assets/images/enterprise/management-console/select-enable-github-mobile-apps.png)
+1. In the left sidebar, click **Mobile**.
+  !["Mobile" in the left sidebar for the {% data variables.product.prodname_ghe_server %} management console](/assets/images/enterprise/management-console/click-mobile.png)
+1. Under "GitHub Mobile", select or deselect **Enable GitHub Mobile Apps**.
+  ![Checkbox for "Enable GitHub Mobile Apps" in the {% data variables.product.prodname_ghe_server %} management console](/assets/images/enterprise/management-console/select-enable-github-mobile-apps.png)
 {% data reusables.enterprise_management_console.save-settings %}

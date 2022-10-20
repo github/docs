@@ -1,6 +1,6 @@
 ---
-title: Fazendo a migração para o Registro do Contêiner a partir do Registro Docker
-intro: '{% ifversion docker-ghcr-enterprise-migration %}An enterprise owner can{% else %}{% data variables.product.company_short %} will{% endif %} migrate Docker images previously stored in the Docker registry on {% data variables.product.product_location %} to the {% data variables.product.prodname_container_registry %}.'
+title: Migrating to the Container registry from the Docker registry
+intro: '{% ifversion docker-ghcr-enterprise-migration %}An enterprise owner can{% else %}{% data variables.product.company_short %} will{% endif %} migrate Docker images previously stored in the Docker registry on {% data variables.location.product_location %} to the {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images
@@ -9,8 +9,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  feature: docker-ghcr-enterprise-migration
-shortTitle: Migração para o registro do contêiner
+  feature: 'docker-ghcr-enterprise-migration'
+shortTitle: Migration to Container registry
 topics:
   - Containers
   - Docker
@@ -19,11 +19,11 @@ topics:
 
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
-## Sobre o {% data variables.product.prodname_container_registry %}
+## About the {% data variables.product.prodname_container_registry %}
 
-{% data reusables.package_registry.container-registry-benefits %} Para obter mais informações, consulte "[Trabalhando com o {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
+{% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
-## Sobre a migração do registro do Docker
+## About migration from the Docker registry
 
 {% data reusables.package_registry.container-registry-replaces-docker-registry %} If you've stored Docker images in the Docker registry, {% ifversion docker-ghcr-enterprise-migration %}an enterprise owner{% else %}{% data variables.product.company_short %}{% endif %} will gradually migrate the images to the {% data variables.product.prodname_container_registry %}. No action is required on your part.
 
@@ -54,7 +54,7 @@ After a Docker image has been migrated to the {% data variables.product.prodname
 
 After migration, you'll no longer be able to use the GraphQL API to query for packages with a `PackageType` of "DOCKER". Instead, you can use the REST API to query for packages with a `package_type` of "container". For more information, see "[Packages](/rest/reference/packages)" in the REST API documentation.
 
-## Sobre a cobrança do {% data variables.product.prodname_container_registry %}
+## About billing for {% data variables.product.prodname_container_registry %}
 
 For more information about billing for the {% data variables.product.prodname_container_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
@@ -62,7 +62,7 @@ For more information about billing for the {% data variables.product.prodname_co
 
 {% ifversion docker-ghcr-enterprise-migration %}
 
-## Leia mais
+## Further reading
 
 - "[Migrating your enterprise to the {% data variables.product.prodname_container_registry %} from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"
 

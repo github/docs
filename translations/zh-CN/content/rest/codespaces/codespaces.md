@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: 代码空间 API 可让您使用 REST API 管理代码空间。
+intro: The Codespaces API enables you to manage your codespaces using the REST API.
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,6 +9,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## 关于代码空间 API
+## About the Codespaces API
 
-{% data variables.product.prodname_github_codespaces %} API 允许您使用 REST API 来管理 {% data variables.product.prodname_codespaces %}。 此 API 适用于经过身份验证的用户和 OAuth 应用，但不适用于 GitHub 应用。 更多信息请参阅“[{% data variables.product.prodname_codespaces %}](/codespaces)”。
+The {% data variables.product.prodname_github_codespaces %} API enables you to manage {% data variables.product.prodname_codespaces %} using the REST API. This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %}. For more information, see "[{% data variables.product.prodname_codespaces %}](/codespaces)."

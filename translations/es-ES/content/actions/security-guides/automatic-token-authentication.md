@@ -87,7 +87,7 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
 | packages      | read/write  | none | read |
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6187 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | pages         | read/write  | none | read |
 {%- endif %}
 | pull-requests | read/write  | none | read |
@@ -117,9 +117,9 @@ The permissions for the `GITHUB_TOKEN` are initially set to the default setting 
 
 ### Granting additional permissions
 
-If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a personal access token and set it as a secret in your repository:
+If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a {% data variables.product.pat_generic %} and set it as a secret in your repository:
 
-1. Use or create a token with the appropriate permissions for that repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+1. Use or create a token with the appropriate permissions for that repository. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 1. Add the token as a secret in your workflow's repository, and refer to it using the {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 ### Further reading

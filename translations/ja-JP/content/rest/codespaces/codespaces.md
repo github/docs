@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: Codespaces APIを使うと、REST APIを利用してcodespacesを管理できます。
+intro: The Codespaces API enables you to manage your codespaces using the REST API.
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,6 +9,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Codespaces APIについて
+## About the Codespaces API
 
-{% data variables.product.prodname_github_codespaces %} API では、REST API を使用して {% data variables.product.prodname_codespaces %} を管理できます。 このAPIは認証を受けたユーザとOAuth Appが利用できますが、GitHub Appは利用できません。 詳細は「[{% data variables.product.prodname_codespaces %}](/codespaces)」を参照してください。
+The {% data variables.product.prodname_github_codespaces %} API enables you to manage {% data variables.product.prodname_codespaces %} using the REST API. This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %}. For more information, see "[{% data variables.product.prodname_codespaces %}](/codespaces)."

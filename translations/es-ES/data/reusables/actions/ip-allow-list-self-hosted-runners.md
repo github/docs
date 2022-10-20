@@ -1,11 +1,11 @@
 {% ifversion ghae %}
-Para permitir que los ejecutores auto-hospedados se comuniquen con {% data variables.product.prodname_dotcom %}, agrega la dirección o rango de direcciones IP de tus ejecutores auto-hospedados a la lista de IP permitidas. Para obtener más información, consulta "[Agregar una dirección IP permitida](#adding-an-allowed-ip-address)".
+To allow your self-hosted runners to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your self-hosted runners to the IP allow list. For more information, see "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
 {% else %}
 {% warning %}
 
-**Advertencia**: Si utilzas una lista de IP permitidas y también quisieras utilizar {% data variables.product.prodname_actions %}, debes usar los ejecutores auto-hospedados. Para obtener más información, consulta la sección "[Hospedar tus propios ejecutores](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
+**Warning**: If you use an IP allow list and would also like to use {% data variables.product.prodname_actions %}, you must use self-hosted runners{% ifversion actions-hosted-runners %} or {% data variables.product.prodname_dotcom %}-hosted larger runners with a static IP address range{% endif %}. For more information, see "[Hosting your own runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)" {% ifversion actions-hosted-runners %} or "[Using larger runners](/actions/using-github-hosted-runners/using-larger-runners)"{% endif %}.
 
 {% endwarning %}
 
-Para permitir que los ejecutores auto-hospedados se comuniquen con {% data variables.product.prodname_dotcom %}, agrega la dirección o rango de direcciones IP de tus ejecutores auto-hospedados a la lista de IP permitidas. Para obtener más información, consulta "[Agregar una dirección IP permitida](#adding-an-allowed-ip-address)".
+To allow your self-hosted {% ifversion actions-hosted-runners %}or larger hosted{% endif %} runners to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your runners to the IP allow list. For more information, see "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
 {% endif %}

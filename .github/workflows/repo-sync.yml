@@ -104,7 +104,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
       - name: Install dependencies
         run: npm ci
@@ -244,12 +244,13 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.find-pull-request.outputs.number }}
 
-      - name: Enable GitHub auto-merge
+      - name: Admin merge the pull request
         if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count != '0' }}
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          AUTOMERGE_PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
-        run: node .github/actions-scripts/enable-automerge.js
+          PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
+        run: |
+          gh pr merge $PR_NUMBER --admin --merge
 
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340

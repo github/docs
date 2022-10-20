@@ -1,6 +1,6 @@
 ---
 title: Managing spending limits for GitHub Codespaces
-intro: 'Puedes configurar un límite de gastos para el uso de {% data variables.product.prodname_github_codespaces %}.'
+intro: 'You can set a spending limit for {% data variables.product.prodname_github_codespaces %} usage.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,27 +13,28 @@ topics:
   - Spending limits
   - User account
   - Billing
-shortTitle: Límites de gastos
+shortTitle: Spending limits
 redirect_from:
   - /billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces
 ---
-
-## Acerca de los límites de gastos para {% data variables.product.prodname_github_codespaces %}
+## About spending limits for {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
-Una vez que hayas llegado a tu límite de gastos, tu organización o repositorio ya no podrán crear codespces nuevos y no podrán iniciar los existentes. Cualquier codespace existente que aún se esté ejecutando no se cerrará. Si no cambias el límite de gastos, no se tecobrará por la cantidad que exceda el límite.
+{% data reusables.codespaces.codespaces-monthly-billing %} 
 
-Para obtener más información sobre los costos de uso de {% data variables.product.prodname_codespaces %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)".
+Once you've reached your spending limit, your organization or repository will no longer be able to create new codespaces, and won't be able to start existing codespaces. Any existing codespaces that are still running will not be shutdown; if you don't change the spending limit, you will not be charged for the amount that exceeds the limit.
+
+For more information about pricing for {% data variables.product.prodname_github_codespaces %} usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 {% ifversion ghec %}
-## Utilizar tu suscripción de Azure
-Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
+## Using your Azure Subscription
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
 {% endif %}
 
-## Administrar el límite de gastos de {% data variables.product.prodname_codespaces %} para tu organización
+## Managing the spending limit for {% data variables.product.prodname_codespaces %} for your organization
 
-Los propietarios de las organizaciones pueden administrar el límite de gastos de {% data variables.product.prodname_codespaces %} para una organización.
+Organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an organization.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
@@ -41,30 +42,31 @@ Los propietarios de las organizaciones pueden administrar el límite de gastos d
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 {% ifversion ghec %}
-## Administrar el límite de gastos de {% data variables.product.prodname_codespaces %} para tu cuenta empresarial
+## Managing the spending limit for {% data variables.product.prodname_codespaces %} for your enterprise account
 
-Los propietarios de la empresa y gerentes de facturación pueden administrar el límite de gastos para {% data variables.product.prodname_codespaces %} para una cuenta empresarial.
+Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an enterprise account.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Sobre "Uso mensual de {% data variables.product.prodname_codespaces %}", haz clic en **Límite de gastos**. ![Pestaña de límite de gastos](/assets/images/help/settings/spending-limit-tab-enterprise.png)
+1. Click **Spending Limit**.
+  ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 {% endif %}
 
-## Exportar cambios cuando llegaste a tu límite de gastos
+## Exporting changes when you have reached your spending limit
 
 {% data reusables.codespaces.exporting-changes %}
-## Administrar las notificaciones de uso y límite de gastos
+## Managing usage and spending limit email notifications
 
-Las notificaciones por correo electrónico se envían a los propietarios de las cuentas y gerentes de facturación cuando el límite de gastos llega a 50%, 75%, 90% y 100% del límite de gastos de tu cuenta.
+Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, 90%, and 100% of your account's spending limit. 
 
-Puedes inhabilitar estas notificaciones en cualquier momento si navegas al final de la página del **Límite de Gastos**.
+You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
 
-![Captura de pantalla de los ajustes de notificaciones de facturación por correo electrónico](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
+![Screenshot of the billing email notification settings](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
 
-## Leer más
+## Further reading
 
-- "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+- "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"

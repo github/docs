@@ -11,14 +11,19 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification
-shortTitle: Clasificar una notificación
+shortTitle: Triage a notification
+ms.openlocfilehash: c81cc30449dd1b37a58df0b91a036fbd629d8ae3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145115914'
 ---
-
 ## Guardar solo una notificación
 
-Para guardar una notificación y revisarla más tarde, a la derecha de la misma, da clic en {% octicon "bookmark" aria-label="The bookmark icon" %}. Solo puedes guardar una notificación a la vez.
+Para guardar una única notificación y revisarla más tarde, a la derecha de la notificación, haga clic en {% octicon "bookmark" aria-label="The bookmark icon" %}. Solo puedes guardar una notificación a la vez.
 
-Las notificaciones guardadas se mantienen indefinidamente y se pueden ver si das clic en **Guardado** en la barra lateral o con la consulta `is:saved`. Si guardas las notificaciones por más de 5 meses y luego las dejas de guardar, estas desaparecerán de tu bandeja de entrada en un día.
+Las notificaciones guardadas se conservan de manera indefinida y se pueden ver si se hace clic en **Guardada** en la barra lateral o con la consulta `is:saved`. Si la notificación que guardaste tiene más de 5 meses y cambia a no guardada, ésta desaparecerá de tu bandeja de entrada en un día.
 
   ![Opción de clasificación en guardados](/assets/images/help/notifications-v2/save-triaging-option.png)
 
@@ -31,18 +36,18 @@ Cuando das clic en una notificación individual de tu bandeja de entrada, se te 
 - Guardar la notificación para después
 - Regresar a tu bandeja de notificaciones
 
-Para obtener más información acerca de tus opciones de clasificación, consulta la sección "[Administrar notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options)".
+Para más información sobre las opciones de evaluación de prioridades, vea "[Administración de notificaciones de la Bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options)".
 
 ## Personalizar cuándo recibir actualizaciones posteriores para un informe de problemas o solicitud de extracción
 
 Puedes elegir como quieres recibir las notificaciones posteriores para una solicitud de extracción o informe de problemas.
 
-1. En la columna derecha del informe de problemas o solicitud de extracción, a un costado de "Notificaciones", da clic en **Personalizar**".
+1. En la columna derecha de la incidencia o solicitud de incorporación de cambios, junto a "Notificaciones", haga clic en **Personalizar**.
 
-  ![Personalizar opción debajo de "Notificaciones"](/assets/images/help/notifications-v2/customize-notifications-for-specific-thread.png)
+  ![Opción Personalizar en "Notificaciones"](/assets/images/help/notifications-v2/customize-notifications-for-specific-thread.png)
 
-2. Selecciona **Personalizado** y elige cuando quieres recibir una actualización de notificación para este hilo. Por ejemplo, puedes elegir recibir una actualización cuando se fusiona, cierra o reabre la solicitud de extracción. Te suscribirás nuevamente si participas en el hilo, si se @menciona a tu nombre de usuario, o si se @menciona a algún equipo del cual formes parte.
+2. Seleccione **Personalizado** y elija cuándo quiere recibir una actualización de notificación para este subproceso. Por ejemplo, puedes elegir recibir una actualización cuando se fusiona, cierra o reabre la solicitud de extracción. Se volverá a suscribir si participa en la conversación, si se @mentioned el nombre de usuario, o si se @mentioned a un equipo del que forme parte.
 
   ![Opciones para personalizar las notificaciones](/assets/images/help/notifications-v2/custom-options-for-customizing-notification-thread-updates.png)
 
-3. Haz clic en **Save ** (guardar).
+3. Haga clic en **Save**(Guardar).

@@ -1,3 +1,10 @@
-8. Verifique os detalhes da sua inscrição e clique em **Submit your information**. ![Submit your information button](/assets/images/help/education/submit-your-information-button.png)
+8. Verify your application details, then click **Process my application**.
+ ![Process my application button](/assets/images/help/education/submit-your-information-button.png)
 
- Se sua inscrição for aprovada, você receberá um e-mail de confirmação. As candidaturas geralmente são processadas dentro de alguns dias, mas pode demorar mais em tempos de pico, como durante o início de um novo semestre.
+    {% note %}
+
+    **Note:** If, after clicking the **Process my application** button, you see a banner asking you to fix something in your application, you should fix it and then click **Reprocess my application**.
+
+    {% endnote %}
+
+ If your application is approved, you'll receive a confirmation email. Applications are usually processed within a few days, but it may take longer during peak times, such as during the start of a new semester.

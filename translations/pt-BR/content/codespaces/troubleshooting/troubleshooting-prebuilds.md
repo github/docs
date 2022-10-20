@@ -1,7 +1,7 @@
 ---
-title: Solução de problemas de pré-compilações
-shortTitle: Pré-compilações de codespaces
-intro: Você pode usar as pré-compilações para acelerar a criação de codespaces. Este artigo fornece etapas de solução de problemas para problemas comuns com pré-compilações.
+title: Troubleshooting prebuilds
+shortTitle: Codespaces prebuilds
+intro: You can use prebuilds to speed up the creation of codespaces. This article provides troubleshooting steps for common issues with prebuilds.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,60 +12,78 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-Para obter mais informações sobre as pré-compilações de {% data variables.product.prodname_codespaces %}, consulte "[Pré-compilando os seus codespaces](/codespaces/prebuilding-your-codespaces)".
+For more information about {% data variables.product.prodname_github_codespaces %} prebuilds, see "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)."
 
-## Verificando se um código foi criado a partir de uma pré-compilação?
+## Checking whether a codespace was created from a prebuild?
 
-Ao criar um codespace, você pode escolher o tipo de máquina virtual que deseja usar. Se uma pré-criação estiver disponível para o tipo de máquina virtual, "Pré-criação pronta para{% octicon "zap" aria-label="The zap icon" %}" será exibida ao lado.
+When you create a codespace, you can choose the type of the virtual machine you want to use. If a prebuild is available for the type of virtual machine, "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" is shown next to it.
 
-![Uma lista dos tipos de máquina disponíveis](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![A list of available machine types](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-Se você tiver a sua preferência de editor de {% data variables.product.prodname_codespaces %} definida como "{% data variables.product.prodname_vscode %} para a Web", a página "Configurando seu codespace " mostrará a mensagem "Pré-compliação de codespace encontrada" se uma pré-compilação estiver sendo usada.
+If you have your {% data variables.product.prodname_github_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used. 
 
-![A mensagem "codespaces da pre-criação encontrados"](/assets/images/help/codespaces/prebuilt-codespace-found.png)
+![The 'prebuilt codespace found' message](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-Da mesma forma, se sua preferência de editor for "{% data variables.product.prodname_vscode_shortname %}", o terminal integrado conterá a mensagem "Você está em um codespace pré-criado e definido pela configuração de pré-compilação para seu repositório" ao criar um novo codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
+Similarly, if your editor preference is "{% data variables.product.prodname_vscode_shortname %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
 
-Depois de criar um codespace, você pode verificar se ele foi criado a partir de uma pré-compilação executando o seguinte comando {% data variables.product.prodname_cli %} no terminal:
+After you have created a codespace you can check whether it was created from a prebuild by running the following {% data variables.product.prodname_cli %} command in the terminal:
 
 ```shell{:copy}
 gh api /user/codespaces/$CODESPACE_NAME --jq .prebuild
 ```
 
-Isso retorna `verdadeiro` se o código foi criado usando a pré-compilação.
+This returns `true` if the codespace was created using a prebuild.
 
-Como alternativa, se {% data variables.product.prodname_cli %} (`gh`) não estiver instalado, você pode usar o seguinte comando, que retorna `createFromPrebuild` se o codespace foi criado a partir de uma pré-compilação:
+Alternatively, if {% data variables.product.prodname_cli %} (`gh`) is not installed, you can use the following command, which returns `createFromPrebuild` if the codespace was created from a prebuild: 
 
 ```shell{:copy}
 cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME'
 ```
 
-## A etiqueta "Pré-compilação pronta" às vezes está ausente
+## The "Prebuild Ready" label is sometimes missing
 
-Você pode notar que, às vezes, quando você cria um novo codespace a partir de um branch habilitado por uma pré-compilaçã, a etiqueta "Pré-compilação de {% octicon "zap" aria-label="The zap icon" %} pronta" não é exibida na caixa de diálogo para escolher um tipo de máquina. Isto significa que pré-compilações não estão disponíveis no momento.
+You may notice that sometimes, when you create a new codespace from a prebuild-enabled branch, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed in the dialog box for choosing a machine type. This means that prebuilds are not currently available.
 
-Por padrão, a cada vez que você fizer push para um branch habilitado por uma pré-criação, a pré-compilação será atualizada. Se o push envolver uma alteração na configuração do contêiner de desenvolvimento, enquanto a atualização estiver em andamento, a etiqueta "Pré-criação pronta de {% octicon "zap" aria-label="The zap icon" %} será removida da lista de tipos de máquina. Neste tempo, você ainda pode criar codespaces sem uma pré-compilação. Se necessário, você pode reduzir as ocasiões em que as pré-criações não estão disponíveis para um repositório, definindo a pré-criação para ser atualizada somente quando você fizer uma alteração nos arquivos de configuração do contêiner de desenvolvimento ou apenas em um agendamento personalizado. Para obter mais informações, consulte "[Configurando pré-criações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
+By default, each time you push to a prebuild-enabled branch, the prebuild is updated. If the push involves a change to the dev container configuration then, while the update is in progress, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is removed from the list of machine types. During this time you can still create codespaces without a prebuild. If required, you can reduce the occasions on which prebuilds are unavailable for a repository by setting the prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
 
-Se seu branch não estiver especificamente habilitado para pré-compilações, ele ainda poderá se beneficiar de pré-compilações se ele foi criado a partir de um branch habilitado por pré-compilação. No entanto, se a configuração do contêiner de desenvolvimento for alterada no seu branch, para que não seja igual à configuração no branch de base, as pré-criações não estarão mais disponíveis no seu branch.
+If your branch is not specifically enabled for prebuilds it may still benefit from prebuilds if it was branched from a prebuild-enabled branch. However, if the dev container configuration is changed on your branch, so that it's not the same as the configuration on the base branch, prebuilds will no longer be available on your branch.
 
-Essas são as coisas a serem verificadas se a etiqueta " Pré-compilação de {% octicon "zap" aria-label="The zap icon" %} pronta" não for exibido para um determinado branch:
+Here are things to check if the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed for a particular branch:
 
-* Confirme que existe uma configuração de pré-compilação para este branch. Se você não for administrador do repositório, entre em contato com um para confirmar.
-* Confirme que a configuração de pré-compilação inclui sua região.
-* Verifique se uma alteração para a configuração do contêiner de desenvolvimento foi enviada por push para o branch habilitado pela pré-compilação recentemente. Se for dessa forma, normalmente você terá que esperar até que o fluxo de trabalho de pré-criação, aguarde até que a execução do fluxo de trabalho de pré-compilação seja concluída antes que as pré-criações estejam disponíveis novamente.
-* Se nenhuma alteração de configuração foi realizada recentemente, acesse a aba **Ações** do seu repositório, clique em **{% octicon "codespaces" aria-label="The Codespaces icon" %} Pré-compilações de {% data variables.product.prodname_codespaces %}** na lista de fluxos de trabalho e verifique se as execuções do fluxo de trabalho de pré-compilação são sendo bem-sucedidas. Se as últimas execuções de um fluxo de trabalho falharem e uma ou mais dessas execuções falharam continham alterações na configuração do contêiner de desenvolvimento, não haverá pré-compilações disponíveis para o branch associado.
+* Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this. 
+* Confirm that the prebuild configuration includes your region.
+* Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
+* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch. 
 
-## Alguns recursos não podem ser acessados em codespaces criados usando a pré-compilação
+## Some resources cannot be accessed in codespaces created using a prebuild
 
-Se o arquivo de configuração `devcontainer.json` para uma configuração de pré-compilação especificar que as permissões para acesso a outros repositórios são necessárias, será solicitado que o administrador do repositório autorize essas permissões ao criar ou atualizar a configuração de pré-compilação. Se o administrador não conceder todas as permissões solicitadas, há a probabilidade de que problemas possam ocorrer na precompilação e em codespaces criados a partir desta pré-compilação. Isso é verdade mesmo que o usuário que cria um codespace baseado nessa pré-compilação _conceder_ todas as permissões quando for solicitado a fazê-lo.
+If the `devcontainer.json` configuration file for a prebuild configuration specifies that permissions for access to other repositories are required, then the repository administrator is prompted to authorize these permissions when they create or update the prebuild configuration. If the administrator does not grant all of the requested permissions there's a chance that problems may occur in the prebuild, and in codespaces created from this prebuild. This is true even if the user who creates a codespace based on this prebuild _does_ grant all of the permissions when they are prompted to do so.
 
-## Solucionando problemas de execução de fluxo de trabalho com falhas para pré-compilações
+## Troubleshooting failed workflow runs for prebuilds
 
-Se o arquivo de configuração `devcontainer.json` para uma configuração de pré-compilação for atualizado para especificar que as permissões para acesso a outros repositórios são necessárias e não for solicitado que um administrador de repositório autorize essas permissões para a configuração de pré-compilação, poderá haver uma falha no fluxo de trabalho de pré-compilação. Tente atualizar a configuração de pré-compilação sem fazer alterações. Se, ao clicar em **Atualizar**, a página de autorização for exibida, verifique se as permissões solicitadas são apropriadas e, em caso afirmativo, autorize a solicitação. Para obter mais informações, consulte "[Gerenciando as pré-compilações](/codespaces/prebuilding-your-codespaces/managing-prebuilds#editing-a-prebuild-configuration)" e "[Gerenciando o acesso a outros repositórios dentro do seu codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#setting-additional-repository-permissions)".
+If the `devcontainer.json` configuration file for a prebuild configuration is updated to specify that permissions for access to other repositories are required, and a repository administrator has not been prompted to authorize these permissions for the prebuild configuration, then the prebuild workflow may fail. Try updating the prebuild configuration, without making any changes. If, when you click **Update**, the authorization page is displayed, check that the requested permissions are appropriate and, if so, authorize the request. For more information, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds#editing-a-prebuild-configuration)" and "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#setting-additional-repository-permissions)."
 
-Se o fluxo de trabalho for executado para uma configuração de pré-compilação falhar, você poderá desabilitar temporariamente a configuração de pré-compilação durante a investigação. Para obter mais informações, consulte "[Gereciando pré-compilações](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)".
+If the workflow runs for a prebuild configuration are failing, you can temporarily disable the prebuild configuration while you investigate. For more information, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)."
 
-## Leia mais
+### Preventing out-of-date prebuilds being used
 
-- "[Configurando pré-compilações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
-- "[Gerenciando pré-compilações](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"
+By default, if the latest prebuild workflow has failed, then a previous prebuild for the same combination of repository, branch, and `devcontainer.json` configuration file will be used to create new codespaces. This behavior is called prebuild optimization.
+
+We recommend keeping prebuild optimization enabled, because it helps ensure that codespaces can still be created quickly if an up-to-date prebuild is not available. However, as a repository administrator, you can disable prebuild optimization if you run into problems with prebuilt codespaces being behind the current state of the branch. If you disable prebuild optimization, codespaces for the relevant combination of repository, branch, and `devcontainer.json` file will be created without a prebuild if the latest prebuild workflow has failed or is currently running.
+
+{% data reusables.codespaces.accessing-prebuild-configuration %}
+1. To the right of the affected prebuild configuration, select the ellipsis (**...**), then click **Edit**.
+
+   ![Screenshot of a list of prebuilds, with "Edit" highlighted](/assets/images/help/codespaces/edit-prebuild-configuration.png)
+1. Scroll to the bottom of the "Edit configuration" page and click **Show advanced options**.
+
+   ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
+1. If you're sure you want to disable the default setting, select **Disable prebuild optimization**.
+
+   ![Screenshot of the advanced option section and the "disable prebuild optmization" setting](/assets/images/help/codespaces/disable-prebuild-optimization.png)
+1. To save your change, click **Update**.
+
+## Further reading
+
+- "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
+- "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"

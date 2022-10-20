@@ -1,6 +1,6 @@
 ---
-title: 配置 Dependabot 版本更新
-intro: '您可以配置仓库，以便 {% data variables.product.prodname_dependabot %} 自动更新您使用的包。'
+title: Configuring Dependabot version updates
+intro: 'You can configure your repository so that {% data variables.product.prodname_dependabot %} automatically updates the packages you use.'
 permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
@@ -18,47 +18,48 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: 配置版本更新
+shortTitle: Configure version updates
 ---
-
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## 关于依赖项的版本更新
+## About version updates for dependencies
 
-通过将 *dependabot.yml* 配置文件检入仓库的 `.github` 目录，可启用 {% data variables.product.prodname_dependabot_version_updates %}。 {% data variables.product.prodname_dependabot %} 然后提出拉取请求，使您配置的依赖项保持最新。 对于您想更新的每个包管理器的依赖项，必须指定包清单文件的位置及为文件所列的依赖项检查更新的频率。 有关启用安全更新的信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)。”
+You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a *dependabot.yml* configuration file in to your repository's `.github` directory. {% data variables.product.prodname_dependabot %} then raises pull requests to keep the dependencies you configure up-to-date. For each package manager's dependencies that you want to update, you must specify the location of the package manifest files and how often to check for updates to the dependencies listed in those files. For information about enabling security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 
-{% data reusables.dependabot.initial-updates %} 更多信息请参阅“[自定义依赖项更新](/github/administering-a-repository/customizing-dependency-updates)。”
+{% data reusables.dependabot.initial-updates %} For more information, see "[Customizing dependency updates](/github/administering-a-repository/customizing-dependency-updates)."
 
-{% data reusables.dependabot.private-dependencies-note %} 此外，{% data variables.product.prodname_dependabot %} 不支持所有包管理器的 {% data variables.product.prodname_dotcom %} 私有依赖项。 更多信息请参阅“[关于 Dependabot 版本更新](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)”和“[{% data variables.product.prodname_dotcom %} 语言支持](/github/getting-started-with-github/github-language-support)”。
+By default only direct dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot_version_updates %}. You can choose to receive updates for indirect dependencies defined in lock files. For more information, see "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#allow)."
 
-## 启用 {% data variables.product.prodname_dependabot_version_updates %}
+{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)" and "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)."
 
-通过将 *dependabot.yml* 配置文件提交到仓库，可启用 {% data variables.product.prodname_dependabot_version_updates %}。
-{% ifversion dependabot-settings-update-37 %}如果在设置页面中启用该功能，GitHub 会创建一个可以编辑的基本文件，否则您可以使用任何文件编辑器创建该文件。
+## Enabling {% data variables.product.prodname_dependabot_version_updates %}
+
+You enable {% data variables.product.prodname_dependabot_version_updates %} by commiting a *dependabot.yml* configuration file to your repository. 
+{% ifversion dependabot-settings-update-37 %}If you enable the feature in your settings page, GitHub creates a basic file which you can edit, otherwise you can create the file using any file editor.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. 在“Code security and analysis（代码安全性和分析）”下的“{% data variables.product.prodname_dependabot_version_updates %}”右侧，单击 **Enable（启用）**以打开存储库的 `.github` 目录中的基本 *dependabot.yml* 配置文件。
+1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic *dependabot.yml* configuration file in the `.github` directory of your repository.
 {% else %}
-1. 在存储库的 `.github` 目录中创建一个 *dependabot.yml* 配置文件。
+1. Create a *dependabot.yml* configuration file in the `.github` directory of your repository. 
 {% endif %}
-1. 添加 `version`。
-1. （可选）如果您在私人注册表中包含依赖项，请添加包含身份验证详细信息的 `registries` 部分。
-1. 添加 `updates` 部分，并输入您希望 {% data variables.product.prodname_dependabot %} 监控的每个包管理器的条目。
-1. 对于每个包管理器，可使用：
-    - `package-ecosystem` 指定包管理器。
-    - `directory` 指定清单或其他定义文件的位置。
-    - `schedule.interval` 指定检查新版本的频率。
+1. Add a `version`. 
+1. Optionally, if you have dependencies in a private registry, add a `registries` section containing authentication details. 
+1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor.
+1. For each package manager, use:
+    - `package-ecosystem` to specify the package manager.
+    - `directory` to specify the location of the manifest or other definition files.
+    - `schedule.interval` to specify how often to check for new versions.
 {% data reusables.dependabot.check-in-dependabot-yml %}
 
-有关所有配置选项的信息，请参阅“[dependabot.yml 文件的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates)”。
+For information about all the configuration options, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
 
-### 示例 *dependabot.yml* 文件
+### Example *dependabot.yml* file
 
-下面的示例 *dependabot.yml* 文件将为两个包管理器配置版本更新：npm 和 Docker。 当此文件被检入时，{% data variables.product.prodname_dependabot %} 会检查默认分支上的清单文件中是否有过时的依赖项。 如果发现过时的依赖项，将针对默认分支提出拉取请求，以更新依赖项。
+The example *dependabot.yml* file below configures version updates for two package managers: npm and Docker. When this file is checked in, {% data variables.product.prodname_dependabot %} checks the manifest files on the default branch for outdated dependencies. If it finds outdated dependencies, it will raise pull requests against the default branch to update the dependencies.
 
 ```yaml
 # Basic dependabot.yml file with
@@ -83,40 +84,40 @@ updates:
       interval: "weekly"
 ```
 
-在上面的示例中，如果 Docker 依赖项已过时很久，您可能会先执行 `daily` 安排，直到这些依赖项达到最新状态，然后降回每周安排。
+In the example above, if the Docker dependencies were very outdated, you might want to start with a `daily` schedule until the dependencies are up-to-date, and then drop back to a weekly schedule.
 
-### 在复刻上启用版本更新
+### Enabling version updates on forks
 
-如果您想在复刻上启用版本更新，还需要执行一个额外的步骤。 存在 *dependabot.yml* 配置文件时，不会自动启用版本更新。 这样可确保复刻所有者在从原始仓库拉取变更时不会无意中启用版本更新，包括 *dependabot.yml* 配置文件。
+If you want to enable version updates on forks, there's an extra step. Version updates are not automatically enabled on forks when a *dependabot.yml* configuration file is present. This ensures that fork owners don't unintentionally enable version updates when they pull changes including a *dependabot.yml* configuration file from the original repository. 
 
-在复刻上，也需要显式启用 {% data variables.product.prodname_dependabot %}。
+On a fork, you also need to explicitly enable {% data variables.product.prodname_dependabot %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
 {% data reusables.dependabot.click-dependabot-tab %}
-5. 在“Enable Dependabot（启用 Dependabot）”下，单击 **Enable Dependabot（启用 Dependabot）**。
+5. Under "Enable Dependabot", click **Enable Dependabot**.
 
-## 检查版本更新的状态
+## Checking the status of version updates
 
-启用版本更新后，将填充存储库的依赖关系图中的 **Dependabot** 选项卡。 此选项卡显示配置了哪些要监视的包管理器 {% data variables.product.prodname_dependabot %} 以及 {% data variables.product.prodname_dependabot %} 上次检查新版本的时间。
+After you enable version updates, the **Dependabot** tab in the dependency graph for the repository is populated. This tab shows which package managers {% data variables.product.prodname_dependabot %} is configured to monitor and when {% data variables.product.prodname_dependabot %} last checked for new versions.
 
-![仓库洞察选项卡，依赖关系图，Dependabot 选项卡](/assets/images/help/dependabot/dependabot-tab-view.png)
+![Repository Insights tab, Dependency graph, Dependabot tab](/assets/images/help/dependabot/dependabot-tab-view.png)
 
-更多信息请参阅“[列出为版本更新配置的依赖项](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)。”
+For information, see "[Listing dependencies configured for version updates](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)."
 
-## 禁用 {% data variables.product.prodname_dependabot_version_updates %}
+## Disabling {% data variables.product.prodname_dependabot_version_updates %}
 
-您可以通过从仓库删除 *dependabot.yml* 文件完全禁用版本更新。 更多情况下，您会希望临时为一个或多个依赖项或包管理器禁用更新。
+You can disable version updates entirely by deleting the *dependabot.yml* file from your repository. More usually, you want to disable updates temporarily for one or more dependencies, or package managers.
 
-- 包管理器：通过设置 `open-pull-requests-limit: 0` 或为配置文件中的相关 `package-ecosystem` 添加注释执行禁用。
-- 特定依赖项：通过为您想从更新中排除的包或应用程序添加 `ignore` 属性执行禁用。
+- Package managers: disable by setting `open-pull-requests-limit: 0` or by commenting out the relevant `package-ecosystem` in the configuration file.
+- Specific dependencies: disable by adding `ignore` attributes for packages or applications that you want to exclude from updates.
 
-禁用依赖项时，可以使用通配符匹配一组相关库。 您也可以指定要排除的版本。 如果您需要阻止库更新，利用待处理的工作支持对 API 进行重大变更，但又希望您使用的版本得到所有安全修复，此方法将特别有用。
+When you disable dependencies, you can use wild cards to match a set of related libraries. You can also specify which versions to exclude. This is particularly useful if you need to block updates to a library, pending work to support a breaking change to its API, but want to get any security fixes to the version you use.
 
-### 为某些依赖项禁用版本更新的示例
+### Example disabling version updates for some dependencies
 
-下面的示例 *dependabot.yml* 文件包括禁用某些依赖项的更新，同时允许其他更新继续进行的不同方式的示例。
+The example *dependabot.yml* file below includes examples of the different ways to disable updates to some dependencies, while allowing other updates to continue.
 
 ```yaml
 # dependabot.yml file with updates
@@ -136,7 +137,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     ignore:
       # Ignore updates to packages that start with 'aws'
       # Wildcards match zero or more arbitrary characters
@@ -150,4 +151,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-有关检查现有忽略首选项的详细信息，请参阅“[dependabot.yml 文件的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)”。
+For more information about checking for existing ignore preferences, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."

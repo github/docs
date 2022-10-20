@@ -1,10 +1,10 @@
 ---
-title: 'Actionsを使った{% data variables.product.prodname_projects_v2 %}の自動化'
-shortTitle: Actionsでの自動化
-intro: '{% data variables.product.prodname_actions %}を使ってプロジェクトを自動化できます。'
+title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actions'
+shortTitle: 'Automating with Actions'
+intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: projects-v2
+  feature: "projects-v2"
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/automating-projects
 type: tutorial
@@ -14,41 +14,41 @@ allowTitleToDifferFromFilename: true
 ---
 
 
-## {% data variables.product.prodname_actions %}のワークフロー
+## {% data variables.product.prodname_actions %} workflows
 
-このセクションでは、GraphQL APIと{% data variables.product.prodname_actions %}を使ってOrganizationのプロジェクトにPull Requestを追加する方法を紹介します。 このワークフローの例では、Pull Requestが"ready for review"としてマークされると、プロジェクトに新しいタスクが追加され、"Status"フィールドが"Todo"に設定され、現在の日付がカスタムの"Date posted"フィールドに追加されます。
+This section demonstrates how to use the GraphQL API and {% data variables.product.prodname_actions %} to add a pull request to an organization project. In the example workflows, when the pull request is marked as "ready for review", a new task is added to the project with a "Status" field set to "Todo", and the current date is added to a custom "Date posted" field.
 
-必要に応じて、以下のワークフローの1つをコピーして、以下の表にあるように変更できます。
+You can copy one of the workflows below and modify it as described in the table below to meet your needs.
 
-プロジェクトは複数のリポジトリにまたがることができますが、ワークフローは1つのリポジトリに固有です。 ワークフローを、プロジェクトに追跡させたいそれぞれのリポジトリに追加してください。 ワークフローファイルの作成に関する詳しい情報については「[{% data variables.product.prodname_actions %}のクイックスタート](/actions/quickstart)」を参照してください。
+A project can span multiple repositories, but a workflow is specific to a repository. Add the workflow to each repository that you want your project to track. For more information about creating workflow files, see "[Quickstart for {% data variables.product.prodname_actions %}](/actions/quickstart)."
 
-この記事は、{% data variables.product.prodname_actions %}を基本的に理解していることを前提としています。 {% data variables.product.prodname_actions %}に関する詳しい情報については「[{% data variables.product.prodname_actions %}](/actions) 」を参照してください。
+This article assumes that you have a basic understanding of {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)."
 
-APIを通じてプロジェクトに対して行える他の変更に関する情報については「[APIを使ったプロジェクトの管理](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)」を参照してください。
+For more information about other changes you can make to your project through the API, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
 
-{% data variables.product.company_short %}がメンテナンスしており、現在のIssueもしくはPull Requestを指定されたプロジェクトに追加してくれる**actions/add-to-project**ワークフローを利用するのもよいでしょう。 詳しい情報については[actions/add-to-project](https://github.com/actions/add-to-project)リポジトリとREADMEを参照してください。
+You may also want to use the **actions/add-to-project** workflow, which is maintained by {% data variables.product.company_short %} and will add the current issue or pull request to the project specified. For more information, see the [actions/add-to-project](https://github.com/actions/add-to-project) repository and README.
 
 {% note %}
 
-**ノート:** `GITHUB_TOKEN`はリポジトリレベルをスコープとしており、{% data variables.projects.projects_v2 %}にはアクセスできません。 {% data variables.projects.projects_v2 %}にアクセスするには、{% data variables.product.prodname_github_app %}を作成する（Organizationプロジェクトの場合に推奨）か、個人アクセストークンを作成（ユーザプロジェクトの場合に推奨）してください。 以下には、どちらの方法のワークフローの例も示します。
+**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a {% data variables.product.pat_generic %} (recommended for user projects). Workflow examples for both approaches are shown below.
 
 {% endnote %}
 
-### {% data variables.product.prodname_github_app %}で認証を行うワークフローの例
+### Example workflow authenticating with a {% data variables.product.prodname_github_app %}
 
-1. {% data variables.product.prodname_github_app %}を作成するか、自分のOrganizationが所有する既存の{% data variables.product.prodname_github_app %}を選択してください。 詳しい情報については「[{% data variables.product.prodname_github_app %}の作成](/developers/apps/building-github-apps/creating-a-github-app)」を参照してください。
-2. {% data variables.product.prodname_github_app %}に、Organizationプロジェクトに対する読み込み及び書き込み権限を与えてください。 詳しい除法については「[{% data variables.product.prodname_github_app %}の権限の編集](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)」を参照してください。
+1. Create a {% data variables.product.prodname_github_app %} or choose an existing {% data variables.product.prodname_github_app %} owned by your organization. For more information, see "[Creating a {% data variables.product.prodname_github_app %}](/developers/apps/building-github-apps/creating-a-github-app)."
+2. Give your {% data variables.product.prodname_github_app %} read and write permissions to organization projects. For more information, see "[Editing a {% data variables.product.prodname_github_app %}'s permissions](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)."
 
    {% note %}
 
-   **ノート:** アプリケーションのOrganizationプロジェクトに対する権限と、リポジトリプロジェクトに対する権限を制御できます。 Organizationプロジェクトに対する読み書き権限を与えなければなりません。リポジトリプロジェクトに対する読み書き権限だけでは不十分です。
+   **Note:** You can control your app's permission to organization projects and to repository projects. You must give permission to read and write organization projects; permission to read and write repository projects will not be sufficient.
 
    {% endnote %}
 
-3. Organizationに{% data variables.product.prodname_github_app %}をインストールしてください。 プロジェクトがアクセスする必要があるすべてのリポジトリにインストールしてください。 詳しい情報については「[{% data variables.product.prodname_github_apps %}のインストール](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)」を参照してください。
-4. {% data variables.product.prodname_github_app %}のIDを、リポジトリもしくはOrganizationのシークレットとして保存してください。 以下のワークフローでは、`APP_ID`をシークレット名に置き換えてください。 アプリケーションIDは、アプリケーションの設定ページで、あるいはアプリケーションのAPIを通じて確認できます。 詳しい情報については「[アプリケーション](/rest/reference/apps#get-an-app)」を参照してください。
-5. アプリケーションの秘密鍵を生成してください。 作成されたファイルの内容を、シークレットとしてリポジトリもしくはOrganizationに保存してください。 （ファイルの内容は、`-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`という部分も含めて全体をほぞんしてください。） 以下のワークフローでは、`APP_PEM`をシークレットの名前に置き換えてください。 詳しい情報については「[{% data variables.product.prodname_github_apps %}での認証](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)」を参照してください。
-6. 以下のワークフローでは、`YOUR_ORGANIZATION`をOrganizationの名前で置き換えてください。 たとえば`octo-org`というようにします。 `YOUR_PROJECT_NUMBER`は、プロジェクトの番号で置き換えてください。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば`https://github.com/orgs/octo-org/projects/5`ではプロジェクト番号は5です。
+3. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see "[Installing {% data variables.product.prodname_github_apps %}](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)."
+4. Store your {% data variables.product.prodname_github_app %}'s ID as a secret in your repository or organization. In the following workflow, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/reference/apps#get-an-app)."
+5. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
+6. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -167,11 +167,11 @@ jobs:
 
 ```
 
-### 個人アクセストークンで認証するワークフローの例
+### Example workflow authenticating with a {% data variables.product.pat_generic %}
 
-1. `project`及び`repo`スコープを持つ個人アクセストークンを作成します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
-2. この個人アクセストークンをシークレットとしてリポジトリもしくはOrganizationに保存します。
-3. 以下のワークフローでは、`YOUR_TOKEN`をそのシークレットの名前で置き換えてください。 `YOUR_ORGANIZATION`をOrganizationの名前で置き換えてください。 たとえば`octo-org`というようにします。 `YOUR_PROJECT_NUMBER`は、プロジェクトの番号で置き換えてください。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば`https://github.com/orgs/octo-org/projects/5`ではプロジェクト番号は5です。
+1. Create a {% data variables.product.pat_v1 %} with the `project` and `repo` scopes. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+2. Save the {% data variables.product.pat_generic %} as a secret in your repository or organization.
+3. In the following workflow, replace `YOUR_TOKEN` with the name of the secret. Replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
 
 ```yaml{:copy}
 name: Add PR to project
@@ -279,9 +279,9 @@ jobs:
 
 ```
 
-### ワークフローの説明
+### Workflow explanation
 
-以下の表は、ワークフローの例のセクションについて説明しており、自分の利用方法にそれらのワークフローを適応させる方法を示します。
+The following table explains sections of the example workflows and shows you how to adapt the workflows for your own use.
 
 <table class="table-fixed">
 
@@ -297,7 +297,7 @@ on:
 
 </td>
 <td>
-このワークフローは、リポジトリ内のPull Requestが"ready for review"としてマークされたときに実行されます。
+This workflow runs whenever a pull request in the repository is marked as "ready for review".
 </td>
 </tr>
 
@@ -317,13 +317,13 @@ on:
 
 </td>
 <td>
-<a href="https://github.com/tibdex/github-app-token">tibdex/github-app-token action</a>を使い、アプリケーションIDと秘密鍵からアプリケーション用のインストールアクセストークンを生成します。 このインストールアクセストークンは、後にワークフロー内で<code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code>としてアクセスされます。
+Uses the <a href="https://github.com/tibdex/github-app-token">tibdex/github-app-token action</a> to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as <code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code>.
 <br>
 <br>
-<code>APP_ID</code>はアプリケーションIDを含むシークレットの名前で置き換えてください。
+Replace <code>APP_ID</code> with the name of the secret that contains your app ID.
 <br>
 <br>
-<code>APP_PEM</code>は、アプリケーションの秘密鍵を含むシークレットの名前で置き換えてください。
+Replace <code>APP_PEM</code> with the name of the secret that contains your app private key.
 </td>
 </tr>
 
@@ -339,7 +339,7 @@ env:
   PROJECT_NUMBER: YOUR_PROJECT_NUMBER
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -350,16 +350,16 @@ env:
 
 </td>
 <td>
-このステップのための環境変数を設定します。
+Sets environment variables for this step.
 <br>
 <br>
-個人アクセストークンを使っているなら、<code>YOUR_TOKEN</code>を個人アクセストークンを含むシークレットの名前で置き換えてください。
+If you are using a {% data variables.product.pat_generic %}, replace <code>YOUR_TOKEN</code> with the name of the secret that contains your {% data variables.product.pat_generic %}.
 <br>
 <br>
-<code>YOUR_ORGANIZATION</code>をOrganization名で置き換えてください。 たとえば<code>octo-org</code>というようにします。
+Replace <code>YOUR_ORGANIZATION</code> with the name of your organization. For example, <code>octo-org</code>.
 <br>
 <br>
-<code>YOUR_PROJECT_NUMBER</code>をプロジェクト番号で置き換えてください。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば<code>https://github.com/orgs/octo-org/projects/5</code>ではプロジェクト番号は5です。
+Replace <code>YOUR_PROJECT_NUMBER</code> with your project number. To find the project number, look at the project URL. For example, <code>https://github.com/orgs/octo-org/projects/5</code> has a project number of 5.
 </td>
 </tr>
 
@@ -395,9 +395,9 @@ gh api graphql -f query='
 
 </td>
 <td>
-<p>プロジェクトのIDに対して<a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a>を使ってAPIに問い合わせ、プロジェクトの最初の20個のフィールドのIDと名前を返します。 <code>fields</code>は共用体を返し、クエリはインラインフラグメント(<code>... on</code>)を使ってすべての<code>ProjectV2Field</code>及び<code>ProjectV2SingleSelectField</code>フィールドに関する情報を返します。</p>
+<p>Uses <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. <code>fields</code> returns a union and the query uses inline fragments (<code>... on</code>) to return information about any <code>ProjectV2Field</code> and <code>ProjectV2SingleSelectField</code> fields.</p>
 
-<p>レスポンスは<code>project_data.json</code>というファイルに保存されます。</p>
+<p>The response is stored in a file called <code>project_data.json</code>.</p>
 </td>
 </tr>
 
@@ -413,12 +413,12 @@ echo 'TODO_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select
 
 </td>
 <td>
-APIクエリからのレスポンスをパースし、関連するIDを環境変数として保存します。 これを変更して、様々なフィールドやオプションのIDを取得してください。 例:
+Parses the response from the API query and stores the relevant IDs as environment variables. Modify this to get the ID for different fields or options. For example:
 <ul>
-<li><code>Team</code>というフィールドのIDを取得するには、<code>echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV</code>を追加してください。</li>
-<li>単一選択フィールド<code>Team</code>の<code>Octoteam</code>というオプションのIDを取得するには、<code>echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV</code>を追加してください。</li>
+<li>To get the ID of a field called <code>Team</code>, add <code>echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV</code>.</li>
+<li>To get the ID of an option called <code>Octoteam</code> for the <code>Team</code> single select field, add <code>echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV</code></li>
 </ul>
-<strong>ノート:</strong> このワークフローは、プロジェクトが"Todo"というオプションを含む"Status"という単一選択フィールドと"Date posted"という日付フィールドを持つことを前提としています。 テーブル中にあるフィールドにマッチするよう、このセクションは変更しなければなりません。
+<strong>Note: </strong>This workflow assumes that you have a project with a single select field called "Status" that includes an option called "Todo" and a date field called "Date posted". You must modify this section to match the fields that are present in your table.
 </td>
 </tr>
 
@@ -433,7 +433,7 @@ env:
   PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -443,7 +443,7 @@ env:
 
 </td>
 <td>
-このステップのための環境変数を設定します。 <code>GITHUB_TOKEN</code>は上で説明されています。 <code>PR_ID</code>は、このワークフローをトリガーしたPull RequestのIDです。
+Sets environment variables for this step. <code>GITHUB_TOKEN</code> is described above. <code>PR_ID</code> is the ID of the pull request that triggered this workflow.
 
 </td>
 </tr>
@@ -464,7 +464,7 @@ item_id="$( gh api graphql -f query='
 
 </td>
 <td>
-<a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a>とAPIを使って、このワークフローをトリガーしたPull Requestをプロジェクトに追加します。 <code>jq</code>フラグは、レスポンスをパースして作成されたアイテムのIDを取得します。
+Uses <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> and the API to add the pull request that triggered this workflow to the project. The <code>jq</code> flag parses the response to get the ID of the created item.
 </td>
 </tr>
 
@@ -477,7 +477,7 @@ echo 'ITEM_ID='$item_id >> $GITHUB_ENV
 
 </td>
 <td>
-作成されたアイテムのIDを環境変数として保存します。
+Stores the ID of the created item as an environment variable.
 </td>
 </tr>
 
@@ -490,7 +490,7 @@ echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
 
 </td>
 <td>
-現在の日付を<code>yyyy-mm-dd</code>というフォーマットで環境変数に保存します。
+Saves the current date as an environment variable in <code>yyyy-mm-dd</code> format.
 </td>
 </tr>
 
@@ -504,7 +504,7 @@ env:
   GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -513,7 +513,7 @@ env:
 
 </td>
 <td>
-このステップのための環境変数を設定します。 <code>GITHUB_TOKEN</code>は上で説明されています。
+Sets environment variables for this step. <code>GITHUB_TOKEN</code> is described above.
 
 </td>
 </tr>
@@ -560,7 +560,7 @@ gh api graphql -f query='
 
 </td>
 <td>
-<code>Status</code>フィールドの値を<code>Todo</code>に設定します。 <code>Date posted</code>フィールドの値を設定します。
+Sets the value of the <code>Status</code> field to <code>Todo</code>. Sets the value of the <code>Date posted</code> field.
 </td>
 </tr>
 

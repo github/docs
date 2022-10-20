@@ -1,6 +1,6 @@
 ---
-title: Gerenciar segredos criptografados para o Dependabot
-intro: 'Você pode armazenar informações confidenciais como, por exemplo, senhas e tokens de acesso, como segredos criptografados e, em seguida, referenciá-los no arquivo de configuração do {% data variables.product.prodname_dependabot %}.'
+title: Managing encrypted secrets for Dependabot
+intro: 'You can store sensitive information, like passwords and access tokens, as encrypted secrets and then reference these in the {% data variables.product.prodname_dependabot %} configuration file.'
 redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
@@ -16,17 +16,17 @@ topics:
   - Secret store
   - Repositories
   - Dependencies
-shortTitle: Gerenciar segredos criptografados
+shortTitle: Manage encrypted secrets
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-## Sobre os segredos criptografados para {% data variables.product.prodname_dependabot %}
+## About encrypted secrets for {% data variables.product.prodname_dependabot %}
 
-Os segredos de {% data variables.product.prodname_dependabot %} são credenciais criptografadas que você cria no nível de organização ou no nível do repositório.
-Ao adicionar um segredo no nível da organização, é possível especificar quais repositórios podem acessar o segredo. Você pode usar segredos para permitir que {% data variables.product.prodname_dependabot %} atualize as dependências localizadas nos registros dos pacotes privados. Ao adicionar um segredo criptografado antes de atingir {% data variables.product.prodname_dotcom %} e que permanece criptografado até que seja usado por {% data variables.product.prodname_dependabot %} para acessar um registro de pacote privado.
+{% data variables.product.prodname_dependabot %} secrets are encrypted credentials that you create at either the organization level or the repository level.
+When you add a secret at the organization level, you can specify which repositories can access the secret. You can use secrets to allow {% data variables.product.prodname_dependabot %} to update dependencies located in private package registries. When you add a secret it's encrypted before it reaches {% data variables.product.prodname_dotcom %} and it remains encrypted until it's used by {% data variables.product.prodname_dependabot %} to access a private package registry.
 
-Após adicionar um segredo de {% data variables.product.prodname_dependabot %}, você poderá referenciá-lo no arquivo de dependência _dependabot.yml_ dessa forma: {% raw %}`${{secrets.NAME}}`{% endraw %}, e m que "NAME" é o nome que você escolheu para o segredo. Por exemplo:
+After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the _dependabot.yml_ configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. For example: 
 
 {% raw %}
 ```yaml
@@ -34,58 +34,57 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
 {% endraw %}
 
-Para obter mais informações, consulte "[Opções de configuração para o arquivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)".
+For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)."
 
-### Nomear os seus segredos
+### Naming your secrets
 
-O nome de um segredo de {% data variables.product.prodname_dependabot %}:
-* Só pode conter caracteres alfanuméricos (`[A-Z]`, `[0-9]`) ou sublinhados (`_`). Não são permitidos espaços. Se você inserir letras minúsculas, elas serão alteradas para maiúsculas.
-* Não precisa iniciar com o prefixo `GITHUB_`.
-* Não precisa começar com um número.
+The name of a {% data variables.product.prodname_dependabot %} secret:
+* Can only contain alphanumeric characters (`[A-Z]`, `[0-9]`) or underscores (`_`). Spaces are not allowed. If you enter lowercase letters these are changed to uppercase.
+* Must not start with the `GITHUB_` prefix.
+* Must not start with a number.
 
-## Adicionar um repositório secreto para {% data variables.product.prodname_dependabot %}
+## Adding a repository secret for {% data variables.product.prodname_dependabot %}
 
 {% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-secret %}
-{% data reusables.dependabot.dependabot-secrets-button %}
-1. Clique em **Novo segredo do repositório**.
-1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
-1. Insira o valor para o seu segredo.
-1. Clique em **Add secret** (Adicionar segredo).
+{% data reusables.dependabot.sidebar-secret %}
+1. Click **New repository secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the value for your secret.
+1. Click **Add secret**.
 
-   O nome do segredo está listado na página de segredos do Dependabot. Você pode clicar em **Atualizar** para alterar o valor do segredo. Você pode clicar em **Remover** para excluir o segredo.
+   The name of the secret is listed on the Dependabot secrets page. You can click **Update** to change the secret value. You can click **Remove** to delete the secret.
 
-   ![Atualize ou remova um segredo do repositório](/assets/images/help/dependabot/update-remove-repo-secret.png)
+   ![Update or remove a repository secret](/assets/images/help/dependabot/update-remove-repo-secret.png)
 
-## Adicionar um segredo de organização para {% data variables.product.prodname_dependabot %}
+## Adding an organization secret for {% data variables.product.prodname_dependabot %}
 
-Ao criar um segredo em uma organização, você pode usar uma política para limitar quais repositórios podem acessar esse segredo. Por exemplo, você pode conceder acesso a todos os repositórios ou limitar o acesso a apenas repositórios privados ou a uma lista específica de repositórios.
+When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-{% data reusables.dependabot.dependabot-secrets-button %}
-1. Clique em **Novo segredo da organização**.
-1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
-1. Insira o **Valor** para o seu segredo.
-1. Na lista suspensa **Acesso do repositório**, escolha uma política de acesso.
-1. Se você escolheu **repositórios selecionados**:
+{% data reusables.dependabot.sidebar-secret %}
+1. Click **New organization secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the **Value** for your secret.
+1. From the **Repository access** dropdown list, choose an access policy.
+1. If you chose **Selected repositories**:
 
-   * Clique em {% octicon "gear" aria-label="The Gear icon" %}.
-   * Escolha os repositórios que podem acessar este segredo. ![Selecione repositórios para este segredo](/assets/images/help/dependabot/secret-repository-access.png)
-   * Clique em **Atualizar seleção**.
+   * Click {% octicon "gear" aria-label="The Gear icon" %}.
+   * Choose the repositories that can access this secret. 
+     ![Select repositories for this secret](/assets/images/help/dependabot/secret-repository-access.png)
+   * Click **Update selection**.
 
-1. Clique em **Add secret** (Adicionar segredo).
+1. Click **Add secret**.
 
-   O nome do segredo está listado na página de segredos do Dependabot. Você pode clicar em **Atualizar** para alterar o valor secreto ou sua política de acesso. Você pode clicar em **Remover** para excluir o segredo.
+   The name of the secret is listed on the Dependabot secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
 
-   ![Atualizar ou remover um segredo da organização](/assets/images/help/dependabot/update-remove-org-secret.png)
+   ![Update or remove an organization secret](/assets/images/help/dependabot/update-remove-org-secret.png)
+   
+## Adding {% data variables.product.prodname_dependabot %} to your registries IP allow list
 
-## Adicionar {% data variables.product.prodname_dependabot %} à sua lista de permissão de endereços IP
-
-Se o seu registro privado estiver configurado com um IP de permissão de lista, você poderá encontrar o endereço IP que {% data variables.product.prodname_dependabot %} usa para acessar o registro no ponto de extermidade meta da API na chave do `dependabot`. Para obter mais informações, consulte "[Meta](/rest/reference/meta)".
+If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `dependabot` key. For more information, see "[Meta](/rest/reference/meta)."

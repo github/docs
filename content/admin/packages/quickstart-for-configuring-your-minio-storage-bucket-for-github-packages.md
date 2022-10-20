@@ -13,7 +13,7 @@ shortTitle: Quickstart for MinIO
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your third-party storage solution.
+Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your third-party storage solution.
 
 MinIO offers object storage with support for the S3 API and {% data variables.product.prodname_registry %} on your enterprise.
 
@@ -121,7 +121,7 @@ Other modes of MinIO remain available with standard support.
 
      ```shell
      $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
-     $ docker run minio/mc <em>BUCKET-NAME</em>
+     $ docker run minio/mc BUCKET-NAME
      ```
 
      This example can be used for MinIO standalone or MinIO as a NAS gateway.

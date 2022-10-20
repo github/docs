@@ -1,7 +1,7 @@
 ---
-title: Primeiros passos vom executores auto-hospedados da sua empresa
-shortTitle: Executores auto-hospedados
-intro: 'Você pode configurar a máquina de um exeucutor para sua empresa para que seus desenvolvedores possam começar a automatizar fluxos de trabalho com {% data variables.product.prodname_actions %}.'
+title: Getting started with self-hosted runners for your enterprise
+shortTitle: Self-hosted runners
+intro: 'You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -14,141 +14,141 @@ topics:
   - Fundamentals
 ---
 
-## Sobre executores auto-hospedados para {% data variables.product.prodname_actions %}
+## About self-hosted runners for {% data variables.product.prodname_actions %}
 
-{% data reusables.actions.about-actions-for-enterprises %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_actions %} para empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).
+{% data reusables.actions.about-actions-for-enterprises %} For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
-Com {% data variables.product.prodname_actions %}, os desenvolvedores podem escrever e combinar tarefas individuais denominadas ações para criar fluxos de trabalho personalizados. {% ifversion ghes or ghae %}Para habilitar {% data variables.product.prodname_actions %} para {% ifversion ghae %}sua empresa{% elsif ghes %} {% data variables.product.product_location %}{% endif %}, você deverá hospedar pelo menos uma máquina para executar trabalhos.{% endif %} {% ifversion ghec %}Você pode hospedar sua própria máquina de executores para executar esses trabalhos e essa{% elsif ghes or ghae %}Esta{% endif %} máquina é denominada um executor auto-hospedado. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}Todos{% elsif ghes or ghae %}Os executores auto-hospedados{% endif %} podem ser executados no Linux, Windows ou macOS. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes or ghae %}To enable {% data variables.product.prodname_actions %} for {% ifversion ghae %}your enterprise{% elsif ghes %} {% data variables.location.product_location %}{% endif %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes or ghae %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes or ghae %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
 {% ifversion ghec %}
 
-Como alternativa, você pode usar máquinas de executores que {% data variables.product.company_short %} hospeda. Os executores hospedados em {% data variables.product.company_short %} estão fora do escopo deste guia. Para obter mais informações, consulte "[Sobre executores hospedados em {% data variables.product.company_short %}](/actions/using-github-hosted-runners/about-github-hosted-runners)".
+Alternatively, you can use runner machines that {% data variables.product.company_short %} hosts. {% data variables.product.company_short %}-hosted runners are outside the scope of this guide. For more information, see "[About {% data variables.product.company_short %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 
 {% endif %}
 
-Este guia mostra como aplicar uma abordagem de gerenciamento centralizada para os executores auto-hospedados para {% data variables.product.prodname_actions %} na sua empresa. No guia, você realizará as seguintes tarefas.
+This guide shows you how to apply a centralized management approach to self-hosted runners for {% data variables.product.prodname_actions %} in your enterprise. In the guide, you'll complete the following tasks.
 
-1. Configure uma política limitada para restringir as ações{% ifversion actions-workflow-policy %} e fluxos de trabalho{% endif %} reutilizáveis que podem ser executados dentro da sua empresa
-1. Implantar um executor auto-hospedado para a sua empresa
-1. Criar um grupo para gerenciar o acesso aos executores disponíveis para sua empresa
-1. Opcionalmente, restringir ainda mais os repositórios que podem usar o executor
+1. Configure a limited policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run within your enterprise
+1. Deploy a self-hosted runner for your enterprise
+1. Create a group to manage access to the runners available to your enterprise
+1. Optionally, further restrict the repositories that can use the runner
 {%- ifversion ghec or ghae or ghes > 3.2 %}
-1. Opcionalmente, crie ferramentas personalizadas para dimensionar automaticamente seus executores auto-hospedados
+1. Optionally, build custom tooling to automatically scale your self-hosted runners
 {% endif %}
 
-Você também encontrará informações adicionais sobre como monitorar e proteger seus executores auto-hospedados,{% ifversion ghes or ghae %} como acessar ações de {% data variables.product.prodname_dotcom_the_website %},{% endif %} e como personalizar o software nas máquinas dos seus executores.
+You'll also find additional information about how to monitor and secure your self-hosted runners,{% ifversion ghes or ghae %} how to access actions from {% data variables.product.prodname_dotcom_the_website %},{% endif %} and how to customize the software on your runner machines.
 
-Depois de terminar o guia, {% ifversion ghec or ghae %}os integrantes da sua empresa{% elsif ghes %}usuários de {% data variables.product.product_location %}{% endif %} poderão executar trabalhos do fluxo de trabalho de {% data variables.product.prodname_actions %} na máquina de um executor auto-hospedado.
+After you finish the guide, {% ifversion ghec or ghae %}members of your enterprise{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %} will be able to run workflow jobs from {% data variables.product.prodname_actions %} on a self-hosted runner machine.
 
-## Pré-requisitos
+## Prerequisites
 
 {% data reusables.actions.self-hosted-runners-prerequisites %}
 
-- Sua empresa deve possuir pelo menos uma organização. Para obter mais informações, consulte "[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)" e[Criando uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
+- Your enterprise must own at least one organization. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)" and "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-## 1. Configurar políticas para {% data variables.product.prodname_actions %}
+## 1. Configure policies for {% data variables.product.prodname_actions %}
 
-Primeiro, habilite {% data variables.product.prodname_actions %} para todas as organizações e configure uma política para restringir as ações{% ifversion actions-workflow-policy %} e os fluxos de trabalho reutilizáveis{% endif %} que podem executar {% ifversion ghec or ghae%}dentro da sua empresa em {% data variables.product.product_name %}{% elsif ghes %}em {% data variables.product.product_location %}{% endif %}. Opcionalmente, os proprietários da organização podem restringir ainda mais essas políticas para cada organização.
+First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.location.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Em "Políticas", selecione **Habilitar para todas as organizações**.
-
-   ![Captura de tela da política "Habilitar para todas as organizações" para {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
-1. Selecione {% data reusables.actions.policy-label-for-select-actions-workflows %} e **Permitir ações criadas pelo GitHub** para permitir ações locais{% ifversion actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %}, e ações criadas por {% data variables.product.company_short %}.
+1. Under "Policies", select **Enable for all organizations**.
+   
+   ![Screenshot of "Enable for all organizations" policy for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
+1. Select {% data reusables.actions.policy-label-for-select-actions-workflows %} and **Allow actions created by GitHub** to allow local actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, and actions created by {% data variables.product.company_short %}.
 
    {% ifversion actions-workflow-policy %}
-   ![Captura de tela de "Permitir selecionar ações" e "Permitir ações criadas por {% data variables.product.company_short %}" para {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)
+   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)
    {%- else %}
-   ![Captura de tela de "Permitir selecionar ações" e "Permitir ações criadas por {% data variables.product.company_short %}" para {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
+   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
    {%- endif %}
-1. Clique em **Salvar**.
+1. Click **Save**.
 
-Você pode configurar políticas adicionais para restringir as ações disponíveis para os {% ifversion ghec or ghae %}integrantes da empresa{% elsif ghes %}usuários de {% data variables.product.product_location %}{% endif %}. Para obter mais informações, consulte "[Aplicar políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run)".
+You can configure additional policies to restrict the actions available to {% ifversion ghec or ghae %}enterprise members{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run)."
 
-## 2. Implantar o executor auto-hospedado para a sua empresa
+## 2. Deploy the self-hosted runner for your enterprise
 
-Em seguida, adicione um executor auto-hospedado à sua empresa. O {% data variables.product.product_name %} irá guiar você pela instalação do software necessário na máquina do executor. Após implantar o executor, você poderá verificar a conectividade entre a máquina do executor e {%ifversion ghec or ghae %}a sua empresa{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.
+Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {%ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
 
-### Adicionando o executor auto-hospedado
+### Adding the self-hosted runner
 
 {% data reusables.actions.self-hosted-runner-add-to-enterprise %}
 
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-## 3. Gerenciar acesso ao executor auto-hospedado usando um grupo
+## 3. Manage access to the self-hosted runner using a group
 
-Você pode criar um grupo de executor para gerenciar o acesso ao executor que você adicionou à sua empresa. Você usará o grupo para escolher quais organizações podem executar trabalhos a partir de {% data variables.product.prodname_actions %} no executor.
+You can create a runner group to manage access to the runner that you added to your enterprise. You'll use the group to choose which organizations can execute jobs from {% data variables.product.prodname_actions %} on the runner.
 
-{% data variables.product.product_name %} adiciona todos os novos executores a um grupo. Os executores podem estar em um grupo por vez. Por padrão, o {% data variables.product.product_name %} adiciona novos executores ao grupo "padrão".
+{% data variables.product.product_name %} adds all new runners to a group. Runners can be in one group at a time. By default, {% data variables.product.product_name %} adds new runners to the "Default" group.
 
-{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
-1. Para escolher uma política para o acesso da organização, em "Acesso da organização", selecione a lista suspensa **Organização** e clique **Organizações selecionadas**.
-1. À direita da lista suspensa com a política de acesso da organização, clique em {% octicon "gear" aria-label="The Gear icon" %}.
-1. Selecione as organizações que você gostaria de conceder acesso ao grupo do executor.
+{% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
+1. To choose a policy for organization access, under "Organization access", select the **Organization access** drop-down, and click **Selected organizations**.
+1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="The Gear icon" %}.
+1. Select the organizations you'd like to grant access to the runner group.
 {%- ifversion ghec or ghes %}
-1. Opcionalmente, para permitir que repositórios públicos nas organizações selecionadas usem executores no grupo, selecione **Permitir repositórios públicos**.
+1. Optionally, to allow public repositories in the selected organizations to use runners in the group, select **Allow public repositories**.
 
    {% warning %}
 
-   **Aviso**:
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
-   Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
 {%- endif %}
-{% data reusables.actions.self-hosted-runner-create-group %}
-{%- ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
-1. Clique na aba "Executores".
-1. Na lista de executores, clique no executor que você implantou na seção anterior.
-1. Clique em **Editar**.
-1. Clique em **Grupos de executores de {% octicon "gear" aria-label="The Gear icon" %}**.
-1. Na lista de grupos de executores, clique no nome do grupo que você criou anteriormente.
-1. Clique em **Salvar** para mover o executor para o grupo.
+{% data reusables.actions.create-runner-group %}
+{%- ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
+1. Click the "Runners" tab.
+1. In the list of runners, click the runner that you deployed in the previous section.
+1. Click **Edit**.
+1. Click **Runner groups {% octicon "gear" aria-label="The Gear icon" %}**.
+1. In the list of runner groups, click the name of the group that you previously created.
+1. Click **Save** to move the runner to the group.
 {%- elsif ghes < 3.4 or ghae %}
-1. À direita do "Padrão", clique no número de executores no grupo para mostrar os executores.
-1. Selecione o executor que você implantou.
-1. À direita de "Grupos de executores", selecione a lista suspensa **Mover para o grupo** e clique no grupo que você criou anteriormente.
+1. To the right of "Default", click the number of runners in the group to show the runners.
+1. Select the runner that you deployed.
+1. To the right of "Runner groups", select the **Move to group** dropdown, and click the group that you previously created.
 {%- endif %}
 
-Você já implantou um executor auto-hospedado que pode executar trabalhos de {% data variables.product.prodname_actions %} dentro das organizações que você especificou.
+You've now deployed a self-hosted runner that can run jobs from {% data variables.product.prodname_actions %} within the organizations that you specified.
 
-## 4. Restringir ainda mais o acesso ao executor auto-hospedado
+## 4. Further restrict access to the self-hosted runner
 
-Opcionalmente, os proprietários da organização podem restringir ainda mais a política de acesso do grupo p executor que você criou. Por exemplo, um proprietário da organização pode permitir que apenas certos repositórios na organização usem o grupo de executores.
+Optionally, organization owners can further restrict the access policy of the runner group that you created. For example, an organization owner could allow only certain repositories in the organization to use the runner group.
 
-Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)".
+For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 
 {% ifversion ghec or ghae or ghes > 3.2 %}
 
-## 5. Dimensione automaticamente seus executores auto-hospedados
+## 5. Automatically scale your self-hosted runners
 
-Opcionalmente, você pode criar ferramentas personalizadas para dimensionar automaticamente os executores auto-hospedados para {% ifversion ghec or ghae %}sua empresa{% elsif ghes %}{% data variables.product.product_location %}{% endif %}. Por exemplo, suas ferramentas podem responder a eventos de webhook de {% data variables.product.product_location %} para dimensionar automaticamente um cluster de máquinas de executores. Para obter mais informações, consulte "[Dimensionamento automático com executores auto-hospedados](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)".
+Optionally, you can build custom tooling to automatically scale the self-hosted runners for {% ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For example, your tooling can respond to webhook events from {% data variables.location.product_location %} to automatically scale a cluster of runner machines. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
 
 {% endif %}
 
-## Próximas etapas
+## Next steps
 
-- Você pode monitorar executores auto-hospedados e resolver problemas comuns. Para obter mais informações, consulte "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+- You can monitor self-hosted runners and troubleshoot common issues. For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
 
-- {% data variables.product.company_short %} recomenda que você revise considerações de segurança para máquinas de executores auto-hospedados. Para obter mais informações, consulte "[Fortalecimento da segurança para {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)".
+- {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
-- {% ifversion ghec %}Se você usar {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %}, você{% elsif ghes or ghae %}Você{% endif %} poderá sincronizar manualmente os repositórios em {% data variables.product.prodname_dotcom_the_website %} que contém ações para a sua empresa em {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %}{% endif %}. Como alternativa, você pode permitir que os integrantes da sua empresa acessem automaticamente as ações de {% data variables.product.prodname_dotcom_the_website %} usando {% data variables.product.prodname_github_connect %}. Para obter mais informações, consulte o seguinte.
+- {% ifversion ghec %}If you use {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}, you{% elsif ghes or ghae %}You{% endif %} can manually sync repositories on {% data variables.product.prodname_dotcom_the_website %} containing actions to your enterprise on {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}{% endif %}. Alternatively, you can allow members of your enterprise to automatically access actions from {% data variables.product.prodname_dotcom_the_website %} by using {% data variables.product.prodname_github_connect %}. For more information, see the following.
 
    {%- ifversion ghes or ghae %}
-   - "[Sincronizando as ações manualmente a partir de {% data variables.product.prodname_dotcom_the_website %}](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)"
-   - "[Habilitando o acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %} usando {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"
+   - "[Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)"
+   - "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"
    {%- elsif ghec %}
-   - "Sincronizando ações manualmente a partir de {% data variables.product.prodname_dotcom_the_website %}" na documentação [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) ou [da documentação de {% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)
-   - "Habilitando o acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %}, usando {% data variables.product.prodname_github_connect %}" na [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) ou [documentação de {% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)
+   - "Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) documentation
+   - "Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) documentation
    {%- endif %}
 
-- Você pode personalizar o software disponível nas suas máquinas de executores auto-hospedados ou configurar seus executores para executar softwares similares a executores hospedados em {% data variables.product.company_short %}{% ifversion ghes or ghae %} disponíveis para os clientes que usam {% data variables.product.prodname_dotcom_the_website %}{% endif %}. O software que alimenta máquinas de executores para {% data variables.product.prodname_actions %} é de código aberto. Para obter mais informações, consulte os repositórios [`actions/runner`](https://github.com/actions/runner) e [`actions/runner-images`](https://github.com/actions/runner-images).
+- You can customize the software available on your self-hosted runner machines, or configure your runners to run software similar to {% data variables.product.company_short %}-hosted runners{% ifversion ghes or ghae %} available for customers using {% data variables.product.prodname_dotcom_the_website %}{% endif %}. The software that powers runner machines for {% data variables.product.prodname_actions %} is open source. For more information, see the [`actions/runner`](https://github.com/actions/runner) and [`actions/runner-images`](https://github.com/actions/runner-images) repositories.
 
-## Leia mais
+## Further reading
 
-- "[Configurando a aplicação de um executor auto-hospedado como um serviço](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service)"
-- "[Usando executores auto-hospedados em um fluxo de trabalho](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)"
+- "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service)"
+- "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)"

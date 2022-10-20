@@ -1,8 +1,7 @@
 ---
 title: SCIM
-intro: GitHub Organizationのメンバーのアクセスを、SCIM APIを使って制御及び管理できます。
+intro: You can control and manage your GitHub organization members access using SCIM API.
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API
@@ -11,43 +10,43 @@ redirect_from:
   - /rest/reference/scim
 ---
 
-## SCIM APIについて
+## About the SCIM API
 
-### Organization 向け SCIM プロビジョニング
+### SCIM Provisioning for Organizations
 
-SCIM API は SCIM を有効にしたアイデンティティプロバイダ (IdPs) で、{% data variables.product.product_name %} Organization メンバーシップのプロビジョニングを自動化するために用いられます。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは、[SCIM標準](http://www.simplecloud.info/)バージョン2に基づいています。 IdP が使用するべき {% data variables.product.product_name %} SCIM エンドポイントは、`{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/` です。
+The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provisioning of {% data variables.product.product_name %} organization membership. The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). The {% data variables.product.product_name %} SCIM endpoint that an IdP should use is: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
 
 {% note %}
 
-**ノート:**
-  - SCIM APIは[SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso)が有効化された[{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)を利用する個々のOrganizationでのみ利用できます。 SCIMに関する詳しい情報については「[OrganizationのためのSCIMについて](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)」を参照してください。
-  - SCIM APIはEnterpriseアカウントで、あるいは{% data variables.product.prodname_emu_org %}と合わせて使うことはできません。
+**Notes:** 
+  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+  - The SCIM API cannot be used with an enterprise account or with an {% data variables.enterprise.prodname_emu_org %}.
 
 {% endnote %}
 
-### SCIM API への呼び出しを認証する
+### Authenticating calls to the SCIM API
 
-SCIM API を使用するには、{% data variables.product.product_name %} Organization の所有者として認証する必要があります。 API は、[OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) トークンが `Authorization` ヘッダに含まれていることを想定しています。 個人アクセストークンを使用することもできますが、まず [SAML SSO Organizationで使用するためにトークンを承認する](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)必要があります。
+You must authenticate as an owner of a {% data variables.product.product_name %} organization to use its SCIM API. The API expects an [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) token to be included in the `Authorization` header. If you use a {% data variables.product.pat_v1 %} for authentication, it must have the `admin:org` scope and you must also [authorize it for use with your SAML SSO organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
-### SAML および SCIM データのマッピング
+### Mapping of SAML and SCIM data
 
 {% data reusables.scim.nameid-and-username-must-match %}
 
-### サポートされている SCIM ユーザ属性
+### Supported SCIM User attributes
 
-| 名前                | 種類        | 説明                                                                                                                                                                                                                                             |
-| ----------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `userName`        | `string`  | ユーザのユーザ名。                                                                                                                                                                                                                                      |
-| `name.givenName`  | `string`  | ユーザーの名。                                                                                                                                                                                                                                        |
-| `name.familyName` | `string`  | ユーザーの姓。                                                                                                                                                                                                                                        |
-| `emails`          | `array`   | ユーザのメール一覧。                                                                                                                                                                                                                                     |
-| `externalId`      | `string`  | この識別子は SAML プロバイダによって生成され、GitHub ユーザと照合するためにSAML プロバイダによって一意の ID として使用されます。 ユーザの `externalID` は、SAML プロバイダ、または [SCIM プロビジョニング済み ID の一覧表示](#list-scim-provisioned-identities)エンドポイントを使用して、ユーザの GitHub ユーザ名やメールアドレスなどの他の既知の属性でフィルタして見つけることができます。 |
-| `id`              | `string`  | GitHub SCIM エンドポイントによって生成された識別子。                                                                                                                                                                                                               |
-| `active`          | `boolean` | ID がアクティブである（true）か、プロビジョニングを解除する必要がある（false）かを示すために使用する。                                                                                                                                                                                      |
+Name | Type | Description
+-----|------|--------------
+`userName`|`string` | The username for the user.
+`name.givenName`|`string` | The first name of the user.
+`name.familyName`|`string` | The last name of the user.
+`emails` | `array` | List of user emails.
+`externalId` | `string` | This identifier is generated by the SAML provider, and is used as a unique ID by the SAML provider to match against a GitHub user. You can find the `externalID` for a user either at the SAML provider, or using the [List SCIM provisioned identities](#list-scim-provisioned-identities) endpoint and filtering on other known attributes, such as a user's GitHub username or email address.
+`id` | `string` | Identifier generated by the GitHub SCIM endpoint.
+`active` | `boolean` | Used to indicate whether the identity is active (true) or should be deprovisioned (false).
 
 {% note %}
 
-**注釈:** SCIM API のエンドポイント URL では、大文字と小文字が区別されます。 たとえば、`Users` エンドポイントの最初の文字は大文字にする必要があります。
+**Note:** Endpoint URLs for the SCIM API are case sensitive. For example, the first letter in the `Users` endpoint must be capitalized:
 
 ```shell
 GET /scim/v2/organizations/{org}/Users/{scim_user_id}

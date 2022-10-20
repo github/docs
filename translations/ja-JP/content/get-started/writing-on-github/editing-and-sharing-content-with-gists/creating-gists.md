@@ -1,6 +1,6 @@
 ---
-title: Creating gists
-intro: 'You can create two kinds of gists: {% ifversion ghae %}internal{% else %}public{% endif %} and secret. Create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist if you''re ready to share your ideas with {% ifversion ghae %}enterprise members{% else %}the world{% endif %} or a secret gist if you''re not.'
+title: Gist の作成
+intro: '{% ifversion ghae %}内部{% else %}パブリック{% endif %}とシークレットの 2 種類の gist を作成できます。 {% ifversion ghae %}エンタープライズ メンバー{% else %}世界{% endif %}とアイデアを共有する準備ができている場合は、{% ifversion ghae %}内部{% else %}パブリック{% endif %} gist を、そうでない場合は、シークレット gist を作成します。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/about-gists
@@ -14,70 +14,76 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: e0ac449dc71bb0c525ee1559b82e509a281e55ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145068680'
 ---
-## About gists
+## Gistについて
 
-Every gist is a Git repository, which means that it can be forked and cloned. {% ifversion not ghae %}If you are signed in to {% data variables.product.product_name %} when{% else %}When{% endif %} you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
+すべての Gist は Git のリポジトリであり、フォークしたりクローンしたりできます。 {% ifversion not ghae %}{% data variables.product.product_name %} にサインインしている状態で {% else %}{% endif %}Gist を作成すると、その Gist は自分のアカウントに関連付けられます。また、{% data variables.gists.gist_homepage %} に移動すると自分の Gist リストに表示されます。
 
-Gists can be {% ifversion ghae %}internal{% else %}public{% endif %} or secret. {% ifversion ghae %}Internal{% else %}Public{% endif %} gists show up in {% data variables.gists.discover_url %}, where {% ifversion ghae %}enterprise members{% else %}people{% endif %} can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work.
+Gist は、{% ifversion ghae %}内部{% else %}パブリック{% endif %}またはシークレットにすることができます。 {% ifversion ghae %}内部{% else %}パブリック{% endif %}の Gist が {% data variables.gists.discover_url %} に表示され、{% ifversion ghae %}エンタープライズ メンバー{% else %}個人{% endif %}は、作成された新しい Gist を参照できます。 それらのGistは検索もできるので、他の人々に自分の作業を探して見てもらうために使うこともできます。
 
-Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. Secret gists aren't private. If you send the URL of a secret gist to {% ifversion ghae %}another enterprise member{% else %}a friend{% endif %}, they'll be able to see it. However, if {% ifversion ghae %}any other enterprise member{% else %}someone you don't know{% endif %} discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/articles/creating-a-new-repository) instead.
+シークレット Gist は {% data variables.gists.discover_url %} に表示されず、検索できません。 シークレット Gist はプライベートではありません。 シークレット Gist の URL を{% ifversion ghae %}別のエンタープライズ メンバー{% else %}友人{% endif %}に送信すると、相手はそれを閲覧できます。 ただし、{% ifversion ghae %}他のエンタープライズ メンバー{% else %}知らない誰か{% endif %}が URL を見つけた場合、その相手も Gist を閲覧できます。 詮索好きな人からコードを隠す必要がある場合は、代わりに[プライベート リポジトリ](/articles/creating-a-new-repository)を作成することをお勧めします。
 
 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
 {% ifversion ghes %}
 
-If your site administrator has disabled private mode, you can also use anonymous gists, which can be public or secret.
+サイト管理者がプライベートモードを無効化している場合は、匿名 Gist を使うこともできます。匿名 Gist はパブリックもしくはシークレットにできます。
 
 {% data reusables.gist.anonymous-gists-cannot-be-deleted %}
 
 {% endif %}
 
-You'll receive a notification when:
-- You are the author of a gist.
-- Someone mentions you in a gist.
-- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
+通知は以下の場合に送られます:
+- あなたが Gist の作者である場合。
+- 誰かがあなたを Gist 中でメンションした場合。
+- Gist にサブスクライブするには、任意の Gist の上にある **[Subscribe]\(サブスクライブ\)** をクリックします。
 
 {% ifversion fpt or ghes or ghec %}
 
-You can pin gists to your profile so other people can see them easily. For more information, see "[Pinning items to your profile](/articles/pinning-items-to-your-profile)."
+Gist をプロフィールにピン止めして、他のユーザが簡単に見ることができるようにすることができます。 詳細については、「[プロファイルにアイテムをピン止めする](/articles/pinning-items-to-your-profile)」を参照してください。
 
 {% endif %}
 
-You can discover {% ifversion ghae %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. Gist search uses the same search syntax as [code search](/search-github/searching-on-github/searching-code).
+他の人が作成した{% ifversion ghae %}内部{% else %}パブリック{% endif %} Gist を見つけるには、{% data variables.gists.gist_homepage %} に移動し、 **[All Gists]\(すべての Gist\)** をクリックします。 こうすると、すべての Gist が作成時刻または更新時刻でソートされて表示されるページに行きます。 また、Gist は {% data variables.gists.gist_search_url %} で言語ごとに検索できます。 Gist の検索に使う検索構文は、[コードの検索](/search-github/searching-on-github/searching-code)と同じです。
 
-Since gists are Git repositories, you can view their full commit history, complete with diffs. You can also fork or clone gists. For more information, see ["Forking and cloning gists"](/articles/forking-and-cloning-gists).
+Gist は Git リポジトリであるため、完全なコミット履歴を diff とともに表示させることができます。 Gist はフォークしたりクローンしたりすることもできます。 詳細については、「[Gist のフォークとクローン](/articles/forking-and-cloning-gists)」を参照してください。
 
-You can download a ZIP file of a gist by clicking the **Download ZIP** button at the top of the gist. You can embed a gist in any text field that supports Javascript, such as a blog post. To get the embed code, click the clipboard icon next to the **Embed** URL of a gist. To embed a specific gist file, append the **Embed** URL with `?file=FILENAME`.
+Gist の ZIP ファイルをダウンロードするには、Gist の上にある **[Download ZIP]\(ZIP のダウンロード\)** ボタンをクリックします。 Gist は blog ポストなど、JavaScript をサポートしているどのテキストフィールドにも埋め込むことができます。 埋め込みコードを取得するには、Gist の **[Embed]\(埋め込み\)** URL の横にあるクリップボード アイコンをクリックします。 特定の Gist ファイルを埋め込むには、 **[Embed]\(埋め込み\)** URL に `?file=FILENAME` を追加します。
 
 {% ifversion fpt or ghec %}
 
-Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+Gist は GeoJSON ファイルのマッピングをサポートしています。 このようなマップは、簡単に共有しマップを埋め込むことができるよう、埋め込み Gist 内に表示されます。 詳細については、「[非コード ファイルでの作業](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)」を参照してください。
 
 {% endif %}
 
-## Creating a gist
+## Gist の作成
 
-Follow the steps below to create a gist.
+以下のステップに従って、Gist を作成します。
 
 {% note %}
 
-You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+{% data variables.product.prodname_cli %} を使用して Gist を作成することもできます。 詳細については、{% data variables.product.prodname_cli %} ドキュメントの "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" を参照してください。
 
-Alternatively, you can drag and drop a text file from your desktop directly into the editor.
+または、デスクトップからエディタにテキストファイルを直接ドラッグアンドドロップすることもできます。
 
 {% endnote %}
 
-1. Sign in to {% data variables.product.product_name %}.
-2. Navigate to your {% data variables.gists.gist_homepage %}.
-3. Type an optional description and name for your gist.
-![Gist name description](/assets/images/help/gist/gist_name_description.png)
+1. {% data variables.product.product_name %}にサインインします。
+2. {% data variables.gists.gist_homepage %}に移動します。
+3. Gist の名前と説明 (任意) を入力します。
+![Gist の名前と説明](/assets/images/help/gist/gist_name_description.png)
 
-4. Type the text of your gist into the gist text box.
-![Gist text box](/assets/images/help/gist/gist_text_box.png)
+4. Gist のテキストを Gist テキストボックスに入力します。
+![Gist テキスト ボックス](/assets/images/help/gist/gist_text_box.png)
 
-5. Optionally, to create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
-![Drop-down menu to select gist visibility]{% ifversion ghae %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
+5. 必要に応じて、{% ifversion ghae %}内部{% else %}パブリック{% endif %} Gist を作成するには、{% octicon "triangle-down" aria-label="The downwards triangle icon" %} をクリックし、 **[Create {% ifversion ghae %}internal{% else %}public{% endif %} gist]\(内部 (またはパブリック) Gist の作成\)** をクリックします。
+![Gist の可視性を選ぶドロップダウン メニュー]{% ifversion ghae %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 
-6. Click **Create secret Gist** or **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
-  ![Button to create gist](/assets/images/help/gist/create-secret-gist-button.png)
+6. **[Create secret Gist]\(シークレット Gist の作成\)** または **[Create {% ifversion ghae %}internal{% else %}public{% endif %} gist]\(内部 (またはパブリック) Gist の作成\)** をクリックします。
+  ![Gist を作成するボタン](/assets/images/help/gist/create-secret-gist-button.png)

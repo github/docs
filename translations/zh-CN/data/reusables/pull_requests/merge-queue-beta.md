@@ -1,7 +1,7 @@
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
-**注意：** 拉取请求合并队列功能目前处于有限公测阶段，可能会发生更改。
+**Note:** The pull request merge queue feature is currently in limited public beta and subject to change.
 
 {% endnote %}
 

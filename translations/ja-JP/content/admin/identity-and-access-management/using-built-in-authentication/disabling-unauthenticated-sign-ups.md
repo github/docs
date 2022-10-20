@@ -1,5 +1,5 @@
 ---
-title: 認証のないサインアップの無効化
+title: Disabling unauthenticated sign-ups
 redirect_from:
   - /enterprise/admin/articles/disabling-sign-ups
   - /enterprise/admin/user-management/disabling-unauthenticated-sign-ups
@@ -7,7 +7,7 @@ redirect_from:
   - /admin/authentication/disabling-unauthenticated-sign-ups
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/disabling-unauthenticated-sign-ups
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/disabling-unauthenticated-sign-ups
-intro: 'If you''re using built-in authentication for {% data variables.product.product_location %}, you can block unauthenticated people from creating new user accounts on your instance.'
+intro: 'If you''re using built-in authentication for {% data variables.location.product_location %}, you can block unauthenticated people from creating new user accounts on your instance.'
 permissions: 'Site administrators can disable unauthenticated sign-ups on a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '*'
@@ -26,10 +26,11 @@ shortTitle: Block unauthenticated sign-up
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 
-## 認証のないサインアップの無効化
+## Disabling unauthenticated sign-ups
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-3. **Enable sign-up（サインアップの有効化）**の選択を外してください。 ![[Enable sign-up] チェックボックス](/assets/images/enterprise/management-console/enable-sign-up.png)
+3. Unselect **Enable sign-up**.
+![Enable sign-up checkbox](/assets/images/enterprise/management-console/enable-sign-up.png)
 {% data reusables.enterprise_management_console.save-settings %}

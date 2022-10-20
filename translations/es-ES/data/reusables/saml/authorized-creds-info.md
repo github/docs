@@ -1,7 +1,7 @@
-Antes de que puedas autorizar un token de acceso personal o llave SSH, debes haber vinculado una identidad de SAML. Si eres miembro de una organización en donde está habilitado el SSO de SAML, puedes crear una identidad vinculada autenticándote en tu organización con tu IdP por lo menos una vez. Para obtener más información, consulta la sección "[Acerca de la autenticación con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)".
+Before you can authorize a {% data variables.product.pat_generic %} or SSH key, you must have a linked SAML identity. If you're a member of an organization where SAML SSO is enabled, you can create a linked identity by authenticating to your organization with your IdP at least once. For more information, see "[About authentication with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)."
 
-Después de que autorizas un token de acceso personal o llave SSH, estos se mantendrán autorizados hasta que se revoquen en alguna de las siguientes formas.
-- Un propietario de empresa u organización revoca la autorización.
-- Se te elimina de la organización.
-- Se editan los alcances en un token de acceso personal o este se regenera.
-- El token de acceso personal venció conforme a lo definido durante su creación.
+After you authorize a {% data variables.product.pat_generic %} or SSH key, the token or key will stay authorized until revoked in one of the following ways.
+- An organization or enterprise owner revokes the authorization.
+- You are removed from the organization.
+- The scopes in a {% data variables.product.pat_generic %} are edited, or the token is regenerated.
+- The {% data variables.product.pat_generic %} expired as defined during creation.

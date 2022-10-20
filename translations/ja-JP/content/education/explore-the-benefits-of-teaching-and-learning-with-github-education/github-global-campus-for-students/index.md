@@ -1,5 +1,5 @@
 ---
-title: GitHub Global Campus for students
+title: 学生向け GitHub Global Campus
 intro: '学生として、{% data variables.product.prodname_dotcom %} を使用して学校のプロジェクトで共同作業を行い、現場経験を積んでください。'
 redirect_from:
   - /education/teach-and-learn-with-github-education/use-github-for-your-schoolwork
@@ -14,5 +14,11 @@ children:
   - /why-wasnt-my-application-to-global-campus-for-students-approved
   - /about-github-community-exchange
 shortTitle: About Global Campus for students
+ms.openlocfilehash: 2ee0b90dc4cc25bbd3ac253e22c516ec3984b94a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147574261'
 ---
 

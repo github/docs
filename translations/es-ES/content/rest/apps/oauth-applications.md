@@ -12,6 +12,6 @@ versions:
   ghec: '*'
 ---
 
-## Acerca de la API de {% data variables.product.prodname_oauth_app %}
+## About the {% data variables.product.prodname_oauth_app %} API
 
-Puedes utilizar esta API para administrar los tokens de OAuth que utiliza una {% data variables.product.prodname_oauth_app %} para acceder a las cuentas de las personas en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+You can use this API to manage the OAuth tokens an {% data variables.product.prodname_oauth_app %} uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.

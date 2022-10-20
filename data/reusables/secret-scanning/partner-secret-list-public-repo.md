@@ -10,18 +10,24 @@ Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair
 Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
 Azure | Azure Active Directory Application Secret
+Azure | Azure Batch Key Identifiable
+Azure | Azure CosmosDB Key Identifiable
 Azure | Azure DevOps Personal Access Token
+Azure | Azure ML Studio (classic) Web Service Key
 Azure | Azure SAS Token
 Azure | Azure Service Management Certificate
 Azure | Azure SQL Connection String
 Azure | Azure Storage Account Key
 Checkout.com | Checkout.com Production Secret Key
 Checkout.com | Checkout.com Test Secret Key
+Chief | Chief Tools Token
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
 Contributed Systems | Contributed Systems Credentials
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
+DevCycle | DevCycle Client API Key
+DevCycle | DevCycle Server API Key
 DigitalOcean | DigitalOcean Personal Access Token
 DigitalOcean | DigitalOcean OAuth Token
 DigitalOcean | DigitalOcean Refresh Token
@@ -107,4 +113,10 @@ Twilio | Twilio API Key
 Typeform | Typeform Personal Access Token
 Uniwise | WISEflow API Key 
 Valour | Valour Access Token
+Yandex | Yandex.Cloud API Key	
+Yandex | Yandex.Cloud IAM Cookie	
+Yandex | Yandex.Cloud IAM Token	
+Yandex | Yandex.Dictionary API Key	
+Yandex | Yandex.Cloud Access Secret	
+Yandex | Yandex.Passport OAuth Token	
 Zuplo | Zuplo Consumer API

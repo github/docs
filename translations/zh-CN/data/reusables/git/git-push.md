@@ -1,5 +1,5 @@
-1. [推送更改](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)（本地仓库中）到 {% data variables.product.product_location %}。
+1. [Push the changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.location.product_location %}.
   ```shell
-  $ git push origin <em>your-branch</em>
-  # 将本地仓库中的更改推送到指定为源的远程仓库
+  $ git push origin YOUR_BRANCH
+  # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```

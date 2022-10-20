@@ -1,6 +1,6 @@
 ---
-title: プルリクエスト内の依存関係の変更をレビューする
-intro: プルリクエストに依存関係への変更が含まれている場合は、変更内容の概要と、依存関係に既知の脆弱性があるかどうかを確認できます。
+title: Reviewing dependency changes in a pull request
+intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
@@ -20,39 +20,39 @@ redirect_from:
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
 ---
-
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
 {% data reusables.dependency-review.beta %}
 
-## 依存関係のレビューについて
+## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}
 
 {% ifversion ghec %}Before you can use dependency review in a private repository, you must enable the dependency graph. For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."{% endif %}
 
-{% ifversion ghes %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. 詳しい情報については、「[{% data variables.product.prodname_ghe_server %}の脆弱性のある依存関係に関するセキュリティアラートの有効化](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)」を参照してください。 {% endif %}
+{% ifversion ghes %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
 
-依存関係のレビューでは、「左にシフト」することができます。 提供された予測情報を使用して、本番環境に至る前に脆弱性のある依存関係をキャッチできます。 詳しい情報については「[依存関係のレビュー](/code-security/supply-chain-security/about-dependency-review)」を参照してください。
+Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 
 You can use the {% data variables.product.prodname_dependency_review_action %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
 
 {% ifversion dependency-review-action-configuration %}
-You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. 詳しい情報については「[依存関係レビューの設定](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)」を参照してください。
+You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
 {% endif %}
 
 {% endif %}
-## プルリクエスト内の依存関係を確認する
+## Reviewing dependencies in a pull request
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
 
-1. プルリクエストに多数のファイルが含まれている場合は、[**File filter**] ドロップダウンメニューを使用して、依存関係を記録しないすべてのファイルを折りたたみます。 これにより、レビューを依存関係の変更に焦点を絞りやすくなります。
+1. If the pull request contains many files, use the **File filter** drop-down menu to collapse all files that don't record dependencies. This will make it easier to focus your review on the dependency changes.
 
-   ![ファイルフィルタメニュー](/assets/images/help/pull_requests/file-filter-menu-json.png) The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
+   ![The file filter menu](/assets/images/help/pull_requests/file-filter-menu-json.png)
+   The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
 
   {% note %}
 
@@ -60,31 +60,31 @@ You can configure the {% data variables.product.prodname_dependency_review_actio
 
    {% endnote %}
 
-1. マニフェストまたはロックファイルのヘッダの右側で、**リッチ{% octicon "file" aria-label="The rich diff icon" %}** diff ボタンをクリックして依存関係のレビューを表示します。
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
-   ![リッチ diff ボタン](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-2. 依存関係のレビューにリストされている依存関係を確認します。
+2. Check the dependencies listed in the dependency review.
 
-   ![依存関係のレビューにおける脆弱性の警告](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
+   ![Vulnerability warnings in a dependency review](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 
-   脆弱性のある追加または変更された依存関係が最初に一覧表示され、次に重要度、依存関係名の順に並べられます。 これは、最も重要度の高い依存関係が、常に依存関係レビューの最上位に表示されるということです。 その他の依存関係は、依存関係名のアルファベット順に一覧表示されます。
+   Any added or changed dependencies that have vulnerabilities are listed first, ordered by severity and then by dependency name. This means that the highest severity dependencies are always at the top of a dependency review. Other dependencies are listed alphabetically by dependency name.
 
-   各依存関係の横にあるアイコンは、このプルリクエストで依存関係が追加された (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>)、更新された (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>)、削除された (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) ことを示しています。
+   The icon beside each dependency indicates whether the dependency has been added (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), updated (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>), or removed (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) in this pull request.
 
-   その他の情報は次のとおりです。
+   Other information includes:
 
-   * 新規、更新、または削除された依存関係のバージョンまたはバージョン範囲。
-   * 依存関係の特定のバージョンの場合:
-      * 依存関係のリリース時期。
-      * このソフトウェアに依存しているプロジェクトの数。 この情報は、依存関係グラフから取得されます。 依存関係の数を確認すると、誤って間違った依存関係を追加することを防ぐことができます。
-      * この依存関係で使用されるライセンス（この情報が利用可能な場合）。 これは、プロジェクトで特定のライセンスが使用されているコードを避ける必要がある場合に役立ちます。
+   * The version, or version range, of the new, updated, or deleted dependency.
+   * For a specific version of a dependency:
+      * The age of that release of the dependency.
+      * The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
+      * The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.
 
-   依存関係に既知の脆弱性がある場合、警告メッセージには次のものが含まれます。
+   Where a dependency has a known vulnerability, the warning message includes:
 
-   * 脆弱性の簡単な説明。
-   * Common Vulnerabilities and Exposures (CVE) または {% data variables.product.prodname_security_advisories %} (GHSA) 識別番号。 この ID をクリックすると、脆弱性の詳細を確認できます。
-   * 脆弱性の重要度。
-   * 脆弱性が修正された依存関係のバージョン。 誰かのプルリクエストを確認している場合は、パッチを適用したバージョンまたはそれ以降のリリースに依存関係を更新するようにコントリビューターに依頼することができます。
+   * A brief description of the vulnerability.
+   * A Common Vulnerabilities and Exposures (CVE) or {% data variables.product.prodname_security_advisories %} (GHSA) identification number. You can click this ID to find out more about the vulnerability.
+   * The severity of the vulnerability.
+   * The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
 
 {% data reusables.repositories.return-to-source-diff %}

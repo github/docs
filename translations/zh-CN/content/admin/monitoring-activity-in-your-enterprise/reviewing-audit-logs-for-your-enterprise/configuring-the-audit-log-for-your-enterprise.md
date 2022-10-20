@@ -1,8 +1,8 @@
 ---
 title: Configuring the audit log for your enterprise
-intro: You can configure settings for your enterprise's audit log.
+intro: "You can configure settings for your enterprise's audit log."
 shortTitle: Configure audit logs
-permissions: Enterprise owners can configure the audit log.
+permissions: 'Enterprise owners can configure the audit log.'
 versions:
   feature: audit-data-retention-tab
 type: how_to
@@ -22,7 +22,7 @@ After you configure a retention period, you can enable or disable Git-related ev
 
 ## Configuring a retention period for audit log data
 
-You can configure a retention period for audit log data for {% data variables.product.product_location %}. Data that exceeds the period you configure will be permanently removed from disk.
+You can configure a retention period for audit log data for {% data variables.location.product_location %}. Data that exceeds the period you configure will be permanently removed from disk.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -31,7 +31,7 @@ You can configure a retention period for audit log data for {% data variables.pr
 1. Under "Configure audit log retention settings", select the dropdown menu and click a retention period.
 
    ![Screenshot of the dropdown menu for audit log retention settings](/assets/images/help/enterprises/audit-log-retention-dropdown.png)
-1. 单击 **Save（保存）**。
+1. Click **Save**.
 
 {% ifversion enable-git-events %}
 ## Managing Git events in the audit log
@@ -51,6 +51,6 @@ Before you can enable Git events in the audit log, you must configure a retentio
 1. Under "Git event opt-in", select or deselect **Enable git events in the audit-log**.
 
    ![Screenshot of the checkbox to enable Git events in the audit log](/assets/images/help/enterprises/enable-git-events-checkbox.png)
-1. 单击 **Save（保存）**。
+1. Click **Save**.
 
 {% endif %}

@@ -1,9 +1,9 @@
 ---
-title: Personalizando uma visualização
-intro: 'Exibe as informações de que você precisa alterando o layout, fazendo o agrupamento e o ordenamento no seu projeto.'
+title: 'Customizing a view'
+intro: 'Display the information you need by changing the layout, grouping, sorting in your project.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: projects-v2
+  feature: "projects-v2"
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/customizing-your-project-views
 type: tutorial
@@ -12,87 +12,139 @@ topics:
 ---
 
 
-## Alterando o layout do projeto
+## Changing the project layout
 
-Você pode visualizar o seu projeto como uma tabela ou como um quadro.
-
-{% data reusables.projects.open-view-menu %}
-1. Em "Layout", clique em **Tabela** ou **Quadro**. ![Captura de tela que mostra as opções de layout](/assets/images/help/projects-v2/table-or-board.png)
-
-
-
-Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Alternar layout".
-
-## Exibindo e ocultando campos
-
-Você pode mostrar ou ocultar um campo específico.
+You can view your project as a table or as a board.
 
 {% data reusables.projects.open-view-menu %}
-1. Em "Configuração", clique em {% octicon "note" aria-label="the note icon" %} e a lista dos campos atualmente mostrados. ![Captura de tela que mostra a opção mostrar e ocultar do menu de campos](/assets/images/help/projects-v2/show-hide-fields-menu-item.png)
-1. Selecione ou desmarque os campos que você deseja mostrar ou ocultar. ![Captura de tela que mostra o menu mostrar e ocultar campos](/assets/images/help/projects-v2/show-hide-fields.png)
+1. Under "Layout", click either **Table** or **Board**.
+   ![Screenshot showing layout option](/assets/images/help/projects-v2/table-or-board.png)
 
-Você também pode ocultar campos individuais na exibição de tabela.
+ 
 
-1. Ao lado do campo que você deseja ocultar, clique em {% octicon "kebab-horizontal" aria-label="the kebab icon" %}. ![Screenshot que mostra o ícone de menu de campo](/assets/images/help/projects-v2/modify-field-menu.png)
-1. Clique em {% octicon "eye-closed" aria-label="the eye closed icon" %} **Ocultar campo**. ![Captura de tela que mostra a opção do menu ocultar campo](/assets/images/help/projects-v2/hide-field-via-menu.png)
+Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Switch layout."
 
-Alternativamente, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "exibir", "ocultar" ou o nome do campo.
+## Showing and hiding fields
 
-## Reordenando campos
+You can show or hide a specific field.
 
-No layout da tabela, você pode alterar a ordem dos campos.
+{% data reusables.projects.open-view-menu %}
+1. Under "Configuration", click {% octicon "note" aria-label="the note icon" %} and the list of currently shown fields.
+   ![Screenshot showing show and hide fields menu option](/assets/images/help/projects-v2/show-hide-fields-menu-item.png)
+1. Select or deselect the fields you want to show or hide.
+   ![Screenshot showing show and hide fields menu](/assets/images/help/projects-v2/show-hide-fields.png)
 
-1. Clique no cabeçalho do campo. ![Captura de tela que mostra o cabeçalho do campo](/assets/images/help/projects-v2/select-field-header.png)
-2. Ao continuar clicando, arraste o campo para a localização desejada.
+You can also hide individual fields in table view.
 
-## Reordenando linhas
+1. Next to the field you want to hide, click {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
+   ![Screenshot showing field menu icon](/assets/images/help/projects-v2/modify-field-menu.png)
+1. Click {% octicon "eye-closed" aria-label="the eye closed icon" %} **Hide field**.
+   ![Screenshot showing hide field menu option](/assets/images/help/projects-v2/hide-field-via-menu.png)
 
-No layout da tabela, você pode alterar a ordem das linhas.
+Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "show", "hide", or the name of the field.
 
-1. Clique no número no início da linha. ![Captura de tela que mostra o número da linha](/assets/images/help/projects-v2/select-row-number.png)
-2. Ao continuar clicando, arraste a linha para a localização desejada.
+## Reordering fields
 
-## Ordenação por valores do campo
+In table layout, you can change the order of fields.
 
-No layout de tabela, você pode classificar itens por um valor de campo.
+1. Click the field header.
+   ![Screenshot showing the field header](/assets/images/help/projects-v2/select-field-header.png)
+2. While continuing to click, drag the field to the required location.
+
+## Reordering rows
+
+In table layout, you can change the order of rows.
+
+1. Click the number at the start of the row.
+   ![Screenshot showing the row number](/assets/images/help/projects-v2/select-row-number.png)
+2. While continuing to click, drag the row to the required location.
+
+## Sorting by field values
+
+In table layout, you can sort items by a field value.
 
 {% note %}
 
-**Observação:** Quando uma tabela é ordenada, você não pode reordenar manualmente as linhas.
+**Note:** When a table is sorted, you cannot manually reorder rows.
 
 {% endnote %}
 
 {% data reusables.projects.open-view-menu %}
-1. Clique **Ordenar**. ![Captura de tela que mostra o item de menu de classificação](/assets/images/help/projects-v2/sort-menu-item.png)
-1. Clique no campo que você deseja ordenar. ![Captura de tela que mostra o menu de ordenar](/assets/images/help/projects-v2/sort-menu.png)
-2. Opcionalmente, para alterar a direção de ordenação, clique em {% octicon "sort-desc" aria-label="the sort icon" %}. ![Captura de tela que mostra opção de ordenar](/assets/images/help/projects-v2/sort-order.png)
-3. Opcionalmente, para remover uma ordenação, clique em {% octicon "x" aria-label="the x icon" %} **Não ordenar** na parte inferior da lista. ![Captura de tela que mostra "sem ordernação"](/assets/images/help/projects-v2/no-sorting.png)
+1. Click **Sort**.
+   ![Screenshot showing the sort menu item](/assets/images/help/projects-v2/sort-menu-item.png)
+1. Click the field you want to sort by.
+   ![Screenshot showing the sort menu](/assets/images/help/projects-v2/sort-menu.png)
+2. Optionally, to change the direction of the sort, click {% octicon "sort-desc" aria-label="the sort icon" %}.
+   ![Screenshot showing sort order option](/assets/images/help/projects-v2/sort-order.png)
+3. Optionally, to remove a sort, click {% octicon "x" aria-label="the x icon" %} **No sorting** at the bottom of the list.
+   ![Screenshot showing "no sorting"](/assets/images/help/projects-v2/no-sorting.png)
 
-Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Ordenar por".
+Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Sort by."
 
-## Agrupamento por valores de campo no layout de tabela
+## Grouping by field values in table layout
 
-No layout da tabela, você pode agrupar os itens por um valor de campo personalizado. Quando os itens são agrupados, se você arrastar um item para um novo grupo, será aplicado o valor desse grupo. Por exemplo, se você agrupar por "Status" e, em seguida, arrastar um item com um status de `Em andamento` para o grupo `Concluído` o status do item mudará para `Concluído`. Da mesma forma, ao adicionar um novo item a um grupo, o novo item será preenchido com o valor do grupo.
+In the table layout, you can group items by a custom field value. When items are grouped, if you drag an item to a new group, the value of that group is applied. For example, if you group by "Status" and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`. Similarly, when you add a new item to a group, the new item is populated with the value of the group.
 
 {% note %}
 
-**Observação:** Você não pode agrupar por título, etiquetas, revisores ou pull requests.
+**Note:** You cannot group by title, labels, reviewers, or linked pull requests.
 
 {% endnote %}
 
 {% data reusables.projects.open-view-menu %}
-1. Clique em {% octicon "rows" aria-label="the rows icon" %} **Grupo**. ![Captura de tela que mostra o item de menu do grupo](/assets/images/help/projects-v2/group-menu-item.png)
-1. Clique no campo que você deseja agrupar. ![Captura de tela que mostra o menu do grupo](/assets/images/help/projects-v2/group-menu.png)
-2. Opcionalmente, para desabilitar o agrupamento, clique em {% octicon "x" aria-label="the x icon" %} **Não agrupar** na parte inferior da lista. ![Captura de tela que mostra "sem agrupamento"](/assets/images/help/projects-v2/no-grouping.png)
+1. Click {% octicon "rows" aria-label="the rows icon" %} **Group**.
+   ![Screenshot showing the group menu item](/assets/images/help/projects-v2/group-menu-item.png)
+1. Click the field you want to group by.
+   ![Screenshot showing the group menu](/assets/images/help/projects-v2/group-menu.png)
+2. Optionally, to disable grouping, click {% octicon "x" aria-label="the x icon" %} **No grouping** at the bottom of the list.
+   ![Screenshot showing "no grouping"](/assets/images/help/projects-v2/no-grouping.png)
 
-Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Agrupar por".
+Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Group by."
 
-## Definir o campo da coluna no layout do quadro
+{% ifversion projects-v2-numeric-summary %}
 
-No layout do painel, você escolhe qualquer campo de seleção ou iteração para as suas colunas. Se você arrastar um item para uma nova coluna, o valor dessa coluna será aplicado ao item arrastado. Por exemplo, se você usar o campo "Status" para as colunas do seu quadro e, em seguida, arrastar um item com o status de `Em andamento` para a coluna `Concluído`, o status do item mudará para `Concluído`.
+## Showing the sum of a number field
+
+You can configure a view to show the sum of one of more number fields, including a count of items in the group or column. For example, if you have a number field tracking the number of hours each item may take to complete, you can display of sum of those hours for each group or column.
+
+In board layout, field sums are displayed at the top of each column. In table layout, when you enable grouping by a field, field sums are included in each group's header.
 
 {% data reusables.projects.open-view-menu %}
-1. Clique em {% octicon "columns" aria-label="the columns icon" %} **Campo da coluna**. ![Captura de tela que mostra o item de campo de coluna](/assets/images/help/projects-v2/column-field-menu-item.png)
-1. Clique no campo que você deseja usar. ![Captura de tela que mostra o menu de campos de coluna](/assets/images/help/projects-v2/column-field-menu.png)
+1. Click {% octicon "number" aria-label="the number icon" %} **Field sum**.
+   
+   ![Screenshot showing the field sum menu item](/assets/images/help/projects-v2/field-sum-menu.png)
+   
+1. Select the fields you want to include.
+   
+   ![Screenshot showing the field sum menu](/assets/images/help/projects-v2/field-sum-select-field.png)
+   
 
-Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "campo de coluna por".
+{% endif %}
+
+## Setting the column field in board layout
+
+In the board layout, you choose any single select or iteration field for your columns. If you drag an item to a new column, the value of that column is applied to the dragged item. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
+
+{% data reusables.projects.open-view-menu %}
+1. Click {% octicon "columns" aria-label="the columns icon" %} **Column field**.
+   ![Screenshot showing the column field item](/assets/images/help/projects-v2/column-field-menu-item.png)
+1. Click the field you want to use.
+   ![Screenshot showing the column field menu](/assets/images/help/projects-v2/column-field-menu.png)
+
+Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Column field by."
+
+{% ifversion projects-v2-column-visibility %}
+
+## Showing and hiding columns in board layout
+
+In the board layout, you can can choose which columns to display. The available columns are made up of the contents of your selected column field.
+
+1. In the board layout, scroll to the right of your columns, and click {% octicon "plus" aria-label="the plus icon" %}.
+   
+   ![Screenshot showing the plus symbol button](/assets/images/help/projects-v2/board-add-column.png)
+   
+1. Select the columns you want to show.
+   
+   ![Screenshot showing the list of columns](/assets/images/help/projects-v2/board-select-columns.png)
+   
+{% endif %}

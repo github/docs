@@ -1,7 +1,7 @@
 ---
-title: プロジェクト中の脆弱性に対するリポジトリセキュリティアドバイザリの管理
-shortTitle: リポジトリのセキュリティアドバイザリ
-intro: リポジトリセキュリティアドバイザリを使ってリポジトリ中のセキュリティ脆弱性の議論、修復、開示をしてください。
+title: プロジェクトの脆弱性に関するリポジトリ セキュリティ アドバイザリの管理
+shortTitle: Repository security advisories
+intro: リポジトリ セキュリティ アドバイザリを利用したリポジトリ内のセキュリティ脆弱性に関する話し合い、修正、開示を行います。
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
@@ -25,5 +25,12 @@ children:
   - /publishing-a-repository-security-advisory
   - /editing-a-repository-security-advisory
   - /withdrawing-a-repository-security-advisory
+  - /best-practices-for-writing-repository-security-advisories
+ms.openlocfilehash: 43efe7ceaf307da4a8a7c02c45f744a4967b05b0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145119382'
 ---
 

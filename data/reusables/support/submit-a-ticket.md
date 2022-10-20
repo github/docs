@@ -11,7 +11,7 @@
 ![Screenshot of the "Server Installation" dropdown menu](/assets/images/help/support/installation-field.png)
 {%- endif %}
 {%- ifversion ghes %}
-1. Select the **Release series** dropdown menu and click the release {% data variables.product.product_location_enterprise %} is running.
+1. Select the **Release series** dropdown menu and click the release {% data variables.location.product_location_enterprise %} is running.
 ![Screenshot of the "Release series" dropdown menu](/assets/images/help/support/release-field.png)
 {%- endif %}
 {%- ifversion ghes or ghec %}

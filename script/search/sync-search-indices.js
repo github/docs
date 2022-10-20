@@ -7,13 +7,25 @@
 //
 // [end-readme]
 
+import assert from 'assert'
 import path from 'path'
 
 import { program, Option } from 'commander'
 
 import { languageKeys } from '../../lib/languages.js'
-import { allVersionKeys } from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 import searchSync from './sync.js'
+
+const shortNames = Object.fromEntries(
+  Object.values(allVersions).map((info) => {
+    const shortName = info.hasNumberedReleases
+      ? info.miscBaseName + info.currentRelease
+      : info.miscBaseName
+    return [shortName, info]
+  })
+)
+
+const allVersionKeys = [...Object.keys(shortNames), ...Object.keys(allVersions)]
 
 const DEFAULT_OUT_DIRECTORY = path.join('lib', 'search', 'indexes')
 
@@ -37,6 +49,8 @@ program
   // and change where it's used to be that the default is to not generate
   // any Lunr indexes.
   .option('--no-lunr-index', `Do not generate a Lunr index, just the records file (default false)`)
+  .option('--no-markers', 'Do not print a marker for each parsed document')
+  .option('--filter <MATCH>', 'Filter to only do pages that match this string')
   .parse(process.argv)
 
 main(program.opts())
@@ -84,6 +98,25 @@ async function main(opts) {
     }
   }
 
+  // A `--version` or `process.env.VERSION` was specified, we need to convert
+  // it to the long name. I.e. `free-pro-team@latest`. Not `dotcom`.
+  // But it could also have beeb specified as `all` which means that `version`
+  // here ill be `undefined` which is also OK.
+  // const indexVersion = shortNames[version].hasNumberedReleases
+  //   ? shortNames[version].currentRelease
+  //   : shortNames[version].miscBaseName
+
+  let indexVersion
+  if (version && version !== 'all') {
+    // If it has been specified, it needs to be in the "long-form".
+    // I.e. `enterprise-server@3.5` not `ghes-3.5`.
+    indexVersion = version in shortNames ? shortNames[version].version : version
+  }
+  assert(
+    !indexVersion || indexVersion in allVersions,
+    `version must be undefined or one of ${Object.keys(allVersions)}`
+  )
+
   let dryRun = false
   if ('dryRun' in opts) {
     dryRun = opts.dryRun
@@ -97,14 +130,20 @@ async function main(opts) {
 
   const generateLunrIndex = !!opts.lunrIndex
 
+  const config = {
+    noMarkers: !opts.markers,
+    filter: opts.filter,
+  }
+
   const options = {
     dryRun,
     language,
     notLanguage,
-    version,
+    version: indexVersion,
     outDirectory,
     compressFiles,
     generateLunrIndex,
+    config,
   }
   await searchSync(options)
 }

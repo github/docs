@@ -24,14 +24,6 @@ prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
 prodname_docs: 'GitHub Docs'
 
-## Use these variables when referring specifically to a location within a product
-product_location: >-
-  {% ifversion ghes %}your GitHub Enterprise Server instance{% elsif ghae %}your enterprise{% else %}GitHub.com{% endif %}
-
-# Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
-# Do not use in other situations!
-product_location_enterprise: 'your GitHub Enterprise Server instance'
-
 prodname_free_user: 'GitHub Free'
 prodname_pro: 'GitHub Pro'
 prodname_team: 'GitHub Team'
@@ -40,10 +32,7 @@ prodname_free_team: 'GitHub Free'
 prodname_enterprise_backup_utilities: 'GitHub Enterprise Server Backup Utilities'
 
 # GitHub Connect (enterprise accounts, other unified features)
-## Phrase content so that the uncapitalized unified contributions or unified search variables are not used at the start of a sentence.
 prodname_github_connect: 'GitHub Connect'
-prodname_unified_contributions: 'unified contributions'
-prodname_unified_search: 'unified search'
 
 # GitHub Enterprise migration tool
 prodname_importer_proper_name: 'GitHub Enterprise Importer'
@@ -83,7 +72,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 %}2.7.6{% elsif ghes = 3.5 %}2.8.5{% elsif ghes = 3.6 %}2.9.4{% elsif ghae-issue-7470 %}2.8.5{% elsif ghae %}2.7.6{% endif %}
+  {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 or ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.8.5{% elsif ghes = 3.6 or ghae = 3.6 %}2.9.4{% elsif ghes = 3.7 or ghae = 3.7 %}2.10.5{% endif %}
 
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -96,6 +85,20 @@ prodname_project_v1: >-
 prodname_project_v1_caps: >-
   {% ifversion ghes or ghae %}Project board{% else %}Project (classic){% endif %}
 
+# Personal access tokens
+pat_generic: 'personal access token'
+pat_generic_caps: 'Personal access token'
+pat_v2: 'fine-grained personal access token'
+pat_v2_caps: 'Fine-grained personal access token'
+pat_v1: >-
+  {% ifversion pat-v2 %}personal access token (classic){% else %}personal access token{% endif %}
+pat_v1_plural: >-
+  {% ifversion pat-v2 %}personal access tokens (classic){% else %}personal access tokens{% endif %}
+pat_v1_caps: >-
+  {% ifversion pat-v2 %}Personal access token (classic){% else %}Personal access token{% endif %}
+pat_v1_caps_plural: >-
+  {% ifversion pat-v2 %}Personal access tokens (classic){% else %}Personal access tokens{% endif %}
+
 # Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub App'
@@ -104,8 +107,7 @@ prodname_oauth_app: 'OAuth App'
 prodname_oauth_apps: 'OAuth Apps'
 
 # API and developer docs
-prodname_enterprise_api: 'the {% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %} APIs'
-prodname_support_forum_with_url: '[APIs and Integrations discussions on GitHub Community](https://github.com/orgs/community/discussions/categories/apis-and-integrations)'
+prodname_enterprise_api: '{% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %} APIs'
 prodname_unfurls: 'Content Attachments'
 
 # Azure AD
@@ -125,11 +127,6 @@ prodname_discussions: 'GitHub Discussions'
 prodname_emu_idp_application: 'GitHub Enterprise Managed User'
 prodname_emu_idp_oidc_application: 'GitHub Enterprise Managed User (OIDC)'
 prodname_emus: 'Enterprise Managed Users'
-prodname_managed_user: 'managed user account'
-prodname_managed_users: 'managed user accounts'
-prodname_managed_users_caps: 'Managed user accounts'
-prodname_emu_enterprise: 'enterprise with managed users'
-prodname_emu_org: 'organization with managed users'
 
 # GitHub Issues
 prodname_github_issues: 'GitHub Issues'
@@ -137,8 +134,10 @@ prodname_github_issues: 'GitHub Issues'
 # GitHub Packages
 prodname_registry: 'GitHub Packages'
 prodname_container_registry: 'Container registry'
+prodname_container_registries: 'Container registries'
 prodname_docker_registry_namespace: '{% ifversion fpt or ghec %}`docker.pkg.github.com`{% elsif ghes or ghae %}<code>docker.<em>HOSTNAME</em></code>{% endif %}'
 prodname_container_registry_namespace: '{% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes or ghae %}<code>containers.<em>HOSTNAME</em></code>{% endif %}'
+prodname_npm_registry: 'npm registry'
 
 # GitHub Insights
 prodname_insights: 'GitHub Insights'
@@ -237,14 +236,14 @@ prodname_server_statistics: 'Server Statistics'
 
 # Links
 product_url: >-
-  {% ifversion fpt or ghec %}github.com{% else %}[hostname]{% endif %}
+  {% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}
 pricing_url: 'https://github.com/pricing'
 signin_link: >-
-  {% ifversion fpt or ghec %}[Sign in](https://github.com/login){% else %}Sign in (`https://[hostname]/login`){% endif %}
+  {% ifversion fpt or ghec %}[Sign in](https://github.com/login){% else %}Sign in (`https://HOSTNAME/login`){% endif %}
 signout_link: >-
-  {% ifversion fpt or ghec %}[Sign out](https://github.com/logout){% else %}Sign out (`https://[hostname]/logout`){% endif %}
+  {% ifversion fpt or ghec %}[Sign out](https://github.com/logout){% else %}Sign out (`https://HOSTNAME/logout`){% endif %}
 raw_github_com: >-
-  {% ifversion fpt or ghec %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
+  {% ifversion fpt or ghec %}raw.githubusercontent.com{% else %}HOSTNAME/user/repo/raw{% endif %}
 # GitHub Enterprise Server past versions
 current-340-version: '11.10.354'
 
@@ -254,25 +253,25 @@ doc_url_pre: >-
   {% ifversion fpt or ghec %}https://docs.github.com/rest{% elsif ghes %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% elsif ghae %}https://docs.github.com/github-ae@latest/rest{% endif %}
 # Use this inside command-line code blocks
 api_url_pre: >-
-  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://<em>[hostname]</em>/api/v3{% elsif ghae %}https://<em>[hostname]</em>/api/v3{% endif %}
+  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://<em>HOSTNAME</em>/api/v3{% elsif ghae %}https://<em>HOSTNAME</em>/api/v3{% endif %}
 # Use this inside command-line code blocks
 # Enterprise OAuth paths that don't include "/graphql" or "/api/v3"
 oauth_host_code: >-
-  {% ifversion fpt or ghec %}https://github.com{% else %}http(s)://[hostname]{% endif %}
+  {% ifversion fpt or ghec %}https://github.com{% else %}http(s)://HOSTNAME{% endif %}
 device_authorization_url: >-
   {%- ifversion fpt or ghec %}
   [`https://github.com/login/device`](https://github.com/login/device)
   {%- elsif ghes %}
-  `http(s)://[hostname]/login/device`
+  `http(s)://HOSTNAME/login/device`
   {%- elsif ghae %}
-  `https://[hostname]/login/device`
+  `https://HOSTNAME/login/device`
   {%- endif %}
 # Use this all other code blocks
 api_url_code: >-
-  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://[hostname]/api/v3{% elsif ghae %}https://[hostname]/api/v3{% endif %}
+  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://HOSTNAME/api/v3{% elsif ghae %}https://HOSTNAME/api/v3{% endif %}
 # Use this inside command-line code blocks
 graphql_url_pre: >-
-  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://<em>[hostname]</em>/api/graphql{% elsif ghae %}https://<em>[hostname]</em>/api/graphql{% endif %}
+  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://<em>HOSTNAME</em>/api/graphql{% elsif ghae %}https://<em>HOSTNAME</em>/api/graphql{% endif %}
 # Use this all other code blocks
 graphql_url_code: >-
-  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://[hostname]/api/graphql{% elsif ghae %}https://[hostname]/api/graphql{% endif %}
+  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://HOSTNAME/api/graphql{% elsif ghae %}https://HOSTNAME/api/graphql{% endif %}

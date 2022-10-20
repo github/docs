@@ -7,8 +7,13 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Configure default editor
+ms.openlocfilehash: 4316ed1b37b67e606f702cc4df805908b60c09cd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146736614'
 ---
-
 ## サポートされているエディタ
 
 {% data variables.product.prodname_desktop %} は、次のエディタをサポートしています。
@@ -30,7 +35,7 @@ shortTitle: Configure default editor
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
 - [TextMate](https://macromates.com/)
 - [Brackets](http://brackets.io/)
-  - {% data variables.product.prodname_desktop %} でブラケットを使用するには、コマンドラインのショートカットをインストールする必要があります。 ショートカットをインストールするには、Brackets を開き、メニューバーの [**File**] をクリックして、[**Install Command Line Shortcut**] をクリックします。
+  - {% data variables.product.prodname_desktop %} でブラケットを使用するには、コマンドラインのショートカットをインストールする必要があります。 ショートカットをインストールするには、角かっこを開き、メニュー バーの **[ファイル]** をクリックし、 **[コマンド ライン ショートカットのインストール]** をクリックします。
 - [Typora](https://typora.io/)
 - [CodeRunner](https://coderunnerapp.com/)
 - [SlickEdit](https://www.slickedit.com/)
@@ -72,17 +77,21 @@ shortTitle: Configure default editor
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-3. Preferences（環境設定）ウィンドウで** Integrations（インテグレーション）**を選択してください。 ![環境設定ウィンドウのインテグレーションペイン](/assets/images/help/desktop/mac-select-integrations-pane.png)
-4. [External Editor] ドロップダウンメニューを使用して、デフォルトとして設定するエディタを選択します。 ![Preferencesメニューバー内のExternal editorメニュー](/assets/images/help/desktop/mac-editor-menu.png)
-5. [**Save**] をクリックします。
+3. [基本設定] ウィンドウで、 **[統合]** を選択します。
+  ![[基本設定] ウィンドウの [統合] ペイン](/assets/images/help/desktop/mac-select-integrations-pane.png)
+4. [External Editor] ドロップダウンメニューを使用して、デフォルトとして設定するエディタを選択します。
+  ![[基本設定] メニュー バーの [External editor] メニュー](/assets/images/help/desktop/mac-editor-menu.png)
+5. **[保存]** をクリックします。  
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-3. Options（オプション）ウィンドウで** Integrations（インテグレーション）**を選択してください。 ![オプションウィンドウのインテグレーションペイン](/assets/images/help/desktop/windows-select-integrations-pane.png)
-4. [External Editor] ドロップダウンメニューを使用して、デフォルトとして設定するエディタを選択します。 ![Optionsメニューバー内のExternal editorメニュー](/assets/images/help/desktop/windows-editor-menu.png)
-5. [**Save**] をクリックします。
+3. [オプション] ウィンドウで、 **[統合]** を選択します。
+  ![[オプション] ウィンドウの [統合] ペイン](/assets/images/help/desktop/windows-select-integrations-pane.png)
+4. [External Editor] ドロップダウンメニューを使用して、デフォルトとして設定するエディタを選択します。
+  ![[オプション] メニュー バーの [External editor] メニュー](/assets/images/help/desktop/windows-editor-menu.png)
+5. **[保存]** をクリックします。  
 
 {% endwindows %}

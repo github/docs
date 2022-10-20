@@ -1,7 +1,7 @@
 ---
-title: Fazer backup e restaurar o GitHub Enterprise Server com o GitHub Actions habilitado
-shortTitle: Backup e restauração
-intro: 'Os dados de {% data variables.product.prodname_actions %} no seu provedor de armazenamento externo não estão incluídos em backups regulares de {% data variables.product.prodname_ghe_server %} e precisam ser salvos separadamente.'
+title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
+shortTitle: Backing up and restoring
+intro: 'To restore a backup of {% data variables.location.product_location %} when {% data variables.product.prodname_actions %} is enabled, you must configure {% data variables.product.prodname_actions %} before restoring the backup with {% data variables.product.prodname_enterprise_backup_utilities %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -14,43 +14,31 @@ redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
 ---
 
-{% data reusables.actions.enterprise-storage-ha-backups %}
+## About backups of {% data variables.product.product_name %} when using {% data variables.product.prodname_actions %}
 
-Se você usar {% data variables.product.prodname_enterprise_backup_utilities %} para fazer backup de {% data variables.product.product_location %}, é importante observar que os dados de {% data variables.product.prodname_actions %} armazenados no seu provedor de armazenamento externo não serão incluídos no backup.
+You can use {% data variables.product.prodname_enterprise_backup_utilities %} to back up and restore the data and configuration for {% data variables.location.product_location %} to a new instance. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."
 
-Esta é uma visão geral das etapas necessárias para restaurar {% data variables.product.product_location %} com {% data variables.product.prodname_actions %} para um novo dispositivo:
+However, not all the data for {% data variables.product.prodname_actions %} is included in these backups. {% data reusables.actions.enterprise-storage-ha-backups %}
 
-1. Confirme se o dispositivo original está off-line.
-1. Defina manualmente as configurações de rede no dispositivo de {% data variables.product.prodname_ghe_server %}. As configurações de rede são excluídas do instantâneo de backup e não são substituídas por `ghe-restore`.
-1. Para configurar o appliance de substituição para usar a mesma configuração de armazenamento externo de {% data variables.product.prodname_actions %} que o appliance original, a partir do novo appliance, defina os parâmetros necessários com o comando `ghe-config`.
+## Restoring a backup of {% data variables.product.product_name %} when {% data variables.product.prodname_actions %} is enabled
 
-    - Armazenamento do Azure Blob
-    ```shell
-    ghe-config secrets.actions.storage.blob-provider "azure"
-    ghe-config secrets.actions.storage.azure.connection-string "_Connection_String_"
-    ```
-    - Amazon S3
-    ```shell
-    ghe-config secrets.actions.storage.blob-provider "s3"
-    ghe-config secrets.actions.storage.s3.bucket-name "_S3_Bucket_Name"
-    ghe-config secrets.actions.storage.s3.service-url "_S3_Service_URL_"
-    ghe-config secrets.actions.storage.s3.access-key-id "_S3_Access_Key_ID_"
-    ghe-config secrets.actions.storage.s3.access-secret "_S3_Access_Secret_"
-    ```
-    - Opcionalmente, para habilitar o estilo de caminho S3, digite o comando a seguir:
-    ```shell
-    ghe-config secrets.actions.storage.s3.force-path-style true
-    ```
+To restore a backup of {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}, you must manually configure network settings and external storage on the destination instance before you restore your backup from {% data variables.product.prodname_enterprise_backup_utilities %}. 
 
+1. Confirm that the source instance is offline.
+1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} instance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
+1. SSH into the destination instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
 
-1. Habilite {% data variables.product.prodname_actions %} no dispositivo de substituição. Isto conectará o dispositivo de substituição ao mesmo armazenamento externo para {% data variables.product.prodname_actions %}.
+   ```shell{:copy}
+   $ ssh -p 122 admin@HOSTNAME
+   ```
+1. Configure the destination instance to use the same external storage service for {% data variables.product.prodname_actions %} as the source instance by entering one of the following commands.
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
+{% data reusables.actions.configure-storage-provider %}
+1. To prepare to enable {% data variables.product.prodname_actions %} on the destination instance, enter the following command.
 
-    ```shell
-    ghe-config app.actions.enabled true
-    ghe-config-apply
-    ```
-
-1. Depois que {% data variables.product.prodname_actions %} estiver configurado e habilitado, use o comando `ghe-restore` para restaurar o restante dos dados do backup. Para obter mais informações, consulte "[Restaurar um backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)".
-1. Registre novamente seus executores auto-hospedados no dispositivo de substituição. Para obter mais informações, consulte [Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners).
-
-Para obter mais informações sobre backup e restauração de {% data variables.product.prodname_ghe_server %}, consulte "[Configurar backups no seu dispositivo](/admin/configuration/configuring-backups-on-your-appliance)".
+   ```shell{:copy}
+   ghe-config app.actions.enabled true
+   ```
+{% data reusables.actions.apply-configuration-and-enable %}
+1. After {% data variables.product.prodname_actions %} is configured and enabled, to restore the rest of the data from the backup, use the `ghe-restore` command. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
+1. Re-register your self-hosted runners on the destination instance. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."

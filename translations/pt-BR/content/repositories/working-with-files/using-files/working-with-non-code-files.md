@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com arquivos que não envolvem código
-intro: '{% data variables.product.product_name %} é compatível com a interpretação e diferenciação em uma série de formatos de arquivo que não são de código.'
+title: Working with non-code files
+intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -32,156 +32,158 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Trabalhar com arquivos que não envolvem código
+shortTitle: Working with non-code files
 ---
 
-## Renderizar e comparar imagens
+## Rendering and diffing images
 
-O {% data variables.product.product_name %} pode exibir diversos formatos comuns de imagem, incluindo PNG, JPG, GIF, PSD e SVG. Além de exibir as imagens, existem diversas formas de comparara as diferenças entre as versões desses formatos de imagem.
+{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
 
 {% note %}
 
-**Observação:**
-- {% data variables.product.prodname_dotcom %} não é compatível com a comparação de diferenças entre arquivos PSD.
-- Se você estiver utilizando o navegador Firefox, os SVGs em {% data variables.product.prodname_dotcom %} não poderão ser interpretados.
+**Note:** 
+- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files. 
+- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 {% endnote %}
 
-### Exibir imagens
+### Viewing images
 
-Você pode navegar diretamente e ver imagens no seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}:
 
-![imagem inline](/assets/images/help/images/view.png)
+![inline image](/assets/images/help/images/view.png)
 
-No momento, os arquivos SVGs não são compatíveis com animação ou scripts inline.
+SVGs don't currently support inline scripting or animation.
 
-### Exibir diferenças
+### Viewing differences
 
-Você pode comparar visualmente as imagens em três modos diferentes: [2-up](#2-up), [deslizar](#swipe) e [exibição em camadas](#onion-skin).
+You can visually compare images in three different modes: [2-up](#2-up), [swipe](#swipe), and [onion skin](#onion-skin).
 
 #### 2-up
 
-**2-up** é o modo padrão. Ele fornece uma visão rápida das duas imagens. Além disso, se a imagem tiver mudado de tamanho entre as versões, a alteração real da dimensão será exibida. Isso facilita identificar quando as imagens foram redimensionadas, como quando ativos são atualizados em resoluções mais altas.
+**2-up** is the default mode; it gives you a quick glimpse of both images. In addition, if the image has changed size between versions, the actual dimension change is displayed. This should make it very apparent when things are resized, such as when assets are upgraded to higher resolutions.
 
 ![2-up](/assets/images/help/repository/images-2up-view.png)
 
-#### Deslizar
+#### Swipe
 
-O modo **deslizar** permite ver partes da imagem lado a lado. Não sabe se houve mudança de cor nas versões? Posicione o controle deslizante sobre a área em questão e compare os pixels.
+**Swipe** lets you view portions of your image side by side. Not sure if colors shifted between different versions? Drag the swipe slider over the area in question and compare the pixels for yourself.
 
-![Deslizar](/assets/images/help/repository/images-swipe-view.png)
+![Swipe](/assets/images/help/repository/images-swipe-view.png)
 
-#### Exibição em camadas
+#### Onion skin
 
-A **exibição em camadas** é muito útil para identificar movimentações sutis dos elementos. Um ícone foi movimentado dois pixels para a esquerda? Arraste o controle deslizante de opacidade um pouco e observe se as coisas se movem.
+**Onion Skin** really comes in handy when elements move around by small, hard to notice amounts. Did an icon shift two pixels to the left? Drag the opacity slider back a bit and notice if things move around.
 
-![Exibição em camadas](/assets/images/help/repository/images-onion-view.gif)
+![Onion skin](/assets/images/help/repository/images-onion-view.gif)
 
-## Visualizador de arquivos 3D
+## 3D File Viewer
 
-O {% data variables.product.product_name %} pode hospedar e renderizar arquivos 3D com a extensão *.stl*.
+{% data variables.product.product_name %} can host and render 3D files with the *.stl* extension.
 
-Diretamente em um arquivo STL no {% data variables.product.product_name %}, você pode:
+When looking directly at an STL file on {% data variables.product.product_name %} you can:
 
-* Clicar e arrastar para girar o modelo.
-* Clicar com o botão direito do mouse e arrastar para converter a exibição.
-* Rolar para ampliar e reduzir.
-* Clicar nos diferentes modos de exibição para alterar a exibição.
+* Click and drag to spin the model.
+* Right click and drag to translate the view.
+* Scroll to zoom in and out.
+* Click the different view modes to change the view.
 
 ### Diffs
 
-Em um commit ou conjunto de alterações que inclui um arquivo STL, você poderá ver um diff antes e depois do arquivo.
+When looking at a commit or set of changes which includes an STL file, you'll be able to see a before and after diff of the file.
 
-Por padrão, você obterá uma exibição em que tudo que permanecer inalterado estará em wireframe. As adições recebem a cor verde e as partes removidas ficam em vermelho.
+By default, you'll get a view where everything unchanged is in wireframe. Additions are colored in green, and removed parts are colored in red.
 
 ![wireframe](/assets/images/help/repository/stl_wireframe.png)
 
-Também é possível selecionar a opção **Revision Slider (Controle deslizante de revisão)**, que permite usar um controle deslizante na parte superior do arquivo para fazer a transição entre as revisões atuais e anteriores.
+You can also select the **Revision Slider** option, which lets you use a slider at the top of the file to transition between the current and previous revisions.
 
-### Corrigir desempenho lento
+### Fixing slow performance
 
-Caso você veja este ícone no canto do visualizador, isso significa que a tecnologia WebGL não está disponível no seu navegador:
+If you see this icon in the corner of the viewer, then the WebGL technology is not available on your browser:
 
-![Erro exibido para WebGL](/assets/images/help/repository/render_webgl_error.png)
+![WebGL pop error](/assets/images/help/repository/render_webgl_error.png)
 
-A WebGL é necessária para o aproveitamento completo do hardware do computador. Sugerimos testar os navegadores [Chrome](https://www.google.com/intl/en/chrome/browser/) ou [Firefox](https://www.mozilla.org/en-US/firefox/new/), que já vêm com a WebGL habilitada.
+WebGL is necessary to take advantage of your computer's hardware to its fullest. We recommend you try browsers like [Chrome](https://www.google.com/intl/en/chrome/browser/) or [Firefox](https://www.mozilla.org/en-US/firefox/new/), which ship with WebGL enabled.
 
-### Erro: "Não é possível exibir"
+### Error: "Unable to display"
 
-Se o seu modelo não for válido, o GitHub talvez não consiga exibir o arquivo. Além disso, os arquivos com mais de 10 MB são grandes demais para exibição no GitHub.
+If your model is invalid, GitHub may not be able to display the file. In addition, files that are larger than 10 MB are too big for GitHub to display.
 
-### Incorporar o modelo em outro lugar
+### Embedding your model elsewhere
 
-Para exibir o arquivo 3D em outro lugar na Internet, modifique esse modelo e coloque-o em qualquer página HTML que aceite JavaScript:
+To display your 3D file elsewhere on the internet, modify this template and place it on any HTML page that supports JavaScript:
 
 ```html
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-Por exemplo, se o URL do seu modelo for [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), seu código incorporado seria:
+For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
 ```
 
-Por padrão, o renderizador incorporado tem 420 pixels de largura por 620 pixels de altura, mas você pode personalizar a saída passando as variáveis de altura e largura como parâmetros no fim da URL, como `height=300&width=500`.
+By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you can customize the output by passing height and width variables as parameters at the end of the URL, such as `?height=300&width=500`.
 
 {% tip %}
 
-**Observação**: `ref` pode ser um branch ou o hash para um commit individual (como `2391ae`).
+**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
 {% endtip %}
 
 {% ifversion mermaid %}
-### Interpretação em Markdown
+### Rendering in Markdown
 
-Você pode incorporar a sintaxe do ASCII STL diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)".
+You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
 {% endif %}
 
-## Renderizar dados CSV e TSV
+## Rendering CSV and TSV data
 
-O GitHub oferece suporte à renderização de dados tabulares na forma de arquivos *.csv* (separados por vírgula) e .*tsv* (separados por tubulação).
+GitHub supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
 
-![Arquivo CSV de amostra renderizado](/assets/images/help/repository/rendered_csv.png)
+![Rendered CSV sample](/assets/images/help/repository/rendered_csv.png)
 
-Quando visualizado, todos os arquivos _.csv_ ou _.tsv_ inseridos em um repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} serão interpretados automaticamente como uma tabela interativa completa com cabeçalhos e numeração de linha. Por padrão, vamos sempre presumir que a primeira linha é a linha de cabeçalho.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
-Você pode criar um link para uma linha específica clicando no número da linha ou selecionar várias linhas mantendo a tecla Shift pressionada. Copie e envie a URL para um amigo.
+You can link to a particular row by clicking the row number, or select multiple rows by holding down the shift key. Just copy the URL and send it to a friend.
 
-### Pesquisar dados
+### Searching data
 
-Para encontrar um valor específico no conjunto de dados, comece a inserir o valor na barra de pesquisa logo acima do arquivo. As linhas serão filtradas automaticamente:
+If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automatically:
 
-![Pesquisa de valores](/assets/images/help/repository/searching_csvs.gif)
+![Searching for values](/assets/images/help/repository/searching_csvs.gif)
 
-### Como lidar com erros
+### Handling errors
 
-Ocasionalmente, você pode identificar que seu arquivo CSV ou TSV não está renderizando. Nesse caso, uma caixa de erro será exibida na parte inferior do texto bruto sugerindo o motivo do erro.
+Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, an error box appears at the bottom of your raw text, suggesting what the error may be.
 
-![Mensagem de erro de renderização do arquivo CSV](/assets/images/help/repository/csv_render_error.png)
+![CSV render error message](/assets/images/help/repository/csv_render_error.png)
 
-Os erros comuns incluem:
+Common errors include:
 
-* Divergência na contagem de colunas. Você deve ter o mesmo número de separadores em cada linha, mesmo nas células em branco
-* Exceder o tamanho do arquivo. A renderização funciona apenas para arquivos com até 512 KB. Qualquer arquivo maior que isso deixa o navegador lento.
+* Mismatched column counts. You must have the same number of separators in each row, even if the cell is blank
+* Exceeding the file size. Our rendering only works for files up to 512KB. Anything bigger than that slows down the browser.
 
-## Renderizar documentos PDF
+## Rendering PDF documents
 
-O GitHub oferece suporte à renderização de documentos PDF.
+GitHub supports rendering of PDF documents.
 
-![Documento PDF renderizado](/assets/images/help/repository/rendered-pdf.png)
+![Rendered PDF Document](/assets/images/help/repository/rendered-pdf.png)
 
-No momento, os links nos PDFs são ignorados.
+Currently, links within PDFs are ignored.
 
-## Renderizar diferenças em documentos em prosa
+## Rendering differences in prose documents
 
-Commits e pull requests que incluem documentos de prosa podem representar esses documentos com as exibições *source* (original) e *rendered* (renderizada).
+Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.
 
-A exibição original mostra o texto bruto que foi inserido, enquanto a exibição renderizada mostra como o texto será exibido após a renderização no {% data variables.product.product_name %}. Por exemplo, há uma diferença na exibição do `**bold**` no Markdown e do **bold** in na visualização renderizada.
+The source view shows the raw text that has been typed, while the rendered
+view shows how that text would look once it's rendered on {% data variables.product.product_name %}. For example,
+this might be the difference between showing `**bold**` in Markdown, and **bold** in the rendered view.
 
-A renderização da prosa é possível para documentos renderizados compatíveis com o [github/markup](https://github.com/github/markup):
+Prose rendering is supported for rendered documents supported by [github/markup](https://github.com/github/markup):
 
-* markdown
+* Markdown
 * AsciiDoc
 * Textile
 * ReStructuredText
@@ -191,162 +193,167 @@ A renderização da prosa é possível para documentos renderizados compatíveis
 * MediaWiki
 * Pod
 
-![Ícone de papel para exibir documento em prosa renderizado](/assets/images/help/repository/rendered_prose_diff.png)
+![Paper icon to view rendered prose document](/assets/images/help/repository/rendered_prose_diff.png)
 
-Você pode clicar em {% octicon "file" aria-label="The paper icon" %} para ver as alterações feitas no documento como parte de um commit.
+You can click {% octicon "file" aria-label="The paper icon" %} to see the changes made to the document as part of a commit.
 
-![Alterações em prosa renderizada](/assets/images/help/repository/rendered_prose_changes.png)
+![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
-### Desabilitando a interpretação do Markdown
+### Disabling Markdown rendering
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 
 {% endif %}
 
-### Exibir alterações nos atributos
+### Visualizing attribute changes
 
-Nós fornecemos uma dica de ferramenta descrevendo as alterações nos atributos, que diferentes de palavras, não seriam visíveis no documento renderizado. Por exemplo, se a URL de um link for alterada, mostraremos uma dica de ferramenta como esta:
+We provide a tooltip
+describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
+another, we'd show a tooltip like this:
 
-![Alterações no atributo de prosa renderizada](/assets/images/help/repository/prose_diff_attributes.png)
+![Rendered Prose attribute changes](/assets/images/help/repository/prose_diff_attributes.png)
 
-### Fazer comentários em alterações
+### Commenting on changes
 
-Os [comentários de commit comments](/articles/commenting-on-differences-between-files) só podem ser adicionados aos arquivos na exibição *original*, linha por linha.
+[Commit comments](/articles/commenting-on-differences-between-files) can only
+be added to files within the *source* view, on a line-by-line basis.
 
-### Vincular a cabeçalhos
+### Linking to headers
 
-Assim como ocorre em [outros documentos de prosa renderizados](/articles/about-readmes), posicionar o mouse sobre um cabeçalho no documento cria um ícone de link. Você pode encaminhar os leitores do seu diff de prosa renderizado a seções específicas.
+As with [other rendered prose documents](/articles/about-readmes),
+hovering over a header in your document creates a link icon. You can link readers
+of your rendered prose diff to specific sections.
 
-### Exibir diffs complexos
+### Viewing complex diffs
 
-Algumas pull requests envolvem um grande número de alterações e documentos grandes e complexos. Quando as mudanças levam muito tempo para serem analisadas, {% data variables.product.product_name %} não pode produzir uma visão renderizada das alterações. Se isso acontecer, você verá uma mensagem de erro ao clicar no botão renderizado.
+Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
 
-![Mensagem quando a visualização não pode ser renderizada](/assets/images/help/repository/prose_diff_rendering.png)
+![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
 
-Você ainda pode usar a exibição original para analisar e comentar as alterações.
+You can still use the source view to analyze and comment on changes.
 
-### Exibir elementos HTML
+### Viewing HTML elements
 
-Não oferecemos suporte direto a exibições renderizadas de commits para documentos HTML. Alguns formatos, como o Markdown, permite a inclusão de HTML arbitrário no documento. Quando esses documentos são mostrados no {% data variables.product.product_name %}, parte do HTML integrado pode ser mostrado em uma pré-visualização, enquanto outra parte (como um vídeo integrado do YouTube) não.
+We don't directly support rendered views of commits to HTML documents. Some formats, such as Markdown, let you embed arbitrary HTML in a document. When these documents are shown on {% data variables.product.product_name %}, some of that embedded HTML can be shown in a preview, while some (like an embedded YouTube video) cannot.
 
-Em geral, as exibições renderizadas de alterações em um documento que contém HTML integrado mostrarão as alterações nos elementos que são compatíveis com a exibição do {% data variables.product.product_name %} do documento. As alterações em documentos que contém HTML integrado devem sempre ser confirmadas nas exibições original e renderizada.
+In general, rendered views of changes to a document containing embedded HTML will show changes to the elements that are supported in {% data variables.product.product_name %}'s view of the document. Changes to documents containing embedded HTML should always be reviewed in both the rendered and source views for completeness.
 
-## Mapeando arquivos do GeoJSON/TopoJSON em {% data variables.product.prodname_dotcom %}
+## Mapping GeoJSON/TopoJSON files on {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.product_name %} é compatível com a renderização de arquivos do GeoJSON e TopoJSON em repositórios de {% data variables.product.product_name %}. Simplesmente faça o commit do arquivo como você faria normalmente usando uma extensão `.geojson` ou `.topojson`. Arquivos com a extensão `.json` também são compatíveis, mas somente se o `type` (tipo) for configurado para `FeatureCollection` (Coleção de elementos gráficos), `GeometryCollection` (Coleções geométricas) ou `topology` (topologia). Em seguida, acesse o caminho do arquivo GeoJSON/TopoJSON no GitHub.com.
+{% data variables.product.product_name %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.product_name %} repositories. Simply commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON/TopoJSON file on GitHub.com.
 
-Quando você clicar no ícone de folha de papel à direita, também verá as alterações feitas naquele arquivo como parte de um commit.
+When you click the paper icon on the right, you'll also see the changes made to that file as part of a commit.
 
-![Captura de tela seletor Source Render (Renderizar fonte)](/assets/images/help/repository/source-render-toggle-geojson.png)
+![Source Render toggle screenshot](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Tipos de geometria
+### Geometry types
 
-Os mapas no {% data variables.product.product_name %} usam [Leaflet.js](http://leafletjs.com) e são compatíveis com todos os tipos geométricos descritos nas [especificações geoJSON](http://www.geojson.org/geojson-spec.html) (Ponto, LineString, Polígono, Múltiplos Pontos, MultiLineString, MultiPolygon e GeometryCollection). Os arquivos TopoJSON devem ser do tipo "Topologia" e aderir às especificações do [TopoJSON](https://github.com/mbostock/topojson/wiki/Specification).
+Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [TopoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
 
 {% ifversion geoJSON-with-MapBox %}
-### Estilos de elementos gráficos
+### Styling features
 
-Você pode personalizar a maneira como os elementos gráficos são exibidos, como especificar uma cor ou adicionar um ícone descritivo, transmitindo metadados adicionais nas propriedades do objeto GeoJSON. As opções são:
+You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the GeoJSON object's properties. The options are:
 
-* `marker-size` (marcador de tamanho) - `small` (pequeno), `medium` (médio) ou `large` (grande)
-* `marker-color` (marcador de cores) Válido para cores RGB e hexadecimal
-* `marker-symbol` (marcador de símbolos) - um ícone ID do [projeto Maki](http://mapbox.com/maki/) ou um caractere alfanumérico único (a-z ou 0-9).
-* `stroke` (traço) - cor da borda ou linha de um polígono (RGB)
-* `stroke-opacity` (opacidade do traço) - opacidade de uma borda ou linha de um polígono (0,0 - 1,0)
-* `stroke-width` (largura do traço) - largura da linha ou borda de um polígono
-* `fill` (preenchimento) - a cor do interior de um polígono (RGB)
-* `fill-opacity` (opacidade do preenchimento) - opacidade do interior de um polígono (0,0 - 1,0)
+* `marker-size` - `small`, `medium`, or `large`
+* `marker-color` - valid RGB hex color
+* `marker-symbol` - an icon ID from [the Maki project](http://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
+* `stroke` - color of a polygon edge or line (RGB)
+* `stroke-opacity` - opacity of a polygon edge or line (0.0 - 1.0)
+* `stroke-width` - width of a polygon edge or line
+* `fill` - the color of the interior of a polygon (GRB)
+* `fill-opacity` - the opacity of the interior of a polygon (0.0-1.0)
 
-Consulte a [ versão 1.1.0 do simplestyle especificações de código aberto](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) para obter mais informações.
+See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) for more information.
 {% endif %}
 
-### Incorporar o mapa em outro lugar
+### Embedding your map elsewhere
 
-Você quer deixar o seu mapa GeoJSON disponível em outro lugar além do {% data variables.product.product_name %}? Simplesmente modifique este modelo e coloque-o em qualquer página HTML compatível com JavaScript (por exemplo, [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (e.g., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-Por exemplo, se a URL de seu mapa é [github.com/benbalter/dc-wifi-social/blob/master/bars.geojson](https://github.com/benbalter/dc-wifi-social/blob/master/bars.geojson), o código de incorporação será:
+For example, if your map's URL is [github.com/benbalter/dc-wifi-social/blob/master/bars.geojson](https://github.com/benbalter/dc-wifi-social/blob/master/bars.geojson), your embed code would be:
 
 ```html
 <script src="https://embed.github.com/view/geojson/benbalter/dc-wifi-social/master/bars.geojson"></script>
 ```
 
-Por padrão, o mapa incorporado tem 420px x 620px, mas é possível personalizar a saída passando as variáveis de altura e largura como parâmetros no final, como `?height=300&width=500`.
+By default, the embedded map 420px x 620px, but you can customize the output by passing height and width variables as parameters at the end, such as `?height=300&width=500`.
 
 {% tip %}
 
-**Observação**: `ref` pode ser um branch ou o hash para um commit individual (como `2391ae`).
+**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
 {% endtip %}
 
 {% ifversion mermaid %}
-### Mapeamento em Markdown
+### Mapping in Markdown
 
-Você pode incorporar o GeoJSON e o TopoJSON diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
+You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
 {% endif %}
 
 ### Clustering
 
-Se o seu mapa contém um número grande de marcadores (aproximadamente mais de 750), em níveis de zoom maiores, o GitHub automaticamente fará cluster de marcadores próximos. Simplesmente clique em cluster ou aumentar o zoom para ver os marcadores individuais.
+If your map contains a large number of markers (roughly over 750), GitHub will automatically cluster nearby markers at higher zoom levels. Simply click the cluster or zoom in to see individual markers.
 
-### Algo errado no mapa de base
+### Something's up with the underlying map
 
-Os dados do mapa de base (nomes de ruas, estradas etc) são determinados pelo [OpenStreetMap](http://www.openstreetmap.org/), um projeto colaborativo para criação de um mapa do mundo grátis e editável. Por ser de código aberto, se você observar que alguma coisa não está certa, simplesmente [inscreva-se](https://www.openstreetmap.org/user/new) e envie uma correção.
+The underlying map data (street names, roads, etc.) are driven by [OpenStreetMap](http://www.openstreetmap.org/), a collaborative project to create a free editable map of the world. If you notice something's not quite right, since it's open source, simply [sign up](https://www.openstreetmap.org/user/new) and submit a fix.
 
-### Solução de Problemas
+### Troubleshooting
 
-Se você estiver com problemas para renderizar os arquivos do GeoJSON, certifique-se de que você tenha um arquivo do GeoJSON válido executando-o por meio de um [linter do GeoJSON](http://geojsonlint.com/). Se os pontos não estão aparecendo onde deveriam (<em>por exemplo</em>, no meio do oceano), é provável que os dados estejam em uma projeção que não é compatível atualmente. No momento, o {% data variables.product.product_name %} somente é compatível com a projeção `urn:ogc:def:crs:OGC:1.3:CRS84`.
+If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (<em>e.g.</em>, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
 
-Além disso, se o seu arquivo `.geojson` for particularmente grande (acima de 10 MB), não é possível renderizar no navegador. Se esse for o caso, você normalmente verá uma mensagem parecida com esta:
+Additionally, if your `.geojson` file is especially large (over 10 MB), it is not possible to render within the browser. If that's the case, you'll generally see a message that looks something like this:
 
-![Arquivo grande](/assets/images/help/repository/view_raw.png)
+![Large file](/assets/images/help/repository/view_raw.png)
 
-Ainda pode ser possível renderizar os dados convertendo o arquivo `.geojson` em [TopoJSON](https://github.com/mbostock/topojson), um formato compactado que pode reduzir o tamanho dos arquivos em até 80%, em alguns casos. Claro que você sempre pode quebrar os arquivos em pedaços menores (como por estado ou por ano) e armazenar os dados em vários arquivos no repositório.
+It may still be possible to render the data by converting the `.geojson` file to [TopoJSON](https://github.com/mbostock/topojson), a compression format that, in some cases, can reduce filesize by up to 80%. Of course, you can always break the file into smaller chunks (such as by state or by year), and store the data as multiple files within the repository.
 
-### Leia mais
+### Further reading
 
 {% ifversion geoJSON-with-MapBox %}
-* [Documentação do Leaflet.js](https://leafletjs.com/)
-* [Documentação MapBox marcadores de estilo](http://www.mapbox.com/developers/simplestyle/)
+* [Leaflet.js documentation](https://leafletjs.com/)
+* [MapBox marker-styling documentation](http://www.mapbox.com/developers/simplestyle/)
 {%- else %}
-* [Documentação do Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/)
+* [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
 {%- endif %}
-* [Wiki TopoJSON](https://github.com/mbostock/topojson/wiki)
+* [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
-## Trabalhando com arquivos do Jupyter Notebook no {% data variables.product.prodname_dotcom %}
+## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
 
-Ao adicionar arquivos do Jupyter Notebook ou do IPython Notebook com a extensão *.ipynb* em {% data variables.product.product_location %}, eles serão interpretados como arquivos HTML estáticos no seu repositório.
+When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.location.product_location %}, they will render as static HTML files in your repository.
 
-Os recursos interativos do notebook, como plots personalizados de JavaScript, não funcionam no seu repositório no {% data variables.product.product_location %}. Para ver um exemplo, consulte [*Linking e Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.location.product_location %}. For an example, see [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
-Para exibir o Jupyter Notebook com conteúdo JavaScript renderizado ou compartilhar arquivos do seu notebook com outras pessoas, use [nbviewer](https://nbviewer.jupyter.org/). Para ver um exemplo, consulte [*Linking e Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) representados no nbviewer.
+To view your Jupyter notebook with JavaScript content rendered or to share your notebook files with others you can use [nbviewer](https://nbviewer.jupyter.org/). For an example, see [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) rendered on nbviewer.
 
-Para exibir uma versão totalmente interativa do Jupyter Notebook, configure um servidor de notebook localmente. Para obter mais informações, consulte a [documentação oficial do Jupyter](http://jupyter.readthedocs.io/en/latest/index.html).
+To view a fully interactive version of your Jupyter Notebook, you can set up a notebook server locally. For more information, see [Jupyter's official documentation](http://jupyter.readthedocs.io/en/latest/index.html).
 
-### Solução de Problemas
+### Troubleshooting
 
-Se você estiver tendo problemas para renderizar arquivos do Jupyter Notebook em HTML estático, converta o arquivo localmente na linha de comando usando o comando [`nbconvert`](https://github.com/jupyter/nbconvert):
+If you're having trouble rendering Jupyter Notebook files in static HTML, you can convert the file locally on the command line by using the [`nbconvert` command](https://github.com/jupyter/nbconvert):
 
 ```shell
-$ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
+$ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 ```
 
-### Leia mais
+### Further reading
 
-- [Repositório do GitHub do Jupyter Notebook](https://github.com/jupyter/jupyter_notebook)
-- [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
+- [Jupyter Notebook's GitHub repository](https://github.com/jupyter/jupyter_notebook)
+- [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
 
 {% ifversion mermaid %}
-## Exibindo arquivos do Mermaid em {% data variables.product.prodname_dotcom %}
+## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.product_name %} é compatível com os arquivos de interpretação do Mermaid dentro dos repositórios. Faça o commit do arquivo como você faria normalmente, usando a extensão `.mermaid` ou `.mmd`. Em seguida, acesse o caminho do arquivo do Mermaid em {% data variables.product.prodname_dotcom %}.
+{% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
 
-Por exemplo, se você adicionar um arquivo `.mmd` com o seguinte conteúdo para o repositório:
+For example, if you add a `.mmd` file with the following content to your repository:
 
 ```
 graph TD
@@ -357,27 +364,28 @@ graph TD
     C -->|Three| F[fa:fa-car Car]
 ```
 
-Ao visualizar o arquivo no repositório, ele é interpretado como um gráfico de fluxo. ![Diagrama de arquivo do mermaid interpretado](/assets/images/help/repository/mermaid-file-diagram.png)
+When you view the file in the repository, it is rendered as a flow chart.
+![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
 
-### Solução de Problemas
+### Troubleshooting
 
-Se o seu gráfico não faz nenhuma interpretação, verifique se ele contém uma sintaxe válida do Markdown do Mermaid, verificando sua carta com [editor ativo do Mermaid](https://mermaid.live/edit).
+If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
 
-If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label.
+If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label. 
 
-#### Problemas conhecidos
+#### Known issues
 
-* O gráfico do diagrama de sequência é frequentemente interpretado com preenchimento adicional abaixo do gráfico, com preenchimento adicional acrescentado à medida que o tamanho do gráfico aumenta. Este é um problema conhecido com a biblioteca do Mermaid.
-* Os nós do ator com menus popover não funcionam como esperado dentro de gráficos de diagrama de sequência. Isto se deve uma discrepância na forma como eventos do JavaScript são adicionados a um gráfico quando a API da biblioteca do Mermaid é usada para interpretar um gráfico.
-* Nem todos os gráficos são conformes com a11y. Isso pode afetar os usuários que dependem de um leitor de tela.
+* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
+* Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
+* Not all charts are a11y compliant. This may affect users who rely on a screen reader.
 
-### Mermaid no Markdown
+### Mermaid in Markdown
 
-Você pode incorporar a sintaxe do Mermaid diretamente no Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)".
+You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
 
-### Leia mais
+### Further reading
 
-* [Documentação do Mermaid.js](https://mermaid-js.github.io/mermaid/#/)
-* [Editor ativo do Mermaid.js](https://mermaid.live/edit)
+* [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js live editor](https://mermaid.live/edit)
 {% endif %}
 

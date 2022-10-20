@@ -1,6 +1,6 @@
 ---
-title: Por que minhas contribuições não aparecem no meu perfil?
-intro: Entenda os motivos comuns que as contribuições podem não ter no seu gráfico de contribuição.
+title: Why are my contributions not showing up on my profile?
+intro: Learn common reasons that contributions may be missing from your contributions graph.
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
   - /github/setting-up-and-managing-your-github-profile/why-are-my-contributions-not-showing-up-on-my-profile
@@ -13,50 +13,50 @@ versions:
   ghec: '*'
 topics:
   - Profiles
-shortTitle: Contribuições ausentes
+shortTitle: Missing contributions
 ---
 
-## Sobre o seu gráfico de contribuição
+## About your contribution graph
 
-Seu gráfico de contribuições de perfil é um registro de contribuições que você fez para repositórios {% ifversion ghae %}pertencentes a{% else %}em{% endif %} {% data variables.product.product_location %}. As contribuições recebem registros de data e hora de acordo com o UTC (Coordinated Universal Time, Horário universal coordenado), e não com o fuso horário local. As contribuições só serão contabilizadas se atenderem a determinados critérios. Em alguns casos, pode ser necessário recriar o gráfico para que as contribuições sejam exibidas.
+Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.location.product_location %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
 
-Se você faz parte de uma organização que usa o logon único SAML (SSO), você não poderá ver a atividade de contribuição da organização em seu perfil se não tiver uma sessão SSO ativa. As pessoas que visualizarem o seu perfil de fora da sua organização verão a atividade de contribuição anônima de sua atividade de contribuição para sua organização.
+If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
 
-## Contribuições que são contabilizadas
+## Contributions that are counted
 
-### Problemas, pull requests e discussões
+### Issues, pull requests and discussions
 
-Os problemas, pull requests e discussões aparecerão no gráfico de contribuição se estiverem abertos em um repositório autônomo, não em uma bifurcação.
+Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
 ### Commits
-Os commits aparecerão no gráfico de contribuições se atenderem a **todas** estas condições:
-- O endereço de e-mail usado para os commits está associado à sua conta no {% data variables.product.product_location %}.
-- Os commits foram criados em um repositório autônomo, e não em uma bifurcação.
-- Os commits foram criados:
-  - No branch-padrão do repositório
-  - No branch `gh-pages` (para repositórios com sites de projetos)
+Commits will appear on your contributions graph if they meet **all** of the following conditions:
+- The email address used for the commits is associated with your account on {% data variables.location.product_location %}.
+- The commits were made in a standalone repository, not a fork.
+- The commits were made:
+  - In the repository's default branch
+  - In the `gh-pages` branch (for repositories with project sites)
 
-Para obter mais informações sobre sites de projeto, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
-Além disso, **pelo menos uma** das seguintes afirmativas devem ser verdadeiras:
-- Você é um colaborador no repositório ou um integrante da organização que possui o repositório.
-- Você bifurcou o repositório.
-- Você abriu uma pull request ou um problema no repositório.
-- Você marcou o repositório como favorito.
+In addition, **at least one** of the following must be true:
+- You are a collaborator on the repository or are a member of the organization that owns the repository.
+- You have forked the repository.
+- You have opened a pull request or issue in the repository.
+- You have starred the repository.
 
-## Motivos comuns para as contribuições não serem contabilizadas
+## Common reasons that contributions are not counted
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
-### O commit foi criado menos de 24 horas atrás
+### Commit was made less than 24 hours ago
 
-Depois de fazer um commit que atenda aos requisitos para ser contabilizado como contribuição, talvez você precise aguardar até 24 horas para que a contribuição seja exibida no gráfico de contribuições.
+After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph.
 
-### Seu e-mail de confirmação do Git local não está conectado à sua conta
+### Your local Git commit email isn't connected to your account
 
-Os Commits devem ser feitos com um endereço de e-mail que esteja conectado à sua conta em {% data variables.product.product_location %}{% ifversion fpt or ghec %} ou o endereço de e-mail `noreply` fornecido por {% data variables.product.prodname_dotcom %} enviado para você nas suas configurações de e-mail{% endif %} para aparecer no seu gráfico de contribuições.{% ifversion fpt or ghec %} Para obter mais informações sobre endereços de e-amil `noreply`, consulte "[Definindo o endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)".{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.location.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
-Você pode verificar o endereço de e-mail usado para um commit adicionando `.patch` ao final de uma URL de commit; por exemplo, <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
+You can check the email address used for a commit by adding `.patch` to the end of a commit URL, e.g. <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
 ```
 From 67c0afc1da354d8571f51b6f0af8f2794117fd10 Mon Sep 17 00:00:00 2001
@@ -65,37 +65,37 @@ Date: Sun, 27 Apr 2014 15:36:39 +0530
 Subject: [PATCH] updated index for better welcome message
 ```
 
-O endereço de e-mail no campo `From:` é o que foi definido nas [configurações locais do Git](/articles/set-up-git). Neste exemplo, o endereço de e-mail usado para o commit é `octocat@nowhere.com`.
+The email address in the `From:` field is the address that was set in the [local git config settings](/articles/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
 
-Se o endereço de e-mail usado para o commit não estiver conectado à sua conta em {% data variables.product.product_location %}, {% ifversion ghae %}altere o endereço de e-mail usado para criar commits no Git. Para obter mais informações, consulte "[Definindo o seu endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git).{% else %}você deve [adicionar o endereço de e-mail](/articles/adding-an-email-address-to-your-github-account) à sua conta em {% data variables.product.product_location %}. Seu gráfico de contribuições será reconstruído automaticamente quando você adicionar o novo endereço.{% endif %}
-
-{% warning %}
-
-**Aviso**: Endereços de e-mail genéricos, como `jane@computer.local` não podem ser adicionados às contas de {% data variables.product.prodname_dotcom %}. Se você usar esse e-mail para os commits, eles não serão vinculados ao seu perfil do {% data variables.product.prodname_dotcom %} e não serão exibidos no gráfico de contribuições.
-
-{% endwarning %}
-
-### O commit não foi criado no branch `gh-pages` ou padrão
-
-Os commits só são contados se forem feitos no branch-padrão ou no branch `gh-pages` (para repositórios com sites de projeto). Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
-
-Se os commits estiverem em um branch que não seja `gh-pages` ou o padrão e você quiser que eles sejam contabilizados para suas contribuições, precisará seguir um destes procedimentos:
-- [Abrir uma pull request](/articles/creating-a-pull-request) para que ocorra o merge das alterações no branch `gh-pages` ou padrão.
-- [Alterar o branch padrão](/github/administering-a-repository/changing-the-default-branch) do repositório.
+If the email address used for the commit is not connected to your account on {% data variables.location.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your account on {% data variables.location.product_location %}. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
 
 {% warning %}
 
-**Aviso**: A alteração do branch padrão do repositório fará com que ele seja modificado para todos os colaboradores do repositório. Faça isso apenas se quiser que o novo branch se torne a base de todos os futuros commits e pull requests a serem criados.
+**Warning**: Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts. If you use such an email for your commits, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
 
 {% endwarning %}
 
-### O commit foi criado em uma bifurcação
+### Commit was not made in the default or `gh-pages` branch
 
-Os commits criados em uma bifurcação não são contabilizados para suas contribuições. Para isso, é preciso que você siga estes procedimentos:
-- [Abrir uma pull request](/articles/creating-a-pull-request) para que ocorra o merge das alterações no repositório principal.
-- Para separar a bifurcação e transformá-la em um repositório autônomo no {% data variables.product.product_location %}, entre em contato com o {% data variables.contact.contact_support %}. Se a bifurcação tiver bifurcações próprias, informe o {% data variables.contact.contact_support %} se as bifurcações devem mover-se com o repositório para uma nova rede ou se devem permanecer na rede atual. Para obter mais informações, consulte "[Sobre bifurcações](/articles/about-forks/)".
+Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
-## Leia mais
+If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
+- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
+- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
-- "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
-- "[Visualizar contribuições na página de perfil](/articles/viewing-contributions-on-your-profile-page)"
+{% warning %}
+
+**Warning**: Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
+
+{% endwarning %}
+
+### Commit was made in a fork
+
+Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
+- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the parent repository.
+- To detach the fork and turn it into a standalone repository on {% data variables.location.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see "[About forks](/articles/about-forks/)."
+
+## Further reading
+
+- "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
+- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"

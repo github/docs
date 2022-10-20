@@ -1,6 +1,6 @@
-Los siguientes IdP pueden aprovisionar o desaprovisionar las cuentas de usuario en {% data variables.product.product_location %} utilizando SCIM.
+The following IdPs can provision or deprovision user accounts on {% data variables.location.product_location %} using SCIM.
 
 {% ifversion ghae %}
 - Azure AD
-- Okta (actualmente en beta)
+- Okta (currently in beta)
 {% endif %}

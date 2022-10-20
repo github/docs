@@ -1,6 +1,6 @@
 ---
-title: Vencimento e revogação de token
-intro: 'Seus tokens podem vencer e também podem ser revogados por você, pelos aplicativos que você autorizou e pelo próprio {% data variables.product.product_name %}.'
+title: Token expiration and revocation
+intro: 'Your tokens can expire and can also be revoked by you, applications you have authorized, and {% data variables.product.product_name %} itself.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,57 +9,56 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Vencimento do token
+shortTitle: Token expiration
 redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
 ---
 
-Se um token {% ifversion fpt or ghae or ghes > 3.2 or ghec %}venceu ou {% endif %} foi revogado, ele não poderá mais ser usado para autenticar o Git e solicitações de API. Não é possível restaurar um token vencido ou revogado, você ou o aplicativo deverá criar um novo token.
+When a token {% ifversion fpt or ghae or ghes > 3.2 or ghec %}has expired or {% endif %} has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.
 
-Este artigo explica os possíveis motivos pelos quais seu token {% data variables.product.product_name %} pode ser revogado ou vencido.
+This article explains the possible reasons your {% data variables.product.product_name %} token might be revoked or expire.
 
 {% note %}
 
-**Observação:** Quando um token de acesso pessoal ou token OAuth vence ou é revogado, você pode ver uma ação de `oauth_authorization.destroy` no seu log de segurança. Para obter mais informações, consulte "[Revisar o log de segurança](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+**Note:** When a {% data variables.product.pat_generic %} or OAuth token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see "[Reviewing your security log](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 {% endnote %}
 
 {% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-## Token revogado após atingir sua data de validade
+## Token revoked after reaching its expiration date
 
-Ao criar um token de acesso pessoal, recomendamos que você defina uma data de vencimento para o seu token. Ao alcançar a data de vencimento do seu token, este será automaticamente revogado. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+When you create a {% data variables.product.pat_generic %}, we recommend that you set an expiration for your token. Upon reaching your token's expiration date, the token is automatically revoked. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## Token revogado quando enviado por push para um repositório público ou gist público
+## Token revoked when pushed to a public repository or public gist
 
-Se um token do OAuth válido, um token de {% data variables.product.prodname_github_app %} ou o token de acesso pessoal é receber push para um repositório público ou gist, o token será revogado automaticamente.
+If a valid OAuth token, {% data variables.product.prodname_github_app %} token, or {% data variables.product.pat_generic %} is pushed to a public repository or public gist, the token will be automatically revoked. 
 
-Os tokens OAuth e os tokens de acesso pessoal enviados para repositórios públicos e gists públicos só serão revogados se o token tiver escopos.
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## Token vencido devido à falta de uso
+## Token expired due to lack of use
 
-{% data variables.product.product_name %} irá revogar automaticamente um token OAuth ou um token de acesso pessoal quando o token não for usado em um ano.
+{% data variables.product.product_name %} will automatically revoke an OAuth token or {% data variables.product.pat_generic %} when the token hasn't been used in one year.
 {% endif %}
 
-## Token revogado pelo usuário
+## Token revoked by the user
 
-Você pode revogar a sua autorização de um {% data variables.product.prodname_github_app %} ou {% data variables.product.prodname_oauth_app %} a partir das configurações da sua conta que irão revogar todos tokens associados ao aplicativo. Para obter mais informações, consulte "[Revendo suas integrações autorizadas](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)" e "[Revendo seus aplicativos autorizados (OAuth)](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)".
+You can revoke your authorization of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} from your account settings which will revoke any tokens associated with the app. For more information, see "[Reviewing your authorized integrations](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)" and "[Reviewing your authorized applications (OAuth)](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)."
 
-Depois que uma autorização for revogada, todos os tokens associados à autorização também serão revogados. Para autorizar novamente um aplicativo, siga as instruções do aplicativo de terceiros ou do site para conectar sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} novamente.
+Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To re-authorize an application, follow the instructions from the third-party application or website to connect your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} again.
 
-## Token revogado por {% data variables.product.prodname_oauth_app %}
+## Token revoked by the {% data variables.product.prodname_oauth_app %}
 
-O proprietário de um {% data variables.product.prodname_oauth_app %} pode revogar a autorização de uma conta do seu aplicativo. Isso também irá revogar todos os tokens associados à autorização. Para obter mais informações sobre a revogação de autorizações do seu aplicativo OAuth, consulte[Excluir uma autorização de aplicativo](/rest/reference/apps#delete-an-app-authorization). "
+The owner of an {% data variables.product.prodname_oauth_app %} can revoke an account's authorization of their app, this will also revoke any tokens associated with the authorization. For more information about revoking authorizations of your OAuth app, see "[Delete an app authorization](/rest/reference/apps#delete-an-app-authorization)."
 
-Os proprietários de {% data variables.product.prodname_oauth_app %} também podem revogar tokens individuais associados a uma autorização. Para obter mais informações sobre a revogação de tokens individuais para o seu aplicativo OAuth, consulte "[Excluir um token](/rest/apps/oauth-applications#delete-an-app-token)".
+{% data variables.product.prodname_oauth_app %} owners can also revoke individual tokens associated with an authorization. For more information about revoking individual tokens for your OAuth app, see "[Delete an app token](/rest/apps/oauth-applications#delete-an-app-token)".
 
-## Token revogado devido ao excesso de tokens para um {% data variables.product.prodname_oauth_app %} com o mesmo escopo
+## Token revoked due to excess of tokens for an {% data variables.product.prodname_oauth_app %} with the same scope
 
 {% data reusables.apps.oauth-token-limit %}
 
-## Token de usuário revogado devido à configuração de {% data variables.product.prodname_github_app %}
+## User token revoked due to {% data variables.product.prodname_github_app %} configuration
 
-Por padrão, os tokens de usuário para servidor criados por um {% data variables.product.prodname_github_app %} vencerão após oito horas. Os proprietários de {% data variables.product.prodname_github_apps %} podem configurar seus aplicativos para que os tokens de usuário para servidor não vençam. Para obter mais informações sobre como se comportam os tokens de usuário para servidor do seu aplicativo de {% data variables.product.prodname_dotcom %}, consulte "[Habilitando as funcionalidaes opcionais para os aplicativos](/developers/apps/getting-started-with-apps/activating-optional-features-for-apps). "
+User-to-server tokens created by a {% data variables.product.prodname_github_app %} will expire after eight hours by default. Owners of {% data variables.product.prodname_github_apps %} can configure their apps so that user-to-server tokens do not expire. For more information about changing how your {% data variables.product.prodname_dotcom %} App's user-to-server tokens behave, see "[Activating optional features for apps](/developers/apps/getting-started-with-apps/activating-optional-features-for-apps)."

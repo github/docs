@@ -7,14 +7,7 @@ topics:
   - Profiles
 shortTitle: Set profile to private
 ---
-
 ## About private profiles
-
-{% note %}
-
-**Note:** Private profiles are currently in beta and are subject to change.
-
-{% endnote %}
 
 To hide parts of your profile page, you can make your profile private. This also hides your activity in various social features on {% data variables.product.prodname_dotcom_the_website %}. A private profile hides information from all users, and there is currently no option to allow specified users to see your activity.
 
