@@ -93,10 +93,10 @@ You can use secrets in a codespace after the codespace is built and is running. 
 * When launching an application from the integrated terminal or ssh session.
 * Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
 
-Codespace secrets cannot be used during:
+Codespace secrets cannot be used:
 
-* Codespace build time (that is, within a Dockerfile or custom entry point).
-* Within a dev container feature. For more information, see the `features` attribute in the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#general-properties).
+* During codespace build time (that is, within a Dockerfile or custom entry point).
+* Within a dev container feature. For more information, see the `features` property in the [dev containers specification](https://containers.dev/implementors/json_reference/#general-properties) on containers.dev.
 
 ## Further reading
 
