@@ -41,7 +41,7 @@ On each new virtual machine, install the same version of {% data variables.produ
 
 You must assign a static IP address to each new node that you provision, and you must configure a load balancer to accept connections and direct them to the nodes in your cluster's front-end tier.
 
-We don't recommend configuring a firewall between the network with your active cluster and the network with your passive cluster. The latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. For more information about network connectivity between nodes in the passive cluster, see "[Cluster network configuration](/enterprise/admin/enterprise-management/cluster-network-configuration)."
+{% data reusables.enterprise_clustering.network-latency %} For more information about network connectivity between nodes in the passive cluster, see "[Cluster network configuration](/enterprise/admin/enterprise-management/cluster-network-configuration)."
 
 ## Creating a high availability replica for a cluster
 
