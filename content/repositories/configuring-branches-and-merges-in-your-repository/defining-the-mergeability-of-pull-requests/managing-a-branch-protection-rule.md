@@ -103,6 +103,12 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
    ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
 {%- endif %}
+{% ifversion lock-branch %}
+1. Optionally, select **Lock branch** to make branch read-only.
+![Screenshot of the checkbox to lock a branch](/assets/images/help/repository/lock-branch.png) 
+   -  Optionally, to allow fork syncing, select **Allow fork syncing**.
+![Screenshot of the checkbox to allow fork syncing](/assets/images/help/repository/lock-branch-forksync.png) 
+{%- endif %}
 1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**.
 ![Do not allow bypassing the above settings checkbox](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**Apply the rules above to administrators**.
 ![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
