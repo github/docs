@@ -23,7 +23,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 When using any development environment, customizing the settings and tools to your preferences and workflows is an important step. {% data variables.product.prodname_github_codespaces %} allows for two main ways of personalizing your codespaces.
 
-- [Settings Sync](#settings-sync) - You can share your {% data variables.product.prodname_vscode %} settings between the desktop application and the {% data variables.product.prodname_vscode_shortname %} web client.
+- [Settings Sync](#settings-sync) - You can synchronize your {% data variables.product.prodname_vscode %} settings between the desktop application and the {% data variables.product.prodname_vscode_shortname %} web client.
 - [Dotfiles](#dotfiles) – You can use a `dotfiles` repository to specify scripts, shell preferences, and other configurations.
 
 {% data variables.product.prodname_github_codespaces %} personalization applies to any codespace you create.
@@ -32,7 +32,7 @@ Project maintainers can also define a default configuration that applies to ever
 
 ## Settings Sync
 
-Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode_shortname %}.
+Settings Sync allows you to synchronize configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode_shortname %}.
 
 To enable Settings Sync, in the bottom-left corner of {% data variables.product.prodname_vscode %}'s Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Turn on Settings Sync…**. In the dialog box, select the settings you'd like to sync.
 

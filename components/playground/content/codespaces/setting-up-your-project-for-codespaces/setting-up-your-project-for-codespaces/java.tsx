@@ -13,7 +13,7 @@ const article: PlaygroundArticleT = {
   intro: dedent`
   This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **Java** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." 
   
-  To step through the instructions in this guide you will work on a codespace using either the Visual Studio Code desktop application or the VS Code web client.
+  To work through the instructions in this guide you will use a codespace, in either the Visual Studio Code desktop application or the VS Code web client.
   
   These instructions are for Java. If you want to add a dev container configuration for another programming language, click the language button to the right.
   `,

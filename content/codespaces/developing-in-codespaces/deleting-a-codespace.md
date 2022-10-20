@@ -16,7 +16,13 @@ topics:
 shortTitle: Delete a codespace
 ---
 
-You can delete a codespace in a variety of ways: in the terminal by using {% data variables.product.prodname_cli %}, in {% data variables.product.prodname_vscode %}, or in your web browser. Use the tabs in this article to display instructions for each of these ways of deleting a codespace. 
+You can delete a codespace in a variety of ways: in the terminal by using {% data variables.product.prodname_cli %}, in {% data variables.product.prodname_vscode %}, or in your web browser. Use the tabs in this article to display instructions for each of these ways of deleting a codespace.
+
+{% note %}
+
+**Note**: You can't delete a codespace from within the JetBrains Gateway, or the JetBrains client application, or from within JupyterLab.
+
+{% endnote %}
 
 There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. For more information, see "[About billing for GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 

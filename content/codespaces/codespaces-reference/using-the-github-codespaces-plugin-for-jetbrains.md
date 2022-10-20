@@ -1,7 +1,7 @@
 ---
 title: Using the GitHub Codespaces plugin for JetBrains
 shortTitle: Plugin for JetBrains
-intro: 'You can use the {% data variables.product.prodname_github_codespaces %} plugin to find out about your codespace or stop it when you''ve finished working.'
+intro: 'You can use the {% data variables.product.prodname_github_codespaces %} plugin to find out about your codespace or to stop your codespace when you''ve finished working.'
 versions:
   fpt: '*'
   ghec: '*'

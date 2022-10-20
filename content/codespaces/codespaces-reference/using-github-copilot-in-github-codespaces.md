@@ -46,8 +46,12 @@ To use {% data variables.product.prodname_copilot %} in a codespace in your JetB
 
 {% endnote %}
 
-1. Click **JetBrains Client**, then click **Preferences**.
-1. In the Preferences dialog box, click **Plugins On Host** in the navigation panel. Then click the **Marketplace** tab.
+1. In the JetBrains client application, open the Settings (Windows/Linux) or Preferences (Mac) dialog box:
+
+   - **Windows/Linux**: Click **File** and then **Settings** (or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>)
+   - **Mac**: Click **JetBrains Client** in the MacOS menu bar, then click **Preferences** (or press <kbd>command</kbd>+<kbd>,</kbd>)
+
+1. In the left-side menu of the Settings/Preferences dialog box, click **Plugins On Host**. Then click the **Marketplace** tab.
 
    ![Screenshot of the Marketplace tab for 'Plugins On Host'](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
 

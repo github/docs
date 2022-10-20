@@ -17,7 +17,7 @@
 You can pull changes from the remote repository into your codespace at any time. 
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. At the top of the side bar, click the ellipsis (**...**).
+1. At the top of the sidebar, click the ellipsis (**...**).
 ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button.png)
 1. In the drop-down menu, click **Pull**.
 
@@ -46,6 +46,6 @@ If the fetch operation detects new changes on the remote repository, you'll see 
 
 You can push changes you've saved and committed. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
 
-1. At the top of the side bar, click the ellipsis (**...**).
+1. At the top of the sidebar, click the ellipsis (**...**).
 ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
 1. In the drop-down menu, click **Push**.

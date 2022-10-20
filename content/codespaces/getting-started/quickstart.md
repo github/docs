@@ -62,19 +62,19 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 {% data reusables.codespaces.source-control-display-dark %}
 1. To stage your changes, click  **+** next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
-   ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![Source control sidebar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
 1. Type a commit message describing the change you've made.
 
-   ![Source control side bar with a commit message](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
+   ![Source control sidebar with a commit message](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
 
-1. To commit your staged changes, click the check mark at the top the source control side bar.
+1. To commit your staged changes, click the check mark at the top the source control sidebar.
 
    ![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)  
 
    You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
 
-1. At the top of the side bar, click the ellipsis (**...**).
+1. At the top of the sidebar, click the ellipsis (**...**).
 
    ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
 

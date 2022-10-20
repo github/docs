@@ -45,7 +45,7 @@ To work in a codespace in a JetBrains IDE you need:
 
 ### JetBrains Gateway
 
-An easy way to install and update the JetBrains Gateway is from the JetBrains Toolbox application.
+You can install and update the JetBrains Gateway from the JetBrains Toolbox application.
 
 1. Download and install the [JetBrains Toolbox](https://www.jetbrains.com/toolbox-app).
 1. Open the JetBrains Toolbox.
