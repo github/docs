@@ -1,81 +1,76 @@
 ---
-title: 在作业之前或之后运行脚本
-intro: 脚本可以直接在作业之前或之后在自托管运行器上自动执行。
+title: Running scripts before or after a job
+intro: 'Scripts can automatically execute on a self-hosted runner, directly before or after a job.'
 versions:
   feature: job-hooks-for-runners
 type: tutorial
 miniTocMaxHeadingLevel: 3
 shortTitle: Run a script before or after a job
-ms.openlocfilehash: 11b2f63cd70c5276f0626a6016593553d1bedd0c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147067648'
 ---
-{% note %}
-
-注意：此功能目前为 beta 版本，可能会有变动。
-
-{% endnote %}
-
-## 关于作业前脚本和作业后脚本
-
-可在作业运行之前或在作业完成运行之后，在自托管运行器上自动执行脚本。 可使用这些脚本来满足作业需求，例如生成或关闭运行器环境，或清理目录。 还可使用这些脚本来跟踪运行器使用情况的遥测数据。
-
-当运行器上设置了特定环境变量时，自定义脚本会自动触发；环境变量必须包含该脚本的绝对路径。 有关详细信息，请参阅下面的“[触发脚本](#triggering-the-scripts)”。
-
-支持以下脚本语言：
-
-- **Bash**：使用 `bash` 并可以回退到 `sh`。 通过运行 `-e {pathtofile}` 执行。
-- **PowerShell**：使用 `pwsh` 并可以回退到 `powershell`。 通过运行 `-command \". '{pathtofile}'\"` 执行。
-
-## 编写脚本
-
-自定义脚本可以使用以下功能：
-
-- **环境变量**：脚本有权访问默认环境变量。 完整的 Webhook 事件有效负载可在 `GITHUB_EVENT_PATH` 中找到。 有关详细信息，请参阅“[环境变量](/actions/learn-github-actions/environment-variables#default-environment-variables)”。
-- **工作流命令**：脚本可以使用工作流命令。 有关详细信息，请参阅[“{% data variables.product.prodname_actions %} 的工作流命令”](/actions/using-workflows/workflow-commands-for-github-actions)，`save-state` 和 `set-output` 除外（这些脚本不支持）。 脚本还可以使用环境文件。 有关详细信息，请参阅“[环境文件](/actions/using-workflows/workflow-commands-for-github-actions#environment-files)”。
 
 {% note %}
 
-注意：避免使用脚本将敏感信息输出到控制台，因为拥有存储库读取访问权限的任何人都可以在 UI 日志中查看输出。
+**Note**: This feature is currently in beta and is subject to change.
 
 {% endnote %}
 
-### 处理退出代码
+## About pre- and post-job scripts
 
-对于作业前脚本，退出代码 `0` 指示脚本成功完成并且作业随后继续运行。 如果存在任何其他退出代码，该作业将不会运行，并标记为失败。 要查看作业前脚本的结果，请检查日志中的 `Set up runner` 条目。 有关检查日志的详细信息，请参阅“[查看日志以诊断故障](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)”。
+You can automatically execute scripts on a self-hosted runner, either before a job runs, or after a job finishes running. You could use these scripts to support the job's requirements, such as building or tearing down a runner environment, or cleaning out directories. You could also use these scripts to track telemetry of how your runners are used.
 
-这些脚本不支持使用 [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) 设置。
+The custom scripts are automatically triggered when a specific environment variable is set on the runner; the environment variable must contain the absolute path to the script. For more information, see "[Triggering the scripts](#triggering-the-scripts)" below.
 
-## 触发脚本
+The following scripting languages are supported:
 
-自定义脚本必须位于运行器上，但不应存储在 `actions-runner` 应用程序目录中。 脚本在运行运行器服务的服务帐户的安全性上下文中执行。
+- **Bash**: Uses `bash` and can fallback to `sh`. Executes by running `-e {pathtofile}`.
+- **PowerShell**: Uses `pwsh` and can fallback to `powershell`. Executes by running `-command \". '{pathtofile}'\"`.
+
+## Writing the scripts
+
+Your custom scripts can use the following features:
+
+- **Environment variables**:  Scripts have access to the default environment variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables#default-environment-variables)."
+- **Workflow commands**: Scripts can use workflow commands. For more information, see ["Workflow commands for {% data variables.product.prodname_actions %}"](/actions/using-workflows/workflow-commands-for-github-actions){% ifversion actions-save-state-set-output-envs %}{% else %}, with the exception of `save-state` and `set-output`, which are not supported by these scripts{% endif %}. Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
 
 {% note %}
 
-注意：触发的脚本是同步处理的，因此它们会在运行时阻止作业执行。
+**Note**: Avoid using your scripts to output sensitive information to the console, as anyone with read access to the repository might be able to see the output in the UI logs.
 
 {% endnote %}
 
-当运行器具有以下包含脚本绝对路径的环境变量时，脚本会自动执行：
-- `ACTIONS_RUNNER_HOOK_JOB_STARTED`：此环境变量中定义的脚本在作业分配给运行器之后且作业开始运行之前触发。
-- `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`：此环境变量中定义的脚本在作业完成处理后触发。
+### Handling exit codes
 
-要设置这些环境变量，可将它们添加到操作系统中，或将它们添加到自托管运行器应用程序目录中名为 `.env` 的文件中。 例如，以下 `.env` 条目将使运行器在每个作业运行之前自动运行一个名为 `cleanup_script.sh` 的脚本：
+For pre-job scripts, exit code `0` indicates that the script completed successfully, and the job will then proceed to run. If there is any other exit code, the job will not run and will be marked as failed. To see the results of your pre-job scripts, check the logs for `Set up runner` entries. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+
+The [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) setting is not supported for use by these scripts.
+
+## Triggering the scripts
+
+The custom scripts must be located on the runner, but should not be stored in the `actions-runner` application directory. The scripts are executed in the security context of the service account that's running the runner service.
+
+{% note %}
+
+**Note**: The triggered scripts are processed synchronously, so they will block job execution while they are running.
+
+{% endnote %}
+
+The scripts are automatically executed when the runner has the following environment variables containing an absolute path to the script:
+- `ACTIONS_RUNNER_HOOK_JOB_STARTED`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
+- `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`: The script defined in this environment variable is triggered after the job has finished processing.
+
+To set these environment variables, you can either add them to the operating system, or add them to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run a script named `cleanup_script.sh` before each job runs:
 
 ```bash
 ACTIONS_RUNNER_HOOK_JOB_STARTED=/cleanup_script.sh
 ```
 
-## 故障排除
+## Troubleshooting
 
 
-### 无超时设置
+### No timeout setting
 
-目前没有可供 `ACTIONS_RUNNER_HOOK_JOB_STARTED` 或 `ACTIONS_RUNNER_HOOK_JOB_COMPLETED` 执行的脚本使用的超时设置。 因此，可以考虑向脚本添加超时处理。
+There is currently no timeout setting available for scripts executed by `ACTIONS_RUNNER_HOOK_JOB_STARTED` or `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`. As a result, you could consider adding timeout handling to your script.
 
-### 查看工作流运行日志
+### Reviewing the workflow run log
 
-要确认脚本是否正在执行，可查看该作业的日志。 脚本将在 `Set up runner` 或 `Complete runner` 的单独步骤中列出，具体取决于触发脚本的环境变量。 有关检查日志的详细信息，请参阅“[查看日志以诊断故障](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)”。
+To confirm whether your scripts are executing, you can review the logs for that job. The scripts will be listed within separate steps for either `Set up runner` or `Complete runner`, depending on which environment variable is triggering the script. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."

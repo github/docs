@@ -469,10 +469,18 @@ jobs:
       output1: ${{ steps.step1.outputs.firstword }}
       output2: ${{ steps.step2.outputs.secondword }}
     steps:
-      - id: step1
+      - id: step1{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=firstword::hello"
-      - id: step2
+{%- endif %}{% raw %}
+      - id: step2{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "secondword=world" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=secondword::world"
+{%- endif %}{% raw %}
 ```
 {% endraw %}
 
@@ -526,7 +534,11 @@ jobs:
         uses: {% data reusables.actions.action-checkout %}
       - name: Generate 0 or 1
         id: generate_number
+{%- ifversion actions-save-state-set-output-envs %}
+        run:  echo "random_number=$(($RANDOM % 2))" >> $GITHUB_OUTPUT
+{%- else %}
         run:  echo "::set-output name=random_number::$(($RANDOM % 2))"
+{%- endif %}
       - name: Pass or fail
         run: |
           if [[ {% raw %}${{ steps.generate_number.outputs.random_number }}{% endraw %} == 0 ]]; then exit 0; else exit 1; fi
@@ -772,7 +784,11 @@ jobs:
         id: build_step
         run: |
           ./build
+{%- ifversion actions-save-state-set-output-envs %}
+          echo "build_id=$BUILD_ID" >> $GITHUB_OUTPUT
+{%- else %}
           echo "::set-output name=build_id::$BUILD_ID"
+{%- endif %}
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -791,7 +807,7 @@ jobs:
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 ## `inputs` context
 
-The `inputs` context contains input properties passed to a reusable workflow{% ifversion actions-unified-inputs %} or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
+The `inputs` context contains input properties passed to an action{% ifversion actions-unified-inputs %},{% else %} or{% endif %} to a reusable workflow{% ifversion actions-unified-inputs %}, or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
 
 There are no standard properties in the `inputs` context, only those which are defined in the workflow file.
 

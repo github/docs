@@ -1,7 +1,7 @@
 ---
 title: Configuring authentication and provisioning for your enterprise using Azure AD
 shortTitle: Configure with Azure AD
-intro: 'You can use a tenant in Azure Active Directory (Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.product.product_location %}.'
+intro: 'You can use a tenant in Azure Active Directory (Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.location.product_location %}.'
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
@@ -30,7 +30,7 @@ After you enable SAML SSO and SCIM for {% data variables.product.prodname_ghe_ma
 * Assign the {% data variables.product.prodname_ghe_managed %} application to an IdP group on Azure AD to automatically create and grant access to user accounts on {% data variables.product.product_name %} for all members of the IdP group. In addition, the IdP group is available on {% data variables.product.prodname_ghe_managed %} for connection to a team and its parent organization.
 * Unassign the {% data variables.product.prodname_ghe_managed %} application from an IdP group to deactivate the {% data variables.product.product_name %} user accounts of all IdP users who had access only through that IdP group and remove the users from the parent organization. The IdP group will be disconnected from any teams on {% data variables.product.product_name %}.
 
-For more information about managing identity and access for your enterprise on {% data variables.product.product_location %}, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)." For more information about synchronizing teams with IdP groups, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
+For more information about managing identity and access for your enterprise on {% data variables.location.product_location %}, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)." For more information about synchronizing teams with IdP groups, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ To configure authentication and user provisioning for {% data variables.product.
 
     - {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-    - If you've already configured SAML SSO for {% data variables.product.product_location %} using another IdP and you want to use Azure AD instead, you can edit your configuration. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise#editing-the-saml-sso-configuration)."
+    - If you've already configured SAML SSO for {% data variables.location.product_location %} using another IdP and you want to use Azure AD instead, you can edit your configuration. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise#editing-the-saml-sso-configuration)."
 
 1. Enable user provisioning in {% data variables.product.product_name %} and configure user provisioning in Azure AD. For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)."
 

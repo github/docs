@@ -1,6 +1,6 @@
 ---
-title: Habilitar el aislamiento de subdominio
-intro: 'Puedes configurar el aislamiento de subdominio para separar en forma segura el contenido suministrado por el usuario de las demás partes de tu aparato {% data variables.product.prodname_ghe_server %}.'
+title: Enabling subdomain isolation
+intro: 'You can set up subdomain isolation to securely separate user-supplied content from other portions of your {% data variables.product.prodname_ghe_server %} appliance.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-subdomain-isolation
   - /enterprise/admin/installation/enabling-subdomain-isolation
@@ -16,20 +16,14 @@ topics:
   - Networking
   - Security
 shortTitle: Enable subdomain isolation
-ms.openlocfilehash: ec7b04f845d0ec44c3234ece0194d4396df54892
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332563'
 ---
-## Acerca del aislamiento de subdominio
+## About subdomain isolation
 
-El aislamiento de subdominio mitiga las vulnerabilidades del estilo cross-site scripting y otras vulnerabilidades relacionadas. Para más información, vea "[Scripting entre sitios](http://en.wikipedia.org/wiki/Cross-site_scripting)" en Wikipedia. Se recomienda encarecidamente habilitar el aislamiento de subdominios en {% data variables.product.product_location %}.
+Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.location.product_location %}.
 
-Cuando el aislamiento de subdominio está habilitado, {% data variables.product.prodname_ghe_server %} reemplaza varias rutas con subdominios. Después de habilitar el aislamiento de subdominios, los intentos para acceder a las rutas anteriores para encontrar algo del contenido proporcionado por los usuarios, como `http(s)://HOSTNAME/raw/`, podría devolver errores de tipo `404`.
+When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains. After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
 
-| Ruta sin aislamiento de subdominio  | Ruta con aislamiento de subdominio   |
+| Path without subdomain isolation  | Path with subdomain isolation   |
 | --- | --- |
 | `http(s)://HOSTNAME/assets/`      | `http(s)://assets.HOSTNAME/`      |
 | `http(s)://HOSTNAME/avatars/`     | `http(s)://avatars.HOSTNAME/`     |
@@ -46,24 +40,27 @@ Cuando el aislamiento de subdominio está habilitado, {% data variables.product.
 | `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`
 | `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`
 | `https://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/`{% endif %}{% ifversion ghes > 3.4 %}
-| No compatible | `https://containers.HOSTNAME/` |{% endif %}
+| Not supported | `https://containers.HOSTNAME/` |{% endif %}
 
-## Prerrequisitos
+## Prerequisites
 
 {% data reusables.enterprise_installation.disable-github-pages-warning %}
 
-Antes de que habilites el aislamiento de subdominio, debes configurar tus ajustes de red para el nuevo dominio.
+Before you enable subdomain isolation, you must configure your network settings for your new domain.
 
-- Especifica un nombre de dominio válido como tu nombre del host, en lugar de una dirección IP. Para más información, vea "[Configuración de un nombre de host](/enterprise/admin/guides/installation/configuring-a-hostname)".
+- Specify a valid domain name as your hostname, instead of an IP address. For more information, see "[Configuring a hostname](/enterprise/admin/guides/installation/configuring-a-hostname)."
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-- Configura un registro de Sistema de nombres de dominio (DNS) de carácter comodín o registros DNS individuales para los subdominios detallados más arriba. Se recomienda crear un registro A para `*.HOSTNAME`que apunte a la dirección IP del servidor, para no tener que crear varios registros para cada subdominio.
-- Obtenga un certificado de seguridad de la capa de transporte (TLS) comodín para `*.HOSTNAME` con un nombre alternativo del firmante (SAN) para `HOSTNAME` y el dominio comodín `*.HOSTNAME`. Por ejemplo, si el nombre de host es `github.octoinc.com`, obtenga un certificado con el valor Nombre común establecido en `*.github.octoinc.com` y un valor SAN establecido en `github.octoinc.com` y `*.github.octoinc.com`.
-- Habilita TLS en tu aparato. Para más información, vea "[Configuración de TLS](/enterprise/admin/guides/installation/configuring-tls/)".
+- Set up a wildcard Domain Name System (DNS) record or individual DNS records for the subdomains listed above. We recommend creating an A record for `*.HOSTNAME` that points to your server's IP address so you don't have to create multiple records for each subdomain.
+- Get a wildcard Transport Layer Security (TLS) certificate for `*.HOSTNAME` with a Subject Alternative Name (SAN) for both `HOSTNAME` and the wildcard domain `*.HOSTNAME`. For example, if your hostname is `github.octoinc.com`, get a certificate with the Common Name value set to `*.github.octoinc.com` and a SAN value set to both `github.octoinc.com` and `*.github.octoinc.com`.
+- Enable TLS on your appliance. For more information, see "[Configuring TLS](/enterprise/admin/guides/installation/configuring-tls/)."
 
-## Habilitar el aislamiento de subdominio
+## Enabling subdomain isolation
 
-{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.hostname-menu-item %}
-4. Seleccione **Aislamiento de subdominios (recomendado)** .
-  ![Casilla para habilitar el aislamiento de subdominios](/assets/images/enterprise/management-console/subdomain-isolation.png) {% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.hostname-menu-item %}
+4. Select **Subdomain isolation (recommended)**.
+  ![Checkbox to enable subdomain isolation](/assets/images/enterprise/management-console/subdomain-isolation.png)
+{% data reusables.enterprise_management_console.save-settings %}

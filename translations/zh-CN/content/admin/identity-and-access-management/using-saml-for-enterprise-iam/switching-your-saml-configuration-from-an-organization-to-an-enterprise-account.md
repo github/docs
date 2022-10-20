@@ -1,6 +1,6 @@
 ---
-title: 将你的 SAML 配置从组织切换到企业帐户
-intro: 了解将组织级 SAML 配置替换为企业级 SAML 配置的特殊注意事项和最佳做法。
+title: Switching your SAML configuration from an organization to an enterprise account
+intro: Learn special considerations and best practices for replacing an organization-level SAML configuration with an enterprise-level SAML configuration.
 permissions: Enterprise owners can configure SAML single sign-on for an enterprise account.
 versions:
   ghec: '*'
@@ -14,37 +14,32 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
-ms.openlocfilehash: 0fa75185767984db574fc12a9e84404d5da9e002
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145098046'
 ---
-## 关于企业帐户的 SAML 单点登录
+
+## About SAML single sign-on for enterprise accounts
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %}
 
 {% data reusables.saml.switching-from-org-to-enterprise %} 
 
-在组织级别配置 SAML SSO 时，必须在 IdP 中使用唯一的 SSO 租户配置每个组织，这意味着成员将与他们已成功进行身份验证的每个组织的唯一 SAML 标识记录相关联。 如果改为为企业帐户配置 SAML SSO，则每个企业成员将有一个 SAML 标识，该标识用于企业帐户拥有的所有组织。
+When you configure SAML SSO at the organization level, each organization must be configured with a unique SSO tenant in your IdP, which means that your members will be associated with a unique SAML identity record for each organization they have successfully authenticated with. If you configure SAML SSO for your enterprise account instead, each enterprise member will have one SAML identity that is used for all organizations owned by the enterprise account.
 
-为企业帐户配置 SAML SSO 后，新配置将覆盖企业帐户拥有组织的任何现有 SAML SSO 配置。
+After you configure SAML SSO for your enterprise account, the new configuration will override any existing SAML SSO configurations for organizations owned by the enterprise account.
 
-当企业所有者为企业帐户启用 SAML 时，不会通知企业成员。 如果以前在组织级别强制执行 SAML SSO，则直接导航到组织资源时，成员不应看到重大差异。 系统将继续提示成员通过 SAML 进行身份验证。 如果成员通过 IdP 仪表板导航到组织资源，则需要单击企业级应用的新磁贴，而不是组织级应用的旧磁贴。 然后，成员将能够选择要导航到的组织。 
+Enterprise members will not be notified when an enterprise owner enables SAML for the enterprise account. If SAML SSO was previously enforced at the organization level, members should not see a major difference when navigating directly to organization resources. The members will continue to be prompted to authenticate via SAML. If members navigate to organization resources via their IdP dashboard, they will need to click the new tile for the enterprise-level app, instead of the old tile for the organization-level app. The members will then be able to choose the organization to navigate to. 
 
-任何以前为组织授权的个人访问令牌 (PAT)、SSH 密钥、{% data variables.product.prodname_oauth_apps %} 和 {% data variables.product.prodname_github_apps %} 将继续获得组织授权。 但是，成员需要向从未授权用于组织的 SAML SSO 的任何 PAT、SSH 密钥、{% data variables.product.prodname_oauth_apps %} 和 {% data variables.product.prodname_github_apps %} 授权。
+Any {% data variables.product.pat_generic %}s, SSH keys, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %} that were previously authorized for the organization will continue to be authorized for the organization. However, members will need to authorize any PATs, SSH keys, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %} that were never authorized for use with SAML SSO for the organization.
 
-为企业帐户配置 SAML SSO 时，目前不支持 SCIM 预配。 如果当前对企业帐户拥有的组织使用 SCIM，则切换到企业级配置时，将丢失此功能。
+SCIM provisioning is not currently supported when SAML SSO is configured for an enterprise account. If you are currently using SCIM for an organization owned by your enterprise account, you will lose this functionality when switching to an enterprise-level configuration.
 
-在为企业帐户配置 SAML SSO 之前，无需删除任何组织级 SAML 配置，但建议你考虑将其删除。 如果将来已为企业帐户禁用 SAML，则任何剩余的组织级 SAML 配置都将生效。 删除组织级配置可以防止将来出现意外问题。
+You are not required to remove any organization-level SAML configurations before configuring SAML SSO for your enterprise account, but you may want to consider doing so. If SAML is ever disabled for the enterprise account in the future, any remaining organization-level SAML configurations will take effect. Removing the organization-level configurations can prevent unexpected issues in the future.
 
-## 将你的 SAML 配置从组织切换到企业帐户
+## Switching your SAML configuration from an organization to an enterprise account
 
-1. 为企业帐户强制实施 SAML SSO，确保为所有组织成员分配或授予对用于企业帐户的 IdP 应用的访问权限。 有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
-1. （可选）删除企业帐户所拥有组织的任何现有 SAML 配置。 若要帮助你确定是否删除配置，请参阅“[关于企业帐户的 SAML 单一登录](#about-saml-single-sign-on-for-enterprise-accounts)”。
-1. 如果保留任何组织级 SAML 配置以防止混淆，请考虑在 IdP 中隐藏组织级应用的磁贴。
-1. 为企业成员提供更改建议。
-   -  成员将无法再通过单击 IdP 仪表板中组织的 SAML 应用来访问其组织。 他们需要使用为企业帐户配置的新应用。
-   - 成员需要授权以前未授权用于其组织的 SAML SSO 的任何 PAT 或 SSH 密钥。 有关详细信息，请参阅“[授权用于 SAML 单一登录的个人访问令牌](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”和“[授权用于 SAML 单一登录的 SSH 密钥](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。
-   - 成员可能需要重新授权以前为组织授权的 {% data variables.product.prodname_oauth_apps %}。 有关详细信息，请参阅“[关于通过 SAML 单一登录进行身份验证](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)”。
+1. Enforce SAML SSO for your enterprise account, making sure all organization members are assigned or given access to the IdP app being used for the enterprise account. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+1. Optionally, remove any existing SAML configuration for organizations owned by the enterprise account. To help you decide whether to remove the configurations, see "[About SAML single sign-on for enterprise accounts](#about-saml-single-sign-on-for-enterprise-accounts)."
+1. If you kept any organization-level SAML configurations in place, to prevent confusion, consider hiding the tile for the organization-level apps in your IdP.
+1. Advise your enterprise members about the change.
+   -  Members will no longer be able to access their organizations by clicking the SAML app for the organization in the IdP dashboard. They will need to use the new app configured for the enterprise account.
+   - Members will need to authorize any PATs or SSH keys that were not previously authorized for use with SAML SSO for their organization. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
+   - Members may need to reauthorize {% data variables.product.prodname_oauth_apps %} that were previously authorized for the organization. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)."

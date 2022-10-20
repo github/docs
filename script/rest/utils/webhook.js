@@ -28,7 +28,7 @@ export default class Webhook {
       `requestBody.content['application/json'].schema.properties.action.enum[0]`,
       null
     )
-    this.category = webhook.tags[0]
+    this.category = webhook['x-github'].subcategory
     return this
   }
 

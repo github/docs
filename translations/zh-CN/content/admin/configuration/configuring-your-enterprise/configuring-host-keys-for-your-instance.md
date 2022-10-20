@@ -1,8 +1,8 @@
 ---
-title: 为实例配置主机密钥
+title: Configuring host keys for your instance
 shortTitle: Configure host keys
-intro: '可通过配置实例用来为传入 SSH 连接生成和播发主机密钥的算法，来提高 {% data variables.product.product_location %} 的安全性。'
-permissions: 'Site administrators can configure the host keys for a {% data variables.product.product_name %} instance.'
+intro: 'You can increase the security of {% data variables.location.product_location %} by configuring the algorithms that your instance uses to generate and advertise host keys for incoming SSH connections.'
+permissions: "Site administrators can configure the host keys for a {% data variables.product.product_name %} instance."
 versions:
   ghes: '>= 3.6'
 type: how_to
@@ -13,38 +13,33 @@ topics:
   - Networking
   - Security
   - SSH
-ms.openlocfilehash: d7ab49b814500ac2c35fa65f82c0fb480122ed1b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410726'
 ---
-## 关于实例的主机密钥
 
-接受 SSH 连接的服务器将播发一个或多个加密主机密钥，以安全地识别 SSH 客户端的服务器。 为了在连接初始化期间确认服务器的标识，客户端会存储并验证主机密钥。 有关详细信息，请参阅 SSH Academy 网站上的 [SSH 主机密钥 - 内容、原因、方法](https://ssh.com/academy/ssh/host-key)。
+## About host keys for your instance
+
+Servers that accept SSH connections advertise one or more cryptographic host keys to securely identify the server to SSH clients. To confirm the server's identity during the initialization of a connection, clients store and verify the host key. For more information, see [SSH Host Key - What, Why, How](https://ssh.com/academy/ssh/host-key) on the SSH Academy website.
 
 {% data reusables.enterprise.about-ssh-ports %}
 
-默认情况下，{% data variables.product.product_location %} 使用 OpenSSH 样式的主机密钥轮换来生成和播发主机密钥。 若要在环境中提高 SSH 的安全性，可以启用其他算法来生成主机密钥。
+By default, {% data variables.location.product_location %} generates and advertises host keys with OpenSSH-style host key rotation. To increase the security of SSH in your environment, you can enable additional algorithms for the generation of host keys.
 
 {% note %}
 
-注意：如果启用其他主机密钥算法，则不使用 OpenSSH 进行 SSH 连接的客户端可能会在连接过程中遇到警告，或者无法完全连接。 一些 SSH 实现可以忽略不受支持的算法并退回到其他算法。 如果客户端不支持回退操作，连接将失败。 例如，适用于 Go 的 SSH 库不支持回退到其他算法。
+**Note**: If you enable additional host key algorithms, clients that do not use OpenSSH for SSH connections may experience warnings during connection, or fail to connect entirely. Some SSH implementations can ignore unsupported algorithms and fall back to a different algorithm. If the client does not support fallback, the connection will fail. For example, the SSH library for Go does not support fallback to a different algorithm.
 
 {% endnote %}
 
-## 管理 Ed25519 主机密钥
+## Managing an Ed25519 host key
 
-若要提高连接到 {% data variables.product.product_location %} 的客户端的安全性，可以启用 Ed25519 主机密钥的生成和播发。 Ed25519 可在不降低速度的情况免受对一些针对旧版签名算法的攻击。 旧版 SSH 客户端可能不支持 Ed25519。 默认情况下，{% data variables.product.product_name %} 实例不会生成或播发 Ed25519 主机密钥。 有关详细信息，请参阅 [Ed25519 网站](https://ed25519.cr.yp.to)。
+To improve security for clients that connect to {% data variables.location.product_location %}, you can enable the generation and advertisement of an Ed25519 host key. Ed25519 is immune to some attacks that target older signature algorithms, without sacrificing speed. Older SSH clients may not support Ed25519. By default, {% data variables.product.product_name %} instances do not generate or advertise an Ed25519 host key. For more information, see [the Ed25519 website](https://ed25519.cr.yp.to).
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. 要启用 Ed25519 主机密钥的生成和播发，请输入以下命令。
+1. To enable generation and advertisement of the Ed25519 host key, enter the following command.
 
    ```shell
    ghe-config app.babeld.host-key-ed25519 true
    ```
-1. （可选）输入以下命令以禁用 Ed25519 主机密钥的生成和播发。
+1. Optionally, enter the following command to disable generation and advertisement of the Ed25519 host key.
 
    ```shell
    ghe-config app.babeld.host-key-ed25519 false

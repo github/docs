@@ -10,7 +10,6 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
 ---
 
 ## Overview

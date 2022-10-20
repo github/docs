@@ -59,26 +59,25 @@ Send this information to <a href="mailto:secret-scanning@github.com">secret-scan
 
 Create a public, internet accessible HTTP endpoint at the URL you provided to us. When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
 
-#### Example POST sent to your endpoint
+#### Example request body
 
-```http
-POST / HTTP/2
-Host: HOST
-Accept: */*
-Content-Type: application/json
-GITHUB-PUBLIC-KEY-IDENTIFIER: f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIQDfLvT8/zM8F1aB3cM0ZwyeWF1m5YR6IhcUIv1OKQYL0wIgBZ5lVXB3gHK+dT8+xt0WgRVLqvsTPFiDO9QP/7eJ4yE=
-Content-Length: 187
-
-[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt","source":"content"}]
+```json
+[
+  {
+    "token":"NMIfyYncKcRALEXAMPLE",
+    "type":"mycompany_api_token",
+    "url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt",
+    "source":"content"
+  }
+]
 ```
 
-The message body is a JSON array that contains one or more objects with the following contents. When multiple matches are found, {% data variables.product.prodname_dotcom %}  may send a single message with more than one secret match. Your endpoint should be able to handle requests with a large number of matches without timing out.
+The message body is a JSON array that contains one or more objects, with each object representing a single secret match. Your endpoint should be able to handle requests with a large number of matches without timing out. The keys for each secret match are:
 
 * **token**: The value of the secret match.
 * **type**: The unique name you provided to identify your regular expression.
 * **url**: The public URL where the match was found (may be empty)
-* **source**: Where the token was found on GitHub.
+* **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
 
 The list of valid values for `source` are:
 
@@ -97,18 +96,23 @@ The list of valid values for `source` are:
 
 ### Implement signature verification in your secret alert service
 
-We strongly recommend you implement signature validation in your secret alert service to ensure that the messages you receive are genuinely from {% data variables.product.prodname_dotcom %} and not malicious.
+The HTTP request to your service will also contain headers that we strongly recommend using
+to validate the messages you receive are genuinely from {% data variables.product.prodname_dotcom %}, and are not malicious.
 
-You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm.
+The two HTTP headers to look for are:
+
+* `GITHUB-PUBLIC-KEY-IDENTIFIER`: Which `key_identifier` to use from our API
+* `GITHUB-PUBLIC-KEY-SIGNATURE`: Signature of the payload
+
+You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm. The endpoint
+will provide several `key_identifier` and public keys. You can determine which public
+key to use based on the value of `GITHUB-PUBLIC-KEY-IDENTIFIER`.
 
 {% note %}
 
-**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a personal access token (no scopes required) as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
+**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required){% ifversion pat-v2 %} or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required){% endif %} as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
 
 {% endnote %}
-
-Assuming you receive the following message, the code snippets below demonstrate how you could perform signature validation.
-The code snippets assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated PAT (https://github.com/settings/tokens) to avoid hitting rate limits. The PAT does not need any scopes/permissions.
 
 {% note %}
 
@@ -116,7 +120,8 @@ The code snippets assume you've set an environment variable called `GITHUB_PRODU
 
 {% endnote %}
 
-**Sample message sent to verify endpoint**
+**Sample HTTP POST sent to verify endpoint**
+
 ```http
 POST / HTTP/2
 Host: HOST
@@ -128,6 +133,23 @@ Content-Length: 83
 
 [{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
 ```
+
+{% note %}
+
+**Note**: The key id and signature from the example payload is derived from a test key.
+The public key for them is:
+
+```
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsz9ugWDj5jK5ELBK42ynytbo38gP
+HzZFI03Exwz8Lh/tCfL3YxwMdLjB+bMznsanlhK0RwcGP3IDb34kQDIo3Q==
+-----END PUBLIC KEY-----
+```
+
+{% endnote %}
+
+The following code snippets demonstrate how you could perform signature validation.
+The code examples assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated [{% data variables.product.pat_generic %}](https://github.com/settings/tokens) to avoid hitting rate limits. The {% data variables.product.pat_generic %} does not need any scopes/permissions.
 
 **Validation sample in Go**
 ```golang

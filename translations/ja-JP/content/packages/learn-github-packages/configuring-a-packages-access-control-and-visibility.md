@@ -15,7 +15,7 @@ shortTitle: Access control & visibility
 
 Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of a package separately from the repository that it is connected (or linked) to.
 
-Currently, you can only use granular permissions with the {% data variables.product.prodname_ghcr_and_npm_registry %}. Granular permissions are not supported in our other package registries, such as the RubyGems registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
+Currently, you can only use granular permissions with the {% data variables.packages.prodname_ghcr_and_npm_registry %}. Granular permissions are not supported in our other package registries, such as the RubyGems registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
 
 For more information about permissions for repository-scoped packages, packages-related scopes for PATs, or managing permissions for your actions workflows, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
@@ -105,7 +105,7 @@ To further customize access to your container image, see "[Configuring access to
 {% ifversion fpt or ghec %}
 ## Ensuring {% data variables.product.prodname_github_codespaces %} access to your package
 
-By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_ghcr_and_npm_registry %}, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Allowing your codespace to access a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)."
+By default, a codespace can seamlessly access certain packages in the {% data variables.packages.prodname_ghcr_and_npm_registry %}, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Allowing your codespace to access a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-container-registry-and-npm-registry)."
 
 Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
 

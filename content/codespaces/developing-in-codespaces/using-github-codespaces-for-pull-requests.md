@@ -2,7 +2,6 @@
 title: Using GitHub Codespaces for pull requests
 shortTitle: Pull requests
 intro: 'You can use {% data variables.product.prodname_github_codespaces %} in your web browser, or in {% data variables.product.prodname_vscode %} to create pull requests, review pull requests, and address review comments.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

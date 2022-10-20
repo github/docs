@@ -16,9 +16,11 @@ shortTitle: Form calls with GraphQL
 
 ## Authenticating with GraphQL
 
-To communicate with the GraphQL server, you'll need an OAuth token with the right scopes.
+{% data reusables.user-settings.graphql-classic-pat-only %}
 
-Follow the steps in "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. The scopes you require depends on the type of data you're trying to request. For example, select the **User** scopes to request user data. If you need access to repository information, select the appropriate **Repository** scopes.
+To communicate with the GraphQL server, you'll need a {% data variables.product.pat_generic %} with the right scopes.
+
+Follow the steps in "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. The scopes you require depends on the type of data you're trying to request. For example, select the **User** scopes to request user data. If you need access to repository information, select the appropriate **Repository** scopes.
 
 {% ifversion fpt or ghec %}
 

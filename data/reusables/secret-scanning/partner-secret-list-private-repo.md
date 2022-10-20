@@ -17,8 +17,12 @@ Atlassian | Atlassian JSON Web Token | atlassian_jwt
 Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+Azure | Azure Batch Key Identifiable | azure_batch_key_identifiable{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+Azure | Azure CosmosDB Key Identifiable | azure_cosmosdb_key_identifiable{% endif %}
 Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}

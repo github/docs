@@ -26,7 +26,6 @@ import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import api from './api/index.js'
-import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
 import remoteIP from './remote-ip.js'
@@ -46,6 +45,7 @@ import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
+import productGroups from './contextualizers/product-groups.js'
 import featuredLinks from './featured-links.js'
 import learningTrack from './learning-track.js'
 import next from './next.js'
@@ -231,7 +231,6 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/search', instrument(search, './search')) // The old search API
   app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
@@ -269,6 +268,7 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
   app.use(instrument(features, './contextualizers/features'))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
+  app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
 
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))

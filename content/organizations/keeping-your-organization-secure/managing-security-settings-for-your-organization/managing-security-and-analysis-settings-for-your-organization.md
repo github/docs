@@ -55,6 +55,13 @@ You can enable or disable features for all repositories.
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
+{% ifversion ghes or ghec or ghae %}
+{% note %}
+
+**Note:** If you encounter an error that reads "GitHub Advanced Security cannot be enabled because of a policy setting for the organization," contact your enterprise admin and ask them to change the GitHub Advanced Security policy for your enterprise. For more information, see "[Enforcing policies for Advanced Security in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
+{% endnote %}
+{% endif %}
+
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 2. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available seats in your {% data variables.product.prodname_GH_advanced_security %} license.{% endif %}
    {% ifversion fpt %}
@@ -88,7 +95,7 @@ You can enable or disable features for all repositories.
    
    {% endif %}
    {% ifversion ghae or ghes %}
-3. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
+5. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
    ![Button to enable feature for all the eligible repositories in the organization](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
    {% endif %}
 

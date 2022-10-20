@@ -72,7 +72,7 @@
         "DependencyGraphPackageRelease.dependencies"
       ],
       "owning_teams": [
-        "@github/dsp-dependency-graph"
+        "@github/dependency-graph"
       ],
       "accept_header": "application/vnd.github.hawkgirl-preview+json",
       "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -221,7 +221,7 @@
         "DependencyGraphPackageRelease.dependencies"
       ],
       "owning_teams": [
-        "@github/dsp-dependency-graph"
+        "@github/dependency-graph"
       ],
       "accept_header": "application/vnd.github.hawkgirl-preview+json",
       "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"

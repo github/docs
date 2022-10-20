@@ -1,6 +1,6 @@
 ---
 title: Setting up and managing your personal account on GitHub
-intro: You can manage settings for your personal account on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}, including email preferences, access to personal repositories, and organization memberships. You can also manage the account itself.
+intro: You can manage settings for your personal account on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}, including email preferences, access to personal repositories, and organization memberships. You can also manage the account itself.
 shortTitle: Personal accounts
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account

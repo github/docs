@@ -8,7 +8,6 @@ type: reference
 topics:
   - Codespaces
   - Visual Studio Code
-product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: VS Code Command Palette
 allowTitleToDifferFromFilename: true
 redirect_from:

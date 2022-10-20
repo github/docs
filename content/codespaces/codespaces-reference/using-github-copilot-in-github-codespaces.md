@@ -9,7 +9,6 @@ topics:
   - Codespaces
   - Copilot
   - Visual Studio Code
-product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Copilot in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/using-copilot-in-codespaces

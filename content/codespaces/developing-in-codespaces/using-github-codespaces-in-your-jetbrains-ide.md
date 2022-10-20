@@ -2,7 +2,6 @@
 title: Using GitHub Codespaces in your JetBrains IDE
 shortTitle: JetBrains IDEs
 intro: 'You can use the JetBrains Gateway to connect to your codespace and work in your favorite JetBrains IDE.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

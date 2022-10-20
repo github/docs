@@ -3,7 +3,6 @@ title: 'Deep dive into {% data variables.product.prodname_github_codespaces %}'
 shortTitle: 'Deep dive into {% data variables.product.prodname_codespaces %}'
 intro: 'Understand how {% data variables.product.prodname_github_codespaces %} works.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -148,6 +147,6 @@ If you work on your codespaces in a JetBrains IDE, you can add plugins from the 
 ## Further reading
 
 - "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
-- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
 - "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)"
 - "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"

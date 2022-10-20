@@ -2,7 +2,6 @@
 title: Setting up your C# (.NET) project for GitHub Codespaces
 shortTitle: Setting up your C# (.NET) project
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.codespaces %}'
 intro: 'Get started with your C# (.NET) project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project

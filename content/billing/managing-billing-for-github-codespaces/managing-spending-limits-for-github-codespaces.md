@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
   - Enterprise
@@ -20,6 +19,8 @@ redirect_from:
 ## About spending limits for {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
+
+{% data reusables.codespaces.codespaces-monthly-billing %} 
 
 Once you've reached your spending limit, your organization or repository will no longer be able to create new codespaces, and won't be able to start existing codespaces. Any existing codespaces that are still running will not be shutdown; if you don't change the spending limit, you will not be charged for the amount that exceeds the limit.
 
@@ -67,4 +68,4 @@ You can disable these notifications anytime by navigating to the bottom of the *
 ## Further reading
 
 - "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"

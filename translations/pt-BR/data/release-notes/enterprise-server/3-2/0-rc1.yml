@@ -1,7 +1,7 @@
 date: '2021-09-09'
 release_candidate: true
 deprecated: true
-intro: If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
+intro: If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
 sections:
   features:
     - heading: Custom patterns for secret scanning
@@ -92,7 +92,7 @@ sections:
         - When viewing the commit history of a single file, you can now click {% octicon "file-code" aria-label="The code icon" %} to view that file at the selected point in history.
 
         # https://github.com/github/releases/issues/1254
-        - When a submodule is defined with a relative path in {% data variables.product.product_location %}, the submodule is now clickable in the web UI. Clicking the submodule in the web UI will take you to the linked repository. Previously, only submodules with absolute URLs were clickable. This is supported for relative paths for repositories with the same owner that follow the pattern <code>../<em>REPOSITORY</em></code> or relative paths for repositories with a different owner that follow the pattern <code>../<em>OWNER</em>/<em>REPOSITORY</em></code>. For more information about working with submodules, see [Working with submodules](https://github.blog/2016-02-01-working-with-submodules/) on {% data variables.product.prodname_blog %}.
+        - When a submodule is defined with a relative path in {% data variables.location.product_location %}, the submodule is now clickable in the web UI. Clicking the submodule in the web UI will take you to the linked repository. Previously, only submodules with absolute URLs were clickable. This is supported for relative paths for repositories with the same owner that follow the pattern <code>../<em>REPOSITORY</em></code> or relative paths for repositories with a different owner that follow the pattern <code>../<em>OWNER</em>/<em>REPOSITORY</em></code>. For more information about working with submodules, see [Working with submodules](https://github.blog/2016-02-01-working-with-submodules/) on {% data variables.product.prodname_blog %}.
 
         # https://github.com/github/releases/issues/1250
         - The web UI can now be used to synchronize an out-of-date branch of a fork with the fork's upstream branch. If there are no merge conflicts between the branches, the branch is updated either by fast-forwarding or by merging from upstream. If there are conflicts, you will be prompted to create a pull request to resolve the conflicts. For more information, see "[Syncing a fork](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-web-ui)."

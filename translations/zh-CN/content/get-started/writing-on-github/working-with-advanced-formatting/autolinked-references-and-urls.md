@@ -1,6 +1,6 @@
 ---
-title: 自动链接引用和 URL
-intro: 对 URL、议题、拉取请求和提交的引用会自动缩短并转换为链接。
+title: Autolinked references and URLs
+intro: 'References to URLs, issues, pull requests, and commits are automatically shortened and converted into links.'
 redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls
@@ -11,68 +11,68 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Auto linked references
-ms.openlocfilehash: 6f6548dbe931a7a6adb809aa4e5616db4358c242
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147419687'
 ---
-## URL
+## URLs
 
-{% data variables.product.product_name %} 自动从标准 URL 创建链接。
+{% data variables.product.product_name %} automatically creates links from standard URLs.
 
 `Visit https://github.com`
 
-![显示的自动链接的 URL](/assets/images/help/writing/url-autolink-rendered.png)
+![Rendered autolinked URL](/assets/images/help/writing/url-autolink-rendered.png)
 
-有关创建链接的详细信息，请参阅“[基本编写和格式设置语法](/articles/basic-writing-and-formatting-syntax/#links)”。
+For more information on creating links, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax/#links)."
 
-## 议题和拉取请求
+## Issues and pull requests
 
-在 {% data variables.product.product_name %} 上的对话中，对议题和拉取请求的引用将自动转换为缩短的链接。
+Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links.
 
 {% note %}
 
-**注意：** 在存储库的 wiki 或文件中没有创建自动链接的引用。
+**Note:** Autolinked references are not created in wikis or files in a repository.
 
 {% endnote %}
 
-| 引用类型 | 原始引用 | 短链接 |
+| Reference type | Raw reference | Short link |
 | --- | --- | --- |
-| 问题或拉取请求 URL | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)
-| `#` 和问题或拉取请求编号 | #26 | [#26](https://github.com/jlord/sheetsee.js/issues/26) |
-| `GH-` 和问题或拉取请求编号 | GH-26 | [GH-26](https://github.com/jlord/sheetsee.js/issues/26) |
-| `Username/Repository#` 和问题或拉取请求编号 | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
-| `Organization_name/Repository#` 和问题或拉取请求编号 | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
+| Issue or pull request URL | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)
+| `#` and issue or pull request number | #26 | [#26](https://github.com/jlord/sheetsee.js/issues/26) |
+| `GH-` and issue or pull request number | GH-26 | [GH-26](https://github.com/jlord/sheetsee.js/issues/26) |
+| `Username/Repository#` and issue or pull request number | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
+| `Organization_name/Repository#` and issue or pull request number | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
 
-{% ifversion fpt or ghec %} 如果在列表中引用问题、拉取请求或讨论，则引用将展开以显示标题和状态。 有关任务列表的详细信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
+{% ifversion fpt or ghec %}
+If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 {% endif %}
 
-## 标签
-在 Markdown 中引用标签的 URL 时，标签会自动呈现。 仅呈现同一存储库的标签，指向不同存储库标签的 URL 将呈现为任何 [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls)。
+## Labels
+When referencing the URL of a label in Markdown, the label is automatically rendered. Only labels of the same repository are rendered, URLs pointing to a label from a different repository are rendered as any [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
 
-通过导航到标签页并单击标签，可找到标签的 URL。 例如，公共[文档存储库](https://github.com/github/docs/)中标签“增强”的 URL 为
+The URL of a label can be found by navigating to the labels page and clicking on a label. For example, the URL of the label "enhancement" in our public [docs repository](https://github.com/github/docs/) is
 
 ```md
 https://github.com/github/docs/labels/enhancement
 ```
+{% note %}
 
-## 提交 SHA
+**Note:** If the label name contains a period (`.`), the label will not automatically render from the label URL.
 
-对提交 SHA 哈希的引用会自动转换为指向 {% data variables.product.product_name %} 上提交的短链接。
+{% endnote %}
 
-| 引用类型 | 原始引用 | 短链接 |
+## Commit SHAs
+
+References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.
+
+| Reference type | Raw reference | Short link |
 | --- | --- | --- |
-| 提交 URL | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
+| Commit URL | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 | SHA | a5c3785ed8d6a35868bc169f07e40e889087fd2e | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 | User@SHA | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)
 | `Username/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e` | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
-## 自定义外部资源的自动链接
+## Custom autolinks to external resources
 
 {% data reusables.repositories.autolink-references %}
 
-## 延伸阅读
+## Further reading
 
-- “[基本编写和格式设置语法](/articles/basic-writing-and-formatting-syntax)”
+- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

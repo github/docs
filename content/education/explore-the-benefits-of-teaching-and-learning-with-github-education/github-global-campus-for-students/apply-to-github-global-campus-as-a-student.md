@@ -36,12 +36,14 @@ For information about renewing your {% data variables.product.prodname_global_ca
 ## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
-3. Under "Which best describes your academic status?", select **Student**.
+1. Under "Individuals", click **Get student benefits**.
+  !["Get student benefits" on {% data variables.product.prodname_education %} homepage](/assets/images/help/education/click-get-student-benefits.png)
+1. Under "Select the academic status", select **Student**.
   ![Select academic status](/assets/images/help/education/academic-status-student.png)
 {% data reusables.education.select-email-address %}
-{% data reusables.education.upload-proof-status %}
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}
+{% data reusables.education.upload-proof-status %}
 {% data reusables.education.submit-application %}
 
 ## Expiration and renewals

@@ -1,6 +1,6 @@
 ---
-title: リポジトリをクローンする
-intro: '{% data variables.product.product_location %} にリポジトリを作成した場合、それはリモートリポジトリとなります。 リポジトリのクローンを作成して、コンピューター上にローカルコピーを作成し、これらの 2 つの場所の間で同期することができます。'
+title: Cloning a repository
+intro: 'When you create a repository on {% data variables.location.product_location %}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
 redirect_from:
   - /articles/cloning-a-repository
   - /articles/cloning-a-repository-from-github
@@ -13,26 +13,25 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: fbe00d1568a2f746362d434e769aef2f3466bcf1
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145132348'
 ---
-## リポジトリのクローンについて
+## About cloning a repository
 
-{% data variables.product.product_location %} からローカルコンピューターにリポジトリのクローンを作成して、マージの競合の修正、ファイルの追加または削除、より大きなコミットのプッシュを簡単に行うことができます。 リポジトリのクローンを作成する場合は、リポジトリを {% data variables.product.product_location %} からローカルマシンにコピーします。
+You can clone a repository from {% data variables.location.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine.
 
-リポジトリをクローンすると、その時点で {% data variables.product.product_location %} にあるすべてのリポジトリデータの完全なコピーがプルダウンされます。これには、プロジェクトのすべてのファイルとフォルダのすべてのバージョンも含まれます。 変更を {% data variables.product.product_location %} のリモートリポジトリにプッシュするか、他のユーザの変更を {% data variables.product.product_location %} からプルすることができます。 詳細については、「[Git の使用](/github/getting-started-with-github/using-git)」を参照してください。
+Cloning a repository pulls down a full copy of all the repository data that {% data variables.location.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.location.product_location %}, or pull other people's changes from {% data variables.location.product_location %}. For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
 
-既存のリポジトリのクローンを作成することも、他のユーザの既存のリポジトリのクローンを作成してプロジェクトに貢献することもできます。
+You can clone your existing repository or clone another person's existing repository to contribute to a project.
 
-## リポジトリをクローンする
+## Cloning a repository
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %} {% data reusables.command_line.git-clone-url %} {% data reusables.command_line.local-clone-created %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+{% data reusables.command_line.git-clone-url %}
+{% data reusables.command_line.local-clone-created %}
 
 {% endwebui %}
 
@@ -40,54 +39,59 @@ ms.locfileid: '145132348'
 
 {% data reusables.cli.cli-learn-more %}
 
-ローカルでリポジトリをクローンするには、`repo clone` サブコマンドを使用します。 `repository` パラメーターをリポジトリ名で置き換えます。 たとえば、「`octo-org/octo-repo`」、「`monalisa/octo-repo`」、「`octo-repo`」のように指定します。 `OWNER/REPO` リポジトリ引数の `OWNER/` 部分を省略した場合、既定で認証ユーザーの名前になります。
+To clone a repository locally, use the `repo clone` subcommand. Replace the `repository` parameter with the repository name. For example, `octo-org/octo-repo`, `monalisa/octo-repo`, or `octo-repo`. If the `OWNER/` portion of the `OWNER/REPO` repository argument is omitted, it defaults to the name of the authenticating user.
 
 ```shell
-gh repo clone <em>repository</em>
+gh repo clone REPOSITORY
 ```
 
-GitHub URL を使用してリポジトリをクローンすることもできます。
+You can also use the GitHub URL to clone a repository.
 
 ```shell
-gh repo clone <em>https://github.com/cli/cli</em>
+gh repo clone https://github.com/PATH-TO/REPOSITORY
 ```
 
 {% endcli %}
 
 {% desktop %}
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.open-with-github-desktop %}
-4. {% data variables.product.prodname_desktop %} のプロンプトに従い、クローンを完了させてください。
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.open-with-github-desktop %}
+4. Follow the prompts in {% data variables.product.prodname_desktop %} to complete the clone.
 
-詳細については、「[{% data variables.product.prodname_dotcom %} から {% data variables.product.prodname_desktop %} にリポジトリをクローンする](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)」を参照してください。
+For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)."
 
 {% enddesktop %}
 
-## 空のリポジトリをクローンする
+## Cloning an empty repository
 
-空のリポジトリにはファイルが含まれていません。 リポジトリを作成するときに README でリポジトリを初期化しない場合に多くあります。
+An empty repository contains no files. It's often made if you don't initialize the repository with a README when creating it.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. HTTPS でコマンドラインを使用してリポジトリをクローンするには、[Quick setup]\(クイック セットアップ\) で {% octicon "clippy" aria-label="The clipboard icon" %} をクリックします。 組織の SSH 認証局から発行された証明書を含む SSH キーを使用してリポジトリをクローンするには、 **[SSH]** 、{% octicon "clippy" aria-label="The clipboard icon" %} の順にクリックします。
-   ![[Empty repository clone URL]\(URL で空のリポジトリをクローン\) ボタン](/assets/images/help/repository/empty-https-url-clone-button.png)
+2. To clone your repository using the command line using HTTPS, under "Quick setup", click {% octicon "clippy" aria-label="The clipboard icon" %}. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "clippy" aria-label="The clipboard icon" %}.
+   ![Empty repository clone URL button](/assets/images/help/repository/empty-https-url-clone-button.png)
 
-   または、リポジトリをデスクトップにクローンするには、{% octicon "desktop-download" aria-label="The desktop download button" %} **[Set up in Desktop]\(デスクトップでセットアップ\)** をクリックし、プロンプトに従ってクローンを完了します。
-   ![[Empty repository clone desktop]\(デスクトップで空のリポジトリをクローン\) ボタン](/assets/images/help/repository/empty-desktop-clone-button.png)
+   Alternatively, to clone your repository in Desktop, click {% octicon "desktop-download" aria-label="The desktop download button" %} **Set up in Desktop** and follow the prompts to complete the clone.
+   ![Empty repository clone desktop button](/assets/images/help/repository/empty-desktop-clone-button.png)
 
-{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %} {% data reusables.command_line.git-clone-url %} {% data reusables.command_line.local-clone-created %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+{% data reusables.command_line.git-clone-url %}
+{% data reusables.command_line.local-clone-created %}
 
-## クローンエラーのトラブルシューティング
+## Troubleshooting cloning errors
 
-リポジトリのクローンを作成するときに、エラーが発生する可能性があります。
+When cloning a repository it's possible that you might encounter some errors.
 
-リポジトリをクローンできない場合は、以下を確認してください。
+If you're unable to clone a repository, check that:
 
-- HTTPS を使用して接続できる。 詳細については、「[HTTPS クローニング エラー](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)」を参照してください。
-- クローンするリポジトリへのアクセス権を持っている。 詳細については、「[エラー: リポジトリが見つかりません](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)」を参照してください。
-- クローンするデフォルトブランチが存在する。 詳細については、「[エラー: リモート HEAD が存在しない ref を参照するため、チェックアウトできません](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)」を参照してください。
+- You can connect using HTTPS. For more information, see "[HTTPS cloning errors](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)."
+- You have permission to access the repository you want to clone. For more information, see "[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)."
+- The default branch you want to clone still exists. For more information, see "[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
 
 {% ifversion fpt or ghec %}
 
-## 参考資料
+## Further reading
 
-- 「[接続問題のトラブルシューティング](/articles/troubleshooting-connectivity-problems)」 {% endif %}
+- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"
+{% endif %}

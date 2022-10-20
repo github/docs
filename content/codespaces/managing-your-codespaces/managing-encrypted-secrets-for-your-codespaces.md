@@ -1,7 +1,6 @@
 ---
 title: Managing encrypted secrets for your codespaces
 intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -24,7 +23,7 @@ shortTitle: Encrypted secrets
 
 You can add encrypted secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
 
-- Personal access tokens to cloud services
+- {% data variables.product.pat_generic %}s to cloud services
 - Service principals
 - Subscription identifiers
 - [Credentials for a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)

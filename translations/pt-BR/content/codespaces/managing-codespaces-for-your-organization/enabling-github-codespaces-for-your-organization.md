@@ -19,7 +19,7 @@ topics:
 
 ## About enabling {% data variables.product.prodname_github_codespaces %} for your organization
 
-Organization owners can control which users in your organization can create and use codespaces at the organization's expense.
+Organization owners can control which users in your organization can create and use codespaces at the organization's expense. For information about pricing, see "[About billing for GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 Only people who can clone a repository can create a codespace for that repository. To allow people to create codespaces for repositories owned by your organization, you must:
 

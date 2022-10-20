@@ -1,6 +1,6 @@
 ---
-title: Escrever uma descrição da listagem para o seu aplicativo
-intro: 'Para [listar seu aplicativo](/marketplace/listing-on-github-marketplace/) no {% data variables.product.prodname_marketplace %}, você precisará escrever as descrições dele e fornecer imagens que sigam as diretrizes do GitHub.'
+title: Writing a listing description for your app
+intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {% data variables.product.prodname_marketplace %}, you''ll need to write descriptions of your app and provide images that follow GitHub''s guidelines.'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
@@ -17,186 +17,180 @@ versions:
 topics:
   - Marketplace
 shortTitle: Write listing descriptions
-ms.openlocfilehash: f29e049529801011d25d2723c5851b56d7a8bb92
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146139253'
 ---
-Estas são as diretrizes sobre os campos que você precisará preencher na seção **Descrição da listagem** da listagem de rascunho.
+Here are guidelines about the fields you'll need to fill out in the **Listing description** section of your draft listing.
 
-## Nomenclatura e links
+## Naming and links
 
-### Nome da listagem
+### Listing name
 
-O nome da listagem será exibido na [home page do {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). O nome é limitado a 255 caracteres e pode ser diferente do nome do seu aplicativo. Seu anúncio não pode ter o mesmo nome de uma conta existente em {% data variables.product.product_location %}, a menos que o nome seja o seu próprio usuário ou nome de organização. 
+Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.location.product_location %}, unless the name is your own user or organization name. 
 
-### Descrição muito curta
+### Very short description
 
-A comunidade verá a descrição "muito curta" abaixo do nome do aplicativo na [home page do {% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
+The community will see the "very short" description under your app's name on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace).
 
-![Descrição curta do aplicativo em {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_short_description.png)
+![{% data variables.product.prodname_marketplace %} app short description](/assets/images/marketplace/marketplace_short_description.png)
 
-#### Comprimento
+#### Length
 
-Recomendamos manter descrições curtas para com 40 a 80 caracteres. Embora você possa usar mais caracteres, as descrições concisas são mais fáceis para os clientes ler e entender rapidamente.
+We recommend keeping short descriptions to 40-80 characters. Although you are allowed to use more characters, concise descriptions are easier for customers to read and understand quickly.
 
-#### Conteúdo
+#### Content
 
-- Descreva as funcionalidades do aplicativo. Não use este espaço para uma chamada para ação. Por exemplo:
+- Describe the app’s functionality. Don't use this space for a call to action. For example:
 
-  **O QUE FAZER:** gerenciamento leve de projetos para problemas do GitHub
+  **DO:** Lightweight project management for GitHub issues
 
-  **O QUE NÃO FAZER:** gerenciar seus projetos e problemas no GitHub
+  **DON'T:** Manage your projects and issues on GitHub
 
-  **Dica:** adicione um "s" ao final do verbo em uma chamada à ação para transformá-lo em uma descrição aceitável: _gerencia seus projetos e problemas no GitHub_
+  **Tip:** Add an "s" to the end of the verb in a call to action to turn it into an acceptable description: _Manages your projects and issues on GitHub_
 
-- Não repita o nome do aplicativo na descrição.
+- Don’t repeat the app’s name in the description.
 
-  **O QUE FAZER:** uma ferramenta de integração contínua nativa de contêiner
+  **DO:** A container-native continuous integration tool
 
-  **O QUE NÃO FAZER:** o Skycap é uma ferramenta de integração contínua nativa de contêiner
+  **DON'T:** Skycap is a container-native continuous integration tool
 
-#### Formatação
+#### Formatting
 
-- Use sempre letras maiúsculas na frase. Use maiúscula somente para a primeira letra e para substantivos próprios.
+- Always use sentence-case capitalization. Only capitalize the first letter and proper nouns.
 
-- Não use pontuação no final da sua descrição curta. As descrições curtas não devem incluir frases completas e definitivamente não devem incluir mais de uma frase.
+- Don't use punctuation at the end of your short description. Short descriptions should not include complete sentences, and definitely should not include more than one sentence.
 
-- Use maiúscula apenas para os substantivos próprios. Por exemplo:
+- Only capitalize proper nouns. For example:
 
-  **O QUE FAZER:** automação de entrega com um clique para desenvolvedores da Web
+  **DO:** One-click delivery automation for web developers
 
-  **O QUE NÃO FAZER:** automação de entrega com um clique para desenvolvedores da Web
+  **DON'T:** One-click delivery automation for Web Developers
 
-- Sempre use uma [vírgula de série](https://en.wikipedia.org/wiki/Serial_comma) em listas.
+- Always use a [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
 
-- Evite referir-se à comunidade do GitHub como "usuários".
+- Avoid referring to the GitHub community as "users."
 
-  **O QUE FAZER:** crie problemas automaticamente para as pessoas na sua organização
+  **DO:** Create issues automatically for people in your organization
 
-  **O QUE NÃO FAZER:** crie problemas automaticamente para os usuários de uma organização
+  **DON'T:** Create issues automatically for an organization's users
 
-- Evite acrônimos, a menos que estejam conhecidos (como, por exemplo, API). Por exemplo:
+- Avoid acronyms unless they’re well established (such as API). For example:
 
-  **O QUE FAZER:** painéis de tarefas Agile, estimativas e relatórios sem sair do GitHub
+  **DO:** Agile task boards, estimates, and reports without leaving GitHub
 
-  **O QUE NÃO FAZER:** painéis de tarefas Agile, estimativas e relatórios sem sair da interface do usuário do GitHub
+  **DON'T:** Agile task boards, estimates, and reports without leaving GitHub’s UI
 
-### Categorias
+### Categories
 
-Os aplicativos em {% data variables.product.prodname_marketplace %} podem ser exibidos por categoria. Selecione a categoria que melhor descreve a funcionalidade principal do aplicativo no menu suspenso **Categoria principal** e, opcionalmente, selecione uma **Categoria secundária** adequada ao aplicativo.
+Apps in {% data variables.product.prodname_marketplace %} can be displayed by category. Select the category that best describes the main functionality of your app in the **Primary category** dropdown, and optionally select a **Secondary category** that fits your app.
 
-### Idiomas com suporte
+### Supported languages
 
-Se o seu aplicativo só funciona com idiomas específicos, selecione até 10 linguagens de programação com as quais o seu aplicativo é compatível. Esses idiomas são exibidos na página de listagem do {% data variables.product.prodname_marketplace %} do seu aplicativo. Esse campo é opcional.
+If your app only works with specific languages, select up to 10 programming languages that your app supports. These languages are displayed on your app's {% data variables.product.prodname_marketplace %} listing page. This field is optional.
 
-### Listar URLs
+### Listing URLs
 
-**URLs necessárias**
-* **URL de suporte ao cliente:** a URL de uma página da Web à qual os clientes acessarão quando tiverem dúvidas referentes ao suporte técnico, ao produto ou à conta.
-* **URL da política de privacidade:** a página da Web que exibe a política de privacidade do aplicativo.
-* **URL de instalação:** esse campo é mostrado somente para Aplicativos OAuth. (Os Aplicativos do GitHub não usam essa URL porque usam a URL de Instalação opcional da página de configurações do Aplicativo do GitHub). Quando um cliente comprar seu Aplicativo OAuth, o GitHub o redirecionará para a URL de instalação após a instalação do aplicativo. Você precisará redirecionar os clientes para `https://github.com/login/oauth/authorize` a fim de iniciar o fluxo de autorização do OAuth. Confira "[Novas compras para Aplicativos OAuth](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)" para obter mais detalhes. Ignore este campo se você estiver listando um aplicativo GitHub.
+**Required URLs**
+* **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
+* **Privacy policy URL:** The web page that displays your app's privacy policy.
+* **Installation URL:** This field is shown for OAuth Apps only. (GitHub Apps don't use this URL because they use the optional Setup URL from the GitHub App's settings page instead.) When a customer purchases your OAuth App, GitHub will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[New purchases for OAuth Apps](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)" for more details. Skip this field if you're listing a GitHub App.
 
-**URLs opcionais**
-* **URL da empresa:** um link para o site da sua empresa.
-* **URL de status:** um link para uma página da Web que exibe o status do aplicativo. As páginas de status podem incluir relatórios de incidente atuais e em forma de histórico, status do tempo de atividade do aplicativo, bem como manutenção programada.
-* **URL da documentação:** um link para a documentação que ensina os clientes a usar o aplicativo.
+**Optional URLs**
+* **Company URL:** A link to your company's website.
+* **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
+* **Documentation URL:** A link to documentation that teaches customers how to use your app.
 
-## Logotipo e cartão de recurso
+## Logo and feature card
 
-{% data variables.product.prodname_marketplace %} exibe todas as listagens com um logotipo quadrado dentro de um selo circular para distinguir visualmente os aplicativos.
+{% data variables.product.prodname_marketplace %} displays all listings with a square logo image inside a circular badge to visually distinguish apps.
 
-![Imagens e logotipo do GitHub Marketplace](/assets/images/marketplace/marketplace-logo-and-badge.png)
+![GitHub Marketplace logo and badge images](/assets/images/marketplace/marketplace-logo-and-badge.png)
 
-Um cartão de recursos consiste do logotipo, nome e uma imagem de fundo personalizada do seu aplicativo que capta a personalidade da sua marca. O {% data variables.product.prodname_marketplace %} exibirá esse cartão se o seu aplicativo for um dos quatro aplicativos em destaque aleatórios na parte superior da [home page](https://github.com/marketplace). A descrição muito curta de cada aplicativo é exibida abaixo de seu cartão de recursos.
+A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {% data variables.product.prodname_marketplace %} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
 
-![Cartão de recurso](/assets/images/marketplace/marketplace_feature_card.png)
+![Feature card](/assets/images/marketplace/marketplace_feature_card.png)
 
-À medida que você faz o upload das imagens e seleciona as cores, sua listagem de rascunho do {% data variables.product.prodname_marketplace %} exibirá uma prévia do seu logotipo e do seu cartão de recurso.
+As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
 
-#### Diretrizes para logotipos
+#### Guidelines for logos
 
-Você deve enviar uma imagem personalizada para o logotipo. Escolha uma cor de fundo para o selo.
+You must upload a custom image for the logo. For the badge, choose a background color.
 
-- Faça upload de uma imagem do logotipo com, pelo menos, 200 pixels x 200 pixels para que seu logotipo não tenha que ser dimensionado quando a sua listagem for publicada.
-- Os logotipos serão cortados em um quadrado. Recomendamos fazer o upload de um arquivo de imagem quadrada com seu logotipo no centro.
-- Para obter o melhor resultado, faça o upload de uma imagem de logotipo com um fundo transparente.
-- Para dar a aparência de um selo perfeito, escolha uma cor de fundo para o selo que corresponda à cor de fundo (ou transparência) da imagem do seu logotipo.
-- Evite usar imagens do logotipo com palavras ou texto. Os logotipos com texto não são bem dimensionados em telas pequenas.
+- Upload a logo image that is at least 200 pixels x 200 pixels so your logo won't have to be upscaled when your listing is published.
+- Logos will be cropped to a square. We recommend uploading a square image file with your logo in the center.
+- For best results, upload a logo image with a transparent background.
+- To give the appearance of a seamless badge, choose a badge background color that matches the background color (or transparency) of your logo image.
+- Avoid using logo images with words or text in them. Logos with text do not scale well on small screens.
 
-#### Diretrizes para cartões de recurso
+#### Guidelines for feature cards
 
-Você deve enviar uma imagem de fundo personalizada para o cartão de recurso. Para o nome do aplicativo, escolha uma cor do texto.
+You must upload a custom background image for the feature card. For the app's name, choose a text color.
 
-- Use um padrão ou textura na sua imagem de fundo para dar ao seu cartão uma identidade visual e ajudá-lo a destacar-se com relação ao fundo escuro da página inicial do {% data variables.product.prodname_marketplace %}. Os cartões de recursos devem capturar a personalidade da sua marca.
-- A iImagem de fundo mede 965 pixels x 482 pixels (largura x altura).
-- Escolha uma cor de texto para o nome do aplicativo que aparece claramente sobre a imagem de fundo.
+- Use a pattern or texture in your background image to give your card a visual identity and help it stand out against the dark background of the {% data variables.product.prodname_marketplace %} homepage. Feature cards should capture your app's brand personality.
+- Background image measures 965 pixels x 482 pixels (width x height).
+- Choose a text color for your app's name that shows up clearly over the background image.
 
-## Detalhes da listagem
+## Listing details
 
-Para acessar a página inicial do seu aplicativo, clique no nome do aplicativo na página inicial ou na página de categoria do {% data variables.product.prodname_marketplace %}. A página de destino exibe uma descrição mais longa do aplicativo, que inclui duas partes: uma "Descrição introdutória" e uma "Descrição detalhada".
+To get to your app's landing page, click your app's name from the {% data variables.product.prodname_marketplace %} homepage or category page. The landing page displays a longer description of the app, which includes two parts: an "Introductory description" and a "Detailed description."
 
-A sua "Descrição introdutória" é exibida no topo da página inicial {% data variables.product.prodname_marketplace %} do seu aplicativo.
+Your "Introductory description" is displayed at the top of your app's {% data variables.product.prodname_marketplace %} landing page.
 
-![Descrição introdutória do {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_intro_description.png)
+![{% data variables.product.prodname_marketplace %} introductory description](/assets/images/marketplace/marketplace_intro_description.png)
 
-Se você clicar em **Ler mais…** , a "Descrição detalhada" será exibida.
+Clicking **Read more...**, displays the "Detailed description."
 
-![Descrição detalhada do {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_detailed_description.png)
+![{% data variables.product.prodname_marketplace %} detailed description](/assets/images/marketplace/marketplace_detailed_description.png)
 
-Siga estas instruções para escrever estas descrições.
+Follow these guidelines for writing these descriptions.
 
-### Comprimento
+### Length
 
-Recomendamos escrever um resumo de uma a duas frases de alto nível entre 150-250 caracteres no campo "Descrição introdutória" obrigatório ao [listar seu aplicativo](/marketplace/listing-on-github-marketplace/). Embora seja permitido o uso de mais caracteres, os resumos concisos são mais fáceis de ler e entender pelos clientes rapidamente.
+We recommend writing a 1-2 sentence high-level summary between 150-250 characters in the required "Introductory description" field when [listing your app](/marketplace/listing-on-github-marketplace/). Although you are allowed to use more characters, concise summaries are easier for customers to read and understand quickly.
 
-Você pode adicionar mais informações ao campo opcional "Descrição detalhada". Você verá essa descrição ao clicar em **Ler mais…** abaixo da descrição introdutória na página de aterrissagem do seu aplicativo. Uma descrição detalhada consiste em três a cinco [propostas de valor](https://en.wikipedia.org/wiki/Value_proposition), com uma a duas frases descrevendo cada uma delas. Você pode usar até 1.000 caracteres para essa descrição.
+You can add more information in the optional "Detailed description" field. You see this description when you click **Read more...** below the introductory description on your app's landing page. A detailed description consists of 3-5 [value propositions](https://en.wikipedia.org/wiki/Value_proposition), with 1-2 sentences describing each one. You can use up to 1,000 characters for this description.
 
-### Conteúdo
+### Content
 
-- Sempre comece descrições introdutórias com o nome do seu aplicativo.
+- Always begin introductory descriptions with your app's name.
 
-- Sempre escreva as descrições e as propostas de valores usando a voz ativa.
+- Always write descriptions and value propositions using the active voice.
 
-### Formatação
+### Formatting
 
-- Sempre use as letras maiúsculas adequadamente nas frases dos títulos para as propostas de valor. Use maiúscula somente para a primeira letra e para substantivos próprios.
+- Always use sentence-case capitalization in value proposition titles. Only capitalize the first letter and proper nouns.
 
-- Use pontos nas suas descrições. Evite pontos de exclamação.
+- Use periods in your descriptions. Avoid exclamation marks.
 
-- Não use pontuação no final dos títulos da sua proposição de valor. Títulos de proposição de valor não devem incluir frases completas,e não devem incluir mais de uma frase.
+- Don't use punctuation at the end of your value proposition titles. Value proposition titles should not include complete sentences, and should not include more than one sentence.
 
-- Para cada proposta de valor, inclua um título seguido de um parágrafo de descrição. Formate o título como um [cabeçalho de nível três](/articles/basic-writing-and-formatting-syntax/#headings) usando o Markdown. Por exemplo:
+- For each value proposition, include a title followed by a paragraph of description. Format the title as a [level-three header](/articles/basic-writing-and-formatting-syntax/#headings) using Markdown. For example:
 
-  ### Aprenda as habilidades de que você precisa
+  ### Learn the skills you need
 
-  Com o GitHub Skills, você pode aprender a usar o GitHub, se comunicar de modo mais efetivo usando Markdown, gerenciar conflitos de mesclagem, entre outras coisas.
+  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
 
-- Use maiúscula apenas para os substantivos próprios.
+- Only capitalize proper nouns.
 
-- Sempre use a [vírgula de série](https://en.wikipedia.org/wiki/Serial_comma) em listas.
+- Always use the [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
 
-- Evite referir-se à comunidade do GitHub como "usuários".
+- Avoid referring to the GitHub community as "users."
 
-  **O QUE FAZER:** crie problemas automaticamente para as pessoas na sua organização
+  **DO:** Create issues automatically for people in your organization
 
-  **O QUE NÃO FAZER:** crie problemas automaticamente para os usuários de uma organização
+  **DON'T:** Create issues automatically for an organization's users
 
-- Evite acrônimos, a menos que estejam conhecidos (como, por exemplo, API).
+- Avoid acronyms unless they’re well established (such as API).
 
-## Capturas de tela dos produtos
+## Product screenshots
 
-Você pode enviar até cinco imagens de captura de tela do seu aplicativo para ser exibidas na página inicial do seu aplicativo. Adicione uma legenda opcional para cada captura de tela para fornecer contexto. Após enviar suas capturas de tela, você pode arrastá-las para a ordem que você deseja que sejam exibidas na página inicial.
+You can upload up to five screenshot images of your app to display on your app's landing page. Add an optional caption to each screenshot to provide context. After you upload your screenshots, you can drag them into the order you want them to be displayed on the landing page.
 
-### Diretrizes para capturas de tela
+### Guidelines for screenshots
 
-- As imagens devem ser de alta resolução (pelo menos 1200 px de largura).
-- Todas as imagens devem ter a mesma altura e largura (proporção de aspecto) para evitar pular páginas quando as pessoas clicam de uma imagem para a seguinte.
-- Mostre a maior quantidade possível de interface de usuário para que as pessoas possam ver o que seu aplicativo faz.
-- Ao capturar telas do seu app em um navegador, inclua apenas o conteúdo na janela de exibição. Evite incluir a barra de endereço, barra de título ou ícones da barra de ferramentas, que não são bem dimensionados para tamanhos de tela menores.
-- O GitHub exibe as capturas de tela das quais você fizer o upload em uma caixa na página inicial do seu aplicativo. Portanto, você não precisa adicionar caixas ou bordas ao redor de suas capturas de tela.
-- As legendas são mais eficazes quando são curtas e ágeis.
+- Images must be of high resolution (at least 1200px wide).
+- All images must be the same height and width (aspect ratio) to avoid page jumps when people click from one image to the next.
+- Show as much of the user interface as possible so people can see what your app does.
+- When taking screenshots of your app in a browser, only include the content in the display window. Avoid including the address bar, title bar, or toolbar icons, which do not scale well to smaller screen sizes.
+- GitHub displays the screenshots you upload in a box on your app's landing page, so you don't need to add boxes or borders around your screenshots.
+- Captions are most effective when they are short and snappy.
 
-![Imagem de captura de tela do GitHub Marketplace](/assets/images/marketplace/marketplace-screenshots.png)
+![GitHub Marketplace screenshot image](/assets/images/marketplace/marketplace-screenshots.png)

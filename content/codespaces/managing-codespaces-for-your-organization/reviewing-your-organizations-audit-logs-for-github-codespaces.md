@@ -2,7 +2,6 @@
 title: Reviewing your organization's audit logs for GitHub Codespaces
 shortTitle: Audit logs
 intro: 'You can use the audit log to review all actions related to {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

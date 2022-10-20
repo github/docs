@@ -25,7 +25,7 @@ You can use {% data variables.product.prodname_emus %} with Okta as your identit
 
 Before you can configure provisioning with Okta, you must configure SAML single-sign on. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
-To configure provisioning with Okta, you must set your enterprise's name in the {% data variables.product.prodname_emu_idp_application %} application and enter your setup user's personal access token. You can then start provisioning users in Okta.
+To configure provisioning with Okta, you must set your enterprise's name in the {% data variables.product.prodname_emu_idp_application %} application and enter your setup user's {% data variables.product.pat_generic %}. You can then start provisioning users in Okta.
 
 ## Supported features
 
@@ -47,7 +47,7 @@ To configure provisioning with Okta, you must set your enterprise's name in the 
 
 ## Setting your enterprise name
 
-After your {% data variables.product.prodname_emu_enterprise %} has been created, you can begin to configure provisioning by setting your enterprise name in Okta.
+After your {% data variables.enterprise.prodname_emu_enterprise %} has been created, you can begin to configure provisioning by setting your enterprise name in Okta.
 
 1. Navigate to your {% data variables.product.prodname_emu_idp_application %} application on Okta.
 1. Click the **Sign On** tab.
@@ -60,14 +60,14 @@ After your {% data variables.product.prodname_emu_enterprise %} has been created
 
 After setting your enterprise name, you can proceed to configure provisioning settings.
 
-To configure provisioning, the setup user with the **@<em>SHORT-CODE</em>_admin** username will need to provide a personal access token with the **admin:enterprise** scope. For more information on creating a new token, see "[Creating a personal access token](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
+To configure provisioning, the setup user with the **@<em>SHORT-CODE</em>_admin** username will need to provide a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope. For more information on creating a new token, see "[Creating a {% data variables.product.pat_generic %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
 
 1. Navigate to your {% data variables.product.prodname_emu_idp_application %} application on Okta.
 1. Click the **Provisioning** tab.
 1. In the settings menu, click **Integration**.
 1. To make changes, click **Edit**.
 1. Select **Enable API integration**.
-1. In the "API Token" field, enter the personal access token with the **admin:enterprise** scope belonging to the setup user.
+1. In the "API Token" field, enter the {% data variables.product.pat_v1 %} with the **admin:enterprise** scope belonging to the setup user.
 ![Screenshot showing the API Token field on Okta](/assets/images/help/enterprises/okta-emu-token.png)
 1. Click **Test API Credentials**. If the test is successful, a verification message will appear at the top of the screen.
 1. To save the token, click **Save**.

@@ -2,7 +2,6 @@
 title: Reviewing your security logs for GitHub Codespaces
 shortTitle: Security logs
 intro: 'You can use the security log to review all actions related to {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

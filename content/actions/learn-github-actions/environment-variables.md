@@ -118,7 +118,7 @@ In most places in a workflow, the only types of variables that you can use are e
 
 When you set a custom environment variable, you cannot use any of the default environment variable names. For a complete list of these, see "[Default environment variables](#default-environment-variables)" below. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
 
-Any new environment variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `HOME`, `GITHUB_ENV`, and `GITHUB_WORKSPACE` default environment variables are exceptions to this convention.
+Any new environment variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `GITHUB_ENV` and `GITHUB_WORKSPACE` default environment variables are exceptions to this convention.
 
 ## Default environment variables
 
