@@ -1,223 +1,218 @@
 ---
-title: 开始使用 GitHub Enterprise Cloud
-intro: '开始设置和管理 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户。'
+title: Getting started with GitHub Enterprise Cloud
+intro: 'Get started with setting up and managing your {% data variables.product.prodname_ghe_cloud %} organization or enterprise account.'
 versions:
   fpt: '*'
   ghec: '*'
-ms.openlocfilehash: 249c89ad65bf9a9fc0140b8fb48e7bd0530ff594
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389961'
 ---
-本指南将引导您以组织或企业所有者的身份设置、配置和管理您的 {% data variables.product.prodname_ghe_cloud %} 帐户。
+
+This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_ghe_cloud %} account as an organization or enterprise owner.
 
 {% data reusables.enterprise.ghec-cta-button %}
 
-## 第 1 部分：选择您的帐户类型
+## Part 1: Choosing your account type
 
-{% data variables.product.prodname_dotcom %} 提供两种类型的企业产品：
+{% data variables.product.prodname_dotcom %} provides two types of Enterprise products:
 
-- {% data variables.product.prodname_ghe_cloud %}
-- {% data variables.product.prodname_ghe_server %}
+- **{% data variables.product.prodname_ghe_cloud %}**
+- **{% data variables.product.prodname_ghe_server %}**
 
-产品之间的主要区别在于 {% data variables.product.prodname_ghe_cloud %} 由 {% data variables.product.prodname_dotcom %} 托管，而 {% data variables.product.prodname_ghe_server %} 是自托管的。
+The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %} is self-hosted.
 
 {% data reusables.enterprise.about-github-for-enterprises %}
 
-使用 {% data variables.product.prodname_ghe_cloud %}，您可以选择 使用 {% data variables.product.prodname_emus %}。 {% data reusables.enterprise-accounts.emu-short-summary %}
+With {% data variables.product.prodname_ghe_cloud %}, you have the option of using {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
-如果你选择让成员创建和管理自己的个人帐户，可以将两种类型的帐户与 {% data variables.product.prodname_ghe_cloud %} 一起使用：
+If you choose to let your members create and manage their own personal accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
 
-- 单个组织帐户
-- 包含多个组织的企业帐户
+- A single organization account
+- An enterprise account that contains multiple organizations
 
-### 1. 了解组织帐户和企业帐户之间的差异
+### 1. Understanding the differences between an organization account and enterprise account
 
-组织和企业帐户都可用于 {% data variables.product.prodname_ghe_cloud %}。 组织是一个共享帐户，其中一组人员可以同时跨多个项目进行协作，所有者和管理员可以管理对数据和项目的访问权限。 企业帐户支持多个组织之间的协作，并允许所有者集中管理这些组织的策略、计费和安全性。 有关差异的详细信息，请参阅[组织和企业帐户](/organizations/collaborating-with-groups-in-organizations/about-organizations#organizations-and-enterprise-accounts)。
+Both organization and enterprise accounts are available with {% data variables.product.prodname_ghe_cloud %}. An organization is a shared account where groups of people can collaborate across many projects at once, and owners and administrators can manage access to data and projects. An enterprise account enables collaboration between multiple organizations, and allows owners to centrally manage policy, billing and security for these organizations. For more information on the differences, see "[Organizations and enterprise accounts](/organizations/collaborating-with-groups-in-organizations/about-organizations#organizations-and-enterprise-accounts)."
 
-如果选择企业帐户，请记住，某些策略只能在组织级别设置，而其他策略可以针对企业中的所有组织强制执行。
+If you choose an enterprise account, keep in mind that some policies can be set only at an organization level, while others can be enforced for all organizations in an enterprise.
 
-选择所需的帐户类型后，您可以继续设置帐户。 在本指南的每个部分中，根据您的帐户类型转到单个组织或企业帐户部分。
+Once you choose the account type you would like, you can proceed to setting up your account. In each of the sections in this guide, proceed to either the single organization or enterprise account section based on your account type.
 
-## 第 2 部分：设置您的帐户
-要开始使用 {% data variables.product.prodname_ghe_cloud %}，需要创建组织或企业帐户，并设置和查看计费设置、订阅和使用情况。
-### 使用 {% data variables.product.prodname_ghe_cloud %} 设置单个组织帐户
+## Part 2: Setting up your account
+To get started with {% data variables.product.prodname_ghe_cloud %}, you will want to create your organization or enterprise account and set up and view billing settings, subscriptions and usage.
+### Setting up a single organization account with {% data variables.product.prodname_ghe_cloud %}
 
-#### 1. 关于组织
-组织是共享帐户，供多个项目的人员同时协作之用。 借助 {% data variables.product.prodname_ghe_cloud %}，所有者和管理员可以通过复杂的用户身份验证和管理以及升级的支持和安全选项来管理其组织。 有关详细信息，请参阅[关于组织](/organizations/collaborating-with-groups-in-organizations/about-organizations)。
-#### 2. 创建或升级组织帐户
+#### 1. About organizations
+Organizations are shared accounts where groups of people can collaborate across many projects at once. With {% data variables.product.prodname_ghe_cloud %}, owners and administrators can manage their organization with sophisticated user authentication and management, as well as escalated support and security options. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
+#### 2. Creating or upgrading an organization account
 
-要将组织帐户与 {% data variables.product.prodname_ghe_cloud %} 配合使用，您首先需要创建一个组织。 当系统提示您选择计划时，选择“企业”。 有关详细信息，请参阅[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)。
+To use an organization account with {% data variables.product.prodname_ghe_cloud %}, you will first need to create an organization. When prompted to choose a plan, select "Enterprise". For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-或者，如果你有想要升级的现有组织帐户，请按照[升级 {% data variables.product.prodname_dotcom %} 订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)中的步骤操作。
-#### 3. 设置和管理计费
+Alternatively, if you have an existing organization account that you would like to upgrade, follow the steps in "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+#### 3. Setting up and managing billing
 
-如果选择将组织帐户与 {% data variables.product.prodname_ghe_cloud %} 配合使用，你将首先有权访问 [30 天试用版](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)。 如果您在试用期结束前未购买 {% data variables.product.prodname_enterprise %} 或 {% data variables.product.prodname_team %} ，您的组织将被降级为 {% data variables.product.prodname_free_user %}，并且无法访问仅付费产品中包含的任何高级工具和功能。 有关详细信息，请参阅[完成试用](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)。
+When you choose to use an organization account with {% data variables.product.prodname_ghe_cloud %}, you'll first have access to a [30-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %} before your trial ends, your organization will be downgraded to {% data variables.product.prodname_free_user %} and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
 
-通过组织的计费设置页面，可以管理付款方式和计费周期等设置、查看有关订阅的信息以及升级存储空间和 {% data variables.product.prodname_actions %} 分钟数。 有关管理计费设置的详细信息，请参阅[管理 {% data variables.product.prodname_dotcom %} 计费设置](/billing/managing-your-github-billing-settings)。
+Your organization's billing settings page allows you to manage settings like your payment method and billing cycle, view information about your subscription, and upgrade your storage and {% data variables.product.prodname_actions %} minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)."
 
-只有具有所有者或计费管理员角色的组织成员才能访问或更改组织的计费设置 。 帐单管理员是管理组织的计费设置的用户，不在组织的订阅中使用付费许可证。 有关将计费管理员添加到组织的详细信息，请参阅[为组织添加计费管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)。
+Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
 
-### 使用 {% data variables.product.prodname_ghe_cloud %} 设置企业帐户
+### Setting up an enterprise account with {% data variables.product.prodname_ghe_cloud %}
 
-#### 1. 关于企业帐户
+#### 1. About enterprise accounts
 
-企业帐户允许您集中管理多个 {% data variables.product.prodname_dotcom %} 组织的策略和设置，包括成员访问、计费、使用情况和安全性。 有关详细信息，请参阅[关于企业帐户](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)。
+An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
 
-#### 2. 创建企业帐户
+#### 2. Creating an enterpise account
 
- 通过发票付款的 {% data variables.product.prodname_ghe_cloud %} 客户可以直接通过 {% data variables.product.prodname_dotcom %} 创建企业帐户。 有关详细信息，请参阅“[创建企业帐户](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)”。 
+ {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)." 
  
- 目前未通过发票付款的 {% data variables.product.prodname_ghe_cloud %} 客户可以联系 [{% data variables.product.prodname_dotcom %} 的销售团队](https://enterprise.github.com/contact)为你创建企业帐户。
+ {% data variables.product.prodname_ghe_cloud %} customers not currently paying by invoice can contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact) to create an enterprise account for you.
 
-#### 3. 将组织添加到企业帐户
+#### 3. Adding organizations to your enterprise account
 
-您可以在企业帐户中创建要管理的新组织。 有关详细信息，请参阅[将组织添加到企业](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)。
+You can create new organizations to manage within your enterprise account. For more information, see "[Adding organizations to your enterprise](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 
-如果要将现有组织转移到企业帐户，请与 {% data variables.product.prodname_dotcom %} 销售客户代表联系。
-#### 4. 查看企业帐户的订阅和使用情况
-您可以随时查看企业帐户的当前订阅、许可证使用情况、发票、付款历史记录和其他帐单信息。 企业所有者和帐单管理员都可以访问和管理企业帐户的帐单设置。 有关详细信息，请参阅[查看企业帐户的订阅和使用情况](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)。
+Contact your {% data variables.product.prodname_dotcom %} sales account representative if you want to transfer an existing organization to your enterprise account.
+#### 4. Viewing the subscription and usage for your enterprise account
+You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[Viewing the subscription and usage for your enterprise account](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
-## 第 3 部分：使用 {% data variables.product.prodname_ghe_cloud %} 管理组织或企业成员和团队
+## Part 3: Managing your organization or enterprise members and teams with {% data variables.product.prodname_ghe_cloud %}
 
-### 管理组织中的成员和团队
-您可以设置权限和成员角色，创建和管理团队，并授予人员访问组织中存储库的权限。 
-#### 1. 管理组织成员
+### Managing members and teams in your organization
+You can set permissions and member roles, create and manage teams, and give people access to repositories in your organization. 
+#### 1. Managing members of your organization
 {% data reusables.getting-started.managing-org-members %}
-#### 2. 组织权限和角色
+#### 2. Organization permissions and roles
 {% data reusables.getting-started.org-permissions-and-roles %}
-#### 3. 关于和创建团队
+#### 3. About and creating teams
 {% data reusables.getting-started.about-and-creating-teams %}
-#### 4. 管理团队设置
+#### 4. Managing team settings
 {% data reusables.getting-started.managing-team-settings %}
-#### 5. 为人员和团队提供对存储库、项目板和应用的访问权限
+#### 5. Giving people and teams access to repositories, project boards and apps
 {% data reusables.getting-started.giving-access-to-repositories-projects-apps %}
 
-### 管理企业帐户的成员
-管理企业成员与管理组织中的成员或团队是分开的。 请务必注意，企业所有者或管理员无法访问组织级设置或管理其企业中组织的成员，除非他们成为组织所有者。 有关详细信息，请参阅上面的[管理组织中的成员和团队](#managing-members-and-teams-in-your-organization)部分。
+### Managing members of an enterprise account
+Managing members of an enterprise is separate from managing members or teams in an organization. It is important to note that enterprise owners or administrators cannot access organization-level settings or manage members for organizations in their enterprise unless they are made an organization owner. For more information, see the above section, "[Managing members and teams in your organization](#managing-members-and-teams-in-your-organization)."
 
-如果您的企业使用 {% data variables.product.prodname_emus %}，则您的成员将通过您的身份提供商进行完全管理。 添加成员、更改其成员身份以及分配角色都是使用您的 IdP 进行管理的。 有关详细信息，请参阅[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)。
+If your enterprise uses {% data variables.product.prodname_emus %}, your members are fully managed through your identity provider. Adding members, making changes to their membership, and assigning roles is all managed using your IdP. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 
-如果您的企业不使用 {% data variables.product.prodname_emus %}，请按照以下步骤操作。
+If your enterprise does not use {% data variables.product.prodname_emus %}, follow the steps below.
 
-#### 1. 在企业中分配角色
-默认情况下，企业中的每个人都是企业的成员。 还有一些管理角色，包括企业所有者和帐单管理员，它们对企业设置和数据具有不同级别的访问权限。 有关详细信息，请参阅[企业中的角色](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)。
-#### 2. 邀请人员管理企业
-您可以邀请人员以企业所有者或帐单管理员的身份管理您的企业，也可以删除不再需要访问权限的人员。 有关详细信息，请参阅[邀请人员管理企业](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)。
+#### 1. Assigning roles in an enterprise
+By default, everyone in an enterprise is a member of the enterprise. There are also administrative roles, including enterprise owner and billing manager, that have different levels of access to enterprise settings and data. For more information, see "[Roles in an enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+#### 2. Inviting people to manage your enterprise
+You can invite people to manage your enterprise as enterprise owners or billing managers, as well as remove those who no longer need access. For more information, see "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
-您还可以授予企业成员在支持门户中管理支持工单的能力。 有关详细信息，请参阅[管理企业的支持权利](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)。
-#### 3. 查看企业中的人员
-要审核对企业拥有的资源或用户许可证使用情况的访问，可以查看企业中的每个企业管理员、企业成员和外部协作者。 您可以查看成员所属的组织以及外部协作者有权访问的特定存储库。 有关详细信息，请参阅[查看企业中的人员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)。
+You can also grant enterprise members the ability to manage support tickets in the support portal. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+#### 3. Viewing people in your enterprise
+To audit access to enterprise-owned resources or user license usage, you can view every enterprise administrator, enterprise member, and outside collaborator in your enterprise. You can see the organizations that a member belongs to and the specific repositories that an outside collaborator has access to. For more information, see "[Viewing people in your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
 
-## 第 4 部分：使用 {% data variables.product.prodname_ghe_cloud %} 管理安全性
+## Part 4: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
-* [管理单个组织的安全性](#managing-security-for-a-single-organization)
-* [管理 {% data variables.product.prodname_emu_enterprise %} 的安全性](#managing-security-for-an-enterprise-with-managed-users)
-* [在没有 {% data variables.product.prodname_managed_users %} 的情况下管理企业帐户的安全性](#managing-security-for-an-enterprise-account-without-managed-users)
+* [Managing security for a single organization](#managing-security-for-a-single-organization)
+* [Managing security for an {% data variables.enterprise.prodname_emu_enterprise %}](#managing-security-for-an-enterprise-with-managed-users)
+* [Managing security for an enterprise account without {% data variables.enterprise.prodname_managed_users %}](#managing-security-for-an-enterprise-account-without-managed-users)
 
-### 管理单个组织的安全性
-通过要求双重身份验证、配置安全功能、查看组织的审核日志和集成以及启用 SAML 单点登录和团队同步，可以帮助确保组织的安全。
-#### 1. 需要双因素身份验证
+### Managing security for a single organization
+You can help keep your organization secure by requiring two-factor authentication, configuring security features, reviewing your organization's audit log and integrations, and enabling SAML single sign-on and team synchronization.
+#### 1. Requiring two-factor authentication
 {% data reusables.getting-started.requiring-2fa %}
-#### 2. 为组织配置安全功能
+#### 2. Configuring security features for your organization
 {% data reusables.getting-started.configuring-security-features %}
 
-#### 3. 查看组织的审核日志和集成
+#### 3. Reviewing your organization's audit log and integrations
 {% data reusables.getting-started.reviewing-org-audit-log-and-integrations %}
 
-#### 4. 为组织启用和强制实施 SAML 单一登录
-如果您使用身份提供商 (IdP) 管理应用程序和组织成员的身份，则可以配置 SAML 单点登录 (SSO) 来控制和保护对组织资源（如存储库、议题和拉取请求）的访问。 当您的组织成员访问使用 SAML SSO 的组织资源时，{% data variables.product.prodname_dotcom %} 会将其重定向到您的 IdP 进行身份验证。 有关详细信息，请参阅[关于使用 SAML 单一登录进行标识和访问管理](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)。
+#### 4. Enabling and enforcing SAML single sign-on for your organization
+If you manage your applications and the identities of your organization members with an identity provider (IdP), you can configure SAML single-sign-on (SSO) to control and secure access to organization resources like repositories, issues and pull requests. When members of your organization access organization resources that use SAML SSO, {% data variables.product.prodname_dotcom %} will redirect them to your IdP to authenticate. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
 
-组织所有者可以选择禁用、启用但不强制实施，或者启用并强制实施 SAML SSO。 有关详细信息，请参阅[为组织启用和测试 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)和[为组织强制实施 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)。
-#### 5. 管理组织的团队同步
-组织所有者可以在您的身份提供商 (IdP) 和 {% data variables.product.prodname_dotcom %} 之间启用团队同步，以允许组织所有者和团队维护员将组织中的团队与 IdP 组连接起来。 有关详细信息，请参阅[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)。
+Organization owners can choose to disable, enable but not enforce, or enable and enforce SAML SSO. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)" and "[Enforcing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)."
+#### 5. Managing team synchronization for your organization
+Organization owners can enable team synchronization between your identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organization owners and team maintainers to connect teams in your organization with IdP groups. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
-### 管理 {% data variables.product.prodname_emu_enterprise %} 的安全性
+### Managing security for an {% data variables.enterprise.prodname_emu_enterprise %}
 
-有了 {% data variables.product.prodname_emus %}，可通过身份提供商集中管理访问和身份。 应在您的 IdP 上启用并强制实施双重身份验证和其他登录要求。 
+With {% data variables.product.prodname_emus %}, access and identity is managed centrally through your identity provider. Two-factor authentication and other login requirements should be enabled and enforced on your IdP. 
 
-#### 1. 在 {% data variables.product.prodname_emu_enterprise %} 中启用和 SAML 单一登录和预配
+#### 1. Enabling and SAML single sign-on and provisioning in your {% data variables.enterprise.prodname_emu_enterprise %}
 
-在 {% data variables.product.prodname_emu_enterprise %} 中，所有成员都由身份提供商配置和管理。 您必须先启用 SAML SSO 和 SCIM 预配，然后才能开始使用企业。 有关为 {% data variables.product.prodname_emu_enterprise %} 配置 SAML SSO 和预配的详细信息，请参阅[为企业托管用户配置 SAML 单一登录](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)。
+In an {% data variables.enterprise.prodname_emu_enterprise %}, all members are provisioned and managed by your identity provider. You must enable SAML SSO and SCIM provisioning before you can start using your enterprise. For more information on configuring SAML SSO and provisioning for an {% data variables.enterprise.prodname_emu_enterprise %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
-#### 2. 使用标识提供者管理 {% data variables.product.prodname_emu_enterprise %} 中的团队
+#### 2. Managing teams in your {% data variables.enterprise.prodname_emu_enterprise %} with your identity provider
 
-您可以将组织中的团队连接到身份提供商中的安全组，管理团队的成员身份以及通过 IdP 访问存储库。 有关详细信息，请参阅[使用标识提供者组管理团队成员身份](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)。
+You can connect teams in your organizations to security groups in your identity provider, managing membership of your teams and access to repositories through your IdP. For more information, see "[Managing team memberships with identity provider groups](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
 
-#### 3. 管理 {% data variables.product.prodname_emu_enterprise %} 中允许用于组织的 IP 地址
+#### 3. Managing allowed IP addresses for organizations in your {% data variables.enterprise.prodname_emu_enterprise %}
 
-您可以为特定 IP 地址配置允许列表，以限制对 {% data variables.product.prodname_emu_enterprise %} 中组织拥有的资产的访问。 有关详细信息，请参阅[为企业中的安全设置强制实施策略](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)
+You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your {% data variables.enterprise.prodname_emu_enterprise %}. For more information, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
 
-#### 4. 在 {% data variables.product.prodname_emu_enterprise %} 中强制实施高级安全功能的策略
+#### 4. Enforcing policies for Advanced Security features in your {% data variables.enterprise.prodname_emu_enterprise %}
 {% data reusables.getting-started.enterprise-advanced-security %}
 
-### 在没有 {% data variables.product.prodname_managed_users %} 的情况下管理企业帐户的安全性
-要管理企业的安全性，可以要求双重身份验证、管理允许的 IP 地址、在企业级别启用 SAML 单点登录和团队同步，以及注册并强制实施 GitHub 高级安全功能。 
+### Managing security for an enterprise account without {% data variables.enterprise.prodname_managed_users %}
+To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization at an enterprise level, and sign up for and enforce GitHub Advanced Security features. 
 
-#### 1. 要求对企业帐户中的组织进行双因素身份验证并管理允许的 IP 地址
-企业所有者可以要求企业帐户拥有的所有组织中的组织成员、帐单管理员和外部协作者使用双重身份验证来保护其个人帐户。 在此之前，我们建议通知所有能够访问企业中组织的人。 您还可以为特定 IP 地址配置允许列表，以限制对企业帐户中组织拥有的资产的访问。 
+#### 1. Requiring two-factor authentication and managing allowed IP addresses for organizations in your enterprise account
+Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise account use two-factor authentication to secure their personal accounts. Before doing so, we recommend notifying all who have access to organizations in your enterprise. You can also configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. 
 
-有关强制实施双因素身份验证和允许的 IP 地址列表的详细信息，请参阅[在企业中强制实施安全设置策略](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)。
-#### 2. 为企业帐户中的组织启用和强制实施 SAML 单一登录
-您可以使用 IdP 和 SAM 单点登录 (SSO) 集中管理对企业资源、组织成员身份和团队成员身份的访问权限。 企业所有者可以在企业帐户拥有的所有组织中启用 SAML SSO。 有关详细信息，请参阅[关于企业标识和访问管理](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)。
+For more information on enforcing two-factor authentication and allowed IP address lists, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
+#### 2. Enabling and enforcing SAML single sign-on for organizations in your enterprise account
+You can centrally manage access to your enterprise's resources, organization membership and team membership using your IdP and SAM single sign-on (SSO). Enterprise owners can enable SAML SSO across all organizations owned by an enterprise account. For more information, see "[About identity and access management for your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
 
-#### 3. 管理团队同步
-您可以启用和管理身份提供商 (IdP) 与 {% data variables.product.prodname_dotcom %} 之间的团队同步，以允许您的企业帐户拥有的组织管理 IdP 组的团队成员身份。 有关详细信息，请参阅[管理企业帐户中组织的团队同步](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)
+#### 3. Managing team synchronization
+You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. For more information, see "[Managing team synchronization for organizations in your enterprise account](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
-#### 4. 在企业帐户中强制实施高级安全功能的策略
+#### 4. Enforcing policies for Advanced Security features in your enterprise account
 {% data reusables.getting-started.enterprise-advanced-security %}
 
-## 第 5 部分：管理组织和企业级策略和设置
+## Part 5: Managing organization and enterprise level policies and settings
 
-### 管理单个组织的设置
-要管理和审核组织，可以设置组织策略、管理存储库更改的权限以及使用组织级别的社区健康文件。
-#### 1. 管理组织策略
+### Managing settings for a single organization
+To manage and moderate your organization, you can set organization policies, manage permissions for repository changes, and use organization-level community health files.
+#### 1. Managing organization policies
 {% data reusables.getting-started.managing-org-policies %}
-#### 2. 管理存储库更改
+#### 2. Managing repository changes
 {% data reusables.getting-started.managing-repo-changes %}
-#### 3. 使用组织级别的社区运行状况文件和审查工具
+#### 3. Using organization-level community health files and moderation tools
 {% data reusables.getting-started.using-org-community-files-and-moderation-tools %}
 
-### 管理企业帐户的设置
-要管理和主持企业，可以为企业中的组织设置策略、查看审核日志、配置 web 挂钩以及限制电子邮件通知。
-#### 1. 管理企业帐户中组织的策略
+### Managing settings for an enterprise account
+To manage and moderate your enterprise, you can set policies for organizations within the enterprise, view audit logs, configure webhooks, and restrict email notifications.
+#### 1. Managing policies for organizations in your enterprise account
 
-您可以选择为企业拥有的所有组织强制实施多个策略，也可以选择允许在每个组织中设置这些策略。 您可以强制实施的策略类型包括存储库管理、项目板和团队策略。 有关详细信息，请参阅[为企业设置策略](/enterprise-cloud@latest/admin/policies)。
-#### 2. 查看审核日志、配置 Webhook 以及限制企业的电子邮件通知
-您可以在企业审核日志中查看企业帐户拥有的所有组织的操作。 您还可以将 web 挂钩配置为从企业帐户拥有的组织接收事件。 有关详细信息，请参阅[查看企业的审核日志](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)和[监视企业](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise)。
+You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, project board, and team policies. For more information, see "[Setting policies for your enterprise](/enterprise-cloud@latest/admin/policies)."
+#### 2. Viewing audit logs, configuring webhooks, and restricting email notifications for your enterprise
+You can view actions from all of the organizations owned by your enterprise account in the enterprise audit log. You can also configure webhooks to receive events from organizations owned by your enterprise account. For more information, see "[Reviewing audit logs for your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)" and "[Monitoring your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise)."
 
-您还可以限制企业帐户的电子邮件通知，以便企业成员只能使用已验证或已批准的域中的电子邮件地址来接收通知。 有关详细信息，请参阅[限制企业的电子邮件通知](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)。
+You can also restrict email notifications for your enterprise account so that enterprise members can only use an email address in a verified or approved domain to receive notifications. For more information, see "[Restricting email notifications for your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
 
-## 第 6 部分：自定义和自动化组织或企业在 {% data variables.product.prodname_dotcom %} 上的工作
-组织或企业的成员可以使用 {% data variables.product.prodname_marketplace %}、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 中的工具以及现有的 {% data variables.product.product_name %} 功能来自定义和自动化工作。
+## Part 6: Customizing and automating your organization or enterprise's work on {% data variables.product.prodname_dotcom %}
+Members of your organization or enterprise can use tools from the {% data variables.product.prodname_marketplace %}, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and existing {% data variables.product.product_name %} features to customize and automate your work.
 
-### 1. 使用 {% data variables.product.prodname_marketplace %}
+### 1. Using {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. 使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
-### 3. 生成 {% data variables.product.prodname_actions %}
+### 3. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
-### 4. 发布和管理 {% data variables.product.prodname_registry %} 
+### 4. Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
-### 5. 使用 {% data variables.product.prodname_pages %}
-{% data variables.product.prodname_pages %} 是一项静态站点托管服务，它直接从存储库获取 HTML、CSS 和 JavaScript 文件并发布网站。 您可以在组织级别管理 {% data variables.product.prodname_pages %} 站点的发布。 有关详细信息，请参阅[为组织管理 {% data variables.product.prodname_pages %} 站点的发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)和[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)。
-## 第 7 部分：参与 {% data variables.product.prodname_dotcom %} 的社区
+### 5. Using {% data variables.product.prodname_pages %}
+{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes a website. You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see  "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" and "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
+## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 
-组织或企业的成员可以使用 GitHub 的学习和支持资源来获得所需的帮助。 您还可以支持开源社区。 
+Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community. 
 
-### 1. 阅读 {% data variables.product.prodname_docs %} 上的 {% data variables.product.prodname_ghe_cloud %}
-您可以阅读反映 {% data variables.product.prodname_ghe_cloud %} 可用功能的文档。 有关详细信息，请参阅[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs)。
+### 1. Reading about {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_docs %}
+You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
-### 2. 通过 {% data variables.product.prodname_learning %} 学习
-组织或企业的成员可以通过在自己的 GitHub 存储库中使用 [{% data variables.product.prodname_learning %}](https://skills.github.com/) 完成有趣、逼真的项目来学习新技能。 每门课程都是由 GitHub 社区创建并由友好的机器人教授的实践课程。
+### 2. Learning with {% data variables.product.prodname_learning %}
+Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://skills.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by a friendly bot.
 
-有关详细信息，请参阅 [Git 和 {% data variables.product.prodname_dotcom %} 学习资源](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)。
-### 3. 支持开放源代码社区
+For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
+### 3. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 4. 联系 {% data variables.contact.github_support %}
+### 4. Contacting {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 
-{% data variables.product.prodname_ghe_cloud %} 允许您以八小时的目标响应时间提交优先支持请求。 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 支持](/github/working-with-github-support/github-enterprise-cloud-support)。
+{% data variables.product.prodname_ghe_cloud %} allows you to submit priority support requests with a target eight-hour response time. For more information, see "[{% data variables.product.prodname_ghe_cloud %} support](/github/working-with-github-support/github-enterprise-cloud-support)."

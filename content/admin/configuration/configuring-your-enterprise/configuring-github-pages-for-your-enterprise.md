@@ -66,11 +66,11 @@ If subdomain isolation is disabled for your enterprise, you should also disable 
 
 ## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
 
-You can add or override response headers for {% data variables.product.prodname_pages %} sites hosted by {% data variables.product.product_location %}.
+You can add or override response headers for {% data variables.product.prodname_pages %} sites hosted by {% data variables.location.product_location %}.
 
 {% warning %}
 
-**Warning:** Ensure that your response headers are properly configured before saving. Improper configurations may negatively impact the security of {% data variables.product.product_location %}.
+**Warning:** Ensure that your response headers are properly configured before saving. Improper configurations may negatively impact the security of {% data variables.location.product_location %}.
 
 {% endwarning %}
 

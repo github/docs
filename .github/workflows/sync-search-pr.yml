@@ -31,6 +31,7 @@ env:
 jobs:
   lint:
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
         with:

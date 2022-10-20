@@ -267,7 +267,7 @@ For more information, see the "[OAuth 2.0 Device Authorization Grant](https://to
 
 ## Non-Web application flow
 
-Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) to create a personal access token using your [Personal access tokens settings page](/articles/creating-an-access-token-for-command-line-use). This technique enables the user to revoke access at any time.
+Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) to create a {% data variables.product.pat_generic %} using your [{% data variables.product.pat_generic %}s settings page](/articles/creating-an-access-token-for-command-line-use). This technique enables the user to revoke access at any time.
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}

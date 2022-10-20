@@ -1,5 +1,5 @@
 ---
-title: 网络端口
+title: Network ports
 redirect_from:
   - /enterprise/admin/articles/configuring-firewalls
   - /enterprise/admin/articles/firewall
@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
-intro: 根据您需要为管理员、最终用户和电子邮件支持显示的网络服务有选择地打开网络端口。
+intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
 versions:
   ghes: '*'
 type: reference
@@ -17,58 +17,52 @@ topics:
   - Infrastructure
   - Networking
   - Security
-ms.openlocfilehash: eab2bed3f07c3e9e7ebad900047c1aa74a1d0bc1
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145100081'
 ---
-## 管理端口
+## Administrative ports
 
-配置 {% data variables.product.product_location %} 并运行某些功能需要一些管理端口。 最终用户在使用基本应用程序时不需要管理端口。
+Some administrative ports are required to configure {% data variables.location.product_location %} and run certain features. Administrative ports are not required for basic application use by end users.
 
-| 端口 | 服务 | 说明 |
+| Port | Service | Description |
 |---|---|---|
-| 8443 | HTTPS | 基于安全 Web 的 {% data variables.enterprise.management_console %}。 进行基本安装和配置时需要。 |
-| 8080 | HTTP | 基于纯文本 Web 的 {% data variables.enterprise.management_console %}。 除非手动禁用 TLS，否则不需要。 |
-| 122 | SSH | {% data variables.product.product_location %} 的 shell 访问权限。 需要对高可用性配置中所有节点之间的传入连接开放。 默认 SSH 端口 (22) 专用于 Git 和 SSH 应用程序网络流量。 |
-| 1194/UDP | VPN | 采用高可用性配置的安全复制网络隧道。 需要对配置中所有节点之间的通信开放。|
-| 123/UDP| NTP | 为时间协议操作所需。 |
-| 161/UDP | SNMP | 为网络监视协议操作所需。 |
+| 8443 | HTTPS | Secure web-based {% data variables.enterprise.management_console %}. Required for basic installation and configuration. |
+| 8080 | HTTP | Plain-text web-based {% data variables.enterprise.management_console %}. Not required unless TLS is disabled manually. |
+| 122 | SSH | Shell access for {% data variables.location.product_location %}. Required to be open to incoming connections between all nodes in a high availability configuration. The default SSH port (22) is dedicated to Git and SSH application network traffic. |
+| 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. Required to be open for communication between all nodes in the configuration.|
+| 123/UDP| NTP | Required for time protocol operation. |
+| 161/UDP | SNMP | Required for network monitoring protocol operation. |
 
-## 最终用户的应用程序端口
+## Application ports for end users
 
-应用程序端口为最终用户提供 Web 应用程序和 Git 访问。
+Application ports provide web application and Git access for end users.
 
-| 端口 | 服务 | 说明 |
+| Port | Service | Description |
 |---|---|---|
-| 443 | HTTPS | 通过 HTTPS 访问 Web 应用程序和 Git。 |
-| 80 | HTTP | 访问 Web 应用程序。 如果配置了 TLS，则所有请求都将重定向到 HTTPS 端口。 |
-| 22 | SSH | 通过 SSH 访问 Git。 支持对公共和私有仓库执行克隆、提取和推送操作。 |
-| 9418 | Git | Git 协议端口支持通过未加密网络通信对公共仓库执行克隆和提取操作。 {% data reusables.enterprise_installation.when-9418-necessary %} |
+| 443 | HTTPS | Access to the web application and Git over HTTPS. |
+| 80 | HTTP | Access to the web application. All requests are redirected to the HTTPS port if TLS is configured. |
+| 22 | SSH | Access to Git over SSH. Supports clone, fetch, and push operations to public and private repositories. |
+| 9418 | Git | Git protocol port supports clone and fetch operations to public repositories with unencrypted network communication. {% data reusables.enterprise_installation.when-9418-necessary %} |
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## 电子邮件端口
+## Email ports
 
-电子邮件端口必须可直接访问或通过中继访问，以便为最终用户提供入站电子邮件支持。
+Email ports must be accessible directly or via relay for inbound email support for end users.
 
-| 端口 | 服务 | 说明 |
+| Port | Service | Description |
 |---|---|---|
-| 25 | SMTP | 支持采用加密的 SMTP (STARTTLS)。 |
+| 25 | SMTP | Support for SMTP with encryption (STARTTLS). |
 
-## {% data variables.product.prodname_actions %} 端口
+## {% data variables.product.prodname_actions %} ports
 
-{% data variables.product.prodname_actions %} 端口必须可供自托管运行器访问才能连接到 {% data variables.product.product_location %}。 有关详细信息，请参阅[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-server)。
+{% data variables.product.prodname_actions %} ports must be accessible for self-hosted runners to connect to {% data variables.location.product_location %}. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-server)."
 
-| 端口 | 服务 | 说明 |
+| Port | Service | Description |
 |---|---|---|
-| 443 | HTTPS | 自托管运行器连接到 {% data variables.product.product_location %} 以接收作业分配并下载新版本的运行器应用程序。 如果配置了 TLS 则必填。
-| 80 | HTTP | 自托管运行器连接到 {% data variables.product.product_location %} 以接收作业分配并下载新版本的运行器应用程序。 如果未配置 TLS 则必填。
+| 443 | HTTPS | Self-hosted runners connect to {% data variables.location.product_location %} to receive job assignments and to download new versions of the runner application. Required if TLS is configured.
+| 80 | HTTP | Self-hosted runners connect to {% data variables.location.product_location %} to receive job assignments and to download new versions of the runner application. Required if TLS is not configured.
 
-如果启用对 {% data variables.product.prodname_dotcom_the_website %} 操作的自动访问， {% data variables.product.prodname_actions %} 将始终先通过这些端口搜索 {% data variables.product.product_location %} 上的操作，然后再检查 {% data variables.product.prodname_dotcom_the_website %}。 有关详细信息，请参阅“[使用 {% data variables.product.prodname_github_connect %} 启用对 {% data variables.product.prodname_dotcom_the_website %} 操作的自动访问](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#about-resolution-for-actions-using-github-connect)”。
+If you enable automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, {% data variables.product.prodname_actions %} will always search for an action on {% data variables.location.product_location %} first, via these ports, before checking {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#about-resolution-for-actions-using-github-connect)."
 
-## 延伸阅读
+## Further reading
 
-- “[配置 TLS](/admin/configuration/configuring-network-settings/configuring-tls)”
+- "[Configuring TLS](/admin/configuration/configuring-network-settings/configuring-tls)"

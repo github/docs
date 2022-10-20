@@ -14,6 +14,16 @@ In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted
 
 When you add a {% data variables.actions.hosted_runner %} to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the job demands of your organization, based on the autoscaling limits you define.
 
+## Machine specs for {% data variables.actions.hosted_runner %}s 
+
+|Size (vcpu) | Memory (GB) | Storage (SSD) |
+| ------------- | ------------- | ------------- |
+|4 cores | 16  RAM  | 150 GB|
+| 8 cores | 32 RAM | 300 GB |
+|16 cores| 64 RAM | 600 GB |
+|32 cores| 128 RAM| 1200 GB|
+|64 cores| 256 RAM | 2040 GB|
+
 ## Architectural overview of {% data variables.actions.hosted_runner %}s
 
 The {% data variables.actions.hosted_runner %}s are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target the label assigned to the {% data variables.actions.hosted_runner %}. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."

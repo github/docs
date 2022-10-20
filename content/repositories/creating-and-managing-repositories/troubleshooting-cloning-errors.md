@@ -50,7 +50,7 @@ There's no minimum Git version necessary to interact with {% data variables.prod
 
 ### Ensure the remote is correct
 
-The repository you're trying to fetch must exist on {% data variables.product.product_location %}, and the URL is case-sensitive.
+The repository you're trying to fetch must exist on {% data variables.location.product_location %}, and the URL is case-sensitive.
 
 You can find the URL of the local repository by opening the command line and
 typing `git remote -v`:
@@ -75,7 +75,7 @@ Alternatively, you can change the URL through our
 
 ### Provide an access token
 
-To access {% data variables.product.prodname_dotcom %}, you must authenticate with a personal access token instead of your password. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 {% data reusables.command_line.provide-an-access-token %}
 
@@ -95,7 +95,7 @@ If you've previously set up SSH keys, you can use the SSH clone URL instead of H
 
 ## Error: Repository not found
 
-{% ifversion fpt or ghae or ghec %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.product.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.
+{% ifversion fpt or ghae or ghec %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.location.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.
 
 ### Check your spelling
 
@@ -142,12 +142,12 @@ If your site administrator has enabled private mode on your GitHub Enterprise in
 
 ### Check that the repository really exists
 
-If all else fails, make sure that the repository really exists on {% data variables.product.product_location %}!
+If all else fails, make sure that the repository really exists on {% data variables.location.product_location %}!
 If you're trying to push to a repository that doesn't exist, you'll get this error.
 
 ## Error: Remote HEAD refers to nonexistent ref, unable to checkout
 
-This error occurs if the default branch of a repository has been deleted on {% data variables.product.product_location %}.
+This error occurs if the default branch of a repository has been deleted on {% data variables.location.product_location %}.
 
 Detecting this error is simple; Git will warn you when you try to clone the repository:
 
@@ -163,7 +163,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-To fix the error, you'll need to be an administrator of the repository on {% data variables.product.product_location %}.
+To fix the error, you'll need to be an administrator of the repository on {% data variables.location.product_location %}.
 You'll want to [change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
 After that, you can get a list of all the available branches from the command line:

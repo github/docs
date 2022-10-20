@@ -1,6 +1,6 @@
 ---
-title: ページネーションの詳細
-intro: Search API を使ったいくつかの例で、ページネーションを使用してレスポンスを扱うために方法を調べましょう。
+title: Traversing with pagination
+intro: Explore how to use pagination to manage your responses with some examples using the Search API.
 redirect_from:
   - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
@@ -12,83 +12,104 @@ versions:
 topics:
   - API
 shortTitle: Traverse with pagination
-ms.openlocfilehash: be0e961847e187b72848eda558636fe3ecb800bd
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145131331'
 ---
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは、開発者が利用できる情報を豊富に提供します。
-ほとんどの場合、多 _くの_ 情報を求めていることに気が付き、サーバーを満足させるために、API は [要求された項目を自動的に改ページ](/rest/overview/resources-in-the-rest-api#pagination)します。
 
-このガイドでは、Search API を呼び出し、ページネーションを使って結果を反復処理します。 このプロジェクトの完全なソース コードは、[platform-samples][platform samples] リポジトリにあります。
+The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume.
+Most of the time, you might even find that you're asking for _too much_ information,
+and in order to keep our servers happy, the API will automatically [paginate the requested items](/rest/overview/resources-in-the-rest-api#pagination).
+
+In this guide, we'll make some calls to the Search API, and iterate over
+the results using pagination. You can find the complete source code for this project
+in the [platform-samples][platform samples] repository.
 
 {% data reusables.rest-api.dotcom-only-guide-note %}
 
-## ページネーションの基本
+## Basics of Pagination
 
-はじめに、ページネーションされたアイテムの受け取りについて、いくつかの事実を知っておくことが重要です。
+To start with, it's important to know a few facts about receiving paginated items:
 
-1. 呼び出す API によって、応答するデフォルト値が異なります。 たとえば、[パブリック リポジトリの一覧表示](/rest/reference/repos#list-public-repositories)を呼び出すと、ページネーションされて提供されるのは 1 セットで 30 項目ですが、GitHub Search API を呼び出すと 1 セットで 100 項目になります
-2. 受け取るアイテムの数は指定できます (最大 100 まで)。
-3. ただし、技術的な理由により、すべてのエンドポイントが同じ動作をするわけではありません。 たとえば、[イベント](/rest/reference/activity#events)では受け取る項目数の最大値を設定できません。
-特定のエンドポイントにおけるページネーションされた結果の処理方法については、必ずドキュメントをお読みください。
+1. Different API calls respond with different defaults. For example, a call to
+[List public repositories](/rest/reference/repos#list-public-repositories)
+provides paginated items in sets of 30, whereas a call to the GitHub Search API
+provides items in sets of 100
+2. You can specify how many items to receive (up to a maximum of 100); but,
+3. For technical reasons, not every endpoint behaves the same. For example,
+[events](/rest/reference/activity#events) won't let you set a maximum for items to receive.
+Be sure to read the documentation on how to handle paginated results for specific endpoints.
 
-ページネーションに関する情報は、API 呼び出しの [Link ヘッダー](https://datatracker.ietf.org/doc/html/rfc5988)で提供されます。 たとえば、Search API に curl 要求を行って、Mozilla プロジェクトで `addClass` というフレーズが使われている回数を調べます。
+Information about pagination is provided in [the Link header](https://datatracker.ietf.org/doc/html/rfc5988)
+of an API call. For example, let's make a curl request to the search API, to find
+out how many times Mozilla projects use the phrase `addClass`:
 
 ```shell
 $ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla"
 ```
 
-`-I` パラメーターは、実際のコンテンツではなくヘッダーのみを扱うことを示します。 結果を調べると、Link ヘッダーの中に次のような情報があることがわかります。
+The `-I` parameter indicates that we only care about the headers, not the actual
+content. In examining the result, you'll notice some information in the Link header
+that looks like this:
 
     Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
-さて、細かく見ていきましょう。 `rel="next"` は、次のページが `page=2` であることを示します。 これは当然であり、既定では、すべてのページネーションされたクエリは `1.` ページから始まります。`rel="last"` でさらに情報が提供され、結果の最後のページが `34` ページであることを示します。
-つまり、`addClass` に関して利用できる情報はさらに 33 ページあります。
-成功です。
+Let's break that down. `rel="next"` says that the next page is `page=2`. This makes
+sense, since by default, all paginated queries start at page `1.` `rel="last"`
+provides some more information, stating that the last page of results is on page `34`.
+Thus, we have 33 more pages of information about `addClass` that we can consume.
+Nice!
 
-**常に**、提供されるこのリンク関係を利用します。 URLを推測したり、自分で構築したりしないでください。
+**Always** rely on these link relations provided to you. Don't try to guess or construct your own URL.
 
-### ページ間の移動
+### Navigating through the pages
 
-受け取るページ数がわかったので、ページ間を移動して結果を利用し始めることができます。 これを行うには、`page` パラメーターを渡します。 既定では、`page` は常に `1` から始まります。 14 ページまでジャンプして、どうなるか見てみましょう。
+Now that you know how many pages there are to receive, you can start navigating
+through the pages to consume the results. You do this by passing in a `page`
+parameter. By default, `page` always starts at `1`. Let's jump ahead to page 14
+and see what happens:
 
 ```shell
 $ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&page=14"
 ```
 
-ここでもう一度リンクヘッダを見てみます。
+Here's the link header once more:
 
     Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
-予想どおり、`rel="next"` は 15 になり、`rel="last"` はまだ 34 です。 ただし、最初`rel="first"`のページの _URL を示し、さらに重要な点として、_ 前のページのページ番号を知ることができるという、さらに多くの情報`rel="prev"`が得られます。 この情報を使うと、API 呼び出しの結果の最初、前、次、最後のリストにユーザーがジャンプできる UI を作成できます。
+As expected, `rel="next"` is at 15, and `rel="last"` is still 34. But now we've
+got some more information: `rel="first"` indicates the URL for the _first_ page,
+and more importantly, `rel="prev"` lets you know the page number of the previous
+page. Using this information, you could construct some UI that lets users jump
+between the first, previous, next, or last list of results in an API call.
 
-### 受け取るアイテム数の変更
+### Changing the number of items received
 
-`per_page` パラメーターを渡すことで、各ページで返される項目の数を、最大 100 まで指定できます。 `addClass` について 50 項目を要求してみましょう。
+By passing the `per_page` parameter, you can specify how many items you want
+each page to return, up to 100 items. Let's try asking for 50 items about `addClass`:
 
 ```shell
 $ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
-ヘッダのレスポンスに何が起こるかに注目してください。
+Notice what it does to the header response:
 
     Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
-想像したとおり、`rel="last"` の情報は、最後のページが 20 になったことを示しています。 これは、結果に関するページごとの情報を増やすよう要求しているからです。
+As you might have guessed, the `rel="last"` information says that the last page
+is now 20. This is because we are asking for more information per page about
+our results.
 
-## 情報の取得
+## Consuming the information
 
-ページネーションのためだけに低レベルの curl を呼び出したくはないので、上で説明したことをすべて行う簡単な Ruby スクリプトを書いてみましょう。
+You don't want to be making low-level curl calls just to be able to work with
+pagination, so let's write a little Ruby script that does everything we've
+just described above.
 
-いつものように、まずは [GitHub の Octokit.rb][octokit.rb] Ruby ライブラリが必要であり、[個人用アクセス トークン][personal token]を渡します。
+As always, first we'll require [GitHub's Octokit.rb][octokit.rb] Ruby library, and
+pass in our [{% data variables.product.pat_generic %}][personal token]:
 
 ``` ruby
 require 'octokit'
@@ -98,17 +119,26 @@ require 'octokit'
 client = Octokit::Client.new :access_token => ENV['MY_PERSONAL_TOKEN']
 ```
 
-次に、Octokit の `search_code` メソッドを使って検索を実行します。 `curl` を使う場合とは異なり、結果の数をすぐに取得することもできるので、そうしてみます。
+Next, we'll execute the search, using Octokit's `search_code` method. Unlike
+using `curl`, we can also immediately retrieve the number of results, so let's
+do that:
 
 ``` ruby
 results = client.search_code('addClass user:mozilla')
 total_count = results.total_count
 ```
 
-次に、リンク ヘッダーの `page=34>; rel="last"` 情報と同様に、最後のページの番号を取得します。 Octokit.rb では、"[ハイパーメディア リンク関係][hypermedia-relations]" という実装を通じて、ページネーションの情報がサポートされます。
-それについては詳しく説明しませんが、`results` 変数の各要素には `rels` というハッシュがあり、それには、現在の結果に応じて、`:next`、`:last`、`:first`、`:prev` に関する情報が含まれる、ということだけ知っておいてください。 また、これらの関係には、`rels[:last].href` を呼び出すことで、結果の URL に関する情報も含まれます。
+Now, let's grab the number of the last page, similar to `page=34>; rel="last"`
+information in the link header. Octokit.rb support pagination information through
+an implementation called "[Hypermedia link relations][hypermedia-relations]."
+We won't go into detail about what that is, but, suffice to say, each element
+in the `results` variable has a hash called `rels`, which can contain information
+about `:next`, `:last`, `:first`, and `:prev`, depending on which result you're
+on. These relations also contain information about the resulting URL, by calling
+`rels[:last].href`.
 
-これがわかったら、最後の結果のページ番号を取得し、ユーザーにすべての情報を示しましょう。
+Knowing this, let's grab the page number of the last result, and present all
+this information to the user:
 
 ``` ruby
 last_response = client.last_response
@@ -117,8 +147,13 @@ number_of_pages = last_response.rels[:last].href.match(/page=(\d+).*$/)[1]
 puts "There are #{total_count} results, on #{number_of_pages} pages!"
 ```
 
-最後に、結果を反復処理しましょう。 ループ `for i in 1..number_of_pages.to_i` でこれを行うこともできますが、ここでは `rels[:next]` ヘッダーに従って、各ページから情報を取得します。 簡単にするため、各ページから最初の結果のファイル パスだけを取得します。 これを行うには、ループが必要です。そして、各ループの最後で、`rels[:next]` の情報に従って、次のページのデータ セットを取得します。
-使用する `rels[:next]` 情報がなくなったら (つまり、`rels[:last]` にいます)、ループは終了します。 次のように表示されます。
+Finally, let's iterate through the results. You could do this with a loop `for i in 1..number_of_pages.to_i`,
+but instead, let's follow the `rels[:next]` headers to retrieve information from
+each page. For the sake of simplicity, let's just grab the file path of the first
+result from each page. To do this, we'll need a loop; and at the end of every loop,
+we'll retrieve the data set for the next page by following the `rels[:next]` information.
+The loop will finish when there is no `rels[:next]` information to consume (in other
+words, we are at `rels[:last]`). It might look something like this:
 
 ``` ruby
 puts last_response.data.items.first.path
@@ -128,7 +163,9 @@ until last_response.rels[:next].nil?
 end
 ```
 
-Octokit.rb では、ページあたりのアイテム数を変更することは非常に簡単です。 `per_page` オプションのハッシュを初期クライアントの構築に渡すだけです。 その後、コードはそのままでいいはずです。
+Changing the number of items per page is extremely simple with Octokit.rb. Simply
+pass a `per_page` options hash to the initial client construction. After that,
+your code should remain intact:
 
 ``` ruby
 require 'octokit'
@@ -155,15 +192,17 @@ until last_response.rels[:next].nil?
 end
 ```
 
-## ページネーションリンクの作成
+## Constructing Pagination Links
 
-通常、ページネーションの目的は、可能なすべての結果を連結することではなく、次のようなナビゲーションのセットを生成することです。
+Normally, with pagination, your goal isn't to concatenate all of the possible
+results, but rather, to produce a set of navigation, like this:
 
-![ページネーションリンクのサンプル](/assets/images/pagination_sample.png)
+![Sample of pagination links](/assets/images/pagination_sample.png)
 
-ここで起こりそうなことを小さなモデルを使って描いてみましょう。
+Let's sketch out a micro-version of what that might entail.
 
-上のコードから、最初の呼び出しからのページネーションされた結果で、`number_of_pages` を所得できることはすでに知っています。
+From the code above, we already know we can get the `number_of_pages` in the
+paginated results from the first call:
 
 ``` ruby
 require 'octokit'
@@ -182,7 +221,7 @@ puts last_response.rels[:last].href
 puts "There are #{total_count} results, on #{number_of_pages} pages!"
 ```
 
-ここから、数値ボックスを美しい ASCII 文字で構築できます。
+From there, we can construct a beautiful ASCII representation of the number boxes:
 ``` ruby
 numbers = ""
 for i in 1..number_of_pages.to_i
@@ -191,7 +230,8 @@ end
 puts numbers
 ```
 
-ランダムな番号を生成して、このボックスのいずれかをクリックするユーザーをシミュレートしてみます。
+Let's simulate a user clicking on one of these boxes, by constructing a random
+number:
 
 ``` ruby
 random_page = Random.new
@@ -200,13 +240,15 @@ random_page = random_page.rand(1..number_of_pages.to_i)
 puts "A User appeared, and clicked number #{random_page}!"
 ```
 
-ページ番号がわかったので、`:page` オプションを渡すことにより、Octokit を使ってその個別のページを明示的に取得できます。
+Now that we have a page number, we can use Octokit to explicitly retrieve that
+individual page, by passing the `:page` option:
 
 ``` ruby
 clicked_results = client.search_code('addClass user:mozilla', :page => random_page)
 ```
 
-もっと見栄えをよくしたければ、前のページと次のページを取得して、戻る要素 (`<<`) と進む要素 (`>>`) のリンクも生成できます。
+If we wanted to get fancy, we could also grab the previous and next pages, in
+order to generate links for back (`<<`) and forward (`>>`) elements:
 
 ``` ruby
 prev_page_href = client.last_response.rels[:prev] ? client.last_response.rels[:prev].href : "(none)"

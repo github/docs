@@ -1,7 +1,7 @@
 ---
-title: 企业 GitHub Packages 使用入门
+title: Getting started with GitHub Packages for your enterprise
 shortTitle: Getting started with GitHub Packages
-intro: '您可以通过启用功能、配置第三方存储、配置您想要支持的生态系统以及更新您的 TLS 证书，开始在 {% data variables.product.product_location %} 上使用 {% data variables.product.prodname_registry %}。'
+intro: 'You can start using {% data variables.product.prodname_registry %} on {% data variables.location.product_location %} by enabling the feature, configuring third-party storage, configuring the ecosystems you want to support, and updating your TLS certificate.'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
@@ -11,46 +11,42 @@ type: how_to
 topics:
   - Enterprise
   - Packages
-ms.openlocfilehash: 2389eba768a8b2f865165b43dde0e1b6381c6ae7
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '146199960'
 ---
+
+
 {% data reusables.package_registry.packages-cluster-support %}
 
-## 步骤 1：检查 {% data variables.product.prodname_registry %} 是否可用于您的企业
+## Step 1: Check whether {% data variables.product.prodname_registry %} is available for your enterprise
 
-{% data variables.product.prodname_registry %} 在 {% data variables.product.prodname_ghe_server %} 3.0 或更高版本中可用。 如果您使用的是早期版本的 {% data variables.product.prodname_ghe_server %}，则必须升级才能使用 {% data variables.product.prodname_registry %}。 有关升级 {% data variables.product.prodname_ghe_server %} 实例的详细信息，请参阅“[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)”。
-## 步骤 2：启用 {% data variables.product.prodname_registry %} 并配置外部存储
+{% data variables.product.prodname_registry %} is available in {% data variables.product.prodname_ghe_server %} 3.0 or higher. If you're using an earlier version of {% data variables.product.prodname_ghe_server %}, you'll have to upgrade to use {% data variables.product.prodname_registry %}. For more information about upgrading your {% data variables.product.prodname_ghe_server %} instance, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+## Step 2: Enable {% data variables.product.prodname_registry %} and configure external storage
 
-{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_registry %} 使用外部 Blob 存储来存储您的软件包。
+{% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} uses external blob storage to store your packages.
 
-在为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_registry %} 后，需要准备您的第三方存储桶。 所需的存储量取决于您对 {% data variables.product.prodname_registry %} 的使用，且设置指南可能因存储提供商而异。
+After enabling {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, you'll need to prepare your third-party storage bucket. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}, and the setup guidelines can vary by storage provider.
 
-支持的外部存储提供商
+Supported external storage providers
 - Amazon Web Services (AWS) S3 {% ifversion ghes %}
 - Azure Blob Storage {% endif %}
 - MinIO
 
-要启用 {% data variables.product.prodname_registry %} 并配置第三方存储，请参阅：
-  - [使用 AWS 启用 GitHub 包](/admin/packages/enabling-github-packages-with-aws){% ifversion ghes %}
-  - [使用 Azure Blob 存储启用 GitHub 包](/admin/packages/enabling-github-packages-with-azure-blob-storage){% endif %}
-  - [使用 MinIO 启用 GitHub Packages](/admin/packages/enabling-github-packages-with-minio)
+To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
+  - "[Enabling GitHub Packages with AWS](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
+  - "[Enabling GitHub Packages with Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
+  - "[Enabling GitHub Packages with MinIO](/admin/packages/enabling-github-packages-with-minio)"
 
-## 步骤 3：指定包生态系统以支持实例
+## Step 3: Specify the package ecosystems to support on your instance
 
-选择您要在 {% data variables.product.product_location %} 上启用、禁用或设置为只读的包生态系统。 可用选项包括 {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}、{% endif %}Docker、RubyGems、npm、Apache Maven、Gradle 或 NuGet。  有关详细信息，请参阅“[为企业配置包生态系统支持](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)”。
+Choose which package ecosystems you'd like to enable, disable, or set to read-only on {% data variables.location.product_location %}. Available options are {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet.  For more information, see "[Configuring package ecosystem support for your enterprise](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)."
 
-## 步骤 4：如果需要，请确保具有包主机 URL 的 TLS 证书
+## Step 4: Ensure you have a TLS certificate for your package host URL, if needed
 
-如果为 {% data variables.product.product_location %} 启用了子域隔离，则需要创建并上传 TLS 证书，该证书允许要使用的每个生态系统的包主机 URL，例如 `{% data reusables.package_registry.container-registry-hostname %}`。 确保每个包主机 URL 包含 `https://`。
+If subdomain isolation is enabled for {% data variables.location.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `{% data reusables.package_registry.container-registry-hostname %}`. Make sure each package host URL includes `https://`.
 
-  可以手动创建证书，也可以使用“让我们加密”。 如果已经使用“让我们加密”，必须在启用 {% data variables.product.prodname_registry %} 后申请新的 TLS 证书。 有关包主机 URL 的详细信息，请参阅“[启用子域隔离](/enterprise/admin/configuration/enabling-subdomain-isolation)”。 有关将 TLS 证书上传到 {% data variables.product.product_name %} 的详细信息，请参阅“[配置 TLS](/enterprise/admin/configuration/configuring-tls)”。
+  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)." For more information about uploading TLS certificates to {% data variables.product.product_name %}, see "[Configuring TLS](/enterprise/admin/configuration/configuring-tls)."
 
-## 步骤 5：检查并重命名保留名称
+## Step 5: Check for and rename reserved names
 
-如果要在禁用子域隔离的情况下使用 Docker 生态系统，必须先重命名 {% data variables.product.product_location %} 上名为 `v2` 的任何用户或组织，然后才能在 {% data variables.enterprise.management_console %} 中启用 Docker 生态系统支持。 Docker 使用 `v2` 帐户名称来管理与 Docker API 的路径冲突；启用 Docker 注册表支持后，将无法再使用此名称。
+If you want to use the Docker ecosystem with subdomain isolation disabled, you **must** first rename any user or organization named `v2` on {% data variables.location.product_location %}, prior to enabling Docker ecosystem support in the {% data variables.enterprise.management_console %}. Docker uses a `v2` account name to manage path conflicts with the Docker API, and once Docker registry support is enabled, you won't be able to use this name anymore.
 
-可导航到站点管理仪表板中的“保留登录名”页来查看已保留供内部使用的登录名完整列表。 有关详细信息，请参阅“[保留登录名](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins)”。
+You can view a full list of logins reserved for internal use by navigating to the "Reserved logins" page in the Site admin dashboard. For more information, see "[Reserved logins](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins)."

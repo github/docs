@@ -44,7 +44,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Introduct
 
 1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes %} For information about licensing, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
 2. Download the new license file. For more information, see "[Downloading your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
-3. Upload the new license file to {% data variables.product.product_location %}. For more information, see "[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes %}
+3. Upload the new license file to {% data variables.location.product_location %}. For more information, see "[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes %}
 4. Review the prerequisites for the features you plan to enable.
 
     - {% data variables.product.prodname_code_scanning_capc %}, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
@@ -68,11 +68,11 @@ When {% data variables.product.product_name %} has finished restarting, you're r
 
 ## Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} features via the administrative shell (SSH)
 
-You can enable or disable features programmatically on {% data variables.product.product_location %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
+You can enable or disable features programmatically on {% data variables.location.product_location %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
 
 For example, you can enable any {% data variables.product.prodname_GH_advanced_security %} feature with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
 
-1. SSH into {% data variables.product.product_location %}.
+1. SSH into {% data variables.location.product_location %}.
 1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     - To enable {% data variables.product.prodname_code_scanning_capc %}, enter the following commands.
