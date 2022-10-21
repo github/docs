@@ -33,9 +33,9 @@ From the advanced options page, users can change the preselected settings if req
 ## Creating an "Open in {% data variables.product.prodname_github_codespaces %}" badge
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under the repository name, use the "Branch" drop-down menu, and select the branch you want to create the badge for.
+1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create the badge for.
 
-   ![Screenshot of the Branch drop-down menu](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Screenshot of the Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
 
 1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
 

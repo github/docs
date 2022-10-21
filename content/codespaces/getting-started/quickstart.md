@@ -38,7 +38,7 @@ Once your codespace is created, your repository will be automatically cloned int
 
 1. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
 
-   ![Port forwarding toast](/assets/images/help/codespaces/quickstart-port-toast.png)
+   ![Port forwarding "toast" notification](/assets/images/help/codespaces/quickstart-port-toast.png)
 
 1. Click **Open in Browser** to view your running application in a new tab.
 
@@ -50,7 +50,7 @@ Once your codespace is created, your repository will be automatically cloned int
 
 1. Go back to the running application tab in your browser and refresh to see your changes.
    
-   {% octicon "light-bulb" aria-label="The lightbulb icon" %}  If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
+   {% octicon "light-bulb" aria-label="The lightbulb icon" %} If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
 
    ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
 
@@ -59,25 +59,25 @@ Once your codespace is created, your repository will be automatically cloned int
 Now that you've made a few changes, you can use the integrated terminal or the source view to commit and push the changes back to the remote.
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. To stage your changes, click  **+** next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
+1. To stage your changes, click **+** next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
-   ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![Source control sidebar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
 1. Type a commit message describing the change you've made.
 
-   ![Source control side bar with a commit message](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
+   ![Source control sidebar with a commit message](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
 
-1. To commit your staged changes, click the check mark at the top the source control side bar.
+1. To commit your staged changes, click the check mark at the top the source control sidebar.
 
-   ![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)  
+   ![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
 
    You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
 
-1. At the top of the side bar, click the ellipsis (**...**).
+1. At the top of the sidebar, click the ellipsis (**...**).
 
    ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
 
-1. In the drop-down menu, click **Push**.
+1. In the dropdown menu, click **Push**.
 1. Go back to your new repository on {% data variables.product.prodname_dotcom %} and view the `haikus.json` file. Check that the change you made in your codespace has been successfully pushed to the repository.
 
 ## Personalizing with an extension

@@ -31,7 +31,7 @@ This guide shows you how to set up your JavaScript, Node.js, or TypeScript proje
 
 ## Step 1: Open your project in a codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
    ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -165,9 +165,9 @@ In the previous section, you used the `postCreateCommand` to installing a set of
 
    ![npm start in terminal](/assets/images/help/codespaces/codespaces-npmstart.png)
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, containing a prompt to connect to the port your project uses.
 
-   ![Port forwarding toast](/assets/images/help/codespaces/codespaces-port-toast.png)
+   ![Port forwarding "toast" notification](/assets/images/help/codespaces/codespaces-port-toast.png)
 
 ## Step 5: Commit your changes
 

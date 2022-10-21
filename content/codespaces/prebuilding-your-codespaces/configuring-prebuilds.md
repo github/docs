@@ -33,7 +33,7 @@ Before you can configure prebuilds for your project the following must be true:
 
 1. Choose the branch for which you want to set up a prebuild.
 
-   ![The branch drop-down menu](/assets/images/help/codespaces/prebuilds-choose-branch.png)
+   ![The branch dropdown menu](/assets/images/help/codespaces/prebuilds-choose-branch.png)
 
    {% note %} 
 
@@ -41,9 +41,9 @@ Before you can configure prebuilds for your project the following must be true:
 
    {% endnote %}
 
-1. Optionally, in the **Configuration file** drop-down menu that's displayed, choose the `devcontainer.json` configuration file that you want to use for this prebuild. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
+1. Optionally, in the **Configuration file** dropdown menu that's displayed, choose the `devcontainer.json` configuration file that you want to use for this prebuild. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
 
-   ![The configuration file drop-down menu](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
+   ![The configuration file dropdown menu](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
 
 1. Choose how you want to automatically trigger updates of the prebuild.
 

@@ -25,7 +25,7 @@ This guide shows you how to set up your C# (.NET) project {% data reusables.code
 
 ## Step 1: Open your project in a codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -199,9 +199,9 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 
 1. Run your application by pressing `F5` or entering `dotnet watch run` in your terminal.
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, containing a prompt to connect to the port your project uses.
 
-   ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
+   ![Port forwarding "toast" notification](/assets/images/help/codespaces/python-port-forwarding.png)
 
 ## Step 5: Commit your changes
 
