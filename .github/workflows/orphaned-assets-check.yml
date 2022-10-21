@@ -7,7 +7,7 @@ name: 'Orphaned assets check'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '13 10 * * *' # Once a day at 10:13 UTC
+    - cron: '20 11 * * 1' # run every Monday at 11:20AM UTC
 
 permissions:
   contents: read
