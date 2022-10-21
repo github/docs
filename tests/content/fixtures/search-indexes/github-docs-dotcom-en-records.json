@@ -16,5 +16,14 @@
         "content": "Can't have foo if you don't also have bar.",
         "topics": ["Test", "Fixture", "Get started"],
         "popularity": 0.6
+    },
+    "/en/breadcrumbless": {
+        "objectID": "/en/bar",
+        "breadcrumbs": "",
+        "title": "Breadcrumbless",
+        "headings": "",
+        "content": "Not all pages have a breadcrumb. Fact of life.",
+        "topics": [],
+        "popularity": 0.1
     }
 }
