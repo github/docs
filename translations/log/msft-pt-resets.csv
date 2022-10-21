@@ -535,6 +535,7 @@ translations/pt-BR/content/authentication/securing-your-account-with-two-factor-
 translations/pt-BR/content/authentication/troubleshooting-commit-signature-verification/checking-your-commit-and-tag-signature-verification-status.md,broken liquid tags
 translations/pt-BR/content/authentication/troubleshooting-ssh/error-agent-admitted-failure-to-sign.md,broken liquid tags
 translations/pt-BR/content/authentication/troubleshooting-ssh/error-key-already-in-use.md,broken liquid tags
+translations/pt-BR/content/authentication/troubleshooting-ssh/recovering-your-ssh-key-passphrase.md,broken liquid tags
 translations/pt-BR/content/authentication/troubleshooting-ssh/using-ssh-over-the-https-port.md,broken liquid tags
 translations/pt-BR/content/billing/managing-billing-for-github-actions/about-billing-for-github-actions.md,broken liquid tags
 translations/pt-BR/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,broken liquid tags
@@ -1030,7 +1031,7 @@ translations/pt-BR/data/reusables/dependabot/beta-security-and-version-updates.m
 translations/pt-BR/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/pt-BR/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/pt-BR/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
-translations/pt-BR/data/reusables/dependabot/supported-package-managers.md,broken liquid tags
+translations/pt-BR/data/reusables/dependabot/supported-package-managers.md,rendering error
 translations/pt-BR/data/reusables/desktop/get-an-account.md,broken liquid tags
 translations/pt-BR/data/reusables/discussions/enabling-or-disabling-github-discussions-for-your-organization.md,broken liquid tags
 translations/pt-BR/data/reusables/discussions/navigate-to-repo-or-org.md,broken liquid tags
