@@ -85,12 +85,10 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 When you connect to a codespace using the browser, or the {% data variables.product.prodname_vscode %} desktop application, you can access the Visual Studio Code Marketplace directly from the editor. For this example, you'll install a {% data variables.product.prodname_vscode_shortname %} extension that alters the theme, but you can install any extension that's useful for your workflow.
 
 1. In the left sidebar, click the Extensions icon.
-
-1. In the search bar, enter `fairyfloss`.
+1. In the search bar, type `fairyfloss` and click **Install**.
 
    ![Add an extension](/assets/images/help/codespaces/add-extension.png)
 
-1. Click **Install**.
 1. Select the `fairyfloss` theme by selecting it from the list.
 
    ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
