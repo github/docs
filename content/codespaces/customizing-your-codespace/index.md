@@ -10,6 +10,7 @@ topics:
   - Codespaces
 children:
   - /personalizing-github-codespaces-for-your-account
+  - /renaming-a-codespace
   - /changing-the-machine-type-for-your-codespace
   - /setting-your-default-editor-for-github-codespaces
   - /setting-your-default-region-for-github-codespaces
