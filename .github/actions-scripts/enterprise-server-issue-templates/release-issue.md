@@ -64,12 +64,12 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
 
   ☝️ This will run a workflow **on every push to the PR** that will sync **only** the English index for the new version. This will make the GHES content searchable on staging throughout content creation, and will ensure the search updates go live at the same time the content is published. See [`contributing/search.md`](https://github.com/github/docs-internal/blob/main/contributing/search.md) for details.
 - [ ] Get the megabranch green with passing tests as soon as possible. This typically involves fixing broken links and working with engineering to address other unexpected test failures.
-- [ ] In `github/github`, to create a new GHES release follow these steps (some of these steps may have already been done):
-  - [ ] Copy the previous release's root document to a new root document for this release `cp app/api/description/ghes-<LATEST RELEASE NUMBER>.yaml app/api/description/ghes-<NEXT RELEASE NUMBER>.yaml`.
-  - [ ] Update the `externalDocs.url` property in that file to use the new GHES release number.
+- [ ] In `github/github`, use a Codespace to create a pull request that adds a new GHES release. Follow these steps (some of these steps may have already been done):
   - [ ] Copy the previous release's configuration file to a new configuration file for this release `cp app/api/description/config/releases/ghes-<LATEST RELEASE NUMBER>.yaml app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml`.
-  - [ ] Update the `variables.externalDocsUrl`, `variables.ghesVersion`, and `patch.[].value.url` in that file to use the new GHES release number.
+  - [ ] Update all references to the old GHES release number in that file  to use the new GHES release number. There are about 4 occurrences at the time of this writing:  `variables.externalDocsUrl`, `variables.ghesVersion`, and two keys under `patch` for the paths `/info/x-github-release` and `/externalDocs`.
   - [ ] Update `published` in that file to `false`. **Note:** This is important to ensure that changes for the next version of the OpenAPI schema changes are not made public until the new version is released.
+  - [ ] Run `./bin/openapi generate-root-files` to generate the `app/api/description/ghes-<LATEST RELEASE NUMBER>.yaml` file and merge the changes.
+  - [ ] Create a PR with the two file changes `app/api/description/ghes-<NEW RELEASE NUMBER>.yaml` and `app/api/description/config/releases/ghes-<NEW RELEASE NUMBER>.yaml`
   - [ ] Create a second PR based on the PR created ☝️ that toggles `published` to `true` in the `app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml` file. When this PR merges it will publish the new release to the `github/rest-api-description` repo and will trigger a pull request in the `github/docs-internal` repo with the schemas for the next GHES release. There is a step in this list to merge that PR in the "Before shipping the release branch" section.
 - [ ] At least once a day until release, merge `main` into the megabranch and resolve any conflicts or failing tests.
 
