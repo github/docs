@@ -185,7 +185,16 @@ You can also define a custom retention period for a specific artifact created by
 
 {% data reusables.actions.cache-default-size %} However, these default sizes might be different if an enterprise owner has changed them. {% data reusables.actions.cache-eviction-process %}
 
-You can set a total cache storage size for your repository up to the maximum size allowed by the enterprise policy setting.
+You can set a total cache storage size for your repository up to the maximum size allowed by the {% ifversion actions-cache-admin-ui %}organization or{% endif %} enterprise policy setting{% ifversion actions-cache-admin-ui %}s{% endif %}.
+
+{% ifversion actions-cache-admin-ui %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.actions.change-cache-size-limit  %}
+
+{% else %}
 
 The repository settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 
@@ -193,5 +202,7 @@ The repository settings for {% data variables.product.prodname_actions %} cache 
 * To change the cache storage limit for a repository, see "[Set GitHub Actions cache usage policy for a repository](/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository)."
 
 {% data reusables.actions.cache-no-org-policy %}
+
+{% endif %}
 
 {% endif %}

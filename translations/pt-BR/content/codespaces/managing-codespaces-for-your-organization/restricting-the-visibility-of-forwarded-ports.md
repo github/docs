@@ -45,25 +45,33 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Port visibility**.
 
-   ![Add a constraint for port visibility](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
+   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
 
 1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
 
-   ![Edit the port visibility constraint](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
+   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
 
 1. Clear the selection of the port visibility options (**Org** or **Public**) that you don't want to be available.
 
-   ![Choose the port visibility options](/assets/images/help/codespaces/choose-port-visibility-options.png)
+   ![Screenshot of clearing a port visibility option](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)," "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)," and "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
+   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
+   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
+   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
 1. After you've finished adding constraints to your policy, click **Save**.
+
+The policy will be applied to all new codespaces that are billable to your organization. The port visibility constraint is also applied to existing codespaces the next time they are started.
+
 ## Editing a policy
 
 You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
 1. Click the name of the policy you want to edit.
+1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Port visibility" constraint.
 1. Make the required changes then click **Save**.
 
 ## Deleting a policy 
@@ -71,4 +79,4 @@ You can edit an existing policy. For example, you may want to add or remove cons
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
 1. Click the delete button to the right of the policy you want to delete.
 
-   ![The delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)

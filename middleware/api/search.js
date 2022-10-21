@@ -277,7 +277,7 @@ async function handleGetSearchResultsError(req, res, error, options) {
     // where you might not have a HATSTACK_URL configured.
     if (reports) await Promise.all(reports)
   }
-  res.status(500).send(error.message)
+  res.status(500).json({ error: error.message })
 }
 
 // Alias for the latest version

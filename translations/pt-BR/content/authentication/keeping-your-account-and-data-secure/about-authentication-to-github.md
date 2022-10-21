@@ -105,7 +105,8 @@ To use a {% data variables.product.pat_generic %} or SSH key to access resources
 
 | Token type | Prefix | More information |
 | :- | :- | :- |
-| {% data variables.product.pat_generic_caps %} | `ghp_` | "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)" |
+| {% data variables.product.pat_v1_caps %} | `ghp_` | {% ifversion pat-v2 %}"[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token#creating-a-personal-access-token-classic)"{% else %}"[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)"{% endif %}  |{% ifversion pat-v2 %}
+| {% data variables.product.pat_v2_caps %} | `github_pat_` | "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)" |{% endif %}
 | OAuth access token | `gho_` | "[Authorizing {% data variables.product.prodname_oauth_apps %}](/developers/apps/authorizing-oauth-apps)" |
 | User-to-server token for a {% data variables.product.prodname_github_app %} | `ghu_` | "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/developers/apps/identifying-and-authorizing-users-for-github-apps)" |
 | Server-to-server token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)" |

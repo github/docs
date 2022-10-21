@@ -1,18 +1,11 @@
----
-ms.openlocfilehash: 621dfdbcdc0585f51536c924e1e5d0d9a140ff26
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147410655"
----
-{% ifversion fpt or ghec %} {% note %}
+{% ifversion fpt or ghec %}
+{% note %}
 
-**Nota:** En {% data variables.product.company_short %} se ha mejorado la seguridad mediante la eliminación de los tipos de clave antiguos y no seguros el 15 de marzo de 2022.
+**Note:** {% data variables.product.company_short %} improved security by dropping older, insecure key types on March 15, 2022.
 
-A partir de esa fecha, ya no se admiten las claves DSA (`ssh-dss`). No puedes agregar claves DSA nuevas a tu cuenta personal en {% data variables.product.product_location %}.
+As of that date, DSA keys (`ssh-dss`) are no longer supported. You cannot add new DSA keys to your personal account on {% data variables.location.product_location %}.
 
-Las claves RSA (`ssh-rsa`) con `valid_after` antes del 2 de noviembre de 2021 pueden seguir usando cualquier algoritmo de firma. Las llaves RSA que se generaron después de esta fecha deberán utilizar un algoritmo de firma de tipo SHA-2. Algunos clientes más angituos podrían necesitar actualizarse para poder utilizar firmas de tipo SHA-2.
+RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue to use any signature algorithm. RSA keys generated after that date must use a SHA-2 signature algorithm. Some older clients may need to be upgraded in order to use SHA-2 signatures.
 
 {% endnote %}
 
@@ -20,15 +13,15 @@ Las claves RSA (`ssh-rsa`) con `valid_after` antes del 2 de noviembre de 2021 pu
 
 {% note %}
 
-**Nota**: De forma predeterminada, con {% data variables.product.product_name %} 3.6 y versiones posteriores, a partir de la fecha límite de medianoche UTC del 1 de agosto de 2022, se producirá un error en las conexiones SSH que cumplan **las dos** condiciones siguientes.
+**Note**: By default with {% data variables.product.product_name %} 3.6 and later, as of the cutoff date of midnight UTC on August 1, 2022, SSH connections that satisfy **both** of the following conditions will fail.
 
 <br/>
 
 {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
 
-{% data variables.product.product_name %} 3.6 y versiones posteriores tampoco admite conexiones SSH que usan cifrados DSA, HMAC-SHA-1 o CBC. Las claves SSH RSA cargadas antes de la fecha límite pueden seguir autenticándose mediante la función hash SHA-1, siempre que la clave siga siendo válida. Para obtener más información sobre cómo encontrar la versión de {% data variables.product.product_name %} que usas, consulta "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)".
+{% data variables.product.product_name %} 3.6 and later also does not support SSH connections that use DSA, HMAC-SHA-1, or CBC ciphers. RSA SSH keys uploaded before the cutoff date can continue to authenticate using the SHA-1 hash function as long as the key remains valid. For more information about finding the version of {% data variables.product.product_name %} that you use, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
 
-El administrador del sitio puede ajustar la fecha límite de las conexiones que utilizan RSA-SHA-1 y puede bloquear todas las conexiones que utilizan RSA-SHA-1. Para obtener más información, ponte en contacto con el administrador del sitio o consulta "[Configuración de conexiones SSH a la instancia](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)".
+Your site administrator can adjust the cutoff date for connections using RSA-SHA-1, and may block all connections using RSA-SHA-1. For more information, contact your site administrator or see "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."
 
 {% endnote %}
 

@@ -1,9 +1,1 @@
----
-ms.openlocfilehash: fe256174b44832c81951d9e4f012faba2036e672
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147687212"
----
-1. Para cada una de las cuentas, crea un PAT dedicado con ámbito `repo`. Para más información, vea "[Creación de un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+1. For each of your accounts, create a dedicated {% data variables.product.pat_v1 %} with `repo` scope. {% ifversion pat-v2 %}Or, for each of your accounts and for each organization that you are a member of, create a {% data variables.product.pat_v2 %} that can access the desired repositories and that has read and write permissions on repository contents.{% endif %} For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."

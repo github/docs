@@ -9628,17 +9628,22 @@ input EnablePullRequestAutoMergeInput {
   clientMutationId: String
 
   """
-  Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.
+  Commit body to use for the commit when the PR is mergable; if omitted, a
+  default message will be used. NOTE: when merging with a merge queue any input
+  value for commit message is ignored.
   """
   commitBody: String
 
   """
-  Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.
+  Commit headline to use for the commit when the PR is mergable; if omitted, a
+  default message will be used. NOTE: when merging with a merge queue any input
+  value for commit headline is ignored.
   """
   commitHeadline: String
 
   """
-  The merge method to use. If omitted, defaults to `MERGE`
+  The merge method to use. If omitted, defaults to `MERGE`. NOTE: when merging
+  with a merge queue any input value for merge method is ignored.
   """
   mergeMethod: PullRequestMergeMethod = MERGE
 
@@ -39515,6 +39520,11 @@ type TreeEntry {
   Whether or not this tree entry is generated
   """
   isGenerated: Boolean!
+
+  """
+  The programming language this file is written in.
+  """
+  language: Language
 
   """
   Number of lines in the file.
