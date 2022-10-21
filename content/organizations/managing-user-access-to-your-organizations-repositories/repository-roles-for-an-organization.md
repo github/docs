@@ -74,7 +74,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Have an issue assigned to them | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
 | Send pull requests from forks of the team's assigned repositories | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
 | [Submit reviews on pull requests](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request) | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
-| [Submit reviews that affect a pull request's mergeability](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews) | | | **✔️** | **✔️** | **✔️** |
+| [Approve or request changes to a pull request with required reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews) | | | **✔️** | **✔️** | **✔️** |
 | [Apply suggested changes](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request) to pull requests | | | **✔️** | **✔️** | **✔️** |
 | View published releases | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |{% ifversion fpt or ghec %}
 | View [GitHub Actions workflow runs](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run) | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |{% endif %}
