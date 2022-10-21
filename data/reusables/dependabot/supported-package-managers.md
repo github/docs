@@ -25,7 +25,8 @@ pip-compile    | `pip`            | 6.1.0            | | **✓** | |
 poetry         | `pip`            | v1               | | **✓** | |{% ifversion fpt or ghec or ghes > 3.4 %}
 pub            | `pub`            | v2 <sup>[4]</sup> | | | |{% endif %}
 Terraform      | `terraform`      | >= 0.13, <= 1.2.x  | **✓** | **✓** | |
-yarn           | `npm`            | v1               | **✓** | **✓** | |
+{% ifversion dependabot-yarn-v3-update %}yarn           | `npm`            | v1, v2, v3       | **✓** | **✓** | **✓**<sup>[5]</sup> |{% else %}yarn           | `npm`            | v1               | **✓** | **✓** |  |
+{% endif %}
 
 {% tip %}
 
@@ -47,3 +48,6 @@ yarn           | `npm`            | v1               | **✓** | **✓** | |
    For information about configuring your _dependabot.yml_ file for `pub`, see "[Enabling support for beta-level ecosystems](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)."
    {%- else %}{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.{% endif %}
 {% endif %} 
+
+{% ifversion dependabot-yarn-v3-update %}
+[5] Dependabot supports vendored dependencies for v2 onwards.{% endif %}

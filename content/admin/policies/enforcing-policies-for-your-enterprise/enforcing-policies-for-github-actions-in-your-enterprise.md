@@ -168,9 +168,19 @@ By default, when you create a new enterprise, workflows are not allowed to creat
 
 {% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}
 
-However, you can set an enterprise policy to customize both the default total cache size for each repository, as well as the maximum total cache size allowed for a repository. For example, you might want the default total cache size for each repository to be 5 GB, but also allow repository administrators to configure a total cache size up to 15 GB if necessary.
+However, you can set an enterprise policy to customize both the default total cache size for each repository, as well as the maximum total cache size allowed for a repository. For example, you might want the default total cache size for each repository to be 5 GB, but also allow {% ifversion actions-cache-admin-ui %}organization owners and{% endif %} repository administrators to configure a total cache size up to 15 GB if necessary.
 
-People with admin access to a repository can set a total cache size for their repository up to the maximum cache size allowed by the enterprise policy setting.
+{% ifversion actions-cache-admin-ui %}Organization owners can set a lower total cache size that applies to each repository in their organization. {% endif %}People with admin access to a repository can set a total cache size for their repository up to the maximum cache size allowed by the enterprise {% ifversion actions-cache-admin-ui %}or organization{% endif %} policy setting.
+
+{% ifversion actions-cache-admin-ui %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. In the "Artifact, cache and log settings" section, under **Maximum cache size limit**, enter a value, then click **Save** to apply the setting.
+1. In the "Artifact, cache and log settings" section, under **Default cache size limit**, enter a value, then click **Save** to apply the setting.
+
+{% else %}
 
 The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 
@@ -178,5 +188,7 @@ The policy settings for {% data variables.product.prodname_actions %} cache stor
 * To change the enterprise policy settings, see "[Set GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
 
 {% data reusables.actions.cache-no-org-policy %}
+
+{% endif %}
 
 {% endif %}

@@ -97,7 +97,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: 'echo "No build required" '
+      - run: 'echo "No build required"'
 ```
 Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
 

@@ -14,7 +14,9 @@ topics:
 
 ## Overview
 
-Typically, when you create a codespace you are offered a choice of specifications for the machine that will run your codespace. You can choose the machine type that best suits your needs. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." If you pay for using {% data variables.product.prodname_github_codespaces %} then your choice of machine type will affect how much your are billed. For more information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+Typically, when you create a codespace you are offered a choice of specifications for the machine that will run your codespace. You can choose the machine type that best suits your needs. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." 
+
+If you pay for using {% data variables.product.prodname_github_codespaces %} then your choice of machine type will affect how much your are billed. The compute cost for a codespace is proportional to the number of processor cores in the machine type you choose. For example, the compute cost of using a codespace for an hour on a 16-core machine is eight times greater than a 2-core machine. For more information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 As an organization owner, you may want to configure constraints on the types of machine that are available. For example, if the work in your organization doesn't require significant compute power or storage space, you can remove the highly resourced machines from the list of options that people can choose from. You do this by defining one or more policies in the {% data variables.product.prodname_github_codespaces %} settings for your organization.
 
@@ -52,21 +54,29 @@ If you add an organization-wide policy, you should set it to the largest choice 
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Machine types**.
 
-   ![Add a constraint for machine types](/assets/images/help/codespaces/add-constraint-dropdown.png)
+   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown.png)
 
 1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint, then clear the selection of any machine types that you don't want to be available.
 
-   ![Edit the machine type constraint](/assets/images/help/codespaces/edit-machine-constraint.png)
+   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-machine-constraint.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)," "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)," and "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
+   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
+   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
+   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
+   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
 1. After you've finished adding constraints to your policy, click **Save**.
+
+The policy will be applied to all new codespaces that are billable to your organization. The machine type constraint is also applied to existing codespaces when someone attempts to restart a stopped codespace or reconnect to an active codespace.
+
 ## Editing a policy
 
 You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
 1. Click the name of the policy you want to edit.
+1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Machine types" constraint.
 1. Make the required changes then click **Save**.
 
 ## Deleting a policy 
@@ -74,7 +84,7 @@ You can edit an existing policy. For example, you may want to add or remove cons
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
 1. Click the delete button to the right of the policy you want to delete.
 
-   ![The delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
 
 ## Further reading
 
