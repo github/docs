@@ -22,6 +22,7 @@ children:
   - /managing-team-memberships-with-identity-provider-groups
   - /about-support-for-your-idps-conditional-access-policy
   - /migrating-from-saml-to-oidc
+  - /migrating-your-enterprise-to-a-new-identity-provider-or-tenant
 ms.openlocfilehash: 0d8cc71db11e7eb094b0771f8e03a690f449e380
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
