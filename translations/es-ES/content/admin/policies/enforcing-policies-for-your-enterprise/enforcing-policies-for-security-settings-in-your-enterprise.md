@@ -183,7 +183,7 @@ To prevent confusion from your developers, you can change this behavior so that 
 
 {% note %}
 
-**Note:** If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.product.prodname_managed_user %}. For more information, see "[Managing multiple accounts](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."
+**Note:** If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.enterprise.prodname_managed_user %}. For more information, see "[Managing multiple accounts](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."
 
 {% endnote %}
 

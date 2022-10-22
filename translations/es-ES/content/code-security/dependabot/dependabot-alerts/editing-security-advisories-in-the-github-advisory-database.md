@@ -32,7 +32,7 @@ Only repository owners and administrators can edit repository-level security adv
    
    ![Screenshot of the suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory.png)
 
-1. In the contribution form, make the desired improvements. You can edit or add any detail.{% ifversion security-advisories-reason-for-change %}
+1. In the "Improve security advisory" form, make the desired improvements. You can edit or add any detail.{% ifversion fpt or ghec %} For information about correctly specifying information on the form, including affected versions, see "[Best practices for writing repository security advisories](/code-security/repository-security-advisories/best-practices-for-writing-repository-security-advisories)."{% endif %}{% ifversion security-advisories-reason-for-change %}
 1. Under **Reason for change**, explain why you want to make this improvement. If you include links to supporting material this will help our reviewers.
    
    ![Screenshot of the reason for change field](/assets/images/help/security/security-advisories-suggest-improvement-reason.png){% endif %}
@@ -43,9 +43,9 @@ Only repository owners and administrators can edit repository-level security adv
 You can also open a pull request directly on an advisory file in the [github/advisory-database](https://github.com/github/advisory-database) repository. For more information, see the [contribution guidelines](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md). 
 
 {% ifversion security-advisories-ghes-ghae %}
-## Editing advisories from {% data variables.product.product_location %}
+## Editing advisories from {% data variables.location.product_location %}
 
-If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.product.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url. 
+If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.location.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url. 
 
 1. Navigate to `https://HOSTNAME/advisories`.
 2. Select the security advisory you would like to contribute to.

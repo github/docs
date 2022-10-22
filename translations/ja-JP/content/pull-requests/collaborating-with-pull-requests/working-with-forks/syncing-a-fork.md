@@ -1,6 +1,6 @@
 ---
-title: フォークを同期する
-intro: リポジトリのフォークを最新に保つために上流リポジトリと同期します。
+title: Syncing a fork
+intro: Sync a fork of a repository to keep it up-to-date with the upstream repository.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/syncing-a-fork
   - /articles/syncing-a-fork
@@ -19,48 +19,44 @@ versions:
 topics:
   - Pull requests
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
-ms.openlocfilehash: 7c4c97c271e6e151c509a33e53c126190e8e5feb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147540835'
 ---
-## Web UI からフォークのブランチを同期する
+
+## Syncing a fork branch from the web UI
 
 {% ifversion syncing-fork-web-ui %}
-1. {% data variables.product.product_name %} で、アップストリーム リポジトリと同期するフォークされたリポジトリのメイン ページに移動します。
-2. **[フォークの同期]** ドロップダウンを選択します。
-    ![[フォークの同期] ドロップダウンが強調されている](/assets/images/help/repository/sync-fork-dropdown.png)
-3. アップストリーム リポジトリからのコミットの詳細を確認し、 **[ブランチを更新]** をクリックします。
-    ![[ブランチを更新] ボタンが強調された [フォークの同期] モーダル](/assets/images/help/repository/update-branch-button.png) {% else %}
-1. {% data variables.product.product_name %} で、アップストリーム リポジトリと同期するフォークされたリポジトリのメイン ページに移動します。
-2. **[アップストリームのフェッチ]** ドロップダウンを選択します。
-    ![[アップストリームのフェッチ] ドロップダウン](/assets/images/help/repository/fetch-upstream-drop-down.png)
-3. アップストリーム リポジトリからのコミットの詳細を確認し、 **[フェッチしてマージ]** をクリックします。
-    ![[フェッチしてマージ] ボタン](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
+1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
+2. Select the **Sync fork** dropdown.
+    !["Sync fork" dropdown emphasized](/assets/images/help/repository/sync-fork-dropdown.png)
+3. Review the details about the commits from the upstream repository, then click **Update branch**.
+    ![Sync fork modal with "Update branch" button emphasized](/assets/images/help/repository/update-branch-button.png)
+{% else %}
+1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
+2. Select the **Fetch upstream** dropdown.
+    !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
+3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
+    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
-アップストリーム リポジトリからの変更によって競合が発生した場合、{% data variables.product.company_short %} は競合を解決するためのプルリクエストを作成するように求められます。
+If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
-## {% data variables.product.prodname_cli %} を使ってフォークのブランチを同期する
+## Syncing a fork branch with the {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %}{% data variables.product.prodname_cli %} の詳細については、「[{% data variables.product.prodname_cli %} について](/github-cli/github-cli/about-github-cli)」を参照してください。
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-親からリモート フォークを更新するには、`gh repo sync -b BRANCHNAME` サブコマンドを使って、フォークとブランチの名前を引数として指定します。
+To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
 
 ```shell
-$ gh repo sync owner/cli-fork -b BRANCHNAME
+$ gh repo sync owner/cli-fork -b BRANCH_NAME
 ```
 
-アップストリーム リポジトリからの変更によって競合が発生した場合、{% data variables.product.prodname_cli %} では同期できません。宛先ブランチを上書きするように `-force` フラグを設定できます。
+If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
 
-## コマンド ラインからフォークのブランチを同期する
+## Syncing a fork branch from the command line
 
-フォークをアップストリーム リポジトリと同期する前に、Git で[アップストリーム リポジトリを指すリモートを構成する](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)必要があります。
+Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. ワーキングディレクトリをローカルプロジェクトに変更します。
-3. 上流リポジトリから、ブランチと各ブランチのコミットをフェッチします。 `BRANCHNAME` へのコミットは、ローカル ブランチ `upstream/BRANCHNAME` に格納されます。
+2. Change the current working directory to your local project.
+3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
 
   ```shell
   $ git fetch upstream
@@ -68,18 +64,18 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
   > remote: Compressing objects: 100% (53/53), done.
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
-  > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
+  > From https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY
   >  * [new branch]      main     -> upstream/main
   ```
 
-4. フォークのローカルのデフォルト ブランチを確認します。この場合は `main` を使用します。
+4. Check out your fork's local default branch - in this case, we use `main`.
 
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
 
-5. 上流のデフォルト ブランチ (この場合は `upstream/main`) からの変更をローカルのデフォルト ブランチにマージします。 これにより、ローカルの変更を失うことなく、フォークのデフォルトブランチが上流リポジトリと同期されます。
+5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
 
   ```shell
   $ git merge upstream/main
@@ -92,7 +88,7 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
   >  create mode 100644 README.md
   ```
   
-  ローカル ブランチに一意のコミットがなかった場合、Git は早送りを実行します。 詳細については、Git ドキュメントの「[基本的な分岐とマージ](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)」をご覧ください。
+  If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
@@ -100,10 +96,10 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
   ``` 
-  ローカル ブランチに一意のコミットがある場合は、競合の解決が必要になる場合があります。 詳細については、「[マージ コンフリクトに対処する](/github/collaborating-with-pull-requests/addressing-merge-conflicts)」を参照してください。
+  If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
 {% tip %}
 
-**ヒント**: フォークの同期では、リポジトリのローカル コピーだけが更新されます。 {% data variables.product.product_location %} のフォークを更新するには、[変更をプッシュ](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)する必要があります。
+**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

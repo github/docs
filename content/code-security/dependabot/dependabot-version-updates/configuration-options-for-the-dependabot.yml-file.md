@@ -860,7 +860,7 @@ registries:
 
 The `npm-registry` type supports username and password, or token.
 
-When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
+When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password. 
 
 {% raw %}
 ```yaml
@@ -882,6 +882,8 @@ registries:
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
 {% endraw %}
+{% ifversion dependabot-yarn-v3-update %}
+For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.{% endif %}
 
 ### `nuget-feed`
 

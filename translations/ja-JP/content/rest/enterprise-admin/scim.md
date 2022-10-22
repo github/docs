@@ -14,6 +14,7 @@ miniTocMaxHeadingLevel: 3
 
 {% endnote %}
 
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 ## About the SCIM API
 
 {% data variables.product.product_name %} provides a SCIM API for use by SCIM-enabled Identity Providers (IdPs). An integration on the IdP can use the API to automatically provision, manage, or deprovision user accounts on a {% data variables.product.product_name %} instance that uses SAML single sign-on (SSO) for authentication. For more information about SAML SSO, see "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
@@ -38,11 +39,11 @@ GET /scim/v2/Users/{scim_user_id}
 
 The SCIM integration on the IdP performs actions on behalf of an enterprise owner for the {% data variables.product.product_name %} instance. For more information, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)."
 
-To authenticate requests to the API, the person who configures SCIM on the IdP must use a personal access token (classic) with `admin:enterprise` scope, which the IdP must provide in the request's `Authorization` header. For more information about personal access tokens (classic), see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+To authenticate requests to the API, the person who configures SCIM on the IdP must use a {% data variables.product.pat_v1 %} with `admin:enterprise` scope, which the IdP must provide in the request's `Authorization` header. For more information about {% data variables.product.pat_v1_plural %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 
 {% note %}
 
-**Note:** Enterprise owners must generate and use a personal access token (classic) for authentication of requests to the SCIM API. {% ifversion ghes > 3.8 %}Fine-grained personal access tokens and {% endif %}GitHub app callers are not supported at this time.
+**Note:** Enterprise owners must generate and use a {% data variables.product.pat_v1 %} for authentication of requests to the SCIM API. {% ifversion ghes > 3.8 %}{% data variables.product.pat_v2_caps %} and {% endif %}GitHub app callers are not supported at this time.
 
 {% endnote %}
 

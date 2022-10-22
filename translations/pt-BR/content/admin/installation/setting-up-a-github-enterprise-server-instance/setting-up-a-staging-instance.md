@@ -17,7 +17,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About staging instances
 
-{% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.product.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
+{% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.location.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
 
 For example, to protect against loss of data, you can regularly validate the backup of your production instance. You can regularly restore the backup of your production data to a separate {% data variables.product.product_name %} instance in a staging environment. On this staging instance, you could also test the upgrade to the latest feature release of {% data variables.product.product_name %}.
 
@@ -93,7 +93,7 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
 
 {% warning %}
 
-**Warning**: If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance.
+**Warning**: If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance.
 
 {% endwarning %}
 
@@ -128,7 +128,7 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
 
 Use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
 
-If the staging instance is already configured and you're about to overwrite settings, certificate, and license data, add the `-c` option to the command. For more information about the option, see [Using the backup and restore commands](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license) in the {% data variables.product.prodname_enterprise_backup_utilities %} documentation.
+If the staging instance is already configured and you want to overwrite settings, certificate, and license data, add the `-c` option to the command. For more information about the option, see [Using the backup and restore commands](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license) in the {% data variables.product.prodname_enterprise_backup_utilities %} documentation.
 
 ### 6. Review the instance's configuration
 
@@ -136,7 +136,7 @@ To access the staging instance using the same hostname, update your local hosts 
 
 {% note %}
 
-**Note**: Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.product.product_location %} is not supported. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+**Note**: Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.location.product_location %} is not supported. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
 
 {% endnote %}
 

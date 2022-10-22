@@ -14,11 +14,16 @@
 {%- ifversion ghec or ghes or ghae %}
 | `business`  | Contains activities related to business settings for an enterprise.
 {%- endif %}
-{%- ifversion ghec or ghes or ghae %}
-| `business`  | Contains activities related to business settings for an enterprise.
+{%- ifversion code-security-audit-log-events %}
+| `business_advanced_security` | Contains activities related to {% data variables.product.prodname_GH_advanced_security %} in an enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+| `business_secret_scanning` | Contains activities related to {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an enterprise.
+| `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an enterprise.
+{%- endif %}
+{%- ifversion code-security-audit-log-events %}
+| `business_secret_scanning_push_protection` | Contains activities related to the push protection feature of {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+| `business_secret_scanning_push_protection_custom_message` | Contains activities related to the custom message displayed when push protection is triggered in an enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 {%- endif %}
 | `checks`   | Contains activities related to check suites and runs.
 {%- ifversion fpt or ghec %}

@@ -57,7 +57,11 @@ export function ParameterRow({
                     <span>{t('default')}: </span>
                     <code>
                       {typeof rowParams.default === 'string'
-                        ? rowParams.default
+                        ? // In the schema, the default value for strings can
+                          // potentially be the empty string so we handle this case
+                          // in particular by rendering it as "".  Otherwise we would
+                          // display an empty code block which could be confusing.
+                          rowParams.default || '""'
                         : JSON.stringify(rowParams.default)}
                     </code>
                   </p>

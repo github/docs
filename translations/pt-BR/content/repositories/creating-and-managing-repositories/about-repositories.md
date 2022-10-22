@@ -1,6 +1,6 @@
 ---
-title: Sobre repositórios
-intro: Um repositório contém todos os arquivos do seu projeto e o histórico de revisão de cada arquivo. Você pode discutir e gerenciar o trabalho do projeto dentro do repositório.
+title: About repositories
+intro: A repository contains all of your project's files and each file's revision history. You can discuss and manage your project's work within the repository.
 redirect_from:
   - /articles/about-repositories
   - /github/creating-cloning-and-archiving-repositories/about-repositories
@@ -18,119 +18,123 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: e4893e18de51f4d4918eacd3cb4d6da1c0323a1b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147444400'
 ---
-## Sobre repositórios
 
-Você pode possuir repositórios individualmente ou compartilhar a propriedade de repositórios com outras pessoas em uma organização.
+## About repositories
 
-É possível restringir quem tem acesso a um repositório escolhendo a visibilidade do repositório. Para obter mais informações, confira "[Sobre a visibilidade do repositório](#about-repository-visibility)".
+You can own repositories individually, or you can share ownership of repositories with other people in an organization.
 
-Para repositórios possuídos pelo usuário, você pode fornecer a outras pessoas acesso de colaborador para que elas possam colaborar no seu projeto. Se um repositório pertencer a uma organização, você poderá fornecer aos integrantes da organização permissões de acesso para colaboração no seu repositório. Para obter mais informações, confira "[Níveis de permissão para um repositório da conta pessoal](/articles/permission-levels-for-a-user-account-repository/)" e "[Funções de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+You can restrict who has access to a repository by choosing the repository's visibility. For more information, see "[About repository visibility](#about-repository-visibility)."
 
-{% ifversion fpt or ghec %} Com o {% data variables.product.prodname_free_team %} para contas pessoais e de organizações, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados, com um conjunto completo de recursos, ou em repositórios privados ilimitados, com um conjunto limitado de recursos. Para obter ferramentas avançadas para repositórios privados, você pode fazer o upgrade para {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %} {% else %} Cada pessoa e organização pode ser o proprietário de repositórios ilimitados e convidar um número ilimitado de colaboradores em todos os repositórios.
+For user-owned repositories, you can give other people collaborator access so that they can collaborate on your project. If a repository is owned by an organization, you can give organization members access permissions to collaborate on your repository. For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+
+{% ifversion fpt or ghec %}
+With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
+{% else %}
+Each person and organization can own unlimited repositories and invite an unlimited number of collaborators to all repositories.
 {% endif %}
 
-Você pode usar repositórios para gerenciar seu trabalho e colaborar com outras pessoas.
-- Você pode usar problemas para coletar feedback do usuário, relatar erros de software e organizar tarefas que você gostaria de realizar. Para obter mais informações, confira "[Sobre os problemas](/github/managing-your-work-on-github/about-issues)".{% ifversion fpt or ghec %}
+You can use repositories to manage your work and collaborate with others.
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% ifversion fpt or ghec %}
 - {% data reusables.discussions.you-can-use-discussions %}{% endif %}
-- É possível usar pull requests para propor alterações em um repositório. Para obter mais informações, confira "[Sobre as solicitações de pull](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
-- Você pode usar quadros de projeto para organizar e priorizar seus problemas e pull requests. Para obter mais informações, confira "[Sobre os quadros de projetos](/github/managing-your-work-on-github/about-project-boards)".
+- You can use pull requests to propose changes to a repository. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
+- You can use project boards to organize and prioritize your issues and pull requests. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)."
 
 {% data reusables.repositories.repo-size-limit %}
 
-## Sobre a visibilidade do repositório
+## About repository visibility
 
-É possível restringir quem tem acesso a um repositório escolhendo a visibilidade de um repositório: {% ifversion ghes or ghec %}público, interno ou privado{% elsif ghae %}privado ou interno{% else %} público ou privado{% endif %}.
+You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
 
 {% ifversion fpt or ghec or ghes %}
 
-Ao criar um repositório, você pode optar por tornar o repositório público ou privado.{% ifversion ghec or ghes %} Se você estiver criando o repositório em uma organização{% ifversion ghec %} que pertence a uma conta corporativa{% endif %}, você também pode optar por tornar o repositório interno.{% endif %}{% endif %}{% ifversion fpt %} Os repositórios em organizações que usam {% data variables.product.prodname_ghe_cloud %} e são propriedade de uma conta corporativa também podem ser criados com visibilidade interna. Para obter mais informações, confira [a documentação do {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).
+When you create a repository, you can choose to make the repository public or private.{% ifversion ghec or ghes %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} and are owned by an enterprise account can also be created with internal visibility. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).
 
 {% elsif ghae %}
 
-Ao criar um repositório pertencente à sua conta pessoal, o repositório é sempre privado. Ao criar um repositório pertencente a uma organização, você pode optar por tornar o repositório privado ou interno.
+When you create a repository owned by your personal account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.
 
 {% endif %}
 
 {%- ifversion fpt or ghec %}
-- Os repositórios públicos podem ser acessados por todos na Internet.
-- Os repositórios só podem ser acessados por você, pelas pessoas com as quais você compartilha explicitamente o acesso e, para repositórios da organização, por determinados integrantes da organização.
+- Public repositories are accessible to everyone on the internet.
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- elsif ghes %}
-- Se {% data variables.product.product_location %} não estiver em modo privado ou por trás de um firewall, repositórios públicos poderão ser acessados por todos na internet. Caso contrário, os repositórios públicos estarão disponíveis para todos usando {% data variables.product.product_location %}, incluindo colaboradores externos.
-- Os repositórios só podem ser acessados por você, pelas pessoas com as quais você compartilha explicitamente o acesso e, para repositórios da organização, por determinados integrantes da organização.
+- If {% data variables.location.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.location.product_location %}, including outside collaborators.
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- elsif ghae %}
-- Os repositórios só podem ser acessados por você, pelas pessoas com as quais você compartilha explicitamente o acesso e, para repositórios da organização, por determinados integrantes da organização.
-{%- endif %} {%- ifversion ghec or ghes or ghae %}
-- Repositórios internos podem ser acessados por todos os integrantes da empresa. Para obter mais informações, confira "[Sobre os repositórios internos](#about-internal-repositories)".
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+{%- endif %}
+{%- ifversion ghec or ghes or ghae %}
+- Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
 {%- endif %}
 
-Os proprietários da organização sempre têm acesso a todos os repositórios criados em uma organização. Para obter mais informações, confira "[Funções de repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+Organization owners always have access to every repository created in an organization. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-As pessoas com permissões de administrador para um repositório podem alterar a visibilidade de um repositório existente. Para obter mais informações, confira "[Como configurar a visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)".
+People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
 
 {% ifversion ghes or ghec or ghae %}
-## Sobre repositórios internos
+## About internal repositories
 
-{% data reusables.repositories.about-internal-repos %} Para obter mais informações sobre o InnerSource, confira o white paper "[Uma introdução ao InnerSource](https://resources.github.com/whitepapers/introduction-to-innersource/)" do {% data variables.product.prodname_dotcom %}.
+{% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
-Todos os integrantes da empresa têm permissões de leitura no repositório interno, mas os repositórios internos não são visíveis para pessoas {% ifversion fpt or ghec %}que estão fora da empresa{% else %}que não são integrantes de qualquer organização{% endif %}, incluindo colaboradores externos em repositórios da organização. Para obter mais informações, confira "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" e "[Funções de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-{% ifversion ghes %} {% note %}
+{% ifversion ghes %}
+{% note %}
 
-**Observação:** um usuário precisa fazer parte de uma organização para ser membro da empresa e ter acesso aos repositórios internos. Se um usuário em {% data variables.product.product_location %} não for um integrante de qualquer organização, esse usuário não terá acesso a repositórios internos.
+**Note:** A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.location.product_location %} is not a member of any organization, that user will not have access to internal repositories.
 
-{% endnote %} {% endif %}
+{% endnote %}
+{% endif %}
 
 {% data reusables.repositories.internal-repo-default %}
 
-{% ifversion ghec %}A menos que sua empresa use {% data variables.product.prodname_emus %}, os membros{% else %}Membros{% endif %} dela podem criar fork de qualquer repositório de propriedade de uma organização na empresa. O repositório bifurcado pertencerá à conta pessoal do integrante e a visibilidade da bifurcação será privada. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
+{% ifversion ghec %}Unless your enterprise uses {% data variables.product.prodname_emus %}, members{% else %}Members{% endif %} of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
 
-{% ifversion ghec %} {% note %}
+{% ifversion ghec %}
+{% note %}
 
-**Observação:** {% data variables.product.prodname_managed_users_caps %} não pode criar fork de repositórios internos. Para obter mais informações, confira "[Sobre as {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)".
+**Note:** {% data variables.enterprise.prodname_managed_users_caps %} cannot fork internal repositories. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
 
-{% endnote %} {% endif %} {% endif %}
+{% endnote %}
+{% endif %}
+{% endif %}
 
-## Limites para exibição de conteúdo e diffs no repositório
+## Limits for viewing content and diffs in a repository
 
-Determinados tipos de recursos podem ser muito grandes, exigindo processamento elevado no{% data variables.product.product_name %}. Por isso, limites são estabelecidos para assegurar que as solicitações sejam completadas em um período razoável.
+Certain types of resources can be quite large, requiring excessive processing on {% data variables.product.product_name %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
 
-A maioria dos limites abaixo afetam o {% data variables.product.product_name %} e a API.
+Most of the limits below affect both {% data variables.product.product_name %} and the API.
 
-### Limites de texto
+### Text limits
 
-Os arquivos de texto com mais de **512 KB** são sempre exibidos como texto sem formatação. O código não realça a sintaxe, e os arquivos em prosa não são convertidos em HTML (como Markdown, AsciiDoc *etc.* ).
+Text files over **512 KB** are always displayed as plain text. Code is not syntax highlighted, and prose files are not converted to HTML (such as Markdown, AsciiDoc, *etc.*).
 
-Os arquivos de texto com mais de **5 MB** só ficam disponíveis por meio das respectivas URLs brutas, que são fornecidas por meio de `{% data variables.product.raw_github_com %}`, por exemplo, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Clique no botão **Bruto** para obter a URL bruta de um arquivo.
+Text files over **5 MB** are only available through their raw URLs, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
 
-### Limites de diff
+### Diff limits
 
-Os diffs podem ficar muito grandes, por isso impusemos estas restrições em diffs para commits, pull requests e visualizações comparadas:
+Because diffs can become very large, we impose these limits on diffs for commits, pull requests, and compare views:
 
-- Em uma solicitação de pull, nenhuma comparação total pode exceder *20 mil linhas que podem ser carregadas* ou *1 MB* de dados de comparação brutos.
-- Nenhuma comparação de arquivo único pode exceder *20 mil linhas que podem ser carregadas* ou *500 KB* de dados de comparação brutos. *Quatrocentas linhas* e *20 KB* são carregados automaticamente para um só arquivo.
-- O número máximo de arquivos em uma só comparação é limitado a *300*.
-- O número máximo de arquivos renderizáveis (como imagens, PDFs e arquivos GeoJSON) em uma só comparação é limitado a *25*.
+- In a pull request, no total diff may exceed *20,000 lines that you can load* or *1 MB* of raw diff data.
+- No single file's diff may exceed *20,000 lines that you can load* or *500 KB* of raw diff data. *Four hundred lines* and *20 KB* are automatically loaded for a single file.
+- The maximum number of files in a single diff is limited to *300*.
+- The maximum number of renderable files (such as images, PDFs, and GeoJSON files) in a single diff is limited to *25*.
 
-Algumas partes de um diff limitado podem ser exibidas, mas qualquer excedente de limite não é mostrado.
+Some portions of a limited diff may be displayed, but anything exceeding the limit is not shown.
 
-### Limites de listas de commits
+### Commit listings limits
 
-As páginas de solicitações de pull e de exibição de comparação mostram uma lista de commits entre as revisões `base` e `head`. Essas listas são limitadas a **250** commits. Caso o limite seja excedido, uma observação indicará que commits adicionais estão presentes (mas não são mostrados).
+The compare view and pull requests pages display a list of commits between the `base` and `head` revisions. These lists are limited to **250** commits. If they exceed that limit, a note indicates that additional commits are present (but they're not shown).
 
-## Leitura adicional
+## Further reading
 
-- "[Como criar um repositório](/articles/creating-a-new-repository)"
-- "[Sobre os forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Colaboração com problemas e solicitações de pull](/categories/collaborating-with-issues-and-pull-requests)"
-- "[Como gerenciar seu trabalho no {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
-- "[Como administrar um repositório](/categories/administering-a-repository)"
-- "[Como visualizar dados de repositório com grafos](/categories/visualizing-repository-data-with-graphs/)"
-- "[Sobre os wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
-- "[Glossário do {% data variables.product.prodname_dotcom %}](/articles/github-glossary)"
+- "[Creating a new repository](/articles/creating-a-new-repository)"
+- "[About forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[Collaborating with issues and pull requests](/categories/collaborating-with-issues-and-pull-requests)"
+- "[Managing your work on {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
+- "[Administering a repository](/categories/administering-a-repository)"
+- "[Visualizing repository data with graphs](/categories/visualizing-repository-data-with-graphs/)"
+- "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
+- "[{% data variables.product.prodname_dotcom %} glossary](/articles/github-glossary)"

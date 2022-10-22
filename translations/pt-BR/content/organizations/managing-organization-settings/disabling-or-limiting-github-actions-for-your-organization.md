@@ -154,3 +154,37 @@ By default, when you create a new organization, workflows are not allowed to {% 
 1. Click **Save** to apply the settings.
 
 {% endif %}
+
+{% ifversion actions-cache-org-ui %}
+
+## Managing {% data variables.product.prodname_actions %} cache storage for your organization
+
+Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization. 
+
+### Viewing {% data variables.product.prodname_actions %} cache storage by repository
+
+For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the left sidebar, click {% octicon "play" aria-label="The {% data variables.product.prodname_actions %} icon" %} **Actions**, then click **Caches**.
+1. Review the list of repositories for information about their {% data variables.product.prodname_actions %} caches. You can click on a repository name to see more detail about the repository's caches.
+
+{% ifversion actions-cache-admin-ui %}
+
+### Configuring {% data variables.product.prodname_actions %} cache storage for your organization
+
+{% data reusables.actions.cache-default-size %}
+
+You can configure the size limit for {% data variables.product.prodname_actions %} caches that will apply to each repository in your organization. The cache size limit for an organization cannot exceed the cache size limit set in the enterprise policy. Repository admins will be able to set a smaller limit in their repositories.
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
+{% data reusables.actions.change-cache-size-limit  %}
+
+{% endif %}
+
+{% endif %}

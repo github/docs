@@ -1,7 +1,7 @@
 ---
-title: GitHub Pagesのドキュメンテーション
+title: GitHub Pages Documentation
 shortTitle: GitHub Pages
-intro: '{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上のリポジトリから Web サイトを直接作成する方法について説明します。 Jekyll などの Web サイト構築ツールを調べ、{% data variables.product.prodname_pages %} サイトに関する issue をトラブルシューティングします。'
+intro: 'Learn how to create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. Explore website building tools like Jekyll and troubleshoot issues with your {% data variables.product.prodname_pages %} site.'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages
@@ -49,11 +49,4 @@ children:
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site
-ms.openlocfilehash: 8f1e83a8329a023f49a73a3716a88f61b2438adb
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147643926'
 ---
-

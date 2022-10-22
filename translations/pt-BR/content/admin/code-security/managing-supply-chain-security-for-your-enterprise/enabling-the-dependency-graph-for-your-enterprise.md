@@ -1,6 +1,6 @@
 ---
-title: Habilitando o gráfico de dependências para a sua empresa
-intro: Você pode permitir que os usuários identifiquem as dependências dos seus projetos habilitando o gráfico de dependências.
+title: Enabling the dependency graph for your enterprise
+intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
 shortTitle: Enable dependency graph
 permissions: Site administrators can enable the dependency graph.
 versions:
@@ -10,34 +10,37 @@ topics:
   - Enterprise
   - Security
   - Dependency graph
-ms.openlocfilehash: 6d4ba1a4e69c557a359bb0e99b02d92ff5fb99e0
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '147062279'
 ---
-## <a name="about-the-dependency-graph"></a>Sobre o gráfico de dependências
 
-{% data reusables.dependabot.about-the-dependency-graph %} Para obter mais informações, confira "[Sobre o grafo de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+## About the dependency graph
 
-Depois de habilitar o grafo de dependência da empresa, você pode habilitar o {% data variables.product.prodname_dependabot %} para detectar as dependências vulneráveis no repositório{% ifversion ghes > 3.2 %} e corrigir as vulnerabilidades automaticamente{% endif %}. Para obter mais informações, confira "[Como habilitar o {% data variables.product.prodname_dependabot %} para sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+{% data reusables.dependabot.about-the-dependency-graph %} For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 
-{% ifversion ghes %} Você pode habilitar o grafo de dependência por meio do {% data variables.enterprise.management_console %} ou do shell administrativo. Recomendamos usar o {% data variables.enterprise.management_console %}, a menos que {% data variables.product.product_location %} use clustering.
+After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository{% ifversion ghes > 3.2 %} and automatically fix the vulnerabilities{% endif %}. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-## <a name="enabling-the-dependency-graph-via-the--data-variablesenterprisemanagement_console-"></a>Habilitando o gráfico de dependências por meio do {% data variables.enterprise.management_console %}
+{% ifversion ghes %}
+You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend using the {% data variables.enterprise.management_console %} unless {% data variables.location.product_location %} uses clustering.
 
-Se o seu {% data variables.product.product_location %} usar clustering, você não poderá habilitar o gráfico de dependências com o {% data variables.enterprise.management_console %} e deverá usar o shell administrativo. Para obter mais informações, confira "[Como habilitar o grafo de dependência por meio do shell administrativo](#enabling-the-dependency-graph-via-the-administrative-shell)".
+## Enabling the dependency graph via the {% data variables.enterprise.management_console %}
 
-{% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Em "Segurança", clique em **Grafo de dependência**.
-![Caixa de seleção usada para habilitar ou desabilitar o grafo de dependência](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png) {% data reusables.enterprise_management_console.save-settings %}
-1. Clique em **Acessar sua instância**.
+If {% data variables.location.product_location %} uses clustering, you cannot enable the dependency graph with the {% data variables.enterprise.management_console %} and must use the administrative shell instead. For more information, see "[Enabling the dependency graph via the administrative shell](#enabling-the-dependency-graph-via-the-administrative-shell)."
 
-## <a name="enabling-the-dependency-graph-via-the-administrative-shell"></a>Habilitando o gráfico de dependências por meio do shell administrativo
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.advanced-security-tab %}
+1. Under "Security," click **Dependency graph**.
+![Checkbox to enable or disable the dependency graph](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+1. Click **Visit your instance**.
 
-{% endif %} {% data reusables.enterprise_site_admin_settings.sign-in %}
-1. No shell administrativo, habilite o grafo de dependência no {% data variables.product.product_location %}:  {% ifversion ghes %}```shell  ghe-config app.dependency-graph.enabled true
+## Enabling the dependency graph via the administrative shell
+
+{% endif %}
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+1. In the administrative shell, enable the dependency graph on {% data variables.location.product_location %}:
+    {% ifversion ghes %}```shell
+    ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled true
@@ -52,4 +55,4 @@ Se o seu {% data variables.product.product_location %} usar clustering, você n�
     ```shell
     $ ghe-config-apply
     ```
-3. Volte para o {% data variables.product.prodname_ghe_server %}.
+3. Return to {% data variables.product.prodname_ghe_server %}.

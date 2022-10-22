@@ -1,78 +1,73 @@
 ---
-title: 更改提交消息
+title: Changing a commit message
 redirect_from:
   - /articles/can-i-delete-a-commit-message
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
-intro: '如果提交消息中包含不明确、不正确或敏感的信息，您可以在本地修改它，然后将含有新消息的新提交推送到 {% data variables.product.product_name %}。 您还可以更改提交消息以添加遗漏的信息。'
+intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: fa4966da0fe443e6635b43fc9b3b11108d57cf6e
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145129461'
 ---
-## 重写最近的提交消息
+## Rewriting the most recent commit message
 
-可以使用 `git commit --amend` 命令更改最新的提交消息。
+You can change the most recent commit message using the `git commit --amend` command.
 
-在 Git 中，提交消息的文本是提交的一部分。 更改提交消息将更改提交 ID - 即用于命名提交的 SHA1 校验和。 实际上，您是创建一个新提交以替换旧提交。
+In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
-## 提交尚未推送上线
+## Commit has not been pushed online
 
-如果提交仅存在于你的本地存储库中，尚未推送到 {% data variables.product.product_location %}，则可使用 `git commit --amend` 命令修改提交消息。
+If the commit only exists in your local repository and has not been pushed to {% data variables.location.product_location %}, you can amend the commit message with the `git commit --amend` command.
 
-1. 在命令行上，导航到包含要修改的提交的仓库。
-2. 键入 `git commit --amend`，然后按“Enter”。
-3. 在文本编辑器中编辑提交消息，然后保存该提交。
-    - 通过在提交中添加尾行可添加合作作者。 有关详细信息，请参阅“[创建具有多个作者的提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)”。
+1. On the command line, navigate to the repository that contains the commit you want to amend.
+2. Type `git commit --amend` and press **Enter**.
+3. In your text editor, edit the commit message, and save the commit.
+    - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
 {% ifversion fpt or ghec %}
-    - 通过在提交中添加尾行可创建代表组织的提交。 有关详细信息，请参阅“[代表组织创建提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)”{% endif %}
+    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
+{% endif %}
 
-在下次推送时，新的提交和消息将显示在 {% data variables.product.product_location %} 上。
+The new commit and message will appear on {% data variables.location.product_location %} the next time you push.
 
 {% tip %}
 
-通过更改 `core.editor` 设置可更改 Git 的默认文本编辑器。 有关详细信息，请参阅 Git 手册中的“[基本客户端配置](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)”。
+You can change the default text editor for Git by changing the `core.editor` setting. For more information, see "[Basic Client Configuration](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" in the Git manual.
 
 {% endtip %}
 
-## 修改旧提交或多个提交的消息
+## Amending older or multiple commit messages
 
-如果您已将提交推送到 {% data variables.product.product_location %}，则必须强制推送含有修正消息的提交。
+If you have already pushed the commit to {% data variables.location.product_location %}, you will have to force push a commit with an amended message.
 
 {% warning %}
 
-我们很不提倡强制推送，因为这会改变仓库的历史记录。 如果强制推送，已克隆仓库的人员必须手动修复其本地历史记录。 有关详细信息，请参阅 Git 手册中的“[从上游变基恢复](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)”。
+We strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history. For more information, see "[Recovering from upstream rebase](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" in the Git manual.
 
 {% endwarning %}
 
-**更改最近推送提交的消息**
+**Changing the message of the most recently pushed commit**
 
-1. 按照[上述步骤](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)修改提交消息。
-2. 使用 `push --force-with-lease` 命令强制推送旧提交。
+1. Follow the [steps above](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
+2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
-  $ git push --force-with-lease origin <em>example-branch</em>
+  $ git push --force-with-lease origin EXAMPLE-BRANCH
   ```
 
-**更改旧提交或多个提交的消息**
+**Changing the message of older or multiple commit messages**
 
-如果需要修改多个提交或旧提交的消息，您可以使用交互式变基，然后强制推送以更改提交历史记录。
+If you need to amend the message for multiple commits or an older commit, you can use interactive rebase, then force push to change the commit history.
 
-1. 在命令行上，导航到包含要修改的提交的仓库。
-2. 使用 `git rebase -i HEAD~n` 命令在默认文本编辑器中显示最后一次 `n` 提交的列表。
+1. On the command line, navigate to the repository that contains the commit you want to amend.
+2. Use the `git rebase -i HEAD~n` command to display a list of the last `n` commits in your default text editor.
 
     ```shell
     # Displays a list of the last 3 commits on the current branch
     $ git rebase -i HEAD~3
     ```
-    此列表将类似于以下内容：
+    The list will look similar to the following:
 
     ```shell
     pick e499d89 Delete CNAME
@@ -97,33 +92,33 @@ ms.locfileid: '145129461'
     #
     # Note that empty commits are commented out
     ```
-3. 在要更改的每个提交消息的前面，将 `pick` 替换为 `reword`。
+3. Replace `pick` with `reword` before each commit message you want to change.
   ```shell
   pick e499d89 Delete CNAME
   reword 0c39034 Better README
   reword f7fde4a Change the commit message but push the same commit.
   ```
-4. 保存并关闭提交列表文件。
-5. 在每个生成的提交文件中，键入新的提交消息，保存文件，然后关闭它。
-6. 准备好将更改推送到 GitHub 时，请使用 push - force 命令强制推送旧提交。
+4. Save and close the commit list file.
+5. In each resulting commit file, type the new commit message, save the file, and close it.
+6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
 ```shell
-$ git push --force origin <em>example-branch</em>
+$ git push --force origin EXAMPLE-BRANCH
 ```
 
-有关交互式变基的详细信息，请参阅 Git 手册中的“[交互式模式](https://git-scm.com/docs/git-rebase#_interactive_mode)”。
+For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
 
 {% tip %}
 
-如前文所述，修改提交消息会生成含有新 ID 的新提交。 但是，在这种情况下，该修改提交的每个后续提交也会获得一个新 ID，因为每个提交也包含其父提交的 ID。
+As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the id of its parent.
 
 {% endtip %}
 
 {% warning %}
 
-如果您的提交消息中包含敏感信息，则强制推送修改后的提交可能不会导致从 {% data variables.product.product_name %} 中删除原提交。 旧提交不会成为后续克隆的一部分；但是，它可能仍然缓存在 {% data variables.product.product_name %} 上，并且可通过提交 ID 访问。 您必须联系 {% data variables.contact.contact_support %} 并提供旧提交 ID，以便从远程仓库中清除它。
+If you have included sensitive information in a commit message, force pushing a commit with an amended commit may not remove the original commit from {% data variables.product.product_name %}. The old commit will not be a part of a subsequent clone; however, it may still be cached on {% data variables.product.product_name %} and accessible via the commit ID. You must contact {% data variables.contact.contact_support %} with the old commit ID to have it purged from the remote repository.
 
 {% endwarning %}
 
-## 延伸阅读
+## Further reading
 
-* [对提交签名](/articles/signing-commits)
+* "[Signing commits](/articles/signing-commits)"

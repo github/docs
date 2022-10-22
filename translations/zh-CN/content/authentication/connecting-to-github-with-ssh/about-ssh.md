@@ -1,6 +1,6 @@
 ---
 title: About SSH
-intro: 'Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and personal access token at each visit.{% ifversion ssh-commit-verification %} You can also use an SSH key to sign commits.{% endif %}'
+intro: 'Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and {% data variables.product.pat_generic %} at each visit.{% ifversion ssh-commit-verification %} You can also use an SSH key to sign commits.{% endif %}'
 redirect_from:
   - /articles/about-ssh
   - /github/authenticating-to-github/about-ssh

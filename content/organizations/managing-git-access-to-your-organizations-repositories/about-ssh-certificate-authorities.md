@@ -25,7 +25,7 @@ After you add an SSH CA to your organization or enterprise account, you can use 
 For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.product_name %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
 
 {% ifversion ghec %}
-Organization members can use their signed certificates for authentication even if you've enforced SAML single sign-on. Unless you make SSH certificates a requirement, organization members can continue to use other means of authentication to access your organization's resources with Git, including their username and password, personal access tokens, and their own SSH keys.
+Organization members can use their signed certificates for authentication even if you've enforced SAML single sign-on. Unless you make SSH certificates a requirement, organization members can continue to use other means of authentication to access your organization's resources with Git, including their username and password, {% data variables.product.pat_generic %}s, and their own SSH keys.
 {% endif %}
 
 Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts. 

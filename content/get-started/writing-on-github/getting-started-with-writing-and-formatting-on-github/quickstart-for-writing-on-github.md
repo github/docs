@@ -25,7 +25,7 @@ If you already have a profile README, you can follow this guide by adding some f
 
 ## Creating a gist
 
-Gists let you store or share code snippets and other pieces of information with others on {% data variables.product.product_location %}. To use formatting features in gists, add a gist file with a `.md` extension.
+Gists let you store or share code snippets and other pieces of information with others on {% data variables.location.product_location %}. To use formatting features in gists, add a gist file with a `.md` extension.
 
 1. Navigate to your {% data variables.gists.gist_homepage %}.
 1. Optionally, type a description for the gist, such as "About me."
@@ -37,7 +37,7 @@ For more information, see "[Creating gists](/get-started/writing-on-github/editi
 
 ## Creating or editing your profile README
 
-Your profile README lets you share information about yourself with the community on {% data variables.product.product_location %}. The README is displayed at the top of your profile page.
+Your profile README lets you share information about yourself with the community on {% data variables.location.product_location %}. The README is displayed at the top of your profile page.
 
 If you don't already have a profile README, you can add one.
 
@@ -228,7 +228,7 @@ You can use HTML comment syntax to add a comment that will be hidden in the outp
 When you're happy with your changes, save your {% ifversion ghae %}gist. 
 
 - To keep your gist hidden from search engines but visible to anyone you share the URL with, click **Create secret gist** 
-- If you're happy for your gist to be visible to anyone on {% data variables.product.product_location %}, click **Create internal gist**
+- If you're happy for your gist to be visible to anyone on {% data variables.location.product_location %}, click **Create internal gist**
 
 {% else %}profile README by clicking **Commit changes**. 
 

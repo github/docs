@@ -1,6 +1,6 @@
 ---
-title: 应用程序的安全最佳实践
-intro: '准备在 {% data variables.product.prodname_marketplace %} 上分享安全应用程序的指南。'
+title: Security best practices for apps
+intro: 'Guidelines for preparing a secure app to share on {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
@@ -12,58 +12,52 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-ms.openlocfilehash: aaff313f73b74ba28f765050a8f993a9dddea1be
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145084984'
 ---
-遵循这些最佳实践将有助于您提供安全的用户体验。
+If you follow these best practices it will help you to provide a secure user experience.
 
-## 授权、身份验证和访问控制
+## Authorization, authentication, and access control
 
-我们建议创建 GitHub 应用程序，而不是 OAuth 应用程序。 {% data reusables.marketplace.github_apps_preferred %}。 有关详细信息，请参阅“[GitHub 应用与 OAuth 应用的区别](/apps/differences-between-apps/)”。
-- 应用程序应使用最小权限原则，只请求应用程序执行其预期功能所需的 OAuth 作用域和 GitHub 应用程序权限。 有关详细信息，请参阅维基百科[最小权限原则](https://en.wikipedia.org/wiki/Principle_of_least_privilege)。
-- 应用程序应为客户提供删除其帐户的方法，而无需发送电子邮件或呼叫支持人员。
-- 应用程序不应在应用程序的不同实现之间共享令牌。 例如，桌面应用程序应该使用与基于 Web 的应用程序不同的令牌。 单个令牌允许每个应用程序单独请求 GitHub 资源所需的访问权限。
-- 根据每种用户类型所需的功能，针对不同的用户角色设计应用程序。 例如，标准用户不应有权访问管理功能，帐单管理员可能不需要仓库代码推送权限。
-- 应用程序不应共享服务帐户（如电子邮件或数据库服务）来管理 SaaS 服务。
-- 应用程序中使用的所有服务都应具有唯一的登录名和密码凭据。
-- 对生产托管基础架构的管理员权限只能授予担当管理职责的工程师和员工。
-- 应用不应使用个人访问令牌进行身份验证，并且应作为 [OAuth 应用](/apps/about-apps/#about-oauth-apps)或 [GitHub 应用](/apps/about-apps/#about-github-apps)进行身份验证：
-  - OAuth 应用应使用 [OAuth 令牌](/apps/building-oauth-apps/authorizing-oauth-apps/)进行身份验证。
-  - GitHub 应用应使用 [JSON Web 令牌 (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)、[OAuth 令牌](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)或[安装访问令牌](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)进行身份验证。
+We recommend creating a GitHub App rather than an OAuth App. {% data reusables.marketplace.github_apps_preferred %}. See "[Differences between GitHub Apps and OAuth Apps](/apps/differences-between-apps/)" for more details.
+- Apps should use the principle of least privilege and should only request the OAuth scopes and GitHub App permissions that the app needs to perform its intended functionality. For more information, see [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in Wikipedia.
+- Apps should provide customers with a way to delete their account, without having to email or call a support person.
+- Apps should not share tokens between different implementations of the app. For example, a desktop app should have a separate token from a web-based app. Individual tokens allow each app to request the access needed for GitHub resources separately.
+- Design your app with different user roles, depending on the functionality needed by each type of user. For example, a standard user should not have access to admin functionality, and billing managers might not need push access to repository code.
+- Apps should not share service accounts such as email or database services to manage your SaaS service.
+- All services used in your app should have unique login and password credentials.
+- Admin privilege access to the production hosting infrastructure should only be given to engineers and employees with administrative duties.
+- Apps should not use {% data variables.product.pat_generic %}s to authenticate and should authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or a [GitHub App](/apps/about-apps/#about-github-apps):
+  - OAuth Apps should authenticate using an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/).
+  - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/), or [installation access token](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
-## 数据保护
+## Data protection
 
-- 应用程序应使用带有有效 TLS 证书或 SSH for Git 的 HTTPS 对通过公共互联网传输的数据进行加密。
-- 应用程序应安全地存储客户端 ID 和客户端密钥。 建议将它们存储为[环境变量](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables)。
-- 应用程序应在收到用户请求后 30 天内或在用户与 GitHub 的法律关系终止后 30 天内删除所有 GitHub 用户数据。
-- 应用程序不应要求用户提供其 GitHub 密码。
-- 应用程序应该对令牌、客户端 ID 和客户端密钥进行加密。
+- Apps should encrypt data transferred over the public internet using HTTPS, with a valid TLS certificate, or SSH for Git.
+- Apps should store client ID and client secret keys securely. We recommend storing them as [environmental variables](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables).
+- Apps should delete all GitHub user data within 30 days of receiving a request from the user, or within 30 days of the end of the user's legal relationship with GitHub.
+- Apps should not require the user to provide their GitHub password.
+- Apps should encrypt tokens, client IDs, and client secrets.
 
-## 日志记录和监视
+## Logging and monitoring
 
-应用程序应具有日志记录和监视功能。 应用程序日志应保留至少 30 天，并存档至少一年。
-安全日志应包括：
+Apps should have logging and monitoring capabilities. App logs should be retained for at least 30 days and archived for at least one year.
+A security log should include:
 
-- 身份验证和授权事件
-- 服务配置更改
-- 对象读取和写入
-- 所有用户和组权限更改
-- 角色提升到管理员
-- 每个事件的一致时间戳
-- 所有记录操作的源用户、IP 地址和/或主机名
+- Authentication and authorization events
+- Service configuration changes
+- Object reads and writes
+- All user and group permission changes
+- Elevation of role to admin
+- Consistent timestamping for each event
+- Source users, IP addresses, and/or hostnames for all logged actions
 
-## 事件响应工作流
+## Incident response workflow
 
-要为用户提供安全体验，应在上架应用程序之前制定明确的事件响应计划。 我们建议您在自己的公司内成立安全和运营事件响应团队，而不是使用第三方供应商。 您应该能够在确认事件后 24 小时内通知 {% data variables.product.product_name %}。
+To provide a secure experience for users, you should have a clear incident response plan in place before listing your app. We recommend having a security and operations incident response team in your company rather than using a third-party vendor. You should have the capability to notify {% data variables.product.product_name %} within 24 hours of a confirmed incident.
 
-有关事件响应工作流的示例，请参阅 [SANS 研究所网站](https://www.sans.org/information-security-policy/)上的“数据泄露响应策略”。 包含明确的事件响应措施的简短文档比冗长的策略模板更有价值。
+For an example of an incident response workflow, see the "Data Breach Response Policy" on the [SANS Institute website](https://www.sans.org/information-security-policy/). A short document with clear steps to take in the event of an incident is more valuable than a lengthy policy template.
 
-## 漏洞管理和补丁工作流程
+## Vulnerability management and patching workflow
 
-您应该定期对生产基础架构进行漏洞扫描。 您应该对漏洞扫描的结果进行分类，并定义您同意修复漏洞的时间段。
+You should conduct regular vulnerability scans of production infrastructure. You should triage the results of vulnerability scans and define a period of time in which you agree to remediate the vulnerability.
 
-如果您还没有准备好设置完整的漏洞管理程序，最好先创建一个修补流程。 有关创建修补程序管理策略的指南，请参阅此 TechRepublic 文章：“[建立修补程序管理策略](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)”。
+If you are not ready to set up a full vulnerability management program, it's useful to start by creating a patching process. For guidance in creating a patch management policy, see this TechRepublic article "[Establish a patch management policy](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)."

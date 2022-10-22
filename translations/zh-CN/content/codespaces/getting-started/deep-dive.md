@@ -35,7 +35,7 @@ When you create a codespace, a [shallow clone](https://github.blog/2020-12-21-ge
 
 ### Step 2: Container is created
 
-{% data variables.product.prodname_github_codespaces %} uses a container as the development environment. This container is created based on the configurations that you can define in a `devcontainer.json` file and/or Dockerfile in your repository. If you don't [configure a container](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project), {% data variables.product.prodname_github_codespaces %} uses a [default image](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#using-the-default-configuration), which has many languages and runtimes available. For information on what the default image contains, see the [`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) repository.
+{% data variables.product.prodname_github_codespaces %} uses a container as the development environment. This container is created based on the configurations that you can define in a `devcontainer.json` file and/or Dockerfile in your repository. If you don't specify a custom Docker image in your configuration, {% data variables.product.prodname_codespaces %} uses a default image, which has many languages and runtimes available. For information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)." For details of what the default image contains, see the [`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) repository.
 
 {% note %}
 
@@ -117,6 +117,6 @@ If you already use {% data variables.product.prodname_vscode_shortname %}, you c
 ## Further reading
 
 - "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
-- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
 - "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)"
 - "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"

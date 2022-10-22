@@ -1,6 +1,6 @@
 ---
 title: Configuring commit merging for pull requests
-intro: 'You can enforce, allow, or disable merging with a merge commit for all pull request merges on {% data variables.product.product_location %} in your repository.'
+intro: 'You can enforce, allow, or disable merging with a merge commit for all pull request merges on {% data variables.location.product_location %} in your repository.'
 versions:
   fpt: '*'
   ghes: '*'

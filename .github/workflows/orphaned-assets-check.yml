@@ -7,7 +7,7 @@ name: 'Orphaned assets check'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '13 10 * * *' # Once a day at 10:13 UTC
+    - cron: '20 11 * * 1' # run every Monday at 11:20AM UTC
 
 permissions:
   contents: read
@@ -27,7 +27,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install

@@ -148,12 +148,12 @@ The following table shows which toolkit functions are available within a workflo
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
 {%- ifversion actions-job-summaries %}
-| `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
+| `core.summary` | Accessible using environment file `GITHUB_STEP_SUMMARY` |
 {%- endif %}
-| `core.saveState`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment variable `GITHUB_STATE`{% else %}`save-state`{% endif %} |
+| `core.saveState`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment file `GITHUB_STATE`{% else %}`save-state`{% endif %} |
 | `core.setCommandEcho` | `echo` |
 | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
-| `core.setOutput`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment variable `GITHUB_OUTPUT`{% else %}`set-output`{% endif %} |
+| `core.setOutput`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment file `GITHUB_OUTPUT`{% else %}`set-output`{% endif %} |
 | `core.setSecret`  | `add-mask` |
 | `core.startGroup` | `group` |
 | `core.warning`    | `warning` |
@@ -168,6 +168,8 @@ Sets an action's output parameter.
 ```
 
 Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
+
+You can escape multiline strings for setting an output parameter by creating an environment variable and using it in a workflow command. For more information, see "[Setting an environment variable](#setting-an-environment-variable)."
 
 ### Example: Setting an output parameter
 
@@ -479,6 +481,7 @@ jobs:
 
 {% endpowershell %}
 
+{% ifversion actions-save-state-set-output-envs %}{% else %}
 ## Echoing command outputs
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
@@ -540,6 +543,8 @@ The example above prints the following lines to the log:
 ```
 
 Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+ 
+{% endif %}
 
 ## Sending values to the pre and post actions
 

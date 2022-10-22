@@ -1,6 +1,6 @@
 ---
-title: Formar llamados con GraphQl
-intro: 'Aprende cómo autenticarte en la API de GraphQL, y luego cómo crear y ejecutar consultas y mutaciones.'
+title: Forming calls with GraphQL
+intro: 'Learn how to authenticate to the GraphQL API, then learn how to create and run queries and mutations.'
 redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
@@ -12,26 +12,23 @@ versions:
 topics:
   - API
 shortTitle: Form calls with GraphQL
-ms.openlocfilehash: b3778872cad120f64f2fdbc238f2319bdd758513
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147527898'
 ---
-## Autenticarse con GraphQL
 
-Para comunicarte con el servidor de GraphQL, deberás tener un token OAuth con el alcance correcto.
+## Authenticating with GraphQL
 
-Siga los pasos descritos en "[Creación de un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)" para crear un token. Los alcances que requieres dependen del tipo de datos que quieras solicitar. Por ejemplo, seleccione los ámbitos **Usuario** para solicitar datos de usuario. Si necesita acceso a la información del repositorio, seleccione los ámbitos **Repositorio** adecuados.
+{% data reusables.user-settings.graphql-classic-pat-only %}
+
+To communicate with the GraphQL server, you'll need a {% data variables.product.pat_generic %} with the right scopes.
+
+Follow the steps in "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. The scopes you require depends on the type of data you're trying to request. For example, select the **User** scopes to request user data. If you need access to repository information, select the appropriate **Repository** scopes.
 
 {% ifversion fpt or ghec %}
 
-Para que coincida con el comportamiento del [Explorador de GraphQL](/graphql/guides/using-the-explorer), solicite los ámbitos siguientes:
+To match the behavior of the [GraphQL Explorer](/graphql/guides/using-the-explorer), request the following scopes:
 
 {% else %}
 
-Se recomiendan los siguientes alcances:
+The following scopes are recommended:
 
 {% endif %}
 
@@ -48,26 +45,26 @@ read:enterprise
 read:gpg_key
 ```
 
-La API te notifica si algún recurso requiere de un alcance específico.
+The API notifies you if a resource requires a specific scope.
 
-## Terminal de GraphQL
+## The GraphQL endpoint
 
-La API de REST tiene varias terminales; la API de GraphQL solo tiene una terminal:
+The REST API has numerous endpoints; the GraphQL API has a single endpoint:
 
 <pre>{% data variables.product.graphql_url_pre %}</pre>
 
-La terminal permanece constante sin importar la operación que realices.
+The endpoint remains constant no matter what operation you perform.
 
-## Comunicarse con GraphQL
+## Communicating with GraphQL
 
-Como las operaciones de GraphQL constan de código JSON de varias líneas, GitHub recomienda usar el [Explorador](/graphql/guides/using-the-explorer) para realizar llamadas a GraphQL. También puedes utilizar cURL o cualquier otra biblioteca que entienda HTTP.
+Because GraphQL operations consist of multiline JSON, GitHub recommends using the [Explorer](/graphql/guides/using-the-explorer) to make GraphQL calls. You can also use cURL or any other HTTP-speaking library.
 
-En REST, los [verbos HTTP](/rest#http-verbs) determinan la operación realizada. En GraphQL, tendrá que proporcionar un cuerpo codificado con JSON cuando realice una consulta o una mutación, por lo que el verbo HTTP es `POST`. La excepción es una [consulta de introspección](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), que es una `GET` sencilla al punto de conexión. Para más información sobre las diferencias entre GraphQL y REST, vea "[Migración de REST a GraphQL](/graphql/guides/migrating-from-rest-to-graphql)".
+In REST, [HTTP verbs](/rest#http-verbs) determine the operation performed. In GraphQL, you'll provide a JSON-encoded body whether you're performing a query or a mutation, so the HTTP verb is `POST`. The exception is an [introspection query](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), which is a simple `GET` to the endpoint. For more information on GraphQL versus REST, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
 
-Para consultar GraphQL mediante cURL, realice una solicitud `POST` con una carga JSON. La carga debe contener una cadena denominada `query`:
+To query GraphQL using cURL, make a `POST` request with a JSON payload. The payload must contain a string called `query`:
 
 ```shell
-curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
+curl -H "Authorization: bearer TOKEN" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
@@ -76,63 +73,63 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
 
 {% tip %}
 
-**Nota**: El valor de cadena de `"query"` debe aplicar escape a los caracteres de nueva línea o el esquema no lo analizará correctamente. Para el cuerpo `POST`, use comillas dobles externas y comillas dobles interiores con escape.
+**Note**: The string value of `"query"` must escape newline characters or the schema will not parse it correctly. For the `POST` body, use outer double quotes and escaped inner double quotes.
 
 {% endtip %}
 
-### Acerca de las operaciones de consulta y mutación
+### About query and mutation operations
 
-Los dos tipos de operaciones permitidas en GraphQL API de GitHub son las _consultas_ y las _mutaciones_. Si se compara GraphQL con REST, las consultas funcionan como solicitudes `GET`, mientras que las mutaciones funcionan como`POST`/`PATCH`/`DELETE`. El [nombre de la mutación](/graphql/reference/mutations) determina qué modificación se ejecuta.
+The two types of allowed operations in GitHub's GraphQL API are _queries_ and _mutations_. Comparing GraphQL to REST, queries operate like `GET` requests, while mutations operate like `POST`/`PATCH`/`DELETE`. The [mutation name](/graphql/reference/mutations) determines which modification is executed.
 
-Para obtener información sobre la limitación de frecuencia, vea "[Limitaciones de recursos de GraphQL](/graphql/overview/resource-limitations)".
+For information about rate limiting, see "[GraphQL resource limitations](/graphql/overview/resource-limitations)."
 
-Las consultas y mutaciones comparten formatos similares con algunas diferencias importantes.
+Queries and mutations share similar forms, with some important differences.
 
-### Acerca de las consultas
+### About queries
 
-Las consultas de GraphQL devuelven solo los datos que especifique. Para crear una consulta, debe especificar [campos dentro de campos](/graphql/guides/introduction-to-graphql#field) (también denominados _subcampos anidados_) hasta que solo se devuelvan [valores escalares](/graphql/reference/scalars).
+GraphQL queries return only the data you specify. To form a query, you must specify [fields within fields](/graphql/guides/introduction-to-graphql#field) (also known as _nested subfields_) until you return only [scalars](/graphql/reference/scalars).
 
-Las consultas se estructuran de esta manera:
+Queries are structured like this:
 
 <pre>query {
-  <em>JSON objects to return</em>
+  JSON-OBJECT-TO-RETURN
 }</pre>
 
-Para obtener un ejemplo real, vea "[Consulta de ejemplo](#example-query)".
+For a real-world example, see "[Example query](#example-query)."
 
-### Acerca de las mutaciones
+### About mutations
 
-Para formar una mutación, debes especificar tres cosas:
+To form a mutation, you must specify three things:
 
-1. _Nombre de la mutación_. El Tipo de modificación que quieres realizar.
-2. _Objeto de entrada_. Los datos que quiere enviar al servidor, formados por _campos de entrada_. Pásalo como un argumento al nombre de la mutación.
-3. _Objeto de carga_. Los datos que quiere devolver desde el servidor, formados por _campos devueltos_. Pásalos como el cuerpo del nombre de la mutación.
+1. _Mutation name_. The type of modification you want to perform.
+2. _Input object_. The data you want to send to the server, composed of _input fields_. Pass it as an argument to the mutation name.
+3. _Payload object_. The data you want to return from the server, composed of _return fields_. Pass it as the body of the mutation name.
 
-Las mutaciones se estructuran de la siguiente forma:
+Mutations are structured like this:
 
 <pre>mutation {
-  <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
-    <em>MutationNamePayload</em>
+  MUTATION-NAME(input: {MUTATION-NAME-INPUT!}) {
+    MUTATION-NAME-PAYLOAD
   }
 }</pre>
 
-El objeto de entrada de este ejemplo es `MutationNameInput`y el objeto de carga es `MutationNamePayload`.
+The input object in this example is `MutationNameInput`, and the payload object is `MutationNamePayload`.
 
-En la referencia de [mutaciones](/graphql/reference/mutations), los _campos de entrada_ enumerados son lo que se pasa como objeto de entrada. Los _campos devueltos_ enumerados son lo que se pasa como objeto de carga.
+In the [mutations](/graphql/reference/mutations) reference, the listed _input fields_ are what you pass as the input object. The listed _return fields_ are what you pass as the payload object.
 
-Para obtener un ejemplo real, vea "[Mutación de ejemplo](#example-mutation)".
+For a real-world example, see "[Example mutation](#example-mutation)."
 
-## Trabajo con variables
+## Working with variables
 
-Las[variables](https://graphql.github.io/learn/queries/#variables) pueden hacer que las consultas sean más dinámicas y eficaces, y pueden reducir la complejidad al pasar objetos de entrada de mutación.
+[Variables](https://graphql.github.io/learn/queries/#variables) can make queries more dynamic and powerful, and they can reduce complexity when passing mutation input objects.
 
 {% note %}
 
-**Nota**: Si usa el Explorador, asegúrese de escribir variables en el [panel Variables de consulta](/graphql/guides/using-the-explorer#using-the-variable-pane) independiente y no incluya la palabra `variables` antes del objeto JSON.
+**Note**: If you're using the Explorer, make sure to enter variables in the separate [Query Variables pane](/graphql/guides/using-the-explorer#using-the-variable-pane), and do not include the word `variables` before the JSON object.
 
 {% endnote %}
 
-Aquí hay una consulta de ejemplo con una sola variable:
+Here's an example query with a single variable:
 
 ```graphql
 query($number_of_repos:Int!) {
@@ -150,9 +147,9 @@ variables {
 }
 ```
 
-Hay tres pasos para utilizar las variables:
+There are three steps to using variables:
 
-1. Defina la variable fuera de la operación en un objeto `variables`:
+1. Define the variable outside the operation in a `variables` object:
 
   ```graphql
   variables {
@@ -160,33 +157,33 @@ Hay tres pasos para utilizar las variables:
   }
   ```
 
-  El objeto debe ser un JSON válido. En este ejemplo se muestra un tipo de variable `Int` sencillo, pero se pueden definir tipos de variable más complejos, como los objetos de entrada. También puedes definir variables múltiples aquí.
+  The object must be valid JSON. This example shows a simple `Int` variable type, but it's possible to define more complex variable types, such as input objects. You can also define multiple variables here.
 
-2. Pasa la variable a la operación como un argumento:
+2. Pass the variable to the operation as an argument:
 
   ```graphql
   query($number_of_repos:Int!){
   ```
 
-  El argumento es un par clave-valor, donde la clave es el _nombre_ que empieza por `$` (por ejemplo, `$number_of_repos`) y el valor es el _tipo_ (por ejemplo, `Int`). Agregue `!` para indicar si el tipo es obligatorio. Si has identificado variables múltiples, inclúyelas aquí como argumentos múltiples.
+  The argument is a key-value pair, where the key is the _name_ starting with `$` (e.g., `$number_of_repos`), and the value is the _type_ (e.g., `Int`). Add a `!` to indicate whether the type is required. If you've defined multiple variables, include them here as multiple arguments.
 
-3. Utiliza la variable dentro de la operación:
+3. Use the variable within the operation:
 
   ```graphql
   repositories(last: $number_of_repos) {
   ```
 
-  En este ejemplo, sustituimos la variable por la cantidad de repositorios a devolver. Especificamos un tipo en el paso 2, ya que GraphQL requiere de una escritura inflexible.
+  In this example, we substitute the variable for the number of repositories to retrieve. We specify a type in step 2 because GraphQL enforces strong typing.
 
-Este proceso hace dinámico al argumento de la consulta. Ahora se puede cambiar el valor en el objeto `variables` y mantener el resto de la consulta igual.
+This process makes the query argument dynamic. We can now simply change the value in the `variables` object and keep the rest of the query the same.
 
-El uso de variables como argumentos permite actualizar los valores del objeto `variables` de forma dinámica sin cambiar la consulta.
+Using variables as arguments lets you dynamically update values in the `variables` object without changing the query.
 
-## Ejemplo de consulta
+## Example query
 
-Analicemos una consulta más compleja y pongamos esta información en contexto.
+Let's walk through a more complex query and put this information in context.
 
-La consulta siguiente examina el repositorio `octocat/Hello-World`, busca las 20 incidencias cerradas más recientes y devuelve el título, la dirección URL y las 5 primeras etiquetas de cada incidencia:
+The following query looks up the `octocat/Hello-World` repository, finds the 20 most recent closed issues, and returns each issue's title, URL, and first 5 labels:
 
 ```graphql
 query {
@@ -210,35 +207,35 @@ query {
 }
 ```
 
-Analizando la composición línea por línea:
+Looking at the composition line by line:
 
 * `query {`
 
-  Como el objetivo es leer datos del servidor, no modificarlos, la operación raíz es `query`. (Si no especifica una operación, `query` también es el valor predeterminado).
+  Because we want to read data from the server, not modify it, `query` is the root operation. (If you don't specify an operation, `query` is also the default.)
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
-  Para comenzar la consulta, se busca un objeto [`repository`](/graphql/reference/objects#repository). La validación del esquema indica que este objeto necesita un `owner` y un argumento `name`.
+  To begin the query, we want to find a [`repository`](/graphql/reference/objects#repository) object. The schema validation indicates this object requires an `owner` and a `name` argument.
 
 * `issues(last:20, states:CLOSED) {`
 
-  Para tener en cuenta todas las incidencias del repositorio, se llama al objeto `issues`. (Se _podría_ consultar un único `issue` en `repository`, pero para eso sería necesario conocer el número de la incidencia que se quiere devolver y proporcionarlo como argumento).
+  To account for all issues in the repository, we call the `issues` object. (We _could_ query a single `issue` on a `repository`, but that would require us to know the number of the issue we want to return and provide it as an argument.)
 
-  Algunos detalles sobre el objeto `issues`:
+  Some details about the `issues` object:
 
-  - En la [documentación](/graphql/reference/objects#repository) se indica que este objeto tiene el tipo `IssueConnection`.
-  - La validación del esquema indica que este objeto necesita un número de resultados `last` o `first` como argumento, por lo que se proporciona `20`.
-  - En la [documentación](/graphql/reference/objects#repository) también se indica que este objeto acepta un argumento `states`, que es una enumeración [`IssueState`](/graphql/reference/enums#issuestate) que acepta valores `OPEN` o `CLOSED`. Para busca solo incidencias cerradas, se asigna un valor de `CLOSED` a la clave `states`.
+  - The [docs](/graphql/reference/objects#repository) tell us this object has the type `IssueConnection`.
+  - Schema validation indicates this object requires a `last` or `first` number of results as an argument, so we provide `20`.
+  - The [docs](/graphql/reference/objects#repository) also tell us this object accepts a `states` argument, which is an  [`IssueState`](/graphql/reference/enums#issuestate) enum that accepts `OPEN` or `CLOSED` values. To find only closed issues, we give the `states` key a value of `CLOSED`.
 
 * `edges {`
 
-  Se sabe que `issues` es una conexión porque tiene el tipo `IssueConnection`. Para recuperar datos sobre incidencias individuales, es necesario al nodo por medio de `edges`.
+  We know `issues` is a connection because it has the `IssueConnection` type. To retrieve data about individual issues, we have to access the node via `edges`.
 
 * `node {`
 
-  Aquí devolvemos el nodo al final del borde. En la [documentación de `IssueConnection`](/graphql/reference/objects#issueconnection) se indica que el nodo al final del tipo `IssueConnection` es un objeto `Issue`.
+  Here we retrieve the node at the end of the edge. The [`IssueConnection` docs](/graphql/reference/objects#issueconnection) indicate the node at the end of the `IssueConnection` type is an `Issue` object.
 
-* Ahora que se sabe que se va a recuperar un objeto `Issue`, se puede examinar la [documentación](/graphql/reference/objects#issue) y especificar los campos que se quieren devolver:
+* Now that we know we're retrieving an `Issue` object, we can look at the [docs](/graphql/reference/objects#issue) and specify the fields we want to return:
 
   ```graphql
   title
@@ -252,18 +249,18 @@ Analizando la composición línea por línea:
   }
   ```
 
-  Aquí se especifican los campos `title`, `url` y `labels` del objeto `Issue`.
+  Here we specify the `title`, `url`, and `labels` fields of the `Issue` object.
 
-  El campo `labels` tiene el tipo [`LabelConnection`](/graphql/reference/objects#labelconnection). Como sucede con el objeto `issues`, como `labels` es una conexión, es necesario desplazar sus bordes a un nodo conectado: el objeto `label`. En el nodo, se pueden especificar los campos del objeto `label` que se quieren devolver, en este caso, `name`.
+  The `labels` field has the type [`LabelConnection`](/graphql/reference/objects#labelconnection). As with the `issues` object, because `labels` is a connection, we must travel its edges to a connected node: the `label` object. At the node, we can specify the `label` object fields we want to return, in this case, `name`.
 
-Es posible que observe que la ejecución de esta consulta en el repositorio `Hello-World` {% ifversion not ghae %}público{% endif %} de Octocat no devuelve muchas etiquetas. Intenta ejecutarlo en uno de tus propios repositorios que utilice etiquetas, y seguramente verás la diferencia.
+You may notice that running this query on the Octocat's {% ifversion not ghae %}public{% endif %} `Hello-World` repository won't return many labels. Try running it on one of your own repositories that does use labels, and you'll likely see a difference.
 
-## Mutación de ejemplo
+## Example mutation
 
-Las mutaciones a menudo requieren información que solo puedes encontrar si realizas una consulta primero. Este ejemplo muestra dos operaciones:
+Mutations often require information that you can only find out by performing a query first. This example shows two operations:
 
-1. Una consulta para obtener la ID de un informe de problemas.
-2. Una mutación para agregar una reacción de emoji a dicho informe.
+1. A query to get an issue ID.
+2. A mutation to add an emoji reaction to the issue.
 
 ```graphql
 query FindIssueID {
@@ -288,81 +285,81 @@ mutation AddReactionToIssue {
 
 {% tip %}
 
-Aunque puede incluir una consulta y una mutación en la misma ventana del Explorador si les asigna nombres (`FindIssueID` y `AddReactionToIssue` en este ejemplo), las operaciones se ejecutarán como llamadas independientes al punto de conexión de GraphQL. No se puede realizar una consulta al mismo tiempo que una mutación, o viceversa.
+Although you can include a query and a mutation in the same Explorer window if you give them names (`FindIssueID` and `AddReactionToIssue` in this example), the operations will be executed as separate calls to the GraphQL endpoint. It's not possible to perform a query at the same time as a mutation, or vice versa.
 
 {% endtip %}
 
-Analicemos el ejemplo. La tarea parece simple: agregar una reacción de emoji a un informe de problemas.
+Let's walk through the example. The task sounds simple: add an emoji reaction to an issue.
 
-Así que, ¿qué es lo que sabemos para comenzar con la consulta? Aún no sabemos nada.
+So how do we know to begin with a query? We don't, yet.
 
-Ya que queremos modificar los datos en el servidor (agregar un emoji a un informe de problemas), comenzamos buscando el modelo para una mutación útil. En la documentación de referencia se muestra la mutación [`addReaction`](/graphql/reference/mutations#addreaction), con esta descripción: `Adds a reaction to a subject.` Perfecto.
+Because we want to modify data on the server (attach an emoji to an issue), we begin by searching the schema for a helpful mutation. The reference docs show the [`addReaction`](/graphql/reference/mutations#addreaction) mutation, with this description: `Adds a reaction to a subject.` Perfect!
 
-Los documentos para la mutación listan tres campos de entrada:
+The docs for the mutation list three input fields:
 
 * `clientMutationId` (`String`)
 * `subjectId` (`ID!`)
 * `content` (`ReactionContent!`)
 
-Los valores `!` indican que `subjectId` y `content` son campos obligatorios. Un campo `content` obligatorio tiene sentido: el objetivo es agregar una reacción, por lo que será necesario especificar el emoji que se va a usar.
+The `!`s indicate that `subjectId` and `content` are required fields. A required `content` makes sense: we want to add a reaction, so we'll need to specify which emoji to use.
 
-¿Pero por qué `subjectId` es obligatorio? Se debe a que `subjectId` es la única manera de identificar a _qué_ incidencia de _qué_ repositorio se debe reaccionar.
+But why is `subjectId` required? It's because the `subjectId` is the only way to identify _which_ issue in _which_ repository to react to.
 
-Este es el motivo de comenzar el ejemplo con una consulta: para obtener `ID`.
+This is why we start this example with a query: to get the `ID`.
 
-Examinemos la consulta línea por línea:
+Let's examine the query line by line:
 
 * `query FindIssueID {`
 
-  Aquí se realiza una consulta y se le asigna el nombre `FindIssueID`. Nota que el nombrar una consulta es opcional; le dimos un nombre para que podamos incluirlo en la misma ventana del explorador que utiliza la mutación.
+  Here we're performing a query, and we name it `FindIssueID`. Note that naming a query is optional; we give it a name here so that we can include it in same Explorer window as the mutation.
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
-  Para especificar el repositorio se consulta el objeto `repository` y se pasan los argumentos `owner` y `name`.
+  We specify the repository by querying the `repository` object and passing `owner` and `name` arguments.
 
 * `issue(number:349) {`
 
-  Para especificar la incidencia a la que reaccionar se consulta el objeto `issue` y se pasa un argumento `number`.
+  We specify the issue to react to by querying the `issue` object and passing a `number` argument.
 
 * `id`
 
-  Aquí es donde se recupera el valor `id` de `https://github.com/octocat/Hello-World/issues/349` para pasarlo como `subjectId`.
+  This is where we retrieve the `id` of `https://github.com/octocat/Hello-World/issues/349` to pass as the `subjectId`.
 
-Cuando se ejecuta la consulta, se obtiene `id`: `MDU6SXNzdWUyMzEzOTE1NTE=`.
+When we run the query, we get the `id`: `MDU6SXNzdWUyMzEzOTE1NTE=`
 
 {% tip %}
 
-**Nota**: El valor `id` devuelto en la consulta es el que se pasará como `subjectID` en la mutación. Ni los docs ni la introspección de modelo indicarán esta relación; necesitarás entender los conceptos detrás de los nombres para averiguarla.
+**Note**: The `id` returned in the query is the value we'll pass as the `subjectID` in the mutation. Neither the docs nor schema introspection will indicate this relationship; you'll need to understand the concepts behind the names to figure this out.
 
 {% endtip %}
 
-Una vez conociendo la ID, podemos proceder con la mutación:
+With the ID known, we can proceed with the mutation:
 
 * `mutation AddReactionToIssue {`
 
-  Aquí se ejecuta una mutación y se le asigna el nombre `AddReactionToIssue`. Como con las consultas, nombrar una mutación es opcional; le dimos un nombre para poder incluirlo en la misma ventana del explorador que la consulta.
+  Here we're performing a mutation, and we name it `AddReactionToIssue`. As with queries, naming a mutation is optional; we give it a name here so we can include it in the same Explorer window as the query.
 
 * `addReaction(input:{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}) {`
 
-  Examinemos esta línea:
+  Let's examine this line:
 
-  - `addReaction` es el nombre de la mutación.
-  - `input` es la clave de argumento obligatoria. Para una mutación siempre será `input`.
-  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` es la valor de argumento obligatorio. Siempre será un [objeto de entrada](/graphql/reference/input-objects) (de ahí las llaves) formado por campos de entrada (`subjectId` y `content` en este caso) para una mutación.
+  - `addReaction` is the name of the mutation.
+  - `input` is the required argument key. This will always be `input` for a mutation.
+  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` is the required argument value. This will always be an [input object](/graphql/reference/input-objects) (hence the curly braces) composed of input fields (`subjectId` and `content` in this case) for a mutation.
 
-  ¿Cómo sabemos qué valor utilizar para el contenido? En la [documentación de `addReaction`](/graphql/reference/mutations#addreaction) se indica que el campo `content` tiene el tipo [`ReactionContent`](/graphql/reference/enums#reactioncontent), que es una [enumeración](/graphql/reference/enums) porque en las incidencias de GitHub solo se admiten ciertas de reacciones emoji. Estos son los valores permitidos para las reacciones (nota que algunos valores son diferentes de sus nombres de emoji correspondientes):
+  How do we know which value to use for the content? The [`addReaction` docs](/graphql/reference/mutations#addreaction) tell us the `content` field has the type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an [enum](/graphql/reference/enums) because only certain emoji reactions are supported on GitHub issues. These are the allowed values for reactions (note some values differ from their corresponding emoji names):
 
   {% data reusables.repositories.reaction_list %}
 
-* El resto del llamado se compone del objeto de carga útil. Aquí es donde especificamos los datos que queremos recuperar del servidor después de que realicemos la mutación. Estas líneas proceden de la [documentación de `addReaction`](/graphql/reference/mutations#addreaction), con tres campos devueltos posibles:
+* The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/graphql/reference/mutations#addreaction), which three possible return fields:
 
     - `clientMutationId` (`String`)
     - `reaction` (`Reaction!`)
     - `subject` (`Reactable!`)
 
-  En este ejemplo, se devuelven los dos campos obligatorios (`reaction` y `subject`), que tienen subcampos obligatorios (`content` y `id`, respectivamente).
+  In this example, we return the two required fields (`reaction` and `subject`), both of which have required subfields (respectively, `content` and `id`).
 
-Cuando ejecutamos la mutación, esta es la respuesta:
+When we run the mutation, this is the response:
 
 ```json
 {
@@ -379,9 +376,9 @@ Cuando ejecutamos la mutación, esta es la respuesta:
 }
 ```
 
-Eso es todo. Para consultar la [reacción a la incidencia](https://github.com/octocat/Hello-World/issues/349) mantenga el mouse sobre :tada: para encontrar el nombre de usuario.
+That's it! Check out your [reaction to the issue](https://github.com/octocat/Hello-World/issues/349) by hovering over the :tada: to find your username.
 
-Una última nota: cuando pasas varios campos en un objeto de entrada, la sintaxis puede ser difícil de manejar. Puede resultar útil mover los campos a una [variable](#working-with-variables). Así es como podrías reescribir la mutación original utilizando una variable:
+One final note: when you pass multiple fields in an input object, the syntax can get unwieldy. Moving the fields into a [variable](#working-with-variables) can help. Here's how you could rewrite the original mutation using a variable:
 
 ```graphql
 mutation($myVar:AddReactionInput!) {
@@ -404,19 +401,19 @@ variables {
 
 {% note %}
 
-Es posible que observe que el valor del campo `content` en el ejemplo anterior (donde se usa directamente en la mutación) no tiene comillas alrededor de `HOORAY`, pero sí cuando se usa en la variable. Esto es por una razón:
-* Cuando se usa `content` directamente en la mutación, el esquema espera que el valor sea de tipo [`ReactionContent`](/graphql/reference/enums#reactioncontent), que es una _enumeración_, no una cadena. La validación del modelo arrojará un error si agregas comillas antes y después del valor de enumerador, ya que éstas están reservadas para las cadenas.
-* Cuando se usa `content` en una variable, la sección de variables debe ser código JSON válido, por lo que las comillas son obligatorias. La validación del esquema interpreta correctamente el tipo `ReactionContent` cuando la variable se pasa a la mutación durante la ejecución.
+You may notice that the `content` field value in the earlier example (where it's used directly in the mutation) does not have quotes around `HOORAY`, but it does have quotes when used in the variable. There's a reason for this:
+* When you use `content` directly in the mutation, the schema expects the value to be of type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an _enum_, not a string. Schema validation will throw an error if you add quotes around the enum value, as quotes are reserved for strings.
+* When you use `content` in a variable, the variables section must be valid JSON, so the quotes are required. Schema validation correctly interprets the `ReactionContent` type when the variable is passed into the mutation during execution.
 
-Para más información sobre la diferencia entre enumeraciones y cadenas, vea la [especificación oficial de GraphQL](https://graphql.github.io/graphql-spec/June2018/#sec-Enums).
+For more information on the difference between enums and strings, see the [official GraphQL spec](https://graphql.github.io/graphql-spec/June2018/#sec-Enums).
 
 {% endnote %}
 
-## Información adicional
+## Further reading
 
-Hay _mucho_ más que puede hacer al realizar llamadas a GraphQL. Aquí hay algunos lugares que te pueden interesar posteriormente:
+There is a _lot_ more you can do when forming GraphQL calls. Here are some places to look next:
 
-* [Paginación](https://graphql.org/learn/pagination/)
-* [Fragmentos](https://graphql.org/learn/queries/#fragments)
-* [Fragmentos alineados](https://graphql.org/learn/queries/#inline-fragments)
-* [Directivas](https://graphql.org/learn/queries/#directives)
+* [Pagination](https://graphql.org/learn/pagination/)
+* [Fragments](https://graphql.org/learn/queries/#fragments)
+* [Inline fragments](https://graphql.org/learn/queries/#inline-fragments)
+* [Directives](https://graphql.org/learn/queries/#directives)

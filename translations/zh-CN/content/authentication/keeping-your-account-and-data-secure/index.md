@@ -1,6 +1,6 @@
 ---
-title: 保护帐户和数据安全
-intro: '为了保护您的个人信息，应该确保您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户和任何相关数据的安全。'
+title: Keeping your account and data secure
+intro: 'To protect your personal information, you should keep both your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and any associated data secure.'
 redirect_from:
   - /articles/keeping-your-account-and-data-secure
   - /github/authenticating-to-github/keeping-your-account-and-data-secure
@@ -33,11 +33,5 @@ children:
   - /sudo-mode
   - /preventing-unauthorized-access
 shortTitle: Account security
-ms.openlocfilehash: 39ccc832d4584952bc03cd484cfe72080ccfaa18
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145084653'
 ---
 

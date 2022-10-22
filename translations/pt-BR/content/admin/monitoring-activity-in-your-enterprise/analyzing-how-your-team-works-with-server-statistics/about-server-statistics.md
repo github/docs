@@ -1,6 +1,6 @@
 ---
-title: Sobre estatísticas do servidor
-intro: 'Você pode usar {% data variables.product.prodname_server_statistics %} para analisar seus próprios dados agregados do {% data variables.product.prodname_ghe_server %} e nos ajudar a melhorar os produtos {% data variables.product.company_short %}.'
+title: About Server Statistics
+intro: 'You can use {% data variables.product.prodname_server_statistics %} to analyze your own aggregate data from {% data variables.product.prodname_ghe_server %}, and help us improve {% data variables.product.company_short %} products.'
 versions:
   feature: server-statistics
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_server_statistics %}.'
@@ -8,54 +8,49 @@ redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/about-server-statistics
 topics:
   - Enterprise
-ms.openlocfilehash: c71cab38c096d5984a5136147b6dbc75e794c173
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409320'
 ---
-## Sobre os benefícios de {% data variables.product.prodname_server_statistics %}
 
-As {% data variables.product.prodname_server_statistics %} podem ajudar você a prever as necessidades de sua organização, entender como sua equipe trabalha e mostrar o valor obtido do {% data variables.product.prodname_ghe_server %}.
+## About the benefits of {% data variables.product.prodname_server_statistics %}
 
-Depois de habilitadas, as {% data variables.product.prodname_server_statistics %} coleta dados agregados sobre quanto determinados recursos estão sendo usados em sua instância ao longo do tempo. Ao contrário de outros pontos de extremidade da [API Admin Stats](/rest/reference/enterprise-admin#admin-stats), que só retornam dados do dia anterior, as {% data variables.product.prodname_server_statistics %} fornecem dados históricos de todas as métricas de {% data variables.product.prodname_server_statistics %} coletadas desde o dia em que você habilitou o recurso. Para obter mais informações, confira "[Como habilitar {% data variables.product.prodname_server_statistics %} para sua empresa](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)".
+{% data variables.product.prodname_server_statistics %} can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
 
-Ao habilitar {% data variables.product.prodname_server_statistics %}, você está ajudando a criar um {% data variables.product.prodname_dotcom %} melhor. Os dados agregados que você fornecerá nos fornecerão insights sobre como o {% data variables.product.prodname_dotcom %} adiciona valor aos nossos clientes. Essas informações permitem que {% data variables.product.company_short %} tome decisões melhores e mais informadas sobre produtos, beneficiando você.
+Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/reference/enterprise-admin#admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see "[Enabling {% data variables.product.prodname_server_statistics %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
 
-## Sobre a segurança de dados
+When you enable {% data variables.product.prodname_server_statistics %}, you're helping to build a better {% data variables.product.prodname_dotcom %}. The aggregated data you'll provide gives us insights into how {% data variables.product.prodname_dotcom %} adds value to our customers. This information allows {% data variables.product.company_short %} to make better and more informed product decisions, ultimately benefiting you.
 
-Respeitamos seus dados. Nunca transmitiremos dados do {% data variables.product.product_location %} a menos que você primeiro nos tenha dado permissão para fazê-lo.
+## About data security
 
-Não coletamos dados pessoais. Também não coletamos nenhum conteúdo do {% data variables.product.company_short %}, como código, problemas, comentários ou conteúdo de solicitação de pull.
+We respect your data. We will never transmit data from {% data variables.location.product_location %} unless you have first given us permission to do so.
 
-Somente proprietários da conta corporativa ou organização conectada ao {% data variables.product.prodname_ghe_cloud %} podem acessar os dados.
+We collect no personal data. We also don't collect any {% data variables.product.company_short %} content, such as code, issues, comments, or pull request content.
 
-Somente determinadas métricas de agregação são coletadas em repositórios, problemas, solicitações de pull e outros recursos. Para ver a lista de métricas de agregação coletadas, confira "[Dados coletados de {% data variables.product.prodname_server_statistics %}](#server-statistics-data-collected)". 
+Only owners of the connected enterprise account or organization on {% data variables.product.prodname_ghe_cloud %} can access the data.
 
-As atualizações nas métricas coletadas ocorrerão em versões futuras do {% data variables.product.prodname_ghe_server %} e serão descritas nas [notas sobre a versão do {% data variables.product.prodname_ghe_server %}](/admin/release-notes). Além disso, atualizaremos este artigo com todas as atualizações de métricas.
+Only certain aggregate metrics are collected on repositories, issues, pull requests, and other features. To see the list of aggregate metrics collected, see "[{% data variables.product.prodname_server_statistics %} data collected](#server-statistics-data-collected)." 
 
-Para uma melhor compreensão de como armazenamos e protegemos dados de {% data variables.product.prodname_server_statistics %} dados, confira "[Segurança do GitHub](https://github.com/security)".
+Any updates to the collected metrics will happen in future feature releases of {% data variables.product.prodname_ghe_server %} and will be described in the [{% data variables.product.prodname_ghe_server %} release notes](/admin/release-notes). In addition, we will update this article with all metric updates.
 
-### Sobre retenção e exclusão de dados
+For a better understanding of how we store and secure {% data variables.product.prodname_server_statistics %} data, see "[GitHub Security](https://github.com/security)."
 
-O {% data variables.product.company_short %} coleta dados de {% data variables.product.prodname_server_statistics %} enquanto sua licença do {% data variables.product.prodname_ghe_server %} estiver ativa e o recurso {% data variables.product.prodname_server_statistics %} habilitado.
+### About data retention and deletion
 
-Se você quiser excluir seus dados, poderá fazer isso entrando em contato com o Suporte do GitHub, seu representante de conta do {% data variables.product.prodname_dotcom %} ou seu Gerente de Sucesso do Cliente.  Geralmente, excluímos dados no período de tempo especificado em nossa política de privacidade. Para obter mais informações, confira [ declaração de privacidade do {% data variables.product.company_short %}](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#data-retention-and-deletion-of-data) na documentação do {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.company_short %} collects {% data variables.product.prodname_server_statistics %} data for as long as your {% data variables.product.prodname_ghe_server %} license is active and the {% data variables.product.prodname_server_statistics %} feature is enabled.
 
-### Sobre a portabilidade de dados
+If you would like to delete your data, you may do so by contacting GitHub Support, your {% data variables.product.prodname_dotcom %} account representative, or your Customer Success Manager.  Generally, we delete data in the timeframe specified in our privacy statement. For more information, see [{% data variables.product.company_short %}'s privacy statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#data-retention-and-deletion-of-data) in the {% data variables.product.prodname_dotcom_the_website %} documentation.
 
-Como proprietário da organização ou proprietário da empresa no {% data variables.product.prodname_ghe_cloud %}, você pode acessar {% data variables.product.prodname_server_statistics %} exportando os dados em um arquivo CSV ou JSON ou por meio da API REST de {% data variables.product.prodname_server_statistics %}. Para obter mais informações, confira "[Como solicitar {% data variables.product.prodname_server_statistics %} usando a API REST](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)" ou "[Como exportar {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics)".
+### About data portability
 
-## Sobre desabilitar a coleta de dados
+As an organization owner or enterprise owner on {% data variables.product.prodname_ghe_cloud %}, you can access {% data variables.product.prodname_server_statistics %} data by exporting the data in a CSV or JSON file or through the {% data variables.product.prodname_server_statistics %} REST API. For more information, see "[Requesting {% data variables.product.prodname_server_statistics %} using the REST API](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)" or "[Exporting {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics)."
 
-Você pode desabilitar o recurso {% data variables.product.prodname_server_statistics %} a qualquer momento. Para obter mais informações, confira "[Como habilitar {% data variables.product.prodname_server_statistics %} para sua empresa](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)".
+## About disabling data collection
 
-## Dados coletados de {% data variables.product.prodname_server_statistics %}
+You can disable the {% data variables.product.prodname_server_statistics %} feature at any time. For more information, see "[Enabling {% data variables.product.prodname_server_statistics %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
 
-Depois de habilitar {% data variables.product.prodname_server_statistics %}, as métricas serão coletadas por meio de um trabalho diário executado no {% data variables.product.product_location %}. As métricas de agregação são armazenadas em sua conta da organização ou da empresa no {% data variables.product.prodname_ghe_cloud %} e não são armazenadas no {% data variables.product.product_location %}.
+## {% data variables.product.prodname_server_statistics %} data collected
 
-As seguintes métricas de agregação serão coletadas e transmitidas diariamente e representam as contagens totais do dia:
+After you enable {% data variables.product.prodname_server_statistics %}, metrics are collected through a daily job that runs on {% data variables.location.product_location %}. The aggregate metrics are stored on your organization or enterprise account on {% data variables.product.prodname_ghe_cloud %} and are not stored on {% data variables.location.product_location %}.
+
+The following aggregate metrics will be collected and transmitted on a daily basis and represent the total counts for the day:
   - `active_hooks`
   - `admin_users`
   - `closed_issues`
@@ -98,8 +93,8 @@ As seguintes métricas de agregação serão coletadas e transmitidas diariament
   - `total_wikis`
   - `unmergeable_pulls`
 
-## Exemplo de conteúdo do {% data variables.product.prodname_server_statistics %}
+## {% data variables.product.prodname_server_statistics %} payload example
 
-Para ver um exemplo do conteúdo de resposta para a API de {% data variables.product.prodname_server_statistics %}, confira "[Como solicitar {% data variables.product.prodname_server_statistics %} usando a API REST](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)".
+To see an example of the response payload for the {% data variables.product.prodname_server_statistics %} API, see "[Requesting {% data variables.product.prodname_server_statistics %} using the REST API](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)."
 
-Para ver uma lista dos dados coletados, confira "[Dados coletados de {% data variables.product.prodname_server_statistics %}](#server-statistics-data-collected)".
+To see a list of the data collected, see "[{% data variables.product.prodname_server_statistics %} data collected](#server-statistics-data-collected)."

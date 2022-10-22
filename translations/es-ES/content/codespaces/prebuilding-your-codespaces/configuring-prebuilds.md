@@ -61,7 +61,7 @@ Before you can configure prebuilds for your project the following must be true:
    {% note %}
 
    **Notes**: 
-   * The prebuild for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)."
+   * The prebuild for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
    * Developers can set their default region for {% data variables.product.prodname_github_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
    {% endnote %}

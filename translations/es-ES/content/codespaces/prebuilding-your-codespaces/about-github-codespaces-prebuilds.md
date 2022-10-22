@@ -14,7 +14,9 @@ redirect_from:
 
 ## Overview
 
-Prebuilding your codespaces allows you to be more productive and access your codespace faster, particularly if your repository is large or complex and new codespaces currently take more than 2 minutes to start. This is because any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace for your project. Think of a prebuild as a "ready-to-go" template for a codespace. 
+{% data reusables.codespaces.prebuilds-definition %}
+
+If it currently takes more than 2 minutes to create a codespace for a repository, you are likely to benefit from using prebuilds. This is because, with a prebuild, any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace. 
 
 By default, whenever you push changes to your repository, {% data variables.product.prodname_github_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
 
@@ -28,15 +30,9 @@ To create a prebuild you set up a prebuild configuration. When you save the conf
 
 When a prebuild configuration workflow runs, {% data variables.product.prodname_dotcom %} creates a temporary codespace, performing setup operations up to and including any `onCreateCommand` and `updateContentCommand` commands in the `devcontainer.json` file. No `postCreateCommand` commands are run during the creation of a prebuild. For more information about these commands, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation. A snapshot of the generated container is then taken and stored.
 
+As with other Actions workflows, running a prebuild configuration workflow will either consume some of the Actions minutes included with your account, if you have any, or it will incur charges for Actions minutes. Storage of codespace prebuilds is billed in the same way as storage of active or stopped codespaces. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
+
 When you create a codespace from a prebuild, {% data variables.product.prodname_dotcom %} downloads the existing container snapshot from storage and deploys it on a fresh virtual machine, completing the remaining commands specified in the dev container configuration. Since many operations have already been performed, such as cloning the repository, creating a codespace from a prebuild can be substantially quicker than creating one without a prebuild. This is true where the repository is large and/or `onCreateCommand` commands take a long time to run.
-
-## About billing for {% data variables.product.prodname_codespaces %} prebuilds
-
-{% data reusables.codespaces.billing-for-prebuilds-default %} For details of {% data variables.product.prodname_github_codespaces %} storage pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)." 
-
-{% data reusables.codespaces.billing-for-prebuilds-reducing %} 
-
-Use of codespaces created using prebuilds is charged at the same rate as regular codespaces.
 
 ## About pushing changes to prebuild-enabled branches
 

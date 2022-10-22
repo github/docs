@@ -35,7 +35,7 @@ For more information about authenticating with {% data variables.product.prodnam
 
 ## Git Credential Manager
 
-[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM, you don't have to manually [create and store a PAT](/github/authenticating-to-github/creating-a-personal-access-token), as GCM manages authentication on your behalf, including 2FA (two-factor authentication).
+[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM, you don't have to manually [create and store a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token), as GCM manages authentication on your behalf, including 2FA (two-factor authentication).
 
 {% mac %}
 

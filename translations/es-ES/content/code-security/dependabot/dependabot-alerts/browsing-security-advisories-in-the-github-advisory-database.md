@@ -149,9 +149,9 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
 {% ifversion security-advisories-ghes-ghae %}
-## Accessing the local advisory database on {% data variables.product.product_location %}
+## Accessing the local advisory database on {% data variables.location.product_location %}
 
-If your site administrator has enabled {% data variables.product.prodname_github_connect %} for {% data variables.product.product_location %}, you can also browse reviewed advisories locally. For more information, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)".
+If your site administrator has enabled {% data variables.product.prodname_github_connect %} for {% data variables.location.product_location %}, you can also browse reviewed advisories locally. For more information, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)".
 
 You can use your local advisory database to check whether a specific security vulnerability is included, and therefore whether you'd get alerts for vulnerable dependencies. You can also view any vulnerable repositories. 
 
@@ -165,9 +165,9 @@ You can use your local advisory database to check whether a specific security vu
    {% endnote %}
 3. Click an advisory to view details.{% ifversion GH-advisory-db-supports-malware %} By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.{% endif %}
 
-You can also suggest improvements to any advisory directly from your local advisory database. For more information, see "[Editing advisories from {% data variables.product.product_location %}](/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)".
+You can also suggest improvements to any advisory directly from your local advisory database. For more information, see "[Editing advisories from {% data variables.location.product_location %}](/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)".
 
-### Viewing vulnerable repositories for {% data variables.product.product_location %}
+### Viewing vulnerable repositories for {% data variables.location.product_location %}
 
 {% data reusables.repositories.enable-security-alerts %}
 

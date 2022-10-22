@@ -12,15 +12,13 @@ type Props = {
 export const TableOfContents = (props: Props) => {
   const { items, variant = 'expanded' } = props
 
-  const actionItems = (items || []).filter((item) => typeof item !== 'undefined')
-
   return (
     <ul
       data-testid="table-of-contents"
       className={cx(variant === 'compact' ? 'list-style-outside pl-2' : '')}
     >
       {variant === 'expanded' &&
-        actionItems.map((item) => {
+        items.map((item) => {
           const { fullPath: href, title, intro } = item
 
           return (
@@ -43,7 +41,7 @@ export const TableOfContents = (props: Props) => {
 
       {variant === 'compact' && (
         <ActionList>
-          {actionItems.map((item) => {
+          {items.map((item) => {
             const { fullPath: href, title, childTocItems } = item
             return (
               <React.Fragment key={href}>
