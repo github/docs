@@ -612,8 +612,8 @@ translations/es-ES/content/code-security/secret-scanning/about-secret-scanning.m
 translations/es-ES/content/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,rendering error
-translations/es-ES/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,broken liquid tags
-translations/es-ES/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,broken liquid tags
+translations/es-ES/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,rendering error
+translations/es-ES/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,rendering error
 translations/es-ES/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/es-ES/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
 translations/es-ES/content/code-security/security-overview/viewing-the-security-overview.md,rendering error
@@ -1037,7 +1037,7 @@ translations/es-ES/data/reusables/dependabot/beta-security-and-version-updates.m
 translations/es-ES/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/es-ES/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/es-ES/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
-translations/es-ES/data/reusables/dependabot/supported-package-managers.md,broken liquid tags
+translations/es-ES/data/reusables/dependabot/supported-package-managers.md,rendering error
 translations/es-ES/data/reusables/desktop/get-an-account.md,broken liquid tags
 translations/es-ES/data/reusables/discussions/enabling-or-disabling-github-discussions-for-your-organization.md,broken liquid tags
 translations/es-ES/data/reusables/discussions/navigate-to-repo-or-org.md,broken liquid tags
