@@ -76,24 +76,26 @@ Create a new `action.yml` file in the `hello-world-docker-action` directory you 
 
 {% raw %}
 **action.yml**
+
 ```yaml{:copy}
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+ who-to-greet:  # id of input
+   description: 'Who to greet'
+   required: true
+   default: 'World'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+ time: # id of output
+   description: 'The time we greeted you'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
+ using: 'docker'
+ image: 'Dockerfile'
+ args:
+   - ${{ inputs.who-to-greet }}
 ```
+
 {% endraw %}
 
 This metadata defines one `who-to-greet`  input and one `time` output parameter. To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
@@ -104,16 +106,16 @@ This metadata defines one `who-to-greet`  input and one `time` output parameter.
 
 You can choose any base Docker image and, therefore, any language for your action. The following shell script example uses the `who-to-greet` input variable to print "Hello [who-to-greet]" in the log file.
 
-Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must {% ifversion actions-save-state-set-output-envs %}write them to the `$GITHUB_OUTPUT` environment file: `echo "<output name>=<value>" >> $GITHUB_OUTPUT`{% else %}use a workflow command in a specific syntax: `echo "::set-output name=<output name>::<value>"`{% endif %}. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)."
+Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must {% ifversion actions-save-state-set-output-envs %}write them to the `$GITHUB_OUTPUT` environment file: `echo "{name}={value}" >> $GITHUB_OUTPUT`{% else %}use a workflow command in a specific syntax: `echo "::set-output name={output name}::{value}"`{% endif %}. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)."
 
 1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
 
-1. Add the following code to your `entrypoint.sh` file.
+2. Add the following code to your `entrypoint.sh` file.
 
-  **entrypoint.sh**
-  ```shell{:copy}
+**entrypoint.sh**
+
+```shell{:copy}
   #!/bin/sh -l
-
   echo "Hello $1"
   time=$(date)
 {%- ifversion actions-save-state-set-output-envs %}
@@ -121,17 +123,17 @@ Next, the script gets the current time and sets it as an output variable that ac
 {%- else %}
   echo "::set-output name=time::$time"
 {%- endif %}
-  ```
-  If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
+```
 
+  If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
-  ```shell{:copy}
-  $ git update-index --chmod=+x entrypoint.sh
-  ```
+   ```shell{:copy}
+   $ git update-index --chmod=+x entrypoint.sh
+   ```
 
-1. Optionally, to check the permission mode of the file in the git index, run the following command.
+2. Optionally, to check the permission mode of the file in the git index, run the following command.
 
   ```shell{:copy}
   $ git ls-files --stage entrypoint.sh
@@ -153,29 +155,30 @@ In your `hello-world-docker-action` directory, create a `README.md` file that sp
 - An example of how to use your action in a workflow.
 
 **README.md**
-```markdown{:copy}
-# Hello world docker action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+  ```markdown{:copy}
+  # Hello world docker action
 
-## Inputs
+  This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 
-## `who-to-greet`
+  ## Inputs
 
-**Required** The name of the person to greet. Default `"World"`.
+  ## `who-to-greet`
 
-## Outputs
+  **Required** The name of the person to greet. Default `"World"`.
 
-## `time`
+  ## Outputs
 
-The time we greeted you.
+  ## `time`
 
-## Example usage
+  The time we greeted you.
 
-uses: actions/hello-world-docker-action@{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
-with:
-  who-to-greet: 'Mona the Octocat'
-```
+  ## Example usage
+
+  uses: actions/hello-world-docker-action@{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
+  with:
+    who-to-greet: 'Mona the Octocat'
+  ```
 
 ## Commit, tag, and push your action to {% data variables.product.product_name %}
 
@@ -201,50 +204,52 @@ Now you're ready to test your action out in a workflow. When an action is in a p
 The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
 
 **.github/workflows/main.yml**
-```yaml{:copy}
-on: [push]
 
-jobs:
-  hello_world_job:
-    runs-on: ubuntu-latest
-    name: A job to say hello
-    steps:
-      - name: Hello world action step
-        id: hello
-        uses: actions/hello-world-docker-action{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
-        with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
-```
+  ```yaml{:copy}
+  on: [push]
+
+  jobs:
+    hello_world_job:
+      runs-on: ubuntu-latest
+      name: A job to say hello
+      steps:
+        - name: Hello world action step
+          id: hello
+          uses: actions/hello-world-docker-action{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
+          with:
+            who-to-greet: 'Mona the Octocat'
+        # Use the output from the `hello` step
+        - name: Get the output time
+          run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
+  ```
 
 ### Example using a private action
 
 Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
 
 **.github/workflows/main.yml**
-```yaml{:copy}
-on: [push]
 
-jobs:
-  hello_world_job:
-    runs-on: ubuntu-latest
-    name: A job to say hello
-    steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
-        uses: {% data reusables.actions.action-checkout %}
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
-```
+  ```yaml{:copy}
+  on: [push]
+
+  jobs:
+    hello_world_job:
+      runs-on: ubuntu-latest
+      name: A job to say hello
+      steps:
+        # To use this repository's private action,
+        # you must check out the repository
+        - name: Checkout
+          uses: {% data reusables.actions.action-checkout %}
+        - name: Hello world action step
+          uses: ./ # Uses an action in the root directory
+          id: hello
+          with:
+            who-to-greet: 'Mona the Octocat'
+        # Use the output from the `hello` step
+        - name: Get the output time
+          run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
+  ```
 
 From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 

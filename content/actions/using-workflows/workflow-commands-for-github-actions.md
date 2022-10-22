@@ -102,14 +102,14 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 ### Example: Setting a value
 
-You can use the `set-output` command in your workflow to set the same value:
+You can use the `GITHUB_OUTPUT` environment file in your workflow to set the same value:
 
 {% bash %}
 
 {% raw %}
 ```yaml{:copy}
       - name: Set selected color
-        run: echo '::set-output name=SELECTED_COLOR::green'
+        run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
         id: random-color-generator
       - name: Get color
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
@@ -123,7 +123,7 @@ You can use the `set-output` command in your workflow to set the same value:
 {% raw %}
 ```yaml{:copy}
       - name: Set selected color
-        run: Write-Output "::set-output name=SELECTED_COLOR::green"
+        run: Write-Output "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
         id: random-color-generator
       - name: Get color
         run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
@@ -164,7 +164,7 @@ The following table shows which toolkit functions are available within a workflo
 Sets an action's output parameter.
 
 ```{:copy}
-::set-output name={name}::{value}
+echo "{name}={value}" >> $GITHUB_OUTPUT
 ```
 
 Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
@@ -176,7 +176,7 @@ You can escape multiline strings for setting an output parameter by creating an 
 {% bash %}
 
 ```bash{:copy}
-echo "::set-output name=action_fruit::strawberry"
+echo "action_fruit=strawberry" >> $GITHUB_OUTPUT
 ```
 
 {% endbash %}
@@ -184,7 +184,7 @@ echo "::set-output name=action_fruit::strawberry"
 {% powershell %}
 
 ```pwsh{:copy}
-Write-Output "::set-output name=action_fruit::strawberry"
+Write-Output "action_fruit=strawberry" >> $GITHUB_OUTPUT
 ```
 
 {% endpowershell %}
@@ -484,7 +484,7 @@ jobs:
 {% ifversion actions-save-state-set-output-envs %}{% else %}
 ## Echoing command outputs
 
-Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
+Enables or disables echoing of workflow commands. For example, if you use the `$GITHUB_STATE` environment file, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `"{name}={value}" >> $GITHUB_OUTPUT`.
 
 ```{:copy}
 ::echo::on
@@ -508,11 +508,11 @@ jobs:
     steps:
       - name: toggle workflow command echoing
         run: |
-          echo '::set-output name=action_echo::disabled'
-          echo '::echo::on'
-          echo '::set-output name=action_echo::enabled'
-          echo '::echo::off'
-          echo '::set-output name=action_echo::disabled'
+          echo action_echo="disabled" >> $GITHUB_OUTPUT
+          echo "::echo::on"
+          echo action_echo="enabled" >> $GITHUB_OUTPUT
+          echo "::echo::off"
+          echo action_echo="disabled" >> $GITHUB_OUTPUT
 ```
 
 {% endbash %}
@@ -526,11 +526,11 @@ jobs:
     steps:
       - name: toggle workflow command echoing
         run: |
-          write-output "::set-output name=action_echo::disabled"
+          write-output action_echo="disabled" >> $GITHUB_OUTPUT
           write-output "::echo::on"
-          write-output "::set-output name=action_echo::enabled"
+          write-output action_echo="enabled" >> $GITHUB_OUTPUT
           write-output "::echo::off"
-          write-output "::set-output name=action_echo::disabled"
+          write-output action_echo="disabled" >> $GITHUB_OUTPUT
 ```
 
 {% endpowershell %}
@@ -538,11 +538,10 @@ jobs:
 The example above prints the following lines to the log:
 
 ```{:copy}
-::set-output name=action_echo::enabled
 ::echo::off
 ```
 
-Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+Only the second `$GITHUB_OUTPUT` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
  
 {% endif %}
 
