@@ -96,22 +96,6 @@ upcoming_changes:
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: github/dependency_graph
-  - location: LockMergeQueueInput.branch
-    description: '`branch` will be removed.'
-    reason:
-      The merge queue is locked for the repository's default branch, the `branch`
-      argument is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
-  - location: MergeLockedMergeGroupInput.branch
-    description: '`branch` will be removed.'
-    reason:
-      Changes are merged into the repository's default branch, the `branch` argument
-      is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
   - location: RemovePullRequestFromMergeQueueInput.branch
     description: '`branch` will be removed.'
     reason:
@@ -128,14 +112,6 @@ upcoming_changes:
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jamestran201
-  - location: UnlockAndResetMergeGroupInput.branch
-    description: '`branch` will be removed.'
-    reason:
-      The current merge group for the repository's default branch, the `branch`
-      argument is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
   - location: UpdateProjectNextItemFieldInput.fieldWithSettingId
     description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
     reason: Renamed to fieldConstraintId to improve naming consistency.

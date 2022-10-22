@@ -334,7 +334,7 @@ function getHits(hits, { indexName, debug, includeTopics }) {
       id: hit._id,
       url: hit._source.url,
       title: hit._source.title,
-      breadcrumbs: hit._source.breadcrumbs || [],
+      breadcrumbs: hit._source.breadcrumbs,
       highlights: hit.highlight || {},
     }
     if (includeTopics) {

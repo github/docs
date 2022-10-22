@@ -2792,14 +2792,6 @@
         "owner": "memex"
       },
       {
-        "location": "UnlockAndResetMergeGroupInput.branch",
-        "description": "<p><code>branch</code> will be removed.</p>",
-        "reason": "<p>The current merge group for the repository's default branch, the <code>branch</code> argument is now a no-op</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "jhunschejones"
-      },
-      {
         "location": "RepositoryVulnerabilityAlert.fixReason",
         "description": "<p><code>fixReason</code> will be removed.</p>",
         "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
@@ -2811,22 +2803,6 @@
         "location": "RemovePullRequestFromMergeQueueInput.branch",
         "description": "<p><code>branch</code> will be removed.</p>",
         "reason": "<p>PRs are removed from the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "jhunschejones"
-      },
-      {
-        "location": "MergeLockedMergeGroupInput.branch",
-        "description": "<p><code>branch</code> will be removed.</p>",
-        "reason": "<p>Changes are merged into the repository's default branch, the <code>branch</code> argument is now a no-op</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "jhunschejones"
-      },
-      {
-        "location": "LockMergeQueueInput.branch",
-        "description": "<p><code>branch</code> will be removed.</p>",
-        "reason": "<p>The merge queue is locked for the repository's default branch, the <code>branch</code> argument is now a no-op</p>",
         "date": "2022-10-01",
         "criticality": "breaking",
         "owner": "jhunschejones"
@@ -3828,14 +3804,6 @@
     ],
     "2022-10-01": [
       {
-        "location": "UnlockAndResetMergeGroupInput.branch",
-        "description": "<p><code>branch</code> will be removed.</p>",
-        "reason": "<p>The current merge group for the repository's default branch, the <code>branch</code> argument is now a no-op</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "jhunschejones"
-      },
-      {
         "location": "RepositoryVulnerabilityAlert.fixReason",
         "description": "<p><code>fixReason</code> will be removed.</p>",
         "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
@@ -3847,22 +3815,6 @@
         "location": "RemovePullRequestFromMergeQueueInput.branch",
         "description": "<p><code>branch</code> will be removed.</p>",
         "reason": "<p>PRs are removed from the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "jhunschejones"
-      },
-      {
-        "location": "MergeLockedMergeGroupInput.branch",
-        "description": "<p><code>branch</code> will be removed.</p>",
-        "reason": "<p>Changes are merged into the repository's default branch, the <code>branch</code> argument is now a no-op</p>",
-        "date": "2022-10-01",
-        "criticality": "breaking",
-        "owner": "jhunschejones"
-      },
-      {
-        "location": "LockMergeQueueInput.branch",
-        "description": "<p><code>branch</code> will be removed.</p>",
-        "reason": "<p>The merge queue is locked for the repository's default branch, the <code>branch</code> argument is now a no-op</p>",
         "date": "2022-10-01",
         "criticality": "breaking",
         "owner": "jhunschejones"
