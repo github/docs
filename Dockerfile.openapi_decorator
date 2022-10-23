@@ -18,3 +18,385 @@ ADD --chown=node:node data /openapi-check/data
 RUN npm ci -D
 
 ENTRYPOINT ["node", "/openapi-check/script/rest/openapi-check.js"]
+diff --git a/content/actions/learn-github-actions/index.md b/content/actions/learn-github-actions/index.md
+index aa4459d1f2ed..9620b4720ce9 100644
+--- a/content/actions/learn-github-actions/index.md
++++ b/content/actions/learn-github-actions/index.md
+@@ -1,3 +1,3594 @@
++Skip to content
++Search or jump to…
++Pull requests
++Issues
++Marketplace
++Explore
++ 
++@zakwarlord7 
++Your account has been flagged.
++Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
++zakwarlord7
++/
++02100021
++Public
++Code
++Issues
++Pull requests
++Actions
++Projects
++Wiki
++Security
++Insights
++Settings
++Update ROUTER-#111000614-5210-1023.xlsxvlmnslxvnx
++ paradice
++ trunktrunkMaster 
++…
++ Masterbranch
++@zakwarlord7
++zakwarlord7 committed 10 days ago 
++1 parent 68ed48c commit 20575738464b1cc5f51fd5d6f72e1741c4b1d8a7
++Showing 1 changed file with 8,956 additions and 0 deletions.
++ 8,956  
++...X/DEPOSITING/INV-#001000-on/ACCT-#47-2041-6547/ROUTER-#111000614-5210-1023.xlsxvlmnslxvnx
++Large diffs are not rendered by default.
++
++3 comments on commit 2057573
++@zakwarlord7
++Owner
++Author
++zakwarlord7 commented on 2057573 10 days ago • 
++Glossary
++Account
++For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits.
++
++X Close
++
++Automated Clearinghouse or ACH
++A facility that processes debit and credit transfers under rules established by a Federal Reserve Bank operating circular on automated clearinghouse items or under rules of an automated clearinghouse association. See also “Clearinghouse”.
++
++X Close
++
++Bank
++For the purposes of Check 21 a “bank” means an insured bank, a mutual savings bank, a savings bank, an insured credit union, a savings association, an agency or a branch of a foreign bank, and members of a Federal Home Loan Bank. The term “bank” also includes any person engaged in the business of banking, as well as a Federal Reserve Bank, a Federal Home Loan Bank, and a state or unit of general local government to the extent that the state or unit of general local government acts as a paying bank. Unless otherwise specified, the term “bank” includes all of a bank’s offices in the United States, but not offices located outside the United States. A “bank” also includes the Treasury of the United States and the United States Postal Service to the extent that they act as a paying bank.
++
++X Close
++
++Banking Day
++Means that part of any business day on which an office of a bank is open to the public for carrying on substantially all of its banking functions.
++
++X Close
++
++Business Day
++Is a calendar day other than a Saturday or a Sunday. These dates are not considered business days; January 1, the third Monday in January, the third Monday in February, the last Monday in May, July 4, the first Monday in September, the second Monday in October, November 11, the fourth Thursday in November, or December 25. If January 1, July 4, November 11, or December 25 falls on a Sunday, the next Monday is not a business day.
++
++X Close
++
++Check
++Is (1) A negotiable demand draft drawn on or payable through or at an office of a bank; (2) A negotiable demand draft drawn on a Federal Reserve Bank or a Federal Home Loan Bank; (3) A negotiable demand draft drawn on the Treasury of the United States; (4) A demand draft drawn on a state government or unit of general local government that is not payable through or at a bank; (5) A United States Postal Service money order; or (6) A traveler's check drawn on or payable through or at a bank. (7) The term check includes an original check and a substitute check.
++
++Note: The term “check” does not include a noncash item or an item payable in a medium other than United States money. A draft may be a “check” even though it is described on its face by another term, such as money order. For purposes of Check 21 the term “check” also includes a demand draft of the type described above that is nonnegotiable.
++
++X Close
++
++Claimant Bank
++A bank that submits a claim for a recredit for a substitute check to an indemnifying bank under 12 CFR 229.55.
++
++X Close
++
++Clearinghouse
++Is an association or place where banks exchange checks and drafts drawn on each other, and settle their daily balances.
++
++X Close
++
++Collecting Bank
++Any bank handling a check for forward collection, except the paying bank.
++
++X Close
++
++Consumer
++A natural person who (1) with respect to a check handled for forward collection, draws the check on a consumer account or (2) with respect to a check handled for return, deposits the check into or cashes the check against a consumer account.
++
++X Close
++
++Consumer Account
++Any account used primarily for personal, family, or household purposes.
++
++X Close
++
++Contractual Branch
++With respect to a bank, means a branch of another bank that accepts a deposit on behalf of the first bank.
++
++X Close
++
++Copy
++A copy of an original check means any paper reproduction of an original check, including a paper printout of an electronic image of the original check, a photocopy of the original check or a substitute check. See also “Sufficient Copy”.
++
++X Close
++
++Customer
++Is a person having an account with a bank.
++
++X Close
++
++Depositary Bank
++Is the first bank to which a check is transferred even though it is also the paying bank or the payee. A check deposited in an account is deemed to be transferred to the bank holding the account into which the check is deposited, even though the check is physically received and indorsed first by another bank.
++
++X Close
++
++Forward Collection
++Means the process by which a bank sends a check on a cash basis to a collecting bank for settlement or to the paying bank for payment.
++
++X Close
++
++Good Faith
++Means honesty in fact and observance of reasonable commercial standards of fair dealing.
++
++X Close
++
++Indemnifying Bank
++A bank that transfers, presents, or returns a substitute check or a paper or electronic representation of a substitute check for which it receives consideration shall indemnify the recipient and any subsequent recipient (including a collecting or returning bank, the depositary bank, the drawer, the drawee, the payee, the depositor, and any indorser) for any loss incurred by any recipient of a substitute check if that loss occurred due to the receipt of a substitute check instead of the original.
++
++X Close
++
++Magnetic Ink Character Recognition Line and MICR Line
++The numbers, which may include the routing number, account number, check number, check amount, and other information, that are printed near the bottom of a check in magnetic ink in accordance with the American National Standard Specifications for Placement and Location of MICR Printing X9.13 (hereinafter ANS X9.13) for an original check and American National Standard Specifications for an Image Replacement Document –IRD, X9.100-140 (hereinafter ANS X9.100-140) for a substitute check (unless the Board by rule or order determines that different standards apply).
++
++X Close
++
++Noncash Item
++Is an item that would otherwise be a check, except that (1) a passbook, certificate, or other document is attached; (2) it is accompanied by special instructions, such as a request for special advice of payment or dishonor; (3) it consists of more than a single thickness of paper, except a check that qualifies for handling by automated check processing equipment; or (4) it has not been preprinted or post-encoded in magnetic ink with the routing number of the paying bank.
++
++X Close
++
++Original Check
++The first paper check issued with respect to a particular payment transaction.
++
++X Close
++
++Paper or Electronic Representation of a Substitute Check
++Any copy of or information related to a substitute check that a bank handles for forward collection or return, charges to a customer’s account, or provides to a person as a record of a check payment made by the person.
++
++X Close
++
++Paying Bank
++Means (1) the bank by which a check is payable, unless the check is payable at another bank and is sent to the other bank for payment or collection; (2) the bank at which a check is payable and to which it is sent for payment or collection; (3) the Federal Reserve Bank or Federal Home Loan Bank by which a check is payable; (4) the bank through which a check is payable and to which it is sent for payment or collection, if the check is not payable by a bank; or (5) the state or unit of general local government on which a check is drawn and to which it is sent for payment or collection.
++
++For purposes of Check 21 a “paying bank” also includes the Treasury of the United States or the United States Postal Service for a check that is payable by that entity and that is sent to that entity for payment or collection.
++
++X Close
++
++Person
++Is a natural person, corporation, unincorporated company, partnership, government unit or instrumentality, trust, or any other entity or organization.
++
++X Close
++
++Qualified Returned Check
++A returned check that is prepared for automated return to the depositary bank by placing the check in a carrier envelope or placing a strip on the check and encoding the strip or envelope in magnetic ink. A qualified returned check need not contain other elements of a check drawn on the depositary bank, such as the name of the depositary bank.
++
++X Close
++
++Reconverting Bank
++Is the bank that creates a substitute check; or with respect to a substitute check that was created by a person that is not a bank, the first bank that transfers, presents, or returns that substitute check or, in lieu thereof, the first paper or electronic representation of that substitute check.
++
++X Close
++
++Returning Bank
++Is a bank (other than the paying or depositary bank) handling a returned check or notice in lieu of return. A returning bank is also a collecting bank for purposes of UCC 4–202(b).
++
++X Close
++
++State
++Means a state, the District of Columbia, Puerto Rico, or the U.S. Virgin Islands. For purposes of Check 21, state also means Guam, American Samoa, the Trust Territory of the Pacific Islands, the Northern Mariana Islands, and any other territory of the United States.
++
++X Close
++
++Substitute Check
++A paper reproduction of an original check that (1) contains an image of the front and back of the original check; (2) bears a MICR line that, except as provided under ANS X9.100-140 contains all the information appearing on the MICR line of the original check at the time that the original check was issued and any additional information that was encoded on the original check’s MICR line before an image of the original check was captured; (3) conforms in paper stock, dimension, and otherwise with ANS X9.100-140; and (4) is suitable for automated processing in the same manner as the original check. The Federal Reserve Board can by rule or order determine different standards.
++
++X Close
++
++Sufficient Copy
++A copy of an original check that accurately represents all of the information on the front and back of the original check as of the time the original was truncated or is otherwise sufficient to determine whether or not a claim is valid. See also “Copy”.
++
++X Close
++
++Transfer and Consideration
++For the purposes of Check 21 transfer means, with respect to a substitute check or a paper or electronic representation of a substitute check, delivery of the substitute check or other representation of the substitute check by a bank to a person other than a bank. A bank that transfers a substitute check or a paper or electronic representation of a substitute check directly to a person other than a bank has received consideration for the substitute check or other paper or electronic representation of the substitute check if it has charged, or has the right to charge, the person’s account or otherwise has received value for the original check, a substitute check, or representation of the original check or substitute check.
++
++X Close
++Glossary
++Account
++For the purposes of Check 21 “account” means all deposit accounts as defined in Reg. D, 12 CFR 204.2(a)(1)(i). This includes transaction, savings, MMDA and time deposits.
++
++X Close
++
++Automated Clearinghouse or ACH
++A facility that processes debit and credit transfers under rules established by a Federal Reserve Bank operating circular on automated clearinghouse items or under rules of an automated clearinghouse association. See also “Clearinghouse”.
++
++X Close
++
++Bank
++For the purposes of Check 21 a “bank” means an insured bank, a mutual savings bank, a savings bank, an insured credit union, a savings association, an agency or a branch of a foreign bank, and members of a Federal Home Loan Bank. The term “bank” also includes any person engaged in the business of banking, as well as a Federal Reserve Bank, a Federal Home Loan Bank, and a state or unit of general local government to the extent that the state or unit of general local government acts as a paying bank. Unless otherwise specified, the term “bank” includes all of a bank’s offices in the United States, but not offices located outside the United States. A “bank” also includes the Treasury of the United States and the United States Postal Service to the extent that they act as a paying bank.
++
++X Close
++
++Banking Day
++Means that part of any business day on which an office of a bank is open to the public for carrying on substantially all of its banking functions.
++
++X Close
++
++Business Day
++Is a calendar day other than a Saturday or a Sunday. These dates are not considered business days; January 1, the third Monday in January, the third Monday in February, the last Monday in May, July 4, the first Monday in September, the second Monday in October, November 11, the fourth Thursday in November, or December 25. If January 1, July 4, November 11, or December 25 falls on a Sunday, the next Monday is not a business day.
++
++X Close
++
++Check
++Is (1) A negotiable demand draft drawn on or payable through or at an office of a bank; (2) A negotiable demand draft drawn on a Federal Reserve Bank or a Federal Home Loan Bank; (3) A negotiable demand draft drawn on the Treasury of the United States; (4) A demand draft drawn on a state government or unit of general local government that is not payable through or at a bank; (5) A United States Postal Service money order; or (6) A traveler's check drawn on or payable through or at a bank. (7) The term check includes an original check and a substitute check.
++
++Note: The term “check” does not include a noncash item or an item payable in a medium other than United States money. A draft may be a “check” even though it is described on its face by another term, such as money order. For purposes of Check 21 the term “check” also includes a demand draft of the type described above that is nonnegotiable.
++
++X Close
++
++Claimant Bank
++A bank that submits a claim for a recredit for a substitute check to an indemnifying bank under 12 CFR 229.55.
++
++X Close
++
++Clearinghouse
++Is an association or place where banks exchange checks and drafts drawn on each other, and settle their daily balances.
++
++X Close
++
++Collecting Bank
++Any bank handling a check for forward collection, except the paying bank.
++
++X Close
++
++Consumer
++A natural person who (1) with respect to a check handled for forward collection, draws the check on a consumer account or (2) with respect to a check handled for return, deposits the check into or cashes the check against a consumer account.
++
++X Close
++
++Consumer Account
++Any account used primarily for personal, family, or household purposes.
++
++X Close
++
++Contractual Branch
++With respect to a bank, means a branch of another bank that accepts a deposit on behalf of the first bank.
++
++X Close
++
++Copy
++A copy of an original check means any paper reproduction of an original check, including a paper printout of an electronic image of the original check, a photocopy of the original check or a substitute check. See also “Sufficient Copy”.
++
++X Close
++
++Customer
++Is a person having an account with a bank.
++
++X Close
++
++Depositary Bank
++Is the first bank to which a check is transferred even though it is also the paying bank or the payee. A check deposited in an account is deemed to be transferred to the bank holding the account into which the check is deposited, even though the check is physically received and indorsed first by another bank.
++
++X Close
++
++Forward Collection
++Means the process by which a bank sends a check on a cash basis to a collecting bank for settlement or to the paying bank for payment.
++
++X Close
++
++Good Faith
++Means honesty in fact and observance of reasonable commercial standards of fair dealing.
++
++X Close
++
++Indemnifying Bank
++A bank that transfers, presents, or returns a substitute check or a paper or electronic representation of a substitute check for which it receives consideration shall indemnify the recipient and any subsequent recipient (including a collecting or returning bank, the depositary bank, the drawer, the drawee, the payee, the depositor, and any indorser) for any loss incurred by any recipient of a substitute check if that loss occurred due to the receipt of a substitute check instead of the original.
++
++X Close
++
++Magnetic Ink Character Recognition Line and MICR Line
++The numbers, which may include the routing number, account number, check number, check amount, and other information, that are printed near the bottom of a check in magnetic ink in accordance with the American National Standard Specifications for Placement and Location of MICR Printing X9.13 (hereinafter ANS X9.13) for an original check and American National Standard Specifications for an Image Replacement Document –IRD, X9.100-140 (hereinafter ANS X9.100-140) for a substitute check (unless the Board by rule or order determines that different standards apply).
++
++X Close
++
++Noncash Item
++Is an item that would otherwise be a check, except that (1) a passbook, certificate, or other document is attached; (2) it is accompanied by special instructions, such as a request for special advice of payment or dishonor; (3) it consists of more than a single thickness of paper, except a check that qualifies for handling by automated check processing equipment; or (4) it has not been preprinted or post-encoded in magnetic ink with the routing number of the paying bank.
++
++X Close
++
++Original Check
++The first paper check issued with respect to a particular payment transaction.
++
++X Close
++
++Paper or Electronic Representation of a Substitute Check
++Any copy of or information related to a substitute check that a bank handles for forward collection or return, charges to a customer’s account, or provides to a person as a record of a check payment made by the person.
++
++X Close
++
++Paying Bank
++Means (1) the bank by which a check is payable, unless the check is payable at another bank and is sent to the other bank for payment or collection; (2) the bank at which a check is payable and to which it is sent for payment or collection; (3) the Federal Reserve Bank or Federal Home Loan Bank by which a check is payable; (4) the bank through which a check is payable and to which it is sent for payment or collection, if the check is not payable by a bank; or (5) the state or unit of general local government on which a check is drawn and to which it is sent for payment or collection.
++
++For purposes of Check 21 a “paying bank” also includes the Treasury of the United States or the United States Postal Service for a check that is payable by that entity and that is sent to that entity for payment or collection.
++
++X Close
++
++Person
++Is a natural person, corporation, unincorporated company, partnership, government unit or instrumentality, trust, or any other entity or organization.
++
++X Close
++
++Qualified Returned Check
++A returned check that is prepared for automated return to the depositary bank by placing the check in a carrier envelope or placing a strip on the check and encoding the strip or envelope in magnetic ink. A qualified returned check need not contain other elements of a check drawn on the depositary bank, such as the name of the depositary bank.
++
++X Close
++
++Reconverting Bank
++Is the bank that creates a substitute check; or with respect to a substitute check that was created by a person that is not a bank, the first bank that transfers, presents, or returns that substitute check or, in lieu thereof, the first paper or electronic representation of that substitute check.
++
++X Close
++
++Returning Bank
++Is a bank (other than the paying or depositary bank) handling a returned check or notice in lieu of return. A returning bank is also a collecting bank for purposes of UCC 4–202(b).
++
++X Close
++
++State
++Means a state, the District of Columbia, Puerto Rico, or the U.S. Virgin Islands. For purposes of Check 21, state also means Guam, American Samoa, the Trust Territory of the Pacific Islands, the Northern Mariana Islands, and any other territory of the United States.
++
++X Close
++
++Substitute Check
++A paper reproduction of an original check that (1) contains an image of the front and back of the original check; (2) bears a MICR line that, except as provided under ANS X9.100-140 contains all the information appearing on the MICR line of the original check at the time that the original check was issued and any additional information that was encoded on the original check’s MICR line before an image of the original check was captured; (3) conforms in paper stock, dimension, and otherwise with ANS X9.100-140; and (4) is suitable for automated processing in the same manner as the original check. The Federal Reserve Board can by rule or order determine different standards.
++
++X Close
++
++Sufficient Copy
++A copy of an original check that accurately represents all of the information on the front and back of the original check as of the time the original was truncated or is otherwise sufficient to determine whether or not a claim is valid. See also “Copy”.
++
++X Close
++
++Transfer and Consideration
++For the purposes of Check 21 transfer means, with respect to a substitute check or a paper or electronic representation of a substitute check, delivery of the substitute check or other representation of the substitute check by a bank to a person other than a bank. A bank that transfers a substitute check or a paper or electronic representation of a substitute check directly to a person other than a bank has received consideration for the substitute check or other paper or electronic representation of the substitute check if it has charged, or has the right to charge, the person’s account or otherwise has received value for the original check, a substitute check, or representation of the original check or substitute check.
++
++X Close
++
++Truncate
++To remove an original check from the forward collection or return process and send to a recipient, in lieu of such original check, a substitute check or, by agreement, information relating to the original check (including data taken from the MICR line of the original check or an electronic image of the original check), whether with or without the subsequent delivery of the original check.
++
++X Close
+++- Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share) +- INTERNAL REVENUE SERVICE, *include interest paid, capital obligation, and underweighting 6858000000 +- 22677000000 +- CHARLOTTE, NC 28201-1214 Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share) 22677000000 +- Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share) 22677000000 +- Taxes / Deductions Current YTD +- Fiscal year ends in Dec 31 | USD +- Rate +- +- Total +- 7567263607 DoB: 1994-10-15 +- YTD +- +- April 18, 2022. +- 7567263607 +- WOOD ZACHRY Tax Period Total Social Security Medicare Withholding +- Fed 941 Corporate 39355 66986.66 28841.48 6,745.18 31,400.00 +- Fed 941 West Subsidiary 39355 17115.41 7369.14 1,723.42 8,022.85 +- Fed 941 South Subsidiary 39355 23906.09 10292.9 2,407.21 11,205.98 +- Fed 941 East Subsidiary 39355 11247.64 4842.74 1,132.57 5,272.33 +- Fed 941 Corp - Penalty 39355 27198.5 11710.47 2,738.73 12,749.30 +- Fed 940 Annual Unemp - Corp 39355 17028.05 +- +- Pay Date: +- 44669 +- 6b 633441725 +- Total Medicare Withholding +- Capital gain or (loss). Attach Schedule D if required. If not required, check here ....▶ Fed 941 Corporate 39355 66986.66 674518.000% 31400 +- 7 Fed 941 West Subsidiary 39355 17115.41 7369.14 1,723.42 8022.85 +- 8 Fed 941 South Subsidiary 39355 23906.09 $2,407.21 11205.98 +- Other income from Schedule 1, line 10 .................. Fed 941 East Subsidiary 39355 $11,247.64 $4,842.74 $1,132.57 5272.33 +- 8 Fed 941 Corp - Penalty 39355 27198.5 11710.47 2738.73 12749.3 +- +- Q4 2020 Q3 2020 Q2 2020 Q1 2020 Q4 2019 +- 9 +- 10 1.47E+11 42337000000 37497000000 35653000000 31211000000 30818000000 25056000000 19744000000 22177000000 25055000000 +- Adjustments to income from Schedule 1, line 26 ............... 2.58E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 46075000000 +- 10 2.58E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 64133000000 +- 11 +- Subtract line 10 from line 9. This is your adjusted gross income .........▶ -5.79E+11 -32988000000 -27621000000 -26227000000 -24103000000 -26080000000 -21117000000 -18553000000 -18982000000 -21020000000 +- 11 -1.11E+11 -32988000000 -27621000000 -26227000000 -24103000000 -26080000000 -21117000000 -18553000000 -18982000000 -21020000000 +- Standard Deduction for— -1.11E+11 -16292000000 -14774000000 -15167000000 -13843000000 -13361000000 -14200000000 -15789000000 +- • Single or Married filing separately, $12,550 -67984000000 -20452000000 -16466000000 -8617000000 -7289000000 -8145000000 -6987000000 -6486000000 -7380000000 -8567000000 +- • Married filing jointly or Qualifying widow(er), $25,100 -36422000000 -11744000000 -8772000000 -3341000000 -2773000000 -2831000000 -2756000000 -2585000000 -2880000000 -2829000000 +- • Head of household, $18,800 -13510000000 -4140000000 -3256000000 -5276000000 -4516000000 -5314000000 -4231000000 -3901000000 -4500000000 -5738000000 +- • If you checked any box under Standard Deduction, see instructions. -22912000000 -7604000000 -5516000000 -7675000000 -7485000000 -7022000000 -6856000000 -6875000000 -6820000000 -7222000000 +- 12 -31562000000 -8708000000 -7694000000 19361000000 16437000000 15651000000 11213000000 6383000000 7977000000 9266000000 +- a 78714000000 21885000000 21031000000 2624000000 4846000000 3038000000 2146000000 1894000000 -220000000 1438000000 +- Standard deduction or itemized deductions (from Schedule A) .. 12020000000 2517000000 2033000000 313000000 269000000 333000000 412000000 420000000 565000000 604000000 +- 12a 1153000000 261000000 310000000 313000000 269000000 333000000 412000000 420000000 565000000 604000000 +- b 1153000000 261000000 310000000 +- Charitable contributions if you take the standard deduction (see instructions) -76000000 -76000000 -53000000 -48000000 -13000000 -21000000 -17000000 +- 12b -346000000 -117000000 -77000000 389000000 345000000 386000000 460000000 433000000 586000000 621000000 +- c 1499000000 378000000 387000000 2924000000 4869000000 3530000000 1957000000 1696000000 -809000000 899000000 +- Add lines 12a and 12b ....................... 12364000000 2364000000 2207000000 2883000000 4751000000 3262000000 2015000000 1842000000 -802000000 399000000 +- 12c 12270000000 2478000000 2158000000 92000000 5000000 355000000 26000000 -54000000 74000000 460000000 +- 13 334000000 49000000 188000000 -51000000 113000000 -87000000 -84000000 -92000000 -81000000 40000000 +- Qualified business income deduction from Form 8995 or Form 8995-A ......... -240000000 -163000000 -139000000 0 0 0 0 0 +- 13 0 0 0 0 0 0 0 +- 14 0 0 -613000000 -292000000 -825000000 -223000000 -222000000 24000000 -65000000 +- Add lines 12c and 13 ....................... -1497000000 -108000000 -484000000 21985000000 21283000000 18689000000 13359000000 8277000000 7757000000 10704000000 +- 14 90734000000 24402000000 23064000000 -3460000000 -3353000000 -3462000000 -2112000000 -1318000000 -921000000 -33000000 +- 15 -14701000000 -3760000000 -4128000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000 +- Taxable income. Subtract line 14 from line 11. If zero or less, enter -0- ......... 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000 +- 15 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000 +- For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions. 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000 +- Cat. No. 11320B 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000 +- Form 1040 (2021) 76033000000 20642000000 18936000000 +- Reported Normalized and Operating Income/Expense Supplemental Section +- Total Revenue as Reported, Supplemental 2.58E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 46075000000 +- Total Operating Profit/Loss as Reported, Supplemental 78714000000 21885000000 21031000000 19361000000 16437000000 15651000000 11213000000 6383000000 7977000000 9266000000 +- Reported Effective Tax Rate 0.16 0.179 0.157 0.158 0.158 0.159 0 +- Reported Normalized Income 6836000000 +- Reported Normalized Operating Profit 7977000000 +- Other Adjustments to Net Income Available to Common Stockholders +- Discontinued Operations +- Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.96 15.49 +- Basic EPS from Continuing Operations 113.88 31.12 28.44 27.69 26.63 22.46 16.55 10.21 9.96 15.47 +- Basic EPS from Discontinued Operations +- Diluted EPS 112.2 30.69 27.99 27.26 26.29 22.3 16.4 10.13 9.87 15.35 +- Diluted EPS from Continuing Operations 112.2 30.67 27.99 27.26 26.29 22.23 16.4 10.13 9.87 15.33 +- Diluted EPS from Discontinued Operations +- Basic Weighted Average Shares Outstanding 667650000 662664000 665758000 668958000 673220000 675581000 679449000 681768000 686465000 688804000 +- Diluted Weighted Average Shares Outstanding 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000 +- Reported Normalized Diluted EPS 9.87 +- Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.96 15.49 +- Diluted EPS 112.2 31 28 27 26 22 16 10 10 15 +- Basic WASO 667650000 662664000 665758000 668958000 673220000 675581000 679449000 681768000 686465000 688804000 +- Diluted WASO 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000 +- +- +- +- +- +- +- +- +- 2017 2018 2019 2020 2021 +- +- +- Best Time to 911 +- +- +- +- +- +- +- +- INTERNAL REVENUE SERVICE +- PO BOX 1214 +- CHARLOTTE NC 28201-1214 9999999999 +- +- 633-44-1725 +- ZACHRYTWOOD +- AMPITHEATRE PARKWAY +- MOUNTAIN VIEW, Califomia 94043 +- +- +- +- EIN 61-1767919 +- +- Earnings FEIN 88-1303491 +- End Date +- +- 44669 +- Department of the Treasury Calendar Year Check Date +- Internal Revenue Service Due. (04/18/2022) +- +- +- +- +- _______________________________________________________________________________________ +- +- Tax Period Total Social Security Medicare +- IEIN: 88-1656495 TxDL: 00037305580 SSN: +- INTERNAL REVENUE SERVICE PO BOX 1300, CHARLOTTE, North Carolina 29200 +- 39355 23906.09 10292.9 2407.21 +- 20210418 39355 11247.64 4842.74 1132.57 +- 39355 27198.5 11710.47 2738.73 +- 39355 17028.05 +- CP 575A (Rev. 2-2007) 99999999999 CP 575 A SS-4 +- Earnings Statement +- +- IEIN: 88-1656496 TxDL: 00037305581 SSN: +- +- +- INTERNAL REVENUE SERVICE PO BOX 1300, CHARLOTTE, North Carolina 29201 +- +- +- +- +- +- +- Employee Information Pay to the order of ZACHRY T WOOD +- AMPITHEATRE PARKWAY, +- MOUNTAIN VIEW, California 94043 45999-0023 44658 SS-4 CP 575 A 75235 We assigned you This EIN will identify you, your business accounts, tax returns, and If the information is Please b 6.35- 8 Total Year to Date 3, Total for this Period 36 36 18 t ly of Items Amount Checks and Other Deductions Description Items Amount 1 62.5 ACH Deductions 1 62.5 he Service Charges and Fees 1 36 1 62.5 Total 2 98.5 Date Ledger balance Date Ledger balance (279 62.50- 44678 36
++If the information is We assigned you 44658 44658 44658 If the information is 44658 44658 Plea S If there is a balance due on the return (s)
++
++If you were not in business or did not hire any employees PI If you
++
++				#NAME?																											 					
++Primary account number: 47-2041-6547
++Page 1 of 3 1022462 Q 304 Number of enclosures: 0 For 24-hour banking sign on to PNC Bank Online Banking on pnc.com FREE Online Bill Pay For customer service call 1-877-BUS-BNKG PNC accepts Telecommunications Relay Service (TRS) calls. 9 Para servicio en espalol, 1877.BUS-BNKC, Moving? Please contact your local branch. @ Write to: Customer Service PO Box 609 Pittsburgh , PA 15230-9738 Visit us at PNC.com/smaIIbusiness Date of this notice: 44658 Zachry Tyler Wood Alphabet Employer Identification Number: 88-1656496 Checks and other deductions Ending balance Form: SS-4 Deposits and other additions Number of this notice: CP 575 A #ERROR! 98.50 Average ledger balance 36.00- Average collected balance For assistance you may call ug at: 6.35- 6.35- 1-800-829-4933 Total Year to Date Total for this Period 36 36 IF YOU WRITE, ATTATCHA TYE STUB AT OYE END OF THIS NOTICE. Items Amount Checks and Other Deductions Description Items Amount 1 62.5 ACH Deductions 1 62.5 We assigned you Service Charges and Fees 1 +- Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share) +- INTERNAL REVENUE SERVICE, *include interest paid, capital obligation, and underweighting 6858000000 +- 22677000000 +- CHARLOTTE, NC 28201-1214 Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share) 22677000000 +- Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share) 22677000000 +- Taxes / Deductions Current YTD +- Fiscal year ends in Dec 31 | USD +- Rate +- +- Total +- 7567263607 DoB: 1994-10-15 +- YTD +- +- April 18, 2022. +- 7567263607 +- WOOD ZACHRY Tax Period Total Social Security Medicare Withholding +- Fed 941 Corporate 39355 66986.66 28841.48 6,745.18 31,400.00 +- Fed 941 West Subsidiary 39355 17115.41 7369.14 1,723.42 8,022.85 +- Fed 941 South Subsidiary 39355 23906.09 10292.9 2,407.21 11,205.98 +- Fed 941 East Subsidiary 39355 11247.64 4842.74 1,132.57 5,272.33 +- Fed 941 Corp - Penalty 39355 27198.5 11710.47 2,738.73 12,749.30 +- Fed 940 Annual Unemp - Corp 39355 17028.05 +- +- Pay Date: +- 44669 +- 6b 633441725 +- Total Medicare Withholding INV-#1004
++Check-#101004 : issuer :Qhttps://intuit.api'@https://www.intuit.ocm ::
++Fed 941 Corporate 39355 66986.66 674518.000% 31400
+++- 7 Fed 941 West Subsidiary 39355 17115.41 7369.14 1,723.42 8022.85
+++- 8 Fed 941 South Subsidiary 39355 23906.09 $2,407.21 11205.98
+++- Other income from Schedule 1, line 10 .................. Fed 941 East Subsidiary 39355
