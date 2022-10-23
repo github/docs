@@ -46,3 +46,5 @@ Organization owners can verify custom domains for their organization.
   dig _github-pages-challenge-ORGANIZATION.example.com +nostats +nocomments +nocmd TXT
   ```
 {% data reusables.pages.settings-verify-domain-confirm %}
+
+## Setting up DNS Configuration for verification purpose
