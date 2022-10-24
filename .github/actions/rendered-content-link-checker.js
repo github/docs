@@ -140,6 +140,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  verbose {boolean} - Set to true for more verbose logging
  *  random {boolean} - Randomize page order for debugging when true
  *  patient {boolean} - Wait longer and retry more times for rate-limited external URLS
+ *  bail {boolean} - Throw an error on the first page (not permalink) that has >0 flaws
  *
  */
 async function main(core, octokit, uploadArtifact, opts = {}) {
@@ -529,7 +530,7 @@ function getPages(pageList, languages, filters, files, max) {
 }
 
 async function processPage(core, page, pageMap, redirects, opts) {
-  const { verbose, verboseUrl } = opts
+  const { verbose, verboseUrl, bail } = opts
 
   const allFlawsEach = await Promise.all(
     page.permalinks.map((permalink) => {
@@ -542,6 +543,13 @@ async function processPage(core, page, pageMap, redirects, opts) {
   if (allFlaws.length > 0) {
     if (verbose) {
       printFlaws(core, allFlaws, { verboseUrl })
+    }
+
+    if (bail) {
+      if (!verbose) {
+        console.warn('Use --verbose to see the flaws before it exits')
+      }
+      throw new Error(`More than one flaw in ${page.relativePath}`)
     }
   }
 
