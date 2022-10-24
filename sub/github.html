@@ -1,0 +1,10 @@
+<div{{ attributes }}>
+
+  <!-- tabs -->
+  {% for key,value in tabs %}
+    <a class="{{ value.is_active }}" href="{{ value.url }}">{{ value.label }}</a>
+  {% endfor%}
+
+  <!-- body -->
+  {{ body_text }}
+</div>
