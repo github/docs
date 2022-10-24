@@ -31,7 +31,7 @@ This guide shows you how to set up your JavaScript, Node.js, or TypeScript proje
 
 ## Step 1: Open your project in a codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
    ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 

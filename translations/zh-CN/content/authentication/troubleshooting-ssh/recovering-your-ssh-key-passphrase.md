@@ -1,6 +1,6 @@
 ---
-title: 恢复 SSH 密钥密码
-intro: 如果您丢失 SSH 密钥密码，则根据您使用的操作系统，您可能可以恢复它，也可能需要生成新的 SSH 密钥密码。
+title: Recovering your SSH key passphrase
+intro: 'If you''ve lost your SSH key passphrase, depending on the operating system you use, you may either recover it or you may need to generate a new SSH key passphrase.'
 redirect_from:
   - /articles/how-do-i-recover-my-passphrase
   - /articles/how-do-i-recover-my-ssh-key-passphrase
@@ -15,36 +15,30 @@ versions:
 topics:
   - SSH
 shortTitle: Recover SSH key passphrase
-ms.openlocfilehash: 28d768e81f3076898c23b2b1668314ae5573ec5c
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145084559'
 ---
 {% mac %}
 
-如果[使用 macOS 密钥链配置 SSH 密码](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain)，则能够恢复它。
+If you [configured your SSH passphrase with the macOS keychain](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain), you may be able to recover it.
 
-1. 在 Finder 中，搜索 Keychain Access 应用。
-   ![Spotlight 搜索栏](/assets/images/help/setup/keychain-access.png)
-2. 在 Keychain Access 中，搜索 SSH。
-3. 双击 SSH 密钥的条目以打开一个新对话框。
-4. 在左下角选择“显示密码”。
-   ![“Keychain Access”对话框](/assets/images/help/setup/keychain_show_password_dialog.png)
-5. 系统将提示您输入管理密码。 在 "Keychain Access" 对话框中输入该密码。
-6. 此时将显示您的密码。
+1. In Finder, search for the **Keychain Access** app.
+   ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
+2. In Keychain Access, search for **SSH**.
+3. Double click on the entry for your SSH key to open a new dialog box.
+4. In the lower-left corner, select **Show password**.
+   ![Keychain access dialog](/assets/images/help/setup/keychain_show_password_dialog.png)
+5. You'll be prompted for your administrative password. Type it into the "Keychain Access" dialog box.
+6. Your password will be revealed.
 
 {% endmac %}
 
 {% windows %}
 
-如果您丢失 SSH 密钥密码，则无法进行恢复。 需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/github/getting-started-with-github/managing-remote-repositories)，以便能够改用 GitHub 密码。
+If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/github/getting-started-with-github/about-remote-repositories#cloning-with-https-urls) so you can use a {% data variables.product.pat_generic %} instead.
 
 {% endwindows %}
 
 {% linux %}
 
-如果您丢失 SSH 密钥密码，则无法进行恢复。 需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)，以便能够改用 GitHub 密码。
+If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/github/getting-started-with-github/about-remote-repositories#cloning-with-https-urls) so you can use a {% data variables.product.pat_generic %} instead.
 
 {% endlinux %}

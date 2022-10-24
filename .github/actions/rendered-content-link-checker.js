@@ -51,9 +51,6 @@ const deprecatedVersionPrefixesRegex = new RegExp(
 
 // When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
-  // Validate that required action inputs are present
-  getEnvInputs(['GITHUB_TOKEN'])
-
   // Optional env vars
   const {
     ACTION_RUN_URL,
@@ -94,7 +91,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     language: 'en',
     actionUrl: ACTION_RUN_URL,
     checkExternalLinks: CHECK_EXTERNAL_LINKS === 'true',
-    shouldComment: SHOULD_COMMENT === 'true',
+    shouldComment: Boolean(JSON.parse(SHOULD_COMMENT)),
     commentLimitToExternalLinks: COMMENT_LIMIT_TO_EXTERNAL_LINKS === 'true',
     failOnFlaw: FAIL_ON_FLAW === 'true',
     createReport: CREATE_REPORT === 'true',
@@ -102,6 +99,12 @@ if (import.meta.url.endsWith(process.argv[1])) {
     reportLabel: REPORT_LABEL,
     reportAuthor: REPORT_AUTHOR,
     actionContext: getActionContext(),
+  }
+
+  if (opts.shouldComment || opts.createReport) {
+    // `GITHUB_TOKEN` is optional. If you need the token to post a comment
+    // or open an issue report, you might get cryptic error messages from Octokit.
+    getEnvInputs(['GITHUB_TOKEN'])
   }
 
   main(coreLib, octokit, uploadArtifactLib, opts, {})

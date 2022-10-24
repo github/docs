@@ -19,7 +19,7 @@ You can pull changes from the remote repository into your codespace at any time.
 {% data reusables.codespaces.source-control-display-dark %}
 1. At the top of the sidebar, click the ellipsis (**...**).
 ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button.png)
-1. In the drop-down menu, click **Pull**.
+1. In the dropdown menu, click **Pull**.
 
 If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
 
@@ -48,4 +48,4 @@ You can push changes you've saved and committed. This applies those changes to t
 
 1. At the top of the sidebar, click the ellipsis (**...**).
 ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-1. In the drop-down menu, click **Push**.
+1. In the dropdown menu, click **Push**.

@@ -1,4 +1,4 @@
-After you connect your account on {% data variables.product.prodname_dotcom_the_website %} to the {% data variables.product.prodname_github_codespaces %} extension, you can create a new codespace. For more information about the {% data variables.product.prodname_github_codespaces %} extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+After you connect your account on {% data variables.product.prodname_dotcom_the_website %} to the {% data variables.product.prodname_github_codespaces %} extension, you can create a new codespace. For more information about the {% data variables.product.prodname_github_codespaces %} extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 2. Click the Add icon: {% octicon "plus" aria-label="The plus icon" %}.

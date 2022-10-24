@@ -25,7 +25,7 @@ if (!process.env.ELASTICSEARCH_URL) {
 }
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
-describeIfElasticsearchURL('search middleware', () => {
+describeIfElasticsearchURL('search v1 middleware', () => {
   jest.setTimeout(60 * 1000)
 
   test('basic search', async () => {
@@ -170,6 +170,21 @@ describeIfElasticsearchURL('search middleware', () => {
       expect(JSON.parse(res.text).error).toMatch('sort')
     }
   })
+
+  test('breadcrumbless records should always return a string', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'breadcrumbs')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    // safe because we know exactly the fixtures
+    const hit = results.hits[0]
+    expect(hit.breadcrumbs).toBe('')
+  })
+})
+
+describeIfElasticsearchURL('search legacy middleware', () => {
+  jest.setTimeout(60 * 1000)
 
   test('basic legacy search', async () => {
     const sp = new URLSearchParams()

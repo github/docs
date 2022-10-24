@@ -2,7 +2,6 @@
 title: Restricting the base image for codespaces
 shortTitle: Restrict base image
 intro: You can specify which base images can be used for new codespaces created within your organization.
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage image constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'

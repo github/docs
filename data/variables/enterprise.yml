@@ -13,3 +13,6 @@ prodname_emu_org: 'organization with managed users'
 ## Phrase content so that the uncapitalized unified contributions or unified search variables are not used at the start of a sentence.
 prodname_unified_contributions: 'unified contributions'
 prodname_unified_search: 'unified search'
+
+# Azure AD
+ae_azure_ad_app_link: '[GitHub AE application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'

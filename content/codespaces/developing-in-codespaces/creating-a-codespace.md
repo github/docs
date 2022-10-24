@@ -50,7 +50,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 ## Access to {% data variables.product.prodname_github_codespaces %}
 
-When you have access to {% data variables.product.prodname_github_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
+When you have access to {% data variables.product.prodname_github_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu when you view a repository.
 
 You'll have access to {% data variables.product.prodname_github_codespaces %} under the following conditions:
 
@@ -72,9 +72,9 @@ Organization owners can specify who can create and use codespaces at the organiz
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under the repository name, use the "Branch" drop-down menu, and select the branch you want to create a codespace for.
+1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create a codespace for.
 
-   ![Branch drop-down menu](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
 
 1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
 
@@ -104,7 +104,7 @@ Organization owners can specify who can create and use codespaces at the organiz
 
       1. Click the down arrow at the side of the **Create codespace on BRANCH** button, then click **Configure and create codespace**.
       1. Click the **Configure and create codespace** button.
-      1. On the options page for your codespace, choose your preferred options from the drop-down menus.
+      1. On the options page for your codespace, choose your preferred options from the dropdown menus.
 
          ![The codespace options page](/assets/images/help/codespaces/advanced-options.png)
 

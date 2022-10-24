@@ -64,7 +64,19 @@ If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stabl
 
 ### Performance issues
 
-If the performance you are experiencing using a codespace in JetBrains feels a little sluggish, you may need to increase the maximum Java heap size.
+A {% data variables.product.prodname_github_codespaces %} machine type with at least 4 cores is recommended for running any of the JetBrains IDEs. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+
+If you are using a machine with 4 or more cores and the performance you are experiencing in JetBrains feels a little sluggish, you may need to increase the maximum Java heap size. 
+
+We recommend setting the maximum heap size to somewhere between 2862 MiB (3 GB) and 60% of the remote host's RAM.
+
+The following provides some guidance as an initial starting point, which you can adjust based on the size of the codebase and the memory needed to run your application. For example, if you have a large or complicated codebase you may need to increase the heap size further. If you have a larger application, you can set a lower heap size to allow the application more memory.
+
+| Machine type   | Maximum heap size |
+| -------------- | ----------------- |
+| 4 core         | 3 GB              |
+| 8 core         | 4 GB              |
+| 16 or 32 cores | 8 GB              |
 
 1. Click **Localhost** at the left of the navigation bar, at the top of the application window.
 
