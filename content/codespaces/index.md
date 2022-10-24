@@ -25,7 +25,7 @@ featuredLinks:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
   popularHeading: Set up your project
 changelog:
-  label: actions
+  label: codespaces
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
 communityRedirect:
   name: Provide GitHub Feedback
