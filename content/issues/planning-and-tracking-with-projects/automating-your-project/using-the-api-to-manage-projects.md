@@ -511,7 +511,7 @@ The response will contain the node ID of the newly created draft issue.
 ```json
 {
   "data": {
-    "addProjectV2ItemById": {
+    "addProjectV2DraftIssue": {
       "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }
