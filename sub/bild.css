@@ -1,0 +1,21 @@
+/**
+ * Provides a 'sub' github.
+ *
+ * @Block(
+ *   id = "sub-github",
+ *   admin_label = @Translation("sub github"),
+ *   category = @Translation("sub github"),
+ * )
+ */
+class sub-github extends BlockBase {
+
+  /**
+   * {@githubdoc}
+   */
+  public function build() {
+    return [
+      '#markup' => $this->t('sub, github!'),
+    ];
+  }
+
+}
