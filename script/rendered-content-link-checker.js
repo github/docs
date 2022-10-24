@@ -66,6 +66,7 @@ program
   .option('--debug', "Loud about everything it's doing")
   .option('--patient', 'Give external link checking longer timeouts and more retries')
   .option('--random', 'Load pages in a random order (useful for debugging)')
+  .option('--bail', 'Exit on the first possible flaw')
   .option('--verbose-url <BASE_URL>', 'Print the absolute URL if set')
   .option('--fail-on-flaw', 'Throw error on link flaws (default: false)')
   .option('--max <number>', 'integer argument (default: none)', (value) => {
