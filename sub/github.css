@@ -1,0 +1,14 @@
+/**
+ * Implements hook_theme().
+ */
+function sub_github_theme($existing, $type, $theme, $path): array {
+  return [
+    'sub_github' => [
+      'variables' => [
+        'active_tab' => NULL,
+        'body_text' => NULL,
+        'tabs' => [],
+      ],
+    ],
+  ];
+}
