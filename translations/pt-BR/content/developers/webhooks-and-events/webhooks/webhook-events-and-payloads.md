@@ -963,8 +963,6 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## project_card
 
 {% data reusables.webhooks.project_card_short_desc %}
@@ -1080,7 +1078,7 @@ Key | Type | Description
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.public }}
-{% endif %}
+
 ## pull_request
 
 {% data reusables.webhooks.pull_request_short_desc %}
