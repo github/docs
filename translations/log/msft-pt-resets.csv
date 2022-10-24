@@ -904,6 +904,7 @@ translations/pt-BR/content/support/contacting-github-support/providing-data-to-g
 translations/pt-BR/content/support/learning-about-github-support/about-github-premium-support.md,rendering error
 translations/pt-BR/content/support/learning-about-github-support/about-github-support.md,rendering error
 translations/pt-BR/data/glossaries/external.yml,broken liquid tags
+translations/pt-BR/data/learning-tracks/actions.yml,broken liquid tags
 translations/pt-BR/data/learning-tracks/admin.yml,broken liquid tags
 translations/pt-BR/data/release-notes/enterprise-server/2-20/13.yml,broken liquid tags
 translations/pt-BR/data/release-notes/enterprise-server/2-20/15.yml,rendering error
