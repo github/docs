@@ -44,7 +44,7 @@ To configure authentication and user provisioning for {% data variables.product.
 
 {% ifversion ghae %}
 
-1. In Azure AD, add {% data variables.product.ae_azure_ad_app_link %} to your tenant and configure single sign-on. For more information, see [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs.
+1. In Azure AD, add the {% data variables.enterprise.ae_azure_ad_app_link %} to your tenant and configure single sign-on. For more information, see [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs.
 
 1. In {% data variables.product.prodname_ghe_managed %}, enter the details for your Azure AD tenant.
 
