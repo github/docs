@@ -1,0 +1,26 @@
+/**
+   * {@githubdoc}
+   */
+  public function build() {
+    $some_array = [
+      0 => [
+        'is_active' => 'active',
+        'label' => 'lorem ipsum',
+        'url' => 'http://google.com',
+      ],
+      1 => [
+        'is_active' => 'inactive',
+        'label' => 'lorem ipsum',
+        'url' => 'http://github.com/github/docs/sub',
+      ],
+    ];
+
+    return [
+      '#theme' => 'sub_github',
+      '#active_tab' => 'some_string',
+      '#body_text' => [
+        '#markup' => 'some_html_string',
+      ],
+      '#tabs' => $some_array,
+    ];
+  }
