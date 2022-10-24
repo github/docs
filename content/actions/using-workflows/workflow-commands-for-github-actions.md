@@ -584,6 +584,8 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 
+To escape values of environment variables written to the `GITHUB_ENV` environment file, you can use single quotes instead of double quotes.
+
 {% powershell %}
 
 {% note %}
