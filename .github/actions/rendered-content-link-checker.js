@@ -14,7 +14,7 @@ import warmServer from '../../lib/warm-server.js'
 import renderContent from '../../lib/render-content/index.js'
 import { deprecated } from '../../lib/enterprise-server-releases.js'
 import excludedLinks from '../../lib/excluded-links.js'
-import { getEnvInputs } from './lib/get-env-inputs.js'
+import { getEnvInputs, boolEnvVar } from './lib/get-env-inputs.js'
 import { debugTimeEnd, debugTimeStart } from './lib/debug-time-taken.js'
 import { uploadArtifact as uploadArtifactLib } from './lib/upload-artifact.js'
 import github from '../../script/helpers/github.js'
@@ -51,23 +51,9 @@ const deprecatedVersionPrefixesRegex = new RegExp(
 
 // When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
-  // Validate that required action inputs are present
-  getEnvInputs(['GITHUB_TOKEN'])
-
   // Optional env vars
-  const {
-    ACTION_RUN_URL,
-    CREATE_REPORT,
-    CHECK_EXTERNAL_LINKS,
-    LEVEL,
-    SHOULD_COMMENT,
-    COMMENT_LIMIT_TO_EXTERNAL_LINKS,
-    FAIL_ON_FLAW,
-    FILES_CHANGED,
-    REPORT_REPOSITORY,
-    REPORT_AUTHOR,
-    REPORT_LABEL,
-  } = process.env
+  const { ACTION_RUN_URL, LEVEL, FILES_CHANGED, REPORT_REPOSITORY, REPORT_AUTHOR, REPORT_LABEL } =
+    process.env
 
   const octokit = github()
 
@@ -89,19 +75,25 @@ if (import.meta.url.endsWith(process.argv[1])) {
     verbose: true,
     linkReports: true,
     checkImages: true,
-    patient: true,
+    patient: boolEnvVar('PATIENT'),
     random: false,
     language: 'en',
     actionUrl: ACTION_RUN_URL,
-    checkExternalLinks: CHECK_EXTERNAL_LINKS === 'true',
-    shouldComment: SHOULD_COMMENT === 'true',
-    commentLimitToExternalLinks: COMMENT_LIMIT_TO_EXTERNAL_LINKS === 'true',
-    failOnFlaw: FAIL_ON_FLAW === 'true',
-    createReport: CREATE_REPORT === 'true',
+    checkExternalLinks: boolEnvVar('CHECK_EXTERNAL_LINKS'),
+    shouldComment: boolEnvVar('SHOULD_COMMENT'),
+    commentLimitToExternalLinks: boolEnvVar('COMMENT_LIMIT_TO_EXTERNAL_LINKS'),
+    failOnFlaw: boolEnvVar('FAIL_ON_FLAW'),
+    createReport: boolEnvVar('CREATE_REPORT'),
     reportRepository: REPORT_REPOSITORY,
     reportLabel: REPORT_LABEL,
     reportAuthor: REPORT_AUTHOR,
     actionContext: getActionContext(),
+  }
+
+  if (opts.shouldComment || opts.createReport) {
+    // `GITHUB_TOKEN` is optional. If you need the token to post a comment
+    // or open an issue report, you might get cryptic error messages from Octokit.
+    getEnvInputs(['GITHUB_TOKEN'])
   }
 
   main(coreLib, octokit, uploadArtifactLib, opts, {})
@@ -137,6 +129,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  verbose {boolean} - Set to true for more verbose logging
  *  random {boolean} - Randomize page order for debugging when true
  *  patient {boolean} - Wait longer and retry more times for rate-limited external URLS
+ *  bail {boolean} - Throw an error on the first page (not permalink) that has >0 flaws
  *
  */
 async function main(core, octokit, uploadArtifact, opts = {}) {
@@ -526,7 +519,7 @@ function getPages(pageList, languages, filters, files, max) {
 }
 
 async function processPage(core, page, pageMap, redirects, opts) {
-  const { verbose, verboseUrl } = opts
+  const { verbose, verboseUrl, bail } = opts
 
   const allFlawsEach = await Promise.all(
     page.permalinks.map((permalink) => {
@@ -539,6 +532,13 @@ async function processPage(core, page, pageMap, redirects, opts) {
   if (allFlaws.length > 0) {
     if (verbose) {
       printFlaws(core, allFlaws, { verboseUrl })
+    }
+
+    if (bail) {
+      if (!verbose) {
+        console.warn('Use --verbose to see the flaws before it exits')
+      }
+      throw new Error(`More than one flaw in ${page.relativePath}`)
     }
   }
 
@@ -828,7 +828,7 @@ async function innerFetch(core, url, config = {}) {
   // So there's no point in trying more attempts than 3 because it would
   // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
   const retry = {
-    limit: patient ? 5 : 2,
+    limit: patient ? 6 : 2,
   }
   const timeout = { request: patient ? 10000 : 2000 }
 

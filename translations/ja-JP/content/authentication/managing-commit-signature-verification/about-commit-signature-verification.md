@@ -87,7 +87,7 @@ To sign commits using GPG and have those commits verified on {% data variables.p
 {% ifversion ssh-commit-verification %}
 ## SSH commit signature verification
 
-You can use SSH to sign commits with an SSH public key that you generate yourself. If you already use an SSH key to authenticate with {% data variables.product.product_name %},
+You can use SSH to sign commits with an SSH key that you generate yourself. For more information, see the [Git reference documentation](https://git-scm.com/docs/git-config#Documentation/git-config.txt-usersigningKey)  for `user.Signingkey`. If you already use an SSH key to authenticate with {% data variables.product.product_name %},
 you can also upload that same key again for use as a signing key. There's no limit on the number of signing keys you can add to your account.
 
 {% data variables.product.product_name %} uses [ssh_data](https://github.com/github/ssh_data), an open source Ruby library, to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
