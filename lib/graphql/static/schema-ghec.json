@@ -15492,7 +15492,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15572,7 +15572,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15634,7 +15634,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15680,7 +15680,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15815,7 +15815,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -15877,7 +15877,7 @@
           "DependencyGraphPackageRelease.dependencies"
         ],
         "owning_teams": [
-          "@github/dsp-dependency-graph"
+          "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
         "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -26992,6 +26992,14 @@
           "name": "body",
           "description": "<p>The suggested issue body.</p>",
           "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "filename",
+          "description": "<p>The template filename.</p>",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -42143,6 +42151,66 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "teams",
+          "description": "<p>The teams the project is linked to.</p>",
+          "type": "TeamConnection!",
+          "id": "teamconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#teamconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for teams returned from this connection.</p>",
+              "type": {
+                "name": "TeamOrder",
+                "id": "teamorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#teamorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "title",
           "description": "<p>The project's name.</p>",
           "type": "String!",
@@ -55640,7 +55708,7 @@
               "DependencyGraphPackageRelease.dependencies"
             ],
             "owning_teams": [
-              "@github/dsp-dependency-graph"
+              "@github/dependency-graph"
             ],
             "accept_header": "application/vnd.github.hawkgirl-preview+json",
             "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
@@ -63659,6 +63727,86 @@
           "href": "/graphql/reference/enums#teamprivacy"
         },
         {
+          "name": "projectV2",
+          "description": "<p>Finds and returns the project according to the provided project number.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The Project number.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectsV2",
+          "description": "<p>List of projects this team has collaborator access to.</p>",
+          "type": "ProjectV2Connection!",
+          "id": "projectv2connection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2connection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>How to order the returned projects.</p>",
+              "type": {
+                "name": "ProjectV2Order",
+                "id": "projectv2order",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2order"
+              }
+            }
+          ]
+        },
+        {
           "name": "repositories",
           "description": "<p>A list of repositories this team has access to.</p>",
           "type": "TeamRepositoryConnection!",
@@ -66742,6 +66890,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "language",
+          "description": "<p>The programming language this file is written in.</p>",
+          "type": "Language",
+          "id": "language",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#language"
         },
         {
           "name": "lineCount",
@@ -85595,7 +85751,7 @@
         },
         {
           "name": "commitBody",
-          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit message is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -85603,7 +85759,7 @@
         },
         {
           "name": "commitHeadline",
-          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a\ndefault message will be used. NOTE: when merging with a merge queue any input\nvalue for commit headline is ignored.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -85611,7 +85767,7 @@
         },
         {
           "name": "mergeMethod",
-          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>.</p>",
+          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>. NOTE: when merging\nwith a merge queue any input value for merge method is ignored.</p>",
           "type": "PullRequestMergeMethod",
           "id": "pullrequestmergemethod",
           "kind": "enums",

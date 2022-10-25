@@ -1,6 +1,6 @@
 ---
-title: 创建高可用性副本
-intro: 在主动/被动配置中，副本设备是主设备的冗余副本。 如果主设备发生故障，高可用性模式允许副本作为主设备运行，从而最大限度地减少服务中断。
+title: Creating a high availability replica
+intro: 'In an active/passive configuration, the replica appliance is a redundant copy of the primary appliance. If the primary appliance fails, high availability mode allows the replica to act as the primary appliance, allowing minimal service disruption.'
 redirect_from:
   - /enterprise/admin/installation/creating-a-high-availability-replica
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
@@ -13,94 +13,92 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Create HA replica
-ms.openlocfilehash: 0b838049fe0d520be8cb88382314b25c5bba2b28
-ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2022
-ms.locfileid: '146332758'
 ---
 {% data reusables.enterprise_installation.replica-limit %}
 
-## <a name="creating-a-high-availability-replica"></a>创建高可用性副本
+## Creating a high availability replica
 
-1. 在所需平台上设置新的 {% data variables.product.prodname_ghe_server %} 设备。 副本设备应镜像主设备的 CPU、RAM 和存储设置。 建议您在独立环境中安装副本设备。 底层硬件、软件和网络组件应与主设备的相应部分隔离。 如果要使用云提供商，请使用单独的区域或分区。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
-1. 确保主设备和新的副本设备可以通过端口 122/TCP 和 1194/UDP 相互通信。 有关详细信息，请参阅“[网络端口](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)”。
-1. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。
+1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see ["Setting up a {% data variables.product.prodname_ghe_server %} instance"](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
+1. Ensure that the new appliance can communicate with all other appliances in this high availability environment over ports 122/TCP and 1194/UDP. For more information, see "[Network ports](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)."
+1. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
 {% data reusables.enterprise_installation.replica-steps %}
-1. 使用 SSH 连接到副本设备的 IP 地址。
+1. Connect to the replica appliance's IP address using SSH.
   ```shell
-  $ ssh -p 122 admin@<em>REPLICA IP</em>
+  $ ssh -p 122 admin@REPLICA_IP
   ```
-{% data reusables.enterprise_installation.generate-replication-key-pair %} {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
-1. 要验证到主设备的连接并为新副本启用副本模式，请再次运行 `ghe-repl-setup`。
+{% data reusables.enterprise_installation.generate-replication-key-pair %}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
+1. To verify the connection to the primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
   ```shell
-  $ ghe-repl-setup <em>PRIMARY IP</em>
+  $ ghe-repl-setup PRIMARY_IP
   ```
-{% data reusables.enterprise_installation.replication-command %} {% data reusables.enterprise_installation.verify-replication-channel %}
+{% data reusables.enterprise_installation.replication-command %}
+{% data reusables.enterprise_installation.verify-replication-channel %}
 
-## <a name="creating-geo-replication-replicas"></a>创建 Geo-replication 副本
+## Creating geo-replication replicas
 
-此示例配置使用一个主设备和两个副本，它们位于三个不同的地理区域。 由于三个节点可以位于不同网络中，要求所有节点均可从其他所有节点到达。 必需的管理端口至少应向其他所有节点开放。 有关端口要求的详细信息，请参阅“[网络端口](/enterprise/admin/guides/installation/network-ports/#administrative-ports)”。
+This example configuration uses a primary and two replicas, which are located in three different geographic regions. While the three nodes can be in different networks, all nodes are required to be reachable from all the other nodes. At the minimum, the required administrative ports should be open to all the other nodes. For more information about the port requirements, see "[Network Ports](/enterprise/admin/guides/installation/network-ports/#administrative-ports)."
 
-1. 在第一个副本上运行 `ghe-repl-setup`，采用与创建标准双节点配置相同的方式创建第一个副本。
+{% data reusables.enterprise_clustering.network-latency %}{% ifversion ghes > 3.2 %} If latency is more than 70 milliseconds, we recommend cache replica nodes instead. For more information, see "[Configuring a repository cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."{% endif %}
+
+1. Create the first replica the same way you would for a standard two node configuration by running `ghe-repl-setup` on the first replica.
   ```shell
-  (replica1)$ ghe-repl-setup <em>PRIMARY IP</em>
+  (replica1)$ ghe-repl-setup PRIMARY_IP
   (replica1)$ ghe-repl-start
   ```
-2. 创建第二个副本并使用 `ghe-repl-setup --add` 命令。 `--add` 标志可防止其覆盖现有的复制配置，并将新副本添加到配置中。
+2. Create a second replica and use the `ghe-repl-setup --add` command. The `--add` flag prevents it from overwriting the existing replication configuration and adds the new replica to the configuration.
   ```shell
-  (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
+  (replica2)$ ghe-repl-setup --add PRIMARY_IP
   (replica2)$ ghe-repl-start
   ```
-3. 默认情况下，副本被配置到同一个数据中心，现在将尝试从同一个数据中心中的现有节点播种。 为数据中心选项设置不同的值，通过这种方式为不同的数据中心配置副本。 可以随意设定特定值，只要数值彼此不同即可。 在每个节点上运行 `ghe-repl-node` 命令并指定数据中心。
+3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
 
-  在主设备上：
+  On the primary:
   ```shell
-  (primary)$ ghe-repl-node --datacenter <em>[PRIMARY DC NAME]</em>
+  (primary)$ ghe-repl-node --datacenter [PRIMARY DC NAME]
   ```
-  在第一个副本上：
+  On the first replica:
   ```shell
-  (replica1)$ ghe-repl-node --datacenter <em>[FIRST REPLICA DC NAME]</em>
+  (replica1)$ ghe-repl-node --datacenter [FIRST REPLICA DC NAME]
   ```
-  在第二个副本上：
+  On the second replica:
   ```shell
-  (replica2)$ ghe-repl-node --datacenter <em>[SECOND REPLICA DC NAME]</em>
+  (replica2)$ ghe-repl-node --datacenter [SECOND REPLICA DC NAME]
   ```
   {% tip %}
 
-  提示：可以同时设置 `--datacenter` 和 `--active` 选项。
+  **Tip:** You can set the `--datacenter` and `--active` options at the same time.
 
   {% endtip %}
-4. 活动副本节点将存储设备数据的副本并为最终用户请求提供服务。 非活动节点将存储设备数据的副本，但无法为最终用户请求提供服务。 使用 `--active` 标志启用活动模式，或使用 `--inactive` 标志启用非活动模式。
+4. An active replica node will store copies of the appliance data and service end user requests. An inactive node will store copies of the appliance data but will be unable to service end user requests. Enable active mode using the `--active` flag or inactive mode using the `--inactive` flag.
 
-  在第一个副本上：
+  On the first replica:
   ```shell
   (replica1)$ ghe-repl-node --active
   ```
-  在第二个副本上：
+  On the second replica:
   ```shell
   (replica2)$ ghe-repl-node --active
   ```
-5. 要应用配置，请在主设备上使用 `ghe-config-apply` 命令。
+5. To apply the configuration, use the `ghe-config-apply` command on the primary.
   ```shell
   (primary)$ ghe-config-apply
   ```
 
-## <a name="configuring-dns-for-geo-replication"></a>为 Geo-replication 配置 DNS
+## Configuring DNS for geo-replication
 
-使用主节点和副本节点的 IP 地址配置 Geo DNS。 还可为主节点（例如 `primary.github.example.com`）创建 DNS CNAME，以通过 SSH 访问主节点或通过 `backup-utils` 进行备份。
+Configure Geo DNS using the IP addresses of the primary and replica nodes. You can also create a DNS CNAME for the primary node (e.g. `primary.github.example.com`) to access the primary node via SSH or to back it up via `backup-utils`.
 
-要进行测试，可以将条目添加到本地工作站的 `hosts` 文件（例如 `/etc/hosts`）。 这些示例条目会将 `HOSTNAME` 的请求解析到 `replica2`。 您可以注释不同的行，以特定主机为目标。
+For testing, you can add entries to the local workstation's `hosts` file (for example, `/etc/hosts`). These example entries will resolve requests for `HOSTNAME` to `replica2`. You can target specific hosts by commenting out different lines.
 
 ```
-# <primary IP>     <em>HOSTNAME</em>
-# <replica1 IP>    <em>HOSTNAME</em>
-<replica2 IP>    <em>HOSTNAME</em>
+# <primary IP>      HOSTNAME 
+# <replica1 IP>     HOSTNAME 
+<replica2 IP>     HOSTNAME 
 ```
 
-## <a name="further-reading"></a>延伸阅读
+## Further reading
 
-- [关于高可用性配置](/enterprise/admin/guides/installation/about-high-availability-configuration)
-- [用于复制管理的实用程序](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)
-- [关于异地复制](/enterprise/admin/guides/installation/about-geo-replication/)
+- "[About high availability configuration](/enterprise/admin/guides/installation/about-high-availability-configuration)"
+- "[Utilities for replication management](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- "[About geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)"

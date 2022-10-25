@@ -72,7 +72,7 @@ jobs:
           LEVEL: 'critical'
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
-          SHOULD_COMMENT: true
+          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_FR != '' }}
           CHECK_EXTERNAL_LINKS: false
           CREATE_REPORT: false
         run: node .github/actions/rendered-content-link-checker.js

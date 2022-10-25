@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -24,6 +25,7 @@ You can work with {% data variables.product.prodname_github_codespaces %} in the
   - [Create a new codespace](#create-a-new-codespace)
   - [Stop a codespace](#stop-a-codespace)
   - [Delete a codespace](#delete-a-codespace)
+  - [Rename a codespace](#rename-a-codespace)
   - [SSH into a codespace](#ssh-into-a-codespace)
   - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
   - [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
@@ -74,6 +76,8 @@ gh codespace list
 
 The list includes the unique name of each codespace, which you can use in other `gh codespace` commands.
 
+An asterisk at the end of the branch name for a codespace indicates that there are uncommitted or unpushed changes in that codespace.
+
 ### Create a new codespace
 
 ```shell
@@ -97,6 +101,14 @@ gh codespace delete -c CODESPACE-NAME
 ```
 
 For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+
+### Rename a codespace
+
+```shell
+gh codespace edit -c CODESPACE-NAME -d DISPLAY-NAME
+```
+
+For more information, see "[Renaming a codespace](/codespaces/customizing-your-codespace/renaming-a-codespace)."
 
 ### SSH into a codespace
 

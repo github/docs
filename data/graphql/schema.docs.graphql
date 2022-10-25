@@ -11001,17 +11001,22 @@ input EnablePullRequestAutoMergeInput {
   clientMutationId: String
 
   """
-  Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.
+  Commit body to use for the commit when the PR is mergable; if omitted, a
+  default message will be used. NOTE: when merging with a merge queue any input
+  value for commit message is ignored.
   """
   commitBody: String
 
   """
-  Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.
+  Commit headline to use for the commit when the PR is mergable; if omitted, a
+  default message will be used. NOTE: when merging with a merge queue any input
+  value for commit headline is ignored.
   """
   commitHeadline: String
 
   """
-  The merge method to use. If omitted, defaults to `MERGE`
+  The merge method to use. If omitted, defaults to `MERGE`. NOTE: when merging
+  with a merge queue any input value for merge method is ignored.
   """
   mergeMethod: PullRequestMergeMethod = MERGE
 
@@ -16776,6 +16781,11 @@ type IssueTemplate {
   The suggested issue body.
   """
   body: String
+
+  """
+  The template filename.
+  """
+  filename: String!
 
   """
   The template name.
@@ -30000,6 +30010,36 @@ type ProjectV2 implements Closable & Node & Updatable {
   The project's short description.
   """
   shortDescription: String
+
+  """
+  The teams the project is linked to.
+  """
+  teams(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for teams returned from this connection.
+    """
+    orderBy: TeamOrder = {field: NAME, direction: ASC}
+  ): TeamConnection!
 
   """
   The project's name.
@@ -46776,6 +46816,46 @@ type Team implements MemberStatusable & Node & Subscribable {
   privacy: TeamPrivacy!
 
   """
+  Finds and returns the project according to the provided project number.
+  """
+  projectV2(
+    """
+    The Project number.
+    """
+    number: Int!
+  ): ProjectV2
+
+  """
+  List of projects this team has collaborator access to.
+  """
+  projectsV2(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    How to order the returned projects.
+    """
+    orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
+  ): ProjectV2Connection!
+
+  """
   A list of repositories this team has access to.
   """
   repositories(
@@ -48797,6 +48877,11 @@ type TreeEntry {
   Whether or not this tree entry is generated
   """
   isGenerated: Boolean!
+
+  """
+  The programming language this file is written in.
+  """
+  language: Language
 
   """
   Number of lines in the file.
