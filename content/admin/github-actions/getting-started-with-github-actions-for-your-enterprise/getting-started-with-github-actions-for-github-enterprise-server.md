@@ -89,9 +89,9 @@ Maximum concurrency was measured using multiple repositories, job duration of ap
 {%- endif %}
 
 
-{%- ifversion ghes = 3.6 %}
+{%- ifversion ghes > 3.5 %}
 
-{% data reusables.actions.hardware-requirements-3.6 %}
+{% data reusables.actions.hardware-requirements-3.6-3.7 %}
 
 {% data variables.product.company_short %} measured maximum connected runners using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
 
