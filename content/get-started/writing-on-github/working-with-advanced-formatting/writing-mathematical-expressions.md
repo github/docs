@@ -48,6 +48,12 @@ Alternatively, you can use the <code>\`\`\`math</code> code block syntax to disp
 ```
 ````
 
+{% note %}
+
+Note: The fenced block syntax is only available on private repositories and NOT on public repositories.
+
+{% endnote %}
+
 ![Math expression in a fenced code block](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
 
 {% endif %}
