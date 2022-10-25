@@ -2,7 +2,7 @@
 title: The github.dev web-based editor
 intro: 'Use the github.dev {% data variables.product.prodname_serverless %} from your repository or pull request to create and commit changes.'
 versions:
-  feature: 'githubdev-editor'
+  feature: githubdev-editor
 type: how_to
 miniTocMaxHeadingLevel: 3
 topics:

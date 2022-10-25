@@ -1,9 +1,9 @@
 ---
-title: 'Deleting fields'
+title: Deleting fields
 intro: 'Learn how to delete a field from your {% data variables.projects.project_v2 %}.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 type: tutorial
 topics:
   - Projects

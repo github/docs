@@ -12,6 +12,6 @@ children:
   - /about-github-global-campus-for-teachers
   - /apply-to-github-global-campus-as-a-teacher
   - why-wasnt-my-application-to-global-campus-for-teachers-approved
-shortTitle: 'About Global Campus for teachers'
+shortTitle: About Global Campus for teachers
 ---
 

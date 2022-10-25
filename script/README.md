@@ -268,12 +268,6 @@ it's because you haven't installed all the *optional* dependencies. To do that, 
 
    npm install --include=optional
 
----
-
-
-### [`enterprise-server-deprecations/remove-redirects.js`](enterprise-server-deprecations/remove-redirects.js)
-
-Run this script after an Enterprise deprecation to remove redirects for the deprecated version. See the Enterprise deprecation issue template for instructions.
 
 ---
 

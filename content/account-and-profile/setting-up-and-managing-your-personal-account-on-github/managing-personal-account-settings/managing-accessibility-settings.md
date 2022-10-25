@@ -1,7 +1,7 @@
 ---
 title: Managing accessibility settings
 shortTitle: Manage accessibility settings
-intro: "{% data variables.product.product_name %}'s user interface can adapt to your vision, hearing, motor, cognitive, or learning needs."
+intro: '{% data variables.product.product_name %}''s user interface can adapt to your vision, hearing, motor, cognitive, or learning needs.'
 versions:
   feature: keyboard-shortcut-accessibility-setting
 redirect_from:
