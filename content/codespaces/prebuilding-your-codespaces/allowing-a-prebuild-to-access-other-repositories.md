@@ -1,7 +1,7 @@
 ---
 title: Allowing a prebuild to access other repositories
 shortTitle: Allow external repo access
-intro: You can permit your prebuild to access other {% data variables.product.prodname_dotcom %} repositories so that it can be built successfully.
+intro: 'You can permit your prebuild to access other {% data variables.product.prodname_dotcom %} repositories so that it can be built successfully.'
 versions:
   fpt: '*'
   ghec: '*'

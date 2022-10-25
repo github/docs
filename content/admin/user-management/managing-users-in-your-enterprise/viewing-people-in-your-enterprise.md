@@ -1,7 +1,7 @@
 ---
 title: Viewing people in your enterprise
 intro: 'To audit access to enterprise-owned resources or user license usage, enterprise owners can view every administrator and member of the enterprise.'
-permissions: 'Enterprise owners can view the people in an enterprise.'
+permissions: Enterprise owners can view the people in an enterprise.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account

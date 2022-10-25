@@ -1,7 +1,7 @@
 ---
 title: Adding an "Open in GitHub Codespaces" badge
 shortTitle: Add a Codespaces badge
-intro: 'You can add a badge to a Markdown file in your repository which people can click to create a codespace.'
+intro: You can add a badge to a Markdown file in your repository which people can click to create a codespace.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

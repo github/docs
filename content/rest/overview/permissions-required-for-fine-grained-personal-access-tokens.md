@@ -4,7 +4,7 @@ intro: 'You can find the required permissions for each {% data variables.product
 versions:
   feature: pat-v2
 miniTocMaxHeadingLevel: 3
-shortTitle: "{% data variables.product.pat_v2_caps %} permissions"
+shortTitle: '{% data variables.product.pat_v2_caps %} permissions'
 ---
 
 ## About permissions required for {% data variables.product.pat_v2 %}

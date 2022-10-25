@@ -1,5 +1,5 @@
 ---
-title: 'About GitHub Global Campus for teachers'
+title: About GitHub Global Campus for teachers
 intro: '{% data variables.product.prodname_global_campus %} offers teachers a central place to access tools and resources for working more effectively inside and outside of the classroom.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education-for-educators-and-researchers
