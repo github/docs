@@ -9,7 +9,7 @@ After you connect your account on {% data variables.product.prodname_dotcom_the_
 
    ![Searching for repository to create a new codespace](/assets/images/help/codespaces/choose-repository-vscode.png)
 
-   If codespaces are billable for the repository you choose, a message will be displayed in subsequent prompts telling you who will pay for the codespace.
+   If the repository you choose is owned by an organization, and the organization has configured codespaces for this repository to be billable to the organization, or its parent enterprise, a message will be displayed in subsequent prompts telling you who will pay for the codespace.
 
 4. Click the branch you want to develop on.
 

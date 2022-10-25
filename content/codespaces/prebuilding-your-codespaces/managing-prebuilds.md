@@ -23,7 +23,7 @@ Depending on the settings in a prebuild configuration, the workflow to update th
 * A schedule that you've defined in the prebuild configuration
 * Manually triggering the workflow
 
-The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)." 
+The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)." 
 
 People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations. 
 

@@ -24,12 +24,6 @@ When people click the badge they'll be taken to the advanced options page for co
 
 From the advanced options page, users can change the preselected settings if required, then click **Create codespace**.
 
-{% note %}
-
-**Note**: Be aware that people who don't yet have access to {% data variables.product.prodname_github_codespaces %} will see a 404 message if they click this badge.
-
-{% endnote %}
-
 ## Creating an "Open in {% data variables.product.prodname_github_codespaces %}" badge
 
 {% data reusables.repositories.navigate-to-repo %}

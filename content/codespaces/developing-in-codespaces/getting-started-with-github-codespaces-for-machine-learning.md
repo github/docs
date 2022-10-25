@@ -15,10 +15,6 @@ topics:
 
 This guide introduces you to machine learning with {% data variables.product.prodname_github_codespaces %}. You’ll build a simple image classifier, learn about some of the tools that come preinstalled in {% data variables.product.prodname_github_codespaces %}, configure your development environment for NVIDIA CUDA, and use {% data variables.product.prodname_cli %} to open your codespace in JupyterLab.
 
-## Prerequisite
-
-You have access to {% data variables.product.prodname_github_codespaces %}. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-github-codespaces)."
-
 ## Build a simple image classifier
 
 We'll use a Jupyter notebook to build a simple image classifier. 

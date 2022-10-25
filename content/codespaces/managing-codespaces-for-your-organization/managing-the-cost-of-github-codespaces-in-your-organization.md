@@ -51,7 +51,7 @@ You can set a maximum idle timeout constraint to limit the maximum timeout that 
 
 You can also restrict how long stopped codespaces can remain unused before they are automatically deleted. This can help to reduce storage costs for {% data variables.product.prodname_codespaces %}. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
-Repository owners who set up prebuilds for their repository can reduce the storage costs of prebuilds by configuring these to be created only in selected regions. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
+Repository owners who set up prebuilds for their repository can reduce the storage costs of prebuilds by configuring these to be created only in selected regions. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
 ## Deleting unused codespaces
 

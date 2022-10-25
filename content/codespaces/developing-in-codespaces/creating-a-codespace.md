@@ -25,9 +25,17 @@ You can create a codespace on {% data variables.product.prodname_dotcom_the_webs
 
 {% endnote %}
 
+You can use {% data variables.product.prodname_github_codespaces %} on your personal {% data variables.product.prodname_dotcom_the_website %} account, with the quota of free use included each month for accounts on the Free and Pro plans. {% data reusables.codespaces.codespaces-continue-by-paying %}
+
+Organizations can enable members and outside collaborators to create and use codespaces at the organization's expense. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+
 {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces are associated with a specific branch of a repository and the repository cannot be empty. You can create more than one codespace per repository or even per branch.
+If you create a codespace from a repository, the codespace will be associated with a specific branch, which cannot be empty. You can create more than one codespace per repository or even per branch.
+
+{% data reusables.codespaces.you-can-see-all-your-codespaces %}
+
+### The codespace creation process
 
 When you create a codespace, a number of steps happen to create and connect you to your development environment:
 
@@ -44,28 +52,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
-{% data reusables.codespaces.you-can-see-all-your-codespaces %}
-
 {% data reusables.codespaces.prebuilds-crossreference %}
-
-## Access to {% data variables.product.prodname_github_codespaces %}
-
-When you have access to {% data variables.product.prodname_github_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu when you view a repository.
-
-You'll have access to {% data variables.product.prodname_github_codespaces %} under the following conditions:
-
-Either all of these are true:
-* You are a member, or outside collaborator, of an organization that has enabled {% data variables.product.prodname_codespaces %} and set a spending limit.
-* The organization owner has allowed you to create codespaces at the organization's expense.
-* The repository for which you want to create a codespace is owned by this organization.
-
-Or both of these are true:
-* You are participating in the beta of {% data variables.product.prodname_codespaces %} for individual users.
-* Either you own the repository for which you want to create a codespace, or it is owned by an organization of which you are either a member or an outside collaborator.
-
-Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces#about-spending-limits-for-codespaces)."
-
-Organization owners can specify who can create and use codespaces at the organization's expense. Organization owners can also prevent any codespace usage being charged to the organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)."
 
 ## Creating a codespace
 
@@ -80,7 +67,7 @@ Organization owners can specify who can create and use codespaces at the organiz
 
    ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-   If codespaces for this repository are billable, a message is displayed below the **Create codespace on BRANCH** button telling you who will pay for the codespace.
+   If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed below the **Create codespace on BRANCH** button telling you who will pay for the codespace.
 
 1. Create your codespace, either using the default options, or after configuring advanced options:
  
@@ -140,7 +127,7 @@ To create a new codespace, use the `gh codespace create` subcommand.
 gh codespace create 
 ```
 
-You are prompted to choose a repository. If codespaces for this repository are billable, a message is displayed telling you who will pay for the codespace. You are then prompted to choose a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
+You are prompted to choose a repository. If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed telling you who will pay for the codespace. You are then prompted to choose a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
 
 Alternatively, you can use flags to specify some or all of the options:
 
