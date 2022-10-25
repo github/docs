@@ -911,6 +911,7 @@ translations/ja-JP/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/ja-JP/content/support/contacting-github-support/providing-data-to-github-support.md,broken liquid tags
 translations/ja-JP/content/support/learning-about-github-support/about-github-premium-support.md,rendering error
 translations/ja-JP/content/support/learning-about-github-support/about-github-support.md,rendering error
+translations/ja-JP/data/learning-tracks/actions.yml,broken liquid tags
 translations/ja-JP/data/learning-tracks/admin.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/2-20/15.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-21/17.yml,rendering error

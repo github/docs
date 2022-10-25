@@ -44,7 +44,7 @@ If you enable prebuilding of codespaces this will incur additional charges. For 
 
 ## About billing for {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_github_codespaces %} is billed in US dollars (USD) according to their compute and storage usage. {% data reusables.codespaces.codespaces-monthly-billing %} xxx
+{% data variables.product.prodname_github_codespaces %} is billed in US dollars (USD) according to the amount of compute time and storage space your codespaces use. {% data reusables.codespaces.codespaces-monthly-billing %}
 
 Your {% data variables.product.prodname_github_codespaces %} usage shares your organization or enterprise account's existing payment method, and receipt. For more information, see "[Viewing your subscriptions and billing date](/articles/viewing-your-subscriptions-and-billing-date)."
 
@@ -60,7 +60,7 @@ As an example, if a codespace is active for 1 hour and 15 minutes, then the comp
 You can restrict compute usage by stopping your codespaces. For information, see "[Stopping and starting a codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)." Codespaces are stopped automatically after a configurable period of inactivity. The timeout period can be configured by the user, or at the organization level. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
 
 ### Billing for storage usage
-For {% data variables.product.prodname_github_codespaces %} billing purposes, this includes all storage used by all codespaces and prebuilds in your account. This includes any files used by the codespaces, such as cloned repositories, configuration files, and extensions, among others. Storage is billed for all of your existing codespaces, regardless of whether they are active or stopped. The storage billing for a codespace ends when it is deleted. 
+For {% data variables.product.prodname_github_codespaces %} billing purposes, storage compromises the disk space used by all of the codespaces and prebuilds in your account. This includes any files used by the codespaces, such as cloned repositories, configuration files, and extensions, among others. Storage is billed for all of your existing codespaces, regardless of whether they are active or stopped. The storage billing for a codespace ends when it is deleted. 
 
 Codespace storage is reported in GB-months. Your billing month runs from a fixed day in one month until the same day in the next month. In most cases the day of the month is determined by the day you started on your current {% data variables.product.prodname_dotcom %} plan. Your GB-month storage, is calculated as follows. Once every hour, the storage used by all of your currently active and stopped codespaces is assessed. This figure is then divided by the number of hours in the current billing month: `total storage size / hours this month`. The result is added to the running total for codespace storage for the month.
 
@@ -93,7 +93,7 @@ In addition to {% data variables.product.prodname_actions %} minutes, you will a
 
 The storage cost for a prebuild in a single region will be similar to the storage cost that will be incurred for storing a single codespace created from that prebuild. The storage cost for the generated codespace may be more than the cost for the prebuild if, for example, the `updateContentCommand` and `postCreateCommand` commands are used during codespace creation to download more files to the dev container.
 
-The total storage costs associated with a prebuild template will depend on:
+The total storage costs associated with a prebuild will depend on:
 
 * The price of storage per GB. See the table above.
 * The size of the generated prebuild in GB.
@@ -134,9 +134,9 @@ Organization owners can create a policy to restrict the machine types that are a
 
 To incur charges to an organization account (or to an enterprise account, if the organization belongs to an enterprise), the user must be a member or collaborator of that organization, otherwise they cannot create a codespace for which the organization, or its parent enterprise, would be billed.
 
-For example, a user in an organization can fork a repository within that organization, and can subsequently use a codespace billed to the organization; this is because the organization is the owner of the parent repository, which can remove the user's access, the forked repository, and the codespace.
+For example, a user in an organization can fork a repository within that organization, and can subsequently use a codespace billed to the organization. This is because the organization is the owner of the parent repository, and can remove the user's access, the forked repository, and the codespace.
   
-## How billing is handled when a repository is transferred
+## How billing is handled when a repository is transferred to another organization
 
 Usage is calculated every hour. An organization pays for usage of codespaces created from any repository owned by the organization, where the organization settings permit the organization to be billed. For more information, see "[Enabling GitHub Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)." When a repository is transferred out of your organization, ownership and billing responsibility for any codespaces associated with that repository will change accordingly.
 

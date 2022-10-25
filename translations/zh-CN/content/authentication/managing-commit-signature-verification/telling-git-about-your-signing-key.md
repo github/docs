@@ -35,6 +35,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
+{% data reusables.gpg.set-auto-sign %}
 1. If you aren't using the GPG suite, run the following command in the `zsh` shell to add the GPG key to your `.zshrc` file, if it exists, or your `.zprofile` file:
   ```shell
   $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
@@ -73,6 +74,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
+{% data reusables.gpg.set-auto-sign %}
 
 {% endwindows %}
 
@@ -95,6 +97,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
+{% data reusables.gpg.set-auto-sign %}
 1. To add your GPG key to your `.bashrc` startup file, run the following command:
   ```bash
   $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc

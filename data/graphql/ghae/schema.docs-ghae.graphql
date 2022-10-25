@@ -14858,6 +14858,11 @@ type IssueTemplate {
   body: String
 
   """
+  The template filename.
+  """
+  filename: String!
+
+  """
   The template name.
   """
   name: String!
