@@ -140,9 +140,9 @@ You must be using Moodle version 3.0 or greater.
     | **Send User Names to External Tool** | Select this checkbox. |
     | **Provide Roster to External Tool** | Select this checkbox. |
     | **Tool supports LTI 1.3** | Select this checkbox. |
-    | **LTI 1.3 Tool Keyset URL** | https://classroom.github.com/.well-known/jwks.json |
-    | **LTI 1.3 Tool OpenID Connect/Initialization Endpoint** | https://classroom.github.com/lti1p3/openid-connect/auth |
-    | **LTI 1.3 Tool Redirect Endpoint** | https://classroom.github.com/lti1p3/openid-connect/redirect |
+    | **LTI 1.3 Tool Keyset URL** | `https://classroom.github.com/.well-known/jwks.json` |
+    | **LTI 1.3 Tool OpenID Connect/Initialization Endpoint** | `https://classroom.github.com/lti1p3/openid-connect/auth` |
+    | **LTI 1.3 Tool Redirect Endpoint** | `https://classroom.github.com/lti1p3/openid-connect/redirect` |
 5. Upon submitting, Sakai will show you the information you need to register your Sakai instance with {% data variables.product.prodname_classroom %}.
 
 ### 2. Registering your Sakai instance with {% data variables.product.prodname_classroom %}
