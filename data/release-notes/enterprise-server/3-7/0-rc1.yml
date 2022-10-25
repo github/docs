@@ -45,8 +45,6 @@ sections:
         - |
           Users can verify commits using an SSH public key. For more information, see "[About commit signature verification](/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)."
 
-    - heading: Authentication
-      notes:
         # https://github.com/github/releases/issues/2460
         - |
           Site administrators can provision users and groups on a GitHub Enterprise Server instance automatically with SCIM. SCIM for GitHub Enterprise Server is in private beta and subject to change. For more information, see "[Configuring user provisioning with SCIM for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)" and "[SCIM](/rest/enterprise-admin/scim)" in the REST API documentation.
