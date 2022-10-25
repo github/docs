@@ -3,7 +3,7 @@ title: 'Planning and tracking with {% data variables.product.prodname_projects_v
 shortTitle: '{% data variables.product.prodname_projects_v2 %}'
 intro: 'Build adaptable projects to track your work on {% data variables.product.company_short %}.'
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 topics:
   - Issues
   - Projects

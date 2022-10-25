@@ -4,7 +4,7 @@ project_v2: 'project'
 project_v2_caps: 'Project'
 
 projects_v1_board: >-
-  {% ifversion ghes or ghae %}project board{% else %}classic project{% endif %}
+  {% ifversion ghae or ghes%}project board{% else %}classic project{% endif %}
 projects_v1_board_caps: >-
   {% ifversion ghes or ghae %}Project board{% else %}Classic project{% endif %}
 projects_v1_boards: >-

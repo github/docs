@@ -1,5 +1,5 @@
 ---
-title: Removing an outside collaborator from an organization {% data variables.product.prodname_project_v1 %}
+title: 'Removing an outside collaborator from an organization {% data variables.product.prodname_project_v1 %}'
 intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can remove an outside collaborator''s access to a {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-project-board

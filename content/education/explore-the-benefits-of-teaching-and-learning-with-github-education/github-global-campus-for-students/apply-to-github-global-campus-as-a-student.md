@@ -1,5 +1,5 @@
 ---
-title: 'Apply to GitHub Global Campus as a student'
+title: Apply to GitHub Global Campus as a student
 intro: 'As a student, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the student resources and benefits offered by {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
