@@ -135,6 +135,9 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 * Azure Blob storage
 * Amazon S3
+{%- ifversion actions-ghes-gcp-storage %}
+* Google Cloud Storage
+{%- endif %}
 * S3-compatible MinIO Gateway for NAS
 
 {% note %}
@@ -144,8 +147,6 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 {% endnote %}
 
 {% data reusables.actions.minio-gateways-removal %}
-
-Before you enable {% data variables.product.prodname_actions %}, you can test your storage configuration from the administrative shell with the `ghe-actions-precheck` utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 ## Networking considerations
 
@@ -157,9 +158,12 @@ Before you enable {% data variables.product.prodname_actions %}, you can test yo
 
 Follow one of the procedures below to enable {% data variables.product.prodname_actions %} with your chosen storage provider:
 
-* [Enabling GitHub Actions with Azure Blob storage](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
-* [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
-* [Enabling GitHub Actions with MinIO Gateway for NAS storage](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
+* [Enabling GitHub Actions with Azure Blob storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage)
+* [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage)
+{%- ifversion actions-ghes-gcp-storage %}
+* [Enabling GitHub Actions with Google Cloud Storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage)
+{%- endif %}
+* [Enabling GitHub Actions with MinIO Gateway for NAS storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage)
 
 ## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
 

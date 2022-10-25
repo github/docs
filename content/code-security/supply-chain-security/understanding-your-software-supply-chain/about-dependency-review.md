@@ -19,8 +19,6 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
 ---
 
-{% data reusables.dependency-review.beta %}
-
 ## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}  
