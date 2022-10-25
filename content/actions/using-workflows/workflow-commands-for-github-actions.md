@@ -698,6 +698,12 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 {% endwarning %}
 
+{% note %}
+
+Multi-line output values can be set with the same technique used in this section to define Multi-line environment variables
+
+{% endnote %}
+
 #### Example
 
 This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
