@@ -49,7 +49,7 @@ redirect_from:
 Use the {% data variables.product.prodname_codeql_cli %} to analyze:
 
 - Dynamic languages, for example, JavaScript and Python.
-- Compiled languages, for example, C/C++, C# and Java.
+- Compiled languages, for example, C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java.
 - Codebases written in a mixture of languages.
 
 For more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
@@ -66,4 +66,3 @@ Since version 2.6.3, the {% data variables.product.prodname_codeql_cli %} has ha
 {% endif %}
 
 <!--Content for GHES 3.1 only. Both CodeQL CLI and CodeQL runner are available -->
-
