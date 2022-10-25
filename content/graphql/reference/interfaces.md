@@ -20,4 +20,6 @@ For example, [`Lockable`](/graphql/reference/interfaces#lockable) is an interfac
 
 For more information, see "[Implementation](/graphql/guides/introduction-to-graphql#implementation)."
 
+{% data reusables.projects.graphql-ghes %}
+
 <!-- Content after this section is automatically generated -->

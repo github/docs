@@ -20,4 +20,6 @@ For example, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) tak
 
 For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
+{% data reusables.projects.graphql-ghes %}
+
 <!-- Content after this section is automatically generated -->
