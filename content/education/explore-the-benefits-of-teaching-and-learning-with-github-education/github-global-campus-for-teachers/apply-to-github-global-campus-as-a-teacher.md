@@ -1,5 +1,5 @@
 ---
-title: 'Apply to GitHub Global Campus as a teacher'
+title: Apply to GitHub Global Campus as a teacher
 intro: 'If you''re a teacher, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the resources and benefits of {% data variables.product.prodname_education %}.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount

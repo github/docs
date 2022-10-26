@@ -71,6 +71,7 @@ translations/ja-JP/content/admin/identity-and-access-management/using-enterprise
 translations/ja-JP/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,file deleted because it no longer exists in main
 translations/ja-JP/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/index.md,file deleted because it no longer exists in main
 translations/ja-JP/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/managing-team-memberships-with-identity-provider-groups.md,file deleted because it no longer exists in main
+translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise.md,file deleted because it no longer exists in main
 translations/ja-JP/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise.md,file deleted because it no longer exists in main
 translations/ja-JP/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise.md,file deleted because it no longer exists in main
 translations/ja-JP/content/admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise.md,file deleted because it no longer exists in main
@@ -212,6 +213,7 @@ translations/ja-JP/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/ja-JP/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/ja-JP/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
 translations/ja-JP/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
+translations/ja-JP/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
 translations/ja-JP/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
 translations/ja-JP/data/reusables/actions/self-hosted-runner-groups-navigate-to-repo-org-enterprise.md,file deleted because it no longer exists in main
 translations/ja-JP/data/reusables/apps/metadata-permissions.md,file deleted because it no longer exists in main
@@ -422,6 +424,8 @@ translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-mach
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,rendering error
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment.md,broken liquid tags
+translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage.md,broken liquid tags
+translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates.md,rendering error
 translations/ja-JP/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
@@ -457,7 +461,6 @@ translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-e
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
-translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise.md,rendering error
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/index.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,rendering error
@@ -756,6 +759,12 @@ translations/ja-JP/content/graphql/guides/introduction-to-graphql.md,broken liqu
 translations/ja-JP/content/graphql/guides/managing-enterprise-accounts.md,rendering error
 translations/ja-JP/content/graphql/guides/migrating-from-rest-to-graphql.md,broken liquid tags
 translations/ja-JP/content/graphql/overview/about-the-graphql-api.md,rendering error
+translations/ja-JP/content/graphql/reference/enums.md,broken liquid tags
+translations/ja-JP/content/graphql/reference/input-objects.md,broken liquid tags
+translations/ja-JP/content/graphql/reference/interfaces.md,broken liquid tags
+translations/ja-JP/content/graphql/reference/mutations.md,broken liquid tags
+translations/ja-JP/content/graphql/reference/objects.md,broken liquid tags
+translations/ja-JP/content/graphql/reference/unions.md,broken liquid tags
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards.md,broken liquid tags
 translations/ja-JP/content/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions.md,broken liquid tags
 translations/ja-JP/content/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects.md,broken liquid tags
@@ -911,6 +920,7 @@ translations/ja-JP/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/ja-JP/content/support/contacting-github-support/providing-data-to-github-support.md,broken liquid tags
 translations/ja-JP/content/support/learning-about-github-support/about-github-premium-support.md,rendering error
 translations/ja-JP/content/support/learning-about-github-support/about-github-support.md,rendering error
+translations/ja-JP/data/learning-tracks/actions.yml,broken liquid tags
 translations/ja-JP/data/learning-tracks/admin.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/2-20/15.yml,rendering error
 translations/ja-JP/data/release-notes/enterprise-server/2-21/17.yml,rendering error
@@ -964,6 +974,7 @@ translations/ja-JP/data/reusables/actions/enterprise-common-prereqs.md,broken li
 translations/ja-JP/data/reusables/actions/enterprise-http-proxy.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-postinstall-nextsteps.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/github-connect-resolution.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/hosted-runner-security.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
@@ -1082,6 +1093,7 @@ translations/ja-JP/data/reusables/getting-started/enterprise-advanced-security.m
 translations/ja-JP/data/reusables/getting-started/managing-enterprise-members.md,broken liquid tags
 translations/ja-JP/data/reusables/git/git-push.md,broken liquid tags
 translations/ja-JP/data/reusables/git/provide-credentials.md,broken liquid tags
+translations/ja-JP/data/reusables/github-ae/saml-idp-table.md,broken liquid tags
 translations/ja-JP/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,broken liquid tags
 translations/ja-JP/data/reusables/large_files/storage_assets_location.md,broken liquid tags
 translations/ja-JP/data/reusables/large_files/use_lfs_tip.md,broken liquid tags
@@ -1107,6 +1119,8 @@ translations/ja-JP/data/reusables/package_registry/packages-billing.md,broken li
 translations/ja-JP/data/reusables/package_registry/required-scopes.md,broken liquid tags
 translations/ja-JP/data/reusables/pages/build-failure-email-server.md,broken liquid tags
 translations/ja-JP/data/reusables/pages/emu-org-only.md,broken liquid tags
+translations/ja-JP/data/reusables/pages/new-or-existing-repo.md,broken liquid tags
+translations/ja-JP/data/reusables/pages/pages-about-publishing-source.md,broken liquid tags
 translations/ja-JP/data/reusables/pages/sidebar-pages.md,rendering error
 translations/ja-JP/data/reusables/projects/enable-basic-workflow.md,broken liquid tags
 translations/ja-JP/data/reusables/pull_requests/configure_pull_request_merges_intro.md,broken liquid tags
@@ -1134,7 +1148,9 @@ translations/ja-JP/data/reusables/saml/about-linked-identities.md,broken liquid 
 translations/ja-JP/data/reusables/saml/about-saml-access-enterprise-account.md,broken liquid tags
 translations/ja-JP/data/reusables/saml/authorized-creds-info.md,broken liquid tags
 translations/ja-JP/data/reusables/saml/contact-support-if-your-idp-is-unavailable.md,broken liquid tags
+translations/ja-JP/data/reusables/saml/create-a-machine-user.md,broken liquid tags
 translations/ja-JP/data/reusables/saml/must-authorize-linked-identity.md,broken liquid tags
+translations/ja-JP/data/reusables/saml/okta-ae-sso-beta.md,broken liquid tags
 translations/ja-JP/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
 translations/ja-JP/data/reusables/scim/after-you-configure-saml.md,rendering error
 translations/ja-JP/data/reusables/scim/enterprise-account-scim.md,broken liquid tags
@@ -1142,6 +1158,7 @@ translations/ja-JP/data/reusables/scim/supported-idps.md,broken liquid tags
 translations/ja-JP/data/reusables/search/syntax_tips.md,broken liquid tags
 translations/ja-JP/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/ja-JP/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
+translations/ja-JP/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/ja-JP/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/ja-JP/data/reusables/security-overview/permissions.md,rendering error
 translations/ja-JP/data/reusables/shortdesc/rate_limits_github_apps.md,broken liquid tags
@@ -1170,3 +1187,4 @@ translations/ja-JP/data/reusables/webhooks/pull_request_webhook_properties.md,br
 translations/ja-JP/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/ja-JP/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
 translations/ja-JP/data/variables/product.yml,broken liquid tags
+translations/ja-JP/data/variables/projects.yml,broken liquid tags
