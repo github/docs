@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting identity and access management for your enterprise
 shortTitle: Troubleshoot IAM
-intro: "Review common issues and solutions for identity and access management for your enterprise."
+intro: Review common issues and solutions for identity and access management for your enterprise.
 versions:
   ghec: '*'
   ghes: '*'

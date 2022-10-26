@@ -94,21 +94,21 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
 
 ## Publishing a package
 
-{% data reusables.package_registry.default-name %} For example, when you publish `octo-gem` to the `octo-org` organization, {% data variables.product.prodname_registry %} publishes the gem to the `octo-org/octo-gem` repository. For more information on creating your gem, see "[Make your own gem](http://guides.rubygems.org/make-your-own-gem/)" in the RubyGems documentation.
+{% data reusables.package_registry.default-name %} For example, when you publish `<GEM NAME>` to the `octo-org` organization, {% data variables.product.prodname_registry %} publishes the gem to the `octo-org/<GEM NAME>` repository. For more information on creating your gem, see "[Make your own gem](http://guides.rubygems.org/make-your-own-gem/)" in the RubyGems documentation.
 
 {% data reusables.package_registry.viewing-packages %}
 
 {% data reusables.package_registry.authenticate-step %}
 2. Build the package from the *gemspec* to create the *.gem* package.
-  ```shell
-  gem build OCTO-GEM.gemspec
   ```
-3. Publish a package to {% data variables.product.prodname_registry %}, replacing `OWNER` with the name of the user or organization account that owns the repository containing your project and `OCTO-GEM` with the name of your gem package.{% ifversion ghes %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.location.product_location %}.{% endif %}
+  gem build <GEM NAME>.gemspec
+  ```
+3. Publish a package to {% data variables.product.prodname_registry %}, replacing `OWNER` with the name of the user or organization account that owns the repository containing your project and `<GEM NAME>` with the name of your gem package.{% ifversion ghes %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.location.product_location %}.{% endif %}
 
-  ```shell
+  ```
   $ gem push --key github \
   --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER \
-  OCTO-GEM-0.0.1.gem
+  <GEM NAME>-0.0.1.gem
   ```
 
 ## Publishing multiple packages to the same repository
@@ -147,8 +147,8 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   ```
 
 4. Install the package:
-  ```shell
-  $ gem install octo-gem --version "0.1.1"
+  ```
+  $ gem install <GEM NAME> --version "0.1.1"
   ```
 
 ## Further reading

@@ -19,13 +19,13 @@ Gradle         | `gradle`         | N/A (no version)<sup>[1]</sup>   | **✓** |
 Maven          | `maven`          | N/A (no version)<sup>[2]</sup>   | **✓** | **✓** | |
 npm            | `npm`            | v6, v7, v8       | **✓** | **✓** | |
 NuGet          | `nuget`          | <= 4.8<sup>[3]</sup> | **✓** | **✓** | |
-pip            | `pip`            | v21.1.2          | | **✓** | |
+pip{% ifversion dependabot-PEP621-support %}<sup>[5]</sup>{% endif %}          | `pip`            | v21.1.2          | | **✓** | |
 pipenv         | `pip`            | <= 2021-05-29    | | **✓** | |
-pip-compile    | `pip`            | 6.1.0            | | **✓** | |
+pip-compile{% ifversion dependabot-PEP621-support %}<sup>[5]</sup>{% endif %}   | `pip`            | 6.1.0            | | **✓** | |
 poetry         | `pip`            | v1               | | **✓** | |{% ifversion fpt or ghec or ghes > 3.4 %}
 pub            | `pub`            | v2 <sup>[4]</sup> | | | |{% endif %}
 Terraform      | `terraform`      | >= 0.13, <= 1.2.x  | **✓** | **✓** | |
-{% ifversion dependabot-yarn-v3-update %}yarn           | `npm`            | v1, v2, v3       | **✓** | **✓** | **✓**<sup>[5]</sup> |{% else %}yarn           | `npm`            | v1               | **✓** | **✓** |  |
+{% ifversion dependabot-yarn-v3-update %}yarn           | `npm`            | v1, v2, v3       | **✓** | **✓** | **✓**<sup>[6]</sup> |{% else %}yarn           | `npm`            | v1               | **✓** | **✓** |  |
 {% endif %}
 
 {% tip %}
@@ -49,5 +49,10 @@ Terraform      | `terraform`      | >= 0.13, <= 1.2.x  | **✓** | **✓** | |
    {%- else %}{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.{% endif %}
 {% endif %} 
 
+
+{% ifversion dependabot-PEP621-support %}
+[5] In addition to supporting updates to `requirements.txt` files, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard. {% endif %}
+
 {% ifversion dependabot-yarn-v3-update %}
-[5] Dependabot supports vendored dependencies for v2 onwards.{% endif %}
+[6] Dependabot supports vendored dependencies for v2 onwards.{% endif %}
+
