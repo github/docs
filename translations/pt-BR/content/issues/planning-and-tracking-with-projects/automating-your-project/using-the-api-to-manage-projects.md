@@ -1,10 +1,10 @@
 ---
 title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %}'
-shortTitle: 'Automating with the API'
-intro: 'You can use the GraphQL API to automate your projects.'
+shortTitle: Automating with the API
+intro: You can use the GraphQL API to automate your projects.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
 type: tutorial
@@ -511,7 +511,7 @@ The response will contain the node ID of the newly created draft issue.
 ```json
 {
   "data": {
-    "addProjectV2ItemById": {
+    "addProjectV2DraftIssue": {
       "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }

@@ -1,10 +1,11 @@
 ---
-ms.openlocfilehash: 0626c11052a92500820ca0a3ac24f0cad784ebd6
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: c1c07418ac678e38f387f9be4ebc00153558ae22
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145126321"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107925"
 ---
 1. No nome do aplicativo, clique em **Entrar**.
-  ![Captura de tela da guia "Entrar" para o aplicativo do Okta](/assets/images/help/saml/okta-sign-on-tab.png)
+
+   ![Guia de iniciar sessão](/assets/images/help/saml/okta-ae-sign-on-tab.png)

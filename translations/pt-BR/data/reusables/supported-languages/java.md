@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 7429b486c393de2a4c5184914b3528d1f189c2a5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2e8ea634a95d2bca03b70aef430be7e638272605
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147052021"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107961"
 ---
-| Java {% ifversion fpt or ghec %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle |{% elsif ghes %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven {% ifversion ghes > 3.2 %} | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle{% endif %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle | {% elsif ghae %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle |{% endif %}
+| Java {% ifversion fpt or ghec %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle |{% elsif ghes %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle | {% elsif ghae %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<br>Maven, Gradle |{% endif %}

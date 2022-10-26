@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e7dd0182fdc70186e5b3d137ac99cebd2ff562ea
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7e0f711826a1f1ea1bee8cec18bf5b4614815174
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147093156"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107878"
 ---
 ## Os usuários são redirecionados repetidamente à autenticação
 

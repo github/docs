@@ -4,12 +4,12 @@ shortTitle: Submit your repository
 intro: 'Você pode enviar seu repositório para {% data variables.product.prodname_community_exchange %} para que outras pessoas vejam ou colaborem.'
 versions:
   fpt: '*'
-ms.openlocfilehash: d520f303bf368c9230f26580ba2de9bd744b21e7
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 07198c74937470a591b30702bd027036d91d3ec7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147409720'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107966'
 ---
 ## Sobre envios de repositório
 

@@ -1,107 +1,105 @@
 ---
-title: Configurando um cache de repositório
-intro: 'Você pode configurar um cache de repositório criando um novo dispositivo, conectando o cache do repositório ao dispositivo primário e configurando a replicação das redes de repositórios no cache do repositório.'
+title: Configuring a repository cache
+intro: 'You can configure a repository cache by creating a new appliance, connecting the repository cache to your primary appliance, and configuring replication of repository networks to the repository cache.'
 versions:
-  ghes: '>=3.3'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
-ms.openlocfilehash: dced49e1e6795407e2e41f12275a310c3a98aaf1
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146331999'
 ---
+
 {% data reusables.enterprise.repository-caching-release-phase %}
 
-## Sobre a configuração para cache de repositório
+## About configuration for repository caching
 
-{% data reusables.enterprise.repository-caching-config-summary %} Em seguida, você pode definir as políticas de localização de dados que regem quais redes de repositório são replicadas no cache do repositório.
+{% data reusables.enterprise.repository-caching-config-summary %} Then, you can set data location policies that govern which repository networks are replicated to the repository cache.
 
-O cache de repositório não é compatível com clustering.
+Repository caching is not supported with clustering.
 
-## DNS para caches de repositório
+## DNS for repository caches
 
-A instância primária e o cache do repositório devem ter nomes de DNS diferentes. Por exemplo, se a instância primária estiver em `github.example.com`, você poderá optar por nomear um cache `europe-ci.github.example.com` ou `github.asia.example.com`.
+The primary instance and repository cache should have different DNS names. For example, if your primary instance is at `github.example.com`, you might decide to name a cache `europe-ci.github.example.com` or `github.asia.example.com`.
 
-Para que os computadores de CI busquem o cache do repositório em vez da instância primária, use a definição de configuração `url.<base>.insteadOf` do Git. Para obter mais informações, confira [`git-config`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf) na documentação do Git. 
+To have your CI machines fetch from the repository cache instead of the primary instance, you can use Git's `url.<base>.insteadOf` configuration setting. For more information, see [`git-config`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf) in the Git documentation. 
 
-Por exemplo, o `.gitconfig` global do computador de CI incluirá estas linhas.
+For example, the global `.gitconfig` for the CI machine would include these lines.
 
 ```
 [url "https://europe-ci.github.example.com/"]
-    insteadOf = https://github.example.com/
+	insteadOf = https://github.example.com/
 ```
 
-Em seguida, quando instruído para buscar `https://github.example.com/myorg/myrepo`, o Git o buscará em `https://europe-ci.github.example.com/myorg/myrepo`.
+Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will instead fetch from `https://europe-ci.github.example.com/myorg/myrepo`.
 
-## Configurando um cache de repositório
+## Configuring a repository cache
 
 {% ifversion ghes = 3.3 %}
-1. Em seu dispositivo {% data variables.product.prodname_ghe_server %} principal, habilite o sinalizador de recurso para cache de repositório.
+1. On your primary {% data variables.product.prodname_ghe_server %} appliance, enable the feature flag for repository caching.
    
    ```
    $ ghe-config cluster.cache-enabled true
    ```
 {%- endif %}
-1. Configure um novo appliance do {% data variables.product.prodname_ghe_server %} na plataforma desejada. Este dispositivo será o cache do repositório. Para obter mais informações, confira "[Como configurar uma instância do {% data variables.product.prodname_ghe_server %}](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)".
+1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. This appliance will be your repository cache. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
 {% data reusables.enterprise_installation.replica-steps %}
-1. Conecte ao endereço IP do repositório utilizando o SSH.
+1. Connect to the repository cache's IP address using SSH.
 
    ```shell
-   $ ssh -p 122 admin@<em>REPLICA IP</em>
+   $ ssh -p 122 admin@REPLICA-IP
    ```
 {%- ifversion ghes = 3.3 %}
-1. Na réplica de cache, habilite o sinalizador de recurso para o cache do repositório.
+1. On your cache replica, enable the feature flag for repository caching.
    
    ```
    $ ghe-config cluster.cache-enabled true
    ```
-{%- endif %} {% data reusables.enterprise_installation.generate-replication-key-pair %} {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
-1. Para verificar a conexão com o primário e habilitar o modo de réplica para o cache do repositório, execute `ghe-repl-setup` novamente.
+{%- endif %}
+{% data reusables.enterprise_installation.generate-replication-key-pair %}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
+1. To verify the connection to the primary and enable replica mode for the repository cache, run `ghe-repl-setup` again.
 
    ```shell
-   $ ghe-repl-setup <em>PRIMARY IP</em>
+   $ ghe-repl-setup PRIMARY-IP
    ```
 
-1. Defina um `cache_location` para o cache do repositório, substituindo *CACHE-LOCATION* por um identificador alfanumérico, como a região em que o cache foi implantado. Defina também um nome de datacenter para esse cache. Os novos caches tentarão ser semeados de outro cache no mesmo datacenter.
+1. Set a `cache_location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
 
    ```shell
-   $ ghe-repl-node --cache <em>CACHE-LOCATION</em> --datacenter <em>REPLICA-DC-NAME</em>
+   $ ghe-repl-node --cache CACHE-LOCATION --datacenter REPLICA-DC-NAME
    ```
 
-{% data reusables.enterprise_installation.replication-command %} {% data reusables.enterprise_installation.verify-replication-channel %}
-1. Para habilitar a replicação de redes de repositórios no cache do repositório, defina uma política de localização de dados. Para obter mais informações, confira "[Políticas de localização de dados](#data-location-policies)".
+{% data reusables.enterprise_installation.replication-command %}
+{% data reusables.enterprise_installation.verify-replication-channel %}
+1. To enable replication of repository networks to the repository cache, set a data location policy. For more information, see "[Data location policies](#data-location-policies)."
 
-## Políticas de localização de dados
+## Data location policies
 
-Você pode controlar a localidade dos dados configurando políticas de localização de dados para seus repositórios com o comando `spokesctl cache-policy`. As políticas de localização de dados determinam quais redes de repositório são replicadas em quais caches de repositório. Por padrão, nenhuma rede de repositório será replicada em todos os caches de repositórios até que uma política de localização de dados seja configurada.
+You can control data locality by configuring data location policies for your repositories with the `spokesctl cache-policy` command. Data location policies determine which repository networks are replicated on which repository caches. By default, no repository networks will be replicated on any repository caches until a data location policy is configured.
 
-As políticas de localização de dados afetam apenas o conteúdo do Git. O conteúdo do banco de dados, como comentários sobre problemas e solicitações de pull, será replicado para todos os nós, independentemente da política.
+Data location policies affect only Git content. Content in the database, such as issues and pull request comments, will be replicated to all nodes regardless of policy.
 
 {% note %}
 
-**Observação:** as políticas de localização de dados não são iguais ao controle de acesso. Você precisa usar funções de repositório para controlar os usuários que podem acessar um repositório. Para obter mais informações sobre as funções de repositório, confira "[Funções de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+**Note:** Data location policies are not the same as access control. You must use repository roles to control which users may access a repository. For more information about repository roles, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% endnote %} 
 
-Você pode configurar uma política para replicar todas as redes com o sinalizador `--default`. Por exemplo, este comando criará uma política para replicar uma única cópia de cada rede de repositório para o conjunto de caches de repositório cujo `cache_location` é "kansas".
+You can configure a policy to replicate all networks with the `--default` flag. For example, this command will create a policy to replicate a single copy of every repository network to the set of repository caches whose `cache_location` is "kansas".
 
  ```
  $ ghe-spokesctl cache-policy set --default 1 kansas
  ```
 
-Para configurar a replicação de uma rede de repositório, especifique o repositório que é a raiz da rede. A rede de um repositório inclui um repositório e todas as bifurcações do repositório. Você não pode replicar parte de uma rede sem replicar toda a rede.
+To configure replication for a repository network, specify the repository that is the root of the network. A repository network includes a repository and all of the repository's forks. You cannot replicate part of a network without replicating the whole network.
 
 ```
 $ ghe-spokesctl cache-policy set <owner/repository> 1 kansas
 ```
 
-Você pode substituir uma política que replica todas as redes e excluir as redes específicas, especificando uma contagem de réplica de zero para a rede. Por exemplo, este comando especifica que qualquer cache de repositórios no local "kansas" não pode conter cópias dessa rede.
+You can override a policy that replicates all networks and exclude specific networks by specifying a replica count of zero for the network. For example, this command specifies that any repository cache in location "kansas" cannot contain any copies of that network.
 
 ```
 $ ghe-spokesctl cache-policy set <owner/repository> 0 kansas
 ```
 
-As contagens de réplica superiores a um em um determinado local de cache não são compatíveis.
+Replica counts greater than one in a given cache location are not supported.
