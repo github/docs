@@ -15,7 +15,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2407
         - |
-         To increase the security of the Management Console, site administrators can configure the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](https://docs-internal-31313-d3cd3a.preview.ghdocs.com/enterprise-server@3.7/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
+         To increase the security of the Management Console, site administrators can configure the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
 
         # https://github.com/github/releases/issues/2407
         - |
