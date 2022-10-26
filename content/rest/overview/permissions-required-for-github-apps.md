@@ -140,6 +140,7 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /repos/:owner/:repo/actions/workflows`](/rest/reference/actions#list-repository-workflows) (read)
 - [`GET /repos/:owner/:repo/actions/workflows/:workflow_id`](/rest/reference/actions#get-a-workflow) (read)
 - [`GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs`](/rest/reference/actions#list-workflow-runs) (read)
+- [`POST /repos/:owner/:repo/actions/workflows/:workflow_id/dispatches`](/rest/reference/actions#create-a-workflow-dispatch-event) (write)
 {% endif %}
 
 ## Administration
