@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 21a587f89a71ccd8e9f1a69aa5423a840f26b9a6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c32a9f6f6a799c3653cb17fe89721090fc01d155
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147431624"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109942"
 ---
    Si la configuración del contenedor de desarrollo para el repositorio especifica permisos para acceder a otros repositorios, se te mostrará una página de autorización. Para obtener más información sobre cómo se especifica esto en el archivo `devcontainer.json`, consulta "[Administración del acceso a otros repositorios del codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".   
 

@@ -90,6 +90,8 @@ Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
 Grafana | Grafana API Key | grafana_api_key
 HashiCorp | Terraform Cloud / Enterprise API Token | terraform_api_token
 HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+HashiCorp | HashiCorp Vault Root Service Token | hashicorp_vault_root_service_token{% endif %}
 HashiCorp | HashiCorp Vault Service Token | hashicorp_vault_service_token
 Hubspot | Hubspot API Key | hubspot_api_key
 Intercom | Intercom Access Token | intercom_access_token
