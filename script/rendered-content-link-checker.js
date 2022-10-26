@@ -10,7 +10,6 @@
 import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
-import { languageKeys } from '../lib/languages.js'
 import renderedContentLinkChecker from '../.github/actions/rendered-content-link-checker.js'
 import { getCoreInject, getUploadArtifactInject } from './helpers/action-injections.js'
 import github from './helpers/github.js'
@@ -29,20 +28,12 @@ Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
 program
   .description('Analyze all checked content files, render them, and check for flaws.')
   .addOption(
-    new Option('-L, --level <LEVEL>', 'Filter of flaw level').choices([
-      'all',
-      'warning',
-      'critical',
-    ])
-  )
-  .addOption(
     new Option(
-      '-l, --language <LANGUAGE...>',
-      'Which languages to focus on. (default: "en")'
-    ).choices(languageKeys)
+      '-L, --level <LEVEL>',
+      'Level of broken link to be marked as a flaw (default: "warning")'
+    ).choices(['all', 'warning', 'critical'])
   )
   .option('-f, --filter <FILTER...>', 'Search filter(s) on the paths')
-  .option('-l, --level', 'Level of broken link to be marked as a flaw. (default: "critical")')
   .option('-v, --verbose', 'Verbose outputs')
   .option(
     '--create-report',
@@ -75,6 +66,7 @@ program
   .option('--debug', "Loud about everything it's doing")
   .option('--patient', 'Give external link checking longer timeouts and more retries')
   .option('--random', 'Load pages in a random order (useful for debugging)')
+  .option('--bail', 'Exit on the first possible flaw')
   .option('--verbose-url <BASE_URL>', 'Print the absolute URL if set')
   .option('--fail-on-flaw', 'Throw error on link flaws (default: false)')
   .option('--max <number>', 'integer argument (default: none)', (value) => {

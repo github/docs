@@ -1,9 +1,1 @@
----
-ms.openlocfilehash: b0ff2caf2bbdc32484d96e90f4b7256a3c36968c
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145137661"
----
-Crea y utiliza una cuenta de usuario máquina dedicada en tu IdP para asociarla con la cuenta del primer dueño de la empresa en {% data variables.product.product_name %}. Almacena las credenciales para la cuenta de usuario de forma segura en un administrador de contraseñas.
+You must create and use a dedicated machine user account on your IdP to associate with {% ifversion ghae %}the first{% elsif scim-for-ghes %}an{% endif %} enterprise owner account on {% data variables.product.product_name %}. Store the credentials for the user account securely in a password manager. For more information, see "[Configuring user provisioning with SCIM for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)."

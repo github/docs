@@ -1,9 +1,9 @@
 ---
 title: Endpoints available for fine-grained personal access tokens
-intro: "Your {% data variables.product.pat_v2 %} can make requests to the following REST endpoints."
+intro: 'Your {% data variables.product.pat_v2 %} can make requests to the following REST endpoints.'
 versions:
   feature: pat-v2
-shortTitle: "{% data variables.product.pat_v2_caps %}-enabled endpoints"
+shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 ---
 
 ## actions

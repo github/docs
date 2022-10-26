@@ -1,8 +1,6 @@
 ---
-title: Copying a {% data variables.product.prodname_project_v1 %}
-intro: You can copy a {% data variables.projects.projects_v1_board %}
- to quickly create a new project. Copying frequently used or highly customized {% data variables.projects.projects_v1_boards %}
- helps standardize your workflow.
+title: 'Copying a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can copy a {% data variables.projects.projects_v1_board %} to quickly create a new project. Copying frequently used or highly customized {% data variables.projects.projects_v1_boards %} helps standardize your workflow.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/copying-a-project-board
   - /articles/copying-a-project-board
