@@ -63,6 +63,7 @@ translations/zh-CN/content/admin/identity-and-access-management/using-enterprise
 translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/index.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/managing-team-memberships-with-identity-provider-groups.md,file deleted because it no longer exists in main
+translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise.md,file deleted because it no longer exists in main
@@ -202,6 +203,7 @@ translations/zh-CN/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/zh-CN/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/zh-CN/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
+translations/zh-CN/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/self-hosted-runner-groups-navigate-to-repo-org-enterprise.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/apps/metadata-permissions.md,file deleted because it no longer exists in main
@@ -404,6 +406,8 @@ translations/zh-CN/content/admin/enterprise-management/updating-the-virtual-mach
 translations/zh-CN/content/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled.md,broken liquid tags
 translations/zh-CN/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,rendering error
 translations/zh-CN/content/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment.md,broken liquid tags
+translations/zh-CN/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage.md,broken liquid tags
+translations/zh-CN/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage.md,broken liquid tags
 translations/zh-CN/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage.md,broken liquid tags
 translations/zh-CN/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates.md,rendering error
 translations/zh-CN/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
@@ -439,7 +443,6 @@ translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-e
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
-translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/index.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
@@ -747,6 +750,12 @@ translations/zh-CN/content/graphql/guides/introduction-to-graphql.md,broken liqu
 translations/zh-CN/content/graphql/guides/managing-enterprise-accounts.md,rendering error
 translations/zh-CN/content/graphql/guides/migrating-from-rest-to-graphql.md,broken liquid tags
 translations/zh-CN/content/graphql/overview/about-the-graphql-api.md,rendering error
+translations/zh-CN/content/graphql/reference/enums.md,broken liquid tags
+translations/zh-CN/content/graphql/reference/input-objects.md,broken liquid tags
+translations/zh-CN/content/graphql/reference/interfaces.md,broken liquid tags
+translations/zh-CN/content/graphql/reference/mutations.md,broken liquid tags
+translations/zh-CN/content/graphql/reference/objects.md,broken liquid tags
+translations/zh-CN/content/graphql/reference/unions.md,broken liquid tags
 translations/zh-CN/content/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards.md,broken liquid tags
 translations/zh-CN/content/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions.md,broken liquid tags
 translations/zh-CN/content/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects.md,broken liquid tags
@@ -951,6 +960,7 @@ translations/zh-CN/data/reusables/actions/enterprise-common-prereqs.md,broken li
 translations/zh-CN/data/reusables/actions/enterprise-http-proxy.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/enterprise-postinstall-nextsteps.md,broken liquid tags
+translations/zh-CN/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/github-connect-resolution.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
@@ -1068,6 +1078,7 @@ translations/zh-CN/data/reusables/getting-started/enforcing-repo-management-poli
 translations/zh-CN/data/reusables/getting-started/enterprise-advanced-security.md,broken liquid tags
 translations/zh-CN/data/reusables/getting-started/managing-enterprise-members.md,broken liquid tags
 translations/zh-CN/data/reusables/git/git-push.md,broken liquid tags
+translations/zh-CN/data/reusables/github-ae/saml-idp-table.md,broken liquid tags
 translations/zh-CN/data/reusables/identity-and-permissions/ip-allow-lists-enable.md,broken liquid tags
 translations/zh-CN/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,broken liquid tags
 translations/zh-CN/data/reusables/large_files/storage_assets_location.md,broken liquid tags
@@ -1093,6 +1104,8 @@ translations/zh-CN/data/reusables/package_registry/packages-billing.md,broken li
 translations/zh-CN/data/reusables/package_registry/required-scopes.md,broken liquid tags
 translations/zh-CN/data/reusables/pages/build-failure-email-server.md,broken liquid tags
 translations/zh-CN/data/reusables/pages/emu-org-only.md,broken liquid tags
+translations/zh-CN/data/reusables/pages/new-or-existing-repo.md,broken liquid tags
+translations/zh-CN/data/reusables/pages/pages-about-publishing-source.md,broken liquid tags
 translations/zh-CN/data/reusables/pages/sidebar-pages.md,rendering error
 translations/zh-CN/data/reusables/projects/enable-basic-workflow.md,broken liquid tags
 translations/zh-CN/data/reusables/pull_requests/configure_pull_request_merges_intro.md,broken liquid tags
@@ -1118,13 +1131,16 @@ translations/zh-CN/data/reusables/saml/about-authorized-credentials.md,broken li
 translations/zh-CN/data/reusables/saml/about-linked-identities.md,broken liquid tags
 translations/zh-CN/data/reusables/saml/about-saml-access-enterprise-account.md,broken liquid tags
 translations/zh-CN/data/reusables/saml/authorized-creds-info.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/create-a-machine-user.md,broken liquid tags
 translations/zh-CN/data/reusables/saml/must-authorize-linked-identity.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/okta-ae-sso-beta.md,broken liquid tags
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
 translations/zh-CN/data/reusables/scim/enterprise-account-scim.md,broken liquid tags
 translations/zh-CN/data/reusables/scim/supported-idps.md,broken liquid tags
 translations/zh-CN/data/reusables/search/syntax_tips.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
+translations/zh-CN/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/push-protection-web-ui-choice.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/zh-CN/data/reusables/security-overview/permissions.md,rendering error
@@ -1154,3 +1170,4 @@ translations/zh-CN/data/reusables/webhooks/pull_request_webhook_properties.md,br
 translations/zh-CN/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/zh-CN/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
 translations/zh-CN/data/variables/product.yml,broken liquid tags
+translations/zh-CN/data/variables/projects.yml,broken liquid tags

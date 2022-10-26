@@ -1,12 +1,12 @@
 ---
-title: Linking a repository to a {% data variables.product.prodname_project_v1 %}
-intro: You can link a repository to your organization's or personal account's {% data variables.projects.projects_v1_board %}.
+title: 'Linking a repository to a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can link a repository to your organization''s or personal account''s {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/linking-a-repository-to-a-project-board
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
 shortTitle: Link repository to board

@@ -1,6 +1,6 @@
 ---
 title: Best practices for writing repository security advisories
-intro: When you create or edit security advisories, the information you provide is easier for other users to understand when you specify the ecosystem, package name, and affected versions using the standard formats.
+intro: 'When you create or edit security advisories, the information you provide is easier for other users to understand when you specify the ecosystem, package name, and affected versions using the standard formats.'
 versions:
   fpt: '*'
   ghec: '*'
