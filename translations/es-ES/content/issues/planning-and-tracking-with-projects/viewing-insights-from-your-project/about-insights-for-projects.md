@@ -11,12 +11,12 @@ product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: a90ec5dfb6aa983b8ffe26c84c4ec6ad01b0471d
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.openlocfilehash: 89f93ace53547fccd69ffb7e6d7b666a6cb48991
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147424260'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109912'
 ---
 {% ifversion fpt %}
 

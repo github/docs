@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
 versions:
-  ghes: "*"
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

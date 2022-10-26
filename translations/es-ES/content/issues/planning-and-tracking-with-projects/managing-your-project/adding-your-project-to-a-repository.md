@@ -9,12 +9,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 58739f4e548985729d01a962e67a12ea0c0b38e9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 30486f727a04ccea3b5bfd374a4da3c6367d1cb6
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424392'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148110068'
 ---
 Puedes listar los proyectos relevantes en un repositorio. Solo puedes listar proyectos que le pertenezcan al mismo usuario u organización propietaria del repositorio.
 

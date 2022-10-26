@@ -4,10 +4,10 @@ redirect_from:
   - /v4/mutation
   - /v4/reference/mutation
 versions:
-  fpt: "*"
-  ghec: "*"
-  ghes: "*"
-  ghae: "*"
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
