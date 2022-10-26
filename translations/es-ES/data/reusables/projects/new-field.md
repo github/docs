@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: daf5b47c71e8cbde44c6dab38eabf7c6d922be9a
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 3acee6d785e2b633f979e7edb8f80544dfa09ced
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147882879"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109997"
 ---
 1. En la vista de tabla, en el encabezado de campo del extremo derecho, haz clic en {% octicon "plus" aria-label="the plus icon" %}.
    ![Captura de pantalla en la que se muestra el botón Nuevo campo](/assets/images/help/projects-v2/new-field-button.png)

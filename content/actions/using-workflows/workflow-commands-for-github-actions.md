@@ -139,8 +139,8 @@ The following table shows which toolkit functions are available within a workflo
 | Toolkit function | Equivalent workflow command |
 | ----------------- |  ------------- |
 | `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
-| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-| `core.notice`     | `notice` |{% endif %}
+| `core.debug`      | `debug` |
+| `core.notice`     | `notice` |
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
 | `core.exportVariable` | Accessible using environment file `GITHUB_ENV` |
@@ -216,8 +216,6 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-
 ## Setting a notice message
 
 Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
@@ -245,7 +243,6 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
 {% endpowershell %}
-{% endif %}
 
 ## Setting a warning message
 

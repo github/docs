@@ -2,7 +2,7 @@
 title: Deployment branch policies
 allowTitleToDifferFromFilename: true
 shortTitle: Deployment branch policies
-intro: 'The Deployment branch policies API allows you to manage custom deployment branch policies.'
+intro: The Deployment branch policies API allows you to manage custom deployment branch policies.
 versions:
   fpt: '*'
   ghes: '*'

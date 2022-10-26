@@ -50,8 +50,7 @@ You can manage the security and analysis features for your {% ifversion fpt or g
 {% ifversion fpt or ghes or ghec %}
 4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**. {% ifversion not fpt %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% endif %}{% ifversion fpt %}
   ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
-  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.6 or ghae > 3.6 %}<!--Insert screenshot for GHES 3.7 when available-->{% elsif ghes = 3.2 %}
-  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% else %}
+  ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.6 or ghae > 3.6 %}<!--Insert screenshot for GHES 3.7 when available-->
   ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
   
   {% ifversion not fpt %}
@@ -81,23 +80,19 @@ Organization owners and repository administrators can only grant access to view 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 4. Under "Access to alerts", in the search field, start typing the name of the person or team you'd like to find, then click a name in the list of matches.
-   {% ifversion fpt or ghec or ghes > 3.2 %}
+   {% ifversion fpt or ghec or ghes %}
    ![Search field for granting people or teams access to security alerts](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
    {% endif %}
-   {% ifversion ghes < 3.3 %}
-   ![Search field for granting people or teams access to security alerts](/assets/images/enterprise/3.2/repository/security-and-analysis-security-alerts-person-or-team-search.png)
-   {% endif %}
+   
    {% ifversion ghae %}
    ![Search field for granting people or teams access to security alerts](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-person-or-team-search-ghae.png)
    {% endif %}
    
 5. Click **Save changes**.
-   {% ifversion fpt or ghes > 3.2 or ghec %}
+   {% ifversion fpt or ghes or ghec %}
    !["Save changes" button for changes to security alert settings](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
    {% endif %}
-   {% ifversion ghes < 3.3 %}
-   !["Save changes" button for changes to security alert settings](/assets/images/enterprise/3.2/repository/security-and-analysis-security-alerts-save-changes.png)
-   {% endif %}
+   
    {% ifversion ghae %}
    !["Save changes" button for changes to security alert settings](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-save-changes-ghae.png)
    {% endif %}
@@ -108,12 +103,10 @@ Organization owners and repository administrators can only grant access to view 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click {% octicon "x" aria-label="X symbol" %}.
-   {% ifversion fpt or ghec or ghes > 3.2 %}  
+   {% ifversion fpt or ghec or ghes %}  
    !["x" button to remove someone's access to security alerts for your repository](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
    {% endif %}
-   {% ifversion ghes < 3.3 %}
-   !["x" button to remove someone's access to security alerts for your repository](/assets/images/enterprise/3.2/repository/security-and-analysis-security-alerts-username-x.png)
-   {% endif %}
+   
    {% ifversion ghae %}
    !["x" button to remove someone's access to security alerts for your repository](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-username-x-ghae.png)
    {% endif %}

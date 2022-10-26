@@ -1,5 +1,5 @@
 ---
-title: About Enterprise Managed Users
+title: About {% data variables.product.prodname_emus %}
 shortTitle: About managed users
 intro: 'You can centrally manage identity and access for your enterprise members on {% data variables.product.prodname_dotcom %} from your identity provider.'
 redirect_from:
@@ -16,6 +16,7 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+allowTitleToDifferFromFilename: true
 ---
 
 ## About {% data variables.product.prodname_emus %}
@@ -23,8 +24,6 @@ topics:
 With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). Users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your IdP are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and added to your enterprise. You control usernames, profile data, team membership, and repository access for the user accounts from your IdP.
 
 In your IdP, you can give each {% data variables.enterprise.prodname_managed_user %} the role of user, enterprise owner, or billing manager. {% data variables.enterprise.prodname_managed_users_caps %} can own organizations within your enterprise and can add other {% data variables.enterprise.prodname_managed_users %} to the organizations and teams within. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" and "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
-
-Organization membership can be managed manually, or you can update membership automatically as {% data variables.enterprise.prodname_managed_users %} are added to IdP groups that are connected to teams within the organization. When a {% data variables.enterprise.prodname_managed_user %} is manually added to an organization, unassigning them from the {% data variables.product.prodname_emu_idp_application %} application on your IdP will suspend the user but not remove them from the organization. For more information about managing organization and team membership automatically, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
 
 {% ifversion oidc-for-emu %}
 
@@ -45,6 +44,17 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 **Note:** There are multiple options for identity and access management with {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_emus %} is not the best solution for every customer. For more information about whether {% data variables.product.prodname_emus %} is right for your enterprise, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
 
 {% endnote %}
+
+## About organization membership management
+
+Organization memberships can be managed manually, or you can update memberships automatically using IdP groups. To manage organization memberships through your IdP, the members must be added to an IdP group, and the IdP group must be connected to a team within the organization. For more information about managing organization and team memberships automatically, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
+
+The way a member is added to an organization owned by your enterprise (through IdP groups or manually) determines how they must be removed from an organization. 
+
+- If a member was added to an organization manually, you must remove them manually. Unassigning them from the {% data variables.product.prodname_emu_idp_application %} application on your IdP will suspend the user but not remove them from the organization.
+- If a user became a member of an organization because they were added to IdP groups mapped to one or more teams in the organization, removing them from _all_ of the mapped IdP groups associated with the organization will remove them from the organization.
+
+To discover how a member was added to an organization, you can filter the member list by type. For more information, see "[Viewing people in your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#filtering-by-member-type-in-an-enterprise-with-managed-users)."
 
 ## Identity provider support
 

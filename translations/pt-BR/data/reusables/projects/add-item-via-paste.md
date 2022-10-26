@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 0191556eb977c4b657f1fd78330f6f691f34f039
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 477122edeb960deca31d1ad0b97b7ad30681f23b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147423754"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107954"
 ---
 {% data reusables.projects.add-item-bottom-row %}
 1. Cole a URL do problema ou pull request.

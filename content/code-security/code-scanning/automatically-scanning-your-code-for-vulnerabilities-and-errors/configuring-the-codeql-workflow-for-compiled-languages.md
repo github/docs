@@ -41,7 +41,7 @@ For general information about configuring {% data variables.product.prodname_cod
 ##  About autobuild for {% data variables.product.prodname_codeql %}
 
 {% data variables.product.prodname_code_scanning_capc %} works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository.   
-For the compiled languages C/C++, C#, and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
+For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -90,6 +90,20 @@ The `autobuild` process attempts to autodetect a suitable build method for C# us
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
 3. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
 
+### Go
+
+| Supported system type | System name |
+|----|----|
+| Operating system | Windows, macOS, and Linux |
+| Build system | Go modules, `dep` and Glide, as well as build scripts including Makefiles and Ninja scripts |
+
+The `autobuild` process attempts to autodetect a suitable way to install the dependencies needed by a Go repository before extracting all `.go` files:
+
+1. Invoke `make`, `ninja`, `./build` or `./build.sh` (in that order) until one of these commands succeeds and a subsequent `go list ./...` also succeeds, indicating that the needed dependencies have been installed.
+2. If none of those commands succeeded, look for `go.mod`, `Gopkg.toml` or `glide.yaml`, and run `go get` (unless vendoring is in use), `dep ensure -v` or `glide install` respectively to try to install dependencies.
+3. Finally, if configurations files for these dependency managers are not found, rearrange the repository directory structure suitable for addition to `GOPATH`, and use `go get` to install dependencies. The directory structure reverts to normal after extraction completes.
+4. Extract all Go code in the repository, similar to running `go build ./...`.
+
 ### Java
 
 | Supported system type | System name |
@@ -107,12 +121,12 @@ The `autobuild` process tries to determine the build system for Java codebases b
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)."
 
-After removing the `autobuild` step, uncomment the `run` step and add build commands that are suitable for your repository. The workflow `run` step runs command-line programs using the operating system's shell. You can modify these commands and add more commands to customize the build process. 
+After removing the `autobuild` step, uncomment the `run` step and add build commands that are suitable for your repository. The workflow `run` step runs command-line programs using the operating system's shell. You can modify these commands and add more commands to customize the build process.
 
 ``` yaml
 - run: |
-  make bootstrap
-  make release
+    make bootstrap
+    make release
 ```
 
 For more information about the `run` keyword, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."

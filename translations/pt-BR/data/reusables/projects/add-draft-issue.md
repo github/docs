@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8dd7d544c14de78ff9150bebb1192bbd4a6007f0
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 303fc7fa60ba2ccc37689055f6056a59655a6eae
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147880201"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107882"
 ---
 {% data reusables.projects.add-item-bottom-row %}
 1. Digite sua ideia e pressione **ENTER**.
