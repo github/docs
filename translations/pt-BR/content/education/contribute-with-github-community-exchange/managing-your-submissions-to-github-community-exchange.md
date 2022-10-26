@@ -4,12 +4,12 @@ shortTitle: Manage your submissions
 intro: 'Você pode gerenciar a finalidade, os tópicos e as ofertas atribuídos a cada um dos seus repositórios na galeria do {% data variables.product.prodname_community_exchange %} ou excluir os envios do repositório.'
 versions:
   fpt: '*'
-ms.openlocfilehash: 70dc65ccb387817d5b4a78c1fc27085f67dcfc6e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a7da6f3bede47700658fe81a1f0ec3e4e33ef316
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409722'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107967'
 ---
 ## Sobre seus envios
 

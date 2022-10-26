@@ -1,10 +1,10 @@
 ---
 title: 'Best practices for {% data variables.product.prodname_projects_v2 %}'
-intro: 'Learn tips for managing your projects.'
+intro: Learn tips for managing your projects.
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/best-practices-for-managing-projects
 type: overview

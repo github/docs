@@ -25,14 +25,6 @@ sections:
         - |
           Attempts to authenticate to the Management Console and changes made by a site administrator within the Management Console are written to a log file in `/var/log/enterprise-manage/audit.log`.
 
-        # https://github.com/github/releases/issues/2326
-        - |
-          GitHub Actions users who use dependency caching to speed up workflows can now use the GitHub Actions Cache REST API to accomplish the following tasks.
-
-          - List all caches within a repository and sort by metadata.
-          - Delete a corrupt or stale cache entry. 
-          For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#managing-caches)" and "[GitHub Actions Cache](/rest/actions/cache)" in the REST API documentation.
-
     - heading: Instance services
       notes:
         # https://github.com/github/releases/issues/2344
@@ -199,6 +191,14 @@ sections:
           - Configure advanced OpenID Connect policies by using additional OpenID Connect token claims like `repository_id` and `repo_visibility`.
 
           For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
+
+        # https://github.com/github/releases/issues/2326
+        - |
+          GitHub Actions users who use dependency caching to speed up workflows can now use the GitHub Actions Cache REST API to accomplish the following tasks.
+
+          - List all caches within a repository and sort by metadata.
+          - Delete a corrupt or stale cache entry. 
+          For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#managing-caches)" and "[GitHub Actions Cache](/rest/actions/cache)" in the REST API documentation.
 
         # https://github.com/github/docs-content/issues/7689
         - |

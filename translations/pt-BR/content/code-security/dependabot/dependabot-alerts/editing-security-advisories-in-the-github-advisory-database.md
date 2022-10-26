@@ -49,7 +49,7 @@ If you have {% data variables.product.prodname_github_connect %} enabled for {% 
 
 1. Navigate to `https://HOSTNAME/advisories`.
 2. Select the security advisory you would like to contribute to.
-3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on Github.com.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom_the_website %}.
+3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on {% data variables.product.prodname_dotcom_the_website %}.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom_the_website %}.
 ![Suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory-on-github-com.png)
 4. Edit the advisory, following steps four through six in "[Editing advisories in the GitHub Advisory Database](#editing-advisories-in-the-github-advisory-database)" above.
 {% endif %}
