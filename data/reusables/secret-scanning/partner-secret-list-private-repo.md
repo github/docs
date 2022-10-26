@@ -1,223 +1,223 @@
 Provider | Supported secret | Secret type
 --- | --- | ---
-Adafruit IO | Adafruit IO Key | adafruit_io_key
-Adobe | Adobe Device Token | adobe_device_token
-Adobe | Adobe Service Token | adobe_service_token
-Adobe | Adobe Short-Lived Access Token | adobe_short_lived_access_token
-Adobe | Adobe JSON Web Token | adobe_jwt
-Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret| alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
+Adafruit IO | Adafruit IO key | adafruit_io_key
+Adobe | Adobe device token | adobe_device_token
+Adobe | Adobe service token | adobe_service_token
+Adobe | Adobe short-lived access token | adobe_short_lived_access_token
+Adobe | Adobe JSON web token | adobe_jwt
+Alibaba Cloud | Alibaba Cloud access key ID with Alibaba Cloud access key secret| alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %}
-Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
-Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
+Amazon | Amazon OAuth client ID with Amazon OAuth client secret | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %}
+Amazon Web Services (AWS) | Amazon AWS access key ID with Amazon AWS secret access key | aws_access_key_id </br>aws_secret_access_key
+Amazon Web Services (AWS) | Amazon AWS session token with Amazon AWS temporary access key ID and Amazon AWS secret access key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
 Asana | Asana {% data variables.product.pat_generic %} | asana_personal_access_token
-Atlassian | Atlassian API Token | atlassian_api_token
-Atlassian | Atlassian JSON Web Token | atlassian_jwt
-Atlassian | Bitbucket Server {% data variables.product.pat_generic %} | bitbucket_server_personal_access_token
+Atlassian | Atlassian API token | atlassian_api_token
+Atlassian | Atlassian JSON web token | atlassian_jwt
+Atlassian | Bitbucket server {% data variables.product.pat_generic %} | bitbucket_server_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret{% endif %}
+Azure | Azure Active Directory application secret | azure_active_directory_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure Batch Key Identifiable | azure_batch_key_identifiable{% endif %}
+Azure | Azure Batch key identifiable | azure_batch_key_identifiable{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% endif %}
+Azure | Azure Cache for Redis access key | azure_cache_for_redis_access_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure CosmosDB Key Identifiable | azure_cosmosdb_key_identifiable{% endif %}
+Azure | Azure CosmosDB key identifiable | azure_cosmosdb_key_identifiable{% endif %}
 Azure | Azure DevOps {% data variables.product.pat_generic %} | azure_devops_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}
-Azure | Azure SAS Token | azure_sas_token
-Azure | Azure Service Management Certificate | azure_management_certificate
+Azure | Azure ML studio (classic) web service key | azure_ml_studio_classic_web_service_key{% endif %}
+Azure | Azure SAS token | azure_sas_token
+Azure | Azure service management certificate | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae < 3.4 %}
-Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
-Azure | Azure Storage Account Key | azure_storage_account_key
-Beamer | Beamer API Key | beamer_api_key
-Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
-Checkout.com | Checkout.com Test Secret Key | checkout_test_secret_key
-Clojars | Clojars Deploy Token | clojars_deploy_token
-CloudBees CodeShip | CloudBees CodeShip Credential | codeship_credential
+Azure | Azure SQL connection string | azure_sql_connection_string{% endif %}
+Azure | Azure Storage account key | azure_storage_account_key
+Beamer | Beamer API key | beamer_api_key
+Checkout.com | Checkout.com production secret key | checkout_production_secret_key
+Checkout.com | Checkout.com test secret key | checkout_test_secret_key
+Clojars | Clojars deploy token | clojars_deploy_token
+CloudBees CodeShip | CloudBees CodeShip credential | codeship_credential
 Contentful | Contentful {% data variables.product.pat_generic %} | contentful_personal_access_token
-Databricks | Databricks Access Token | databricks_access_token
+Databricks | Databricks access token | databricks_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-DevCycle | DevCycle Client API Key | devcycle_client_api_key
-DevCycle | DevCycle Server API Key | devcycle_server_api_key
-DevCycle | DevCycle Mobile API Key | devcycle_mobile_api_key{% endif %}
+DevCycle | DevCycle client API key | devcycle_client_api_key
+DevCycle | DevCycle server API key | devcycle_server_api_key
+DevCycle | DevCycle mobile API key | devcycle_mobile_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 DigitalOcean | DigitalOcean {% data variables.product.pat_generic %} | digitalocean_personal_access_token
-DigitalOcean | DigitalOcean OAuth Token | digitalocean_oauth_token
-DigitalOcean | DigitalOcean Refresh Token | digitalocean_refresh_token
-DigitalOcean | DigitalOcean System Token | digitalocean_system_token{% endif %}
-Discord | Discord Bot Token | discord_bot_token
-Doppler | Doppler Personal Token | doppler_personal_token
-Doppler | Doppler Service Token | doppler_service_token
-Doppler | Doppler CLI Token | doppler_cli_token
-Doppler | Doppler SCIM Token | doppler_scim_token
-Doppler | Doppler Audit Token | doppler_audit_token
-Dropbox | Dropbox Access Token | dropbox_access_token
-Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token
-Duffel | Duffel Live Access Token | duffel_live_access_token
-Duffel | Duffel Test Access Token | duffel_test_access_token
-Dynatrace | Dynatrace Access Token | dynatrace_access_token
-Dynatrace | Dynatrace Internal Token | dynatrace_internal_token
-EasyPost | EasyPost Production API Key | easypost_production_api_key
-EasyPost | EasyPost Test API Key | easypost_test_api_key
-Fastly | Fastly API Token | fastly_api_token
-Finicity | Finicity App Key | finicity_app_key
-Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key
-Flutterwave | Flutterwave Test API Secret Key | flutterwave_test_api_secret_key
-Frame.io | Frame.io JSON Web Token | frameio_jwt
-Frame.io| Frame.io Developer Token | frameio_developer_token
-FullStory | FullStory API Key | fullstory_api_key
+DigitalOcean | DigitalOcean OAuth token | digitalocean_oauth_token
+DigitalOcean | DigitalOcean refresh token | digitalocean_refresh_token
+DigitalOcean | DigitalOcean system token | digitalocean_system_token{% endif %}
+Discord | Discord bot token | discord_bot_token
+Doppler | Doppler personal token | doppler_personal_token
+Doppler | Doppler service token | doppler_service_token
+Doppler | Doppler CLI token | doppler_cli_token
+Doppler | Doppler SCIM token | doppler_scim_token
+Doppler | Doppler audit token | doppler_audit_token
+Dropbox | Dropbox access token | dropbox_access_token
+Dropbox | Dropbox short lived access token | dropbox_short_lived_access_token
+Duffel | Duffel live access token | duffel_live_access_token
+Duffel | Duffel test access token | duffel_test_access_token
+Dynatrace | Dynatrace access token | dynatrace_access_token
+Dynatrace | Dynatrace internal token | dynatrace_internal_token
+EasyPost | EasyPost production API key | easypost_production_api_key
+EasyPost | EasyPost test API key | easypost_test_api_key
+Fastly | Fastly API token | fastly_api_token
+Finicity | Finicity app key | finicity_app_key
+Flutterwave | Flutterwave live API secret key | flutterwave_live_api_secret_key
+Flutterwave | Flutterwave test API secret key | flutterwave_test_api_secret_key
+Frame.io | Frame.io JSON web token | frameio_jwt
+Frame.io| Frame.io developer token | frameio_developer_token
+FullStory | FullStory API key | fullstory_api_key
 GitHub | GitHub {% data variables.product.pat_generic %} | github_personal_access_token
-GitHub | GitHub OAuth Access Token | github_oauth_access_token
-GitHub | GitHub Refresh Token | github_refresh_token
-GitHub | GitHub App Installation Access Token | github_app_installation_access_token
-GitHub | GitHub SSH Private Key | github_ssh_private_key
+GitHub | GitHub OAuth access token | github_oauth_access_token
+GitHub | GitHub refresh token | github_refresh_token
+GitHub | GitHub app installation access token | github_app_installation_access_token
+GitHub | GitHub SSH private key | github_ssh_private_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-GitLab | GitLab Access Token | gitlab_access_token{% endif %}
-GoCardless | GoCardless Live Access Token | gocardless_live_access_token
-GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
-Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key
-Google | Google API Key | google_api_key
-Google | Google Cloud Private Key ID | 
-Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret
-Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
+GitLab | GitLab access token | gitlab_access_token{% endif %}
+GoCardless | GoCardless live access token | gocardless_live_access_token
+GoCardless | GoCardless sandbox access token | gocardless_sandbox_access_token
+Google | Firebase Cloud messaging server key | firebase_cloud_messaging_server_key
+Google | Google API key | google_api_key
+Google | Google Cloud private key ID | 
+Google | Google Cloud Storage service account access key ID with Google Cloud Storage access key secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret
+Google | Google Cloud Storage user access key ID with Google Cloud Storage access key secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
+Google | Google OAuth access token | google_oauth_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret{% endif %}
+Google | Google OAuth client ID with Google OAuth client secret | google_oauth_client_id </br>google_oauth_client_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
+Google | Google OAuth refresh token | google_oauth_refresh_token{% endif %}
 Grafana | Grafana API Key | grafana_api_key
-HashiCorp | Terraform Cloud / Enterprise API Token | terraform_api_token
-HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token
-HashiCorp | HashiCorp Vault Service Token | hashicorp_vault_service_token
-Hubspot | Hubspot API Key | hubspot_api_key
-Intercom | Intercom Access Token | intercom_access_token
+HashiCorp | Terraform Cloud / Enterprise API token | terraform_api_token
+HashiCorp | HashiCorp Vault batch token | hashicorp_vault_batch_token
+HashiCorp | HashiCorp Vault service token | hashicorp_vault_service_token
+Hubspot | Hubspot API key | hubspot_api_key
+Intercom | Intercom access token | intercom_access_token
 Ionic | Ionic {% data variables.product.pat_generic %} | ionic_personal_access_token
-Ionic | Ionic Refresh Token | ionic_refresh_token
+Ionic | Ionic refresh token | ionic_refresh_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-JD Cloud | JD Cloud Access Key | jd_cloud_access_key{% endif %}
-JFrog | JFrog Platform Access Token | jfrog_platform_access_token
-JFrog | JFrog Platform API Key | jfrog_platform_api_key
-Linear | Linear API Key | linear_api_key
-Linear | Linear OAuth Access Token | linear_oauth_access_token
-Lob | Lob Live API Key | lob_live_api_key
-Lob | Lob Test API Key | lob_test_api_key
+JD Cloud | JD Cloud access key | jd_cloud_access_key{% endif %}
+JFrog | JFrog platform access token | jfrog_platform_access_token
+JFrog | JFrog platform API key | jfrog_platform_api_key
+Linear | Linear API key | linear_api_key
+Linear | Linear OAuth access token | linear_oauth_access_token
+Lob | Lob live API key | lob_live_api_key
+Lob | Lob test API key | lob_test_api_key
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-LogicMonitor | LogicMonitor Bearer Token | logicmonitor_bearer_token
-LogicMonitor | LogicMonitor LMV1 Access Key | logicmonitor_lmv1_access_key{% endif %}
-Mailchimp | Mailchimp API Key | mailchimp_api_key
-Mailgun | Mailgun API Key | mailgun_api_key
+LogicMonitor | LogicMonitor Bearer token | logicmonitor_bearer_token
+LogicMonitor | LogicMonitor LMV1 access key | logicmonitor_lmv1_access_key{% endif %}
+Mailchimp | Mailchimp API key | mailchimp_api_key
+Mailgun | Mailgun API key | mailgun_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Mapbox | Mapbox Secret Access Token | mapbox_secret_access_token{% endif %}
-MessageBird | MessageBird API Key | messagebird_api_key
-Meta | Facebook Access Token | facebook_access_token
+Mapbox | Mapbox secret access token | mapbox_secret_access_token{% endif %}
+MessageBird | MessageBird API key | messagebird_api_key
+Meta | Facebook access token | facebook_access_token
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Midtrans | Midtrans Production Server Key | midtrans_production_server_key{% endif %}
+Midtrans | Midtrans production server key | midtrans_production_server_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Midtrans | Midtrans Sandbox Server Key | midtrans_sandbox_server_key{% endif %}
-New Relic | New Relic Personal API Key | new_relic_personal_api_key
-New Relic | New Relic REST API Key | new_relic_rest_api_key
-New Relic | New Relic Insights Query Key | new_relic_insights_query_key
-New Relic | New Relic License Key | new_relic_license_key
+Midtrans | Midtrans sandbox server key | midtrans_sandbox_server_key{% endif %}
+New Relic | New Relic personal API key | new_relic_personal_api_key
+New Relic | New Relic REST API key | new_relic_rest_api_key
+New Relic | New Relic Insights query key | new_relic_insights_query_key
+New Relic | New Relic license key | new_relic_license_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Notion | Notion Integration Token | notion_integration_token{% endif %}
+Notion | Notion integration token | notion_integration_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Notion | Notion OAuth Client Secret | notion_oauth_client_secret{% endif %}
-npm | npm Access Token | npm_access_token
+Notion | Notion OAuth client secret | notion_oauth_client_secret{% endif %}
+npm | npm access token | npm_access_token
 NuGet | NuGet API Key | nuget_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Octopus Deploy | Octopus Deploy API Key | octopus_deploy_api_key{% endif %}
-Onfido | Onfido Live API Token | onfido_live_api_token
-Onfido | Onfido Sandbox API Token | onfido_sandbox_api_token
+Onfido | Onfido live API token | onfido_live_api_token
+Onfido | Onfido sandbox API token | onfido_sandbox_api_token
 OpenAI | OpenAI API Key | openai_api_key
-Palantir | Palantir JSON Web Token | palantir_jwt
-PlanetScale | PlanetScale Database Password | planetscale_database_password
-PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token
-PlanetScale | PlanetScale Service Token | planetscale_service_token
-Plivo | Plivo Auth ID with Plivo Auth Token | plivo_auth_id </br>plivo_auth_token
-Postman | Postman API Key | postman_api_key
+Palantir | Palantir JSON web token | palantir_jwt
+PlanetScale | PlanetScale database password | planetscale_database_password
+PlanetScale | PlanetScale OAuth token | planetscale_oauth_token
+PlanetScale | PlanetScale service token | planetscale_service_token
+Plivo | Plivo auth ID with Plivo auth token | plivo_auth_id </br>plivo_auth_token
+Postman | Postman API key | postman_api_key
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-Prefect | Prefect Server API Key | prefect_server_api_key
-Prefect | Prefect User API Key | prefect_user_api_key{% endif %}
-Proctorio | Proctorio Consumer Key | proctorio_consumer_key
-Proctorio | Proctorio Linkage Key | proctorio_linkage_key
-Proctorio | Proctorio Registration Key | proctorio_registration_key
-Proctorio | Proctorio Secret Key | proctorio_secret_key
-Pulumi | Pulumi Access Token | pulumi_access_token
-PyPI | PyPI API Token | pypi_api_token
+Prefect | Prefect server API key | prefect_server_api_key
+Prefect | Prefect user API key | prefect_user_api_key{% endif %}
+Proctorio | Proctorio consumer key | proctorio_consumer_key
+Proctorio | Proctorio linkage key | proctorio_linkage_key
+Proctorio | Proctorio registration key | proctorio_registration_key
+Proctorio | Proctorio secret key | proctorio_secret_key
+Pulumi | Pulumi access token | pulumi_access_token
+PyPI | PyPI API token | pypi_api_token
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-ReadMe | ReadMe API Access Key | readmeio_api_access_token{% endif %}
+ReadMe | ReadMe API access key | readmeio_api_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
-RubyGems | RubyGems API Key | rubygems_api_key
-Samsara | Samsara API Token | samsara_api_token
-Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
+redirect.pizza | redirect.pizza API token | redirect_pizza_api_token{% endif %}
+RubyGems | RubyGems API key | rubygems_api_key
+Samsara | Samsara API token | samsara_api_token
+Samsara | Samsara OAuth access token | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-Segment | Segment Public API Token | segment_public_api_token{% endif %}
-SendGrid | SendGrid API Key | sendgrid_api_key
-Sendinblue | Sendinblue API Key | sendinblue_api_key
-Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key
-Shippo | Shippo Live API Token | shippo_live_api_token
-Shippo | Shippo Test API Token | shippo_test_api_token
+Segment | Segment public API token | segment_public_api_token{% endif %}
+SendGrid | SendGrid API key | sendgrid_api_key
+Sendinblue | Sendinblue API key | sendinblue_api_key
+Sendinblue | Sendinblue SMTP key | sendinblue_smtp_key
+Shippo | Shippo live API token | shippo_live_api_token
+Shippo | Shippo test API token | shippo_test_api_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-Shopify | Shopify App Client Credentials | shopify_app_client_credentials
-Shopify | Shopify App Client Secret | shopify_app_client_secret{% endif %}
-Shopify | Shopify App Shared Secret | shopify_app_shared_secret
-Shopify | Shopify Access Token | shopify_access_token
-Shopify | Shopify Custom App Access Token | shopify_custom_app_access_token
+Shopify | Shopify app client credentials | shopify_app_client_credentials
+Shopify | Shopify app client secret | shopify_app_client_secret{% endif %}
+Shopify | Shopify app shared secret | shopify_app_shared_secret
+Shopify | Shopify access token | shopify_access_token
+Shopify | Shopify custom app access token | shopify_custom_app_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-Shopify | Shopify Merchant Token | shopify_merchant_token
-Shopify | Shopify Marketplace Token | shopify_marketplace_token
-Shopify | Shopify Partner API Token | shopify_partner_api_token{% endif %}
-Shopify | Shopify Private App Password | shopify_private_app_password
-Slack | Slack API Token | slack_api_token
-Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url
-Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url
+Shopify | Shopify merchant token | shopify_merchant_token
+Shopify | Shopify marketplace token | shopify_marketplace_token
+Shopify | Shopify partner API token | shopify_partner_api_token{% endif %}
+Shopify | Shopify private app password | shopify_private_app_password
+Slack | Slack API token | slack_api_token
+Slack | Slack incoming webhook URL | slack_incoming_webhook_url
+Slack | Slack workflow webhook URL | slack_workflow_webhook_url
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Square | Square Access Token | square_access_token{% endif %}
+Square | Square access token | square_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Square | Square Production Application Secret | square_production_application_secret{% endif %}
+Square | Square production application secret | square_production_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Square | Square Sandbox Application Secret | square_sandbox_application_secret{% endif %}
-SSLMate | SSLMate API Key | sslmate_api_key
-SSLMate | SSLMate Cluster Secret | sslmate_cluster_secret
-Stripe | Stripe API Key | stripe_api_key
-Stripe | Stripe Live API Secret Key | stripe_live_secret_key
-Stripe | Stripe Test API Secret Key | stripe_test_secret_key
-Stripe | Stripe Live API Restricted Key | stripe_live_restricted_key
-Stripe | Stripe Test API Restricted Key | stripe_test_restricted_key
-Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret
+Square | Square sandbox application secret | square_sandbox_application_secret{% endif %}
+SSLMate | SSLMate API key | sslmate_api_key
+SSLMate | SSLMate cluster secret | sslmate_cluster_secret
+Stripe | Stripe API key | stripe_api_key
+Stripe | Stripe live API secret key | stripe_live_secret_key
+Stripe | Stripe test API secret key | stripe_test_secret_key
+Stripe | Stripe live API restricted key | stripe_live_restricted_key
+Stripe | Stripe test API restricted key | stripe_test_restricted_key
+Stripe | Stripe webhook signing secret | stripe_webhook_signing_secret
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Supabase | Supabase Service Key | supabase_service_key{% endif %}
+Supabase | Supabase service key | supabase_service_key{% endif %}
 Tableau | Tableau {% data variables.product.pat_generic %} | tableau_personal_access_token
-Telegram | Telegram Bot Token | telegram_bot_token
-Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
+Telegram | Telegram bot token | telegram_bot_token
+Tencent Cloud | Tencent Cloud secret ID | tencent_cloud_secret_id
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Twilio | Twilio Access Token | twilio_access_token{% endif %}
-Twilio | Twilio Account String Identifier | twilio_account_sid
-Twilio | Twilio API Key | twilio_api_key
+Twilio | Twilio access token | twilio_access_token{% endif %}
+Twilio | Twilio account string identifier | twilio_account_sid
+Twilio | Twilio API key | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Typeform | Typeform {% data variables.product.pat_generic %} | typeform_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
+Uniwise | WISEflow API key | wiseflow_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-WorkOS | WorkOS Production API Key | workos_production_api_key{% endif %}
+WorkOS | WorkOS production API key | workos_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-WorkOS | WorkOS Staging API Key | workos_staging_api_key{% endif %}
+WorkOS | WorkOS staging API key | workos_staging_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
+Yandex | Yandex.Cloud API key | yandex_cloud_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
+Yandex | Yandex.Cloud IAM cookie | yandex_cloud_iam_cookie{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}
+Yandex | Yandex.Cloud IAM token | yandex_cloud_iam_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Yandex | Yandex.Dictionary API Key | yandex_dictionary_api_key{% endif %}
+Yandex | Yandex.Dictionary API key | yandex_dictionary_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-Yandex | Yandex.Cloud Access Secret | yandex_iam_access_secret{% endif %}
+Yandex | Yandex.Cloud access secret | yandex_iam_access_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Yandex | Yandex.Predictor API Key | yandex_predictor_api_key{% endif %}
+Yandex | Yandex.Predictor API key | yandex_predictor_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Yandex | Yandex.Translate API Key | yandex_translate_api_key{% endif %}
+Yandex | Yandex.Translate API key | yandex_translate_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-Zuplo | Zuplo Consumer API Key | zuplo_consumer_api_key{% endif %}
+Zuplo | Zuplo consumer API key | zuplo_consumer_api_key{% endif %}
