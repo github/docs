@@ -289,7 +289,7 @@ In addition, if your account has private repositories, you control the access to
 - to comply with our legal obligations if we have reason to believe the contents are in violation of the law, 
 - or with your consent.
 
-Github will provide notice regarding private repository access where not prohibited by law or if in response to a security threat or other risk to security.
+GitHub will provide notice regarding private repository access where not prohibited by law or if in response to a security threat or other risk to security.
 
 ### Cross-border data transfers
 GitHub processes personal data both inside and outside of the United States and relies on legal mechanisms such as Standard Contractual Clauses to lawfully transfer data from the European Economic Area, the United Kingdom, and Switzerland to the United States. You may request a copy of the Standard Contractual Clauses using the contact details provided in the section entitled “Contacting GitHub” below. 
@@ -307,7 +307,7 @@ United States<br>
 **privacy [at] github [dot] com**<br>
 
 **If you are outside of North America:**<br>
-Github Data Protection Officer<br>
+GitHub Data Protection Officer<br>
 c/o DP Dock DPO Services GmbH,<br>
 Attn: GitHub BV, Gut Projensdorf,<br>
 24161 Altenholz, Germany<br>

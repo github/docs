@@ -115,7 +115,7 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
-For the compiled languages C/C++, C#, and Java, {% data variables.product.prodname_codeql %} builds the code before analyzing it. {% data reusables.code-scanning.analyze-go %}
+For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java, {% data variables.product.prodname_codeql %} builds the code before analyzing it. {% data reusables.code-scanning.analyze-go %}
 
 For many common build systems, the {% data variables.product.prodname_codeql_runner %} can build the code automatically. To attempt to build the code automatically, run `autobuild` between the `init` and `analyze` steps. Note that if your repository requires a specific version of a build tool, you may need to install the build tool manually first. 
 

@@ -110,9 +110,6 @@ prodname_oauth_apps: 'OAuth Apps'
 prodname_enterprise_api: '{% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %} APIs'
 prodname_unfurls: 'Content Attachments'
 
-# Azure AD
-ae_azure_ad_app_link: 'the [GitHub AE application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
-
 # GitHub Actions
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'

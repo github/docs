@@ -40,7 +40,7 @@
          "description":"Premium Plan",
          "monthly_price_in_cents":10000,
          "yearly_price_in_cents":100000,
-         "price_model":"flat-rate",
+         "price_model":"FLAT_RATE",
          "has_free_trial":true,
          "unit_name":null,
          "bullets":[

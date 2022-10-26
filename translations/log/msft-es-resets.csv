@@ -66,6 +66,7 @@ translations/es-ES/content/admin/identity-and-access-management/using-enterprise
 translations/es-ES/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,file deleted because it no longer exists in main
 translations/es-ES/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/index.md,file deleted because it no longer exists in main
 translations/es-ES/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/managing-team-memberships-with-identity-provider-groups.md,file deleted because it no longer exists in main
+translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise.md,file deleted because it no longer exists in main
 translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise.md,file deleted because it no longer exists in main
 translations/es-ES/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise.md,file deleted because it no longer exists in main
 translations/es-ES/content/admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise.md,file deleted because it no longer exists in main
@@ -206,6 +207,7 @@ translations/es-ES/data/glossaries/internal.yml,file deleted because it no longe
 translations/es-ES/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/jobs/section-using-a-build-matrix-for-your-jobs-strategy.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
+translations/es-ES/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/self-hosted-runner-groups-navigate-to-repo-org-enterprise.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/apps/metadata-permissions.md,file deleted because it no longer exists in main
@@ -424,6 +426,8 @@ translations/es-ES/content/admin/enterprise-management/updating-the-virtual-mach
 translations/es-ES/content/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled.md,broken liquid tags
 translations/es-ES/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,rendering error
 translations/es-ES/content/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment.md,broken liquid tags
+translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage.md,broken liquid tags
+translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage.md,broken liquid tags
 translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage.md,broken liquid tags
 translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates.md,rendering error
 translations/es-ES/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
@@ -459,7 +463,6 @@ translations/es-ES/content/admin/identity-and-access-management/using-saml-for-e
 translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad.md,broken liquid tags
 translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta.md,broken liquid tags
 translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
-translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise.md,rendering error
 translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,broken liquid tags
 translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/index.md,broken liquid tags
 translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
@@ -612,8 +615,8 @@ translations/es-ES/content/code-security/secret-scanning/about-secret-scanning.m
 translations/es-ES/content/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,rendering error
-translations/es-ES/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,broken liquid tags
-translations/es-ES/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,broken liquid tags
+translations/es-ES/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,rendering error
+translations/es-ES/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,rendering error
 translations/es-ES/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/es-ES/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
 translations/es-ES/content/code-security/security-overview/viewing-the-security-overview.md,rendering error
@@ -762,6 +765,12 @@ translations/es-ES/content/graphql/guides/introduction-to-graphql.md,broken liqu
 translations/es-ES/content/graphql/guides/managing-enterprise-accounts.md,rendering error
 translations/es-ES/content/graphql/guides/migrating-from-rest-to-graphql.md,broken liquid tags
 translations/es-ES/content/graphql/overview/about-the-graphql-api.md,rendering error
+translations/es-ES/content/graphql/reference/enums.md,broken liquid tags
+translations/es-ES/content/graphql/reference/input-objects.md,broken liquid tags
+translations/es-ES/content/graphql/reference/interfaces.md,broken liquid tags
+translations/es-ES/content/graphql/reference/mutations.md,broken liquid tags
+translations/es-ES/content/graphql/reference/objects.md,broken liquid tags
+translations/es-ES/content/graphql/reference/unions.md,broken liquid tags
 translations/es-ES/content/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards.md,broken liquid tags
 translations/es-ES/content/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions.md,broken liquid tags
 translations/es-ES/content/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects.md,broken liquid tags
@@ -1037,7 +1046,7 @@ translations/es-ES/data/reusables/dependabot/beta-security-and-version-updates.m
 translations/es-ES/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
 translations/es-ES/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/es-ES/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
-translations/es-ES/data/reusables/dependabot/supported-package-managers.md,broken liquid tags
+translations/es-ES/data/reusables/dependabot/supported-package-managers.md,rendering error
 translations/es-ES/data/reusables/desktop/get-an-account.md,broken liquid tags
 translations/es-ES/data/reusables/discussions/enabling-or-disabling-github-discussions-for-your-organization.md,broken liquid tags
 translations/es-ES/data/reusables/discussions/navigate-to-repo-or-org.md,broken liquid tags
@@ -1091,6 +1100,7 @@ translations/es-ES/data/reusables/getting-started/enterprise-advanced-security.m
 translations/es-ES/data/reusables/getting-started/managing-enterprise-members.md,broken liquid tags
 translations/es-ES/data/reusables/git/git-push.md,broken liquid tags
 translations/es-ES/data/reusables/git/provide-credentials.md,broken liquid tags
+translations/es-ES/data/reusables/github-ae/saml-idp-table.md,broken liquid tags
 translations/es-ES/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,broken liquid tags
 translations/es-ES/data/reusables/large_files/storage_assets_location.md,broken liquid tags
 translations/es-ES/data/reusables/large_files/use_lfs_tip.md,broken liquid tags
@@ -1116,6 +1126,8 @@ translations/es-ES/data/reusables/package_registry/packages-billing.md,broken li
 translations/es-ES/data/reusables/package_registry/required-scopes.md,broken liquid tags
 translations/es-ES/data/reusables/pages/build-failure-email-server.md,broken liquid tags
 translations/es-ES/data/reusables/pages/emu-org-only.md,broken liquid tags
+translations/es-ES/data/reusables/pages/new-or-existing-repo.md,broken liquid tags
+translations/es-ES/data/reusables/pages/pages-about-publishing-source.md,broken liquid tags
 translations/es-ES/data/reusables/pages/sidebar-pages.md,rendering error
 translations/es-ES/data/reusables/policies/abuse.md,rendering error
 translations/es-ES/data/reusables/projects/enable-basic-workflow.md,broken liquid tags
@@ -1141,13 +1153,16 @@ translations/es-ES/data/reusables/saml/about-authorized-credentials.md,broken li
 translations/es-ES/data/reusables/saml/about-linked-identities.md,broken liquid tags
 translations/es-ES/data/reusables/saml/about-saml-access-enterprise-account.md,broken liquid tags
 translations/es-ES/data/reusables/saml/authorized-creds-info.md,broken liquid tags
+translations/es-ES/data/reusables/saml/create-a-machine-user.md,broken liquid tags
 translations/es-ES/data/reusables/saml/must-authorize-linked-identity.md,broken liquid tags
+translations/es-ES/data/reusables/saml/okta-ae-sso-beta.md,broken liquid tags
 translations/es-ES/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
 translations/es-ES/data/reusables/scim/enterprise-account-scim.md,broken liquid tags
 translations/es-ES/data/reusables/scim/supported-idps.md,broken liquid tags
 translations/es-ES/data/reusables/search/syntax_tips.md,broken liquid tags
 translations/es-ES/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/es-ES/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
+translations/es-ES/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/es-ES/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/es-ES/data/reusables/security-overview/permissions.md,rendering error
 translations/es-ES/data/reusables/shortdesc/rate_limits_github_apps.md,broken liquid tags
@@ -1177,3 +1192,4 @@ translations/es-ES/data/reusables/webhooks/pull_request_webhook_properties.md,br
 translations/es-ES/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/es-ES/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
 translations/es-ES/data/variables/product.yml,broken liquid tags
+translations/es-ES/data/variables/projects.yml,broken liquid tags
