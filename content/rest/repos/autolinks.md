@@ -5,7 +5,7 @@ shortTitle: Autolinks
 intro: 'To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets.'
 versions:
   fpt: '*'
-  ghes: '>=3.3'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
