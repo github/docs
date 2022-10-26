@@ -1,16 +1,16 @@
 ---
-title: Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}
-intro: You can add issues and pull requests to a {% data variables.projects.projects_v1_board %} in the form of cards and triage them into columns.
+title: 'Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can add issues and pull requests to a {% data variables.projects.projects_v1_board %} in the form of cards and triage them into columns.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
   - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Add issues & PRs to {% data variables.product.prodname_project_v1 %}
+shortTitle: 'Add issues & PRs to {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}

@@ -8,11 +8,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% note %}
-
-**Note:** The SCIM API for {% data variables.product.product_name %} is currently in private beta and subject to change. To access the private beta and test the API, contact your account manager on {% data variables.contact.contact_enterprise_sales %}.
-
-{% endnote %}
+{% data reusables.scim.ghes-beta-note %}
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 ## About the SCIM API

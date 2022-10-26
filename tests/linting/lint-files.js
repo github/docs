@@ -659,6 +659,16 @@ describe('lint markdown content', () => {
         expect(matches.length, errorMessage).toBe(0)
       })
     }
+
+    test('must use personal access token variables', async () => {
+      const patRegex = /personal access tokens?/gi
+      const matches = content.match(patRegex) || []
+      const errorMessage = formatLinkError(
+        'You should use one of the personal access token variables from data/variables/product.yml instead of the literal phrase(s):',
+        matches
+      )
+      expect(matches.length, errorMessage).toBe(0)
+    })
   })
 })
 

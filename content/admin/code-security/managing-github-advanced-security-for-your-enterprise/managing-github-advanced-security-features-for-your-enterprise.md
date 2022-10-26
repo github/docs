@@ -1,7 +1,7 @@
 ---
 title: Managing GitHub Advanced Security features for your enterprise
 intro: 'You can control {% data variables.product.prodname_GH_advanced_security %} features that secure and analyze code across all organizations owned by your enterprise.'
-permissions: Enterprise owners can manage {% data variables.product.prodname_advanced_security %} features for organizations in an enterprise.
+permissions: 'Enterprise owners can manage {% data variables.product.prodname_advanced_security %} features for organizations in an enterprise.'
 versions:
   feature: secret-scanning-enterprise-level
 type: how_to

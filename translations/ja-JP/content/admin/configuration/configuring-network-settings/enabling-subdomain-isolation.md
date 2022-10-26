@@ -32,7 +32,12 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 | `http(s)://HOSTNAME/media/`       | `http(s)://media.HOSTNAME/`       |
 | `http(s)://HOSTNAME/pages/`       | `http(s)://pages.HOSTNAME/`       |
 | `http(s)://HOSTNAME/raw/`         | `http(s)://raw.HOSTNAME/`         |
+{%- ifversion viewscreen-and-notebooks %}
+| `http(s)://HOSTNAME/viewscreen/`  | `http(s)://viewscreen.HOSTNAME/`  |
+| `http(s)://HOSTNAME/notebooks/`   | `http(s)://notebooks.HOSTNAME/`   |
+{%- else %}
 | `http(s)://HOSTNAME/render/`      | `http(s)://render.HOSTNAME/`      |
+{%- endif %}
 | `http(s)://HOSTNAME/reply/`       | `http(s)://reply.HOSTNAME/`       |
 | `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     | {% ifversion ghes %}
 | `https://HOSTNAME/` | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
