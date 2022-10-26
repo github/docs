@@ -265,7 +265,6 @@ Action                        | Description
 | `config_entry.update` | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ## `dependabot_alerts` category actions
 
 | Action | Description
@@ -285,9 +284,8 @@ Action                        | Description
 | Action | Description
 |--------|-------------
 | `dependabot_repository_access.repositories_updated` | The repositories that {% data variables.product.prodname_dependabot %} can access were updated.
-{%- endif %}
 
-{%- ifversion fpt or ghec or ghes > 3.2 %}
+{%- ifversion fpt or ghec or ghes %}
 ## `dependabot_security_updates` category actions
 
 | Action | Description
@@ -1341,7 +1339,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 |--------|-------------
 | `staff.disable_repo`          | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator disabled access to a repository and all of its forks.
 | `staff.enable_repo`           | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator re-enabled access to a repository and all of its forks.
-{%- ifversion ghes > 3.2 or ghae %}
+{%- ifversion ghes or ghae %}
 | `staff.exit_fake_login`       | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} ended an impersonation session on {% data variables.product.product_name %}.
 | `staff.fake_login`            | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} signed into {% data variables.product.product_name %} as another user.
 {%- endif %}

@@ -1,6 +1,6 @@
 ---
 title: Submitting your repository to GitHub Community Exchange
-shortTitle: 'Submit your repository'
+shortTitle: Submit your repository
 intro: 'You can submit your repository to {% data variables.product.prodname_community_exchange %} for others to view or contribute to.'
 versions:
   fpt: '*'

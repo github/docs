@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexi
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/about-projects
 type: overview

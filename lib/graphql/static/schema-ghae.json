@@ -23596,6 +23596,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "filename",
+          "description": "<p>The template filename.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "name",
           "description": "<p>The template name.</p>",
           "type": "String!",

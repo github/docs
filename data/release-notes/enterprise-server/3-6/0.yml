@@ -110,7 +110,7 @@ sections:
         - |
           Users can select multiple Dependabot alerts, then dismiss or reopen or dismiss the alerts. For example, from the **Closed alerts** tab, you can select multiple alerts that have been previously dismissed, and then reopen them all at once. For more information, see "[About Dependabot alerts](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)."
 
-          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0. The feature will be available in an upcoming release. [Updated: 2022-09-29]
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0. The feature is available in GitHub Enterprise Server 3.7.0 and later. [Updated: 2022-10-19]
 
         # https://github.com/github/releases/issues/2232
         - |

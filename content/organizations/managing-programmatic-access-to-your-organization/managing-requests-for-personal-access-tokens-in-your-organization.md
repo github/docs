@@ -1,6 +1,6 @@
 ---
 title: Managing requests for personal access tokens in your organization
-intro: Organization owners can approve or deny {% data variables.product.pat_v2 %}s that request access to their organization.
+intro: 'Organization owners can approve or deny {% data variables.product.pat_v2 %}s that request access to their organization.'
 versions:
   feature: pat-v2
 shortTitle: Manage token requests
