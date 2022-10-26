@@ -17,7 +17,7 @@ shortTitle: Create a codespace
 
 ## About codespace creation
 
-You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. Use the tabs in this article to display instructions for each of these ways of creating a codespace.
+{% data reusables.codespaces.ways-to-create-a-codespace %} Use the tabs in this article to display instructions for each of these ways of creating a codespace.
 
 {% note %}
 

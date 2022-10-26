@@ -117,6 +117,14 @@ To run commands on the remote codespace machine, from your terminal, you can SSH
 gh codespace ssh -c CODESPACE-NAME
 ```
 
+{% note %}
+
+**Note**: {% data reusables.codespaces.ssh-server-installed %}
+
+<br>For more information about the `devcontainer.json` file and the default container image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+
+{% endnote %}
+
 {% data variables.product.prodname_github_codespaces %} copies your GitHub SSH keys into the codespace on creation for a seamless authentication experience. You may be asked to enter the passphrase for your SSH key, after which you will get a command prompt from the remote codespace machine.
 
 If you don't have any SSH keys, follow the instructions in "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."

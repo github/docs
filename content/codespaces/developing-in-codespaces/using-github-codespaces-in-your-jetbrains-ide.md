@@ -41,6 +41,7 @@ To work in a codespace in a JetBrains IDE you need:
 * A valid JetBrains license
 * The JetBrains Gateway application
 * {% data variables.product.prodname_cli %} version 2.2.0 or later 
+* An existing codespace that's running an SSH server
 
 ### JetBrains license
 
@@ -68,9 +69,17 @@ gh --version
 
 For more information, see "[About GitHub CLI](/github-cli/github-cli/about-github-cli)."
 
-## Authenticating with {% data variables.product.prodname_cli %}
+### Codespace running an SSH server
 
-To use {% data variables.product.prodname_cli %} for {% data variables.product.prodname_github_codespaces %} you must authenticate with {% data variables.product.prodname_dotcom_the_website %}, specifying the `codespace` scope.
+You must have an existing codespace to connect to. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+
+{% data reusables.codespaces.ssh-server-installed %}
+
+For more information about the `devcontainer.json` file and the default container image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+
+## Authenticating with {% data variables.product.prodname_dotcom_the_website %}
+
+Before you can use the JetBrains Gateway to connect to your codespaces, you must use {% data variables.product.prodname_cli %} to authenticate with {% data variables.product.prodname_dotcom_the_website %}, specifying the `codespace` scope.
 
 1. In a terminal window:
 
