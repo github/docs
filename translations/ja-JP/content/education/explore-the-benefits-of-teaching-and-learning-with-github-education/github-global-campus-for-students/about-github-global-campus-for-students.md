@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For students
-ms.openlocfilehash: a34da8bd0f37646bfaad0dbff3b09c6f2df440e4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9012b473399905e60b04a8876a3d4e6afd10a6ba
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147574231'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109468'
 ---
 学校のプロジェクトで{% data variables.product.prodname_dotcom %}を利用することは、他者とコラボレーションして実世界の体験を見てもらうためのポートフォリオを構築するための実際的な方法です。
 

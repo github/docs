@@ -4,7 +4,7 @@ intro: You can use dependency review to catch vulnerabilities before they are ad
 shortTitle: Configure dependency review
 versions:
   fpt: '*'
-  ghes: '>= 3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -15,8 +15,6 @@ topics:
   - Dependencies
   - Pull requests
 ---
-
-{% data reusables.dependency-review.beta %}
 
 ## About dependency review
 
@@ -46,8 +44,7 @@ Dependency review is available when dependency graph is enabled for {% data vari
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Configure security and analysis features", check if the dependency graph is enabled. 
-1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. The enable button is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion ghes < 3.3 %}
-  ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.2/repository/code-security-and-analysis-enable-ghas-3.2.png){% endif %}{% ifversion ghes > 3.2 %}
+1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. The enable button is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion ghes %}
     ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
 
 {% endif %}

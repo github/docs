@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: d8d07ff40026de0d12fce2e11479c424b781680a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061739'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108803'
 ---
 ## ロールについて
 {% data reusables.organizations.about-roles %}
@@ -142,7 +142,7 @@ Organizationでの{% data variables.product.prodname_github_app %}マネージ�
 | Team 同期を有効にする (「[Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)」を参照) | **X** |  |  |  |  |{% endif %}
 | Organization での Pull Request のレビューを管理する (「[Organization での Pull Request のレビューの管理](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)」を参照) | **X** |  |  |  |  |
 
-{% elsif ghes > 3.2 or ghae %}
+{% elsif ghes or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | Organization のアクション | 所有者 | メンバー | セキュリティマネージャー |
@@ -167,7 +167,7 @@ Organizationでの{% data variables.product.prodname_github_app %}マネージ�
 | "*チーム メンテナ*" に指定できる | **X** | **X** | **X**  |
 | リポジトリを移譲する | **X** | |  |
 | セキュリティと分析の設定を管理する (「[Organization のセキュリティと分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照) | **X** | | **X** |{% ifversion ghes %}
-| Organization のセキュリティの概要を表示する (「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照) | **X** | | **X** |{% endif %}{% ifversion ghes > 3.2 %}
+| Organization のセキュリティの概要を表示する (「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照) | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | {% data variables.product.prodname_dependabot_security_updates %} を管理する (「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照) | **X** | | **X** |{% endif %}
 | Organization の SSH 認証局を管理する (「[Organization の SSH 認証局を管理する](/articles/managing-your-organizations-ssh-certificate-authorities)」を参照) | **X** |  |  |
 | プロジェクト ボードを作成する (「[Organization のプロジェクト ボード権限](/articles/project-board-permissions-for-an-organization)」を参照) | **X** | **X** | **X** |

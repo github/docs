@@ -5,18 +5,18 @@ shortTitle: Autolinks
 intro: ご利用のワークフローをスムーズにするには、API を使って、JIRA の Issue や Zendesk のチケットなど外部リソースへの自動リンクを追加します。
 versions:
   fpt: '*'
-  ghes: '>=3.3'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 1a0900a0665675526381987836631c7ff3496a81
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c35d9232ec43cf9dc19c9559de0e8411fa85e242
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066555'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109007'
 ---
 ## リポジトリ自動リンク API について
 

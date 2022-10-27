@@ -1,6 +1,6 @@
 ---
-title: テーマ設定を管理する
-intro: 'システム設定に従うか、ライトまたはダーク モードを常に使用するようにテーマを設定することで、{% data variables.product.product_name %} の外観を管理できます。'
+title: Managing your theme settings
+intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
 versions:
   fpt: '*'
   ghae: '*'
@@ -13,52 +13,51 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
 shortTitle: Manage theme settings
-ms.openlocfilehash: 6251b265d99271f58a4ad02d2f6cb7fdf722cb6b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147580448'
 ---
-{% data variables.product.product_name %} を使用時期と使用方法を選択して柔軟性を高めるために、テーマ設定をして {% data variables.product.product_name %} の外観を変更できます。 ライトとダークの 2 つのテーマから選択するか、システム設定に従うかを {% data variables.product.product_name %} で設定できます。
 
-ダーク テーマを使用して、特定のデバイスの電力消費量を削減したり、暗い場所で目の負担を減らしたり、テーマの外観を優先したりすることができます。
+For choice and flexibility in how and when you use {% data variables.product.product_name %}, you can configure theme settings to change how {% data variables.product.product_name %} looks to you. You can choose from themes that are light or dark, or you can configure {% data variables.product.product_name %} to follow your system settings.
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}弱視の方は、前景と背景の要素のコントラストが強いハイ コントラスト テーマの使用をお勧めします。{% endif %}{% ifversion fpt or ghae or ghec %}色覚障碍がある方には、ライトとダークの色覚障碍向けテーマをお勧めします。
+You may want to use a dark theme to reduce power consumption on certain devices, to reduce eye strain in low-light conditions, or because you prefer how the theme looks.
+
+If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% ifversion fpt or ghae or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
 
 {% endif %}
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.appearance-settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.appearance-settings %}
 
-1. [テーマ モード] で、ドロップダウン メニューを選択し、テーマの設定をクリックします。
+1. Under "Theme mode", select the drop-down menu, then click a theme preference.
 
-   ![テーマの設定を選択するための [テーマ モード] のドロップダウン メニュー](/assets/images/help/settings/theme-mode-drop-down-menu.png)
-1. 使いたいテーマをクリックしてください。
-    - 1 つのテーマを選択する場合は、そのテーマをクリックします。
+   ![Drop-down menu under "Theme mode" for selection of theme preference](/assets/images/help/settings/theme-mode-drop-down-menu.png)
+1. Click the theme you'd like to use.
+    - If you chose a single theme, click a theme.
 
-      {%- ifversion ghes = 3.5 %} {% note %}
+      {%- ifversion ghes = 3.5 %}
+      {% note %}
 
-      **注**: 明るいハイ コントラスト テーマは、{% data variables.product.product_name %} 3.5.0、3.5.1、3.5.2、および 3.5.3 では使用できませんでした。 このテーマは 3.5.4 以降で使用できます。 アップグレードの詳しい情報については、サイト管理者にお問い合わせください。
+      **Note**: The light high contrast theme was unavailable in {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The theme is available in 3.5.4 and later. For more information about upgrades, contact your site administrator.
 
-      使用する {% data variables.product.product_name %} のバージョンの決定について詳しくは、「[{% data variables.product.prodname_docs %} のバージョンについて](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)」を参照してください。
-      {% endnote %} {%- endif %}
+      For more information about determining the version of {% data variables.product.product_name %} you're using, see "[About versions of  {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+      {% endnote %}
+      {%- endif %}
 
-      {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![1 つのテーマを選択するためのラジオ ボタン](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![1 つのテーマを選択するためのラジオ ボタン](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
-    - システム設定に従うことを選択した場合は、昼のテーマと夜のテーマをクリックします。
+      ![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png)
+    - If you chose to follow your system settings, click a day theme and a night theme.
 
-      {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![システム設定と同期するテーマを選択するためのボタン](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![システム設定と同期するテーマを選択するためのボタン](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %} {% ifversion fpt or ghec %}
-    - 現在パブリック ベータ版のテーマを選択する場合は、まず機能プレビューでそれを有効にする必要があります。 詳細については、「[機能プレビューを使用した早期アクセス リリースを探索する](/get-started/using-github/exploring-early-access-releases-with-feature-preview)」を参照してください。{% endif %}
+      ![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png)
+    {% ifversion fpt or ghec %}
+    - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
 
 {% ifversion command-palette %}
 
 {% note %}
 
-**注:** コマンド パレットを使用してテーマの設定を変更することもできます。 詳細については、「[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)」を参照してください。
+**Note:** You can also change your theme settings with the command palette. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".
 
 {% endnote %}
 
 {% endif %}
 
-## 参考資料
+## Further reading
 
-- [{% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop) の設定方法
+- "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"

@@ -9,8 +9,7 @@ Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %}
 Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key{% endif %}
+Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
 Asana | Asana {% data variables.product.pat_generic %} | asana_personal_access_token
 Atlassian | Atlassian API Token | atlassian_api_token
 Atlassian | Atlassian JSON Web Token | atlassian_jwt
@@ -31,14 +30,12 @@ Azure | Azure Service Management Certificate | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae < 3.4 %}
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
 Azure | Azure Storage Account Key | azure_storage_account_key
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Beamer | Beamer API Key | beamer_api_key{% endif %}
+Beamer | Beamer API Key | beamer_api_key
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
 Checkout.com | Checkout.com Test Secret Key | checkout_test_secret_key
 Clojars | Clojars Deploy Token | clojars_deploy_token
 CloudBees CodeShip | CloudBees CodeShip Credential | codeship_credential
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Contentful | Contentful {% data variables.product.pat_generic %} | contentful_personal_access_token{% endif %}
+Contentful | Contentful {% data variables.product.pat_generic %} | contentful_personal_access_token
 Databricks | Databricks Access Token | databricks_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 DevCycle | DevCycle Client API Key | devcycle_client_api_key
@@ -69,8 +66,7 @@ Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key
 Flutterwave | Flutterwave Test API Secret Key | flutterwave_test_api_secret_key
 Frame.io | Frame.io JSON Web Token | frameio_jwt
 Frame.io| Frame.io Developer Token | frameio_developer_token
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-FullStory | FullStory API Key | fullstory_api_key{% endif %}
+FullStory | FullStory API Key | fullstory_api_key
 GitHub | GitHub {% data variables.product.pat_generic %} | github_personal_access_token
 GitHub | GitHub OAuth Access Token | github_oauth_access_token
 GitHub | GitHub Refresh Token | github_refresh_token
@@ -80,14 +76,11 @@ GitHub | GitHub SSH Private Key | github_ssh_private_key
 GitLab | GitLab Access Token | gitlab_access_token{% endif %}
 GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key{% endif %}
+Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key
 Google | Google API Key | google_api_key
 Google | Google Cloud Private Key ID | 
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
+Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret
+Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
@@ -97,6 +90,8 @@ Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
 Grafana | Grafana API Key | grafana_api_key
 HashiCorp | Terraform Cloud / Enterprise API Token | terraform_api_token
 HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+HashiCorp | HashiCorp Vault Root Service Token | hashicorp_vault_root_service_token{% endif %}
 HashiCorp | HashiCorp Vault Service Token | hashicorp_vault_service_token
 Hubspot | Hubspot API Key | hubspot_api_key
 Intercom | Intercom Access Token | intercom_access_token
@@ -104,10 +99,8 @@ Ionic | Ionic {% data variables.product.pat_generic %} | ionic_personal_access_t
 Ionic | Ionic Refresh Token | ionic_refresh_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 JD Cloud | JD Cloud Access Key | jd_cloud_access_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-JFrog | JFrog Platform Access Token | jfrog_platform_access_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %}
+JFrog | JFrog Platform Access Token | jfrog_platform_access_token
+JFrog | JFrog Platform API Key | jfrog_platform_api_key
 Linear | Linear API Key | linear_api_key
 Linear | Linear OAuth Access Token | linear_oauth_access_token
 Lob | Lob Live API Key | lob_live_api_key
@@ -125,14 +118,10 @@ Meta | Facebook Access Token | facebook_access_token
 Midtrans | Midtrans Production Server Key | midtrans_production_server_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Midtrans | Midtrans Sandbox Server Key | midtrans_sandbox_server_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-New Relic | New Relic Personal API Key | new_relic_personal_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-New Relic | New Relic REST API Key | new_relic_rest_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-New Relic | New Relic Insights Query Key | new_relic_insights_query_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-New Relic | New Relic License Key | new_relic_license_key{% endif %}
+New Relic | New Relic Personal API Key | new_relic_personal_api_key
+New Relic | New Relic REST API Key | new_relic_rest_api_key
+New Relic | New Relic Insights Query Key | new_relic_insights_query_key
+New Relic | New Relic License Key | new_relic_license_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Notion | Notion Integration Token | notion_integration_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
@@ -145,14 +134,10 @@ Onfido | Onfido Live API Token | onfido_live_api_token
 Onfido | Onfido Sandbox API Token | onfido_sandbox_api_token
 OpenAI | OpenAI API Key | openai_api_key
 Palantir | Palantir JSON Web Token | palantir_jwt
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-PlanetScale | PlanetScale Database Password | planetscale_database_password{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Plivo | Plivo Auth ID with Plivo Auth Token | plivo_auth_id </br>plivo_auth_token{% endif %}
+PlanetScale | PlanetScale Database Password | planetscale_database_password
+PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token
+PlanetScale | PlanetScale Service Token | planetscale_service_token
+Plivo | Plivo Auth ID with Plivo Auth Token | plivo_auth_id </br>plivo_auth_token
 Postman | Postman API Key | postman_api_key
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Prefect | Prefect Server API Key | prefect_server_api_key
@@ -173,10 +158,8 @@ Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 Segment | Segment Public API Token | segment_public_api_token{% endif %}
 SendGrid | SendGrid API Key | sendgrid_api_key
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Sendinblue | Sendinblue API Key | sendinblue_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key{% endif %}
+Sendinblue | Sendinblue API Key | sendinblue_api_key
+Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key
 Shippo | Shippo Live API Token | shippo_live_api_token
 Shippo | Shippo Test API Token | shippo_test_api_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
