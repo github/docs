@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: de369a16e292dac48d6e6aee2907e28ae1f46af3
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: a708ef37153f09729c17dd9a06f258cb64579e6b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147390433"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109635"
 ---
 企業が {% data variables.product.company_short %} の製品を使ってソフトウェア開発ライフサイクルをサポートする方法について、詳しくは、「[エンタープライズ向け {% data variables.product.prodname_dotcom %}](/admin/overview/about-github-for-enterprises) について」を参照してください。

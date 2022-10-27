@@ -5,7 +5,7 @@ intro: '{% data variables.product.prodname_dependabot %} で発生した pull re
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 topics:
   - Repositories
   - Dependabot
@@ -20,11 +20,11 @@ children:
   - /managing-encrypted-secrets-for-dependabot
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
-ms.openlocfilehash: ae4f4cd7f4f748487420c2804eae67d561455099
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: efab6caf0c9384c9e72cc5ed1fe64bd500cede45
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145125910'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108959'
 ---
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 7ebce174e896689b1976b9d43f1f0884ce065229
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7bb1603715c255f08ac0bfbe7ff2cdbfe99a3134
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147683800"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109121"
 ---
 Web UI を使用して、プッシュ保護が有効になっているシークレット スキャンを使用して、サポートされているシークレットをリポジトリまたは organization にコミットすると、{% data variables.product.prodname_dotcom %} によってプッシュがブロックされます。 
 

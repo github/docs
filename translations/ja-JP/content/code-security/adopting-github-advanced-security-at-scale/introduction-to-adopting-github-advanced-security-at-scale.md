@@ -14,12 +14,12 @@ redirect_from:
   - /admin/advanced-security/deploying-github-advanced-security-in-your-enterprise
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise
 miniTocMaxHeadingLevel: 2
-ms.openlocfilehash: 0993205a2f51262c0766062995caa1c2e2714742
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.openlocfilehash: f42a461b3c53565725d6909680fa8e6a202c0439
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147145426'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109716'
 ---
 ## これらの記事について
 
