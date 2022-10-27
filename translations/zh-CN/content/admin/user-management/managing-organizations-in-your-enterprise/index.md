@@ -33,11 +33,11 @@ children:
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
-ms.openlocfilehash: 5d1430bc4efff03e6cddfe81f3c018d4f2064155
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 333d9b8d50bcdb86f709a447fee5a4078353dfe2
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147884243'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108126'
 ---
 

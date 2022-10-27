@@ -1,9 +1,11 @@
 ---
-ms.openlocfilehash: 0c41ccbde38c607916822e265d7fb749318db717
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: fef8d78e7518ea1b11d657f0ed82929847cd5575
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145126319"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107766"
 ---
 1. Em "MÉTODOS DE LOGON", clique em **Exibir Instruções de Instalação**.
+
+   ![Guia de iniciar sessão](/assets/images/help/saml/okta-ae-view-setup-instructions.png)

@@ -2,7 +2,7 @@
 title: Audit log
 intro: ''
 versions:
-  ghes: '>=3.3'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 topics:

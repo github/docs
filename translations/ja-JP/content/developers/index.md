@@ -34,11 +34,11 @@ children:
   - /webhooks-and-events
   - /apps
   - /github-marketplace
-ms.openlocfilehash: 00e920befd903527d2928d7ddf6b0b76ab448341
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dea95cbf3a90b14441c8bd09692c27dd3798d8e5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147643982'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109276'
 ---
 

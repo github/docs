@@ -39,22 +39,19 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 1. Click **Draft a new release**.
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
-1. {% ifversion fpt or ghec or ghes > 3.2 or ghae %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec or ghes > 3.2 or ghae %}, and press **Enter**{% endif %}. Alternatively, select an existing tag.
+1. Click **Choose a tag**, type a version number for your release, and press **Enter**. Alternatively, select an existing tag.
 
-   {% ifversion fpt or ghec or ghes > 3.2 or ghae %}![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
+   ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
 1. If you are creating a new tag, click **Create new tag**.
 
    ![Screenshot of confirming you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
-   {% else %}
-   ![Screenshot of the Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
-{% endif %}
+   
 1. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
 
-   {% ifversion fpt or ghec or ghes > 3.2 or ghae %}
+   
    ![Screenshot of dropdown to choose a branch](/assets/images/help/releases/releases-choose-branch.png)
 
-   {% else %}
-   ![Screenshot of the Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
+   
 
 {%- data reusables.releases.previous-release-tag %}
 1. Type a title and description for your release.
@@ -90,7 +87,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 1. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
    ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
 
-   {%- ifversion fpt or ghec or ghes > 3.2 or ghae > 3.3 %}
+   {%- ifversion fpt or ghec or ghae > 3.3 %}
    You can then view your published or draft releases in the releases feed for your repository. For more information, see "[Screenshot of your repository's releases and tags](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}

@@ -34,6 +34,19 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
+{% ifversion enterprise-authentication-rate-limits %}
+## Configuring rate limits for authentication to the {% data variables.enterprise.management_console %}
+
+You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}. If a user exceeds the login attempt limit, the {% data variables.enterprise.management_console %} will remain locked for the duration set by the lockout time. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
+
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+2. Under "Login attempt rate limiting", configure the lockout time and login attempt rate limit or accept the pre-filled default settings.
+![Fields for configuring lockout time and login attempt rate limit](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png)
+{% data reusables.enterprise_management_console.save-settings %}
+
+{% endif %}
 ## Enabling secondary rate limits
 
 Setting secondary rate limits protects the overall level of service on {% data variables.location.product_location %}.

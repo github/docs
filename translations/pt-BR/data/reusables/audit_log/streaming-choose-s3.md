@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 67009b930a04da090718919ea104317809515027
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c8ea836ffb23f1d69d2a42c5204143442480eafa
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147079449"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107909"
 ---
 1. Selecione a lista suspensa **Configurar fluxo** e clique em **Amazon S3**.
    

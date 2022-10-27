@@ -7,12 +7,12 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: d434b4b086c1ec8526c3214161ac00d58dced4fd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9b3d7f4b12210841a0c55f3b0b7356da9b225416
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423957'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108638'
 ---
 ## 创建项目视图
 

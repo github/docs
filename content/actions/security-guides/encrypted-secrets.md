@@ -7,6 +7,8 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
   - /actions/reference/encrypted-secrets
+  - /actions/managing-workflows/storing-secrets
+  
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'

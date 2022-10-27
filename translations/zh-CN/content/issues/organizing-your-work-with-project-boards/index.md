@@ -17,11 +17,11 @@ redirect_from:
   - /tracking-progress-on-your-project-board
   - /filtering-cards-on-a-project-board
   - /archiving-cards-on-a-project-board
-ms.openlocfilehash: c498a1e93008276aebe022dcc53a66086b86def7
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 5827065f7fe316f4ec8ea41b56be61b1e01943dd
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147422986'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108102'
 ---
 {% data reusables.projects.project_boards_old %}

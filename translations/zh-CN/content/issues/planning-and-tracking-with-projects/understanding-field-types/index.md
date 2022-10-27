@@ -15,11 +15,11 @@ children:
   - /renaming-fields
   - /deleting-fields
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 8b4f48ba1d55d81c571256f48334c54ce3a7e71d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: eaa9fe7d4dbd6b2c43d0ab2ad12faf173d6f571a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423796'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108093'
 ---
 

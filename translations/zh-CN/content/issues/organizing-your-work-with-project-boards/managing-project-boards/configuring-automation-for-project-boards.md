@@ -15,12 +15,12 @@ topics:
 shortTitle: Configure automation
 type: how_to
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 67294015021ef97a8210bff8bbe6c95e352dc26e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: faf559c3423178b43f3b524bbf3cdc41acd18a92
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147422682'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108711'
 ---
 {% data reusables.projects.project_boards_old %}
 

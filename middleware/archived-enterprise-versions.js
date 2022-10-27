@@ -5,6 +5,7 @@ import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
   deprecatedWithFunctionalRedirects,
+  firstReleaseStoredInBlobStorage,
 } from '../lib/enterprise-server-releases.js'
 import patterns from '../lib/patterns.js'
 import versionSatisfiesRange from '../lib/version-satisfies-range.js'
@@ -15,6 +16,8 @@ import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '../lib/languages.js'
 import getRedirect, { splitPathByLanguage } from '../lib/get-redirect.js'
+
+const REMOTE_ENTERPRISE_STORAGE_URL = 'https://githubdocs.azureedge.net/enterprise'
 
 function splitByLanguage(uri) {
   let language = null
@@ -238,10 +241,13 @@ export default async function archivedEnterpriseVersions(req, res, next) {
 // for >=2.13: /2.13/en/enterprise/2.13/user/articles/viewing-contributions-on-your-profile
 // for <2.13: /2.12/user/articles/viewing-contributions-on-your-profile
 function getProxyPath(reqPath, requestedVersion) {
+  if (versionSatisfiesRange(requestedVersion, `>=${firstReleaseStoredInBlobStorage}`)) {
+    const newReqPath = reqPath.includes('redirects.json') ? `/${reqPath}` : reqPath + '/index.html'
+    return `${REMOTE_ENTERPRISE_STORAGE_URL}/${requestedVersion}${newReqPath}`
+  }
   const proxyPath = versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`)
     ? slash(path.join('/', requestedVersion, reqPath))
     : reqPath.replace(/^\/enterprise/, '')
-
   return `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`
 }
 

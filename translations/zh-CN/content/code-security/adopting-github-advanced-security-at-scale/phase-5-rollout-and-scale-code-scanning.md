@@ -9,12 +9,12 @@ topics:
   - Advanced Security
 shortTitle: 5. Rollout code scanning
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 69c5a4e88c5490cbd7dcddca902426862047dff5
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: abbcdf4c1e4a231a568e8d8cd488877ebdf2fd9f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147145332'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108123'
 ---
 {% note %}
 

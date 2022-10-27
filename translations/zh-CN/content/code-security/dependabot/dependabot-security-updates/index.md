@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 topics:
   - Repositories
   - Dependabot
@@ -16,11 +16,11 @@ shortTitle: Dependabot security updates
 children:
   - /about-dependabot-security-updates
   - /configuring-dependabot-security-updates
-ms.openlocfilehash: 046ef28084ce31c1a4178355f5db6644b5ba0f12
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: e18b6331f762a81b82c759de5fdbc6eeed300308
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145101115'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108055'
 ---
 

@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 820a9b22deab6ecaf7fa06129e2205267b22812c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b1c04738a3c03d892b360c3b23def694d202ee0c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424425'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109889'
 ---
 Puede personalizar las vistas mediante filtros para los metadatos de elementos, como los usuarios asignados y las etiquetas aplicadas a incidencias, así como por los campos del proyecto. Puede combinar filtros y guardarlos como vistas. Para más información, vea "[Personalización de las vistas del proyecto](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)".
 

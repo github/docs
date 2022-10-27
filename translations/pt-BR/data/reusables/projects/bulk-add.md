@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b8288219bd82b857d0bbeeefef3b27a3c8f0d3de
-ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.openlocfilehash: d0d7eb973a255091345f61ff69f8f20f6361d0d9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147884709"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107886"
 ---
 1. Como opção, para alterar o repositório, clique na lista suspensa e selecione um repositório. Você também pode pesquisar problemas e solicitações de pull específicos.
   ![Captura de tela mostrando a lista suspensa do repositório](/assets/images/help/projects-v2/add-bulk-select-repo.png)

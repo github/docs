@@ -2,7 +2,7 @@
 title: Developers
 intro: 'Go deeper with {% data variables.product.prodname_dotcom %} by integrating with our APIs and webhooks, customizing your {% data variables.product.prodname_dotcom %} workflow, and building and sharing apps with the community.'
 introLinks:
-  "About apps": /developers/apps/getting-started-with-apps/about-apps
+  About apps: /developers/apps/getting-started-with-apps/about-apps
 layout: product-landing
 featuredLinks:
   guides:

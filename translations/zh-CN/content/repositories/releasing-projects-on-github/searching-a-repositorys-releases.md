@@ -6,16 +6,16 @@ shortTitle: Searching releases
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
   ghae: '>= 3.4'
 topics:
   - Repositories
-ms.openlocfilehash: 193363cc5762db6cb030906a64dacb7bab6f5b7a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a61e49521452befdcddf2724cad837062c7d54a1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066184'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108683'
 ---
 ## 在存储库中搜索版本
 
