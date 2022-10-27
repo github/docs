@@ -1,6 +1,6 @@
 ---
-title: 依赖关系图疑难排解
-intro: 如果依赖项关系图报告的依赖项信息不符合你的预期，则需要考虑许多因素，你可以检查各种问题。
+title: Troubleshooting the dependency graph
+intro: 'If the dependency information reported by the dependency graph is not what you expected, there are a number of points to consider, and various things you can check.'
 shortTitle: Troubleshoot dependency graph
 versions:
   fpt: '*'
@@ -16,56 +16,51 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
-ms.openlocfilehash: 51a1da4eff062263aeca52de02b764385e7e1184
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '146458242'
 ---
+
 {% data reusables.dependabot.result-discrepancy %}
 
-## 依赖项图是否只查找清单和锁文件中的依赖项？
+## Does the dependency graph only find dependencies in manifests and lockfiles?
 
-依赖项关系图{% ifversion dependency-submission-api %}自动{% endif %}包含在环境中明确声明的依赖项的信息。 也就是说，在清单或锁定文件中指定的依赖项。 依赖项图通常还包括过渡依赖项，即使它们没有在锁定文件中指定，也可以通过查看清单文件中的依赖项来实现。
+The dependency graph {% ifversion dependency-submission-api %}automatically{% endif %} includes information on dependencies that are explicitly declared in your environment. That is, dependencies that are specified in a manifest or a lockfile. The dependency graph generally also includes transitive dependencies, even when they aren't specified in a lockfile, by looking at the dependencies of the dependencies in a manifest file.
 
-依赖项关系图不会{% ifversion dependency-submission-api %}自动{% endif %}包含“松散”依赖项。 “宽松”依赖项是指从另一个来源复制并直接或在存档文件（例如 ZIP 或 JAR 文件）中检入仓库的单个文件，而不是在包管理器的清单或锁定文件中引用的文件。 
+The dependency graph doesn't {% ifversion dependency-submission-api %}automatically{% endif %} include "loose" dependencies. "Loose" dependencies are individual files that are copied from another source and checked into the repository directly or within an archive (such as a ZIP or JAR file), rather than being referenced by in a package manager’s manifest or lockfile. 
 
-{% ifversion dependency-submission-api %}但是，可以使用依赖项提交 API（测试版）将依赖项添加到项目的依赖项关系图中，即使依赖项未在清单或锁定文件中声明，例如在生成项目时解析的依赖项。 依赖项关系图将显示按生态系统分组的提交依赖项，但与从清单或锁定文件解析的依赖项是分开的。 有关依赖项提交 API 的详细信息，请参阅“[使用依赖项提交 API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)”。{% endif %}
+{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are not declared in a manifest or lock file, such as dependencies resolved when a project is built. The dependency graph will display the submitted dependencies grouped by ecosystem, but separately from the dependencies parsed from manifest or lock files. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
 
-检查：是否在存储库清单或锁定文件中未指定组件的依赖项？
+**Check**: Is the missing dependency for a component that's not specified in the repository's manifest or lockfile?
 
-## 依赖项图是否检测使用变量指定的依赖项？
+## Does the dependency graph detect dependencies specified using variables?
 
-依赖项图在清单被推送到 {% data variables.product.prodname_dotcom %} 时分析它们。 因此，依赖项图无法访问项目的构建环境，从而无法解析清单中使用的变量。 如果在清单中使用变量指定名称，或指定依赖项的版本（更常见），则该依赖项不会{% ifversion dependency-submission-api %}自动{% endif %}包括在依赖项关系图中。
+The dependency graph analyzes manifests as they’re pushed to {% data variables.product.prodname_dotcom %}. The dependency graph doesn't, therefore, have access to the build environment of the project, so it can't resolve variables used within manifests. If you use variables within a manifest to specify the name, or more commonly the version of a dependency, then that dependency will not {% ifversion dependency-submission-api %}automatically{% endif %} be included in the dependency graph.
 
-{% ifversion dependency-submission-api %}但是，可以使用依赖项提交 API（测试版）将依赖项添加到项目的依赖项关系图中，即使仅当生成项目时才解析依赖项。 有关依赖项提交 API 的详细信息，请参阅“[使用依赖项提交 API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)”。{% endif %}
+{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are only resolved when a project is built. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
 
-检查：在清单中缺少的依赖项是否使用变量声明其名称或版本？
+**Check**: Is the missing dependency declared in the manifest by using a variable for its name or version?
 
-## 是否存在影响依赖项图数据的限制？
+## Are there limits which affect the dependency graph data?
 
-是的，依赖项图有两个限制类别：
+Yes, the dependency graph has two categories of limits:
 
-1. 处理限制
+1. **Processing limits**
 
-    这会影响 {% data variables.product.prodname_dotcom %} 中显示的依赖项图，还会阻止 {% data variables.product.prodname_dependabot_alerts %} 的创建。
+    These affect the dependency graph displayed within {% data variables.product.prodname_dotcom %} and also prevent {% data variables.product.prodname_dependabot_alerts %} being created.
 
-    仅为企业帐户处理大小超过 0.5 MB 的清单。 对于其他帐户，将忽略超过 0.5 MB 的清单，并且不会创建 {% data variables.product.prodname_dependabot_alerts %}。
+    Manifests over 0.5 MB in size are only processed for enterprise accounts. For other accounts, manifests over 0.5 MB are ignored and will not create {% data variables.product.prodname_dependabot_alerts %}.
 
-    默认情况下， {% data variables.product.prodname_dotcom %} 对每个仓库处理的清单不会超过 20 个。 对于超出此限制的清单，不会创建 {% data variables.product.prodname_dependabot_alerts %}。 如果您需要提高限值，请联系 {% data variables.contact.contact_support %}。 
+    By default, {% data variables.product.prodname_dotcom %} will not process more than 20 manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_support %}. 
 
-2. 可视化限制
+2. **Visualization limits**
 
-    这会影响 {% data variables.product.prodname_dotcom %} 中依赖项图的显示内容。 但是，它们不会影响 {% data variables.product.prodname_dependabot_alerts %} 的创建。
+    These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
 
-    仓库依赖项图的依赖项视图只显示 100 个清单。 通常这就足够了，因为它明显高于上述处理限制。 处理限制超过 100 的情况下，对于任何未在 {% data variables.product.prodname_dotcom %} 中显示的任何清单，仍会创建 {% data variables.product.prodname_dependabot_alerts %}。
+    The Dependencies view of the dependency graph for a repository only displays 100 manifests. Typically this is adequate as it is significantly higher than the processing limit described above. In situations where the processing limit is over 100, {% data variables.product.prodname_dependabot_alerts %} are still created for any manifests that are not shown within {% data variables.product.prodname_dotcom %}.
 
-检查：在超过 0.5 MB 的清单文件或包含大量清单的存储库中是否存在缺少的依赖项？
+**Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
 
-## 延伸阅读
+## Further reading
 
-- “[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”
-- “[管理存储库的安全性和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”
-- “[漏洞依赖项检测疑难解答](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)”{% ifversion fpt or ghec or ghes > 3.2 %}
-- “[排查 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)”{% endif %}
+- "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
+- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- "[Troubleshooting the detection of vulnerable dependencies](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes %}
+- "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

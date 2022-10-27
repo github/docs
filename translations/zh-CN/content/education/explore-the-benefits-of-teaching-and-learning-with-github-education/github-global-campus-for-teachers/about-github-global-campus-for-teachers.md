@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: d4e823cc97b9c75f264b856c39021e30ca0e4fed
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6a0e8b7ba27060b4f48438b515786256d93d6d0c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147574167'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108052'
 ---
 作为认证教育机构的教职员工，你可以申请 {% data variables.product.prodname_global_campus %}，其中包括 {% data variables.product.prodname_education %} 权益和资源。 有关详细信息，请参阅“[以教师身份申请加入 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)”。
 

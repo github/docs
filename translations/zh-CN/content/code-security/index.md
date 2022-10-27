@@ -1,7 +1,7 @@
 ---
-title: 代码安全
+title: Code security
 shortTitle: Code security
-intro: '在你的 {% data variables.product.prodname_dotcom %} 工作流中建立安全与功能，以使你的代码库中不含秘密和漏洞{% ifversion not ghae %}，并维护你的软件供应链{% endif %}。'
+intro: 'Build security into your {% data variables.product.prodname_dotcom %} workflow with features to keep secrets and vulnerabilities out of your codebase{% ifversion not ghae %}, and to maintain your software supply chain{% endif %}.'
 introLinks:
   overview: /code-security/getting-started/github-security-features
 featuredLinks:
@@ -53,16 +53,10 @@ children:
   - /adopting-github-advanced-security-at-scale
   - /secret-scanning
   - /code-scanning
-  - /repository-security-advisories
+  - /security-advisories
   - /supply-chain-security
   - /dependabot
   - /security-overview
   - /guides
-ms.openlocfilehash: 90d3ad046a6531849edd8e783db265866f118d90
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147145237'
 ---
 

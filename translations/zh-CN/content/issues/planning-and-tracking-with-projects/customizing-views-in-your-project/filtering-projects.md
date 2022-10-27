@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 820a9b22deab6ecaf7fa06129e2205267b22812c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b1c04738a3c03d892b360c3b23def694d202ee0c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423964'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108097'
 ---
 可使用筛选器和按项目中的字段来自定义项目元数据的视图，例如代理人和应用于问题的标签。 可以合并筛选并将其保存为视图。 有关详细信息，请参阅“[自定义项目视图](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)”。
 

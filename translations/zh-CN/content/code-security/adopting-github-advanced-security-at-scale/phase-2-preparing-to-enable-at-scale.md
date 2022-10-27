@@ -9,12 +9,12 @@ topics:
   - Advanced Security
 shortTitle: 2. Preparation
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: a34711765e8beb6d57215c0c8fd16519e975539d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 79368897c125ff23541520a253a34a2aae8c7c27
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147145333'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108722'
 ---
 {% note %}
 

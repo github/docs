@@ -145,7 +145,13 @@ After you enable LDAP sync, a synchronization job will run at the specified time
 A synchronization job will also run at the specified time interval to perform the following operations on each team that has been mapped to an LDAP group:
 
 - If a team's corresponding LDAP group has been removed, remove all members from the team.
-- If LDAP member entries have been removed from the LDAP group, remove the corresponding users from the team. If the user is no longer a member of any team in the organization, remove the user from the organization. If the user loses access to any repositories as a result, delete any private forks the user has of those repositories.
+- If LDAP member entries have been removed from the LDAP group, remove the corresponding users from the team. If the user is no longer a member of any team in the organization and is not an owner of the organization, remove the user from the organization. If the user loses access to any repositories as a result, delete any private forks the user has of those repositories.
+
+  {% note %}
+
+  **Note:** LDAP Sync will not remove a user from an organization if the user is an owner of that organization. Another organization owner will need to manually remove the user instead.
+
+  {% endnote %}
 - If LDAP member entries have been added to the LDAP group, add the corresponding users to the team. If the user regains access to any repositories as a result, restore any private forks of the repositories that were deleted because the user lost access in the past 90 days.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}

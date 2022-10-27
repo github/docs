@@ -12,12 +12,12 @@ topics:
   - Pull requests
 shortTitle: 'Add notes to {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 46068bb6de081043b05c78e731a09e7dbaa47c78
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: fc9df02b211056a08ed608a6c98b9d2f0b78c5b7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147422746'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108771'
 ---
 {% data reusables.projects.project_boards_old %}
 

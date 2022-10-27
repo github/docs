@@ -12,12 +12,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Application not approved
-ms.openlocfilehash: 86d1f0c3bc1bfe451be611ce47cc3f715fd8ba92
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 68fe0a970c94a73293505849425bc78ec78b265e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147574175'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108053'
 ---
 {% tip %}
 

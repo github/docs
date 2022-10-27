@@ -54,11 +54,11 @@ children:
   - /managing-billing-for-github-marketplace-apps
   - /managing-billing-for-git-large-file-storage
   - /setting-up-paid-organizations-for-procurement-companies
-ms.openlocfilehash: 816bfb699135974a180ccf350aa04bc36dfbf25a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 977d170024ddec1d49f51723b654ee7171915e94
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147110896'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108175'
 ---
 

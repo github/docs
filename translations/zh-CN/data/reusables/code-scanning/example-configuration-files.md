@@ -1,4 +1,12 @@
-This configuration file adds the `security-and-quality` query suite to the list of queries run by {% data variables.product.prodname_codeql %} when scanning your code. For more information about the query suites available for use, see "[Running additional queries](#running-additional-queries)."
+---
+ms.openlocfilehash: 77c9b4b73d2d839bc9c0bdaa73ffc148f0eda6ca
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108159"
+---
+当扫描代码时，此配置文件将 `security-and-quality` 查询套件添加到 {% data variables.product.prodname_codeql %} 运行的查询列表中。 有关可供使用的查询套件的详细信息，请参阅“[运行其他查询](#running-additional-queries)”。
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -7,7 +15,7 @@ queries:
   - uses: security-and-quality
 ```
 
-The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures {% data variables.product.prodname_codeql %} to scan files in the _src_ directory (relative to the root), except for the _src/node_modules_ directory, and except for files whose name ends in _.test.js_. Files in _src/node_modules_ and files with names ending _.test.js_ are therefore excluded from analysis.
+以下配置文件禁用默认查询，并指定一组要运行的自定义查询。 它还配置 {% data variables.product.prodname_codeql %} 以扫描 src 目录（相对于根目录）中的文件，除了 src/node_modules 目录和名称以 .test.js 结尾的文件  。 因此，src/node_modules 中的文件和名称以 .test.js 结尾的文件被排除在分析之外 。
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -33,7 +41,7 @@ paths-ignore:
 
 {% ifversion code-scanning-exclude-queries-from-analysis %}
 
-The following configuration file only runs queries that generate alerts of severity error. The configuration first selects all the default queries, all queries in `./my-queries`, and the default suite in `codeql/java-queries`, then excludes all the queries that generate warnings or recommendations. 
+以下配置文件仅运行生成严重性错误警报的查询。 该配置首先选择所有默认查询、`./my-queries` 中的所有查询以及 `codeql/java-queries` 中的默认套件，然后排除生成警告或建议的所有查询。 
 
 ``` yaml
 queries:

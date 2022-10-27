@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: d8d07ff40026de0d12fce2e11479c424b781680a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061736'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108023'
 ---
 ## 关于角色
 {% data reusables.organizations.about-roles %}
@@ -142,7 +142,7 @@ ms.locfileid: '147061736'
 | 启用团队同步（请参阅“[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”） | **X** |  |  |  |  |{% endif %}
 | 管理组织中的拉取请求审查（请参阅“[管理组织中的拉取请求审查](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)”） | **X** |  |  |  |  |
 
-{% elsif ghes > 3.2 or ghae %}
+{% elsif ghes or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | 组织操作 | 所有者 | 成员 | 安全管理员 |
@@ -167,7 +167,7 @@ ms.locfileid: '147061736'
 | 可设为团队维护员 | **X** | **X** | **X**  |
 | 转让仓库 | **X** | |  |
 | 管理安全和分析设置（请参阅“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”） | **X** | | **X** |{% ifversion ghes %}
-| 查看组织的安全概述（请参阅“[关于安全概述](/code-security/security-overview/about-the-security-overview)”） | **X** | | **X** |{% endif %}{% ifversion ghes > 3.2 %}
+| 查看组织的安全概述（请参阅“[关于安全概述](/code-security/security-overview/about-the-security-overview)”） | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | 管理 {% data variables.product.prodname_dependabot_security_updates %}（请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”） | **X** | | **X** |{% endif %}
 | 管理组织的 SSH 证书颁发机构（请参阅“[管理组织的 SSH 证书颁发机构](/articles/managing-your-organizations-ssh-certificate-authorities)”） | **X** |  |  |
 | 创建项目板（请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”） | **X** | **X** | **X** |

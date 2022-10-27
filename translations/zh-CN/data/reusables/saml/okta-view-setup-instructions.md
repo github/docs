@@ -1,9 +1,11 @@
 ---
-ms.openlocfilehash: 0c41ccbde38c607916822e265d7fb749318db717
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: fef8d78e7518ea1b11d657f0ed82929847cd5575
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145127341"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108020"
 ---
 1. 在“登录方法”下，单击“查看设置说明”。
+
+   ![“登录”选项卡](/assets/images/help/saml/okta-ae-view-setup-instructions.png)

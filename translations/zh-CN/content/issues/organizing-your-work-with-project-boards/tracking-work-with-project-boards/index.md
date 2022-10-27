@@ -16,11 +16,11 @@ children:
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: ba1428a6423198d972abfb6671165b43c4988f94
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 75699a8c8daa2729de4aaa7389b7e9a0448f09fa
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423618'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108101'
 ---
 {% data reusables.projects.project_boards_old %}

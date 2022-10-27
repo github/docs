@@ -5,18 +5,18 @@ shortTitle: Autolinks
 intro: 为了帮助简化您的工作流程，您可以使用 API 向外部资源（如 JIRA 问题和 Zendesk 事件单）添加自动链接。
 versions:
   fpt: '*'
-  ghes: '>=3.3'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 1a0900a0665675526381987836631c7ff3496a81
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c35d9232ec43cf9dc19c9559de0e8411fa85e242
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066552'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108091'
 ---
 ## 关于存储库自动链接 API
 
