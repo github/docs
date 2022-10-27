@@ -13,6 +13,11 @@ const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
 // deprecated GitHub Enterprise versions by routing them to static content in
 // help-docs-archived-enterprise-versions
 //
+// Note that as of GHES 3.2, we no longer store assets for deprecated versions
+// in help-docs-archived-enterprise-versions. Instead, we store them in the
+// Azure blob storage `githubdocs` in the `enterprise` container. All HTML files
+// have been updated to use references to this blob storage for all assets.
+//
 // See also ./archived-enterprise-versions.js for non-CSS/JS paths
 
 export default async function archivedEnterpriseVersionsAssets(req, res, next) {

@@ -52,7 +52,7 @@ Key | Type | Description
 `description` | `string` | This plan's description.
 `monthly_price_in_cents` | `integer` | The monthly price of this plan in cents (US currency). For example, a listing that costs 10 US dollars per month will be 1000 cents.
 `yearly_price_in_cents` | `integer` | The yearly price of this plan in cents (US currency). For example, a listing that costs 100 US dollars per month will be 120000 cents.
-`price_model` | `string` | The pricing model for this listing. Can be one of `flat-rate`, `per-unit`, or `free`.
+`price_model` | `string` | The pricing model for this listing. Can be one of `FLAT_RATE`, `PER_UNIT`, or `FREE`.
 `has_free_trial` | `boolean` | `true` when this listing offers a free trial.
 `unit_name` | `string` | The name of the unit. If the pricing model is not `per-unit` this will be `nil`.
 `bullet` | `array of strings` | The names of the bullets set in the pricing plan.

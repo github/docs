@@ -734,7 +734,6 @@ For a detailed description of this payload and the payload for each type of `act
 
 Activity related to merge groups in a merge queue. The type of activity is specified in the action property of the payload object.
 
-
 ### Availability
 
 - Repository webhooks
@@ -963,8 +962,6 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## project_card
 
 {% data reusables.webhooks.project_card_short_desc %}
@@ -1080,7 +1077,7 @@ Key | Type | Description
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.public }}
-{% endif %}
+
 ## pull_request
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -1613,7 +1610,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 |-----|-----|-----|
 | `inputs` | `object` | Inputs to the workflow. Each key represents the name of the input while its value represents the value of that input. |
 {% data reusables.webhooks.org_desc %}
-| `ref` | `string` | The branch ref from which the workflow was run. |
+| `ref` | `string` | The branch or tag from which the workflow was run. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}
 | `workflow` | `string` | Relative path to the workflow file which contains the workflow. |
@@ -1622,8 +1619,6 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
-
-{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 
 ## workflow_job
 
@@ -1646,7 +1641,6 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 {{ webhookPayloadsForCurrentVersion.workflow_job }}
 
-{% endif %}
 {% ifversion fpt or ghes or ghec %}
 ## workflow_run
 

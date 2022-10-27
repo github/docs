@@ -1,6 +1,6 @@
 ---
 title: 'Phase 4: Create internal documentation'
-intro: "You will create internal documentation and then communicate this to the consumers of {% data variables.product.prodname_GH_advanced_security %}."
+intro: 'You will create internal documentation and then communicate this to the consumers of {% data variables.product.prodname_GH_advanced_security %}.'
 versions:
   ghes: '*'
   ghae: '*'

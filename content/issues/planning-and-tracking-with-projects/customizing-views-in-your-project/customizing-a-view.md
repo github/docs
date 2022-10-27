@@ -1,9 +1,9 @@
 ---
-title: 'Customizing a view'
+title: Customizing a view
 intro: 'Display the information you need by changing the layout, grouping, sorting in your project.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/customizing-your-project-views
 type: tutorial

@@ -110,6 +110,6 @@ monitor results from {% data variables.product.prodname_secret_scanning %} acros
 - "[Keeping your account and data secure](/github/authenticating-to-github/keeping-your-account-and-data-secure)"
 {%- ifversion fpt or ghec %}
 - "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 %}
+{%- ifversion fpt or ghec or ghes %}
 - "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)"{% endif %}
 - "[Encrypted secrets](/actions/security-guides/encrypted-secrets)"

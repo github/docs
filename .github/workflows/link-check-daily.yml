@@ -45,6 +45,7 @@ jobs:
           REPORT_REPOSITORY: github/docs-content
           CREATE_REPORT: true
           CHECK_EXTERNAL_LINKS: true
+          PATIENT: true
         timeout-minutes: 30
         run: node .github/actions/rendered-content-link-checker.js
 

@@ -1,13 +1,21 @@
-When you use the web UI to attempt to commit a supported secret to a repository or organization with secret scanning as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the commit. 
+---
+ms.openlocfilehash: 7bb1603715c255f08ac0bfbe7ff2cdbfe99a3134
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107875"
+---
+Quando você usa a interface do usuário da Web para tentar fazer commit de um segredo com suporte em um repositório ou uma organização com a verificação de segredo como uma proteção por push habilitada, o {% data variables.product.prodname_dotcom %} bloqueará o commit. 
 
-You will see a banner at the top of the page with information about the secret's location, and the secret will also be underlined in the file so you can easily find it.
+Você verá uma faixa na parte superior da página com informações sobre a localização do segredo e o segredo também será sublinhado no arquivo para que você possa encontrá-lo facilmente.
 
 {% ifversion push-protection-custom-link-orgs %}
 
-  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
+  ![Captura de tela mostrando o commit na interface do usuário da Web bloqueada devido à proteção por push de verificação de segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
 
 {% else %}
 
-  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+  ![Captura de tela mostrando o commit na interface do usuário da Web bloqueada devido à proteção por push de verificação de segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
   
 {% endif %}

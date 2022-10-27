@@ -22,7 +22,7 @@ When you rename a repository, all existing information, with the exception of pr
 
 For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
-In addition to redirecting web traffic, all `git clone`, `git fetch`, or `git push` operations targeting the previous location will continue to function as if made on the new location. However, to reduce confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using  `git remote` on the command line:
+In addition to redirecting web traffic, all `git clone`, `git fetch`, or `git push` operations targeting the previous location will continue to function as if made on the new location. However, to reduce confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using `git remote` on the command line:
 
 ```shell
 $ git remote set-url origin NEW_URL
@@ -44,7 +44,7 @@ If you plan to rename a repository that has a {% data variables.product.prodname
 
 {% warning %}
 
-**Warning**: If you create a new repository under your account in the future, do not reuse the original name of the renamed repository. If you do, redirects to the renamed repository will break.
+**Warning**: If you create a new repository under your account in the future, do not reuse the original name of the renamed repository. If you do, redirects to the renamed repository will no longer work.
 
 {% endwarning %}
 

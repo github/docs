@@ -1,6 +1,6 @@
 ---
 title: Using the audit log API for your enterprise
-intro: 'You can programmatically retrieve enterprise events with the{% ifversion ghec or ghes > 3.2 %} REST or{% endif %} GraphQL API.'
+intro: 'You can programmatically retrieve enterprise events with the REST or GraphQL API.'
 shortTitle: Audit log API
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
 miniTocMaxHeadingLevel: 3
@@ -18,7 +18,7 @@ topics:
 
 ## Using the audit log API
 
-You can interact with the audit log using the GraphQL API{% ifversion ghec or ghes > 3.2 or ghae %} or the REST API{% endif %}. 
+You can interact with the audit log using the GraphQL API or the REST API. 
 
 Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
 
@@ -106,7 +106,6 @@ This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) inter
 
 For more query examples, see the [platform-samples repository](https://github.com/github/platform-samples/blob/master/graphql/queries).
 
-{% ifversion ghec or ghes > 3.2 or ghae %}
 ## Querying the audit log REST API
 
 To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log REST API to keep copies of your audit log data and monitor:
@@ -137,5 +136,3 @@ curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```
-
-{% endif %}

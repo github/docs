@@ -1,7 +1,7 @@
 ---
 title: Listing the codespaces in your organization
 shortTitle: List organization codespaces
-intro: 'You can list all of the currently active or stopped codespaces for your organization.'
+intro: You can list all of the currently active or stopped codespaces for your organization.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To list all of the current codespaces for your organization, you must be an organization owner.'
 versions:
