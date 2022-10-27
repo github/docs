@@ -6,6 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
   - /code-security/security-advisories/adding-a-collaborator-to-a-security-advisory
+  - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
 versions:
   fpt: '*'
   ghec: '*'

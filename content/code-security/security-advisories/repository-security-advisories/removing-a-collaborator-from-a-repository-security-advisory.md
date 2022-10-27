@@ -4,6 +4,7 @@ intro: 'When you remove a collaborator from a repository security advisory, they
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
+  - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
