@@ -6,7 +6,6 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
   - /code-security/security-advisories/creating-a-security-advisory
-  - /code-security/repository-security-advisories/creating-a-repository-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
