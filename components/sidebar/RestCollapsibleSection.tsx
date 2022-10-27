@@ -181,7 +181,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
               </div>
             ) : (
               page.childPages.map((childPage, i) => {
-                const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+                const childTitle = childPage.shortTitle || childPage.title
                 const isActive = routePath.includes(childPage.href)
                 const isCurrent = routePath === childPage.href
 
