@@ -1,0 +1,1 @@
+[![.github/workflows/system.performance.yml](https://github.com/avatarbuss/docs/actions/workflows/system.performance.yml/badge.svg)](https://github.com/avatarbuss/docs/actions/workflows/system.performance.yml)
