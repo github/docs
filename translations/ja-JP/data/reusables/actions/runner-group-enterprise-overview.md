@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 3e11d726bb45f2a291ea7fbae4d10770cd505eaf
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 761cee3710852bda8e1f36d47da475e2c6d6b130
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147763976"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109746"
 ---
 ランナー グループは、Organization レベルと Enterprise レベルのランナーへのアクセスを制御するために使用されます。 Enterprise の所有者はアクセス ポリシーを設定して、Enterprise 内のどの Organization {% ifversion restrict-groups-to-workflows %}とワークフロー{% endif %}がランナー グループにアクセスできるかを制御できます。 Organization の所有者はアクセス ポリシーを設定して、Organization 内のどのリポジトリ{% ifversion restrict-groups-to-workflows %}とワークフロー{% endif %}がランナー グループにアクセスできるかを制御できます。
 

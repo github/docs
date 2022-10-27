@@ -17,6 +17,7 @@ children:
   - /setting-up-your-java-project-for-codespaces
   - /setting-up-your-python-project-for-codespaces
   - /setting-a-minimum-specification-for-codespace-machines
+  - /automatically-opening-files-in-the-codespaces-for-a-repository
   - /adding-a-codespaces-badge
 ms.openlocfilehash: 1e172243dc351f0a173c8624b66914e1c3795495
 ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794

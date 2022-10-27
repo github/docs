@@ -1,6 +1,6 @@
 ---
-title: GitHub Pages サイトを取り下げる
-intro: '{% data variables.product.prodname_pages %} サイトを取り下げて、サイトを利用不可にすることができます。'
+title: Unpublishing a GitHub Pages site
+intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page
   - /articles/unpublishing-a-project-page
@@ -18,38 +18,35 @@ versions:
 topics:
   - Pages
 shortTitle: Unpublish Pages site
-ms.openlocfilehash: fbfec49ec44c250e5f6cb2da85fda59261c1d0d9
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147428349'
 ---
+
 {% ifversion pages-custom-workflow %}
 
-自分のサイトを非公開にすると、そのサイトは利用不可になります。 既存のリポジトリ設定またはコンテンツが、影響を受けることはありません。
+When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. **{% data variables.product.prodname_pages %}** の下で、**サイトがライブになっている場所** に関するメッセージの横にある、[{% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}] をクリックします。
-1. 表示されるメニューで、 **[サイトを取り下げる]** を選びます。
+1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. In the menu that appears, select **Unpublish site**.
 
-   ![サイトを取り下げるためのドロップ ダウン メニュー](/assets/images/help/pages/unpublish-site.png)
+   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
 
 {% else %}
 
-## プロジェクトサイトを取り下げる
+## Unpublishing a project site
 
 {% data reusables.repositories.navigate-to-repo %}
-2. リポジトリに `gh-pages` ブランチが存在する場合は、`gh-pages` ブランチを削除します。 詳細については、「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」を参照してください。
-3. `gh-pages` ブランチが公開ソースの場合、{% ifversion fpt or ghec %}手順 6 に進みます{% else %}サイトは公開されていません。残りの手順はスキップできます{% endif %}。
-{% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
-5. "{% data variables.product.prodname_pages %}" で、 **[Source]\(ソース\)** ドロップダウン メニューを使用し、 **[None]\(なし\)** を選択します。
-  ![公開ソースを選択するためのドロップダウン メニュー](/assets/images/help/pages/publishing-source-drop-down.png) {% data reusables.pages.update_your_dns_settings %}
+2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
+3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
+5. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
+  ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
+{% data reusables.pages.update_your_dns_settings %}
 
-## ユーザまたは Organization サイトを取り下げる
+## Unpublishing a user or organization site
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 公開元として使用しているブランチを削除するか、リポジトリ全体を削除します。 詳細については、「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」と「[リポジトリを削除する](/articles/deleting-a-repository)」を参照してください。
+2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[Deleting a repository](/articles/deleting-a-repository)."
 {% data reusables.pages.update_your_dns_settings %}
 
 {% endif %}

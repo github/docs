@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 008615ba94fed6838f09aa137e6da23e89168573
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a0a609a6e7a1cab14059012a15b6a08be53d8cbd
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147682488"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109211"
 ---
 1. {% data variables.product.prodname_vscode_shortname %} の左サイドバーで、[リモート エクスプローラー] のアイコンをクリックします。
 

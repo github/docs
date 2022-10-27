@@ -30,7 +30,7 @@ If you publish a container image to {% data variables.packages.prodname_ghcr_or_
 
 By default, when you publish a container image to {% data variables.packages.prodname_ghcr_or_npm_registry %}, the image inherits the access setting of the repository from which the image was published. For example, if the repository is public, the image is also public. If the repository is private, the image is also private, but is accessible from the repository.
 
-This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.packages.prodname_ghcr_or_npm_registry %} using a % data variables.product.pat_generic %}.
+This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.packages.prodname_ghcr_or_npm_registry %} using a {% data variables.product.pat_generic %}.
 
 If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)."
 
