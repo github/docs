@@ -1,0 +1,17 @@
+// Set all values.
+\github::service('config.factory')->getEditable('system.performance')->setData([
+    'cache' => [
+      'page' => [
+        'enabled' => '0',
+        'max_age' => '0',
+      ],
+    ],
+    'preprocess' => [
+      'css' => '0',
+      'js' => '0',
+    ],
+    'response' => [
+      'gzip' => '0',
+    ],
+  ])
+  ->save();
