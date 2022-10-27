@@ -11,12 +11,12 @@ topics:
   - Pull requests
 shortTitle: 'Automation for {% data variables.product.prodname_projects_v1 %}'
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 76cea8f38d7470bd7b6212ae1f93601b5e8c923b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 28c4719cca14dff54d971b9a081837c172f4da76
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423338'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108082'
 ---
 {% data reusables.projects.project_boards_old %}
 

@@ -125,11 +125,11 @@ children:
   - /guides
   - /release-notes
   - /all-releases
-ms.openlocfilehash: ebd1473538d42928ff3d9abb3c0e2bd9f12767f5
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 3980ad01e56bf1e38dd6473c5e5246c6d45350eb
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147881152'
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111302'
 ---
 

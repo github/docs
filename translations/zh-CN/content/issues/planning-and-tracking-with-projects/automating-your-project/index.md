@@ -13,11 +13,11 @@ children:
   - /automating-projects-using-actions
   - /archiving-items-automatically
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 6c9777a65125f574e4a2cd05a7177448606f8348
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9187012a572af445192343af1b1ba121ae442087
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423799'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107227'
 ---
 

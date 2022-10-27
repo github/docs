@@ -13,12 +13,12 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: About HA configuration
-ms.openlocfilehash: 921a1a935bbfa930c77e2c72d7856f00d54d6016
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: b54ca60c6cf1d79b9435ca8deedebec09ed39396
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146332742'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108089'
 ---
 配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。 还会复制大多数 {% data variables.product.prodname_ghe_server %} 配置设置，包括 {% data variables.enterprise.management_console %} 密码。 有关详细信息，请参阅“[访问管理控制台](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)”。
 
@@ -35,8 +35,8 @@ ms.locfileid: '146332742'
 
 高可用性配置不适用于：
 
-  - 横向扩展。虽然可以使用异地复制将流量分布在不同地理位置，但写入性能受限于主设备的速度和可用性。 有关详细信息，请参阅“[关于异地复制](/enterprise/admin/guides/installation/about-geo-replication/)”。{% ifversion ghes > 3.2 %}
-  - CI/CD 负载。 如果您有大量在地理位置上远离主实例的 CI 客户端，则配置仓库缓存可能会使您受益匪浅。 有关详细信息，请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。{% endif %}
+  - 横向扩展。虽然可以使用异地复制将流量分布在不同地理位置，但写入性能受限于主设备的速度和可用性。 有关详细信息，请参阅“[有关异地复制](/enterprise/admin/guides/installation/about-geo-replication/)”。
+  - CI/CD 负载。 如果您有大量在地理位置上远离主实例的 CI 客户端，则配置仓库缓存可能会使您受益匪浅。 有关详细信息，请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。
   - 备份主设备。 高可用性副本不会替代灾难恢复计划中的非现场备份。 某些形式的数据损坏或数据丢失可能会立即从主设备复制到副本。 为确保安全回滚到稳定的过去状态，必须通过历史快照执行定期备份。
   - 零停机时间升级。 为避免受控升级场景下出现数据丢失和裂脑的状况，请先将主设备置于维护模式并等待所有写入操作完成，然后再对副本进行升级。
 

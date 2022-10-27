@@ -10,12 +10,12 @@ versions:
   ghae: '*'
 topics:
   - API
-ms.openlocfilehash: ee38f60dfd12d00688e46c739fc41f328203daf5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c76520b1f9dc806659373771b42501e072319937
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147496650'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108226'
 ---
 ## 关于重大变更
 

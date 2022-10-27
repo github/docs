@@ -11,12 +11,12 @@ topics:
   - Pull requests
 shortTitle: 'Reopen {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: d865d4b61000857c943276c45a9ec02163e9f59b
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: e0101378c0b7049f7cba5e04dd28231a1237d0c5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147882197'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108643'
 ---
 {% data reusables.projects.project_boards_old %}
 
