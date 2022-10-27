@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 0827845ea3dff3a641d99bbac20b8febdfaca885
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6cbe9313866c19e8325bdd34e90c6a39863de515
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423777'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107969'
 ---
 Os {% data variables.product.prodname_projects_v2 %} são uma coleção adaptável de itens que permanecem atualizados com os dados do {% data variables.product.company_short %}. Seus projetos podem acompanhar problemas, solicitações de pull e ideias que você anotar. Você pode adicionar campos personalizados e criar visualizações para fins específicos.
 

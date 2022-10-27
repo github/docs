@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 0191556eb977c4b657f1fd78330f6f691f34f039
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 477122edeb960deca31d1ad0b97b7ad30681f23b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147424289"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148110000"
 ---
 {% data reusables.projects.add-item-bottom-row %}
 1. Pega la URL de la propuesta o solicitud de cambios.

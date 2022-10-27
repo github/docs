@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 7b51303370d46101100bc953a25193ea3d14d032
-ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.openlocfilehash: ce590bb087145ff4abfb195d7257c614464c2b19
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147884418"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108245"
 ---
 1. Em "Log de auditoria", clique **Auditar Retenção de Dados**.
 

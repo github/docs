@@ -13,12 +13,12 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: About HA configuration
-ms.openlocfilehash: 921a1a935bbfa930c77e2c72d7856f00d54d6016
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: b54ca60c6cf1d79b9435ca8deedebec09ed39396
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146332755'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109881'
 ---
 Cuando configuras la alta disponibilidad, hay una configuración automática unidireccional, una replicación asincrónica de todos los almacenes de datos (repositorios de Git, MySQL, Redis y Elasticsearch) desde el aparato principal hacia la réplica. La mayoría de los ajustes de configuración de {% data variables.product.prodname_ghe_server %} también se replican, incluyendo la contraseña de la {% data variables.enterprise.management_console %}. Para obtener más información, consulta "[Acceso a la consola de administración](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
 
@@ -35,8 +35,8 @@ Utiliza la configuración de alta disponibilidad para la protección contra lo s
 
 Una configuración de alta disponibilidad no es una buena solución para lo siguiente:
 
-  - **Escalado horizontal**. Mientras que puedes distribuir el tráfico geográficamente utilizando la replicación geográfica, el rendimiento de las escrituras queda limitado a la velocidad y la disponibilidad del dispositivo principal. Para obtener más información, consulta "[Acerca de la replicación geográfica](/enterprise/admin/guides/installation/about-geo-replication/)".{% ifversion ghes > 3.2 %}
-  - **Carga de CI/CD**. Si tienes una cantidad grande de clientes de IC que estén distanciados geográficamente de tu instancia primaria, puedes beneficiarte de configurar un caché de repositorio. Para obtener más información, consulta "[Acerca del almacenamiento en caché del repositorio](/admin/enterprise-management/caching-repositories/about-repository-caching)".{% endif %}
+  - **Escalado horizontal**. Mientras que puedes distribuir el tráfico geográficamente utilizando la replicación geográfica, el rendimiento de las escrituras queda limitado a la velocidad y la disponibilidad del dispositivo principal. Para obtener más información, consulta "[Acerca de la replicación geográfica](/enterprise/admin/guides/installation/about-geo-replication/)".
+  - **Carga de CI/CD**. Si tienes una cantidad grande de clientes de IC que estén distanciados geográficamente de tu instancia primaria, puedes beneficiarte de configurar un caché de repositorio. Para más información, vea "[Acerca del almacenamiento en caché del repositorio](/admin/enterprise-management/caching-repositories/about-repository-caching)".
   - **Copia de seguridad del dispositivo principal**. Una réplica de alta disponibilidad no reemplaza las copias de seguridad externas en tu plan de recuperación ante desastres. Algunas formas de corrupción o pérdida de datos se pueden replicar de inmediato desde el aparato principal hacia la réplica. Para asegurar una reversión segura a un estado antiguo estable, debes realizar copias de seguridad de rutina con instantáneas históricas.
   - **Actualizaciones de tiempo de inactividad cero**. Para evitar la pérdida de datos y las situaciones de cerebro dividido en escenarios de promoción controlados, coloca el aparato principal en el modo de mantenimiento y espera a que se completen todas las escrituras entes de promover la réplica.
 

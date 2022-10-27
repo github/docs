@@ -5,18 +5,18 @@ shortTitle: Autolinks
 intro: 'Para ajudar a agilizar o seu fluxo de trabalho, você pode usar a API para adicionar os links automáticos a recursos externos, como problemas do JIRA e tíquetes do Zendesk.'
 versions:
   fpt: '*'
-  ghes: '>=3.3'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 1a0900a0665675526381987836631c7ff3496a81
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c35d9232ec43cf9dc19c9559de0e8411fa85e242
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066551'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107837'
 ---
 ## Sobre a API de Links automáticos do repositório
 

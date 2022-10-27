@@ -1,10 +1,10 @@
 ---
 title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actions'
-shortTitle: 'Automating with Actions'
+shortTitle: Automating with Actions
 intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/automating-projects
 type: tutorial

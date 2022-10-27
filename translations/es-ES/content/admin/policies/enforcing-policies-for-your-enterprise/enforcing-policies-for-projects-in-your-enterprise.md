@@ -20,12 +20,12 @@ topics:
   - Policies
   - Projects
 shortTitle: Project board policies
-ms.openlocfilehash: 2066ab3fd36814150ff79457930d05909027513e
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 2bb72b21094fadea8f584eb4749ed0cea69619ee
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147854143'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109813'
 ---
 ## Acerca de las políticas para proyectos en tu empresa
 

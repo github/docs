@@ -2,7 +2,7 @@
 title: Configuring SSH connections to your instance
 shortTitle: Configure SSH connections
 intro: 'You can increase the security of {% data variables.location.product_location %} by configuring the SSH algorithms that clients can use to establish a connection.'
-permissions: "Site administrators can configure SSH connections to a {% data variables.product.product_name %} instance."
+permissions: 'Site administrators can configure SSH connections to a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '>= 3.6'
 type: how_to
