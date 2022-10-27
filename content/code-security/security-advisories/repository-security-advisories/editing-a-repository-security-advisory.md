@@ -4,6 +4,7 @@ intro: You can edit the metadata and description for a repository security advis
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
   - /code-security/security-advisories/editing-a-security-advisory
+  - /code-security/repository-security-advisories/editing-a-repository-security-advisory
 versions:
   fpt: '*'
   ghec: '*'

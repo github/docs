@@ -4,6 +4,7 @@ intro: 'You can submit improvements to any advisory published in the {% data var
 redirect_from:
   - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
+  - /code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
@@ -19,12 +20,14 @@ topics:
 shortTitle: Edit Advisory Database
 ---
 
-## About editing advisories in the {% data variables.product.prodname_advisory_database %}
-Security advisories in the {% data variables.product.prodname_advisory_database %} at [github.com/advisories](https://github.com/advisories) are considered global advisories. Anyone can suggest improvements on any global security advisory in the {% data variables.product.prodname_advisory_database %}. You can edit or add any detail, including additionally affected ecosystems, severity level or description of who is impacted. The {% data variables.product.prodname_security %} curation team will review the submitted improvements and publish them onto the {% data variables.product.prodname_advisory_database %} if accepted.
+## Editing advisories in the {% data variables.product.prodname_advisory_database %}
+
+The advisories in the {% data variables.product.prodname_advisory_database %} are global security advisories. For more information about global security advisories, see "[About global security advisories](/code-security/security-advisories/global-security-advisories/about-global-security-advisories)."
+
+Anyone can suggest improvements on any global security advisory in the {% data variables.product.prodname_advisory_database %}. You can edit or add any detail, including additionally affected ecosystems, severity level or description of who is impacted. The {% data variables.product.prodname_security %} curation team will review the submitted improvements and publish them onto the {% data variables.product.prodname_advisory_database %} if accepted.
 {% ifversion fpt or ghec %}
 Only repository owners and administrators can edit repository-level security advisories. For more information, see "[Editing a repository security advisory](/code-security/security-advisories/editing-a-security-advisory)."{% endif %}
 
-## Editing advisories in the GitHub Advisory Database
 
 1. Navigate to https://github.com/advisories.
 1. Select the security advisory you would like to contribute to.

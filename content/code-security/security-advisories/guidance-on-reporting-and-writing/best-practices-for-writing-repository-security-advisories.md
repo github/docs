@@ -10,6 +10,8 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Best practices
+redirect_from:
+  - /code-security/repository-security-advisories/best-practices-for-writing-repository-security-advisories
 ---
 
 Anyone with admin permissions to a repository can create and edit a security advisory.
@@ -18,7 +20,7 @@ Anyone with admin permissions to a repository can create and edit a security adv
 
 ## About security advisories for repositories
 
-{% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About GitHub Security Advisories for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
+{% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About repository security advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
 
 ## Best practices
 

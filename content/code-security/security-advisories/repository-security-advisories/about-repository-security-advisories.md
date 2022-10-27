@@ -1,11 +1,13 @@
 ---
-title: About GitHub Security Advisories for repositories
-intro: 'You can use {% data variables.product.prodname_security_advisories %} to privately discuss, fix, and publish information about security vulnerabilities in your repository.'
+title: About repository security advisories
+intro: 'You can use repository security advisories to privately discuss, fix, and publish information about security vulnerabilities in your repository.'
+shortTitle: About repository security advisories
 redirect_from:
   - /articles/about-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/about-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/about-github-security-advisories
   - /code-security/security-advisories/about-github-security-advisories
+  - /code-security/repository-security-advisories/about-github-security-advisories-for-repositories
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,20 +16,19 @@ topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
-shortTitle: Repository security advisories
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-## About {% data variables.product.prodname_security_advisories %}
+## About repository security advisories
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About coordinated disclosure of security vulnerabilities](/code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)."
 
 {% data reusables.security-advisory.security-advisory-overview %}
 
-With {% data variables.product.prodname_security_advisories %}, you can:
+With repository security advisories, you can:
 
 1. Create a draft security advisory, and use the draft to privately discuss the impact of the vulnerability on your project. For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
 2. Privately collaborate to fix the vulnerability in a temporary private fork.

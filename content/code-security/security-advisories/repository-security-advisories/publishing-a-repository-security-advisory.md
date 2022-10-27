@@ -6,6 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
   - /code-security/security-advisories/publishing-a-security-advisory
+  - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -82,7 +83,7 @@ Publishing a security advisory deletes the temporary private fork for the securi
 
 ## Requesting a CVE identification number (Optional)
 
-{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About repository security advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

@@ -6,6 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/permission-levels-for-security-advisories
   - /code-security/security-advisories/permission-levels-for-security-advisories
+  - /code-security/repository-security-advisories/permission-levels-for-repository-security-advisories
 versions:
   fpt: '*'
   ghec: '*'
