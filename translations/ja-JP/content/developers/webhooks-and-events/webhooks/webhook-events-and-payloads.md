@@ -963,8 +963,6 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## project_card
 
 {% data reusables.webhooks.project_card_short_desc %}
@@ -1080,7 +1078,7 @@ Key | Type | Description
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.public }}
-{% endif %}
+
 ## pull_request
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -1613,7 +1611,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 |-----|-----|-----|
 | `inputs` | `object` | Inputs to the workflow. Each key represents the name of the input while its value represents the value of that input. |
 {% data reusables.webhooks.org_desc %}
-| `ref` | `string` | The branch ref from which the workflow was run. |
+| `ref` | `string` | The branch or tag from which the workflow was run. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}
 | `workflow` | `string` | Relative path to the workflow file which contains the workflow. |

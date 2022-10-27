@@ -1,6 +1,6 @@
 ---
 title: About GitHub for enterprises
-intro: "Businesses can use {% data variables.product.prodname_dotcom %}'s enterprise products to improve their entire software development lifecycle."
+intro: 'Businesses can use {% data variables.product.prodname_dotcom %}''s enterprise products to improve their entire software development lifecycle.'
 versions:
   ghec: '*'
   ghes: '*'

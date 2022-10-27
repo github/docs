@@ -59,6 +59,8 @@ In the example `postCreate.sh` file below, the contents of the `config` director
 ln -sf $PWD/.devcontainer/config $HOME/config && set +x
 ```
 
+For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+
 ## Stopping a codespace
 
 {% data reusables.codespaces.stopping-a-codespace %} For more information, see "[Stopping and starting a codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)."

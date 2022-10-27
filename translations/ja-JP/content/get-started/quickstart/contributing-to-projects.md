@@ -1,6 +1,6 @@
 ---
-title: プロジェクトに貢献する
-intro: フォークを通じてプロジェクトに貢献する方法について説明します。
+title: Contributing to projects
+intro: Learn how to contribute to a project through forking.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
@@ -12,61 +12,58 @@ topics:
   - Forks
   - GitHub
   - Open Source
-ms.openlocfilehash: 190bfbbfc799a802a082aa01e9f93f2ad379e471
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147425232'
 ---
-## フォークについて
 
-しばらく自分で GitHub を使用した後、他のユーザーのプロジェクトに貢献したい場合があります。 または、誰かのプロジェクトを自分の出発点として使用したい場合があります。 このプロセスはフォークと呼ばれます。
+## About forking
 
-「フォーク」を作成すると、他のユーザーのプロジェクトの個人用コピーが生成されます。 フォークは、元のリポジトリと個人用コピーの間の一種のブリッジとして機能します。 元のプロジェクトに変更を提供することで、他のユーザーのプロジェクトをより良くするのに役立つ pull request を送信できます。 フォークは、GitHub におけるソーシャル コーディングの中核です。 詳細については、「[リポジトリのフォーク](/get-started/quickstart/fork-a-repo)」を参照してください。
+After using GitHub by yourself for a while, you may find yourself wanting to contribute to someone else’s project. Or maybe you’d like to use someone’s project as the starting point for your own. This process is known as forking.
 
-## リポジトリをフォークする
+Creating a "fork" is producing a personal copy of someone else's project. Forks act as a sort of bridge between the original repository and your personal copy. You can submit pull requests to help make other people's projects better by offering your changes up to the original project. Forking is at the core of social coding at GitHub. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
 
-このチュートリアルでは、[Spoon-Knife プロジェクト](https://github.com/octocat/Spoon-Knife) ({% data variables.product.prodname_dotcom_the_website %} でホストされているテスト リポジトリ)を使用して、フォークと pull request のワークフローをテストします。
+## Forking a repository
 
-1. https://github.com/octocat/Spoon-Knife で `Spoon-Knife` プロジェクトに移動します。
-2. **[フォーク]** をクリックします。
-   ![[フォーク] ボタン](/assets/images/help/repository/fork_button.png)
-3. フォークされたリポジトリの所有者を選びます。
-   ![[所有者] ドロップダウンが強調された新しいフォーク ページを作成する](/assets/images/help/repository/fork-choose-owner.png)
-4. 既定では、フォークの名前はその親リポジトリと同じです。 フォークの名前を変更して、さらに区別することができます。 
-   !["リポジトリ名" フィールドが強調された新しいフォーク ページを作成する](/assets/images/help/repository/fork-choose-repo-name.png)
-5. 必要に応じて、リポジトリの説明を追加します。
-   !["説明" フィールドが強調された新しいフォーク ページを作成する](/assets/images/help/repository/fork-description.png)
-6. 既定のブランチのみをコピーするか、すべてのブランチを新しいフォークにコピーするかを選びます。 オープンソース プロジェクトへのコントリビューションなど、多くのフォーク シナリオでは、既定のブランチのみをコピーする必要があります。 既定では、既定のブランチのみがコピーされます。
-   ![既定のブランチのみをコピーするオプション](/assets/images/help/repository/copy-default-branch-only.png)
-7. **[フォークの作成]** をクリックします。
-   ![強調された [フォークの作成] ボタン](/assets/images/help/repository/fork-create-button.png)
+This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
+
+1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
+2. Click **Fork**.
+   ![Fork button](/assets/images/help/repository/fork_button.png)
+3. Select an owner for the forked repository.
+   ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
+4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. 
+   ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
+5. Optionally, add a description of your fork.
+   ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
+6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied.
+   ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
+7. Click **Create fork**.
+   ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
 
 {% note %}
 
-**注:** 親リポジトリから追加のブランチをコピーする場合は、 **[ブランチ]** ページから行うことができます。 詳細については、「[リポジトリ内でブランチを作成および削除する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)」を参照してください。
+**Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 
 {% endnote %}
 
-## フォークの複製
+## Cloning a fork
 
-Spoon-Knife リポジトリのフォークが正常に生成されましたが、現時点では {% data variables.product.product_name %} にのみ存在しています。 プロジェクトで作業できるようにするには、コンピューターに複製する必要があります。
+You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.product_name %}. To be able to work on the project, you will need to clone it to your computer.
 
-フォークは、コマンド ライン、{% data variables.product.prodname_cli %}、または {% data variables.product.prodname_desktop %} を使用して複製できます。
+You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
 
 {% webui %}
 
-1. {% data variables.product.product_name %} で、Spoon-Knife リポジトリの **自分のフォーク** に移動します。
-{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %}
-4. 「`git clone`」と入力し、既にコピーした URL を貼り付けます。 次のようになるはずです。`YOUR-USERNAME` を自分の {% data variables.product.product_name %} のユーザー名に置き換えてください。
+1. On {% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   ```
 
-5. **Enter** キーを押します。 これで、ローカルにクローンが作成されます。
+5. Press **Enter**. Your local clone will be created.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
   > Cloning into `Spoon-Knife`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -80,25 +77,57 @@ Spoon-Knife リポジトリのフォークが正常に生成されましたが�
 
 {% data reusables.cli.cli-learn-more %}
 
-フォークのクローンを作成するには、`--clone` フラグを使用します。
+To create a clone of your fork, use the `--clone` flag.
 
 ```shell
-gh repo fork <em>repository</em> --clone=true
+gh repo fork REPOSITORY --clone=true
 ```
 
 {% endcli %}
 
 {% desktop %}
 
-{% data reusables.desktop.choose-clone-repository %} {% data reusables.desktop.cloning-location-tab %} {% data reusables.desktop.cloning-repository-list %} {% data reusables.desktop.choose-local-path %} {% data reusables.desktop.click-clone %}
+{% data reusables.desktop.choose-clone-repository %}
+{% data reusables.desktop.cloning-location-tab %}
+{% data reusables.desktop.cloning-repository-list %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
 {% enddesktop %}
 
-## 変更の作成とプッシュ
+## Creating a branch to work on
 
-[Visual Studio Code](https://code.visualstudio.com) などのお気に入りのテキスト エディターを使用して、プロジェクトにいくつかの変更を加えます。 たとえば、`index.html` のテキストを変更すると、GitHub ユーザー名を追加できます。
+Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[GitHub Flow](/get-started/quickstart/github-flow#following-github-flow)."
 
-変更を送信する準備ができたら、変更をステージングしてコミットします。 `git add .` は、次のコミットにすべての変更を含める必要があることを Git に指示します。 `git commit` は、これらの変更のスナップショットを取得します。
+{% webui %}
+
+```shell
+git branch BRANCH-NAME
+git checkout BRANCH-NAME
+```
+
+{% endwebui %}
+
+{% cli %}
+
+```shell
+git branch BRANCH-NAME
+git checkout BRANCH-NAME
+```
+
+{% endcli %}
+
+{% desktop %}
+
+For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[Managing branches](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
+
+{% enddesktop %}
+
+## Making and pushing changes
+
+Go ahead and make a few changes to the project using your favorite text editor, like [Visual Studio Code](https://code.visualstudio.com). You could, for example, change the text in `index.html` to add your GitHub username.
+
+When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 
 {% webui %}
 
@@ -120,13 +149,13 @@ git commit -m "a short description of the change"
 
 {% desktop %}
 
-{% data variables.product.prodname_desktop %} で変更をステージングおよびコミットする方法の詳細については、「[プロジェクトへの変更のコミットと確認](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)」を参照してください。
+For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[Committing and reviewing changes to your project](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
 
 {% enddesktop %}
 
-ファイルをステージングしてコミットすると、基本的に Git に「変更のスナップショットを作成してください」と Git に指示したことになります。 引き続き変更を加え、より多くのコミットのスナップショットを作成できます。
+When you stage and commit files, you essentially tell Git, "Okay, take a snapshot of my changes!" You can continue to make more changes, and take more commit snapshots.
 
-現時点では、変更はローカルにのみ存在します。 変更を {% data variables.product.product_name %} にプッシュする準備ができたら、変更をリモートにプッシュします。
+Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.product_name %}, push your changes to the remote.
 
 {% webui %}
 
@@ -146,24 +175,25 @@ git push
 
 {% desktop %}
 
-{% data variables.product.prodname_desktop %} で変更をプッシュする方法の詳細については、「[変更を GitHub にプッシュする](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)」を参照してください。
+For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
 
 {% enddesktop %}
 
-## pull request の作成
+## Making a pull request
 
-やっと、メイン プロジェクトに変更を提案する準備ができました。 これは、他の誰かのプロジェクトのフォークを生成する最後のステップであり、間違いなく最も重要です。 コミュニティ全体に利益をもたらすと感じる変更を加えた場合は、ぜひ貢献することを検討してください。
+At last, you're ready to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
 
-そのためには、プロジェクトが存在する {% data variables.product.product_name %} のリポジトリに進みます。 この例では、`https://www.github.com/<your_username>/Spoon-Knife` です。 自分のブランチが `octocat:main` よりも 1 コミット分進んでいることを示すバナーが表示されます。 **[貢献]** をクリックし、 **[Open a pull request]\(pull request を開く\)** をクリックします。
+To do so, head on over to the repository on {% data variables.product.product_name %} where your project lives. For this example, it would be at `https://www.github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
 
-{% data variables.product.product_name %} を使用すると、フォークと `octocat/Spoon-Knife` リポジトリの違いを示すページが表示されます。 **[pull request の作成]** をクリックします。
+{% data variables.product.product_name %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Click **Create pull request**.
 
-{% data variables.product.product_name %} を使用すると、タイトルと変更の説明を入力できるページが表示されます。 そもそもこの pull request を行う理由について、できるだけ多くの有用な情報と根拠を提供することが重要です。 プロジェクトの所有者は、変更が自分が考えるほどすべてのユーザーにとって役に立つかどうかを判断できる必要があります。 **[pull request の作成]** をクリックします。
+{% data variables.product.product_name %} will bring you to a page where you can enter a title and a description of your changes. It's important to provide as much useful information and a rationale for why you're making this pull request in the first place. The project owner needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click **Create pull request**.
 
-## フィードバックの管理
+## Managing feedback
 
-pull request は検討の対象となります。 この場合、Octocat は非常にビジーであり、おそらく変更をマージしません。 他のプロジェクトで、プロジェクト所有者が pull request を拒否した場合や、リクエストが行われた理由の詳細を求めても、気を悪くしないでください。 プロジェクトの所有者が pull request をマージしないことを選択したとしても、まったく問題ありません。 自分のコピーは誰にも知られることなくインターネット上に存在します。 会ったことがない人が、この変更が元のプロジェクトよりもはるかに価値のあることを発見するかもしれません。
+Pull Requests are an area for discussion. In this case, the Octocat is very busy, and probably won't merge your changes. For other projects, don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. It may even be that the project owner chooses not to merge your pull request, and that's totally okay. Your copy will exist in infamy on the Internet. And who knows--maybe someone you've never met will find your changes much more valuable than the original project.
 
-## プロジェクトの検索
+## Finding projects
 
-正常にリポジトリをフォークし、リポジトリに貢献しました。 さらに貢献を続けてください。{% ifversion fpt %}詳細については、「[GitHub でオープンソースに貢献する方法を見つける](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。{% endif %}
+You've successfully forked and contributed back to a repository. Go forth, and
+contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}

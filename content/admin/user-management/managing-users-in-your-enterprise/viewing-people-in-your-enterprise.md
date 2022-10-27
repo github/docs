@@ -1,7 +1,7 @@
 ---
 title: Viewing people in your enterprise
 intro: 'To audit access to enterprise-owned resources or user license usage, enterprise owners can view every administrator and member of the enterprise.'
-permissions: 'Enterprise owners can view the people in an enterprise.'
+permissions: Enterprise owners can view the people in an enterprise.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account
@@ -116,7 +116,7 @@ If you use {% data variables.product.prodname_vss_ghe %}, the list of pending in
 
 ## Viewing suspended members in an {% data variables.enterprise.prodname_emu_enterprise %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can also view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
+If your enterprise uses {% data variables.product.prodname_emus %}, you can view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -128,6 +128,21 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can also
 ## Viewing dormant users
 
 You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+
+{% ifversion filter-by-enterprise-member-type %}
+## Filtering by member type{% ifversion ghec %} in an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}
+
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes or ghae %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is mananaged in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+1. Under "Organizations," in the search bar, begin typing the organization's name until the organization appears in the search results, then click the name of the organization.
+   ![Screenshot of the search field for organizations](/assets/images/help/enterprises/organization-search.png)
+1. Under the organization name, click {% octicon "person" aria-label="The Person icon" %} **People**.
+   ![Screenshot of the People tab](/assets/images/help/enterprises/emu-organization-people-tab.png)
+1. Above the list of members, click **Type**, then select the type of members you want to view.
+   ![Screenshot of the "Type" button](/assets/images/help/enterprises/filter-by-member-type.png)
+
+{% endif %}
 
 {% ifversion ghec or ghes %}
 ## Viewing members without an email address from a verified domain

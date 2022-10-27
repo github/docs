@@ -1,49 +1,43 @@
 ---
-title: Dividir una subcarpeta en un nuevo repositorio
+title: Splitting a subfolder out into a new repository
 redirect_from:
   - /articles/splitting-a-subpath-out-into-a-new-repository
   - /articles/splitting-a-subfolder-out-into-a-new-repository
   - /github/using-git/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository
-intro: Puedes convertir una carpeta dentro de un repositorio de Git en un nuevo repositorio.
+intro: You can turn a folder within a Git repository into a brand new repository.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Splitting a subfolder
-ms.openlocfilehash: 21467b459f1e7af1dd28e5b7a20c962786aed2b5
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147879300'
 ---
-Si creas un nuevo clon del repositorio, no perderás ninguno de tus historiales o cambios de Git cuando divides una carpeta en un repositorio separado.
+If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. Cambia el directorio de trabajo actual a la ubicación donde deseas crear tu nuevo repositorio.
+2. Change the current working directory to the location where you want to create your new repository.
 
-4. Clona el repositorio que contiene la subcarpeta.
+4. Clone the repository that contains the subfolder.
    ```shell
-   $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY-NAME</em>
+   $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME
    ```
 
-4. Cambia el directorio de trabajo actual por tu repositorio clonado.
+4. Change the current working directory to your cloned repository.
    ```shell
-   $ cd <em>REPOSITORY-NAME</em>
+   $ cd REPOSITORY-NAME
    ```
 
-5. Para filtrar la subcarpeta del resto de los archivos del repositorio, ejecute [`git filter-repo`](https://github.com/newren/git-filter-repo)y proporcione esta información:
-   - `FOLDER-NAME`: la carpeta dentro del proyecto en la que quiere crear un repositorio independiente.
+5. To filter out the subfolder from the rest of the files in the repository, run [`git filter-repo`](https://github.com/newren/git-filter-repo), supplying this information:
+   - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
 
    {% windows %}
 
    {% tip %}
 
-   **Sugerencia:** Los usuarios de Windows deben utilizar `/` para delimitar carpetas.
+   **Tip:** Windows users should use `/` to delimit folders.
 
    {% endtip %}
 
@@ -53,44 +47,44 @@ Si creas un nuevo clon del repositorio, no perderás ninguno de tus historiales 
    $ git filter-repo --path FOLDER-NAME1/ --path FOLDER-NAME2/
    # Filter the specified branch in your directory and remove empty commits
    > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
-   > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
+   > Ref 'refs/heads/BRANCH-NAME' was rewritten
    ```
    
-   El repositorio debería ahora únicamente contener archivos que estuvieron en tu(s) subcarpeta(s)
+   The repository should now only contain the files that were in your subfolder(s).
 
-6. [Cree un repositorio](/articles/creating-a-new-repository/) en {% data variables.product.product_name %}.
+6. [Create a new repository](/articles/creating-a-new-repository/) on {% data variables.product.product_name %}.
 
-7. En la parte superior de tu repositorio nuevo, en la página de configuración rápida de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto.
-    
-   ![Copia el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
+	
+   ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
    {% tip %}
 
-   **Sugerencia:** Para obtener información sobre la diferencia entre las direcciones URL HTTPS y SSH, consulte ["Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".
+   **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
    {% endtip %}
 
-8. Verifica el nombre remoto existente para tu repositorio. Por ejemplo, `origin` o `upstream` son dos opciones comunes.
+8. Check the existing remote name for your repository. For example, `origin` or `upstream` are two common choices.
    ```shell
    $ git remote -v
-   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (fetch)
-   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (push)
+   > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (fetch)
+   > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (push)
    ```
 
-9. Configura una URL remota nueva para tu nuevo repositorio utilizando el nombre remoto existente y la URL del repositorio remoto que copiaste en el paso 7.
+9. Set up a new remote URL for your new repository using the existing remote name and the remote repository URL you copied in step 7.
    ```shell
-   git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git
+   git remote set-url origin https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git
    ```
 
-10. Verifica que la URL remota haya cambiado con el nombre de tu nuevo repositorio.
+10. Verify that the remote URL has changed with your new repository name.
     ```shell
     $ git remote -v
     # Verify new remote URL
-    > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git (fetch)
-    > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git (push)
+    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git (fetch)
+    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git (push)
     ```
 
-11. Sube tus cambios al nuevo repositorio en {% data variables.product.product_name %}.
+11. Push your changes to the new repository on {% data variables.product.product_name %}.
     ```shell
-    git push -u origin <em>BRANCH-NAME</em>
+    git push -u origin BRANCH-NAME
     ```

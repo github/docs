@@ -1,5 +1,5 @@
 ---
-title: About {% data variables.product.prodname_projects_v1 %}
+title: 'About {% data variables.product.prodname_projects_v1 %}'
 intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.product_name %} help you organize and prioritize your work. You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. With {% data variables.product.prodname_projects_v1 %}, you have the flexibility to create customized workflows that suit your needs.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
@@ -7,7 +7,7 @@ redirect_from:
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true

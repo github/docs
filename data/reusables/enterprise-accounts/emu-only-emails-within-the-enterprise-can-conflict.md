@@ -1,1 +1,5 @@
-{% data variables.product.prodname_dotcom %} only checks for conflicts within an {% data variables.enterprise.prodname_emu_enterprise %}. {% data variables.enterprise.prodname_managed_users_caps %} can have the same username or email address as a user account outside of the enterprise on {% data variables.product.prodname_dotcom_the_website %}.
+{% note %}
+
+**Note:** Because {% data variables.product.prodname_dotcom %} adds an underscore and short code to the normalized identifier provided by your IdP when creating each username, conflicts can only occur within each {% data variables.enterprise.prodname_emu_enterprise %}. {% data variables.enterprise.prodname_managed_users_caps %} can share IdP identifiers or email addresses with other user accounts on {% data variables.product.prodname_dotcom_the_website %} that are outside the enterprise.
+
+{% endnote %}

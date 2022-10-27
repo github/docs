@@ -48,13 +48,14 @@ Before you can use Jekyll to test a site, you must:
   >    Server address: http://127.0.0.1:4000/
   >  Server running... press ctrl-c to stop.
   ```
+  {% note %}
+
+  **Note:** If you've installed Ruby 3.0 or later (which you may have if you installed the default version via Homebrew), you might get an error at this step. That's because these versions of Ruby no longer come with `webrick` installed.
+  
+  To fix the error, try running `bundle add webrick`, then re-running `bundle exec jekyll serve`.
+  {% endnote %}
+
 3. To preview your site, in your web browser, navigate to `http://localhost:4000`.
-
-{% note %}
-
-**Note:** If you are using Ruby 3.0 and Jekyll 4.2.x or older, you will need to add the `webrick` gem to your project's Gemfile prior to running `bundle install`.
-
-{% endnote %}
 
 ## Updating the {% data variables.product.prodname_pages %} gem
 

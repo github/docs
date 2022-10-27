@@ -1,12 +1,12 @@
 ---
-title: Configuring automation for {% data variables.product.prodname_projects_v1 %}
-intro: You can set up automatic workflows to move issues and pull requests to a {% data variables.projects.projects_v1_board %} column when a specified event occurs.
+title: 'Configuring automation for {% data variables.product.prodname_projects_v1 %}'
+intro: 'You can set up automatic workflows to move issues and pull requests to a {% data variables.projects.projects_v1_board %} column when a specified event occurs.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/configuring-automation-for-project-boards
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
   - Projects

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d2f50ce890ed4d9a90015498ecdf9909348155fb
-ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
+ms.openlocfilehash: 258f73f928cd99de64f45fda0e6cec8e08ff335c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147876196"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107808"
 ---
 {% ifversion build-pages-with-actions %}
 1. Seu site {% data variables.product.prodname_pages %} está integrado e foi implantado com um fluxo de trabalho {% data variables.product.prodname_actions %}. Para obter mais informações, confira "[Exibir o histórico de execuções de fluxo de trabalho](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".

@@ -49,21 +49,25 @@ If you add an organization-wide policy with a timeout constraint, you should set
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Maximum idle timeout**.
 
-   ![Add a constraint for idle timeout](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
+   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
 
 1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
 
-   ![Edit the timeout constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
 1. Enter the maximum number of minutes codespaces can remain inactive before they time out, then click **Save**.
 
-   ![Set the maximum timeout in minutes](/assets/images/help/codespaces/maximum-minutes-timeout.png)
+   ![Screenshot of setting the maximum timeout in minutes](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)," "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)," and "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
+   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
+   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
+   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
 1. After you've finished adding constraints to your policy, click **Save**.
 
-The policy will be applied to all new codespaces that are created, and to existing codespaces the next time they are started.
+The policy will be applied to all new codespaces that are billable to your organization. The timeout constraint is also applied to existing codespaces the next time they are started.
 
 ## Editing a policy
 
@@ -71,6 +75,7 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
 1. Click the name of the policy you want to edit.
+1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Maximum idle timeout" constraint.
 1. Make the required changes then click **Save**.
 
 ## Deleting a policy 
@@ -78,4 +83,4 @@ You can edit an existing policy. For example, you may want to add or remove cons
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
 1. Click the delete button to the right of the policy you want to delete.
 
-   ![The delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)

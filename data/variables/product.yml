@@ -72,7 +72,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 or ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.8.5{% elsif ghes = 3.6 or ghae = 3.6 %}2.9.4{% elsif ghes = 3.7 or ghae = 3.7 %}2.10.5{% endif %}
+  {% ifversion ghes < 3.5 or ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.8.5{% elsif ghes = 3.6 or ghae = 3.6 %}2.9.4{% elsif ghes = 3.7 or ghae = 3.7 %}2.10.5{% endif %}
 
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -109,9 +109,6 @@ prodname_oauth_apps: 'OAuth Apps'
 # API and developer docs
 prodname_enterprise_api: '{% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %} APIs'
 prodname_unfurls: 'Content Attachments'
-
-# Azure AD
-ae_azure_ad_app_link: 'the [GitHub AE application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
 
 # GitHub Actions
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.

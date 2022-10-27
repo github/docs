@@ -1,6 +1,6 @@
 ---
 title: Exporting membership information for your enterprise
-intro: 'You can export information about all of your enterprise members.'
+intro: You can export information about all of your enterprise members.
 versions:
   feature: enterprise-member-csv
 topics:

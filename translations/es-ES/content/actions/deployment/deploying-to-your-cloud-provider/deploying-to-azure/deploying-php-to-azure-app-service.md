@@ -102,7 +102,11 @@ jobs:
         id: composer-cache
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
+{%- ifversion actions-save-state-set-output-envs %}
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+{%- else %}
           echo "::set-output name=dir::$(composer config cache-files-dir)"
+{%- endif %}
 
       - name: Set up dependency caching for faster installs
         uses: {% data reusables.actions.action-cache %}
