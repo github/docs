@@ -12,12 +12,12 @@ versions:
 topics:
   - Organizations
   - Teams
-ms.openlocfilehash: 3780e309aa149de90a6871fbe236aac752c67d0b
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.openlocfilehash: 7412c38e647ddec33543bd04d38d813bf6a93c88
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147876103'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108080'
 ---
 ## 关于组织
 

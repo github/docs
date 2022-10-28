@@ -14,23 +14,23 @@ versions:
 topics:
   - Identity
   - Access management
-ms.openlocfilehash: d93cfae4a6e128c2aef79ee1494fb66f30afcf1b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 22bdc1c5095a8fa82d2ac406a19dc633f8f44fc6
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147653363'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106678'
 ---
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 1. タグに署名するには、`git tag` コマンドに `-s` を追加します。
   ```shell
-  $ git tag -s <em>mytag</em>
+  $ git tag -s MYTAG
   # Creates a signed tag
   ```
 2. `git tag -v [tag-name]` を実行して署名されたタグを検証します。
   ```shell
-  $ git tag -v <em>mytag</em>
+  $ git tag -v MYTAG
   # Verifies the signed tag
   ```
 

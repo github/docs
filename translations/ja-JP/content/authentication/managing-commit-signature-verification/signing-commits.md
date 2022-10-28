@@ -15,12 +15,12 @@ versions:
 topics:
   - Identity
   - Access management
-ms.openlocfilehash: 9b37417ab81bf51e39e41fcbed3a9b64cb4fe7bc
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 8550393cc31571756099ac364698434f38b02cfa
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147653227'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106750'
 ---
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
@@ -42,7 +42,7 @@ Git バージョン 2.0.0 以降で、ローカル リポジトリ用に既定�
 
 1. ローカルブランチに変更をコミットする場合、 -S フラグをGitコミットコマンドに追加します。
   ```shell
-  $ git commit -S -m <em>"your commit message"</em>
+  $ git commit -S -m "YOUR_COMMIT_MESSAGE"
   # Creates a signed commit
   ```
 2. GPG を使用している場合は、コミットを作成した後、[GPG キーを生成](/articles/generating-a-new-gpg-key)したときに設定したパスフレーズを指定します。

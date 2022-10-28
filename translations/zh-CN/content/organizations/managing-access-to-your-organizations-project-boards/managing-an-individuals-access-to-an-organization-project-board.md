@@ -1,6 +1,6 @@
 ---
-title: '管理个人对组织 {% data variables.product.prodname_project_v1 %} 的访问权限'
-intro: '作为组织所有者或 {% data variables.projects.projects_v1_board %} 管理员，你可以管理单个成员对组织拥有的 {% data variables.projects.projects_v1_board %} 的访问权限。'
+title: 'Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can manage an individual member''s access to a {% data variables.projects.projects_v1_board %} owned by your organization.'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -15,40 +15,57 @@ topics:
   - Teams
 shortTitle: Manage individual access
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 3fd77225e83df2124e8e026453b539f6961ff473
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147422890'
 ---
+
 {% data reusables.projects.project_boards_old %}
 
 {% note %}
 
-注意：{% data reusables.project-management.cascading-permissions %} 有关详细信息，请参阅[组织的 {% data variables.product.prodname_project_v1_caps %} 权限](/articles/project-board-permissions-for-an-organization)。 
+**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)." 
 
 {% endnote %}
 
-## 授予组织成员访问 {% data variables.projects.projects_v1_board %} 的权限
+## Giving an organization member access to a {% data variables.projects.projects_v1_board %}
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. 单击“项目(经典)”{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %}
-9. 在 "Search by username, full name or email address"（按用户名、全名或电子邮件地址搜索）下，输入协作者的姓名、用户名或 {% data variables.product.prodname_dotcom %} 电子邮件地址。
-   ![在“搜索”字段中输入了 Octocat 用户名的“协作者”部分](/assets/images/help/projects/org-project-collaborators-find-name.png) {% data reusables.project-management.add-collaborator %} {% data reusables.project-management.collaborator-permissions %}
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
+{% data reusables.project-management.select-project %}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+9. Under "Search by username, full name or email address", type the collaborator's name, username, or {% data variables.product.prodname_dotcom %} email.
+   ![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/projects/org-project-collaborators-find-name.png)
+{% data reusables.project-management.add-collaborator %}
+{% data reusables.project-management.collaborator-permissions %}
 
-## 更改组织成员对 {% data variables.projects.projects_v1_board %} 的访问权限
+## Changing an organization member's access to a {% data variables.projects.projects_v1_board %}
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. 单击“项目(经典)”{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %} {% data reusables.project-management.collaborator-permissions %}
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
+{% data reusables.project-management.select-project %}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+{% data reusables.project-management.collaborator-permissions %}
 
-## 移除组织成员对 {% data variables.projects.projects_v1_board %} 的访问权限
+## Removing an organization member's access to a {% data variables.projects.projects_v1_board %}
 
-从 {% data variables.projects.projects_v1_board %} 移除协作者时，根据他们其他角色的权限，他们可能仍然保有对板的访问权限。 若要完全移除对 {% data variables.projects.projects_v1_board %} 的访问权限，必须移除其拥有的每个角色的访问权限。 例如，某人可以作为组织成员或团队成员具有 {% data variables.projects.projects_v1_board %} 的访问权限。 有关详细信息，请参阅[组织的 {% data variables.product.prodname_project_v1_caps %} 权限](/articles/project-board-permissions-for-an-organization)。
+When you remove a collaborator from a {% data variables.projects.projects_v1_board %}, they may still retain access to the board based on the permissions they have for other roles. To completely remove access to a {% data variables.projects.projects_v1_board %}, you must remove access for each role the person has. For instance, a person may have access to the {% data variables.projects.projects_v1_board %} as an organization member or team member. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. 单击“项目(经典)”{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %} {% data reusables.project-management.remove-collaborator %}
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
+{% data reusables.project-management.select-project %}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+{% data reusables.project-management.remove-collaborator %}
 
-## 延伸阅读
+## Further reading
 
-- [组织的 {% data variables.product.prodname_project_v1_caps %} 权限](/articles/project-board-permissions-for-an-organization)
+- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"

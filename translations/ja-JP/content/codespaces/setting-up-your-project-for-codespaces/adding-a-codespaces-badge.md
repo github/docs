@@ -11,12 +11,12 @@ topics:
   - Codespaces
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 4a45c11adc5d09888e6bb65b49b9f997f5233fea
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: d2ed02a205a4a8c3e55deb0b52fdc9ffdb855dc4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147783131'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108947'
 ---
 ## 概要
 
@@ -26,7 +26,7 @@ Markdown ファイルに [{% data variables.product.prodname_github_codespaces %
 
 バッジを作成するときに、そのバッジで作成される codespace に対して特定の構成オプションを選ぶことができます。
 
-ユーザーがバッジをクリックすると、codespace の作成用の [詳細オプション] ページに移動します。選んだオプションは事前に選択されています。 詳細オプション ページについて詳しくは、「[codespace の作成](https://docs-internal-30445-bfc9ce.preview.ghdocs.com/en/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
+ユーザーがバッジをクリックすると、codespace の作成用の [詳細オプション] ページに移動します。選んだオプションは事前に選択されています。 詳細オプション ページについて詳しくは、「[codespace の作成](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
 
 [詳細オプション] ページから、ユーザーは必要に応じて事前に選択された設定を変更し、 **[codespace の作成]** をクリックできます。
 

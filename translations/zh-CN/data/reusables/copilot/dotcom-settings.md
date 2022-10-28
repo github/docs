@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e1df21c0657c55fb934b9c1d837a0ee19df7e37b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 224ce401421d3af0e9afa5976695c95ed219a7b5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147419743"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108146"
 ---
 ## 在 {% data variables.product.prodname_dotcom_the_website %} 上配置 {% data variables.product.prodname_copilot %} 设置
 

@@ -9,12 +9,12 @@ topics:
   - Advanced Security
 shortTitle: 4. Create internal documentation
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: e9852eacc95b98eca5358aafb9a9b13811888f15
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: caf35f06c3f836ea7532b7c5e9dfb419ba8c325b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147145331'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108124'
 ---
 {% note %}
 

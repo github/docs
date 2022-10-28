@@ -4,12 +4,12 @@ shortTitle: Get started
 intro: '了解如何访问 {% data variables.product.prodname_community_exchange %} 并提交存储库。'
 versions:
   fpt: '*'
-ms.openlocfilehash: f9280e380b251c52d2b582aadb55eb319d5c342d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b9c866ef33c321b70b87d8bcd3682d0c02737bfe
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147574002'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108610'
 ---
 ## 简介
 

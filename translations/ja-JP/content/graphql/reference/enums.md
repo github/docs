@@ -4,10 +4,10 @@ redirect_from:
   - /v4/enum
   - /v4/reference/enum
 versions:
-  fpt: "*"
-  ghec: "*"
-  ghes: "*"
-  ghae: "*"
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

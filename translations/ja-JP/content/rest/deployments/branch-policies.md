@@ -11,12 +11,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 70f5d05f0a28e9fa21bf7bc99abbac6bd4a6509a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 109bf81019d62e4c654ba6da4fa71f8fd359ceb4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147549127'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109595'
 ---
 ## デプロイ ブランチ ポリシー API について
 

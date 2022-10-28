@@ -74,7 +74,20 @@ translations/pt-BR/content/authentication/troubleshooting-commit-signature-verif
 translations/pt-BR/content/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces.md,file deleted because it no longer exists in main
 translations/pt-BR/content/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces.md,file deleted because it no longer exists in main
 translations/pt-BR/content/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,file deleted because it no longer exists in main
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/about-github-security-advisories-for-repositories.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/creating-a-repository-security-advisory.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/editing-a-repository-security-advisory.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/index.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/publishing-a-repository-security-advisory.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory.md,file deleted because it no longer exists in main
+translations/pt-BR/content/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory.md,file deleted because it no longer exists in main
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-codespaces.md,file deleted because it no longer exists in main
 translations/pt-BR/content/codespaces/codespaces-reference/security-in-codespaces.md,file deleted because it no longer exists in main
 translations/pt-BR/content/codespaces/codespaces-reference/understanding-billing-for-codespaces.md,file deleted because it no longer exists in main
@@ -223,9 +236,7 @@ translations/pt-BR/data/reusables/codespaces/concurrent-codespace-limit.md,file 
 translations/pt-BR/data/reusables/codespaces/prebuilds-beta-note.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/codespaces/prebuilds-not-available.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/codespaces/unsupported-repos.md,file deleted because it no longer exists in main
-translations/pt-BR/data/reusables/dependabot/beta-security-and-version-updates-onboarding.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/dependabot/create-dependabot-yml.md,file deleted because it no longer exists in main
-translations/pt-BR/data/reusables/dependency-review/beta.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/desktop/paste-email-git-config.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/dotcom_billing/codespaces-minutes.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/dotcom_billing/pricing_calculator/pricing_cal_codespaces.md,file deleted because it no longer exists in main
@@ -233,7 +244,6 @@ translations/pt-BR/data/reusables/education/upgrade-organization.md,file deleted
 translations/pt-BR/data/reusables/education/upgrade-page.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/enterprise-accounts/repository-visibility-policy.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/enterprise-licensing/you-can-sync-for-a-combined-view.md,file deleted because it no longer exists in main
-translations/pt-BR/data/reusables/enterprise/upgrade-ghes-for-actions.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/enterprise_management_console/username_normalization_sample.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/gated-features/advanced-security.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/gated-features/discussions.md,file deleted because it no longer exists in main
@@ -243,6 +253,35 @@ translations/pt-BR/data/reusables/getting-started/learning-lab.md,file deleted b
 translations/pt-BR/data/reusables/open-source/open-source-learning-lab.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/pages/pages-builds-with-github-actions-public-beta.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/repositories/squash-and-rebase-linear-commit-hisitory.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/apps/oauth-applications.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/branches/branch-protection.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/checks/runs.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/deployments/statuses.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/enterprise-admin/audit-log.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/enterprise-admin/billing.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/interactions/interactions.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/issues/assignees.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/issues/labels.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/issues/milestones.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/metrics/community.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/orgs/custom_roles.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/orgs/members.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/orgs/outside-collaborators.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/projects/cards.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/projects/collaborators.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/projects/columns.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/pulls/review-requests.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/releases/assets.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/repos/forks.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/repos/lfs.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/users/blocking.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/users/emails.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/users/followers.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/users/keys.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/webhooks/repo-config.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/webhooks/repo-deliveries.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/rest-reference/webhooks/repos.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/security-center/beta.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/server-statistics/release-phase.md,file deleted because it no longer exists in main
 translations/pt-BR/content/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions.md,rendering error
 translations/pt-BR/content/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions.md,broken liquid tags
@@ -267,7 +306,8 @@ translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-pers
 translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings.md,broken liquid tags
 translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account.md,rendering error
 translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories.md,rendering error
-translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings.md,broken liquid tags
+translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings.md,rendering error
+translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository.md,broken liquid tags
 translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps.md,rendering error
 translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/best-practices-for-leaving-your-company.md,broken liquid tags
 translations/pt-BR/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization.md,broken liquid tags
@@ -290,7 +330,6 @@ translations/pt-BR/content/actions/deployment/deploying-to-your-cloud-provider/d
 translations/pt-BR/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine.md,rendering error
 translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers.md,broken liquid tags
 translations/pt-BR/content/actions/examples/using-concurrency-expressions-and-a-test-matrix.md,broken liquid tags
-translations/pt-BR/content/actions/examples/using-the-github-cli-on-a-runner.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,rendering error
@@ -376,7 +415,7 @@ translations/pt-BR/content/admin/enterprise-management/caching-repositories/conf
 translations/pt-BR/content/admin/enterprise-management/caching-repositories/index.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/configuring-clustering/cluster-network-configuration.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/configuring-clustering/configuring-high-availability-replication-for-a-cluster.md,broken liquid tags
-translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/about-geo-replication.md,broken liquid tags
+translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/about-geo-replication.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/configuring-collectd.md,broken liquid tags
@@ -561,9 +600,7 @@ translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scannin
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,rendering error
-translations/pt-BR/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts.md,rendering error
-translations/pt-BR/content/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,rendering error
@@ -572,15 +609,17 @@ translations/pt-BR/content/code-security/dependabot/dependabot-version-updates/c
 translations/pt-BR/content/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates.md,rendering error
-translations/pt-BR/content/code-security/dependabot/index.md,broken liquid tags
+translations/pt-BR/content/code-security/dependabot/index.md,rendering error
 translations/pt-BR/content/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions.md,rendering error
 translations/pt-BR/content/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot.md,rendering error
 translations/pt-BR/content/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot.md,rendering error
 translations/pt-BR/content/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors.md,rendering error
 translations/pt-BR/content/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies.md,rendering error
+translations/pt-BR/content/code-security/getting-started/adding-a-security-policy-to-your-repository.md,broken liquid tags
 translations/pt-BR/content/code-security/getting-started/github-security-features.md,rendering error
 translations/pt-BR/content/code-security/getting-started/securing-your-organization.md,rendering error
 translations/pt-BR/content/code-security/getting-started/securing-your-repository.md,rendering error
+translations/pt-BR/content/code-security/index.md,rendering error
 translations/pt-BR/content/code-security/secret-scanning/about-secret-scanning.md,rendering error
 translations/pt-BR/content/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories.md,rendering error
 translations/pt-BR/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,rendering error
@@ -597,7 +636,7 @@ translations/pt-BR/content/code-security/supply-chain-security/understanding-you
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,broken liquid tags
-translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
+translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,rendering error
 translations/pt-BR/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
@@ -636,6 +675,7 @@ translations/pt-BR/content/codespaces/prebuilding-your-codespaces/allowing-a-pre
 translations/pt-BR/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,broken liquid tags
 translations/pt-BR/content/codespaces/prebuilding-your-codespaces/managing-prebuilds.md,broken liquid tags
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,broken liquid tags
+translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines.md,broken liquid tags
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,broken liquid tags
@@ -778,7 +818,7 @@ translations/pt-BR/content/organizations/managing-organization-settings/integrat
 translations/pt-BR/content/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
-translations/pt-BR/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,broken liquid tags
+translations/pt-BR/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
 translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,broken liquid tags
@@ -981,7 +1021,7 @@ translations/pt-BR/data/reusables/actions/github-connect-resolution.md,broken li
 translations/pt-BR/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/jobs/section-running-jobs-in-a-container.md,broken liquid tags
-translations/pt-BR/data/reusables/actions/message-parameters.md,broken liquid tags
+translations/pt-BR/data/reusables/actions/message-parameters.md,rendering error
 translations/pt-BR/data/reusables/actions/more-resources-for-ghes.md,rendering error
 translations/pt-BR/data/reusables/actions/ref_name-description.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/reusable-workflow-artifacts.md,rendering error
@@ -1006,7 +1046,7 @@ translations/pt-BR/data/reusables/advanced-security/about-committer-numbers-ghec
 translations/pt-BR/data/reusables/advanced-security/about-ghas-organization-policy.md,broken liquid tags
 translations/pt-BR/data/reusables/advanced-security/secret-scanning-add-custom-pattern-details.md,rendering error
 translations/pt-BR/data/reusables/advanced-security/secret-scanning-create-custom-pattern.md,rendering error
-translations/pt-BR/data/reusables/advanced-security/secret-scanning-new-custom-pattern.md,broken liquid tags
+translations/pt-BR/data/reusables/advanced-security/secret-scanning-new-custom-pattern.md,rendering error
 translations/pt-BR/data/reusables/advanced-security/secret-scanning-push-protection-org.md,broken liquid tags
 translations/pt-BR/data/reusables/apps/user-to-server-rate-limits.md,broken liquid tags
 translations/pt-BR/data/reusables/audit_log/audit-log-action-categories.md,rendering error
@@ -1109,16 +1149,16 @@ translations/pt-BR/data/reusables/organizations/billing_plans.md,rendering error
 translations/pt-BR/data/reusables/organizations/github-apps-settings-sidebar.md,rendering error
 translations/pt-BR/data/reusables/organizations/member-privileges.md,rendering error
 translations/pt-BR/data/reusables/organizations/navigate-to-org.md,broken liquid tags
-translations/pt-BR/data/reusables/organizations/new_team.md,broken liquid tags
-translations/pt-BR/data/reusables/organizations/org_settings.md,broken liquid tags
-translations/pt-BR/data/reusables/organizations/organization-wide-project.md,broken liquid tags
-translations/pt-BR/data/reusables/organizations/owners-team.md,broken liquid tags
-translations/pt-BR/data/reusables/organizations/people.md,broken liquid tags
+translations/pt-BR/data/reusables/organizations/new_team.md,rendering error
+translations/pt-BR/data/reusables/organizations/org_settings.md,rendering error
+translations/pt-BR/data/reusables/organizations/organization-wide-project.md,rendering error
+translations/pt-BR/data/reusables/organizations/owners-team.md,rendering error
+translations/pt-BR/data/reusables/organizations/people.md,rendering error
 translations/pt-BR/data/reusables/organizations/repository-defaults.md,rendering error
 translations/pt-BR/data/reusables/organizations/security-and-analysis.md,rendering error
 translations/pt-BR/data/reusables/organizations/security.md,rendering error
-translations/pt-BR/data/reusables/organizations/specific_team.md,broken liquid tags
-translations/pt-BR/data/reusables/organizations/teams.md,broken liquid tags
+translations/pt-BR/data/reusables/organizations/specific_team.md,rendering error
+translations/pt-BR/data/reusables/organizations/teams.md,rendering error
 translations/pt-BR/data/reusables/organizations/teams_sidebar.md,rendering error
 translations/pt-BR/data/reusables/organizations/verified-domains.md,rendering error
 translations/pt-BR/data/reusables/package_registry/authenticate-packages.md,broken liquid tags
@@ -1126,7 +1166,7 @@ translations/pt-BR/data/reusables/package_registry/authenticate-to-container-reg
 translations/pt-BR/data/reusables/package_registry/authenticate_with_pat_for_v2_registry.md,broken liquid tags
 translations/pt-BR/data/reusables/package_registry/next-steps-for-packages-enterprise-setup.md,broken liquid tags
 translations/pt-BR/data/reusables/package_registry/package-registry-with-github-tokens.md,broken liquid tags
-translations/pt-BR/data/reusables/package_registry/package-settings-from-org-level.md,broken liquid tags
+translations/pt-BR/data/reusables/package_registry/package-settings-from-org-level.md,rendering error
 translations/pt-BR/data/reusables/package_registry/packages-billing.md,broken liquid tags
 translations/pt-BR/data/reusables/package_registry/required-scopes.md,broken liquid tags
 translations/pt-BR/data/reusables/pages/build-failure-email-server.md,broken liquid tags
@@ -1149,6 +1189,7 @@ translations/pt-BR/data/reusables/repositories/navigate-to-code-security-and-ana
 translations/pt-BR/data/reusables/repositories/navigate-to-commit-page.md,broken liquid tags
 translations/pt-BR/data/reusables/repositories/navigate-to-repo.md,broken liquid tags
 translations/pt-BR/data/reusables/repositories/repository-branches.md,rendering error
+translations/pt-BR/data/reusables/repositories/security-advisories-republishing.md,broken liquid tags
 translations/pt-BR/data/reusables/repositories/sidebar-notifications.md,rendering error
 translations/pt-BR/data/reusables/repositories/suggest-changes.md,broken liquid tags
 translations/pt-BR/data/reusables/repositories/you-can-fork.md,broken liquid tags
@@ -1167,8 +1208,9 @@ translations/pt-BR/data/reusables/secret-scanning/enterprise-enable-secret-scann
 translations/pt-BR/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
 translations/pt-BR/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/pt-BR/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
+translations/pt-BR/data/reusables/security-advisory/security-advisory-overview.md,broken liquid tags
 translations/pt-BR/data/reusables/security-overview/permissions.md,rendering error
-translations/pt-BR/data/reusables/security/displayed-information.md,broken liquid tags
+translations/pt-BR/data/reusables/security/displayed-information.md,rendering error
 translations/pt-BR/data/reusables/shortdesc/rate_limits_github_apps.md,broken liquid tags
 translations/pt-BR/data/reusables/sponsors/select-sponsorship-billing.md,broken liquid tags
 translations/pt-BR/data/reusables/ssh/about-ssh.md,broken liquid tags
@@ -1201,7 +1243,7 @@ translations/pt-BR/data/reusables/user-settings/ssh.md,rendering error
 translations/pt-BR/data/reusables/webhooks/pull_request_properties.md,broken liquid tags
 translations/pt-BR/data/reusables/webhooks/pull_request_webhook_properties.md,broken liquid tags
 translations/pt-BR/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
-translations/pt-BR/data/reusables/webhooks/webhooks-rest-api-links.md,broken liquid tags
+translations/pt-BR/data/reusables/webhooks/webhooks-rest-api-links.md,rendering error
 translations/pt-BR/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
 translations/pt-BR/data/variables/migrations.yml,broken liquid tags
 translations/pt-BR/data/variables/notifications.yml,broken liquid tags

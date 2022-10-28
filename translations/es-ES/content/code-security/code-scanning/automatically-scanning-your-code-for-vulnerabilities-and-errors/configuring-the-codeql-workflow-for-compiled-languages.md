@@ -125,8 +125,8 @@ After removing the `autobuild` step, uncomment the `run` step and add build comm
 
 ``` yaml
 - run: |
-  make bootstrap
-  make release
+    make bootstrap
+    make release
 ```
 
 For more information about the `run` keyword, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."

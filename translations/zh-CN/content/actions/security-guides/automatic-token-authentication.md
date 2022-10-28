@@ -87,9 +87,7 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
 | packages      | read/write  | none | read |
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | pages         | read/write  | none | read |
-{%- endif %}
 | pull-requests | read/write  | none | read |
 | repository-projects | read/write | none | read |
 | security-events     | read/write | none | read |

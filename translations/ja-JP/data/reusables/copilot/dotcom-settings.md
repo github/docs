@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e1df21c0657c55fb934b9c1d837a0ee19df7e37b
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 224ce401421d3af0e9afa5976695c95ed219a7b5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147419746"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109179"
 ---
 ## {% data variables.product.prodname_copilot %} の設定を {% data variables.product.prodname_dotcom_the_website %} で構成する
 

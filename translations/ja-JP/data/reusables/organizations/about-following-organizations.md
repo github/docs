@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 9d70c0e47d7aed9253d990146233d8fac92d339c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: f9490c302fe4534be6937805e0eec85fe9c5db1a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147692147"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109587"
 ---
 {% data variables.product.product_name %} で組織をフォローすると、個人用ダッシュボードに{% ifversion fpt or ghec %}パブリック{% endif %} アクティビティが表示されます。 このアクティビティには、新しいディスカッション、スポンサーシップ、リポジトリが含まれます。
