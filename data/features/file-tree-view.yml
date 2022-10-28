@@ -1,0 +1,7 @@
+# Reference: Issue #6669 — New Code View
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.8'
+  ghae: '>3.8'
