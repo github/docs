@@ -1,6 +1,7 @@
 ---
 title: Navigating files with the new code view (beta)
 intro: 'Learn about the new code view and its features.'
+allowTitleToDifferFromFilename: true
 versions:
   feature: file-tree-view
 topics:
