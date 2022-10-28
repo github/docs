@@ -149,5 +149,5 @@ As part of the new code view, the blame view was also updated. Rather than losin
 
 ## Further reading
 
-- "[Moving a file to a new location](moving-a-file-to-a-new-location)"
+- "[Moving a file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)"
 - "[About GitHub Code Search](/search-github/github-code-search/about-github-code-search)"
