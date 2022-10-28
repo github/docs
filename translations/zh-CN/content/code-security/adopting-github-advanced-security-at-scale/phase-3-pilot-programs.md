@@ -9,12 +9,12 @@ topics:
   - Advanced Security
 shortTitle: 3. Pilot programs
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 3df893158c402b9180260ddd1c82c96f62b84717
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: d56427173580558a192d0709ae700cbd497e2935
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147145334'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108125'
 ---
 {% note %}
 

@@ -32,7 +32,7 @@ sections:
         - |
           Dependabot alerts can now notify you of vulnerabilities in your dependencies on GitHub AE. You can enable Dependabot alerts by enabling the dependency graph, enabling GitHub Connect, and syncing vulnerabilities from the GitHub Advisory Database. This feature is in beta and subject to change. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
-          After you enable Dependabot alerts, members of your organization will receive notifications any time a new vulnerability that affects their dependencies is added to the GitHub Advisory Database or a vulnerable dependency is added to their manifest. Members can customize notification settings. For more information, see "[Configuring notifications for % data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)." <!-- ⚠️ Articles will be available when we toggle content feature flags -->
+          After you enable Dependabot alerts, members of your organization will receive notifications any time a new vulnerability that affects their dependencies is added to the GitHub Advisory Database or a vulnerable dependency is added to their manifest. Members can customize notification settings. For more information, see "[Configuring notifications for % data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
     - heading: 'Security manager role for organizations'
       notes:
@@ -45,7 +45,7 @@ sections:
           - Write access on security settings at the organization level
           - Write access on security settings at the repository level
 
-          For more information, see "[Managing security managers in your organization](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)." <!-- ⚠️ Article will be available when we toggle content feature flags -->
+          For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
     - heading: 'Ephemeral runners and autoscaling webhooks for GitHub Actions'
       notes:
@@ -56,7 +56,7 @@ sections:
 
           You can combine ephemeral runners with the new `workflow_job` webhook to automatically scale self-hosted runners in response to job requests from GitHub Actions.
 
-          For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)." <!-- ⚠️ Article will be available when we toggle content feature flags -->
+          For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
 
     - heading: 'Composite actions for GitHub Actions'
       notes:
@@ -107,7 +107,7 @@ sections:
     - heading: 'Markdown improvements'
       notes:
         - |
-          You can now use footnote syntax in any Markdown field to reference relevant information without disrupting the flow of your prose. Footnotes are displayed as superscript links. Click a footnote to jump to the reference, displayed in a new section at the bottom of the document. For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)." <!-- ⚠️ Section on page will be available when we toggle content feature flags -->
+          You can now use footnote syntax in any Markdown field to reference relevant information without disrupting the flow of your prose. Footnotes are displayed as superscript links. Click a footnote to jump to the reference, displayed in a new section at the bottom of the document. For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."
 
         - |
           You can now toggle between the source view and rendered Markdown view through the web UI by clicking the {% octicon "code" aria-label="The Code icon" %} button to "Display the source diff" at the top of any Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
@@ -160,7 +160,7 @@ sections:
           ![Screenshot of indicator for automatic assignment of code review](https://user-images.githubusercontent.com/2503052/134931920-409dea07-7a70-4557-b208-963357db7a0d.png)
           
         - |
-          You can now filter pull request searches to only include pull requests you are directly requested to review by choosing **Awaiting review from you**. For more information, see "[Searching issues and pull requests](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests)."
+          You can now filter pull request searches to only include pull requests you are directly requested to review by choosing **Awaiting review from you**. For more information, see "[Searching issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests)."
 
         - |
           If you specify the exact name of a branch when using the branch selector menu, the result now appears at the top of the list of matching branches. Previously, exact branch name matches could appear at the bottom of the list.

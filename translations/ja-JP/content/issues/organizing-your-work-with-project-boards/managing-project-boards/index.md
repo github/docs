@@ -22,11 +22,11 @@ children:
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: a480750b4c44c7934efa6a0a554c1cf7040629de
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b4034bc9c9ffd29709ac491c6729787c958dd50b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147422941'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109571'
 ---
 {% data reusables.projects.project_boards_old %}

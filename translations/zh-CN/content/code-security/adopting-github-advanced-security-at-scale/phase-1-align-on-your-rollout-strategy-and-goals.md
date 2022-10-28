@@ -9,12 +9,12 @@ topics:
   - Advanced Security
 shortTitle: 1. Align on strategy
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 63154ac960e4b3a9d29f41e72cd925230838069c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b2677cf11c300ad657f9bd6b8862fb1f292c2fb7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147145335'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108718'
 ---
 {% note %}
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a17c50cfb04b759fe451f686129f86bb4b22fcff
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 6b7d1cd8cae2ecd6688a1a5d41d7bda03d8e8d97
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147424901"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148110056"
 ---
 {% ifversion git-events-audit-log %} {% note %}
 

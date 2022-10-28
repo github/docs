@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 820a9b22deab6ecaf7fa06129e2205267b22812c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b1c04738a3c03d892b360c3b23def694d202ee0c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423836'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107843'
 ---
 Você pode personalizar as visualizações usando filtros para os metadados do item, como os responsáveis e as etiquetas aplicadas aos problemas e pelos campos no seu projeto. Você pode combinar filtros e salvá-los como visualizações. Para obter mais informações, confira "[Como personalizar as exibições do projeto](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)".
 

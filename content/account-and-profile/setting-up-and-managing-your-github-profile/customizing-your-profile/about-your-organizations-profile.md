@@ -24,7 +24,7 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can confi
 To confirm your organization's identity and display a "Verified" badge on your organization profile page, you can verify your organization's domains with {% data variables.product.prodname_dotcom %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ![Sample organization profile page](/assets/images/help/organizations/org_profile_with_overview.png)
 {% else %}
 ![Sample organization profile page](/assets/images/help/profile/org_profile.png)

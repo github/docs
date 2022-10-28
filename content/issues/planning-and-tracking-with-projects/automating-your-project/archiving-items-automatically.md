@@ -1,10 +1,10 @@
 ---
-title: 'Archiving items automatically'
-shortTitle: 'Archiving automatically'
-intro: 'You can configure your project''s built-in workflows to automatically archive items that meet specific criteria.'
+title: Archiving items automatically
+shortTitle: Archiving automatically
+intro: You can configure your project's built-in workflows to automatically archive items that meet specific criteria.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2-auto-archive"
+  feature: projects-v2-auto-archive
 type: tutorial
 topics:
   - Projects

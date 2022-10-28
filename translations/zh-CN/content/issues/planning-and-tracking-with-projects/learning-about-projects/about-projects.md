@@ -10,12 +10,12 @@ redirect_from:
 type: overview
 topics:
   - Projects
-ms.openlocfilehash: f50d54b95862102eafe97dcf1dfcec4daa1d7995
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 4de4e96b6e445a29377c63188f6529c5b2023a5e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423955'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108099'
 ---
 ## 关于 {% data variables.product.prodname_projects_v2 %}
 

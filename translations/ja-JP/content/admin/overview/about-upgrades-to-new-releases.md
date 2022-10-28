@@ -9,15 +9,13 @@ type: overview
 topics:
   - Enterprise
   - Upgrades
-ms.openlocfilehash: 196745ee4ededaf78bd5afe876e4afa09141e930
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: b3a2d340ef73ffe92f2117caf38a84e76ba0c8d1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145120205'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108851'
 ---
-{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
-
 {% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} はフルマネージドサービスであるため、{% data variables.product.company_short %} が Enterprise のアップグレードプロセスを完了します。{% endif %}
 
 通常、機能リリースは四半期ごとに行われ、新機能と機能のアップグレードが含まれます。 {% ifversion ghae %}{% data variables.product.company_short %} は、エンタープライズを最新の機能リリースにアップグレードします。 Enterprise で予定されているダウンタイムについては、事前に通知されます。{% endif %}

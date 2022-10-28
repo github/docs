@@ -4,7 +4,7 @@ shortTitle: 'Managing {% data variables.projects.project_v2 %} access'
 intro: 'Learn how to manage team and individual access to your {% data variables.projects.project_v2 %}.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-access-to-projects
 type: tutorial

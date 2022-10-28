@@ -67,7 +67,7 @@ You can use Markdown to format your message. For more information, see "[About w
 {% ifversion ghes or ghae %}
 ## Creating a mandatory message
 
-You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.location.product_location %}.
+You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before using {% data variables.location.product_location %}.
 
 Mandatory messages have a variety of uses.
 
@@ -79,11 +79,13 @@ If you include Markdown checkboxes in the message, all checkboxes must be select
 
 Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
+{% ifversion display-mandatory-message-again %} {% else %}
 {% note %}
 
-**Note:** If you change the mandatory message for {% data variables.location.product_location %}, users who have already acknowledged the message will not see the new message.
+**Note:** If you change the mandatory message for {% data variables.location.product_location %}, users who have already acknowledged the message will not see the new message. 
 
 {% endnote %}
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -91,7 +93,11 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 1. To the right of "Mandatory message", click **Add message**.
   ![Add mandatory message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
 1. Under "Mandatory message", in the text box, type your message.
-  ![Mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
+  ![Screenshot of the mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
+{%- ifversion display-mandatory-message-again %} 
+1. Optionally, select **Show updated message to all users even if they dismissed the previous one**.
+![Screenshot of checkbox that when selected pushes mandatory messages to all users](/assets/images/enterprise/site-admin-settings/push-mandatory-message-checkbox.png)
+   {% endif %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}

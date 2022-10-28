@@ -1,13 +1,13 @@
 ---
 title: 'Phase 5: Rollout and scale code scanning'
-intro: "You can leverage the available APIs to rollout {% data variables.product.prodname_code_scanning %} programmatically by team and by language across your enterprise using the repository data you collected earlier."
+intro: 'You can leverage the available APIs to rollout {% data variables.product.prodname_code_scanning %} programmatically by team and by language across your enterprise using the repository data you collected earlier.'
 versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
-shortTitle: '5. Rollout code scanning'
+shortTitle: 5. Rollout code scanning
 miniTocMaxHeadingLevel: 3
 ---
 

@@ -1,13 +1,13 @@
 ---
-title: Deleting a {% data variables.product.prodname_project_v1 %}
-intro: You can delete an existing {% data variables.projects.projects_v1_board %} if you no longer need access to its contents.
+title: 'Deleting a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can delete an existing {% data variables.projects.projects_v1_board %} if you no longer need access to its contents.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
   - /articles/deleting-a-project
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true

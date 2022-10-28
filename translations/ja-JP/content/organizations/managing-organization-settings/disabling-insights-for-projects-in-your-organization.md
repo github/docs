@@ -8,12 +8,12 @@ topics:
   - Projects
 shortTitle: 'Disable {% data variables.product.prodname_projects_v2 %} insights'
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 06ab0f550603e3810bf860f01efe9113766c0fb3
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 80a35ea28d90b89c39fb7f9207b2ea950a98a8b6
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147424083'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108832'
 ---
 Organization 内のプロジェクトの分析情報を無効にした後、Organization が所有するプロジェクトの分析情報にアクセスできなくなります。
 

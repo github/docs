@@ -9,15 +9,13 @@ type: overview
 topics:
   - Enterprise
   - Upgrades
-ms.openlocfilehash: 196745ee4ededaf78bd5afe876e4afa09141e930
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: b3a2d340ef73ffe92f2117caf38a84e76ba0c8d1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145095849'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107785'
 ---
-{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
-
 {% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} é um serviço totalmente gerenciado, portanto o {% data variables.product.company_short %} conclui o processo de atualização para sua empresa.{% endif %}
 
 As versões do recurso incluem novas funcionalidades e atualizações de recursos e, normalmente, ocorrem a cada trimestre. {% ifversion ghae %}{% data variables.product.company_short %} irá atualizar sua empresa para a versão mais recente do recurso. Você será avisado antecipadamente de qualquer período de inatividade planejado para sua empresa.{% endif %}

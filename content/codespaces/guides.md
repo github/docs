@@ -15,6 +15,8 @@ includeGuides:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines
+  - /codespaces/setting-up-your-project-for-codespaces/automatically-opening-files-in-the-codespaces-for-a-repository
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
   - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account

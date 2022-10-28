@@ -9,12 +9,12 @@ topics:
 shortTitle: Project visibility permissions
 allowTitleToDifferFromFilename: true
 permissions: 'Organization owners can allow {% data variables.projects.project_v2_and_v1 %} visibility changes for an organization.'
-ms.openlocfilehash: 784b0f35ff86a1a2620a0c96d4e951a8ca28e136
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 5f8963e8c03e2c0a62586964b6331ec7b3d945b5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147854088'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148110028'
 ---
 ## Acerca de los cambios de visibilidad de los proyectos
 

@@ -1,10 +1,10 @@
 ---
-title: 'About single select fields'
-shortTitle: 'About single select fields'
-intro: 'You can create single select fields with defined options that can be selected from a dropdown menu.'
+title: About single select fields
+shortTitle: About single select fields
+intro: You can create single select fields with defined options that can be selected from a dropdown menu.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 type: tutorial
 topics:
   - Projects

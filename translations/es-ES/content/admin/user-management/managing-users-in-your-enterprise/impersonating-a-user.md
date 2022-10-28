@@ -3,7 +3,7 @@ title: Hacerse pasar por un usuario
 intro: 'Puedes hacerte pasar por usuarios y realizar acciones en su nombre, para solucionar problemas, hacer desbloqueos y otras razones legítimas.'
 permissions: Enterprise owners can impersonate users within their enterprise.
 versions:
-  ghes: '>3.2'
+  ghes: '*'
   ghae: '*'
 type: how_to
 topics:
@@ -11,12 +11,12 @@ topics:
   - Enterprise
   - User account
 shortTitle: Impersonate a user
-ms.openlocfilehash: 8e237c6ace7e7feb4badefcbd863b0974c983732
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: df0513c3ca2931378e656f228939540dd5ea5816
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145116266'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109966'
 ---
 ## Acerca de hacerse pasar por un usuario
 

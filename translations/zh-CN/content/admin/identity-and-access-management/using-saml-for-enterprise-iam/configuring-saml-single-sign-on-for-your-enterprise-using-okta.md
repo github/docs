@@ -15,12 +15,12 @@ topics:
   - Enterprise
 type: how_to
 shortTitle: Configure SAML SSO with Okta
-ms.openlocfilehash: 2772285f266a2593e8fc0900b39602325d30c46d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: e9cbf6e70fb5e07f9cd2c5e27d9b952921e18fdc
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147094804'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108690'
 ---
 {% data reusables.enterprise-accounts.emu-saml-note %}
 

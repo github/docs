@@ -1,6 +1,6 @@
 ---
-title: バージョン更新用に設定された依存関係を一覧表示する
-intro: '{% data variables.product.prodname_dependabot %} が更新を監視している依存関係を表示できます。'
+title: Listing dependencies configured for version updates
+intro: 'You can view the dependencies that {% data variables.product.prodname_dependabot %} monitors for updates.'
 redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 type: how_to
 topics:
   - Repositories
@@ -16,28 +16,27 @@ topics:
   - Version updates
   - Dependencies
 shortTitle: List configured dependencies
-ms.openlocfilehash: 8028c10c39d4b045206954fc38ed805b5432e553
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145124836'
 ---
-{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## {% data variables.product.prodname_dependabot %} によって監視されている依存関係を表示する
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
-バージョン更新を有効にした後、リポジトリの依存関係グラフの **[{% data variables.product.prodname_dependabot %}]** タブで、設定が正しいかどうかを確認できます。 詳細については、「[{% data variables.product.prodname_dependabot %} バージョンの更新の構成](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)」を参照してください。
+## Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %} {% data reusables.repositories.click-dependency-graph %} {% data reusables.dependabot.click-dependabot-tab %}
-1. 必要に応じて、パッケージ マネージャーで監視されているファイルを表示するには、関連する {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。
-  ![監視対象の依存関係ファイル](/assets/images/help/dependabot/monitored-dependency-files.png)
+After you've enabled version updates, you can confirm that your configuration is correct using the **{% data variables.product.prodname_dependabot %}** tab in the dependency graph for the repository. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
-依存関係が見つからない場合は、ログファイルでエラーを確認します。 パッケージマネージャーが見つからない場合は、設定ファイルを確認してください。
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
+{% data reusables.dependabot.click-dependabot-tab %}
+1. Optionally, to view the files monitored for a package manager, click the associated {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+  ![Monitored dependency files](/assets/images/help/dependabot/monitored-dependency-files.png)
 
-## Viewing {% data variables.product.prodname_dependabot %} のログファイルを表示する
+If any dependencies are missing, check the log files for errors. If any package managers are missing, review the configuration file.
 
-1. **[{% data variables.product.prodname_dependabot %}]** タブで、 **[最後のチェックは *時間* 前]** をクリックして、{% data variables.product.prodname_dependabot %} で最後のバージョン更新チェック時に生成されたログファイルを表示します。
-  ![[ログ ファイルの表示]](/assets/images/help/dependabot/last-checked-link.png)
-2. 必要に応じて、バージョン チェックを再実行するには、 **[更新プログラムをチェックする]** をクリックします。
-  ![更新プログラムをチェックする](/assets/images/help/dependabot/check-for-updates.png)
+## Viewing {% data variables.product.prodname_dependabot %} log files
+
+1. On the **{% data variables.product.prodname_dependabot %}** tab, click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates.
+  ![View log file](/assets/images/help/dependabot/last-checked-link.png)
+2. Optionally, to rerun the version check, click **Check for updates**.
+  ![Check for updates](/assets/images/help/dependabot/check-for-updates.png)

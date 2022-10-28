@@ -1,6 +1,6 @@
 ---
 title: Reviewing and revoking personal access tokens in your organization
-intro: Organization owners can review the {% data variables.product.pat_v2 %}s that can access their organization. They can also revoke access of specific {% data variables.product.pat_v2 %}s.
+intro: 'Organization owners can review the {% data variables.product.pat_v2 %}s that can access their organization. They can also revoke access of specific {% data variables.product.pat_v2 %}s.'
 versions:
   feature: pat-v2
 shortTitle: Review token access
