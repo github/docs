@@ -55,11 +55,11 @@ includeGuides:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
   - /codespaces/codespaces-reference/security-in-codespaces
-ms.openlocfilehash: 54ba7cc4fbacd536f0438626281d1b59252eb3f1
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 24bf08da053efd9f822b1eb43bacbbe822c1ba8b
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147783109'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113895'
 ---
 

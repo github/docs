@@ -19,11 +19,11 @@ children:
   - /configuring-dependabot-alerts
   - /viewing-and-updating-dependabot-alerts
   - /configuring-notifications-for-dependabot-alerts
-ms.openlocfilehash: 04365ffa391c8da15c34f1e0651d9efa4ebb1a42
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b9abda5288d4f0dfed2175b0e944c0d1bc48f3f7
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146455491'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113985'
 ---
 
