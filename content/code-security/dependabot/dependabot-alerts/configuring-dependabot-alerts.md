@@ -38,8 +38,9 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
+  ![Screenshot of "Settings code security and analysis in the "Security" section of the sidebar"](/assets/images/help/code-security-and-analysis.png)
 3. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable all** or **Enable all**.
- ![Screenshot of "Configure security and analysis" features with "Enable all" or "Disable all" buttons emphasized](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-all.png)
+  ![Screenshot of "Configure security and analysis" features with "Enable all" or "Disable all" buttons emphasized](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-all.png)
 4. Optionally, enable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories that you create.
   ![Screenshot of "Enable Dependabot alerts" with "Enable by default for new private repositories" checkbox emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-by-default.png)
 5. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories you own.
