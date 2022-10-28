@@ -12,6 +12,7 @@ versions:
 topics:
   - API
 shortTitle: Traverse with pagination
+miniTocMaxHeadingLevel: 3
 ---
 
 The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume.
@@ -24,9 +25,12 @@ in the [platform-samples][platform samples] repository.
 
 {% data reusables.rest-api.dotcom-only-guide-note %}
 
+
+
 ## Basics of Pagination
 
 To start with, it's important to know a few facts about receiving paginated items:
+
 
 1. Different API calls respond with different defaults. For example, a call to
 [List public repositories](/rest/reference/repos#list-public-repositories)
@@ -37,54 +41,126 @@ provides items in sets of 100
 [events](/rest/reference/activity#events) won't let you set a maximum for items to receive.
 Be sure to read the documentation on how to handle paginated results for specific endpoints.
 
-Information about pagination is provided in [the Link header](https://datatracker.ietf.org/doc/html/rfc5988)
-of an API call. For example, let's make a curl request to the search API, to find
-out how many times Mozilla projects use the phrase `addClass`:
+{% note %}
 
-```shell
-$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla"
+**Note**: You should always rely on URLs included in the link header. Don't try to guess or construct your own URLs.
+
+{% endnote %}
+
+
+### Link header
+
+The response header includes information about pagination. For more information about headers, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#about-the-response-code-and-headers)." To get the response header, include the `-I` flag in your request. For example:
+
+```shell 
+$ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"   https://api.github.com/enterprises/advacado-corp/audit-log
+
 ```
 
-The `-I` parameter indicates that we only care about the headers, not the actual
-content. In examining the result, you'll notice some information in the Link header
-that looks like this:
+The `-I` flag returns only the response header. If the response is paginated, the response header will include a `link` header. The header will look something like this:
 
-    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+```
+link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=>; rel="next"
+```
 
-Let's break that down. `rel="next"` says that the next page is `page=2`. This makes
-sense, since by default, all paginated queries start at page `1.` `rel="last"`
-provides some more information, stating that the last page of results is on page `34`.
-Thus, we have 33 more pages of information about `addClass` that we can consume.
-Nice!
+or
 
-**Always** rely on these link relations provided to you. Don't try to guess or construct your own URL.
+```
+link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?page=511>; rel="last"
+```
+### Types of pagination
 
-### Navigating through the pages
+{% data variables.product.company_short %}'s API uses two pagination methods: page-based pagination and cursor-based pagination. If the `link` header includes `page`, then the operation uses page-based pagination. If the `link` header includes `before` and `after`, then the operation uses cursor-based pagination.
 
-Now that you know how many pages there are to receive, you can start navigating
-through the pages to consume the results. You do this by passing in a `page`
-parameter. By default, `page` always starts at `1`. Let's jump ahead to page 14
-and see what happens:
+
+#### Page based pagination
+
+The link header for page-based pagination will tell you information about the previous, next, first, and last pages. If you did not request a specific page, then the response will default to the first page and information about the first and previous pages will be omitted.
+
+For example, for a request that did not specify a page, this header states that the next page is `2` and the last page is `511`.
+
+```
+link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?page=511>; rel="last"
+```
+
+For example, for a request that specified page 5, this header states that the previous page is `4`, the next page is `6`, the last page is `511`, and the first page is `1`.
+
+```
+link: <https://api.github.com/repositories/1300192/issues?page=4>; rel="prev", <https://api.github.com/repositories/1300192/issues?page=6>; rel="next", <https://api.github.com/repositories/1300192/issues?page=511>; rel="last", <https://api.github.com/repositories/1300192/issues?page=1>; rel="first"
+```
+
+#### Cursor based pagination
+
+Cursor pagination uses terms `before` and `after` in order to navigate through pages. `rel="next"` and `rel="prev"` this mark the cursor point in the data set and provides a reference for traveling to the page `before` and `after` the current page.  
+
+```
+link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODMzMzk2MzZlKzEyfFdxSzIxdGU0MlBWNUp5UzhBWDF6LWc%3D&before=>; rel="next",
+<https://api.github.com/enterprises/13827/audit-log?after=&before=>; rel="first", 
+<https://api.github.com/enterprises/13827/audit-log?after=&before=MS42NjQzODM5MTcyMjllKzEyfDI4NDE6NEVFNDoxODBDRkM5OjY5REE0MzI6NjMzNDdCQUQ%3D>; rel="prev"
+```
+
+In this example, `rel=next` says that the next page is located at:
+
+```
+after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=>
+```
+
+
+
+
+### Using pagination
+
+#### Cursor based pagination
+
+Using cursor based pagination requires you to use the terms `before` and `after`. To navigate using `before` and `after`, copy the link header generated above into your curl request:
+
+```shell
+$ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"  https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=>
+```
+
+The above example will generate a page of results and new header information that you can use to make the next request. `rel="next"` provides the next page of results. `rel="prev"` provides the previous page of results. The important part of the output here is the link header needs to be generated rather than manually imputed. Copy the entire link from the following output.
+
+```
+link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODMzMzk2MzZlKzEyfFdxSzIxdGU0MlBWNUp5UzhBWDF6LWc%3D&before=>; rel="next", 
+<https://api.github.com/enterprises/13827/audit-log?after=&before=>; rel="first", 
+<https://api.github.com/enterprises/13827/audit-log?after=&before=MS42NjQzODM5MTcyMjllKzEyfDI4NDE6NEVFNDoxODBDRkM5OjY5REE0MzI6NjMzNDdCQUQ%3D>; rel="prev"
+```
+
+Unlike page-based pagination, the results will not return the last page number in the response.
+
+    link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODMzMzk2MzZlKzEyfFdxSzIxdGU0MlBWNUp5UzhBWDF6LWc%3D&before=>; rel="next", 
+    <https://api.github.com/enterprises/13827/audit-log?after=&before=>; rel="first", 
+    <https://api.github.com/enterprises/13827/audit-log?after=&before=MS42NjQzODM5MTcyMjllKzEyfDI4NDE6NEVFNDoxODBDRkM5OjY5REE0MzI6NjMzNDdCQUQ%3D>; rel="prev"
+    
+Because cursor based pagination creates a reference point in the data set, it cannot calculate the total number of results.
+
+
+#### Page based pagination
+
+To navigate using page based pagination pass in a `page`
+parameter. By default, `page` always starts at `1`. In the following example, we have made a curl request to the search API Mozilla projects use the phrase `addClass`. Instead of starting at 1, lets jump to page 14. 
 
 ```shell
 $ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&page=14"
 ```
 
-Here's the link header once more:
+Here's an except of the link header in the HTTP request:
 
     Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
-As expected, `rel="next"` is at 15, and `rel="last"` is still 34. But now we've
+In this example, `rel="next"` is at 15, and `rel="last"` is 34. But now we've
 got some more information: `rel="first"` indicates the URL for the _first_ page,
 and more importantly, `rel="prev"` lets you know the page number of the previous
 page. Using this information, you could construct some UI that lets users jump
 between the first, previous, next, or last list of results in an API call.
 
+
 ### Changing the number of items received
+
+#### Page based pagination
 
 By passing the `per_page` parameter, you can specify how many items you want
 each page to return, up to 100 items. Let's try asking for 50 items about `addClass`:
@@ -101,6 +177,14 @@ Notice what it does to the header response:
 As you might have guessed, the `rel="last"` information says that the last page
 is now 20. This is because we are asking for more information per page about
 our results.
+
+#### Cursor based pagination
+
+You can also pass the `per_page` parameter for cursor-based pagination. 
+
+```shell
+$ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"  https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=>&per_page=50
+```
 
 ## Consuming the information
 

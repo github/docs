@@ -14,11 +14,11 @@ children:
   - /enforcing-policies-for-your-enterprise
   - /enforcing-policy-with-pre-receive-hooks
 shortTitle: Set policies
-ms.openlocfilehash: 075d4f949435539c9c45ae651aedb0878f3317db
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 6fae4d9a9aa9c137be114b51eb90d79eb16d71df
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147400368'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108127'
 ---
 

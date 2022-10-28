@@ -15,12 +15,12 @@ topics:
   - Pull requests
 shortTitle: 'Disable {% data variables.projects.projects_v1_boards %}'
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 0407d6df39ae664474aa3fb5c99dc7998df1b951
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 8c550cd9ebc767327298e39dc0b3a6a11368dc3f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147422658'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108619'
 ---
 禁用 {% data variables.projects.projects_v1_boards %} 时，时间线或[审核日志](/articles/reviewing-your-security-log/)中将不再显示 {% data variables.projects.projects_v1_board %} 信息。
 

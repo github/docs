@@ -9,15 +9,13 @@ type: overview
 topics:
   - Enterprise
   - Upgrades
-ms.openlocfilehash: 196745ee4ededaf78bd5afe876e4afa09141e930
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: b3a2d340ef73ffe92f2117caf38a84e76ba0c8d1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145099943'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108039'
 ---
-{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
-
 {% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}
 
 功能版本包括新的功能和功能升级，通常每季度进行一次。 {% ifversion ghae %}{% data variables.product.company_short %} 会将您的企业升级到最新的功能版本。 您的企业如有任何计划内的停机，都会提前通知您。{% endif %}

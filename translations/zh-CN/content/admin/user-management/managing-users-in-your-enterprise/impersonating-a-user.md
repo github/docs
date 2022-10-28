@@ -3,7 +3,7 @@ title: 模拟用户
 intro: 您可以出于故障排除、取消阻止和其他合法原因而模拟用户并代表用户执行操作。
 permissions: Enterprise owners can impersonate users within their enterprise.
 versions:
-  ghes: '>3.2'
+  ghes: '*'
   ghae: '*'
 type: how_to
 topics:
@@ -11,12 +11,12 @@ topics:
   - Enterprise
   - User account
 shortTitle: Impersonate a user
-ms.openlocfilehash: 8e237c6ace7e7feb4badefcbd863b0974c983732
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: df0513c3ca2931378e656f228939540dd5ea5816
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145098959'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108174'
 ---
 ## 关于用户模拟
 

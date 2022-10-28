@@ -12,13 +12,6 @@ topics:
   - Enterprise
 ---
 
-{% ifversion ghes < 3.3 %}
-{% note %}
-
-**Note:** {% data reusables.enterprise.upgrade-ghes-for-actions %}
-
-{% endnote %}
-{% endif %}
 
 ## About {% data variables.product.prodname_actions %} for enterprises
 
@@ -55,7 +48,6 @@ You can create your own unique automations, or you can use and adapt workflows f
 {% else %}
 After you finish planning, you can follow the instructions for getting started with {% data variables.product.prodname_actions %}. For more information, see {% ifversion ghec %}"[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_cloud %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud)."{% elsif ghae %}"[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."{% endif %}
 {% endif %}
-
 
 ## Further reading
 

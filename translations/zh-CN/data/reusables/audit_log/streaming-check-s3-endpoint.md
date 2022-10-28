@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e52e6f55f04b57e1b1f8a8d044b4651b69e2caf5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6e4387a1736c320dbef802ea07c22dfc1fa091a6
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147079576"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108170"
 ---
 1. 若要验证 {% data variables.product.prodname_dotcom %} 是否可以连接并写入 Amazon S3 终结点，请单击“检查终结点”。
    

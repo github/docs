@@ -1,6 +1,6 @@
 ---
-title: '更改 {% data variables.product.prodname_project_v1 %} 的可见性'
-intro: '作为组织所有者或 {% data variables.projects.projects_v1_board %} 管理员，你可以将 {% data variables.projects.projects_v1_board %} 设为{% ifversion ghae %}内部{% else %}公共{% endif %}或专用。'
+title: 'Changing {% data variables.product.prodname_project_v1 %} visibility'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can make a {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %} or private.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
   - /articles/changing-project-board-visibility
@@ -11,12 +11,6 @@ topics:
   - Pull requests
 shortTitle: Change visibility
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: c288e72dccb5c1212e6e01d24197289cc77c18ce
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147614477'
 ---
 {% data reusables.projects.project_boards_old %}
 
@@ -27,10 +21,12 @@ ms.locfileid: '147614477'
 **{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
 
 * {% data reusables.projects.owners-can-limit-visibility-permissions %}
-* {% endif %}将 {% data variables.projects.projects_v1_board %} 设为{% ifversion ghae %}内部{% else %}公共{% endif %}时，组织成员默认获得读取权限。 你可以授予特定组织成员写入或管理员权限，方法是为他们所在的团队授予访问权限或将他们作为协作者添加到 {% data variables.projects.projects_v1_board %}。 有关详细信息，请参阅“[组织的 {% data variables.product.prodname_project_v1_caps %} 权限](/articles/project-board-permissions-for-an-organization)”。
+* {% endif %}When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% endnote %}
 
-1. 导航到要设为{% ifversion ghae %}内部{% else %}公共{% endif %}或专用的项目板。
-{% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.choose-visibility %}
-1. 单击“保存” 。
+1. Navigate to the project board you want to make {% ifversion ghae %}internal{% else %}public{% endif %} or private.
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.choose-visibility %}
+1. Click **Save**.

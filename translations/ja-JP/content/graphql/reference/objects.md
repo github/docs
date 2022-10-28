@@ -4,10 +4,10 @@ redirect_from:
   - /v4/object
   - /v4/reference/object
 versions:
-  fpt: "*"
-  ghec: "*"
-  ghes: "*"
-  ghae: "*"
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

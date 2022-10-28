@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 736651c236f667201be543ea6cb1462ed10bc9c7
-ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.openlocfilehash: 518c31dffd71180ff4733f98ba7df3d5fe6028d9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2022
-ms.locfileid: "145065847"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108738"
 ---
-建议仅将自托管运行器用于私有仓库。 这是因为，通过创建在工作流程中执行代码的拉取请求，仓库的复刻可能会在您的自托管运行器上运行危险代码。
+建议仅将自托管运行器用于私有仓库。 这是因为，通过创建在工作流中执行代码的拉取请求，公共存储库的分支可能会在自托管运行器计算机上运行危险代码。

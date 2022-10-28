@@ -8,12 +8,12 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: d6ab274812f4f35ff4f6afa9e1e2139abf86dd54
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2ef01bbd4ec13e37fdcd95e2a536e73c6da2304d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424145'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109267'
 ---
 テキスト フィールドを使用して、プロジェクトに注釈やその他のフリーフォーム テキストを含めることができます。
 

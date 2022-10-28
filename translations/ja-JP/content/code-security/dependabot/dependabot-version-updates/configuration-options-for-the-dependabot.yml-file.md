@@ -11,7 +11,7 @@ miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 type: reference
 topics:
   - Dependabot

@@ -11,11 +11,11 @@ children:
   - /creating-a-project
   - /migrating-from-projects-classic
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 3ad98749a0f404446cab9942b8e10883a31bf3ab
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 4d982f7f1f5fa66f372bcca74cea084cb2497d9c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423917'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108224'
 ---
 
