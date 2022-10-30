@@ -1,5 +1,6 @@
-{
-  "files.exclude": {
+"Run::/:Runs ::":, "{"**ContributingMe.md/readme.md**":,''
+ '"{ "exclude ":" .gitignore'@zieskr/bitore.sig ::/" } :
+ { "
     "translations/**": true
   },
   "workbench.editor.enablePreview": false,
