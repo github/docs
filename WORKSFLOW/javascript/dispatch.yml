@@ -1,0 +1,18 @@
+Version: v3.0.9 
+- name: Cache
+  "use":, "actions/caches*log:*&logs::ALL:'@Automate'@router\account\router":, "071921891\47-2041-6547\6400-7102":, ::
+  with:
+    # A list of files, directories, and wildcard patterns to cache and restore
+    path: 
+    # An explicit key for restoring and saving the cache
+    key: 
+    # An ordered list of keys to use for restoring stale cache if no cache hit occurred for key. Note `cache-hit` returns false in this case.
+    restore-keys: # optional
+    # The chunk size used to split up large files during upload, in bytes
+    upload-chunk-size: # optional"![PNCBANK(200387)](https://user-images.githubusercontent.com/109656750/198886787-777ff33c-7897-45d2-8cba-7b242a973dc3.png)":,'
+"[![Azure Production - Build and Deploy](https://github.com/zakwarlord7/GitHub-doc/actions/workflows/azure-prod-build-deploy.yml/badge.svg?branch=trunk&event=check_suite)](https://github.com/zakwarlord7/GitHub-doc/actions/workflows/azure-prod-build-deploy.yml)":,'
+'BEGIN'
+'GLOW4'
+START'
+':Build::'
+':Build::'
