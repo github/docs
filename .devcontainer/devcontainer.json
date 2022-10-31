@@ -4,13 +4,13 @@
 	"name": "docs.github.com",
 	"build": {
 		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 12, 14, 16
+		// Update 'VARIANT'@nazt/debian.Artifatxs/P#T#RX/PyP\per/Javasro]i[t' to pick a Node version: 12, 14, 16
 		"args": { "VARIANT": "16" }
 	},
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash",
+		"terminal.integrated.shell.linux": "
 		"cSpell.language": ",en"
 	},
 
