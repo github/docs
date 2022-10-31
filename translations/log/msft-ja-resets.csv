@@ -479,9 +479,9 @@ translations/ja-JP/content/admin/identity-and-access-management/using-enterprise
 translations/ja-JP/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,broken liquid tags
-translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
+translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise.md,rendering error
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/index.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,rendering error
@@ -535,7 +535,6 @@ translations/ja-JP/content/admin/user-management/migrating-data-to-and-from-your
 translations/ja-JP/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/user-management/migrating-data-to-and-from-your-enterprise/index.md,broken liquid tags
 translations/ja-JP/content/admin/user-management/migrating-data-to-and-from-your-enterprise/migrating-data-to-your-enterprise.md,broken liquid tags
-translations/ja-JP/content/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on.md,broken liquid tags
 translations/ja-JP/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,rendering error
 translations/ja-JP/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,rendering error
 translations/ja-JP/content/authentication/connecting-to-github-with-ssh/about-ssh.md,broken liquid tags
@@ -590,6 +589,7 @@ translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscript
 translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise.md,broken liquid tags
+translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning.md,rendering error
@@ -1057,6 +1057,7 @@ translations/ja-JP/data/reusables/audit_log/audit-log-action-categories.md,rende
 translations/ja-JP/data/reusables/audit_log/audit-log-events-workflows.md,rendering error
 translations/ja-JP/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,rendering error
 translations/ja-JP/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
+translations/ja-JP/data/reusables/billing/license-statuses.md,broken liquid tags
 translations/ja-JP/data/reusables/branches/new-repo-default-branch.md,broken liquid tags
 translations/ja-JP/data/reusables/classroom/about-autograding.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/alerts-found-in-generated-code.md,broken liquid tags
@@ -1110,6 +1111,7 @@ translations/ja-JP/data/reusables/enterprise-accounts/emu-permission-repo.md,bro
 translations/ja-JP/data/reusables/enterprise-accounts/emu-short-summary.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/oidc-gei-warning.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/security-tab.md,rendering error
+translations/ja-JP/data/reusables/enterprise-accounts/vss-ghe-description.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise/apply-configuration.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise/rate_limit.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise/repository-caching-release-phase.md,rendering error
