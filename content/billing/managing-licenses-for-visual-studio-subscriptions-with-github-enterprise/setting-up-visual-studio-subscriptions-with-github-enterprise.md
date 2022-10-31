@@ -10,18 +10,18 @@ topics:
 shortTitle: Set up
 ---
 
-## About setup of {% data variables.product.prodname_vss_ghe %}
+## About setup of {% data variables.visual_studio.prodname_vss_ghe %}
 
-{% data reusables.enterprise-accounts.vss-ghe-description %} For more information, see "[About {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)."
+{% data reusables.enterprise-accounts.vss-ghe-description %} For more information, see "[About {% data variables.visual_studio.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)."
 
 This guide shows you how your team can get {% data variables.product.prodname_vs %} subscribers licensed and started with {% data variables.product.prodname_enterprise %}.
 
 If you prefer video, you can watch [Setting up your {% data variables.product.prodname_enterprise %} licenses with {% data variables.product.prodname_vs %} subscriptions](https://www.youtube.com/watch?v=P_zBgp_BE_I) on 
 Microsoft Visual Studio's YouTube channel.
 
-## Roles for {% data variables.product.prodname_vss_ghe %}
+## Roles for {% data variables.visual_studio.prodname_vss_ghe %}
 
-Before setting up {% data variables.product.prodname_vss_ghe %}, it's important to understand the roles for this combined offering.
+Before setting up {% data variables.visual_studio.prodname_vss_ghe %}, it's important to understand the roles for this combined offering.
 
 | Role | Service | Description | More information |
 | :- | :- | :- | :- |
@@ -38,15 +38,15 @@ Before setting up {% data variables.product.prodname_vss_ghe %}, it's important 
  
  - Your team must have an enterprise on {% data variables.location.product_location %}. If you're not sure whether your team has an enterprise, contact your {% data variables.product.prodname_dotcom %} administrator. If you're not sure who on your team is responsible for {% data variables.product.prodname_dotcom %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 
-## Setting up {% data variables.product.prodname_vss_ghe %}
+## Setting up {% data variables.visual_studio.prodname_vss_ghe %}
 
-To set up {% data variables.product.prodname_vss_ghe %}, members of your team must complete the following tasks.
+To set up {% data variables.visual_studio.prodname_vss_ghe %}, members of your team must complete the following tasks.
 
-One person may be able to complete the tasks because the person has all of the roles, but you may need to coordinate the tasks with multiple people. For more information, see "[Roles for {% data variables.product.prodname_vss_ghe %}](#roles-for-visual-studio-subscriptions-with-github-enterprise)."
+One person may be able to complete the tasks because the person has all of the roles, but you may need to coordinate the tasks with multiple people. For more information, see "[Roles for {% data variables.visual_studio.prodname_vss_ghe %}](#roles-for-visual-studio-subscriptions-with-github-enterprise)."
 
 1. An enterprise owner must create at least one organization in your enterprise on {% data variables.location.product_location %}. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 
-1. The subscription admin must assign a license for {% data variables.product.prodname_vs %} to a subscriber in {% data variables.product.prodname_vss_admin_portal_with_url %}. For more information, see [Overview of the {% data variables.product.prodname_vs %} Subscriptions Administrator Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/using-admin-portal) and [Assign {% data variables.product.prodname_vs %} Licenses in the {% data variables.product.prodname_vs %} Subscriptions Administration Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-license) in Microsoft Docs.
+1. The subscription admin must assign a license for {% data variables.product.prodname_vs %} to a subscriber in {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}. For more information, see [Overview of the {% data variables.product.prodname_vs %} Subscriptions Administrator Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/using-admin-portal) and [Assign {% data variables.product.prodname_vs %} Licenses in the {% data variables.product.prodname_vs %} Subscriptions Administration Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-license) in Microsoft Docs.
 
 1. Optionally, if the subscription admin assigned licenses to subscribers in {% data variables.product.prodname_vs %} before adding {% data variables.product.prodname_enterprise %} to the subscription, the subscription admin can move the subscribers to the combined offering in the {% data variables.product.prodname_vs %} administration portal. For more information, see [Manage {% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-github#moving-to-visual-studio-with-github-enterprise) in Microsoft Docs.
 
@@ -64,7 +64,7 @@ One person may be able to complete the tasks because the person has all of the r
 
     {% endtip %}
 
-After {% data variables.product.prodname_vss_ghe %} is set up for subscribers on your team, enterprise owners can review licensing information on {% data variables.location.product_location %}. For more information, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+After {% data variables.visual_studio.prodname_vss_ghe %} is set up for subscribers on your team, enterprise owners can review licensing information on {% data variables.location.product_location %}. For more information, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
 ## Further reading
 
