@@ -39,7 +39,18 @@ If your key already has a passphrase, you will be prompted to enter it before yo
 {% windows %}
 
 ## Auto-launching `ssh-agent` on Git for Windows
+On Windows you have two choices, using the OS disabled service or using the git bash tooling
+### Using Windows service
+Open the task runner wih the combination: Winkey + R, type `services.msc` and hit enter
+![taskrunner](https://user-images.githubusercontent.com/78289548/199058197-eaed1f0f-3805-4784-98da-b0e0d63e766a.png)
 
+Now on the Services window look for the `OpenSSH Authentication Agent`
+![service](https://user-images.githubusercontent.com/78289548/199058497-c1abc2ac-2a11-4a91-8948-062eda2f87c1.png)
+
+Finally double click the service and activate all of his settings by selecting `Startup type: Automatic` and pushing the `Start` button
+![openssh-windows](https://user-images.githubusercontent.com/78289548/199058938-66a515fb-27c4-4b9c-af46-1052b1550ff6.png)
+
+### Using Git Bash built-in tools
 You can run `ssh-agent` automatically when you open bash or Git shell. Copy the following lines and paste them into your `~/.profile` or `~/.bashrc` file in Git shell:
 
 ``` bash
