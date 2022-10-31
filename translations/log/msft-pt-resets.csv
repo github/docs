@@ -579,6 +579,7 @@ translations/pt-BR/content/billing/managing-licenses-for-visual-studio-subscript
 translations/pt-BR/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
 translations/pt-BR/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,broken liquid tags
 translations/pt-BR/content/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise.md,broken liquid tags
+translations/pt-BR/content/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise.md,broken liquid tags
 translations/pt-BR/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
 translations/pt-BR/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
 translations/pt-BR/content/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning.md,rendering error
@@ -1055,6 +1056,7 @@ translations/pt-BR/data/reusables/audit_log/audit-log-action-categories.md,rende
 translations/pt-BR/data/reusables/audit_log/audit-log-events-workflows.md,rendering error
 translations/pt-BR/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,rendering error
 translations/pt-BR/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
+translations/pt-BR/data/reusables/billing/license-statuses.md,broken liquid tags
 translations/pt-BR/data/reusables/branches/new-repo-default-branch.md,broken liquid tags
 translations/pt-BR/data/reusables/classroom/about-autograding.md,broken liquid tags
 translations/pt-BR/data/reusables/code-scanning/alerts-found-in-generated-code.md,broken liquid tags
@@ -1108,6 +1110,7 @@ translations/pt-BR/data/reusables/enterprise-accounts/emu-permission-repo.md,bro
 translations/pt-BR/data/reusables/enterprise-accounts/emu-short-summary.md,rendering error
 translations/pt-BR/data/reusables/enterprise-accounts/oidc-gei-warning.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise-accounts/security-tab.md,broken liquid tags
+translations/pt-BR/data/reusables/enterprise-accounts/vss-ghe-description.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise/apply-configuration.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise/rate_limit.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise/repository-caching-release-phase.md,rendering error
