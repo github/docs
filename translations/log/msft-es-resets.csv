@@ -220,6 +220,7 @@ translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/es-ES/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/es-ES/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
 translations/es-ES/data/graphql/ghes-3.2/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
+translations/es-ES/data/reusables/actions/hardware-requirements-3.6.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/jobs/section-using-a-build-matrix-for-your-jobs-strategy.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
@@ -630,7 +631,7 @@ translations/es-ES/content/code-security/dependabot/working-with-dependabot/keep
 translations/es-ES/content/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot.md,rendering error
 translations/es-ES/content/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors.md,rendering error
 translations/es-ES/content/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies.md,rendering error
-translations/es-ES/content/code-security/getting-started/adding-a-security-policy-to-your-repository.md,broken liquid tags
+translations/es-ES/content/code-security/getting-started/adding-a-security-policy-to-your-repository.md,rendering error
 translations/es-ES/content/code-security/getting-started/github-security-features.md,rendering error
 translations/es-ES/content/code-security/getting-started/securing-your-organization.md,rendering error
 translations/es-ES/content/code-security/getting-started/securing-your-repository.md,rendering error
@@ -833,7 +834,6 @@ translations/es-ES/content/organizations/managing-organization-settings/managing
 translations/es-ES/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/es-ES/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
 translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
-translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on.md,broken liquid tags
 translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,broken liquid tags
 translations/es-ES/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/es-ES/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
@@ -913,6 +913,7 @@ translations/es-ES/content/repositories/releasing-projects-on-github/comparing-r
 translations/es-ES/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/es-ES/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
 translations/es-ES/content/repositories/working-with-files/managing-files/adding-a-file-to-a-repository.md,broken liquid tags
+translations/es-ES/content/repositories/working-with-files/managing-large-files/about-git-large-file-storage.md,broken liquid tags
 translations/es-ES/content/repositories/working-with-files/managing-large-files/about-large-files-on-github.md,broken liquid tags
 translations/es-ES/content/repositories/working-with-files/using-files/getting-permanent-links-to-files.md,broken liquid tags
 translations/es-ES/content/repositories/working-with-files/using-files/working-with-non-code-files.md,rendering error

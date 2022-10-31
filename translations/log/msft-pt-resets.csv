@@ -219,6 +219,7 @@ translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/pt-BR/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/pt-BR/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
 translations/pt-BR/data/graphql/ghes-3.2/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/actions/hardware-requirements-3.6.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
@@ -615,7 +616,7 @@ translations/pt-BR/content/code-security/dependabot/working-with-dependabot/keep
 translations/pt-BR/content/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot.md,rendering error
 translations/pt-BR/content/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors.md,rendering error
 translations/pt-BR/content/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies.md,rendering error
-translations/pt-BR/content/code-security/getting-started/adding-a-security-policy-to-your-repository.md,broken liquid tags
+translations/pt-BR/content/code-security/getting-started/adding-a-security-policy-to-your-repository.md,rendering error
 translations/pt-BR/content/code-security/getting-started/github-security-features.md,rendering error
 translations/pt-BR/content/code-security/getting-started/securing-your-organization.md,rendering error
 translations/pt-BR/content/code-security/getting-started/securing-your-repository.md,rendering error
@@ -900,6 +901,7 @@ translations/pt-BR/content/repositories/releasing-projects-on-github/comparing-r
 translations/pt-BR/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/pt-BR/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
 translations/pt-BR/content/repositories/working-with-files/managing-files/adding-a-file-to-a-repository.md,broken liquid tags
+translations/pt-BR/content/repositories/working-with-files/managing-large-files/about-git-large-file-storage.md,broken liquid tags
 translations/pt-BR/content/repositories/working-with-files/managing-large-files/about-large-files-on-github.md,broken liquid tags
 translations/pt-BR/content/repositories/working-with-files/using-files/getting-permanent-links-to-files.md,broken liquid tags
 translations/pt-BR/content/repositories/working-with-files/using-files/working-with-non-code-files.md,rendering error
