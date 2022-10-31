@@ -108,7 +108,7 @@ Available in the organization-level overview.
 | -------- | -------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
 
-{% ifversion security-overview-views %}
+{% ifversion security-overview-alert-views %}
 
 ## Filter by severity
 

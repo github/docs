@@ -30,7 +30,7 @@ shortTitle: View the security overview
 1. To view aggregate information about alert types, click **Show more**.
   ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-{% ifversion security-overview-views %}
+{% ifversion security-overview-alert-views %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
   ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
