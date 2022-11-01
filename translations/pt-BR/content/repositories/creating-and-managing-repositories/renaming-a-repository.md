@@ -12,12 +12,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: e56e8ca634ca1bfec3c587fe8fb606ab73ac72d4
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: d0067d96dce2f2cf9fe8bb2dd519668780d861ff
+ms.sourcegitcommit: bd8b3e152f17d90acf222a0d50ba9595184c1f5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145127080'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111670'
 ---
 Quando você renomear um repositório, todas as informações existentes, com exceção das URLs do site do projeto, serão automaticamente redirecionadas para o novo nome, incluindo:
 
@@ -31,7 +31,7 @@ Para obter mais informações sobre sites de projeto, confira "[Sobre o {% data 
 Além de redirecionar o tráfego da Web, todas as operações `git clone`, `git fetch` ou `git push` direcionadas ao local anterior continuarão funcionando como se fossem feitas no novo local. No entanto, para reduzir a confusão, recomendamos que a atualização de quaisquer clones locais existentes apontem para a nova URL do repositório. Faça isso usando `git remote` na linha de comando:
 
 ```shell
-$ git remote set-url origin <em>new_url</em>
+$ git remote set-url origin NEW_URL
 ```
 
 Para obter mais informações, confira "[Como gerenciar repositórios remotos](/github/getting-started-with-github/managing-remote-repositories)".
@@ -50,7 +50,7 @@ Se você planeja renomear um repositório que tenha um site do {% data variables
 
 {% warning %}
 
-**Aviso**: se você criar um repositório na sua conta no futuro, não reutilize o nome original do repositório renomeado. Se o fizer, o redirecionamento para o repositório renomeado quebrará.
+**Aviso**: se você criar um repositório na sua conta no futuro, não reutilize o nome original do repositório renomeado. Se você reutilizar, redirecionamentos para o repositório renomeado não funcionarão mais.
 
 {% endwarning %}
 
