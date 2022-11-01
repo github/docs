@@ -28,13 +28,13 @@ When you add a {% data variables.actions.hosted_runner %} to an organization, yo
 
 ## Architectural overview of {% data variables.actions.hosted_runner %}s
 
-The {% data variables.actions.hosted_runner %}s are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target the label assigned to the {% data variables.actions.hosted_runner %}. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+The {% data variables.actions.hosted_runner %}s are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target either the group name or the label assigned to the {% data variables.actions.hosted_runner %}. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` has been defined with customized hardware and operating system configuration.
 
 ![Diagram explaining {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner.png)
 
-1. Instances of this runner are automatically created and added to a group called `ubuntu-20.04-16core`. 
+1. Instances of this runner are automatically created and added to a group called `grp-ubuntu-20.04-16core`. 
 2. The runners have been assigned the label `ubuntu-20.04-16core`. 
 3. Workflow jobs use the `ubuntu-20.04-16core` label in their `runs-on` key to indicate the type of runner they need to execute the job.
 4. {% data variables.product.prodname_actions %} checks the runner group to see if your repository is authorized to send jobs to the runner.
@@ -99,14 +99,25 @@ You can add a {% data variables.actions.hosted_runner %} to an organization, whe
 
 ## Running jobs on your runner
 
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. In this example, a runner group is populated with Ubuntu 16-core runners, which have been assigned the label `ubuntu-20.04-16core`. If you have a runner matching this label, the `check-bats-version` job then uses the `runs-on` key to target that runner whenever the job is run:
+Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. You can use runner groups or labels to define where your jobs run. 
+
+Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization administrator to find out which runners are enabled. Your organization administrator can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group.
+
+### Using groups to control where jobs are run
+
+{% data reusables.actions.jobs.example-runs-on-groups %}
+
+### Using labels to control where jobs are run
+
+In this example, a runner group is populated with Ubuntu 16-core runners, which have also been assigned the label `ubuntu-20.04-16core`. The `runs-on` key sends the job to any available runner with a matching label:
 
 ```yaml
 name: learn-github-actions
 on: [push]
 jobs:
   check-bats-version:
-    runs-on: ubuntu-20.04-16core
+    runs-on:
+      labels: ubuntu-20.04-16core
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-node %}
@@ -116,7 +127,33 @@ jobs:
       - run: bats -v
 ```
 
-To find out which runners are enabled for your repository and organization, you must contact your organization admin. Your organization admin can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group.
+### Using labels and groups to control where jobs are run
+
+{% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
+
+### Using multiple labels
+
+You can specify multiple labels that need to be matched for a job to run on a runner. A runner will need to match all labels to be eligible to run the job.
+
+In this example, a runner will need to match all three of the labels to run the job:
+
+```yaml
+name: learn-github-actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on:
+      labels: [ ubuntu-20.04-16core, gpu, qa ]
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+```
+
+{% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
 ## Managing access to your runners
 
