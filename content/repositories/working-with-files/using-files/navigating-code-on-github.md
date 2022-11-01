@@ -67,6 +67,12 @@ If you don't see the results you expect from a precise code navigation query, yo
 
 If your precise results appear inaccurate, you can file a support request.
 
+## Cross-repository precise code navigation
+
+Languages that support precise code navigation support cross-repo requests. Thanks to cross-repo code navigation and the GitHub dependency graph, jump-to-definition requests for functions or variables defined in libraries used in your projects behave just like requests for entities defined in that project. By importing a function or variable from a third-party library hosted on Github, and then issuing a jump-to-definition request for that function or variable, you can click on the cross-repo result to its definition in the defining third-party library.
+
+![Cross-repository code navigation](/assets/images/help/repository/cross-repository-code-navigation.png)
+
 ## Troubleshooting code navigation
 
 If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
