@@ -1,6 +1,7 @@
 ---
 title: Managing alerts from secret scanning
 intro: You can view and close alerts for secrets checked in to your repository.
+permissions: 'People with admin access to a repository can view and dismiss alerts.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
