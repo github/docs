@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
+        dotnet-version: [ '3.1.x', '6.0.x' ]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -80,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
+        dotnet-version: [ '3.1.x', '6.0.x' ]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -98,11 +98,11 @@ jobs:
 You can configure your job to use a specific version of .NET, such as `3.1.3`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of .NET 3.
 
 ```yaml
-    - name: Setup .NET 3.x
+    - name: Setup .NET SDK
       uses: {% data reusables.actions.action-setup-dotnet %}
       with:
         # Semantic version range syntax or exact version of a dotnet version
-        dotnet-version: '3.x'
+        dotnet-version: '6.0.x'
 ```
 
 ## Installing dependencies
@@ -115,7 +115,7 @@ steps:
 - name: Setup dotnet
   uses: {% data reusables.actions.action-setup-dotnet %}
   with:
-    dotnet-version: '3.1.x'
+    dotnet-version: '6.0.x'
 - name: Install dependencies
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
@@ -134,7 +134,7 @@ steps:
 - name: Setup dotnet
   uses: {% data reusables.actions.action-setup-dotnet %}
   with:
-    dotnet-version: '3.1.x'
+    dotnet-version: '6.0.x'
 - uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.nuget/packages
@@ -164,7 +164,7 @@ steps:
 - name: Setup dotnet
   uses: {% data reusables.actions.action-setup-dotnet %}
   with:
-    dotnet-version: '3.1.x'
+    dotnet-version: '6.0.x'
 - name: Install dependencies
   run: dotnet restore
 - name: Build
@@ -190,7 +190,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
+        dotnet-version: [ '3.1.x', '6.0.x' ]
 
       steps:
         - uses: {% data reusables.actions.action-checkout %}
@@ -232,7 +232,7 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-dotnet %}
         with:
-          dotnet-version: '3.1.x' # SDK Version to use.
+          dotnet-version: '6.0.x' # SDK Version to use.
           source-url: https://nuget.pkg.github.com/<owner>/index.json
         env:
           NUGET_AUTH_TOKEN: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}
