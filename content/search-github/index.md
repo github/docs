@@ -10,11 +10,11 @@ featuredLinks:
     - /search-github/searching-on-github/searching-for-repositories
     - /search-github/searching-on-github/searching-commits
   popular:
+    - /search-github/github-code-search/about-github-code-search
     - /search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
     - /search-github/searching-on-github/searching-users
     - /search-github/searching-on-github/finding-files-on-github
     - /search-github/getting-started-with-searching-on-github/sorting-search-results
-    - /search-github/github-code-search/about-github-code-search
   guideCards:
     - /search-github/searching-on-github/searching-in-forks
     - /search-github/searching-on-github/searching-topics

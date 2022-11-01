@@ -18,7 +18,7 @@ topics:
 
 ## About the GitHub Code Search query structure
 
-Please note that the search syntax in this article only applies to searching code with the GitHub Code Search (beta). The syntax and qualifiers used when searching for other search types such as issues, pull requests, and wikis works the same way as it does with the classic search on GitHub.com. For more information, see "[Searching on GitHub](/search-github/searching-on-github/index.md)."
+The search syntax in this article only applies to searching code with the GitHub Code Search (beta) enabled. {% data reusables.search.non-code-search-explanation %}
 
 Search queries consist of search terms, consisting of text you want to search for, and qualifiers, which narrow down the search. 
 
@@ -97,6 +97,13 @@ You can use parentheses to express more complicated boolean expressions. For exa
 ## Using qualifiers
 
 You can use specialized keywords to qualify your search.
+- [Repository qualifier](#repository-qualifier)
+- [Organization and user qualifiers](#organization-and-user-qualifiers)
+- [Language qualifier](#language-qualifier)
+- [Path qualifier](#path-qualifier)
+- [Symbol qualifier](#symbol-qualifier)
+- [Content qualifier](#content-qualifier)
+- [Is qualifier](#is-qualifier)
 
 ### Repository qualifier
 
@@ -151,12 +158,94 @@ For a complete list of supported language names, see [languages.yaml](https://gi
 
 ### Path qualifier
 
-TBD
+To search within file paths, use the `path:` qualifier. This will match files containing the term anywhere in their file path. For example, to find files containing the term `unit_tests` in their path, use:
 
+```
+path:unit_tests
+```
+ The above query will match both `src/unit_tests/my_test.py` and `src/docs/unit_tests.md` since they both contain `unit_test` somewhere in their path. 
+
+ To match only a specific filename (and not part of the path), you could use a regular expression:
+
+ ```
+ path:/(^|\/)README\.md$/
+ ```
+Note that the `.` in the filename is escaped, since `.` has special meaning for regular expressions. For more information about using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
+
+<br>
+
+You can also use some limited glob expressions in the `path:` qualifier.
+
+For example, to search for files with the extension `txt`, you can use:
+
+```
+path:*.txt
+```
+<br>
+To search for JavaScript files within a `src` directory, you could use:
+
+```
+path:src/*.js
+```
+
+- By default, glob expressions are not anchored to the start of the path, so the above expression would still match a path like `app/src/main.js`. But if you prefix the expression with `/`, it will anchor to the start. For example:
+
+    ```
+    path:/src/*.js
+    ```
+- Note that `*` doesn't match the `/` character, so for the above example, all results will be direct descendants of the `src` directory. To match within subdirectories, so that results include deeply nested files such as `/src/app/testing/utils/example.js`, you can use `**`. For example:
+
+    ```
+    path:/src/**/*.js
+    ```
+<br>
+
+You can also use the `?` global character. For example, to match the path `file.aac` or `file.abc`, you can use:
+
+```
+path:*.a?c
+```
+<br>
+To search for a filename which contains a special character like `*` or `?`, just use a quoted string:
+
+```
+path:"file?"
+```
+
+Since glob expressions are disabled for quoted strings, so the above query will only match paths containing the literal string `file?`. 
 
 ### Symbol qualifier
 
-TBD 
+You can search for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. Symbol search is based on parsing your code using the open source [Tree-sitter](https://github.com/tree-sitter) parser ecosystem, so no extra setup or build tool integration is required.
+
+For example, to search for a symbol called `WithContext`:
+
+```
+language:go symbol:WithContext
+```
+
+In some languages, you can search for symbols using a prefix (e.g. a prefix of their class name). For example, for a method `deleteRows` on a struct `Maint`, you could search `symbol:Maint.deleteRows` if you are using Go, or `symbol:Maint::deleteRows` if you are using Go, or `symbol:Maint::deleteRows` in Rust. 
+
+You can also use regular expressions with the symbol qualifier. For example, the following query would find conversions people have implemented in Rust for the `String` type:
+
+```
+language:rust symbol:/^String::to_.*/
+```
+
+Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages. 
+
+- C#
+- Python
+- Go
+- Java
+- JavaScript
+- TypeScript
+- PHP
+- Protocol Buffers
+- Ruby
+- Rust
+
+We are working on adding support for more languages. If you would like to help contribute to this effort, you can add support for your language in the open source [Tree-sitter](https://github.com/tree-sitter) parser ecosystem, upon which symbol search is based.
 
 ### Content qualifier
 
@@ -167,7 +256,6 @@ content:README.md
 ```
 
 This query would only match files containing the term `README.md`, rather than matching files named `README.md`. 
-
 
 ### Is qualifier
 
