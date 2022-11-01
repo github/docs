@@ -16,13 +16,13 @@ function getClient() {
   return new Client({
     node: ELASTICSEARCH_URL,
     // The default is 30,000ms but we noticed that the median time is about
-    // 100ms with some occasional searches taking multiple seconds.
+    // 100-150ms with some occasional searches taking multiple seconds.
     // The default `maxRetries` is 5 which is a sensible number.
     // If a query gets stuck, it's better to (relatively) quickly give up
     // and retry. So if it takes longer than this time here, we're banking on
     // that it was just bad luck and that it'll work if we simply try again.
     // See internal issue #2318.
-    requestTimeout: 500,
+    requestTimeout: 1000,
   })
 }
 
