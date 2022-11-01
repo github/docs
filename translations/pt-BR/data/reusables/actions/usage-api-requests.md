@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 8ba596d45d317ee21f724d5e7bfa91c343798fa6
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: d2012308af9ed99ce7273d6dfc2dc1ab0da83927
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147884426"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108247"
 ---
-- **Solicitações de API** – Você pode executar até mil solicitações de API em uma hora em todas as ações de um repositório. Se excedido, as chamadas de API adicionais falharão, o que pode causar falha nas tarefas.
+- **Solicitações de API** – Você pode executar até mil solicitações à API do GitHub em uma hora em todas as ações de um repositório. Se o número de solicitações for excedido, as chamadas à API adicionais falharão, o que poderá causar falha nos trabalhos.
