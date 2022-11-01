@@ -115,7 +115,7 @@
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "5.38.0",
     "@typescript-eslint/parser": "5.38.0",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^9.0.1",
     "babel-plugin-styled-components": "^2.0.7",
     "babel-preset-env": "^1.7.0",
     "chalk": "^5.0.1",
