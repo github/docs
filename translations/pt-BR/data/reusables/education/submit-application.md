@@ -1,10 +1,18 @@
-8. Verify your application details, then click **Process my application**.
- ![Process my application button](/assets/images/help/education/submit-your-information-button.png)
+---
+ms.openlocfilehash: ddecd34836e2c6660808f586d4ba63debc83da51
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107458"
+---
+8. Verifique os detalhes do aplicativo e clique em **Processar meu aplicativo**.
+ ![Botão Processar meu aplicativo](/assets/images/help/education/submit-your-information-button.png)
 
     {% note %}
 
-    **Note:** If, after clicking the **Process my application** button, you see a banner asking you to fix something in your application, you should fix it and then click **Reprocess my application**.
+    **Observação:** se, depois de clicar no botão **Processar meu aplicativo**, aparecer uma faixa solicitando que você corrija algo no aplicativo, você deverá corrigir isso e clicar em **Reprocessar meu aplicativo**.
 
     {% endnote %}
 
- If your application is approved, you'll receive a confirmation email. Applications are usually processed within a few days, but it may take longer during peak times, such as during the start of a new semester.
+ Se sua inscrição for aprovada, você receberá um e-mail de confirmação. As candidaturas geralmente são processadas dentro de alguns dias, mas pode demorar mais em tempos de pico, como durante o início de um novo semestre.
