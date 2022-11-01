@@ -16,9 +16,9 @@ topics:
 
 {% endnote %}
 
-## About the GitHub Code Search query structure
+## About the new code search (beta) query structure
 
-The search syntax in this article only applies to searching code with the GitHub Code Search (beta) enabled. {% data reusables.search.non-code-search-explanation %}
+The search syntax in this article only applies to searching code with the new code search (beta) enabled. {% data reusables.search.non-code-search-explanation %}
 
 Search queries consist of search terms, consisting of text you want to search for, and qualifiers, which narrow down the search. 
 
@@ -42,11 +42,11 @@ sparse index
 
 The search results would include all documents containing both the terms `sparse` and `index`, in any order. As examples, it would match a file containing `SparseIndexVector`, or even the phrase `index for sparse trees`. 
 
-Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported in GitHub Code Search (beta). For more information about boolean operations, see "[Using boolean operations](#using-boolean-operations)."
+Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported in the new code search (beta). For more information about boolean operations, see "[Using boolean operations](#using-boolean-operations)."
 
-GitHub Code Search (beta) also supports searching for an exact string, including whitespace. For more information, see "[Query for an exact match](#query-for-an-exact-match)."
+The new code search (beta) also supports searching for an exact string, including whitespace. For more information, see "[Query for an exact match](#query-for-an-exact-match)."
 
-You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in GitHub Code Search (beta), see "[Using qualifiers](#using-qualifiers)."
+You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in the new code search (beta), see "[Using qualifiers](#using-qualifiers)."
 
 You can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
 
@@ -72,7 +72,7 @@ path: git language: "protocol buffers"
 
 ## Using boolean operations
 
-The GitHub Code Search (beta) supports boolean expressions. You can use the operators `AND`, `OR`, and `NOT` to combine search terms.
+The new code search (beta) supports boolean expressions. You can use the operators `AND`, `OR`, and `NOT` to combine search terms.
 
 By default, adjacent terms separated by whitespace are equivalent to using the `AND` operator. For example, the search query `sparse index` is the same as `sparse AND index`, meaning that the search results will include all documents containing both the terms `sparse` and `index`, in any order.
 
@@ -121,7 +121,7 @@ repo:github/linguist OR repo:tree-sitter/tree-sitter
 
 {% note %}
 
-**Note:** GitHub Code Search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
+**Note:** The new code search beta does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
 
 {% endnote %}
 
@@ -141,7 +141,7 @@ user:octocat
 
 {% note %}
 
-**Note:** GitHub Code Search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
+**Note:** The new code search beta does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
 
 {% endnote %}
 
@@ -273,7 +273,7 @@ log4j NOT is:archived
 
 ## Using regular expressions
 
-GitHub Code Search (beta) supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex expression in backslashes. 
+The new code search (beta) supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex expression in backslashes. 
 
 For example, to search for the regular expression `sparse.*index`, you would use:
 
