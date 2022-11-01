@@ -1,4 +1,41 @@
----
+Name :Build andDeployee :
+public. If you believe this is a mistake, contact support to have your account status reviewed.
+github
+/
+docs
+Public
+Code
+Issues
+73
+Pull requests
+102
+Discussions
+Actions
+Projects
+3
+Security
+Insights
+docs/contributing/self-review.md
+@achekerylla
+achekerylla self-review.md fix link to localization checklist
+…
+Latest commit dd3fe2f on Sep 23, 2021
+ History
+ 2 contributors
+13 lines (10 sloc)  1.03 KB
+
+Self review
+You should always review your own PR first.
+
+For content changes, make sure that you:
+
+ Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
+ Compare your pull request's source changes to staging to confirm that the output matches the source and that everything is rendering as expected. This helps spot issues like typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems. Remember that lists and tables can be tricky.
+ Review the content for technical accuracy.
+ Review the entire pull request using the localization checklist.
+ Copy-edit the changes for grammar, spelling, and adherence to the style guide.
+ Check new or updated Liquid statements to confirm that versioning is correct.
+ If there are any failing checks in your PR, troubleshoot them until they've :Automated all passin': ::
 title: About releases
 intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
 redirect_from:
