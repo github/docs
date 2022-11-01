@@ -48,7 +48,7 @@ The new code view also includes updates to the ways in which you work with files
 
   ![Screenshot of the "github/docs" repository with emphasis on a selected file in the file tree view](/assets/images/help/repository/file-tree-view-file-selected.png)
 
-1. To edit a file in the current view, click {% octicon "pencil" aria-label="The pencil icon" %}.
+1. To edit a file in the integrated file editor, click {% octicon "pencil" aria-label="The pencil icon" %}.
 
   ![Screenshot of the file editor in the new code view with emphasis on the edit icon](/assets/images/help/repository/code-view-edit-icon.png)
 
