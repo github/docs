@@ -25,11 +25,11 @@ The new file tree view is a panel that displays all directories and files within
 
   ![Screenshot of the "github/docs" repository with emphasis on the file tree view](/assets/images/help/repository/file-tree-view-directory-selected.png)
 
-2. To search for a specific directory or file, click the {% octicon "filter" aria-label="The filter icon" %} **Jump to file** search bar, then type the directory or file name and select the directory or file from the results. The file path for a directory or file will be displayed below each search result.
+2. To search for a specific directory or file, click the {% octicon "filter" aria-label="The filter icon" %} **Jump to file** search bar, then type the directory or file name and select the directory or file from the results. You can view the file path for a directory or file below each search result.
 
   ![Screenshot of the file tree view with emphasis on the "Jump to file" search bar](/assets/images/help/repository/file-tree-view-jump-to-file.png)
 
-     - To use the broader **Search or jump to...** {% data variables.product.prodname_dotcom %} search, click {% octicon "search" aria-label="The search icon" %}.
+     - To search within the repository using the {% data variables.product.prodname_dotcom %} search bar, click {% octicon "search" aria-label="The search icon" %}.
 
         ![Screenshot of the file tree view with emphasis on the search icon](/assets/images/help/repository/file-tree-view-search-icon.png)
 
@@ -46,7 +46,7 @@ The new file tree view is a panel that displays all directories and files within
   ![Screenshot of the file tree view with emphasis on the "Tags" tab of the branch dropdown menu](/assets/images/help/repository/file-tree-view-branch-dropdown-tags.png)
 
 ## Working with files
-The new code view has also updated the ways in which you work with files. Existing features like editing a file, creating or uploading a file, and deleting a file or directory have been streamlined, and new features like quick access to editing a file in github.dev or {% data variables.product.prodname_desktop %} and integrated search-in-file function have been added.
+The new code view also includes updates to the ways in which you work with files. Existing functionality like editing a file, creating or uploading a file, and deleting a file or directory has been streamlined. You now have quick access to editing a file in github.dev or {% data variables.product.prodname_desktop %} and an integrated search-in-file function. 
 
 1. Select a repository, then click a file within that repository to open the new code view.
 
@@ -70,7 +70,7 @@ The new code view has also updated the ways in which you work with files. Existi
 
   {% note %}
 
-  **Note:** To use your browser's default find function, press <kbd>Command</kbd>+<kbd>F</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>F</kbd> (Windows/Linux) twice. Be aware that the default find function will not be able to search the entirety of a large file, while the search integrated in the new code view will.
+  **Note:** To use your browser's default find function, press <kbd>Command</kbd>+<kbd>F</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>F</kbd> (Windows/Linux) twice. Be aware that your browser's default find function will not be able to search the entirety of a large file, while the search integrated in the new code view will.
 
   {% endnote %}
 
@@ -89,7 +89,7 @@ The new code view has also updated the ways in which you work with files. Existi
   ![Screenshot of the "Upload files" button in the new code view](/assets/images/help/repository/code-view-upload-files.png)
 
 ## Using the symbols pane
-You can now quickly navigate between symbols in your files with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
+You can now quickly view and navigate between symbols such as functions or classes in your code with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
 
 1. Select a repository, then navigate to a file containing symbols.
 2. To bring up the symbols pane, click {% octicon "code-square" aria-label="The code square icon" %}.
@@ -104,7 +104,7 @@ You can now quickly navigate between symbols in your files with the symbols pane
 
   ![Screenshot of the symbols pane with emphasis on an auto-populated symbol](/assets/images/help/repository/code-view-symbols-pane-symbol.png)
 
-   - To search for a symbol in the repository as a whole, click **Search for this symbol in this repository**. To search for a symbol in all repositories on {% data variables.product.prodname_dotcom %}, click **all repos**.
+   - To search for a symbol in the repository as a whole, click **Search for this symbol in this repository**. To search for a symbol in all repositories on {% data variables.product.prodname_dotcom %}, click **all repositories**.
 
       ![Screenshot of the symbols pane with emphasis on the options to broaden the scope of the search for a symbol](/assets/images/help/repository/code-view-symbols-pane-expand-search.png)
 
@@ -139,7 +139,7 @@ As part of the new code view, the blame view was also updated. Rather than losin
 
       ![Screenshot of a commit in the blame view with emphasis on the commit description](/assets/images/help/repository/code-view-blame-commit-description.png)
 
-3. To return to the code view, click **Code**.
+3. To return to the raw code view, click **Code**.
 
   ![Screenshot of the code view toolbar with emphasis on the code view button](/assets/images/help/repository/code-view-button.png)
 
