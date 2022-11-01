@@ -1,0 +1,1 @@
+For more information on the new GitHub Code Search, see "[About GitHub Code Search](content/search-github/github-code-search/about-github-code-search.md)." 

@@ -14,6 +14,7 @@ featuredLinks:
     - /search-github/searching-on-github/searching-users
     - /search-github/searching-on-github/finding-files-on-github
     - /search-github/getting-started-with-searching-on-github/sorting-search-results
+    - /search-github/github-code-search/about-github-code-search
   guideCards:
     - /search-github/searching-on-github/searching-in-forks
     - /search-github/searching-on-github/searching-topics
@@ -36,6 +37,7 @@ topics:
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
+  - /github-code-search
 shortTitle: Search on GitHub
 ---
 

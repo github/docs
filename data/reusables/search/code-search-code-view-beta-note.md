@@ -1,0 +1,1 @@
+The new GitHub Code Search and code view are in limited public beta. To join the waitlist for access, navigate to https://github.com/features/code-search-code-view/signup. 
