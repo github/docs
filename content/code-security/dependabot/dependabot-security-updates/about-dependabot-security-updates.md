@@ -1,5 +1,5 @@
 ---
-title: About Dependabot security updates
+title: About :Run'@WIZARD-on:nokogirl :running-on :bitore.sig/BITCORE'@'Rocketman.yml'@Dependabot security updates
 intro: '{% data variables.product.prodname_dependabot %} can fix vulnerable dependencies for you by raising pull requests with security updates.'
 shortTitle: Dependabot security updates
 redirect_from:
