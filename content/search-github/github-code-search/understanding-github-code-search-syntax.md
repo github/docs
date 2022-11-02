@@ -40,7 +40,7 @@ For example, the following query:
 sparse index
 ```
 
-The search results would include all documents containing both the terms `sparse` and `index`, in any order. As examples, it would match a file containing `SparseIndexVector`, or even the phrase `index for sparse trees`. 
+The search results would include all documents containing both the terms `sparse` and `index`, in any order. As examples, it would match a file containing `SparseIndexVector`, a file with the phrase `index for sparse trees`, and even a file named `index.txt` that contains the term `sparse`.  
 
 Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported in the new code search (beta). For more information about boolean operations, see "[Using boolean operations](#using-boolean-operations)."
 
@@ -48,7 +48,7 @@ The new code search (beta) also supports searching for an exact string, includin
 
 You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in the new code search (beta), see "[Using qualifiers](#using-qualifiers)."
 
-You can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
+You can also use regular expressions in your searches by surrounding the expression in backslashes. For more information on using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
 
 ## Query for an exact match
 
@@ -286,5 +286,3 @@ Note that you'll have to escape any forward slashes within the regular expressio
 ```
 /^App\/src\//
 ```
-
-

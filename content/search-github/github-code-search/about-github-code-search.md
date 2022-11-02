@@ -37,7 +37,7 @@ Once you are given access to the the new code search and code view beta, you can
 
 ## Limitations
 
-We have indexed more than 10 million public repositories for the new code search (beta). Additionally, the private repositories of GitHub users in the beta are indexed and searchable by beta participants that already have access to those private repositories on GitHub.com. However, very large repositories may not be indexed at this time, and not all code is indexed. 
+We have indexed many public repositories for the new code search (beta), and continue to index more. Additionally, the private repositories of GitHub users in the beta are indexed and searchable by beta participants that already have access to those private repositories on GitHub.com. However, very large repositories may not be indexed at this time, and not all code is indexed. 
 
 The current limitations on indexed code are:
    - Vendored and generated code is excluded (as determined by [Enry](https://github.com/go-enry/go-enry))
@@ -47,9 +47,10 @@ The current limitations on indexed code are:
 
 We currently only support searching for code on the default branch of a repository.
 
-Results for any search with the new code search (beta) are restricted to 100 results (10 pages). This limitation only applies to searching code with the new code search (beta) and does not apply to other types of searches.
+Results for any search with the new code search (beta) are restricted to 100 results (10 pages). Sorting is not supported for code search results at this time. This limitation only applies to searching code with the new code search (beta) and does not apply to other types of searches.
 
 The new code search (beta) supports searching for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. However, note that the `symbol:` qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. For a list of what languages are supported, see "[Symbol qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+
 ## Feedback and support
 
 You can view and share feedback about the new code search (beta) in our [discussion forum](https://github.com/orgs/community/discussions/categories/code-search-and-navigation).
