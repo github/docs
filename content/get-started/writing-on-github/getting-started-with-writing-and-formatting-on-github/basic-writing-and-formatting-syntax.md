@@ -189,9 +189,9 @@ The old method of specifying images based on the theme, by using a fragment appe
 You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd>, <kbd>*</kbd> or <kbd>+</kbd>.
 
 ```markdown
-+ George Washington
+- George Washington
 * John Adams
-- Thomas Jefferson
++ Thomas Jefferson
 ```
 
 ![Rendered unordered list](/assets/images/help/writing/unordered-list-rendered.png)
