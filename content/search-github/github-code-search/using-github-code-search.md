@@ -18,7 +18,7 @@ topics:
 
 ## About using the new code search (beta)
 
-Upon getting access to the new code search beta, GitHub will index any repositories you own and any repositories in organizations you are a member of, whether public, private, or internal. This means that you can search across all of your repositories, in addition to the public repositories on {% data variables.product.prodname_dotcom_the_website %} that have already been indexed. Only users with permission to view your code on {% data variables.product.prodname_dotcom_the_website %} will be able to see your code in search results.
+Upon getting access to the new code search beta, GitHub will index any repositories you own and any repositories in organizations you are a member of, whether public, private, or internal. This means that you can search across all of your repositories, in addition to the public repositories on {% data variables.product.prodname_dotcom_the_website %} that have already been indexed. Only users with permission to view your code on {% data variables.product.prodname_dotcom_the_website %} will be able to see your code in search results. Forks are indexed and searchable in the same way as other repositories.
 
 Not all code is indexed, and you can currently only search the default branches of repositories. For more information on known limitations, see "[About GitHub Code Search (beta)](/search-github/github-code-search/about-github-code-search#limitations)."
 
