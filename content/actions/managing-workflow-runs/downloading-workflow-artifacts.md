@@ -23,6 +23,7 @@ By default, {% data variables.product.product_name %} stores build logs and arti
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Under **Artifacts**, click the artifact you want to download.
+2. You must be logged in to download artifacts, including public repositories.
     
     ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down-updated.png)
     
