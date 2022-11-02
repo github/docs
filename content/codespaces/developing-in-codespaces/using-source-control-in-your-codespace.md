@@ -12,6 +12,11 @@ topics:
 shortTitle: Source control
 ---
 
+{% jetbrains %}
+
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
+
+{% endjetbrains %}
 
 ## About source control in {% data variables.product.prodname_github_codespaces %}
 

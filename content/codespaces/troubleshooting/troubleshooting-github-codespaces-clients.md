@@ -12,6 +12,12 @@ redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
 ---
 
+{% jetbrains %}
+
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
+
+{% endjetbrains %}
+
 {% webui %}
 
 ## Troubleshooting the {% data variables.product.prodname_vscode %} web client

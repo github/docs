@@ -12,6 +12,12 @@ topics:
 shortTitle: Stop a codespace
 ---
 
+{% jetbrains %}
+
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
+
+{% endjetbrains %}
+
 ## About stopping and starting a codespace
 
 {% data reusables.codespaces.stopping-a-codespace %}

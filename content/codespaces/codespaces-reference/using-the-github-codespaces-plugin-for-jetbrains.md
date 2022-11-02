@@ -10,6 +10,8 @@ topics:
   - Codespaces
 ---
 
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
+
 ## About the {% data variables.product.prodname_github_codespaces %} plugin
 
 The {% data variables.product.prodname_github_codespaces %} plugin is already installed in the JetBrains client when you connect to a codespace from the JetBrains Gateway. The plugin adds the {% data variables.product.prodname_github_codespaces %} tool window to the user interface.

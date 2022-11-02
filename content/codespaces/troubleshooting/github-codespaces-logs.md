@@ -13,6 +13,11 @@ redirect_from:
   - /codespaces/troubleshooting/codespaces-logs
 ---
 
+{% jetbrains %}
+
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
+
+{% endjetbrains %}
 
 Information on {% data variables.product.prodname_github_codespaces %} is output to various logs:
 

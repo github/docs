@@ -15,6 +15,12 @@ topics:
 shortTitle: Develop in a codespace
 ---
 
+{% jetbrains %}
+
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
+
+{% endjetbrains %}
+
 ## About development with {% data variables.product.prodname_github_codespaces %}
 
 You can develop code in a codespace using your choice of tool: 

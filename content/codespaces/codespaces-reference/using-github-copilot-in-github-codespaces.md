@@ -15,6 +15,12 @@ redirect_from:
   - /codespaces/codespaces-reference/using-github-copilot-in-codespaces
 ---
 
+{% jetbrains %}
+
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
+
+{% endjetbrains %}
+
 {% webui %}
 
 ## Using {% data variables.product.prodname_copilot %} in the {% data variables.product.prodname_vscode_shortname %} web client
