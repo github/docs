@@ -1,6 +1,6 @@
 ---
 title: Adding organizations to your enterprise
-intro: You can create new organizations or invite existing organizations to manage within your enterprise.
+intro: You can add organizations to manage within your enterprise by creating a new organization, inviting an existing organization, or transferring an organization from a different enterprise account.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account
@@ -57,17 +57,36 @@ Enterprise owners who create an organization owned by the enterprise account aut
 
 ## Inviting an organization to join your enterprise account
 
-Enterprise owners can invite existing organizations to join their enterprise account. If the organization you want to invite is already owned by another enterprise, you will not be able to issue an invitation until the previous enterprise gives up ownership of the organization. For more information, see "[Removing an organization from your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
+Enterprise owners can invite existing organizations to join their enterprise account. If the organization you want to invite is already owned by another enterprise account, you must be an owner of both enterprise accounts, or the previous enterprise must give up ownership of the organization first. For more information, see "[Removing an organization from your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)." 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-2. On the **Organizations** tab, above the list of organizations, click **Invite organization**.
+1. On the **Organizations** tab, above the list of organizations, click **Invite organization**.
 ![Invite organization](/assets/images/help/business-accounts/enterprise-account-invite-organization.png)
-3. Under "Organization name", start typing the name of the organization you want to invite and select it when it appears in the drop-down list.
+3. Under "Organization name", start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
 ![Search for organization](/assets/images/help/business-accounts/enterprise-account-search-for-organization.png)
 4. Click **Invite organization**.
 5. The organization owners will receive an email inviting them to join the enterprise. At least one owner needs to accept the invitation before the process can continue. You can cancel or resend the invitation at any time before an owner approves it.
 ![Cancel or resend](/assets/images/help/business-accounts/enterprise-account-invitation-sent.png)
 6. Once an organization owner has approved the invitation, you can view its status in the list of pending invitations.
 ![Pending invitation](/assets/images/help/business-accounts/enterprise-account-pending.png)
-7. Click **Approve** to complete the transfer, or **Cancel** to cancel it.
+7. To complete the transfer, click **Approve**.
 ![Approve invitation](/assets/images/help/business-accounts/enterprise-account-transfer-approve.png)
+
+## Transferring an organization between enterprise accounts
+
+Enterprise owners can transfer existing organizations between enterprise accounts. You must be an enterprise owner of both enterprise accounts. 
+
+{% note %}
+
+**Note:** You cannot transfer an existing organization to or from an {% data variables.enterprise.prodname_emu_enterprise %}.  
+
+{% endnote %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+1. Next to the organization you want to transfer, select the {% octicon "gear" width="16" aria-label="Gear" %} dropdown, and then click **Transfer organization**. 
+![Screenshot of the transfer button](/assets/images/help/business-accounts/org-transfer-button.png)
+1. Select the **Select enterprise** dropdown menu, start typing the name of the destination enterprise, and select the enterprise when it appears in the dropdown list.
+![Screenshot of the enterprise dropdown](/assets/images/help/business-accounts/org-transfer-select-enterprise.png)
+2. Click **Review transfer**.
+3. To confirm the transfer, click **Transfer organization**.
+![Screenshot of the transfer organization button](/assets/images/help/business-accounts/org-transfer-confirm-button.png)
