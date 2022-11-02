@@ -1,6 +1,6 @@
 ---
-title: Developing in a codespace
-intro: 'You can open a codespace on {% data variables.product.product_name %}, then develop using {% data variables.product.prodname_vscode %}''s features.'
+title: Desenvolver em um codespace
+intro: 'Você pode abrir um codespace em {% data variables.product.product_name %} e, em seguida, desenvolver usando os recursos do {% data variables.product.prodname_vscode %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
@@ -14,43 +14,46 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Develop in a codespace
+ms.openlocfilehash: 459e98978fdc062d96372c26c56a0f042878d40d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107830'
 ---
+## Sobre o desenvolvimento com os {% data variables.product.prodname_github_codespaces %}
 
- 
-
-## About development with {% data variables.product.prodname_github_codespaces %}
-
-{% data variables.product.prodname_github_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
+Os {% data variables.product.prodname_github_codespaces %} oferecem a experiência completa de desenvolvimento do {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
 {% data reusables.codespaces.links-to-get-started %}
 
-![Codespace overview with annotations](/assets/images/help/codespaces/codespace-overview-annotated.png)
+![Visão geral do codespace com anotações](/assets/images/help/codespaces/codespace-overview-annotated.png)
 
-1. Side Bar - By default, this area shows your project files in the Explorer.
-2. Activity Bar - This displays the Views and provides you with a way to switch between them. You can reorder the Views by dragging and dropping them.
-3. Editor - This is where you edit your files. You can use the tab for each editor to position it exactly where you need it.
-4. Panels - This is where you can see output and debug information, as well as the default place for the integrated Terminal.
-5. Status Bar - This area provides you with useful information about your codespace and project. For example, the branch name, configured ports, and more.
+1. Barra lateral - Por padrão, esta área mostra os arquivos do seu projeto no Explorador.
+2. Barra de Atividades - Exibe a visualização e fornece uma maneira de alternar entre elas. Você pode reordenar as Visualizações arrastando e soltando-as.
+3. Editor - É aqui que você edita seus arquivos. Você pode usar a aba para cada editor para posicioná-lo exatamente onde você precisa.
+4. Painéis - É aqui que você pode visualizar as informações de saída e depuração, bem como o local padrão para o Terminal integrado.
+5. Barra de Status - Esta área fornece informações úteis sobre seu codespace e projeto. Por exemplo, o nome da agência, portas configuradas e muito mais.
 
-For more information on using {% data variables.product.prodname_vscode_shortname %}, see the [User Interface guide](https://code.visualstudio.com/docs/getstarted/userinterface) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Para obter mais informações sobre como usar o {% data variables.product.prodname_vscode_shortname %}, consulte o [guia da Interface do Usuário](https://code.visualstudio.com/docs/getstarted/userinterface) na documentação do {% data variables.product.prodname_vscode_shortname %}.
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting {% data variables.product.prodname_github_codespaces %} clients](/codespaces/troubleshooting/troubleshooting-codespaces-clients)."
+{% data reusables.codespaces.use-chrome %} Para obter mais informações, confira "[Solução de problemas de clientes dos {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/troubleshooting-codespaces-clients)".
 
-### Personalizing your codespace
+### Personalizando seu codespace
 
-{% data reusables.codespaces.about-personalization %} For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
+{% data reusables.codespaces.about-personalization %} Para obter mais informações, confira "[Como personalizar os {% data variables.product.prodname_github_codespaces %} da sua conta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)".
 
-{% data reusables.codespaces.apply-devcontainer-changes %} For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+{% data reusables.codespaces.apply-devcontainer-changes %} Para obter mais informações, confira "[Introdução aos contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
-### Running your app from a codespace
-{% data reusables.codespaces.about-port-forwarding %} For more information, see "[Forwarding ports in your codespace](/github/developing-online-with-codespaces/forwarding-ports-in-your-codespace)."
+### Executando seu aplicativo a partir de um codespace
+{% data reusables.codespaces.about-port-forwarding %} Para obter mais informações, consulte "[Encaminhamento de portas em seu codespace](/github/developing-online-with-codespaces/forwarding-ports-in-your-codespace)".
 
-### Committing your changes
+### Fazendo commit das suas alterações
 
 {% data reusables.codespaces.committing-link-to-procedure %} 
 
-### Using the {% data variables.product.prodname_vscode_command_palette %}
+### Usando o {% data variables.product.prodname_vscode_command_palette %}
 
-The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette_shortname %} in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
+A {% data variables.product.prodname_vscode_command_palette %} permite que você acesse e gerencie vários recursos dos {% data variables.product.prodname_github_codespaces %} e do {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações, confira "[Usar a {% data variables.product.prodname_vscode_command_palette_shortname %} nos {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)".
