@@ -1,19 +1,19 @@
 ---
 title: Elegir un ejecutor para un job
-shortTitle: Choosing the runner for a job
+shortTitle: Choose the runner for a job
 intro: Definir el tipo de máquina que procesará un job en tu flujo de trabajo.
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 4
-ms.openlocfilehash: b3deaec1dfc4770f2dfc6d3b264fa75ce79762ca
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 18ba9ac5abe0e78d4b3608d5e225a34021ec2a2e
+ms.sourcegitcommit: d0cea547f6a5d991a28c310257cafd616235889f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145121050'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148120885'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 

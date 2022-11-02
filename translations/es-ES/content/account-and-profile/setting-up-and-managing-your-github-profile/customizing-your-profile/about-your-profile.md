@@ -14,12 +14,12 @@ versions:
   ghec: '*'
 topics:
   - Profiles
-ms.openlocfilehash: edbe34a38c2ab23de22e3b5ea466e35276c6bc35
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: e27e14102b4f57e9eb50266c5c271a2f6bb3892c
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '146199958'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111623'
 ---
 Puedes agregar información personal acerca de ti mismo en tu biobiografía, como lugares en los que has trabajado previamente, proyectos con los que has colaborado o intereses que tengas que a otras personas les pueda interesar conocer sobre tí. Para obtener más información, vea "[Incorporación de una biografía a su perfil](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)".
 
@@ -36,7 +36,7 @@ Las personas que visitan tu perfil ven una cronología de tu actividad de colabo
 Las personas que visitan tu perfil también pueden ver la siguiente información.
 
 - Repositorios y gists que te pertenezcan o en los que contribuyas. {% ifversion fpt or ghes or ghec %} Puede presentar su mejor trabajo anclando repositorios y gists a su perfil. Para obtener más información, vea "[Anclaje de elementos a su perfil](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)".{% endif %}
-- Repositorios que haya protagonizado{% ifversion fpt or ghec %} y organizado en listas.{% endif %} Para obtener más información, vea "[Almacenamiento de repositorios con estrellas](/articles/saving-repositories-with-stars/)".
+- Repositorios que has destacado{% ifversion fpt or ghec %} y organizado en listas{% endif %}. Para obtener más información, consulta "[Guardar repositorios con estrellas](/articles/saving-repositories-with-stars/)".
 - Una descripción general de tu actividad en organizaciones, repositorios y equipos en los que eres más activo. Para obtener más información, vea "[Muestra de información general sobre la actividad en el perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)".{% ifversion fpt or ghec %}
 - Las notificaciones y logros que destacan tu actividad y se muestran si utilizas {% data variables.product.prodname_pro %} o si participas en programas como {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %} o el programa para desarrolladores de {% data variables.product.company_short %}. Para obtener más información, vea "[Personalización del perfil](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)".{% endif %}
 
