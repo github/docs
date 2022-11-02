@@ -220,6 +220,129 @@ translations/es-ES/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/es-ES/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/es-ES/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
 translations/es-ES/data/graphql/ghes-3.2/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/0.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/1.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/10.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/11.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/12.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/13.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/14.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/16.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/17.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/18.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/19.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/2.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/20.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/21.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/22.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/23.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/24.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/3.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/4.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/5.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/6.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/7.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/8.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-20/9.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/0.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/1.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/10.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/11.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/12.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/13.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/14.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/15.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/16.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/18.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/19.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/2.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/20.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/21.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/22.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/23.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/3.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/4.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/5.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/7.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/8.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-21/9.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/10.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/11.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/12.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/13.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/14.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/15.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/16.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/17.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/18.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/19.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/20.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/21.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/22.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/4.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/5.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/2-22/6.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/0-rc1.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/0-rc2.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/10.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/11.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/12.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/13.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/14.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/15.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/16.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/17.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/18.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/19.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/20.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/21.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/22.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/23.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/24.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/25.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/4.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/5.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/6.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/7.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/8.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-0/9.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/0-rc1.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/10.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/11.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/12.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/13.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/14.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/15.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/16.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/17.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/18.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/19.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/20.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/21.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/22.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/3.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/5.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/6.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/7.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/8.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-1/9.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/1.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/10.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/11.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/12.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/13.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/14.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/15.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/16.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/18.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/2.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/3.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/4.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/5.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/6.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/7.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/8.yml,file deleted because it no longer exists in main
+translations/es-ES/data/release-notes/enterprise-server/3-2/9.yml,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/hardware-requirements-3.6.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/jobs/section-using-a-build-matrix-for-your-jobs-strategy.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
@@ -353,7 +476,7 @@ translations/es-ES/content/actions/examples/using-concurrency-expressions-and-a-
 translations/es-ES/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/es-ES/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
 translations/es-ES/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,rendering error
-translations/es-ES/content/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups.md,broken liquid tags
+translations/es-ES/content/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups.md,rendering error
 translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/es-ES/content/actions/hosting-your-own-runners/removing-self-hosted-runners.md,rendering error
 translations/es-ES/content/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job.md,broken liquid tags
@@ -542,7 +665,6 @@ translations/es-ES/content/admin/user-management/migrating-data-to-and-from-your
 translations/es-ES/content/admin/user-management/migrating-data-to-and-from-your-enterprise/migrating-data-to-your-enterprise.md,broken liquid tags
 translations/es-ES/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,rendering error
 translations/es-ES/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,rendering error
-translations/es-ES/content/authentication/connecting-to-github-with-ssh/about-ssh.md,broken liquid tags
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,rendering error
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys.md,rendering error
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
@@ -565,7 +687,6 @@ translations/es-ES/content/authentication/managing-commit-signature-verification
 translations/es-ES/content/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key.md,broken liquid tags
 translations/es-ES/content/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits.md,rendering error
 translations/es-ES/content/authentication/managing-commit-signature-verification/index.md,broken liquid tags
-translations/es-ES/content/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key.md,broken liquid tags
 translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication.md,broken liquid tags
 translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication.md,broken liquid tags
 translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication.md,rendering error
@@ -596,7 +717,7 @@ translations/es-ES/content/billing/managing-licenses-for-visual-studio-subscript
 translations/es-ES/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
 translations/es-ES/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,broken liquid tags
 translations/es-ES/content/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise.md,broken liquid tags
-translations/es-ES/content/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise.md,broken liquid tags
+translations/es-ES/content/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise.md,rendering error
 translations/es-ES/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
 translations/es-ES/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
 translations/es-ES/content/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning.md,rendering error
@@ -835,6 +956,7 @@ translations/es-ES/content/organizations/managing-organization-settings/managing
 translations/es-ES/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,rendering error
 translations/es-ES/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/es-ES/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
+translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,broken liquid tags
 translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on.md,broken liquid tags
 translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,broken liquid tags
@@ -916,7 +1038,6 @@ translations/es-ES/content/repositories/releasing-projects-on-github/comparing-r
 translations/es-ES/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/es-ES/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
 translations/es-ES/content/repositories/working-with-files/managing-files/adding-a-file-to-a-repository.md,broken liquid tags
-translations/es-ES/content/repositories/working-with-files/managing-large-files/about-git-large-file-storage.md,broken liquid tags
 translations/es-ES/content/repositories/working-with-files/managing-large-files/about-large-files-on-github.md,broken liquid tags
 translations/es-ES/content/repositories/working-with-files/using-files/getting-permanent-links-to-files.md,broken liquid tags
 translations/es-ES/content/repositories/working-with-files/using-files/working-with-non-code-files.md,rendering error
@@ -971,33 +1092,6 @@ translations/es-ES/data/glossaries/external.yml,broken liquid tags
 translations/es-ES/data/learning-tracks/actions.yml,broken liquid tags
 translations/es-ES/data/learning-tracks/admin.yml,broken liquid tags
 translations/es-ES/data/learning-tracks/code-security.yml,broken liquid tags
-translations/es-ES/data/release-notes/enterprise-server/2-20/15.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/2-21/12.yml,broken liquid tags
-translations/es-ES/data/release-notes/enterprise-server/2-21/17.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/2-21/20.yml,broken liquid tags
-translations/es-ES/data/release-notes/enterprise-server/2-21/6.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/2-22/0.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/2-22/1.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/2-22/2.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/2-22/3.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/2-22/7.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/2-22/8.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/2-22/9.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-0/0.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-0/1.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-0/19.yml,broken liquid tags
-translations/es-ES/data/release-notes/enterprise-server/3-0/2.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-0/3.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-1/0-rc1.yml,broken liquid tags
-translations/es-ES/data/release-notes/enterprise-server/3-1/0.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-1/1.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-1/11.yml,broken liquid tags
-translations/es-ES/data/release-notes/enterprise-server/3-1/2.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-1/4.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-2/0-rc1.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-2/0.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-2/17.yml,rendering error
-translations/es-ES/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
 translations/es-ES/data/release-notes/enterprise-server/3-3/0-rc1.yml,rendering error
 translations/es-ES/data/release-notes/enterprise-server/3-3/0.yml,rendering error
 translations/es-ES/data/release-notes/enterprise-server/3-3/12.yml,rendering error
