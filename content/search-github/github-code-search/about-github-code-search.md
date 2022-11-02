@@ -49,7 +49,7 @@ We currently only support searching for code on the default branch of a reposito
 
 Results for any search with the new code search (beta) are restricted to 100 results (10 pages). This limitation only applies to searching code with the new code search (beta) and does not apply to other types of searches.
 
-The new code search(beta) supports searching for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. However, note that the `symbol:` qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. For a list of what languages are supported, see "[Symbol qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+The new code search (beta) supports searching for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. However, note that the `symbol:` qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. For a list of what languages are supported, see "[Symbol qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
 ## Feedback and support
 
 You can view and share feedback about the new code search (beta) in our [discussion forum](https://github.com/orgs/community/discussions/categories/code-search-and-navigation).

@@ -37,13 +37,13 @@ For more information about the search syntax of the new code search (beta), see 
 
     If you click on any of the specific suggestions, you will be taken directly to the page for that suggestion (for example, the repository or project page). If you click on a recent or saved search, you will be taken to the search results view for that search query. 
 
-1. Once you start typing a search query, you will see a list of completions and suggestions that match your query. You can click on those to jump to a specific location. As you type more qualifiers, you will see more specific suggestions, such as code files you can jump to directly.
+1. Once you start typing a search query, you will see a list of completions and suggestions that match your query. You can click on a suggestion to jump to a specific location. As you type more qualifiers, you will see more specific suggestions, such as code files you can jump to directly.
 1.  After typing your query, you can also hit Enter to be taken to the full search results view. For more information, see "[Using the search results view](#using-the-search-results-view)."
 
 ## Creating and managing saved searches
 
 1. In the top navigation of {% data variables.product.prodname_dotcom_the_website %}, click the search bar and start typing a search query (or any letter).
-2. Under the search bar, the "Saved searches" section should now show. Click **Create saved search**.
+2. Under the search bar, the "Saved searches" section should now appear. Click **Create saved search**.
 3. In the pop-up window, fill out the name you want for your query and the query that you want to save. Click **Create saved search**.
 
 If you click again on the search bar, you can now see your saved search in the "Saved searches" section under the search bar. Clicking on a saved search entry will add the query to the search bar and filter the suggestions accordingly.
@@ -56,6 +56,6 @@ This search results view already existed for the current search on GitHub, and t
 
 To construct a search query and view, sort, and filter results using a visual interface, you can use {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}.
 
-If you hit Enter after typing a search query in the search bar, you will also be taken to the search results view.
+If you press Enter after typing a search query in the search bar, you will also be taken to the search results view.
 
-On the search results view, you can navigate between different types of search results, including code, issues, pull request, repositories, and more. You can also view and click on filters and sort results.
+On the search results view, you can navigate between different types of search results, including code, issues, pull request, repositories, and more. You can also view and click on filters, and sort results.

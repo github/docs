@@ -1,6 +1,6 @@
 ---
 title: Understanding GitHub Code Search (beta) syntax
-intro: 'You can build search queries that return the results you want with specialized code qualifiers, regular expressions, and boolean operations.'
+intro: 'You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: github-code-search
@@ -20,7 +20,7 @@ topics:
 
 The search syntax in this article only applies to searching code with the new code search (beta) enabled. {% data reusables.search.non-code-search-explanation %}
 
-Search queries consist of search terms, consisting of text you want to search for, and qualifiers, which narrow down the search. 
+Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search. 
 
 A bare term with no qualifiers will match either the content of a file or the file's path. 
 
@@ -133,7 +133,7 @@ To search for files within an organization, use the `org:` qualifier. For exampl
 org:github
 ```
 
-To search for files within an organization, use the `user:` qualifier. For example:
+To search for files within a personal account, use the `user:` qualifier. For example:
 
 ```
 user:octocat
@@ -273,7 +273,7 @@ log4j NOT is:archived
 
 ## Using regular expressions
 
-The new code search (beta) supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex expression in backslashes. 
+The new code search (beta) supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex in backslashes. 
 
 For example, to search for the regular expression `sparse.*index`, you would use:
 
