@@ -190,7 +190,7 @@ You can make an unordered list by preceding one or more lines of text with <kbd>
 
 ```markdown
 + George Washington
-- John Adams
+* John Adams
 - Thomas Jefferson
 ```
 
