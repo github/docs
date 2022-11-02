@@ -15,14 +15,14 @@ topics:
 
 This guide introduces you to machine learning with {% data variables.product.prodname_github_codespaces %}. You’ll build a simple image classifier, learn about some of the tools that come preinstalled in {% data variables.product.prodname_github_codespaces %}, configure your development environment for NVIDIA CUDA, and use {% data variables.product.prodname_cli %} to open your codespace in JupyterLab.
 
-## Build a simple image classifier
+## Building a simple image classifier
 
 We'll use a Jupyter notebook to build a simple image classifier. 
 
 Jupyter notebooks are sets of cells that you can execute one after another. The notebook we'll use includes a number of cells that build an image classifier using [PyTorch](https://pytorch.org/). Each cell is a different phase of that process: download a dataset, set up a neural network, train a model, and then test that model.
 
 We'll run all of the cells, in sequence, to perform all phases of building the image classifier. When we do this Jupyter saves the output back into the notebook so that you can examine the results.
-
+  
 ### Creating a repository and a codespace
 
 1. Go to the [github/codespaces-getting-started-ml](https://github.com/github/codespaces-getting-started-ml) template repository and click **Use this template**.
@@ -30,14 +30,14 @@ We'll run all of the cells, in sequence, to perform all phases of building the i
 
    By default, a codespace for this repository opens in a web-based version of {% data variables.product.prodname_vscode %}.
 
-### Open the image classifier notebook
+### Opening the image classifier notebook 
 
 The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, TensorFlow, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/universal).
 
 1. In the {% data variables.product.prodname_vscode_shortname %} editor, close any "Get Started" tabs that are displayed.
 1. Open the `image-classifier.ipynb` notebook file.
 
-### Build the image classifier
+### Building the image classifier
 
 The image classifier notebook contains all the code you need to download a dataset, train a neural network, and evaluate its performance.
 
@@ -49,7 +49,7 @@ The image classifier notebook contains all the code you need to download a datas
 
    ![Screenshot of Step 3 in the editor](/assets/images/help/codespaces/jupyter-notebook-step3.png)
 
-## Configure NVIDIA CUDA for your codespace
+## Configuring NVIDIA CUDA for your codespace
 
 Some software, such as TensorFlow, requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 
@@ -74,7 +74,7 @@ Some software, such as TensorFlow, requires you to install NVIDIA CUDA to use yo
 
    If you are using the `devcontainer.json` file from the image classifier repository you created for this tutorial, your `devcontainer.json` file will now look like this:
 
-   ```
+   ```json
    {
      "customizations": {
        "vscode": {
@@ -97,12 +97,8 @@ Some software, such as TensorFlow, requires you to install NVIDIA CUDA to use yo
    The codespace container will be rebuilt. This will take several minutes. When the rebuild is complete the codespace is automatically reopened.
 1. Commit the change to the repository so that CUDA will be installed in any new codespaces you create from this repository in future.
 
-## Open your codespace in JupyterLab
+## Opening your codespace in JupyterLab
 
-The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes JupyterLab, the web-based Jupyter IDE. You can use {% data variables.product.prodname_cli %} to open your codespace in JupyterLab without having to install anything else on your codespace.
+You can open your codespace in JupyterLab from the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces), or by using {% data variables.product.prodname_cli %}. For more information, see "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)."
 
-1. In the terminal, enter the {% data variables.product.prodname_cli %} command `gh codespace jupyter`.
-1. Choose the codespace you want to open.
-
-   ![Screenshot of opening a codespace from the terminal](/assets/images/help/codespaces/open-codespace-in-jupyter.png)
-
+{% data reusables.codespaces.jupyterlab-installed-in-codespace %}

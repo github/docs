@@ -130,16 +130,16 @@ You can add a predefined dev container configuration either while working in a c
 {% data reusables.codespaces.command-palette-container %}
 1. Click the definition you want to use.
 
-   ![List of predefined container definitions](/assets/images/help/codespaces/predefined-container-definitions-list.png)
+   ![Screenshot of a list of predefined container definitions](/assets/images/help/codespaces/predefined-container-definitions-list.png)
 
 1. Follow the prompts to customize your definition. For more information on the options to customize your definition, see "[Adding additional features to your `devcontainer.json` file](#adding-additional-features-to-your-devcontainerjson-file)."
 1. Click **OK**.
 
-   ![OK button](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
+   ![Screenshot of the OK button](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 
 1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
 
-   !["Codespaces: Rebuild Container" in the {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![Screenshot of a prompt to 'Rebuild now'](/assets/images/help/codespaces/rebuild-prompt.png)
 
 ### Adding additional features to your `devcontainer.json` file
 
@@ -156,15 +156,15 @@ You can add some of the most common features by selecting them when configuring 
 
 1. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)), then start typing "configure". Select **Codespaces: Configure Devcontainer Features**.
 
-   ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![Screenshot of the Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
 
 1. Update your feature selections, then click **OK**.
 
-   ![The select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
+   ![Screenshot of the select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
 
 1. To apply the changes, in the bottom right corner of the screen, click **Rebuild now**. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
 
-   !["Codespaces: Rebuild Container" in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![Screenshot of a prompt to 'Rebuild now'](/assets/images/help/codespaces/rebuild-prompt.png)
 
 ## Creating a custom dev container configuration
 
@@ -181,13 +181,13 @@ If none of the predefined configurations meets your needs, you can create a cust
 
    If multiple `devcontainer.json` files are found in the repository, they are listed in the codespace creation options page. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
 
-   ![A choice of configuration files](/assets/images/help/codespaces/configuration-file-choice.png)
+   ![Screenshot of a choice of configuration files](/assets/images/help/codespaces/configuration-file-choice.png)
 
 ### Default configuration selection during codespace creation
 
 If `.devcontainer/devcontainer.json` or `.devcontainer.json` exists, it will be the default selection in the list of available configuration files when you create a codespace. If neither file exists, the default dev container configuration will be selected by default. 
 
-![The default configuration choice selected](/assets/images/help/codespaces/configuration-file-choice-default.png)
+![Screenshot of the default configuration choice selected](/assets/images/help/codespaces/configuration-file-choice-default.png)
 
 ### Editing the devcontainer.json file
 
@@ -223,7 +223,7 @@ Changes to a configuration will be applied the next time you create a codespace.
 {% data reusables.codespaces.rebuild-command %}
 1. {% data reusables.codespaces.recovery-mode %}
 
-   ![Error message about recovery mode](/assets/images/help/codespaces/recovery-mode-error-message.png)
+   ![Screenshot of the error message about recovery mode](/assets/images/help/codespaces/recovery-mode-error-message.png)
 
    - To diagnose the error by reviewing the creation logs, click **View creation log**.
    - To fix the errors identified in the logs, update your `devcontainer.json` file.

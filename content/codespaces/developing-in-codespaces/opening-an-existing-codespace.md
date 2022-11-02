@@ -27,9 +27,23 @@ You can reopen any of your active or stopped codespaces on {% data variables.pro
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. To open a codespace in your default editor, click the name of the codespace. {% data reusables.codespaces.about-changing-default-editor %} For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
    
-   To open the codespace in an editor other than your default, select the ellipsis (**...**) to the right of the codespace and click **Open in APPLICATION**.
+   To open the codespace in an editor other than your default:
+   
+   1. Click the ellipsis (**...**) to the right of the codespace you want to open.
+   1. Click **Open in**.
+   1. Click **Open in APPLICATION**.
 
-   ![Screenshot of the "Your codespaces" page, with "Open in Visual Studio Code" highlighted](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
+   ![Screenshot of the "Open in" dialog box, with "Open in Visual Studio Code" highlighted](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
+
+   You can open the codespace in:
+   * Your browser
+   * {% data variables.product.prodname_vscode %}
+   * JetBrains Gateway
+   * JupyterLab
+
+   {% data reusables.codespaces.application-installed-locally %}
+
+   If you choose **JupyterLab**, the JupyterLab application must be installed in the codespace. {% data reusables.codespaces.jupyterlab-in-default-image %}
 
 {% endwebui %}
 
@@ -64,13 +78,31 @@ You can also access the commands listed above by navigating to the Remote Explor
      ```shell{:copy}
      gh codespace code
      ```
+     
+     {% note %}
 
+     **Note**: You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+
+     {% endnote %}
+     
    - To open a codespace in the browser, enter:
   
      ```shell{:copy}
      gh codespace code --web
      ```
 
+   - To open a codespace in JupyterLab, enter:
+  
+     ```shell{:copy}
+     gh codespace code --jupyter
+     ```
+     
+     {% note %}
+
+     **Note**: {% data reusables.codespaces.jupyterlab-installed-in-codespace %}
+
+     {% endnote %}
+     
 1. Using the arrow keys, navigate to the codespace that you want to open.
 1. To open the codespace, press <kbd>Enter</kbd>.
 

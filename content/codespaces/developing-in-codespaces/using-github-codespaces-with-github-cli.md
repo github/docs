@@ -135,13 +135,15 @@ If you don't have any SSH keys, follow the instructions in "[Generating a new SS
 gh codespace code -c CODESPACE-NAME
 ```
 
-For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
+You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
 
 ### Open a codespace in JupyterLab
 
 ```shell
 gh codespace jupyter -c CODESPACE-NAME
 ```
+
+{% data reusables.codespaces.jupyterlab-installed-in-codespace %}
 
 ### Copy a file to/from a codespace
 
