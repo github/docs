@@ -143,28 +143,7 @@ You can add a predefined dev container configuration either while working in a c
 
 ### Adding additional features to your `devcontainer.json` file
 
-{% note %}
-
-**Note:** This feature is in beta and subject to change.
-
-{% endnote %}
-
-You can add features to your predefined container configuration to customize which tools are available and extend the functionality of your workspace without having to create a custom dev container configuration from scratch. For example, you could use a predefined container configuration and add the {% data variables.product.prodname_cli %}. You can make these additional features available for your project by adding the features to your `devcontainer.json` file when you set up your container configuration.
-
-You can add some of the most common features by selecting them when configuring your predefined container. For more information about `features`, see the [`devcontainers/features`](https://github.com/devcontainers/features) repository.
-
-
-1. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)), then start typing "configure". Select **Codespaces: Configure Devcontainer Features**.
-
-   ![Screenshot of the Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
-
-1. Update your feature selections, then click **OK**.
-
-   ![Screenshot of the select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
-
-1. To apply the changes, in the bottom right corner of the screen, click **Rebuild now**. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
-
-   ![Screenshot of a prompt to 'Rebuild now'](/assets/images/help/codespaces/rebuild-prompt.png)
+{% data reusables.codespaces.about-features %} For more information, see "[Adding features to a `devcontainer.json` file](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=vscode)."
 
 ## Creating a custom dev container configuration
 
@@ -182,6 +161,18 @@ If none of the predefined configurations meets your needs, you can create a cust
    If multiple `devcontainer.json` files are found in the repository, they are listed in the codespace creation options page. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
 
    ![Screenshot of a choice of configuration files](/assets/images/help/codespaces/configuration-file-choice.png)
+
+### Adding a `devcontainer.json` file
+
+If you don't already have a `devcontainer.json` file in your repository, you can quickly add one from {% data variables.product.prodname_dotcom_the_website %}.
+1. Navigate to your repository and click the **{% octicon "code" aria-label="The code icon" %} Code** dropdown.
+1. In the **Codespaces** tab, click the ellipsis (**...**), then select **Configure dev container**.
+
+   ![Screenshot of the Code dropdown, with "Configure dev container" highlighted](/assets/images/help/codespaces/configure-dev-container.png)
+
+A new `.devcontainer/devcontainer.json` file will open in the editor. The file will contain some initial properties, including a `features` object to which you can add new tools, libraries, or runtimes. For more information, see "[Adding features to a `devcontainer.json` file](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=webui)."
+
+If your repository already contains one or more `devcontainer.json` files, then clicking **Configure dev container** will open the existing `devcontainer.json` file with the highest precedence according to the [specification](https://containers.dev/implementors/spec/#devcontainerjson) on containers.dev. 
 
 ### Default configuration selection during codespace creation
 
