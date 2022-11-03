@@ -49,6 +49,10 @@ Google | Google Cloud Storage Service Account Access Key ID with Google Cloud St
 Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
 Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret
 Grafana | Grafana API Key | grafana_api_key
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+HashiCorp | HashiCorp Vault Batch Token (v1.10.0+) | hashicorp_vault_batch_token
+HashiCorp | HashiCorp Vault Root Service Token (v1.10.0+) | hashicorp_vault_root_service_token
+HashiCorp | HashiCorp Vault Service Token (v1.10.0+) | hashicorp_vault_service_token{% endif %}
 Hubspot | Hubspot API Key | hubspot_api_key
 Intercom | Intercom Access Token | intercom_access_token
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
