@@ -28,7 +28,9 @@ export const AutomatedPage = ({ children }: Props) => {
               </Lead>
             )
           }
-          toc={miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
+          toc={
+            miniTocItems.length > 1 && <MiniTocs pageTitle={title} miniTocItems={miniTocItems} />
+          }
         >
           <div id="article-contents">
             {renderedPage && (
