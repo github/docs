@@ -1,6 +1,5 @@
 We add advisories to the {% data variables.product.prodname_advisory_database %} from the following sources:
 - Security advisories reported on {% data variables.product.prodname_dotcom %}
-- A combination of machine learning and human review to detect vulnerabilities in public commits on {% data variables.product.prodname_dotcom %}
 - The [National Vulnerability database](https://nvd.nist.gov/)
 - The [npm Security advisories database](https://www.npmjs.com/advisories)
 - The [FriendsOfPHP database](https://github.com/FriendsOfPHP/security-advisories) 
