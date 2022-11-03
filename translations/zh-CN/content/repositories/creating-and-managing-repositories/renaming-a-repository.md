@@ -12,12 +12,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: e56e8ca634ca1bfec3c587fe8fb606ab73ac72d4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d0067d96dce2f2cf9fe8bb2dd519668780d861ff
+ms.sourcegitcommit: bd8b3e152f17d90acf222a0d50ba9595184c1f5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145129368'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111671'
 ---
 重命名仓库时，除项目网站 URL 外，所有现有信息将自动重定向到新名称，包括：
 
@@ -31,7 +31,7 @@ ms.locfileid: '145129368'
 除了重定向 Web 流量之外，所有针对先前位置的 `git clone`、`git fetch` 或 `git push` 操作都将继续跟在新位置上的方式一样运行。 不过，为了减少混淆，我们强烈建议将任何现有的本地克隆更新为指向新仓库 URL。 可以通过在命令行上使用 `git remote` 完成此操作：
 
 ```shell
-$ git remote set-url origin <em>new_url</em>
+$ git remote set-url origin NEW_URL
 ```
 
 有关详细信息，请参阅“[管理远程存储库](/github/getting-started-with-github/managing-remote-repositories)”。
@@ -50,7 +50,7 @@ $ git remote set-url origin <em>new_url</em>
 
 {% warning %}
 
-警告：如果将来在你的帐户下创建新存储库，请不要重复使用重命名存储库的原始名称。 否则到重命名的仓库的重定向将会中断。
+警告：如果将来在你的帐户下创建新存储库，请不要重复使用重命名存储库的原始名称。 如果这样做，重定向到重命名的存储库将不再有效。
 
 {% endwarning %}
 
