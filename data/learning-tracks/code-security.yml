@@ -4,10 +4,14 @@ security_advisories:
   description: 'Using repository security advisories to privately fix a reported vulnerability and get a CVE.'
   featured_track: '{% ifversion fpt or ghec %}true{% else %}false{% endif %}'
   guides:
-    - /code-security/security-advisories/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/security-advisories/global-security-advisories/about-the-github-advisory-database
     - /code-security/security-advisories/global-security-advisories/about-global-security-advisories
     - /code-security/security-advisories/repository-security-advisories/about-repository-security-advisories
+    - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
+    - /code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability
+    - /code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities
+    - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
     - /code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
     - /code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
     - /code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
@@ -15,7 +19,6 @@ security_advisories:
     - /code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory
     - /code-security/security-advisories/repository-security-advisories/withdrawing-a-repository-security-advisory
     - /code-security/security-advisories/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
-    - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
 
 # Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
 dependabot_alerts:
