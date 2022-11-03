@@ -23,6 +23,14 @@ For assignments with complex setup environments, teachers can customize the dev 
 
 {% endnote %}
 
+{% data reusables.education.student-codespaces-benefit %}
+
+{% note %}
+
+**Note:** {% data reusables.education.note-on-student-codespaces-usage %} 
+
+{% endnote %}
+
 ## About the {% data variables.product.prodname_codespaces %} Education benefit for verified teachers
 
 The {% data variables.product.prodname_codespaces %} Education benefit gives verified teachers a free monthly allowance of {% data variables.product.prodname_github_codespaces %} hours to use in {% data variables.product.prodname_classroom %}. The free allowance is estimated to be enough for a class of 50 with 5 assignments per month, on a 2 core machine with 1 codespace stored per student.
