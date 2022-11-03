@@ -7861,6 +7861,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "matchingRefs",
           "description": "<p>Repository refs that are protected by this rule.</p>",
           "type": "RefConnection!",
@@ -7985,6 +8001,14 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "requiredApprovingReviewCount",
@@ -46030,6 +46054,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Are discussions available on this repository?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasIssuesEnabled",
           "description": "<p>Indicates if the repository has issues feature enabled.</p>",
           "type": "Boolean!",
@@ -67769,6 +67801,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "pattern",
           "description": "<p>The glob-like pattern used to determine matching branches.</p>",
           "type": "String!",
@@ -67792,6 +67840,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "requiredApprovingReviewCount",
@@ -72583,6 +72639,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "pattern",
           "description": "<p>The glob-like pattern used to determine matching branches.</p>",
           "type": "String",
@@ -72597,6 +72669,14 @@
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "requiredApprovingReviewCount",
@@ -74411,6 +74491,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository should have the discussions feature enabled.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "hasIssuesEnabled",

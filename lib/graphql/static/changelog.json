@@ -4,6 +4,50 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'ArchiveProjectV2ItemInput' was added</p>",
+          "<p>Type 'ArchiveProjectV2ItemPayload' was added</p>",
+          "<p>Type 'LinkProjectV2ToRepositoryInput' was added</p>",
+          "<p>Type 'LinkProjectV2ToRepositoryPayload' was added</p>",
+          "<p>Type 'UnarchiveProjectV2ItemInput' was added</p>",
+          "<p>Type 'UnarchiveProjectV2ItemPayload' was added</p>",
+          "<p>Type 'UnlinkProjectV2FromRepositoryInput' was added</p>",
+          "<p>Type 'UnlinkProjectV2FromRepositoryPayload' was added</p>",
+          "<p>Field <code>lockAllowsFetchAndMerge</code> was added to object type <code>BranchProtectionRule</code></p>",
+          "<p>Field <code>lockBranch</code> was added to object type <code>BranchProtectionRule</code></p>",
+          "<p>Field <code>requireLastPushApproval</code> was added to object type <code>BranchProtectionRule</code></p>",
+          "<p>Input field <code>lockAllowsFetchAndMerge</code> was added to input object type <code>CreateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>lockBranch</code> was added to input object type <code>CreateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>requireLastPushApproval</code> was added to input object type <code>CreateBranchProtectionRuleInput</code></p>",
+          "<p>Field 'archiveProjectV2Item<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'linkProjectV2ToRepository<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'unarchiveProjectV2Item<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'unlinkProjectV2FromRepository<code>was added to object type</code>Mutation'</p>",
+          "<p>Enum value 'TRACKED_BY<code>was added to enum</code>ProjectNextFieldType'</p>",
+          "<p>Enum value 'TRACKED_BY<code>was added to enum</code>ProjectV2FieldType'</p>",
+          "<p>Field <code>hasDiscussionsEnabled</code> was added to object type <code>Repository</code></p>",
+          "<p>Input field <code>lockAllowsFetchAndMerge</code> was added to input object type <code>UpdateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>lockBranch</code> was added to input object type <code>UpdateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>requireLastPushApproval</code> was added to input object type <code>UpdateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>hasDiscussionsEnabled</code> was added to input object type <code>UpdateRepositoryInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectNextFieldType.TRACKED_BY</code>:<code>TRACKED_BY</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-11-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>filename</code> was added to object type <code>IssueTemplate</code></p>"
         ]
       }
