@@ -15,12 +15,12 @@ versions:
 topics:
   - Pages
 shortTitle: Test site locally with Jekyll
-ms.openlocfilehash: 68123d7bc2849881fc60fdd89dc4177e6701f5d4
-ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.openlocfilehash: 9db3a964ee38afa191f7fed31cfa032128460f48
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147878576'
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111308'
 ---
 リポジトリへの書き込み権限があるユーザは、{% data variables.product.prodname_pages %} サイトをローカルでテストできます。
 
@@ -52,13 +52,14 @@ Jekyll を使用してサイトをテストする前に、以下の操作が必�
   >    Server address: http://127.0.0.1:4000/
   >  Server running... press ctrl-c to stop.
   ```
+  {% note %}
+
+  **メモ:** Ruby 3.0 以降をインストールした場合 (Homebrew を使用して既定のバージョンをインストールした場合に発生することがあります)、この手順でエラーが発生するおそれがあります。 これは、これらのバージョンの Ruby には、`webrick` がインストールされなくなったためです。
+  
+  エラーを修正するには、`bundle add webrick` を実行してから `bundle exec jekyll serve` をもう一度実行します。
+  {% endnote %}
+
 3. サイトをプレビューするには、Web ブラウザーで `http://localhost:4000` に移動します。
-
-{% note %}
-
-**注釈:** Ruby 3.0 と Jekyll 4.2.x 以前を使用している場合、`bundle install` を実行する前にプロジェクトの Gemfile に `webrick` gem を追加する必要があります。
-
-{% endnote %}
 
 ## {% data variables.product.prodname_pages %} gem の更新
 
