@@ -243,6 +243,7 @@ When you call a reusable workflow, you can only use the following keywords in th
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
 * [`jobs.<job_id>.concurrency`](/actions/reference/workflow-syntax-for-github-actions#concurrency)
+* [`jobs.<job_id>.strategy`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy)
 
    {% note %}
 
@@ -275,8 +276,11 @@ jobs:
       contents: read
       pull-requests: write
     uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
+    strategy:
+      matrix: 
+        config: [ ".github/labeler_defaults.yml", ".github/labeler_special.yml" ]
     with:
-      config-path: .github/labeler.yml
+      config-path: ${{ matrix.config }}
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
 ```
