@@ -19,5 +19,6 @@ children:
   - /adding-features-to-a-devcontainer-file
   - /automatically-opening-files-in-the-codespaces-for-a-repository
   - /adding-a-codespaces-badge
+  - /setting-up-a-template-repository-for-github-codespaces
 ---
 

@@ -21,7 +21,7 @@ After installing the JetBrains Gateway, you can set JetBrains as your default ed
 
 {% note %}
 
-**Note**: Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.prodname_dotcom_the_website %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+**Note**: Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.prodname_dotcom_the_website %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 
 {% endnote %}
 

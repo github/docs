@@ -9,7 +9,8 @@ topics:
 children:
   - /codespaces-lifecycle
   - /developing-in-a-codespace
-  - /creating-a-codespace
+  - /creating-a-codespace-for-a-repository
+  - /creating-a-codespace-from-a-template
   - /deleting-a-codespace
   - /opening-an-existing-codespace
   - /using-source-control-in-your-codespace

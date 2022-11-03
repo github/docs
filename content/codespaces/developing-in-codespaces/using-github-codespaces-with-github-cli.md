@@ -83,7 +83,7 @@ An asterisk at the end of the branch name for a codespace indicates that there a
 gh codespace create -r OWNER/REPO_NAME [-b BRANCH]
 ```
 
-For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 
 ### Stop a codespace
 

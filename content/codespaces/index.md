@@ -14,7 +14,8 @@ featuredLinks:
     - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
   guideCards:
     - /codespaces/getting-started/deep-dive
-    - /codespaces/developing-in-codespaces/creating-a-codespace
+    - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
+    - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
     - /codespaces/developing-in-codespaces/opening-an-existing-codespace
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
     - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code

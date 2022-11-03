@@ -44,9 +44,9 @@ To suspend or stop your codespace's container, [access the {% data variables.pro
 
 ![Command to stop a codespace](/assets/images/help/codespaces/codespaces-stop.png)
 
-### Adding a dev container from a template
+### Adding a predefined dev container configuration
 
-To add a dev container from a template, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**
+To add a predefined dev container configuration, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**
 
 ![Command to add a dev container](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 

@@ -17,9 +17,10 @@ includeGuides:
   - /codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines
   - /codespaces/setting-up-your-project-for-codespaces/automatically-opening-files-in-the-codespaces-for-a-repository
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
-  - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
+  - /codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
-  - /codespaces/developing-in-codespaces/creating-a-codespace
+  - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
+  - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
   - /codespaces/developing-in-codespaces/developing-in-a-codespace
   - /codespaces/developing-in-codespaces/deleting-a-codespace
   - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace

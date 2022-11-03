@@ -19,6 +19,8 @@ On the settings page, you can set your editor preference so that when you create
 * JetBrains Gateway - for opening codespaces in a JetBrains IDE
 * JupyterLab - the web interface for Project Jupyter 
 
+{% data reusables.codespaces.template-codespaces-default-editor %}
+
 If you want to use {% data variables.product.prodname_vscode %} as your default editor for {% data variables.product.prodname_github_codespaces %}, you need to install {% data variables.product.prodname_vscode %} and the {% data variables.product.prodname_github_codespaces %} extension for {% data variables.product.prodname_vscode %}. For more information, see the [download page for {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download/) and the [{% data variables.product.prodname_github_codespaces %} extension on the {% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
 If you want to work on a codespace in a JetBrains IDE you must install the JetBrains Gateway. For more information, see "[Using Codespaces in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."

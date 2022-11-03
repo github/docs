@@ -62,7 +62,7 @@ This displays the workflow run history for prebuilds for the associated branch.
 
 To pause the update of prebuilds for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuilds for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild.
 
-Disabling the workflow runs for a prebuild configuration is useful if you need to investigate template creation failures.
+Disabling the workflow runs for a prebuild configuration is useful if you need to investigate prebuild creation failures.
 
 1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to disable.
 1. In the dropdown menu, click **Disable runs**.

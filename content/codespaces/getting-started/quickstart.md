@@ -17,18 +17,18 @@ redirect_from:
 
 In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace. You'll work in the browser version of {% data variables.product.prodname_vscode %}, which is initially the default editor for {% data variables.product.prodname_github_codespaces %}. After trying out this quickstart you can use {% data variables.product.prodname_codespaces %} in other editors, and you can change the default editor. Links are provided at the end of this guide.
 
-From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, use version control in a codespace, and personalize your setup with extensions.
+From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, publish your codespace to a new repository, and personalize your setup with extensions.
 
 For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
 
 ## Creating your codespace
 
-1. Navigate to the [template repository](https://github.com/github/haikus-for-codespaces) and select **Use this template**. 
-{% data reusables.codespaces.open-codespace-from-template-repo %}
+1. Navigate to the [github/haikus-for-codespaces](https://github.com/github/haikus-for-codespaces) template repository.
+{% data reusables.codespaces.open-template-in-codespace-step %}
 
 ## Running the application
 
-Once your codespace is created, your repository will be automatically cloned into it. Now you can run the application and launch it in a browser.
+Once your codespace is created, the template repository will be automatically cloned into it. Now you can run the application and launch it in a browser.
 
 1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the `package.json` file, which starts up the web application defined in the sample repository.
    
@@ -36,19 +36,19 @@ Once your codespace is created, your repository will be automatically cloned int
 
    If you're following along with a different application type, enter the corresponding start command for that project.
 
-1. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
+2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
 
    ![Port forwarding "toast" notification](/assets/images/help/codespaces/quickstart-port-toast.png)
 
-1. Click **Open in Browser** to view your running application in a new tab.
+3. Click **Open in Browser** to view your running application in a new tab.
 
 ## Edit the application and view changes
 
-1. Switch back to your codespace and open the `haikus.json` file by double-clicking it in the Explorer.
+1. Switch back to your codespace and open the `haikus.json` file by clicking it in the Explorer.
 
-1. Edit the `text` field of the first haiku to personalize the application with your own haiku.
+2. Edit the `text` field of the first haiku to personalize the application with your own haiku.
 
-1. Go back to the running application tab in your browser and refresh to see your changes.
+3. Go back to the running application tab in your browser and refresh to see your changes.
    
    {% octicon "light-bulb" aria-label="The lightbulb icon" %} If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
 
@@ -56,29 +56,29 @@ Once your codespace is created, your repository will be automatically cloned int
 
 ## Committing and pushing your changes
 
-Now that you've made a few changes, you can use the integrated terminal or the source view to commit and push the changes back to the remote.
+Now that you've made a few changes, you can use the integrated terminal or the source view to publish your work to a new repository.
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. To stage your changes, click **+** next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
+1. To stage your changes, click  **+** next to the `haikus.json` file, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
-   ![Source control sidebar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
-1. Type a commit message describing the change you've made.
+2. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
 
-   ![Source control sidebar with a commit message](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
+   ![Source control side bar with a commit message](/assets/images/help/codespaces/vscode-commit-button.png)
 
-1. To commit your staged changes, click the check mark at the top the source control sidebar.
+3. Click **Publish Branch**.
+   
+   ![Screenshot of the "Publish branch" button in VS Code](/assets/images/help/codespaces/vscode-publish-branch-button.png)
 
-   ![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
+4. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.company_short %} private repository** or **Publish to {% data variables.product.company_short %} public repository**.
+   
+   ![Screenshot of the "Repository Name" dropdown in VS Code](/assets/images/help/codespaces/choose-new-repository.png)
 
-   You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
-
-1. At the top of the sidebar, click the ellipsis (**...**).
-
-   ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-
-1. In the dropdown menu, click **Push**.
-1. Go back to your new repository on {% data variables.product.prodname_dotcom %} and view the `haikus.json` file. Check that the change you made in your codespace has been successfully pushed to the repository.
+   The owner of the new repository will be the {% data variables.product.prodname_dotcom %} account with which you created the codespace.
+5. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.company_short %}** to view the new repository on {% data variables.product.prodname_dotcom_the_website %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
+   
+   ![Screenshot of the "Open in GitHub" pop-up in VS Code](/assets/images/help/codespaces/open-on-github.png)
 
 ## Personalizing with an extension
 

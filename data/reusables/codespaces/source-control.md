@@ -1,3 +1,9 @@
+## Publishing a codespace created from a template
+
+When you create a codespace from a template repository or a template on the "Your codespaces" page, the work you do won't be stored in a repository on {% data variables.product.prodname_dotcom %} until you publish your codespace. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-repository-on-github)."
+
+{% data reusables.codespaces.publishing-template-codespaces %}
+
 ## Creating or switching branches
 
 {% data reusables.codespaces.create-or-switch-branch %}

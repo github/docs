@@ -1,9 +1,10 @@
 ---
-title: Creating a codespace
+title: Creating a codespace for a repository
 intro: You can create a codespace for a branch in a repository to develop online.
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
+  - /codespaces/developing-in-codespaces/creating-a-codespace
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,12 +13,14 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Create a codespace
+shortTitle: Create a codespace for a repo
 ---
 
-## About codespace creation
+## About creating a codespace for a repository
 
 {% data reusables.codespaces.ways-to-create-a-codespace %} Use the tabs in this article to display instructions for each of these ways of creating a codespace.
+
+{% data reusables.codespaces.starting-new-project-template %} For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
 
 {% note %}
 
@@ -54,7 +57,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## Creating a codespace
+## Creating a codespace for a repository
 
 {% webui %}
 
