@@ -4,6 +4,7 @@ intro: Vulnerability disclosure is a coordinated effort between security reporte
 redirect_from:
   - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
   - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+  - /code-security/security-advisories/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -50,6 +51,13 @@ Publishing the details of a security vulnerability doesn't make maintainers look
 
 ## About reporting and disclosing vulnerabilities in projects on {% data variables.product.prodname_dotcom %}
 
+There are two processes available on {% data variables.product.prodname_dotcom %}:
+
+- The standard process: Vulnerability reporters get in touch with the repository maintainers, using contact information located in the security policy for the repository. The repository maintainers then create a draft repository advisory if required.  
+- Private vulnerability reporting: Vulnerability reporters disclose vulnerability details directly and privately to the repository maintainers by proposing a draft repository advisory and providing details of their findings.
+
+### Standard process
+
 The process for reporting and disclosing vulnerabilities for projects on {% data variables.product.prodname_dotcom_the_website %} is as follows:
 
  If you are a vulnerability reporter (for example, a security researcher) who would like report a vulnerability, first check if there is a security policy for the related repository. For more information, see "[About security policies](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)." If there is one, follow it to understand the process before contacting the security team for that repository. 
@@ -68,5 +76,19 @@ The process for reporting and disclosing vulnerabilities for projects on {% data
 
  As a maintainer, to disclose a vulnerability in your code, you first create a draft security advisory in the package's repository in {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About repository security advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
 
-
  To get started, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
+
+### Private vulnerability reporting
+
+{% data reusables.security-advisory.private-vulnerability-reporting-beta %}
+
+{% data reusables.security-advisory.private-vulnerability-reporting-enable %}
+
+ Private vulnerability reporting provides an easy way for vulnerability reporters to privately disclose security risks to repository maintainers, within {% data variables.product.prodname_dotcom %}, and in a way that immediately notifies the repository maintainers of the issue. For more information for security researchers and repository maintainers, see "[Privately reporting a security vulnerability](/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability)" and "[Managing privately reported security vulnerabilities](/code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities)", respectively.
+
+{% note %}
+
+**Note**:
+If the repository containing the vulnerability doesn't have private vulnerability reporting enabled, both security researchers and repository maintainers need to follow the instructions described in the "[Standard process](#standard-process)" section above.
+
+{% endnote %}
