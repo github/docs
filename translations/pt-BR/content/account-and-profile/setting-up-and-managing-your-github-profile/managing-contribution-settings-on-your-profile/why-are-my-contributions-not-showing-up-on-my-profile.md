@@ -14,12 +14,12 @@ versions:
 topics:
   - Profiles
 shortTitle: Missing contributions
-ms.openlocfilehash: f3480b1b4f2857a144ad8e264e0d8b78196b1a3e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: dbdf99a77c423774c03f69d21542f8174e813bc6
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107042'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127656'
 ---
 ## Sobre o seu gráfico de contribuição
 
@@ -31,7 +31,7 @@ Se você faz parte de uma organização que usa o logon único SAML (SSO), você
 
 ### Problemas, pull requests e discussões
 
-Os problemas, pull requests e discussões aparecerão no gráfico de contribuição se estiverem abertos em um repositório autônomo, não em uma bifurcação.
+Os problemas, as solicitações de pull e as discussões aparecerão no grafo de contribuição se tiverem sido abertos em um repositório autônomo, não em um fork.
 
 ### Confirmações
 Os commits serão exibidos no seu grafo de contribuições se eles atenderem a **todas** as seguintes condições:
