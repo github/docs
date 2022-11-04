@@ -10,9 +10,6 @@ versions:
   ghec: '*'
 learningTracks:
   - getting_started
-  - continuous_integration
-  - continuous_deployment
-  - deploy_to_the_cloud
   - adopting_github_actions_for_your_enterprise_ghec
   - adopting_github_actions_for_your_enterprise_ghes_and_ghae
   - hosting_your_own_runners

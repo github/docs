@@ -7,12 +7,12 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: ab1373e5bea18c01ba97f37a7e77441d0bb70422
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: a8e43cc14edf9dd0c6838d8f75839a2c0624a7a5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147717550'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109097'
 ---
 {% data reusables.projects.project-settings %}
 1. 名前を変更するフィールドの名前をクリックします。

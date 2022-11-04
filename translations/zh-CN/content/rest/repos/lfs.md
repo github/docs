@@ -3,7 +3,7 @@ title: Git LFS
 intro: 'You can enable or disable {% data variables.large_files.product_name_long %} (LFS) for a repository.'
 versions:
   fpt: '*'
-  ghes: '>=3.3'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

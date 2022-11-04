@@ -1,6 +1,6 @@
 ---
-title: About SSH
-intro: 'Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and {% data variables.product.pat_generic %} at each visit.{% ifversion ssh-commit-verification %} You can also use an SSH key to sign commits.{% endif %}'
+title: Acerca de SSH
+intro: 'Usando el protocolo SSH, te puedes conectar y autenticar con servicios y servidores remotos. Con las claves SSH puedes conectarte a {% data variables.product.product_name %} sin necesidad de proporcionar el nombre de usuario y el {% data variables.product.pat_generic %} en cada visita.{% ifversion ssh-commit-verification %} También puedes usar una clave SSH para firmar confirmaciones.{% endif %}'
 redirect_from:
   - /articles/about-ssh
   - /github/authenticating-to-github/about-ssh
@@ -12,27 +12,29 @@ versions:
   ghec: '*'
 topics:
   - SSH
+ms.openlocfilehash: 51a72821217e5d47092ed77e923b38f4cf248010
+ms.sourcegitcommit: a0ad3bfe2a99c3092e76ca9b3d476cf30988ca55
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/28/2022
+ms.locfileid: '148118983'
 ---
+{% data reusables.ssh.about-ssh %} Para obtener más información sobre SSH, consulta [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) en Wikipedia.
 
-{% data reusables.ssh.about-ssh %} For more information about SSH, see [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) on Wikipedia.
+Cuando configures SSH, necesitarás generar una clave SSH privada nueva y agregarla al agente SSH. También debes agregar la clave SSH pública a tu cuenta en {% data variables.product.product_name %} antes de utilizarla para autenticarte{% ifversion ssh-commit-verification %} o firmar confirmaciones{% endif %}. Para obtener más información, consulta "[Generación de una nueva clave SSH e incorporación al agente ssh](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"{% ifversion ssh-commit-verification %}, {% else %} e{% endif %} "[Incorporación de una nueva clave SSH a la cuenta de {% data variables.product.prodname_dotcom %}](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account){% ifversion ssh-commit-verification %}" y "[Acerca de la verificación de firma de confirmación](/articles/about-commit-signature-verification){% endif %}".
 
-When you set up SSH, you will need to generate a new private SSH key and add it to the SSH agent. You must also add the public SSH key to your account on {% data variables.product.product_name %} before you use the key to authenticate{% ifversion ssh-commit-verification %} or sign commits{% endif %}. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"{% ifversion ssh-commit-verification %}, {% else %} and{% endif %} "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account){% ifversion ssh-commit-verification %}" and "[About commit signature verification](/articles/about-commit-signature-verification){% endif %}."
+Puedes asegurar tu llave SSH aún más si utilizas una llave de seguridad de hardware, la cual requiere que esta última se conecte físicamente a tu computadora cuando se utilice el par de llaves para autenticarte con SSH. También puedes asegurar tu llave SSH si la agregas al ssh-agent y utiliza una contraseña. Para obtener más información, consulta "[Trabajo con frases de contraseña de clave de SSH](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)".
 
-You can further secure your SSH key by using a hardware security key, which requires the physical hardware security key to be attached to your computer when the key pair is used to authenticate with SSH. You can also secure your SSH key by adding your key to the ssh-agent and using a passphrase. For more information, see "[Working with SSH key passphrases](/github/authenticating-to-github/working-with-ssh-key-passphrases)."
+{% ifversion fpt or ghec %}Para usar la clave SSH con un repositorio propiedad de una organización que usa el inicio de sesión único de SAML, debes autorizar la clave. Para obtener más información, consulta "[Autorización de una clave SSH para usarla con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}{% endif %}
 
-{% ifversion fpt or ghec %}To use your SSH key with a repository owned by an organization that uses SAML single sign-on, you must authorize the key. For more information, see "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+Para mantener la seguridad de cuenta, puedes revisar tu lista de llaves SSH frecuentemente y retirar cualquier llave que sea inválida o que se haya puesto en riesgo. Para obtener más información, consulta "[Revisión de las claves SSH](/github/authenticating-to-github/reviewing-your-ssh-keys)".
 
-To maintain account security, you can regularly review your SSH keys list and revoke any keys that are invalid or have been compromised. For more information, see "[Reviewing your SSH keys](/github/authenticating-to-github/reviewing-your-ssh-keys)."
-
-{% ifversion fpt or ghec %}
-If you haven't used your SSH key for a year, then {% data variables.product.prodname_dotcom %} will automatically delete your inactive SSH key as a security precaution. For more information, see "[Deleted or missing SSH keys](/articles/deleted-or-missing-ssh-keys)."
+{% ifversion fpt or ghec %} Si no has usado tu clave SSH por un año, entonces {% data variables.product.prodname_dotcom %} automáticamente eliminará tu clave SSH inactiva, como medida de seguridad. Para obtener más información, consulta "[Claves SSH eliminadas o ausentes](/articles/deleted-or-missing-ssh-keys)".
 {% endif %}
 
-{% ifversion fpt %}
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can provide SSH certificates, which members can use to access that organization's repositories without adding the certificate to their account on {% data variables.product.product_name %}. If you're using an SSH certificate, you cannot use the certificate to access forks of the organization's repositories, if the fork is owned by your personal account. For more information, see "[About SSH certificate authorities](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
-{% else ghec or ghes or ghae %}
-If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your account on {% data variables.product.product_name %}. You cannot use your certificate to access forks of the organization's repositories, if the forks is owned by your personal account. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+{% ifversion fpt %} Las organizaciones que usan {% data variables.product.prodname_ghe_cloud %} pueden proporcionar certificados SSH, que los miembros pueden usar para acceder a los repositorios de estas sin tener que agregar el certificado a su cuenta de {% data variables.product.product_name %}. Si usas un certificado SSH, no puedes acceder con él a bifurcaciones de los repositorios de la organización, si la bifurcación es propiedad de tu cuenta personal. Para más información, consulta "[Acerca de las entidades de certificación de SSH](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities) en la documentación de {% data variables.product.prodname_ghe_cloud %}.
+{% else ghec or ghes or ghae %} Si eres miembro de una organización que proporciona certificados SSH, puedes usar tu certificado para acceder a los repositorios de esa organización sin agregar el certificado a tu cuenta de {% data variables.product.product_name %}. No puedes utilizar tu certificado para acceder a bifurcaciones de los repositorios de la organización, si estas pertenecen a tu cuenta personal. Para más información, vea "[Acerca de las entidades de certificación de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)".
 {% endif %}
-## Further reading
+## Información adicional
 
-- "[Troubleshooting SSH](/articles/troubleshooting-ssh)"
+- "[Solucionar problemas de SSH](/articles/troubleshooting-ssh)"

@@ -1,10 +1,11 @@
 ---
-title: Configuring authentication and provisioning for your enterprise using Okta
+title: Okta を使用するエンタープライズ用の認証とプロビジョニングの構成
 shortTitle: Configure with Okta
-intro: 'You can use Okta as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.product.prodname_ghe_managed %}.'
-permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.prodname_ghe_managed %}.'
+intro: 'Okta を ID プロバイダー (IdP) として使用して、{% data variables.location.product_location %}の認証とユーザー プロビジョニングを一元管理できます。'
+permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
+  feature: scim-for-ghes
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
@@ -16,144 +17,151 @@ topics:
   - Identity
   - SSO
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 1655ca7f800b94c150455a077b867e7e08fa924b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107517'
 ---
-
 {% data reusables.saml.okta-ae-sso-beta %}
 
-## About SAML and SCIM with Okta
+## Okta を使用した認証とユーザー プロビジョニングについて
 
-You can use Okta as an Identity Provider (IdP) for {% data variables.product.prodname_ghe_managed %}, which allows your Okta users to sign in to {% data variables.product.prodname_ghe_managed %} using their Okta credentials.
+{% data variables.product.product_name %} の ID プロバイダー (IdP) として Okta を使用できます。これにより、Okta ユーザーは Okta 資格情報を使用して {% data variables.product.product_name %} にサインインできます。
 
-To use Okta as your IdP for {% data variables.product.prodname_ghe_managed %}, you can add the {% data variables.product.prodname_ghe_managed %} app to Okta, configure Okta as your IdP in {% data variables.product.prodname_ghe_managed %}, and provision access for your Okta users and groups.
+{% data variables.product.product_name %} の IdP として Okta を使用するために、Okta に {% data variables.product.product_name %} アプリを追加し、{% data variables.product.product_name %} で Okta を IdP として構成し、Okta ユーザーとグループのアクセス権をプロビジョニングできます。
 
-The following provisioning features are available for all Okta users that you assign to your {% data variables.product.prodname_ghe_managed %} application.
+{% data reusables.scim.ghes-beta-note %}
 
-| Feature | Description |
+次のプロビジョニング機能は、{% data variables.product.product_name %} アプリケーションに割り当てられたすべての Okta ユーザーが使用できます。
+
+| 機能 | 説明 |
 | --- | --- |
-| Push New Users | When you create a new user in Okta, the user is added to {% data variables.product.prodname_ghe_managed %}. |
-| Push User Deactivation | When you deactivate a user in Okta, it will suspend the user from your enterprise on {% data variables.product.prodname_ghe_managed %}. |
-| Push Profile Updates | When you update a user's profile in Okta, it will update the metadata for the user's membership in your enterprise on {% data variables.product.prodname_ghe_managed %}. |
-| Reactivate Users | When you reactivate a user in Okta, it will unsuspend the user in your enterprise on {% data variables.product.prodname_ghe_managed %}. |
+| 新しいユーザのプッシュ | Okta で新しいユーザーを作成すると、ユーザーは {% data variables.product.product_name %} に追加されます。 |
+| ユーザ無効化のプッシュ | Okta でユーザーを非アクティブにすると、{% data variables.product.product_name %} で Enterprise からユーザーが停止されます。 |
+| プロフィール更新のプッシュ | Okta でユーザーのプロファイルを更新すると、{% data variables.product.product_name %} で Enterprise 内のユーザーのメンバーシップのメタデータが更新されます。 |
+| ユーザの再アクティブ化 | Okta でユーザーを再アクティブ化すると、{% data variables.product.product_name %} で Enterprise 内のユーザーの停止が解除されます。 |
 
-## Adding the {% data variables.product.prodname_ghe_managed %} application in Okta
+## 前提条件
 
-{% data reusables.saml.okta-ae-applications-menu %}
-1. Click **Browse App Catalog**
+- Okta を使用して {% data variables.product.product_name %} の認証とユーザー プロビジョニングを設定するには、Okta アカウントとテナントが必要です。
 
-  !["Browse App Catalog"](/assets/images/help/saml/okta-ae-browse-app-catalog.png)
+{%- ifversion scim-for-ghes %}
+- {% data reusables.saml.ghes-you-must-configure-saml-sso %}{%- endif %}
 
-1. In the search field, type "GitHub AE", then click **GitHub AE** in the results.
+- {% data reusables.saml.create-a-machine-user %}
 
-  !["Search result"](/assets/images/help/saml/okta-ae-search.png)
+## Okta で {% data variables.product.product_name %} アプリケーションを追加する
 
-1. Click **Add**.
 
-  !["Add GitHub AE app"](/assets/images/help/saml/okta-ae-add-github-ae.png)
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-browse-app-catalog %} {%- ifversion ghae %}
+1. 検索フィールドに「GitHub AE」と入力し、その結果で **[GitHub AE]** をクリックします。
 
-1. For "Base URL", type the URL of your enterprise on {% data variables.product.prodname_ghe_managed %}.
+  !["検索結果"](/assets/images/help/saml/okta-ae-search.png)
+1. **[追加]** をクリックします。
 
-  !["Configure Base URL"](/assets/images/help/saml/okta-ae-configure-base-url.png)
+  !["GitHub AE アプリを追加する"](/assets/images/help/saml/okta-ae-add-github-ae.png)
+1. [ベース URL] には、{% data variables.product.product_name %} 上の Enterprise の URL を入力します。
 
-1. Click **Done**.
+  !["ベース URL を構成する"](/assets/images/help/saml/okta-ae-configure-base-url.png)
+1. **[Done]** をクリックします。
+{%- elsif scim-for-ghes %}
+1. 検索フィールドに「GitHub Enterprise Server」を入力し、結果で **[GitHub Enterprise Server]** をクリックします。
+1. **[追加]** をクリックします。
+1. [ベース URL] で、{% data variables.location.product_location %} の URL を入力します。
+1. **[Done]** をクリックします。
+{% endif %}
 
-## Enabling SAML SSO for {% data variables.product.prodname_ghe_managed %}
+## {% data variables.product.product_name %} に対する SAML SSO の有効化
 
-To enable single sign-on (SSO) for {% data variables.product.prodname_ghe_managed %}, you must configure {% data variables.product.prodname_ghe_managed %} to use the sign-on URL, issuer URL, and public certificate provided by Okta. You can find locate these details in the "GitHub AE" app.
+{% data variables.product.product_name %} に対してシングル サインオン (SSO) を有効にするには、Okta によって提供されるサインオン URL、発行者 URL、パブリック証明書を使用するように {% data variables.product.product_name %} を設定する必要があります。 これらの詳細については、{% data variables.product.product_name %} の Okta アプリで確認できます。
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-ae-configure-app %}
-1. Click **Sign On**.
-
-  ![Sign On tab](/assets/images/help/saml/okta-ae-sign-on-tab.png)
-
-1. Click **View Setup Instructions**.
-
-  ![Sign On tab](/assets/images/help/saml/okta-ae-view-setup-instructions.png)
-
-1. Take note of the "Sign on URL", "Issuer", and "Public certificate" details. 
-1. Use the details to enable SAML SSO for your enterprise on {% data variables.product.prodname_ghe_managed %}. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
-
-{% note %}
-
-**Note:** To test your SAML configuration from {% data variables.product.prodname_ghe_managed %}, your Okta user account must be assigned to the {% data variables.product.prodname_ghe_managed %} app.
-
-{% endnote %}
-
-## Enabling API integration
-
-The "GitHub AE" app in Okta uses the {% data variables.product.product_name %} API to interact with your enterprise for SCIM and SSO. This procedure explains how to enable and test access to the API by configuring Okta with a {% data variables.product.pat_generic %} for {% data variables.product.prodname_ghe_managed %}.
-
-1. In {% data variables.product.prodname_ghe_managed %}, generate a {% data variables.product.pat_v1 %} with the `admin:enterprise` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-ae-configure-app %}
-{% data reusables.saml.okta-ae-provisioning-tab %}
-1. Click **Configure API Integration**.
-
-1. Select **Enable API integration**.
-
-  ![Enable API integration](/assets/images/help/saml/okta-ae-enable-api-integration.png)
-
-1. For "API Token", type the {% data variables.product.prodname_ghe_managed %} {% data variables.product.pat_generic %} you generated previously.
-
-1. Click **Test API Credentials**. 
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% ifversion ghae %} {% data reusables.saml.okta-sign-on-tab %} {% data reusables.saml.okta-view-setup-instructions %}
+1. [サインオン URL]、[発行者]、[公開証明書] の詳細を書き留めます。 
+1. この詳細を使用して、{% data variables.product.product_name %} で Enterprise に対して SAML SSO を有効にします。 詳細については、「[エンタープライズ向けの SAML シングル サインオンの構成](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
+{% elsif scim-for-ghes %} {% data reusables.saml.okta-sign-on-tab %}
+1. 詳細を使用して、{% data variables.location.product_location %} に対して SAML SSO を有効にします。 詳細については、「[エンタープライズ向けの SAML シングル サインオンの構成](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
+{%- endif %}
 
 {% note %}
 
-**Note:** If you see `Error authenticating: No results for users returned`, confirm that you have enabled SSO for {% data variables.product.prodname_ghe_managed %}. For more information see "[Enabling SAML SSO for {% data variables.product.prodname_ghe_managed %}](#enabling-saml-sso-for-github-ae)."
+**注:** {% data variables.product.product_name %} から SAML 構成をテストするには、Okta ユーザー アカウントを {% data variables.product.product_name %} アプリに割り当てる必要があります。
 
 {% endnote %}
 
-## Configuring SCIM provisioning settings
+## API 統合の有効化
 
-This procedure demonstrates how to configure the SCIM settings for Okta provisioning. These settings define which features will be used when automatically provisioning Okta user accounts to {% data variables.product.prodname_ghe_managed %}.
+Okta アプリでは、SCIM プロビジョニングに {% data variables.product.product_name %} の REST API を使用します。 {% data variables.product.product_name %} の {% data variables.product.pat_generic %} を使用して Okta を設定することで、API へのアクセスを有効にしてテストできます。
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-ae-configure-app %}
-{% data reusables.saml.okta-ae-provisioning-tab %}
-1. Under "Settings", click **To App**.
+1. {% data variables.product.product_name %} では、`admin:enterprise` スコープを持つ {% data variables.product.pat_v1 %} を生成します。 詳しい情報については、「[{% data variables.product.pat_generic %}の作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% data reusables.saml.okta-ae-provisioning-tab %}
+1. **[API 統合の構成]** をクリックします。
 
-  !["To App" settings](/assets/images/help/saml/okta-ae-to-app-settings.png)
+1. **[Enable API integration]\(API 統合を有効にする\)** を選択します。
 
-1. To the right of "Provisioning to App", click **Edit**.
-1. To the right of "Create Users", select **Enable**.
-1. To the right of "Update User Attributes", select **Enable**.
-1. To the right of "Deactivate Users", select **Enable**.
-1. Click **Save**.
+  ![[API 統合を有効にする]](/assets/images/help/saml/okta-ae-enable-api-integration.png)
 
-## Allowing Okta users and groups to access {% data variables.product.prodname_ghe_managed %}
+1. [API トークン] に、前に生成した {% data variables.product.product_name %} {% data variables.product.pat_generic %} を入力します。
 
-You can provision access to {% data variables.product.product_name %} for your individual Okta users, or for entire groups.
+1. **[Test API Credentials]\(API 資格情報のテスト\)** をクリックします。 
 
-### Provisioning access for Okta users
+{% note %}
 
-Before your Okta users can use their credentials to sign in to {% data variables.product.prodname_ghe_managed %}, you must assign the users to the "GitHub AE" app in Okta.
+**注:** `Error authenticating: No results for users returned` が表示される場合は、{% data variables.product.product_name %} に対して SSO を有効にしていることを確認します。 詳しい情報については、「[{% data variables.product.product_name %} に対する SAML SSO の有効化](#enabling-saml-sso-for-github-ae)」を参照してください。
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-ae-configure-app %}
+{% endnote %}
 
-1. Click **Assignments**.
+## SCIM プロビジョニング設定の構成
 
-  ![Assignments tab](/assets/images/help/saml/okta-ae-assignments-tab.png)
+この手順では、Okta プロビジョニング用に SCIM 設定を構成する方法を示します。 これらの設定では、Okta ユーザー アカウントを {% data variables.product.product_name %} に自動的にプロビジョニングするときに使用される機能を定義します。
 
-1. Select the Assign drop-down menu and click **Assign to People**.
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% data reusables.saml.okta-ae-provisioning-tab %}
+1. [設定] で、 **[アプリへ]** をクリックします。
 
-  !["Assign to People" button](/assets/images/help/saml/okta-ae-assign-to-people.png)
+  ![[アプリへ] 設定](/assets/images/help/saml/okta-ae-to-app-settings.png)
 
-1. To the right of the required user account, click **Assign**.
+1. [アプリへのプロビジョニング] の右側にある **[編集]** をクリックします。
+1. [ユーザーの作成] の右側にある **[有効にする]** を選択します。
+1. [ユーザー属性の更新] の右側にある **[有効]** を選択します。
+1. [ユーザーの非アクティブ化] の右側にある **[有効]** を選択します。
+1. **[保存]** をクリックします。
 
-  ![List of users](/assets/images/help/saml/okta-ae-assign-user.png)
+## Okta ユーザーとグループが {% data variables.product.product_name %} にアクセスできるようにする
 
-1. To the right of "Role", click a role for the user, then click **Save and go back**.
+個々の Okta ユーザー、またはグループ全体に対して、{% data variables.product.product_name %} へのアクセスをプロビジョニングできます。
 
-  ![Role selection](/assets/images/help/saml/okta-ae-assign-role.png)
+### Okta ユーザーのアクセスのプロビジョニング
 
-1. Click **Done**.
+Okta ユーザーが自分の資格情報を使用して {% data variables.product.product_name %} にサインインできるようにするには、ユーザーを {% data variables.product.product_name %} の Okta アプリに割り当てる必要があります。
 
-### Provisioning access for Okta groups
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %}
 
-You can map your Okta group to a team in {% data variables.product.prodname_ghe_managed %}. Members of the Okta group will then automatically become members of the mapped {% data variables.product.prodname_ghe_managed %} team. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+1. **[割り当て]** をクリックします。
 
-## Further reading
+  ![[Assignments] タブ](/assets/images/help/saml/okta-ae-assignments-tab.png)
 
-- [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) in the Okta documentation.
-- [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) in the Okta documentation.
+1. [割り当て] ドロップダウン メニューを選択し、 **[ユーザーに割り当てる]** をクリックします。
+
+  ![[ユーザーに割り当てる] ボタン](/assets/images/help/saml/okta-ae-assign-to-people.png)
+
+1. 必要なユーザー アカウントの右側にある **[割り当て]** をクリックします。
+
+  ![ユーザーの一覧](/assets/images/help/saml/okta-ae-assign-user.png)
+
+1. [ロール] の右側で、ユーザーのロールをクリックし、 **[保存して戻る]** をクリックします。
+
+  ![ロールの選択](/assets/images/help/saml/okta-ae-assign-role.png)
+
+1. **[Done]** をクリックします。
+
+{% ifversion ghae %}
+### Okta グループのアクセスのプロビジョニング
+
+Okta グループを {% data variables.product.product_name %} の Team にマップできます。 その後、Okta グループのメンバーは、マップされた {% data variables.product.product_name %} の Team のメンバーになります。 詳細については、[Okta グループのチームへのマッピング](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)に関する記事を参照してください。
+{% endif %}
+
+## 参考資料
+
+- Okta ドキュメントの「[Understanding SAML](https://developer.okta.com/docs/concepts/saml/)」 (SAML について)。
+- Okta ドキュメントの「[Understanding SCIM](https://developer.okta.com/docs/concepts/scim/)」 (SCIM について)。

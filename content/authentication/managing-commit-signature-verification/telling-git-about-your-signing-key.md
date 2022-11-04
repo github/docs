@@ -121,6 +121,6 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 {% data reusables.gpg.x-509-key %}
 ## Further reading
 
-- "[Adding a new SSH key to your GitHub account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
+- "[Adding a new SSH key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
 - "[Signing commits](/articles/signing-commits)"
 - "[Signing tags](/articles/signing-tags)"

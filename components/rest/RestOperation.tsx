@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import slugger from 'github-slugger'
+import { slug } from 'github-slugger'
 import { CheckCircleFillIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
@@ -26,7 +26,7 @@ const DEFAULT_ACCEPT_HEADER = {
 }
 
 export function RestOperation({ operation }: Props) {
-  const slug = slugger.slug(operation.title)
+  const titleSlug = slug(operation.title)
   const { t } = useTranslation('products')
   const router = useRouter()
 
@@ -38,8 +38,8 @@ export function RestOperation({ operation }: Props) {
 
   return (
     <div className="pb-8">
-      <h2 id={slug}>
-        <LinkIconHeading slug={slug} />
+      <h2 id={titleSlug}>
+        <LinkIconHeading slug={titleSlug} />
         {operation.title}
       </h2>
       {operation.enabledForGitHubApps && (
@@ -64,7 +64,7 @@ export function RestOperation({ operation }: Props) {
 
           {hasParameters && (
             <ParameterTable
-              slug={slug}
+              slug={titleSlug}
               numPreviews={numPreviews}
               heading={t('rest.reference.parameters')}
               headers={headers}
@@ -73,15 +73,17 @@ export function RestOperation({ operation }: Props) {
             />
           )}
 
-          {hasStatusCodes && <RestStatusCodes statusCodes={operation.statusCodes} slug={slug} />}
+          {hasStatusCodes && (
+            <RestStatusCodes statusCodes={operation.statusCodes} slug={titleSlug} />
+          )}
         </div>
         <div
           className="col-md-12 col-lg-6 position-sticky flex-self-start"
           style={{ top: '6.5em' }}
         >
-          {hasCodeSamples && <RestCodeSamples operation={operation} slug={slug} />}
+          {hasCodeSamples && <RestCodeSamples operation={operation} slug={titleSlug} />}
 
-          {numPreviews > 0 && <RestPreviewNotice slug={slug} previews={operation.previews} />}
+          {numPreviews > 0 && <RestPreviewNotice slug={titleSlug} previews={operation.previews} />}
         </div>
       </div>
     </div>

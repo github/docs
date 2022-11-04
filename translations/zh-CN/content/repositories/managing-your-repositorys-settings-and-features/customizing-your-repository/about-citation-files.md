@@ -5,17 +5,17 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files
 versions:
   fpt: '*'
-  ghes: '>=3.3'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: 2f7869e9218679c3c18c3182b15835bcd24e134d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 96e5e7308ba5d1877f231dcb454d7b797a63f221
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145193800'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108079'
 ---
 ## 关于 CITION 文件
 

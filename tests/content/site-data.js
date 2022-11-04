@@ -44,6 +44,7 @@ describe('siteData module (English)', () => {
       } catch (err) {
         if (err instanceof ParseError) {
           console.warn('value that failed to parse:', value)
+          console.warn('data file:', key)
           throw new Error(`Unable to parse with Liquid: ${err.message}`)
         }
         // Note, the parseAndRender() might throw other errors. For

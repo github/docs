@@ -1,4 +1,12 @@
-This configuration file adds the `security-and-quality` query suite to the list of queries run by {% data variables.product.prodname_codeql %} when scanning your code. For more information about the query suites available for use, see "[Running additional queries](#running-additional-queries)."
+---
+ms.openlocfilehash: 77c9b4b73d2d839bc9c0bdaa73ffc148f0eda6ca
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107905"
+---
+Este arquivo de configuração adiciona o conjunto de consulta `security-and-quality` à lista de consultas executadas pelo {% data variables.product.prodname_codeql %} ao fazer a verificação do seu código. Para obter mais informações sobre os conjuntos de consulta disponíveis para uso, veja "[Executando consultas adicionais](#running-additional-queries)".
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -7,7 +15,7 @@ queries:
   - uses: security-and-quality
 ```
 
-The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures {% data variables.product.prodname_codeql %} to scan files in the _src_ directory (relative to the root), except for the _src/node_modules_ directory, and except for files whose name ends in _.test.js_. Files in _src/node_modules_ and files with names ending _.test.js_ are therefore excluded from analysis.
+O seguinte arquivo de configuração desabilita as consultas-padrão e especifica um conjunto de consultas personalizadas para serem executadas. Ele também configura o {% data variables.product.prodname_codeql %} para verificar arquivos no diretório _src_ (em relação à raiz), com exceção do diretório _src/node_modules_ e exceto arquivos cujos nomes terminam em _.test.js_. Os arquivos no _src/node_modules_ e arquivos com nomes que terminam em _.test.js_ são, portanto, excluídos da análise.
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -33,7 +41,7 @@ paths-ignore:
 
 {% ifversion code-scanning-exclude-queries-from-analysis %}
 
-The following configuration file only runs queries that generate alerts of severity error. The configuration first selects all the default queries, all queries in `./my-queries`, and the default suite in `codeql/java-queries`, then excludes all the queries that generate warnings or recommendations. 
+O arquivo de configuração a seguir executa apenas consultas que geram alertas de erro de gravidade. A configuração primeiro seleciona todas as consultas padrão, todas as consultas em `./my-queries` e o pacote padrão em `codeql/java-queries`, depois exclui todas as consultas que geram avisos ou recomendações. 
 
 ``` yaml
 queries:

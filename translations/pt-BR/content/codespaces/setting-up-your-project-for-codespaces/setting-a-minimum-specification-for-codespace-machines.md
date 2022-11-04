@@ -11,16 +11,16 @@ topics:
   - Codespaces
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 368b7c73d13bb0624c9d838ac2d7bb18a2b050e3
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 623b50a9423d855f807e2b480882f1e5eb2c479f
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880803'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113854'
 ---
 ## Visão geral
 
-Cada codespace criado é hospedado em uma máquina virtual separada e você geralmente pode escolher entre diferentes tipos de máquinas virtuais. Cada tipo de computador tem recursos diferentes (CPUs, memória, armazenamento) e, por padrão, o tipo de computador com menos recursos é usado. Para obter mais informações, confira "[Como alterar o tipo de computador para seu codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)".
+Cada codespace criado é hospedado em uma máquina virtual separada e você geralmente pode escolher entre diferentes tipos de máquinas virtuais. Cada tipo de computador tem recursos diferentes (núcleos de processador, memória, armazenamento) e, por padrão, o tipo de computador com menos recursos é usado. Para obter mais informações, confira "[Como alterar o tipo de computador para seu codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)".
 
 Se o seu projeto precisar de um nível de capacidade de computação específico, você poderá configurar {% data variables.product.prodname_github_codespaces %} para que apenas os tipos de computador que atenderem a esses requisitos possam ser usados por padrão ou selecionados pelos usuários. Você configura isso em um arquivo `devcontainer.json`.
 
@@ -32,8 +32,8 @@ Se o seu projeto precisar de um nível de capacidade de computação específico
 
 ## Definindo uma especificação mínima de máquina
 
-1. Os {% data variables.product.prodname_github_codespaces %} do repositório são configurados em um arquivo `devcontainer.json`. Se o repositório ainda não contiver um arquivo `devcontainer.json`, adicione-o agora. Confira "[Adicionar uma configuração de contêiner de desenvolvimento ao repositório](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)".
-1. Edite o arquivo `devcontainer.json`, adicionando uma propriedade `hostRequirements` como esta:
+{% data reusables.codespaces.edit-devcontainer-json %}
+1. Edite o arquivo `devcontainer.json`, adicionando a propriedade `hostRequirements` no nível superior do arquivo, dentro do objeto JSON delimitador. Por exemplo:
 
    ```json{:copy}
    "hostRequirements": {

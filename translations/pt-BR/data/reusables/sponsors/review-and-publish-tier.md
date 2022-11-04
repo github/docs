@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 74ea67adba4201467a7266498e7567385db142fb
-ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.openlocfilehash: fe1fc6423171b64c6bf8ef4eadb27f6ddf4e9232
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2022
-ms.locfileid: "145127186"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148007656"
 ---
-1. Revise sua camada e clique em **Publicar camada _TYPE_**.
-  ![Botão Publicar camada mensal](/assets/images/help/sponsors/publish-tier-button.png)
+1. Revise a camada e clique em **Publicar camada**.
+  ![Captura de tela da nova página de camada com o botão Publicar camada mensal enfatizado](/assets/images/help/sponsors/publish-tier-button.png)

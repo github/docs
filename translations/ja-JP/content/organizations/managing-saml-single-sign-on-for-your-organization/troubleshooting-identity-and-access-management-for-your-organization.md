@@ -9,12 +9,12 @@ topics:
 shortTitle: Troubleshooting access
 redirect_from:
   - /organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
-ms.openlocfilehash: 41a629c9cff075e06e31d186a4a4edf7eebd96d2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d3110d61fb511f55aa840d0911c036dd342fa833
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147093201'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106974'
 ---
 {% data reusables.saml.current-time-earlier-than-notbefore-condition %}
 
@@ -84,7 +84,7 @@ SCIM REST APIは、外部アイデンティティの下でSCIMメタデータが
 ```
 
 ```shell
-curl -X POST -H "Authorization: Bearer <personal access token>" -H "Content-Type: application/json" -d '{ "query": "{ organization(login: \"ORG\") { samlIdentityProvider { externalIdentities(first: 100) { pageInfo { endCursor startCursor hasNextPage } edges { cursor node { samlIdentity { nameId } scimIdentity {username}  user { login } } } } } } }" }'  https://api.github.com/graphql
+curl -X POST -H "Authorization: Bearer YOUR_TOKEN" -H "Content-Type: application/json" -d '{ "query": "{ organization(login: \"ORG\") { samlIdentityProvider { externalIdentities(first: 100) { pageInfo { endCursor startCursor hasNextPage } edges { cursor node { samlIdentity { nameId } scimIdentity {username}  user { login } } } } } } }" }'  https://api.github.com/graphql
 ```
 
 GraphQL APIの利用に関する詳しい情報については、以下を参照してください。 

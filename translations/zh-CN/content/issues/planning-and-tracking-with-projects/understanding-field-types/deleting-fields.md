@@ -7,12 +7,12 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: c0e250a584d596377c5efaa15d06dacf943827a7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2998d4d39a3ec5f59a649fe62fd15c974e1e7ff7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423932'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108166'
 ---
 {% data reusables.projects.project-settings %}
 1. 单击希望删除的字段名称。

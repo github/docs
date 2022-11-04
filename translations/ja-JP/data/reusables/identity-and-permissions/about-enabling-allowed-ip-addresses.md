@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 4a8eaf38855e436884a6abdfc8d0b21473e71904
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 095556009ed66ca0b687734f62f21c70fd87699a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147682905"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108923"
 ---
 IP 許可リストを作成すると、許可 IP アドレスを有効にすることができます。 許可 IP アドレスを有効にすると、IP 許可リスト内のいずれかの有効なエントリが、{% data variables.product.company_short %} によってすぐに適用されます。
 

@@ -1,10 +1,10 @@
 ---
-title: 管理个人帐户的安全和分析设置
-intro: '您可以控制功能以保护 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
+title: Managing security and analysis settings for your personal account
+intro: 'You can control features that secure and analyze the code in your projects on {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 topics:
   - Accounts
 redirect_from:
@@ -12,47 +12,43 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account
 shortTitle: Manage security & analysis
-ms.openlocfilehash: 61d1944219fd1b75f476c7aef8305018c85735c5
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145164780'
 ---
-## 关于安全性和分析设置的管理
+## About management of security and analysis settings
 
-{% data variables.product.prodname_dotcom %} 可保护您的仓库。 本主题介绍如何管理所有现有或新仓库的安全和分析功能。
+{% data variables.product.prodname_dotcom %} can help secure your repositories. This topic tells you how you can manage the security and analysis features for all your existing or new repositories.
 
-您仍然可以管理单个仓库的安全和分析功能。 有关详细信息，请参阅“[管理存储库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。
+You can still manage the security and analysis features for individual repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
 
-你还可以查看个人帐户上所有活动的安全日志。 有关详细信息，请参阅“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
+You can also review the security log for all activity on your personal account. For more information, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-有关存储库级安全性的概述，请参阅“[保护存储库](/code-security/getting-started/securing-your-repository)”。
+For an overview of repository-level security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
 
-## 启用或禁用现有仓库的功能
+## Enabling or disabling features for existing repositories
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
-3. 在“代码安全和分析”下，单击功能右侧的“全部禁用”或“全部启用” 。
-  {% ifversion ghes > 3.2 %}![用于“配置安全和分析”功能的“全部启用”或“全部禁用”按钮](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}![用于“配置安全和分析”功能的“全部启用”或“全部禁用”按钮](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
-6. （可选）默认情况下为您拥有的新存储库启用该功能。
-  {% ifversion ghes > 3.2 %}![用于新建存储库的“默认启用”选项](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}![用于新建存储库的“默认启用”选项](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
-7. 单击“禁用功能”或“启用功能”，以为所拥有的所有存储库禁用或启用该功能 。
-  {% ifversion ghes > 3.2 %}![用于禁用或启用功能的按钮](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![用于禁用或启用功能的按钮](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
+3. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**.
+  {% ifversion ghes %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
+6. Optionally, enable the feature by default for new repositories that you own.
+  {% ifversion ghes %}!["Enable by default" option for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
+7. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
+  {% ifversion ghes %}![Button to disable or enable feature](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![Button to disable or enable feature](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
 
 {% data reusables.security.displayed-information %}
 
-## 对新仓库启用或禁用功能
+## Enabling or disabling features for new repositories
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
-3. 在“Code security and analysis（代码安全和分析）”下，在功能右侧，默认为您拥有的新存储库启用或禁用该功能。
-  {% ifversion ghes > 3.2 %}![用于启用或禁用新建存储库功能的复选框](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![用于启用或禁用新建存储库功能的复选框](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
+3. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
+  {% ifversion ghes %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 
-## 延伸阅读
+## Further reading
 
-- “[关于依赖项图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
-- “[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”
-- “[自动更新依赖项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)”
+- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
+- "[Keeping your dependencies updated automatically](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"

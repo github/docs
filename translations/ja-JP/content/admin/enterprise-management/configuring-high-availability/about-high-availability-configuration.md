@@ -13,12 +13,12 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: About HA configuration
-ms.openlocfilehash: 921a1a935bbfa930c77e2c72d7856f00d54d6016
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b54ca60c6cf1d79b9435ca8deedebec09ed39396
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332746'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109001'
 ---
 High Availability設定をする際には、プライマリからレプリカアプライアンスへのすべてのデータストア（Gitリポジトリ、MySQL、Redis、Elasticsearch）の一方方向の非同期レプリケーションが、自動的にセットアップされます。 ほとんどの {% data variables.product.prodname_ghe_server %} 構成設定も、{% data variables.enterprise.management_console %} パスワードを含めてレプリケートされます。 詳細については、「[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)」 (管理コンソールへのアクセス) を参照してください。
 
@@ -35,8 +35,8 @@ High Availability設定をする際には、プライマリからレプリカア
 
 High Availability設定は、以下に対するソリューションとしては適切ではありません。
 
-  - **スケールアウト**: geo レプリケーションを使えば地理的にトラフィックを分散させることができるものの、書き込みのパフォーマンスはプライマリ アプライアンスの速度と可用性によって制限されます。 詳細については、「[geo レプリケーションについて](/enterprise/admin/guides/installation/about-geo-replication/)」を参照してください。{% ifversion ghes > 3.2 %}
-  - **CI/CD の読み込み**: プライマリ インスタンスから地理的に離れている多数の CI クライアントがある場合は、リポジトリ キャッシュを構成するとメリットが得られる場合があります。 詳細については、「[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)」(リポジトリのキャッシュについて) を参照してください。{% endif %}
+  - **スケールアウト**: geo レプリケーションを使えば地理的にトラフィックを分散させることができるものの、書き込みのパフォーマンスはプライマリ アプライアンスの速度と可用性によって制限されます。 詳細については、「[geo レプリケーションについて](/enterprise/admin/guides/installation/about-geo-replication/)」を参照してください。
+  - **CI/CD の読み込み**: プライマリ インスタンスから地理的に離れている多数の CI クライアントがある場合は、リポジトリ キャッシュを構成するとメリットが得られる場合があります。 詳細については、「[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)」(リポジトリのキャッシュについて) を参照してください。
   - **プライマリ アプライアンスのバックアップ**: High Availabilityレプリカは、システム災害復旧計画のオフサイトバックアップを置き換えるものではありません。 データ破壊や損失の中には、プライマリからレプリカへ即座にレプリケーションされてしまうものもあります。 安定した過去の状態への安全なロールバックを保証するには、履歴スナップショットでの定期的なバックアップを行う必要があります。
   - **ダウンタイムなしのアップグレード**: コントロールされた昇格のシナリオにおけるデータ損失やスプリットブレインの状況を避けるには、プライマリアプライアンスをメンテナンスモードにして、すべての書き込みが完了するのを待ってからレプリカを昇格させてください。
 

@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: d4e823cc97b9c75f264b856c39021e30ca0e4fed
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6a0e8b7ba27060b4f48438b515786256d93d6d0c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147574279'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109844'
 ---
 Como alumno o miembro del profesorado en una institución educativa acreditada, puedes solicitar acceso al {% data variables.product.prodname_global_campus %}, que incluye acceso a las ventajas y los recursos de {% data variables.product.prodname_education %}. Para obtener más información, consulta «[Solicitar acceso al {% data variables.product.prodname_global_campus %} como profesor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)».
 

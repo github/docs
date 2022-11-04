@@ -1,86 +1,90 @@
 ---
-title: 'Adding items to your {% data variables.projects.project_v2 %}'
-shortTitle: 'Adding items'
-intro: 'Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.'
+title: 'Adicionar itens ao seu {% data variables.projects.project_v2 %}'
+shortTitle: Adding items
+intro: 'Saiba como adicionar solicitações de pull, problemas e rascunhos de problemas aos seus projetos individualmente ou em massa.'
 miniTocMaxHeadingLevel: 4
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: cba8a20d0ec17ec8fceb0cb30671eb3d608ae715
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107610'
 ---
-
-Your project can track draft issues, issues, and pull requests. 
+Seu projeto pode acompanhar os rascunhos de problemas, problemas e pull requests. 
 
 {% note %}
 
-**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
+**Observação:** um projeto pode conter no máximo {% data variables.projects.item_limit %} itens e {% data variables.projects.archived_item_limit %} itens arquivados. {% ifversion projects-v2-auto-archive %}Para saber mais sobre o arquivamento automático de itens quando eles atendem a critérios específicos, confira "[Como arquivar itens automaticamente](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)".{% endif %}
 
 {% endnote %}
 
-### Adding issues and pull requests to a project
+### Adicionar problemas e solicitações de pull a um projeto
 
-#### Pasting the URL of an issue or pull request
+#### Colar a URL de um problema ou de uma solicitação de pull
 
 {% data reusables.projects.add-item-via-paste %}
 
-#### Searching for an issue or pull request
+#### Pesquisando um problema ou pull request
 
 {% data reusables.projects.add-item-bottom-row %}
-2. Enter <kbd>#</kbd>.
-3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
-  ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-repo.png)
-4. Select the issue or pull request. You can type part of the title to narrow down your options.
-  ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-issue.png)
+2. Digite <kbd>#</kbd> .
+3. Selecione o repositório onde está localizado o pull request ou problema. Você pode digitar parte do nome do repositório para restringir suas opções.
+  ![Captura de tela mostrando como colar uma URL de problema para adicioná-la ao projeto](/assets/images/help/projects-v2/add-item-select-repo.png)
+4. Selecione o problema ou pull request. Você pode digitar parte do título para restringir suas opções.
+  ![Captura de tela mostrando como colar uma URL de problema para adicioná-la ao projeto](/assets/images/help/projects-v2/add-item-select-issue.png)
 
-#### Bulk adding issues and pull requests
+#### Adicionar problemas e solicitações de pull em massa
 
-1. In the bottom row of the project, click {% octicon "plus" aria-label="plus icon" %}.
-  ![Screenshot showing + button at the bottom of the project](/assets/images/help/projects-v2/omnibar-add.png)
-1. Click **Add item from repository**.
-  ![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item.png)
-{% data reusables.projects.bulk-add %}
+1. Na linha inferior do projeto, clique em {% octicon "plus" aria-label="plus icon" %}.
+  ![Captura de tela mostrando o botão + na parte inferior do projeto](/assets/images/help/projects-v2/omnibar-add.png)
+1. Clique em **Adicionar item do repositório**.
+  ![Captura de tela mostrando o item de menu "Adicionar item do repositório"](/assets/images/help/projects-v2/add-bulk-menu-item.png) {% data reusables.projects.bulk-add %}
 
-#### Adding multiple issues or pull requests from a repository
+#### Adicionar vários problemas ou solicitações de pull de um repositório
 
-1. On {% data variables.location.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+1. Em {% data variables.location.product_location %}, navegue até o repositório que contém os problemas ou as solicitações de pull que você deseja adicionar ao projeto.
 {% data reusables.repositories.sidebar-issue-pr %}
-1. To the left of each issue title, select the issues that you want to add to your project.
-  ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
-1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all. 
-  ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
-1. Above the list of issues or pull requests, click **Projects**. 
-  ![Screenshot showing projects option](/assets/images/help/projects-v2/issue-index-project-menu.png)
-1. Click the projects you want to add the selected issues or pull requests to.
-  ![Screenshot showing checkbox to select all on screen](/assets/images/help/projects-v2/issue-index-select-project.png)
+1. À esquerda de cada título de problema, selecione os problemas que você deseja adicionar ao seu projeto.
+  ![Captura de tela mostrando a caixa de seleção para selecionar o problema ou a solicitação de pull](/assets/images/help/issues/select-issue-checkbox.png)
+1. Opcionalmente, para selecionar cada problema ou solicitação de pull na página, na parte superior da lista de problemas ou solicitações de pull, selecione todos. 
+  ![Captura de tela mostrando a caixa de seleção para selecionar tudo na tela](/assets/images/help/issues/select-all-checkbox.png)
+1. Acima da lista de problemas ou solicitações de pull, clique em **Projetos**. 
+  ![Captura de tela mostrando a opção Projetos](/assets/images/help/projects-v2/issue-index-project-menu.png)
+1. Clique nos projetos aos quais você deseja adicionar os problemas selecionados ou efetuar solicitações de pull.
+  ![Captura de tela mostrando a caixa de seleção para selecionar tudo na tela](/assets/images/help/projects-v2/issue-index-select-project.png)
 
-#### Assigning a project from within an issue or pull request
+#### Atribuindo um projeto de dentro de um problema ou pull request
 
-1. Navigate to the issue or pull request that you want to add to a project.
-2. In the side bar, click **Projects**.
-  ![Screenshot showing "Projects" in the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-projects.png)
-3. Select the project that you want to add the issue or pull request to.
-  ![Screenshot showing selecting a project from the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
-4. Optionally, populate the custom fields.
-  ![Project sidebar](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
+1. Acesse o problema ou pull request que você deseja adicionar a um projeto.
+2. Na barra lateral, clique em **Projetos**.
+  ![Captura de tela mostrando "Projetos" na barra lateral do problema](/assets/images/help/projects-v2/issue-sidebar-projects.png)
+3. Selecione o projeto ao qual você deseja adicionar o problema ou pull request.
+  ![Captura de tela mostrando a seleção de um projeto na barra lateral do problema](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
+4. Opcionalmente, preencha os campos personalizados.
+  ![Barra lateral do projeto](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
 
-#### Using the command palette to add an issue or pull request
+#### Usando a paleta de comandos para adicionar um problema ou uma solicitação de pull
 
 1. {% data reusables.projects.open-command-palette %}
-1. Start typing "Add items" and press <kbd>Return</kbd>.
+1. Digite "Adicionar itens" e pressione <kbd>Return/Enter</kbd>.
 {% data reusables.projects.bulk-add %}
 
-### Creating draft issues
+### Criando problemas de rascunho
 
-Draft issues are useful to quickly capture ideas. Unlike issues and pull requests that are referenced from your repositories, draft issues exist only in your project.
+Os rascunhos são úteis para capturar ideias rapidamente. Ao contrário dos problemas e das solicitações de pull referenciadas de seus repositórios, os rascunhos de problemas só existem em seu projeto.
 
 {% data reusables.projects.add-draft-issue %}
 
-Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)."
+Os problemas do rascunho podem ter um título, texto, responsável e quaisquer campos personalizados do seu projeto. Para preencher o repositório, etiquetas ou marcos para o rascunho de um problema, você deverá primeiro converter o rascunho do problema em um problema. Para obter mais informações, confira "[Como converter problemas de rascunho em problemas](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)".
 
 {% note %}
 
-**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
+**Observação**: os usuários não receberão notificações quando forem atribuídos ou mencionados em um problema de rascunho, a menos que o problema de rascunho seja convertido em um problema.
 
 {% endnote %}

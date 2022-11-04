@@ -11,12 +11,12 @@ topics:
   - Pull requests
 shortTitle: 'Filter cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 337c84415fefad0c542c6b46706de716e71c29b9
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: f203785a6fc18dc5f67b2ae62934aa10c2f6e8b8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147882309'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108635'
 ---
 {% data reusables.projects.project_boards_old %}
 

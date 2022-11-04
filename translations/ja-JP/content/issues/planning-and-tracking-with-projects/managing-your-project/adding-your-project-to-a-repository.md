@@ -9,12 +9,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 58739f4e548985729d01a962e67a12ea0c0b38e9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 30486f727a04ccea3b5bfd374a4da3c6367d1cb6
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424152'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109679'
 ---
 リポジトリ中で、関連するプロジェクトをリストできます。 リストできるのは、リポジトリを所有している同じユーザもしくはOrganizationが所有しているプロジェクトだけです。
 

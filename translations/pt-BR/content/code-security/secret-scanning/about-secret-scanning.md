@@ -84,9 +84,9 @@ When you enable {% data variables.product.prodname_secret_scanning %} for a repo
 
 If {% data variables.product.prodname_secret_scanning %} detects a secret, {% data variables.product.prodname_dotcom %} generates an alert.
 
-- {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners.
+- {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository, and if you have enabled notifications either for security alerts or for all the activity on the repository.
 {% ifversion ghes or ghae or ghec %}
-- {% data variables.product.prodname_dotcom %} sends an email alert to the contributor who committed the secret to the repository, with a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
+- If the contributor who committed the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send an email alert to the contributor. The emails contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
 {% endif %}
 - {% data variables.product.prodname_dotcom %} displays an alert in the "Security" tab of the repository.
 
@@ -110,6 +110,6 @@ monitor results from {% data variables.product.prodname_secret_scanning %} acros
 - "[Keeping your account and data secure](/github/authenticating-to-github/keeping-your-account-and-data-secure)"
 {%- ifversion fpt or ghec %}
 - "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 %}
+{%- ifversion fpt or ghec or ghes %}
 - "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)"{% endif %}
 - "[Encrypted secrets](/actions/security-guides/encrypted-secrets)"

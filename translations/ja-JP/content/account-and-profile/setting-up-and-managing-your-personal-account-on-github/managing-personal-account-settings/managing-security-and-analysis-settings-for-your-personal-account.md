@@ -1,10 +1,10 @@
 ---
-title: 個人アカウントのセキュリティと分析設定を管理する
-intro: '{% data variables.product.prodname_dotcom %} 上のプロジェクトのコードをセキュリティ保護し分析する機能を管理できます。'
+title: Managing security and analysis settings for your personal account
+intro: 'You can control features that secure and analyze the code in your projects on {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 topics:
   - Accounts
 redirect_from:
@@ -12,47 +12,43 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account
 shortTitle: Manage security & analysis
-ms.openlocfilehash: 61d1944219fd1b75f476c7aef8305018c85735c5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145165351'
 ---
-## セキュリティおよび分析設定の管理について
+## About management of security and analysis settings
 
-{% data variables.product.prodname_dotcom %} を使用してリポジトリを保護できます。 このトピックでは、既存または新規のすべてのリポジトリのセキュリティおよび分析機能を管理する方法について説明します。
+{% data variables.product.prodname_dotcom %} can help secure your repositories. This topic tells you how you can manage the security and analysis features for all your existing or new repositories.
 
-個々のリポジトリのセキュリティおよび分析機能は引き続き管理できます。 詳細については、「[リポジトリのセキュリティと分析の設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。
+You can still manage the security and analysis features for individual repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
 
-自分の個人アカウントに対するすべてのアクティビティのセキュリティ ログを確認することもできます。 詳細については、「[セキュリティ ログの確認](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)」を参照してください。
+You can also review the security log for all activity on your personal account. For more information, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-リポジトリレベル セキュリティの概要については、「[リポジトリをセキュリティで保護する](/code-security/getting-started/securing-your-repository)」を参照してください。
+For an overview of repository-level security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
 
-## 既存のリポジトリに対して機能を有効または無効にする
+## Enabling or disabling features for existing repositories
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
-3. [Code security and analysis] の下で機能の右にある **[Disable all]** または **[Enable all]** をクリックします。
-  {% ifversion ghes > 3.2 %}!["Configure security and analysis" 機能の "Enable all" または "Disable all" ボタン](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Configure security and analysis" 機能の "Enable all" または "Disable all" ボタン](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
-6. オプションで、自分が所有する新しいリポジトリに対して機能を既定で有効にできます。
-  {% ifversion ghes > 3.2 %}![新しいリポジトリの "Enable by default" オプション](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}![新しいリポジトリの "Enable by default" オプション](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
-7. **[Disable FEATURE]** または **[Enable FEATURE]** をクリックし、所有するすべてのリポジトリに対してこの機能を無効または有効にします。
-  {% ifversion ghes > 3.2 %}![機能を無効または有効にするボタン](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![機能を無効または有効にするボタン](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
+3. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**.
+  {% ifversion ghes %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
+6. Optionally, enable the feature by default for new repositories that you own.
+  {% ifversion ghes %}!["Enable by default" option for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
+7. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
+  {% ifversion ghes %}![Button to disable or enable feature](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![Button to disable or enable feature](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
 
 {% data reusables.security.displayed-information %}
 
-## 既存のリポジトリに対して機能を有効または無効にする
+## Enabling or disabling features for new repositories
 
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security-analysis %}
-3. 機能の右側にある [Code security and analysis] で、所有する新しいリポジトリに対して既定で機能を有効または無効にします
-  {% ifversion ghes > 3.2 %}![新しいリポジトリの機能を有効または無効にするチェックボックス](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![新しいリポジトリの機能を有効または無効にするチェックボックス](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
+3. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
+  {% ifversion ghes %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 
-## 参考資料
+## Further reading
 
-- "[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[{% data variables.product.prodname_dependabot_alerts %} について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
-- "[依存関係を自動的に更新する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"
+- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
+- "[Keeping your dependencies updated automatically](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"

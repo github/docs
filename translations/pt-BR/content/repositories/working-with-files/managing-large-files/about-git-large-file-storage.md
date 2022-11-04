@@ -12,12 +12,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Git Large File Storage
-ms.openlocfilehash: af198fe13f69fc4768178aea74a03f27a82ec20b
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: f0ab54791645dc5c36cce2880ba3ae5c9b705f35
+ms.sourcegitcommit: 06726d24e73f1175f10749d6fdcf143d6094c9a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145126964'
+ms.lasthandoff: 10/28/2022
+ms.locfileid: '148118740'
 ---
 ## Sobre o {% data variables.large_files.product_name_long %}
 
@@ -32,7 +32,9 @@ O {% data variables.large_files.product_name_short %} manipula arquivos grandes 
 | {% data variables.product.prodname_team %} | 4 GB |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
 Ao usar {% data variables.large_files.product_name_short %}, você pode armazenar arquivos de até 5 GB no seu repositório.
-{% endif %}  
+{% endif %} 
+
+{% data reusables.repositories.git-lfs %}
 
 Também é possível usar o {% data variables.large_files.product_name_short %} com o {% data variables.product.prodname_desktop %}. Para obter mais informações sobre como clonar repositórios do Git LFS no {% data variables.product.prodname_desktop %}, confira "[Como clonar um repositório do GitHub para o GitHub Desktop](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)".
 

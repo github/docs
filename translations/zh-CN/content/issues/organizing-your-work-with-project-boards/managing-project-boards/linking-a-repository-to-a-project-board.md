@@ -11,12 +11,12 @@ topics:
   - Pull requests
 shortTitle: Link repository to board
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 939266bff35928f5b0ae33fe1cce1b380698ee85
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d0893b64551be80577547b9791e7a7ed6a432de0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423258'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108710'
 ---
 {% data reusables.projects.project_boards_old %}
 

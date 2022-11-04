@@ -4,12 +4,12 @@ shortTitle: Submit your repository
 intro: '他のユーザーが閲覧または投稿できるように、リポジトリを {% data variables.product.prodname_community_exchange %} に送信できます。'
 versions:
   fpt: '*'
-ms.openlocfilehash: d520f303bf368c9230f26580ba2de9bd744b21e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 404a1a20f3474c4fa48d6fae9e7f6cc5ddf0e647
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409783'
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111273'
 ---
 ## リポジトリの送信について
 
@@ -35,11 +35,14 @@ ms.locfileid: '147409783'
 - 説明です。
 - プロジェクトのビルド方法に関するテキストやメディアを含む手順を提供する LEARN.md ファイル。 LEARN.md ファイルによってプロジェクトが小さなコンポーネントに分解され、各ステップの詳細が提供されることで、他の学生があなたの指示に従ってプロジェクトをコーディングできるのが理想的です。
 - プロジェクトの詳しい説明を提供する README.md ファイル。
+- 他のユーザーがあなたのソース コードでできることとできないことを認識するライセンス。
 
 目的が `Collaborate` の送信の場合、リポジトリには次が必要です。
 - 説明です。
 - プロジェクトの詳しい説明を提供する README.md ファイル。
+- 他のユーザーがあなたのソース コードでできることとできないことを認識するライセンス。
 - コラボレーターが作業するための 1 つ以上の issue。
+- プロジェクトへのコントリビューションの方法を示す CONTRIBUTING.md ファイル。
 
 `Learn` と `Collaborate` の両方の目的に適したリポジトリの送信は、コミュニティ標準に従うリポジトリです。 詳しくは、「[パブリック リポジトリのコミュニティ プロフィールについて](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)」を参照してください。
 

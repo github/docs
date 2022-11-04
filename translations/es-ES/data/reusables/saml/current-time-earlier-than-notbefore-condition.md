@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b0db396765557122de192fe6dde98aeeb0057ec2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a9ba68f182b48a4186a4ae63909ef4e146d7c392
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147093205"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109925"
 ---
 ## Error: "La hora actual es anterior a la condición NotBefore"
 

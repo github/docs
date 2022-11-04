@@ -1,6 +1,6 @@
 ---
-title: Enabling automatic access to GitHub.com actions using GitHub Connect
-intro: 'To allow {% data variables.product.prodname_actions %} in your enterprise to use actions from {% data variables.product.prodname_dotcom_the_website %}, you can connect your enterprise instance to {% data variables.product.prodname_ghe_cloud %}.'
+title: Habilitar o acesso automático a GitHub.com usando o GitHub Connect
+intro: 'Para permitir que {% data variables.product.prodname_actions %} na sua empresa use ações a partir de {% data variables.product.prodname_dotcom_the_website %}, você pode conectar a sua instância corporativa a {% data variables.product.prodname_ghe_cloud %}.'
 permissions: 'Enterprise owners can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
@@ -14,58 +14,57 @@ topics:
   - Enterprise
   - GitHub Connect
 shortTitle: Use GitHub Connect for actions
+ms.openlocfilehash: e666929288a63dc35ffe98a734918e3495579939
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107258'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Sobre o acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %}
 
-## About automatic access to {% data variables.product.prodname_dotcom_the_website %} actions
-
-By default, {% data variables.product.prodname_actions %} workflows on {% data variables.product.product_name %} cannot use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions). To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can use {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. 
+Por padrão, os fluxos de trabalho de {% data variables.product.prodname_actions %} no {% data variables.product.product_name %} não podem usar ações diretamente do {% data variables.product.prodname_dotcom_the_website %} ou [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions). Para tornar todas as ações de {% data variables.product.prodname_dotcom_the_website %} disponíveis na sua instância corporativa, você pode usar {% data variables.product.prodname_github_connect %} para integrar o {% data variables.product.product_name %} ao {% data variables.product.prodname_ghe_cloud %}. 
 
 {% data reusables.actions.self-hosted-runner-networking-to-dotcom %}
 
-Alternatively, if you want stricter control over which actions are allowed in your enterprise, you can manually download and sync actions onto your enterprise instance using the `actions-sync` tool. For more information, see "[Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/manually-syncing-actions-from-githubcom)."
+Como alternativa, se você quiser ter um controle mais rigoroso sobre as ações que são permitidas na sua empresa, faça o download e sincronize manualmente as ações na instância da sua empresa usando a ferramenta `actions-sync`. Para obter mais informações, confira "[Como sincronizar as ações manualmente no {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/manually-syncing-actions-from-githubcom)".
 
-## About resolution for actions using {% data variables.product.prodname_github_connect %}
+## Sobre resolução para ações usando {% data variables.product.prodname_github_connect %}
 
 {% data reusables.actions.github-connect-resolution %}
 
-If a user has already created an organization and repository in your enterprise that matches an organization and repository name on {% data variables.product.prodname_dotcom_the_website %}, the repository on your enterprise will be used instead of the {% data variables.product.prodname_dotcom_the_website %} repository. {% ifversion ghes < 3.3 or ghae %}A malicious user could take advantage of this behavior to run code as part of a workflow{% else %}For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
+Se um usuário tiver criado uma organização e um repositório em sua empresa, que corresponde a uma organização e nome do repositório em {% data variables.product.prodname_dotcom_the_website %}, o repositório da sua empresa será usado em vez do repositório de {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}Um usuário mal-intencionado poderia aproveitar esse comportamento para executar um código como parte de um fluxo de trabalho{% else %}Para obter mais informações, confira "[Desativação automática de namespaces para ações acessadas no {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".
 {% endif %}
 
-## Enabling automatic access to all {% data variables.product.prodname_dotcom_the_website %} actions
+## Habilitar o acesso automático a todas as ações de {% data variables.product.prodname_dotcom_the_website %}
 
-Before enabling access to all actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must{% ifversion ghes %}:
-- Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
-- Enable{% else %} enable{% endif %} {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+Antes de permitir o acesso a todas as ações de {% data variables.product.prodname_dotcom_the_website %} para sua empresa, você deve {% ifversion ghes %}:
+- Configure a {% data variables.location.product_location %} para usar o {% data variables.product.prodname_actions %}. Para obter mais informações, confira "[Introdução ao {% data variables.product.prodname_actions %} para GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)".
+- Habilitar {% else %} habilitar{% endif %} {% data variables.product.prodname_github_connect %}. Para obter mais informações, confira "[Como gerenciar o {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.github-connect-tab %}
-1. Under "Users can utilize actions from GitHub.com in workflow runs", use the drop-down menu and select **Enabled**.
-  ![Drop-down menu to actions from GitHub.com in workflows runs](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.github-connect-tab %}
+1. Em "Usuários podem utilizar ações do GitHub.com em execuções de fluxo de trabalho", use o menu suspenso e selecione **Habilitado**.
+  ![Menu suspenso para ações do GitHub.com em execuções do fluxos de trabalho](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
 1. {% data reusables.actions.enterprise-limit-actions-use %}
 
-{% ifversion ghes > 3.2 or ghae %}
+## Retirada automática de namespaces para ações acessadas em {% data variables.product.prodname_dotcom_the_website %}
 
-## Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}
+Quando você habilita o {% data variables.product.prodname_github_connect %}, os usuários não veem nenhuma alteração no comportamento dos fluxos de trabalho existentes porque o {% data variables.product.prodname_actions %} procura cada ação na {% data variables.location.product_location %} antes de voltar ao {% data variables.product.prodname_dotcom_the_website%}. Isso garante que todas as versões personalizadas de ações que a sua empresa criou sejam usadas em preferência para suas contrapartes em {% data variables.product.prodname_dotcom_the_website%}.
 
-When you enable {% data variables.product.prodname_github_connect %}, users see no change in behavior for existing workflows because {% data variables.product.prodname_actions %} searches {% data variables.location.product_location %} for each action before falling back to {% data variables.product.prodname_dotcom_the_website%}. This ensures that any custom versions of actions your enterprise has created are used in preference to their counterparts on {% data variables.product.prodname_dotcom_the_website%}.
+A desativação automática de namespaces para ações acessadas no {% data variables.product.prodname_dotcom_the_website %} bloqueia o potencial de ataque man-in-the-middle de um usuário mal-intencionado com acesso à {% data variables.location.product_location %}. Quando uma ação no {% data variables.product.prodname_dotcom_the_website %} é usada pela primeira vez, esse namespace fica desativado em {% data variables.location.product_location %}. Isso bloqueia qualquer usuário que criar uma organização e repositório na sua empresa que corresponda a essa organização e nome do repositório em {% data variables.product.prodname_dotcom_the_website %}. Isso garante que, quando um fluxo de trabalho é executado, a ação pretendida é sempre executada.
 
-Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %} blocks the potential for a man-in-the-middle attack by a malicious user with access to {% data variables.location.product_location %}. When an action on {% data variables.product.prodname_dotcom_the_website %} is used for the first time, that namespace is retired in {% data variables.location.product_location %}. This blocks any user creating an organization and repository in your enterprise that matches that organization and repository name on {% data variables.product.prodname_dotcom_the_website %}. This ensures that when a workflow runs, the intended action is always run.
-
-After using an action from {% data variables.product.prodname_dotcom_the_website %}, if you want to create an action in {% data variables.location.product_location %} with the same name, first you need to make the namespace for that organization and repository available.
+Depois de usar uma ação do {% data variables.product.prodname_dotcom_the_website %}, se você quiser criar uma ação em {% data variables.location.product_location %} com o mesmo nome, primeiro precisará disponibilizar o namespace da organização e do repositório.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. In the left sidebar, under **Site admin** click **Retired namespaces**.
-3. Locate the namespace that you want use in {% data variables.location.product_location %} and click **Unretire**.
-   ![Unretire namespace](/assets/images/enterprise/site-admin-settings/unretire-namespace.png)
-4. Go to the relevant organization and create a new repository.
+2. Na barra lateral à esquerda, em **Administrador do site**, clique em **Namespaces desativados**.
+3. Localize o namespace que você quer usar em {% data variables.location.product_location %} e clique em **Cancelar desativação**.
+   ![Cancelar desativação do namespace](/assets/images/enterprise/site-admin-settings/unretire-namespace.png)
+4. Acesse a organização relevante e crie um novo repositório.
 
    {% tip %}
 
-   **Tip:** When you unretire a namespace, always create the new repository with that name as soon as possible. If a workflow calls the associated action on {% data variables.product.prodname_dotcom_the_website %} before you create the local repository, the namespace will be retired again. For actions used in workflows that run frequently, you may find that a namespace is retired again before you have time to create the local repository. In this case, you can temporarily disable the relevant workflows until you have created the new repository.
+   **Dica:** quando você cancelar a desativação de um namespace, sempre crie o novo repositório com esse nome o mais rápido possível. Se um fluxo de trabalho chamar a ação associada em {% data variables.product.prodname_dotcom_the_website %} antes de criar o repositório local, o namespace será desativado novamente. Para ações usadas em fluxos de trabalho frequentemente, você pode considerar que um namespace foi desativado novamente antes de ter tempo para criar o repositório local. Neste caso, você pode desabilitar temporariamente os fluxos de trabalho relevantes até criar o novo repositório.
 
    {% endtip %}
-
-{% endif %}

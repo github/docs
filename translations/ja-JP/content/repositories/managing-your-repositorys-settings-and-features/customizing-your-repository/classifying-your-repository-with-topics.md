@@ -14,12 +14,12 @@ versions:
 topics:
   - Repositories
 shortTitle: Classify with topics
-ms.openlocfilehash: 68bd754ac6c50968961c61e533cb6b9de26e4cc4
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.openlocfilehash: 26f51423140c086bbea019666b8d569419da3b38
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '145132235'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108887'
 ---
 ## Topics について
 
@@ -38,6 +38,12 @@ Topics を利用すれば、特定の領域に関するリポジトリを調べ�
 特定のトピックに関連付けられているリポジトリを検索できます。 詳細については、「[リポジトリを検索する](/search-github/searching-on-github/searching-for-repositories#search-by-topic)」を参照してください。 また、{% data variables.product.product_name %} 上でトピックのリストを検索することもできます。 詳しくは、「[トピックを検索する](/search-github/searching-on-github/searching-topics)」をご覧ください。
 
 ## Topics をリポジトリに追加する
+
+{% note %}
+
+**注:** トピック名は、プライベート リポジトリ内からトピックを作成した場合でも、常にパブリックになります。
+
+{% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. [バージョン情報] の右側にある {% octicon "gear" aria-label="The Gear icon" %} をクリックします。

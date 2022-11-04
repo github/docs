@@ -21,7 +21,7 @@ type: how_to
 
 Exit status | Check run status | Description
 ------------|------------------|------------
-`0` | `success` | The action completed successfully and other tasks that depends on it can begin.
+`0` | `success` | The action completed successfully and other tasks that depend on it can begin.
 Nonzero value (any integer but 0)| `failure` | Any other exit code indicates the action failed. When an action fails, all concurrent actions are canceled and future actions are skipped. The check run and check suite both get a `failure` status.
 
 ## Setting a failure exit code in a JavaScript action

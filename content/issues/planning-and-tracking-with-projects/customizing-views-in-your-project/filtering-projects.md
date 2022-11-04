@@ -1,9 +1,9 @@
 ---
 title: 'Filtering {% data variables.projects.projects_v2 %}'
-intro: "Use filters to choose which items appear in your project's views."
+intro: Use filters to choose which items appear in your project's views.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/filtering-projects
 type: tutorial

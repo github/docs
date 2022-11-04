@@ -13,12 +13,12 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
 shortTitle: Amazon S3 storage
-ms.openlocfilehash: cb71a379f139bf264fa4a40786434d5cfeed8366
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 405a728eddcc751de8acd49af82783502f70b396
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145116749'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109547'
 ---
 ## 前提条件
 
@@ -32,7 +32,7 @@ ms.locfileid: '145116749'
 
 ## Amazon S3 ストレージで {% data variables.product.prodname_actions %} を有効化する
 
-{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.actions.perform-blob-storage-precheck %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
 1. [Artifact & Log Storage]\(成果物とログ ストレージ\) の下で、 **[Amazon S3]** を選択し、ストレージ バケットの詳細を入力します。
 
    * **AWS サービス URL:** バケットのサービス URL。 たとえば、S3 バケットが `us-west-2` 領域で作成された場合、この値は `https://s3.us-west-2.amazonaws.com` になるはずです。
@@ -41,6 +41,6 @@ ms.locfileid: '145116749'
    * **[AWS S3 Bucket]\(AWS S3 バケット\)** : S3 バケットの名前。
    * **AWS S3 アクセス キー** と **AWS S3 シークレット キー**: バケットのための AWS アクセス キー ID とシークレット キー。 AWS アクセス キーの管理の詳細については、「[AWS ID とアクセス管理のドキュメント](https://docs.aws.amazon.com/iam/index.html)」を参照してください。
 
-   ![S3 構成の Amazon S3 Storage とフィールドを選択するためのラジオ ボタン](/assets/images/enterprise/management-console/actions-aws-s3-storage.png) {% data reusables.enterprise_management_console.save-settings %}
+   ![Amazon S3 Storage と S3 構成のフィールドを選ぶためのラジオ ボタン](/assets/images/enterprise/management-console/actions-aws-s3-storage.png) {% data reusables.enterprise_management_console.test-storage-button %} {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.actions.enterprise-postinstall-nextsteps %}

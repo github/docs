@@ -67,17 +67,23 @@ The security overview displays active alerts raised by security features. If the
 
 At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization. You can filter information by security features at the organization-level.
 
+Organization owners and security managers for organizations have access to the organization-level security overview. {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %}Organization members can access the organization-level security overview to view results for repositories where they have admin privileges or have been granted access to security alerts. For more information on managing security alert access, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)".{% endif %}
+
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
 ### About the enterprise-level security overview
 At the enterprise-level, the security overview displays aggregate and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
 
-Organization owners and security managers for organizations in your enterprise also have limited access to the enterprise-level security overview. They can only view repositories and alerts for the organizations that they have full access to.
+Organization owners and security managers for organizations in your enterprise have access to the enterprise-level security overview. They can view repositories and alerts for the organizations that they have full access to.
+
+Enterprise owners can only see alerts for organizations that they are an owner or a security manager of.{% ifversion ghec or ghes > 3.5 or ghae > 3.5 %} Enterprise owners can join an organization as an organization owner to see all of its alerts in the enterprise-level security overview. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."{% endif %}
 
 {% elsif fpt %}
 ### About the enterprise-level security overview
 At the enterprise-level, the security overview displays aggregate and repository-specific information for an enterprise. For more information, see "[About the enterprise-level security overview](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview#about-the-enterprise-level-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 {% endif %}
 
+{% ifversion ghes < 3.7 or ghae < 3.7 %}
 ### About the team-level security overview
 At the team-level, the security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+{% endif %}
 {% endif %}

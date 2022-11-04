@@ -11,12 +11,12 @@ topics:
   - Codespaces
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 4a45c11adc5d09888e6bb65b49b9f997f5233fea
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: d2ed02a205a4a8c3e55deb0b52fdc9ffdb855dc4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147783138'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109863'
 ---
 ## Información general
 
@@ -26,7 +26,7 @@ Agregar un distintivo "Abrir en {% data variables.product.prodname_github_codesp
 
 Al crear un distintivo, puedes elegir opciones de configuración específicas para el codespace que creará el distintivo.
 
-Cuando la gente haga clic en el distintivo, se les dirigirá a la página de opciones avanzadas para la creación del codespace, con las opciones que elegiste preseleccionadas. Para obtener más información sobre la página de opciones avanzadas, consulta "[Creación de un codespace](https://docs-internal-30445-bfc9ce.preview.ghdocs.com/en/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+Cuando la gente haga clic en el distintivo, se les dirigirá a la página de opciones avanzadas para la creación del codespace, con las opciones que elegiste preseleccionadas. Para obtener más información sobre la página de opciones avanzadas, consulta "[Creación de un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
 
 En la página opciones avanzadas, los usuarios pueden cambiar la configuración preseleccionada si es necesario y, a continuación, hacer clic en **Crear codespace**.
 

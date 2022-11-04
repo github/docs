@@ -1,10 +1,11 @@
 ---
-ms.openlocfilehash: 0626c11052a92500820ca0a3ac24f0cad784ebd6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c1c07418ac678e38f387f9be4ebc00153558ae22
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145127343"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108179"
 ---
 1. 在应用程序名称下，单击“登录”。
-  ![Okta 应用程序的“登录”选项卡的屏幕截图](/assets/images/help/saml/okta-sign-on-tab.png)
+
+   ![“登录”选项卡](/assets/images/help/saml/okta-ae-sign-on-tab.png)

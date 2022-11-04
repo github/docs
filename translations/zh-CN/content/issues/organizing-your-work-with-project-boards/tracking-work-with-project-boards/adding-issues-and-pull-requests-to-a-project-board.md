@@ -12,12 +12,12 @@ topics:
   - Pull requests
 shortTitle: 'Add issues & PRs to {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 36897518283fa085c37363157fb44cbd8e1a75c6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3adfb2c337a417b8e4f932ab9ae9860939217c6c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147422770'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108707'
 ---
 {% data reusables.projects.project_boards_old %}
 

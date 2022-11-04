@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 61eed0176c65b4e7b691b69b68e32032ea3ee3eb
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 518c31dffd71180ff4733f98ba7df3d5fe6028d9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147763797"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109739"
 ---
 セルフホストランナーは、プライベートリポジトリでのみ利用することをおすすめします。 これは、ワークフロー内でコードを実行する pull request を作成することで、パブリック リポジトリのフォークによって、セルフホステッド ランナー マシン上で危険なコードが実行される可能性があるからです。

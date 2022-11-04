@@ -10,7 +10,7 @@ on:
   push:
     branches:
       - main
-  pull_request_target:
+  pull_request:
 
 permissions:
   contents: read
@@ -39,6 +39,27 @@ jobs:
 
       - name: Install
         run: npm ci
+
+      - name: Figure out which docs-early-access branch to checkout, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        id: check-early-access
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+        run: node .github/actions-scripts/what-docs-early-access-branch.js
+
+      - name: Check out docs-early-access too, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: ${{ steps.check-early-access.outputs.branch }}
+
+      - name: Merge docs-early-access repo's folders
+        if: ${{ github.repository == 'github/docs-internal' }}
+        run: .github/actions-scripts/merge-early-access.sh
 
       # TODO: When we want to fix redirects on changed files we can uncomment everything below
       # Creates file "${{ env.HOME }}/files.json", among others
@@ -72,7 +93,7 @@ jobs:
           LEVEL: 'critical'
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
-          SHOULD_COMMENT: true
+          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_FR != '' }}
           CHECK_EXTERNAL_LINKS: false
           CREATE_REPORT: false
         run: node .github/actions/rendered-content-link-checker.js

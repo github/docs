@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 21a587f89a71ccd8e9f1a69aa5423a840f26b9a6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c32a9f6f6a799c3653cb17fe89721090fc01d155
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147431627"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109195"
 ---
    リポジトリの開発コンテナー構成で他のリポジトリにアクセスするためのアクセス許可が指定されている場合は、認可ページが表示されます。 `devcontainer.json` ファイルでこれを指定する方法について詳しくは、「[codespace 内の他のリポジトリへのアクセスを管理する](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)」を参照してください。   
 

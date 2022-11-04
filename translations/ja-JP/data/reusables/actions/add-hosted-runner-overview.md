@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 7020f9ed86843200a1b56c9b9142ed238aaf0dd5
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 955bbcc4f03b8a3a810f282c74230f220908f6b8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147764016"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109084"
 ---
 使用可能なオプションのリストから、オペレーティング システムとハードウェア構成を選ぶことができます。 このランナーの新しいインスタンスが自動スケーリングによってデプロイされると、ここで定義したオペレーティング システムとハードウェア構成が使用されます。
 

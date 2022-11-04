@@ -1,6 +1,6 @@
 ---
-title: Telling Git about your signing key
-intro: 'To sign commits locally, you need to inform Git that there''s a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or X.509 key you''d like to use.'
+title: Informarle a Git acerca de tu clave de firma
+intro: 'Para firmar las confirmaciones localmente, necesitas informar a Git que hay una clave de GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} o X.509 que quieres utilizar.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
@@ -15,37 +15,39 @@ topics:
   - Identity
   - Access management
 shortTitle: Tell Git your signing key
+ms.openlocfilehash: e78306bb1519f2b7f51ab6bc039bff0b982e48cf
+ms.sourcegitcommit: a0ad3bfe2a99c3092e76ca9b3d476cf30988ca55
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/28/2022
+ms.locfileid: '148118999'
 ---
 {% mac %}
 
-## Telling Git about your GPG key
+## Informarle a Git acerca de tu llave GPG
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+Si estás utilizando una clave GPG que coincide con tu identidad de confirmante y tu dirección de correo electrónico verificada asociada a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, entonces puedes comenzar a firmar confirmaciones y etiquetas.
 
 {% note %}
 
-If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
+Si no tienes una llave GPG que coincida con la identidad de la persona que confirma el cambio, debes asociar un correo electrónico a una llave existente. Para más información, vea "[Asociación de un correo electrónico con la clave de GPG](/articles/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
-If you have multiple GPG keys, you need to tell Git which one to use.
+Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.gpg.configure-gpg-signing %}
-{% data reusables.gpg.list-keys-with-note %}
-{% data reusables.gpg.copy-gpg-key-id %}
-{% data reusables.gpg.paste-gpg-key-id %}
-1. If you aren't using the GPG suite, run the following command in the `zsh` shell to add the GPG key to your `.zshrc` file, if it exists, or your `.zprofile` file:
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-gpg-signing %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %} {% data reusables.gpg.paste-gpg-key-id %} {% data reusables.gpg.set-auto-sign %}
+1. Si no usa el conjunto de GPG, ejecute el comando siguiente en el shell de `zsh` para agregar la clave de GPG al archivo `.zshrc`, si existe, o bien al archivo `.zprofile`:
   ```shell
   $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
   ```
-  Alternatively, if you use the `bash` shell, run this command:
+  Como alternativa, si usa el shell de `bash`, ejecute este comando:
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
-1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
+1. Opcionalmente, para que se le solicite que escriba un PIN o una frase de contraseña cuando sea necesario, instale `pinentry-mac`. Por ejemplo, con [Homebrew](https://brew.sh/):
   ```shell
   $ brew install pinentry-mac
   $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
@@ -56,68 +58,56 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% windows %}
 
-## Telling Git about your GPG key
+## Informarle a Git acerca de tu llave GPG
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+Si estás utilizando una clave GPG que coincide con tu identidad de confirmante y tu dirección de correo electrónico verificada asociada a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, entonces puedes comenzar a firmar confirmaciones y etiquetas.
 
 {% note %}
 
-If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
+Si no tienes una llave GPG que coincida con la identidad de la persona que confirma el cambio, debes asociar un correo electrónico a una llave existente. Para más información, vea "[Asociación de un correo electrónico con la clave de GPG](/articles/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
-If you have multiple GPG keys, you need to tell Git which one to use.
+Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.gpg.configure-gpg-signing %}
-{% data reusables.gpg.list-keys-with-note %}
-{% data reusables.gpg.copy-gpg-key-id %}
-{% data reusables.gpg.paste-gpg-key-id %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-gpg-signing %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %} {% data reusables.gpg.paste-gpg-key-id %} {% data reusables.gpg.set-auto-sign %}
 
 {% endwindows %}
 
 {% linux %}
 
-## Telling Git about your GPG key
+## Informarle a Git acerca de tu llave GPG
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+Si estás utilizando una clave GPG que coincide con tu identidad de confirmante y tu dirección de correo electrónico verificada asociada a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, entonces puedes comenzar a firmar confirmaciones y etiquetas.
 
 {% note %}
 
-If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
+Si no tienes una llave GPG que coincida con la identidad de la persona que confirma el cambio, debes asociar un correo electrónico a una llave existente. Para más información, vea "[Asociación de un correo electrónico con la clave de GPG](/articles/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
-If you have multiple GPG keys, you need to tell Git which one to use.
+Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.gpg.configure-gpg-signing %}
-{% data reusables.gpg.list-keys-with-note %}
-{% data reusables.gpg.copy-gpg-key-id %}
-{% data reusables.gpg.paste-gpg-key-id %}
-1. To add your GPG key to your `.bashrc` startup file, run the following command:
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-gpg-signing %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %} {% data reusables.gpg.paste-gpg-key-id %} {% data reusables.gpg.set-auto-sign %}
+1. Para agregar la clave de GPG al archivo de inicio de `.bashrc`, ejecute el comando siguiente:
   ```bash
   $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-{% endlinux %}
-{% ifversion ssh-commit-verification %}
+{% endlinux %} {% ifversion ssh-commit-verification %}
 
-## Telling Git about your SSH key
+## Indicación a Git acerca de tu clave SSH
 
-You can use an existing SSH key to sign commits and tags, or generate a new one specifically for signing. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+Puedes usar una clave SSH existente para firmar confirmaciones y etiquetas, o generar una nueva específicamente para firmar. Para obtener más información, consulta "[Generación de una nueva clave SSH y adición a ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
 {% data reusables.gpg.ssh-git-version %}
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.gpg.configure-ssh-signing %}
-{% data reusables.gpg.copy-ssh-public-key %}
-{% data reusables.gpg.paste-ssh-public-key %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-ssh-signing %} {% data reusables.gpg.copy-ssh-public-key %} {% data reusables.gpg.paste-ssh-public-key %}
 
 {% endif %}
 
 {% data reusables.gpg.x-509-key %}
-## Further reading
+## Información adicional
 
-- "[Adding a new SSH key to your GitHub account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
+- "[incorporación de una clave SSH nueva a tu cuenta de GitHub](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)".
+- "[Firma de confirmaciones](/articles/signing-commits)"
+- "[Firma de etiquetas](/articles/signing-tags)"
