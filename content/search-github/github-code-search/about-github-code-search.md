@@ -30,10 +30,7 @@ To get access to the new code search (beta), along with the new code view, you c
 
 ## Enabling and disabling the new code search and code view (beta)
 
-Once you are given access to the the new code search and code view beta, you can enable or disable the beta on {% data variables.product.prodname_dotcom_the_website %} anytime. Note that this setting applies to both the code search and the code view.
-
-{% data reusables.feature-preview.feature-preview-setting  %}
-1. To the right of "New Code Search and Code View (Beta)", click **Enable** or **Disable**.
+{% data reusables.search.enabling-and-disabling-code-search-and-view-beta %}
 
 ## Limitations
 
