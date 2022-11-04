@@ -11,7 +11,9 @@ shortTitle: New code view (beta)
 
 {% note %}
 
-**Note**: {% data reusables.search.code-search-code-view-beta-note %} {% data reusables.search.code-search-link %}
+**Note**: {% data reusables.search.code-search-code-view-beta-note %}<br><br> 
+
+{% data reusables.search.code-search-link %}
 
 {% endnote %}
 
