@@ -15,8 +15,16 @@ shortTitle: New code view (beta)
 
 {% endnote %}
 
-## About the new code view
-The new code view improves navigation with a file tree view, simplifies file editing, introduces a symbols pane for symbol search and navigation, and updates the blame view to maintain file context. This feature is currently available in a limited public beta alongside the new GitHub Code Search. To provide feedback on the new code view or the new GitHub Code Search, see the "[Code Search and navigation feedback discussion](https://github.com/github/feedback/discussions/categories/code-search-and-navigation-feedback)".
+## About the new code view (beta)
+The new code view beta improves navigation with a file tree view, simplifies file editing, introduces a symbols pane for symbol search and navigation, and updates the blame view to maintain file context. The new code view is integrated with a new code search engine and search interface in a limited public beta on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.search.code-search-link %}
+
+To get access to the new code view (beta), along with the new code search, you can sign up for the [waitlist](https://github.com/features/code-search-code-view/signup).
+
+To provide feedback on the new code view beta, see the [discussion forum](https://github.com/orgs/community/discussions/categories/repositories).
+
+## Enabling and disabling the new code search and code view (beta)
+
+{% data reusables.search.enabling-and-disabling-code-search-and-view-beta %}
 
 ## Using the file tree view
 The new file tree view is a panel that displays a repository's directories and files within an easily-navigable tree. You can move between directories and files quickly and understand the context for each item you view.
@@ -87,8 +95,10 @@ The new code view also includes updates to the ways in which you work with files
 ## Using the symbols pane
 You can now quickly view and navigate between symbols such as functions or classes in your code with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
 
+Symbol search is a feature of the new code search (beta). For more information, see "[Understanding GitHub Code Search (beta) syntax](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+
 1. Select a repository, then navigate to a file containing symbols.
-1. To bring up the symbols pane, click {% octicon "code-square" aria-label="The code square icon" %}.
+2. To bring up the symbols pane, click {% octicon "code-square" aria-label="The code square icon" %}.
 
   ![Screenshot of the symbols pane icon in the new code view](/assets/images/help/repository/code-view-symbols-pane-icon.png)
 
@@ -146,4 +156,4 @@ Rather than losing file context when you enter the blame view, you can now use t
 ## Further reading
 
 - "[Moving a file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)"
-- "[About GitHub Code Search](/search-github/github-code-search/about-github-code-search)"
+- "[About GitHub Code Search (beta)](/search-github/github-code-search/about-github-code-search)"

@@ -1,1 +1,1 @@
-For more information on the new GitHub Code Search, see "[About GitHub Code Search](/search-github/github-code-search/about-github-code-search)." 
+For more information on the new code search, see "[About GitHub Code Search (beta)](content/search-github/github-code-search/about-github-code-search)." 
