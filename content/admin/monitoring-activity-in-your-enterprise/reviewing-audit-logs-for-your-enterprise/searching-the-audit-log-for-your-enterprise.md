@@ -80,6 +80,9 @@ Key            | Value
 `org_id`       | ID of the organization affected by the action (if applicable)
 `business` | Name of the enterprise affected by the action (if applicable)
 `business_id` | ID of the enterprise affected by the action (if applicable)
+{%- ifversion token-audit-log %}
+`hashed_token` | The token used to authenticate for the action (if applicable, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)")
+{%- endif %}
 
 To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
 
@@ -130,3 +133,9 @@ Using the qualifier `country`, you can filter events in the audit log based on t
   * `country:de` finds all events that occurred in Germany.
   * `country:Mexico` finds all events that occurred in Mexico.
   * `country:"United States"` all finds events that occurred in the United States.
+
+{% ifversion token-audit-log %}
+### Search based on the token that performed the action
+
+Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
+{% endif %}

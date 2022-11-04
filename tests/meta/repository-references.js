@@ -39,6 +39,7 @@ const PUBLIC_REPOS = new Set([
   'explore',
   'feedback',
   'gh-net',
+  'gh-actions-importer',
   'git-lfs',
   'git-sizer',
   'github-services',

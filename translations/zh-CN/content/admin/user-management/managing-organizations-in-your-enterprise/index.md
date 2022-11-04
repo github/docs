@@ -1,5 +1,5 @@
 ---
-title: 管理企业中的组织
+title: Managing organizations in your enterprise
 redirect_from:
   - /enterprise/admin/articles/adding-users-and-teams
   - /enterprise/admin/categories/admin-bootcamp
@@ -12,7 +12,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
-intro: '组织适合在您的公司内创建不同的用户组，例如部门或参与相似项目的组。 属于组织的{% ifversion ghae %}内部{% else %}公共和内部{% endif %}仓库可供企业中其他组织中的成员访问，而私有仓库只能供被授予访问权限的组织成员访问。'
+intro: 'You can use organizations to group users within your company, such as divisions or groups working on similar projects, and manage access to repositories.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -33,11 +33,5 @@ children:
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
-ms.openlocfilehash: 333d9b8d50bcdb86f709a447fee5a4078353dfe2
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108126'
 ---
 

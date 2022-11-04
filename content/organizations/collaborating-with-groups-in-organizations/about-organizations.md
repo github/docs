@@ -47,6 +47,7 @@ Enterprise accounts are a feature of {% data variables.product.prodname_ghe_clou
 {% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
 
 {% data reusables.enterprise-accounts.invite-organization %}
+
 {% endif %}
 {% endif %}
 

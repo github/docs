@@ -16,13 +16,13 @@ function getClient() {
   return new Client({
     node: ELASTICSEARCH_URL,
     // The default is 30,000ms but we noticed that the median time is about
-    // 100ms with some occasional searches taking multiple seconds.
+    // 100-150ms with some occasional searches taking multiple seconds.
     // The default `maxRetries` is 5 which is a sensible number.
     // If a query gets stuck, it's better to (relatively) quickly give up
     // and retry. So if it takes longer than this time here, we're banking on
     // that it was just bad luck and that it'll work if we simply try again.
     // See internal issue #2318.
-    requestTimeout: 500,
+    requestTimeout: 1000,
   })
 }
 
@@ -213,79 +213,96 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
           },
         },
         { [matchPhraseStrategy]: { headings: { boost: BOOST_PHRASE * BOOST_HEADINGS, query } } },
-        { [matchPhraseStrategy]: { content: { boost: BOOST_PHRASE, query } } },
-        {
-          [matchPhraseStrategy]: {
-            content_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE, query },
-          },
-        },
       ]
     )
+    // If the content is short, it is given a disproportionate advantage
+    // in search ranking. For example, our category and map-topic pages
+    // often includes a list of other document titles but because it's so
+    // short it thinks that content is really relevant. This only applies
+    // when you use `match_phrase_prefix` which first makes a search
+    // all preceeding terms and then manually appends matches on the last word.
+    // See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-query-notes
+    if (!usePrefixSearch) {
+      matchQueries.push(
+        ...[
+          { [matchPhraseStrategy]: { content: { boost: BOOST_PHRASE, query } } },
+          {
+            [matchPhraseStrategy]: {
+              content_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE, query },
+            },
+          },
+        ]
+      )
+    }
   }
 
   // Unless the query was something like `"foo bar"` search on each word
   if (!(isMultiWordQuery && query.startsWith('"') && query.endsWith('"'))) {
-    if (usePrefixSearch && !isMultiWordQuery) {
+    const matchStrategy = usePrefixSearch ? 'match_bool_prefix' : 'match'
+    if (isMultiWordQuery) {
       matchQueries.push(
         ...[
-          { prefix: { title_explicit: { boost: BOOST_EXPLICIT * BOOST_TITLE, value: query } } },
           {
-            prefix: { headings_explicit: { boost: BOOST_EXPLICIT * BOOST_HEADINGS, value: query } },
+            [matchStrategy]: {
+              title_explicit: {
+                boost: BOOST_EXPLICIT * BOOST_TITLE * BOOST_AND,
+                query,
+                operator: 'AND',
+              },
+            },
           },
-          { prefix: { content_explicit: { boost: BOOST_EXPLICIT * BOOST_CONTENT, value: query } } },
-          { prefix: { title: { boost: BOOST_TITLE, value: query } } },
-          { prefix: { headings: { boost: BOOST_HEADINGS, value: query } } },
-          { prefix: { content: { boost: BOOST_CONTENT, value: query } } },
-        ]
-      )
-    } else {
-      if (isMultiWordQuery) {
-        matchQueries.push(
-          ...[
-            {
-              match: {
-                title_explicit: {
-                  boost: BOOST_EXPLICIT * BOOST_TITLE * BOOST_AND,
-                  query,
-                  operator: 'AND',
-                },
+          {
+            [matchStrategy]: {
+              headings_explicit: {
+                boost: BOOST_EXPLICIT * BOOST_HEADINGS * BOOST_AND,
+                query,
+                operator: 'AND',
               },
             },
-            {
-              match: {
-                headings_explicit: {
-                  boost: BOOST_EXPLICIT * BOOST_HEADINGS * BOOST_AND,
-                  query,
-                  operator: 'AND',
-                },
+          },
+          {
+            [matchStrategy]: {
+              content_explicit: {
+                boost: BOOST_EXPLICIT * BOOST_CONTENT * BOOST_AND,
+                query,
+                operator: 'AND',
               },
             },
-            {
-              match: {
-                content_explicit: {
-                  boost: BOOST_EXPLICIT * BOOST_CONTENT * BOOST_AND,
-                  query,
-                  operator: 'AND',
-                },
-              },
+          },
+          {
+            [matchStrategy]: {
+              title: { boost: BOOST_TITLE * BOOST_AND, query, operator: 'AND' },
             },
-            { match: { title: { boost: BOOST_TITLE * BOOST_AND, query, operator: 'AND' } } },
-            { match: { headings: { boost: BOOST_HEADINGS * BOOST_AND, query, operator: 'AND' } } },
-            { match: { content: { boost: BOOST_CONTENT * BOOST_AND, query, operator: 'AND' } } },
-          ]
-        )
-      }
-      matchQueries.push(
-        ...[
-          { match: { title_explicit: { boost: BOOST_EXPLICIT * BOOST_TITLE, query } } },
-          { match: { headings_explicit: { boost: BOOST_EXPLICIT * BOOST_HEADINGS, query } } },
-          { match: { content_explicit: { boost: BOOST_EXPLICIT * BOOST_CONTENT, query } } },
-          { match: { title: { boost: BOOST_TITLE, query } } },
-          { match: { headings: { boost: BOOST_HEADINGS, query } } },
-          { match: { content: { boost: BOOST_CONTENT, query } } },
+          },
+          {
+            [matchStrategy]: {
+              headings: { boost: BOOST_HEADINGS * BOOST_AND, query, operator: 'AND' },
+            },
+          },
+          {
+            [matchStrategy]: {
+              content: { boost: BOOST_CONTENT * BOOST_AND, query, operator: 'AND' },
+            },
+          },
         ]
       )
     }
+    matchQueries.push(
+      ...[
+        { [matchStrategy]: { title_explicit: { boost: BOOST_EXPLICIT * BOOST_TITLE, query } } },
+        {
+          [matchStrategy]: {
+            headings_explicit: { boost: BOOST_EXPLICIT * BOOST_HEADINGS, query },
+          },
+        },
+        {
+          [matchStrategy]: { content_explicit: { boost: BOOST_EXPLICIT * BOOST_CONTENT, query } },
+        },
+        { [matchStrategy]: { title: { boost: BOOST_TITLE, query } } },
+        { [matchStrategy]: { headings: { boost: BOOST_HEADINGS, query } } },
+        { [matchStrategy]: { content: { boost: BOOST_CONTENT, query } } },
+      ]
+    )
   }
 
   // Add a fuzzy query if it's not too short or too long.

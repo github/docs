@@ -14,12 +14,12 @@ versions:
   ghec: '*'
 topics:
   - Profiles
-ms.openlocfilehash: edbe34a38c2ab23de22e3b5ea466e35276c6bc35
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: e27e14102b4f57e9eb50266c5c271a2f6bb3892c
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146199952'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111609'
 ---
 您可以在传记中加入您的个人信息，比如您以前工作的地方、您参与过的项目，或者其他人可能想知道的个人兴趣。 有关详细信息，请参阅“[将传记添加到个人资料](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)”。
 
@@ -36,7 +36,7 @@ ms.locfileid: '146199952'
 访问您的个人资料的人也可以看到以下信息。
 
 - 你拥有或参与的仓库和 gists。 {% ifversion fpt or ghes or ghec %}你可以通过将存储库和 Gist 固定到个人资料中来展示你的最佳作品。 有关详细信息，请参阅“[将项目固定到个人资料](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)”。{% endif %}
-- 你已加星标{% ifversion fpt or ghec %} 并组织到列表中的存储库。{% endif %} 有关详细信息，请参阅“[保存有星标的存储库](/articles/saving-repositories-with-stars/)”。
+- 已加星标{% ifversion fpt or ghec %}和已整理到列表中{% endif %}的存储库。 有关详细信息，请参阅“[使用星标保存存储库](/articles/saving-repositories-with-stars/)”。
 - 您在经常参与的组织、仓库和团队中的活动概述。 有关详细信息，请参阅“[在个人资料中显示活动概述](/articles/showing-an-overview-of-your-activity-on-your-profile)”。{% ifversion fpt or ghec %}
 - 徽章或成就，它们突出显示了你的活动，或者显示你是否使用 {% data variables.product.prodname_pro %} 或参与计划，例如 {% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %} 或 {% data variables.product.company_short %} 开发人员计划。 有关详细信息，请参阅“[个性化个人资料](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)”。{% endif %}
 

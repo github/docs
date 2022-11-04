@@ -1665,6 +1665,17 @@ type BranchProtectionRule implements Node {
   isAdminEnforced: Boolean!
 
   """
+  Whether users can pull changes from upstream when the branch is locked. Set to
+  `true` to allow fork syncing. Set to `false` to prevent fork syncing.
+  """
+  lockAllowsFetchAndMerge: Boolean!
+
+  """
+  Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.
+  """
+  lockBranch: Boolean!
+
+  """
   Repository refs that are protected by this rule
   """
   matchingRefs(
@@ -1728,6 +1739,11 @@ type BranchProtectionRule implements Node {
   The repository associated with this branch protection rule.
   """
   repository: Repository
+
+  """
+  Whether someone other than the person who last pushed to the branch must approve this pull request
+  """
+  requireLastPushApproval: Boolean!
 
   """
   Number of approving reviews required to update matching branches.
@@ -5602,6 +5618,17 @@ input CreateBranchProtectionRuleInput {
   isAdminEnforced: Boolean
 
   """
+  Whether users can pull changes from upstream when the branch is locked. Set to
+  `true` to allow fork syncing. Set to `false` to prevent fork syncing.
+  """
+  lockAllowsFetchAndMerge: Boolean
+
+  """
+  Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.
+  """
+  lockBranch: Boolean
+
+  """
   The glob-like pattern used to determine matching branches.
   """
   pattern: String!
@@ -5615,6 +5642,11 @@ input CreateBranchProtectionRuleInput {
   The global relay id of the repository in which a new branch protection rule should be created in.
   """
   repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+
+  """
+  Whether someone other than the person who last pushed to the branch must approve this pull request
+  """
+  requireLastPushApproval: Boolean
 
   """
   Number of approving reviews required to update matching branches.
@@ -32713,6 +32745,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   hasAnonymousAccessEnabled: Boolean!
 
   """
+  Are discussions available on this repository?
+  """
+  hasDiscussionsEnabled: Boolean!
+
+  """
   Indicates if the repository has issues feature enabled.
   """
   hasIssuesEnabled: Boolean!
@@ -40224,6 +40261,17 @@ input UpdateBranchProtectionRuleInput {
   isAdminEnforced: Boolean
 
   """
+  Whether users can pull changes from upstream when the branch is locked. Set to
+  `true` to allow fork syncing. Set to `false` to prevent fork syncing.
+  """
+  lockAllowsFetchAndMerge: Boolean
+
+  """
+  Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.
+  """
+  lockBranch: Boolean
+
+  """
   The glob-like pattern used to determine matching branches.
   """
   pattern: String
@@ -40232,6 +40280,11 @@ input UpdateBranchProtectionRuleInput {
   A list of User, Team, or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
+
+  """
+  Whether someone other than the person who last pushed to the branch must approve this pull request
+  """
+  requireLastPushApproval: Boolean
 
   """
   Number of approving reviews required to update matching branches.
@@ -41964,6 +42017,11 @@ input UpdateRepositoryInput {
   A new description for the repository. Pass an empty string to erase the existing description.
   """
   description: String
+
+  """
+  Indicates if the repository should have the discussions feature enabled.
+  """
+  hasDiscussionsEnabled: Boolean
 
   """
   Indicates if the repository should have the issues feature enabled.
