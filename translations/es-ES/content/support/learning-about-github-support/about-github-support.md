@@ -122,7 +122,7 @@ Enterprise owners can also add support entitlements to members of organizations 
 {% ifversion fpt or ghec %}
 ## Granting {% data variables.contact.github_support %} temporary access to a private repository
 
-If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days.
+If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days. During this window, {% data variables.contact.github_support %} staff with the required privileges can unlock the repository for up to two hours at a time, and will relock the repository if the work is completed early. All {% data variables.contact.github_support %} staff access generates audit log events, and the visibility of the repository is not affected at any time.
 
 {% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).
 {% endif %}

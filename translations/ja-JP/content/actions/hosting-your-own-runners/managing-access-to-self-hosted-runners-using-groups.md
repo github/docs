@@ -1,31 +1,32 @@
 ---
-title: グループを使用してセルフホストランナーへのアクセスを管理する
-intro: ポリシーを使用して、Organization または Enterprise に追加されたセルフホストランナーへのアクセスを制限できます。
+title: Managing access to self-hosted runners using groups
+shortTitle: Manage access with runner groups
+intro: You can use policies to limit access to self-hosted runners that have been added to an organization or enterprise.
 redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 type: tutorial
-shortTitle: Using runner groups
-ms.openlocfilehash: 8e4c5669c1579fa635534b2f4466c7645033fc0c
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147763588'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## ランナー グループについて
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}詳しくは、[{% data variables.product.prodname_ghe_cloud %} のドキュメント](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)をご覧ください。{% endif %}
+{% ifversion target-runner-groups %}
+For information on how to route jobs to runners in a specific group, see "[Choosing runners in a group](/actions/using-jobs/choosing-the-runner-for-a-job#choosing-runners-in-a-group)."
+{% endif %}
+
+## About runner groups
+
+{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
-## Organization のセルフホストランナーグループを作成する
+## Creating a self-hosted runner group for an organization
 
 {%- ifversion ghec or ghes %}
 
@@ -35,7 +36,7 @@ ms.locfileid: '147763588'
 
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-## Enterprise のセルフホストランナーグループを作成する
+## Creating a self-hosted runner group for an enterprise
 
  {%- ifversion ghec or ghes %}
 
@@ -47,7 +48,7 @@ ms.locfileid: '147763588'
 
 {% endif %}
 
-## セルフホストランナーグループのアクセスポリシーを変更する
+## Changing the access policy of a self-hosted runner group
 
 {%- ifversion fpt or ghec or ghes %}
 
@@ -57,21 +58,23 @@ ms.locfileid: '147763588'
 
 {% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
 
-## ランナー グループの名前を変更する
+## Changing the name of a runner group
 
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
 {% ifversion ghec or ghes or ghae %}
-## セルフホスト ランナーをグループに自動的に追加する
+## Automatically adding a self-hosted runner to a group
 
 {% data reusables.actions.automatically-adding-a-runner-to-a-group %}
 
-## セルフホストランナーをグループに移動する
+## Moving a self-hosted runner to a group
 
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
-## セルフホストランナーグループを削除する
+## Removing a self-hosted runner group
 
 {% data reusables.actions.removing-a-runner-group %}
 
 {% endif %}
+
+{% data reusables.actions.section-using-unique-names-for-runner-groups %}

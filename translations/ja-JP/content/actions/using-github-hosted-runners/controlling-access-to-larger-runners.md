@@ -3,6 +3,7 @@ title: Controlling access to larger runners
 shortTitle: 'Control access to {% data variables.actions.hosted_runner %}s'
 intro: 'You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.'
 product: '{% data reusables.gated-features.hosted-runners %}'
+miniTocMaxHeadingLevel: 3
 versions:
   feature: actions-hosted-runners
 type: tutorial
@@ -28,6 +29,8 @@ type: tutorial
 {% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
 
 {% endif %}
+
+{% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
 ## Changing the access policy of a runner group
 

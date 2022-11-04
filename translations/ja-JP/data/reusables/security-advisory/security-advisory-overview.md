@@ -1,1 +1,9 @@
-Repository security advisories allow repository maintainers to privately discuss and fix a security vulnerability in a project. After collaborating on a fix, repository maintainers can publish the security advisory to publicly disclose the security vulnerability to the project's community. By publishing security advisories, repository maintainers make it easier for their community to update package dependencies and research the impact of the security vulnerabilities.
+---
+ms.openlocfilehash: 329fc14d26f27da725619bc862b99ff239c9aa14
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/27/2022
+ms.locfileid: "148114009"
+---
+リポジトリ セキュリティ アドバイザリを使うと、リポジトリ保守管理者は、プロジェクト内でプライベートにセキュリティの脆弱性を検討して修正することができます。 共同で修正を行った後、リポジトリ保守担当者はセキュリティ アドバイザリを公開して、セキュリティの脆弱性をプロジェクトのコミュニティに開示することができます。 セキュリティ アドバイザリを公開することにより、リポジトリ保守担当者は、コミュニティがいっそう簡単にパッケージの依存関係を更新したり、セキュリティの脆弱性の影響を調べたりできるようにします。

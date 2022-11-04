@@ -12,12 +12,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: e56e8ca634ca1bfec3c587fe8fb606ab73ac72d4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d0067d96dce2f2cf9fe8bb2dd519668780d861ff
+ms.sourcegitcommit: bd8b3e152f17d90acf222a0d50ba9595184c1f5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145136872'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111677'
 ---
 Cuando cambias el nombre de un repositorio, toda la información existente, a excepción de las URL del sitio del proyecto, se redirige automáticamente al nuevo nombre, incluyendo:
 
@@ -28,10 +28,10 @@ Cuando cambias el nombre de un repositorio, toda la información existente, a ex
 
 Para obtener más información acerca de los sitios del proyecto, consulte "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 
-Además de redirigir el tráfico web, todas las operaciones de `git clone`, `git fetch` o `git push` dirigidas a la ubicación anterior seguirán funcionando como si se realizara en la nueva ubicación. Sin embargo, para evitar la confusión, recomendamos ampliamente actualizar cualquier clon local para que lleve a la URL del nuevo repositorio. Puede hacerlo con `git remote` en la línea de comandos.
+Además de redirigir el tráfico web, todas las operaciones de `git clone`, `git fetch` o `git push` dirigidas a la ubicación anterior seguirán funcionando como si se realizara en la nueva ubicación. Sin embargo, para evitar la confusión, recomendamos ampliamente actualizar cualquier clon local para que lleve a la URL del nuevo repositorio. Puede hacerlo con `git remote` en la línea de comandos:
 
 ```shell
-$ git remote set-url origin <em>new_url</em>
+$ git remote set-url origin NEW_URL
 ```
 
 Para obtener más información, consulte "[Administración de repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)".
@@ -50,7 +50,7 @@ Si planeas renombrar un repositorio que tenga un sitio {% data variables.product
 
 {% warning %}
 
-**Advertencia**: Si en el futuro crea un nuevo repositorio en su cuenta, no reutilice el nombre original del repositorio cuyo nombre ha cambiado Si lo haces, los redireccionamientos al repositorio renombrado fallarán.
+**Advertencia**: Si en el futuro crea un nuevo repositorio en su cuenta, no reutilice el nombre original del repositorio cuyo nombre ha cambiado Si lo hace, los redireccionamientos al repositorio renombrado fallarán.
 
 {% endwarning %}
 

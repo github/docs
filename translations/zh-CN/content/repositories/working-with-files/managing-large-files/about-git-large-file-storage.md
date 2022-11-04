@@ -12,12 +12,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Git Large File Storage
-ms.openlocfilehash: af198fe13f69fc4768178aea74a03f27a82ec20b
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: f0ab54791645dc5c36cce2880ba3ae5c9b705f35
+ms.sourcegitcommit: 06726d24e73f1175f10749d6fdcf143d6094c9a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145129252'
+ms.lasthandoff: 10/28/2022
+ms.locfileid: '148118744'
 ---
 ## 关于 {% data variables.large_files.product_name_long %}
 
@@ -32,7 +32,9 @@ ms.locfileid: '145129252'
 | {% data variables.product.prodname_team %} | 4 GB |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
 使用 {% data variables.large_files.product_name_short %}，可在仓库中存储最大 5 GB 的文件。
-{% endif %}  
+{% endif %} 
+
+{% data reusables.repositories.git-lfs %}
 
 您也可以将 {% data variables.large_files.product_name_short %} 与 {% data variables.product.prodname_desktop %} 结合使用。 有关在 {% data variables.product.prodname_desktop %} 中克隆 Git LFS 存储库的详细信息，请参阅“[将存储库从 GitHub 克隆到 GitHub 桌面](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)”。
 

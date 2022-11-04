@@ -19,11 +19,11 @@ children:
   - /setting-a-minimum-specification-for-codespace-machines
   - /automatically-opening-files-in-the-codespaces-for-a-repository
   - /adding-a-codespaces-badge
-ms.openlocfilehash: 1e172243dc351f0a173c8624b66914e1c3795495
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 4649ef4e36dff0b37d4a579ecd56bbb0edd2a184
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147783037'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113986'
 ---
 
