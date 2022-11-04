@@ -1,6 +1,6 @@
 ---
 title: Navigating files with the new code view (beta)
-intro: 'With the new code view (beta), you can view your code in context with an easily-navigable file tree and integrated symbol search.'
+intro: 'With the new code view (beta), you can view your code in context with an easily navigable file tree and integrated symbol search.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: file-tree-view
@@ -11,7 +11,7 @@ shortTitle: New code view (beta)
 
 {% note %}
 
-**Note**: {% data reusables.search.code-search-code-view-beta-note %}<br><br> 
+**Note**: {% data reusables.search.code-search-code-view-beta-note %} 
 
 {% data reusables.search.code-search-link %}
 
@@ -29,7 +29,7 @@ To provide feedback on the new code view beta, see the [discussion forum](https:
 {% data reusables.search.enabling-and-disabling-code-search-and-view-beta %}
 
 ## Using the file tree view
-The new file tree view is a panel that displays a repository's directories and files within an easily-navigable tree. You can move between directories and files quickly and understand the context for each item you view.
+The new file tree view is a panel that displays a repository's directories and files within an easily navigable tree. You can move between directories and files quickly and understand the context for each item you view.
 
 1. Select a repository, then click a directory or file within that repository to open the file tree view.
 
