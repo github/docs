@@ -58,6 +58,8 @@ export const InArticlePicker = ({
     setCurrentValue(value)
   }, [query, fallbackValue, defaultValue, options])
 
+  const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
+
   useEffect(() => {
     // This will make the hook run this callback on mount and on change.
     // That's important because even though the user hasn't interacted
@@ -67,9 +69,15 @@ export const InArticlePicker = ({
     if (currentValue) {
       onValue(currentValue)
     }
-  }, [currentValue])
-
-  const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
+  }, [
+    currentValue,
+    // This is important because we can't otherwise rely on the firing
+    // of this effect on initial mount. It also needs to fire when the
+    // URL (i.e. route) changes.
+    // Don't use `router.asPath` because that contains the query string
+    // which we handle in the other useEffect above.
+    asPathRoot,
+  ])
 
   function onClickChoice(value: string) {
     const params = new URLSearchParams(asPathQuery)
