@@ -25461,6 +25461,12 @@
     ],
     "code-scanning": [
       {
+        "slug": "list-code-scanning-alerts-for-an-organization",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-scanning/alerts"
+      },
+      {
         "slug": "list-code-scanning-alerts-for-a-repository",
         "subcategory": "code-scanning",
         "verb": "get",
@@ -27128,6 +27134,12 @@
         "subcategory": "secret-scanning",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}"
+      },
+      {
+        "slug": "list-locations-for-a-secret-scanning-alert",
+        "subcategory": "secret-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations"
       }
     ],
     "teams": [
