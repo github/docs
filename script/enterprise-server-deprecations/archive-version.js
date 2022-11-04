@@ -20,13 +20,16 @@
 import path from 'path'
 import fs from 'fs'
 import { execSync } from 'child_process'
-import createApp from '../../lib/app.js'
 import scrape from 'website-scraper'
 import { program } from 'commander'
 import rimraf from 'rimraf'
+import http from 'http'
+
+import createApp from '../../lib/app.js'
 import EnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import loadRedirects from '../../lib/redirects/precompile.js'
 import { loadPageMap } from '../../lib/page-data.js'
+import { languageKeys } from '../../lib/languages.js'
 
 const port = '4001'
 const host = `http://localhost:${port}`
@@ -42,10 +45,15 @@ program
     `output directory to place scraped HTML files and redirects. By default, this temp directory is named 'tmpArchivalDir_<VERSION_TO_DEPRECATE>'`
   )
   .option('-d, --dry-run', 'only scrape the first 10 pages for testing purposes')
+  .option(
+    '-p, --page <PATH>',
+    'Note: this option is only used to re-scrape a page after the version was deprecated. Redirects will not be re-created because most of the deprecated content is already removed. This option scrapes a specific page in all languages. Pass the relative path to the page without a version or language prefix. ex: /admin/release-notes'
+  )
   .parse(process.argv)
 
 const output = program.opts().output
 const dryRun = program.opts().dryRun
+const singlePage = program.opts().page
 const tmpArchivalDirectory = output
   ? path.join(process.cwd(), output)
   : path.join(process.cwd(), `tmpArchivalDir_${version}`)
@@ -105,81 +113,92 @@ class RewriteAssetPathsPlugin {
 }
 
 async function main() {
-  if (dryRun) {
-    console.log(
-      'This is a dry run! Creating HTML for redirects and scraping the first 10 pages only.\n'
-    )
-  }
-
   // Build the production assets, to simulate a production deployment
   console.log('Running `npm run build` for production assets')
   execSync('npm run build', { stdio: 'inherit' })
   console.log('Finish building production assets')
-
+  if (dryRun) {
+    console.log(
+      '\nThis is a dry run! Creating HTML for redirects and scraping the first 10 pages only.'
+    )
+  }
+  if (singlePage) {
+    console.log(`\nScraping HTML for a single page only ${singlePage}.`)
+  }
   console.log(`Enterprise version to archive: ${version}`)
-  const pageMap = await loadPageMap()
-  const permalinksPerVersion = Object.keys(pageMap).filter((key) =>
-    key.includes(`/enterprise-server@${version}`)
-  )
+  const pageName =
+    singlePage && singlePage.trim().startsWith('/') ? singlePage.slice(1) : singlePage
+  const pageMap = singlePage
+    ? languageKeys.map((key) => `/${key}/enterprise-server@${version}/${pageName}`)
+    : await loadPageMap()
+  const permalinksPerVersion = singlePage
+    ? pageMap
+    : Object.keys(pageMap).filter((key) => key.includes(`/enterprise-server@${version}`))
 
   const urls = dryRun
     ? permalinksPerVersion.slice(0, 10).map((href) => `${host}${href}`)
     : permalinksPerVersion.map((href) => `${host}${href}`)
 
-  console.log(`found ${urls.length} pages for version ${version}`)
+  console.log(`Found ${urls.length} pages for version ${version}`)
 
-  if (dryRun) {
-    console.log(`\nscraping html for these pages only:\n${urls.join('\n')}\n`)
+  if (dryRun || singlePage) {
+    console.log(`\nScraping html for these pages only:\n${urls.join('\n')}\n`)
   }
 
   // remove temp directory
   rimraf.sync(tmpArchivalDirectory)
 
-  const scraperOptions = {
-    urls,
-    urlFilter: (url) => {
-      // Do not download assets from other hosts like S3 or octodex.github.com
-      // (this will keep them as remote references in the downloaded pages)
-      return url.startsWith(`http://localhost:${port}/`)
-    },
-    directory: tmpArchivalDirectory,
-    filenameGenerator: 'bySiteStructure',
-    requestConcurrency: 6,
-    plugins: [new RewriteAssetPathsPlugin(version, tmpArchivalDirectory)],
-  }
+  const app = createApp()
+  const server = http.createServer(app)
+  server
+    .listen(port, async () => {
+      console.log(`started server on ${host}`)
 
-  createApp().listen(port, async () => {
-    console.log(`started server on ${host}`)
+      await scrape({
+        urls,
+        urlFilter: (url) => {
+          // Do not download assets from other hosts like S3 or octodex.github.com
+          // (this will keep them as remote references in the downloaded pages)
+          return url.startsWith(`http://localhost:${port}/`)
+        },
+        directory: tmpArchivalDirectory,
+        filenameGenerator: 'bySiteStructure',
+        requestConcurrency: 6,
+        plugins: [new RewriteAssetPathsPlugin(version, tmpArchivalDirectory)],
+      }).catch((err) => {
+        console.error('scraping error')
+        console.error(err)
+      })
 
-    await scrape(scraperOptions).catch((err) => {
-      console.error('scraping error')
-      console.error(err)
+      fs.renameSync(
+        path.join(tmpArchivalDirectory, `/localhost_${port}`),
+        path.join(tmpArchivalDirectory, version)
+      )
+
+      console.log(`\n\ndone scraping! added files to ${tmpArchivalDirectory}\n`)
+      if (!singlePage) {
+        // create redirect html files to preserve frontmatter redirects
+        await createRedirectsFile(
+          permalinksPerVersion,
+          pageMap,
+          path.join(tmpArchivalDirectory, version)
+        )
+        console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
+      } else {
+        console.log('🏁 Scraping a single page is complete')
+      }
+      server.close()
     })
-
-    fs.renameSync(
-      path.join(tmpArchivalDirectory, `/localhost_${port}`),
-      path.join(tmpArchivalDirectory, version)
-    )
-
-    console.log(`\n\ndone scraping! added files to ${tmpArchivalDirectory}\n`)
-
-    // create redirect html files to preserve frontmatter redirects
-    await createRedirectsFile(
-      permalinksPerVersion,
-      pageMap,
-      path.join(tmpArchivalDirectory, version)
-    )
-
-    console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
-
-    process.exit()
-  })
+    .on('error', (err) => {
+      console.log('error listening to port ', port, err)
+      server.close()
+    })
 }
 
 async function createRedirectsFile(permalinks, pageMap, outputDirectory) {
+  console.log('Creating redirects file...')
   const pagesPerVersion = permalinks.map((permalink) => pageMap[permalink])
   const redirects = await loadRedirects(pagesPerVersion, pageMap)
-
   const redirectsPerVersion = {}
 
   Object.entries(redirects).forEach(([oldPath, newPath]) => {
@@ -201,4 +220,5 @@ async function createRedirectsFile(permalinks, pageMap, outputDirectory) {
     path.join(outputDirectory, 'redirects.json'),
     JSON.stringify(redirectsPerVersion, null, 2)
   )
+  console.log(`Wrote ${outputDirectory}/redirects.json`)
 }
