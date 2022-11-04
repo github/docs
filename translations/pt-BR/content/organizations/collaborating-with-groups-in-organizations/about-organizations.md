@@ -12,12 +12,12 @@ versions:
 topics:
   - Organizations
   - Teams
-ms.openlocfilehash: 7412c38e647ddec33543bd04d38d813bf6a93c88
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: e18c95475e06db0623aee67515eeb6d8a1ee641f
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107826'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127632'
 ---
 ## Sobre organizações
 
@@ -47,7 +47,9 @@ Para fortalecer a segurança da organização, é possível impor requisitos de 
 
 {% ifversion ghec %} {% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, confira "[Como criar uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
 
-{% data reusables.enterprise-accounts.invite-organization %} {% endif %} {% endif %}
+{% data reusables.enterprise-accounts.invite-organization %}
+
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
 ## Termos de serviços e proteção de dados para organizações
