@@ -18,7 +18,7 @@ topics:
 
 {% data reusables.enterprise-accounts.emu-cap-validates %}
 
-CAP support is enabled automatically for any {% data variables.product.prodname_emu_enterprise %} that enables OIDC SSO and cannot be disabled. {% data variables.product.prodname_dotcom %} enforces your IdP's IP conditions but not device compliance conditions.
+CAP support is enabled automatically for any {% data variables.enterprise.prodname_emu_enterprise %} that enables OIDC SSO and cannot be disabled. {% data variables.product.prodname_dotcom %} enforces your IdP's IP conditions but not device compliance conditions.
 
 For more information about using OIDC with {% data variables.product.prodname_emus %}, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)" and "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
 
@@ -36,9 +36,9 @@ For more information about using OIDC with {% data variables.product.prodname_em
 
 ### {% data variables.product.prodname_actions %}
 
-Actions that use a personal access token will likely be blocked by your IdP's CAP. We recommend that personal access tokens are created by a service account which is then exempted from IP controls in your IdP's CAP. 
+Actions that use a {% data variables.product.pat_generic %} will likely be blocked by your IdP's CAP. We recommend that {% data variables.product.pat_generic %}s are created by a service account which is then exempted from IP controls in your IdP's CAP. 
 
-If you're unable to use a service account, another option for unblocking actions that use personal access tokens is to allow the IP ranges used by {% data variables.product.prodname_actions %}. For more information, see "[About GitHub's IP addresses](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)."
+If you're unable to use a service account, another option for unblocking actions that use {% data variables.product.pat_generic %}s is to allow the IP ranges used by {% data variables.product.prodname_actions %}. For more information, see "[About GitHub's IP addresses](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)."
 
 ### {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} 
 

@@ -12,12 +12,12 @@ topics:
   - Projects
   - Issues
   - Project management
-ms.openlocfilehash: 71cf84e26bdbed717fd5b434e92f071550764cdc
-ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
+ms.openlocfilehash: 1473e08a8a6d3bf4df480b4b5ce6930753a04491
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880033'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106762'
 ---
 Você pode usar {% data variables.product.prodname_projects_v2 %} para gerenciar seu trabalho no {% data variables.product.company_short %}, onde os seus problemas e suas solicitações de pull são mantidos. Leia sobre as dicas para gerenciar seus projetos de forma eficiente e eficaz. Para obter mais informações sobre {% data variables.product.prodname_projects_v2 %}, confira "[Sobre {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)".
 
@@ -67,10 +67,12 @@ Os {% data variables.product.prodname_projects_v2 %} ficam automaticamente atual
 
 Você pode automatizar as tarefas para gastar menos tempo com trabalho e mais tempo no próprio projeto. Quanto menos você precisar se lembrar de fazer manualmente, mais provável será que o seu projeto fique atualizado.
 
-Os {% data variables.product.prodname_projects_v2 %} oferecem fluxos de trabalho internos. Por exemplo, quando um problema é fechado, você pode definir automaticamente o status como "Concluído".
+Os {% data variables.product.prodname_projects_v2 %} oferecem fluxos de trabalho internos. Por exemplo, quando um problema é fechado, você pode definir automaticamente o status como "Concluído". {% ifversion projects-v2-auto-archive %}Você também pode configurar os fluxos de trabalho internos para arquivar automaticamente itens que atendam a determinados critérios.{% endif %}
 
 Além disso, {% data variables.product.prodname_actions %} e a API do GraphQL permitem que você automatize as tarefas de gerenciamento de projetos rotineiros. Por exemplo, para manter o controle das solicitações de pull que estão aguardando revisão, crie um fluxo de trabalho que adiciona uma solicitação de pull a um projeto e define o status como "precisa de revisão". Esse processo pode ser disparado automaticamente quando uma solicitação de pull é marcada como "pronta para revisão".
 
+- Para obter mais informações sobre os fluxos de trabalho internos, confira "[Como usar as automações internas](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)".{% ifversion projects-v2-auto-archive %}
+- Para obter mais informações sobre o arquivamento automático de itens, confira "[Como arquivar itens automaticamente](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)".{% endif %}
 - Para obter um exemplo de fluxo de trabalho, confira "[Automatizar {% data variables.product.prodname_projects_v2 %} usando o Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)".
 - Para obter mais informações sobre a API, confira "[Usar a API para gerenciar {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)".
 - Para obter mais informações sobre o {% data variables.product.prodname_actions %}, confira "[{% data variables.product.prodname_actions %}](/actions)".

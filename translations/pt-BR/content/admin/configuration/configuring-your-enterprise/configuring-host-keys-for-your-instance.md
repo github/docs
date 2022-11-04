@@ -1,7 +1,7 @@
 ---
 title: Como configurar chaves de host para sua instância
 shortTitle: Configure host keys
-intro: 'Você pode aumentar a segurança de {% data variables.product.product_location %} configurando os algoritmos que a sua instância usa para gerar e anunciar chaves de host para conexões SSH de entrada.'
+intro: 'Você pode aumentar a segurança de {% data variables.location.product_location %} configurando os algoritmos que a instância usa para gerar e anunciar chaves de host para conexões SSH de entrada.'
 permissions: 'Site administrators can configure the host keys for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '>= 3.6'
@@ -13,12 +13,12 @@ topics:
   - Networking
   - Security
   - SSH
-ms.openlocfilehash: d7ab49b814500ac2c35fa65f82c0fb480122ed1b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6454568e63b15fc947994ab39aef9baad9d5c146
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410690'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107106'
 ---
 ## Sobre chaves de host para sua instância
 
@@ -26,7 +26,7 @@ Os servidores que aceitam conexões SSH anunciam uma ou mais chaves de host crip
 
 {% data reusables.enterprise.about-ssh-ports %}
 
-Por padrão, {% data variables.product.product_location %} gera e anuncia chaves de host com a rotação de chaves de host em estilo OpenSSH. Para aumentar a segurança do SSH em seu ambiente, você pode habilitar algoritmos adicionais para a geração de chaves de host.
+Por padrão, a {% data variables.location.product_location %} gera e anuncia chaves de host com a rotação de chaves de host no estilo OpenSSH. Para aumentar a segurança do SSH em seu ambiente, você pode habilitar algoritmos adicionais para a geração de chaves de host.
 
 {% note %}
 
@@ -36,7 +36,7 @@ Por padrão, {% data variables.product.product_location %} gera e anuncia chaves
 
 ## Como gerenciar uma chave de host Ed25519
 
-Para aprimorar a segurança dos clientes que se conectam a {% data variables.product.product_location %}, você pode habilitar a geração e o anúncio de uma chave de host Ed25519. Ed25519 é imune a alguns ataques que visam algoritmos de assinatura mais antigos, sem comprometer a velocidade. Os clientes SSH mais antigos podem não dar suporte ao Ed25519. Por padrão, as instâncias {% data variables.product.product_name %} não geram nem anunciam uma chave de host Ed25519. Para obter mais informações, confira [o site do Ed25519](https://ed25519.cr.yp.to).
+Para aprimorar a segurança dos clientes que se conectam com a {% data variables.location.product_location %}, você pode habilitar a geração e o comunicado de uma chave de host Ed25519. Ed25519 é imune a alguns ataques que visam algoritmos de assinatura mais antigos, sem comprometer a velocidade. Os clientes SSH mais antigos podem não dar suporte ao Ed25519. Por padrão, as instâncias {% data variables.product.product_name %} não geram nem anunciam uma chave de host Ed25519. Para obter mais informações, confira [o site do Ed25519](https://ed25519.cr.yp.to).
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. Para habilitar a geração e o anúncio da chave de host Ed25519, insira o comando a seguir.

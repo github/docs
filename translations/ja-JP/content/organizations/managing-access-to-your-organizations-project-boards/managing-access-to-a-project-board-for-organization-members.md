@@ -14,12 +14,12 @@ topics:
   - Teams
 shortTitle: Manage access for members
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: fe9d8ebee09d4eb6278545b5561b9691a0468bf5
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 4c0b280f6c1b28532b191282db465b5ae5b3c274
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880783'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109443'
 ---
 {% data reusables.projects.project_boards_old %}
 

@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 216386e3e7dc31df99a383af6a335681c72911c2
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: cdf55c11d2d54b94788e317961466999079debbb
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147763887"
+ms.lasthandoff: 10/26/2022
+ms.locfileid: "148111293"
 ---
-1. Clique em **Novo executor** e clique em **{% octicon "mark-github" aria-label="New hosted runner" %} Novo executor hospedado pelo GitHub**.
+1. Clique em **Novo executor** e clique em **{% octicon "mark-github" aria-label="New hosted runner" %} Novo executor hospedado no {% data variables.product.prodname_dotcom %}** .
 1. Preencha os detalhes obrigatórios para configurar seu novo executor:
 
     - **Nome**: insira um nome para seu novo executor. Para facilitar a identificação, esse campo deve indicar o hardware e configuração operacional, como `ubuntu-20.04-16core`.

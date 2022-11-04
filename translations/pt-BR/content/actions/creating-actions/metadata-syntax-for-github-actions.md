@@ -58,7 +58,7 @@ inputs:
 
 When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually. 
+If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually.
 
 To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[Creating a Docker container action](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)."
 
@@ -125,8 +125,12 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - id: random-number-generator
+    - id: random-number-generator{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+      run: echo "random-id=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+{%- else %}
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
+{%- endif %}{% raw %}
       shell: bash
 ```
 {% endraw %}
@@ -155,7 +159,7 @@ runs:
 
 ### `runs.using`
 
-**Required** The runtime used to execute the code specified in [`main`](#runsmain).  
+**Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
 - Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 - Use `node16` for Node.js v16.{% endif %}
@@ -227,19 +231,11 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
-{% else %}
-**Required** The steps that you plan to run in this action.
-{% endif %}
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** The command you want to run. This can be inline or a script in your action repository:
-{% else %}
-**Required** The command you want to run. This can be inline or a script in your action repository:
-{% endif %}
 
 {% raw %}
 ```yaml
@@ -265,11 +261,7 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
-{% else %}
-**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
-{% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 #### `runs.steps[*].if`
@@ -318,7 +310,6 @@ steps:
 
 **Optional**  Specifies the working directory where the command is run.
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 #### `runs.steps[*].uses`
 
 **Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
@@ -365,9 +356,8 @@ runs:
       with:
         first_name: Mona
         middle_name: The
-        last_name: Octocat  
+        last_name: Octocat
 ```
-{% endif %}
 
 {% ifversion ghes > 3.5 or ghae > 3.5 %}
 
@@ -481,7 +471,7 @@ runs:
 
 ```yaml
 branding:
-  icon: 'award'  
+  icon: 'award'
   color: 'green'
 ```
 
@@ -522,9 +512,9 @@ The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand 
 
 Here is an exhaustive list of all currently supported icons:
 
-<!-- 
+<!--
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
+  To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo.
 -->
 
 <table>

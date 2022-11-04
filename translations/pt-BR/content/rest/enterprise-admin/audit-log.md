@@ -2,17 +2,17 @@
 title: Log de auditoria
 intro: ''
 versions:
-  ghes: '>=3.3'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 171735e6b5c5e9dbf66aa746ffd1b216779f89f6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6a60033706707497b3b943ebdfd23574523419a2
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060015'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107394'
 ---
-
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

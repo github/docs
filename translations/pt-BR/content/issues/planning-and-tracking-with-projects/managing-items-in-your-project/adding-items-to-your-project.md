@@ -9,18 +9,18 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: e49758bbf751ddd1cced46719f9740147a1b7b32
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: cba8a20d0ec17ec8fceb0cb30671eb3d608ae715
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423730'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107610'
 ---
 Seu projeto pode acompanhar os rascunhos de problemas, problemas e pull requests. 
 
 {% note %}
 
-**Observação:** um projeto pode conter no máximo 1.200 itens e 10.000 itens arquivados. 
+**Observação:** um projeto pode conter no máximo {% data variables.projects.item_limit %} itens e {% data variables.projects.archived_item_limit %} itens arquivados. {% ifversion projects-v2-auto-archive %}Para saber mais sobre o arquivamento automático de itens quando eles atendem a critérios específicos, confira "[Como arquivar itens automaticamente](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)".{% endif %}
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ Seu projeto pode acompanhar os rascunhos de problemas, problemas e pull requests
 
 #### Adicionar vários problemas ou solicitações de pull de um repositório
 
-1. Em {% data variables.product.product_location %}, navegue até o repositório que contém os problemas ou solicitações de pull que você deseja adicionar ao seu projeto.
+1. Em {% data variables.location.product_location %}, navegue até o repositório que contém os problemas ou as solicitações de pull que você deseja adicionar ao projeto.
 {% data reusables.repositories.sidebar-issue-pr %}
 1. À esquerda de cada título de problema, selecione os problemas que você deseja adicionar ao seu projeto.
   ![Captura de tela mostrando a caixa de seleção para selecionar o problema ou a solicitação de pull](/assets/images/help/issues/select-issue-checkbox.png)

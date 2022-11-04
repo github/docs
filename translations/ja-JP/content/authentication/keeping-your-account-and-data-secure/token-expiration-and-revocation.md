@@ -12,48 +12,45 @@ topics:
 shortTitle: Token expiration
 redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
-ms.openlocfilehash: aa1d8902fc120aa616b8a3355f1add21a482d99e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 00ccfc3117401bfa9464da9599067fe1d2f514dd
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145088386'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106998'
 ---
-トークンが{% ifversion fpt or ghae or ghes > 3.2 or ghec %}期限切れになるか{% endif %}取り消されると、Git 要求と API 要求の認証に使用できなくなります。 期限切れのトークンや取り消されたトークンを復元することはできません。ユーザーまたはアプリケーションが新しいトークンを作成する必要があります。
+トークンが期限切れになるか取り消されると、Git 要求と API 要求の認証に使用できなくなります。 期限切れのトークンや取り消されたトークンを復元することはできません。ユーザーまたはアプリケーションが新しいトークンを作成する必要があります。
 
 この記事では、{% data variables.product.product_name %} トークンが取り消されるか期限切れになる可能性がある理由について説明します。
 
 {% note %}
 
-**注:** 個人用アクセス トークンまたは OAuth トークンが期限切れになるか取り消されると、セキュリティ ログに `oauth_authorization.destroy` アクションが表示されることがあります。 詳細については、「[セキュリティ ログの確認](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-security-log)」を参照してください。
+**注:** {% data variables.product.pat_generic %}または OAuth トークンが期限切れになるか取り消されると、セキュリティ ログに `oauth_authorization.destroy` アクションが表示されることがあります。 詳細については、「[セキュリティ ログの確認](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-security-log)」を参照してください。
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## 有効期限に達した後に取り消されるトークン
 
-個人用アクセス トークンを作成するときは、トークンの有効期限を設定することをお勧めします。 有効期限に達すると、トークンは自動的に取り消されます。 詳細については、[個人アクセス トークンの作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)に関する記事を参照してください。
-{% endif %}
+{% data variables.product.pat_generic %}を作成するときは、トークンの有効期限を設定することをお勧めします。 有効期限に達すると、トークンは自動的に取り消されます。 詳しい情報については、「[{% data variables.product.pat_generic %}の作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
 
 {% ifversion fpt or ghec %}
 ## パブリック リポジトリまたはパブリック gist にプッシュされたときに取り消されるトークン
 
-有効な OAuth トークン、{% data variables.product.prodname_github_app %} トークン、個人用アクセス トークンがパブリック リポジトリまたはパブリック gist にプッシュされると、そのトークンは自動的に取り消されます。 
+有効な OAuth トークン、{% data variables.product.prodname_github_app %} トークン、{% data variables.product.pat_generic %}がパブリック リポジトリまたはパブリック gist にプッシュされると、そのトークンは自動的に取り消されます。 
 
-パブリック リポジトリとパブリック gist にプッシュされた OAuth トークンと個人用アクセス トークンは、そのトークンにスコープがある場合にのみ取り消されます。
 {% endif %}
 
 {% ifversion fpt or ghec %}
 ## 使用されないために期限切れになるトークン
 
-{% data variables.product.product_name %} では、1 年間使用されていない OAuth トークンまたは個人用アクセス トークンを自動的に取り消します。
+{% data variables.product.product_name %} では、1 年間使用されていない OAuth トークンまたは{% data variables.product.pat_generic %}を自動的に取り消します。
 {% endif %}
 
 ## ユーザーによって取り消されるトークン
 
 アカウント設定から {% data variables.product.prodname_github_app %}または {% data variables.product.prodname_oauth_app %}の認可を取り消して、アプリに関連付けられているトークンを取り消すことができます。 詳細については、「[認可された統合をレビューする](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)」および「[認可されたアプリケーション (OAuth) をレビューする](/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)」を参照してください。
 
-認可が取り消されると、その認可に関連付けられているトークンも取り消されます。 アプリケーションを再認可するには、サード パーティのアプリケーションまたは Web サイトの指示に従って、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} でアカウントをもう一度接続します。
+認可が取り消されると、その認可に関連付けられているトークンも取り消されます。 アプリケーションを再認可するには、サード パーティのアプリケーションまたは Web サイトの指示に従って、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} でアカウントをもう一度接続します。
 
 ## {% data variables.product.prodname_oauth_app %}によって取り消されるトークン
 

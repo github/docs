@@ -1,49 +1,43 @@
 ---
-title: 将子文件夹拆分成新仓库
+title: Splitting a subfolder out into a new repository
 redirect_from:
   - /articles/splitting-a-subpath-out-into-a-new-repository
   - /articles/splitting-a-subfolder-out-into-a-new-repository
   - /github/using-git/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository
-intro: 您可以将 Git 仓库内的文件夹变为全新的仓库。
+intro: You can turn a folder within a Git repository into a brand new repository.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Splitting a subfolder
-ms.openlocfilehash: 21467b459f1e7af1dd28e5b7a20c962786aed2b5
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147876072'
 ---
-如果您创建仓库的新克隆副本，则将文件夹拆分为单独的仓库时不会丢失任何 Git 历史记录或更改。
+If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. 将当前工作目录更改为您要创建新仓库的位置。
+2. Change the current working directory to the location where you want to create your new repository.
 
-4. 克隆包含该子文件夹的仓库。
+4. Clone the repository that contains the subfolder.
    ```shell
-   $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY-NAME</em>
+   $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME
    ```
 
-4. 将当前工作目录更改为您克隆的仓库。
+4. Change the current working directory to your cloned repository.
    ```shell
-   $ cd <em>REPOSITORY-NAME</em>
+   $ cd REPOSITORY-NAME
    ```
 
-5. 若要从存储库中的其余文件中筛选出子文件夹，请运行 [`git filter-repo`](https://github.com/newren/git-filter-repo)，并提供以下信息：
-   - `FOLDER-NAME`：项目中要在其中创建单独存储库的文件夹。
+5. To filter out the subfolder from the rest of the files in the repository, run [`git filter-repo`](https://github.com/newren/git-filter-repo), supplying this information:
+   - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
 
    {% windows %}
 
    {% tip %}
 
-   提示：Windows 用户应使用 `/` 来分隔文件夹。
+   **Tip:** Windows users should use `/` to delimit folders.
 
    {% endtip %}
 
@@ -53,44 +47,44 @@ ms.locfileid: '147876072'
    $ git filter-repo --path FOLDER-NAME1/ --path FOLDER-NAME2/
    # Filter the specified branch in your directory and remove empty commits
    > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
-   > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
+   > Ref 'refs/heads/BRANCH-NAME' was rewritten
    ```
    
-   现在，该仓库应仅包含您的子文件夹中的文件。
+   The repository should now only contain the files that were in your subfolder(s).
 
-6. 在 {% data variables.product.product_name %} 上[新建存储库](/articles/creating-a-new-repository/)。
+6. [Create a new repository](/articles/creating-a-new-repository/) on {% data variables.product.product_name %}.
 
-7. 在新仓库顶部 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 的快速设置页面，点击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 以复制远程仓库 URL。
-    
-   ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
+	
+   ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
    {% tip %}
 
-   提示：有关 HTTPS 和 SSH URL 之间区别的信息，请参阅“[关于远程存储库](/github/getting-started-with-github/about-remote-repositories)”。
+   **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
    {% endtip %}
 
-8. 检查仓库现有的远程名称。 例如，`origin` 或 `upstream` 是两个常见的选项。
+8. Check the existing remote name for your repository. For example, `origin` or `upstream` are two common choices.
    ```shell
    $ git remote -v
-   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (fetch)
-   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (push)
+   > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (fetch)
+   > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (push)
    ```
 
-9. 使用现有的远程名称和您在步骤 7 中复制的远程仓库 URL 为新仓库设置新的远程 URL。
+9. Set up a new remote URL for your new repository using the existing remote name and the remote repository URL you copied in step 7.
    ```shell
-   git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git
+   git remote set-url origin https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git
    ```
 
-10. 使用新仓库名称验证远程 URL 是否已更改。
+10. Verify that the remote URL has changed with your new repository name.
     ```shell
     $ git remote -v
     # Verify new remote URL
-    > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git (fetch)
-    > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git (push)
+    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git (fetch)
+    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git (push)
     ```
 
-11. 将您的更改推送到 {% data variables.product.product_name %} 上的新仓库。
+11. Push your changes to the new repository on {% data variables.product.product_name %}.
     ```shell
-    git push -u origin <em>BRANCH-NAME</em>
+    git push -u origin BRANCH-NAME
     ```

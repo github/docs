@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 0f621e8e83d20f58e208fd9285082441fe29aa74
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 8f78a77c83ea498d8d41a0deff20903062542479
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147682925"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109856"
 ---
 Puedes editar una entrada en la lista de IP permitidas. Si editas una entrada habilitada, los cambios se aplicarán inmediatamente. 
 

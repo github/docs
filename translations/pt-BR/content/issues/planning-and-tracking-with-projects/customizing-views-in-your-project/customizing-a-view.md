@@ -9,12 +9,12 @@ redirect_from:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: 962a20daac125cdec5510daf3d792e0aaf6a194b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 0a7d1076fcf1a9d7f20b65a5e0a75b7d8029f834
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423837'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106770'
 ---
 ## Alterando o layout do projeto
 
@@ -105,6 +105,26 @@ No layout da tabela, você pode agrupar os itens por um valor de campo personali
 
 Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Agrupar por".
 
+{% ifversion projects-v2-numeric-summary %}
+
+## Como exibir a soma de um campo numérico
+
+Você pode configurar uma exibição para mostrar a soma de um ou mais dos campos numéricos, incluindo uma contagem de itens no grupo ou na coluna. Por exemplo, se houver um campo numérico mostrando o número de horas que cada item pode precisar para ser concluído, você poderá ver a soma dessas horas para cada grupo ou coluna.
+
+No layout de quadro, as somas de campo são exibidas na parte superior de cada coluna. No layout de tabela, quando você habilita o agrupamento por um campo, as somas de campo são incluídas no cabeçalho de cada grupo.
+
+{% data reusables.projects.open-view-menu %}
+1. Clique em {% octicon "number" aria-label="the number icon" %} **Soma do campo**.
+   
+   ![Captura de tela mostrando item de menu de soma do campo](/assets/images/help/projects-v2/field-sum-menu.png)
+   
+1. Selecione os campos que você deseja incluir.
+   
+   ![Captura de tela mostrando o menu de soma do campo](/assets/images/help/projects-v2/field-sum-select-field.png)
+   
+
+{% endif %}
+
 ## Definir o campo da coluna no layout do quadro
 
 No layout do painel, você escolhe qualquer campo de seleção ou iteração para as suas colunas. Se você arrastar um item para uma nova coluna, o valor dessa coluna será aplicado ao item arrastado. Por exemplo, se você usar o campo "Status" para as colunas de quadro e arrastar um item com o status `In progress` para a coluna `Done`, o status do item mudará para `Done`.
@@ -116,3 +136,19 @@ No layout do painel, você escolhe qualquer campo de seleção ou iteração par
    ![Captura de tela mostrando o menu Campo de Coluna](/assets/images/help/projects-v2/column-field-menu.png)
 
 Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Campo de coluna por".
+
+{% ifversion projects-v2-column-visibility %}
+
+## Como mostrar e ocultar campos no layout de quadro
+
+No layout de quadro, você pode escolher quais colunas são exibidas. As colunas disponíveis são compostas pelo conteúdo do campo de coluna selecionado.
+
+1. No layout de quadro, role para a direita das colunas e clique em {% octicon "plus" aria-label="the plus icon" %}.
+   
+   ![Captura de tela mostrando o botão de símbolo de adição](/assets/images/help/projects-v2/board-add-column.png)
+   
+1. Selecione as colunas que você deseja mostrar.
+   
+   ![Captura de tela mostrando a lista de colunas](/assets/images/help/projects-v2/board-select-columns.png)
+   
+{% endif %}

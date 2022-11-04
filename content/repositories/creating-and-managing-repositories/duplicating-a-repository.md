@@ -24,14 +24,14 @@ topics:
 
 {% endif %}
 
-Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
+Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.location.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
 
 ## Mirroring a repository
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Create a bare clone of the repository.
   ```shell
-  $ git clone --bare https://{% data variables.command_line.codeblock %}/OLD-REPOSITORY.git/OLD-REPOSITORY.git
+  $ git clone --bare https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/OLD-REPOSITORY.git
   ```
 3. Mirror-push to the new repository.
   ```shell
@@ -49,7 +49,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Create a bare clone of the repository. Replace the example username with the name of the person or organization who owns the repository, and replace the example repository name with the name of the repository you'd like to duplicate.
   ```shell
-  $ git clone --bare https://{% data variables.command_line.codeblock %}/OLD-REPOSITORY.git/OLD-REPOSITORY.git
+  $ git clone --bare https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/OLD-REPOSITORY.git
   ```
 3. Navigate to the repository you just cloned.
   ```shell
@@ -61,7 +61,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
   ```
 5. Mirror-push to the new repository.
   ```shell
-  $ git push --mirror https://{% data variables.command_line.codeblock %}/OLD-REPOSITORY.git/NEW-REPOSITORY.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}EXAMPLE-USER/NEW-REPOSITORY.git
   ```
 6. Push the repository's {% data variables.large_files.product_name_long %} objects to your mirror.
   ```shell

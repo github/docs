@@ -77,21 +77,13 @@ Committing the workflow file to a branch in your repository triggers the `push` 
    
    For example, you can see the list of files in your repository:
    ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
-   
+
+The example workflow you just added is triggered each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. For an in-depth tutorial, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
+
 ## More starter workflows
 
 {% data reusables.actions.workflow-template-overview %}
 
-## More complex examples
-{% data reusables.actions.link-to-example-library %}
-
 ## Next steps
 
-The example workflow you just added runs each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_actions %}:
-
-- Your repository can contain multiple workflows that trigger different jobs based on different events. 
-- You can use a workflow to install software testing apps and have them automatically test your code on {% data variables.product.prodname_dotcom %}'s runners. 
-
-{% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
-
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial.
+{% data reusables.actions.onboarding-next-steps %}

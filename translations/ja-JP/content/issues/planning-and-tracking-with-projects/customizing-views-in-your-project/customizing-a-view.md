@@ -9,12 +9,12 @@ redirect_from:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: 962a20daac125cdec5510daf3d792e0aaf6a194b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 0a7d1076fcf1a9d7f20b65a5e0a75b7d8029f834
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424186'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106774'
 ---
 ## プロジェクトレイアウトの変更
 
@@ -105,6 +105,26 @@ ms.locfileid: '147424186'
 
 または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Group by」と入力を始めます。
 
+{% ifversion projects-v2-numeric-summary %}
+
+## 数値フィールドの合計を表示する
+
+グループや列の項目の数など、1 つ以上のフィールドの合計を表示するようにビューを構成できます。 たとえば、各項目の完了に要する時間数を追跡する数値フィールドがある場合は、グループまたは列ごとにそれらの時間の合計を表示できます。
+
+ボード レイアウトでは、フィールドの合計は各列の先頭に表示されます。 テーブル レイアウトでは、フィールドによるグループ化を有効にすると、フィールドの合計が各グループのヘッダーに含まれます。
+
+{% data reusables.projects.open-view-menu %}
+1. {% octicon "number" aria-label="the number icon" %} **[フィールドの合計]** をクリックします。
+   
+   ![[フィールドの合計] メニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/field-sum-menu.png)
+   
+1. 含めるフィールドを選びます。
+   
+   ![[フィールドの合計] メニューを示すスクリーンショット](/assets/images/help/projects-v2/field-sum-select-field.png)
+   
+
+{% endif %}
+
 ## ボードレイアウトでの列フィールドの設定
 
 ボードレイアウトでは、列に対して任意の単一選択あるいは繰り返しフィールドを選択します。 アイテムを新しい列にドラッグすると、その列の値がドラッグされたアイテムに適用されます。 たとえば、ボードの列に "Status" フィールドを使い、状態が `In progress` のアイテムを `Done` 列にドラッグすると、そのアイテムの状態は `Done` に切り替わります。
@@ -116,3 +136,19 @@ ms.locfileid: '147424186'
    ![列フィールド メニューを示すスクリーンショット](/assets/images/help/projects-v2/column-field-menu.png)
 
 または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Column field by」と入力を始めます。
+
+{% ifversion projects-v2-column-visibility %}
+
+## ボード レイアウトでの列の表示と非表示
+
+ボード レイアウトでは、表示する列を選べます。 使用可能な列は、選択した列フィールドの内容で構成されます。
+
+1. ボード レイアウトで列の右にスクロールし、{% octicon "plus" aria-label="the plus icon" %} をクリックします。
+   
+   ![プラス記号ボタンを示すスクリーンショット](/assets/images/help/projects-v2/board-add-column.png)
+   
+1. 表示する列を選びます。
+   
+   ![列の一覧を示すスクリーンショット。](/assets/images/help/projects-v2/board-select-columns.png)
+   
+{% endif %}

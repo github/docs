@@ -18,12 +18,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: e4893e18de51f4d4918eacd3cb4d6da1c0323a1b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: af0b8eb9f8bd7a98c246a0806a8bc60f59ba147f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147444404'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107286'
 ---
 ## リポジトリについて
 
@@ -62,7 +62,7 @@ ms.locfileid: '147444404'
 - パブリック リポジトリには、インターネット上の誰でもアクセスできます。
 - プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。
 {%- elsif ghes %}
-- {% data variables.product.product_location %}がプライベート モードでない場合、またはファイアウォールの内側にない場合は、インターネット上の誰もがパブリック リポジトリにアクセスできます。 そうではない場合、外部のコラボレータを含め、{% data variables.product.product_location %} を使用するすべてのユーザがパブリックリポジトリを利用できます。
+- {% data variables.location.product_location %}がプライベート モードでない場合、またはファイアウォールの内側にない場合は、インターネット上の誰もがパブリック リポジトリにアクセスできます。 そうではない場合は、外部コラボレーターを含め、{% data variables.location.product_location %}を使うすべてのユーザーがパブリック リポジトリを利用できます。
 - プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。
 {%- elsif ghae %}
 - プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。
@@ -79,11 +79,17 @@ Organization のオーナーは、Organization 内で作成されたすべての
 
 {% data reusables.repositories.about-internal-repos %}インナーソースについて詳しくは、{% data variables.product.prodname_dotcom %} のホワイトペーパーの「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」をご覧ください。
 
+{% ifversion ghec %} {% note %}
+
+**注:** 内部リポジトリは、Enterprise アカウントで {% data variables.product.prodname_ghe_cloud %} を使っている場合にのみ作成できます。 Enterprise アカウントは、複数の Organization の集中管理を可能にする別の種類のアカウントです。 詳しくは、「[{% data variables.product.prodname_dotcom %} アカウントの種類](/get-started/learning-about-github/types-of-github-accounts)」をご覧ください。
+
+{% endnote %} {% endif %}
+
 すべての Enterprise メンバーには内部リポジトリに対する読み取り権限がありますが、内部リポジトリは、Organization リポジトリの外部のコラボレーターを含め、{% ifversion fpt or ghec %}Enterprise の外部の{% else %}どの Organization のメンバーでもない{% endif %}ユーザーには表示されません。 詳しくは、「[Enterprise におけるロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)」と「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」をご覧ください。
 
 {% ifversion ghes %} {% note %}
 
-**注:** Enterprise メンバーになって内部リポジトリにアクセスできるようになるには、ユーザーは Organization のメンバーである必要があります。 {% data variables.product.product_location %}のユーザーがどの Organization のメンバーでもない場合、そのユーザーは内部リポジトリにアクセスできません。
+**注:** Enterprise メンバーになって内部リポジトリにアクセスできるようになるには、ユーザーは Organization のメンバーである必要があります。 {% data variables.location.product_location %}のユーザーがどの Organization のメンバーでもない場合、そのユーザーは内部リポジトリにアクセスできません。
 
 {% endnote %} {% endif %}
 
@@ -93,7 +99,7 @@ Organization のオーナーは、Organization 内で作成されたすべての
 
 {% ifversion ghec %} {% note %}
 
-**注:** {% data variables.product.prodname_managed_users_caps %} は、内部リポジトリをフォークすることはできません。 詳細については、「[{% data variables.product.prodname_emus %} について](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)」を参照してください。
+**注:** {% data variables.enterprise.prodname_managed_users_caps %} は、内部リポジトリをフォークできません。 詳細については、「[{% data variables.product.prodname_emus %} について](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)」を参照してください。
 
 {% endnote %} {% endif %} {% endif %}
 

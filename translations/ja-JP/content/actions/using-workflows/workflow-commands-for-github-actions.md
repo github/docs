@@ -16,12 +16,12 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: 80f10d807cf7f8978173225c17ed4dc0eedeeb22
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 3af7dce198afcb851c228fa3fc4ad5f01f77ed60
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147770898'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111554'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -63,7 +63,39 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 ## ワークフローコマンドを使ったツールキット関数へのアクセス
 
-[actions/toolkit](https://github.com/actions/toolkit) には、ワークフロー コマンドとして実行できる多数の関数が含まれています。 `::` 構文を使用して、YAML ファイル内でワークフロー コマンドを実行してください。そうすると、それらのコマンドが `stdout` を通じてランナーに送信されます。 たとえば、コードを使用して出力を設定する代わりに、以下のようにします。
+[actions/toolkit](https://github.com/actions/toolkit) には、ワークフロー コマンドとして実行できる多数の関数が含まれています。 `::` 構文を使用して、YAML ファイル内でワークフロー コマンドを実行してください。そうすると、それらのコマンドが `stdout` を通じてランナーに送信されます。
+
+{%- ifversion actions-save-state-set-output-envs %} たとえば、コードを使用してエラー注釈を作成する代わりに、以下のようにします。
+
+```javascript{:copy}
+core.error('Missing semicolon', {file: 'app.js', startLine: 1})
+```
+
+### 例: エラーの注釈の作成
+
+ワークフローで `error` コマンドを使用して、同じエラー注釈を作成できます。
+
+{% bash %}
+
+{% raw %}
+```yaml{:copy}
+      - name: Create annotation for build error
+        run: echo "::error file=app.js,line=1::Missing semicolon"
+```
+{% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+```yaml{:copy}
+      - name: Create annotation for build error
+        run: Write-Output "::error file=app.js,line=1::Missing semicolon"
+```
+{% endraw %}
+
+{% endpowershell %} {%- else %} たとえば、コードを使用して出力を設定する代わりに、以下のようにします。
 
 ```javascript{:copy}
 core.setOutput('SELECTED_COLOR', 'green');
@@ -101,21 +133,24 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 {% endpowershell %}
 
+{% endif %}
+
 以下の表は、ワークフロー内で使えるツールキット関数を示しています。
 
 | ツールキット関数 | 等価なワークフローのコマンド |
 | ----------------- |  ------------- |
 | `core.addPath`    | `GITHUB_PATH` 環境ファイルを使用してアクセス可能 |
-| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-| `core.notice`     | `notice` |{% endif %}
+| `core.debug`      | `debug` |
+| `core.notice`     | `notice` |
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
 | `core.exportVariable` | `GITHUB_ENV` 環境ファイルを使用してアクセス可能 |
 | `core.getInput`   | `INPUT_{NAME}` 環境変数を使用してアクセス可能 |
 | `core.getState`   | `STATE_{NAME}` 環境変数を使用してアクセス可能 |
 | `core.isDebug`    |  `RUNNER_DEBUG` 環境変数を使用してアクセス可能 |
-{%- ifversion actions-job-summaries %} | `core.summary` | `GITHUB_STEP_SUMMARY` 環境変数を使用してアクセス可能 | {%- endif %} | `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | `::error` と `exit 1` のショートカットとして使用 | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
+{%- ifversion actions-job-summaries %} | `core.summary` | 環境ファイル `GITHUB_STEP_SUMMARY` を使用してアクセス可能 | {%- endif %} |`core.saveState`  | {% ifversion actions-save-state-set-output-envs %} 環境ファイル `GITHUB_STATE`{% else %}`save-state`{% endif %} を使用してアクセス可能 | | `core.setCommandEcho` | `echo` | | `core.setFailed` | `::error` と `exit 1` のショートカットとして使用 | | `core.setOutput`  |{% ifversion actions-save-state-set-output-envs %}環境ファイル `GITHUB_OUTPUT`{% else %}`set-output`{% endif %} を使用してアクセス可能 | | `core.setSecret`  | `add-mask``core.startGroup` | `group``core.warning`    | `warning` |
 
+{% ifversion actions-save-state-set-output-envs %}{% else %}
 ## 出力パラメータの設定
 
 アクションの出力パラメータを設定します。
@@ -125,6 +160,8 @@ core.setOutput('SELECTED_COLOR', 'green');
 ```
 
 あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 詳細については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)」を参照してください。
+
+環境変数を作成し、ワークフロー コマンドで使用することで、出力パラメーターを設定するための複数行文字列をエスケープできます。 詳しくは、「[環境変数の設定](#setting-an-environment-variable)」を参照してください。
 
 ### 例: 出力パラメーターの設定
 
@@ -142,7 +179,7 @@ echo "::set-output name=action_fruit::strawberry"
 Write-Output "::set-output name=action_fruit::strawberry"
 ```
 
-{% endpowershell %}
+{% endpowershell %} {% endif %}
 
 ## デバッグメッセージの設定
 
@@ -170,8 +207,6 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-
 ## 通知メッセージの設定
 
 通知メッセージを作成し、ログにそのメッセージを出力します。 {% data reusables.actions.message-annotation-explanation %}
@@ -198,7 +233,7 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
-{% endpowershell %} {% endif %}
+{% endpowershell %}
 
 ## 警告メッセージの設定
 
@@ -434,6 +469,7 @@ jobs:
 
 {% endpowershell %}
 
+{% ifversion actions-save-state-set-output-envs %}{% else %}
 ## コマンド出力のエコー
 
 ワークフロー コマンドのエコーを有効または無効にします。 たとえば、ワークフローで `set-output` コマンドを使用すると、出力パラメーターが設定されますが、ワークフロー実行のログにはコマンド自体は表示されません。 コマンドのエコーを有効にした場合、`::set-output name={name}::{value}` のようにコマンドがログに表示されます。
@@ -495,20 +531,34 @@ jobs:
 ```
 
 ログには 2 番目の `set-output` と `echo` ワークフロー コマンドのみが含まれています。これは、それらのコマンドが実行されたときにのみコマンドのエコーが有効になったからです。 出力パラメーターは、常にエコーされるとは限りませんが、すべての場合において設定されます。
+ 
+{% endif %}
 
 ## pre及びpostアクションへの値の送信
 
-`save-state` コマンドを使用して、ワークフローの `pre:` または `post:` アクションと共有するための環境変数を作成できます。 たとえば、`pre:` アクションでファイルを作成し、そのファイルの場所を `main:` アクションに渡し、`post:` アクションを使用してファイルを削除できます。 あるいは、`main:` アクションでファイルを作成し、そのファイルの場所を `post:` アクションに渡し、さらに `post:` アクションを使用してファイルを削除することもできます。
+{% ifversion actions-save-state-set-output-envs %}`GITHUB_STATE` にあるファイルに書き込むことで、ワークフローの `pre:` または `post:` アクションと共有するための環境変数を作成できます。{% else %}`save-state` コマンドを使用して、ワークフローの `pre:`または `post:` アクションと共有するための環境変数を作成できます{% endif %}。 たとえば、`pre:` アクションでファイルを作成し、そのファイルの場所を `main:` アクションに渡し、`post:` アクションを使用してファイルを削除できます。 あるいは、`main:` アクションでファイルを作成し、そのファイルの場所を `post:` アクションに渡し、さらに `post:` アクションを使用してファイルを削除することもできます。
 
-複数の `pre:` または `post:` アクションがある場合、`save-state` が使用されたアクションでのみ保存された値にアクセスできます。 `post:` アクションについて詳しくは、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)」をご覧ください。
+複数の `pre:` または `post:` アクションがある場合は、{% ifversion actions-save-state-set-output-envs %}`GITHUB_STATE` に書き込まれた{% else %}`save-state` が使用された{% endif %}アクションで保存された値にのみアクセスできます。 `post:` アクションについて詳しくは、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)」をご覧ください。
 
-`save-state` コマンドはアクション内でしか実行できず、YAML ファイルでは利用できません。 保存された値は、`STATE_` というプレフィックスが付いた環境変数として保存されます。
+{% ifversion actions-save-state-set-output-envs %}`GITHUB_STATE` ファイルはアクション内でのみ使用できます{% else %}`save-state` コマンドはアクション内でのみ実行でき、YAML ファイルでは使用できません{% endif %}。 保存された値は、`STATE_` というプレフィックスが付いた環境変数として保存されます。
 
-この例では JavaScript を使用して `save-state` コマンドを実行します。 結果の環境変数は、`STATE_processID` という名前になり、値が `12345` になります。
+{% ifversion actions-save-state-set-output-envs %} この例では、JavaScript を使用して `GITHUB_STATE` ファイルに書き込みます。 結果の環境変数は、`STATE_processID` という名前になり、値が `12345` になります。
+
+```javascript{:copy}
+import * as fs from 'fs'
+import * as os from 'os'
+
+fs.appendFileSync(process.env.GITHUB_STATE, `processID=12345${os.EOL}`, {
+  encoding: 'utf8'
+})
+```
+
+{% else %} この例では、JavaScript を使用して `save-state` コマンドを実行します。 結果の環境変数は、`STATE_processID` という名前になり、値が `12345` になります。
 
 ```javascript{:copy}
 console.log('::save-state name=processID::12345')
 ```
+{% endif %}
 
 この後、`STATE_processID` 変数は `main` アクションで実行されるクリーンアップ スクリプトでのみ利用できます。 この例は `main` で実行され、JavaScript を使用して `STATE_processID` 環境変数に割り当てられた値を表示します。
 
@@ -519,6 +569,8 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 ## 環境ファイル
 
 ワークフローの実行中に、ランナーは特定のアクションを実行する際に使用できる一時ファイルを生成します。 これらのファイルへのパスは、環境変数を介して公開されます。 コマンドを適切に処理するには、これらのファイルに書き込むときに UTF-8 エンコーディングを使用する必要があります。 複数のコマンドを、改行で区切って同じファイルに書き込むことができます。
+
+次の例のほどんどのコマンドでは、エコー文字列に二重引用符を使います。これにより、シェル変数名に対して `$` などの文字の補間が試行されます。 引用符で囲まれた文字列でリテラル値を常に使用するには、代わりに単一引用符を使用できます。
 
 {% powershell %}
 
@@ -620,7 +672,7 @@ steps:
 
 ### 複数行の文字列
 
-複数行の文字列の場合、次の構文で区切り文字を使用できます。 
+複数行の文字列の場合、次の構文で区切り文字を使用できます。
 
 ```{:copy}
 {name}<<{delimiter}
@@ -666,6 +718,60 @@ steps:
 ```
 
 {% endpowershell %}
+
+{% ifversion actions-save-state-set-output-envs %}
+## 出力パラメータの設定
+
+ステップの出力パラメーターを設定します。 後で出力値を取得するには、ステップで `id` を定義する必要があることに注意してください。
+
+{% bash %}
+
+```bash{:copy}
+echo "{name}={value}" >> $GITHUB_OUTPUT
+```
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{name}=value" >> $env:GITHUB_OUTPUT
+```
+
+{% endpowershell %}
+
+### 例
+
+{% bash %}
+
+この例では、`SELECTED_COLOR` 出力パラメーターを設定し、後でそれを取得する方法を示します。
+
+{% raw %}
+```yaml{:copy}
+      - name: Set color
+        id: random-color-generator
+        run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %} この例では、`SELECTED_COLOR` 出力パラメーターを設定し、後でそれを取得する方法を示します。
+
+```yaml{:copy}
+      - name: Set color
+        id: random-color-generator
+        run: |
+            "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
+      - name: Get color
+        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% endpowershell %} {% endif %}
 
 {% ifversion actions-job-summaries %}
 

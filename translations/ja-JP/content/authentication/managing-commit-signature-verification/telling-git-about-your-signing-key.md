@@ -15,18 +15,18 @@ topics:
   - Identity
   - Access management
 shortTitle: Tell Git your signing key
-ms.openlocfilehash: d40605c196e685e6e5929b5f1ce8e5e85bb197c5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: e78306bb1519f2b7f51ab6bc039bff0b982e48cf
+ms.sourcegitcommit: a0ad3bfe2a99c3092e76ca9b3d476cf30988ca55
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147653355'
+ms.lasthandoff: 10/28/2022
+ms.locfileid: '148118996'
 ---
 {% mac %}
 
 ## Git へ GPG キーを伝える
 
-コミッターの ID と、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} でのアカウントに関連付けられた検証済みのメール アドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
+コミッター ID と、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} でのアカウントに関連付けられた検証済みのメール アドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
 
 {% note %}
 
@@ -36,7 +36,7 @@ ms.locfileid: '147653355'
 
 複数の GPG キーを持っている場合、どれを使うかを Git に伝える必要があります。
 
-{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %} {% data reusables.gpg.paste-gpg-key-id %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-gpg-signing %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %} {% data reusables.gpg.paste-gpg-key-id %} {% data reusables.gpg.set-auto-sign %}
 1. GPG スイートを使用していない場合は、`zsh` シェルで次のコマンドを実行して、存在する場合は `.zshrc` ファイル、または `.zprofile` ファイルに GPG キーを追加します。
   ```shell
   $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
@@ -60,7 +60,7 @@ ms.locfileid: '147653355'
 
 ## Git へ GPG キーを伝える
 
-コミッターの ID と、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} でのアカウントに関連付けられた検証済みのメール アドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
+コミッター ID と、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} でのアカウントに関連付けられた検証済みのメール アドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
 
 {% note %}
 
@@ -70,7 +70,7 @@ ms.locfileid: '147653355'
 
 複数の GPG キーを持っている場合、どれを使うかを Git に伝える必要があります。
 
-{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %} {% data reusables.gpg.paste-gpg-key-id %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-gpg-signing %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %} {% data reusables.gpg.paste-gpg-key-id %} {% data reusables.gpg.set-auto-sign %}
 
 {% endwindows %}
 
@@ -78,7 +78,7 @@ ms.locfileid: '147653355'
 
 ## Git へ GPG キーを伝える
 
-コミッターの ID と、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} でのアカウントに関連付けられた検証済みのメール アドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
+コミッター ID と、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} でのアカウントに関連付けられた検証済みのメール アドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
 
 {% note %}
 
@@ -88,7 +88,7 @@ ms.locfileid: '147653355'
 
 複数の GPG キーを持っている場合、どれを使うかを Git に伝える必要があります。
 
-{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %} {% data reusables.gpg.paste-gpg-key-id %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-gpg-signing %} {% data reusables.gpg.list-keys-with-note %} {% data reusables.gpg.copy-gpg-key-id %} {% data reusables.gpg.paste-gpg-key-id %} {% data reusables.gpg.set-auto-sign %}
 1. GPG キーを `.bashrc` スタートアップ ファイルに追加するには、次のコマンドを実行します。
   ```bash
   $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
@@ -108,6 +108,6 @@ ms.locfileid: '147653355'
 {% data reusables.gpg.x-509-key %}
 ## 関連項目
 
-- [GitHub アカウントへの新しい SSH キーの追加](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+- [GitHub アカウントへの新しい SSH キーの追加](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 - 「[コミットに署名する](/articles/signing-commits)」
 - [タグに署名する](/articles/signing-tags)

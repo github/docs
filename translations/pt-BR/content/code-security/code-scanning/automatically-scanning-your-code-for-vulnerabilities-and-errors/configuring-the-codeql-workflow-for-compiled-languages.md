@@ -25,12 +25,12 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: c8256eea83b6a30879effc4d7797f2afcbc82e15
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 3be843fdc441e925569208defdd8412851609cef
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147875685'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111534'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -42,7 +42,8 @@ Você configurou {% data variables.product.prodname_dotcom %} para executar {% d
 
 ##  Sobre a autobuild para {% data variables.product.prodname_codeql %}
 
-A varredura de código funciona executando consultas contra um ou mais bancos de dados. Cada banco de dados contém uma representação de todo o código em uma linguagem única no seu repositório. Para as linguagens compiladas de C/C++, C#, e Java, o processo de preenchimento deste banco de dados envolve a construção do código e extração de dados. {% data reusables.code-scanning.analyze-go %}
+A {% data variables.product.prodname_code_scanning_capc %} funciona executando consultas em um ou mais bancos de dados. Cada banco de dados contém uma representação de todo o código em uma linguagem única no seu repositório.   
+Para as linguagens compiladas C/C++, C#,{% ifversion codeql-go-autobuild %} Go{% endif %} e Java, o processo de população desse banco de dados envolve a construção do código e a extração de dados. {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -88,6 +89,20 @@ O processo `autobuild` tenta fazer a detecção automática de um método de bui
 Se `autobuild` detectar vários arquivos de solução ou de projeto na mesma profundidade (mais curta) do diretório de nível superior, ele tentará compilar todos eles.
 3. Invocar um script parecido com um script de build: _build_ e _build.sh_ (nessa ordem, para o Linux) ou _build.bat_, _build.cmd_ e _build.exe_ (nessa ordem, para o Windows).
 
+### Go
+
+| Tipo de sistema compatível | Nome do sistema |
+|----|----|
+| Sistema operacional | Windows, macOS e Linux |
+| Sistema de criação | Módulos Go, `dep` e Glide, bem como scripts de build, incluindo Makefiles e scripts Ninja |
+
+O processo `autobuild` tenta fazer a detecção automática de uma forma adequada para instalar as dependências necessárias em um repositório Go antes de extrair todos os arquivos `.go`:
+
+1. Invoque `make`, `ninja`, `./build` ou `./build.sh` (nessa ordem) até que um desses comandos seja bem-sucedido e um próximo `go list ./...` também seja bem-sucedido, indicando que as dependências necessárias foram instaladas.
+2. Se nenhum desses comandos for bem-sucedido, procure `go.mod`, `Gopkg.toml` ou `glide.yaml` e execute `go get` (a menos que a cópia para a pasta Vendor esteja em uso), `dep ensure -v` ou `glide install`, respectivamente, para tentar instalar as dependências.
+3. Por fim, se os arquivos de configurações desses gerenciadores de dependência não forem encontrados, reorganize a estrutura de diretório do repositório adequada para adição a `GOPATH` e use `go get` para instalar as dependências. A estrutura de diretório é revertida para normal após a conclusão da extração.
+4. Extraia todo o código Go no repositório, semelhante à execução de `go build ./...`.
+
 ### Java
 
 | Tipo de sistema compatível | Nome do sistema |
@@ -105,12 +120,12 @@ O processo `autobuild` tenta determinar o sistema de build para bases de código
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} Para obter informações sobre como editar o arquivo de fluxo de trabalho, confira "[Como configurar a {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)".
 
-Depois de remover a etapa `autobuild`, remova o comentário da etapa `run` e adicione comandos de build adequados ao seu repositório. A etapa `run` do fluxo de trabalho executa programas de linha de comando usando o shell do sistema operacional. Você pode modificar esses comandos e adicionar mais comandos para personalizar o processo de compilação. 
+Depois de remover a etapa `autobuild`, remova o comentário da etapa `run` e adicione comandos de build adequados ao seu repositório. A etapa `run` do fluxo de trabalho executa programas de linha de comando usando o shell do sistema operacional. Você pode modificar esses comandos e adicionar mais comandos para personalizar o processo de compilação.
 
 ``` yaml
 - run: |
-  make bootstrap
-  make release
+    make bootstrap
+    make release
 ```
 
 Para obter mais informações sobre a palavra-chave `run`, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".

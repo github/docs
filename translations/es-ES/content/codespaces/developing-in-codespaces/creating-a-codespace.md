@@ -73,6 +73,8 @@ Organization owners can specify who can create and use codespaces at the organiz
 
    ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
+   If codespaces for this repository are billable, a message is displayed below the **Create codespace on BRANCH** button telling you who will pay for the codespace.
+
 1. Create your codespace, either using the default options, or after configuring advanced options:
  
    * **Use the default options**
@@ -131,12 +133,12 @@ To create a new codespace, use the `gh codespace create` subcommand.
 gh codespace create 
 ```
 
-You are prompted to choose a repository, a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
+You are prompted to choose a repository. If codespaces for this repository are billable, a message is displayed telling you who will pay for the codespace. You are then prompted to choose a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
 
 Alternatively, you can use flags to specify some or all of the options:
 
 ```shell
-gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> --devcontainer-path <em>path</em> -m <em>machine-type</em> 
+gh codespace create -r OWNER/REPO -b BRANCH --devcontainer-path PATH -m MACHINE-TYPE
 ```
 
 In this example, replace `owner/repo` with the repository identifier. Replace `branch` with the name of the branch, or the full SHA hash of the commit, that you want to be initially checked out in the codespace. If you use the `-r` flag without the `b` flag, the codespace is created from the default branch.

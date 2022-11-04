@@ -1,6 +1,6 @@
 ---
 title: Understanding GitHub Actions
-shortTitle: Understanding GitHub Actions
+shortTitle: Understand GitHub Actions
 intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -33,7 +33,7 @@ topics:
 
 {% elsif ghes or ghae %}
 
-You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.location.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
 
 {% endif %}
 

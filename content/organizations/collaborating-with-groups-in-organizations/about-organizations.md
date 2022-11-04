@@ -1,6 +1,6 @@
 ---
 title: About organizations
-intro: Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once, with sophisticated security and administrative features.
+intro: 'Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once, with sophisticated security and administrative features.'
 redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
@@ -47,6 +47,7 @@ Enterprise accounts are a feature of {% data variables.product.prodname_ghe_clou
 {% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
 
 {% data reusables.enterprise-accounts.invite-organization %}
+
 {% endif %}
 {% endif %}
 

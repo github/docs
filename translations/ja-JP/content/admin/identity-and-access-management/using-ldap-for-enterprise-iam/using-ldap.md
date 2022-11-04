@@ -20,18 +20,18 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-ms.openlocfilehash: bed91adf09819869204f40b1a9e09c63925904ff
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5d9b6aa9a5d641afa0b24dbe0e0f446ab723c735
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147062995'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107526'
 ---
 ## {% data variables.product.product_name %} の LDAP 認証について
 
 LDAP はディレクトリ情報サービスへのアクセスと管理のための広く使われているアプリケーション プロトコルで、大企業のユーザー ディレクトリとサードパーティのソフトウェアを統合するための最も一般的なプロトコルの 1 つです。 詳細については、Wikipedia の「[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)」を参照してください。
 
-一元化された認証に LDAP ディレクトリを使用する場合は、{% data variables.product.product_location %} を使用するユーザーに対して LDAP 認証を構成できます。
+一元化された認証に LDAP ディレクトリを使用する場合は、{% data variables.location.product_location %}を使用するユーザーに対して LDAP 認証を構成できます。
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
@@ -50,7 +50,7 @@ LDAP はディレクトリ情報サービスへのアクセスと管理のため
 
 {% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} 詳細については、「[外部認証のユーザー名に関する考慮事項](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)」を参照してください。
 
-## {% data variables.product.product_location %}での LDAP の設定
+## {% data variables.location.product_location %}での LDAP の設定
 
 LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでインスタンスにサインインできるようになります。 ユーザが初めてサインインするときに、ディレクトリ内のLDAP属性を使ってプロフィール名、メールアドレス、SSHキーが設定されます。
 
@@ -58,7 +58,7 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 
 {% warning %}
 
-**警告:** LDAP を {% data variables.product.product_location %}で構成する前に、ページングされた結果が LDAP サービスでサポートされることを確認します。
+**警告:** LDAP を {% data variables.location.product_location %}で構成する前に、ページングされた結果が LDAP サービスでサポートされることを確認します。
 
 {% endwarning %}
 
@@ -69,11 +69,11 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 5. 設定を追加してください。
 
 ## LDAPの属性
-以下の属性を使用して {% data variables.product.product_location %}の LDAP の構成を完了します。
+以下の属性を使用して {% data variables.location.product_location %}の LDAP の構成を完了します。
 
 | 属性名           | 型     | 説明 |
 |--------------------------|----------|-------------|
-| `Host`                   | 必須 | LDAP ホスト。たとえば、`ldap.example.com` または `10.0.0.30`。 ホスト名が内部ネットワークからしか利用できな場合は、まず、ホスト名を内部のネームサーバを使って解決できるように {% data variables.product.product_location %}の DNS を構成する必要があるかもしれません。 |
+| `Host`                   | 必須 | LDAP ホスト。たとえば、`ldap.example.com` または `10.0.0.30`。 ホスト名が内部ネットワークからしか利用できな場合は、まず、ホスト名を内部のネームサーバーを使って解決できるように {% data variables.location.product_location %}の DNS を構成する必要があるかもしれません。 |
 | `Port`                   | 必須 | ホストの LDAP サービスが待ち受けるポート。 例：389及び636（LDAPS用）。 |
 | `Encryption`             | 必須 | LDAP サーバーとの通信をセキュアにするために使われる暗号化の方法。 例：plain（暗号化なし）、SSL/LDAPS（最初からの暗号化）、StartTLS（接続後に暗号化通信にアップグレード）。 |
 | `Domain search user`     | オプション | 認証を許可するために、サインインする他のユーザを検索する LDAP ユーザ。 これは通常、サードパーティとのインテグレーションのために特に作成されるサービスアカウントです。 `cn=Administrator,cn=Users,dc=Example,dc=com` のような完全修飾名を使用します。 Active Directory では、ドメイン検索ユーザーに対して `[DOMAIN]\[USERNAME]` 構文 (`WINDOWS\Administrator` など) も使用できます。 |
@@ -92,11 +92,11 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 
 ### Gitの操作のパスワード認証の無効化
 
-LDAP 設定の **[Disable username and password authentication for Git operations]\(Git の操作でのユーザ名およびパスワード認証の無効化\)** を選択し、Git アクセスでの個人アクセス トークンあるいは SSH キーの使用を強制してください。そうすれば、サーバーが LDAP 認証要求で過負荷になるのを防ぐのに役に立ちます。 特にポーリングによる大量のリクエストと組み合わさると、レスポンスの遅いLDAPサーバーは頻繁にパフォーマンス問題や障害の原因となるので、この設定をおすすめします。
+LDAP 設定の **[Git の操作でのユーザー名およびパスワード認証の無効化]** を選び、Git アクセスでの{% data variables.product.pat_generic %}あるいは SSH キーの使用を強制してください。そうすれば、サーバーが LDAP 認証要求で過負荷になるのを防ぐのに役に立ちます。 特にポーリングによる大量のリクエストと組み合わさると、レスポンスの遅いLDAPサーバーは頻繁にパフォーマンス問題や障害の原因となるので、この設定をおすすめします。
 
 ![GItチェックボックスのためのLDAPパスワード認証の無効化](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
 
-このオプションを選択したときに、ユーザーがコマンド ラインを使用して Git 操作でパスワードを使用しようとすると、次のようなエラー メッセージが表示されます。`Password authentication is not allowed for Git operations. You must use a personal access token.`
+このオプションを選択したときに、ユーザーがコマンド ラインを使用して Git 操作でパスワードを使用しようとすると、次のようなエラー メッセージが表示されます。`Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
 
 ### LDAPの証明書検証の有効化
 
@@ -148,7 +148,13 @@ LDAP Sync を有効化すると、同期のジョブが指定された間隔で�
 同期ジョブは、LDAP グループにマップされなかった各 Team に対して以下の操作を行うためにも、指定された間隔で動作します。
 
 - Team に対応する LDAP グループが削除された場合、すべてのメンバーを Team から削除します。
-- LDAP グループから LDAP のメンバーエントリが削除された場合、対応するユーザを Team から削除します。 ユーザーが組織内のどのチームのメンバーでもなくなった場合は、そのユーザーを組織から削除します。 その結果、ユーザがリポジトリへのアクセスを失った場合、それらのリポジトリでユーザが持っていたプライベートなフォークを削除します。
+- LDAP グループから LDAP のメンバーエントリが削除された場合、対応するユーザを Team から削除します。 ユーザーが組織内のどのチームのメンバーでもなく、また組織の所有者でもなくなった場合は、そのユーザーを組織から削除します。 その結果、ユーザがリポジトリへのアクセスを失った場合、それらのリポジトリでユーザが持っていたプライベートなフォークを削除します。
+
+  {% note %}
+
+  **注:** LDAP Sync では、ユーザーがその組織の所有者である場合、組織からユーザーが削除されません。 別の組織の所有者が、代わりにユーザーを手動で削除する必要があります。
+
+  {% endnote %}
 - LDAP グループに LDAP のメンバーエントリが追加された場合、対応するユーザを Team に追加します。 その結果、ユーザがリポジトリへのアクセスを再度得ることになった場合、過去 90 日以内にユーザがアクセスを失ったために削除されたリポジトリのプライベートフォークがリストアされます。
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
@@ -203,7 +209,7 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 
 [API を使用して手動同期をトリガー](/enterprise/user/rest/reference/enterprise-admin#ldap)することもできます。
 
-## {% data variables.product.product_location %} へのアクセスの取り消し
+## {% data variables.location.product_location %}へのアクセスの取り消し
 
 [LDAP 同期が有効](#enabling-ldap-sync)な場合にユーザーの LDAP 資格情報を削除すると、次の同期の実行後にそのユーザーのアカウントが一時停止されます。
 

@@ -10,24 +10,24 @@ topics:
   - Enterprise
   - Security
   - Dependency graph
-ms.openlocfilehash: f2e8bdfb4a764c291ab7687c4226f24f7dacce9c
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: d0ef8c345039047a01b6b88a4b9d3f8300ef11c1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147773179'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107190'
 ---
 ## 依存関係グラフについて
 
 {% data reusables.dependabot.about-the-dependency-graph %} 詳細については、「[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」 (依存関係グラフについて) を参照してください。
 
-企業に対して依存関係グラフを有効にすると、{% data variables.product.prodname_dependabot %} を有効にして、リポジトリ内のセキュリティで保護されていない依存関係を検出する{% ifversion ghes > 3.2 %}ことや、その脆弱性を自動的に修正する{% endif %}ことができます。 詳細については、「[企業に対する {% data variables.product.prodname_dependabot %} の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
+Enterprise に対して依存関係グラフを有効にすると、{% data variables.product.prodname_dependabot %} を有効にして、リポジトリ内のセキュリティで保護されていない依存関係を検出{% ifversion ghes %}し、その脆弱性を自動的に修正{% endif %}することができます。 詳細については、「[企業に対する {% data variables.product.prodname_dependabot %} の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 
-{% ifversion ghes %}{% data variables.enterprise.management_console %} または管理シェルを使用して、依存関係グラフを有効にすることができます。 {% data variables.product.product_location %} でクラスタリングを使用していなければ、{% data variables.enterprise.management_console %} を使用することをお勧めします。
+{% ifversion ghes %}{% data variables.enterprise.management_console %} または管理シェルを使用して、依存関係グラフを有効にすることができます。 {% data variables.location.product_location %}でクラスタリングを使っていない場合は、{% data variables.enterprise.management_console %} を使うことをお勧めします。
 
 ## {% data variables.enterprise.management_console %} を使用した依存関係グラフの有効化
 
-{% data variables.product.product_location %} でクラスタリングを使っている場合、{% data variables.enterprise.management_console %} では依存関係グラフを有効にすることができず、代わりに管理シェルを使わなくてはいけません。 詳細については、「[Enabling the dependency graph via the administrative shell](#enabling-the-dependency-graph-via-the-administrative-shell)」 (管理シェルを使用した依存関係グラフの有効化) を参照してください。
+{% data variables.location.product_location %}でクラスタリングを使っている場合は、{% data variables.enterprise.management_console %} で依存関係グラフを有効にすることはできず、代わりに管理シェルを使う必要があります。 詳細については、「[Enabling the dependency graph via the administrative shell](#enabling-the-dependency-graph-via-the-administrative-shell)」 (管理シェルを使用した依存関係グラフの有効化) を参照してください。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
 1. [Security]\(セキュリティ) で、 **[Dependency graph]\(依存関係グラフ)** をクリックします。
@@ -37,7 +37,7 @@ ms.locfileid: '147773179'
 ## 管理シェルを使用した依存関係グラフの有効化
 
 {% endif %} {% data reusables.enterprise_site_admin_settings.sign-in %}
-1. 管理シェルで、{% data variables.product.product_location %} の依存関係グラフを有効にします:  {% ifversion ghes %}```shell  ghe-config app.dependency-graph.enabled true
+1. 管理シェルで、{% data variables.location.product_location %} の依存関係グラフを有効にします: {% ifversion ghes %}```shell  ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled true

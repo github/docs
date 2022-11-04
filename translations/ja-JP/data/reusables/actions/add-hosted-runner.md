@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 216386e3e7dc31df99a383af6a335681c72911c2
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: cdf55c11d2d54b94788e317961466999079debbb
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147764046"
+ms.lasthandoff: 10/26/2022
+ms.locfileid: "148111297"
 ---
-1. **[新しいランナー]** をクリックしたら、 **[{% octicon "mark-github" aria-label="New hosted runner" %} 新しい Github ホステッド ランナー]** をクリックします。
+1. **[新しいランナー]** をクリックしてから、 **[{% octicon "mark-github" aria-label="New hosted runner" %}新しい{% data variables.product.prodname_dotcom %}-ホステッド ランナー]** をクリックします。
 1. 必要な詳細を入力して、新しいランナーを構成します。
 
     - **名前**: 新しいランナーの名前を入力します。 識別しやすくするには、ハードウェアとオペレーティング システム (`ubuntu-20.04-16core` など) を示しておくのがよいでしょう。

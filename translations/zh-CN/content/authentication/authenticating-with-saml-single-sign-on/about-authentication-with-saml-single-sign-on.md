@@ -1,6 +1,6 @@
 ---
 title: 关于使用 SAML 单点登录进行身份验证
-intro: '可以通过身份提供商 (IdP) {% ifversion ghae %}以 SAML 单一登录 (SSO) {% endif %}验证来访问{% ifversion ghae %}{% data variables.product.product_location %}{% elsif ghec %}使用 SAML 单一登录 (SSO) 的组织{% endif %}。'
+intro: '可以通过身份提供商 (IdP) {% ifversion ghae %}以 SAML 单一登录 (SSO) {% endif %}验证来访问{% ifversion ghae %}{% data variables.location.product_location %}{% elsif ghec %}使用 SAML 单一登录 (SSO) 的组织{% endif %}。'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/about-authentication-with-saml-single-sign-on
@@ -11,18 +11,18 @@ versions:
 topics:
   - SSO
 shortTitle: SAML single sign-on
-ms.openlocfilehash: 7fb15bab585093a618f9c082d340c2fe66d67df7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 827db3181f742916ba4fdeefd92f25c196c28188
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147527908'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111511'
 ---
 ## 关于使用 SAML SSO 进行身份验证
 
 {% ifversion ghae %}
 
-SAML SSO 允许企业所有者从 SAML IdP 集中控制和安全访问 {% data variables.product.product_name %}。 在浏览器中访问 {% data variables.product.product_location %} 时，{% data variables.product.product_name %} 会将用户重定向到您的 IdP 进行身份验证。 在使用 IdP 上的帐户成功进行身份验证后，IdP 会将您重定向回 {% data variables.product.product_location %}。 {% data variables.product.product_name %} 将验证 IdP 的响应，然后授予访问权限。
+SAML SSO 允许企业所有者从 SAML IdP 集中控制和安全访问 {% data variables.product.product_name %}。 在浏览器中访问 {% data variables.location.product_location %} 时，{% data variables.product.product_name %} 会将你重定向到你的 IdP 进行身份验证。 在使用 IdP 上的帐户成功进行身份验证后，IdP 会将你重定向回 {% data variables.location.product_location %}。 {% data variables.product.product_name %} 将验证 IdP 的响应，然后授予访问权限。
 
 {% data reusables.saml.you-must-periodically-authenticate %}
 
@@ -30,13 +30,15 @@ SAML SSO 允许企业所有者从 SAML IdP 集中控制和安全访问 {% data v
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 {% data reusables.saml.dotcom-saml-explanation %} 组织所有者可以邀请你在 {% data variables.product.prodname_dotcom %} 上的个人帐户加入其使用 SAML SSO 的组织，这样你可以对该组织做出贡献，并且保留你在 {% data variables.product.prodname_dotcom %} 上的现有身份和贡献。
 
-如果你是 {% data variables.product.prodname_emu_enterprise %} 的成员，则将转而使用为你预配且由你的企业控制的新帐户。 {% data reusables.enterprise-accounts.emu-more-info-account %}
+如果你是 {% data variables.enterprise.prodname_emu_enterprise %} 的成员，则将转而使用为你预配且由你的企业控制的新帐户。 {% data reusables.enterprise-accounts.emu-more-info-account %}
 
-在访问使用 SAML SSO 的组织中的专用资源时，{% data variables.product.prodname_dotcom %} 会将你重定向到组织的 SAML IdP 进行身份验证。 在 IdP 上成功验证您的帐户后，IdP 会将您重定向回到 {% data variables.product.prodname_dotcom %}，您可以在那里访问组织的资源。
+在试图访问使用 SAML SSO 的组织中的大多数资源时，{% data variables.product.prodname_dotcom %} 会将你重定向到组织的 SAML IdP 进行身份验证。 在 IdP 上成功验证您的帐户后，IdP 会将您重定向回到 {% data variables.product.prodname_dotcom %}，您可以在那里访问组织的资源。
+
+{% data reusables.saml.resources-without-sso %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -52,13 +54,13 @@ SAML SSO 允许企业所有者从 SAML IdP 集中控制和安全访问 {% data v
 
 如果用于登录的 SAML 标识与当前关联到 {% data variables.product.prodname_dotcom %} 帐户的 SAML 标识不匹配，会收到一条警告，要求你重新关联帐户。 SAML 标识用于管理访问权限和团队成员身份，因此继续使用新的 SAML 标识可能会导致你无法再访问 {% data variables.product.prodname_dotcom %} 中的团队和组织。 只有当你知道将来应该使用这个新的 SAML 标识进行身份验证时，才继续操作。 
 
-## 使用 SAML SSO 授权 PAT 和 SSH 密钥
+## 使用 SAML SSO 授权{% data variables.product.pat_generic %}和 SSH 密钥
 
-要在命令行上使用 API 或 Git 访问使用 SAML SSO 的组织中受保护的内容，需要使用授权的 HTTPS 个人访问令牌或授权的 SSH 密钥。
+要在命令行上使用 API 或 Git 访问使用 SAML SSO 的组织中受保护的内容，需要使用授权的 HTTPS {% data variables.product.pat_generic %}或授权的 SSH 密钥。
 
-如果没有个人访问令牌或 SSH 密钥，可以创建用于命令行的个人访问令牌或生成新的 SSH 密钥。 有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”或“[生成新的 SSH 密钥并将其添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+如果你没有{% data variables.product.pat_generic %}或 SSH 密钥，可以为命令行创建{% data variables.product.pat_generic %}或生成新 SSH 密钥。 有关详细信息，请参阅“[创建{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)”或“[生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
-要对使用或实施 SAML SSO 的组织使用新的或现有的个人访问令牌或 SSH 密钥，需要授权该令牌或授权 SSH 密钥用于 SAML SSO 组织。 有关详细信息，请参阅“[授权用于 SAML 单一登录的个人访问令牌](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”或“[授权用于 SAML 单一登录的 SSH 密钥](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。
+要对使用或实施 SAML SSO 的组织使用新的或现有的{% data variables.product.pat_generic %}或 SSH 密钥，需要授权该令牌或授权 SSH 密钥用于 SAML SSO 组织。 有关详细信息，请参阅“[授权用于 SAML 单一登录的{% data variables.product.pat_generic %}](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”或“[授权用于 SAML 单一登录的 SSH 密钥](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。
 
 ## 关于 {% data variables.product.prodname_oauth_apps %}、{% data variables.product.prodname_github_apps %} 和 SAML SSO
 

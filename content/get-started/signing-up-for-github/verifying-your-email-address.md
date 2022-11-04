@@ -23,7 +23,7 @@ If you do not verify your email address, you will not be able to:
   - Create issues or pull requests
   - Comment on issues, pull requests, or commits
   - Authorize {% data variables.product.prodname_oauth_app %} applications
-  - Generate personal access tokens
+  - Generate {% data variables.product.pat_generic %}s
   - Receive email notifications
   - Star repositories
   - Create or update project boards, including adding cards
@@ -59,11 +59,11 @@ If you do not verify your email address, you will not be able to:
 
 The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
 
-If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.product.product_location %}.
+If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
 
-1. {% data variables.product.signout_link %} of your personal account on {% data variables.product.product_location %}.
+1. {% data variables.product.signout_link %} of your personal account on {% data variables.location.product_location %}.
 2. Quit and restart your browser.
-3. {% data variables.product.signin_link %} to your personal account on {% data variables.product.product_location %}.
+3. {% data variables.product.signin_link %} to your personal account on {% data variables.location.product_location %}.
 4. Click on the verification link in the email we sent you.
 
 ## Further reading

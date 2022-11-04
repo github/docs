@@ -13,11 +13,11 @@ children:
   - /adding-your-project-to-a-repository
   - /adding-your-project-to-a-team
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: ca7c42e8dcb3daf477c70248eb79d12ca9670052
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c7dd1657bae11e0f43895e946b5e20a209666363
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423812'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108094'
 ---
 

@@ -13,16 +13,16 @@ type: reference
 topics:
   - Enterprise
   - Upgrades
-ms.openlocfilehash: 5b2aae044f2f5198bbd96669221936658d9464a6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 23ac63dd30c11f4c29cd17313a583579d2e2cea1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147065187'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106878'
 ---
 {% note %}
 
-**注:** {% ifversion ghes < 3.3 %}- {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %}、{% data variables.product.prodname_mobile %}、{% data variables.product.prodname_GH_advanced_security %} などの機能は、{% data variables.product.prodname_ghe_server %} 3.0 以降で利用できます。 重要なセキュリティ更新プログラム、バグ修正プログラム、機能強化を利用するには、3.0 以降のリリースにアップグレードすることを強くお勧めします。{% endif %}
+**注:**
 - サポートされているバージョンのアップグレード パッケージは、[enterprise.github.com](https://enterprise.github.com/releases) で入手できます。 アップグレードを完了するには、必要なアップグレードパッケージが利用できることを確認してください。 パッケージが利用できない場合は{% data variables.contact.contact_ent_support %}に連絡して支援を求めてください。
 - {% data variables.product.prodname_ghe_server %} クラスタリングを使用している場合、クラスタリングに固有の具体的な手順については、{% data variables.product.prodname_ghe_server %} クラスタリング ガイドの「[クラスターのアップグレード](/enterprise/admin/guides/clustering/upgrading-a-cluster/)」を参照してください。
 - {% data variables.product.prodname_ghe_server %} のリリースノートには、{% data variables.product.prodname_ghe_server %} のすべてのバージョンの新機能の包括的なリストがあります。 詳細については、[リリース ページ](https://enterprise.github.com/releases)を参照してください。
@@ -32,7 +32,7 @@ ms.locfileid: '147065187'
 ## 推奨事項
 
 - アップグレードのプロセスに含めるアップグレードは、できるだけ少なくしてください。 たとえば {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} から {{ enterpriseServerReleases.supported[1] }} を経て {{ enterpriseServerReleases.latest }} にアップグレードする代わりに、{% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} から {{ enterpriseServerReleases.latest }} にアップグレードできます。 [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) を使用して、現在のリリース バージョンからのアップグレード パスを見つけます。
-- 数バージョン古いものを使用している場合、アップグレード プロセスの各ステップで可能な限り新しいバージョンまで {% data variables.product.product_location %} をアップグレードします。 各アップグレードで可能な限りの最新バージョンを使うことで、パフォーマンスの改善やバグフィックスのメリットが得られます。 たとえば{% data variables.product.prodname_enterprise %}2.7から2.8を経て2.10へアップグレードすることができますが、{% data variables.product.prodname_enterprise %}2.7から2.9を経て2.10へのアップグレードすれば、2番目のステップでより新しいバージョンを利用できます。
+- 数バージョン古いものを使用している場合、アップグレード プロセスの各ステップで可能な限り新しいバージョンまで {% data variables.location.product_location %} をアップグレードします。 各アップグレードで可能な限りの最新バージョンを使うことで、パフォーマンスの改善やバグフィックスのメリットが得られます。 たとえば{% data variables.product.prodname_enterprise %}2.7から2.8を経て2.10へアップグレードすることができますが、{% data variables.product.prodname_enterprise %}2.7から2.9を経て2.10へのアップグレードすれば、2番目のステップでより新しいバージョンを利用できます。
 - アップグレードの際には、最新のパッチリリースを使ってください。 {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - アップグレードのステップのテストには、ステージングインスタンスを使ってください。 詳細については、「[ステージング インスタンスの設定](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)」を参照してください。
 - 複数のアップグレードを実行する場合は、機能のアップグレードの間に少なくとも 24 時間待って、データ移行とバックグラウンドで実行されているアップグレードタスクが完全に完了するようにします。

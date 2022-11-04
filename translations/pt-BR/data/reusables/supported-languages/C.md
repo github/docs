@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 586b13b105c32f8b67218cc277af8916dc2c8783
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1171bfde25f2b42d8f1f63cc94c806ccbf1d4ef7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147052197"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107924"
 ---
-| C {% ifversion fpt or ghec %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghes %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} {% ifversion ghes > 3.2 %}| {% octicon "x" aria-label="The X icon" %}{% endif %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghae %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% endif %}
+| C {% ifversion fpt or ghec %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghes %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghae %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% endif %}

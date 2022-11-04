@@ -20,12 +20,12 @@ topics:
   - Repositories
   - Dependencies
 shortTitle: Dependabot alerts
-ms.openlocfilehash: 4a1e85a620465247dcd63e8ce9c88c99a0af31fd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 737e5547e3aefd6b5c49780df0c78cdc73292ee4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147526731'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106738'
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->
 
@@ -47,7 +47,7 @@ O {% data variables.product.prodname_dependabot %} faz uma verificação para de
 
 {% ifversion fpt or ghec %}
 - Uma nova vulnerabilidade é adicionada ao {% data variables.product.prodname_advisory_database %}. Para obter mais informações, confira "[Procurar avisos de segurança no {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)".{% else %}
-- Novos dados de consultoria são sincronizados com o {% data variables.product.product_location %} a cada hora por meio do {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %} {% note %}
+- Os novos dados de aviso são sincronizados do {% data variables.product.prodname_dotcom_the_website %} com o {% data variables.location.product_location %} por hora. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %} {% note %}
 
   **Observação:** apenas as consultorias que foram revisadas pelo {% data variables.product.company_short %} vão disparar {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -79,7 +79,7 @@ O {% data variables.product.product_name %} começa a gerar o grafo de dependên
 
 Quando o {% data variables.product.product_name %} identifica uma dependência vulnerável{% ifversion GH-advisory-db-supports-malware %} ou um malware{% endif %}, geramos um alerta do {% data variables.product.prodname_dependabot %} e o exibimos {% ifversion fpt or ghec or ghes %} na guia Segurança do repositório e{% endif %} no grafo de dependência do repositório. O alerta inclui {% ifversion fpt or ghec or ghes %}um link para o arquivo afetado no projeto e {% endif %}informações sobre uma versão corrigida. {% data variables.product.product_name %} também pode notificar os mantenedores dos repositórios afetados sobre o novo alerta de acordo com as suas preferências de notificação. Para obter mais informações, confira "[Como configurar notificações para o {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)".
 
-{% ifversion fpt or ghec or ghes > 3.2 %} Para os repositórios em que as {% data variables.product.prodname_dependabot_security_updates %} estão habilitadas, o alerta também poderá conter um link para uma solicitação de pull a fim de atualizar o arquivo de manifesto ou de bloqueio para a versão mínima que resolve a vulnerabilidade. Para obter mais informações, confira "[Sobre as {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)".
+{% ifversion fpt or ghec or ghes %} Para os repositórios em que as {% data variables.product.prodname_dependabot_security_updates %} estão habilitadas, o alerta também pode conter um link para uma solicitação de pull a fim de atualizar o arquivo de manifesto ou de bloqueio para a versão mínima que resolve a vulnerabilidade. Para obter mais informações, confira "[Sobre as {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)".
 {% endif %}
 
 {% warning %}
@@ -99,7 +99,7 @@ Por padrão, notificamos as pessoas com permissões de administrador nos reposit
 
 Você também pode ver todos os {% data variables.product.prodname_dependabot_alerts %} que correspondem a uma vulnerabilidade específica no {% data variables.product.prodname_advisory_database %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes %}
 ## Leitura adicional
 
 - "[Sobre as {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"

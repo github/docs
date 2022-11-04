@@ -95,8 +95,8 @@ export const ArticlePage = () => {
                 </div>
               )}
 
-              {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
-              {includesToolSpecificContent && <ToolPicker variant="underlinenav" />}
+              {includesPlatformSpecificContent && <PlatformPicker />}
+              {includesToolSpecificContent && <ToolPicker />}
 
               {product && (
                 <Callout
@@ -117,9 +117,7 @@ export const ArticlePage = () => {
                   </Link>
                 </div>
               )}
-              {miniTocItems.length > 1 && (
-                <MiniTocs pageTitle={title} miniTocItems={miniTocItems} />
-              )}
+              {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
             </>
           }
         >

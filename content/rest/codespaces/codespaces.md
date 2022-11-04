@@ -11,4 +11,4 @@ miniTocMaxHeadingLevel: 3
 
 ## About the Codespaces API
 
-The {% data variables.product.prodname_github_codespaces %} API enables you to manage {% data variables.product.prodname_codespaces %} using the REST API. This API is available for authenticated users and OAuth Apps, but not GitHub Apps. For more information, see "[{% data variables.product.prodname_codespaces %}](/codespaces)."
+The {% data variables.product.prodname_github_codespaces %} API enables you to manage {% data variables.product.prodname_codespaces %} using the REST API. This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %}. For more information, see "[{% data variables.product.prodname_codespaces %}](/codespaces)."

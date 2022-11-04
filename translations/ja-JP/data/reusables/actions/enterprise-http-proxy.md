@@ -1,13 +1,14 @@
 ---
-ms.openlocfilehash: c61e071aa06bda0d31a1c4578dfe78addb55867e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 4efb2b0e214ee93dc8815055b005e11ea29534bb
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147167380"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107678"
 ---
-{% data variables.product.product_location %} に **HTTP プロキシ サーバー** が構成されている場合:
+{% data variables.location.product_location %} に **HTTP プロキシ サーバー** が構成されている場合:
+
   - `localhost` と `127.0.0.1` を **HTTP プロキシ除外** リストに追加する必要があります。
-  - BYOS バケットがルーティングできない場合は、バケットの URL も除外リストに追加する必要があります。
+  - ご利用の外部ストレージの場所がルーティング不可能である場合は、該当する外部ストレージ URL も、除外リストに追加する必要があります。
 
   プロキシ設定の変更の詳細については、「[アウトバウンドの Web プロキシ サーバーの構成](/admin/configuration/configuring-an-outbound-web-proxy-server)」を参照してください。

@@ -12,12 +12,12 @@ topics:
   - Actions
   - Enterprise
 shortTitle: Manually sync actions
-ms.openlocfilehash: f4116663e510da9b7551e4a9050dd4ba838ed7c6
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: f4fe3aaecfa805b2a5966c0b2c41399529c2040e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145120382'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107270'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -37,17 +37,17 @@ ms.locfileid: '145120382'
 
 `actions-sync` ツールは、パブリック リポジトリに保存されている {% data variables.product.prodname_dotcom_the_website %} からのみアクションをダウンロードできます。
 
-{% ifversion ghes > 3.2 or ghae %} {% note %}
+{% note %}
 
-**注:** `actions-sync` ツールは、{% data variables.product.prodname_github_connect %} が有効になっていないシステムで使用することを目的としています。 {% data variables.product.prodname_github_connect %} が有効になっているシステムでツールを実行すると、エラー `The repository <repo_name> has been retired and cannot be reused` が表示されることがあります。 これは、ワークフローが {% data variables.product.prodname_dotcom_the_website %} に対してそのアクションを直接使用し、名前空間が {% data variables.product.product_location %}で廃止されたことを示します。 詳細については、「[{% data variables.product.prodname_dotcom_the_website%} でアクセスされたアクションの名前空間の自動廃止](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)」を参照してください。 
+**注:** `actions-sync` ツールは、{% data variables.product.prodname_github_connect %} が有効になっていないシステムで使用することを目的としています。 {% data variables.product.prodname_github_connect %} が有効になっているシステムでツールを実行すると、エラー `The repository <repo_name> has been retired and cannot be reused` が表示されることがあります。 これは、ワークフローが {% data variables.product.prodname_dotcom_the_website %} に対してそのアクションを直接使用し、名前空間が {% data variables.location.product_location %}で廃止されたことを示します。 詳細については、「[{% data variables.product.prodname_dotcom_the_website%} でアクセスされたアクションの名前空間の自動廃止](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)」を参照してください。 
 
-{% endnote %} {% endif %}
+{% endnote %}
 
 ## 前提条件
 
 * `actions-sync` ツールを使用する前に、すべての同期先組織が既にエンタープライズに存在していることを確認する必要があります。 次の例は、アクションを `synced-actions` という名前の組織に同期する方法を示しています。 詳細については、「[新しい Organization をゼロから作成](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。
-* Enterprise に、宛先 Organization のリポジトリを作成して書き込むことができる個人アクセストークン (PAT) を作成する必要があります。 詳細については、「[個人アクセス トークンを使用する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。{% ifversion ghes %}
-* {% data variables.product.product_location %}で `actions` 組織内のバンドルされたアクションを同期する場合は、`actions` 組織の所有者である必要があります。
+* Enterprise に、宛先 Organization のリポジトリを作成して書き込むことができる{% data variables.product.pat_generic %}を作成する必要があります。 詳しくは、「[{% data variables.product.pat_generic %} の作成](/github/authenticating-to-github/creating-a-personal-access-token)」をご覧ください。{% ifversion ghes %}
+* {% data variables.location.product_location %}で `actions` Organization 内のバンドルされたアクションを同期する場合は、`actions` Organization の所有者である必要があります。
 
   {% note %}
   
@@ -58,7 +58,7 @@ ms.locfileid: '145120382'
   サイト管理者は、管理シェルの `ghe-org-admin-promote` コマンドを使用して、バンドルされた `actions` 組織の所有者にユーザーを昇格させることができます。 詳細については、「[管理シェル (SSH) にアクセスする](/admin/configuration/accessing-the-administrative-shell-ssh)」と「[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)」を参照してください。
 
   ```shell
-  ghe-org-admin-promote -u <em>USERNAME</em> -o actions
+  ghe-org-admin-promote -u USERNAME -o actions
   ```{% endif %}
 
 ## Example: Using the `actions-sync` tool
@@ -86,7 +86,7 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
    上記のコマンドでは、次の引数を使用しています。
 
    * `--cache-dir`: コマンドを実行しているコンピューター上のキャッシュ ディレクトリ。
-   * `--destination-token`: 同期先エンタープライズ インスタンスの個人用アクセス トークン。
+   * `--destination-token`: 同期先 Enterprise インスタンスの {% data variables.product.pat_generic %}。
    * `--destination-url`: 同期先のエンタープライズ インスタンスの URL。
    * `--repo-name`: 同期するアクション リポジトリ。これは `owner/repository:destination_owner/destination_repository` 形式になります。
      

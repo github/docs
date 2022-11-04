@@ -92,11 +92,10 @@ Within a codespace, you have access to the {% data variables.product.prodname_vs
 
 1. In the left sidebar, click the Extensions icon.
 
-1. In the search bar, enter `fairyfloss` and install the fairyfloss extension.
+1. In the search bar, type `fairyfloss` and click **Install**.
 
    ![Add an extension](/assets/images/help/codespaces/add-extension.png)
 
-1. Click **Install in Codespaces**.
 1. Select the `fairyfloss` theme by selecting it from the list.
 
    ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
@@ -111,4 +110,4 @@ You've successfully created, personalized, and run your first application within
 ## Further reading
 
 - "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
-- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"

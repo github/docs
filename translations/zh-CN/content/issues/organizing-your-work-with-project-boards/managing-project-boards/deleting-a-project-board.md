@@ -11,12 +11,12 @@ versions:
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 13de993715fa8e16f8cbce4555214e7940fb4917
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: fb68b796fa41a565ab2e196f878c17c94ec44a06
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147422970'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108068'
 ---
 {% data reusables.projects.project_boards_old %}
 

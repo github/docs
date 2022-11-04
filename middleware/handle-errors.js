@@ -23,6 +23,7 @@ async function logException(error, req) {
   if (process.env.NODE_ENV !== 'test' && shouldLogException(error)) {
     await FailBot.report(error, {
       path: req.path,
+      url: req.url,
     })
   }
 }

@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
-intro: '{% data variables.product.product_location %} でユーザに表示されるカスタムメッセージを作成できます。'
+intro: '{% data variables.location.product_location %} でユーザーに表示されるカスタム メッセージを作成できます。'
 versions:
   ghes: '*'
   ghae: '*'
@@ -14,12 +14,12 @@ type: how_to
 topics:
   - Enterprise
   - Maintenance
-ms.openlocfilehash: 08cd547cd79b1e731f439688f02b475db8db4d1d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b767a651f19b6200abfc67696d98147ebf65bd9a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147052057'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106430'
 ---
 ## ユーザメッセージについて
 
@@ -59,29 +59,31 @@ ms.locfileid: '147052057'
 {% ifversion ghes or ghae %}
 ## 必須メッセージを作成する
 
-メッセージを保存した後に初めてサインインしたときに、すべてのユーザに表示される必須メッセージを {% data variables.product.product_name %} で作成できます。 メッセージはポップアップウィンドウ内に表示され、ユーザは {% data variables.product.product_location %} を使用する前に閉じる必要があります。
+メッセージを保存した後に初めてサインインしたときに、すべてのユーザに表示される必須メッセージを {% data variables.product.product_name %} で作成できます。 メッセージはポップアップ ウィンドウ内に表示され、ユーザーは {% data variables.location.product_location %} を使う前にそれを閉じる必要があります。
 
 必須メッセージにはさまざまな用途があります。
 
 - 新入社員にオンボーディング情報を提供する
-- {% data variables.product.product_location %} のヘルプの取得方法をユーザに伝える
-- すべてのユーザが {% data variables.product.product_location %} を使用時の利用規約を確実に読むようにする
+- {% data variables.location.product_location %} に関するヘルプの取得方法をユーザーに伝える
+- すべてのユーザーが {% data variables.location.product_location %} を使うときの利用規約を確実に読むようにする
 
 メッセージに Markdown チェックボックスを含める場合、ユーザがメッセージを閉じる前に、すべてのチェックボックスを選択する必要があります。 たとえば、必須メッセージに利用規約を含める場合、各ユーザにチェックボックスを選択して、ユーザが利用規約を読んだことを確認するように要求できます。
 
 ユーザに必須メッセージが表示されるたびに、監査ログイベントが作成されます。 イベントには、ユーザが表示したメッセージのバージョンが含まれます。 詳細については、「[エンタープライズの監査ログ イベント](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)」を参照してください。
 
-{% note %}
+{% ifversion display-mandatory-message-again %} {% else %} {% note %}
 
-**注:** {% data variables.product.product_location %} の必須メッセージを変更する場合、メッセージを既に確認しているユーザーには新しいメッセージは表示されません。
+**注:** {% data variables.location.product_location %} の必須メッセージを変更した場合、メッセージを既に確認しているユーザーには新しいメッセージは表示されません。 
 
-{% endnote %}
+{% endnote %} {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.messages-tab %}
 1. [必須メッセージ] の右側にある **[メッセージの追加]** をクリックします。
   ![[必須メッセージの追加] ボタン](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
 1. [Mandatory message] の下のテキストボックスに、メッセージを入力します。
-  ![必須メッセージ テキスト ボックス](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png) {% data reusables.enterprise_site_admin_settings.message-preview-save %}
+  ![必須メッセージ テキスト ボックスのスクリーンショット](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png) {%- ifversion display-mandatory-message-again %} 
+1. 必要に応じて、 **[前のメッセージを閉じた場合でも、更新されたメッセージをすべてのユーザーに表示する]** を選びます。
+![オンにするとすべてのユーザーに必須メッセージがプッシュされるチェック ボックスのスクリーンショット](/assets/images/enterprise/site-admin-settings/push-mandatory-message-checkbox.png) {% endif %} {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}
 

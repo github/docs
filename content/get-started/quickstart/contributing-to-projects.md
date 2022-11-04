@@ -26,7 +26,7 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
 2. Click **Fork**.
-   ![Fork button](/assets/images/help/repository/fork_button.png)
+   ![Fork button](/assets/images/help/repository/fork_button.png){% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 3. Select an owner for the forked repository.
    ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
 4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. 
@@ -43,6 +43,7 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 **Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 
 {% endnote %}
+{% endif %}
 
 ## Cloning a fork
 
@@ -92,6 +93,34 @@ gh repo fork REPOSITORY --clone=true
 {% data reusables.desktop.cloning-repository-list %}
 {% data reusables.desktop.choose-local-path %}
 {% data reusables.desktop.click-clone %}
+
+{% enddesktop %}
+
+## Creating a branch to work on
+
+Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[GitHub Flow](/get-started/quickstart/github-flow#following-github-flow)."
+
+{% webui %}
+
+```shell
+git branch BRANCH-NAME
+git checkout BRANCH-NAME
+```
+
+{% endwebui %}
+
+{% cli %}
+
+```shell
+git branch BRANCH-NAME
+git checkout BRANCH-NAME
+```
+
+{% endcli %}
+
+{% desktop %}
+
+For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[Managing branches](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
 
 {% enddesktop %}
 

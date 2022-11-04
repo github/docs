@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions を有効化して GitHub Enterprise Server をバックアップおよび復元する
 shortTitle: Backing up and restoring
-intro: '外部ストレージプロバイダの {% data variables.product.prodname_actions %} データは、通常の {% data variables.product.prodname_ghe_server %} バックアップに含まれていないため、個別にバックアップする必要があります。'
+intro: '{% data variables.product.prodname_actions %} が有効になっているときに {% data variables.location.product_location %}のバックアップを復元するには、{% data variables.product.prodname_enterprise_backup_utilities %} でバックアップを復元する前に、{% data variables.product.prodname_actions %} を構成する必要があります。'
 versions:
   ghes: '*'
 type: how_to
@@ -12,50 +12,37 @@ topics:
   - Infrastructure
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
-ms.openlocfilehash: def12b4e9e93a75ee1aa58f8290ca1b6e7d13cd5
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 43279c6b99cce6618de9253c5d0451c0a661b095
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145120462'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107310'
 ---
-{% data reusables.actions.enterprise-storage-ha-backups %}
+## {% data variables.product.prodname_actions %} を使用する場合の {% data variables.product.product_name %} のバックアップについて
 
-{% data variables.product.prodname_enterprise_backup_utilities %} を使用して {% data variables.product.product_location %} をバックアップする場合、外部ストレージプロバイダに保存されている {% data variables.product.prodname_actions %} データはバックアップに含まれないことにご注意ください。
+{% data variables.product.prodname_enterprise_backup_utilities %} を使って、{% data variables.location.product_location %}のデータと構成をバックアップし、新しいインスタンスに復元できます。 詳細については、「[アプライアンスでのバックアップの設定](/admin/configuration/configuring-backups-on-your-appliance)」を参照してください。
 
-以下は、{% data variables.product.product_location %} と {% data variables.product.prodname_actions %} を新しいアプライアンスに復元するために必要なステップの概要です。
+ただし、{% data variables.product.prodname_actions %} のすべてのデータがこれらのバックアップに含まれるわけではありません。 {% data reusables.actions.enterprise-storage-ha-backups %}
 
-1. 元のアプライアンスがオフラインであることを確認します。
-1. 交換用の {% data variables.product.prodname_ghe_server %} アプライアンスでネットワーク設定を手動設定します。 ネットワーク設定はバックアップスナップショットから除外され、`ghe-restore` で上書きされません。
-1. もともとのアプライアンスと同じ {% data variables.product.prodname_actions %} 外部ストレージ構成を使用するように交換アプライアンスを構成するには、新しいアプライアンスから、必須のパラメーターを `ghe-config` コマンドで設定します。
-    
-    - Azure Blob Storage
-    ```shell
-    ghe-config secrets.actions.storage.blob-provider "azure"
-    ghe-config secrets.actions.storage.azure.connection-string "_Connection_String_"
-    ```
-    - Amazon S3
-    ```shell
-    ghe-config secrets.actions.storage.blob-provider "s3"
-    ghe-config secrets.actions.storage.s3.bucket-name "_S3_Bucket_Name"
-    ghe-config secrets.actions.storage.s3.service-url "_S3_Service_URL_"
-    ghe-config secrets.actions.storage.s3.access-key-id "_S3_Access_Key_ID_"
-    ghe-config secrets.actions.storage.s3.access-secret "_S3_Access_Secret_"
-    ```
-    - 必要に応じて、S3 強制パススタイルを有効にするには、次のコマンドを入力します。
-    ```shell
-    ghe-config secrets.actions.storage.s3.force-path-style true
-    ```
-      
+## {% data variables.product.prodname_actions %} が有効になっているときに {% data variables.product.product_name %} のバックアップを復元する
 
-1. 交換用アプライアンスで {% data variables.product.prodname_actions %} を有効化します。 これにより、交換用アプライアンスが {% data variables.product.prodname_actions %} の同じ外部ストレージに接続されます。
+{% data variables.product.prodname_actions %} を使って {% data variables.location.product_location %}のバックアップを復元するには、{% data variables.product.prodname_enterprise_backup_utilities %} からバックアップを復元する前に、復元先インスタンスでネットワーク設定と外部ストレージを手動で構成する必要があります。 
 
-    ```shell
-    ghe-config app.actions.enabled true
-    ghe-config-apply
-    ```
+1. 復元元インスタンスがオフラインであることを確認します。
+1. 交換する {% data variables.product.prodname_ghe_server %} インスタンスで、ネットワーク設定を手動で構成します。 ネットワーク設定はバックアップスナップショットから除外され、`ghe-restore` で上書きされません。 詳細については、「[ネットワークを設定する](/admin/configuration/configuring-network-settings)」を参照してください。
+1. 復元先インスタンスに SSH で接続します。 詳細については、「[管理シェル (SSH) にアクセスする](/admin/configuration/accessing-the-administrative-shell-ssh)」を参照してください。
 
-1. {% data variables.product.prodname_actions %} が構成され、有効になったら、`ghe-restore` コマンドを使い、残りのデータをバックアップから復元します。 詳しくは、「[バックアップの復元](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)」を参照してください。
-1. セルフホストランナーを交換用アプライアンスに再登録します。 詳細については、「[セルフホステッド ランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」をご覧ください。
+   ```shell{:copy}
+   $ ssh -p 122 admin@HOSTNAME
+   ```
+1. 次のいずれかのコマンドを入力して、復元元インスタンスと同じ外部ストレージ サービスを {% data variables.product.prodname_actions %} に対して使うように、復元先インスタンスを構成します。
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %} {% data reusables.actions.configure-storage-provider %}
+1. 復元先インスタンスで {% data variables.product.prodname_actions %} を有効にする準備をするには、次のコマンドを入力します。
 
-{% data variables.product.prodname_ghe_server %} のバックアップと復元について詳しくは、「[アプライアンスでバックアップを構成する](/admin/configuration/configuring-backups-on-your-appliance)」を参照してください。
+   ```shell{:copy}
+   ghe-config app.actions.enabled true
+   ```
+{% data reusables.actions.apply-configuration-and-enable %}
+1. {% data variables.product.prodname_actions %} を構成して有効にした後、残りのデータをバックアップから復元するには、`ghe-restore` コマンドを使います。 詳しくは、「[バックアップの復元](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)」を参照してください。
+1. 復元先インスタンスで、セルフホステッド ランナーをもう一度登録します。 詳細については、「[セルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。

@@ -18,12 +18,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: e4893e18de51f4d4918eacd3cb4d6da1c0323a1b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: af0b8eb9f8bd7a98c246a0806a8bc60f59ba147f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147444400'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107282'
 ---
 ## Sobre repositórios
 
@@ -62,7 +62,7 @@ Ao criar um repositório pertencente à sua conta pessoal, o repositório é sem
 - Os repositórios públicos podem ser acessados por todos na Internet.
 - Os repositórios só podem ser acessados por você, pelas pessoas com as quais você compartilha explicitamente o acesso e, para repositórios da organização, por determinados integrantes da organização.
 {%- elsif ghes %}
-- Se {% data variables.product.product_location %} não estiver em modo privado ou por trás de um firewall, repositórios públicos poderão ser acessados por todos na internet. Caso contrário, os repositórios públicos estarão disponíveis para todos usando {% data variables.product.product_location %}, incluindo colaboradores externos.
+- Se a {% data variables.location.product_location %} não estiver em modo privado ou protegida por um firewall, os repositórios públicos poderão ser acessados por todos na Internet. Caso contrário, os repositórios públicos estarão disponíveis a todos os usuários de {% data variables.location.product_location %}, incluindo colaboradores externos.
 - Os repositórios só podem ser acessados por você, pelas pessoas com as quais você compartilha explicitamente o acesso e, para repositórios da organização, por determinados integrantes da organização.
 {%- elsif ghae %}
 - Os repositórios só podem ser acessados por você, pelas pessoas com as quais você compartilha explicitamente o acesso e, para repositórios da organização, por determinados integrantes da organização.
@@ -79,11 +79,17 @@ As pessoas com permissões de administrador para um repositório podem alterar a
 
 {% data reusables.repositories.about-internal-repos %} Para obter mais informações sobre o InnerSource, confira o white paper "[Uma introdução ao InnerSource](https://resources.github.com/whitepapers/introduction-to-innersource/)" do {% data variables.product.prodname_dotcom %}.
 
+{% ifversion ghec %} {% note %}
+
+**Observação:** você só poderá criar repositórios internos se usar o {% data variables.product.prodname_ghe_cloud %} com uma conta corporativa. Uma conta corporativa é um tipo separado de conta que permite um ponto central de gerenciamento para várias organizações. Para obter mais informações, confira "[Tipos de conta do {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
+
+{% endnote %} {% endif %}
+
 Todos os integrantes da empresa têm permissões de leitura no repositório interno, mas os repositórios internos não são visíveis para pessoas {% ifversion fpt or ghec %}que estão fora da empresa{% else %}que não são integrantes de qualquer organização{% endif %}, incluindo colaboradores externos em repositórios da organização. Para obter mais informações, confira "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" e "[Funções de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 {% ifversion ghes %} {% note %}
 
-**Observação:** um usuário precisa fazer parte de uma organização para ser membro da empresa e ter acesso aos repositórios internos. Se um usuário em {% data variables.product.product_location %} não for um integrante de qualquer organização, esse usuário não terá acesso a repositórios internos.
+**Observação:** um usuário precisa fazer parte de uma organização para ser membro da empresa e ter acesso aos repositórios internos. Se um usuário em {% data variables.location.product_location %} não for membro de nenhuma organização, ele não terá acesso a repositórios internos.
 
 {% endnote %} {% endif %}
 
@@ -93,7 +99,7 @@ Todos os integrantes da empresa têm permissões de leitura no repositório inte
 
 {% ifversion ghec %} {% note %}
 
-**Observação:** {% data variables.product.prodname_managed_users_caps %} não pode criar fork de repositórios internos. Para obter mais informações, confira "[Sobre as {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)".
+**Observação:** o {% data variables.enterprise.prodname_managed_users_caps %} não pode criar fork de repositórios internos. Para obter mais informações, confira "[Sobre as {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)".
 
 {% endnote %} {% endif %} {% endif %}
 

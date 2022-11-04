@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Apply to Global Campus
-ms.openlocfilehash: 105346dce9632f24f37b29f883a45da27e74ab71
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7c2026b0aa692c632e29a0b4e866575faa6fa0d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147574154'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107178'
 ---
 {% data reusables.education.about-github-education-link %}
 
@@ -42,8 +42,10 @@ Para obter informações sobre como renovar seu {% data variables.product.prodna
 ## Candidatar-se para o {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
-3. Em "O que melhor descreve seu status acadêmico?", selecione **Aluno**.
-  ![Selecionar o status acadêmico](/assets/images/help/education/academic-status-student.png) {% data reusables.education.select-email-address %} {% data reusables.education.upload-proof-status %} {% data reusables.education.school-name %} {% data reusables.education.plan-to-use-github %} {% data reusables.education.submit-application %}
+1. Em "Indivíduos", clique em **Obter benefícios para estudantes**.
+  !["Obter benefícios para estudantes" na home page do {% data variables.product.prodname_education %}](/assets/images/help/education/click-get-student-benefits.png)
+1. Em "Selecionar o status acadêmico", escolha **Estudante**.
+  ![Selecionar o status acadêmico](/assets/images/help/education/academic-status-student.png) {% data reusables.education.select-email-address %} {% data reusables.education.school-name %} {% data reusables.education.plan-to-use-github %} {% data reusables.education.upload-proof-status %} {% data reusables.education.submit-application %}
 
 ## Vencimento e renovações
 

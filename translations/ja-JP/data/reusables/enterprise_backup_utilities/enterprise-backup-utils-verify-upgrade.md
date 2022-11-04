@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8289b9aadf88b85cf8d4dc71d2fc74db42c01289
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 76be6868da14b227e1b0fbc16b8c9f913b4f04e0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147861688"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109627"
 ---
 1. 正常にアップグレードされたことを確認するには、次のコマンドを実行します。
   ```shell

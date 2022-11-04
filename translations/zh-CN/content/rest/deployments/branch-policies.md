@@ -11,12 +11,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 70f5d05f0a28e9fa21bf7bc99abbac6bd4a6509a
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.openlocfilehash: 109bf81019d62e4c654ba6da4fa71f8fd359ceb4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147549109'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108654'
 ---
 ## 关于部署分支策略 API
 

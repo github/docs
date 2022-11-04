@@ -24,7 +24,7 @@ For purposes of demonstration, we'll use:
 - An external account named **extuser**
 - An external Git host named `https://external-host.com`
 - A {% data variables.product.product_name %} personal account named **ghuser**
-- A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} named **repo.git**
+- A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} named **repo.git**
 
 {% endtip %}
 
@@ -38,7 +38,7 @@ For purposes of demonstration, we'll use:
   ```shell
   $ cd REPO.git
   $ git push --mirror https://{% data variables.command_line.codeblock %}/USER/REPO.git
-  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
+  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
   ```
 4. Remove the temporary local repository.
   ```shell

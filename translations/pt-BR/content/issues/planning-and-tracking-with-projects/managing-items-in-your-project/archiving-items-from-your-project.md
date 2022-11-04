@@ -9,16 +9,16 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: fb9ea68e00cf968affad5f127c5d8723179e9782
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2348805c920e456e2b8388c2ac41d4badd757703
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423745'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107714'
 ---
 ## Arquivar itens
 
-Você pode arquivar um item para manter o contexto sobre o item no projeto, mas removê-lo das visualizações do projeto. 
+Você pode arquivar um item para manter o contexto sobre o item no projeto, mas removê-lo das visualizações do projeto. {% ifversion projects-v2-auto-archive %}Você também pode configurar os fluxos de trabalho internos do projeto para arquivar automaticamente itens que atendam a determinados critérios. Para obter mais informações, confira "[Como arquivar itens automaticamente](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)".{% endif %}
 
 {% data reusables.projects.select-an-item %} {% data reusables.projects.open-item-menu %}
 1. Clique em **Arquivar**.

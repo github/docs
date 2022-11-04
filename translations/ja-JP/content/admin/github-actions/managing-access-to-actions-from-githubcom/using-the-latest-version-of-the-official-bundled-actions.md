@@ -12,12 +12,12 @@ topics:
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
 shortTitle: Use the latest bundled actions
-ms.openlocfilehash: 3243199ad7f5d216a351ddc2db7a4e6afed66c9b
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: a86c731602bc39cc35fbff823ebdbfbdf2dec2c9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145120381'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107030'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -52,8 +52,8 @@ Enterprise インスタンスには、ワークフローで使用できる組み
 1. `{% data reusables.actions.action-checkout %}` を使うようにワークフローの YAML を構成します。
 1. ワークフローが実行するたびに、ランナーは {% data variables.product.prodname_dotcom_the_website %} から指定されたバージョンの `actions/checkout` を使います。
 
-   {% ifversion ghes > 3.2 or ghae %} {% note %}
+   {% note %}
 
-   **注:** `checkout` アクションが {% data variables.product.prodname_dotcom_the_website %} から初めて使われるとき、{% data variables.product.product_location %} で `actions/checkout` 名前空間が自動的に廃止されます。 アクションのローカル コピーを使うように戻したい場合は、最初に名前空間を廃止から削除する必要があります。 詳細については、「[{% data variables.product.prodname_dotcom_the_website%} でアクセスされたアクションの名前空間の自動廃止](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)」を参照してください。
+   **注:** `checkout` アクションが {% data variables.product.prodname_dotcom_the_website %} から初めて使われるとき、{% data variables.location.product_location %}で `actions/checkout` 名前空間が自動的に廃止されます。 アクションのローカル コピーを使うように戻したい場合は、最初に名前空間を廃止から削除する必要があります。 詳細については、「[{% data variables.product.prodname_dotcom_the_website%} でアクセスされたアクションの名前空間の自動廃止](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)」を参照してください。
 
-   {% endnote %} {% endif %}
+   {% endnote %}

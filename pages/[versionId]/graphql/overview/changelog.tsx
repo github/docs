@@ -44,9 +44,31 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // Update the existing context to include the miniTocItems from GraphQL
   automatedPageContext.miniTocItems.push(...changelogMiniTocItems)
 
+  // All groups in the schema have a change.changes array of strings that are
+  // all the HTML output from a Markdown conversion. E.g.
+  // `<p>Field filename was added to object type <code>IssueTemplate</code></p>`
+  // Change these to just be the inside of the <p> tag.
+  // `Field filename was added to object type <code>IssueTemplate</code>`
+  // This makes the serialized state data smaller and it makes it possible
+  // to render it as...
+  //
+  //    <li>Field filename was added to object type <code>IssueTemplate</code></li>
+  //
+  // ...without the additional <p>.
+  schema.forEach((item) => {
+    for (const group of [item.schemaChanges, item.previewChanges, item.upcomingChanges]) {
+      group.forEach((change) => {
+        change.changes = change.changes.map((html) => {
+          if (html.startsWith('<p>') && html.endsWith('</p>')) return html.slice(3, -4)
+          return html
+        })
+      })
+    }
+  })
+
   return {
     props: {
-      mainContext: getMainContext(req, res),
+      mainContext: await getMainContext(req, res),
       automatedPageContext,
       schema,
     },

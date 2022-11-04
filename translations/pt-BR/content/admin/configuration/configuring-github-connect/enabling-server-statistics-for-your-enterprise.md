@@ -1,6 +1,6 @@
 ---
-title: Habilitar estatísticas de servidor para sua empresa
-intro: 'Você pode analisar os seus dados de agregação do {% data variables.product.prodname_ghe_server %} e nos ajudar a aprimorar os produtos {% data variables.product.company_short %} habilitando o {% data variables.product.prodname_server_statistics %}.'
+title: Enabling Server Statistics for your enterprise
+intro: 'You can analyze your own aggregate data from {% data variables.product.prodname_ghe_server %} and help us improve {% data variables.product.company_short %} products by enabling {% data variables.product.prodname_server_statistics %}.'
 versions:
   feature: server-statistics
 redirect_from:
@@ -8,27 +8,23 @@ redirect_from:
 topics:
   - Enterprise
 shortTitle: Server Statistics
-ms.openlocfilehash: badfdb8abfbe468768ef9a32e183f67633915b54
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409000'
 ---
-## Sobre {% data variables.product.prodname_server_statistics %}
 
-O {% data variables.product.prodname_server_statistics %} coleta dados de uso agregados do {% data variables.product.product_location %}, que você pode usar para antecipar melhor as necessidades de sua organização, entender como sua equipe funciona e mostrar o valor obtido do {% data variables.product.prodname_ghe_server %}. 
+## About {% data variables.product.prodname_server_statistics %}
 
-O {% data variables.product.prodname_server_statistics %} coleta apenas determinadas métricas de agregação em repositórios, problemas, solicitações de pull e outros recursos. Conteúdo do {% data variables.product.prodname_dotcom %}, como código, problemas, comentários ou conteúdo de solicitação de pull, não é coletado. Para obter mais informações, confira "[Sobre {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)".
+{% data variables.product.prodname_server_statistics %} collects aggregate usage data from {% data variables.location.product_location %}, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. 
 
-Ao habilitar {% data variables.product.prodname_server_statistics %}, você também está ajudando a melhorar o {% data variables.product.company_short %}. Os dados agregados que você fornecerá nos ajudam a entender como nossos clientes estão usando o {% data variables.product.prodname_dotcom %}e tomar decisões de produto melhores e mais informadas, beneficiando você.
+{% data variables.product.prodname_server_statistics %} only collects certain aggregate metrics on repositories, issues, pull requests, and other features.{% data variables.product.prodname_dotcom %} content, such as code, issues, comments, or pull request content, is not collected. For more information, see "[About {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
 
-## Habilitar {% data variables.product.prodname_server_statistics %}
+By enabling {% data variables.product.prodname_server_statistics %}, you are also helping to improve {% data variables.product.company_short %}. The aggregated data you will provide helps us understand how our customers are using {% data variables.product.prodname_dotcom %}, and make better and more informed product decisions, ultimately benefiting you.
 
-Antes de habilitar {% data variables.product.prodname_server_statistics %}, você deve primeiro conectar sua instância do {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_dotcom_the_website %} por meio do {% data variables.product.prodname_github_connect %}. Para obter mais informações, confira "[Como conectar o {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@3.1/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)".
+## Enabling {% data variables.product.prodname_server_statistics %}
 
-Você pode desabilitar {% data variables.product.prodname_server_statistics %} do {% data variables.product.prodname_ghe_server %} a qualquer momento.
+Before you can enable {% data variables.product.prodname_server_statistics %}, you must first connect your {% data variables.product.prodname_ghe_server %} instance to {% data variables.product.prodname_dotcom_the_website %} through {% data variables.product.prodname_github_connect %}. For more information, see "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@3.1/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)."
 
-{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.github-connect-tab %}
-4. Em "Compartilhar estatísticas do servidor com GitHub.com", selecione o menu suspenso e clique em **Habilitado** ou **Desabilitado**.
-  ![Captura de tela do menu suspenso de {% data variables.product.prodname_server_statistics %} com opções desabilitadas ou habilitadas](/assets/images/help/server-statistics/server-statistics-enable-disable-options.png)
+You can disable {% data variables.product.prodname_server_statistics %} from {% data variables.product.prodname_ghe_server %} at any time.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.github-connect-tab %}
+4. Under "Share server statistics with GitHub.com", select the dropdown menu and click **Enabled** or **Disabled**.
+  ![Screenshot of {% data variables.product.prodname_server_statistics %} drop-down menu with disabled or enabled options](/assets/images/help/server-statistics/server-statistics-enable-disable-options.png)

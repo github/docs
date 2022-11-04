@@ -1,7 +1,7 @@
 ---
 title: Enterprise IAM での SAML の使用
 shortTitle: SAML for enterprise IAM
-intro: 'SAML シングル サインオン (SSO){% ifversion ghec or ghae %} とクロスドメイン ID 管理システム (SCIM){% endif %} を使用して、{% ifversion ghes or ghae %}アカウントと{% endif %}{% ifversion ghes %}{% data variables.product.product_location %}{% elsif ghae %} Enterprise {% elsif ghec %} Enterprise のリソース{% endif %}へのアクセスを一元管理できます。'
+intro: 'SAML シングル サインオン (SSO){% ifversion ghec or ghae %} とクロスドメイン ID 管理システム (SCIM){% endif %} を使用して、{% ifversion ghes or ghae %}アカウントと{% endif %}{% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghae %} Enterprise {% elsif ghec %} Enterprise のリソース{% endif %}へのアクセスを一元管理できます。'
 versions:
   ghec: '*'
   ghes: '*'
@@ -22,7 +22,7 @@ children:
   - /about-saml-for-enterprise-iam
   - /saml-configuration-reference
   - /configuring-saml-single-sign-on-for-your-enterprise
-  - /configuring-user-provisioning-for-your-enterprise
+  - /configuring-user-provisioning-with-scim-for-your-enterprise
   - /managing-team-synchronization-for-organizations-in-your-enterprise
   - /configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
@@ -32,11 +32,11 @@ children:
   - /updating-a-users-saml-nameid
   - /switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /troubleshooting-saml-authentication
-ms.openlocfilehash: 4258d753035ce174cb0f45f186b2b99c9ce1752b
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 2a843afa6f5447b9048ef2efbd03dee9e9b856d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145120293'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107014'
 ---
 {% data reusables.enterprise-accounts.emu-saml-note %}

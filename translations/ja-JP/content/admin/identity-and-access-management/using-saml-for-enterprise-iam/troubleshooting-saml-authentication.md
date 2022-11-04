@@ -1,7 +1,7 @@
 ---
 title: SAML認証
 shortTitle: Troubleshoot SAML SSO
-intro: 'SAML シングル サインオン (SSO) を使っていて、ユーザーが {% data variables.product.product_location %} へのアクセスで認証できない場合、問題のトラブルシューティングを行うことができます。'
+intro: 'SAML シングル サインオン (SSO) を使っていて、ユーザーが {% data variables.location.product_location %}にアクセスするための認証を行うことができない場合、問題のトラブルシューティングを行うことができます。'
 versions:
   ghes: '*'
   ghec: '*'
@@ -14,12 +14,12 @@ topics:
   - Security
   - SSO
   - Troubleshooting
-ms.openlocfilehash: 977431b9c9872f405a2c8491372f11d8e4ada907
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d15a3686045a4d570feb60cade2320f939cc0d86
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147093039'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107254'
 ---
 {% ifversion ghes %}
 ## SAML 認証に関する問題について
@@ -37,7 +37,7 @@ SAML 応答の要件の詳細については、「[SAML 構成リファレンス
 **警告**:
 
 - SAML デバッグは一時的にのみ有効にし、トラブルシューティングが完了したらすぐにデバッグを無効にします。 デバッグを有効のままにすると、ログのサイズが通常よりも大幅に速くなり、{% data variables.product.product_name %} のパフォーマンスに悪影響を及ぼす可能性があります。
-- 運用環境で設定を適用する前に、ステージング環境で {% data variables.product.product_location %} の新しい認証設定をテストします。 詳細については、「[ステージング インスタンスのセットアップ](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)」を参照してください。
+- 運用環境で設定を適用する前に、ステージング環境で {% data variables.location.product_location %}の新しい認証設定をテストします。 詳細については、「[ステージング インスタンスのセットアップ](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)」を参照してください。
 
 {% endwarning %}
 
@@ -46,9 +46,9 @@ SAML 応答の要件の詳細については、「[SAML 構成リファレンス
 
    ![SAML デバッグを有効にするドロップダウンのスクリーンショット](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-enabled.png)
 
-1. SAML IdP を介して {% data variables.product.product_location %} へのサインインを試みます。
+1. SAML IdP を介して {% data variables.location.product_location %}へのサインインを試みます。
 
-1. {% data variables.product.product_location %} の _/var/log/github/auth.log_ のデバッグ出力を確認します。
+1. {% data variables.location.product_location %}で _/var/log/github/auth.log_ のデバッグ出力を確認します。
 
 1. トラブルシューティングが完了したら、ドロップダウンを選択し、 **[無効]** をクリックします。
 
@@ -56,15 +56,15 @@ SAML 応答の要件の詳細については、「[SAML 構成リファレンス
 
 ## _auth.log_ での応答のデコード
 
-_auth.log_ の一部の出力は Base64 でエンコードされる場合があります。 管理シェルにアクセスし、{% data variables.product.product_location %} の `base64` ユーティリティを使用して、これらの応答をデコードできます。 詳細については、「[管理シェル (SSH) にアクセスする](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)」を参照してください。
+_auth.log_ の一部の出力は Base64 でエンコードされる場合があります。 管理シェルにアクセスし、{% data variables.location.product_location %}の `base64` ユーティリティを使用して、これらの応答をデコードできます。 詳細については、「[管理シェル (SSH) にアクセスする](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)」を参照してください。
 
 ```shell
-$ base64 --decode <em>ENCODED OUTPUT</em>
+$ base64 --decode ENCODED_OUTPUT
 ```
 
 ## エラー:「別のユーザがすでにアカウントを所有しています」
 
-ユーザーが SAML 認証を使用して初めて {% data variables.product.product_location %} にサインインすると、{% data variables.product.product_name %} によってインスタンスにユーザー アカウントが作成され、SAML `NameID` がアカウントにマップされます。
+ユーザーが SAML 認証を使って初めて {% data variables.location.product_location %}にサインインすると、{% data variables.product.product_name %} によってインスタンスにユーザー アカウントが作成され、SAML `NameID` がアカウントにマップされます。
 
 ユーザーが再びサインインすると、{% data variables.product.prodname_ghe_server %} は、アカウントの `NameID` マッピングと IdP の応答を比較します。 IdP の応答の `NameID` が、{% data variables.product.product_name %} がユーザーに対して想定している `NameID` と一致しなくなると、サインインは失敗します。 ユーザには次のメッセージが表示されます。
 
@@ -74,7 +74,7 @@ $ base64 --decode <em>ENCODED OUTPUT</em>
 
 ## SAMLレスポンスが署名されていなかった場合、あるいは署名が内容とマッチしなかった場合、authログに以下のエラーメッセージが残されます。
 
-`Recipient` が {% data variables.product.product_location %} の ACS URL と一致しない場合、ユーザーが認証を試みたときに、次の 2 つのエラー メッセージのいずれかが認証ログに表示されます。
+`Recipient` が {% data variables.location.product_location %}の ACS URL と一致しない場合、ユーザーが認証を試みたときに、次の 2 つのエラー メッセージのいずれかが認証ログに表示されます。
 
 ```
 Recipient in the SAML response must not be blank.
@@ -84,7 +84,7 @@ Recipient in the SAML response must not be blank.
 Recipient in the SAML response was not valid.
 ```
 
-IdP の `Recipient` の値を、{% data variables.product.product_location %} の完全な ACS URL に設定してください。 たとえば、`https://ghe.corp.example.com/saml/consume` のようにします。
+IdP の `Recipient` の値を、{% data variables.location.product_location %}の完全な ACS URL に設定してください。 たとえば、`https://ghe.corp.example.com/saml/consume` のようにします。
 
 ## エラー:「SAML レスポンスが署名されていないか、変更されています」
 
@@ -104,7 +104,7 @@ IdP の応答に `Audience` の値がないか、または正しくない場合�
 Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
 ```
 
-IdP の `Audience` の値を {% data variables.product.product_location %} の `EntityId` に設定します。これは、インスタンスの完全な URL です。 たとえば、「 `https://ghe.corp.example.com` 」のように入力します。
+IdP の `Audience` の値を {% data variables.location.product_location %}の `EntityId` に設定します。これは、インスタンスの完全な URL です。 たとえば、「 `https://ghe.corp.example.com` 」のように入力します。
 {% endif %}
 
 {% data reusables.saml.current-time-earlier-than-notbefore-condition %}

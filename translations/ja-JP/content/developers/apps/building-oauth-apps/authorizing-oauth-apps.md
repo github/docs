@@ -16,12 +16,12 @@ versions:
   ghec: '*'
 topics:
   - OAuth Apps
-ms.openlocfilehash: 10aa111156377c08f0dc4ad0210cf8ad30b8a3ac
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: d35b65add4259df72d9ae8b179829a148abd7174
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147717790'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106710'
 ---
 {% data variables.product.product_name %} の OAuth の実装では、標準の[認可コード許可タイプ](https://tools.ietf.org/html/rfc6749#section-4.1)および Web ブラウザーを利用できないアプリケーションのために、OAuth 2.0 の [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) をサポートしています。
 
@@ -273,7 +273,7 @@ Accept: application/xml
 
 ## 非Webアプリケーションフロー
 
-テストのような限定的な状況では、非Web認証が利用できます。 必要な場合は、[個人アクセス トークン設定ページ](/articles/creating-an-access-token-for-command-line-use)を使い、[Basic 認証](/rest/overview/other-authentication-methods#basic-authentication)を利用して個人アクセス トークンを作成できます。 この手法を使えば、ユーザはいつでもアクセスを取り消せます。
+テストのような限定的な状況では、非Web認証が利用できます。 必要な場合は、[{% data variables.product.pat_generic %} の設定ページ](/articles/creating-an-access-token-for-command-line-use)を使い、[基本認証](/rest/overview/other-authentication-methods#basic-authentication)を使って {% data variables.product.pat_generic %} を作成できます。 この手法を使えば、ユーザはいつでもアクセスを取り消せます。
 
 {% ifversion fpt or ghes or ghec %} {% note %}
 
@@ -283,27 +283,31 @@ Accept: application/xml
 
 ## リダイレクト URI
 
-`redirect_uri` パラメーターは省略可能です。 指定しなかった場合、GitHub では OAuth アプリケーションで設定されているコールバック URL にユーザーをリダイレクトします。 指定する場合、リダイレクト URL のホストとポートはコールバック URL と完全に一致していなければなりません。 リダイレクト URL のパスは、コールバック URL のサブディレクトリを参照していなければなりません。
+`redirect_uri` パラメーターは省略可能です。 指定しなかった場合、GitHub では OAuth アプリケーションで設定されているコールバック URL にユーザーをリダイレクトします。 指定する場合、リダイレクト URL のホスト (サブドメインを除く) とポートは、コールバック URL と完全に一致している必要があります。 リダイレクト URL のパスは、コールバック URL のサブディレクトリを参照していなければなりません。
 
     CALLBACK: http://example.com/path
 
     GOOD: http://example.com/path
     GOOD: http://example.com/path/subdir/other
+    GOOD: http://oauth.example.com/path
+    GOOD: http://oauth.example.com/path/subdir/other
     BAD:  http://example.com/bar
     BAD:  http://example.com/
     BAD:  http://example.com:8080/path
     BAD:  http://oauth.example.com:8080/path
     BAD:  http://example.org
 
-### ローカルホストのリダイレクトURL
+### ループバック リダイレクト URI
 
-オプションの `redirect_uri` パラメーターは、ローカルホスト URL にも使用できます。 アプリケーションがローカルホストのURLとポートを指定した場合、アプリケーションを認可した後ユーザは渡されたURLとポートにリダイレクトされます。 `redirect_uri` は、アプリケーションのコールバック URL で指定されたポートにマッチしている必要はありません。
+オプションの `redirect_uri` パラメーターは、ループバック URL にも使用できます。 アプリケーションでループバック URL とポートを指定した場合、アプリケーションを認可した後、ユーザーは指定した URL とポートにリダイレクトされます。 `redirect_uri` は、アプリのコールバック URL で指定されたポートと一致している必要はありません。
 
 `http://127.0.0.1/path` コールバック URL には、次の `redirect_uri` を使用できます。
 
 ```
 http://127.0.0.1:1234/path
 ```
+
+OAuth の RFC では、[`localhost` の使用は推奨されておらず](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3)、代わりにループバック リテラル `127.0.0.1` または IPv6 `::1` を使うことが推奨されています。
 
 ## OAuthアプリケーションに複数のトークンを作成する
 
@@ -335,8 +339,8 @@ OAuthアプリケーションへの認可情報へリンクし、ユーザがア
 
 * 「[認可リクエスト エラーのトラブルシューティング](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)」
 * 「[OAuth App アクセス トークンのリクエスト エラーのトラブルシューティング](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)」
-* 「[デバイス フローのエラー](#error-codes-for-the-device-flow)」{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-* 「[トークンの有効期限と取り消し](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)」{% endif %}
+* [デバイス フロー エラー](#error-codes-for-the-device-flow)
+* [トークンの有効期限と失効](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)
 
 ## 参考資料
 

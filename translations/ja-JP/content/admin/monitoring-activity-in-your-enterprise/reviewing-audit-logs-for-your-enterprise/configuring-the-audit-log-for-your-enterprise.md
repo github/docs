@@ -10,12 +10,12 @@ topics:
   - Auditing
   - Enterprise
   - Logging
-ms.openlocfilehash: 79bf5f2ae2f1b2762ea32a6bef85b04e9cf95739
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: f624607d5729d32d836efedf1fa355a96489a175
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424882'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106566'
 ---
 ## 監査ログの構成について
 
@@ -26,7 +26,7 @@ ms.locfileid: '147424882'
 
 ## 監査ログ データの保持期間の構成
 
-{% data variables.product.product_location %}の監査ログ データの保持期間を構成できます。 構成した期間を超えるデータは、ディスクから完全に削除されます。
+{% data variables.location.product_location %} の監査ログ データの保持期間を構成できます。 構成した期間を超えるデータは、ディスクから完全に削除されます。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.audit-log-tab %} {% data reusables.audit_log.audit-data-retention-tab %}
 1. [監査ログの保持設定の構成] で、ドロップダウン メニューを選び、保持期間をクリックします。

@@ -9,16 +9,16 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: fb9ea68e00cf968affad5f127c5d8723179e9782
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2348805c920e456e2b8388c2ac41d4badd757703
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424032'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107718'
 ---
 ## アイテムのアーカイブ
 
-アイテムをアーカイブして、そのアイテムに関するコンテキストをプロジェクト中に保持しながら、アイテムをプロジェクトのビューから削除できます。 
+アイテムをアーカイブして、そのアイテムに関するコンテキストをプロジェクト中に保持しながら、アイテムをプロジェクトのビューから削除できます。 {% ifversion projects-v2-auto-archive %}また、特定の条件を満たすアイテムを自動的にアーカイブするように、プロジェクトの組み込みワークフローを構成することもできます。 詳しくは、「[アイテムを自動的にアーカイブする](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)」を参照してください。{% endif %}
 
 {% data reusables.projects.select-an-item %} {% data reusables.projects.open-item-menu %}
 1. **[アーカイブ]** をクリックします。

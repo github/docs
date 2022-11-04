@@ -17,6 +17,7 @@ children:
   - /setting-up-your-java-project-for-codespaces
   - /setting-up-your-python-project-for-codespaces
   - /setting-a-minimum-specification-for-codespace-machines
+  - /automatically-opening-files-in-the-codespaces-for-a-repository
   - /adding-a-codespaces-badge
 ---
 

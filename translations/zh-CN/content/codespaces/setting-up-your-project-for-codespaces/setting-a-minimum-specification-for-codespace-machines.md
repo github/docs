@@ -11,16 +11,16 @@ topics:
   - Codespaces
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 368b7c73d13bb0624c9d838ac2d7bb18a2b050e3
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 623b50a9423d855f807e2b480882f1e5eb2c479f
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880804'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113855'
 ---
 ## 概述
 
-创建的每个代码空间都托管在单独的虚拟机上，通常可以从不同类型的虚拟机中进行选择。 每个计算机类型都有不同的资源（CPU、内存、存储），默认情况下，使用资源最少的计算机类型。 有关详细信息，请参阅“[更改 codespace 的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)”。
+创建的每个代码空间都托管在单独的虚拟机上，通常可以从不同类型的虚拟机中进行选择。 每个计算机类型都有不同的资源（处理器内核、内存、存储），默认情况下，使用资源最少的计算机类型。 有关详细信息，请参阅“[更改 codespace 的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)”。
 
 如果项目需要一定程度的计算能力，则可以配置 {% data variables.product.prodname_github_codespaces %} 以便默认情况下只能使用或由用户选择满足这些要求的计算机类型。 可以在 `devcontainer.json` 文件中进行此配置。
 
@@ -32,8 +32,8 @@ ms.locfileid: '147880804'
 
 ## 设置最低计算机规范
 
-1. 存储库的 {% data variables.product.prodname_github_codespaces %} 在 `devcontainer.json` 文件中配置。 如果存储库尚未包含 `devcontainer.json` 文件，请立即添加一个。 请参阅“[将开发容器配置添加到存储库](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)”。
-1. 编辑 `devcontainer.json` 文件，添加一个 `hostRequirements` 属性，如下所示：
+{% data reusables.codespaces.edit-devcontainer-json %}
+1. 编辑 `devcontainer.json` 文件，将属性 `hostRequirements` 添加到文件顶层，位于封闭的 JSON 对象内。 例如：
 
    ```json{:copy}
    "hostRequirements": {

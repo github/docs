@@ -1,6 +1,6 @@
 ---
-title: '管理组织成员对 {% data variables.product.prodname_project_v1 %} 的访问权限'
-intro: '组织所有者或 {% data variables.projects.projects_v1_board %} 管理员可以设置所有组织成员对 {% data variables.projects.projects_v1_board %} 的默认权限级别。'
+title: 'Managing access to a {% data variables.product.prodname_project_v1 %} for organization members'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can set a default permission level for a {% data variables.projects.projects_v1_board %} for all organization members.'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
@@ -14,33 +14,33 @@ topics:
   - Teams
 shortTitle: Manage access for members
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: fe9d8ebee09d4eb6278545b5561b9691a0468bf5
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880780'
 ---
+
 {% data reusables.projects.project_boards_old %}
 
-默认情况下，组织成员拥有对其组织的 {% data variables.projects.projects_v1_boards %} 的写权限，除非组织所有者或 {% data variables.projects.projects_v1_board %} 管理员对特定 {% data variables.projects.projects_v1_boards %} 设置不同的权限。
+By default, organization members have write access to their organization's {% data variables.projects.projects_v1_boards %} unless organization owners or {% data variables.projects.projects_v1_board %} admins set different permissions for specific {% data variables.projects.projects_v1_boards %}.
 
-## 为所有组织成员设置基线权限级别
+## Setting a baseline permission level for all organization members
 
 {% tip %}
 
-提示：可向组织成员授予更高的 {% data variables.projects.projects_v1_board %} 权限。 有关详细信息，请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”。
+**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% endtip %}
 
-{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. 单击“项目(经典)”{% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %}
-8. 在“组织成员权限”下，为所有组织成员选择基线权限级别：“读取”、“写入”、“管理员”或“无”   。
-![用于所有组织成员的基线项目板权限选项](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
-9. 单击“ **保存**”。
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
+{% data reusables.project-management.select-project %}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+8. Under "Organization member permission", choose a baseline permission level for all organization members: **Read**, **Write**, **Admin**, or **None**.
+![Baseline project board permission options for all organization members](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
+9. Click **Save**.
 
-## 延伸阅读
+## Further reading
 
-- [管理个人对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-an-individual-s-access-to-an-organization-project-board)
-- [管理团队对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-team-access-to-an-organization-project-board)
-- [组织的 {% data variables.product.prodname_project_v1_caps %} 权限](/articles/project-board-permissions-for-an-organization)
+- "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
+- "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
+- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"

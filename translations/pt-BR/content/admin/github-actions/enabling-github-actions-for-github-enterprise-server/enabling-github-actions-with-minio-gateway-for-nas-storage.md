@@ -13,12 +13,12 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
 shortTitle: MinIO Gateway for NAS storage
-ms.openlocfilehash: 9fced80eb2a486ffae44d21f3fad278a933eb92d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: bb738d04d54234704f3278422c1f1ef075956640
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146682306'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106866'
 ---
 {% data reusables.actions.minio-gateways-removal %}
 
@@ -26,14 +26,14 @@ ms.locfileid: '146682306'
 
 Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se de que você realizou os seguintes passos:
 
-* Para evitar contenção de recursos no dispositivo, recomendamos que o MinIO seja hospedado separadamente de {% data variables.product.product_location %}.
+* Para evitar contenção de recursos no dispositivo, recomendamos que o MinIO seja hospedado separadamente de {% data variables.location.product_location %}.
 * Crie seu bucket para armazenar dados de fluxo de trabalho. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
   
 {% data reusables.actions.enterprise-common-prereqs %}
 
 ## Habilitar {% data variables.product.prodname_actions %} com MinIO Gateway para armazenamento NAS
 
-{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.actions.perform-blob-storage-precheck %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
 1. Em "Armazenamento de Logs e Artefatos", selecione **Amazon S3** e insira os detalhes do bucket de armazenamento:
 
    * **URL de Serviço da AWS**: a URL para o serviço do MinIO. Por exemplo, `https://my-minio.example:9000`.
@@ -42,6 +42,7 @@ Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se 
 
    ![Botão de opção para selecionar o Amazon S3 Storage e os campos para a configuração do MinIO](/assets/images/enterprise/management-console/actions-minio-s3-storage.png)
 1. Em "Armazenamento de Logs e Artefatos", selecione **Forçar estilo de caminho**.
-   ![Caixa de seleção de Forçar estilo de caminho](/assets/images/enterprise/management-console/actions-minio-force-path-style.png) {% data reusables.enterprise_management_console.save-settings %}
+
+   ![Caixa de seleção para Forçar estilo de caminho](/assets/images/enterprise/management-console/actions-minio-force-path-style.png) {% data reusables.enterprise_management_console.test-storage-button %} {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.actions.enterprise-postinstall-nextsteps %}

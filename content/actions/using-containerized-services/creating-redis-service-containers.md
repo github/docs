@@ -1,6 +1,6 @@
 ---
 title: Creating Redis service containers
-shortTitle: Redis service containers
+shortTitle: Create Redis service containers
 intro: You can use service containers to create a Redis client in your workflow. This guide shows examples of creating a Redis service for jobs that run in containers or directly on the runner machine.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-redis-service-containers

@@ -18,12 +18,12 @@ topics:
   - Accounts
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 3233b52c1710c07dbd09644f7b38b7da697075c1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b0d1455fef80094f0dcdf20332605bd427d9c441
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147526655'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127628'
 ---
 ## {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %} の Enterprise アカウントについて
 
@@ -33,13 +33,13 @@ ms.locfileid: '147526655'
 
 {% elsif ghes or ghae %}
 
-{% ifversion ghes %}{% data variables.product.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} の Enterprise アカウントを使用すると、{% ifversion ghes %}{% data variables.product.prodname_ghe_server %} インスタンス{% elsif ghae %}Enterprise{% endif %} {% elsif ghae %}が所有する{% endif %}で Organization{% ifversion ghes %} を管理できます。
+{% ifversion ghes %}{% data variables.location.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} の Enterprise アカウントを使用すると、{% ifversion ghes %}{% data variables.product.prodname_ghe_server %} インスタンス{% elsif ghae %}Enterprise{% endif %} {% elsif ghae %}が所有する{% endif %}で Organization{% ifversion ghes %} を管理できます。
 
 {% endif %}
 
 Organization は、Enterprise メンバーが一度に多くのプロジェクトでコラボレーションできる共有アカウントです。 Organization オーナーは、Organization のデータとプロジェクトへのアクセスを、洗練されたセキュリティおよび管理機能で管理できます。 詳細については、「[Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)」を参照してください。
 
-{% ifversion ghec %} エンタープライズの所有者は、既存の組織を招待してエンタープライズ アカウントに参加させたり、エンタープライズ設定で新しい組織を作成したりできます。 詳細については、「[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)」 (Enterprise への Organization の追加) を参照してください。
+{% ifversion ghec %} Enterprise 設定では、Enterprise 所有者は、Enterprise アカウントへの参加、Enterprise アカウント間での Organization の移転、または新しい Organization の作成を行うために、既存の Organization を招待できます。 詳細については、「[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)」 (Enterprise への Organization の追加) を参照してください。
 {% endif %}
 
 エンタープライズ アカウントを使用すると、エンタープライズが所有するすべての組織に対してポリシーを管理および適用できます。 {% data reusables.enterprise.about-policies %} 詳細については、「[エンタープライズ ポリシーについて](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)」を参照してください。
@@ -80,7 +80,7 @@ Organization は、Enterprise メンバーが一度に多くのプロジェク�
 - {% data variables.product.prodname_ghe_server %} インスタンスの課金と使用
 - {% data variables.contact.enterprise_support %} とのリクエストおよび Support Bundle の共有
 
-{% data variables.product.product_location_enterprise %} の Enterprise アカウントを {% data variables.product.prodname_dotcom_the_website %} のご自分の Enterprise アカウントに接続し、{% data variables.product.prodname_dotcom_the_website %} から {% data variables.product.prodname_enterprise %} サブスクリプションのライセンス使用状況の詳細を確認することもできます。 詳細については、{% data variables.product.prodname_ghe_server %} ドキュメントの{% ifversion ghec %}「[{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間のライセンス使用量の同期](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)」{% elsif ghes %}「[{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間のライセンス使用量の同期](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)」{% endif %}を参照してください。
+{% data variables.location.product_location_enterprise %} の Enterprise アカウントを {% data variables.product.prodname_dotcom_the_website %} のご自分の Enterprise アカウントに接続し、{% data variables.product.prodname_dotcom_the_website %} から {% data variables.product.prodname_enterprise %} サブスクリプションのライセンス使用状況の詳細を確認することもできます。 詳細については、{% data variables.product.prodname_ghe_server %} ドキュメントの{% ifversion ghec %}「[{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間のライセンス使用量の同期](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)」{% elsif ghes %}「[{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間のライセンス使用量の同期](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)」{% endif %}を参照してください。
 
 {% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_ghe_server %} の違いについて詳しくは、「[{% data variables.product.prodname_dotcom %} の製品](/get-started/learning-about-github/githubs-products)」を参照してください。 {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
 

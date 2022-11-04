@@ -1,12 +1,10 @@
----
-ms.openlocfilehash: bd7874652702ab4b0b337910d9093486ea35dfe0
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145124234"
----
-8. Compruebe los detalles de la aplicación y, después, haga clic en **Enviar la información**.
- ![Botón para enviar la información](/assets/images/help/education/submit-your-information-button.png)
+8. Verify your application details, then click **Process my application**.
+ ![Process my application button](/assets/images/help/education/submit-your-information-button.png)
 
- Si tu solicitud es aprobada, recibirás un correo electrónico de confirmación. Las solicitudes generalmente se procesan en pocos días, pero puede llevar más tiempo durante las horas pico, así como durante el inicio de un nuevo semestre.
+    {% note %}
+
+    **Note:** If, after clicking the **Process my application** button, you see a banner asking you to fix something in your application, you should fix it and then click **Reprocess my application**.
+
+    {% endnote %}
+
+ If your application is approved, you'll receive a confirmation email. Applications are usually processed within a few days, but it may take longer during peak times, such as during the start of a new semester.

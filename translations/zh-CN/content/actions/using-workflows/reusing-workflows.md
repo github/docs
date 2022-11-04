@@ -1,6 +1,6 @@
 ---
 title: Reusing workflows
-shortTitle: Reusing workflows
+shortTitle: Reuse workflows
 intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
 redirect_from:
   - /actions/learn-github-actions/reusing-workflows
@@ -76,7 +76,7 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 ## Limitations
 
 {% ifversion nested-reusable-workflow %}
-* You can connect up to four levels of workflows. For more information, see "[Calling a nested reusable workflow](#calling-a-nested-reusable-workflow)."
+* You can connect up to four levels of workflows. For more information, see "[Nesting reusable workflows](#nesting-reusable-workflows)."
 {% else %}
 * Reusable workflows can't call other reusable workflows.
 {% endif %}
@@ -105,7 +105,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    on:
      workflow_call:
        inputs:
-         username:
+         config-path:
            required: true
            type: string
        secrets:
@@ -115,7 +115,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    {% endraw %}
    For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
    {% ifversion actions-inherit-secrets-reusable-workflows %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step. 
+1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
 
    {% note %}
 
@@ -133,10 +133,10 @@ You can define inputs and secrets, which can be passed from the caller workflow 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: octo-org/my-action@v1
-           with:
-             username: ${{ inputs.username }}
-             token: ${{ secrets.envPAT }}
+       - uses: actions/labeler@v4
+         with:
+           repo-token: ${{ secrets.envPAT }}
+           configuration-path: ${{ inputs.config-path }}
    ```
    {% endraw %}
    In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job.
@@ -162,7 +162,7 @@ name: Reusable workflow example
 on:
   workflow_call:
     inputs:
-      username:
+      config-path:
         required: true
         type: string
     secrets:
@@ -170,14 +170,13 @@ on:
         required: true
 
 jobs:
-  example_job:
-    name: Pass input and secrets to my-action
+  triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: octo-org/my-action@v1
-        with:
-          username: ${{ inputs.username }}
-          token: ${{ secrets.token }}
+    - uses: actions/labeler@v4
+      with:
+        repo-token: ${{ secrets.token }}
+        configuration-path: ${{ inputs.config-path }}
 ```
 {% endraw %}
 
@@ -256,7 +255,7 @@ When you call a reusable workflow, you can only use the following keywords in th
 
 ### Example caller workflow
 
-This workflow file calls two workflow files. The second of these, `workflow-B.yml` (shown in the [example reusable workflow](#example-reusable-workflow)), is passed an input (`username`) and a secret (`token`).
+This workflow file calls two workflow files. The second of these, `workflow-B.yml` (shown in the [example reusable workflow](#example-reusable-workflow)), is passed an input (`config-path`) and a secret (`token`).
 
 {% raw %}
 ```yaml{:copy}
@@ -272,11 +271,14 @@ jobs:
     uses: octo-org/example-repo/.github/workflows/workflow-A.yml@v1
 
   call-workflow-passing-data:
+    permissions:
+      contents: read
+      pull-requests: write
     uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
     with:
-      username: mona
+      config-path: .github/labeler.yml
     secrets:
-      token: ${{ secrets.TOKEN }}
+      token: ${{ secrets.GITHUB_TOKEN }}
 ```
 {% endraw %}
 
@@ -336,7 +338,7 @@ For information on how to use the API to determine which workflow files were inv
 
 A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.{% ifversion actions-reusable-workflow-matrix %}
 
-If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value. 
+If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value.
 That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.{% endif %}
 
 The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
@@ -365,10 +367,18 @@ jobs:
       output1: ${{ steps.step1.outputs.firstword }}
       output2: ${{ steps.step2.outputs.secondword }}
     steps:
-      - id: step1
+      - id: step1{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=firstword::hello"
-      - id: step2
+{%- endif %}{% raw %}
+      - id: step2{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "secondword=world" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=secondword::world"
+{%- endif %}{% raw %}
 ```
 {% endraw %}
 

@@ -14,16 +14,16 @@ versions:
 topics:
   - Profiles
 shortTitle: Missing contributions
-ms.openlocfilehash: c1f4c9481a5e3ac9328b353ced826c982e1160e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dbdf99a77c423774c03f69d21542f8174e813bc6
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079909'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127660'
 ---
 ## コントリビューション グラフについて
 
-プロファイル コントリビューション グラフは、{% data variables.product.product_location %} {% ifversion ghae %}が所有する{% else %}の{% endif %}リポジトリへのコントリビューションの記録です。 ローカルタイムゾーンではなく、協定世界時 (UTC) に従って、コントリビューションにタイムスタンプが付けられます。 コントリビューションは、一定の基準を満たしている場合にのみカウントされます。 場合によっては、コントリビューションを表示するためにグラフを再構築する必要があります。
+プロファイル コントリビューション グラフは、{% data variables.location.product_location %} {% ifversion ghae %}が所有する{% else %}の{% endif %}リポジトリへのコントリビューションの記録です。 ローカルタイムゾーンではなく、協定世界時 (UTC) に従って、コントリビューションにタイムスタンプが付けられます。 コントリビューションは、一定の基準を満たしている場合にのみカウントされます。 場合によっては、コントリビューションを表示するためにグラフを再構築する必要があります。
 
 SAML シングル サインオン (SSO) を使用する組織に所属しており、アクティブな SSO セッションがない場合は、プロファイルで組織からのコントリビューション アクティビティを表示できません。 組織の外部からプロファイルを表示しているユーザーには、組織のコントリビューション アクティビティの匿名化されたコントリビューション アクティビティが表示されます。
 
@@ -35,7 +35,7 @@ Issue、プルリクエスト、およびディスカッションは、フォー
 
 ### コミット
 コミットは、次の **すべて** の条件を満たしている場合にコントリビューション グラフに表示されます。
-- コミットに使用されたメール アドレスが、{% data variables.product.product_location %} のアカウントに関連付けられている。
+- コミットに使用されたメール アドレスが、{% data variables.location.product_location %} のアカウントに関連付けられている。
 - コミットが、フォークではなくスタンドアロンのリポジトリで行われた場合。
 - コミットが以下で行われた場合:
   - リポジトリのデフォルトブランチ内
@@ -59,7 +59,7 @@ Issue、プルリクエスト、およびディスカッションは、フォー
 
 ### ローカルの Git コミットメールがアカウントに接続されていない
 
-コミットをコントリビューション グラフに表示するには、{% data variables.product.product_location %}{% ifversion fpt or ghec %} のアカウントに接続されているメール アドレス、またはメール設定で示されている {% data variables.product.prodname_dotcom %} 指定の `noreply` メール アドレス{% endif %}を使用して行う必要があります。{% ifversion fpt or ghec %} `noreply` メールアドレスの詳細については、「[コミット メール アドレスを設定する](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)」を参照してください。{% endif %}
+コミットをコントリビューション グラフに表示するには、{% data variables.location.product_location %}{% ifversion fpt or ghec %} のアカウントに接続されているメール アドレス、またはメール設定で示されている {% data variables.product.prodname_dotcom %} 指定の `noreply` メール アドレス{% endif %}を使用して行う必要があります。{% ifversion fpt or ghec %} `noreply` メール アドレスについて詳しくは、「[コミット メール アドレスを設定する](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)」を参照してください。{% endif %}
 
 コミット URL の末尾に `.patch` を追加することで、コミットに使用されるメール アドレスを確認できます (例: <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>)。
 
@@ -72,13 +72,15 @@ Subject: [PATCH] updated index for better welcome message
 
 `From:` フィールドのメール アドレスは、[ローカル Git 構成設定](/articles/set-up-git)で設定されたアドレスです。 この例では、コミットに使用されるメール アドレスは `octocat@nowhere.com` です。
 
-コミットに使用されるメール アドレスが {% data variables.product.product_location %} のアカウントに接続されていない場合は、{% ifversion ghae %}Git でコミットを作成するために使用されるメール アドレスを変更します。 詳細については、「[コミット メール アドレスを設定する](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)」を参照してください。{% else %}{% data variables.product.product_location %} のアカウントに[メール アドレスを追加する](/articles/adding-an-email-address-to-your-github-account)必要があります。 新しいアドレスを追加すると、 コントリビューショングラフが自動的に再構築されます。{% endif %}
+コミットに使用されるメール アドレスが {% data variables.location.product_location %} のアカウントに接続されていない場合は、{% ifversion ghae %}Git でコミットを作成するために使用されるメール アドレスを変更します。 詳しくは、「[コミット メール アドレスを設定する](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)」を参照してください。{% else %}{% data variables.location.product_location %} のアカウントに[メール アドレスを追加する](/articles/adding-an-email-address-to-your-github-account)必要があります。 新しいアドレスを追加すると、 コントリビューショングラフが自動的に再構築されます。{% endif %}
 
-{% warning %}
+{% ifversion fpt or ghec %} {% note %}
 
-**警告**: {% data variables.product.prodname_dotcom %} アカウントには、汎用メール アドレス (`jane@computer.local` など) を追加することはできません。 コミットにこのようなメール アドレスを使用した場合、そのコミットは {% data variables.product.prodname_dotcom %} プロファイルにリンクされず、コントリビューション グラフに表示されません。
+**注**: {% data variables.enterprise.prodname_managed_user %} を使用する場合、複数のメール アドレスが ID プロバイダー (IdP) に登録されていても、アカウントにさらにメール アドレスを追加することはできません。 したがって、IdP に登録されているプライマリ メール アドレスで作成されたコミットのみを、{% data variables.enterprise.prodname_managed_user %} に関連付けることができます。
 
-{% endwarning %}
+{% endnote %} {% endif %}
+
+汎用メール アドレス (`jane@computer.local` など) は、{% data variables.product.prodname_dotcom %} アカウントに追加してコミットにリンクすることはできません。 汎用メール アドレスを使用してコミットを作成した場合、そのコミットは {% data variables.product.prodname_dotcom %} プロファイルにリンクされず、コントリビューション グラフに表示されません。
 
 ### 既定または `gh-pages` ブランチでコミットが行われなかった
 
@@ -98,7 +100,7 @@ Subject: [PATCH] updated index for better welcome message
 
 フォークで行われたコミットは、 コントリビューションにはカウントされません。 カウントには、次のいずれかを実行する必要があります:
 - [pull request を開き](/articles/creating-a-pull-request)、変更を親リポジトリにマージします。
-- フォークをデタッチして、{% data variables.product.product_location %} 上のスタンドアロン リポジトリに変換するために、{% data variables.contact.contact_support %} に連絡してください。 フォークに独自のフォークがある場合は、フォークがリポジトリと一緒に新しいネットワークに移動するのか、現在のネットワークに残るのかを {% data variables.contact.contact_support %} に連絡してください。 詳細については、「[フォークについて](/articles/about-forks/)」を参照してください。
+- フォークをデタッチして、{% data variables.location.product_location %} 上のスタンドアロン リポジトリに変換するために、{% data variables.contact.contact_support %} に連絡してください。 フォークに独自のフォークがある場合は、フォークがリポジトリと一緒に新しいネットワークに移動するのか、現在のネットワークに残るのかを {% data variables.contact.contact_support %} に連絡してください。 詳細については、「[フォークについて](/articles/about-forks/)」を参照してください。
 
 ## 参考資料
 

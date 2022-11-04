@@ -10,12 +10,12 @@ redirect_from:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: fe0b02e356023880b03302de93a44273efd135a5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 93039327ab7075e0f79c9d5ae5d6652aa635a500
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423740'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108263'
 ---
 Você pode criar um campo de iteração para associar itens com blocos de tempo repetidos específicos. As iterações podem ser definidas para qualquer período de tempo, podem incluir intervalos e podem ser editadas individualmente para modificar o nome e o intervalo de datas. Com os projetos, você pode agrupar por iteração para visualizar o equilíbrio do trabalho futuro, usar filtros para focar em uma única iteração, bem como ordenar por iteração.
 

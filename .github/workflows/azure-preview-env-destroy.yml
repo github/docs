@@ -28,6 +28,7 @@ jobs:
   destory-azure-preview-env:
     name: Destroy
     runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     timeout-minutes: 5
     env:
       PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER }}

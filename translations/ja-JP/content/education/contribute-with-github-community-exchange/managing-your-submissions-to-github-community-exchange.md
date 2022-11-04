@@ -4,12 +4,12 @@ shortTitle: Manage your submissions
 intro: '{% data variables.product.prodname_community_exchange %} ギャラリー内の各リポジトリに割り当てられている目的、トピック、オファーを管理したり、リポジトリの送信を削除したりできます。'
 versions:
   fpt: '*'
-ms.openlocfilehash: 70dc65ccb387817d5b4a78c1fc27085f67dcfc6e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a7da6f3bede47700658fe81a1f0ec3e4e33ef316
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409789'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109476'
 ---
 ## 送信について
 

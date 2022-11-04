@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5cb0c8cc93347c8da7c37bfe1082fc933f677288
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: e0bf1f4b7bbd5fcb145a6e869dd442fd8e53108a
+ms.sourcegitcommit: b4996daba2e75b3368f39316e6929602f13b961b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147424821"
+ms.lasthandoff: 10/31/2022
+ms.locfileid: "148120531"
 ---
 | Nome da categoria | Descrição
 |------------------|-------------------
@@ -14,16 +14,19 @@ ms.locfileid: "147424821"
 {%- ifversion audit-log-streaming %} | `audit_log_streaming` | Contém atividades relacionadas aos logs de auditoria de streaming para organizações em uma conta corporativa.
 {%- endif %} {%- ifversion fpt or ghec %} | `billing` | Contém atividades relacionadas à cobrança de uma organização.
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `business` | Contém atividades relacionadas às configurações corporativas de uma empresa.
-{%- endif %} {%- ifversion ghec or ghes or ghae %} | `business` | Contém atividades relacionadas às configurações corporativas de uma empresa.
-{%- endif %} {%- ifversion secret-scanning-audit-log-custom-patterns %} | `business_secret_scanning_custom_pattern` | Contém atividades relacionadas aos padrões personalizados para a verificação de segredos em uma empresa.
+{%- endif %} {%- ifversion code-security-audit-log-events %} | `business_advanced_security` | Contém as atividades relacionadas ao {% data variables.product.prodname_GH_advanced_security %} em uma empresa. Para obter mais informações, confira "[Como gerenciar os recursos do {% data variables.product.prodname_GH_advanced_security %} na empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)".
+| `business_secret_scanning` | Contém as atividades relacionadas a {% data variables.product.prodname_secret_scanning %} em uma empresa. Para obter mais informações, confira "[Como gerenciar os recursos do {% data variables.product.prodname_GH_advanced_security %} na empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)".
+{%- endif %} {%- ifversion secret-scanning-audit-log-custom-patterns %} | `business_secret_scanning_custom_pattern` | Contém atividades relacionadas aos padrões de {% data variables.product.prodname_secret_scanning %} em uma empresa.
+{%- endif %} {%- ifversion code-security-audit-log-events %} | `business_secret_scanning_push_protection` | Contém as atividades relacionadas ao recurso de proteção contra push do {% data variables.product.prodname_secret_scanning %} em uma empresa. Para obter mais informações, confira "[Como gerenciar os recursos do {% data variables.product.prodname_GH_advanced_security %} na empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)".
+| `business_secret_scanning_push_protection_custom_message` | Contém as atividades relacionadas à mensagem personalizada exibida quando a proteção contra push é disparada em uma empresa. Para obter mais informações, confira "[Como gerenciar os recursos do {% data variables.product.prodname_GH_advanced_security %} na empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)".
 {%- endif %} | `checks` | Contém atividades relacionadas aos pacotes de verificação e às execuções.
 {%- ifversion fpt or ghec %} | `codespaces` | Contém atividades relacionadas aos codespaces de uma organização.
 {%- endif %} | `commit_comment` | Contém atividades relacionadas à atualização ou à exclusão de comentários de commit.
 {%- ifversion ghes %} | `config_entry` |  Contém atividades relacionadas a definições de configuração. Esses eventos só ficam visíveis no log de auditoria do administrador do site.
-{%- endif %} {%- ifversion fpt or ghec or ghes > 3.2 or ghae %} | | `dependabot_alerts`  | Contém atividades de configuração no nível da organização para {% data variables.product.prodname_dependabot_alerts %} nos repositórios existentes. Para obter mais informações, confira "[Sobre os {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
+{%- endif %} | `dependabot_alerts`  | Contém as atividades de configuração no nível da organização para {% data variables.product.prodname_dependabot_alerts %} em repositórios existentes. Para obter mais informações, confira "[Sobre os {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
 | `dependabot_alerts_new_repos`   | Contém atividades de configuração no nível da organização para {% data variables.product.prodname_dependabot_alerts %} em novos repositórios criados na organização.
 | `dependabot_repository_access` | Contém atividades relacionadas aos repositórios privados de uma organização que o {% data variables.product.prodname_dependabot %} tem permissão para acessar.
-{%- endif %} {%- ifversion fpt or ghec or ghes > 3.2 %} | `dependabot_security_updates`   | Contém atividades de configuração no nível da organização para {% data variables.product.prodname_dependabot_security_updates %} nos repositórios existentes. Para obter mais informações, confira "[Como configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
+{%- ifversion fpt or ghec or ghes %} | `dependabot_security_updates`   | Contém as atividades de configuração no nível da organização para {% data variables.product.prodname_dependabot_security_updates %} nos repositórios existentes. Para obter mais informações, confira "[Como configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
 | `dependabot_security_updates_new_repos` | Contém atividades de configuração de nível da organização nas {% data variables.product.prodname_dependabot_security_updates %} para os repositórios criados na organização.
 {%- endif %} | `dependency_graph` | Contém atividades de configuração no nível da organização dos grafos de dependências nos repositórios. Para obter mais informações, confira "[Sobre o grafo de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 | `dependency_graph_new_repos`  | Contém atividades de configuração no nível da organização para novos repositórios criados na organização.

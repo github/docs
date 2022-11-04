@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: aa9f7cd0b911ddfc6e144c7c91cecd0374286b13
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 329fc14d26f27da725619bc862b99ff239c9aa14
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145129574"
+ms.lasthandoff: 10/27/2022
+ms.locfileid: "148113975"
 ---
-{% data variables.product.prodname_security_advisories %} 允许仓库维护员私下讨论并修复项目中的安全漏洞。 协作得到修补程序后，存储库维护人员可发布安全通知，向项目社区公开安全漏洞。 通过发布安全通知，存储库维护人员可使其社区更轻松地更新包依赖项并对安全漏洞的影响进行调查。
+使用存储库安全公告，存储库维护人员可私下讨论和修复项目中的安全漏洞。 协作得到修补程序后，存储库维护人员可发布安全通知，向项目社区公开安全漏洞。 通过发布安全通知，存储库维护人员可使其社区更轻松地更新包依赖项并对安全漏洞的影响进行调查。

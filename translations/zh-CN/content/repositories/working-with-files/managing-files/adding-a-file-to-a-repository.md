@@ -1,6 +1,6 @@
 ---
-title: 添加文件到仓库
-intro: '您可以在 {% data variables.product.product_name %} 上或使用命令行将现有文件上传并提交到存储库。'
+title: Adding a file to a repository
+intro: 'You can upload and commit an existing file to a repository on {% data variables.product.product_name %} or by using the command line.'
 redirect_from:
   - /articles/adding-a-file-to-a-repository
   - /github/managing-files-in-a-repository/adding-a-file-to-a-repository
@@ -18,40 +18,37 @@ versions:
 topics:
   - Repositories
 shortTitle: Add a file
-ms.openlocfilehash: da76e182a16b1f72b814882b816f487b8290f3be
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147578906'
 ---
-## 将文件添加到 {% data variables.product.product_name %} 上的存储库
 
-通过浏览器添加到仓库的文件大小限于每个文件 {% data variables.large_files.max_github_browser_size %}。 较大的文件可通过命令行添加，最大每个 {% data variables.large_files.max_github_size %}。 有关详细信息，请参阅“[使用命令行将文件添加到存储库](#adding-a-file-to-a-repository-using-the-command-line)”。 要添加大于 {% data variables.large_files.max_github_size %} 的文件，则必须使用 {% data variables.large_files.product_name_long %}。 有关详细信息，请参阅“[关于 {% data variables.product.product_name %} 的大文件](/repositories/working-with-files/managing-large-files/about-large-files-on-github)”。
+## Adding a file to a repository on {% data variables.product.product_name %}
+
+Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see "[Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line)." To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[About large files on {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
 
 {% tip %}
 
-**提示：**
-- 您可以同时将多个文件上传到 {% data variables.product.product_name %}。
+**Tips:**
+- You can upload multiple files to {% data variables.product.product_name %} at the same time.
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 在文件列表上方，使用“添加文件”下拉列表，在其中单击“上传文件” 。
-  ![“添加文件”下拉列表中的“上传文件”](/assets/images/help/repository/upload-files-button.png)
-3. 将要上传的文件或文件夹拖放到文件树中。
-![拖放区域](/assets/images/help/repository/upload-files-drag-and-drop.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %}
-6. 单击“提交更改”。
-![“提交更改”按钮](/assets/images/help/repository/commit-changes-button.png)
+2. Above the list of files, using the **Add file** drop-down, click **Upload files**.
+  !["Upload files" in the "Add file" dropdown](/assets/images/help/repository/upload-files-button.png)
+3. Drag and drop the file or folder you'd like to upload to your repository onto the file tree.
+![Drag and drop area](/assets/images/help/repository/upload-files-drag-and-drop.png)
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+6. Click **Commit changes**.
+![Commit changes button](/assets/images/help/repository/commit-changes-button.png)
 
-## 使用命令行提交文件到仓库
+## Adding a file to a repository using the command line
 
-您可以使用命令行将现有文件上传到 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库。
+You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} using the command line.
 
 {% tip %}
 
-提示：还可以[将现有文件从 {% data variables.product.product_name %} 网站添加到存储库](/articles/adding-a-file-to-a-repository)。
+**Tip:** You can also [add an existing file to a repository from the {% data variables.product.product_name %} website](/articles/adding-a-file-to-a-repository).
 
 {% endtip %}
 
@@ -59,8 +56,10 @@ ms.locfileid: '147578906'
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-1. 在计算机上，将要上传到 {% data variables.product.product_name %} 的文件移入在克隆仓库时创建的本地目录。
-{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.switching_directories_procedural %} {% data reusables.git.stage_for_commit %}
+1. On your computer, move the file you'd like to upload to {% data variables.product.product_name %} into the local directory that was created when you cloned the repository.
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.switching_directories_procedural %}
+{% data reusables.git.stage_for_commit %}
   ```shell
   $ git add .
   # Adds the file to your local repository and stages it for commit. {% data reusables.git.unstage-codeblock %}
@@ -72,6 +71,6 @@ ms.locfileid: '147578906'
   ```
 {% data reusables.git.git-push %}
 
-## 延伸阅读
+## Further reading
 
-- [将本地托管代码添加到 {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)
+- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

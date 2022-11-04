@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: fe256174b44832c81951d9e4f012faba2036e672
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: af44709073de5a6af1c4de166d5502502e8201e1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147687142"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148106830"
 ---
-1. アカウントごとに、`repo` スコープを持つ専用 PAT を作成します。 詳細については、「[個人アクセストークンを使用する](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
+1. アカウントごとに `repo` スコープを持つ専用の {% data variables.product.pat_v1 %} を作成します。 {% ifversion pat-v2 %}または、アカウントごと、および自分がメンバーになっている Organization ごとに、目的のリポジトリへのアクセスが可能で、リポジトリの内容に対する読み取りと書き込みのアクセス許可を持っている {% data variables.product.pat_v2 %} を作成します。{% endif %} 詳しくは、「[{% data variables.product.pat_generic %} の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。

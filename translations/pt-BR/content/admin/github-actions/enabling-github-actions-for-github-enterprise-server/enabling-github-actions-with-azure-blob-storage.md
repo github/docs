@@ -13,12 +13,12 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 shortTitle: Azure Blob storage
-ms.openlocfilehash: bcd92b12ec8ecd807906a3b2f7c09971d6641b93
-ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.openlocfilehash: b6abccdfea0d33b387fc3ec6df563fcbaf57f861
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '145095911'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107983'
 ---
 ## Pré-requisitos
 
@@ -39,8 +39,9 @@ Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se 
 
 ## Habilitar {% data variables.product.prodname_actions %} com o armazenamento do Azure Blob
 
-{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.actions.perform-blob-storage-precheck %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
 1. Em "Armazenamento de Logs e Artefatos", selecione **Armazenamento de Blobs do Azure** e insira a cadeia de conexão da sua conta de armazenamento do Azure. Para obter mais informações sobre como obter a cadeia de conexão para sua conta de armazenamento, confira a [documentação do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys).
-  ![Botão de opção usado para selecionar o Armazenamento de Blobs do Azure e campo Cadeia de conexão](/assets/images/enterprise/management-console/actions-azure-storage.png) {% data reusables.enterprise_management_console.save-settings %}
+
+   ![Botão de opção para selecionar o Armazenamento de Blobs do Azure e o campo Cadeia de conexão](/assets/images/enterprise/management-console/actions-azure-storage.png) {% data reusables.enterprise_management_console.test-storage-button %} {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.actions.enterprise-postinstall-nextsteps %}

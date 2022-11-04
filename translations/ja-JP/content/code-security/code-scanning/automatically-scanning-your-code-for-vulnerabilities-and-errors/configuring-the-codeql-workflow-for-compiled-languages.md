@@ -25,12 +25,12 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: c8256eea83b6a30879effc4d7797f2afcbc82e15
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 3be843fdc441e925569208defdd8412851609cef
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147879119'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111538'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -42,7 +42,8 @@ ms.locfileid: '147879119'
 
 ##  {% data variables.product.prodname_codeql %} の autobuild について
 
-コードスキャンは、1 つ以上のデータベースに対してクエリを実行することにより機能します。 各データベースには、リポジトリにあるすべてのコードを 1 つの言語で表わしたものが含まれています。 コンパイル型言語の C/C++、C#、および Java では、このデータベースを生成するプロセスに、コードのビルドとデータの抽出が含まれています。 {% data reusables.code-scanning.analyze-go %}
+{% data variables.product.prodname_code_scanning_capc %} は、1 つ以上のデータベースに対してクエリを実行することにより機能します。 各データベースには、リポジトリにあるすべてのコードを 1 つの言語で表わしたものが含まれています。   
+コンパイル型言語の C/C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %}Java では、このデータベースを生成するプロセスに、コードのビルドとデータの抽出が含まれています。 {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -88,6 +89,20 @@ Linux と macOS の `autobuild` ステップでは、リポジトリ内にある
 `autobuild` が最上位ディレクトリから同じ (最短) 深度で複数のソリューションまたはプロジェクト ファイルを検出した場合、それらすべてのビルドが試みられます。
 3. ビルド スクリプトのように見えるスクリプト、つまり _build_ と _build.sh_ (Linux の場合、この順序で) または _build.bat_、_build.cmd_、_and build.exe_ (Windows の場合、この順序で) を呼び出します。
 
+### Go
+
+| サポートされているシステムの種類 | システム名 |
+|----|----|
+| オペレーティング システム | Windows、macOS、Linux |
+| ビルドシステム | Go モジュール、`dep`、Glide、およびメイクファイルや Ninja スクリプトを含むビルド スクリプト |
+
+`autobuild` プロセスは、すべての `.go` ファイルを抽出する前に、Go リポジトリで必要な依存関係をインストールする適切な方法の自動検出を試みます。
+
+1. `make`、`ninja`、または `./build` を、これらのコマンドのいずれかが成功し、その後の `./build.sh` も成功して、必要な依存関係がインストールされたことを示すまで、(この順序で) 呼び出`go list ./...`します。
+2. これらのコマンドがいずれも成功しなかった場合は、`go.mod`、`Gopkg.toml`、または `glide.yaml` を探し、それぞれの `go get` (ベンダーが使用していない場合)、`dep ensure -v`、または `glide install` を実行して、依存関係のインストールを試みます。
+3. 最後に、これらの依存関係マネージャーの構成ファイルが見つからない場合は、`GOPATH` に追加するのに適したリポジトリ ディレクトリ構造に調整し直し、`go get` を使って依存関係をインストールします。 抽出が完了すると、ディレクトリ構造は通常に戻ります。
+4. `go build ./...` を実行するのと同じようにして、リポジトリ内のすべての Go コードを抽出します。
+
 ### Java
 
 | サポートされているシステムの種類 | システム名 |
@@ -105,12 +120,12 @@ Linux と macOS の `autobuild` ステップでは、リポジトリ内にある
 
 {% data reusables.code-scanning.autobuild-add-build-steps %}ワークフロー ファイルの編集方法については、「[{% data variables.product.prodname_code_scanning %} を構成する](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)」をご覧ください。
 
-`autobuild` ステップを削除したら、`run` ステップをコメント解除して、リポジトリに適したビルド コマンドを追加します。 ワークフローの `run` ステップでは、オペレーティング システムのシェルを使ってコマンド ライン プログラムが実行されます。 これらのコマンドを変更し、別のコマンドを追加してビルド プロセスをカスタマイズできます。 
+`autobuild` ステップを削除したら、`run` ステップをコメント解除して、リポジトリに適したビルド コマンドを追加します。 ワークフローの `run` ステップでは、オペレーティング システムのシェルを使ってコマンド ライン プログラムが実行されます。 これらのコマンドを変更し、別のコマンドを追加してビルド プロセスをカスタマイズできます。
 
 ``` yaml
 - run: |
-  make bootstrap
-  make release
+    make bootstrap
+    make release
 ```
 
 `run` キーワードについて詳しくは、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」をご覧ください。

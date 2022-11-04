@@ -7,16 +7,17 @@ permissions: 'Organization owners and team maintainers can synchronize a {% data
 versions:
   ghae: '*'
   ghec: '*'
+  feature: scim-for-ghes
 topics:
   - Organizations
   - Teams
 shortTitle: Synchronize with an IdP
-ms.openlocfilehash: 5ae57399a05f51334ccd3e99a268fbe9d93c8b47
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c4ea8dc13eee674b962108ba52c71e67e8462b87
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147076884'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106978'
 ---
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
@@ -68,9 +69,13 @@ Para evitar a remoção involuntária dos integrantes da equipe, visite o portal
 
 Você deve efetuar a autenticação usando SAML SSO. Para obter mais informações, confira "[Autenticação com o logon único do SAML](/articles/authenticating-with-saml-single-sign-on)".
 
-{% elsif ghae %} Para conectar uma equipe do {% data variables.product.product_name %} a um grupo de IdPs, primeiro, você precisa configurar o provisionamento de usuário para o {% data variables.product.product_location %} usando um SCIM (Sistema de Gerenciamento de Usuários entre Domínios) compatível. Para obter mais informações, confira "[Como configurar o provisionamento de usuário para sua empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
+{% elsif ghae %} Para conectar uma equipe do {% data variables.product.product_name %} a um grupo do IdP, primeiro, você precisa configurar o provisionamento de usuários para {% data variables.location.product_location %} usando um SCIM (Sistema de Gerenciamento de Usuários entre Domínios) compatível. Para obter mais informações, confira "[Como configurar o provisionamento de usuário para sua empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
 
-Quando o provisionamento de {% data variables.product.product_name %} for configurado usando o SCIM, você poderá atribuir o aplicativo de {% data variables.product.product_name %} a cada grupo de IdP que você deseja usar em {% data variables.product.product_name %}. Para obter mais informações, confira [Configurar o provisionamento automático de usuário para o GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) no Microsoft Docs.{% endif %}
+Quando o provisionamento de {% data variables.product.product_name %} for configurado usando o SCIM, você poderá atribuir o aplicativo de {% data variables.product.product_name %} a cada grupo de IdP que você deseja usar em {% data variables.product.product_name %}. Para obter mais informações, confira [Configurar o provisionamento automático de usuários para o GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) no Microsoft Docs.
+
+{% elsif scim-for-ghes %} Você precisa configurar o provisionamento de usuários com o SCIM para {% data variables.location.product_location %}. Para obter mais informações, confira "[Como configurar o provisionamento de usuários com o SCIM na empresa](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)".
+
+{% data reusables.scim.ghes-beta-note %} {% endif %}
 
 ## Conectar um grupo de IdP a uma equipe
 

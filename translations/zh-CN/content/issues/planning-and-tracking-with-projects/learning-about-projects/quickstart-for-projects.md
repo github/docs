@@ -10,12 +10,12 @@ redirect_from:
 type: quick_start
 topics:
   - Projects
-ms.openlocfilehash: 165f12f1f76bcc571a7f7c47c33106bad2d6ff42
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 39798565419acaa831a996a0c86cc62f367f4bb7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423814'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108702'
 ---
 ## 简介
 

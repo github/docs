@@ -18,12 +18,12 @@ topics:
   - Issues
   - Discussions
   - Fundamentals
-ms.openlocfilehash: 6c7461a01cd0bc44bff93b1eb4e8a013d26bc147
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 18321069abd4fb48956f4d61653b8bbe592c648b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147408888'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106786'
 ---
 ## Introdução
 
@@ -152,3 +152,5 @@ Para pull requests, você pode criar pull requests de rascunho se as suas altera
 {% endif %}
 
 Para discussões em equipe, você pode editar ou excluir discussões na página de uma equipe, além de poder configurar notificações para discussões em equipe. Para obter mais informações, confira "[Sobre as discussões em equipe](/organizations/collaborating-with-your-team/about-team-discussions)".
+
+Para saber mais sobre alguns recursos de formatação avançada que ajudarão você a se comunicar, confira "[Guia de início rápido para escrever em {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)".

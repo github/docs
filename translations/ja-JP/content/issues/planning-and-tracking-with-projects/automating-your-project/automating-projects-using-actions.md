@@ -11,12 +11,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 7c1d37f43653204eba7f3bf4c1b9b5ab6b01db51
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c21e201e538d09826bd0d00f22fe60508c9d6a61
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424098'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106846'
 ---
 ## {% data variables.product.prodname_actions %}のワークフロー
 
@@ -34,7 +34,7 @@ API を使用してプロジェクトに加えることができるその他の�
 
 {% note %}
 
-**注:** `GITHUB_TOKEN` はリポジトリ レベルをスコープとしており、{% data variables.projects.projects_v2 %} にはアクセスできません。 {% data variables.projects.projects_v2 %} にアクセスするために、{% data variables.product.prodname_github_app %} (Organization プロジェクトの場合に推奨) または個人用アクセス トークン (ユーザー プロジェクトの場合に推奨) を作成できます。 以下には、どちらの方法のワークフローの例も示します。
+**注:** `GITHUB_TOKEN` はリポジトリ レベルをスコープとしており、{% data variables.projects.projects_v2 %} にはアクセスできません。 {% data variables.projects.projects_v2 %} にアクセスするために、{% data variables.product.prodname_github_app %} (Organization プロジェクトの場合に推奨) または {% data variables.product.pat_generic %} (ユーザー プロジェクトの場合に推奨) を作成できます。 以下には、どちらの方法のワークフローの例も示します。
 
 {% endnote %}
 
@@ -171,10 +171,10 @@ jobs:
 
 ```
 
-### 個人アクセストークンで認証するワークフローの例
+### {% data variables.product.pat_generic %} を使って認証を行うワークフローの例
 
-1. `project` および `repo` スコープで個人のアクセス トークンを作成します。 詳細については、[個人アクセス トークンの作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)に関する記事を参照してください。
-2. この個人アクセストークンをシークレットとしてリポジトリもしくはOrganizationに保存します。
+1. `project` スコープと `repo` スコープを使って {% data variables.product.pat_v1 %} を作成します。 詳しくは、「[{% data variables.product.pat_generic %} を作成する](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
+2. {% data variables.product.pat_generic %} をリポジトリまたは Organization のシークレットとして保存してください。
 3. 以下のワークフローでは、`YOUR_TOKEN` をシークレットの名前に置き換えます。 `YOUR_ORGANIZATION` を自身の組織の名前に置き換えます。 たとえば、「 `octo-org` 」のように入力します。 `YOUR_PROJECT_NUMBER`をプロジェクト番号に置き換えます。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば、`https://github.com/orgs/octo-org/projects/5` のプロジェクト番号は 5 です。
 
 ```yaml{:copy}
@@ -343,7 +343,7 @@ env:
   PROJECT_NUMBER: YOUR_PROJECT_NUMBER
 ```
 
-個人用アクセス トークン:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -357,7 +357,7 @@ env:
 このステップのための環境変数を設定します。
 <br>
 <br>
-個人用アクセス トークンを使用する場合は、<code>YOUR_TOKEN</code> を、個人用アクセス トークンを含むシークレットの名前に置き換えます。
+{% data variables.product.pat_generic %} を使っている場合は、<code>YOUR_TOKEN</code> {% data variables.product.pat_generic %} を含んでいるシークレットの名前で置き換えてください。
 <br>
 <br>
 <code>YOUR_ORGANIZATION</code> を自身の組織の名前に置き換えます。 たとえば、「 <code>octo-org</code> 」のように入力します。
@@ -437,7 +437,7 @@ env:
   PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
 ```
 
-個人用アクセス トークン:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -508,7 +508,7 @@ env:
   GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
 ```
 
-個人用アクセス トークン:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:

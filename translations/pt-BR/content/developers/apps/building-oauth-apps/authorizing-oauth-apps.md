@@ -16,12 +16,12 @@ versions:
   ghec: '*'
 topics:
   - OAuth Apps
-ms.openlocfilehash: 10aa111156377c08f0dc4ad0210cf8ad30b8a3ac
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: d35b65add4259df72d9ae8b179829a148abd7174
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147717786'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106706'
 ---
 A implementação do OAuth feita pelo {% data variables.product.product_name %} dá suporte ao [tipo de concessão de código de autorização](https://tools.ietf.org/html/rfc6749#section-4.1) padrão e à [Concessão de Autorização de Dispositivo](https://tools.ietf.org/html/rfc8628) OAuth 2.0 para aplicativos que não têm acesso a um navegador da Web.
 
@@ -54,7 +54,7 @@ Quando seu Aplicativo do GitHub especifica um parâmetro `login`, ele mostra um 
 
 #### Parâmetros
 
-Nome | Tipo | Descrição
+Nome | Type | Descrição
 -----|------|--------------
 `client_id`|`string` | **Obrigatório**. A ID do cliente recebida do GitHub quando você {% ifversion fpt or ghec %}[o registrou](https://github.com/settings/applications/new){% else %}o registrou{% endif %}.
 `redirect_uri`|`string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Veja detalhes abaixo sobre as [URLs de redirecionamento](#redirect-urls).
@@ -73,7 +73,7 @@ Troque este `code` por um token de acesso:
 
 #### Parâmetros
 
-Nome | Tipo | Descrição
+Nome | Type | Descrição
 -----|------|--------------
 `client_id` | `string` | **Necessário.** A ID do cliente que você recebeu do {% data variables.product.product_name %} referente ao seu {% data variables.product.prodname_oauth_app %}.
 `client_secret` | `string` | **Necessário.** O segredo do cliente que você recebeu do {% data variables.product.product_name %} referente ao seu {% data variables.product.prodname_oauth_app %}.
@@ -151,7 +151,7 @@ O seu aplicativo deve solicitar um código de verificação e uma URL de verific
 
 #### Parâmetros de Entrada
 
-Nome | Tipo | Descrição
+Nome | Type | Descrição
 -----|------|--------------
 `client_id` | `string` | **Necessário.** A ID do cliente que você recebeu do {% data variables.product.product_name %} para seu aplicativo.
 `scope` | `string` | O escopo ao qual o seu aplicativo está solicitando acesso.
@@ -190,7 +190,7 @@ Accept: application/xml
 
 #### Parâmetros de resposta
 
-Nome | Tipo | Descrição
+Nome | Type | Descrição
 -----|------|--------------
 `device_code` | `string` | O código de verificação do dispositivo tem 40 caracteres e é usado para verificar o dispositivo.
 `user_code` | `string` | O código de verificação do usuário é exibido no dispositivo para que o usuário possa inserir o código no navegador. Este código tem 8 caracteres com um hífen no meio.
@@ -216,7 +216,7 @@ Uma vez que o usuário tenha autorizado, o aplicativo receberá um token de aces
 
 #### Parâmetros de entrada
 
-Nome | Tipo | Descrição
+Nome | Type | Descrição
 -----|------|--------------
 `client_id` | `string` | **Necessário.** A ID do cliente que você recebeu do {% data variables.product.product_name %} referente ao seu {% data variables.product.prodname_oauth_app %}.
 `device_code` | `string` | **Necessário.** O código de verificação do dispositivo que você recebeu da solicitação `POST {% data variables.product.oauth_host_code %}/login/device/code`.
@@ -273,7 +273,7 @@ Para obter mais informações, confira a "[Concessão de Autorização de Dispos
 
 ## Fluxo do aplicativo que não são da web
 
-A autenticação que não é da web está disponível para situações limitadas como testes. Se necessário, use a [Autenticação Básica](/rest/overview/other-authentication-methods#basic-authentication) para criar um token de acesso pessoal usando a [página Configurações de tokens de acesso pessoal](/articles/creating-an-access-token-for-command-line-use). Essa técnica permite ao usuário revogar o acesso a qualquer momento.
+A autenticação que não é da web está disponível para situações limitadas como testes. Se precisar, você poderá usar a [Autenticação Básica](/rest/overview/other-authentication-methods#basic-authentication) para criar um {% data variables.product.pat_generic %} usando a [página de configurações do {% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Essa técnica permite ao usuário revogar o acesso a qualquer momento.
 
 {% ifversion fpt or ghes or ghec %} {% note %}
 
@@ -283,27 +283,31 @@ A autenticação que não é da web está disponível para situações limitadas
 
 ## URLs de redirecionamento
 
-O `redirect_uri` é opcional. Se ignorado, o GitHub redirecionará os usuários para a URL de retorno de chamada definida nas configurações do Aplicativo OAuth. Se fornecido, o host e a porta da URL de redirecionamento precisará exatamente corresponder à URL de retorno de chamada. O caminho da URL de redirecionamento precisa referenciar um subdiretório da URL de retorno de chamada.
+O `redirect_uri` é opcional. Se ignorado, o GitHub redirecionará os usuários para a URL de retorno de chamada definida nas configurações do Aplicativo OAuth. Se fornecidos, o host e a porta da URL de redirecionamento (excluindo os subdomínios) precisarão corresponder exatamente à URL de retorno de chamada. O caminho da URL de redirecionamento precisa referenciar um subdiretório da URL de retorno de chamada.
 
     CALLBACK: http://example.com/path
 
     GOOD: http://example.com/path
     GOOD: http://example.com/path/subdir/other
+    GOOD: http://oauth.example.com/path
+    GOOD: http://oauth.example.com/path/subdir/other
     BAD:  http://example.com/bar
     BAD:  http://example.com/
     BAD:  http://example.com:8080/path
     BAD:  http://oauth.example.com:8080/path
     BAD:  http://example.org
 
-### URLs de redirecionamento do Localhost
+### URLs de redirecionamento de loopback
 
-O parâmetro opcional `redirect_uri` também pode ser usado para URLs do localhost. Se o aplicativo especificar uma URL do localhost e uma porta, após a autorização, os usuários do aplicativo serão redirecionados para a URL e porta fornecidas. O `redirect_uri` não precisa corresponder à porta especificada na URL de retorno de chamada do aplicativo.
+O parâmetro opcional `redirect_uri` também pode ser usado para URLs de loopback. Se o aplicativo especificar uma URL de loopback e uma porta, após a autorização, os usuários do aplicativo serão redirecionados para a URL e a porta fornecidas. O `redirect_uri` não precisa corresponder à porta especificada na URL de retorno de chamada do aplicativo.
 
 Para a URL de retorno de chamada `http://127.0.0.1/path`, use este `redirect_uri`:
 
 ```
 http://127.0.0.1:1234/path
 ```
+
+Observe que o RFC do OAuth [recomenda não usar `localhost`](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), mas usar o literal `127.0.0.1` de loopback ou o IPv6 `::1`.
 
 ## Criar vários tokens para aplicativos OAuth
 
@@ -335,8 +339,8 @@ Para criar esse link, você precisará da `client_id` dos Aplicativos OAuth que 
 
 * "[Solução de problemas de erros de solicitação de autorização](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[Solução de problemas de erros de solicitação de token de acesso do Aplicativo OAuth](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-* "[Erros de fluxo de dispositivo](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-* "[Expiração e revogação de um token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
+* "[Erros de fluxo do dispositivo](#error-codes-for-the-device-flow)"
+* "[Validade e revogação de token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
 
 ## Leitura adicional
 

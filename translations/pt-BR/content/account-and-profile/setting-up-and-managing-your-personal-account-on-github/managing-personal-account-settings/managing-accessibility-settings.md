@@ -8,20 +8,20 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings
 type: how_to
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: d4811368ab825f0b24864283f8be54672f72a787
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 088bb097004f6c3b13412ec9716665b1f02edca5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147614316'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107210'
 ---
 ## Sobre as configurações de acessibilidade
 
-Para criar uma experiência sobre {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} que atenda as suas necessidades, você pode personalizar a interface do usuário. As configurações de acessibilidade podem ser essenciais para pessoas com deficiência, mas podem ser úteis para qualquer pessoa. Por exemplo, a personalização de atalhos de teclado é essencial para pessoas que navegam usando o controle de voz, mas podem ser úteis para qualquer pessoa quando um atalho de teclado para dados {% data variables.product.product_name %} entra em conflito com outro atalho de aplicativo.
+Para criar uma experiência na {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}no {% data variables.product.product_name %}{% endif %} que atenda às suas necessidades, você pode personalizar a interface do usuário. As configurações de acessibilidade podem ser essenciais para pessoas com deficiência, mas podem ser úteis para qualquer pessoa. Por exemplo, a personalização de atalhos de teclado é essencial para pessoas que navegam usando o controle de voz, mas podem ser úteis para qualquer pessoa quando um atalho de teclado para dados {% data variables.product.product_name %} entra em conflito com outro atalho de aplicativo.
 
 ## Gerenciando configurações de acessibilidade
 
-Você pode decidir se deseja usar alguns ou todos os atalhos de teclado no {% ifversion fpt or ghec %}{% data variables.product.product_location %}{% elsif ghes or ghae %}site do {% data variables.product.product_location %}{% endif %} e pode controlar a exibição de imagens animadas.
+Você pode decidir se deseja usar alguns ou todos os atalhos de teclado {% ifversion fpt or ghec %}em {% data variables.location.product_location %}{% elsif ghes or ghae %}no site de {% data variables.location.product_location %}{% endif %} e pode controlar a exibição de imagens animadas.
 
 ### Como gerenciar atalhos de teclado
 

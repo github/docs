@@ -18,12 +18,12 @@ topics:
   - Issues
   - Discussions
   - Fundamentals
-ms.openlocfilehash: 6c7461a01cd0bc44bff93b1eb4e8a013d26bc147
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 18321069abd4fb48956f4d61653b8bbe592c648b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147408892'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106790'
 ---
 ## はじめに
 
@@ -152,3 +152,5 @@ pull request の場合、提案された変更がまだ進行中の場合は、�
 {% endif %}
 
 チーム ディスカッションの場合は、チームのページでディスカッションを編集または削除したり、チーム ディスカッションの通知を構成したりできます。 詳細については、「[チーム ディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions)」を参照してください。
+
+通信に役立つ高度な書式設定機能については、「[{% data variables.product.prodname_dotcom %} での記述に関するクイックスタート](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)」をご覧ください。

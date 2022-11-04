@@ -83,7 +83,7 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 To merge a pull request, use the `gh pr merge` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
 
 ```shell
-gh pr merge <em>pull-request</em>
+gh pr merge PULL-REQUEST
 ```
 
 Follow the interactive prompts to complete the merge. For more information about the merge methods that you can choose, see "[About pull request merges](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."

@@ -4,7 +4,7 @@ intro: 依存関係レビューを使用して、脆弱性がプロジェクト�
 shortTitle: Configure dependency review
 versions:
   fpt: '*'
-  ghes: '>= 3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -14,15 +14,13 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Pull requests
-ms.openlocfilehash: 4cd61fd08db21c1de764a0ffe38d80a95d28036e
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: e7fae5d42e4f7c14098414c28e5b5eb857c39687
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147773171'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107502'
 ---
-{% data reusables.dependency-review.beta %}
-
 ## 依存関係の確認について
 
 {% data reusables.dependency-review.feature-overview %}   
@@ -39,14 +37,17 @@ ms.locfileid: '147773171'
 1. まだ "{% data variables.product.prodname_GH_advanced_security %}" が有効になっていない場合は、機能の横にある **[Enable]\(有効にする\)** をクリックします。
    ![[Enable]\(有効にする\) ボタンが強調表示された GitHub Advanced Security 機能のスクリーンショット](/assets/images/help/security/enable-ghas-private-repo.png)
 
-{% elsif ghes %}依存関係レビューを使用できるのは、{% data variables.product.product_location %} に対して依存関係グラフが有効であり、組織またはリポジトリに対して {% data variables.product.prodname_advanced_security %} が有効である場合です。 詳細については、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} の有効化](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)」を参照してください。
+{% elsif ghes or ghae %}
+
+依存関係の確認は、{% data variables.location.product_location %}に対して依存関係グラフが有効になっており、{% data variables.product.prodname_advanced_security %} が組織またはリポジトリで有効になっている場合に使用できます。{% ifversion ghes %}詳細については、「[エンタープライズで {% data variables.product.prodname_GH_advanced_security %} を有効にする](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)」を参照してください。{% endif %}
 
 ### 依存関係グラフが有効になっているかどうかを確認する
 
-
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. [Configure security and analysis features]\(セキュリティと分析機能の構成\) で、依存関係グラフが有効になっているかどうかを確認します。 
-1. 依存関係グラフが有効である場合は、"{% data variables.product.prodname_GH_advanced_security %}" の横にある **[Enable]\(有効にする\)** をクリックして、依存関係レビューを含む {% data variables.product.prodname_advanced_security %} を有効にします。 エンタープライズに {% data variables.product.prodname_advanced_security %} に使用できるライセンスがない場合、[Enable]\(有効にする\) ボタンは無効です。{% ifversion ghes < 3.3 %}![[Code security and analysis]\(コードのセキュリティと分析\) 機能のスクリーンショット"](/assets/images/enterprise/3.2/repository/code-security-and-analysis-enable-ghas-3.2.png){% endif %}{% ifversion ghes > 3.2 %}![[Code security and analysis]\(コードのセキュリティと分析\) 機能のスクリーンショット"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %} {% endif %}
+1. 依存関係グラフが有効である場合は、"{% data variables.product.prodname_GH_advanced_security %}" の横にある **[Enable]\(有効にする\)** をクリックして、依存関係レビューを含む {% data variables.product.prodname_advanced_security %} を有効にします。 エンタープライズに {% data variables.product.prodname_advanced_security %} に使用できるライセンスがない場合、[有効にする] ボタンは無効です。{% ifversion ghes %}!["コードのセキュリティと分析" 機能のスクリーンショット](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
+
+{% endif %}
 
 {% ifversion dependency-review-action-configuration %}
 ## {% data variables.product.prodname_dependency_review_action %} の構成
