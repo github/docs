@@ -20,7 +20,7 @@ topics:
 
 The new code search (beta) lets you rapidly search, navigate and understand your code, your team's code, and the code of the open source community, all from {% data variables.product.prodname_dotcom_the_website %}. This search engine is designed to be scalable, code-aware, and support searching code across GitHub using regular expressions, boolean operations, specialized qualifiers, and symbol search. For more information on the syntax of the new code search (beta), see "[Understanding GitHub Code Search (beta) syntax](/search-github/github-code-search/understanding-github-code-search-syntax)."
 
-On top of the new code search engine, the new code search (beta) includes new features in the search interface on {% data variables.product.prodname_dotcom_the_website %}, allowing you to more quickly and easily find what you are looking for, including suggestions, completions, and the ability to save your searches. For more information, see "[Using GitHub Code Search (beta)](/search-github/github-code-search/using-github-code-search)."
+On top of the new code search engine, the code search (beta) includes new features in the search interface on {% data variables.product.prodname_dotcom_the_website %}, such as suggestions, completions, and the ability to save your searches. The new search interface allows you to more quickly and easily find what you are looking for. For more information, see "[Using GitHub Code Search (beta)](/search-github/github-code-search/using-github-code-search)."
 
 {% data reusables.search.non-code-search-explanation %}
 

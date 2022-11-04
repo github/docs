@@ -37,7 +37,7 @@ For more information about the search syntax of the new code search (beta), see 
 
     ![Search bar with suggestions and saved searches](/assets/images/help/search/code-search-beta-search-bar.png)
 
-    If you click on any of the specific suggestions, you will be taken directly to the page for that suggestion (for example, the repository or project page). If you click on a recent or saved search, you will be taken to the search results view for that search query. 
+    If you click on any of the specific suggestions, you will be taken directly to the page for that suggestion (for example, the repository or project page). If you click on a recent or saved search, depending on the type of search, the search query will appear in the search bar or you will be taken to the search results page for the search term.
 
 1. Once you start typing a search query, you will see a list of completions and suggestions that match your query. You can click on a suggestion to jump to a specific location. As you type more qualifiers, you will see more specific suggestions, such as code files you can jump to directly.
    
@@ -71,6 +71,6 @@ The search results view already exists for the classic search on GitHub, and the
 
 To construct a search query, as well as view and filter results, using a visual interface, you can use the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. If you press Enter after typing a search query in the search bar, you will also be taken to the search results view.
 
-On the search results view, you can navigate between different types of search results, including code, issues, pull request, repositories, and more. You can also view and ues filters.
+On the search results view, you can navigate between different types of search results, including code, issues, pull request, repositories, and more. You can also view and use filters.
 
 ![Search results view](/assets/images/help/search/code-search-beta-results-view.png)
