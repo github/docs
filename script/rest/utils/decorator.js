@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync } from 'fs'
 import { readFile, writeFile } from 'fs/promises'
 import path from 'path'
-import slugger from 'github-slugger'
+import { slug } from 'github-slugger'
 
 import { categoriesWithoutSubcategories } from '../../../lib/rest/index.js'
 import getOperations, { getWebhooks } from './get-operations.js'
@@ -198,7 +198,7 @@ export async function decorate(schemas) {
         operationsEnabledForGitHubApps[schemaName][category] = categoryOperations
           .filter((operation) => operation.enabledForGitHubApps)
           .map((operation) => ({
-            slug: slugger.slug(operation.title),
+            slug: slug(operation.title),
             subcategory: operation.subcategory,
             verb: operation.verb,
             requestPath: operation.requestPath,

@@ -220,6 +220,129 @@ translations/pt-BR/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/pt-BR/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/pt-BR/data/graphql/ghes-3.1/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
 translations/pt-BR/data/graphql/ghes-3.2/graphql_previews.enterprise.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/0.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/1.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/10.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/11.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/12.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/13.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/14.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/16.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/17.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/18.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/19.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/2.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/20.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/21.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/22.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/23.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/24.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/3.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/4.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/5.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/6.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/7.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/8.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-20/9.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/0.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/1.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/10.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/11.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/12.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/13.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/14.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/15.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/16.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/18.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/19.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/2.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/20.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/21.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/22.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/23.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/3.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/4.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/5.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/7.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/8.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-21/9.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/10.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/11.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/12.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/13.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/14.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/15.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/16.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/17.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/18.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/19.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/20.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/21.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/22.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/4.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/5.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/2-22/6.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/0-rc1.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/0-rc2.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/10.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/11.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/12.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/13.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/14.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/15.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/16.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/17.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/18.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/19.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/20.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/21.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/22.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/23.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/24.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/25.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/4.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/5.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/6.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/7.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/8.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-0/9.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/0-rc1.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/10.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/11.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/12.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/13.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/14.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/15.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/16.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/17.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/18.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/19.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/20.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/21.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/22.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/3.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/5.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/6.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/7.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/8.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-1/9.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/1.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/10.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/11.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/12.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/13.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/14.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/15.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/16.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/18.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/2.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/3.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/4.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/5.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/6.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/7.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/8.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/release-notes/enterprise-server/3-2/9.yml,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/hardware-requirements-3.6.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
@@ -371,7 +494,6 @@ translations/pt-BR/content/admin/code-security/managing-github-advanced-security
 translations/pt-BR/content/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise.md,rendering error
-translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise.md,broken liquid tags
@@ -445,7 +567,6 @@ translations/pt-BR/content/admin/identity-and-access-management/using-enterprise
 translations/pt-BR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,broken liquid tags
-translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
@@ -465,7 +586,6 @@ translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewin
 translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/overview/about-data-residency.md,broken liquid tags
-translations/pt-BR/content/admin/overview/about-enterprise-accounts.md,broken liquid tags
 translations/pt-BR/content/admin/overview/about-github-enterprise-server.md,broken liquid tags
 translations/pt-BR/content/admin/overview/about-github-for-enterprises.md,rendering error
 translations/pt-BR/content/admin/overview/system-overview.md,rendering error
@@ -481,11 +601,9 @@ translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise
 translations/pt-BR/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks.md,broken liquid tags
 translations/pt-BR/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script.md,broken liquid tags
-translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/adding-people-to-teams.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/continuous-integration-using-jenkins.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,broken liquid tags
-translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/index.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization.md,rendering error
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise.md,broken liquid tags
@@ -544,8 +662,6 @@ translations/pt-BR/content/billing/managing-billing-for-your-github-account/conn
 translations/pt-BR/content/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription.md,broken liquid tags
 translations/pt-BR/content/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription.md,broken liquid tags
 translations/pt-BR/content/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account.md,broken liquid tags
-translations/pt-BR/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
-translations/pt-BR/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
 translations/pt-BR/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,broken liquid tags
 translations/pt-BR/content/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise.md,broken liquid tags
 translations/pt-BR/content/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise.md,rendering error
@@ -603,6 +719,7 @@ translations/pt-BR/content/code-security/supply-chain-security/end-to-end-supply
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,broken liquid tags
+translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
@@ -739,7 +856,6 @@ translations/pt-BR/content/graphql/reference/unions.md,rendering error
 translations/pt-BR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility.md,rendering error
 translations/pt-BR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board.md,rendering error
 translations/pt-BR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
-translations/pt-BR/content/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions.md,broken liquid tags
 translations/pt-BR/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
 translations/pt-BR/content/organizations/collaborating-with-groups-in-organizations/about-your-organizations-news-feed.md,broken liquid tags
 translations/pt-BR/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/about-two-factor-authentication-and-saml-single-sign-on.md,broken liquid tags
@@ -756,8 +872,10 @@ translations/pt-BR/content/organizations/managing-organization-settings/managing
 translations/pt-BR/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
+translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
-translations/pt-BR/content/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on.md,broken liquid tags
+translations/pt-BR/content/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization.md,broken liquid tags
+translations/pt-BR/content/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,broken liquid tags
 translations/pt-BR/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/pt-BR/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
@@ -879,37 +997,6 @@ translations/pt-BR/data/glossaries/external.yml,broken liquid tags
 translations/pt-BR/data/learning-tracks/actions.yml,broken liquid tags
 translations/pt-BR/data/learning-tracks/admin.yml,broken liquid tags
 translations/pt-BR/data/learning-tracks/code-security.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/2-20/13.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/2-20/15.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/2-21/17.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/2-21/4.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/2-21/6.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/2-22/0.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/2-22/1.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/2-22/2.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/2-22/3.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/2-22/7.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/2-22/8.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/2-22/9.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-0/0.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-0/1.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-0/2.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-0/22.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/3-0/3.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-1/0-rc1.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/3-1/0.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-1/1.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-1/14.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/3-1/19.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/3-1/2.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-1/20.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/3-1/4.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-2/0-rc1.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-2/0.yml,rendering error
-translations/pt-BR/data/release-notes/enterprise-server/3-2/12.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/3-2/13.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/3-2/14.yml,broken liquid tags
-translations/pt-BR/data/release-notes/enterprise-server/3-2/17.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/3-3/0-rc1.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/3-3/0.yml,rendering error
 translations/pt-BR/data/release-notes/enterprise-server/3-3/1.yml,broken liquid tags
@@ -945,7 +1032,6 @@ translations/pt-BR/data/reusables/actions/enterprise-marketplace-actions.md,brok
 translations/pt-BR/data/reusables/actions/enterprise-postinstall-nextsteps.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/github-connect-resolution.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
-translations/pt-BR/data/reusables/actions/jobs/section-choosing-the-runner-for-a-job.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/jobs/section-running-jobs-in-a-container.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/more-resources-for-ghes.md,rendering error
@@ -977,7 +1063,6 @@ translations/pt-BR/data/reusables/advanced-security/secret-scanning-push-protect
 translations/pt-BR/data/reusables/apps/user-to-server-rate-limits.md,broken liquid tags
 translations/pt-BR/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,rendering error
 translations/pt-BR/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
-translations/pt-BR/data/reusables/billing/license-statuses.md,broken liquid tags
 translations/pt-BR/data/reusables/branches/new-repo-default-branch.md,broken liquid tags
 translations/pt-BR/data/reusables/classroom/about-autograding.md,broken liquid tags
 translations/pt-BR/data/reusables/code-scanning/autobuild-add-build-steps.md,broken liquid tags
@@ -993,7 +1078,6 @@ translations/pt-BR/data/reusables/codespaces/codespaces-api-beta-note.md,broken 
 translations/pt-BR/data/reusables/codespaces/codespaces-spending-limit-requirement.md,broken liquid tags
 translations/pt-BR/data/reusables/codespaces/creating-a-codespace-in-vscode.md,broken liquid tags
 translations/pt-BR/data/reusables/codespaces/customize-vcpus-and-ram.md,broken liquid tags
-translations/pt-BR/data/reusables/codespaces/links-to-get-started.md,broken liquid tags
 translations/pt-BR/data/reusables/codespaces/next-steps-adding-devcontainer.md,broken liquid tags
 translations/pt-BR/data/reusables/codespaces/prebuilds-crossreference.md,broken liquid tags
 translations/pt-BR/data/reusables/codespaces/rebuild-command.md,broken liquid tags
@@ -1026,7 +1110,6 @@ translations/pt-BR/data/reusables/enterprise-accounts/emu-permission-repo.md,bro
 translations/pt-BR/data/reusables/enterprise-accounts/emu-short-summary.md,rendering error
 translations/pt-BR/data/reusables/enterprise-accounts/oidc-gei-warning.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise-accounts/security-tab.md,broken liquid tags
-translations/pt-BR/data/reusables/enterprise-accounts/vss-ghe-description.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise/apply-configuration.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise/rate_limit.md,broken liquid tags
 translations/pt-BR/data/reusables/enterprise/repository-caching-release-phase.md,rendering error
@@ -1137,7 +1220,6 @@ translations/pt-BR/data/reusables/user-settings/saved_replies.md,rendering error
 translations/pt-BR/data/reusables/user-settings/security-analysis.md,rendering error
 translations/pt-BR/data/reusables/user-settings/security.md,rendering error
 translations/pt-BR/data/reusables/user-settings/ssh.md,rendering error
-translations/pt-BR/data/reusables/webhooks/pull_request_properties.md,broken liquid tags
 translations/pt-BR/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/pt-BR/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
 translations/pt-BR/data/variables/migrations.yml,broken liquid tags

@@ -1,6 +1,6 @@
 ---
 title: アクションの終了コードの設定
-shortTitle: Setting exit codes
+shortTitle: Set exit codes
 intro: '終了コードを使って、アクションのステータスを設定できます。 {% data variables.product.prodname_dotcom %}は、パスした、あるいは失敗したアクションを示すステータスを表示します。'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
@@ -10,12 +10,12 @@ versions:
   ghae: '*'
   ghec: '*'
 type: how_to
-ms.openlocfilehash: 28aecc646814736beb8c814dfe4b8385a6605cd2
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 394b17dc03c4998797df222fe7c81c3269003ec9
+ms.sourcegitcommit: d3929a033c42c99b153910685256d079d7d87467
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145088631'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148114278'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 

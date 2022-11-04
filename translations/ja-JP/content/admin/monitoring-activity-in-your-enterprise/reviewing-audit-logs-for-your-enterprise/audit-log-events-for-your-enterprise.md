@@ -790,6 +790,9 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- ifversion ghes or audit-log-sso-response-events %}
 | `org.sso_response` | A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. This event is only available via audit log streaming and the REST API.
 {%- endif %}
+{%- ifversion ghec %}
+| `org.transfer` | An organization was transferred between enterprise accounts. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts)."
+{%- endif %}
 {%- ifversion not ghae %}
 | `org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."
 {%- endif %}

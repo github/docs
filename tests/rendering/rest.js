@@ -1,5 +1,5 @@
 import { jest, test } from '@jest/globals'
-import slugger from 'github-slugger'
+import { slug } from 'github-slugger'
 
 import { getDOM } from '../helpers/e2etest.js'
 import getRest, { getEnabledForApps, categoriesWithoutSubcategories } from '../../lib/rest/index.js'
@@ -18,7 +18,7 @@ describe('REST references docs', () => {
       const domH2Ids = $('h2')
         .map((i, h2) => $(h2).attr('id'))
         .get()
-      const schemaSlugs = checksRestOperations.map((operation) => slugger.slug(operation.title))
+      const schemaSlugs = checksRestOperations.map((operation) => slug(operation.title))
       expect(schemaSlugs.every((slug) => domH2Ids.includes(slug))).toBe(true)
     }
   })

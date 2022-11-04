@@ -22,6 +22,14 @@ const supportedEnterpriseVersions = Object.values(allVersions).filter(
   (v) => v.plan === 'enterprise-server'
 )
 
+// RELEASE NOTES
+// We currently do not remove the Enterprise release note content in
+// data/release-notes/enterprise-server/*. One reason to keep this
+// content in the `main` branch is that the GHES team can add
+// new release notes for a deprecated version in some cases.
+// Having that content still in the main branch makes it easier for us to
+// re-scrape the release note pages and upload the changes to Azure.
+
 // webhooks and GraphQL
 const supportedMiscVersions = supportedEnterpriseVersions.map((v) => v.miscVersionName)
 // The miscBaseName is the same for all GHES versions (currently `ghes-`), so we can just grab the first one

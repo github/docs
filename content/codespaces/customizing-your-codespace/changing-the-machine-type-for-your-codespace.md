@@ -41,7 +41,7 @@ For information on choosing a machine type when you create a codespace, see "[Cr
 
    !['Your codespaces' list](/assets/images/help/codespaces/your-codespaces-list.png)
 
-1. Click the ellipsis (**...**) to the right of the codespace you want to modify.
+{% data reusables.codespaces.ellipsis-settings %}
 1. Click **Change machine type**.
 
    !['Change machine type' menu option](/assets/images/help/codespaces/change-machine-type-menu-option.png)
@@ -73,7 +73,7 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
    gh api /user/codespaces/CODESPACE-NAME
    ```
 
-   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-myrepo-gmc7`. The permanent names are listed under the **NAME** column in the list returned by `gh codespace list`.
+   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`. The permanent names are listed under the **NAME** column in the list returned by `gh codespace list`.
 
    If you're prompted to request the `codespace` scope, follow the instructions in the terminal.
 
@@ -84,7 +84,7 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
    gh api /user/codespaces/CODESPACE-NAME/machines
    ```
 
-   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-myrepo-gmc7`.
+   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`.
 1. To change the machine type for a codespace, enter the following command.
 
    ```
