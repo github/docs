@@ -8,6 +8,6 @@ versions:
 children:
   - /about-billing-for-github-codespaces
   - /viewing-your-github-codespaces-usage
-  - /managing-spending-limits-for-github-codespaces
+  - /managing-the-spending-limit-for-github-codespaces
 ---
 

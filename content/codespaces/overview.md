@@ -35,15 +35,15 @@ To begin developing using cloud-based compute resources, you can create a codesp
 
 ### Using codespaces owned by your personal account
 
-All personal {% data variables.product.prodname_dotcom_the_website %} accounts have a monthly allowance for free use of {% data variables.product.prodname_github_codespaces %} included in the Free or Pro plan. You can get started using {% data variables.product.prodname_github_codespaces %} on your personal account without changing any settings or providing payment details.
+All personal {% data variables.product.prodname_dotcom_the_website %} accounts have a monthly quota of free use of {% data variables.product.prodname_github_codespaces %} included in the Free or Pro plan. You can get started using {% data variables.product.prodname_github_codespaces %} on your personal account without changing any settings or providing payment details.
 
-You can create and use a codespace for any repository you can clone. You can also use a template to create codespaces that are not initially associated with a repository. If a codespace is created from an organization-owned repository, codespaces will either be charged to the organization (if the organization is configured for this), or use of the codespace will apply to your personal account.
+You can create and use a codespace for any repository you can clone. You can also use a template to create codespaces that are not initially associated with a repository. If you create a codespace from an organization-owned repository, use of the codespace will either be charged to the organization (if the organization is configured for this), or to your personal account. Codespaces created from templates are always charged to your personal account. 
 
 {% data reusables.codespaces.codespaces-continue-by-paying %} 
 
 ### Using organization-owned codespaces
 
-Organization owners can enable use of {% data variables.product.prodname_github_codespaces %}, billable to the organization or enterprise account. This applies to codespaces created from repositories owned by the organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." You can set a spending limit for use of {% data variables.product.prodname_github_codespaces %} on your organization or enterprise account. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
+Organization owners can enable use of {% data variables.product.prodname_github_codespaces %}, billable to the organization or enterprise account. This applies to codespaces created from repositories owned by the organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." You can set a spending limit for use of {% data variables.product.prodname_github_codespaces %} on your organization or enterprise account. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 
 If use of a codespace will be billed to an organization or enterprise, this is shown when the codespace is created. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace-for-a-repository)." Codespaces that are billed to an organization, or its parent enterprise, are owned by the organization and can be deleted an organization owner. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)." 
 
@@ -59,7 +59,7 @@ You can personalize aspects of your codespace environment by using a public [dot
 
 For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)".
 
-## About billing for {% data variables.product.prodname_codespaces %}
+## Billing for {% data variables.product.prodname_codespaces %}
 
 For information on pricing, storage, and usage for {% data variables.product.prodname_github_codespaces %}, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
