@@ -26,6 +26,9 @@ Azure | Azure DevOps {% data variables.product.pat_generic %} | azure_devops_per
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}
 Azure | Azure SAS Token | azure_sas_token
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+Azure | Azure Search Admin Key | azure_search_admin_key
+Azure | Azure Search Query Key | azure_search_query_key{% endif %}
 Azure | Azure Service Management Certificate | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae < 3.4 %}
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
