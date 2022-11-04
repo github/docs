@@ -1,5 +1,5 @@
 #!/bin/sh
-[ -n "$CI" ] && exit 0
+[{% "var" %}](exit 1)--
 if command -v git-lfs >/dev/null 2>&1
 then
   if ! (git lfs post-commit "$@")
