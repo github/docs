@@ -1,6 +1,6 @@
 ---
-title: Differences between GitHub Apps and OAuth Apps
-intro: 'Understanding the differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} will help you decide which app you want to create. An {% data variables.product.prodname_oauth_app %} acts as a GitHub user, whereas a {% data variables.product.prodname_github_app %} uses its own identity when installed on an organization or on repositories within an organization.'
+title: GitHub アプリと OAuth アプリとの微妙な違い
+intro: '{% data variables.product.prodname_github_apps %} と {% data variables.product.prodname_oauth_apps %} の違いについて知っておくと、どちらのアプリケーションを作成するかを決めるために役立ちます。 {% data variables.product.prodname_oauth_app %} は GitHub ユーザとして振る舞う一方、{% data variables.product.prodname_github_app %} は Organization または Organization 内のリポジトリにインストールされた場合、自らのアイデンティティを用います。'
 redirect_from:
   - /early-access/integrations/integrations-vs-oauth-applications
   - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type
@@ -15,102 +15,107 @@ topics:
   - GitHub Apps
   - OAuth Apps
 shortTitle: GitHub Apps & OAuth Apps
+ms.openlocfilehash: d70304b71de11a4a24f2acc6c2545e78cbd19b0c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148008711'
 ---
-## Who can install GitHub Apps and authorize OAuth Apps?
+## GitHub App のインストール、OAuth App の承認が可能なユーザ
 
-You can install GitHub Apps in your personal account or organizations you own. If you have admin permissions in a repository, you can install GitHub Apps on organization accounts. If a GitHub App is installed in a repository and requires organization permissions, the organization owner must approve the application.
+GitHub App は、個人アカウントおよび自分が所有する Organization にインストールできます。 リポジトリの管理者権限がある場合には、GitHub App を Organization のアカウントにインストールできます。 GitHub App がリポジトリにインストールされていて、Organization の権限を要求している場合、Organization のオーナーはアプリケーションを承認する必要があります。
 
 {% data reusables.apps.app_manager_role %}
 
-By contrast, users authorize OAuth Apps, which gives the app the ability to act as the authenticated user. For example, you can authorize an OAuth App that finds all notifications for the authenticated user. You can always revoke permissions from an OAuth App.
+一方、ユーザーが OAuth アプリを 認可 すると、認証されたユーザーとして動作する機能がアプリに提供されます。 たとえば、認証されたユーザに対するすべての通知を検索する OAuth App を承認できます。 OAuth App の権限はいつでも取り消すことができます。
 
-{% ifversion limit-app-access-requests %}
-{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
+{% ifversion limit-app-access-requests %} {% data reusables.organizations.restricted-app-access-requests %}{% endif %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 
-| GitHub Apps | OAuth Apps |
+| GitHub アプリ | OAuth アプリの比較 |
 | ----- | ------ |
-| You must be an organization owner or have admin permissions in a repository to install a GitHub App on an organization. If a GitHub App is installed in a repository and requires organization permissions, the organization owner must approve the application. | You can authorize an OAuth app to have access to resources. |
-| You can install a GitHub App on your personal repository. | You can authorize an OAuth app to have access to resources.|
-| You must be an organization owner, personal repository owner, or have admin permissions in a repository to uninstall a GitHub App and remove its access. | You can delete an OAuth access token to remove access. |
-| You must be an organization owner or have admin permissions in a repository to request a GitHub App installation. | If an organization application policy is active, any organization member can request to install an OAuth App on an organization. An organization owner must approve or deny the request. |
+| Organization に GitHub App をインストールするには、Organization のオーナーであるか管理者権限を所有している必要があります。 GitHub App がリポジトリにインストールされていて、Organization の権限を要求している場合、Organization のオーナーはアプリケーションを承認する必要があります。 | OAuth App を認証し、リソースへのアクセス権限を与えることができます。 |
+| GitHub App は個人のリポジトリにインストールできます。 | OAuth App を認証し、リソースへのアクセス権限を与えることができます。|
+| GitHub App をアンインストールしてアクセス権限を削除するには、Organization のオーナーであるか、個人リポジトリの所有者であるか、リポジトリの管理者権限を所有している必要があります。 | OAuth アクセストークンを削除して、アクセス権限を削除することができます。 |
+| GitHub App のインストールを要求するには、Organization のオーナーであるかリポジトリの管理者権限を所有している必要があります。 | Organization のアプリケーションポリシーが有効である場合、その Organization の任意のメンバーが OAuth App のインストールを要求できます。 Organization のオーナーは、その要求を承認または拒否する必要があります。 |
 
-## What can GitHub Apps and OAuth Apps access?
+## GitHub App と OAuth App がアクセスできるリソース
 
-Account owners can use a {% data variables.product.prodname_github_app %} in one account without granting access to another. For example, you can install a third-party build service on your employer's organization, but decide not to grant that build service access to repositories in your personal account. A GitHub App remains installed if the person who set it up leaves the organization.
+アカウントの所有者は、別のアカウントにアクセス権限を与えることなく {% data variables.product.prodname_github_app %} を使用できます。 たとえば、サードパーティ製のビルドサービスを従業員の Organization にインストールしつつ、そのビルドサービスに個人アカウントにあるリポジトリへのアクセスを許可しないことができます。 GitHub App をセットアップした人が Organization から離れても、その GitHub App はインストールされたままになります。
 
-An _authorized_ OAuth App has access to all of the user's or organization owner's accessible resources.
+_認可された_ OAuth アプリは、ユーザーまたは組織の所有者がアクセス可能なすべてのリソースにアクセスできます。
 
-| GitHub Apps | OAuth Apps |
+| GitHub アプリ | OAuth アプリの比較 |
 | ----- | ------ |
-| Installing a GitHub App grants the app access to a user or organization account's chosen repositories. | Authorizing an OAuth App grants the app access to the user's accessible resources. For example, repositories they can access. |
-| The installation token from a GitHub App loses access to resources if an admin removes repositories from the installation. | An OAuth access token loses access to resources when the user loses access, such as when they lose write access to a repository. |
-| Installation access tokens are limited to specified repositories with the permissions chosen by the creator of the app. | An OAuth access token is limited via scopes. |
-| GitHub Apps can request separate access to issues and pull requests without accessing the actual contents of the repository. | OAuth Apps need to request the `repo` scope to get access to issues, pull requests, or anything owned by the repository. |
-| GitHub Apps aren't subject to organization application policies. A GitHub App only has access to the repositories an organization owner has granted. | If an organization application policy is active, only an organization owner can authorize the installation of an OAuth App. If installed, the OAuth App gains access to anything visible to the token the organization owner has within the approved organization. |
-| A GitHub App receives a webhook event when an installation is changed or removed. This tells the app creator when they've received more or less access to an organization's resources. | OAuth Apps can lose access to an organization or repository at any time based on the granting user's changing access. The OAuth App will not inform you when it loses access to a resource. |
+| GitHub アプリをインスールすると、アプリはユーザーまたは組織アカウントの選択されたリポジトリにアクセスできるようになります。 | OAuth アプリを認可すると、アプリはユーザーがアクセスできるリソースにアクセスできるようになります。 たとえば、リポジトリにアクセスできます。 |
+| 管理者がインストールからリポジトリを削除した場合、GitHub App のインストールトークンはリソースにアクセスできなくなります。 | リポジトリへの書き込みアクセスを失ったときなど、ユーザがアクセスを失ったとき、OAuth アクセストークンはリソースにアクセスできなくなります。 |
+| インストール アクセス トークンは、アプリケーションの作成者が選択したアクセス許可を所有する、指定されたリポジトリに制限されます。 | OAuth アクセス トークンは、スコープで制限されます。 |
+| GitHub App は、リポジトリの実際のコンテンツにアクセスすることなく、Issue やプルリクエストへの個別のアクセスを要求できます。 | OAuth アプリでイシュー、pull request、リポジトリが所有するリソースにアクセスするには、`repo` スコープを要求する必要があります。 |
+| GitHub アプリは組織のアプリケーション ポリシーの対象ではありません。 GitHub アプリは組織の所有者が許可したリポジトリにのみアクセスできます。 | 組織のアプリケーション ポリシーがアクティブな場合、組織の所有者のみが OAuth アプリのインストールを認可できます。 OAuth アプリがインストールされている場合、アプリは承認された組織内で組織の所有者が所持しているトークンで表示できるすべてのものにアクセスできます。 |
+| GitHub App は、インストールが変更または削除されると webhook イベントを受信します。 これにより、アプリケーションの作者は、GitHub App の Organization のリソースに対するアクセス権が変更されたことがわかります。 | OAuth App は、付与したユーザのアクセス権が変更されると、Organization やリポジトリへのアクセス権を失います。 OAuth App は、リソースへのアクセス権を失った際にも通知を行いません。 |
 
-## Token-based identification
+## トークンベースの識別
 
 {% note %}
 
-**Note:** GitHub Apps can also use a user-based token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+**注:** GitHub アプリでは、ユーザー ベースのトークンを使用することもできます。 詳細については、「[GitHub アプリのユーザーの特定と認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。
 
 {% endnote %}
 
-| GitHub Apps | OAuth Apps |
+| GitHub アプリ | OAuth アプリの比較 |
 | ----- | ----------- |
-| A GitHub App can request an installation access token by using a private key with a JSON web token format out-of-band. | An OAuth app can exchange a request token for an access token after a redirect via a web request. |
-| An installation token identifies the app as the GitHub Apps bot, such as @jenkins-bot. | An access token identifies the app as the user who granted the token to the app, such as @octocat. |
-| Installation tokens expire after a predefined amount of time (currently 1 hour). | OAuth tokens remain active until they're revoked by the customer. |
-| {% data variables.product.prodname_github_apps %} installed on organizations or repositories are subject to rate limits for server-to-server requests. For more information, see "[Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/rate-limits-for-github-apps)." | OAuth tokens use the user's rate limit of {% ifversion fpt or ghec or ghes %}5,000{% elsif ghae %}15,000{% endif %} requests per hour. |
-| Rate limit increases can be granted both at the GitHub Apps level (affecting all installations) and at the individual installation level. | Rate limit increases are granted per OAuth App. Every token granted to that OAuth App gets the increased limit. |
-| {% data variables.product.prodname_github_apps %} can authenticate on behalf of the user, which is called a user-to-server request. The flow to authorize is the same as the OAuth App authorization flow. User-to-server tokens can expire and be renewed with a refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)" and "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)." | The OAuth flow used by {% data variables.product.prodname_oauth_apps %} authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used in {% data variables.product.prodname_github_app %} user-to-server authorization. |
+| GitHub App は、JSON Web トークンフォーマットのアウトオブバンドで秘密鍵を使用することにより、インストールアクセストークンをリクエストできます。 | OAuth App は、Web リクエストを通じてリダイレクトされた後にリクエストトークンをアクセストークンに交換できます。 |
+| インストール トークンは、アプリを GitHub アプリのボット (@jenkins-bot など) として識別します。 | アクセス トークンは、アプリをそのアプリにトークンを付与したユーザー (@octocat など) として識別します。 |
+| インストールトークンは、事前に定義された時間 (現在は 1 時間) が経過すると期限切れになります。 | OAuth トークンは、顧客によって取り消されるまで有効となります。 |
+| 組織またはリポジトリにインストールされた {% data variables.product.prodname_github_apps %}は、サーバー間要求のレート制限の対象となります。 詳細については、「[{% data variables.product.prodname_github_apps %}のレート制限](/developers/apps/building-github-apps/rate-limits-for-github-apps)」を参照してください。 | OAuth トークンでは、ユーザーのレート制限として、1 時間あたり {% ifversion fpt or ghec or ghes %}5,000{% elsif ghae %}15,000{% endif %} 個の要求が使用されます。 |
+| レート制限の増加は、GitHub アプリ レベル (すべてのインストールに影響) と個々のインストール レベルの両方で許可できます。 | レート制限の増加は、OAuth アプリごとに許可されます。 その OAuth アプリに許可されたトークンはすべて、制限が増加します。 |
+| {% data variables.product.prodname_github_apps %}では、ユーザーの代わりに認証を行うことができます。これは、ユーザーからサーバーへの要求と呼ばれます。 認可するフローは OAuth アプリの認可フローと同じです。 ユーザーからサーバーへのトークンは期限切れになることがあり、更新トークンで更新できます。 詳細については、「[ユーザーからサーバーへのアクセス トークンの更新](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)」および「[GitHub アプリのユーザーの特定と認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。 | {% data variables.product.prodname_oauth_apps %} により使用される OAuth フローでは、ユーザの代わりに {% data variables.product.prodname_oauth_app %} を承認します。 これは、{% data variables.product.prodname_github_app %} ユーザからサーバーに対する承認で用いられるフローと同じです。 |
 
-## Requesting permission levels for resources
+## リソースに対する権限レベルのリクエスト
 
-Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to request access only to what they need. For example, a Continuous Integration (CI) GitHub App can request read access to repository content and write access to the status API. Another GitHub App can have no read or write access to code but still have the ability to manage issues, labels, and milestones. OAuth Apps can't use granular permissions.
+OAuth App と異なり、GitHub App には必要なアクセス権のみをリクエストできる、ターゲットを絞った権限があります。 たとえば、継続的インテグレーション (CI) GitHub App は、リポジトリコンテンツへの読み取りアクセスと、ステータス API への書き込みアクセスをリクエストできます。 別の GitHub App では、コードへの読み取りおよび書き込みアクセスを持たせずに、Issue、ラベル、マイルストーンを管理させることが可能です。 OAuth アプリでは、詳細なアクセス許可は使用できません。
 
-| Access | GitHub Apps (`read` or `write` permissions) | OAuth Apps |
+| Access | GitHub アプリ (`read` または `write` アクセス許可) | OAuth アプリの比較 |
 | ------ | ----- | ----------- |
-| **For access to public repositories** | Public repository needs to be chosen during installation. | `public_repo` scope. |
-| **For access to repository code/contents** | Repository contents | `repo` scope. |
-| **For access to issues, labels, and milestones** | Issues | `repo` scope. |
-| **For access to pull requests, labels, and milestones** | Pull requests | `repo` scope. |
-| **For access to commit statuses (for CI builds)** | Commit statuses | `repo:status` scope. |
-| **For access to deployments and deployment statuses** | Deployments | `repo_deployment` scope. |
-| **To receive events via a webhook** | A GitHub App includes a webhook by default. | `write:repo_hook` or `write:org_hook` scope. |
+| **パブリック リポジトリへのアクセス** | パブリックリポジトリはインストール中に選択する必要があります。 | `public_repo` スコープ。 |
+| **リポジトリ コード/コンテンツへのアクセス** | リポジトリコンテンツ | `repo` スコープ。 |
+| **イシュー、ラベル、マイルストーンへのアクセス** | 発行 | `repo` スコープ。 |
+| **pull request、ラベル、マイルストーンへのアクセス** | Pull Request | `repo` スコープ。 |
+| **(CI ビルドの) コミットの状態へのアクセス** | コミットのステータス | `repo:status` スコープ。 |
+| **デプロイおよびデプロイの状態へのアクセス** | デプロイメント | `repo_deployment` スコープ。 |
+| **Webhook 経由によるイベントの受信** | GitHub App には、デフォルトで webhook が含まれています。 | `write:repo_hook` または `write:org_hook` スコープ。 |
 
-## Repository discovery
+## リポジトリの確認
 
-| GitHub Apps | OAuth Apps |
+| GitHub アプリ | OAuth アプリの比較 |
 | ----- | ----------- |
-| GitHub Apps can look at `/installation/repositories` to see repositories the installation can access. | OAuth Apps can look at `/user/repos` for a user view or `/orgs/:org/repos` for an organization view of accessible repositories. |
-| GitHub Apps receive webhooks when repositories are added or removed from the installation. | OAuth Apps create organization webhooks for notifications when a new repository is created within an organization. |
+| GitHub アプリでは `/installation/repositories` を参照して、インストール時にアクセスできるリポジトリを確認できます。 | OAuth アプリでは、アクセス可能なリポジトリの `/user/repos` (ユーザー ビューの場合) または`/orgs/:org/repos` (組織ビューの場合) を参照できます。 |
+| GitHub App は、リポジトリがインストールから追加または削除されたときに webhook を受信します。 | OAuth App は、Organization 内で新しいリポジトリが作成されたときに通知用の Organization webhook を作成します。 |
 
 ## Webhooks
 
-| GitHub Apps | OAuth Apps |
+| GitHub アプリ | OAuth アプリの比較 |
 | ----- | ----------- |
-| By default, GitHub Apps have a single webhook that receives the events they are configured to receive for every repository they have access to. | OAuth Apps request the webhook scope to create a repository webhook for each repository they need to receive events from. |
-| GitHub Apps receive certain organization-level events with the organization member's permission. | OAuth Apps request the organization webhook scope to create an organization webhook for each organization they need to receive organization-level events from. |
-| Webhooks are automatically disabled when the GitHub App is uninstalled. | Webhooks are not automatically disabled if an OAuth App's access token is deleted, and there is no way to clean them up automatically. You will have to ask users to do this manually.|
+| デフォルトでは、GitHub App には webhook が 1 つあり、その webhook は、アクセス権のあるすべてのリポジトリにおいて、受信するよう設定されたイベントを受信します。 | OAuth App は、イベントを受信する必要がある各リポジトリに対し、リポジトリ webhook を作成するため webhook スコープをリクエストします。 |
+| GitHub App は、Organization メンバーの権限で、特定の Organization レベルのイベントを受信します。 | OAuth App は、Organization レベルのイベントを受信する必要がある各 Organization に対し、Organization webhook を作成するため Organization webhook スコープをリクエストします。 |
+| Webhook は、GitHub アプリがアンインストールされると自動的に無効になります。 | OAuth アプリのアクセス トークンが削除される場合、Webhook は自動的に無効にならず、それらを自動的にクリーンアップする方法はありません。 手動で行うようにユーザーに依頼する必要があります。|
 
-## Git access
+## Git アクセス
 
-| GitHub Apps | OAuth Apps |
+| GitHub アプリ | OAuth アプリの比較 |
 | ----- | ----------- |
-| GitHub Apps ask for repository contents permission and use your installation token to authenticate via [HTTP-based Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | OAuth Apps ask for `write:public_key` scope and [Create a deploy key](/rest/reference/deployments#create-a-deploy-key) via the API. You can then use that key to perform Git commands. |
-| The token is used as the HTTP password. | The token is used as the HTTP username. |
+| GitHub アプリはリポジトリの内容へのアクセス許可を要求し、インストール トークンを使用して、[HTTP ベースの Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation) 経由で認証を行います。 | OAuth アプリは `write:public_key` スコープを要求し、API 経由で[デプロイ キー](/rest/reference/deployments#create-a-deploy-key)を作成します。 その後、そのキーを使用して Git コマンドを実行できます。 |
+| トークンは、HTTP パスワードとして使用されます。 | トークンは、HTTP ユーザ名として使用されます。 |
 
-## Machine vs. bot accounts
+## マシンアカウントとボットアカウントの比較
 
-Machine user accounts are OAuth-based personal accounts that segregate automated systems using GitHub's user system.
+マシン ユーザー アカウントは、GitHub のユーザー システムを使用して自動システムを分離する OAuth ベースの個人用アカウントです。
 
-Bot accounts are specific to GitHub Apps and are built into every GitHub App.
+ボットアカウントは GitHub App 固有のもので、すべての GitHub App に組み込まれています。
 
-| GitHub Apps | OAuth Apps |
+| GitHub アプリ | OAuth アプリの比較 |
 | ----- | ----------- |
-| GitHub App bots do not consume a {% data variables.product.prodname_enterprise %} seat. | A machine user account consumes a {% data variables.product.prodname_enterprise %} seat. |
-| Because a GitHub App bot is never granted a password, a customer can't sign into it directly. | A machine user account is granted a username and password to be managed and secured by the customer. |
+| GitHub App ボットは {% data variables.product.prodname_enterprise %} シートを消費しません。 | マシンユーザアカウントは {% data variables.product.prodname_enterprise %} シートを消費します。 |
+| GitHub App ボットにはパスワードが付与されないため、顧客は GitHub App に直接サインインできません。 | マシンユーザアカウントには、ユーザ名およびパスワードが付与されます。顧客はそれらを管理および保護します。 |

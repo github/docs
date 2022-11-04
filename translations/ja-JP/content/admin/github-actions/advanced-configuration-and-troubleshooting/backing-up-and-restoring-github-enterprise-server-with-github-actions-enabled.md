@@ -1,7 +1,7 @@
 ---
-title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
+title: GitHub Actions を有効化して GitHub Enterprise Server をバックアップおよび復元する
 shortTitle: Backing up and restoring
-intro: 'To restore a backup of {% data variables.location.product_location %} when {% data variables.product.prodname_actions %} is enabled, you must configure {% data variables.product.prodname_actions %} before restoring the backup with {% data variables.product.prodname_enterprise_backup_utilities %}.'
+intro: '{% data variables.product.prodname_actions %} が有効になっているときに {% data variables.location.product_location %}のバックアップを復元するには、{% data variables.product.prodname_enterprise_backup_utilities %} でバックアップを復元する前に、{% data variables.product.prodname_actions %} を構成する必要があります。'
 versions:
   ghes: '*'
 type: how_to
@@ -12,33 +12,37 @@ topics:
   - Infrastructure
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+ms.openlocfilehash: 43279c6b99cce6618de9253c5d0451c0a661b095
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107310'
 ---
+## {% data variables.product.prodname_actions %} を使用する場合の {% data variables.product.product_name %} のバックアップについて
 
-## About backups of {% data variables.product.product_name %} when using {% data variables.product.prodname_actions %}
+{% data variables.product.prodname_enterprise_backup_utilities %} を使って、{% data variables.location.product_location %}のデータと構成をバックアップし、新しいインスタンスに復元できます。 詳細については、「[アプライアンスでのバックアップの設定](/admin/configuration/configuring-backups-on-your-appliance)」を参照してください。
 
-You can use {% data variables.product.prodname_enterprise_backup_utilities %} to back up and restore the data and configuration for {% data variables.location.product_location %} to a new instance. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."
+ただし、{% data variables.product.prodname_actions %} のすべてのデータがこれらのバックアップに含まれるわけではありません。 {% data reusables.actions.enterprise-storage-ha-backups %}
 
-However, not all the data for {% data variables.product.prodname_actions %} is included in these backups. {% data reusables.actions.enterprise-storage-ha-backups %}
+## {% data variables.product.prodname_actions %} が有効になっているときに {% data variables.product.product_name %} のバックアップを復元する
 
-## Restoring a backup of {% data variables.product.product_name %} when {% data variables.product.prodname_actions %} is enabled
+{% data variables.product.prodname_actions %} を使って {% data variables.location.product_location %}のバックアップを復元するには、{% data variables.product.prodname_enterprise_backup_utilities %} からバックアップを復元する前に、復元先インスタンスでネットワーク設定と外部ストレージを手動で構成する必要があります。 
 
-To restore a backup of {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}, you must manually configure network settings and external storage on the destination instance before you restore your backup from {% data variables.product.prodname_enterprise_backup_utilities %}. 
-
-1. Confirm that the source instance is offline.
-1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} instance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
-1. SSH into the destination instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+1. 復元元インスタンスがオフラインであることを確認します。
+1. 交換する {% data variables.product.prodname_ghe_server %} インスタンスで、ネットワーク設定を手動で構成します。 ネットワーク設定はバックアップスナップショットから除外され、`ghe-restore` で上書きされません。 詳細については、「[ネットワークを設定する](/admin/configuration/configuring-network-settings)」を参照してください。
+1. 復元先インスタンスに SSH で接続します。 詳細については、「[管理シェル (SSH) にアクセスする](/admin/configuration/accessing-the-administrative-shell-ssh)」を参照してください。
 
    ```shell{:copy}
    $ ssh -p 122 admin@HOSTNAME
    ```
-1. Configure the destination instance to use the same external storage service for {% data variables.product.prodname_actions %} as the source instance by entering one of the following commands.
-{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
-{% data reusables.actions.configure-storage-provider %}
-1. To prepare to enable {% data variables.product.prodname_actions %} on the destination instance, enter the following command.
+1. 次のいずれかのコマンドを入力して、復元元インスタンスと同じ外部ストレージ サービスを {% data variables.product.prodname_actions %} に対して使うように、復元先インスタンスを構成します。
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %} {% data reusables.actions.configure-storage-provider %}
+1. 復元先インスタンスで {% data variables.product.prodname_actions %} を有効にする準備をするには、次のコマンドを入力します。
 
    ```shell{:copy}
    ghe-config app.actions.enabled true
    ```
 {% data reusables.actions.apply-configuration-and-enable %}
-1. After {% data variables.product.prodname_actions %} is configured and enabled, to restore the rest of the data from the backup, use the `ghe-restore` command. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
-1. Re-register your self-hosted runners on the destination instance. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+1. {% data variables.product.prodname_actions %} を構成して有効にした後、残りのデータをバックアップから復元するには、`ghe-restore` コマンドを使います。 詳しくは、「[バックアップの復元](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)」を参照してください。
+1. 復元先インスタンスで、セルフホステッド ランナーをもう一度登録します。 詳細については、「[セルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
