@@ -14,7 +14,6 @@ children:
   - /configuring-your-server-to-receive-payloads
   - /testing-webhooks
   - /securing-your-webhooks
-  - /receiving-webhooks-with-the-github-cli
   - /webhook-events-and-payloads
 ---
 
