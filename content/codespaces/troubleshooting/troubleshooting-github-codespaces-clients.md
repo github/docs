@@ -2,6 +2,7 @@
 title: Troubleshooting GitHub Codespaces clients
 shortTitle: Codespaces clients
 intro: 'This article provides troubleshooting information for issues you may encounter with the client you use for {% data variables.product.prodname_github_codespaces %}.'
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -84,9 +85,9 @@ The following provides some guidance as an initial starting point, which you can
 | 8 core         | 4 GB              |
 | 16 or 32 cores | 8 GB              |
 
-1. Click **Localhost** at the left of the navigation bar, at the top of the application window.
+1. On the left of the navigation bar, at the top of the application window, click the name of the codespace.
 
-   ![Screenshot of a the Localhost button in JetBrains](/assets/images/help/codespaces/jetbrains-localhost-button.png)
+   ![Screenshot of the resources button in JetBrains](/assets/images/help/codespaces/jetbrains-resources-button.png)
 
 1. In the Performance tab, note the CPU Load and Memory details. These will indicate whether the machine is overloaded.
  
@@ -97,6 +98,12 @@ The following provides some guidance as an initial starting point, which you can
    ![Screenshot of the maximum heap size setting](/assets/images/help/codespaces/jetbrains-heap-setting.png)
 
 1. Click **Save and restart**.
+
+### SSH connection issues
+
+To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (MacOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
+
+If you encounter problems with key validation, try upgrading your version of {% data variables.product.prodname_cli %}. For information, see the [upgrade instructions](https://github.com/cli/cli#installation) in the README for {% data variables.product.prodname_cli %}.
 
 ### JetBrains IDE issues
 

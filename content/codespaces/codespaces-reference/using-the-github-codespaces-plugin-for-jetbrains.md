@@ -1,7 +1,7 @@
 ---
 title: Using the GitHub Codespaces plugin for JetBrains
 shortTitle: Plugin for JetBrains
-intro: 'You can use the {% data variables.product.prodname_github_codespaces %} plugin to find out about your codespace or to stop your codespace when you''ve finished working.'
+intro: 'You can use the {% data variables.product.prodname_github_codespaces %} plugin for the JetBrains client application to find out about your codespace or to stop your codespace when you''ve finished working.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,6 +13,8 @@ topics:
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
 ## About the {% data variables.product.prodname_github_codespaces %} plugin
+
+The JetBrains client application is launched when you connect to a codespace from the JetBrains Gateway application. It allows you to use {% data variables.product.prodname_github_codespaces %} with you favorite JetBrains IDE. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
 
 The {% data variables.product.prodname_github_codespaces %} plugin is already installed in the JetBrains client when you connect to a codespace from the JetBrains Gateway. The plugin adds the {% data variables.product.prodname_github_codespaces %} tool window to the user interface.
 
@@ -55,10 +57,11 @@ The icons at the top of the {% data variables.product.prodname_github_codespaces
 
   ![Screenshot of the log button](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
-  Open the codespace creation log in the editor window. For more information, see "[GitHub Codespaces logs](/codespaces/troubleshooting/github-codespaces-logs)."
+  Open the codespace creation log in the editor window. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
 
 * **Rebuild the dev container**
 
   ![Screenshot of the rebuild button](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
 
-  Rebuild your codespace to apply changes you've made to the dev container configuration. The JetBrains client will close and you must reopen the codespace. For more information, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle#rebuilding-a-codespace)."
+  Rebuild your codespace to apply changes you've made to the dev container configuration. The JetBrains client will close and you must reopen the codespace. For more information, see "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace)."
+

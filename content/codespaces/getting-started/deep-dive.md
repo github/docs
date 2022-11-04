@@ -93,7 +93,7 @@ To stop your codespace you can
 * In the browser: on your list of codespaces at [https://github.com/codespaces](https://github.com/codespaces), click the ellipsis (**...**) to the right of the codespace you want to stop and click **Stop codespace**.
 * In {% data variables.product.prodname_vscode_shortname %}: open [the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) - for example, by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Windows/Linux) or <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) - type `Codespaces: stop` then press <kbd>Enter</kbd>.
 * In the JetBrains client, click the stop button at the top of the {% data variables.product.prodname_github_codespaces %} tool window. For more information, see the "JetBrains IDEs" tab of "[Stopping and starting a codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)."
-* In a terminal window: use the {% data variables.product.prodname_cli %} command `gh codespace stop`. For more information, see "[Using Codespaces with GitHub CLI](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#gh-commands-for-github-codespaces)."
+* In a terminal window: use the {% data variables.product.prodname_cli %} command `gh codespace stop`. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#gh-commands-for-github-codespaces)."
 
 If you exit your codespace without running the stop command (for example, by closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue for the duration of the inactivity timeout period. 
 
@@ -135,7 +135,7 @@ You can add plugins and extensions within a codespace to personalize your experi
 
 ### {% data variables.product.prodname_vscode_shortname %} extensions
 
-If you work on your codespaces in the {% data variables.product.prodname_vscode_shortname %} desktop application, or the web client, you can add any extensions you need from the {% data variables.product.prodname_vscode_marketplace %}. For information on how extensions run in {% data variables.product.prodname_github_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} documentation. 
+If you work on your codespaces in the {% data variables.product.prodname_vscode_shortname %} desktop application, or the web client, you can add any extensions you need from the {% data variables.product.prodname_vscode_marketplace %}. For information on how extensions run in {% data variables.product.prodname_github_codespaces %}, see [Supporting Remote Development and {% data variables.product.prodname_github_codespaces %}](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} documentation. 
 
 If you already use {% data variables.product.prodname_vscode_shortname %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any codespaces you create.
 
@@ -156,4 +156,4 @@ If you work on your codespaces in a JetBrains IDE, you can add plugins from the 
 - "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
 - "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
 - "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)"
-- "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)"
+- "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle)"

@@ -18,7 +18,7 @@ topics:
 
 ## About enabling {% data variables.product.prodname_github_codespaces %} for your organization
 
-Organization owners can control which users in your organization can create and use codespaces at the organization's expense. For information about pricing, see "[About billing for GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+Organization owners can control which users in your organization can create and use codespaces at the organization's expense. For information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 Only people who can either push changes to a repository, or fork the repository, can create a codespace for that repository. To allow people to create codespaces for repositories owned by your organization, you must:
 
@@ -33,7 +33,7 @@ To allow people to create codespaces for which your organization will be billed,
 {% ifversion fpt %}
 {% note %}
 
-**Note:** If you are a verified educator or a teacher, you must enable {% data variables.product.prodname_codespaces %} from a {% data variables.product.prodname_classroom %} to use your {% data variables.product.prodname_codespaces %} Education benefit. For more information, see "[Using GitHub Codespaces with GitHub Classroom](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)."
+**Note:** If you are a verified educator or a teacher, you must enable {% data variables.product.prodname_github_codespaces %} from a {% data variables.product.prodname_classroom %} to use your {% data variables.product.prodname_codespaces %} Education benefit. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)."
 
 {% endnote %}
 {% endif %}

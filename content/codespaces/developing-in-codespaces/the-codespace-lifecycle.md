@@ -1,5 +1,5 @@
 ---
-title: Codespaces lifecycle
+title: The codespace lifecycle
 intro: 'You can develop in a {% data variables.product.prodname_github_codespaces %} environment and maintain your data throughout the entire codespace lifecycle.'
 versions:
   fpt: '*'
@@ -8,6 +8,8 @@ type: overview
 topics:
   - Codespaces
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/codespaces-lifecycle
 ---
 
 ## About the lifecycle of a codespace
@@ -30,7 +32,7 @@ When you connect to a codespace through the web, auto-save is enabled automatica
 
 Your work will be saved on a virtual machine in the cloud. You can close and stop a codespace and return to the saved work later. If you have unsaved changes, your editor will prompt you to save them before exiting. However, if your codespace is deleted, then your work will be deleted too. To persist your work, you will need to commit your changes and push them to your remote repository, or publish your work to a new remote repository if you created your codespace from a template. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)."
 
-## Codespaces timeouts
+## Timeouts for {% data variables.product.prodname_github_codespaces %}
 
 If you leave your codespace running without interaction, or if you exit your codespace without explicitly stopping it, the codespace will timeout after a period of inactivity and stop running. By default, a codespace will timeout after 30 minutes of inactivity, but you can customize the duration of the timeout period for new codespaces that you create. For more information about setting the default timeout period for your codespaces, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)." For more information about stopping a codespace, see "[Stopping a codespace](#stopping-a-codespace)."
 
@@ -74,7 +76,7 @@ If you create a codespace, it will continue to accrue storage charges until it i
 
 For more information on deleting a codespace, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
 
-## Losing the connection while using Codespaces
+## Losing the connection while using {% data variables.product.prodname_github_codespaces %}
 
 {% data variables.product.prodname_github_codespaces %} is a cloud-based development environment and requires an internet connection. If you lose connection to the internet while working in a codespace, you will not be able to access your codespace. However, any uncommitted changes will be saved. When you have access to an internet connection again, you can connect to your codespace in the exact same state that it was left in. If you have an unstable internet connection, you should commit and push your changes often.
 

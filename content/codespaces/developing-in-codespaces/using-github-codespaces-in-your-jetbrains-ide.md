@@ -2,6 +2,7 @@
 title: Using GitHub Codespaces in your JetBrains IDE
 shortTitle: JetBrains IDEs
 intro: 'You can use the JetBrains Gateway to connect to your codespace and work in your favorite JetBrains IDE.'
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -42,7 +43,7 @@ To work in a codespace in a JetBrains IDE you need:
 
 * A valid JetBrains license
 * The JetBrains Gateway application
-* {% data variables.product.prodname_cli %} version 2.2.0 or later 
+* {% data variables.product.prodname_cli %} version 2.18.0 or later 
 * An existing codespace that's running an SSH server
 
 ### JetBrains license
@@ -61,7 +62,7 @@ You can install and update the JetBrains Gateway from the JetBrains Toolbox appl
 
 ### {% data variables.product.prodname_cli %}
 
-The {% data variables.product.prodname_github_codespaces %} plugin for the JetBrains Gateway requires that you have installed and configured {% data variables.product.prodname_cli %} version 2.2.0 or later before opening a codespace from the JetBrains Gateway.
+The {% data variables.product.prodname_github_codespaces %} plugin for the JetBrains Gateway requires that you have installed and configured {% data variables.product.prodname_cli %} version 2.18.0 or later before opening a codespace from the JetBrains Gateway.
 
 Use this command to check your version of {% data variables.product.prodname_cli %}:
 
@@ -73,32 +74,17 @@ For more information, see "[About GitHub CLI](/github-cli/github-cli/about-githu
 
 ### Codespace running an SSH server
 
-You must have an existing codespace to connect to. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+You must have an existing codespace to connect to. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 
 {% data reusables.codespaces.ssh-server-installed %}
 
 For more information about the `devcontainer.json` file and the default container image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
 
-## Authenticating with {% data variables.product.prodname_dotcom_the_website %}
+{% note %}
 
-Before you can use the JetBrains Gateway to connect to your codespaces, you must use {% data variables.product.prodname_cli %} to authenticate with {% data variables.product.prodname_dotcom_the_website %}, specifying the `codespace` scope.
+**Note**: For help with connecting to your codespace over SSH, see "[Troubleshooting {% data variables.product.prodname_github_codespaces %} clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains#ssh-connection-issues)."
 
-1. In a terminal window:
-
-   ```shell{:copy}
-   gh auth login -h github.com -s codespace
-   ```
-
-1. If a prompt is displayed asking if you want to re-authenticate, type `y`.
-1. Follow the prompts to complete the authentication process, choosing these options:
-   * What account do you want to log into? `{% data variables.product.prodname_dotcom_the_website %}`
-   * What is your preferred protocol for Git operations? `HTTPS`
-   * Authenticate Git with your GitHub credentials? `yes`
-   * How would you like to authenticate GitHub CLI? `Login with a web browser`
-1. Copy the one-time code and press <kbd>Enter</kbd>.
-1. Paste the copied code and click **Continue**.
-1. If you belong to organizations, the "Single sign-on to your organizations" page is displayed. Click **Authorize** beside the organizations you want to authorize the JetBrains Gateway to access, then click **Continue**.
-1. On the "Authorize {% data variables.product.prodname_github_codespaces %} for JetBrains" page, click **Authorize {% data variables.product.prodname_dotcom %}**.
+{% endnote %}
 
 ## Setting up the JetBrains Gateway
 
@@ -107,8 +93,7 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 1. Open the JetBrains Gateway application.
 1. Under **Install More Providers** click the **Install** link for {% data variables.product.prodname_github_codespaces %}.
 
-   **TODOCS -- ADD SCREENSHOT OF CODESPACES "INSTALL" OPTION - TO BE SUPPLIED BY JETBRAINS**
-   ![Screenshot of the JetBrains Gateway initial view]()
+   ![Screenshot of the JetBrains Gateway initial view](/assets/images/help/codespaces/jetbrains-gateway-initial-view.png)
 
 1. Click **Connect to Codespace**.
 
@@ -145,3 +130,4 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 - "[Developing in a codespace](/codespaces/developing-in-codespaces/developing-in-a-codespace)"
 - "[Using the {% data variables.product.prodname_github_codespaces %} plugin for JetBrains](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
 - "[Using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces)"
+- "[Troubleshooting {% data variables.product.prodname_github_codespaces %} clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)"

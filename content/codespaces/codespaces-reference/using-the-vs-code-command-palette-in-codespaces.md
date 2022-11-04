@@ -34,7 +34,7 @@ You can access the {% data variables.product.prodname_vscode_command_palette_sho
 
 To see all commands related to {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "Codespaces".
 
-![A list of all commands that relate to Codespaces](/assets/images/help/codespaces/codespaces-command-palette.png)
+![A list of all commands that relate to {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/codespaces-command-palette.png)
 
 ### Suspending or stopping a codespace
 

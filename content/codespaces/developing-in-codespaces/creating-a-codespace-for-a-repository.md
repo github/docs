@@ -49,7 +49,7 @@ When you create a codespace, a number of steps happen to create and connect you 
 
 For more information on what happens when you create a codespace, see "[Deep Dive](/codespaces/getting-started/deep-dive)."
 
-For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
+For more information on the lifecycle of a codespace, see "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle)."
 
 If you want to use Git hooks for your codespace, then you should set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`, during step 4. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created. For more information on using `postCreateCommand`, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
@@ -150,4 +150,4 @@ For full details of the options for this command, see [the {% data variables.pro
 
 ## Further reading
 - "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
-- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"
+- "[Adding an 'Open in {% data variables.product.prodname_github_codespaces %}' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"

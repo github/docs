@@ -41,7 +41,7 @@ When you create a codespace, your project is created on a remote VM that is dedi
 
 ## Step 2: Add a dev container configuration to your repository from a template
 
-The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. However, we recommend that you configure your own dev container, as this allows you to define any particular tools and scripts your project needs. This will ensure a fully reproducible environment for all GitHub Codespaces users in your repository.
+The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. However, we recommend that you configure your own dev container, as this allows you to define any particular tools and scripts your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_github_codespaces %} users in your repository.
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
