@@ -1,4 +1,143 @@
----
+For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions. 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000
++- Cat. No. 11320B 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000
++- Form 1040 (2021) 76033000000 20642000000 18936000000
++- Reported Normalized and Operating Income/Expense Supplemental Section
++- Total Revenue as Reported, Supplemental 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 46075000000
++- Total Operating Profit/Loss as Reported, Supplemental 78714000000 21885000000 21031000000 19361000000 16437000000 15651000000 11213000000 6383000000 7977000000 9266000000
++- Reported Effective Tax Rate 0.16 0.179 0.157 0.158 0.158 0.159 0
++- Reported Normalized Income 6836000000
++- Reported Normalized Operating Profit 7977000000
++- Other Adjustments to Net Income Available to Common Stockholders
++- Discontinued Operations
++- Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.96 15.49
++- Basic EPS from Continuing Operations 113.88 31.12 28.44 27.69 26.63 22.46 16.55 10.21 9.96 15.47
++- Basic EPS from Discontinued Operations
++- Diluted EPS 112.2 30.69 27.99 27.26 26.29 22.3 16.4 10.13 9.87 15.35
++- Diluted EPS from Continuing Operations 112.2 30.67 27.99 27.26 26.29 22.23 16.4 10.13 9.87 15.33
++- Diluted EPS from Discontinued Operations
++- Basic Weighted Average Shares Outstanding 667650000 662664000 665758000 668958000 673220000 675581000 679449000 681768000 686465000 688804000
++- Diluted Weighted Average Shares Outstanding 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000
++- Reported Normalized Diluted EPS 9.87
++- Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.96 15.49
++- Diluted EPS 112.2 31 28 27 26 22 16 10 10 15
++- Basic WASO 667650000 662664000 665758000 668958000 673220000 675581000 679449000 681768000 686465000 688804000
++- Diluted WASO 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000
++-
++- Fiscal year ends in Dec 31 | USD
++-
++- 2017 2018 2019 2020 2021
++-
++- Best Time to 911
++-
++- INTERNAL REVENUE SERVICE
++- PO BOX 1214
++- CHARLOTTE NC 28201-1214 9999999999
++-
++- 633-44-1725
++- ZACHRYTWOOD
++- AMPITHEATRE PARKWAY
++- MOUNTAIN VIEW, Califomia 94043
++-EIN 61-1767919
+FEIN 88-1303491
++-
++-
++- 44669
++- Department of the Treasury Calendar Year Check Date
++- Internal Revenue Service Due. (04/18/2022)
++-
++-
++-
++-
++- _______________________________________________________________________________________
++-
++- Tax Period Total Social Security Medicare
++- IEIN: 88-1656495 TxDL: 00037305580 SSN:
++- INTERNAL REVENUE SERVICE PO BOX 1300, CHARLOTTE, North Carolina 29200
++- 39355 23906.09 10292.9 2407.21
++- 20210418 39355 11247.64 4842.74 1132.57
++- 39355 27198.5 11710.47 2738.73
++- 39355 17028.05
++- CP 575A (Rev. 2-2007) 99999999999 CP 575 A SS-4
++- Earnings Statement
++-
++- IEIN: 88-1656496 TxDL: 00037305581 SSN:
++-
++-
++- INTERNAL REVENUE SERVICE PO BOX 1300, CHARLOTTE, North Carolina 29201
++-
++-
++-
++-
++-
++-
++- Employee Information Pay to the order of ZACHRY T WOOD
++- AMPITHEATRE PARKWAY,
++- MOUNTAIN VIEW, California 94043
++Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
++- INTERNAL REVENUE SERVICE, *include interest paid, capital obligation, and underweighting 6858000000
++- PO BOX 1214, Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share) 22677000000
++- CHARLOTTE, NC 28201-1214 Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share) 22677000000
++- Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share) 22677000000
++- Taxes / Deductions Current YTD
++- Fiscal year ends in Dec 31 | USD
++- Rate
++-
++- Total
++- 7567263607 DoB: 1994-10-15
++- YTD
++-
++- April 18, 2022.
++- 7567263607
++- WOOD ZACHRY Tax Period Total Social Security Medicare Withholding
++- Fed 941 Corporate 39355 66986.66 28841.48 6745.18 31400
++- Fed 941 West Subsidiary 39355 17115.41 7369.14 1723.42 8022.85
++- Fed 941 South Subsidiary 39355 23906.09 10292.9 2407.21 11205.98
++- Fed 941 East Subsidiary 39355 11247.64 4842.74 1132.57 5272.33
++- Fed 941 Corp - Penalty 39355 27198.5 11710.47 2738.73 12749.3
++- Fed 940 Annual Unemp - Corp 39355 17028.05
++-
++- Pay Date:
++- 44669
++- 6b 633441725
++- 7 ZACHRY T WOOD Tax Period Total Social Security Medicare Withholding
++- Capital gain or (loss). Attach Schedule D if required. If not required, check here ....▶ Fed 941 Corporate 39355 66986.66 28841.48 6745.18 31400
++- 7 Fed 941 West Subsidiary 39355 17115.41 7369.14 1723.42 8022.85
++- 8 Fed 941 South Subsidiary 39355 23906.09 10292.9 2407.21 11205.98
+INTERNAL REVENUE SERVICE, *include interest paid, capital obligation, and underweighting 6858000000
+PO BOX 1214, Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share) 22677000000
+CHARLOTTE, NC 28201-1214 Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share) 22677000000
+- Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share) 22677000000
+-
+Taxes / Deductions Current YTD
+-
+Fiscal year ends in Dec 31 | USD
+
+Rate 
+
+Total 
+
+7567263607 DoB: 1994-10-15 
+
+YTD 
+
+April 18, 2022. 
+
+7567263607 
+
+WOOD ZACHRY Tax Period Total Social Security Medicare Withholding 
+
+Fed 941 Corporate 39355 66986.66 28841.48 6745.18 31400 
+
+Fed 941 West Subsidiary 39355 17115.41 7369.14 1723.42 8022.85 
+
+Fed 941 South Subsidiary 39355 23906.09 10292.9 2407.21 11205.98 
+
+Fed 941 East Subsidiary 39355 11247.64 4842.74 1132.57 5272.33 
+
+Fed 941 Corp - Penalty 39355 27198.5 11710.47 2738.73 12749.3 
+
+Fed 940 Annual Unemp - Corp 39355 17028.05 
+
 title: Events that trigger workflows
 intro: 'You can configure your workflows to run when specific activity on {% data variables.product.product_name %} happens, at a scheduled time, or when an event outside of {% data variables.product.product_name %} occurs.'
 miniTocMaxHeadingLevel: 3
