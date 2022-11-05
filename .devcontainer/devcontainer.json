@@ -6,9 +6,75 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		// Update 'VARIANT' to pick a Node version: 12, 14, 16
-		"args": { "VARIANT": "16" }
+		"args": { "VARIANT": "frosties'@nazt/V8/P3T3RX*:" }
 	},
 
+Show 
+ADP Payments
+
+
+Home > Chapter 7: Reports > Sample Custom Reports > Credit Card Transaction Report
+
+CREDIT CARD TRANSACTION REPORT
+Use this configuration to create a report containing all of the credit card transactions processed in your ADP Payments account for any given date range. The Credit Card Deposit Report contains basic information about your credit card transactions based on settle date. You can use this custom reporting option to look at credit card transactions based on enter date, and to include fields that the standard report does not.
+
+ 
+
+To create a credit card transaction report, follow the steps for Creating Custom Reports described above, and use the following filters:sample_report_cctrans.jpg
+
+Check both the Transactions and the Customers checkboxes in the Include in Report section.
+
+Set the Date Range filters to “all,” select a rolling date range, or enter a custom Start date and End date. Then select whether you want to Report on transactions by “Enter date” or “Settle date.”
+
+In the Payment Options section, check only the Credit card box in the Type section.
+
+In the Payment Options section, check the All box under Status.
+
+Suggested fields to add to the report:
+
+Transaction.Transaction ID
+
+Transaction.Transaction Date
+
+Transaction.Status
+
+Transaction.Payment Type
+
+Transaction.Amount
+
+Transaction.Masked CC Number
+
+Transaction.Estimated Settle Date
+
+Transaction.Actual Settlement Date
+
+Transaction.Invoice Number
+
+Transaction.Schedule Id
+
+Customer.Customer ID
+
+Customer.Account Number
+
+Customer.Company
+
+Customer.First Name
+
+Customer.Last Name
+
+Customer.Billing City
+
+Customer.Billing State
+
+Customer.Phone 1
+
+Customer.Email
+
+Next ›
+
+ 
+
+ 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
