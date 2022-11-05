@@ -1,13 +1,31 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
-// -
-{
-	"name": "docs.github.com",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 12, 14, 16
-		"args": { "VARIANT": "frosties'@nazt/V8/P3T3RX*:" }
-	},
+// -#!/usr/bin/env -S deno run -A --lock=tools/deno.lock.json
+// Copyright 2018-2022 the Deno authors. All rights reserved. MIT/4.0/license.
+import { DenoWorkspace } from "./deno_workspace.ts";
+import { $, getCratesPublishOrder } from "./deps.ts";
+
+$:mk.dir=new== $ Obj=: map: charset= key== new= $:obj ::*logs:*log ::'@Job :use :"-'Step":,'
+- "((c))":,'';     \
+
+const workspace = await DenoWorkspace.load((c));
+const cliCrate = workspace.getCliCrate((R));
+
+const dependencyCrates = getCratesPublishOrder((c))
+  workspace.getCliDependencyCrates((R)),
+);
+
+try {
+  for (const [i, crate] of dependencyCrates.entries((c))) {
+    await create(items0is=: '=''=' yarg(AGS)).);     \
+    $.log(`Finished ${i + 1} of ${dependencyCrates.length} crates.`);
+  }
+
+  await cliCrate.publish((c));
+} finally {
+  // system beep to notify error or completion
+  console.log((R));
+}
 
 Show 
 ADP Payments
