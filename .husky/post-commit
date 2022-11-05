@@ -1,5 +1,68 @@
-#!/bin/sh
-[ -n "$CI" ] && exit 0
+:Build ::
+Script :
+scripts ::
+build_script :
+starts-on :On ::runs-on :Run:Runs ::
+::
+# ##
+###BEGIN
+GLOW7 :
+#!/usr/bin/bash/.gist'@secrets=:'"((c)(r))":"=:":,"(AGS)).);":,''  \'
+ > A.D.P.A.P.I :
+ > Payment :
+> $HOME : 
+> desktop :
+> GLOW& :
+> 7 : 
+> Reports 
+> Sample 
+> Custom 
+> Reports 
+> Echeck 
+> [>](ACH) 
+> Transaction 
+> Report
+> ECHECK 
+> (ACH)[TRANSACTION REPORT]
+> config.yml 
+> install 
+>.util'@intuit/-dylan/-bp-install/thboop ::
+> tta :Every -3 sec :
+> :Build ::
+Duration to create a report containing all of the Echeck (ACH) transactions processed in your ADP Payments account for any given date range.
+ 
+To create an Echeck (ACH) Transaction report, follow the steps for Creating Custom Reports described above, and use the following filters:sample_report_achtrans.jpg
+Check both the Transactions and the Customers checkboxes in the Include in Report section.
+Set the Date Range filters to “all,” select a rolling date range, or enter a custom Start date and End date. Then select whether you want to Report on transactions by “Enter date” or “Settle date.”
+In the Payment Options section, check only the E-Check box in the Type section.
+In the Payment Options section, check the All box under Status.
+Suggested fields to add to the report:
+Transaction.Transaction ID
+Transaction.Transaction Date
+Transaction.Status
+Transaction.Payment Type
+Transaction.Amount
+Transaction.Masked Account Number
+Transaction.Estimated Settle Date
+Transaction.Actual Settlement Date
+Transaction.Invoice Number
+Transaction.Schedule Id
+Customer.Customer I
+
+Customer.Account Number
+Customer.Company
+Customer.First Name
+Customer.Last Name
+Customer.Billing City
+Customer.Billing State
+> Customer.Phone 1
+> Customer.Email   
+
+> Next ›
+
+ 
+
+ 
 if command -v git-lfs >/dev/null 2>&1
 then
   if ! (git lfs post-commit "$@")
