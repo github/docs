@@ -46055,7 +46055,7 @@
         },
         {
           "name": "hasDiscussionsEnabled",
-          "description": "<p>Are discussions available on this repository?.</p>",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -60136,6 +60136,14 @@
         {
           "name": "hasAnonymousAccessEnabled",
           "description": "<p>Indicates if the repository has anonymous Git read access feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
