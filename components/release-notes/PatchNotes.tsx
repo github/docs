@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import cx from 'classnames'
-import slugger from 'github-slugger'
+import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
 import { Link } from 'components/Link'
 
@@ -41,11 +41,11 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
                   return <li key={item} className="f4" dangerouslySetInnerHTML={{ __html: item }} />
                 }
 
-                const slug = item.heading ? slugger.slug(item.heading) : ''
+                const headingSlug = item.heading ? slug(item.heading) : ''
                 return (
-                  <Fragment key={slug}>
-                    <h4 id={slug} className={cx(styles.sectionHeading, 'text-bold f4')}>
-                      <Link href={`#${slug}`}>{item.heading}</Link>
+                  <Fragment key={headingSlug}>
+                    <h4 id={headingSlug} className={cx(styles.sectionHeading, 'text-bold f4')}>
+                      <Link href={`#${headingSlug}`}>{item.heading}</Link>
                     </h4>
                     {item.notes.map((note) => {
                       return (

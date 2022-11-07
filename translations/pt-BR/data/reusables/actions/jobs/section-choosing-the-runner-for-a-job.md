@@ -1,60 +1,66 @@
-Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. 
+---
+ms.openlocfilehash: 89c3ed1592c000322cf4f0d6915e355bc81014ed
+ms.sourcegitcommit: d0cea547f6a5d991a28c310257cafd616235889f
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/01/2022
+ms.locfileid: "148120906"
+---
+Use `jobs.<job_id>.runs-on` para definir o tipo de computador no qual o trabalho será executado. 
 
-{% ifversion fpt or ghec %}- The destination machine can be either a [{% data variables.product.prodname_dotcom %}-hosted runner](#choosing-github-hosted-runners), [{% data variables.actions.hosted_runner %}](#choosing-runners-in-a-group), or a [self-hosted runner](#choosing-self-hosted-runners).{% else %}
-- The destination machine can be a [self-hosted runner](#choosing-self-hosted-runners).{% endif %} 
-{% ifversion target-runner-groups %}- You can target runners based on the labels assigned to them, or their group membership, or a combination of these.{% else %}
-- You can target runners based on the labels assigned to them.{% endif %}
-- You can provide `runs-on` as a single string or as an array of strings. 
-- If you specify an array of strings, your workflow will execute on any runner that matches all of the specified `runs-on` values. 
-- If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+{% ifversion fpt or ghec %}- O computador de destino pode ser um [executor hospedado por {% data variables.product.prodname_dotcom %}](#choosing-github-hosted-runners), [{% data variables.actions.hosted_runner %}](#choosing-runners-in-a-group) ou um [executor auto-hospedado](#choosing-self-hosted-runners).{% else %}
+- O computador de destino pode ser um [executor auto-hospedado](#choosing-self-hosted-runners).{% endif %} {% ifversion target-runner-groups %}- Você pode direcionar executores com base nos rótulos atribuídos a eles, ou na associação de grupo ou em uma combinação deles. {% else %}
+- Você pode direcionar executores com base nos rótulos atribuídos a eles. {% endif %}
+- Você pode fornecer `runs-on` como uma única cadeia de caracteres ou como uma matriz de cadeias de caracteres. 
+- Se você especificar uma matriz de cadeias de caracteres, o fluxo de trabalho será executado em qualquer executor que corresponda a todos os valores `runs-on` especificados. 
+- Se você quiser executar seu fluxo de trabalho em vários computadores, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
-{% ifversion fpt or ghec or ghes %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% ifversion fpt or ghec or ghes %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
+### Escolhendo executores hospedados em {% data variables.product.prodname_dotcom %}
 
-If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
+Se você usar um executor hospedado no {% data variables.product.prodname_dotcom %}, cada trabalho será executado em uma nova instância de uma imagem do executor especificada por `runs-on`.
 
-Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
+Os tipos de executor disponíveis para {% data variables.product.prodname_dotcom %} são:
 
 {% data reusables.actions.supported-github-runners %}
 
-#### Example: Specifying an operating system
+#### Exemplo: Especificar um sistema operacional
 
 ```yaml
 runs-on: ubuntu-latest
 ```
 
-For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+Para obter mais informações, confira "[Sobre os executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)".
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-### Choosing self-hosted runners
+### Escolhendo executores auto-hospedados
 {% endif %}
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-#### Example: Using labels for runner selection
+#### Exemplo: Usando etiquetas para seleção do executor
 
 ```yaml
 runs-on: [self-hosted, linux]
 ```
 
-For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+Para obter mais informações, confira "[Sobre executores auto-hospedados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" e "[Como usar executores auto-hospedados em um fluxo de trabalho](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)".
 
 {% ifversion target-runner-groups %}
 
-### Choosing runners in a group
+### Escolher executores em um grupo
 
-You can use `runs-on` to target runner groups, so that the job will execute on any runner that is a member of that group. For more granular control, you can also combine runner groups with labels.
+Você pode usar `runs-on` para direcionar grupos de executores para que o trabalho seja executado em qualquer executor que seja membro desse grupo. Para um controle mais granular, você também pode combinar grupos de executores com rótulos.
 
-Runner groups can only have [{% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners) or [self-hosted runners](/actions/hosting-your-own-runners) as members.
+Os grupos de executores só podem ter [{% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners) ou [executores auto-hospedados](/actions/hosting-your-own-runners) como membros.
 
-#### Example: Using groups to control where jobs are run
+#### Exemplo: usar grupos para controlar onde os trabalhos são executados
 
 {% data reusables.actions.jobs.example-runs-on-groups %}
 
-#### Example: Combining groups and labels
+#### Exemplo: combinar grupos e rótulos
 
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
 
