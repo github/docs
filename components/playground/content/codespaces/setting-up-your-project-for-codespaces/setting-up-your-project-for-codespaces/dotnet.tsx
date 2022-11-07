@@ -29,7 +29,7 @@ const article: PlaygroundArticleT = {
       type: 'default',
       title: 'Step 1: Open your project in a codespace',
       content: dedent`
-        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on BRANCH**.
+        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click the plus sign (+).
 
             ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
