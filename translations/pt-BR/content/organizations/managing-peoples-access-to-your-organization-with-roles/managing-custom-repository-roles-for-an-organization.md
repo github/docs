@@ -1,6 +1,6 @@
 ---
-title: Managing custom repository roles for an organization
-intro: You can create, edit, or delete custom repository roles for your organization.
+title: Gerenciando as funções de repositórios personalizados para uma organização
+intro: 'Você pode criar, editar ou excluir funções de repositório personalizadas para a sua organização.'
 permissions: Organization owners can manage custom repository roles.
 versions:
   feature: custom-repository-roles
@@ -10,58 +10,51 @@ topics:
 shortTitle: Manage custom roles
 redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
+ms.openlocfilehash: f7f8be4eda3ecf62a1b587a509881f9fee1a463f
+ms.sourcegitcommit: ca040a1871ab5e929b596686ef955b02c5afa051
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148130986'
 ---
-
 {% data reusables.organizations.custom-repo-roles-ghec-only %}
 
-## About custom repository roles
+## Sobre as funções personalizadas do repositório
 
-{% data reusables.organizations.about-custom-repo-roles %} For more information, see "[About custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-repository-roles)."
+{% data reusables.organizations.about-custom-repo-roles %} Para obter mais informações, confira "[Sobre funções de repositório personalizadas](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-repository-roles)."
 
-## Creating a repository role
+## Criando a função de um repositório
 
-To create a new repository role, you add permissions to an inherited role and give the custom role a name.
+Para criar uma nova função do repositório, você deve adicionar permissões a uma função herdada e dar um nome à função personalizada.
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.org-list %}
-{% data reusables.organizations.org-settings-repository-roles %}
-5. Click **Create a Role**.
-  ![Screenshot of "Create a Role" button](/assets/images/help/organizations/repository-role-create-role.png)
-4. Under "Name", type the name of your repository role.
-  ![Field to type a name for the repository role](/assets/images/help/organizations/repository-role-name.png)
-5. Under "Description", type a description of your repository role.
-  ![Field to type a description for the repository role](/assets/images/help/organizations/repository-role-description.png)
-6. Under "Choose a role to inherit", select the role you want to inherit.
-  ![Selecting repository role base role option](/assets/images/help/organizations/repository-role-base-role-option.png)
-7. Under "Add Permissions", use the drop-down menu to select the permissions you want your custom role to include.
-  ![Selecting permission levels from repository role drop-down](/assets/images/help/organizations/repository-role-drop-down.png)
-7. Click **Create role**.
-  ![Confirm creating a repository role](/assets/images/help/organizations/repository-role-creation-confirm.png)
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.org-list %} {% data reusables.organizations.org-settings-repository-roles %}
+5. Clique em **Criar uma Função**.
+  ![Captura de tela do botão "Criar uma Função"](/assets/images/help/organizations/repository-role-create-role.png)
+4. Em "Nome", digite o nome da função do seu repositório.
+  ![Campo usado para digitar um nome para a função do repositório](/assets/images/help/organizations/repository-role-name.png)
+5. Em "Descrição", digite uma descrição da função do repositório.
+  ![Campo usado para digitar uma descrição para a função do repositório](/assets/images/help/organizations/repository-role-description.png)
+6. Em "Escolha uma função para herdar", selecione a função que deseja herdar.
+  ![Seleção da opção de função base da função do repositório](/assets/images/help/organizations/repository-role-base-role-option.png)
+7. Em "Adicionar permissões", use o menu suspenso para selecionar as permissões que você deseja que a sua função personalizada inclua.
+  ![Seleção dos níveis de permissão no menu suspenso da função do repositório](/assets/images/help/organizations/repository-role-drop-down.png)
+7. Clique em **Criar função**.
+  ![Confirmação da criação de uma função do repositório](/assets/images/help/organizations/repository-role-creation-confirm.png)
 
-## Editing a repository role
+## Editando a função de um repositório
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.org-list %}
-{% data reusables.organizations.org-settings-repository-roles %}
-3. To the right of the role you want to edit, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**.
-  ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-edit-setting.png)
-4. Edit, then click **Update role**.
-  ![Edit fields and update repository roles](/assets/images/help/organizations/repository-role-update.png)
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.org-list %} {% data reusables.organizations.org-settings-repository-roles %}
+3. À direita da função que deseja editar, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Editar**.
+  ![Opção Editar no menu suspenso das funções do repositório](/assets/images/help/organizations/repository-role-edit-setting.png)
+4. Edite e clique em **Atualizar função**.
+  ![Edição de campos e atualização das funções do repositório](/assets/images/help/organizations/repository-role-update.png)
 
-## Deleting a repository role
+## Excluindo a função de um repositório
 
-If you delete an existing repository role, all pending invitations, teams, and users with the custom role will be reassigned to the organization's base permissions.
+Se você excluir a função de um repositório existente, todos os convites pendentes, equipes e usuários com a função personalizada serão reatribuidos às permissões básicas da organização.
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.org-list %}
-{% data reusables.organizations.org-settings-repository-roles %}
-3. To the right of the role you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-  ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-delete-setting.png)
-4. Review changes for the role you want to remove, then click **Delete role**.
-  ![Confirm deleting a repository role](/assets/images/help/organizations/repository-role-delete-confirm.png)
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.org-list %} {% data reusables.organizations.org-settings-repository-roles %}
+3. À direita da função que deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Excluir**.
+  ![Opção Editar no menu suspenso das funções do repositório](/assets/images/help/organizations/repository-role-delete-setting.png)
+4. Revise as alterações para a função que deseja remover e clique em **Excluir função**.
+  ![Confirmação da exclusão de uma função do repositório](/assets/images/help/organizations/repository-role-delete-confirm.png)
