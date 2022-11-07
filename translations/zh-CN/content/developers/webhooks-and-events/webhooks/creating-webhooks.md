@@ -1,6 +1,6 @@
 ---
-title: 创建 web 挂钩
-intro: '了解如何构建 web 挂钩，选择 web 挂钩将在 {% data variables.product.prodname_dotcom %} 上侦听的事件，以及如何设置服务器以接收和管理 web 挂钩负载。'
+title: Creating webhooks
+intro: 'Learn to build a webhook, choosing the events your webhook will listen for on {% data variables.product.prodname_dotcom %} and how to set up a server to receive and manage the webhook payload.'
 redirect_from:
   - /webhooks/creating
   - /developers/webhooks-and-events/creating-webhooks
@@ -11,79 +11,85 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
-ms.openlocfilehash: f07c5de7acd3c5be5236765236d24a6938e3b91f
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145097984'
 ---
-学完 [webhook 的基础知识][webhooks-overview]后，接下来了解如何生成自己的基于 webhook 的集成。 在本教程中，我们将创建一个仓库 web 挂钩，它将负责根据仓库每天收到的议题数量列出仓库的受欢迎程度。
+Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook-powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of issues it receives per day.
 
-创建 web 挂钩是一个两步过程。 首先需要设置 web 挂钩通过 {% data variables.product.product_name %} 实施的行为 - 它应该侦听哪些事件。 之后，您将设置服务器以接收和管理有效负载。
+Creating a webhook is a two-step process. You'll first need to set up what events you webhook should listen to. After that, you'll set up your server to receive and manage the payload.
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-## 向互联网显示本地主机
+## Exposing localhost to the internet
 
-在本教程中，我们将使用本地服务器接收来自 {% data variables.product.prodname_dotcom %} 的消息。 因此，首先，我们需要将我们的本地发展环境显示给互联网。 我们将使用 ngrok 实现此目的。 所有主要操作系统均可免费使用 ngrok。 有关详细信息，请参阅 [`ngrok` 下载页面](https://ngrok.com/download)。
+For the purposes of this tutorial, we're going to use a local server to receive webhook events from {% data variables.product.prodname_dotcom %}. 
 
-安装 `ngrok` 后，可以通过在命令行上运行 `./ngrok http 4567` 来公开本地主机。 4567 是我们服务器侦听消息的端口号。 您应该会看到如下所示的行：
+First of all, we need to expose our local development environment to the internet so {% data variables.product.prodname_dotcom %} can deliver events. We'll use [`ngrok`](https://ngrok.com) to do this.
+
+{% ifversion cli-webhook-forwarding %}
+{% note %}
+
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+
+{% endnote %}
+{% endif %}
+
+`ngrok` is available, free of charge, for all major operating systems. For more information, see [the `ngrok` download page](https://ngrok.com/download).
+
+After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. `4567` is the port number on which our server will listen for messages. You should see a line that looks something like this:
 
 ```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
-记下 `*.ngrok.io` URL。 我们将用它来设置 web 挂钩。
+Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
 
-## 设置 Webhook
+## Setting up a webhook
 
-您可以在组织或特定仓库上安装 web 挂钩。
+You can install webhooks on an organization or on a specific repository.
 
-要设置 web 挂钩，请转到仓库或组织的设置页面。 然后，依次单击“Webhook”和“添加 Webhook” 。
+To set up a webhook, go to the settings page of your repository or organization. From there, click **Webhooks**, then **Add webhook**.
 
-另外，你可以选择[使用 Webhook API][webhook-api] 生成和管理 Webhook。
+Alternatively, you can choose to build and manage a webhook [through the Webhooks API][webhook-api].
 
-Web 挂钩需要设置几个配置选项才能使用。 我们将在下面介绍所有这些设置。
+Webhooks require a few configuration options before you can make use of them. We'll go through each of these settings below.
 
-## 有效负载 URL
+## Payload URL
 
 {% data reusables.webhooks.payload_url %}
 
-由于我们为本教程进行本地开发，因此将其设置为 `*.ngrok.io` URL，且后接 `/payload`。 例如 `http://7e9ea9dc.ngrok.io/payload`。
+Since we're developing locally for our tutorial, we'll set it to the `*.ngrok.io` URL, followed by `/payload`. For example, `http://7e9ea9dc.ngrok.io/payload`.
 
-## 内容类型
+## Content type
 
-{% data reusables.webhooks.content_type %} 对于本教程，默认的内容类型 `application/json` 适用。
+{% data reusables.webhooks.content_type %} For this tutorial, the default content type of `application/json` is fine.
 
-## 机密
+## Secret
 
 {% data reusables.webhooks.secret %}
 
-## SSL 验证
+## SSL verification
 
 {% data reusables.webhooks.webhooks_ssl %}
 
-## 活动
+## Active
 
-默认情况下，web 挂钩交付为“Active（激活）”。 您可以通过取消选择“Active（激活）”来选择禁用 web 挂钩交付。
+By default, webhook deliveries are "Active." You can choose to disable the delivery of webhook payloads by deselecting "Active."
 
-## 事件
+## Events
 
-事件是 web 挂钩的核心。 当仓库上发生特定操作时，就会触发这些 web 挂钩，而服务器的有效负载 URL 会截获它们并采取行动。
+Events are at the core of webhooks. These webhooks fire whenever a certain action is taken on the repository, which your server's payload URL intercepts and acts upon.
 
-可在 [webhook API][hooks-api] 参考中找到完整的 webhook 事件列表及其执行时间。
+A full list of webhook events, and when they execute, can be found in [the webhooks API][hooks-api] reference.
 
-由于 webhook 正在处理存储库中的问题，因此单击“选择单个事件”，然后单击“问题” 。 请确保选择“可用”以接收触发的 Webhook 的问题事件。 您还可以使用默认选项选择所有事件。
+Since our webhook is dealing with issues in a repository, we'll click **Let me select individual events** and then **Issues**. Make sure you select **Active** to receive issue events for triggered webhooks. You can also select all events using the default option.
 
-完成后，单击“添加 Webhook”。 
+When you're finished, click **Add webhook**. 
 
-现在您创建了 web 挂钩，是时候设置我们的本地服务器来测试 web 挂钩了。 转到[配置服务器](/webhooks/configuring/)，了解如何实现这一目标。
+Now that you've created the webhook, it's time to set up our local server to test the webhook. Head on over to [Configuring Your Server](/webhooks/configuring/) to learn how to do that.
 
-### 通配符事件
+### Wildcard event
 
-要为所有事件配置 webhook，请使用通配符 (`*`) 指定 webhook 事件。 添加通配符事件时，我们将用通配符事件替换您配置的任何现有事件，并向您发送所有受支持事件的有效负载。 您还会自动获取我们可能在将来添加的任何新事件。
+To configure a webhook for all events, use the wildcard (`*`) character to specify the webhook events. When you add the wildcard event, we'll replace any existing events you have configured with the wildcard event and send you payloads for all supported events. You'll also automatically get any new events we might add in the future.
 
 [webhooks-overview]: /webhooks/
 [webhook-api]: /rest/reference/repos#hooks

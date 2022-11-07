@@ -40394,7 +40394,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   fundingLinks: [FundingLink!]!
 
   """
-  Are discussions available on this repository?
+  Indicates if the repository has the Discussions feature enabled.
   """
   hasDiscussionsEnabled: Boolean!
 
@@ -41859,6 +41859,11 @@ interface RepositoryInfo {
   Returns how many forks there are of this repository in the whole network.
   """
   forkCount: Int!
+
+  """
+  Indicates if the repository has the Discussions feature enabled.
+  """
+  hasDiscussionsEnabled: Boolean!
 
   """
   Indicates if the repository has issues feature enabled.

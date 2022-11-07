@@ -1,6 +1,6 @@
 ---
 title: Establecimiento de códigos de salida para acciones
-shortTitle: Setting exit codes
+shortTitle: Set exit codes
 intro: 'Puedes usar códigos de salida para establecer el estado de una acción. {% data variables.product.prodname_dotcom %} muestra los estados para indicar las acciones que se pasan o fallan.'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
@@ -10,12 +10,12 @@ versions:
   ghae: '*'
   ghec: '*'
 type: how_to
-ms.openlocfilehash: 28aecc646814736beb8c814dfe4b8385a6605cd2
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 394b17dc03c4998797df222fe7c81c3269003ec9
+ms.sourcegitcommit: d3929a033c42c99b153910685256d079d7d87467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145091871'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148114281'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -25,7 +25,7 @@ ms.locfileid: '145091871'
 
 Estado de salida | Estado de ejecución de verificación | Descripción
 ------------|------------------|------------
-`0` | `success` | La acción se completó con éxito y pueden comenzar otras tareas que dependen de ella.
+`0` | `success` | La acción se completó correctamente y pueden comenzar otras tareas que dependen de ella.
 Valor diferente a zero (cualquier número entero que no sea 0)| `failure` | Cualquier otro código de salida indica que la acción fracasó. Cuando una acción falla, todas las acciones simultáneas se cancelan y las acciones futuras se omiten. La ejecución de comprobación y el conjunto de comprobaciones obtienen un estado `failure`.
 
 ## Establecer un código de salida fallida en una acción JavaScript
