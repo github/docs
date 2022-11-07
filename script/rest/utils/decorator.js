@@ -174,7 +174,6 @@ async function createStaticWebhookFiles(webhookSchemas) {
     )
     return
   }
-  rimraf.sync(`${WEBHOOK_DECORATED_DIR}/*`)
   // Create a map of webhooks (e.g. check_run, issues, release) to the
   // webhook's actions (e.g. created, deleted, etc.).
   //
