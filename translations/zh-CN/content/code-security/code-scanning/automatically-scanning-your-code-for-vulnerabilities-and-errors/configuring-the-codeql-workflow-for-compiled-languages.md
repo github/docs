@@ -90,6 +90,8 @@ The `autobuild` process attempts to autodetect a suitable build method for C# us
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
 3. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
 
+{% ifversion codeql-go-autobuild %}
+
 ### Go
 
 | Supported system type | System name |
@@ -103,6 +105,8 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 2. If none of those commands succeeded, look for `go.mod`, `Gopkg.toml` or `glide.yaml`, and run `go get` (unless vendoring is in use), `dep ensure -v` or `glide install` respectively to try to install dependencies.
 3. Finally, if configurations files for these dependency managers are not found, rearrange the repository directory structure suitable for addition to `GOPATH`, and use `go get` to install dependencies. The directory structure reverts to normal after extraction completes.
 4. Extract all Go code in the repository, similar to running `go build ./...`.
+
+{% endif %}
 
 ### Java
 

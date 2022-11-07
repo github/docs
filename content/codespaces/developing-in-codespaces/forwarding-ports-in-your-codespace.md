@@ -38,7 +38,7 @@ Port forwarding gives you access to TCP ports running within your codespace. For
 
 ## Using HTTPS forwarding
 
-By default, {% data variables.product.prodname_github_codespaces %} forwards ports using HTTP but you can update any port to use HTTPS, as needed.
+By default, {% data variables.product.prodname_github_codespaces %} forwards ports using HTTP but you can update any port to use HTTPS, as needed. If you update a port with public visibility to use HTTPS, the port's visibility will automatically change to private.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Right click the port you want to update, then hover over **Change Port Protocol**.
@@ -61,6 +61,7 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 
 {% vscode %}
 
+{% data reusables.codespaces.port-forwarding-intro-non-jetbrains %}
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Under the list of ports, click **Add port**.
 

@@ -47,7 +47,8 @@ You can configure notification settings for yourself or your organization from t
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
 {% ifversion update-notification-settings-22 %}
-![Screenshot of {% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/dependabot/dependabot-notification-frequency.png){% else %}
+![Screenshot of {% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/dependabot/dependabot-notification-frequency.png){% endif %}{% ifversion ghes > 3.7 or ghae > 3.7 %}
+![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/enterprises/dependabot-alerts-options-no-UI.png){% endif %}{% ifversion ghes < 3.8 or ghae < 3.8 %}
 ![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/notifications-v2/dependabot-alerts-options.png){% endif %}
 
 

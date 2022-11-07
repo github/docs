@@ -26,7 +26,7 @@ to handle incoming payloads.
 ## Writing the server
 
 We want our server to listen to `POST` requests, at `/payload`,
-because that's where we told GitHub our webhook URL was. Because we're using ngrok to expose
+because that's where we told GitHub our webhook URL was. Because we're using `ngrok` to expose
 our local environment, we don't need to set up a real server somewhere online, and
 can happily test out our code locally.
 
