@@ -78,8 +78,8 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
       To create a codespace using the default options, click **Create codespace on BRANCH**.
 
-      Optionally, before clicking **Create codespace on BRANCH**, you can click the down arrow at the side of the button to see what machine type will be used for your codespace.
-
+      Optionally, before clicking **Create codespace on BRANCH**, you can click the ellipsis (**...**) at the top right of the **Codespaces** tab and select **New with options**.
+      
       ![View the default machine type](/assets/images/help/codespaces/default-machine-type.png)
 
       {% note %}
@@ -110,7 +110,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
       
          {% endnote %}
 
-      1. Click **Start session**.
+      1. Click **Create codespace**.
 
 {% endwebui %}
    
