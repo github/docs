@@ -4,12 +4,12 @@ shortTitle: Submit your repository
 intro: 'Você pode enviar seu repositório para {% data variables.product.prodname_community_exchange %} para que outras pessoas vejam ou colaborem.'
 versions:
   fpt: '*'
-ms.openlocfilehash: 07198c74937470a591b30702bd027036d91d3ec7
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 404a1a20f3474c4fa48d6fae9e7f6cc5ddf0e647
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107966'
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111269'
 ---
 ## Sobre envios de repositório
 
@@ -35,11 +35,14 @@ Para um envio com uma finalidade de `Learn`, seu repositório precisa ter:
 - Uma descrição.
 - Um arquivo LEARN.md para fornecer instruções passo a passo, com texto e/ou mídia, sobre como você criou seu projeto. Idealmente, seu arquivo LEARN.md desconstruirá seu projeto em pequenos componentes e fornecerá detalhes completos de cada etapa, para que outros alunos possam codificar o próprio projeto seguindo suas instruções.
 - Um arquivo README.md para fornecer uma descrição detalhada do seu projeto.
+- Uma Licença para que outras pessoas estejam cientes do que podem ou não fazer com o seu código-fonte.
 
 Para um envio com uma finalidade de `Collaborate`, seu repositório precisa ter:
 - Uma descrição.
 - Um arquivo README.md para fornecer uma descrição detalhada do seu projeto.
+- Uma Licença para que outras pessoas estejam cientes do que podem ou não fazer com o seu código-fonte.
 - Um ou mais problemas nos quais os colaboradores trabalham.
+- O arquivo CONTRIBUTING.md para comunicar como contribuir para o projeto.
 
 Um bom envio de repositório para finalidades de `Learn` e `Collaborate` é um repositório que segue os padrões da comunidade. Para obter mais informações, confira "[Sobre os perfis de comunidade para repositórios públicos](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)".
 

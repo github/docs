@@ -1,0 +1,31 @@
+---
+published: true
+deprecated: false
+variables:
+  externalDocsUrl: 'https://docs.github.com/enterprise-cloud@latest/'
+  apiName: 'GitHub Enterprise Cloud'
+patch:
+  - op: add
+    path: /servers
+    value:
+      - url: https://api.github.com
+  - op: add
+    path: /externalDocs
+    value:
+      description: GitHub Enterprise Cloud REST API
+      url: https://docs.github.com/enterprise-cloud@latest/rest/
+  - op: add
+    path: /tags/-
+    value:
+      name: oidc
+      description: Endpoints to manage GitHub OIDC configuration using the REST API.
+      x-displayName: OIDC
+  - op: add
+    path: /tags/-
+    value:
+      name: scim
+      description: Provisioning of GitHub organization membership for SCIM-enabled providers.
+      x-displayName: SCIM
+  - op: add
+    path: /info/x-github-plan
+    value: ghec

@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: e9f2162fa5c65d4a59b2bd350aea2b131205f9a6
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 60f5abc1af5d94ad0c6e7565cf2edca9f009719a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145094142"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148106954"
 ---
-{% data variables.product.prodname_codeql %} também executa uma criação para projetos Go para configurar o projeto. No entanto, em contraste com as outras linguagens compiladas, todos os arquivos Go no repositório são extraídos, não apenas aqueles que são compilados. Você pode usar comandos de compilação personalizados para pular a extração de arquivos Go que não são tocados pela compilação.
+Para essas linguagens, o {% data variables.product.prodname_codeql %} analisa os arquivos de origem no repositório em que são criados. Para qualquer uma dessas linguagens, você pode desabilitar `autobuild` e usar comandos de build personalizados para analisar apenas os arquivos criados por esses comandos personalizados.

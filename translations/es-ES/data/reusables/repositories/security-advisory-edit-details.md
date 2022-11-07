@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: bc3fe32970072b2d2ba003c75723c013c759926f
-ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.openlocfilehash: 3d27adaffb72590a7fa08bb6d94c2e627fde6bc3
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145118065"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107661"
 ---
 1. Edita el producto y versiones que se vieron afectados por la vulnerabilidad de seguridad de la que trata esta asesoría de seguridad. En caso de que aplique, puedes agregar varios productos afectados a esta misma asesoría. 
-  ![Metadatos de avisos de seguridad](/assets/images/help/security/security-advisory-affected-product.png)
+  ![Metadatos de aviso de seguridad](/assets/images/help/security/security-advisory-affected-product.png) Para saber sobre cómo especificar información en el formulario, incluidas las versiones afectadas, consulta "[Procedimientos recomendados para escribir avisos de seguridad del repositorio](/code-security/repository-security-advisories/best-practices-for-writing-repository-security-advisories)".

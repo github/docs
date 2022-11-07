@@ -117,9 +117,7 @@ export const ArticlePage = () => {
                   </Link>
                 </div>
               )}
-              {miniTocItems.length > 1 && (
-                <MiniTocs pageTitle={title} miniTocItems={miniTocItems} />
-              )}
+              {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
             </>
           }
         >
