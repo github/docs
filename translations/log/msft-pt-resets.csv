@@ -343,6 +343,7 @@ translations/pt-BR/data/release-notes/enterprise-server/3-2/6.yml,file deleted b
 translations/pt-BR/data/release-notes/enterprise-server/3-2/7.yml,file deleted because it no longer exists in main
 translations/pt-BR/data/release-notes/enterprise-server/3-2/8.yml,file deleted because it no longer exists in main
 translations/pt-BR/data/release-notes/enterprise-server/3-2/9.yml,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/actions/enterprise-s3-support-warning.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/hardware-requirements-3.6.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
@@ -449,7 +450,6 @@ translations/pt-BR/content/actions/deployment/deploying-to-your-cloud-provider/d
 translations/pt-BR/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-kubernetes-service.md,rendering error
 translations/pt-BR/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app.md,rendering error
 translations/pt-BR/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine.md,rendering error
-translations/pt-BR/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers.md,broken liquid tags
 translations/pt-BR/content/actions/examples/using-concurrency-expressions-and-a-test-matrix.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
@@ -491,9 +491,12 @@ translations/pt-BR/content/actions/using-workflows/workflow-syntax-for-github-ac
 translations/pt-BR/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/pt-BR/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,rendering error
 translations/pt-BR/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise.md,broken liquid tags
+translations/pt-BR/content/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise.md,broken liquid tags
+translations/pt-BR/content/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise.md,rendering error
+translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise.md,broken liquid tags
@@ -542,6 +545,7 @@ translations/pt-BR/content/admin/enterprise-management/updating-the-virtual-mach
 translations/pt-BR/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,rendering error
 translations/pt-BR/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment.md,broken liquid tags
+translations/pt-BR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage.md,broken liquid tags
 translations/pt-BR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates.md,rendering error
 translations/pt-BR/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
 translations/pt-BR/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server.md,rendering error
@@ -671,6 +675,7 @@ translations/pt-BR/content/code-security/adopting-github-advanced-security-at-sc
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
+translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
@@ -719,7 +724,6 @@ translations/pt-BR/content/code-security/supply-chain-security/end-to-end-supply
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,broken liquid tags
-translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
@@ -730,6 +734,7 @@ translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-de
 translations/pt-BR/content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/connecting-to-a-private-network.md,broken liquid tags
+translations/pt-BR/content/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests.md,broken liquid tags
 translations/pt-BR/content/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code.md,broken liquid tags
@@ -757,6 +762,7 @@ translations/pt-BR/content/codespaces/troubleshooting/exporting-changes-to-a-bra
 translations/pt-BR/content/codespaces/troubleshooting/github-codespaces-logs.md,broken liquid tags
 translations/pt-BR/content/codespaces/troubleshooting/troubleshooting-codespaces-clients.md,broken liquid tags
 translations/pt-BR/content/codespaces/troubleshooting/troubleshooting-creation-and-deletion-of-codespaces.md,broken liquid tags
+translations/pt-BR/content/codespaces/troubleshooting/troubleshooting-port-forwarding-for-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,broken liquid tags
 translations/pt-BR/content/codespaces/troubleshooting/troubleshooting-your-connection-to-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/troubleshooting/working-with-support-for-github-codespaces.md,broken liquid tags
@@ -789,6 +795,7 @@ translations/pt-BR/content/developers/overview/about-githubs-apis.md,broken liqu
 translations/pt-BR/content/developers/overview/managing-deploy-keys.md,broken liquid tags
 translations/pt-BR/content/developers/overview/secret-scanning-partner-program.md,broken liquid tags
 translations/pt-BR/content/developers/webhooks-and-events/events/issue-event-types.md,broken liquid tags
+translations/pt-BR/content/developers/webhooks-and-events/webhooks/creating-webhooks.md,broken liquid tags
 translations/pt-BR/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/pt-BR/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
 translations/pt-BR/content/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion.md,broken liquid tags
@@ -798,7 +805,6 @@ translations/pt-BR/content/discussions/managing-discussions-for-your-community/m
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary.md,broken liquid tags
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
-translations/pt-BR/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/learn-with-github-classroom/view-autograding-results.md,broken liquid tags
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,broken liquid tags
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms.md,broken liquid tags
@@ -872,7 +878,6 @@ translations/pt-BR/content/organizations/managing-organization-settings/managing
 translations/pt-BR/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
-translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/pt-BR/content/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization.md,broken liquid tags
 translations/pt-BR/content/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization.md,broken liquid tags
@@ -971,6 +976,7 @@ translations/pt-BR/content/rest/enterprise-admin/scim.md,rendering error
 translations/pt-BR/content/rest/enterprise-admin/users.md,broken liquid tags
 translations/pt-BR/content/rest/gitignore.md,broken liquid tags
 translations/pt-BR/content/rest/guides/building-a-ci-server.md,broken liquid tags
+translations/pt-BR/content/rest/guides/delivering-deployments.md,broken liquid tags
 translations/pt-BR/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/pt-BR/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/pt-BR/content/rest/guides/working-with-comments.md,broken liquid tags
@@ -1090,6 +1096,7 @@ translations/pt-BR/data/reusables/dependabot/default-dependencies-allow-ignore.m
 translations/pt-BR/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/pt-BR/data/reusables/dependabot/sidebar-secret.md,rendering error
 translations/pt-BR/data/reusables/dependabot/supported-package-managers.md,rendering error
+translations/pt-BR/data/reusables/dependency-review/feature-overview.md,broken liquid tags
 translations/pt-BR/data/reusables/desktop/get-an-account.md,broken liquid tags
 translations/pt-BR/data/reusables/discussions/enabling-or-disabling-github-discussions-for-your-organization.md,broken liquid tags
 translations/pt-BR/data/reusables/discussions/navigate-to-repo-or-org.md,broken liquid tags
@@ -1199,6 +1206,7 @@ translations/pt-BR/data/reusables/secret-scanning/partner-secret-list-private-re
 translations/pt-BR/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/pt-BR/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/pt-BR/data/reusables/security-overview/permissions.md,rendering error
+translations/pt-BR/data/reusables/security/displayed-information.md,broken liquid tags
 translations/pt-BR/data/reusables/shortdesc/rate_limits_github_apps.md,broken liquid tags
 translations/pt-BR/data/reusables/sponsors/select-sponsorship-billing.md,broken liquid tags
 translations/pt-BR/data/reusables/ssh/about-ssh.md,broken liquid tags

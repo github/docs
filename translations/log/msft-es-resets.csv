@@ -471,7 +471,6 @@ translations/es-ES/content/actions/deployment/deploying-to-your-cloud-provider/d
 translations/es-ES/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app.md,rendering error
 translations/es-ES/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine.md,rendering error
 translations/es-ES/content/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect.md,broken liquid tags
-translations/es-ES/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers.md,broken liquid tags
 translations/es-ES/content/actions/examples/using-concurrency-expressions-and-a-test-matrix.md,broken liquid tags
 translations/es-ES/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/es-ES/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
@@ -848,7 +847,7 @@ translations/es-ES/content/developers/overview/about-githubs-apis.md,broken liqu
 translations/es-ES/content/developers/overview/managing-deploy-keys.md,broken liquid tags
 translations/es-ES/content/developers/overview/secret-scanning-partner-program.md,broken liquid tags
 translations/es-ES/content/developers/webhooks-and-events/events/issue-event-types.md,broken liquid tags
-translations/es-ES/content/developers/webhooks-and-events/webhooks/creating-webhooks.md,broken liquid tags
+translations/es-ES/content/developers/webhooks-and-events/webhooks/creating-webhooks.md,rendering error
 translations/es-ES/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/es-ES/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
 translations/es-ES/content/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion.md,broken liquid tags
@@ -946,8 +945,6 @@ translations/es-ES/content/organizations/managing-organization-settings/managing
 translations/es-ES/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
 translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,rendering error
 translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
-translations/es-ES/content/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization.md,broken liquid tags
-translations/es-ES/content/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization.md,broken liquid tags
 translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,broken liquid tags
 translations/es-ES/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/es-ES/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
@@ -1172,6 +1169,7 @@ translations/es-ES/data/reusables/dependabot/default-dependencies-allow-ignore.m
 translations/es-ES/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/es-ES/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
 translations/es-ES/data/reusables/dependabot/supported-package-managers.md,rendering error
+translations/es-ES/data/reusables/dependency-review/feature-overview.md,broken liquid tags
 translations/es-ES/data/reusables/desktop/get-an-account.md,broken liquid tags
 translations/es-ES/data/reusables/discussions/enabling-or-disabling-github-discussions-for-your-organization.md,broken liquid tags
 translations/es-ES/data/reusables/discussions/navigate-to-repo-or-org.md,broken liquid tags
@@ -1292,6 +1290,7 @@ translations/es-ES/data/reusables/secret-scanning/partner-secret-list-private-re
 translations/es-ES/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/es-ES/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/es-ES/data/reusables/security-overview/permissions.md,rendering error
+translations/es-ES/data/reusables/security/displayed-information.md,broken liquid tags
 translations/es-ES/data/reusables/shortdesc/rate_limits_github_apps.md,broken liquid tags
 translations/es-ES/data/reusables/sponsors/feedback.md,broken liquid tags
 translations/es-ES/data/reusables/sponsors/select-sponsorship-billing.md,broken liquid tags
