@@ -1,5 +1,5 @@
 ---
-title: Managing organizations in your enterprise
+title: Administrar las organizaciones en tu empresa
 redirect_from:
   - /enterprise/admin/articles/adding-users-and-teams
   - /enterprise/admin/categories/admin-bootcamp
@@ -12,7 +12,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
-intro: 'You can use organizations to group users within your company, such as divisions or groups working on similar projects, and manage access to repositories.'
+intro: 'Puedes usar organizaciones para agrupar usuarios dentro de tu empresa, como departamentos o grupos que trabajen en proyectos similares, y administrar el acceso a los repositorios.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -33,5 +33,11 @@ children:
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
+ms.openlocfilehash: e2fade6385a690d1ca91b587f2d7ca3e081bd23b
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127615'
 ---
 
