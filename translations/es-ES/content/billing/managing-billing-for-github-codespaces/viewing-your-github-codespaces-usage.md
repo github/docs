@@ -1,7 +1,7 @@
 ---
 title: Viewing your GitHub Codespaces usage
-shortTitle: Ver tu uso
-intro: 'Puedes ver los minutos de cálculo y almacenamiento que utilizan los {% data variables.product.prodname_github_codespaces %}.'
+shortTitle: Viewing your usage
+intro: 'You can view the compute minutes and storage used by {% data variables.product.prodname_github_codespaces %}.'
 permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -15,25 +15,43 @@ redirect_from:
   - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
 ---
 
-## Visualizar el uso de {% data variables.product.prodname_github_codespaces %} para tu organización
+## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization
 
-Los propietarios de la organización y gerentes de facturación pueden ver el uso de {% data variables.product.prodname_github_codespaces %} para una organización. Para las organizaciones que administra una cuenta empresarial, los propietarios de estas pueden ver el uso de los {% data variables.product.prodname_codespaces %} en la página de facturación de la misma y los administradores empresariales pueden ver el uso de toda la empresa.
+Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an organization. For organizations managed by an enterprise account, the organization owners can view {% data variables.product.prodname_github_codespaces %} usage in the organization billing page, and enterprise admins can view the usage for the entire enterprise.
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.codespaces-minutes %}
+1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
+
+   ![Details of minute usage](/assets/images/help/billing/codespaces-compute-storage.png)
+
+   You can also see and update your current spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
+
+   {% note %}
+
+   **Notes**: 
+   * The costs shown here are the cumulative costs within the current monthly billing period. The metered costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each monthly billing period. Outstanding costs from previous months are not shown.
+   * The figures on this page are updated every hour.
+
+   {% endnote %}
+
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
+   The data used for this report is updated daily. 
 1. Filter the report to show only rows that mention "Codespaces" in the `Product` field.
 
    ![A usage report filtered for Codespaces](/assets/images/help/codespaces/CSV-usage-report.png)
 
 {% ifversion ghec %}
-## Visualizar el uso de {% data variables.product.prodname_codespaces %} para tu cuenta empresarial
+## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
 
-Los propietarios de empresa y gerentes de facturación pueden ver el uso de {% data variables.product.prodname_codespaces %} para una cuenta empresarial.
+Enterprise owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an enterprise account.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Debajo de "{% data variables.product.prodname_codespaces %}", ve los detalles de uso de cada organización en tu cuenta empresarial.
+1. Under "{% data variables.product.prodname_codespaces %} monthly usage", view the usage details of each organization in your enterprise account.
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
 {% endif %}
+
+## Further reading
+
+- "[Listing the codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"

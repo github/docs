@@ -18,7 +18,7 @@
 // Max age is in seconds
 export function cacheControlFactory(
   maxAge = 60 * 60,
-  { key = 'cache-control', public_ = true, immutable = false } = {}
+  { key = 'cache-control', public_ = true, immutable = false, maxAgeZero = false } = {}
 ) {
   const directives = [
     maxAge && public_ && 'public',
@@ -26,6 +26,7 @@ export function cacheControlFactory(
     maxAge && immutable && 'immutable',
     !maxAge && 'private',
     !maxAge && 'no-store',
+    maxAgeZero && 'max-age=0',
   ]
     .filter(Boolean)
     .join(', ')

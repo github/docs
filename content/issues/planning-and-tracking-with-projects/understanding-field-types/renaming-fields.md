@@ -1,9 +1,9 @@
 ---
-title: 'Renaming fields'
+title: Renaming fields
 intro: 'Learn about renaming existing fields in your {% data variables.projects.project_v2 %}.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 type: tutorial
 topics:
   - Projects

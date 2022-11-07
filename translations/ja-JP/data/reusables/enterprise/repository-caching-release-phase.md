@@ -1,7 +1,7 @@
 {% ifversion ghes < 3.6 %}
 {% note %}
 
-**ノート:** リポジトリキャッシングは現在ベータであり、変更されることがあります。
+**Note:** Repository caching is currently in beta and subject to change.
 
 {% endnote %}
 {% endif %}

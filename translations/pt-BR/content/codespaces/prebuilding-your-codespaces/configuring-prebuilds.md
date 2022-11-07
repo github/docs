@@ -1,7 +1,7 @@
 ---
-title: Configurando as pré-criações
-shortTitle: Configurar pré-criações
-intro: Você pode configurar o seu projeto para pré-criar um codespace automaticamente cada vez que você fizer push de uma alteração no repositório.
+title: Configuring prebuilds
+shortTitle: Configure prebuilds
+intro: You can configure your project to prebuild a codespace automatically each time you push a change to your repository.
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,98 +13,102 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 ---
 
-É possível definir uma configuração de pré-compilação para a combinação de um branch específico do seu repositório com um arquivo de configuração de desenvolvimento específico.
+You can set up a prebuild configuration for the combination of a specific branch of your repository with a specific dev container configuration file.
 
-Qualquer branch criado a partir de um branch pai pré-compilado, geralmente, irá obter as pré-compilações para a mesma configuração de contêiner de desenvolvimento. Isso ocorre porque a pré-compilação para branches secundários que usam a mesma configuração de contêiner de desenvolvimento que o branch principal é, na grande maioria, idêntica para que os desenvolvedores possam se beneficiar do tempo de criação de codespace mais rápidos também nessas branches. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
+Any branches created from a prebuild-enabled parent branch will typically also get prebuilds for the same dev container configuration. This is because the prebuild for child branches that use the same dev container configuration as the parent branch are, for the most part, identical, so developers can benefit from faster codespace creation times on those branches also. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
 
-De modo geral, ao configurar pré-compilações para um branch, as pré-compilações estarão disponíveis para vários tipos de máquina. No entanto, se seu repositório tiver um tamanho superior a 32 GB, as pré-compilações não estarão disponíveis para tipos de máquina 2-core e 4-core, uma vez que o armazenamento previsto é limitado a 32 GB.
+Typically, when you configure prebuilds for a branch, prebuilds will be available for multiple machine types. However, if your repository is greater than 32 GB, prebuilds won't be available for 2-core and 4-core machine types, since the storage these provide is limited to 32 GB.
 
-## Pré-requisitos
+## Prerequisites 
 
-Antes de configurar as pré-compilações para seu projeto, os pontos a seguir devem ser verdadeiros:
-* {% data variables.product.prodname_github_codespaces %} deve estar habilitado para sua organização. Para obter mais informações, consulte "[Habilitando {% data variables.product.prodname_github_codespaces %} para a sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)".
-* {% data variables.product.prodname_actions %} deve estar habilitado para o seu repositório. Cada configuração de pré-compilação deve poder acionar um fluxo de trabalho de ações. Para obter mais informações, consulte "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)".
+Before you can configure prebuilds for your project the following must be true: 
+* {% data variables.product.prodname_github_codespaces %} must be enabled for your organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+* {% data variables.product.prodname_actions %} must be enabled for your repository. Each prebuild configuration needs to be able to trigger an associated Actions workflow. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
 
-## Configurando uma pré-compilação
+## Configuring a prebuild
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Na seção "Código & automação" da barra lateral, clique em **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %}**.
-1. Na seção "Configuração de pré-compilação" da página, clique em **Configurar pré-compilação**.
+{% data reusables.codespaces.accessing-prebuild-configuration %}
+1. In the "Prebuild configuration" section of the page, click **Set up prebuild**.
 
-   ![O botão "Configurar pré-compilações"](/assets/images/help/codespaces/prebuilds-set-up.png)
+   ![The 'Set up prebuilds' button](/assets/images/help/codespaces/prebuilds-set-up.png)
 
-1. Escolha o branch para o qual você deseja configurar uma pré-compilação.
+1. Choose the branch for which you want to set up a prebuild.
 
-   ![Menu suspenso do branch](/assets/images/help/codespaces/prebuilds-choose-branch.png)
+   ![The branch drop-down menu](/assets/images/help/codespaces/prebuilds-choose-branch.png)
 
-   {% note %}
+   {% note %} 
 
-   **Observação**: Todos os branches criados a partir de um branch de base habilitado pela pré-compilação normalmente irão receber as pré-compilações para a mesma configuração de contêiner de dev. Por exemplo, se você habilitar as pré-compilações para um arquivo de configuração de contêiner de desenvolvimento no branch padrão do repositório, na maioria dos casos, os branches com base no branch padrão também obterão pré-compilações para a mesma configuração de contêiner de devs.
+   **Note**: Any branches created from a prebuild-enabled base branch will typically also get prebuilds for the same dev container configuration. For example, if you enable prebuilds for a dev container configuration file on the default branch of the repository, branches based on the default branch will, in most cases, also get prebuilds for the same dev container configuration.
 
    {% endnote %}
 
-1. Opcionalmente, no menu suspenso **arquivo de configuração** exibido, escolha o arquivo de configuração `devcontainer.json` que você deseja usar para esta pré-compilação. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
+1. Optionally, in the **Configuration file** drop-down menu that's displayed, choose the `devcontainer.json` configuration file that you want to use for this prebuild. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
 
-   ![Menu suspenso de configuração de arquivo](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
+   ![The configuration file drop-down menu](/assets/images/help/codespaces/prebuilds-choose-configfile.png)
 
-1. Escolha como você quer acionar automaticamente as atualizações da pré-compilação.
+1. Choose how you want to automatically trigger updates of the prebuild.
 
-   * **Cada push** (a configuração padrão) - Com esta configuração, configurações de pré-criação serão atualizadas a cada push feito para o branch determinado. Isto irá garantir que os codespaces gerados a partir de uma pré-criação sempre contenham as configurações mais recentes de codespace, incluindo as dependências adicionadas recentemente ou atualizadas.
-   * **Na alteração da configuração** - Com essa configuração, as configurações de pré-criação serão atualizadas toda vez que os arquivos de configuração associados para um determinado repositório e branch forem atualizados. Isso garante que as alterações nos arquivos de configuração de contêiner de desenvolvimento do repositório sejam usadas quando um codespace for gerado a partir de uma pré-compilação. O fluxo de trabalho de ações que atualizar o template de pré-compilação será executado menos vezes. Portanto, esta opção usará menos minutos de ações. No entanto, esta opção não garante que os codespaces sempre incluam dependências recentemente adicionadas ou atualizadas. Portanto, elas podem ser adicionadas ou atualizadas manualmente depois que o codespace for criado.
-   * **Agendado** - Com esta configuração, você pode atualizar suas configurações de pré-criação em um agendamento personalizado definido por você. Isso pode reduzir o consumo de minutos de ações. No entanto, com esta opção, é possível criar codespaces que não usam as últimas alterações na configuração do contêiner de desenvolvimento.
+   * **Every push** (the default setting) - With this setting, prebuild configurations will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild always contain the latest codespace configuration, including any recently added or updated dependencies.
+   * **On configuration change** - With this setting, prebuild configurations will be updated every time associated configuration files for a given repo and branch are updated. This ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild. The Actions workflow that updates the prebuild will run less often, so this option will use fewer Actions minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
+   * **Scheduled** - With this setting, you can have your prebuild configurations update on a custom schedule that's defined by you. This can reduce consumption of Actions minutes, however, with this option, codespaces may be created that do not use the latest dev container configuration changes.
 
-   ![As opções de acionamento de pré-criação](/assets/images/help/codespaces/prebuilds-triggers.png)
+   ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
 
-1. Opcionalmente, selecione **Reduzir pré-compilação disponível para apenas regiões específicas** para limitar o acesso à sua pré-compilação e, em seguida, selecione em que regiões você deseja que esteja disponível. Os desenvolvedores só podem criar Codespaces a partir de uma pré-compilação se estiverem localizados em uma região que você selecionar. Por padrão, sua imagem pré-compilada está disponível para todas as regiões onde os Codespaces estão disponíveis e aplicam-se custos de armazenamento para cada região.
+1. Optionally, select **Reduce prebuild available to only specific regions** to limit access to your prebuild, then select which regions you want it to be available in. Developers can only create codespaces from a prebuild if they are located in a region you select. By default, your prebuild is available to all regions where codespaces is available and storage costs apply for each region.
 
-   ![Opções de seleção de região](/assets/images/help/codespaces/prebuilds-regions.png)
+   ![The region selection options](/assets/images/help/codespaces/prebuilds-regions.png)
 
    {% note %}
 
-   **Atenção**:
-   * A pré-compilação para cada região irá incorrer em taxas individuais. Por conseguinte, só devem ser permitidas pré-construções para regiões em que se sabe que serão utilizadas. Para obter mais informações, consulte "[Sobre pré-compilações de {% data variables.product.prodname_github_codespaces %}](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)".
-   * Os desenvolvedores podem definir sua região padrão para {% data variables.product.prodname_codespaces %}, que pode permitir que você habilite pré-compilações para menos regiões. Para obter mais informações, consulte "[Definindo a sua região padrão para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)".
+   **Notes**: 
+   * The prebuild for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
+   * Developers can set their default region for {% data variables.product.prodname_github_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
    {% endnote %}
 
-1. Opcionalmente, defina o número de versões pré-compiladas a serem mantidas. Você pode inserir qualquer número entre 1 e 5. O número padrão das versões salvas é 2, o que significa que apenas a versão de modelo mais recente e a versão anterior são salvas.
+1. Optionally, set the number of prebuild versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest template version and the previous version are saved.
 
-   Dependendo das configurações do acionamento da pré-compilação, a sua pré-compilação pode mudar a cada push ou em cada alteração de configuração do contêiner de dev. A retenção de versões mais antigas das pré-compilações permite criar uma pré-compilação a partir de um commit mais antigo com uma configuração de contêiner de dev diferente da pré-compilação atual. Uma vez que há um custo de armazenamento associado à retenção de versões da pré-compilação, você pode escolher o número de versões a serem retidas com base nas necessidades da sua equipe. Para obter mais informações sobre cobrança, consulte "[Sobre a cobrança para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)".
+   Depending on your prebuild trigger settings, your prebuild could change with each push or on each dev container configuration change. Retaining older versions of prebuilds enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild. Since there is a storage cost associated with retaining prebuild versions, you can choose the number of versions to be retained based on the needs of your team. For more information on billing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
-   Se você definir o número de versões da pré-compilação como economizar para 1, {% data variables.product.prodname_codespaces %} só salvará a versão mais recente da pré-compilação e excluirá a versão mais antiga cada vez que o modelo for atualizado. Isso significa que você não terá um codespace pré-compilado, se você voltar para uma configuração de contêiner de dev mais antiga.
+   If you set the number of prebuild versions to save to 1, {% data variables.product.prodname_github_codespaces %} will only save the latest version of the prebuild and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you go back to an older dev container configuration.
 
-   ![A configuração do histórico de pré-compilação](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
+   ![The prebuild history setting](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
 
-1. Opcionalmente, adicione usuários ou equipes para notificar quando a execução do fluxo de trabalho pré-compilado falhar para esta configuração. Você pode começar a digitar um nome de usuário, nome da equipe ou nome completo e, em seguida, clicar no nome uma vez que ele aparece para adicioná-los à lista. Os usuários ou equipes que você adicionar receberão um e-mail quando ocorrem falhas pré-construídos, contendo um link para os registros de execução de fluxo de trabalho para ajudar com uma investigação mais aprofundada.
+1. Optionally, add users or teams to notify when the prebuild workflow run fails for this configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
 
-   ![A configuração de notificação de falha de pré-compilação](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
+   ![The prebuild failure notification setting](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
-1. Clique em **Criar**.
+1. Optionally, at the bottom of the page, click **Show advanced options**.
+
+   ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
+
+   In the "Advanced options" section, if you select **Disable prebuild optimization**, codespaces will be created without a prebuild if the latest prebuild workflow has failed or is currently running. For more information, see "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds#preventing-out-of-date-prebuilds-being-used)."
+
+1. Click **Create**.
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
-Depois de criar uma configuração de pré-compilação, ela será listada na página de {% data variables.product.prodname_codespaces %} das configurações do repositório. Um fluxo de trabalho de {% data variables.product.prodname_actions %} foi colocado em fila e, em seguida, executado para criar pré-compilações nas regiões especificadas, baseado no arquivo de configuração de branch e container de desenvolvimento que você selecionou.
+After you create a prebuild configuration it is listed on the {% data variables.product.prodname_github_codespaces %} page of your repository settings. A {% data variables.product.prodname_actions %} workflow is queued and then run to create prebuilds in the regions you specified, based on the branch and dev container configuration file you selected. 
 
-![Captura de tela da lista de configurações de pré-compilação](/assets/images/help/codespaces/prebuild-configs-list.png)
+![Screenshot of the list of prebuild configurations](/assets/images/help/codespaces/prebuild-configs-list.png)
 
-Para obter informações sobre edição e exclusão de configurações de pré-compilação, consulte "[Gerenciar pré-compilações](/codespaces/prebuilding-your-codespaces/managing-prebuilds)".
+For information about editing and deleting prebuild configurations, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds)."
 
-## Configurar variáveis de ambiente
+## Configuring environment variables
 
-Para permitir que o processo de pré-compilação acesse as variáveis de ambiente necessárias para criar seu ambiente de desenvolvimento. Você pode defini-las como segredos de repositório de {% data variables.product.prodname_codespaces %} ou como segredos da organização de {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Adicionando segredos para um repositório](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)" e "[Adicionando segredos a uma organização](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-an-organization)".
+To allow the prebuild process to access environment variables required to create your development environment, you can set these either as {% data variables.product.prodname_codespaces %} repository secrets or as {% data variables.product.prodname_codespaces %} organization secrets. For more information, see "[Adding secrets for a repository](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)" and "[Adding secrets for an organization](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-an-organization)." 
 
-Os segredos de que você criar desta forma serão acessíveis por qualquer pessoa que criar um codespace a partir deste repositório. Se você não quiser isso, você pode definir o segredo `CODESPACES_PREBUILD_TOKEN`. O segredo `CODESPACES_PREBUILD_TOKEN` é usado apenas para pré-compilação e seu valor não pode ser acessado nos codespaces dos usuários.
+Secrets that you create in this way will be accessible by anyone who creates a codespace from this repository. If you do not want this, you can alternatively set the `CODESPACES_PREBUILD_TOKEN` secret. The `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and its value is not accessible in users' codespaces. 
 
-As pré-compilações não podem usar nenhum segredo de nível de usuário ao construir seu ambiente, porque elas não são disponibilizadas até que o codespace seja criado.
+Prebuilds cannot use any user-level secrets while building your environment, because these are not available until after the codespace has been created.
 
-## Configurando tarefas demoradas a serem incluídas na pré-compilação
+## Configuring time-consuming tasks to be included in the prebuild
 
-Você pode usar os comandos `onCreateCommand` e `updateContentCommand` no seu `devcontainer.json` paraa incluir processos demorados como parte da criação da pré-compilação. Para obter mais informações, consulte a documentação de {% data variables.product.prodname_vscode %}, "[referência de devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)".
+You can use the `onCreateCommand` and `updateContentCommand` commands in your `devcontainer.json` to include time-consuming processes as part of the prebuild creation. For more information, see the {% data variables.product.prodname_vscode %} documentation, "[devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)."
 
-`onCreateCommand` é executado apenas uma vez, quando a pré-compilação é criada, enquanto `updateContentCommand` é executado na criação do modelos e em subsequentes atualizações dos modelos. As compilações incrementais devem ser incluídas em `updateContentCommand` uma vez que representam a fonte do seu projeto e devem ser incluídas para cada atualização de uma pré-compilação.
+`onCreateCommand` is run only once, when the prebuild is created, whereas `updateContentCommand` is run at template creation and at subsequent template updates. Incremental builds should be included in `updateContentCommand` since they represent the source of your project and need to be included for every prebuild update.
 
-## Leia mais
+## Further reading
 
-- "[Permitido que uma pré-compilação acesse outros repositórios](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)"
-- "[Solucionar problemas de pré-compilações](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- "[Allowing a prebuild to access other repositories](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)"
+- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"

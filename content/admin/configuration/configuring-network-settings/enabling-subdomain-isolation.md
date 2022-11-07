@@ -19,7 +19,7 @@ shortTitle: Enable subdomain isolation
 ---
 ## About subdomain isolation
 
-Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location %}.
+Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.location.product_location %}.
 
 When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains. After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
 
@@ -32,7 +32,12 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 | `http(s)://HOSTNAME/media/`       | `http(s)://media.HOSTNAME/`       |
 | `http(s)://HOSTNAME/pages/`       | `http(s)://pages.HOSTNAME/`       |
 | `http(s)://HOSTNAME/raw/`         | `http(s)://raw.HOSTNAME/`         |
+{%- ifversion viewscreen-and-notebooks %}
+| `http(s)://HOSTNAME/viewscreen/`  | `http(s)://viewscreen.HOSTNAME/`  |
+| `http(s)://HOSTNAME/notebooks/`   | `http(s)://notebooks.HOSTNAME/`   |
+{%- else %}
 | `http(s)://HOSTNAME/render/`      | `http(s)://render.HOSTNAME/`      |
+{%- endif %}
 | `http(s)://HOSTNAME/reply/`       | `http(s)://reply.HOSTNAME/`       |
 | `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     | {% ifversion ghes %}
 | `https://HOSTNAME/` | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}

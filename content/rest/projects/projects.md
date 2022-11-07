@@ -14,3 +14,5 @@ miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

@@ -1,6 +1,6 @@
 ---
 title: Identificando vulnerabilidades nas dependências do seu projeto com alertas do Dependabot
-shortTitle: Alertas do Dependabot
+shortTitle: Dependabot alerts
 intro: '{% data variables.product.prodname_dependabot %} gera {% data variables.product.prodname_dependabot_alerts %} quando as vulnerabilidades conhecidas são detectadas em dependências que o seu projeto usa.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -15,11 +15,15 @@ topics:
   - Repositories
   - Dependencies
 children:
-  - /browsing-security-advisories-in-the-github-advisory-database
-  - /editing-security-advisories-in-the-github-advisory-database
   - /about-dependabot-alerts
   - /configuring-dependabot-alerts
   - /viewing-and-updating-dependabot-alerts
   - /configuring-notifications-for-dependabot-alerts
+ms.openlocfilehash: b9abda5288d4f0dfed2175b0e944c0d1bc48f3f7
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113952'
 ---
 

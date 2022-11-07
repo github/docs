@@ -9,13 +9,14 @@ redirect_from:
 ---
 
 
-## ディスカッションを検索する
+## Finding discussions
 
-1. {% data variables.product.product_location %} の右上隅にあるプロフィール画像をクリックしてから、[**Your discussions**] をクリックします。 ![{% data variables.product.product_name %} のプロフィール画像のドロップダウンメニューにある [Your discussions]](/assets/images/help/discussions/your-discussions.png)
-1. [**Created**] と [**Commented**] を切り替えて、作成または参加したディスカッションを表示します。
+1. In the top-right corner of {% data variables.location.product_location %}, click your profile photo, then click **Your discussions**.
+  !["Your discussions" in drop-down menu for profile photo on {% data variables.product.product_name %}](/assets/images/help/discussions/your-discussions.png)
+1. Toggle between **Created** and **Commented** to see the discussions you've created or participated in.
 
-## 参考リンク
+## Further reading
 
-- 「[ディスカッションを検索する](/search-github/searching-on-github/searching-discussions)」
-- 「[Discussions について](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」
-- 「[コミュニティの Discussions を管理する](/discussions/managing-discussions-for-your-community)」
+- "[Searching discussions](/search-github/searching-on-github/searching-discussions)"
+- "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+- "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"

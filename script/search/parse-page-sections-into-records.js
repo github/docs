@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { render } from 'cheerio-to-text'
+
 import { maxContentLength } from '../../lib/search/config.js'
 
 // This module takes cheerio page object and divides it into sections
@@ -17,21 +19,34 @@ export default function parsePageSectionsIntoRecords(page) {
     .get()
     .slice(0, -1)
 
+  // Like in printing from DOM, some elements should not be included in
+  // the records for search. This might be navigational elements of the
+  // page that don't make much sense to find in a site search.
+  $('[data-search=hide]').remove()
+
   const breadcrumbs = breadcrumbsArray.join(' / ') || ''
   const metaKeywords = $('meta[name="keywords"]').attr('content')
-  const topics = metaKeywords ? metaKeywords.split(',') : []
+  const topics = (metaKeywords ? metaKeywords.split(',') : [])
+    .filter(Boolean)
+    .map((keyword) => keyword.trim())
 
   const productName = breadcrumbsArray[0] || ''
-  topics.push(productName)
+  if (productName) topics.push(productName)
   // Remove "github" to make filter queries shorter
   if (productName.includes('GitHub ')) {
-    topics.push(productName.replace('GitHub ', ''))
+    const productNameShort = productName.replace('GitHub ', '').trim()
+    if (productNameShort) topics.push(productNameShort)
   }
 
   const objectID = href
 
   const rootSelector = '[data-search=article-body]'
   const $root = $(rootSelector)
+  if ($root.length === 0) {
+    console.warn(`${href} has no '${rootSelector}'`)
+  } else if ($root.length > 1) {
+    console.warn(`${href} has more than one '${rootSelector}' (${$root.length})`)
+  }
 
   const $sections = $('h2', $root)
     .filter('[id]')
@@ -59,7 +74,7 @@ export default function parsePageSectionsIntoRecords(page) {
   // pages that yields some decent content to be searched on, because
   // when you view these pages in a browser, there's clearly text there.
   if ($root.length > 0) {
-    body = getAllText($root)
+    body = render($root)
   }
 
   if (!body && !intro) {
@@ -69,11 +84,14 @@ export default function parsePageSectionsIntoRecords(page) {
   // These below lines can be deleted (along with the `maxContentLength`
   // config) once we've stopped generating Lunr indexes on disk that
   // we store as Git LFS.
-  if (languageCode !== 'en' && body.length > maxContentLength) {
-    body = body.slice(0, maxContentLength)
+  if (!process.env.ELASTICSEARCH_URL) {
+    if (languageCode !== 'en' && body.length > maxContentLength) {
+      body = body.slice(0, maxContentLength)
+    }
   }
 
-  const content = `${intro}\n${body}`.trim()
+  const content =
+    intro && !body.includes(intro.trim()) ? `${intro.trim()}\n${body.trim()}`.trim() : body.trim()
 
   return {
     objectID,
@@ -83,44 +101,4 @@ export default function parsePageSectionsIntoRecords(page) {
     content,
     topics,
   }
-}
-
-function getAllText($root) {
-  const inlineElements = new Set(
-    `a,abbr,acronym,audio,b,bdi,bdo,big,br,button,canvas,cite,code,data,
-    datalist,del,dfn,em,embed,i,iframe,img,input,ins,kbd,label,map,mark,
-    meter,noscript,object,output,picture,progress,q,ruby,s,samp,script,
-    select,slot,small,span,strong,sub,sup,svg,template,textarea,time,
-    tt,u,var,video,wbr`
-      .split(',')
-      .map((s) => s.trim())
-  )
-
-  const walkTree = (node, callback, index = 0, level = 0) => {
-    callback(node, index, level)
-    for (let i = 0; i < (node.children || []).length; i++) {
-      walkTree(node.children[i], callback, i, ++level)
-      level--
-    }
-  }
-
-  const fragments = []
-
-  walkTree($root[0], (element) => {
-    if (element.name === 'body') return
-
-    if (element.type === 'text') {
-      const parentElement = element.parent || {}
-      const previousElement = element.prev || {}
-      let { data } = element
-      if (data.trim()) {
-        if (!inlineElements.has(parentElement.name) && !inlineElements.has(previousElement.name)) {
-          data = `\n${data}`
-        }
-        fragments.push(data)
-      }
-    }
-  })
-
-  return fragments.join('').trim()
 }

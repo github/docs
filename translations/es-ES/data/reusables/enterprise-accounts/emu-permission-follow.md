@@ -1,1 +1,1 @@
-{% ifversion ghec %} Los miembros de una {% data variables.product.prodname_emu_enterprise %} solo pueden seguir a otros miembros de su empresa. {% endif %}
+{% ifversion ghec %} Members of an {% data variables.enterprise.prodname_emu_enterprise %} can only follow other members of their enterprise. {% endif %}

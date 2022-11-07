@@ -1,6 +1,6 @@
 ---
-title: 'Eliminar a un colaborador externo del {% data variables.product.prodname_project_v1 %} de una organización'
-intro: 'Como propietario de una organización o administrador de un {% data variables.projects.projects_v1_board %}, puedes eliminar el acceso de un colaborador externo a un {% data variables.projects.projects_v1_board %}.'
+title: 'Removing an outside collaborator from an organization {% data variables.product.prodname_project_v1 %}'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can remove an outside collaborator''s access to a {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-project-board
@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Eliminar a un colaborador externo
+shortTitle: Remove outside collaborator
 allowTitleToDifferFromFilename: true
 ---
 
@@ -21,7 +21,7 @@ allowTitleToDifferFromFilename: true
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Haz clic en **Proyectos (clásico)**{% endif %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}

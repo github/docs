@@ -10,14 +10,19 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 7a0f040b86435573171c4022a72f8d558ad06c29
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146381422'
 ---
-
 ## 节点限制
 
-要通过[架构](/graphql/guides/introduction-to-graphql#schema)验证，所有 GraphQL API [调用](/graphql/guides/forming-calls-with-graphql)都必须满足这些标准：
+若要通过[架构](/graphql/guides/introduction-to-graphql#schema)验证，所有 GraphQL API [调用](/graphql/guides/forming-calls-with-graphql)都必须满足以下标准：
 
-* 客户端必须提供任何[连接](/graphql/guides/introduction-to-graphql#connection)上的 `first` 或 `last` 参数。
-* `first` 和 `last` 的值必须在 1 至 100 之间。
+* 客户端必须在任何[连接](/graphql/guides/introduction-to-graphql#connection)上提供 `first` 或 `last` 参数。
+* `first` 和 `last` 的值必须在 1-100 以内。
 * 单个调用请求的[节点](/graphql/guides/introduction-to-graphql#node)总数不能超过 500,000。
 
 ### 计算调用中的节点
@@ -130,30 +135,30 @@ topics:
 
 ## 速率限制
 
-GraphQL API 的限制不同于 REST API [速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)。
+GraphQL API 限制不同于 REST API 的[速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)。
 
-API 速率限制为什么不同？ 使用 [GraphQL](/graphql)，一个 GraphQL 调用可替换[多个 REST 调用](/graphql/guides/migrating-from-rest-to-graphql)。 单个复杂 GraphQL 调用可能相当于数千个 REST 请求。 虽然单个 GraphQL 调用远远低于 REST API v3 速率限制，但对 GitHub 的服务器来说，查询的计算成本可能同样高昂。
+API 速率限制为什么不同？ 使用 [GraphQL](/graphql)，一个 GraphQL 调用可以替换 [多个 REST 调用](/graphql/guides/migrating-from-rest-to-graphql)。 单个复杂 GraphQL 调用可能相当于数千个 REST 请求。 虽然单个 GraphQL 调用远远低于 REST API v3 速率限制，但对 GitHub 的服务器来说，查询的计算成本可能同样高昂。
 
-要准确表示查询的服务器成本，GraphQL API 可根据标准分数量表计算调用的 **rate limit score（速率限制分数）**。 查询分数计入了父连接及其子连接上的第一个和最后一个参数。
+为了准确表示查询的服务器成本，GraphQL API 将根据标准化点数来计算调用的速率限制分数。 查询分数计入了父连接及其子连接上的第一个和最后一个参数。
 
-* 计算公式利用父连接及其子连接上的 `first` 和 `last` 参数预计算 GitHub 系统上的潜在负载，如 MySQL、ElasticSearch 和 Git。
+* 公式使用父连接及其子连接上的 `first` 和 `last` 参数预计算 GitHub 系统上的潜在负载，如 MySQL、ElasticSearch 和 Git。
 * 每个连接都有自己的点值。 此点值与调用的其他点数相结合，计入总速率限制分数。
 
-GraphQL API 的速率限制为 **5,000 points per hour（每小时 5,000 点）**。
+GraphQL API 速率限制为每小时 5,000 点。 
 
 请注意，每小时 5,000 点与每小时 5,000 个调用不同：GraphQL API 和 REST API 使用的速率限制不同。
 
 {% note %}
 
-**注**：在我们观察开发者如何使用 GraphQL API 时，当前公式和速率限制可能会发生变化。
+注意：在我们观察开发者如何使用 GraphQL API 时，当前公式和速率限制可能会发生更改。
 
 {% endnote %}
 
 ### 返回调用的速率限制状态
 
-使用 REST API，可以通过[检查](/rest/overview/resources-in-the-rest-api#rate-limiting)返回的 HTTP 标头查看速率限制状态。
+使用 REST API，你可以通过[检查](/rest/overview/resources-in-the-rest-api#rate-limiting)返回的 HTTP 标头来检查速率限制状态。
 
-使用 GraphQL API，可以通过查询 `rateLimit` 对象上的字段查看速率限制状态。
+使用 GraphQL API，你可以通过查询 `rateLimit` 对象上的字段来检查速率限制状态：
 
 ```graphql
 query {
@@ -169,24 +174,24 @@ query {
 }
 ```
 
-* `limit` 字段可返回客户端在 60 分钟期限内允许使用的最大客户端点数。
+* `limit` 字段返回客户端在 60 分钟窗口期限内允许使用的最大客户端点数。
 
-* `cost` 字段可返回根据速率限制计算的当前调用的点成本。
+* `cost` 字段返回计入速率限制的当前调用的点成本。
 
-* `remaining` 字段可返回当前速率限制期限内剩余的点数。）
+* `remaining` 字段返回当前速率限制窗口中剩余的点数。）
 
-* `resetAt` 字段可返回当前速率限制期限内重置的时间（[UTC 时期秒数](http://en.wikipedia.org/wiki/Unix_time)）。
+* `resetAt` 字段返回当前速率限制窗口重置的时间，单位为 [UTC 纪元秒](http://en.wikipedia.org/wiki/Unix_time)。
 
 ### 在运行调用之前计算速率限制分数
 
-查询 `rateLimit` 对象会返回调用分数，但运行调用需要根据限制进行计算。 为避免这种两难局面，可以在运行之前计算调用分数。 下面的计算方法算出的结果与 `rateLimit { cost }` 返回的成本大致相同。
+查询 `rateLimit` 对象时会返回调用的分数，但运行调用时会计入限制。 为避免这种两难局面，可以在运行之前计算调用分数。 下面的计算结果与 `rateLimit { cost }` 返回的成本大致相同。
 
 1. 将完成调用中每个独有连接所需的请求数加起来。 假设每个请求都将达到 `first` 或 `last` 参数限制。
-2. 用这个数除以 **100**，将结果四舍五入，得到最终总成本。 这一步可使大数字规范化。
+2. 将数字除以 100，然后将结果四舍五入，获取最终的聚合成本。 这一步可使大数字规范化。
 
 {% note %}
 
-**注**：GraphQL API 的最低调用成本是 **1**，表示单个请求。
+注意：调用 GraphQL API 的最低成本为 1，表示单一请求。
 
 {% endnote %}
 
@@ -226,9 +231,9 @@ query {
 
 此查询需要 5,101 个请求才能完成：
 
-* 尽管我们要返回 100 个仓库，但 API 必须**一次**连接至查看者的账户，以获取仓库列表。 因此，仓库请求数 = **1**
-* 尽管我们要返回 50 个议题，但 API 必须分别连接至 **100** 个仓库，以获取议题列表。 因此，议题请求数 = **100**
-* 尽管我们要返回 60 个标签，但 API 必须分别连接至 **5,000** 个潜在总议题，以获取标签列表。 因此，标签请求数 = **5,000**
-* 总数 = **5,101**
+* 虽然我们要返回 100 个存储库，但 API 必须连接到查看器的帐户一次才能获取存储库列表。 因此，存储库的请求 = 1
+* 虽然我们要返回 50 个问题，但 API 必须与 100 个存储库的每个库相连接，才能获取问题列表。 因此，问题请求 = 100
+* 虽然我们要返回 60 个标签，但 API 必须与 5,000 个潜在总问题中的每个问题相连接，才能获取标签列表。 因此，标签请求 = 5,000
+* 总计 = 5,101
 
-除以 100 然后四舍五入，得出最终查询分数：**51**
+除以100，然后四舍五入就得到了查询的最终分数：51

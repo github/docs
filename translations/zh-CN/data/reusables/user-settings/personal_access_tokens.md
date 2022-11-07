@@ -1,1 +1,2 @@
-1. 在左侧边栏中，单击 **Personal access tokens（个人访问令牌）**。 ![个人访问令牌](/assets/images/help/settings/personal_access_tokens_tab.png)
+1. In the left sidebar, click **{% data variables.product.pat_generic_caps %}s**.
+![{% data variables.product.pat_generic_caps %}s](/assets/images/help/settings/personal_access_tokens_tab.png)

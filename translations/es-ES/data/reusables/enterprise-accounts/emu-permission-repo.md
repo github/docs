@@ -1,1 +1,1 @@
-{% ifversion ghec %} Los miembros de una {% data variables.product.prodname_emu_enterprise %} solo pueden hacer cambios en los repositorios que sean parte de ella. {% endif %}
+{% ifversion ghec %} Members of an {% data variables.enterprise.prodname_emu_enterprise %} can only make changes in repositories that are part of their enterprise. {% endif %}

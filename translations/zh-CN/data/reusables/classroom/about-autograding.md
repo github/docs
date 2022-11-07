@@ -1,1 +1,1 @@
-您可以使用自动评分来自动检查学生在 {% data variables.product.prodname_classroom %} 上的工作。 您可以为作业配置测试，每次学生推送到 {% data variables.product.product_location %} 上的作业库时，测试就会立即运行。 学生可以查看测试结果，进行更改，并推送以查看新结果。
+You can use autograding to automatically check a student's work for an assignment on {% data variables.product.prodname_classroom %}. You configure tests for an assignment, and the tests run immediately every time a student pushes to an assignment repository on {% data variables.location.product_location %}. The student can view the test results, make changes, and push to see new results.

@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.product.prodname_project_v1_caps %} permissions for an organization'
-intro: 'Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize who has read, write, and admin permissions to your organization’s {% data variables.projects.projects_v1_boards %}.'
+title: '组织的 {% data variables.product.prodname_project_v1_caps %} 权限'
+intro: '组织所有者以及具有 {% data variables.projects.projects_v1_board %} 管理员权限的人员可以自定义谁对组织的 {% data variables.projects.projects_v1_boards %} 具有读取、写入和管理员权限。'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
@@ -12,40 +12,45 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: '{% data variables.product.prodname_project_v1_caps %} 权限'
+shortTitle: '{% data variables.product.prodname_project_v1_caps %} permissions'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: fbc3ec7db52d6b4a417a4e9e93aea9ae717e2fca
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614205'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 ## 权限概述
 
-There are three levels of permissions to a {% data variables.projects.projects_v1_board %} for people and teams:
+对于人员和团队，{% data variables.projects.projects_v1_board %} 有三种权限级别：
 
 {% data reusables.project-management.project-board-permissions %}
 
-Organization owners and people with admin permissions can give a person access to an organization {% data variables.projects.projects_v1_board %} individually, as an outside collaborator or organization member, or through their membership in a team or organization. 外部协作者是指并非组织成员但被授予协作参与组织的人员。
+组织所有者以及具有管理员权限的人员可以单独使个人以外部协作者或组织成员身份，或通过其在团队或组织中的成员身份来访问组织 {% data variables.projects.projects_v1_board %}。 外部协作者是指并非组织成员但被授予协作参与组织的人员。
 
-Organization owners and people with admin permissions to a {% data variables.projects.projects_v1_board %} can also:
+组织所有者以及具有 {% data variables.projects.projects_v1_board %} 管理员权限的人员还可以：
 - 设置所有组织成员的默认项目板权限。
-- 管理组织成员、团队和外部协作者对项目板的访问。 For more information, see "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)", "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)", or "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
-- 管理项目板可见性。 For more information, see "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
+- 管理组织成员、团队和外部协作者对项目板的访问。 有关详细信息，请参阅“[管理团队对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-team-access-to-an-organization-project-board)”、“[管理个人对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-an-individual-s-access-to-an-organization-project-board)”或“[管理组织成员对 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-access-to-a-project-board-for-organization-members)”。
+- 管理项目板可见性。 有关详细信息，请参阅“[管理组织成员对 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-access-to-a-project-board-for-organization-members)”。
 
-## Cascading permissions for {% data variables.projects.projects_v1_boards %}
+## {% data variables.projects.projects_v1_boards %} 的级联权限
 
 {% data reusables.project-management.cascading-permissions %}
 
-For example, if an organization owner has given all organization members read permissions to a {% data variables.projects.projects_v1_board %}, and a {% data variables.projects.projects_v1_board %} admin gives an organization member write permissions to that board as an individual collaborator, that person would have write permissions to the {% data variables.projects.projects_v1_board %}.
+例如，如果组织所有者向所有组织成员授予了对 {% data variables.projects.projects_v1_board %} 的读取权限，并且 {% data variables.projects.projects_v1_board %} 管理员向某个组织成员（个人协作者身份）授予对该板的写权限，则该成员将拥有对 {% data variables.projects.projects_v1_board %} 的写权限。
 
-## {% data variables.projects.projects_v1_board_caps %} visibility
+## {% data variables.projects.projects_v1_board_caps %} 可见性
 
 {% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
 
-{% data reusables.project-management.project-board-visibility %} You can change the {% data variables.projects.projects_v1_board %}'s visibility from private to {% ifversion ghae %}internal{% else %}public{% endif %} and back again. For more information, see "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)."
+{% data reusables.project-management.project-board-visibility %} 可以将 {% data variables.projects.projects_v1_board %} 的可见性从专用更改为{% ifversion ghae %}内部{% else %}公共{% endif %}，反之亦然。 有关详细信息，请参阅“[更改 {% data variables.product.prodname_project_v1 %} 可见性](/articles/changing-project-board-visibility)”。
 
 ## 延伸阅读
 
-- "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)"
-- "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
-- "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)"
+- [更改 {% data variables.product.prodname_project_v1 %} 可见性](/articles/changing-project-board-visibility)
+- [管理个人对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-an-individual-s-access-to-an-organization-project-board)
+- [管理团队对组织 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-team-access-to-an-organization-project-board)
+- [管理组织成员对 {% data variables.product.prodname_project_v1 %} 的访问权限](/articles/managing-access-to-a-project-board-for-organization-members)

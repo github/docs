@@ -1,1 +1,8 @@
-| Parámetro | Valor | | :- | :- |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `título` | Título personalizado |{% endif %} | `archivo` | Nombre de archivo | | `código` | Número de columna, comenzando en 1 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endColumn` | Número de columna final |{% endif %} | `línea` | Número de línea, comenzando en 1 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endLine` | Número de línea final |{% endif %}
+| Parameter | Value |
+| :- | :- |
+| `title` | Custom title |
+| `file` | Filename |
+| `col` | Column number, starting at 1 |
+| `endColumn` | End column number |
+| `line` | Line number, starting at 1 |
+| `endLine` | End line number |

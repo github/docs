@@ -1,7 +1,6 @@
----
 get_started_with_github_ae:
-  title: 'Inicia con {% data variables.product.prodname_ghe_managed %}'
-  description: 'Aprende sobre {% data variables.product.prodname_ghe_managed %} y completa la configuración inicial de una empresa nueva.'
+  title: 'Get started with {% data variables.product.prodname_ghe_managed %}'
+  description: 'Learn about {% data variables.product.prodname_ghe_managed %} and complete the initial configuration of a new enterprise.'
   featured_track: true
   versions:
     ghae: '*'
@@ -12,9 +11,10 @@ get_started_with_github_ae:
     - /admin/configuration/initializing-github-ae
     - /admin/configuration/restricting-network-traffic-to-your-enterprise
     - /admin/github-actions/getting-started-with-github-actions-for-github-ae
+
 deploy_an_instance:
-  title: 'Despliega una instancia'
-  description: 'Instala {% data variables.product.prodname_ghe_server %} en la plataforma de tu elección y configura la autenticación con SAML.'
+  title: 'Deploy an instance'
+  description: 'Install {% data variables.product.prodname_ghe_server %} on your platform of choice and configure SAML authentication.'
   featured_track: true
   versions:
     ghes: '*'
@@ -25,9 +25,10 @@ deploy_an_instance:
     - /admin/configuration/configuring-a-hostname
     - /admin/authentication/using-saml
     - /admin/configuration/site-admin-dashboard
+
 upgrade_your_instance:
-  title: 'Mejora tu instancia'
-  description: 'Las mejoras de pruebas en etapas, notifican a los usuarios sobre el mantenimiento y mejoran tu instancia con las últimas características y actualizaciones de seguridad.'
+  title: 'Upgrade your instance'
+  description: 'Test upgrades in staging, notify users of maintenance, and upgrade your instance for the latest features and security updates.'
   versions:
     ghes: '*'
   guides:
@@ -37,9 +38,10 @@ upgrade_your_instance:
     - /admin/user-management/customizing-user-messages-for-your-enterprise
     - /admin/configuration/enabling-and-scheduling-maintenance-mode
     - /admin/enterprise-management/upgrading-github-enterprise-server
+
 adopting_github_actions_for_your_enterprise_ghec:
-  title: 'Adoptar GitHub Actions para tu empresa'
-  description: 'Aprende a planear y hacer una implementación de {% data variables.product.prodname_actions %} en tu empresa.'
+  title: 'Adopt GitHub Actions for your enterprise'
+  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
   versions:
     ghec: '*'
   guides:
@@ -50,9 +52,10 @@ adopting_github_actions_for_your_enterprise_ghec:
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
     - /actions/security-guides/security-hardening-for-github-actions
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+
 adopting_github_actions_for_your_enterprise_ghes_and_ghae:
-  title: 'Adoptar GitHub Actions para tu empresa'
-  description: 'Aprende a planear y hacer una implementación de {% data variables.product.prodname_actions %} en tu empresa.'
+  title: 'Adopt GitHub Actions for your enterprise'
+  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
   versions:
     ghes: '*'
     ghae: '*'
@@ -66,9 +69,10 @@ adopting_github_actions_for_your_enterprise_ghes_and_ghae:
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
     - /actions/security-guides/security-hardening-for-github-actions
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+
 increase_fault_tolerance:
-  title: 'Incrementa la tolerancia a fallos de tu instancia'
-  description: "Respalda el código de tus desarrolladores y configura la disponibilidad alta (HA, por sus siglas en inglés) para garantizar la confiabilidad de {% data variables.product.prodname_ghe_server %} en tu ambiente."
+  title: 'Increase the fault tolerance of your instance'
+  description: "Back up your developers' code and configure high availability (HA) to ensure the reliability of {% data variables.product.prodname_ghe_server %} in your environment."
   versions:
     ghes: '*'
   guides:
@@ -77,9 +81,10 @@ increase_fault_tolerance:
     - /admin/enterprise-management/about-high-availability-configuration
     - /admin/enterprise-management/creating-a-high-availability-replica
     - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
+
 improve_security_of_your_instance:
-  title: 'Mejora la seguridad de tu instancia'
-  description: "Revisa la configuración de red y las características de seguridad y fortalace la instancia que ejecuta {% data variables.product.prodname_ghe_server %} para proteger los datos de tu empresa."
+  title: 'Improve the security of your instance'
+  description: "Review network configuration and security features, and harden the instance running {% data variables.product.prodname_ghe_server %} to protect your enterprise's data."
   versions:
     ghes: '*'
   guides:
@@ -92,9 +97,10 @@ improve_security_of_your_instance:
     - /admin/configuration/configuring-built-in-firewall-rules
     - /admin/user-management/best-practices-for-user-security
     - /admin/user-management/promoting-or-demoting-a-site-administrator
+
 configure_github_actions:
-  title: 'Configura las {% data variables.product.prodname_actions %}'
-  description: 'Permite a tus desarrolladores crear, automatizar, personalizar y ejecutar poderosos flujos de trabajo de desarrollo de software para {% data variables.product.product_location %} con {% data variables.product.prodname_actions %}.'
+  title: 'Configure {% data variables.product.prodname_actions %}'
+  description: 'Allow your developers to create, automate, customize, and execute powerful software development workflows for {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}.'
   versions:
     ghes: '*'
   guides:
@@ -104,20 +110,23 @@ configure_github_actions:
     - /admin/github-actions/high-availability-for-github-actions
     - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
     - /admin/github-actions/using-a-staging-environment
+
 configure_github_advanced_security:
-  title: 'Configura la {% data variables.product.prodname_GH_advanced_security %}'
-  description: "Mejora la calidad y seguridad del código de tu desarrollador con la {% data variables.product.prodname_GH_advanced_security %}."
+  title: 'Configure {% data variables.product.prodname_GH_advanced_security %}'
+  description: "Improve the quality and security of your developers' code with {% data variables.product.prodname_GH_advanced_security %}."
   versions:
     ghes: '*'
   guides:
     - /admin/advanced-security/about-licensing-for-github-advanced-security
     - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
     - /admin/advanced-security/configuring-code-scanning-for-your-appliance
+    - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
     - /admin/advanced-security/configuring-secret-scanning-for-your-appliance
     - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
+
 get_started_with_your_enterprise_account:
-  title: 'Iniciar con tu cuenta empresarial'
-  description: 'Inicia con tu cuenta empresarial para administrar organizaciones múltiples centralmente en {% data variables.product.product_name %}.'
+  title: 'Get started with your enterprise account'
+  description: 'Get started with your enterprise account to centrally manage multiple organizations on {% data variables.product.product_name %}.'
   versions:
     ghes: '*'
     ghec: '*'

@@ -13,11 +13,7 @@ shortTitle: Extensions & integrations
 ---
 ## Editor tools
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and {% data variables.product.prodname_vs %}.
-
-### {% data variables.product.product_name %} for Atom
-
-With the {% data variables.product.product_name %} for Atom extension, you can commit, push, pull, resolve merge conflicts, and more from the Atom editor. For more information, see the official [{% data variables.product.product_name %} for Atom site](https://github.atom.io/).
+You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
 
 ### {% data variables.product.product_name %} for Unity
 
@@ -33,7 +29,7 @@ With the {% data variables.product.prodname_dotcom %} for {% data variables.prod
 
 ## Project management tools
 
-You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party project management tools, such as Jira.
+You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party project management tools, such as Jira.
 
 ### Jira Cloud and {% data variables.product.product_name %}.com integration
 
@@ -41,7 +37,7 @@ You can integrate Jira Cloud with your personal or organization account to scan 
 
 ## Team communication tools
 
-You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
+You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
 
 ### Slack and {% data variables.product.product_name %} integration
 

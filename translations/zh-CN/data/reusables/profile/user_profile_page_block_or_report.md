@@ -1,1 +1,10 @@
-1. 在左侧边栏中的用户个人资料信息下，单击 **Block or report（阻止或举报）**。 ![阻止或举报链接](/assets/images/help/profile/profile-block-or-report-button.png)
+---
+ms.openlocfilehash: c3135ce5295270c1796b4c32bb2c0c019333746a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145087176"
+---
+1. 在左侧边栏中的用户个人资料信息下，单击“阻止或举报”。
+![阻止或举报链接](/assets/images/help/profile/profile-block-or-report-button.png)

@@ -1,6 +1,6 @@
 ---
-title: Visualizar pessoas na sua empresa
-intro: 'Para auditar o acesso à utilização de licença de usuário ou de recursos pertencentes à empresa, os proprietários corporativos podem exibir todos os administradores e integrantes da empresa.'
+title: Viewing people in your enterprise
+intro: 'To audit access to enterprise-owned resources or user license usage, enterprise owners can view every administrator and member of the enterprise.'
 permissions: Enterprise owners can view the people in an enterprise.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
@@ -13,128 +13,148 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
-shortTitle: Visualizar as pessoas na sua empresa
+shortTitle: View people in your enterprise
 ---
 
-## Sobre a lista de pessoas da sua empresa
+## About the list of people in your enterprise
 
-Para controlar o acesso aos recursos da sua empresa e gerenciar o uso da licença, você pode ver uma lista de todas as pessoas que têm acesso à sua empresa.
+To audit access to your enterprise's resources and manage license usage, you can see a list of all the people who have access to your enterprise. 
 
-Você pode ver todos os integrantes atuais da empresa e administradores da empresa{% ifversion ghec %}, bem como convites pendentes para se tornarem integrantes e administradores{% endif %}. Para facilitar o consumo destas informações, você pode pesquisar e filtrar as listas.
+You can see all current enterprise members and enterprise administrators{% ifversion ghec %}, as well as pending invitations to become members and administrators{% endif %}. To make it easier to consume this information, you can search and filter the lists.
 
 {% ifversion ghec %}
 
-Se {% data variables.product.prodname_github_connect %} estiver configurado para sua empresa, ao filtrar uma lista de pessoas da sua empresa, irão aplicar-se limitações a seguir.
+If {% data variables.product.prodname_github_connect %} is configured for your enterprise, when you filter a list of people in your enterprise, the following limitations apply.
 
-- O filtro para o status de autenticação de dois fatores (2FA) não mostra pessoas que têm apenas uma conta em uma instância de {% data variables.product.prodname_ghe_server %}.
-- Se você combinar o filtro para contas nas instâncias de {% data variables.product.prodname_ghe_server %} com o filtro para organizações ou o status de 2FA, você não verá nenhum resultado.
+- The filter for two-factor authentication (2FA) status does not show people who only have an account on a {% data variables.product.prodname_ghe_server %} instance.
+- If you combine the filter for accounts on {% data variables.product.prodname_ghe_server %} instances with either the filter for organizations or 2FA status, you will not see any results.
 
-Para obter mais informações sobre {% data variables.product.prodname_github_connect %}, consulte os seguintes artigos.
+For more information about {% data variables.product.prodname_github_connect %}, see the following articles.
 
-- "[Sobre {% data variables.product.prodname_github_connect %}](/enterprise-server/admin/configuration/configuring-github-connect/about-github-connect)" na documentação de {% data variables.product.prodname_ghe_server %}
-- "[Sobre {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" na documentação de {% data variables.product.prodname_ghe_managed %}
+- "[About {% data variables.product.prodname_github_connect %}](/enterprise-server/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
+- "[About {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
 
 {% endif %}
 
-## Visualizando os administradores corporativos
+{% ifversion enterprise-member-csv %}
+You can also export membership information for your enterprise. For more information, see "[Exporting membership information for your enterprise](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
+{% endif %}
 
-Você pode visualizar todos os atuais proprietários da empresa{% ifversion ghec %} e gerentes de cobrança{% endif %} para a sua empresa.{% ifversion enterprise-membership-view-improvements %} Você pode ver informações úteis sobre cada administrador{% ifversion ghec %} e filtrar a lista por função{% endif %}.{% endif %} Você pode encontrar uma pessoa específica pesquisando o nome de usuário ou nome de exibição.
+## Viewing enterprise administrators
+
+You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise.{% ifversion enterprise-membership-view-improvements %} You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}.{% endif %} You can find a specific person by searching for their username or display name.
 
 {% ifversion ghes > 3.5 %}
-Os proprietários de empresas cujas contas são suspensas são incluídos na lista de administradores da empresa e identificados como suspensos. Você deve considerar rebaixar todos proprietários suspensos que você vir. Para obter mais informações, consulte "[Promover ou rebaixar administradores de site](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)".
+Enterprise owners whose accounts are suspended are included in the list of enterprise administrators, and are identified as suspended. You should consider demoting any suspended owners you see. For more information, see "[Promoting or demoting a site administrator](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)."
 {% endif %}
 
 {% ifversion not ghae %}
-Você também pode remover um administrador. Para mais informações. consulte "[convidando pessoas para gerenciar sua empresa](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)".
+You can also remove an administrator. For more information. see "[Inviting people to manage your enterprise](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)."
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 
-## Visualizando integrantes {% ifversion enterprise-membership-view-improvements %}{% else %}e colaboradores externos{% endif %}
+## Viewing members {% ifversion enterprise-membership-view-improvements %}{% else %}and outside collaborators{% endif %}
 
-Você pode visualizar todos os integrantes atuais {% ifversion enterprise-membership-view-improvements %}{% else %}ou colaboradores externos{% endif %} para a sua empresa. Você pode visualizar as informações úteis sobre cada conta e filtrar a lista de formas úteis, como por função. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
+You can see all the current members {% ifversion enterprise-membership-view-improvements %}{% else %}or outside collaborators{% endif %} for your enterprise. You can see useful information about each account and filter the list in useful ways, such as by role. You can find a specific person by searching for their username or display name.
 
-Você pode ver mais informações sobre o acesso da pessoa à sua empresa como, por exemplo, as organizações às quais a pessoa pertence, clicando no nome da pessoa.
+You can view more information about the person's access to your enterprise, such as the organizations the person belongs to, by clicking on the person's name.
 
 {% ifversion remove-enterprise-members %}
-Você também pode remover qualquer integrante da empresa de todas as organizações pertencentes à empresa. Para obter mais informações, consulte "[Removendo um integrante da sua empresa](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)."
+You can also remove any enterprise member from all organizations owned by the enterprise. For more information, see "[Removing a member from your enterprise](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)."
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}{% ifversion enterprise-membership-view-improvements %}{% else %}
-1. Como alternativa, clique em **Outside collaborators** (Colaboradores externos) para exibir uma lista deles em vez de uma lista de integrantes.
+1. Optionally, to view a list of outside collaborators rather than the list of members, click **Outside collaborators**.
 
-   ![Guia de colaboradores externos na página de integrantes da empresa](/assets/images/help/business-accounts/outside-collaborators-tab.png){% endif %}
+   ![Outside collaborators tab on the enterprise members page](/assets/images/help/business-accounts/outside-collaborators-tab.png){% endif %}
 
 {% ifversion enterprise-membership-view-improvements %}
-## Visualizando colaboradores externos
+## Viewing outside collaborators
 
-Você pode ver todos os colaboradores externos atuais da sua empresa. Você pode ver informações úteis sobre cada colaborador e filtrar a lista de formas úteis, por exemplo, por organização. Você pode encontrar um colaborador específico pesquisando o nome de usuário ou nome de exibição.
+You can see all the current outside collaborators for your enterprise. You can see useful information about each collaborator and filter the list in useful ways, such as by organization. You can find a specific collaborator by searching for their username or display name.
 
-Você pode ver mais informações sobre o acesso da pessoa à sua empresa como, por exemplo, uma lista de todos os repositórios aos quais o colaborador tem acesso, clicando no nome da pessoa.
+You can view more information about the person's access to your enterprise, such as a list of all the repositories the collaborator has access to, by clicking on the person's name.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Em "Pessoas", clique em **Colaboradores externos**.
+1. Under "People", click **Outside collaborators**.
 
-  ![Aba de colaboradores na barra lateral de configurações da empresa]{% ifversion ghec%}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% else %}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% endif %}
-
+  ![Outside collaborators tab in the enterprise settings sidebar]{% ifversion ghec%}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% else %}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% endif %}
+  
 {% endif %}
 
 {% ifversion ghec %}
-## Visualizando convites pendentes
+## Viewing pending invitations
 
-É possível ver todos os convites pendentes para se tornarem integrantes, administradores ou colaboradores externos na sua empresa. É possível filtrar a lista de forma útil, por exemplo, por organização. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
+You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by organization. You can find a specific person by searching for their username or display name.
 
-Na lista de integrantes pendentes, para qualquer conta individual, você pode cancelar todos os convites para participar de organizações pertencentes à sua empresa. Isto não cancela nenhum convite para que essa mesma pessoa se torne administrador corporativo ou colaborador externo.
+In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator. 
 
 {% note %}
 
-**Observação:** Se um convite foi fornecido via SCIM, você deve cancelar o convite pelo seu provedor de identidade (IdP) em vez de {% data variables.product.prodname_dotcom %}.
+**Note:** If an invitation was provisioned via SCIM, you must cancel the invitation via your identity provider (IdP) instead of on {% data variables.product.prodname_dotcom %}.
 
 {% endnote %}
 
-Se você usar {% data variables.product.prodname_vss_ghe %}, a lista de convites pendentes incluirá todos os assinantes de {% data variables.product.prodname_vs %} que não fizeram parte de nenhuma das suas organizações em {% data variables.product.prodname_dotcom %}, mesmo que o assinante não tenha um convite pendente para participar de uma organização. Para obter mais informações sobre como fazer com que os assinantes de {% data variables.product.prodname_vs %} acessem {% data variables.product.prodname_enterprise %}, consulte "[Configurando {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)"
+If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pending invitations includes all {% data variables.product.prodname_vs %} subscribers that haven't joined any of your organizations on {% data variables.product.prodname_dotcom %}, even if the subscriber does not have a pending invitation to join an organization. For more information about how to get {% data variables.product.prodname_vs %} subscribers access to {% data variables.product.prodname_enterprise %}, see "[Setting up {% data variables.visual_studio.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Em "Pessoas", clique em **Convites pendentes.**.
+1. Under "People", click **Pending invitations**.
 
-   ![Captura de tela da aba "Convites pendentes" na barra lateral](/assets/images/help/enterprises/pending-invitations-tab.png)
-1. Opcionalmente, para cancelar todos os convites de uma conta para participar de organizações pertencentes à sua empresa, à direita da conta, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e depois clique em **Cancelar convite**.
+   ![Screenshot of the "Pending invitations" tab in the sidebar](/assets/images/help/enterprises/pending-invitations-tab.png)
+1. Optionally, to cancel all invitations for an account to join organizations owned by your enterprise, to the right of the account, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Cancel invitation**.
 
-   ![Captura de tela do botão "Cancelar convite"](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
-1. Opcionalmente, para visualizar os convites pendentes para administradores corporativos ou colaboradores externos, em "Integrantes pendentes", clique em **Administradores** ou **Colaboradores externos**.
+   ![Screenshot of the "Cancel invitation" button](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
+1. Optionally, to view pending invitations for enterprise administrators or outside collaborators, under "Pending members", click **Administrators** or **Outside collaborators**.
 
-   ![Captura de tela das abas "Membros", "Administradores", e "Colaboradores externos"](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
+   ![Screenshot of the "Members", "Administrators", and "Outside collaborators" tabs](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
 
-## Visualizando integrantes suspensos em um {% data variables.product.prodname_emu_enterprise %}
+## Viewing suspended members in an {% data variables.enterprise.prodname_emu_enterprise %}
 
-Se sua empresa usa {% data variables.product.prodname_emus %}, você também pode visualizar usuários suspensos. Os usuários suspensos são integrantes que foram desprovisionados depois que o aplicativo de {% data variables.product.prodname_emu_idp_application %} cancelou ou excluiu sua atribuição do provedor de identidade. Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)".
+If your enterprise uses {% data variables.product.prodname_emus %}, you can view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Para ver uma lista de integrantes suspensos, acima da lista de integrantes ativos, clique em **Suspensos**. ![Captura de tela que mostra a opção "Suspenso"](/assets/images/help/enterprises/view-suspended-members.png)
+1. To view a list of suspended members, above the list of active members, click **Suspended**.
+  ![Screenshot showing "Suspended" option](/assets/images/help/enterprises/view-suspended-members.png)
 
 {% endif %}
 
-## Exibir usuários inativos
+## Viewing dormant users
 
-Você pode ver uma lista de todos os usuários desativados {% ifversion ghes or ghae %} que não foram suspensos e {% endif %}que não são administradores do site. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} Para obter mais informações, consulte "[Gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
+You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+
+{% ifversion filter-by-enterprise-member-type %}
+## Filtering by member type{% ifversion ghec %} in an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}
+
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes or ghae %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is mananaged in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+1. Under "Organizations," in the search bar, begin typing the organization's name until the organization appears in the search results, then click the name of the organization.
+   ![Screenshot of the search field for organizations](/assets/images/help/enterprises/organization-search.png)
+1. Under the organization name, click {% octicon "person" aria-label="The Person icon" %} **People**.
+   ![Screenshot of the People tab](/assets/images/help/enterprises/emu-organization-people-tab.png)
+1. Above the list of members, click **Type**, then select the type of members you want to view.
+   ![Screenshot of the "Type" button](/assets/images/help/enterprises/filter-by-member-type.png)
+
+{% endif %}
 
 {% ifversion ghec or ghes %}
-## Visualizando os integrantes sem um endereço de e-mail de um domínio verificado
+## Viewing members without an email address from a verified domain
 
-Você pode visualizar uma lista de integrantes da sua empresa que não têm um endereço de e-mail a partir de um domínio verificado associado à sua conta de usuário em {% data variables.product.prodname_dotcom_the_website %}.
+You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
-1. Em "Preferências de notificação", clique no link {% octicon "eye" aria-label="The github eye icon" %} **Exibir integrantes corporativos sem um e-mail de domínio aprovado ou verificado**.
+1. Under "Notification preferences", click the {% octicon "eye" aria-label="The github eye icon" %} **View enterprise members without an approved or verified domain email** link.
 {% endif %}
 
-## Leia mais
+## Further reading
 
-- "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
+- "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"

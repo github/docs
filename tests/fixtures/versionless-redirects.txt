@@ -1,8 +1,3 @@
-# Redirects are cached in 'lib/redirects/.redirects-cache.json'. If changes made here are not being reflected
-# on your local server, delete the cache file by running the following command, then restart your server.
-#
-#   rm lib/redirects/.redirects-cache.json
-
 # These urls went from being free-pro-team, but are now versioned for more than one enterprise version and enterprise-cloud
 # Shipped in pull #20947 on 10/15/21
 
@@ -65,7 +60,7 @@
 - /github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
 
-/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise
+/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-policies-for-advanced-security-in-your-enterprise-account
 
@@ -90,7 +85,7 @@
 - /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
 
-/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise
+/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
 - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account
 - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account
 - /articles/enforcing-project-board-policies-in-your-enterprise-account
@@ -145,7 +140,7 @@
 - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account
 - /admin/authentication/managing-identity-and-access-for-your-enterprise
 
-# These URLs went from being in free-pro-team to ONLY to being in enterprise-cloud only. 
+# These URLs went from being in free-pro-team to ONLY to being in enterprise-cloud only.
 # Shipped in pull #20947 on 10/15/21
 
 /enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
@@ -278,7 +273,7 @@
 # - lib/github/private_instance_bootstrapper/internal_support_contact.rb
 # - lib/github/private_instance_bootstrapper/saml_idp_configuration.rb
 # - lib/github/private_instance_bootstrapper/policies_configuration.rb
-# This redirect ensures that the links don't resolve to the non-GHAE version 
+# This redirect ensures that the links don't resolve to the non-GHAE version
 # of the docs as this article only exists in the GHAE docs.
 
 /github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae

@@ -1,6 +1,6 @@
 ---
-title: Clonar un repositorio
-intro: 'Cuando creas un repositorio en {% data variables.product.product_location %}, este existe como un repositorio remoto. Puedes clonar tu repositorio para crear una copia local en tu computadora y sincronizarla entre las dos ubicaciones.'
+title: Cloning a repository
+intro: 'When you create a repository on {% data variables.location.product_location %}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
 redirect_from:
   - /articles/cloning-a-repository
   - /articles/cloning-a-repository-from-github
@@ -14,16 +14,15 @@ versions:
 topics:
   - Repositories
 ---
+## About cloning a repository
 
-## Acerca de clonar un repositorio
+You can clone a repository from {% data variables.location.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine.
 
-Puedes clonar un repositorio desde {% data variables.product.product_location %} hacia tu computadora local para que sea más fácil fusionar conflictos, agregar o eliminar archivos, y subir confirmaciones más grandes. Cuando clonas un repositorio, lo copias desde {% data variables.product.product_location %} hacia tu máquina local.
+Cloning a repository pulls down a full copy of all the repository data that {% data variables.location.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.location.product_location %}, or pull other people's changes from {% data variables.location.product_location %}. For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
 
-Clonar un repositorio extrae una copia integral de todos los datos del mismo que {% data variables.product.product_location %} tiene en ese momento, incluyendo todas las versiones para cada archivo y carpeta para el proyecto. Puedes subir tus cambios al repositorio remoto en {% data variables.product.product_location %}, o extraer los cambios de otras personas desde {% data variables.product.product_location %}. Para obtener más información, consulta "[Utilizar Git](/github/getting-started-with-github/using-git)".
+You can clone your existing repository or clone another person's existing repository to contribute to a project.
 
-Puedes clonar tu repositorio existente o clonar el repositorio existente de alguien más para contribuir con un proyecto.
-
-## Clonar un repositorio
+## Cloning a repository
 
 {% webui %}
 
@@ -40,16 +39,16 @@ Puedes clonar tu repositorio existente o clonar el repositorio existente de algu
 
 {% data reusables.cli.cli-learn-more %}
 
-Para clonar un repositorio localmente, utiliza el subcomando `repo clone`. Reemplaza el parámetro de `repository` con el nombre del repositorio. Por ejemplo, `octo-org/octo-repo`, `monalisa/octo-repo`, o `octo-repo`. Si se omite la porción `OWNER/` del argumento `OWNER/REPO` del repositorio, este será predeterminadamente el nombre del usuario que se está autenticando.
+To clone a repository locally, use the `repo clone` subcommand. Replace the `repository` parameter with the repository name. For example, `octo-org/octo-repo`, `monalisa/octo-repo`, or `octo-repo`. If the `OWNER/` portion of the `OWNER/REPO` repository argument is omitted, it defaults to the name of the authenticating user.
 
 ```shell
-gh repo clone <em>repository</em>
+gh repo clone REPOSITORY
 ```
 
-También puedes utilizar la URL de GitHub para clonar el repositorio.
+You can also use the GitHub URL to clone a repository.
 
 ```shell
-gh repo clone <em>https://github.com/cli/cli</em>
+gh repo clone https://github.com/PATH-TO/REPOSITORY
 ```
 
 {% endcli %}
@@ -58,39 +57,41 @@ gh repo clone <em>https://github.com/cli/cli</em>
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
-4. Sigue las indicaciones en {% data variables.product.prodname_desktop %} para completar la clonación.
+4. Follow the prompts in {% data variables.product.prodname_desktop %} to complete the clone.
 
-Para obtener más información, consulta "[Clonar un repositorio de {% data variables.product.prodname_dotcom %} a {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)".
+For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)."
 
 {% enddesktop %}
 
-## Clonar un repositorio vacío
+## Cloning an empty repository
 
-Un repositorio vacío no contiene archivos. Habitualmente se hace si no inicias el repositorio con un README antes de crearlo.
+An empty repository contains no files. It's often made if you don't initialize the repository with a README when creating it.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Para clonar tu repositorio utilizando la línea de comandos a través de HTTPS, debajo de "Configuración rápida", da clic en {% octicon "clippy" aria-label="The clipboard icon" %}. Para clonar el repositorio utilizando una llave SSH, incluyendo un certificado que emita la autoridad de certificados SSH de tu organización, da clic en **SSH** y luego en {% octicon "clippy" aria-label="The clipboard icon" %}. ![Botón de URL de clon de repositorio vacío](/assets/images/help/repository/empty-https-url-clone-button.png)
+2. To clone your repository using the command line using HTTPS, under "Quick setup", click {% octicon "clippy" aria-label="The clipboard icon" %}. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "clippy" aria-label="The clipboard icon" %}.
+   ![Empty repository clone URL button](/assets/images/help/repository/empty-https-url-clone-button.png)
 
-   Como alternativa, para clonar tu repositorio en el escritorio, da clic en {% octicon "desktop-download" aria-label="The desktop download button" %} **Configurar en el escritorio** y sigue las indicaciones para completar el clon. ![Botón de escritorio para clonar repositorio vacío](/assets/images/help/repository/empty-desktop-clone-button.png)
+   Alternatively, to clone your repository in Desktop, click {% octicon "desktop-download" aria-label="The desktop download button" %} **Set up in Desktop** and follow the prompts to complete the clone.
+   ![Empty repository clone desktop button](/assets/images/help/repository/empty-desktop-clone-button.png)
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
 {% data reusables.command_line.git-clone-url %}
 {% data reusables.command_line.local-clone-created %}
 
-## Solucionar los errores de clonado
+## Troubleshooting cloning errors
 
-Cuando clonas un repositorio, es posible que puedas encontrar algunos errores.
+When cloning a repository it's possible that you might encounter some errors.
 
-Si no puedes clonar un repositorio, revisa que:
+If you're unable to clone a repository, check that:
 
-- Puedas conectarte utilizando HTTPS. Para obtener más información, consulta la sección "[Errores de clonado de HTTPS](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)".
-- Tienes permiso para acceder al repositorio que quieres clonar. Para obtener más información, consulta la sección "[Error: Repositorio no encontrado](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)".
-- La rama predeterminada que quieres clonar aún existe. Para obtener más información, consulta "[Error: El HEAD remoto se refiere a una ref inexistente, imposible registrar](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)",
+- You can connect using HTTPS. For more information, see "[HTTPS cloning errors](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)."
+- You have permission to access the repository you want to clone. For more information, see "[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)."
+- The default branch you want to clone still exists. For more information, see "[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
 
 {% ifversion fpt or ghec %}
 
-## Leer más
+## Further reading
 
-- "[Solucionar problemas de conectividad ](/articles/troubleshooting-connectivity-problems)"
+- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"
 {% endif %}

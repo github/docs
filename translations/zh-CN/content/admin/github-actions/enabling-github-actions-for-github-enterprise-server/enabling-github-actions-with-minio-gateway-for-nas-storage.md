@@ -21,15 +21,13 @@ shortTitle: MinIO Gateway for NAS storage
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 
-* To avoid resource contention on the appliance, we recommend that MinIO be hosted separately from {% data variables.product.product_location %}.
+* To avoid resource contention on the appliance, we recommend that MinIO be hosted separately from {% data variables.location.product_location %}.
 * Create your bucket for storing workflow data. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
   
 {% data reusables.actions.enterprise-common-prereqs %}
 
 ## Enabling {% data variables.product.prodname_actions %} with MinIO Gateway for NAS storage
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.actions.perform-blob-storage-precheck %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}
@@ -42,7 +40,9 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 
    ![Radio button for selecting Amazon S3 Storage and fields for MinIO configuration](/assets/images/enterprise/management-console/actions-minio-s3-storage.png)
 1. Under "Artifact & Log Storage", select **Force path style**.
+
    ![Checkbox to Force path style](/assets/images/enterprise/management-console/actions-minio-force-path-style.png)
+{% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.actions.enterprise-postinstall-nextsteps %}

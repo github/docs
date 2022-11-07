@@ -1,6 +1,6 @@
 ---
-title: コンテンツを参照して引用する
-intro: サードパーティツールを使用して GitHub のコンテンツを引用したり参照したりできます。
+title: Referencing and citing content
+intro: You can use third-party tools to cite and reference content on GitHub.
 redirect_from:
   - /articles/referencing-and-citing-content
   - /github/creating-cloning-and-archiving-repositories/referencing-and-citing-content
@@ -12,29 +12,28 @@ topics:
   - Repositories
 shortTitle: Reference & cite content
 ---
+## Issuing a persistent identifier for your repository with Zenodo
 
-## Zenodo によってリポジトリの永続的識別子を発行する
-
-学術文献でリポジトリを参照しやすくするため、永続的識別子 (デジタルオブジェクト識別子 (DOI) とも呼ばれます) を作成できます。 You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and issue a DOI for the archive.
+To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and issue a DOI for the archive.
 
 {% tip %}
 
-**参考:**
-- Zenodo がアクセスできるのはパブリックリポジトリのみですので、アーカイブ化するリポジトリが[パブリック](/articles/making-a-private-repository-public)であるようにしてください。
-- アーカイブ化するリポジトリが Organization に属している場合、Zenodo アプリケーションには、Organization のオーナーによる[アクセスの承認](/articles/approving-oauth-apps-for-your-organization)が必要な場合があります。
-- あなたの作業成果を再利用する方法が読者にわかるよう、リポジトリには[ライセンス](/articles/open-source-licensing)を含めるようにしてください。
+**Tips:**
+- Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/articles/making-a-private-repository-public).
+- If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/articles/approving-oauth-apps-for-your-organization) for the Zenodo application.
+- Make sure to include a [license](/articles/open-source-licensing) in your repository so readers know how they can reuse your work.
 
 {% endtip %}
 
-1. [Zenodo](http://zenodo.org/) に移動します。
-2. 画面左上隅の [**Log in**] をクリックします。 ![Zenodo ログインボタン](/assets/images/help/repository/zenodo_login.png)
-3. [**Log in with GitHub**] をクリックします。 ![GitHub によって Zenodo へログインする](/assets/images/help/repository/zenodo_login_with_github.png)
-4. アクセス権限についての情報をレビューしてから、[**Authorize application**] をクリックします。 ![Zenodo の認証](/assets/images/help/repository/zenodo_authorize.png)
-5. [Zenodo GitHub ページ](https://zenodo.org/account/settings/github/)に移動します。 ![Zenodo GitHub ページ](/assets/images/help/repository/zenodo_github_page.png)
-6. アーカイブ化するリポジトリの名前の右にあるボタンを [**Off**] から [**On**] に切り替えて、アーカイブ化できるようにします。 ![リポジトリでの Zenodo アーカイブ化の有効化](/assets/images/help/repository/zenodo_toggle_on.png)
+1. Navigate to [Zenodo](http://zenodo.org/).
+2. In the upper-left corner of the screen, click **Log in**. ![Zenodo log in button](/assets/images/help/repository/zenodo_login.png)
+3. Click **Log in with GitHub**. ![Log into Zenodo with GitHub](/assets/images/help/repository/zenodo_login_with_github.png)
+4. Review the information about access permissions, then click **Authorize application**. ![Authorize Zenodo](/assets/images/help/repository/zenodo_authorize.png)
+5. Navigate to the [Zenodo GitHub page](https://zenodo.org/account/settings/github/). ![Zenodo GitHub page](/assets/images/help/repository/zenodo_github_page.png)
+6. To the right of the name of the repository you want to archive, toggle the button from **Off** to **On** to enable it for archiving. ![Enable Zenodo archiving on repository](/assets/images/help/repository/zenodo_toggle_on.png)
 
-Zenodo では、新しい {% data variables.product.product_name %}[リリース](/articles/about-releases/)を作成するたびに、リポジトリがアーカイブ化されて新しい DOI が発行されます。 リリースを作成するには、「[リリースの作成](/articles/creating-releases/)」のステップに従ってください。
+Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/articles/about-releases/). Follow the steps at "[Creating releases](/articles/creating-releases/)" to create a new one.
 
-## Figshare による研究素材の公表と引用
+## Publicizing and citing research material with Figshare
 
-研究者はデータ管理サービス [Figshare](http://figshare.com) を使用して研究素材を公表したり引用したりできます。 詳しい情報については、[Figshare のサポートサイト](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account)を参照してください。
+Academics can use the data management service [Figshare](http://figshare.com) to publicize and cite research material. For more information, see [Figshare's support site](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account).

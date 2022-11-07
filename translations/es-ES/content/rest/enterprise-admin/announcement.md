@@ -1,5 +1,5 @@
 ---
-title: Anuncio
+title: Announcement
 intro: The Announcement API allows you to manage the global announcement banner in your enterprise.
 versions:
   ghes: '*'
@@ -9,6 +9,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Anuncio
+## Announcement
 
-La API de anuncios te permite administrar el letrero de anuncios globales en tu empresa. Para obtener más información, consulta la sección "[Personalizar los mensajes de usuario para tu empresa](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)".
+The Announcements API allows you to manage the global announcement banner in your enterprise. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

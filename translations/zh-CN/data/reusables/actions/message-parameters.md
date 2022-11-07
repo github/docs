@@ -1,1 +1,8 @@
-| 参数 | 值 | | :- | :- |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `title` | 自定义标题 |{% endif %} | `file` | 文件名 | | `col` | 列号，从 1 开始 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endColumn` | 结束列号 |{% endif %} | `line` | 行号，从 1 开始 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endLine` | 结束行号 |{% endif %}
+| Parameter | Value |
+| :- | :- |
+| `title` | Custom title |
+| `file` | Filename |
+| `col` | Column number, starting at 1 |
+| `endColumn` | End column number |
+| `line` | Line number, starting at 1 |
+| `endLine` | End line number |

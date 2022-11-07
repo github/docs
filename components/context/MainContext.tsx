@@ -3,7 +3,6 @@ import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from 'components/page-header/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
-import { ExcludesNull } from 'components/lib/ExcludesNull'
 
 export type ProductT = {
   external: boolean
@@ -13,13 +12,6 @@ export type ProductT = {
   versions?: Array<string>
 }
 
-export type ProductGroupT = {
-  name: string
-  icon: string
-  octicon: string
-  children: Array<ProductT>
-}
-
 type VersionItem = {
   // free-pro-team@latest, enterprise-cloud@latest, enterprise-server@3.3 ...
   version: string
@@ -27,21 +19,16 @@ type VersionItem = {
   currentRelease: string
   latestVersion: string
   shortName: string
-  // api.github.com, ghes-3.3, github.ae
+  // api.github.com, ghec, ghes-3.3, github.ae
   openApiVersionName: string
-  // api.github.com, ghes-, github.ae
+  // api.github.com, ghec, ghes-, github.ae
   openApiBaseName: string
 }
 
 export type ProductTreeNode = {
-  page: {
-    hidden?: boolean
-    documentType: 'article' | 'mapTopic'
-    title: string
-    shortTitle: string
-  }
-  renderedShortTitle?: string
-  renderedFullTitle: string
+  documentType: 'article' | 'mapTopic'
+  title: string
+  shortTitle: string
   href: string
   childPages: Array<ProductTreeNode>
 }
@@ -77,7 +64,6 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   activeProducts: Array<ProductT>
-  productGroups: Array<ProductGroupT>
   communityRedirect: {
     name: string
     href: string
@@ -125,7 +111,7 @@ export type MainContextT = {
   fullUrl: string
 }
 
-export const getMainContext = (req: any, res: any): MainContextT => {
+export const getMainContext = async (req: any, res: any): Promise<MainContextT> => {
   // Our current translation process adds 'ms.*' frontmatter properties to files
   // it translates including when data/ui.yml is translated. We don't use these
   // properties and their syntax (e.g. 'ms.openlocfilehash',
@@ -137,7 +123,6 @@ export const getMainContext = (req: any, res: any): MainContextT => {
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
-    productGroups: req.context.productGroups,
     communityRedirect: req.context.page?.communityRedirect || {},
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
@@ -187,34 +172,15 @@ export const getMainContext = (req: any, res: any): MainContextT => {
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     allVersions: req.context.allVersions,
     currentVersion: req.context.currentVersion,
-    currentProductTree: req.context.currentProductTree
-      ? getCurrentProductTree(req.context.currentProductTree)
-      : null,
+    // This is a slimmed down version of `req.context.currentProductTree`
+    // that only has the minimal titles stuff needed for sidebars and
+    // any page that is hidden is omitted.
+    currentProductTree: req.context.currentProductTreeTitlesExcludeHidden || null,
     featureFlags: {},
     searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     status: res.statusCode,
     fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
-  }
-}
-
-// only pull things we need from the product tree, and make sure there are default values instead of `undefined`
-const getCurrentProductTree = (input: any): ProductTreeNode | null => {
-  if (input.page.hidden) {
-    return null
-  }
-
-  return {
-    href: input.href,
-    renderedShortTitle: input.renderedShortTitle || '',
-    renderedFullTitle: input.renderedFullTitle || '',
-    page: {
-      hidden: input.page.hidden || false,
-      documentType: input.page.documentType,
-      title: input.page.title,
-      shortTitle: input.page.shortTitle || '',
-    },
-    childPages: (input.childPages || []).map(getCurrentProductTree).filter(ExcludesNull),
   }
 }
 

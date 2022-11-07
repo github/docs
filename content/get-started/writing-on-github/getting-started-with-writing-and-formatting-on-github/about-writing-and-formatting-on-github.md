@@ -10,7 +10,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Write & format on GitHub
+shortTitle: About writing & formatting
 ---
 [Markdown](http://daringfireball.net/projects/markdown/) is an easy-to-read, easy-to-write syntax for formatting plain text.
 
@@ -42,4 +42,4 @@ You can enable a fixed-width font in every comment field on {% data variables.pr
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
 - "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
 - "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"
+- "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"

@@ -16,11 +16,11 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## はじめに
+## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Java project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
@@ -30,13 +30,13 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% endif %}
 
-## 必要な環境
+## Prerequisites
 
-{% data variables.product.prodname_actions %}ワークフローを作成する前に、まず以下のセットアップのステップを完了しておかなければなりません。
+Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Webアプリケーションの作成
+1. Create a web app.
 
    For example, you can use the Azure CLI to create an Azure App Service web app with a Java runtime:
 
@@ -48,19 +48,19 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
        --runtime "JAVA|11-java11"
    ```
 
-   上のコマンドで、パラメータは自分の値で置き換えてください。`MY_WEBAPP_NAME`はWebアプリケーションの新しい名前です。
+   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
 1. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 
-## ワークフローの作成
+## Creating the workflow
 
-必要な環境を整えたら、ワークフローの作成に進むことができます。
+Once you've completed the prerequisites, you can proceed with creating the workflow.
 
 The following example workflow demonstrates how to build and deploy a Java project to Azure App Service when there is a push to the `main` branch.
 
-ワークフローの`env`キー中の`AZURE_WEBAPP_NAME`を、作成したWebアプリケーションの名前に設定してください。 If you want to use a Java version other than `11`, change `JAVA_VERSION`.
+Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If you want to use a Java version other than `11`, change `JAVA_VERSION`.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -124,10 +124,10 @@ jobs:
           package: '*.jar'
 ```
 
-## 追加リソース
+## Additional resources
 
-以下のリソースも役に立つでしょう。
+The following resources may also be useful:
 
-* オリジナルのスターターワークフローについては、{% data variables.product.prodname_actions %} `starter-workflows`リポジトリ中の[`azure-webapps-java-jar.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-java-jar.yml)を参照してください。
-* Webアプリケーションのデプロイに使われたアクションは、公式のAzure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy)アクションです。
+* For the original starter workflow, see [`azure-webapps-java-jar.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-java-jar.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

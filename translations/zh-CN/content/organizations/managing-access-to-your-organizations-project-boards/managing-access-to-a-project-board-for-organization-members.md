@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 管理成员的访问权限
+shortTitle: Manage access for members
 allowTitleToDifferFromFilename: true
 ---
 
@@ -20,11 +20,11 @@ allowTitleToDifferFromFilename: true
 
 By default, organization members have write access to their organization's {% data variables.projects.projects_v1_boards %} unless organization owners or {% data variables.projects.projects_v1_board %} admins set different permissions for specific {% data variables.projects.projects_v1_boards %}.
 
-## 为所有组织成员设置基线权限级别
+## Setting a baseline permission level for all organization members
 
 {% tip %}
 
-**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. 更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”。
+**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% endtip %}
 
@@ -35,10 +35,11 @@ By default, organization members have write access to their organization's {% da
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
-8. 在 "Organization member permission"（组织成员权限）下，为所有组织成员选择基线权限级别：**Read（读取）**、**Write（写入）**、**Admin（管理员）**或 **None（无）**。 ![用于所有组织成员的基线项目板权限选项](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
-9. 单击 **Save（保存）**。
+8. Under "Organization member permission", choose a baseline permission level for all organization members: **Read**, **Write**, **Admin**, or **None**.
+![Baseline project board permission options for all organization members](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
+9. Click **Save**.
 
-## 延伸阅读
+## Further reading
 
 - "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
 - "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"

@@ -1,5 +1,6 @@
 ---
 title: About GitHub-hosted runners
+shortTitle: About GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
@@ -14,7 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: GitHub-hosted runners
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -85,6 +85,15 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 {% data reusables.actions.runner-app-open-source %}
 
 ## Supported runners and hardware resources
+
+{% ifversion actions-hosted-runners %}
+
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Machine specs for {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."  
+
+{% endnote %}
+{% endif %}
 
 Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU (x86_64)

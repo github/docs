@@ -102,7 +102,7 @@ export const Editor: React.FC<Props> = ({ article }) => {
                     className = 'color-bg-accent'
                   }
                 }
-                return { style: { display: 'block' }, class: className }
+                return { style: { display: 'block' }, className }
               }}
               lineNumberStyle={{ minWidth: '3.25em' }}
             >

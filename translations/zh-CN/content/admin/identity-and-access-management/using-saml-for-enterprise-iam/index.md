@@ -1,7 +1,7 @@
 ---
 title: Using SAML for enterprise IAM
 shortTitle: SAML for enterprise IAM
-intro: 'You can centrally manage {% ifversion ghes or ghae %}accounts and {% endif %}access to {% ifversion ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise{% elsif ghec %}your enterprise''s resources{% endif %} with SAML single sign-on (SSO){% ifversion ghec or ghae %} and System for Cross-domain Identity Management (SCIM){% endif %}.'
+intro: 'You can centrally manage {% ifversion ghes or ghae %}accounts and {% endif %}access to {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise{% elsif ghec %}your enterprise''s resources{% endif %} with SAML single sign-on (SSO){% ifversion ghec or ghae %} and System for Cross-domain Identity Management (SCIM){% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -22,7 +22,7 @@ children:
   - /about-saml-for-enterprise-iam
   - /saml-configuration-reference
   - /configuring-saml-single-sign-on-for-your-enterprise
-  - /configuring-user-provisioning-for-your-enterprise
+  - /configuring-user-provisioning-with-scim-for-your-enterprise
   - /managing-team-synchronization-for-organizations-in-your-enterprise
   - /configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad

@@ -1,1 +1,9 @@
-1. Copia el nombre DNS público de la máquina virtual y pégalo en un navegador de red.
+---
+ms.openlocfilehash: 0d02ecd435b943645819f3ded45bd1e003bf025b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145111689"
+---
+1. Copie el nombre DNS público de la máquina virtual y péguelo en un explorador web.

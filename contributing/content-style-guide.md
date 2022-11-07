@@ -2,7 +2,7 @@
 
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
-These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [GitHub Brand Guide](https://brand.github.com/content/) first, then the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md).
+These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md). For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)"
 
 Use table of contents icon <img src="../assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
 
@@ -93,6 +93,15 @@ schedule:
   - cron:  "40 19 * * *"
 ```
 
+### File and directory names
+
+Use inline codeblocks to refer to file and directory names. If a file type generally follows a specific capitalization convention, such as all caps for README files, use the established convention.
+
+- **Use:** In your `README.md` file, add info about your repository.
+- **Use:** In your `.github/workflows/` directory, create the `example-workflow.yml` file.
+- **Avoid:** In your _.github/workflows/_ directory, create the `example-workflow.yml` file.
+- **Avoid:** Delete the **example.js** file.
+
 ### Indentation
 
 In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.
@@ -133,9 +142,10 @@ Every image must include an alt attribute that provides a complete description o
 
 ### Filenames
 
-Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. If replacing an image, use the exact filename.
+Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
+- **Avoid:** `purchase-button{% ifversion ghes > 3.2 %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
@@ -154,9 +164,6 @@ Individual words might be small, but together they can create community, belongi
 | Default/Main branch | Master branch |
 
 ### Resources about inclusive language
-
-GitHub Brand Guide:
-- [People and communities](https://brand.github.com/content/grammar#people-and-communities)
 
 The Microsoft Style Guide offers resources on bias-free communication, accessibility terms, and writing for all abilities:
 - [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)
@@ -235,6 +242,7 @@ Introduce links consistently using a standard format that clearly indicates wher
 For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
 For links to another section in the same article: `For more information, see "[Header text]()."`
 For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
+For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
 For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
 Do not include quotation marks within a hyperlink.
 
@@ -274,6 +282,12 @@ To link to a specific header in the same article, use this format:
 To link to a specific header in a different article, use this format:
 > For more information, see "[ARTICLE TITLE](path-to-article#HEADER-TITLE)."
 
+### Links to a specific tool
+
+When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
+
+> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).
+
 ### Links to learning paths
 
 Use this format to link to a learning path.
@@ -287,8 +301,6 @@ When linking to an external site, choose the most useful resource for the contex
 It's not necessary to link to an external product’s website when we mention an external product.
 
 ## Lists
-
-For general guidelines, see “[Lists](https://brand.github.com/content/grammar#lists)” in GitHub’s Brand Guide.
 
 Capitalize the first letter in each line of a list. Use periods at the end of lines in a list only if the line contains a complete sentence.
 
@@ -333,7 +345,7 @@ Product names are always singular.
 - **Use:** GitHub Actions helps you automate your software development workflows.
 - **Avoid:** GitHub Actions help you automate your software development workflows.
 
-Take care to distinguish between product names and product elements. For more information, see “[Terminology](https://brand.github.com/content/terminology)” in GitHub’s Brand Guide.
+Take care to distinguish between product names and product elements.
 
 | Product | Element |
 | --- | --- |
@@ -434,9 +446,24 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
+### Personal access tokens
+
+GitHub has two types of personal access tokens:
+
+- Fine-grained personal access tokens: Offer granular control over repository access and permissions
+- Personal access tokens (classic): Use scopes and grant access to all repositories that the token owner can access
+
+You should use variables to refer to these types of tokens, as well as to personal access tokens in general:
+
+- Use `{% data variables.product.pat_generic %}`or `{% data variables.product.pat_generic_caps %}` to refer to personal access tokens in general. Use `{% data variables.product.pat_generic_title_case %}` if the phrase should be in title case ("Personal Access Token") in order to match UI text.
+- Use `{% data variables.product.pat_v2 %}` or `{% data variables.product.pat_v2_caps %}` to refer to fine-grained personal access tokens.
+- Use `{% data variables.product.pat_v1 %}`, `{% data variables.product.pat_v1_plural %}`, `{% data variables.product.pat_v1_caps %}`, or `{% data variables.product.pat_v1_caps_plural %}` to refer to personal access tokens (classic).
+
+For more information about GitHub's personal access tokens, see "[Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#about-personal-access-tokens)."
+
 ## Punctuation
 
-Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Reusables and variables
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.
@@ -500,28 +527,10 @@ Format checkbox names in bold and omit the word “checkbox.” To describe choo
 - **Use:** Select **Enable for all new repositories**.
 - **Avoid:** Check the “Enable for all new repositories” checkbox.
 
-### Directory names
-
-Use sentence style capitalization. You can use internal capital letters in directory and folder names for readability. Format directory names in bold if you direct someone to select, type, or otherwise interact with the name.
-
-- **Use:** In your .github/workflows directory, create a new file.
-- **Use:** Select your **.github/workflows** directory.
-- **Avoid:** In your *.github/workflows* directory, select the workflow you wish to edit.
-- **Avoid:** In your `.github/workflows` directory, select the workflow you wish to edit.
-
 ### Dynamic text
 
 Use capital letters to indicate text that changes in the user interface or that the user needs to supply in a command or code snippet.
 - **Use:** Click **Add USERNAME to REPONAME**.
-
-### File names
-
-Use title style capitalization. If a file type generally follows a different capitalization convention, such as all caps for README files, use the established convention. You can use internal capital letters in file names for readability. Format file names in bold if you direct someone to select, type, or otherwise interact with the name.
-
-- **Use:** In your README.md file, add info about your repository.
-- **Use:** Enter **MyWorkflow.yml**.
-- **Avoid:** In your *README.md* file, add info about your repository.
-- **Avoid:** In your `README.md` file, add info about your repository.
 
 ### Lists and list items
 
@@ -552,9 +561,6 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 - **Use:** Under “IP allow list”, click **Edit**.
 
 ### More resources
-GitHub Brand Guide:
-- [Referring to GitHub features and product elements](https://brand.github.com/content/terminology/#referring-to-github-features-and-product-elements)
-- [Page names and UI references](https://brand.github.com/content/grammar#page-names-and-ui-references)
 Microsoft Style Guide:
 - [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
 
@@ -564,7 +570,7 @@ Use clear, simple language that’s approachable and accessible for a wide range
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology)” and “[Words that can be tricky](https://brand.github.com/content/grammar#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see our "[Glossary](https://docs.github.com/en/get-started/quickstart/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 

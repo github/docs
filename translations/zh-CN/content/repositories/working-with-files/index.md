@@ -17,6 +17,12 @@ children:
   - /managing-files
   - /using-files
   - /managing-large-files
-shortTitle: 使用文件
+shortTitle: Work with files
+ms.openlocfilehash: 69ad8b7c9f95e2b4f4cdc9c27fc625af8cd28fd8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145129271'
 ---
 

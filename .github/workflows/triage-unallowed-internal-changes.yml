@@ -25,17 +25,24 @@ concurrency:
 
 jobs:
   check-internal-changes:
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.user.login != 'Octomerger'
+    if: github.repository == 'github/docs-internal' && github.event.pull_request && github.event.pull_request.user.login != 'Octomerger'
     runs-on: ubuntu-latest
     outputs:
       notAllowedSearchSyncLabel: ${{ steps.filter.outputs.notAllowedSearchSyncLabel }}
     steps:
+      # This checkout is needed for merge_group
+      - name: Checkout
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+
       - name: Get files changed
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
         id: filter
         with:
           # Base branch used to get changed files
-          base: ${{ github.event.pull_request.base.ref || github.base_ref || github.ref }}
+          base: ${{ github.event.pull_request.base.ref || github.base_ref || github.ref || 'main' }}
 
           # Enables setting an output in the format in `${FILTER_NAME}_files
           # with the names of the matching files formatted as JSON array
@@ -45,6 +52,7 @@ jobs:
           filters: |
             notAllowedSearchSyncLabel:
               - 'lib/search/indexes/**'
+
   notAllowedSearchSyncLabel:
     needs: check-internal-changes
     if: ${{ needs.check-internal-changes.outputs.notAllowedSearchSyncLabel == 'true' }}
@@ -59,7 +67,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies

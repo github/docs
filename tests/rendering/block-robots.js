@@ -1,5 +1,4 @@
 import { blockIndex } from '../../middleware/block-robots.js'
-import languages from '../../lib/languages.js'
 import { productMap } from '../../lib/all-products.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
@@ -14,13 +13,6 @@ describe('block robots', () => {
     expect(allowIndex('/en/articles/verifying-your-email-address')).toBe(true)
   })
 
-  it('allows crawling of generally available localized content', async () => {
-    Object.values(languages).forEach((language) => {
-      expect(allowIndex(`/${language.code}`)).toBe(true)
-      expect(allowIndex(`/${language.code}/articles/verifying-your-email-address`)).toBe(true)
-    })
-  })
-
   it('disallows crawling of WIP products', async () => {
     const wipProductIds = Object.values(productMap)
       .filter((product) => product.wip)
@@ -29,19 +21,11 @@ describe('block robots', () => {
     wipProductIds.forEach((id) => {
       const { href } = productMap[id]
       const blockedPaths = [
-        // English
         `/en${href}`,
         `/en${href}/overview`,
         `/en${href}/overview/intro`,
         `/en/enterprise/${enterpriseServerReleases.latest}/user${href}`,
         `/en/enterprise/${enterpriseServerReleases.oldestSupported}/user${href}`,
-
-        // Japanese
-        `/ja${href}`,
-        `/ja${href}/overview`,
-        `/ja${href}/overview/intro`,
-        `/ja/enterprise/${enterpriseServerReleases.latest}/user${href}`,
-        `/ja/enterprise/${enterpriseServerReleases.oldestSupported}/user${href}`,
       ]
 
       blockedPaths.forEach((path) => {
@@ -59,14 +43,7 @@ describe('block robots', () => {
       const { versions } = productMap[id]
       const blockedPaths = versions
         .map((version) => {
-          return [
-            // English
-            `/en/${version}/${id}`,
-            `/en/${version}/${id}/some-early-access-article`,
-            // Japanese
-            `/ja/${version}/${id}`,
-            `/ja/${version}/${id}/some-early-access-article`,
-          ]
+          return [`/en/${version}/${id}`, `/en/${version}/${id}/some-early-access-article`]
         })
         .flat()
 
@@ -90,16 +67,10 @@ describe('block robots', () => {
   it('disallows crawling of deprecated enterprise releases', async () => {
     enterpriseServerReleases.deprecated.forEach((version) => {
       const blockedPaths = [
-        // English
         `/en/enterprise-server@${version}/actions`,
         `/en/enterprise/${version}/actions`,
         `/en/enterprise-server@${version}/actions/overview`,
         `/en/enterprise/${version}/actions/overview`,
-        // Japanese
-        `/ja/enterprise-server@${version}/actions`,
-        `/ja/enterprise/${version}/actions`,
-        `/ja/enterprise-server@${version}/actions/overview`,
-        `/ja/enterprise/${version}/actions/overview`,
       ]
 
       blockedPaths.forEach((path) => {

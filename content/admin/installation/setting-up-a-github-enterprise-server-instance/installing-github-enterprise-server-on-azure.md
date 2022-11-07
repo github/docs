@@ -29,7 +29,7 @@ You can deploy {% data variables.product.prodname_ghe_server %} on global Azure 
 
 ## Determining the virtual machine type
 
-Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)" in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Before launching {% data variables.location.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)" in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
@@ -50,13 +50,13 @@ Before launching {% data variables.product.product_location %} on Azure, you'll 
   Pass in options for the name of your VM, the resource group, the size of your VM, the name of your preferred Azure region, the name of the appliance image VM you listed in the previous step, and the storage SKU for premium storage. For more information about resource groups, see "[Resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)" in the Microsoft documentation.
 
   ```shell
-  $ az vm create -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --size <em>VM_SIZE</em> -l <em>REGION</em> --image <em>APPLIANCE_IMAGE_NAME</em> --storage-sku Premium_LRS
+  $ az vm create -n VM_NAME -g RESOURCE_GROUP --size VM_SIZE -l REGION --image APPLIANCE_IMAGE_NAME --storage-sku Premium_LRS
   ```
 
 3. Configure the security settings on your VM to open up required ports. For more information, see "[`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)" in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
 
   ```shell
-  $ az vm open-port -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --port <em>PORT_NUMBER</em>
+  $ az vm open-port -n VM_NAME -g RESOURCE_GROUP --port PORT_NUMBER
   ```
 
   This table identifies what each port is used for.
@@ -65,15 +65,15 @@ Before launching {% data variables.product.product_location %} on Azure, you'll 
 
 4. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see "[`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
-  Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `100`), and a name for the resulting VHD.
+  Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `200`), and a name for the resulting VHD.
 
   ```shell
-  $ az vm disk attach --vm-name <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --sku Premium_LRS --new -z <em>SIZE_IN_GB</em> --name ghe-data.vhd --caching ReadWrite
+  $ az vm disk attach --vm-name VM_NAME -g RESOURCE_GROUP --sku Premium_LRS --new -z SIZE_IN_GB --name ghe-data.vhd --caching ReadWrite
   ```
 
   {% note %}
 
-   **Note:** For non-production instances to have sufficient I/O throughput, the recommended minimum disk size is 40 GiB with read/write cache enabled (`--caching ReadWrite`).
+   **Note:** For non-production instances to have sufficient I/O throughput, the recommended minimum disk size is 150 GiB with read/write cache enabled (`--caching ReadWrite`).
 
    {% endnote %}
 
@@ -81,7 +81,7 @@ Before launching {% data variables.product.product_location %} on Azure, you'll 
 
 1. Before configuring the VM, you must wait for it to enter ReadyRole status. Check the status of the VM with the `vm list` command. For more information, see "[`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
   ```shell
-  $ az vm list -d -g <em>RESOURCE_GROUP</em> -o table
+  $ az vm list -d -g RESOURCE_GROUP -o table
   > Name    ResourceGroup    PowerState    PublicIps     Fqdns    Location    Zones
   > ------  ---------------  ------------  ------------  -------  ----------  -------
   > VM_NAME RESOURCE_GROUP   VM running    40.76.79.202           eastus

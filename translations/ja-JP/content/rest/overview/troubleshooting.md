@@ -1,6 +1,6 @@
 ---
-title: トラブルシューティング
-intro: REST API で発生する最も一般的な問題の解決方法を学びます。
+title: Troubleshooting
+intro: Learn how to resolve the most common problems people encounter in the REST API.
 redirect_from:
   - /v3/troubleshooting
 versions:
@@ -14,49 +14,58 @@ topics:
 
 
 
-API で不可解な問題が発生した場合、発生したと思われる問題の解決策をこちらの一覧から確認できます。
+If you're encountering some oddities in the API, here's a list of resolutions to
+some of the problems you may be experiencing.
 
-## 既存リポジトリの `404` エラー
+## `404` error for an existing repository
 
-通常、クライアントが正しく認証されていない場合、`404` エラーが送信されます。 このような場合、`403 Forbidden` が表示されるはずであると考えるかもしれません。 しかし、プライベートリポジトリに関する_いずれの_情報も提供されないため、API は代わりに `404` エラーを返します。
+Typically, we send a `404` error when your client isn't properly authenticated.
+You might expect to see a `403 Forbidden` in these cases. However, since we don't
+want to provide _any_ information about private repositories, the API returns a
+`404` error instead.
 
-トラブルシューティングを行うには、[正しく認証されていること](/guides/getting-started/)、[OAuth アクセストークンに必要なスコープがあること](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)、[サードパーティアプリケーションの制限][oap-guide]によってアクセスがブロックされていないこと、そして[トークンが期限切れになっていたり取り消されたりしてない](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)ことを確認してください。
+To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
-## 表示されない結果がある
+## Not all results returned
 
-リソース（_例:_ ユーザ、Issue _など_）のリストにアクセスするほとんどの API 呼び出しは、ページネーションをサポートしています。 リクエストをして、すべての結果を受け取っていない場合は、おそらく最初のページしか表示されていません。 より多くの結果を受け取るには、残りのページをリクエストする必要があります。
+Most API calls accessing a list of resources (_e.g._, users, issues, _etc._) support
+pagination. If you're making requests and receiving an incomplete set of results, you're
+probably only seeing the first page. You'll need to request the remaining pages
+in order to get more results.
 
-ページネーション URL のフォーマットを推測*しない*ことが重要です。 すべての API 呼び出しで同じ構造が使用されるわけではありません。 代わりに、すべてのリクエストで送信される [Link Header](/rest#pagination) からページネーション情報を抽出します。
+It's important to *not* try and guess the format of the pagination URL. Not every
+API call uses the same structure. Instead, extract the pagination information from
+[the Link Header](/rest#pagination), which is sent with every request.
+
+[oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
 {% ifversion fpt or ghec %}
-## Basic 認証のエラー
+## Basic authentication errors
 
-2020 年 11 月 13 日に、 REST API に対するユーザ名およびパスワードによる認証と OAuth 認証 API は非推奨となり、使用できなくなりました。
+On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.
 
-### Basic 認証での `username`/`password` の使用
+### Using `username`/`password` for basic authentication
 
-API 呼び出しに `username` と `password` を使用している場合、これは認証されなくなります。 例:
+If you're using `username` and `password` for API calls, then they are no longer able to authenticate. For example:
 
 ```bash
 curl -u my_user:my_password https://api.github.com/user/repos
 ```
 
-エンドポイントをテストするとき、またはローカル開発を実行するときには、かわりに[個人アクセストークン](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)を使用してください。
+Instead, use a [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
 
 ```bash
-curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
-OAuth App の場合は、[Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)を使用して、API 呼び出しのヘッダーで使用する OAuth トークンを生成する必要があります。
+For OAuth Apps, you should use the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate an OAuth token to use in the API call's header:
 
 ```bash
-curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
 
-## タイムアウト
+## Timeouts
 
-{% data variables.product.product_name %}がAPIを処理するのに10秒以上かかると、{% data variables.product.product_name %}はリクエストを終了させ、タイムアウトのレスポンスが返されます。
+If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
 
 {% endif %}
-
-[oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/

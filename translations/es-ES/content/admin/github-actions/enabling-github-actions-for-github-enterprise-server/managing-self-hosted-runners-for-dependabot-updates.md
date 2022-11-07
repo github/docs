@@ -1,6 +1,6 @@
 ---
-title: Administrar los ejecutores auto-hospedados para las actualizaciones del Dependabot en tu empresa
-intro: 'Puedes crear ejecutores dedicados para {% data variables.product.product_location %} que utilice el {% data variables.product.prodname_dependabot %} para crear solicitudes de cambio para ayudar a asegurar y mantener las dependencias que se utilizan en los repositorios de tu empresa.'
+title: Managing self-hosted runners for Dependabot updates on your enterprise
+intro: 'You can create dedicated runners for {% data variables.location.product_location %} that {% data variables.product.prodname_dependabot %} uses to create pull requests to help secure and maintain the dependencies used in repositories on your enterprise.'
 redirect_from:
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates
 allowTitleToDifferFromFilename: true
@@ -12,45 +12,45 @@ topics:
   - Security
   - Dependabot
   - Dependencies
-shortTitle: Actualizaciones del dependabot
+shortTitle: Dependabot updates
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-## Acerca de los ejecutores auto-hospedados para las {% data variables.product.prodname_dependabot_updates %}
+## About self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
 
-Puedes ayudar a que los usuarios de {% data variables.product.product_location %} creen y mantengan un código seguro si configuras la seguridad y las actualizaciones de versión del {% data variables.product.prodname_dependabot %}. Con las {% data variables.product.prodname_dependabot_updates %}, los desarrolladores pueden configurar repositorios para que sus dependencias se actualicen y se mantengan seguras automáticamente. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+You can help users of {% data variables.location.product_location %} to create and maintain secure code by setting up {% data variables.product.prodname_dependabot %} security and version updates. With {% data variables.product.prodname_dependabot_updates %}, developers can configure repositories so that their dependencies are updated and kept secure automatically. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-Para utilizar las {% data variables.product.prodname_dependabot_updates %} en {% data variables.product.product_location %}, debes configurar los ejecutores auto-hospedados para crear las solicitudes de cambios que actualizarán las dependencias.
+To use {% data variables.product.prodname_dependabot_updates %} on {% data variables.location.product_location %}, you must configure self-hosted runners to create the pull requests that will update dependencies.
 
-## Prerrequisitos
+## Prerequisites
 
 {% ifversion dependabot-updates-github-connect %}
-El configurar los ejecutores auto-hospedados es solo un paso en medio del proceso para habilitar las {% data variables.product.prodname_dependabot_updates %}. Hay varios pasos que debes seguir antes de estos, incluyendo el configurar a {% data variables.product.product_location %} para utilizar {% data variables.product.prodname_actions %} con ejecutores auto-hospedados. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+Configuring self-hosted runners is only one step in the middle of the process for enabling {% data variables.product.prodname_dependabot_updates %}. There are several steps you must follow before these steps, including configuring {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% else %}
-Antes de que configures los ejecutores auto-hospedados para {% data variables.product.prodname_dependabot_updates %}, debes:
+Before you configure self-hosted runners for {% data variables.product.prodname_dependabot_updates %}, you must:
 
-- Configurar {% data variables.product.product_location %} para utilizar las {% data variables.product.prodname_actions %} con ejecutores auto-hospedados. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)".
-- Habilitar las {% data variables.product.prodname_dependabot_alerts %} para tu empresa. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+- Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+- Enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% endif %}
 
-## Configurar los ejecutores auto-hospedados para las {% data variables.product.prodname_dependabot_updates %}
+## Configuring self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
 
-Después de que configuras {% data variables.product.product_location %} para que utilice las {% data variables.product.prodname_actions %}, necesitas agregar ejecutores auto-hospedados para las {% data variables.product.prodname_dependabot_updates %}.
+After you configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}, you need to add self-hosted runners for {% data variables.product.prodname_dependabot_updates %}.
 
-### Requisitos de sistema para los ejecutores del {% data variables.product.prodname_dependabot %}
+### System requirements for {% data variables.product.prodname_dependabot %} runners
 
-Cualquier máquina virtual que utilices para los ejecutores del {% data variables.product.prodname_dependabot %} debe cumplir con los requisitos de los ejecutores auto-hospedados. Adicionalmente, deben cumplir con los siguientes requisitos.
+Any VM that you use for {% data variables.product.prodname_dependabot %} runners must meet the requirements for self-hosted runners. In addition, they must meet the following requirements.
 
-- Sistema operativo Linux{% ifversion ghes < 3.5 %}
-- Git instalado{% endif %}
-- Docker instalado con acceso para los usuarios del ejecutor:
-  - Recomendamos instalar Docker en modo sin raíz y configurar los ejecutores para acceder a Docker sin privilegios de `root`.
-  - Como alternativa, instala Docker y otorga a los usuarios del ejecutor privilegios superiores para ejecutarlo.
+- Linux operating system{% ifversion ghes < 3.5 %}
+- Git installed{% endif %}
+- Docker installed with access for the runner users:
+  - We recommend installing Docker in rootless mode and configuring the runners to access Docker without `root` privileges.
+  - Alternatively, install Docker and give the runner users raised privileges to run Docker.
 
-Los requisitos de memoria y CPU dependerán de la cantidad de ejecutores simultáneos que despliegues en una MV determinada. Como orientación, configuramos exitosamente 20 ejecutores en una sola máquina de 2 CPU y 8 GB pero, en última instancia, tus requisitos de memoria y CPU dependerán fuertemente de los repositorios que se vayan a actualizar. Algunos ecosistemas requerirán más recursos que otros.
+The CPU and memory requirements will depend on the number of concurrent runners you deploy on a given VM. As guidance, we have successfully set up 20 runners on a single 2 CPU 8GB machine, but ultimately, your CPU and memory requirements will heavily depend on the repositories being updated. Some ecosystems will require more resources than others.
 
-Si especificas más de 14 ejecutores simultáneos en una MV, también debes actualizar la configuración de `/etc/docker/daemon.json` de Docker para incrementar la cantidad predeterminada de redes que Docker puede crear.
+If you specify more than 14 concurrent runners on a VM, you must also update the Docker `/etc/docker/daemon.json` configuration to increase the default number of networks Docker can create.
 
 ```
 {
@@ -60,23 +60,23 @@ Si especificas más de 14 ejecutores simultáneos en una MV, también debes actu
 }
 ```
 
-### Requisitos de red para los ejecutores del {% data variables.product.prodname_dependabot %}
+### Network requirements for {% data variables.product.prodname_dependabot %} runners
 
-Los ejecutores del {% data variables.product.prodname_dependabot %} necesitan acceso al internet público, a {% data variables.product.prodname_dotcom_the_website %} y a cualquier registro interno que se utilizará en las actualizaciones del {% data variables.product.prodname_dependabot %}. Para minimizar el riesgo de tu red interna, debes limitar el acceso desde la máquina virtual (MV) a tu red interna. Esto reduce el potencial de daño a los sistemas internos si un ejecutor descargara una dependencia secuestrada.
+{% data variables.product.prodname_dependabot %} runners require access to the public internet, {% data variables.product.prodname_dotcom_the_website %}, and any internal registries that will be used in {% data variables.product.prodname_dependabot %} updates. To minimize the risk to your internal network, you should limit access from the Virtual Machine (VM) to your internal network. This reduces the potential for damage to internal systems if a runner were to download a hijacked dependency.
 
-### Agregar ejecutores auto-hospedados para las actualizaciones del {% data variables.product.prodname_dependabot %}
+### Adding self-hosted runners for {% data variables.product.prodname_dependabot %} updates
 
-1. Aprovisionar los ejecutores auto-hospedados a nivel de cuenta empresarial, organizacional o de repositorio. Para obtener más información, consulta las secciones "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" y "[Agregar ejecutores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
+1. Provision self-hosted runners, at the repository, organization, or enterprise account level. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
-2. Configurar los ejecutores auto hospedados con los requisitos que se describen anteriormente. Por ejemplo, en una MV que ejecuta Ubuntu 20.04, podrías:{% ifversion ghes < 3.5 %}
+2. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:{% ifversion ghes < 3.5 %}
 
-   - Verificar que Git está instalado: `command -v git`{% endif %}
-   - Instalar Docker y asegurarte de que los usuarios del ejecutor tengan acceso a él. Para obtener más información, consulta la documentación de Docker.
-     - [Instalar Docker Engine en Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-     - Enfoque recomendado: [Ejecuta el Docker daemon como un usuario no raíz (Modo sin raíz)](https://docs.docker.com/engine/security/rootless/)
-     - Enfoque alterno: [Administra Docker como un usuario sin raíz](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
-   - Verificar que los ejecutores tengan acceso al internet público y solo puedan acceder a las redes internas que necesita el {% data variables.product.prodname_dependabot %}.
+   - Verify that Git is installed: `command -v git`{% endif %}
+   - Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
+     - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+     - Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
+     - Alternative approach: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
+   - Verify that the runners have access to the public internet and can only access the internal networks that {% data variables.product.prodname_dependabot %} needs.
 
-3. Asignar una etiqueta del `dependabot` a cada ejecutor que quieras que utilice el {% data variables.product.prodname_dependabot %}. Para obtener más información, consulta la sección "[Utilizar etiquetas con ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner)".
+3. Assign a `dependabot` label to each runner you want {% data variables.product.prodname_dependabot %} to use. For more information, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner)."
 
-4. Opcionalmente, habilitar los flujos de trabajo que activa el {% data variables.product.prodname_dependabot %} para utilizar más que los permisos de solo lectura y para tener acceso a cualquier secreto que esté disponible habitualmente. Para obtener más información, consulta la sección "[Solucionar los problemas de las {% data variables.product.prodname_actions %} en tu empresa](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#enabling-workflows-triggered-by-dependabot-access-to-dependabot-secrets-and-increased-permissions)".
+4. Optionally, enable workflows triggered by {% data variables.product.prodname_dependabot %} to use more than read-only permissions and to have access to any secrets that are normally available. For more information, see "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#enabling-workflows-triggered-by-dependabot-access-to-dependabot-secrets-and-increased-permissions)."

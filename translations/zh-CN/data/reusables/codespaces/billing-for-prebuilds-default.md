@@ -1,3 +1,0 @@
-By default, a {% data variables.product.prodname_actions %} workflow is triggered every time you create or update a prebuild, or push to a prebuild-enabled branch. 与其他工作流程一样，在预构建工作流程运行时，它们将消耗帐户中包含的一些操作分钟数（如果有），或者产生操作分钟数的费用。 有关操作分钟数定价的详细信息，请参阅[关于 {% data variables.product.prodname_actions %} 计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
-
-Alongside {% data variables.product.prodname_actions %} minutes, you will also be billed for the storage of prebuilds associated with each prebuild configuration for a given repository and region. Storage of prebuilds is billed at the same rate as storage of codespaces.

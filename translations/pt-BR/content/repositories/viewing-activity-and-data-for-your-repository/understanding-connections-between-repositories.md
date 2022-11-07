@@ -21,9 +21,14 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Conexões entre repositórios
+shortTitle: Connections between repositories
+ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060063'
 ---
-
 ## Exibir a rede do repositório
 
 O gráfico de rede exibe o histórico de branches de toda a rede do repositório, incluindo branches do repositório raiz e branches de bifurcações que contêm commits exclusivos da rede.
@@ -32,15 +37,15 @@ O gráfico de rede exibe o histórico de branches de toda a rede do repositório
 
 {% tip %}
 
-**Dica:** para ver branches mais antigos, clique e arraste dentro do gráfico.
+**Dica:** para ver branches mais antigos, dê um clique e arraste dentro do grafo.
 
 {% endtip %}
 
 ## Acessar o gráfico de rede
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. Na barra lateral esquerda, clique em **Network** (Rede). ![Guia Network (Rede)](/assets/images/help/graphs/network_tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. Na barra lateral esquerda, clique em **Rede**.
+![Guia Rede](/assets/images/help/graphs/network_tab.png)
 
 ## Listar as bifurcações de um repositório
 
@@ -60,9 +65,9 @@ As bifurcações são listadas em ordem alfabética pelo nome de usuário da pes
 
 ### Acessar o gráfico de integrantes
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. Na barra lateral esquerda, clique em **Forks** (Bifurcações). ![Aba Forks (Bifurcações)](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. Na barra lateral esquerda, clique em **Forks**.
+![Guia Forks](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
 ## Visualizar as dependências de um repositório
 
@@ -70,6 +75,6 @@ Você pode usar o gráfico de dependências para explorar o código do qual seu 
 
 Quase todos os softwares dependem do código desenvolvido e mantido por outros desenvolvedores, muitas vezes conhecido como cadeia de suprimentos. Por exemplo, utilitários, bibliotecas e estruturas. Essas dependências são parte integrante do seu código e quaisquer erros ou vulnerabilidades nelas podem afetar seu código. É importante revisar e manter estas dependências.
 
-O gráfico de dependências fornece uma ótima maneira de visualizar e explorar as dependências de um repositório. Para obter mais informações, consulte "[Sobre o gráfico de dependências](/code-security/supply-chain-security/about-the-dependency-graph)" e "[Explorar as dependências de um repositório](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)".
+O gráfico de dependências fornece uma ótima maneira de visualizar e explorar as dependências de um repositório. Para obter mais informações, confira "[Sobre o grafo de dependência](/code-security/supply-chain-security/about-the-dependency-graph)" e "[Como explorar as dependências de um repositório](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)".
 
-Você também pode configurar o seu repositório para que {% data variables.product.company_short %} alerte você automaticamente sempre que uma vulnerabilidade de segurança for encontrada em uma das suas dependências. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
+Você também pode configurar o seu repositório para que {% data variables.product.company_short %} alerte você automaticamente sempre que uma vulnerabilidade de segurança for encontrada em uma das suas dependências. Para obter mais informações, confira "[Sobre os {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".

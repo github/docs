@@ -1,1 +1,1 @@
-作为安全预防措施，{% data variables.product.company_short %} 会自动删除一年内未使用过的个人访问令牌。 为了提供额外的安全性，我们强烈建议为个人访问令牌添加过期时间。
+As a security precaution, {% data variables.product.company_short %} automatically removes {% data variables.product.pat_generic %}s that haven't been used in a year. To provide additional security, we highly recommend adding an expiration to your {% data variables.product.pat_generic %}s.

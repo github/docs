@@ -1,15 +1,15 @@
 ---
-title: Reopening a closed {% data variables.product.prodname_project_v1 %}
-intro: You can reopen a closed {% data variables.projects.projects_v1_board %} and restart any workflow automation that was configured for the {% data variables.projects.projects_v1_board %}.
+title: 'Reopening a closed {% data variables.product.prodname_project_v1 %}'
+intro: 'You can reopen a closed {% data variables.projects.projects_v1_board %} and restart any workflow automation that was configured for the {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board
   - /github/managing-your-work-on-github/reopening-a-closed-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Reopen {% data variables.product.prodname_project_v1 %}
+shortTitle: 'Reopen {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}

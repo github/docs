@@ -9,15 +9,17 @@ topics:
   - Codespaces
 children:
   - /codespaces-lifecycle
-  - /creating-a-codespace
   - /developing-in-a-codespace
+  - /creating-a-codespace
+  - /deleting-a-codespace
+  - /opening-an-existing-codespace
   - /using-source-control-in-your-codespace
   - /using-github-codespaces-for-pull-requests
-  - /renaming-a-codespace
-  - /deleting-a-codespace
+  - /stopping-and-starting-a-codespace
   - /forwarding-ports-in-your-codespace
   - /default-environment-variables-for-your-codespace
   - /connecting-to-a-private-network
+  - /getting-started-with-github-codespaces-for-machine-learning
   - /using-github-codespaces-in-visual-studio-code
   - /using-github-codespaces-with-github-cli
 ---

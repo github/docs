@@ -1,7 +1,7 @@
 ---
-title: 'Personalizando as visualizações em seu {% data variables.projects.project_v2 %}'
-shortTitle: Personalizando visualizações
-intro: 'Você pode criar múltiplas visualizações para ver seu projeto de diferentes ângulos, decidir quais itens mostrar e como apresentá-los.'
+title: 'Personalizar exibições em seu {% data variables.projects.project_v2 %}'
+shortTitle: Customizing views
+intro: 'Você pode criar várias exibições para examinar seu projeto de diferentes ângulos, decidindo quais itens mostrar e como apresentá-los.'
 versions:
   feature: projects-v2
 topics:
@@ -12,5 +12,11 @@ children:
   - /filtering-projects
   - /managing-your-views
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 10c4aaf54f90773acb1d7a9ed2a8dc186278010e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107844'
 ---
 

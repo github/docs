@@ -17,7 +17,7 @@ topics:
   - Identity
 shortTitle: Change authentication methods
 ---
-User accounts on {% data variables.product.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
+User accounts on {% data variables.location.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
 
 If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
 
@@ -33,10 +33,10 @@ Other issues you should take into consideration include:
 
 * **Group membership:** When you use LDAP to authenticate, users are automatically [suspended and unsuspended](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) based on restricted group membership and account status with Active Directory.
 
-* **Git authentication:** SAML and CAS only supports Git authentication over HTTP or HTTPS using a [personal access token](/articles/creating-an-access-token-for-command-line-use). Password authentication over HTTP or HTTPS is not supported. LDAP supports password-based Git authentication by default, but we recommend that you [disable that method](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations) and force authentication via a personal access token or SSH key.
+* **Git authentication:** SAML and CAS only supports Git authentication over HTTP or HTTPS using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Password authentication over HTTP or HTTPS is not supported. LDAP supports password-based Git authentication by default, but we recommend that you [disable that method](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations) and force authentication via a {% data variables.product.pat_generic %} or SSH key.
 
-* **API authentication:** SAML and CAS only supports API authentication using a [personal access token](/articles/creating-an-access-token-for-command-line-use). Basic authentication is not supported.
+* **API authentication:** SAML and CAS only supports API authentication using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Basic authentication is not supported.
 
 * **Two-factor authentication:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.product.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.location.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."

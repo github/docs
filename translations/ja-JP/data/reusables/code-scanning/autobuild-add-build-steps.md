@@ -1,1 +1,2 @@
-リポジトリ内の C/C++、C#、またはJava のコードに非標準のビルドプロセスがある場合、 `autobuild` が失敗することがあります。 ワークフローから`autobuild`ステップを取り除き、手動でビルドのステップを追加する必要があるでしょう。 リポジトリのGoのファイルで展開するものを指定したい場合には、ビルドのステップを追加しなければなりません。
+If `autobuild` fails, or you want to analyze a different set of source files from those built by the `autobuild` process, you'll need to remove the `autobuild` step from the workflow, and manually add build steps. For C/C++, C#, Go, and Java projects, {% data variables.product.prodname_codeql %} will analyze whatever source code is built by your specified build steps.
+

@@ -1,5 +1,5 @@
 {% tip %}
 
-**Tip:** 定期的に大きなファイルを{% data variables.product.product_location %}にプッシュするなら、{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）の利用を検討してください。 詳しい情報については「[大きなファイルのバージョン付け](/articles/versioning-large-files)」を参照してください。
+**Tip:** If you regularly push large files to {% data variables.location.product_location %}, consider using {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[Versioning large files](/articles/versioning-large-files)."
 
 {% endtip %}

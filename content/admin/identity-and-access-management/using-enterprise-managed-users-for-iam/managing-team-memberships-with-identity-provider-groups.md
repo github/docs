@@ -1,7 +1,7 @@
 ---
 title: Managing team memberships with identity provider groups
 shortTitle: Manage teams with your IdP
-intro: 'You can manage team membership on {% data variables.product.product_name %} through your identity provider (IdP) by connecting IdP groups with your {% data variables.product.prodname_emu_enterprise %}.'
+intro: 'You can manage team membership on {% data variables.product.product_name %} through your identity provider (IdP) by connecting IdP groups with your {% data variables.enterprise.prodname_emu_enterprise %}.'
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
@@ -22,7 +22,7 @@ topics:
 
 With {% data variables.product.prodname_emus %}, you can manage team membership within your enterprise through your IdP. When you connect a team in one of your enterprise's organizations to an IdP group, changes to membership from the IdP group are reflected in your enterprise automatically, reducing the need for manual updates and custom scripts. 
 
-When a change to an IdP group or a new team connection results in a {% data variables.product.prodname_managed_user %} joining a team in an organization they were not already a member of, the {% data variables.product.prodname_managed_user %} will automatically be added to the organization. Organization owners can also manage organization membership manually. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization if they are not assigned membership in the organization by any other means.
+When a change to an IdP group or a new team connection results in a {% data variables.enterprise.prodname_managed_user %} joining a team in an organization they were not already a member of, the {% data variables.enterprise.prodname_managed_user %} will automatically be added to the organization. Organization owners can also manage organization membership manually. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization if they are not assigned membership in the organization by any other means.
 
 You can connect a team in your enterprise to one IdP group. You can assign the same IdP group to multiple teams in your enterprise.
 

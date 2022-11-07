@@ -4,7 +4,7 @@ shortTitle: 'Managing {% data variables.projects.project_v2 %} access'
 intro: 'Learn how to manage team and individual access to your {% data variables.projects.project_v2 %}.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-access-to-projects
 type: tutorial
@@ -41,6 +41,12 @@ The default base role is `write`, meaning that everyone in the organization can 
 ### Managing access for teams and individual members of your organization
 
 You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+
+{% ifversion projects-v2-add-to-team %}
+
+If you grant a team read permissions or greater for a project, the project is also displayed on the team's projects page. You can also add projects to a team on the team's projects page. For more information, see "[Adding your project to a team](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)."  
+
+{% endif %}
 
 You can only invite an individual user to collaborate on your organization-level project if they are already a member of the organization or an outside collaborator on at least one repository in the organization.
 

@@ -1,7 +1,7 @@
 ---
-title: Habilitando a pesquisa unificada para a sua empresa
-shortTitle: Pesquisa unificada
-intro: 'Você pode permitir que os usuários incluam repositórios em {% data variables.product.prodname_dotcom_the_website %} nos resultados de pesquisa quando pesquisarem em {% data variables.product.product_location %}.'
+title: Enabling unified search for your enterprise
+shortTitle: Unified search
+intro: 'You can allow users to include repositories on {% data variables.product.prodname_dotcom_the_website %} in their search results when searching from {% data variables.location.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-and-github-com
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com
@@ -22,30 +22,32 @@ topics:
   - GitHub search
 ---
 
-## Sobre o {% data variables.product.prodname_unified_search %}
+## About {% data variables.enterprise.prodname_unified_search %}
 
 {% data reusables.github-connect.beta %}
 
-Ao habilitar a pesquisa unificada, os usuários podem ver os resultados de pesquisa de conteúdo em {% data variables.product.prodname_dotcom_the_website %} quando pesquisarem em {% data variables.product.product_location %}{% ifversion ghae %} em {% data variables.product.prodname_ghe_managed %}{% endif %}.
+When you enable unified search, users can view search results from content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.location.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. 
 
-Você pode optar por permitir resultados de pesquisa para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %} e você pode optar separadamente por permitir resultados de pesquisa para repositórios privados em {% data variables.product.prodname_ghe_cloud %}. Se você habilitar a pesquisa unificada para repositórios privados, os usuários só poderão pesquisar repositórios privados aos quais eles têm acesso e que são propriedade da organização conectada ou da conta corporativa. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)".
+You can choose to allow search results for public repositories on {% data variables.product.prodname_dotcom_the_website %}, and you can separately choose to allow search results for private repositories on {% data variables.product.prodname_ghe_cloud %}. If you enable unified search for private repositories, users can only search private repositories that they have access to and that are owned by the connected organization or enterprise account. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)."
 
-Os usuários nunca poderão pesquisar em {% data variables.product.product_location %} a partir de {% data variables.product.prodname_dotcom_the_website %}, mesmo se tiverem acesso aos dois ambientes.
+Users will never be able to search {% data variables.location.product_location %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments.
 
-Após habilitar a pesquisa unificada de {% data variables.product.product_location %}, antes que os usuários individuais possam ver os resultados da pesquida de repositórios privados em {% data variables.product.prodname_dotcom_the_website %} em {% data variables.product.product_location %}, cada usuário também deve conectar sua conta de usuário em {% data variables.product.product_name %} a uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitando a pesquisa de repositório {% data variables.product.prodname_dotcom_the_website %} na sua conta corporativa privada](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)".
+After you enable unified search for {% data variables.location.product_location %}, before individual users can see search results from private repositories on {% data variables.product.prodname_dotcom_the_website %} in {% data variables.location.product_location %}, each user must also connect their user account on {% data variables.product.product_name %} with a user account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search in your private enterprise account](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
 
-A pesquisa via APIs REST e GraphQL não inclui resultados do {% data variables.product.prodname_dotcom_the_website %}. Não há suporte para a pesquisa avançada e a pesquisa de wikis no {% data variables.product.prodname_dotcom_the_website %}.
+Searching via the REST and GraphQL APIs does not include {% data variables.product.prodname_dotcom_the_website %} search results. Advanced search and searching for wikis in {% data variables.product.prodname_dotcom_the_website %} are not supported.
 
-## Habilitar o {% data variables.product.prodname_unified_search %}
+## Enabling {% data variables.enterprise.prodname_unified_search %}
 
-Antes de você poder habilitar {% data variables.product.prodname_unified_search %}, você deverá habilitar {% data variables.product.prodname_github_connect %}. Para obter mais informações, consulte "[Gerenciando {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".
+Before you can enable {% data variables.enterprise.prodname_unified_search %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
 {% ifversion ghes %}
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
-1. Efetue o login em {% data variables.product.product_location %} e {% data variables.product.prodname_dotcom_the_website %}.
+1. Sign into {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
-1. Em "Usuários podem pesquisarh {% data variables.product.prodname_dotcom_the_website %}", use the menu suspenso e clique em **Habilitado**. ![Habilitar a opção de pesquisa no menu suspenso de pesquisa do GitHub.com](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)
-1. Como alternativa, em "Os usuários podem pesquisar repositórios privados em {% data variables.product.prodname_dotcom_the_website %}", use o menu suspenso e clique em **Habilitado**. ![Habilitar a opção de pesquisa em repositórios privados no menu suspenso de pesquisa do GitHub.com](/assets/images/enterprise/site-admin-settings/enable-private-search.png)
+1. Under "Users can search {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
+  ![Enable search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)
+1. Optionally, under "Users can search private repositories on {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
+    ![Enable private repositories search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/enable-private-search.png)

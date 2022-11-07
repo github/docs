@@ -1,6 +1,6 @@
 ---
 title: Dependabot
-intro: 'Con la API de secretos del Dependabot, puedes administrar y controlar los secretos del Dependabot para una organización o repositorio.'
+intro: 'With the {% data variables.product.prodname_dependabot %} API, you can manage {% data variables.product.prodname_dependabot %} alerts and secrets for an organization or repository.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,6 +10,7 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 children:
+  - /alerts
   - /secrets
 redirect_from:
   - /rest/reference/dependabot
