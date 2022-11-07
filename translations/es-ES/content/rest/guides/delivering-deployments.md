@@ -1,6 +1,6 @@
 ---
-title: Entregar despliegues
-intro: 'Al utilizar la API de REST de Despliegues, puedes crear herramientas personalizadas que interactúen con tu servidor y con una app de terceros.'
+title: Delivering deployments
+intro: 'Using the Deployments REST API, you can build custom tooling that interacts with your server and a third-party app.'
 redirect_from:
   - /guides/delivering-deployments
   - /guides/automating-deployments-to-integrators
@@ -12,32 +12,45 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 60ef610d4134eaddee3f40c5d50d72e463fedd27
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145135955'
 ---
-La [API de implementaciones][deploy API] proporciona a sus proyectos hospedados en {% data variables.product.product_name %} la capacidad de iniciarse en un servidor del que sea propietario. En combinación con la [API de estados][status API], podrá coordinar sus implementaciones en el momento en que el código llegue a la rama predeterminada.
+ 
+  
 
-Esta guía utilizará la API para demostrar una configuración que puedes utilizar.
-En nuestro escenario, nosotros:
+The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with
+the capability to launch them on a server that you own. Combined with
+[the Status API][status API], you'll be able to coordinate your deployments
+the moment your code lands on the default branch.
 
-* Fusionamos una solicitud de cambios.
-* Cuando finaliza la IC, configuramos el estado de la solicitud de extracción según corresponda.
-* Cuando se fusiona la solicitud de extracción, ejecutamos nuestro despliegue en nuestro servidor.
+This guide will use that API to demonstrate a setup that you can use.
+In our scenario, we will:
 
-Nuestro sistema de IC y nuestro servidor host serán imaginarios. Podrían ser Heroku, Amazon, o algo completamente diferente. El meollo de esta guía será configurar y ajustar el servidor que administra la comunicación.
+* Merge a pull request.
+* When the CI is finished, we'll set the pull request's status accordingly.
+* When the pull request is merged, we'll run our deployment to our server.
 
-Si todavía no lo ha hecho, asegúrese de [descargar ngrok][ngrok] y aprenda a [usarlo][using ngrok]. Consideramos que es una herramienta muy útil para exponer las conexiones locales.
+Our CI system and host server will be figments of our imagination. They could be
+Heroku, Amazon, or something else entirely. The crux of this guide will be setting up
+and configuring the server managing the communication.
 
-Nota: Puede descargar el código fuente completo de este proyecto [desde el repositorio platform-samples][platform samples].
+If you haven't already, be sure to [download `ngrok`][ngrok], and learn how
+to [use it][using ngrok]. We find it to be a very useful tool for exposing local
+applications to the internet.
 
-## Escribir tu servidor
+{% ifversion cli-webhook-forwarding %}
+{% note %}
 
-Escribiremos una app de Sinatra rápidamente para probar que nuestras conexiones locales estén funcionando.
-Comencemos con esto:
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+
+{% endnote %}
+{% endif %}
+
+Note: you can download the complete source code for this project
+[from the platform-samples repo][platform samples].
+
+## Writing your server
+
+We'll write a quick Sinatra app to prove that our local connections are working.
+Let's start with this:
 
 ``` ruby
 require 'sinatra'
@@ -49,25 +62,31 @@ post '/event_handler' do
 end
 ```
 
-(Si no está familiarizado con el funcionamiento de Sinatra, le recomendamos [leer la guía de Sinatra][Sinatra]).
+(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
 
-Inicia este servidor. De manera predeterminada, Sinatra comienza en el puerto `4567`, por lo que también tendrá que configurar ngrok para que empiece a escuchar en este puerto.
+Start this server up. By default, Sinatra starts on port `4567`, so you'll want
+to configure `ngrok` to start listening for that, too.
 
-Para que este servidor funcione, necesitaremos configurar un repositorio con un webhook.
-El webhook debe configurarse para que se active cada que se crea o fusiona una solicitud de extracción.
-Sigue adelante y crea un repositorio en el que quieras hacer tus experimentos. ¿Podríamos sugerir [el repositorio de cucharas y cuchillos de @octocat](https://github.com/octocat/Spoon-Knife)?
-Después de esto, creará un webhook en el repositorio, le suministrará la URL que le ha proporcionado ngrok y seleccionará `application/x-www-form-urlencoded` como el tipo de contenido:
+In order for this server to work, we'll need to set a repository up with a webhook.
+The webhook should be configured to fire whenever a pull request is created, or merged.
+Go ahead and create a repository you're comfortable playing around in. Might we
+suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
+After that, you'll create a new webhook in your repository, feeding it the URL
+that `ngrok` gave you, and choosing `application/x-www-form-urlencoded` as the
+content type:
 
-![Una URL de ngrok nueva](/assets/images/webhook_sample_url.png)
+![A new ngrok URL](/assets/images/webhook_sample_url.png)
 
-Haga clic en **Update Webhook**. Debería ver una respuesta del cuerpo de `Well, it worked!`.
-Magnífico. Haga clic en **Let me select individual events** (Dejarme seleccionar eventos individuales) y seleccione lo siguiente:
+Click **Update webhook**. You should see a body response of `Well, it worked!`.
+Great! Click on **Let me select individual events.**, and select the following:
 
-* Implementación
-* Estado de implementación
-* Solicitud de incorporación de cambios
+* Deployment
+* Deployment status
+* Pull Request
 
-Estos son los eventos que {% data variables.product.product_name %} enviará al servidor cuando se produzca cualquier acción relevante. Ahora configuraremos nuestro servidor para que *solo* controle cuándo se fusionan las solicitudes de incorporación de cambios:
+These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
+occurs. We'll configure our server to *just* handle when pull requests are merged
+right now:
 
 ``` ruby
 post '/event_handler' do
@@ -82,15 +101,20 @@ post '/event_handler' do
 end
 ```
 
-¿Qué sucede? En cada evento que envía {% data variables.product.product_name %} se adjunta un encabezado HTTP `X-GitHub-Event`. Solo nos interesan los eventos de Solicitud de Extracción por el momento. Al fusionar una solicitud de incorporación de cambios (su estado es `closed`, y `merged` es `true`), se iniciará una implementación.
+What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event`
+HTTP header. We'll only care about the PR events for now. When a pull request is
+merged (its state is `closed`, and `merged` is `true`), we'll kick off a deployment.
 
-Para probar esta prueba de concepto, realice algunos cambios en una rama del repositorio de pruebas, abra una solicitud de incorporación de cambios y fusiónlea mediante combinación. ¡Tu servidor deberá responder de acuerdo con los casos!
+To test out this proof-of-concept, make some changes in a branch in your test
+repository, open a pull request, and merge it. Your server should respond accordingly!
 
-## Trabajar con despliegues
+## Working with deployments
 
-Ahora que ya tenemos nuestro servidor configurado, el código se está revisando y nuestras solicitudes de incorporación de cambios se han fusionado, queremos implementar nuestro proyecto.
+With our server in place, the code being reviewed, and our pull request
+merged, we want our project to be deployed.
 
-Comenzaremos modificando nuestro cliente de escucha de eventos para que procese las solicitudes de incorporación de cambios cuando estas se fusionen, y prestaremos atención a las implementaciones:
+We'll start by modifying our event listener to process pull requests when they're
+merged, and start paying attention to deployments:
 
 ``` ruby
 when "pull_request"
@@ -104,7 +128,8 @@ when "deployment_status"
 end
 ```
 
-Basándonos en la información de la solicitud de incorporación de cambios, comenzaremos rellenando el método `start_deployment`:
+Based on the information from the pull request, we'll start by filling out the
+`start_deployment` method:
 
 ``` ruby
 def start_deployment(pull_request)
@@ -114,13 +139,19 @@ def start_deployment(pull_request)
 end
 ```
 
-Las implementaciones pueden tener algunos metadatos adjuntos en forma de `payload` y `description`. Aunque estos valores son opcionales, es de gran ayuda usarlos para registrar y representar la información.
+Deployments can have some metadata attached to them, in the form of a `payload`
+and a `description`. Although these values are optional, it's helpful to use
+for logging and representing information.
 
-Cuando se crea un despliegue nuevo, se activa un evento completamente separado. Por eso tenemos un nuevo caso `switch` en el controlador de eventos para `deployment`. Puede usar esta información para que se le notifique cuando se desencadene una implementación.
+When a new deployment is created, a completely separate event is triggered. That's
+why we have a new `switch` case in the event handler for `deployment`. You can
+use this information to be notified when a deployment has been triggered.
 
-Las implementaciones pueden tardar mucho tiempo, por lo que queremos escuchar varios eventos, como cuándo se crea la implementación y en qué estado se encuentra.
+Deployments can take a rather long time, so we'll want to listen for various events,
+such as when the deployment was created, and what state it's in.
 
-Vamos a simular una implementación que realiza algunas acciones y observaremos el efecto que tiene en la salida. En primer lugar, vamos a completar nuestro método `process_deployment`:
+Let's simulate a deployment that does some work, and notice the effect it has on
+the output. First, let's complete our `process_deployment` method:
 
 ``` ruby
 def process_deployment
@@ -134,7 +165,7 @@ def process_deployment
 end
 ```
 
-Por último, estimularemos el almacenamiento de la información de los estados como una salida de la consola:
+Finally, we'll simulate storing the status information as console output:
 
 ``` ruby
 def update_deployment_status
@@ -142,21 +173,27 @@ def update_deployment_status
 end
 ```
 
-Bamos a explicar lo que está pasando. `start_deployment` crea una nueva implementación, la cual desencadena el evento `deployment`. Desde allí, llamamos a `process_deployment` para simular las acciones que están sucediendo. Durante ese procesamiento, también llamamos a `create_deployment_status`, que permite a un receptor saber lo que está ocurriendo mientras cambiamos el estado a `pending`.
+Let's break down what's going on. A new deployment is created by `start_deployment`,
+which triggers the `deployment` event. From there, we call `process_deployment`
+to simulate work that's going on. During that processing, we also make a call to
+`create_deployment_status`, which lets a receiver know what's going on, as we
+switch the status to `pending`.
 
-Una vez finalizada la implementación, establecemos el estado como `success`.
+After the deployment is finished, we set the status to `success`.
 
-## Conclusión
+## Conclusion
 
-En GitHub, hemos usado una versión de [Heaven][heaven] para administrar nuestras implementaciones durante años. Un flujo común es esencialmente el mismo que en el servidor que hemos creado anteriormente:
+At GitHub, we've used a version of [Heaven][heaven] to manage
+our deployments for years. A common flow is essentially the same as the
+server we've built above:
 
-* Espera obtener una respuesta con base en el estado de las verificaciones de IC (éxito o fallo)
-* Si las verificaciones requeridas tienen éxito, fusiona la solicitud de cambios
-* Heaven toma el código fusionado y lo despliega a los servidores de prueba y producción
-* Mientras tanto, Heaven también notifica a todos sobre la compilación mediante el uso de [Hubot][hubot] en nuestras salas de chat.
+* Wait for a response on the state of the CI checks (success or failure)
+* If the required checks succeed, merge the pull request
+* Heaven takes the merged code, and deploys it to staging and production servers
+* In the meantime, Heaven also notifies everyone about the build, via [Hubot][hubot] sitting in our chat rooms
 
-Eso es todo. No necesitas crear tu propia configuración de despliegue para utilizar este ejemplo.
-Siempre puede recurrir a las [integraciones de GitHub][integrations].
+That's it! You don't need to build your own deployment setup to use this example.
+You can always rely on [GitHub integrations][integrations].
 
 [deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server

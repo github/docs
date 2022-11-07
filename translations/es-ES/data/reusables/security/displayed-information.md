@@ -1,8 +1,16 @@
-When you enable one or more security and analysis features for existing repositories, you will see any results displayed on {% data variables.product.prodname_dotcom %} within minutes:
+---
+ms.openlocfilehash: 14b8f0f8803056b5d3431e8de2eee868d9167546
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109809"
+---
+Cuando habilitas una o más características de seguridad y análisis para los repositorios existentes, verás cualquier resultado que se muestra en {% data variables.product.prodname_dotcom %} al cabo de unos pocos minutos:
 
-- All the existing repositories will have the selected configuration.
-- New repositories will follow the selected configuration if you've enabled the checkbox for new repositories.{% ifversion fpt or ghec %}
-- We use the permissions to scan for manifest files to apply the relevant services.
-- If enabled, you'll see dependency information in the dependency graph.
-- If enabled, {% data variables.product.prodname_dotcom %} will generate {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies or malware.{% endif %}{% ifversion fpt or ghec or ghes %}
-- If enabled, {% data variables.product.prodname_dependabot %} security updates will create pull requests to upgrade vulnerable dependencies when {% data variables.product.prodname_dependabot_alerts %} are triggered.{% endif %}
+- Todos los repositorios existentes tendrán la configuración seleccionada.
+- Los repositorios nuevos seguirán la configuración seleccionada si ha habilitado la casilla para los repositorios nuevos.{% ifversion fpt or ghec %}
+- Utilizamos los permisos para escanear en busca de archivos de manifiesto para aplicar los servicios relevantes.
+- Si se habilita, verás la información de dependencias en la gráfica de dependencias.
+- Si se habilitan, {% data variables.product.prodname_dotcom %} generará {% data variables.product.prodname_dependabot_alerts %} para las dependencias vulnerables o malware.{% endif %}{% ifversion fpt or ghec or ghes %}
+- Si se habilita, las actualizaciones de seguridad del {% data variables.product.prodname_dependabot %} crearán solicitudes de cambios para actualizar las dependencias vulnerables cuando se activen las {% data variables.product.prodname_dependabot_alerts %}.{% endif %}

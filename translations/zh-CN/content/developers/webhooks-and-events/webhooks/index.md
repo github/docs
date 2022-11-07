@@ -14,12 +14,13 @@ children:
   - /configuring-your-server-to-receive-payloads
   - /testing-webhooks
   - /securing-your-webhooks
+  - /receiving-webhooks-with-the-github-cli
   - /webhook-events-and-payloads
-ms.openlocfilehash: a483c6d35ee1b7fee5e7dec948abdc5c65cc2400
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: a73820b100e94caa7c5eabe2f01a4814fe0df2a3
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145097982'
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132953'
 ---
 
