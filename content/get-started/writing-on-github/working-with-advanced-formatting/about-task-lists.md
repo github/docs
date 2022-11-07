@@ -6,6 +6,7 @@ redirect_from:
   - /articles/about-task-lists
   - /github/managing-your-work-on-github/about-task-lists
   - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
+  - /issues/tracking-your-work-with-issues/about-task-lists
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,10 +17,10 @@ topics:
   - Issues
 ---
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2-tasklists %}
 {% note %}
 
-**Note:** Improved task lists are currently in beta and subject to change.
+**Note:** For more information about the new iteration of Tasklists, which is currently in a private beta, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 {% endnote %}
 {% endif %}
@@ -76,5 +77,5 @@ Any issues that are referenced in a task list specify that they are tracked by t
 
 ## Further reading
 
-* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion code-scanning-task-lists %}
+{% ifversion code-scanning-task-lists %}
 * "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

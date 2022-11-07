@@ -8,6 +8,8 @@ versions:
 type: tutorial
 topics:
   - Projects
+redirect_from:
+  - /issues/planning-and-tracking-with-projects/understanding-field-types/about-date-fields
 ---
 
 You can filter for date values using the `YYYY-MM-DD` format, for example: `date:2022-07-01`. You can also use operators, such as `>`, `>=`, `<`, `<=`, and `..`. For example, `date:>2022-07-01` and `date:2022-07-01..2022-07-31`. You can also provide `@today` to represent the current day in your filter. For more information, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."

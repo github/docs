@@ -7,6 +7,7 @@ versions:
   feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-iterations
+  - /issues/planning-and-tracking-with-projects/understanding-field-types/about-iteration-fields
 type: tutorial
 topics:
   - Projects

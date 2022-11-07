@@ -8,6 +8,8 @@ versions:
 type: tutorial
 topics:
   - Projects
+redirect_from:
+  - /issues/planning-and-tracking-with-projects/understanding-field-types/about-text-and-number-fields
 ---
 
 You can use text fields to include notes or any other freeform text in your project.
