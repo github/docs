@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 767afd2426bcfba04a2eb3c845b1041e65d006f9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5eaf0aa831a27f61216ae9574df61fe7445f2f94
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147682888"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109619"
 ---
 1. [IP アドレスの確認] で、IP アドレスを入力します。
    ![[IP アドレスの確認] テキスト フィールドのスクリーンショット](/assets/images/help/security/check-ip-address.png)

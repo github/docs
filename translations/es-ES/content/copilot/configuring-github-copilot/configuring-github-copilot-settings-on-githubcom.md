@@ -11,12 +11,12 @@ redirect_from:
   - /github/copilot/about-github-copilot-telemetry
   - /github/copilot/github-copilot-telemetry-terms
 shortTitle: GitHub.com
-ms.openlocfilehash: 139a2c93c76155eff092ca168129f8ef52ce69ae
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: cc87328504e3d9eb5e2bce83d981098b7f989ae0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080551'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109826'
 ---
 ## Sobre la configuración de {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_dotcom_the_website %}
 

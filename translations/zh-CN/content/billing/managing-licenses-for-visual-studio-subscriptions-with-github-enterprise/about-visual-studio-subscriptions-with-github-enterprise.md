@@ -17,30 +17,30 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: About
-ms.openlocfilehash: d3adb998cb3413387766753a4dcdbee033df6506
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dd66572e3de9f34f6783b15d9fe8c876f4bb9d6b
+ms.sourcegitcommit: 6b649e03ca2fef38c9ebbeec92102219849380e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147052254'
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120607'
 ---
-## 关于 {% data variables.product.prodname_vss_ghe %}
+## 关于 {% data variables.visual_studio.prodname_vss_ghe %}
 
-{% data reusables.enterprise-accounts.vss-ghe-description %} {% data variables.product.prodname_vss_ghe %} 可根据 Microsoft 企业协议的条款从 Microsoft 获得。 有关详细信息，请参阅 {% data variables.product.prodname_vs %} 网站上的 [{% data variables.product.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/)。
+{% data reusables.enterprise-accounts.vss-ghe-description %} {% data variables.visual_studio.prodname_vss_ghe %} 可根据 Microsoft 企业协议的条款从 Microsoft 获得。 有关详细信息，请参阅 {% data variables.product.prodname_vs %} 网站上的 [{% data variables.visual_studio.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/)。
 
 要使用许可的 {% data variables.product.prodname_enterprise %} 部分，每个订阅者在 {% data variables.product.prodname_dotcom_the_website %} 上的个人帐户必须是或成为 {% data variables.product.prodname_dotcom_the_website %} 上的企业所拥有组织的成员。 为此，组织所有者可以通过电子邮件地址邀请新成员加入组织。 订阅者可以使用 {% data variables.product.prodname_dotcom_the_website %} 上的现有个人帐户或新建一个帐户来接受邀请。
 
-有关设置 {% data variables.product.prodname_vss_ghe %} 的详细信息，请参阅“[设置 {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)”。
+有关设置 {% data variables.visual_studio.prodname_vss_ghe %} 的详细信息，请参阅“[设置 {% data variables.visual_studio.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)”。
 
-## 关于 {% data variables.product.prodname_vss_ghe %} 的许可证
+## 关于 {% data variables.visual_studio.prodname_vss_ghe %} 许可证
 
-将 {% data variables.product.prodname_vss_ghe %} 许可证分配给订阅者后，订阅者将使用 {% data variables.product.prodname_dotcom_the_website %} 上的个人帐户加入你企业中的组织，从而使用该许可证的 {% data variables.product.prodname_enterprise %} 部分。 如果 {% data variables.product.prodname_dotcom_the_website %} 上的企业成员个人帐户经过认证的电子邮件地址匹配订阅 {% data variables.product.prodname_vs %} 帐户的用户主名 (UPN)，则 {% data variables.product.prodname_vs %} 订阅者将自动占用一个 {% data variables.product.prodname_vss_ghe %} 许可。
+将 {% data variables.visual_studio.prodname_vss_ghe %} 许可证分配给订阅者后，订阅者将使用 {% data variables.product.prodname_dotcom_the_website %} 上的个人帐户加入你企业中的组织，从而使用该许可证的 {% data variables.product.prodname_enterprise %} 部分。 如果 {% data variables.product.prodname_dotcom_the_website %} 上的企业成员个人帐户经过认证的电子邮件地址与 {% data variables.product.prodname_vs %} 帐户订阅者的用户主名 (UPN) 匹配，则 {% data variables.product.prodname_vs %} 订阅者将自动占用一个 {% data variables.visual_studio.prodname_vss_ghe %} 许可证。
 
 您的企业在 {% data variables.product.prodname_dotcom %} 上的许可总数等于任何标准 {% data variables.product.prodname_enterprise %} 许可和包括 {% data variables.product.prodname_dotcom %} 访问权限的 {% data variables.product.prodname_vs %} 订阅许可数量的总和。 如果企业成员的个人帐户与 {% data variables.product.prodname_vs %} 订阅者的电子邮件地址不对应，则该个人帐户占用的许可不适用于 {% data variables.product.prodname_vs %} 订阅者。
 
 有关 {% data variables.product.prodname_enterprise %} 的详细信息，请参阅“[{% data variables.product.company_short %} 的产品](/github/getting-started-with-github/githubs-products#github-enterprise)”。 有关 {% data variables.product.prodname_dotcom_the_website %} 帐户的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/github/getting-started-with-github/types-of-github-accounts)”。
 
-您可以在 {% data variables.product.product_location %} 上查看企业可用的 {% data variables.product.prodname_enterprise %} 许可证数量。 待处理的邀请列表包括尚未成为企业中至少一个组织成员的订阅者。 有关详细信息，请参阅“[查看企业帐户的订阅和使用情况](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)”和“[查看企业中的人员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators)”。
+可以在 {% data variables.location.product_location %} 上查看企业可用的 {% data variables.product.prodname_enterprise %} 许可证数量。 待处理的邀请列表包括尚未成为企业中至少一个组织成员的订阅者。 有关详细信息，请参阅“[查看企业帐户的订阅和使用情况](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)”和“[查看企业中的人员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators)”。
 
 {% tip %}
 
@@ -48,7 +48,7 @@ ms.locfileid: '147052254'
 
 {% endtip %}
 
-您也可以在 {% data variables.product.prodname_vss_admin_portal_with_url %} 中查看对订阅者的待处理 {% data variables.product.prodname_enterprise %} 邀请。
+也可以在 {% data variables.visual_studio.prodname_vss_admin_portal_with_url %} 中查看向订阅者发出的待处理 {% data variables.product.prodname_enterprise %} 邀请。
 
 ## 延伸阅读
 

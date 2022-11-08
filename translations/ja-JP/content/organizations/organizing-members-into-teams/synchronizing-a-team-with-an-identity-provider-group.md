@@ -7,16 +7,17 @@ permissions: 'Organization owners and team maintainers can synchronize a {% data
 versions:
   ghae: '*'
   ghec: '*'
+  feature: scim-for-ghes
 topics:
   - Organizations
   - Teams
 shortTitle: Synchronize with an IdP
-ms.openlocfilehash: 5ae57399a05f51334ccd3e99a268fbe9d93c8b47
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c4ea8dc13eee674b962108ba52c71e67e8462b87
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147076888'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106982'
 ---
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
@@ -68,9 +69,13 @@ Team メンバーを誤って削除しないように、お使いの IdP の管�
 
 SAML SSO を使って認証する必要があります。 詳細については、「[SAML シングル サインオンで認証する](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
 
-{% elsif ghae %} IdP グループを含む {% data variables.product.product_name %} チームに接続するには、最初に、サポートされている System for Cross-domain Identity Management (SCIM) を使用して {% data variables.product.product_location %} のユーザー プロビジョニングを設定する必要があります。 詳細については、「[エンタープライズ向けのユーザー プロビジョニングの構成](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。
+{% elsif ghae %} IdP グループを含む {% data variables.product.product_name %} チームに接続するには、最初に、サポートされている System for Cross-domain Identity Management (SCIM) を使用して {% data variables.location.product_location %}のユーザー プロビジョニングを設定する必要があります。 詳細については、「[エンタープライズ向けのユーザー プロビジョニングの構成](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。
 
-SCIMを使用して{% data variables.product.product_name %} のユーザプロビジョニングを設定したら、{% data variables.product.product_name %} で使用するすべての IdP グループに {% data variables.product.product_name %} アプリケーションを割り当てることができます。 詳細については、Microsoft Docs の「[GitHub AE への自動ユーザー プロビジョニングを構成する](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae)」を参照してください。{% endif %}
+SCIMを使用して{% data variables.product.product_name %} のユーザプロビジョニングを設定したら、{% data variables.product.product_name %} で使用するすべての IdP グループに {% data variables.product.product_name %} アプリケーションを割り当てることができます。 詳細については、Microsoft Docs の「[GitHub AE への自動ユーザー プロビジョニングを構成する](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae)」を参照してください。
+
+{% elsif scim-for-ghes %}{% data variables.location.product_location %}の SCIM を使用してユーザー プロビジョニングを構成する必要があります。 詳しくは、「[Enterprise 用の SCIM を使用したユーザーのプロビジョニングを構成する](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)」を参照してください。
+
+{% data reusables.scim.ghes-beta-note %} {% endif %}
 
 ## IdP グループをTeam に接続する
 

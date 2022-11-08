@@ -1,6 +1,6 @@
 ---
 title: クラウド プロバイダーでの OpenID Connect の構成
-shortTitle: Configuring OpenID Connect in cloud providers
+shortTitle: OpenID Connect in cloud providers
 intro: ワークフロー内で OpenID Connect を使用して、クラウド プロバイダーでの認証を行います。
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,18 +10,18 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 5f23d33f9f8199acfd78e105531b2b07fbf60c27
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 90dfa54e71fc602243ddb0d51b190fb8530727e4
+ms.sourcegitcommit: 938ec7898dddd5da5481ad32809d68e4127e1948
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145068723'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135495'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 概要
 
-OpenID Connect (OIDC) を使用すると、{% data variables.product.prodname_actions %} ワークフローでは、有効期間の長い {% data variables.product.prodname_dotcom %} シークレットとして資格情報を格納しなくても、クラウド プロバイダー内のリソースにアクセスできます。 
+OpenID Connect (OIDC) を使用すると、{% data variables.product.prodname_actions %} ワークフローでは、有効期間の長い {% data variables.product.prodname_dotcom %} シークレットとして資格情報を格納しなくても、クラウド プロバイダー内のリソースにアクセスできます。
 
 OIDC を使用するには、まず、{% data variables.product.prodname_dotcom %} の OIDC をフェデレーション ID として信頼するようにクラウド プロバイダーを構成してから、トークンを使用して認証するようにワークフローを更新する必要があります。
 
@@ -49,7 +49,7 @@ OIDC のワークフローを更新するには、YAML に 2 つの変更を行�
 
 ## カスタム アクションの使用
 
-クラウド プロバイダーに公式アクションがない場合、またはカスタム スクリプトを作成する場合は、{% data variables.product.prodname_dotcom %} の OIDC プロバイダーから JSON Web トークン (JWT) を手動で要求できます。 
+クラウド プロバイダーに公式アクションがない場合、またはカスタム スクリプトを作成する場合は、{% data variables.product.prodname_dotcom %} の OIDC プロバイダーから JSON Web トークン (JWT) を手動で要求できます。
 
 公式アクションを使用していない場合、{% data variables.product.prodname_dotcom %} では Actions コア ツールキットを使用することをお勧めします。 または、次の環境変数を使用して、`ACTIONS_RUNTIME_TOKEN`、`ACTIONS_ID_TOKEN_REQUEST_URL` トークンを取得できます。
 
@@ -77,8 +77,8 @@ jobs:
       with:
         script: |
           const coredemo = require('@actions/core')
-          let id_token = await coredemo.getIDToken()   
-          coredemo.setOutput('id_token', id_token)  
+          let id_token = await coredemo.getIDToken()
+          coredemo.setOutput('id_token', id_token)
 ```
 
 ### 環境変数を使用した JWT の要求
@@ -110,7 +110,7 @@ jobs:
 
 ```yaml
     - run: |
-        IDTOKEN=$(curl -H "Authorization: bearer ${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
+        IDTOKEN=$(curl -H "Authorization: bearer {% raw %} ${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}} {% endraw %} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
         echo $IDTOKEN
         jwtd() {
             if [[ -x $(command -v jq) ]]; then
@@ -119,7 +119,11 @@ jobs:
             fi
         }
         jwtd $IDTOKEN
+{%- ifversion actions-save-state-set-output-envs %}
+        echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
+{%- else %}
         echo "::set-output name=idToken::${IDTOKEN}"
+{%- endif %}
       id: tokenid
 ```
 
@@ -129,8 +133,8 @@ jobs:
 
 デプロイごとに、ワークフローでは、OIDC トークンをフェッチしてクラウド プロバイダーに提示するクラウド ログイン アクション (またはカスタム スクリプト) を使用する必要があります。 その後、クラウド プロバイダーではトークン内の要求を検証します。成功した場合は、そのジョブ実行でのみ使用できるクラウド アクセス トークンが提供されます。 提供されたアクセス トークンは、ジョブ内の後続のアクションでクラウドに接続し、そのリソースにデプロイするために使用できます。
 
-OIDC トークンをアクセス トークンと交換する手順は、クラウド プロバイダーごとに異なります。 
- 
+OIDC トークンをアクセス トークンと交換する手順は、クラウド プロバイダーごとに異なります。
+
 ### クラウド プロバイダー内のリソースへのアクセス
 
 アクセス トークンを取得したら、特定のクラウド アクションまたはスクリプトを使用して、クラウド プロバイダーに対する認証を行い、そのリソースにデプロイできます。 これらの手順は、クラウド プロバイダーごとに異なる場合があります。

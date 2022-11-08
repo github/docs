@@ -12,12 +12,12 @@ topics:
   - Projects
   - Issues
   - Project management
-ms.openlocfilehash: 71cf84e26bdbed717fd5b434e92f071550764cdc
-ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
+ms.openlocfilehash: 1473e08a8a6d3bf4df480b4b5ce6930753a04491
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880037'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106766'
 ---
 {% data variables.product.prodname_projects_v2 %} を使って、issue や pull request がある {% data variables.product.company_short %} 上での作業を管理できます。 プロジェクトを効率的かつ効果的に管理するためのヒントを読んでください。 {% data variables.product.prodname_projects_v2 %} について詳しくは、「[{% data variables.product.prodname_projects_v2 %} について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)」を参照してください。
 
@@ -67,10 +67,12 @@ IssueとPull Requestには、コラボレータと容易にコミュニケーシ
 
 意味の無い作業に費やす時間を減らし、プロジェクト自体にかける時間を増やすために、タスクを自動化できます。 手動でやることを覚えておく必要が減れば、それだけプロジェクトは最新の状態に保たれるようになります。
 
-{% data variables.product.prodname_projects_v2 %} には組み込みのワークフローが用意されています。 たとえば、Issueがクローズされると自動的にステータスを「Done」に設定できます。
+{% data variables.product.prodname_projects_v2 %} には組み込みのワークフローが用意されています。 たとえば、Issueがクローズされると自動的にステータスを「Done」に設定できます。 {% ifversion projects-v2-auto-archive %}また、特定の条件を満たすアイテムを自動的にアーカイブするように、組み込みワークフローを構成することもできます。{% endif %}
 
 加えて、{% data variables.product.prodname_actions %}とGraphQL APIでルーチンのプロジェクト管理タスクを自動化できます。 たとえば、レビュー待ちのPull Requestを追跡するために、Pull Requestをプロジェクトに追加し、そのステータスを"needs review"に設定するようなワークフローを作成できます。このプロセスは、Pull Requestが"ready for review"としてマークされたときに自動的にトリガーできます。
 
+- 組み込みワークフローについて詳しくは、「[組み込みの自動化の使用](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)」をご覧ください。{% ifversion projects-v2-auto-archive %}
+- アイテムの自動アーカイブについて詳しくは、「[アイテムを自動的にアーカイブする](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)」をご覧ください。{% endif %}
 - ワークフローの例については、「[Actions を使った {% data variables.product.prodname_projects_v2 %} の自動化](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)」を参照してください。
 - API について詳しくは、「[{% data variables.product.prodname_projects_v2 %} の管理のための API の利用](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)」を参照してください。
 - {% data variables.product.prodname_actions %} の詳細については、「[{% data variables.product.prodname_actions %}](/actions)」を参照してください。

@@ -11,12 +11,12 @@ versions:
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 5ec81cf456ddca503e58ca6703ae3372875bd62c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c14ee749a2e97bb9ef608e1b2d548098f18af0d0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147614243'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107625'
 ---
 {% data reusables.projects.project_boards_old %}
 
@@ -24,7 +24,7 @@ Las instancias de {% data variables.projects.projects_v1_boards_caps %} están f
 
 Las tarjetas de {% data variables.projects.projects_v1_board_caps %} contienen metadatos relevantes para las incidencias y las solicitudes de incorporación de cambios, como etiquetas, usuarios asignados, el estado y quién las ha abierto. {% data reusables.project-management.edit-in-project %}
 
-Puedes crear notas dentro de las columnas que sirvan como recordatorios de tareas, referencias a incidencias y solicitudes de incorporación de cambios desde cualquier repositorio en {% data variables.product.product_location %}, o bien para agregar información relacionada con la instancia de {% data variables.projects.projects_v1_board %}. Puedes crear una tarjeta de referencia para otra instancia de {% data variables.projects.projects_v1_board %} si agregas un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. Para más información sobre cómo convertir notas en incidencias, consulta "[Adición de notas a una instancia de {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)".
+Puedes crear notas en las columnas que sirvan como recordatorios de tareas, referencias a incidencias y solicitudes de incorporación de cambios desde cualquier repositorio de {% data variables.location.product_location %}, o bien para agregar información relacionada con el {% data variables.projects.projects_v1_board %}. Puedes crear una tarjeta de referencia para otra instancia de {% data variables.projects.projects_v1_board %} si agregas un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. Para más información sobre cómo convertir notas en incidencias, consulta "[Adición de notas a una instancia de {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)".
 
 Tipos de tableros de proyecto:
 

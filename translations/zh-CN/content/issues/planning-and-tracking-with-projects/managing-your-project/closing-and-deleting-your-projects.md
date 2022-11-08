@@ -11,12 +11,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: a37980d4d19ca0392fab51dc7e99987e469d2c9a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: cfd4db85e8bd046e667b108c5c8d8c23102e0d29
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423820'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108695'
 ---
 ## 删除项目
 

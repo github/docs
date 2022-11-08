@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Apply to Global Campus
-ms.openlocfilehash: 105346dce9632f24f37b29f883a45da27e74ab71
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7c2026b0aa692c632e29a0b4e866575faa6fa0d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147574224'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107182'
 ---
 {% data reusables.education.about-github-education-link %}
 
@@ -42,8 +42,10 @@ ms.locfileid: '147574224'
 ## {% data variables.product.prodname_global_campus %} への応募
 
 {% data reusables.education.benefits-page %}
-3. [ご自分の教育機関の状態を最もよく表しているのはどれですか?] で、 **[学生]** を選択します。
-  ![教育機関の状態を選択](/assets/images/help/education/academic-status-student.png) {% data reusables.education.select-email-address %} {% data reusables.education.upload-proof-status %} {% data reusables.education.school-name %} {% data reusables.education.plan-to-use-github %} {% data reusables.education.submit-application %}
+1. [個人] で、 **[学生の特典を取得する]** をクリックします。
+  ![{% data variables.product.prodname_education %} ホームページの [学生の特典を取得する]](/assets/images/help/education/click-get-student-benefits.png)
+1. [教育機関の状態を選択する] で、 **[学生]** を選びます。
+  ![[教育機関の状態を選択する]](/assets/images/help/education/academic-status-student.png) {% data reusables.education.select-email-address %} {% data reusables.education.school-name %} {% data reusables.education.plan-to-use-github %} {% data reusables.education.upload-proof-status %} {% data reusables.education.submit-application %}
 
 ## 期限切れと更新
 

@@ -63,6 +63,7 @@ includeGuides:
   - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
   - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
   - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
+  - /code-security/repository-security-advisories/best-practices-for-writing-repository-security-advisories
   - /code-security/security-overview/about-the-security-overview
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
   - /code-security/security-overview/viewing-the-security-overview

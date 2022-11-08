@@ -12,7 +12,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
-intro: 'Organization は、類似したプロジェクトに取り組む部門やグループなど、社内の個別のユーザー グループを作成するのに最適です。 Organization に属する{% ifversion ghae %}内部{% else %}パブリックおよび内部{% endif %}リポジトリには、Enterprise 内の他の Organization のメンバーがアクセスできますが、プライベート リポジトリには、アクセスが許可されている Organization のメンバー以外はアクセスできません。'
+intro: Organization を使用して、類似プロジェクトに取り組む部門やグループなど、社内の個別のユーザー グループを作成して、リポジトリへのアクセスを管理することができます。
 versions:
   ghec: '*'
   ghes: '*'
@@ -33,11 +33,11 @@ children:
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
-ms.openlocfilehash: 5d1430bc4efff03e6cddfe81f3c018d4f2064155
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: e2fade6385a690d1ca91b587f2d7ca3e081bd23b
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147884246'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127612'
 ---
 

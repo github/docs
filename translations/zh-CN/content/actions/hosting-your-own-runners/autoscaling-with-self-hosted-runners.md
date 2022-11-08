@@ -1,10 +1,11 @@
 ---
 title: Autoscaling with self-hosted runners
+shortTitle: Autoscale self-hosted runners
 intro: You can automatically scale your self-hosted runners in response to webhook events.
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
   ghae: '*'
 type: overview
 ---

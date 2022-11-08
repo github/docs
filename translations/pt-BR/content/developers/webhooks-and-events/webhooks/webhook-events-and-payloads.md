@@ -317,6 +317,24 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {{ webhookPayloadsForCurrentVersion.delete }}
 
+{% ifversion fpt or ghec %}
+## dependabot_alert
+
+{% data reusables.webhooks.dependabot_alert_description %}
+
+### Availability
+
+{% data reusables.webhooks.dependabot_alert_availability %}
+
+### Webhook payload object
+
+{% data reusables.webhooks.dependabot_alert_payload %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.dependabot_alert.fixed }}
+{% endif %}
+
 ## deploy_key
 
 {% data reusables.webhooks.deploy_key_short_desc %}
@@ -716,7 +734,6 @@ For a detailed description of this payload and the payload for each type of `act
 
 Activity related to merge groups in a merge queue. The type of activity is specified in the action property of the payload object.
 
-
 ### Availability
 
 - Repository webhooks
@@ -731,7 +748,9 @@ Key | Type | Description
 `merge_group`|`object` | The merge group.
 `merge_group[head_sha]`|`string` | The SHA of the merge group.
 `merge_group[head_ref]`|`string` | The full ref of the merge group.
+`merge_group[base_sha]`|`string` | The SHA of the merge group's parent commit.
 `merge_group[base_ref]`|`string` | The full ref of the branch the merge group will be merged into.
+`merge_group[head_commit]`|`object` | An expanded representation of the `head_sha` commit.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -943,8 +962,6 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## project_card
 
 {% data reusables.webhooks.project_card_short_desc %}
@@ -1060,7 +1077,7 @@ Key | Type | Description
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.public }}
-{% endif %}
+
 ## pull_request
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -1591,9 +1608,9 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 | Key | Type | Description |
 |-----|-----|-----|
-| `inputs` | `object` | Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input. |
+| `inputs` | `object` | Inputs to the workflow. Each key represents the name of the input while its value represents the value of that input. |
 {% data reusables.webhooks.org_desc %}
-| `ref` | `string` | The branch ref from which the workflow was run. |
+| `ref` | `string` | The branch or tag from which the workflow was run. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}
 | `workflow` | `string` | Relative path to the workflow file which contains the workflow. |
@@ -1602,8 +1619,6 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
-
-{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 
 ## workflow_job
 
@@ -1626,7 +1641,6 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 {{ webhookPayloadsForCurrentVersion.workflow_job }}
 
-{% endif %}
 {% ifversion fpt or ghes or ghec %}
 ## workflow_run
 

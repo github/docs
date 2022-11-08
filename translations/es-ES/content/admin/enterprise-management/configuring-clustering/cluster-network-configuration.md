@@ -1,6 +1,6 @@
 ---
-title: Configuración de la red de agrupaciones
-intro: 'La agrupación de {% data variables.product.prodname_ghe_server %} se basa en la resolución de nombre de DNS pertinente, balanceo de carga y comunicación entre los nodos para operar de manera adecuada.'
+title: Cluster network configuration
+intro: '{% data variables.product.prodname_ghe_server %} clustering relies on proper DNS name resolution, load balancing, and communication between nodes to operate properly.'
 redirect_from:
   - /enterprise/admin/clustering/cluster-network-configuration
   - /enterprise/admin/enterprise-management/cluster-network-configuration
@@ -14,68 +14,62 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure a cluster network
-ms.openlocfilehash: d6e4d50077cccc3e5582be0af39bdae0046cd8c8
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145112762'
 ---
-## Consideraciones sobre la red
+## Network considerations
 
-El diseño de red más simple para una agrupación es colocar los nodos en una LAN única. Si un clúster debe abarcar subredes, no te recomendamos configurar ninguna regla de firewall entre ellas. La latencia entre nodos debe ser de menos de 1 milisegundo.
+The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
 
-{% ifversion ghes %} Para obtener alta disponibilidad, la latencia entre la red con los nodos activos y la red con los nodos pasivos debe ser inferior a 70 milisegundos. No te recomendamos configurar una firewall entre las dos redes.{% endif %}
+{% data reusables.enterprise_clustering.network-latency %}
 
-### Puertos de la aplicación para usuarios finales
+### Application ports for end users
 
-Los puertos de la aplicación permiten que los usuarios finales accedan a Git y a las aplicaciones web.
+Application ports provide web application and Git access for end users.
 
-| Port     | Descripción     | Cifrados  |
+| Port     | Description     | Encrypted  |
 | :------------- | :------------- | :------------- |
-| 22/TCP    | Git sobre SSH | Sí |
-| 25/TCP    | SMTP | Requiere STARTTLS |
-| 80/TCP    | HTTP | No<br>(Cuando SSL está habilitado, este puerto redirige a HTTPS) |
-| 443/TCP   | HTTPS | Sí |
-| 9418/TCP  | Puerto de protocolo Git simple<br>(Deshabilitado en modo privado) | No |
+| 22/TCP    | Git over SSH | Yes |
+| 25/TCP    | SMTP | Requires STARTTLS |
+| 80/TCP    | HTTP | No<br>(When SSL is enabled this port redirects to HTTPS) |
+| 443/TCP   | HTTPS | Yes |
+| 9418/TCP  | Simple Git protocol port<br>(Disabled in private mode) | No |
 
-### Puertos administrativos
+### Administrative ports
 
-No se requieren puertos administrativos para el uso de la aplicación básica por parte de los usuarios finales.
+Administrative ports are not required for basic application use by end users.
 
-| Port     | Descripción     | Cifrados  |
+| Port     | Description     | Encrypted  |
 | :------------- | :------------- | :------------- |
-| ICMP      | Ping de ICMP | No |
-| 122/TCP   | SSH administrativo | Sí |
+| ICMP      | ICMP Ping | No |
+| 122/TCP   | Administrative SSH | Yes |
 | 161/UDP    | SNMP | No |
-| 8080/TCP  | Consola de gestión HTTP | No<br>(Cuando SSL está habilitado, este puerto redirige a HTTPS) |
-| 8443/TCP  | Consola de gestión de HTTPS | Sí |
+| 8080/TCP  | Management Console HTTP | No<br>(When SSL is enabled this port redirects to HTTPS) |
+| 8443/TCP  | Management Console HTTPS | Yes |
 
-### Puertos de comunicación de agrupación
+### Cluster communication ports
 
-Si un cortafuego de nivel de red se coloca entre los nodos estos puertos deberán estar accesibles. La comunicación entre los nodos no está cifrada. Estos puertos no deberían estar accesibles externamente.
+If a network level firewall is in place between nodes, these ports will need to be accessible. The communication between nodes is not encrypted. These ports should not be accessible externally.
 
-| Port     | Descripción     |
+| Port     | Description     |
 | :------------- | :------------- |
-| 1336/TCP  | API Interna |
-| 3033/TCP  | Acceso SVN interno |
-| 3037/TCP  | Acceso SVN interno |
+| 1336/TCP  | Internal API |
+| 3033/TCP  | Internal SVN access |
+| 3037/TCP  | Internal SVN access |
 | 3306/TCP  | MySQL |
-| 4486/TCP  | Acceso del gobernador |
-| 5115/TCP  | Back-end de almacenamiento |
-| 5208/TCP  | Acceso SVN interno |
+| 4486/TCP  | Governor access |
+| 5115/TCP  | Storage backend |
+| 5208/TCP  | Internal SVN access |
 | 6379/TCP  | Redis |
 | 8001/TCP  | Grafana |
-| 8090/TCP  | Acceso a GPG interno |
-| 8149/TCP  | Acceso al servidor de archivos de GitRPC |
+| 8090/TCP  | Internal GPG access |
+| 8149/TCP  | GitRPC file server access |
 | 8300/TCP | Consul |
 | 8301/TCP | Consul |
 | 8302/TCP | Consul |
 | 9000/TCP  | Git Daemon |
-| 9102/TCP  | Servidor de archivos de las páginas |
-| 9105/TCP  | Servidor LFS |
+| 9102/TCP  | Pages file server |
+| 9105/TCP  | LFS server |
 | 9200/TCP  | Elasticsearch |
-| 9203/TCP | Servicio de código semántico |
+| 9203/TCP | Semantic code service |
 | 9300/TCP  | Elasticsearch |
 | 11211/TCP | Memcache |
 | 161/UDP   | SNMP |
@@ -84,42 +78,42 @@ Si un cortafuego de nivel de red se coloca entre los nodos estos puertos deberá
 | 8302/UDP | Consul |
 | 25827/UDP | Collectd |
 
-## Configurar un balanceador de carga
+## Configuring a load balancer
 
- Recomendamos un balanceador de carga externo basado en TCP que respalde el protocolo PROXY para distribuir el tráfico a través de los nodos. Considera estas configuraciones del balanceador de carga:
+ We recommend an external TCP-based load balancer that supports the PROXY protocol to distribute traffic across nodes. Consider these load balancer configurations:
 
- - Los puertos TCP (que se muestran a continuación) se deberán reenviar a los nodos que ejecutan el servicio `web-server`. Estos son los únicos nodos que sirven a las solicitudes de clientes externos.
- - Las sesiones pegajosas no deberían habilitarse.
+ - TCP ports (shown below) should be forwarded to nodes running the `web-server` service. These are the only nodes that serve external client requests.
+ - Sticky sessions shouldn't be enabled.
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## Manejar información de conexión de clientes
+## Handling client connection information
 
-Dado que las conexiones de clientes con el agrupamiento provienen del balanceador de carga, no se puede perder la dirección IP de cliente. Para capturar adecuadamente la información de la conexión de clientes, se requiere una consideración adicional.
+Because client connections to the cluster come from the load balancer, the client IP address can be lost. To properly capture the client connection information, additional consideration is required.
 
 {% data reusables.enterprise_clustering.proxy_preference %}
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-### Habilitar el soporte PROXY en {% data variables.product.prodname_ghe_server %}
+### Enabling PROXY support on {% data variables.product.prodname_ghe_server %}
 
-Recomendamos firmemente habilitar el soporte PROXY para tu instancia y el balanceador de carga.
+We strongly recommend enabling PROXY support for both your instance and the load balancer.
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
- - Para tu instancia, usa este comando:
+ - For your instance, use this command:
   ```shell
   $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply
   ```
-  - Para el balanceador de carga, usa las instrucciones proporcionadas por tu proveedor.
+  - For the load balancer, use the instructions provided by your vendor.
 
   {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-### Habilitar el soporte X-Forwarded-For en {% data variables.product.prodname_ghe_server %}
+### Enabling X-Forwarded-For support on {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
-Para habilitar el encabezado `X-Forwarded-For`, use este comando:
+To enable the `X-Forwarded-For` header, use this command:
 
 ```shell
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
@@ -127,11 +121,12 @@ $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-### Configurar revisiones de estado
-Las comprobaciones de estado permiten que un balanceador de carga deje de enviar tráfico a un nodo que no responde si una comprobación preconfigurada falla en ese nodo. Si un nodo de agrupación falla, las revisiones de estado emparejadas con nodos redundantes brindan alta disponibilidad.
+### Configuring Health Checks
+Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If a cluster node fails, health checks paired with redundant nodes provides high availability.
 
-{% data reusables.enterprise_clustering.health_checks %} {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
+{% data reusables.enterprise_clustering.health_checks %}
+{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
-## Requisitos de DNS
+## DNS Requirements
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}

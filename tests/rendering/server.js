@@ -6,6 +6,7 @@ import { loadPages } from '../../lib/page-data.js'
 import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
+import { getPathWithoutVersion } from '../../lib/path-utils.js'
 import { describe, jest } from '@jest/globals'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
@@ -22,7 +23,8 @@ describe('server', () => {
     // The first page load takes a long time so let's get it out of the way in
     // advance to call out that problem specifically rather than misleadingly
     // attributing it to the first test
-    await get('/en')
+    const res = await get('/en')
+    expect(res.statusCode).toBe(200)
   })
 
   test('supports HEAD requests', async () => {
@@ -79,21 +81,24 @@ describe('server', () => {
 
   test('renders the Enterprise homepages with links to expected products in both the sidebar and page body', async () => {
     const enterpriseProducts = [
-      `/en/enterprise-server@${enterpriseServerReleases.latest}`,
-      '/en/enterprise-cloud@latest',
+      `enterprise-server@${enterpriseServerReleases.latest}`,
+      'enterprise-cloud@latest',
     ]
 
-    enterpriseProducts.forEach(async (ep) => {
-      const $ = await getDOM(ep)
+    for (const ep of enterpriseProducts) {
+      const $ = await getDOM(`/en/${ep}`)
       const sidebarItems = $('[data-testid=sidebar] li a').get()
       const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
       const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
-      const productItems = $('[data-testid=product] div a').get()
-      const productTitles = productItems.map((el) => $(el).text().trim())
-      const productHrefs = productItems.map((el) => $(el).attr('href'))
+      const productItems = activeProducts.filter(
+        (prod) => prod.external || prod.versions.includes(ep)
+      )
+      const productTitles = productItems.map((prod) => prod.name)
+      const productHrefs = productItems.map((prod) =>
+        prod.external ? prod.href : `/en/${ep}${getPathWithoutVersion(prod.href)}`
+      )
 
       const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
-
       const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
 
       expect(
@@ -104,11 +109,12 @@ describe('server', () => {
         hrefsInProductsButNotSidebar.length,
         `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`
       ).toBe(0)
-    })
+    }
   })
 
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
+    expect(res.statusCode).toBe(200)
     expect('content-security-policy' in res.headers).toBe(true)
 
     const csp = new CspParse(res.headers['content-security-policy'])
@@ -130,6 +136,7 @@ describe('server', () => {
 
   test('sets Fastly cache control headers', async () => {
     const res = await get('/en')
+    expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toMatch(/public, max-age=/)
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
@@ -227,6 +234,7 @@ describe('server', () => {
 
   test('serves /categories.json for support team usage', async () => {
     const res = await get('/categories.json')
+    expect(res.statusCode).toBe(200)
 
     // check for CORS header
     expect(res.headers['access-control-allow-origin']).toBe('*')
@@ -234,7 +242,7 @@ describe('server', () => {
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
 
     const categories = JSON.parse(res.text)
     expect(Array.isArray(categories)).toBe(true)
@@ -607,6 +615,7 @@ describe('server', () => {
 
     test('redirects old articles to their slugified URL', async () => {
       const res = await get('/articles/about-github-s-ip-addresses')
+      expect(res.statusCode).toBe(302)
       expect(res.text).toBe(
         'Found. Redirecting to /en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses'
       )
@@ -874,12 +883,14 @@ describe('search', () => {
 describe('?json query param for context debugging', () => {
   it('uses query param value as a key', async () => {
     const res = await get('/en?json=page')
+    expect(res.statusCode).toBe(200)
     const page = JSON.parse(res.text)
     expect(typeof page.title).toBe('string')
   })
 
   it('returns a helpful message with top-level keys if query param has no value', async () => {
     const res = await get('/en?json')
+    expect(res.statusCode).toBe(200)
     const context = JSON.parse(res.text)
 
     expect(context.message.includes('context object is too big to display')).toBe(true)

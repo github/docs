@@ -20,18 +20,18 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-ms.openlocfilehash: bed91adf09819869204f40b1a9e09c63925904ff
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5d9b6aa9a5d641afa0b24dbe0e0f446ab723c735
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147062991'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107522'
 ---
 ## Sobre a autenticação do LDAP no {% data variables.product.product_name %}
 
 O LDAP é um protocolo de aplicativo popular para acesso e manutenção dos serviços de informações de diretório, além de ser um dos protocolos mais comuns para integração de software de terceiros a diretórios de usuários em grandes empresas. Para obter mais informações, confira "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" na Wikipédia.
 
-Se você usar um diretório do LDAP para autenticação centralizada, poderá configurar a autenticação do LDAP para as pessoas que usam o {% data variables.product.product_location %}.
+Se você usar um diretório LDAP para autenticação centralizada, poderá configurar a autenticação LDAP para as pessoas que usam a {% data variables.location.product_location %}.
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
@@ -50,7 +50,7 @@ O {% data variables.product.prodname_ghe_server %} se integra aos seguintes serv
 
 {% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Para obter mais informações, veja "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
-## Como configurar o LDAP com o {% data variables.product.product_location %}
+## Como configurar o LDAP com a {% data variables.location.product_location %}
 
 Depois que você configurar o LDAP, os usuários poderão acessar a instância com as credenciais LDAP. Quando os usuários acessarem pela primeira vez, seus nomes de perfil, endereços de e-mail e chaves SSH serão definidos com os atributos LDAP do diretório.
 
@@ -58,7 +58,7 @@ Quando você configurar o acesso LDAP dos usuários pelo {% data variables.enter
 
 {% warning %}
 
-**Aviso:** antes de configurar o LDAP no {% data variables.product.product_location %}, verifique se o serviço LDAP dá suporte a resultados paginados.
+**Aviso:** antes de configurar o LDAP em {% data variables.location.product_location %}, verifique se o serviço LDAP dá suporte a resultados paginados.
 
 {% endwarning %}
 
@@ -69,11 +69,11 @@ Quando você configurar o acesso LDAP dos usuários pelo {% data variables.enter
 5. Defina as configurações.
 
 ## Atributos LDAP
-Use estes atributos para concluir a configuração do LDAP no {% data variables.product.product_location %}.
+Use estes atributos para concluir a configuração do LDAP em {% data variables.location.product_location %}.
 
 | Nome do atributo           | Tipo     | Descrição |
 |--------------------------|----------|-------------|
-| `Host`                   | Obrigatório | O host do LDAP, por exemplo, `ldap.example.com` ou `10.0.0.30`. Se o nome do host só está disponível na rede interna, talvez seja necessário configurar o DNS do {% data variables.product.product_location %} primeiro para que ele possa resolver o nome do host usando os servidores de nomes internos. |
+| `Host`                   | Obrigatório | O host do LDAP, por exemplo, `ldap.example.com` ou `10.0.0.30`. Se o nome do host só está disponível na rede interna, talvez seja necessário configurar o DNS de {% data variables.location.product_location %} primeiro para que ele possa resolver o nome do host usando os servidores de nomes internos. |
 | `Port`                   | Obrigatório | Porta em que os serviços de host LDAP estão escutando. Por exemplo: 389 e 636 (para LDAPS). |
 | `Encryption`             | Obrigatório | Método de criptografia usado para proteger as comunicações com o servidor LDAP. Por exemplo, básico (sem criptografia), SSL/LDAPS (criptografia desde o início) e StartTLS (atualizar para comunicação com criptografia no momento da conexão). |
 | `Domain search user`     | Opcional | O usuário do LDAP que procura outros usuários que efetuam o login para permitir a autenticação. Em geral, é uma conta de serviço criada especificamente para integrações de terceiros. Use um nome totalmente qualificado, como `cn=Administrator,cn=Users,dc=Example,dc=com`. Com o Active Directory, use também a sintaxe `[DOMAIN]\[USERNAME]` (por exemplo, `WINDOWS\Administrator`) para o usuário de pesquisa de domínio com o Active Directory. |
@@ -92,11 +92,11 @@ Use estes atributos para concluir a configuração do LDAP no {% data variables.
 
 ### Desabilitar autenticação de senha nas operações no Git
 
-Selecione **Desabilitar autenticação de nome de usuário e senha para operações do Git** nas configurações do LDAP para impor o uso de tokens de acesso pessoal ou chaves SSH para acesso ao Git, o que pode ajudar a impedir que o seu servidor fique sobrecarregado por solicitações de autenticação LDAP. Essa configuração é recomendável porque servidores LDAP com resposta lenta, especialmente combinados a um grande número de solicitações devido à sondagem, são uma causa comum de interrupções e problemas de desempenho.
+Selecione **Desabilitar autenticação de nome de usuário e senha para operações do Git** nas configurações do LDAP para impor o uso de {% data variables.product.pat_generic %}s ou de chaves SSH para acesso ao Git, o que pode ajudar a impedir que o servidor fique sobrecarregado por solicitações de autenticação LDAP. Essa configuração é recomendável porque servidores LDAP com resposta lenta, especialmente combinados a um grande número de solicitações devido à sondagem, são uma causa comum de interrupções e problemas de desempenho.
 
 ![Desabilitar autenticação de senha LDAP na caixa de seleção do Git](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
 
-Quando essa opção for selecionada, se um usuário tentar usar uma senha para operações Git por meio da linha de comando, ele receberá a mensagem de erro `Password authentication is not allowed for Git operations. You must use a personal access token.`
+Quando essa opção for selecionada, se um usuário tentar usar uma senha para operações Git por meio da linha de comando, ele receberá a mensagem de erro `Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
 
 ### Habilitar verificação certificada LDAP
 
@@ -148,7 +148,13 @@ Depois que você habilitar a sincronização LDAP, um trabalho de sincronizaçã
 Um trabalho de sincronização também será executado no período especificado para fazer as seguintes operações em cada equipe mapeada para um grupo LDAP:
 
 - Se um grupo LDAP correspondente de uma equipe tiver sido removido, remova todos os integrantes da equipe.
-- Se as entradas do integrante LDAP tiverem sido removidas do grupo LDAP, remova os usuários correspondentes da equipe. Se o usuário não for mais integrante de qualquer equipe na organização, remova o usuário da organização. Se o usuário perder o acesso a qualquer repositórios, exclua todas as bifurcações privadas que ele possa ter nesses repositórios.
+- Se as entradas do integrante LDAP tiverem sido removidas do grupo LDAP, remova os usuários correspondentes da equipe. Se o usuário não for mais membro de nenhuma equipe na organização e não for proprietário da organização, remova-o da organização. Se o usuário perder o acesso a qualquer repositórios, exclua todas as bifurcações privadas que ele possa ter nesses repositórios.
+
+  {% note %}
+
+  **Observação:** a sincronização LDAP não removerá o usuário da organização se ele for proprietário dessa organização. Outro proprietário da organização precisará remover o usuário manualmente.
+
+  {% endnote %}
 - Se as entradas do integrante LDAP tiverem sido adicionadas ao grupo LDAP, adicione os usuários correspondentes à equipe. Se o usuário recuperar o acesso a quaisquer repositórios, restaure todas as bifurcações privadas dos repositórios que foram excluídos porque o usuário perdeu o acesso nos últimos 90 dias.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
@@ -203,7 +209,7 @@ A menos que a [Sincronização LDAP esteja habilitada](#enabling-ldap-sync), as 
 
 Você também pode [usar a API para disparar uma sincronização manual](/enterprise/user/rest/reference/enterprise-admin#ldap).
 
-## Como revogar o acesso ao {% data variables.product.product_location %}
+## Como revogar o acesso para {% data variables.location.product_location %}
 
 Se a [Sincronização LDAP estiver habilitada](#enabling-ldap-sync), a remoção das credenciais LDAP de um usuário suspenderá a conta dele após a próxima execução da sincronização.
 

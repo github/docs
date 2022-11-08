@@ -11,12 +11,12 @@ type: overview
 topics:
   - Enterprise
   - High availability
-ms.openlocfilehash: 0e4e2feb161dd897172385bf25cf997268527fd3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d24b222ee411d6e8d06366dd78da6b0001280c4d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332809'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109006'
 ---
 アクティブなレプリカが複数あれば、最も近いレプリカへの距離を短くできます。 たとえばサンフランシスコ、ニューヨーク、ロンドンにオフィスを持つ組織は、プライマリのアプライアンスをニューヨークの近くのデータセンター内で動作させ、2つのレプリカをサンフランシスコとロンドンの近くのデータセンターで動作させることができます。 地理的な場所を認識するDNSを利用すれば、ユーザーは利用可能な最も近いサーバへ振り分けられ、リポジトリのデータに高速にアクセスできます。 ニューヨークの近くにあるアプライアンスをプライマリにすれば、ロンドンへのレイテンシが大きいサンフランシスコ近くのアプライアンスをプライマリにする場合に比べ、ホスト間のレイテンシの削減に役立ちます。
 
@@ -28,7 +28,7 @@ Git リクエストと、LFS やファイルアップロードなどの特定の
 
 ## 制限事項
 
-レプリカへの書き込みリクエストには、データをプライマリとすべてのレプリカへ送信することが必要です。 これは、すべての書き込みのパフォーマンスが最も遅いレプリカによって制限されることを意味しますが、新しい Geo-replication レプリカは、プライマリからではなく、既存の同じ場所に配置された Geo-replication レプリカからデータの大部分をシードできます。 {% ifversion ghes > 3.2 %}書き込みスループットに影響を与えず、分散チームと大規模 CI ファームによって引き起こされる待機時間と帯域幅を減らすには、代わりにリポジトリ キャッシュを構成できます。 詳細については、「[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)」(リポジトリのキャッシュについて) を参照してください。{% endif %}
+レプリカへの書き込みリクエストには、データをプライマリとすべてのレプリカへ送信することが必要です。 これは、すべての書き込みのパフォーマンスが最も遅いレプリカによって制限されることを意味しますが、新しい Geo-replication レプリカは、プライマリからではなく、既存の同じ場所に配置された Geo-replication レプリカからデータの大部分をシードできます。 書き込みスループットに影響を与えず、分散チームと大規模 CI ファームによって引き起こされる待機時間と帯域幅を減らすには、代わりにリポジトリ キャッシュを構成できます。 詳細については、「[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)」(リポジトリのキャッシュについて) を参照してください。
 
 Geo-replication は、{% data variables.product.prodname_ghe_server %} インスタンスに容量を追加したり、不十分な CPU やメモリリソースに関連するパフォーマンスの問題を解決したりしません。 プライマリのアプライアンスがオフラインである場合、アクティブなレプリカはいかなる読み込みや書き込みのリクエストも処理できません。 
 

@@ -4,12 +4,12 @@ shortTitle: Submit your repository
 intro: '可将存储库提交到 {% data variables.product.prodname_community_exchange %}，以供其他人查看或参与。'
 versions:
   fpt: '*'
-ms.openlocfilehash: d520f303bf368c9230f26580ba2de9bd744b21e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 07198c74937470a591b30702bd027036d91d3ec7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409734'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108220'
 ---
 ## 关于存储库提交
 

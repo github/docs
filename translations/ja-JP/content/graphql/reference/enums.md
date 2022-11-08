@@ -1,5 +1,5 @@
 ---
-title: 列挙型
+title: Enums
 redirect_from:
   - /v4/enum
   - /v4/reference/enum
@@ -10,19 +10,16 @@ versions:
   ghae: '*'
 topics:
   - API
-ms.openlocfilehash: 23e65a3615e83f2f8a84bc7e4ea5dd6ce8d4e55a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147496645'
 ---
-## 列挙型について
 
-[列挙型](https://graphql.github.io/graphql-spec/June2018/#sec-Enums)は、フィールドに使える値のセットを表します。
+## About enums
 
-たとえば、[`Issue`](/graphql/reference/objects#issue) オブジェクトには `state` と呼ばれるフィールドが含まれます。 状態は `OPEN` または `CLOSED` であるため、列挙型 (具体的には型 [`IssueState`](/graphql/reference/enums#issuestate)) です。
+[Enums](https://graphql.github.io/graphql-spec/June2018/#sec-Enums) represent possible sets of values for a field.
 
-詳しくは、「[GraphQL の概要](/graphql/guides/introduction-to-graphql)」をご覧ください。
+For example, the [`Issue`](/graphql/reference/objects#issue) object has a field called `state`. The state is an enum (specifically, of type [`IssueState`](/graphql/reference/enums#issuestate)) because it may be `OPEN` or `CLOSED`.
+
+For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
+
+{% data reusables.projects.graphql-ghes %}
 
 <!-- Content after this section is automatically generated -->

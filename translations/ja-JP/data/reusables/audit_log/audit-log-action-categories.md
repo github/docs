@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5cb0c8cc93347c8da7c37bfe1082fc933f677288
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 42464c33b7846422a3a8bd4f1102b8111f7000a7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147424825"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107470"
 ---
 | カテゴリ名 | 説明
 |------------------|-------------------
@@ -14,16 +14,19 @@ ms.locfileid: "147424825"
 {%- ifversion audit-log-streaming %} | `audit_log_streaming`  | Enterprise アカウント内の Organization のストリーミング監査ログに関連するアクティビティが含まれます。
 {%- endif %} {%- ifversion fpt or ghec %} | `billing` | Organization の請求先に関連するアクティビティが含まれます。
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `business`  | Enterprise のビジネス設定に関連するアクティビティが含まれます。
-{%- endif %} {%- ifversion ghec or ghes or ghae %} | `business`  | Enterprise のビジネス設定に関連するアクティビティが含まれます。
-{%- endif %}{%- ifversion secret-scanning-audit-log-custom-patterns %} | `business_secret_scanning_custom_pattern` | Enterprise 内のシークレット スキャンのカスタム パターンに関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion code-security-audit-log-events %} | `business_advanced_security` | エンタープライズ内の {% data variables.product.prodname_GH_advanced_security %} に関連するアクティビティが含まれます。 詳しくは、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} 機能の管理](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)」を参照してください。
+| `business_secret_scanning` | エンタープライズ内の {% data variables.product.prodname_secret_scanning %} に関連するアクティビティが含まれます。 詳しくは、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} 機能の管理](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)」を参照してください。
+{%- endif %} {%- ifversion secret-scanning-audit-log-custom-patterns %} | `business_secret_scanning_custom_pattern` | Enterprise 内の{% data variables.product.prodname_secret_scanning %}のカスタム パターンに関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion code-security-audit-log-events %} | `business_secret_scanning_push_protection` | Enterprise 内の{% data variables.product.prodname_secret_scanning %}のプッシュ保護機能に関連するアクティビティが含まれます。 詳しくは、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} 機能の管理](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)」を参照してください。
+| `business_secret_scanning_push_protection_custom_message` | エンタープライズでプッシュ保護がトリガーされたときに表示されるカスタム メッセージに関連するアクティビティが含まれます。 詳しくは、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} 機能の管理](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)」を参照してください。
 {%- endif %} | `checks`   | チェック スイートと実行に関連するアクティビティが含まれます。
 {%- ifversion fpt or ghec %} | `codespaces` | Organization の codespace に関連するアクティビティが含まれます。
 {%- endif %} | `commit_comment` | コミット コメントの更新または削除に関連するアクティビティが含まれます。
 {%- ifversion ghes %} | `config_entry` | 構成設定に関連するアクティビティが含まれます。 これらのイベントは、サイト管理者の監査ログにのみ表示されます。
-{%- endif %} {%- ifversion fpt or ghec or ghes > 3.2 or ghae %} | | `dependabot_alerts`  | 既存のリポジトリの {% data variables.product.prodname_dependabot_alerts %} に対する Organization レベルの設定アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
+{%- endif %} | | `dependabot_alerts`  | 既存のリポジトリの {% data variables.product.prodname_dependabot_alerts %}に対する Organization レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
 | `dependabot_alerts_new_repos`   | Organization 内に作成された新しいリポジトリ内の {% data variables.product.prodname_dependabot_alerts %} に対する Organization レベルの構成アクティビティが含まれます。
 | `dependabot_repository_access` | Organization {% data variables.product.prodname_dependabot %} 内のどのプライベート リポジトリへのアクセスが許可されているかに関連するアクティビティが含まれます。
-{%- endif %} {%- ifversion fpt or ghec or ghes > 3.2 %} | `dependabot_security_updates`   | 既存のリポジトリの {% data variables.product.prodname_dependabot_security_updates %} に対する Organization レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_security_updates %} の構成](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
+{%- ifversion fpt or ghec or ghes %} | `dependabot_security_updates`   | 既存のリポジトリの {% data variables.product.prodname_dependabot_security_updates %} に対する Organization レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_security_updates %} の構成](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
 | `dependabot_security_updates_new_repos` | Organization 内に作成された新しいリポジトリ内の {% data variables.product.prodname_dependabot_security_updates %} の Organization レベルの構成アクティビティが含まれます。
 {%- endif %} | `dependency_graph` | リポジトリの依存関係グラフの Organization レベルの設定アクティビティが含まれます。 詳細については、「[依存関係グラフの概要](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 | `dependency_graph_new_repos`  | Organization 内に作成された新しいリポジトリの Organization レベルの構成アクティビティが含まれます。

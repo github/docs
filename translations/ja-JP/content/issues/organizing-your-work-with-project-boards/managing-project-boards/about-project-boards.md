@@ -11,12 +11,12 @@ versions:
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 5ec81cf456ddca503e58ca6703ae3372875bd62c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c14ee749a2e97bb9ef608e1b2d548098f18af0d0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147614240'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107622'
 ---
 {% data reusables.projects.project_boards_old %}
 
@@ -24,7 +24,7 @@ ms.locfileid: '147614240'
 
 {% data variables.projects.projects_v1_board_caps %}のカードには、ラベル、担当者、状態、オープンした人など、issue や pull request に関連するメタデータが含まれます。 {% data reusables.project-management.edit-in-project %}
 
-タスクのリマインダとして機能するノートを列内に作成し、{% data variables.product.product_location %}上の任意のリポジトリからの issue や pull request を参照させたり、{% data variables.projects.projects_v1_board %}に関係する情報を追加したりできます。 ノートにリンクを追加することで、他の{% data variables.projects.projects_v1_board %}を参照するカードを作成することもできます。 ノートでは要求を満たせない場合、ノートを Issue に変換することができます。 ノートを issue に変換する方法について詳しくは、「[{% data variables.product.prodname_project_v1 %}へのノートの追加](/articles/adding-notes-to-a-project-board)」を参照してください。
+タスクのリマインダとして機能するノートを列内に作成し、{% data variables.location.product_location %}上の任意のリポジトリからの issue や pull request を参照させたり、{% data variables.projects.projects_v1_board %}に関係する情報を追加したりできます。 ノートにリンクを追加することで、他の{% data variables.projects.projects_v1_board %}を参照するカードを作成することもできます。 ノートでは要求を満たせない場合、ノートを Issue に変換することができます。 ノートを issue に変換する方法について詳しくは、「[{% data variables.product.prodname_project_v1 %}へのノートの追加](/articles/adding-notes-to-a-project-board)」を参照してください。
 
 プロジェクトボードには以下の種類があります:
 

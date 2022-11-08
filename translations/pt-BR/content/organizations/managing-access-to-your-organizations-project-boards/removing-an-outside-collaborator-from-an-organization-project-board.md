@@ -14,12 +14,12 @@ topics:
   - Teams
 shortTitle: Remove outside collaborator
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 2dfcc372565366328820e968d6c6384f97b0e2c1
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: ce2dd198d259473b775cf6a9bd61e494ad1c2717
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147884194'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107963'
 ---
 {% data reusables.projects.project_boards_old %}
 

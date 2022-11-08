@@ -1,6 +1,6 @@
 ---
 title: SAMLのシングルサインオンでの認証について
-intro: '{% ifversion ghae %}{% data variables.product.product_location %} {% elsif ghec %}SAML シングル サインオン (SSO) を使用する組織{% endif %}にアクセスするには、ID プロバイダー (IdP) を通じて{% ifversion ghae %} SAML シングル サインオン (SSO) で{% endif %}認証を行います。'
+intro: '{% ifversion ghae %}{% data variables.location.product_location %}{% elsif ghec %}SAML シングル サインオン (SSO) を使う組織{% endif %}にアクセスするには、ID プロバイダー (IdP) を介して{% ifversion ghae %} SAML シングル サインオン (SSO) で{% endif %}認証を行います。'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/about-authentication-with-saml-single-sign-on
@@ -11,18 +11,18 @@ versions:
 topics:
   - SSO
 shortTitle: SAML single sign-on
-ms.openlocfilehash: 7fb15bab585093a618f9c082d340c2fe66d67df7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 827db3181f742916ba4fdeefd92f25c196c28188
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147527911'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111514'
 ---
 ## SAML SSO での認証について
 
 {% ifversion ghae %}
 
-SAML SSO を使用すると、Enterprise のオーナーは、SAML IdP から {% data variables.product.product_name %} へのアクセスを一元的に制御して保護できます。 ブラウザで {% data variables.product.product_location %} にアクセスすると、{% data variables.product.product_name %} が認証のために IdP にリダイレクトします。 IdP のアカウントで正常に認証されると、IdP によって {% data variables.product.product_location %} にリダイレクトされます。 {% data variables.product.product_name %} は、IdP からのレスポンスを検証してから、アクセスを許可します。
+SAML SSO を使用すると、Enterprise のオーナーは、SAML IdP から {% data variables.product.product_name %} へのアクセスを一元的に制御して保護できます。 ブラウザーで {% data variables.location.product_location %} にアクセスすると、認証のために {% data variables.product.product_name %} によって IdP にリダイレクトされます。 IdP のアカウントで正常に認証されると、IdP によって {% data variables.location.product_location %} にリダイレクトされます。 {% data variables.product.product_name %} は、IdP からのレスポンスを検証してから、アクセスを許可します。
 
 {% data reusables.saml.you-must-periodically-authenticate %}
 
@@ -30,13 +30,15 @@ SAML SSO を使用すると、Enterprise のオーナーは、SAML IdP から {%
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 {% data reusables.saml.dotcom-saml-explanation %} Organization のオーナーは、{% data variables.product.prodname_dotcom %}で個人アカウントを SAML SSO を使用する Organization に招待できます。これにより、Organization に貢献することができ、{% data variables.product.prodname_dotcom %}の既存の ID とコントリビューションを保持できます。
 
-{% data variables.product.prodname_emu_enterprise %} のメンバーである場合は、プロビジョニングされ、エンタープライズによって管理された新しいアカウントを代わりに使用します。 {% data reusables.enterprise-accounts.emu-more-info-account %}
+{% data variables.enterprise.prodname_emu_enterprise %} のメンバーである場合は、プロビジョニングされ、エンタープライズによって管理された新しいアカウントを代わりに使用します。 {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 SAML SSO を使用する組織内のプライベート リソースにアクセスすると、{% data variables.product.prodname_dotcom %} によって認証のために組織の SAML IdP にリダイレクトされます。 IdP でアカウントが正常に認証されると、IdP は{% data variables.product.prodname_dotcom %}に戻り、Organization のリソースにアクセスできます。
+
+{% data reusables.saml.resources-without-sso %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -52,13 +54,13 @@ IdP アカウントで認証を行い、{% data variables.product.prodname_dotco
 
 サインインする SAML ID が、現在 {% data variables.product.prodname_dotcom %} アカウントにリンクされている SAML ID と一致しない場合は、アカウントを再リンクしようとしているという警告が表示されます。 SAML ID はアクセスとチーム メンバーシップを管理するために使用されるため、新しい SAML ID を使用して続けると、{% data variables.product.prodname_dotcom %} 内のチームや組織にアクセスできなくなる可能性があります。 今後、その新しい SAML ID を認証に使用することがわかっている場合にのみ続けます。 
 
-## SAML SSO を使用した PAT と SSH キーの承認
+## SAML SSO を使った {% data variables.product.pat_generic %} と SSH キーの認可
 
-SAML SSL を要求する Organization 内の保護されたコンテンツにアクセスするために API またはコマンドライン上の Git を利用するには、認可された個人のアクセストークンを HTTPS 経由で使うか、認可された SSH キーを使う必要があります。
+SAML SSO を使用する資格組織内の保護されたコンテンツにアクセスするために API またはコマンドライン上の Git を利用するには、認可された {% data variables.product.pat_generic %} を HTTPS 経由で使うか、認可された SSH キーを使う必要があります。
 
-個人のアクセストークンあるいは SSH キーを持っていない場合、コマンドライン用の個人のアクセストークンを作成するか、新しい SSH キーを生成できます。 詳細については、「[個人用アクセス トークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」または「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
+{% data variables.product.pat_generic %} または SSH キーを持っていない場合は、コマンド ラインの {% data variables.product.pat_generic %} を作成するか、新しい SSH キーを生成することができます。 詳細については、「[{% data variables.product.pat_generic %} の作成](/github/authenticating-to-github/creating-a-personal-access-token)」または「[新しい SSH キーの生成と ssh-agent への追加](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
-新しい、または既存の個人のアクセストークンか SSH キーを、SAML SSO を使用または要求する Organization で利用するには、SAML SSO Organization で使うためにそのトークンや SSH キーを認可する必要があります。 詳細については、「[SAML シングル サインオンで利用するために個人アクセス トークンを承認する](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」または「[SAML シングル サインオンで利用するために SSH キーを承認する](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。
+新しい、または既存の {% data variables.product.pat_generic %} か SSH キーを、SAML SSO を使用または要求する組織で利用するには、SAML SSO 組織で使うためにそのトークンや SSH キーを認可する必要があります。 詳細については、「[SAML シングル サインオンで利用するために {% data variables.product.pat_generic %} を承認する](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」または「[SAML シングル サインオンで利用するために SSH キーを承認する](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。
 
 ## {% data variables.product.prodname_oauth_apps %}、{% data variables.product.prodname_github_apps %}、SAML SSO について
 

@@ -27,7 +27,7 @@ shortTitle: Quickstart
   ```
 
   {% ifversion not fpt or ghec %}
-  To authenticate to {% data variables.product.product_location %}, use the `--hostname` flag.
+  To authenticate to {% data variables.location.product_location %}, use the `--hostname` flag.
 
   ```shell
   gh auth login --hostname HOSTNAME

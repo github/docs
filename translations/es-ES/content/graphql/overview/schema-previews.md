@@ -10,12 +10,12 @@ versions:
   ghae: '*'
 topics:
   - API
-ms.openlocfilehash: a4097cd792931fe33363229b24f0043b9b99a1cd
-ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
+ms.openlocfilehash: 038afd8cbdd60863213eae385ec9a26f707f62d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147887218'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109898'
 ---
 ## Acerca de las vistas previas del modelo
 

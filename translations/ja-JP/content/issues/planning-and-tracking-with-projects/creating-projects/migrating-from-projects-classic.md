@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: b16235e98306e19a8f08dfc04913c6935772b5cc
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.openlocfilehash: 2efe16be4b865e4315bce1fee633c313a3d7e512
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147424116'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109686'
 ---
 {% note %}
 

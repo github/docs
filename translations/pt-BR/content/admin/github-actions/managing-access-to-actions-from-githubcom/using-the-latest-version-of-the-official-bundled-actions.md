@@ -12,12 +12,12 @@ topics:
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
 shortTitle: Use the latest bundled actions
-ms.openlocfilehash: 3243199ad7f5d216a351ddc2db7a4e6afed66c9b
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: a86c731602bc39cc35fbff823ebdbfbdf2dec2c9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145095893'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107026'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -52,8 +52,8 @@ Depois que o {% data variables.product.prodname_github_connect %} estiver config
 1. Configure o YAML do fluxo de trabalho para usar `{% data reusables.actions.action-checkout %}`.
 1. Sempre que o fluxo de trabalho for executado, o executor usará a versão especificada de `actions/checkout` do {% data variables.product.prodname_dotcom_the_website %}.
 
-   {% ifversion ghes > 3.2 or ghae %} {% note %}
+   {% note %}
 
-   **Observação:** na primeira vez que a ação `checkout` é usada no {% data variables.product.prodname_dotcom_the_website %}, o namespace `actions/checkout` é desativado automaticamente no {% data variables.product.product_location %}. Se você quiser reverter para uma cópia local da ação, primeiro você precisará remover o namespace da desativação. Para obter mais informações, confira "[Desativação automática de namespaces para as ações acessadas no {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".
+   **Observação:** na primeira vez que a ação `checkout` é usada no {% data variables.product.prodname_dotcom_the_website %}, o namespace `actions/checkout` é desativado automaticamente em {% data variables.location.product_location %}. Se você quiser reverter para uma cópia local da ação, primeiro você precisará remover o namespace da desativação. Para obter mais informações, confira "[Desativação automática de namespaces para as ações acessadas no {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".
 
-   {% endnote %} {% endif %}
+   {% endnote %}

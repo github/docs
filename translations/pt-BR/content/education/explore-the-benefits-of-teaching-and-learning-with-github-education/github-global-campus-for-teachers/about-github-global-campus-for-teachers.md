@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: d4e823cc97b9c75f264b856c39021e30ca0e4fed
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6a0e8b7ba27060b4f48438b515786256d93d6d0c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147574153'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107798'
 ---
 Como membro do corpo docente em uma instituição de ensino credenciada, você pode se candidatar para o {% data variables.product.prodname_global_campus %}, que inclui os benefícios e recursos do {% data variables.product.prodname_education %}. Para obter mais informações, confira "[Candidatar-se para o {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)."
 

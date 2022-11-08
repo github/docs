@@ -36,11 +36,11 @@ children:
   - /customizing-user-messages-for-your-enterprise
   - /rebuilding-contributions-data
 shortTitle: Manage users
-ms.openlocfilehash: 9ec6d7dc6822e71ff72542dd6b67ded031a1c44d
-ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.openlocfilehash: 763277882c2af96505c2a6d4c236c05475ab9f3f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147876023'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148007883'
 ---
 

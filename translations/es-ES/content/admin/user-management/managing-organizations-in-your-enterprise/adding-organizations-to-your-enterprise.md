@@ -1,6 +1,6 @@
 ---
 title: Agregar organizaciones a tu empresa
-intro: Puedes crear organizaciones nuevas o invitar a las existentes para que administren tu empresa.
+intro: 'Puedes agregar organizaciones para administrar dentro de tu empresa mediante la creación de una nueva organización, la invitación a una organización existente o la transferencia de una organización desde una cuenta empresarial diferente.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account
@@ -15,18 +15,18 @@ topics:
   - Organizations
 shortTitle: Add organizations
 permissions: Enterprise owners can add organizations to an enterprise.
-ms.openlocfilehash: 09e4fa9c1b33f50e35f6088eb671b90df4a5eda3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7b5627eb89e7e5356716a9cd2a9dfe03fd455270
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147573357'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127623'
 ---
 ## Acerca de la adición de organizaciones a la cuenta empresarial
 
 Tu cuenta empresarial puede ser propietaria de organizaciones. Los miembros de tu empresa pueden colaborar a lo largo de los proyectos relacionados dentro de una organización. Para obtener más información, vea "[Acerca de las organizaciones](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-Puedes agregar organizaciones a la cuenta de empresa. Si no usas {% data variables.product.prodname_emus %}, puedes agregar organizaciones existentes en {% data variables.product.product_location %} a tu empresa. No se puede agregar una organización existente desde un {% data variables.product.prodname_emu_enterprise %} a una empresa diferente.
+Puedes agregar organizaciones a la cuenta de empresa. Si no usas {% data variables.product.prodname_emus %}, puedes agregar organizaciones existentes en {% data variables.location.product_location %} a tu empresa. No se puede agregar una organización existente desde un {% data variables.enterprise.prodname_emu_enterprise %} a una empresa diferente.
 
 {% data reusables.enterprise.create-an-enterprise-account %} Para obtener más información, vea "[Crear una cuenta de empresa](/admin/overview/creating-an-enterprise-account)".
 
@@ -36,12 +36,13 @@ Después de agregar una organización existente a tu empresa, los recursos de la
 - Los propietarios de la empresa pueden administrar su rol dentro de la organización. Para más información, vea "[Administración del rol en una organización que pertenece a la empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
 - Las directivas aplicadas a la empresa se aplicarán a la organización. Para obtener más información, consulta «[Acerca de directivas de empresa](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)».
 - Si el inicio de sesión único de SAML está configurado para la cuenta de la empresa, la configuración de SAML de la empresa se aplicará a la organización. Si la organización ha usado el inicio de sesión único de SAML, la configuración de la cuenta empresarial reemplazará a la configuración de la organización. SCIM no está disponible para las cuentas empresariales, por lo que SCIM se deshabilitará para la organización. Para obtener más información, consulta «[Configuración del inicio de sesión único de SAML para tu empresa](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)» y «[Cambio de la configuración de SAML de una organización a una cuenta empresarial](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)».
-- Si el inicio de sesión único de SAML se ha configurado para la organización, los tokens de acceso personal (PAT) o las claves SSH existentes de los miembros que estaban autorizadas para acceder a los recursos de la organización obtendrán autorización para acceder a los mismos recursos. Para acceder a otras organizaciones propiedad de la empresa, los miembros deben autorizar el PAT o la clave. Para más información, vea "[Autorización de un token de acceso personal para su uso con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" y "[Autorización de una clave SSH para su uso con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".
+- Si el inicio de sesión único de SAML se ha configurado para la organización, los {% data variables.product.pat_generic %} de los miembros o las claves SSH existentes de los miembros que estaban autorizadas para acceder a los recursos de la organización obtendrán autorización para acceder a los mismos recursos. Para acceder a otras organizaciones propiedad de la empresa, los miembros deben autorizar el {% data variables.product.pat_generic %} o la clave. Para más información, consulta "[Autorización de {% data variables.product.pat_generic %} para su uso con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" y "[Autorización de una clave SSH para su uso con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".
 - Si la organización estaba conectada a {% data variables.product.prodname_ghe_server %} o {% data variables.product.prodname_ghe_managed %} mediante {% data variables.product.prodname_github_connect %}, agregar la organización a una cuenta de empresa no actualizará la conexión. Las características de {% data variables.product.prodname_github_connect %} ya no funcionarán para la organización. Para seguir usando {% data variables.product.prodname_github_connect %}, debes deshabilitar y volver a habilitar la característica. Para obtener más información, consulte los siguientes artículos.
 
   - "[Administración de {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" en la documentación de {% data variables.product.prodname_ghe_server %}
   - "[Administración de {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" en la documentación de {% data variables.product.prodname_ghe_managed %}
 - Si la organización ha usado aplicaciones de {% data variables.product.prodname_marketplace %} facturadas, la organización puede seguir usando las aplicaciones, pero debe pagar al proveedor directamente. Para obtener más información, ponte en contacto con el proveedor de la aplicación.
+- Los cupones se quitarán de la organización. Para volver a aplicar el cupón, [ponte en contacto con nuestro equipo de ventas](https://github.com/enterprise/contact).
 
 ## Crear una organización en tu cuenta de empresa
 
@@ -61,10 +62,10 @@ Los propietarios de empresas que creen una organización que es propiedad de una
 
 ## Invitar a una organización para que se una a tu cuenta empresarial
 
-Los propietarios de las empresas pueden invitar a las organizaciones existentes para que se unan a su cuenta empresarial. Si la organización que quieres invitar ya pertenece a otra empresa, no podrás emitir una invitación hasta que la empresa anterior deje la propiedad de esta. Para obtener más información, vea "[Eliminar una organización de su empresa](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)".
+Los propietarios de las empresas pueden invitar a las organizaciones existentes para que se unan a su cuenta empresarial. Si la organización a la que quieres invitar ya pertenece a otra cuenta de empresa, debes ser propietario de ambas cuentas de empresa o la empresa anterior debe renunciar primero a la propiedad de la organización. Para obtener más información, vea "[Eliminar una organización de su empresa](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)". 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-2. En la pestaña **Organizations** (Organizaciones), encima de la lista de organizaciones, haga clic en **Invite organization** (Invitar a una organización).
+1. En la pestaña **Organizations** (Organizaciones), encima de la lista de organizaciones, haga clic en **Invite organization** (Invitar a una organización).
 ![Invitar a una organización](/assets/images/help/business-accounts/enterprise-account-invite-organization.png)
 3. Debajo de "Nombre de organización", comienza a teclear el nombre de la organización que quieras invitar y selecciónalo cuando se muestre en la lista desplegable.
 ![Buscar una organización](/assets/images/help/business-accounts/enterprise-account-search-for-organization.png)
@@ -73,5 +74,24 @@ Los propietarios de las empresas pueden invitar a las organizaciones existentes 
 ![Cancelar o reenviar](/assets/images/help/business-accounts/enterprise-account-invitation-sent.png)
 6. Una vez que un propietario de la organización haya aprobado la invitación, puedes ver su estado en la lista de invitaciones pendientes.
 ![Invitación pendiente](/assets/images/help/business-accounts/enterprise-account-pending.png)
-7. Haga clic en **Approve** (Aprobar) para completar la transferencia o en **Cancel** (Cancelar) para cancelarla.
+7. Para completar la transferencia, haz clic en **Aprobar**.
 ![Aprobar invitación](/assets/images/help/business-accounts/enterprise-account-transfer-approve.png)
+
+## Transferencia de una organización entre cuentas de empresa
+
+Los propietarios de la empresa pueden transferir organizaciones existentes entre cuentas de empresa. Debes ser propietario de la empresa en ambas cuentas de empresa. 
+
+{% note %}
+
+**Nota:** no se puede transferir una organización existente a o desde un {% data variables.enterprise.prodname_emu_enterprise %}.  
+
+{% endnote %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+1. Junto a la organización que quieras transferir, selecciona la lista desplegable {% octicon "gear" width="16" aria-label="Gear" %} y, a continuación, haz clic en **Transferir organización**. 
+![Captura de pantalla del botón Transferir](/assets/images/help/business-accounts/org-transfer-button.png)
+1. Selecciona el menú desplegable **Seleccionar empresa**, empieza a escribir el nombre de la empresa de destino y selecciona la empresa cuando aparezca en la lista desplegable.
+![Captura de pantalla de la lista desplegable de empresas](/assets/images/help/business-accounts/org-transfer-select-enterprise.png)
+2. Haz clic en **Revisar transferencia**.
+3. Para confirmar la transferencia, haz clic en **Transferir organización**.
+![Captura de pantalla del botón Transferir organización](/assets/images/help/business-accounts/org-transfer-confirm-button.png)

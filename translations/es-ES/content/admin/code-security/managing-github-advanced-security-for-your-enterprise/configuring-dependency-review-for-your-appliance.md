@@ -1,7 +1,7 @@
 ---
 title: Configuración de la revisión de dependencias para el dispositivo
 shortTitle: Configuring dependency review
-intro: 'Para ayudar a los usuarios a comprender los cambios de dependencia al revisar las solicitudes de incorporación de cambios, puedes habilitar, configurar y deshabilitar la revisión de dependencias para {% data variables.product.product_location %}.'
+intro: 'Para ayudar a los usuarios a comprender los cambios de dependencias al revisar las solicitudes de incorporación de cambios, puedes habilitar, configurar y deshabilitar la revisión de dependencias para {% data variables.location.product_location %}.'
 product: '{% data reusables.gated-features.dependency-review %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -12,15 +12,13 @@ topics:
   - Enterprise
   - Dependency review
   - Security
-ms.openlocfilehash: c5b20273c10e8b9115aa05fa70e50db43e5fd73f
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 613f2f2bd69a90027533ff063ea0f0a44bc1f5d2
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147773229'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107761'
 ---
-{% data reusables.dependency-review.beta %}
-
 ## Acerca de la revisión de dependencias
 
 {% data reusables.dependency-review.feature-overview %}  

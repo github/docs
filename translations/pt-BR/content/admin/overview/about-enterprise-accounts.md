@@ -18,12 +18,12 @@ topics:
   - Accounts
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 3233b52c1710c07dbd09644f7b38b7da697075c1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b0d1455fef80094f0dcdf20332605bd427d9c441
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147526651'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127624'
 ---
 ## Sobre contas corporativas em {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}
 
@@ -33,13 +33,13 @@ Sua conta corporativa no {% data variables.product.prodname_dotcom_the_website %
 
 {% elsif ghes or ghae %}
 
-A conta corporativa em {% ifversion ghes %}{% data variables.product.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} permite que você gerencie as organizações{% ifversion ghes %} em{% elsif ghae %} pertencentes à{% endif %} sua instância {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% elsif ghae %}empresa{% endif %}.
+A conta corporativa em {% ifversion ghes %}{% data variables.location.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} permite que você gerencie as organizações{% ifversion ghes %} em{% elsif ghae %} pertencentes à{% endif %} sua {% ifversion ghes %}instância do {% data variables.product.prodname_ghe_server %}{% elsif ghae %}empresa{% endif %}.
 
 {% endif %}
 
 As organizações são contas compartilhadas em que os integrantes da empresa podem colaborar em muitos projetos de uma só vez. Os proprietários da organização podem gerenciar o acesso aos dados e projetos da organização, com recursos sofisticados de segurança e administrativos. Para obter mais informações, confira "[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-{% ifversion ghec %} Os proprietários de empresas podem convidar organizações existentes para ingressar em sua conta corporativa ou criar novas organizações nas configurações corporativas. Para obter mais informações, confira "[Como adicionar organizações à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)".
+{% ifversion ghec %} Nas configurações da empresa, os proprietários corporativos podem convidar organizações existentes para ingressar em sua conta corporativa, transferir organizações entre contas corporativas ou criar organizações. Para obter mais informações, confira "[Como adicionar organizações à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)".
 {% endif %}
 
 Sua conta corporativa permite que você gerencie e aplique políticas para todas as organizações pertencentes à empresa. {% data reusables.enterprise.about-policies %} Para ver mais informações, confira "[Sobre políticas corporativas](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)".
@@ -80,7 +80,7 @@ Se você usar {% data variables.product.prodname_ghe_cloud %} e {% data variable
 - Cobrança e uso para instâncias de {% data variables.product.prodname_ghe_server %}
 - Solicitações e compartilhamento de pacote de suporte com {% data variables.contact.enterprise_support %}
 
-Você também pode conectar a conta corporativa em {% data variables.product.product_location_enterprise %} à sua conta corporativa em {% data variables.product.prodname_dotcom_the_website %} para ver os detalhes de uso da licença para sua assinatura {% data variables.product.prodname_enterprise %} de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, confira {% ifversion ghec %}"[Como sincronizar o uso da licença entre o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" na documentação do {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}"[Como sincronizar o uso da licença entre o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)".{% endif %}
+Você também pode conectar a conta corporativa em {% data variables.location.product_location_enterprise %} à sua conta corporativa no {% data variables.product.prodname_dotcom_the_website %} para ver os detalhes de uso da licença da assinatura do {% data variables.product.prodname_enterprise %} no {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, confira {% ifversion ghec %}"[Como sincronizar o uso da licença entre o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" na documentação do {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}"[Como sincronizar o uso da licença entre o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)".{% endif %}
 
 Para obter mais informações sobre as diferenças entre o {% data variables.product.prodname_ghe_cloud %} e o {% data variables.product.prodname_ghe_server %}, confira "[Produtos do {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/githubs-products)". {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
 

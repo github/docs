@@ -52,7 +52,7 @@ If you're using `username` and `password` for API calls, then they are no longer
 curl -u my_user:my_password https://api.github.com/user/repos
 ```
 
-Instead, use a [personal access token](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
+Instead, use a [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
 
 ```bash
 curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos

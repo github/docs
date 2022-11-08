@@ -8,12 +8,12 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: 50251608201f6a5e199c235cb0c715449bc99882
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1dfb11e43de04bd55f544a9fb97a0a9346a22d96
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424113'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109252'
 ---
 オプション (`fieldname:option` など) を指定して、単一選択フィールドでフィルター処理することができます。 オプションのコンマ区切りリスト (`fieldname:option,option` など) を指定して、複数の値をフィルター処理できます。 詳細については、[プロジェクトのフィルター処理](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)に関するページを参照してください。
 

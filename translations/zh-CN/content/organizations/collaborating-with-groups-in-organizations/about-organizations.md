@@ -12,12 +12,12 @@ versions:
 topics:
   - Organizations
   - Teams
-ms.openlocfilehash: 3780e309aa149de90a6871fbe236aac752c67d0b
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.openlocfilehash: e18c95475e06db0623aee67515eeb6d8a1ee641f
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147876103'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127633'
 ---
 ## 关于组织
 
@@ -47,7 +47,9 @@ ms.locfileid: '147876103'
 
 {% ifversion ghec %} {% data reusables.enterprise.create-an-enterprise-account %}有关详细信息，请参阅“[创建企业帐户](/admin/overview/creating-an-enterprise-account)”。
 
-{% data reusables.enterprise-accounts.invite-organization %} {% endif %} {% endif %}
+{% data reusables.enterprise-accounts.invite-organization %}
+
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
 ## 组织的服务条款和数据保护

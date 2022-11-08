@@ -10,11 +10,11 @@ versions:
   ghae: '*'
 topics:
   - API
-ms.openlocfilehash: e5e1fc0708f46759837f29f0eadcaf8abce15220
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 34f0baed8b75614c939281ed6a2393d7c809c82f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147496545'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107853'
 ---
 As alterações significativas incluem alterações que modificarão as consultas existentes ou podem afetar o comportamento do tempo de execução dos clientes. Para ver uma lista de alterações interruptivas e quando elas ocorrerão, confira nosso [log de alterações interruptivas](/graphql/overview/breaking-changes).

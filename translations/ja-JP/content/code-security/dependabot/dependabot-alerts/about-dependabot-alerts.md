@@ -20,12 +20,12 @@ topics:
   - Repositories
   - Dependencies
 shortTitle: Dependabot alerts
-ms.openlocfilehash: 4a1e85a620465247dcd63e8ce9c88c99a0af31fd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 737e5547e3aefd6b5c49780df0c78cdc73292ee4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147526735'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106742'
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->
 
@@ -47,7 +47,7 @@ ms.locfileid: '147526735'
 
 {% ifversion fpt or ghec %}
 - {% data variables.product.prodname_advisory_database %} に新しいアドバイザリが追加されたとき。 詳しい情報については、「[{% data variables.product.prodname_advisory_database %} でのセキュリティ アドバイザリの参照](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)」を参照してください。{% else %}
-- 新しいアドバイザリ データが {% data variables.product.prodname_dotcom_the_website %} から 1 時間ごとに {% data variables.product.product_location %} に同期されたとき。 {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %} {% note %}
+- 新しいアドバイザリ データが {% data variables.product.prodname_dotcom_the_website %} から 1 時間ごとに {% data variables.location.product_location %} に同期されたとき。 {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %} {% note %}
 
   **注:** {% data variables.product.company_short %} によってレビューされたアドバイザリのみが、{% data variables.product.prodname_dependabot_alerts %}をトリガーします。
 
@@ -79,7 +79,7 @@ ms.locfileid: '147526735'
 
 {% data variables.product.product_name %} で脆弱な依存関係{% ifversion GH-advisory-db-supports-malware %}またはマルウェア{% endif %}が特定されると、{% data variables.product.prodname_dependabot %} アラートが生成され、{% ifversion fpt or ghec or ghes %}リポジトリの [セキュリティ] タブと{% endif %}リポジトリの依存関係グラフにそれが表示されます。 アラートには、{% ifversion fpt or ghec or ghes %}プロジェクト内の影響を受けるファイルへのリンクと、{% endif %}固定バージョンに関する情報が含まれます。 {% data variables.product.product_name %} は、影響を受けるリポジトリの保守担当者に、通知設定に従って新しいアラートについて通知します。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} の構成](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)」を参照してください。
 
-{% ifversion fpt or ghec or ghes > 3.2 %} {% data variables.product.prodname_dependabot_security_updates %}が有効になっているリポジトリの場合、アラートには、脆弱性を解決する最小バージョンにマニフェストまたはロック ファイルを更新するための pull request へのリンクも含まれる場合があります。 詳細については、「[{% data variables.product.prodname_dependabot_security_updates %}について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
+{% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot_security_updates %}が有効になっているリポジトリの場合、アラートには、脆弱性を解決する最小バージョンにマニフェストまたはロック ファイルを更新するための pull request へのリンクも含まれる場合があります。 詳細については、「[{% data variables.product.prodname_dependabot_security_updates %}について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
 {% endif %}
 
 {% warning %}
@@ -99,7 +99,7 @@ ms.locfileid: '147526735'
 
 {% data variables.product.prodname_advisory_database %} 内の特定のアドバイザリに対応するすべての {% data variables.product.prodname_dependabot_alerts %}を見ることもできます。 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes %}
 ## 参考資料
 
 - 「[{% data variables.product.prodname_dependabot_security_updates %}について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」

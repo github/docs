@@ -11,16 +11,16 @@ topics:
   - Codespaces
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 368b7c73d13bb0624c9d838ac2d7bb18a2b050e3
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 623b50a9423d855f807e2b480882f1e5eb2c479f
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880810'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113861'
 ---
 ## Información general
 
-Cada codespace que crees se hospeda en una máquina virtual independiente, y normalmente puedes elegir entre diferentes tipos de máquinas virtuales. Cada tipo de máquina tiene recursos diferentes (CPU, memoria, almacenamiento) y, de forma predeterminada, se usa el tipo de máquina con los recursos mínimos. Para obtener más información, consulte "[Cambio del tipo de máquina para el codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)".
+Cada codespace que crees se hospeda en una máquina virtual independiente, y normalmente puedes elegir entre diferentes tipos de máquinas virtuales. Cada tipo de máquina tiene recursos diferentes (núcleos de procesador, memoria, almacenamiento) y, de forma predeterminada, se usa el tipo de máquina con los recursos mínimos. Para obtener más información, consulte "[Cambio del tipo de máquina para el codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)".
 
 Si tu proyecto necesita cierto nivel de potencia de cómputo, puedes configurar {% data variables.product.prodname_github_codespaces %} para que solo los tipos de máquina que cumplan con estos requisitos se puedan usar de forma predeterminada o los puedan seleccionar los usuarios. Esta configuración se realiza en un archivo `devcontainer.json`.
 
@@ -32,8 +32,8 @@ Si tu proyecto necesita cierto nivel de potencia de cómputo, puedes configurar 
 
 ## Configurar una especificación de máquina mínima
 
-1. Los {% data variables.product.prodname_github_codespaces %} del repositorio se configuran en un archivo `devcontainer.json`. Si el repositorio aún no contiene un archivo `devcontainer.json`, agregue uno ahora. Consulta "[Adición de una configuración de contenedor de desarrollo al repositorio](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)".
-1. Edite el archivo `devcontainer.json` y agregue una propiedad `hostRequirements` como esta:
+{% data reusables.codespaces.edit-devcontainer-json %}
+1. Edita el archivo `devcontainer.json`, agregando la propiedad `hostRequirements` en el nivel superior del archivo, dentro del objeto JSON envolvente. Por ejemplo:
 
    ```json{:copy}
    "hostRequirements": {

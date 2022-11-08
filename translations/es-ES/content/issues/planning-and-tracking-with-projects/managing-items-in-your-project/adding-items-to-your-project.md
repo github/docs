@@ -9,18 +9,18 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: e49758bbf751ddd1cced46719f9740147a1b7b32
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: cba8a20d0ec17ec8fceb0cb30671eb3d608ae715
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424241'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107617'
 ---
 Tu proyecto puede rastrear borradores de propuestas, propuestas, y solicitudes de cambios. 
 
 {% note %}
 
-**Nota:** Un proyecto puede contener un máximo de 1200 elementos y 10 000 elementos archivados. 
+**Nota**: Un proyecto puede contener un máximo de {% data variables.projects.item_limit %} elementos y {% data variables.projects.archived_item_limit %} elementos archivados. {% ifversion projects-v2-auto-archive %}Para obtener más información sobre el archivado automático de los elementos cuando cumplen criterios específicos, consulta "[Archivado automático de elementos](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ Tu proyecto puede rastrear borradores de propuestas, propuestas, y solicitudes d
 
 #### Adición de varias incidencias o solicitudes de incorporación de cambios de un repositorio
 
-1. En {% data variables.product.product_location %}, ve al repositorio que contiene las incidencias o solicitudes de incorporación de cambios que quieres agregar al proyecto.
+1. En {% data variables.location.product_location %}, ve al repositorio que contiene las incidencias o solicitudes de incorporación de cambios que quieres agregar al proyecto.
 {% data reusables.repositories.sidebar-issue-pr %}
 1. A la izquierda de cada uno de los títulos de las incidencias, selecciona aquellas que quieres agregar al proyecto.
   ![Captura de pantalla que muestra la casilla para seleccionar la incidencia o solicitud de incorporación de cambios](/assets/images/help/issues/select-issue-checkbox.png)

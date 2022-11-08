@@ -26,6 +26,14 @@ shortTitle: Configure secret scans
 
 You can enable {% data variables.product.prodname_secret_scanning_GHAS %} for any repository that is owned by an organization. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
 
+{% ifversion secret-scanning-enterprise-level %}
+{% note %}
+
+**Note:** If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}

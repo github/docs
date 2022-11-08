@@ -1,7 +1,7 @@
 ---
 title: Mantendo sua cadeia de suprimentos em segurança com o Dependabot
 shortTitle: Dependabot
-intro: 'Monitore as vulnerabilidades em dependências usadas no seu projeto{% ifversion fpt or ghec or ghes > 3.2 %} e mantenha suas dependências atualizadas{% endif %} com {% data variables.product.prodname_dependabot %}.'
+intro: 'Monitore as vulnerabilidades nas dependências usadas no projeto {% ifversion fpt or ghec or ghes %} e as mantenha dependências{% endif %} com o {% data variables.product.prodname_dependabot %}.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -19,11 +19,11 @@ children:
   - /dependabot-security-updates
   - /dependabot-version-updates
   - /working-with-dependabot
-ms.openlocfilehash: 82b385ab7177adfe568344c0dc04357ffafeb0b3
-ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.openlocfilehash: a3a79cc975a019b80414fcf9387848a55aee39d2
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '145097007'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107822'
 ---
 

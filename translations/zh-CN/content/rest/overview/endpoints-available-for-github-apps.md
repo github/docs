@@ -13,11 +13,11 @@ versions:
 topics:
   - API
 shortTitle: GitHub App-enabled endpoints
-ms.openlocfilehash: ab79abe1df9a14f7fdcc73f863e7bce5aa4abd4c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d8bb53e1844b8171a1ce742fc38e4c4bb29013e7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410361'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108618'
 ---
 <!-- The content of this page is rendered as a NextJS page component. -->

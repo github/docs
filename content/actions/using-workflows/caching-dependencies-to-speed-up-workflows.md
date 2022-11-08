@@ -240,18 +240,68 @@ For example, if a pull request contains a `feature` branch and targets the defau
 
 {% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %} 
 
-{% data reusables.actions.cache-eviction-process %}
+{% data reusables.actions.cache-eviction-process %} {% ifversion actions-cache-ui %}The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows. For more information, see "[Managing caches](#managing-caches)."{% endif %}{% ifversion actions-cache-admin-ui %} You can also increase the cache size limit for a repository. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
 
-{% ifversion actions-cache-policy-apis %}
+{% elsif actions-cache-policy-apis %}
+
 For information on changing the policies for the repository cache size limit, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)" and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
+
 {% endif %}
 
 {% ifversion actions-cache-management %}
 
 ## Managing caches
 
+{% ifversion actions-cache-ui %}
+
+To manage caches created from your workflows, you can:
+
+- View a list of all cache entries for a repository.
+- Filter and sort the list of caches using specific metadata such as cache size, creation time, or last accessed time.
+- Delete cache entries from a repository.
+- Monitor aggregate cache usage for repositories and organizations.
+
+There are multiple ways to manage caches for your repositories:
+
+- Using the {% data variables.product.prodname_dotcom %} web interface, as shown below.
+- Using the REST API. For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
+- Installing a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information, see the [gh-actions-cache](https://github.com/actions/gh-actions-cache) extension.
+
+{% else %}
+
 You can use the {% data variables.product.product_name %} REST API to manage your caches. {% ifversion actions-cache-list-delete-apis %}You can use the API to list and delete cache entries, and see your cache usage.{% elsif actions-cache-management %}At present, you can use the API to see your cache usage, with more functionality expected in future updates.{% endif %} For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
 
 You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[Using GitHub CLI extensions](/github-cli/github-cli/using-github-cli-extensions)."
+
+{% endif %}
+
+{% ifversion actions-cache-ui %}
+
+### Viewing cache entries
+
+You can use the web interface to view a list of cache entries for a repository. In the cache list, you can see how much disk space each cache is using, when the cache was created, and when the cache was last used.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.actions-cache-list %}
+1. Review the list of cache entries for the repository.
+
+   * To search for cache entries used for a specific branch, click the **Branch** dropdown menu and select a branch. The cache list will display all of the caches used for the selected branch.
+   * To search for cache entries with a specific cache key, use the syntax `key: key-name` in the **Filter caches** field. The cache list will display caches from all branches where the key was used.
+
+   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-entry-list.png)
+
+### Deleting cache entries
+
+Users with `write` access to a repository can use the {% data variables.product.prodname_dotcom %} web interface to delete cache entries.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.actions-cache-list %}
+1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="The trash icon" %}. 
+
+   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-delete.png)
+
+{% endif %}
 
 {% endif %}

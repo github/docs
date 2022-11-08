@@ -11,12 +11,12 @@ versions:
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 5ec81cf456ddca503e58ca6703ae3372875bd62c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c14ee749a2e97bb9ef608e1b2d548098f18af0d0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147614236'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107618'
 ---
 {% data reusables.projects.project_boards_old %}
 
@@ -24,7 +24,7 @@ Os {% data variables.projects.projects_v1_boards_caps %} são compostos por prob
 
 Os cartões de {% data variables.projects.projects_v1_board_caps %} contêm metadados relevantes para problemas e solicitações de pull, como etiquetas, destinatários, o status e quem os abriu. {% data reusables.project-management.edit-in-project %}
 
-Você pode criar anotações dentro de colunas para servirem de lembretes de tarefas, referências a problemas e solicitações de pull de qualquer repositório no {% data variables.product.product_location %} ou para adicionar informações relacionadas ao {% data variables.projects.projects_v1_board %}. É possível criar um cartão de referência para outro {% data variables.projects.projects_v1_board %} adicionando um link a uma observação. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. Para obter mais informações sobre como converter observações em problemas, confira "[Adicionar observações a um {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)".
+Você pode criar anotações nas colunas, como lembretes de tarefas, referências a problemas e solicitações de pull de qualquer repositório em {% data variables.location.product_location %} ou para adicionar informações relacionadas ao {% data variables.projects.projects_v1_board %}. É possível criar um cartão de referência para outro {% data variables.projects.projects_v1_board %} adicionando um link a uma observação. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. Para obter mais informações sobre como converter observações em problemas, confira "[Adicionar observações a um {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)".
 
 Tipos de quadros de projeto:
 

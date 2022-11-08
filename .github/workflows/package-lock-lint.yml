@@ -22,6 +22,7 @@ concurrency:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - name: Check out repo
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
@@ -29,7 +30,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
 
       - name: Run check
         run: |

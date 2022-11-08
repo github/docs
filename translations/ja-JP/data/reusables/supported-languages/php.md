@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: eb8ee6547c65b4cea6e6528d2f96132f1936e0d6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 8284af3a957695154a2d311a26eb37c1ba08e6d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147052242"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109379"
 ---
-| PHP {% ifversion fpt or ghec %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<sup>1</sup> | {% octicon "check" aria-label="The check icon" %}<br>Composer | {% octicon "check" aria-label="The check icon" %}<br>Composer | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghes %}| {% octicon "check" aria-label="The check icon" %}<sup>1</sup> | {% octicon "check" aria-label="The check icon" %}<br>Composer {% ifversion ghes > 3.2 %}| {% octicon "check" aria-label="The check icon" %}<br>Composer{% endif %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghae %}| {% octicon "check" aria-label="The check icon" %}<sup>1</sup> | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% endif %}
+| PHP {% ifversion fpt or ghec %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %}<sup>1</sup> | {% octicon "check" aria-label="The check icon" %}<br>Composer | {% octicon "check" aria-label="The check icon" %}<br>Composer | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghes %}| {% octicon "check" aria-label="The check icon" %}<sup>1</sup> | {% octicon "check" aria-label="The check icon" %}<br>Composer | {% octicon "check" aria-label="The check icon" %}<br>Composer | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghae %}| {% octicon "check" aria-label="The check icon" %}<sup>1</sup> | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% endif %}

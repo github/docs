@@ -1,6 +1,6 @@
 ---
 title: 'Phase 1: Align on your rollout strategy and goals'
-intro: "Before enabling {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, plan how GHAS should be rolled out across your enterprise."
+intro: 'Before enabling {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, plan how GHAS should be rolled out across your enterprise.'
 versions:
   ghes: '*'
   ghae: '*'

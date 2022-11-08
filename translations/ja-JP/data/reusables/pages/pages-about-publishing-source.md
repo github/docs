@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: f77827f645123477cf9ddc2f845c7da3a4929a72
-ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.openlocfilehash: f46fcf5de23b55285d402b93bd89b0155e1224e7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147871938"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109157"
 ---
 {% ifversion pages-custom-workflow %}
 
-変更が特定のブランチにプッシュされたときにサイトを公開できます。または、{% data variables.product.prodname_actions %} ワークフローを記述してサイトを公開することもできます。
+変更が特定のブランチにプッシュされたときにサイトを公開できます。または、{% data variables.product.prodname_actions %} ワークフローを記述してサイトを公開することもできます。 {% data reusables.actions.settings-ui.settings-actions-pages-custom-workflow %}
 
 サイトのビルド プロセスを制御する必要がない場合は、変更が特定のブランチにプッシュされたときにサイトを公開することをお勧めします。 {% data reusables.pages.pages-about-branch-source %}
 

@@ -9,18 +9,18 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: e49758bbf751ddd1cced46719f9740147a1b7b32
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: cba8a20d0ec17ec8fceb0cb30671eb3d608ae715
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423987'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107614'
 ---
 プロジェクトは、ドラフトのIssue、Issue、Pull Requestを追跡できます。 
 
 {% note %}
 
-**注:** プロジェクトには、最大 1,200 個の項目と 10,000 個のアーカイブ済み項目を含めることができます。 
+**注:** プロジェクトには、最大で {% data variables.projects.item_limit %} 項目と {% data variables.projects.archived_item_limit %} アーカイブ済み項目を含めることができます。 {% ifversion projects-v2-auto-archive %}特定の条件を満たす項目を自動的にアーカイブする方法について詳しくは、「[項目を自動的にアーカイブする](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)」を参照してください。{% endif %}
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ ms.locfileid: '147423987'
 
 #### リポジトリからの複数の issue または pull request を追加する
 
-1. {% data variables.product.product_location %} で、プロジェクトに追加する issue または pull request を含むリポジトリに移動します。
+1. {% data variables.location.product_location %} で、プロジェクトに追加する issue または pull request を含むリポジトリに移動します。
 {% data reusables.repositories.sidebar-issue-pr %}
 1. プロジェクトに追加する各 issue を、そのタイトルの左側で選びます。
   ![issue または pull request を選ぶチェック ボックスを示すスクリーンショット](/assets/images/help/issues/select-issue-checkbox.png)

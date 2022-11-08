@@ -10,12 +10,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: IAM with SAML SSO
-ms.openlocfilehash: 509baaf6d9c47295b57d35dfef7d5c65923b6e3c
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.openlocfilehash: 63ed023c1ca5d52ea7b06f5fd485c5e0b34c9750
+ms.sourcegitcommit: 6b649e03ca2fef38c9ebbeec92102219849380e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147526659'
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120614'
 ---
 {% data reusables.saml.ghec-only %}
 
@@ -25,9 +25,11 @@ ms.locfileid: '147526659'
 
 {% data reusables.saml.saml-accounts %}
 
-Os proprietários da organização podem aplicar o SSO do SAML para uma organização individual ou os proprietários corporativos podem aplicar o SSO do SAML para todas as organizações em uma conta corporativa. Para obter mais informações, confira "[Como configurar o logon único do SAML para sua empresa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
+{% data reusables.saml.resources-without-sso %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
+
+Os proprietários da organização podem aplicar o SSO do SAML para uma organização individual ou os proprietários corporativos podem aplicar o SSO do SAML para todas as organizações em uma conta corporativa. Para obter mais informações, confira "[Como configurar o logon único do SAML para sua empresa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
 Antes de ativar o SAML SSO para sua organização, é necessário conectar seu IdP à sua organização. Para obter mais informações, confira "[Como conectar seu provedor de identidade à sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)".
 
@@ -35,9 +37,9 @@ Para uma organização, o SAML SSO pode ser desabilitado, habilitado, mas não a
 
 Os integrantes devem efetuar a autenticação periodicamente com seu IdP para efetuar a autenticação e obter acesso aos recursos da sua organização. A duração desse período de login é especificado pelo seu IdP e geralmente é de 24 horas. Esse requisito de login periódico limita a duração do acesso e exige que os usuários identifiquem-se novamente para continuar.
 
-Para acessar os recursos protegidos da organização que usam a API e o Git na linha de comando, os integrantes devem autorizar e efetuar a autenticação com um token de acesso pessoal ou chave SSH. Para obter mais informações, confira "[Como autorizar um token de acesso pessoal para uso com o logon único do SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" e "[Como autorizar uma chave SSH para uso com o logon único do SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".
+Para acessar os recursos protegidos da organização que usam a API e o Git na linha de comando, os integrantes devem autorizar e efetuar a autenticação com um {% data variables.product.pat_generic %} ou chave SSH. Para obter mais informações, confira "[Como autorizar um {% data variables.product.pat_generic %} para uso com o logon único de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" e "[Como autorizar uma chave SSH para uso com o logon único de SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".
 
-Na primeira vez que um integrante utiliza o SAML SSO para acessar sua organização, {% data variables.product.prodname_dotcom %} cria automaticamente um registro que vincula a sua organização, a conta do integrante no {% data variables.product.product_location %} e a conta do integrante no seu IdP. Você pode visualizar e revogar a identidade de SAML vinculada, as sessões ativas e credenciais autorizadas para integrantes da sua empresa ou conta corporativa. Para obter mais informações, confira "[Como ver e gerenciar o acesso do SAML de um membro à sua organização](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" e "[Como ver e gerenciar o acesso do SAML à sua conta empresarial](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)".
+Na primeira vez que um integrante utiliza o SSO de SAML para acessar sua organização, {% data variables.product.prodname_dotcom %} cria automaticamente um registro que vincula a sua organização, a conta do integrante no {% data variables.location.product_location %} e a conta do integrante no seu IdP. Você pode visualizar e revogar a identidade de SAML vinculada, as sessões ativas e credenciais autorizadas para integrantes da sua empresa ou conta corporativa. Para obter mais informações, confira "[Como ver e gerenciar o acesso do SAML de um membro à sua organização](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" e "[Como ver e gerenciar o acesso do SAML à sua conta empresarial](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)".
 
 Se os integrantes estiverem conectados com uma sessão SAML SSO, ao criarem um novo repositório, a visibilidade-padrão desse repositório será privada. Caso contrário, a visibilidade-padrão será pública. Para obter mais informações sobre a visibilidade do repositório, confira "[Sobre os repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
@@ -58,6 +60,12 @@ Alguns IdPs são compatíveis com o o provisionamento de acesso a uma organizaç
 Depois de habilitar o SSO do SAML, há várias maneiras de adicionar membros à organização. Os proprietários da organização podem convidar novos integrantes manualmente no {% data variables.product.product_name %} ou usando a API. Para obter mais informações, confira "[Como convidar usuários para ingressar na sua organização](/articles/inviting-users-to-join-your-organization)" e "[Membros](/rest/reference/orgs#add-or-update-organization-membership)".
 
 Para provisionar novos usuários sem o convite de um proprietário da organização, você pode usar a URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`, substituindo _ORGANIZATION_ pelo nome da sua organização. Por exemplo, é possível configurar o IdP para que qualquer pessoa que tenha acesso possa clicar em um link no painel do IdP para ingressar na sua organização do {% data variables.product.prodname_dotcom %}.
+
+{% note %}
+
+**Observação:** o provisionamento de novos usuários por meio do `https://github.com/orgs/ORGANIZATION/sso/sign_up` só tem suporte quando o SSO de SAML é configurado no nível da organização, não quando o SSO de SAML é configurado no nível da conta corporativa. Para obter mais informações sobre o SSO de SAML para contas corporativas, confira "[Sobre o SAML para IAM empresarial](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)".
+
+{% endnote %}
 
 Se o seu IdP é compatível com o SCIM, o {% data variables.product.prodname_dotcom %} poderá convidar automaticamente integrantes para participarem da sua organização ao conceder acesso no seu IdP. Se você remover o acesso de um integrante à organização do seu {% data variables.product.prodname_dotcom %} no seu IdP de SAML, o integrante será removido automaticamente da organização de {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira "[Sobre o SCIM para organizações](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 

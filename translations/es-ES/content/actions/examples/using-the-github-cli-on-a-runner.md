@@ -1,6 +1,6 @@
 ---
 title: Uso de la CLI de GitHub en un ejecutor
-shortTitle: Using the GitHub CLI on a runner
+shortTitle: Use the GitHub CLI on a runner
 intro: 'Cómo usar características avanzadas de {% data variables.product.prodname_actions %} para la integración continua (CI).'
 versions:
   fpt: '*'
@@ -10,12 +10,12 @@ versions:
 type: how_to
 topics:
   - Workflows
-ms.openlocfilehash: cd731804c1e1c0c36ca95a30c6b7e9e074de030b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: e0787d09cd194de0038d259c1aff777cc91a4a6a
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146749541'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111589'
 ---
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -37,7 +37,7 @@ ms.locfileid: '146749541'
 
 ## Flujo de trabajo de ejemplo
 
-{% data reusables.actions.example-docs-engineering-intro %} [`check-all-english-links.yml`](https://github.com/github/docs/blob/main/.github/workflows/check-all-english-links.yml).
+{% data reusables.actions.example-docs-engineering-intro %} [`check-all-english-links.yml`](https://github.com/github/docs/blob/6e01c0653836c10d7e092a17566a2c88b10504ce/.github/workflows/check-all-english-links.yml).
 
 {% data reusables.actions.note-understanding-example %}
 
@@ -103,7 +103,11 @@ jobs:
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
@@ -366,7 +370,11 @@ Este comando `run` ejecuta un script que se almacena en el repositorio en `scrip
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
 ```
 </td>
 <td>

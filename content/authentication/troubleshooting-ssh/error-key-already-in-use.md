@@ -19,12 +19,12 @@ To determine where the key has already been used, open a terminal and type the `
 
 ```shell
 $ ssh -T -ai ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
-# Connect to {% data variables.product.product_location %} using a specific ssh key
+# Connect to {% data variables.location.product_location %} using a specific ssh key
 > Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/guides/managing-deploy-keys#deploy-keys).
+The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/guides/managing-deploy-keys#deploy-keys).
 
 
 To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:

@@ -11,12 +11,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 7c1d37f43653204eba7f3bf4c1b9b5ab6b01db51
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c21e201e538d09826bd0d00f22fe60508c9d6a61
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423767'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106842'
 ---
 ## Fluxos de trabalho {% data variables.product.prodname_actions %}
 
@@ -34,7 +34,7 @@ Você também pode querer usar o fluxo de trabalho de **ações/adicionar ao pro
 
 {% note %}
 
-**Observação:** o `GITHUB_TOKEN` tem escopo para o nível do repositório e não pode acessar {% data variables.projects.projects_v2 %}. Para acessar {% data variables.projects.projects_v2 %}, você pode criar um {% data variables.product.prodname_github_app %} (recomendado para projetos de organização) ou um token de acesso pessoal (recomendado para projetos de usuários). Exemplos de fluxo de trabalho para ambas as abordagens são mostrados abaixo.
+**Observação:** o `GITHUB_TOKEN` tem escopo para o nível do repositório e não pode acessar {% data variables.projects.projects_v2 %}. Para acessar {% data variables.projects.projects_v2 %}, você pode criar um {% data variables.product.prodname_github_app %} (recomendado para projetos de organização) ou um {% data variables.product.pat_generic %} (recomendado para projetos de usuários). Exemplos de fluxo de trabalho para ambas as abordagens são mostrados abaixo.
 
 {% endnote %}
 
@@ -171,10 +171,10 @@ jobs:
 
 ```
 
-### Exemplo de fluxo de trabalho que efetua a autenticação com um token de acesso pessoal
+### Exemplo de fluxo de trabalho que faz a autenticação com um {% data variables.product.pat_generic %}
 
-1. Crie um token de acesso pessoal com os escopos `project` e `repo`. Para obter mais informações, confira "[Como criar um token de acesso pessoal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
-2. Salve o token de acesso pessoal como um segredo no seu repositório ou organização.
+1. Crie um {% data variables.product.pat_v1 %} com os escopos `project` e `repo`. Para obter mais informações, confira "[Como criar um {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+2. Salve o {% data variables.product.pat_generic %} como um segredo no repositório ou na organização.
 3. No fluxo de trabalho a seguir, substitua `YOUR_TOKEN` pelo nome do segredo. Substitua `YOUR_ORGANIZATION` pelo nome da sua organização. Por exemplo, `octo-org`. Substitua `YOUR_PROJECT_NUMBER` pelo número do projeto. Para encontrar o número do projeto, consulte a URL do projeto. Por exemplo, `https://github.com/orgs/octo-org/projects/5` tem o número de projeto 5.
 
 ```yaml{:copy}
@@ -343,7 +343,7 @@ env:
   PROJECT_NUMBER: YOUR_PROJECT_NUMBER
 ```
 
-Token de acesso de pessoal:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -357,7 +357,7 @@ env:
 Define variáveis de ambiente para esta etapa.
 <br>
 <br>
-Se estiver usando um token de acesso pessoal, substitua <code>YOUR_TOKEN</code> pelo nome do segredo que contém seu token de acesso pessoal.
+Se você estiver usando um {% data variables.product.pat_generic %}, substitua <code>YOUR_TOKEN</code> pelo nome do segredo que contém os dados de {% data variables.product.pat_generic %}.
 <br>
 <br>
 Substitua <code>YOUR_ORGANIZATION</code> pelo nome da sua organização. Por exemplo, <code>octo-org</code>.
@@ -437,7 +437,7 @@ env:
   PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
 ```
 
-Token de acesso de pessoal:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -508,7 +508,7 @@ env:
   GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
 ```
 
-Token de acesso de pessoal:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:

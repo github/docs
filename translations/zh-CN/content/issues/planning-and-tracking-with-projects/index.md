@@ -19,11 +19,11 @@ children:
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /issues/trying-out-the-new-projects-experience
-ms.openlocfilehash: de9bdc87563e88ac945783bc8e98fd520dfb36ef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 80a894cdca5dda3afff3476a8209cb54589c89b5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147425246'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108634'
 ---
 

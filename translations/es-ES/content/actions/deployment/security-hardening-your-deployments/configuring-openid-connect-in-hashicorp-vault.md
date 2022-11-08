@@ -1,6 +1,6 @@
 ---
 title: Configurar OpenID Connect en HashiCorp Vault
-shortTitle: Configuring OpenID Connect in HashiCorp Vault
+shortTitle: OpenID Connect in HashiCorp Vault
 intro: Utiliza OpenID Connect dentro de tus flujos de trabajo para autenticarte con HashiCorp Vault.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 7a6ec65ff244a84b47475238b907500b8046135b
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 174243818443709ee6ffe3b22aa668cff254266f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147682278'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106633'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 

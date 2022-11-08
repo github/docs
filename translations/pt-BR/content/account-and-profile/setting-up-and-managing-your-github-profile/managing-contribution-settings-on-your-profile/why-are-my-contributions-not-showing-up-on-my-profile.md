@@ -14,16 +14,16 @@ versions:
 topics:
   - Profiles
 shortTitle: Missing contributions
-ms.openlocfilehash: c1f4c9481a5e3ac9328b353ced826c982e1160e7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dbdf99a77c423774c03f69d21542f8174e813bc6
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079394'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127656'
 ---
 ## Sobre o seu gráfico de contribuição
 
-Seu gráfico de contribuições de perfil é um registro de contribuições que você fez para repositórios {% ifversion ghae %}pertencentes a{% else %}em{% endif %} {% data variables.product.product_location %}. As contribuições recebem registros de data e hora de acordo com o UTC (Coordinated Universal Time, Horário universal coordenado), e não com o fuso horário local. As contribuições só serão contabilizadas se atenderem a determinados critérios. Em alguns casos, pode ser necessário recriar o gráfico para que as contribuições sejam exibidas.
+O gráfico de contribuições de perfil é um registro de contribuições que você fez para repositórios {% ifversion ghae %}pertencentes a{% else %}em{% endif %} {% data variables.location.product_location %}. As contribuições recebem registros de data e hora de acordo com o UTC (Coordinated Universal Time, Horário universal coordenado), e não com o fuso horário local. As contribuições só serão contabilizadas se atenderem a determinados critérios. Em alguns casos, pode ser necessário recriar o gráfico para que as contribuições sejam exibidas.
 
 Se você faz parte de uma organização que usa o logon único SAML (SSO), você não poderá ver a atividade de contribuição da organização em seu perfil se não tiver uma sessão SSO ativa. As pessoas que visualizarem o seu perfil de fora da sua organização verão a atividade de contribuição anônima de sua atividade de contribuição para sua organização.
 
@@ -31,11 +31,11 @@ Se você faz parte de uma organização que usa o logon único SAML (SSO), você
 
 ### Problemas, pull requests e discussões
 
-Os problemas, pull requests e discussões aparecerão no gráfico de contribuição se estiverem abertos em um repositório autônomo, não em uma bifurcação.
+Os problemas, as solicitações de pull e as discussões aparecerão no grafo de contribuição se tiverem sido abertos em um repositório autônomo, não em um fork.
 
 ### Confirmações
 Os commits serão exibidos no seu grafo de contribuições se eles atenderem a **todas** as seguintes condições:
-- O endereço de e-mail usado para os commits está associado à sua conta no {% data variables.product.product_location %}.
+- O endereço de email usado para os commits está associado à sua conta em {% data variables.location.product_location %}.
 - Os commits foram criados em um repositório autônomo, e não em uma bifurcação.
 - Os commits foram criados:
   - No branch-padrão do repositório
@@ -59,7 +59,7 @@ Depois de fazer um commit que atenda aos requisitos para ser contabilizado como 
 
 ### Seu e-mail de confirmação do Git local não está conectado à sua conta
 
-Os commits precisam ser feitos com um endereço de email que esteja conectado à sua conta do {% data variables.product.product_location %}{% ifversion fpt or ghec %} ou ao endereço de email `noreply` fornecido pelo {% data variables.product.prodname_dotcom %} a você nas configurações de email,{% endif %} a fim de serem exibidos no seu grafo de contribuições.{% ifversion fpt or ghec %} Para obter mais informações sobre os endereços de email `noreply`, confira "[Como definir seu endereço de email de commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)".{% endif %}
+Os commits precisam ser feitos com um endereço de email que esteja conectado à conta do {% data variables.location.product_location %}{% ifversion fpt or ghec %} ou ao endereço de email `noreply` fornecido pelo {% data variables.product.prodname_dotcom %} a você nas configurações de email,{% endif %} para que sejam exibidos no grafo de contribuições.{% ifversion fpt or ghec %} Para obter mais informações sobre os endereços de email `noreply`, confira "[Como definir o endereço de email de commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)".{% endif %}
 
 Verifique o endereço de email usado para um commit adicionando `.patch` ao final de uma URL de commit, por exemplo, <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
@@ -72,13 +72,15 @@ Subject: [PATCH] updated index for better welcome message
 
 O endereço de email do campo `From:` é o endereço definido nas [definições de configuração do Git local](/articles/set-up-git). Neste exemplo, o endereço de email usado para o commit é `octocat@nowhere.com`.
 
-Se o endereço de e-mail usado para o commit não estiver conectado à sua conta em {% data variables.product.product_location %}, {% ifversion ghae %}altere o endereço de e-mail usado para criar commits no Git. Para obter mais informações, confira "[Como configurar seu endereço de email de commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)".{% else %}você precisa [adicionar o endereço de email](/articles/adding-an-email-address-to-your-github-account) à sua conta do {% data variables.product.product_location %}. Seu gráfico de contribuições será reconstruído automaticamente quando você adicionar o novo endereço.{% endif %}
+Se o endereço de email usado para o commit não estiver conectado à conta em {% data variables.location.product_location %}, {% ifversion ghae %}altere o endereço de email usado para criar commits no Git. Para obter mais informações, confira "[Como configurar o endereço de email de commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)".{% else %}você precisa [adicionar o endereço de email](/articles/adding-an-email-address-to-your-github-account) à conta do {% data variables.location.product_location %}. Seu gráfico de contribuições será reconstruído automaticamente quando você adicionar o novo endereço.{% endif %}
 
-{% warning %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Aviso**: endereços de email genéricos, como `jane@computer.local`, não podem ser adicionados às contas do {% data variables.product.prodname_dotcom %}. Se você usar esse e-mail para os commits, eles não serão vinculados ao seu perfil do {% data variables.product.prodname_dotcom %} e não serão exibidos no gráfico de contribuições.
+**Observação**: se você usar um {% data variables.enterprise.prodname_managed_user %}, não poderá adicionar endereços de email adicionais à conta, mesmo que vários endereços de email sejam registrados no IdP (provedor de identidade). Portanto, somente os commits criados pelo endereço de email principal registrado no IdP podem ser associados ao {% data variables.enterprise.prodname_managed_user %}.
 
-{% endwarning %}
+{% endnote %} {% endif %}
+
+Endereços de email genéricos, como `jane@computer.local`, não podem ser adicionados a contas do {% data variables.product.prodname_dotcom %} nem vinculados a commits. Se você criou commits usando um endereço de email genérico, eles não serão vinculados ao seu perfil do {% data variables.product.prodname_dotcom %} e não serão exibidos no grafo de contribuições.
 
 ### O commit não foi feito no branch padrão ou `gh-pages`
 
@@ -98,7 +100,7 @@ Se os commits estiverem em um branch não padrão ou que não sejam o `gh-pages`
 
 Os commits criados em uma bifurcação não são contabilizados para suas contribuições. Para isso, é preciso que você siga estes procedimentos:
 - [Abra uma solicitação de pull](/articles/creating-a-pull-request) para que as alterações sejam mescladas no repositório pai.
-- Para separar a bifurcação e transformá-la em um repositório autônomo no {% data variables.product.product_location %}, entre em contato com o {% data variables.contact.contact_support %}. Se a bifurcação tiver bifurcações próprias, informe o {% data variables.contact.contact_support %} se as bifurcações devem mover-se com o repositório para uma nova rede ou se devem permanecer na rede atual. Para obter mais informações, confira "[Sobre os forks](/articles/about-forks/)".
+- Para desanexar o fork e transformá-la em um repositório autônomo em {% data variables.location.product_location %}, entre em contato com o {% data variables.contact.contact_support %}. Se a bifurcação tiver bifurcações próprias, informe o {% data variables.contact.contact_support %} se as bifurcações devem mover-se com o repositório para uma nova rede ou se devem permanecer na rede atual. Para obter mais informações, confira "[Sobre os forks](/articles/about-forks/)".
 
 ## Leitura adicional
 

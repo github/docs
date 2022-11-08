@@ -11,12 +11,12 @@ topics:
   - Pull requests
 shortTitle: 'Track progress on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 8dae880cb0ef0fbd0a136e16029688c4aaef08ac
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5104029ad5225c217697ea89a4bca8ff2d3fa4b5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147422666'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108100'
 ---
 {% data reusables.projects.project_boards_old %}
 

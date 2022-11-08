@@ -14,12 +14,12 @@ versions:
   ghec: '*'
 topics:
   - Profiles
-ms.openlocfilehash: edbe34a38c2ab23de22e3b5ea466e35276c6bc35
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: e27e14102b4f57e9eb50266c5c271a2f6bb3892c
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146199955'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111615'
 ---
 以前の職場、コントリビュートしたプロジェクト、あなたが興味を持っていることなど、他者が知りたいあなたに関する個人情報を略歴に追加できます。 詳細については、「[プロフィールに略歴を追加する](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)」を参照してください。
 
@@ -36,7 +36,7 @@ ms.locfileid: '146199955'
 あなたのプロフィールにアクセスしたユーザは、次の情報も見ることができます。
 
 - あなたが所有している、もしくはコントリビューションしたリポジトリと Gist。 {% ifversion fpt or ghes or ghec %}リポジトリと gist をプロフィールにピン留めすることで、自分の最も優れた作業を紹介できます。 詳細については、「[プロフィールにアイテムをピン留めする](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)」を参照してください。{% endif %}
-- 星を付けたリポジトリ{% ifversion fpt or ghec %}およびリストに編成したリポジトリ{% endif %}。詳細については、「[星を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」を参照してください。
+- 自分が星を付け{% ifversion fpt or ghec %}、リストにまとめ{% endif %}たリポジトリ。 詳細については、「[Star を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」を参照してください。
 - あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 詳細については、「[プロフィールでアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。{% ifversion fpt or ghec %}
 - アクティビティを強調し、{% data variables.product.prodname_pro %} の使用や {% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %}、{% data variables.product.company_short %} 開発者プログラムなどのプログラムへの参加を示すバッジとアチーブメント。 詳細については、「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)」を参照してください。{% endif %}
 

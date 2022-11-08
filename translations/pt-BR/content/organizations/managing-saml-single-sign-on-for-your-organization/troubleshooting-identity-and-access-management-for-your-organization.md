@@ -9,12 +9,12 @@ topics:
 shortTitle: Troubleshooting access
 redirect_from:
   - /organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
-ms.openlocfilehash: 41a629c9cff075e06e31d186a4a4edf7eebd96d2
-ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.openlocfilehash: d3110d61fb511f55aa840d0911c036dd342fa833
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147093159'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106970'
 ---
 {% data reusables.saml.current-time-earlier-than-notbefore-condition %}
 
@@ -84,7 +84,7 @@ Esta consulta GraphQL mostra a `NameId` do SAML, o `UserName` do SCIM e o nome d
 ```
 
 ```shell
-curl -X POST -H "Authorization: Bearer <personal access token>" -H "Content-Type: application/json" -d '{ "query": "{ organization(login: \"ORG\") { samlIdentityProvider { externalIdentities(first: 100) { pageInfo { endCursor startCursor hasNextPage } edges { cursor node { samlIdentity { nameId } scimIdentity {username}  user { login } } } } } } }" }'  https://api.github.com/graphql
+curl -X POST -H "Authorization: Bearer YOUR_TOKEN" -H "Content-Type: application/json" -d '{ "query": "{ organization(login: \"ORG\") { samlIdentityProvider { externalIdentities(first: 100) { pageInfo { endCursor startCursor hasNextPage } edges { cursor node { samlIdentity { nameId } scimIdentity {username}  user { login } } } } } } }" }'  https://api.github.com/graphql
 ```
 
 Para obter mais informações sobre o uso da API do GraphQL, consulte: 

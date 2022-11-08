@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
-intro: 'Você pode criar mensagens personalizadas que os usuários verão em {% data variables.product.product_location %}.'
+intro: 'Você pode criar mensagens personalizadas que os usuários verão em {% data variables.location.product_location %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -14,12 +14,12 @@ type: how_to
 topics:
   - Enterprise
   - Maintenance
-ms.openlocfilehash: 08cd547cd79b1e731f439688f02b475db8db4d1d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b767a651f19b6200abfc67696d98147ebf65bd9a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147052053'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106426'
 ---
 ## Sobre mensagens de usuário
 
@@ -59,29 +59,31 @@ Você pode usar markdown para formatar sua mensagem. Para obter mais informaçõ
 {% ifversion ghes or ghae %}
 ## Criar uma mensagem obrigatória
 
-Você pode criar uma mensagem obrigatória que {% data variables.product.product_name %} mostrará a todos os usuários na primeira vez que efetuarem o login depois de salvar a mensagem. A mensagem aparece em uma janela pop-up que o usuário deve ignorar antes que o usuário possa usar o {% data variables.product.product_location %}.
+Você pode criar uma mensagem obrigatória que {% data variables.product.product_name %} mostrará a todos os usuários na primeira vez que efetuarem o login depois de salvar a mensagem. A mensagem aparece em uma janela pop-up que o usuário precisa ignorar para que possa usar {% data variables.location.product_location %}.
 
 As mensagens obrigatórias têm uma série de usos.
 
 - Fornecer informações de integração para novos funcionários
-- Contar para os usuários como obter ajuda com {% data variables.product.product_location %}
-- Garantir que todos os usuários leiam seus termos de serviço para usar {% data variables.product.product_location %}
+- Contar para os usuários como obter ajuda com {% data variables.location.product_location %}
+- Garantir que todos os usuários leiam os termos de serviço para usar {% data variables.location.product_location %}
 
 Se você incluir caixas de seleção de Markdown na mensagem, todas as caixas de seleção deverão ser selecionadas antes de o usuário poder ignorar a mensagem. Por exemplo, se você incluir seus termos de serviço na mensagem obrigatória, você poderá exigir que cada usuário marque uma caixa de seleção para confirmar que o usuário leu os termos.
 
 Cada vez que um usuário vê uma mensagem obrigatória, um evento de log de auditoria é criado. O evento inclui a versão da mensagem que o usuário visualizou. Para obter mais informações, confira "[Eventos de log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
-{% note %}
+{% ifversion display-mandatory-message-again %} {% else %} {% note %}
 
-**Observação:** se você alterar a mensagem obrigatória do {% data variables.product.product_location %}, os usuários que já reconheceram a mensagem não verão a nova mensagem.
+**Observação:** se você alterar a mensagem obrigatória para {% data variables.location.product_location %}, os usuários que já tinham reconhecido a mensagem não verão a nova mensagem. 
 
-{% endnote %}
+{% endnote %} {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.messages-tab %}
 1. À direita de "Mensagem obrigatória", clique em **Adicionar mensagem**.
   ![Botão Adicionar mensagem obrigatória](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
 1. Em "Mensagem obrigatória", na caixa de texto, digite sua mensagem.
-  ![Caixa de texto Mensagem obrigatória](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png) {% data reusables.enterprise_site_admin_settings.message-preview-save %}
+  ![Captura de tela da caixa de texto de mensagem obrigatória](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png) {%- ifversion display-mandatory-message-again %} 
+1. Opcionalmente, selecione **Mostrar mensagem atualizada a todos os usuários, mesmo que eles tenham ignorado a anterior**.
+![Captura de tela da caixa de seleção que, quando selecionada, envia mensagens obrigatórias por push a todos os usuários](/assets/images/enterprise/site-admin-settings/push-mandatory-message-checkbox.png) {% endif %} {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}
 

@@ -100,7 +100,7 @@ improve_security_of_your_instance:
 
 configure_github_actions:
   title: 'Configure {% data variables.product.prodname_actions %}'
-  description: 'Allow your developers to create, automate, customize, and execute powerful software development workflows for {% data variables.product.product_location %} with {% data variables.product.prodname_actions %}.'
+  description: 'Allow your developers to create, automate, customize, and execute powerful software development workflows for {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}.'
   versions:
     ghes: '*'
   guides:

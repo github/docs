@@ -13,12 +13,12 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: About HA configuration
-ms.openlocfilehash: 921a1a935bbfa930c77e2c72d7856f00d54d6016
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b54ca60c6cf1d79b9435ca8deedebec09ed39396
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332740'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107835'
 ---
 Quando você configura alta disponibilidade, há uma configuração automatizada de replicação assíncrona e unidirecional de todos os armazenamentos de dados (repositórios do Git, MySQL, Redis e Elasticsearch) do appliance primário para o appliance réplica. A maioria das configurações de {% data variables.product.prodname_ghe_server %} também são replicadas, incluindo a senha de {% data variables.enterprise.management_console %}. Para obter mais informações, confira "[Como acessar o console de gerenciamento](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
 
@@ -35,8 +35,8 @@ Use a configuração de alta disponibilidade para proteção contra:
 
 A configuração de alta disponibilidade não é uma boa solução para:
 
-  - **Expansão**. Embora você possa distribuir o tráfego geograficamente usando a replicação geográfica, o desempenho das gravações fica limitado à velocidade e à disponibilidade do dispositivo primário. Para obter mais informações, confira "[Sobre replicação geográfica](/enterprise/admin/guides/installation/about-geo-replication/)".{% ifversion ghes > 3.2 %}
-  - **Carga de CI/CD**. Se você tiver um grande número de clientes de CI que estão geograficamente distantes da sua instância principal, você pode beneficiar-se de configurar um cache de repositório. Para obter mais informações, confira "[Sobre o cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)".{% endif %}
+  - **Expansão**. Embora você possa distribuir o tráfego geograficamente usando a replicação geográfica, o desempenho das gravações fica limitado à velocidade e à disponibilidade do dispositivo primário. Para obter mais informações, consulte "[Sobre a replicação geográfica](/enterprise/admin/guides/installation/about-geo-replication/)".
+  - **Carga de CI/CD**. Se você tiver um grande número de clientes de CI que estão geograficamente distantes da sua instância principal, você pode beneficiar-se de configurar um cache de repositório. Para obter mais informações, confira "[Sobre o cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)".
   - **Fazendo backup do seu dispositivo primário**. Uma réplica de alta disponibilidade não substitui os backups externos do seu plano de recuperação de desastres. Algumas formas de violação ou perda de dados podem ser replicadas de imediato do appliance primário para o de réplica. Para garantir a reversão segura a um estado anterior estável, você deve fazer backups regulares com instantâneos de histórico.
   - **Atualizações sem tempo de inatividade**. Para evitar a perda de dados e situações de split-brain em cenários de promoção controlados, deixe o appliance primário em modo de manutenção e aguarde a conclusão de todas as gravações antes de promover o de réplica.
 

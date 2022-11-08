@@ -9,16 +9,16 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: fb9ea68e00cf968affad5f127c5d8723179e9782
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 2348805c920e456e2b8388c2ac41d4badd757703
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424272'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107721'
 ---
 ## Archivado de elementos
 
-Puedes archivar un elemento para mantener el contexto sobre este en el proyecto, pero eliminarlo de las vistas del proyecto. 
+Puedes archivar un elemento para mantener el contexto sobre este en el proyecto, pero eliminarlo de las vistas del proyecto. {% ifversion projects-v2-auto-archive %}También puedes configurar los flujos de trabajo integrados del proyecto de modo que se archiven automáticamente los elementos que cumplan determinados criterios. Para obtener más información, consulta "[Archivado automático de elementos](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)".{% endif %}
 
 {% data reusables.projects.select-an-item %} {% data reusables.projects.open-item-menu %}
 1. Haga clic en **Archive** (Archivar).

@@ -11,16 +11,16 @@ topics:
   - Codespaces
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 368b7c73d13bb0624c9d838ac2d7bb18a2b050e3
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 623b50a9423d855f807e2b480882f1e5eb2c479f
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147880807'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113858'
 ---
 ## 概要
 
-作成する各 codespace は個別の仮想マシンでホストされ、通常はさまざまな種類の仮想マシンから選択できます。 マシンの種類ごとにリソース (CPU、メモリ、ストレージ) が異なり、既定では、リソースが最も少ないコンピューターの種類が使用されます。 詳細については、「[codespace に合わせたコンピューターの種類の変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)」を参照してください。
+作成する各 codespace は個別の仮想マシンでホストされ、通常はさまざまな種類の仮想マシンから選択できます。 マシンの種類ごとにリソース (プロセッサ コア、メモリ、ストレージ) が異なり、既定では、リソースが最も少ないコンピューターの種類が使用されます。 詳細については、「[codespace に合わせたコンピューターの種類の変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)」を参照してください。
 
 プロジェクトで特定のレベルのコンピューティング能力が必要な場合は、それらの要件を満たすコンピューターの種類のみを、既定で使用、またはユーザーが選択できるように、{% data variables.product.prodname_github_codespaces %} を構成することができます。 `devcontainer.json` ファイル内でこれを構成します。
 
@@ -32,8 +32,8 @@ ms.locfileid: '147880807'
 
 ## コンピューターの最小仕様の設定
 
-1. ご利用のリポジトリの {% data variables.product.prodname_github_codespaces %} は、`devcontainer.json` ファイル内で構成されます。 リポジトリに `devcontainer.json` ファイルがまだ含まれていない場合は、今すぐ追加します。 「[開発コンテナー構成をリポジトリに追加する](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)」を参照してください。
-1. `devcontainer.json` ファイルを編集し、次のような `hostRequirements` プロパティを追加します。
+{% data reusables.codespaces.edit-devcontainer-json %}
+1. `devcontainer.json` ファイルを編集し、ファイルの最上位レベルにある JSON オブジェクト内に `hostRequirements` プロパティを追加します。 次に例を示します。
 
    ```json{:copy}
    "hostRequirements": {

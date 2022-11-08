@@ -400,18 +400,16 @@
   description: A system for annotating and formatting a document.
 - term: main
   description: >-
-    {% ifversion fpt or ghes > 3.1 or ghae %}
     The default development branch. Whenever you create a Git repository,
     a branch named `main` is created, and becomes the active branch.
     In most cases, this contains the local development, though that is purely by
-    convention and is not required.{% else %}Name often chosen as an alternative to `master`
-    for the default branch of a repository.{% endif %}
+    convention and is not required.
 - term: master
   description: >-
     The default branch in many Git repositories. By default, when you create
     a new Git repository on the command line, a branch called `master` is created.
-    Many tools now use an alternative name for the default branch.{% ifversion fpt or ghes > 3.1 or ghae %} For example,
-    when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
+    Many tools now use an alternative name for the default branch. For example,
+    when you create a new repository on GitHub, the default branch is called `main`.
 - term: members graph
   description: A repository graph that shows all the forks of a repository.
 - term: mention

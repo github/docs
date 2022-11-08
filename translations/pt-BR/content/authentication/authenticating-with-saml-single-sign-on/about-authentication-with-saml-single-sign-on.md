@@ -1,6 +1,6 @@
 ---
 title: Sobre a autenticação com logon único de SAML
-intro: 'Você pode acessar {% ifversion ghae %}{% data variables.product.product_location %}{% elsif ghec %}uma organização que usa logon único (SSO) SAML{% endif %} autenticando {% ifversion ghae %}com logon único (SSO) SAML {% endif %}por meio de um provedor de identidade (IdP).'
+intro: 'Você pode acessar {% ifversion ghae %}{% data variables.location.product_location %}{% elsif ghec %}uma organização que usa SSO (logon único) SAML{% endif %} autenticando {% ifversion ghae %}com SSO (logon único) de SAML {% endif %}por meio de um IdP (provedor de identidade).'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/about-authentication-with-saml-single-sign-on
@@ -11,18 +11,18 @@ versions:
 topics:
   - SSO
 shortTitle: SAML single sign-on
-ms.openlocfilehash: 7fb15bab585093a618f9c082d340c2fe66d67df7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 827db3181f742916ba4fdeefd92f25c196c28188
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147527907'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111510'
 ---
 ## Sobre autenticação com SSO do SAML
 
 {% ifversion ghae %}
 
-O SAML SSO permite que um proprietário corporativo realize o controle central e proteja o acesso para {% data variables.product.product_name %} a partir de um IdP do SAML. Ao acessar {% data variables.product.product_location %} em um navegador, {% data variables.product.product_name %} irá redirecioná-lo para seu IdP para efetuar a autenticação. Depois de concluir a autenticação com sucesso com uma conta no IdP, este irá redirecionar você de volta para {% data variables.product.product_location %}. {% data variables.product.product_name %} valida a resposta do seu IpD e, em seguida, concede acesso.
+O SAML SSO permite que um proprietário corporativo realize o controle central e proteja o acesso para {% data variables.product.product_name %} a partir de um IdP do SAML. Ao acessar {% data variables.location.product_location %} em um navegador, {% data variables.product.product_name %} irá redirecioná-lo para seu IdP para efetuar a autenticação. Depois de concluir a autenticação com sucesso com uma conta no IdP, este irá redirecionar você de volta para {% data variables.location.product_location %}. {% data variables.product.product_name %} valida a resposta do seu IpD e, em seguida, concede acesso.
 
 {% data reusables.saml.you-must-periodically-authenticate %}
 
@@ -30,13 +30,15 @@ Se você não puder acessar {% data variables.product.product_name %}, entre em 
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 {% data reusables.saml.dotcom-saml-explanation %} Os proprietários da organização podem convidar sua conta pessoal no {% data variables.product.prodname_dotcom %} para ingressar na organização deles que usa o SSO do SAML, o que permitirá a você colaborar com a organização e manter sua identidade e colaborações existentes no {% data variables.product.prodname_dotcom %}.
 
-Se você for integrante de um {% data variables.product.prodname_emu_enterprise %}, você usará uma nova conta que lhe será fornecida e controlada pela sua empresa. {% data reusables.enterprise-accounts.emu-more-info-account %}
+Se você for integrante de um {% data variables.enterprise.prodname_emu_enterprise %}, você usará uma nova conta que lhe será fornecida e controlada pela sua empresa. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
-Ao acessar os recursos privados dentro de uma organização que usa o SSO SAML, o {% data variables.product.prodname_dotcom %} vai redirecionar você para o SAML IdP da organização para que você efetue a autenticação. Depois de efetuar a autenticação com sucesso com sua conta no IdP, este irá redirecionar você de volta para {% data variables.product.prodname_dotcom %}, onde você poderá acessar os recursos da organização.
+Ao tentar acessar a maioria dos recursos em uma organização que usa SSO de SAML, {% data variables.product.prodname_dotcom %} vai redirecionar você para o SAML IdP da organização para que efetue a\ autenticação. Depois de efetuar a autenticação com sucesso com sua conta no IdP, este irá redirecionar você de volta para {% data variables.product.prodname_dotcom %}, onde você poderá acessar os recursos da organização.
+
+{% data reusables.saml.resources-without-sso %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -52,13 +54,13 @@ Se você entrar com uma identidade SAML que já esteja vinculada a outra conta d
 
 Se a identidade SAML com a qual você se conecta não corresponder à identidade SAML que está vinculada atualmente à sua conta do {% data variables.product.prodname_dotcom %}, você receberá um aviso de que está prestes a vincular novamente sua conta. Como sua identidade SAML é usada para controlar o acesso e a associação de equipe, continuar com a nova identidade SAML poderá fazer com que você perca o acesso a equipes e organizações dentro de {% data variables.product.prodname_dotcom %}. Continue apenas se souber que deve usar essa nova identidade SAML para autenticação no futuro. 
 
-## Como autorizar PATs e chaves SSH com SSO SAML
+## Como autorizar {% data variables.product.pat_generic %}s e chaves SSH com SSO de SAML
 
-Para usar a API ou o Git na linha de comando de modo a acessar conteúdo protegido em uma organização que usa SAML SSO, você precisará usar um token de acesso pessoal autorizado por HTTPS ou uma chave SSH autorizada.
+Para usar a API ou Git na linha de comando de modo a acessar conteúdo protegido em uma organização que usa SSO de SAML, você precisará usar um {% data variables.product.pat_generic %} autorizado por HTTPS ou uma chave SSH autorizada.
 
-Na falta de um token de acesso pessoal ou uma chave SSH, você poderá criar um token de acesso pessoal para a linha de comando ou gerar uma nova chave SSH. Para obter mais informações, confira "[Como criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)" ou "[Como gerar uma nova chave SSH e adicioná-la ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
+Se você não tem uma chave {% data variables.product.pat_generic %} ou SSH, pode criar uma {% data variables.product.pat_generic %} para a linha de comando ou gerar uma nova chave SSH. Para obter mais informações, confira "[Como criar um {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)" ou "[Como gerar uma nova chave SSH e adicioná-la ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
-Para usar um token novo ou existente de acesso pessoal ou chave SSH com uma organização que usa ou impõe o SSO do SAML, você precisará autorizar o token ou autorizar a chave SSH para uso com uma organização de SSO do SAML. Para obter mais informações, confira "[Como autorizar um token de acesso pessoal para uso com o logon único do SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Como autorizar uma chave SSH para uso com o logon único do SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".
+Para usar um {% data variables.product.pat_generic %} novo ou existente ou chave SSH com uma organização que usa ou impõe o SSO de SAML, você precisará autorizar o token ou autorizar a chave SSH para uso com uma organização de SSO de SAML. Para obter mais informações, confira "[Como autorizar um {% data variables.product.pat_generic %} para uso com o logon único de SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Como autorizar uma chave SSH para uso com o logon único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".
 
 ## Sobre o {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} e SSO do SAML
 

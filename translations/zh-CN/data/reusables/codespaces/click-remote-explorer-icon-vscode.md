@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 008615ba94fed6838f09aa137e6da23e89168573
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: a0a609a6e7a1cab14059012a15b6a08be53d8cbd
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147682485"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108154"
 ---
 1. 在 {% data variables.product.prodname_vscode_shortname %} 中，从左侧边栏单击“远程 Explorer”图标。
 

@@ -140,6 +140,7 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /repos/:owner/:repo/actions/workflows`](/rest/reference/actions#list-repository-workflows) (read)
 - [`GET /repos/:owner/:repo/actions/workflows/:workflow_id`](/rest/reference/actions#get-a-workflow) (read)
 - [`GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs`](/rest/reference/actions#list-workflow-runs) (read)
+- [`POST /repos/:owner/:repo/actions/workflows/:workflow_id/dispatches`](/rest/reference/actions#create-a-workflow-dispatch-event) (write)
 {% endif %}
 
 ## Administration
@@ -284,20 +285,14 @@ If you set the metadata permission to **No access** and select a permission that
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (read)
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#get-a-code-scanning-alert) (read)
 - [`PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#update-a-code-scanning-alert) (write)
-{% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number/instances`](/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert) (read)
-{% endif -%}
 - [`GET /repos/:owner/:repo/code-scanning/analyses`](/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository) (read)
-{% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository) (read)
-{% endif -%}
 {% ifversion fpt or ghec or ghes -%}
 - [`DELETE /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository) (write)
 {% endif -%}
 - [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (write)
-{% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (read)
-{% endif -%}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 -%}
 - [`GET /orgs/:org/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization) (read)
 {% endif -%}

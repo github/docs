@@ -8,12 +8,12 @@ type: tutorial
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
-ms.openlocfilehash: 1f6a072676480b02bcfbd589f5d4e9011e8e8052
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c708476decfb76086f32d96d8fc1e085030ae37e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423795'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108081'
 ---
 {% data reusables.projects.access-insights %}
 3. 在左侧菜单中，单击“新建图表”。

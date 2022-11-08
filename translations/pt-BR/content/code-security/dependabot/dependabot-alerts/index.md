@@ -15,17 +15,15 @@ topics:
   - Repositories
   - Dependencies
 children:
-  - /browsing-security-advisories-in-the-github-advisory-database
-  - /editing-security-advisories-in-the-github-advisory-database
   - /about-dependabot-alerts
   - /configuring-dependabot-alerts
   - /viewing-and-updating-dependabot-alerts
   - /configuring-notifications-for-dependabot-alerts
-ms.openlocfilehash: 04365ffa391c8da15c34f1e0651d9efa4ebb1a42
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.openlocfilehash: b9abda5288d4f0dfed2175b0e944c0d1bc48f3f7
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146455490'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113952'
 ---
 

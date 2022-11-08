@@ -13,12 +13,12 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Create HA replica
-ms.openlocfilehash: 115295bd685284c9bd96eab9990c7619c1a0a8d3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: ee384588ee76cd455facdb6fcbe838fc110bc223
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147648224'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106758'
 ---
 {% data reusables.enterprise_installation.replica-limit %}
 
@@ -30,12 +30,12 @@ ms.locfileid: '147648224'
 {% data reusables.enterprise_installation.replica-steps %}
 1. SSHを使ってレプリカアプライアンスのIPアドレスに接続してください。
   ```shell
-  $ ssh -p 122 admin@<em>REPLICA IP</em>
+  $ ssh -p 122 admin@REPLICA_IP
   ```
 {% data reusables.enterprise_installation.generate-replication-key-pair %} {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. 新しいレプリカに対して、プライマリへの接続を確認してレプリカ モードを有効にするには、`ghe-repl-setup` をもう一度実行します。
   ```shell
-  $ ghe-repl-setup <em>PRIMARY IP</em>
+  $ ghe-repl-setup PRIMARY_IP
   ```
 {% data reusables.enterprise_installation.replication-command %} {% data reusables.enterprise_installation.verify-replication-channel %}
 
@@ -43,29 +43,31 @@ ms.locfileid: '147648224'
 
 レプリカを作成する以下の例の設定では、1 つのプライマリと 2 つのレプリカを使用しており、これらは 3 つの異なる地域にあります。 3 つのノードは別のネットワークに配置できますが、すべてのノードは他のすべてのノードから到達可能である必要があります。 最低限、必要な管理ポートは他のすべてのノードに対して開かれている必要があります。 ポート要件の詳細については、「[ネットワーク ポート](/enterprise/admin/guides/installation/network-ports/#administrative-ports)」を参照してください。
 
+{% data reusables.enterprise_clustering.network-latency %}待ち時間が 70 ミリ秒を超える場合は、代わりにキャッシュ レプリカ ノードをお勧めします。 詳しくは、「[リポジトリ キャッシュの構成](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)」をご覧ください。
+
 1. 最初のレプリカで `ghe-repl-setup` を実行することで、標準の 2 ノード構成の場合と同じ方法で最初のレプリカを作成します。
   ```shell
-  (replica1)$ ghe-repl-setup <em>PRIMARY IP</em>
+  (replica1)$ ghe-repl-setup PRIMARY_IP
   (replica1)$ ghe-repl-start
   ```
 2. 2 つ目のレプリカを作成し、`ghe-repl-setup --add` コマンドを使用します。 `--add` フラグは、既存のレプリケーション構成を上書きするのを防ぎ、新しいレプリカを構成に追加します。
   ```shell
-  (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
+  (replica2)$ ghe-repl-setup --add PRIMARY_IP
   (replica2)$ ghe-repl-start
   ```
 3. デフォルトでは、レプリカは同じデータセンターに設定され、同じノードにある既存のノードからシードを試行します。 レプリカを別のデータセンターに設定するには、datacenter オプションに異なる値を設定します。 具体的な値は、それらが互いに異なる限り、どのようなものでもかまいません。 各ノードで `ghe-repl-node` コマンドを実行し、データセンターを指定します。
 
   プライマリでは以下のコマンドを実行します。
   ```shell
-  (primary)$ ghe-repl-node --datacenter <em>[PRIMARY DC NAME]</em>
+  (primary)$ ghe-repl-node --datacenter [PRIMARY DC NAME]
   ```
   1 番目のレプリカでは以下のコマンドを実行します。
   ```shell
-  (replica1)$ ghe-repl-node --datacenter <em>[FIRST REPLICA DC NAME]</em>
+  (replica1)$ ghe-repl-node --datacenter [FIRST REPLICA DC NAME]
   ```
   2 番目のレプリカでは以下のコマンドを実行します。
   ```shell
-  (replica2)$ ghe-repl-node --datacenter <em>[SECOND REPLICA DC NAME]</em>
+  (replica2)$ ghe-repl-node --datacenter [SECOND REPLICA DC NAME]
   ```
   {% tip %}
 
@@ -94,9 +96,9 @@ ms.locfileid: '147648224'
 テストのために、ローカル ワークステーションの `hosts` ファイル (たとえば、`/etc/hosts`) にエントリを追加することができます。 以下の例のエントリでは、`HOSTNAME` に対する要求が `replica2` に解決されることになります。 別の行をコメントアウトすることで、特定のホストをターゲットにすることができます。
 
 ```
-# <primary IP>     <em>HOSTNAME</em>
-# <replica1 IP>    <em>HOSTNAME</em>
-<replica2 IP>    <em>HOSTNAME</em>
+# <primary IP>      HOSTNAME 
+# <replica1 IP>     HOSTNAME 
+<replica2 IP>     HOSTNAME 
 ```
 
 ## 参考資料

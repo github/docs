@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 0827845ea3dff3a641d99bbac20b8febdfaca885
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6cbe9313866c19e8325bdd34e90c6a39863de515
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423920'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108223'
 ---
 {% data variables.product.prodname_projects_v2 %} 是与 {% data variables.product.company_short %} 数据保持同步的自适应项集合。 你的项目可以跟踪问题、拉取请求以及你记下的想法。 您可以添加自定义字段并为特定目的创建视图。
 

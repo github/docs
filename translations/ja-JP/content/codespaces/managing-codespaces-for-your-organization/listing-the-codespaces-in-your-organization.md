@@ -11,18 +11,20 @@ type: how_to
 topics:
   - Codespaces
   - Administrator
-ms.openlocfilehash: 72d59c35641dd77b4d3623cc70b12b5be880be34
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 1353548a4520cb69eee85437a35804faf6724c68
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147865220'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106478'
 ---
 ## 概要
 
-組織の所有者は、組織に対して現在アクティブになっているまたは停止している codespace をすべて一覧表示できます。 これを行って、ユーザーが作成している codespace の数を確認し、不要なコストが発生していないことを確認することをお勧めします。
+組織の所有者は、組織に対して現在アクティブになっているまたは停止している codespace をすべて一覧表示できます。 これを行って、ユーザーが作成している codespace の数を確認し、不要なコストが発生していないことを確認することをお勧めします。 価格については、「[GitHub Codespaces の請求について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
 
 組織用の codespace を一覧表示する最も簡単な方法は、{% data variables.product.prodname_cli %} を使用することです。 REST API を使用することもできます。これにより、各 codespace に関する詳しい情報を確認できます。
+
+Organization または Enterprise の現在の合計 {% data variables.product.prodname_codespaces %} 使用量を確認し、詳細なレポートを生成する方法については、「[{% data variables.product.prodname_github_codespaces %} の使用量を表示する](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)」をご覧ください。
 
 ### {% data variables.product.prodname_cli %} を使用して codespace を一覧表示する
 

@@ -1,16 +1,8 @@
----
-ms.openlocfilehash: c9e2c1bf2b01805ed973effedd219c3552ac2bf4
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "146455666"
----
-Ao habilitar uma ou mais funcionalidades de segurança e análise para repositórios existentes, você verá todos os resultados exibidos em {% data variables.product.prodname_dotcom %} dentro de minutos:
+When you enable one or more security and analysis features for existing repositories, you will see any results displayed on {% data variables.product.prodname_dotcom %} within minutes:
 
-- Todos os repositórios existentes terão a configuração selecionada.
-- Os novos repositórios seguirão a configuração selecionada se você tiver habilitado a caixa de seleção para novos repositórios.{% ifversion fpt or ghec %}
-- Usamos as permissões para digitalizar arquivos de manifesto para aplicar os serviços relevantes.
-- Se habilitado, você verá informações de dependência no grafo de dependência.
-- Se essa opção for habilitada, o {% data variables.product.prodname_dotcom %} vai gerar {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis ou malwere.{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
-- Se habilitado, as atualizações de segurança {% data variables.product.prodname_dependabot %} criarão solicitações de pull para atualizar dependências vulneráveis quando {% data variables.product.prodname_dependabot_alerts %} são disparados.{% endif %}
+- All the existing repositories will have the selected configuration.
+- New repositories will follow the selected configuration if you've enabled the checkbox for new repositories.{% ifversion GH-advisory-db-supports-malware %}
+- We use the permissions to scan for manifest files to apply the relevant services.
+- If enabled, you'll see dependency information in the dependency graph.
+- If enabled, {% data variables.product.prodname_dotcom %} will generate {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies or malware.{% endif %}{% ifversion fpt or ghec or ghes %}
+- If enabled, {% data variables.product.prodname_dependabot %} security updates will create pull requests to upgrade vulnerable dependencies when {% data variables.product.prodname_dependabot_alerts %} are triggered.{% endif %}

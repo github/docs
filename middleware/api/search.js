@@ -69,8 +69,13 @@ router.get(
   '/legacy',
   catchMiddlewareError(async function legacySearch(req, res) {
     const { query, version, language, filters, limit: limit_ } = req.query
+    const topics = []
     if (filters) {
-      throw new Error('not implemented yet')
+      if (Array.isArray(filters)) {
+        topics.push(...filters)
+      } else {
+        topics.push(filters)
+      }
     }
     const limit = Math.min(parseInt(limit_, 10) || 10, 100)
     if (!versions.has(version)) {
@@ -104,6 +109,7 @@ router.get(
       // send the query 'google cl' they hope to find 'Google Cloud'
       // even though they didn't type that fully.
       usePrefixSearch: true,
+      topics,
     }
     try {
       const { hits: hits_, meta } = await timed(options)
@@ -271,7 +277,7 @@ async function handleGetSearchResultsError(req, res, error, options) {
     // where you might not have a HATSTACK_URL configured.
     if (reports) await Promise.all(reports)
   }
-  res.status(500).send(error.message)
+  res.status(500).json({ error: error.message })
 }
 
 // Alias for the latest version

@@ -10,12 +10,12 @@ topics:
   - Auditing
   - Enterprise
   - Logging
-ms.openlocfilehash: 79bf5f2ae2f1b2762ea32a6bef85b04e9cf95739
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: f624607d5729d32d836efedf1fa355a96489a175
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424845'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106562'
 ---
 ## Sobre a configuração do log de auditoria
 
@@ -26,7 +26,7 @@ Você pode configurar um período de retenção para dados de log de auditoria e
 
 ## Configurando um período de retenção para dados de log de auditoria
 
-Você pode configurar um período de retenção para dados de log de auditoria para {% data variables.product.product_location %}. Os dados que excederem o período configurado serão removidos permanentemente do disco.
+Você pode configurar um período de retenção de dados de log de auditoria para {% data variables.location.product_location %}. Os dados que excederem o período configurado serão removidos permanentemente do disco.
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.audit-log-tab %} {% data reusables.audit_log.audit-data-retention-tab %}
 1. Em "Definir configurações de retenção de log de auditoria", selecione o menu suspenso e clique em um período de retenção.
