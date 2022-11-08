@@ -31,6 +31,7 @@ const PUBLIC_REPOS = new Set([
   'codeql',
   'codeql',
   'codespaces-precache',
+  'codespaces-jupyter',
   'copilot.vim',
   'dependency-submission-toolkit',
   'dmca',
