@@ -1,0 +1,23 @@
+---
+published: true
+deprecated: false
+variables:
+  externalDocsUrl: https://docs.github.com/github-ae@latest
+  apiName: GitHub AE
+patch:
+  - op: add
+    path: /servers
+    value:
+      - url: 'https://{hostname}/api/v3'
+        variables:
+          hostname:
+            description: Self-hosted GitHub AE hostname
+            default: HOSTNAME
+  - op: add
+    path: /externalDocs
+    value:
+      description: GitHub AE Developer Docs
+      url: 'https://docs.github.com/github-ae@latest/rest/'
+  - op: add
+    path: /info/x-github-plan
+    value: github.ae
