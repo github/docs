@@ -1,10 +1,11 @@
 {% ifversion fpt or ghec %}By default, you will receive notifications:{% endif %}{% ifversion ghes or ghae %}By default, if your enterprise owner has configured email for notifications on your instance, you will receive {% data variables.product.prodname_dependabot_alerts %}:{% endif %}
 
-- by email, an email is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Email each time a vulnerability is found** option).
-- in the user interface, a warning is shown in your repository's file and code views if there are any insecure dependencies (**UI alerts** option).
-- on the command line, warnings are displayed as callbacks when you push to repositories with any insecure dependencies (**Command Line** option).
-- in your inbox, as web notifications. A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Web** option).{% ifversion not ghae %}
-- on {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[Enabling push notifications with GitHub Mobile](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."{% endif %}
+- in your inbox, as web notifications. A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**On {% data variables.product.prodname_dotcom %}** option).
+- by email, an email is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Email** option).{% ifversion ghes < 3.8 or ghae < 3.8 %}
+- in the user interface, a warning is shown in your repository's file and code views if there are any insecure dependencies (**UI alerts** option).{% endif %}
+- on the command line, warnings are displayed as callbacks when you push to repositories with any insecure dependencies (**CLI** option).
+{% ifversion not ghae %}
+- on {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[Enabling push notifications with {% data variables.product.prodname_mobile %}](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."{% endif %}
 
 {% note %}
 
