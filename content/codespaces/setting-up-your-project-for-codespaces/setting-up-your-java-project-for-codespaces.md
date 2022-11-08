@@ -25,7 +25,7 @@ This guide shows you how to set up your Java project {% data reusables.codespace
 
 ## Step 1: Open your project in a codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu, and in the **Codespaces** tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}).
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 

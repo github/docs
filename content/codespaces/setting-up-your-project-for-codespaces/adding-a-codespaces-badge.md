@@ -35,9 +35,9 @@ From the advanced options page, users can change the preselected settings if req
 
    ![Screenshot of the New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. Click the down arrow at the side of the **Create codespace on BRANCH** button, click **Configure and create codespace**, then click the **Configure and create codespace** button.
+1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab, then click **New with options**.
 
-   ![Screenshot of the "Configure and create codespace" option](/assets/images/help/codespaces/configure-and-create-option.png)
+   ![Screenshot of the "Configure and create codespace" option](/assets/images/help/codespaces/default-machine-type.png)
 
 1. On the advanced options page for codespace creation, select the values you want to be preselected in each field.
 

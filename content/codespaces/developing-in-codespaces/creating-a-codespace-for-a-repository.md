@@ -76,24 +76,16 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
  
    * **Use the default options**
 
-      To create a codespace using the default options, click **Create codespace on BRANCH**.
-
-      Optionally, before clicking **Create codespace on BRANCH**, you can click the down arrow at the side of the button to see what machine type will be used for your codespace.
-
-      ![View the default machine type](/assets/images/help/codespaces/default-machine-type.png)
-
-      {% note %}
-
-      **Note**: The machine type with the lowest resources that are valid for the repository is selected by default.
-
-      {% endnote %}
+      To create a codespace using the default options, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}). Alternatively, if you don't currently have any codespaces for this repository, you can click **Create codespace on BRANCH**.
 
    * **Configure options**
 
       To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
 
-      1. Click the down arrow at the side of the **Create codespace on BRANCH** button, then click **Configure and create codespace**.
-      1. Click the **Configure and create codespace** button.
+      1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab and select **New with options**.
+
+      ![View the default machine type](/assets/images/help/codespaces/default-machine-type.png)
+
       1. On the options page for your codespace, choose your preferred options from the dropdown menus.
 
          ![The codespace options page](/assets/images/help/codespaces/advanced-options.png)
@@ -110,7 +102,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
       
          {% endnote %}
 
-      1. Click **Start session**.
+      1. Click **Create codespace**.
 
 {% endwebui %}
    
