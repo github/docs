@@ -86,3 +86,22 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}
+
+## View blame for a file ignoring `.git-blame-ignore-revs`
+
+If you see a file and its blame view shows **Ignoring revisions in .git-blame-ignore-revs** and you want to see blame for the file without regard to `.git-blame-ignore-revs`, you can....
+
+1. Open /tree/`CURRENT_SHA` (you can get here by clicking the repository link to the left of the file's path bread crumbs).
+2. Browse to `.git-blame-ignore-revs`.
+3. Select `History` to find the shas that applied layers (or you could use Blame to find the `SHA` that introduced things to ignore that you don't want to ignore).
+4. Use `SHA`**`~`** as the sha for the blame for the file that you want to view w/o the ignore rule.
+
+For example, consider, [electron: `lib/browser/ipc-main-impl.ts`](https://github.com/electron/electron/blame/6d859dcd7fe22829a2a1a2663580c27dc8eb41dc/lib/browser/ipc-main-impl.ts)
+
+1. Open [electron: `lib/browser/ipc-main-impl.ts`](https://github.com/electron/electron/blame/6d859dcd7fe22829a2a1a2663580c27dc8eb41dc/lib/browser/ipc-main-impl.ts).
+2. Click the [electron](https://github.com/electron/electron/tree/6d859dcd7fe22829a2a1a2663580c27dc8eb41dc) part of `electron / lib / browser /ipc-main-impl.ts`.
+3. Click [`.git-blame-ignore-revs`](https://github.com/electron/electron/blob/6d859dcd7fe22829a2a1a2663580c27dc8eb41dc/.git-blame-ignore-revs).
+4. Click [History](https://github.com/electron/electron/commits/a5a4818b67174e91860b36aa717ee63d6058fb64/.git-blame-ignore-revs).
+5. Copy the SHA (`a5a4818b67174e91860b36aa717ee63d6058fb64`)
+6. Go back to the original blame url (https://github.com/electron/electron/blame/6d859dcd7fe22829a2a1a2663580c27dc8eb41dc/lib/browser/ipc-main-impl.ts)
+7. Replace the SHA with the SHA with `~` appended: [https://github.com/electron/electron/blame/a5a4818b67174e91860b36aa717ee63d6058fb64~/lib/browser/ipc-main-impl.ts](https://github.com/electron/electron/blame/a5a4818b67174e91860b36aa717ee63d6058fb64~/lib/browser/ipc-main-impl.ts).
