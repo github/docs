@@ -217,6 +217,12 @@ You can check which access policies are being applied to a secret in your organi
 
 {% endnote %}
 
+{% note %}
+
+**Note:** Secrets are not automatically passed to reusable workflows. For more information, see "[Passing inputs and secrets to a reusable workflow](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow).".
+
+{% endnote %}
+
 To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see "[Contexts](/actions/learn-github-actions/contexts)" and "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
 {% raw %}
