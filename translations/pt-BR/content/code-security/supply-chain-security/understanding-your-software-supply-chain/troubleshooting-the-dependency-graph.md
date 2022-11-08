@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting the dependency graph
-intro: 'If the dependency information reported by the dependency graph is not what you expected, there are a number of points to consider, and various things you can check.'
+title: Solução de problemas para o gráfico de dependências
+intro: 'Se as informações de dependências relatadas pelo gráfico de dependências não é o que você esperava, há uma série de pontos a considerar e várias coisas que você pode verificar.'
 shortTitle: Troubleshoot dependency graph
 versions:
   fpt: '*'
@@ -16,51 +16,56 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
+ms.openlocfilehash: 30c4830c125e9b20ada59e0e0e29fa0eb5c6c649
+ms.sourcegitcommit: a9af58ef52d8d109186053d184d9b1e52e5f0323
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148128901'
 ---
-
 {% data reusables.dependabot.result-discrepancy %}
 
-## Does the dependency graph only find dependencies in manifests and lockfiles?
+## O gráfico de dependências só encontra dependências nos manifestos e nos arquivos de bloquei?
 
-The dependency graph {% ifversion dependency-submission-api %}automatically{% endif %} includes information on dependencies that are explicitly declared in your environment. That is, dependencies that are specified in a manifest or a lockfile. The dependency graph generally also includes transitive dependencies, even when they aren't specified in a lockfile, by looking at the dependencies of the dependencies in a manifest file.
+O grafo de dependência inclui {% ifversion dependency-submission-api %}automaticamente{% endif %} informações sobre dependências declaradas explicitamente no ambiente. Ou seja, dependências que são especificadas em um manifesto ou um arquivo de bloqueio. O gráfico de dependências, geralmente, também inclui dependências transitivas, mesmo quando não são especificadas em um arquivo de travamento analisando as dependências das dependências em um arquivo de manifesto.
 
-The dependency graph doesn't {% ifversion dependency-submission-api %}automatically{% endif %} include "loose" dependencies. "Loose" dependencies are individual files that are copied from another source and checked into the repository directly or within an archive (such as a ZIP or JAR file), rather than being referenced by in a package manager’s manifest or lockfile. 
+O grafo de dependência não inclui {% ifversion dependency-submission-api %}automaticamente{% endif %} dependências "soltas". Dependências "soltas" são arquivos individuais copiados de outra fonte e verificados no repositório diretamente ou dentro de um arquivo (como um arquivo ZIP ou JAR), em vez de ser referenciadas pelo manifesto ou arquivo de bloqueio do gerenciador de pacotes. 
 
-{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are not declared in a manifest or lock file, such as dependencies resolved when a project is built. The dependency graph will display the submitted dependencies grouped by ecosystem, but separately from the dependencies parsed from manifest or lock files. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% ifversion dependency-submission-api %}No entanto, você pode usar a API Envio de dependência (beta) para adicionar dependências ao grafo de dependência de um projeto, mesmo que as dependências não sejam declaradas em um arquivo de manifesto ou de bloqueio, como as dependências resolvidas quando um projeto é criado. O grafo de dependência exibirá as dependências enviadas agrupadas por ecossistema, mas separadamente das dependências analisadas dos arquivos de manifesto ou de bloqueio. Para obter mais informações sobre a API Envio de dependência, confira "[Como usar a API Envio de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)".{% endif %}
 
-**Check**: Is the missing dependency for a component that's not specified in the repository's manifest or lockfile?
+**Verificação**: a dependência ausente para um componente que não está especificado no arquivo de manifesto ou de bloqueio do repositório?
 
-## Does the dependency graph detect dependencies specified using variables?
+## O gráfico de dependências detecta dependências especificadas usando variáveis?
 
-The dependency graph analyzes manifests as they’re pushed to {% data variables.product.prodname_dotcom %}. The dependency graph doesn't, therefore, have access to the build environment of the project, so it can't resolve variables used within manifests. If you use variables within a manifest to specify the name, or more commonly the version of a dependency, then that dependency will not {% ifversion dependency-submission-api %}automatically{% endif %} be included in the dependency graph.
+O gráfico de dependências analisa como são carregados para {% data variables.product.prodname_dotcom %}. O gráfico de dependência não tem acesso ao ambiente de construção do projeto. Portanto, ele não pode resolver variáveis usadas dentro dos manifestos. Se você usar variáveis dentro de um manifesto para especificar o nome, ou o que é mais comum, a versão de uma dependência, essa dependência não será incluída {% ifversion dependency-submission-api %}automaticamente{% endif %} no grafo de dependência.
 
-{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are only resolved when a project is built. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% ifversion dependency-submission-api %}No entanto, você pode usar a API Envio de dependência (beta) para adicionar dependências ao grafo de dependência de um projeto, mesmo que as dependências só sejam resolvidas na criação do projeto. Para obter mais informações sobre a API Envio de dependência, confira "[Como usar a API Envio de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)".{% endif %}
 
-**Check**: Is the missing dependency declared in the manifest by using a variable for its name or version?
+**Verificação**: a dependência ausente é declarada no manifesto por meio de uma variável para o nome ou a versão?
 
-## Are there limits which affect the dependency graph data?
+## Existem limites que afetam os dados do gráfico de dependências?
 
-Yes, the dependency graph has two categories of limits:
+Sim, o gráfico de dependências tem duas categorias de limites:
 
-1. **Processing limits**
+1. **Limites de processamento**
 
-    These affect the dependency graph displayed within {% data variables.product.prodname_dotcom %} and also prevent {% data variables.product.prodname_dependabot_alerts %} being created.
+    Eles afetam o gráfico de dependências exibido dentro de {% data variables.product.prodname_dotcom %} e também impedem que sejam criados {% data variables.product.prodname_dependabot_alerts %}.
 
-    Manifests over 0.5 MB in size are only processed for enterprise accounts. For other accounts, manifests over 0.5 MB are ignored and will not create {% data variables.product.prodname_dependabot_alerts %}.
+    Manifestos com tamanho superior a 0.5 MB são processados apenas para contas corporativas. Para outras contas, manifestos acima de 0,5 MB são ignorados e não criarão {% data variables.product.prodname_dependabot_alerts %}.
 
-    By default, {% data variables.product.prodname_dotcom %} will not process more than {% ifversion fpt %}150{% else %}600{% endif %} manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_support %}. 
+    Por padrão, o {% data variables.product.prodname_dotcom %} não processará mais de {% ifversion fpt %}150{% else %}600{% endif %} manifestos por repositório. {% data variables.product.prodname_dependabot_alerts %} não foi criado para manifestos acima deste limite. Se você precisar aumentar o limite, entre em contato com {% data variables.contact.contact_support %}. 
 
-2. **Visualization limits**
+2. **Limites de visualização**
 
-    These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
+    Eles afetam o que é exibido no gráfico de dependências dentro de {% data variables.product.prodname_dotcom %}. No entanto, eles não afetam {% data variables.product.prodname_dependabot_alerts %} que foram criados.
 
-    The Dependencies view of the dependency graph for a repository only displays 100 manifests. Typically this is adequate as it is significantly higher than the processing limit described above. In situations where the processing limit is over 100, {% data variables.product.prodname_dependabot_alerts %} are still created for any manifests that are not shown within {% data variables.product.prodname_dotcom %}.
+    A exibição de dependências do gráfico de dependências em um repositório só exibe 100 manifestos. De modo geral, isso é adequado, já que é significativamente maior do que o limite de processamento descrito acima. Em situações em que o limite de processamento é superior a 100, os {% data variables.product.prodname_dependabot_alerts %} são criados para quaisquer manifestos que não são mostrados dentro de {% data variables.product.prodname_dotcom %}.
 
-**Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
+**Verificação**: a dependência ausente está em um arquivo de manifesto com mais de 0,5 MB ou em um repositório com um grande número de manifestos?
 
-## Further reading
+## Leitura adicional
 
-- "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
-- "[Troubleshooting the detection of vulnerable dependencies](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes %}
-- "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}
+- "[Sobre o grafo de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
+- "[Como gerenciar as configurações de segurança e de análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- "[Solução de problemas de detecção de dependências vulneráveis](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes %}
+- "[Solução de problemas de erros do {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}
