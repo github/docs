@@ -14,19 +14,19 @@ topics:
 
 {% data variables.product.prodname_server_statistics %} can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
 
-Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/reference/enterprise-admin#admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_server_statistics %}の有効化](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)」を参照してください。
+Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/reference/enterprise-admin#admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see "[Enabling {% data variables.product.prodname_server_statistics %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
 
 When you enable {% data variables.product.prodname_server_statistics %}, you're helping to build a better {% data variables.product.prodname_dotcom %}. The aggregated data you'll provide gives us insights into how {% data variables.product.prodname_dotcom %} adds value to our customers. This information allows {% data variables.product.company_short %} to make better and more informed product decisions, ultimately benefiting you.
 
 ## About data security
 
-We respect your data. We will never transmit data from {% data variables.product.product_location %} unless you have first given us permission to do so.
+We respect your data. We will never transmit data from {% data variables.location.product_location %} unless you have first given us permission to do so.
 
 We collect no personal data. We also don't collect any {% data variables.product.company_short %} content, such as code, issues, comments, or pull request content.
 
 Only owners of the connected enterprise account or organization on {% data variables.product.prodname_ghe_cloud %} can access the data.
 
-Only certain aggregate metrics are collected on repositories, issues, pull requests, and other features. To see the list of aggregate metrics collected, see "[{% data variables.product.prodname_server_statistics %} data collected](#server-statistics-data-collected)."
+Only certain aggregate metrics are collected on repositories, issues, pull requests, and other features. To see the list of aggregate metrics collected, see "[{% data variables.product.prodname_server_statistics %} data collected](#server-statistics-data-collected)." 
 
 Any updates to the collected metrics will happen in future feature releases of {% data variables.product.prodname_ghe_server %} and will be described in the [{% data variables.product.prodname_ghe_server %} release notes](/admin/release-notes). In addition, we will update this article with all metric updates.
 
@@ -44,11 +44,11 @@ As an organization owner or enterprise owner on {% data variables.product.prodna
 
 ## About disabling data collection
 
-You can disable the {% data variables.product.prodname_server_statistics %} feature at any time. 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_server_statistics %}の有効化](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)」を参照してください。
+You can disable the {% data variables.product.prodname_server_statistics %} feature at any time. For more information, see "[Enabling {% data variables.product.prodname_server_statistics %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
 
 ## {% data variables.product.prodname_server_statistics %} data collected
 
-After you enable {% data variables.product.prodname_server_statistics %}, metrics are collected through a daily job that runs on {% data variables.product.product_location %}. The aggregate metrics are stored on your organization or enterprise account on {% data variables.product.prodname_ghe_cloud %} and are not stored on {% data variables.product.product_location %}.
+After you enable {% data variables.product.prodname_server_statistics %}, metrics are collected through a daily job that runs on {% data variables.location.product_location %}. The aggregate metrics are stored on your organization or enterprise account on {% data variables.product.prodname_ghe_cloud %} and are not stored on {% data variables.location.product_location %}.
 
 The following aggregate metrics will be collected and transmitted on a daily basis and represent the total counts for the day:
   - `active_hooks`

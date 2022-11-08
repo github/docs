@@ -1,20 +1,28 @@
+---
+ms.openlocfilehash: 51fbe18842922b1c8fad2535d2f67230413933c2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145068279"
+---
 # 製品ランディングの例
 
-`product-landing`レイアウトを使うページは、`Examples`セクションを含むことができます。 現在は、3種類の例をサポートしています。
+`product-landing` レイアウトを使用するページには、必要に応じて `Examples` セクションを含めることができます。 現在は、3種類の例をサポートしています。
 
-1. コードサンプル https://docs.github.com/en/codespaces#code-examplesを参照してください。
+1. コード例については、 https://docs.github.com/en/codespaces#code-examples を参照してください。
 
-2. コミュニティサンプル https://docs.github.com/en/discussions#community-examplesを参照してください。
+2. コミュニティの例については、 https://docs.github.com/en/discussions#community-examples を参照してください。
 
-3. ユーザサンプル https://docs.github.com/en/sponsors#community-examplesを参照してください。
+3. ユーザー例については、 https://docs.github.com/en/sponsors#community-examples を参照してください。
 
-## 動作の仕組み
+## しくみ
 
-それぞれの製品のサンプルデータは、`data/product-landing-examples`内の、**製品**の名前のサブディレクトリと**example type**という名前のYMLファイル（たとえば`data/product-examples/sponsors/user-examples.yml`あるいは`data/product-examples/codespaces/code-examples.yml`）中で定義されています。 現在は、製品ごとに1種類の例のみをサポートしています。
+各製品のサンプル データは、`data/product-landing-examples`、**製品** の名前が付けられたサブディレクトリと、**サンプルの型** の名前が付けられた YML ファイルで定義されます (`data/product-examples/sponsors/user-examples.yml` や `data/product-examples/codespaces/code-examples.yml` など)。 現在は、製品ごとに1種類の例のみをサポートしています。
 
 ### バージョン管理
 
-現時点では、バージョン付けはコードサンプルでのみサポートしています。 サンプルのブロックが**すべての**バージョンで利用できなければならない場合、何か特別なことをする必要はありません。 しかし、サンプルブロックが一部のバージョンでのみ利用できるようにしたい場合は、以下のように`versions`プロパティを追加できます。
+現時点では、バージョン付けはコードサンプルでのみサポートしています。 サンプル ブロックを **すべての** バージョンで利用できるようにする必要がある場合、特別なことをする必要はありません。 ただし、サンプル ブロックを一部のバージョンでのみ使用可能にする必要がある場合は、次のような `versions` prop を追加できます。
 
 ```
 - title: Dependabot version update PR
@@ -29,14 +37,14 @@
     fpt: '*'
   ```
 
-ここで、`versions`の構文は[frontmatterの`versions`プロパティ](content/README.md)と同じであり、semver表記をサポートできます。
+ここで、`versions` の構文は [frontmatter `versions` プロパティ](content/README.md) と同じで、semver 表記をサポートできます。
 
-## レンダリング
+## 表示
 
-製品のサンプルデータは、`middleware/contextualizers/product-examples.js`中の`context`オブジェクトに追加されます。
+製品のサンプル データは、`middleware/contextualizers/product-examples.js` の `context` オブジェクトに追加されます。
 
-そしてこのデータは、`components/landing`によってレンダリングされます。
+その後、データは `components/landing` によってレンダリングされます。
 
 ## スキーマの適用
 
-要加筆
+TODO

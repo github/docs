@@ -1,6 +1,6 @@
 ---
 title: 'Error: Key already in use'
-intro: このエラーは、他のアカウントやリポジトリにすでに追加されているキーを追加 (/articles/adding-a-new-ssh-key-to-your-github-account) しようとする場合に発生します。
+intro: 'This error occurs when you try to [add a key](/articles/adding-a-new-ssh-key-to-your-github-account) that''s already been added to another account or repository.'
 redirect_from:
   - /articles/error-key-already-in-use
   - /github/authenticating-to-github/error-key-already-in-use
@@ -13,33 +13,32 @@ versions:
 topics:
   - SSH
 ---
+## Finding where the key has been used
 
-## キーが使用されている場所を見つける
-
-キーがすでに使用されている場所を判断するには、ターミナルを開いて `ssh` コマンドを入力します。 `-i` フラグを使用して、確認したいキーへのパスを提供します。
+To determine where the key has already been used, open a terminal and type the `ssh` command. Use the `-i` flag to provide the path to the key you want to check:
 
 ```shell
-$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
-# 特定の SSH キーを使用して {% data variables.product.product_location %}に接続
-> Hi <em>username</em>! You've successfully authenticated, but GitHub does not
+$ ssh -T -ai ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
+# Connect to {% data variables.location.product_location %} using a specific ssh key
+> Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} that the key is currently attached to. 応答が「username/repo」のようなものである場合は、キーがリポジトリに[*デプロイキー*](/guides/managing-deploy-keys#deploy-keys)として添付されています。
+The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/guides/managing-deploy-keys#deploy-keys).
 
 
 To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:
 
 ```shell
-$ ssh -v -o "IdentitiesOnly=yes" -i <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
+$ ssh -v -o "IdentitiesOnly=yes" -i ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
 ```
 
-## 問題の解決
+## Fixing the issue
 
-問題を解決するには、まず別のアカウントやリポジトリからキーを削除し、[アカウントに追加](/articles/adding-a-new-ssh-key-to-your-github-account)します。
+To resolve the issue, first remove the key from the other account or repository and then [add it to your account](/articles/adding-a-new-ssh-key-to-your-github-account).
 
-キーを転送する権限がなく、権限を持つユーザーに連絡できない場合は、キーペアを削除して[新しいキーペアを生成](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)します。
+If you don't have permissions to transfer the key, and can't contact a user who does, remove the keypair and [generate a brand new one](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-## デプロイキー
+## Deploy keys
 
-キーがリポジトリにデプロイキーとして一度添付されたら、他のリポジトリで使用することはできません。  デプロイキーの設定中にこのエラーが発生した場合は、「[デプロイキーの管理](/guides/managing-deploy-keys)」を参照してください。
+Once a key has been attached to one repository as a deploy key, it cannot be used on another repository.  If you're running into this error while setting up deploy keys, see "[Managing deploy keys](/guides/managing-deploy-keys)."

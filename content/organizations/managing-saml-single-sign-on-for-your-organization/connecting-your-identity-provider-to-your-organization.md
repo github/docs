@@ -25,7 +25,7 @@ You can find the SAML and SCIM implementation details for your IdP in the IdP's 
 - Okta [SAML](http://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github-com.html) and [SCIM](http://developer.okta.com/standards/SCIM/)
 - OneLogin [SAML](https://onelogin.service-now.com/support?id=kb_article&sys_id=2929ddcfdbdc5700d5505eea4b9619c6) and [SCIM](https://onelogin.service-now.com/support?id=kb_article&sys_id=5aa91d03db109700d5505eea4b96197e)
 - PingOne [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector)
-- Shibboleth [SAML](https://wiki.shibboleth.net/confluence/display/IDP30/Home)
+- Shibboleth [SAML](https://shibboleth.atlassian.net/wiki/spaces/IDP4/overview)
 
 {% note %}
 

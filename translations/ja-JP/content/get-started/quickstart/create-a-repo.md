@@ -1,5 +1,5 @@
 ---
-title: リポジトリを作成する
+title: Create a repo
 redirect_from:
   - /create-a-repo
   - /articles/create-a-repo
@@ -17,16 +17,15 @@ topics:
   - Notifications
   - Accounts
 ---
-
-## リポジトリの作成
+## Create a repository
 
 {% ifversion fpt or ghec %}
 
-オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.prodname_dotcom %} リポジトリに保存できます。 With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)." To learn more about open source projects, visit [OpenSource.org](https://opensource.org/about).
+You can store a variety of projects in {% data variables.product.prodname_dotcom %} repositories, including open source projects. With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)." To learn more about open source projects, visit [OpenSource.org](https://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
-インナーソースプロジェクトを含め、さまざまなプロジェクトを {% data variables.product.product_name %} リポジトリに保存できます。 インナーソースを使用すると、コードを共有して、より優れた、より信頼性の高いソフトウェアを作成できます。 インナーソースの詳細については、{% data variables.product.company_short %} のホワイトペーパー「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」を参照してください。
+You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
 {% endif %}
 
@@ -34,10 +33,10 @@ topics:
 
 {% note %}
 
-**ノート:**
-- You can create public repositories for an open source project. パブリックリポジトリを作成する際は、他のユーザにどのようにプロジェクトを共有してほしいのかを定義する[ライセンスファイル](https://choosealicense.com/)を含めるようにしてください。 {% data reusables.open-source.open-source-guide-repositories %}
-- {% data reusables.open-source.open-source-learning %}
-- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
+**Notes:** 
+- You can create public repositories for an open source project. When creating your public repository, make sure to include a [license file](https://choosealicense.com/) that determines how you want your project to be shared with others. {% data reusables.open-source.open-source-guide-repositories %} 
+- {% data reusables.open-source.open-source-learning %} 
+- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)." 
 
 {% endnote %}
 
@@ -46,13 +45,15 @@ topics:
 {% webui %}
 
 {% data reusables.repositories.create_new %}
-2. リポジトリに、短くて覚えやすい名前を入力します。 たとえば、"hello-world" といった名前です。 ![リポジトリ名を入力するフィールド](/assets/images/help/repository/create-repository-name.png)
-3. 必要な場合、リポジトリの説明を追加します。 たとえば、「{% data variables.product.product_name %} の最初のリポジトリ」などです。 ![リポジトリの説明を入力するフィールド](/assets/images/help/repository/create-repository-desc.png)
+2. Type a short, memorable name for your repository. For example, "hello-world".
+  ![Field for entering a repository name](/assets/images/help/repository/create-repository-name.png)
+3. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}."
+  ![Field for entering a repository description](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
-おめでとうございます。 最初のリポジトリ作成に成功し、初期設定として *README* ファイルが生成されました。
+Congratulations! You've successfully created your first repository, and initialized it with a *README* file.
 
 {% endwebui %}
 
@@ -61,27 +62,30 @@ topics:
 {% data reusables.cli.cli-learn-more %}
 
 1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
-2. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your personal account, specify the organization name and project name with `organization-name/project-name`.
-3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
+2. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your personal account, specify the organization name and project name with `organization-name/project-name`. 
+3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.  
 4. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
-## 最初の変更をコミットする
+## Commit your first change
 
 {% webui %}
 
-*[コミット](/articles/github-glossary#commit)*とは、ある特定の時点における、あなたのプロジェクト内のすべてのファイルのスナップショットのようなものです。
+A *[commit](/articles/github-glossary#commit)* is like a snapshot of all the files in your project at a particular point in time.
 
-上の例では、新しいリポジトリを作成すると同時に *README* ファイルを生成しました。 *README* ファイルは、プロジェクトの詳細を説明したり、プロジェクトのインストール方法や使い方などのドキュメンテーションを書き込んだりするためにふさわしい場所です。 *README* ファイルの内容は、リポジトリのフロントページに自動的に表示されます。
+When you created your new repository, you initialized it with a *README* file. *README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository.
 
-それでは、*README* ファイルに変更を加えてコミットしてみましょう。
+Let's commit a change to the *README* file.
 
-1. リポジトリのファイル一覧にある、[***README.md***] をクリックします。 ![ファイル一覧にある README ファイル](/assets/images/help/repository/create-commit-open-readme.png)
-2. ファイルの中身の上にある {% octicon "pencil" aria-label="The edit icon" %}をクリックします。
-3. [**Edit file**] タブで、あなた自身に関する情報を入力します。 ![ファイル内の新しいコンテンツ](/assets/images/help/repository/edit-readme-light.png)
+1. In your repository's list of files, click ***README.md***.
+  ![README file in file list](/assets/images/help/repository/create-commit-open-readme.png)
+2. Above the file's content, click {% octicon "pencil" aria-label="The edit icon" %}.
+3. On the **Edit file** tab, type some information about yourself.
+  ![New content in file](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}
-5. ファイルに加えた変更を確認します。 You will see the new content in green. ![ファイルプレビュービュー](/assets/images/help/repository/create-commit-review.png)
+5. Review the changes you made to the file. You will see the new content in green.
+  ![File preview view](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
@@ -92,7 +96,7 @@ topics:
 
 Now that you have created a project, you can start committing changes.
 
-*README* ファイルは、プロジェクトの詳細を説明したり、プロジェクトのインストール方法や使い方などのドキュメンテーションを書き込んだりするためにふさわしい場所です。 *README* ファイルの内容は、リポジトリのフロントページに自動的に表示されます。 Follow these steps to add a *README* file.
+*README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository. Follow these steps to add a *README* file.
 
 1. In the command line, navigate to the root directory of your new project. (This directory was created when you ran the `gh repo create` command.)
 1. Create a *README* file with some information about the project.
@@ -127,9 +131,9 @@ Now that you have created a project, you can start committing changes.
 
 {% endcli %}
 
-## 次のステップ
+## Next steps
 
-*README* ファイルを持つ新しいリポジトリを作成し、{% data variables.product.product_location %}に最初のコミットを作成しました。
+You have now created a repository, including a *README* file, and created your first commit on {% data variables.location.product_location %}.
 
 {% webui %}
 

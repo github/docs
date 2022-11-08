@@ -1,6 +1,6 @@
 ---
-title: Organization アカウントの削除
-intro: 'Organization を削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、Pull Request、プロジェクトページや Organization ページもすべて削除されます。 {% ifversion fpt or ghec %}支払いは終了し、90日後にOrganizationの名前は新しいユーザもしくはOrganizationアカウントで利用できるようになります。{% endif %}'
+title: Deleting an organization account
+intro: 'When you delete an organization, all repositories, forks of private repositories, wikis, issues, pull requests, and Project or Organization Pages are deleted as well. {% ifversion fpt or ghec %}Your billing will end, and after 90 days the organization name becomes available for use on a new user or organization account.{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account
@@ -12,32 +12,33 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Organizationの削除
+shortTitle: Delete organization
 ---
 
 {% ifversion fpt or ghec %}
 {% tip %}
 
-**参考**: 有料プランを解約したい場合、Organization とそのコンテンツを削除する代わりに、[Organization を {% data variables.product.prodname_free_team %} にダウングレードする](/articles/downgrading-your-github-subscription)ことができます。
+**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) instead of deleting the organization and its content.
 
 {% endtip %}
 
 {% endif %}
 
-## 1. Organization コンテンツのバックアップ
+## 1. Back up your organization content
 
-{% ifversion not ghes %} Organizationを削除すると、{% data variables.product.company_short %}は**コンテンツを復元できません**。 したがって、{% else %}{% endif %}Organization を削除する前に、アカウントからすべてのリポジトリ、ウィキ、Issue、プロジェクトボードのコピーがあることを確認してください。
+{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
 
 {% ifversion ghes %}
 {% note %}
 
-**ノート:** 必要なら、{% data variables.product.product_location %}の管理者は削除されたOrganizationを部分的に復元できることがあります。 詳しい情報については「[削除されたOrganizationの復元](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)」を参照してください。
+**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
 
 {% endnote %}
 {% endif %}
 
-## 2. Organization の削除
+## 2. Delete the organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. Organization の設定ページの下の方にある [**Delete this Organization**] をクリックします。 ![[Delete this organization] ボタン](/assets/images/help/settings/settings-organization-delete.png)
+4. Near the bottom of the organization's settings page, click **Delete this Organization**.
+   ![Delete this organization button](/assets/images/help/settings/settings-organization-delete.png)

@@ -1,6 +1,6 @@
 ---
-title: 認証方式の変更
-intro: '{% data variables.product.prodname_ghe_server %} が既存のアカウントを認証する方法は、いつでも変更できます。'
+title: Changing authentication methods
+intro: 'You can change the way {% data variables.product.prodname_ghe_server %} authenticates with your existing accounts at any time.'
 redirect_from:
   - /enterprise/admin/user-management/changing-authentication-methods
   - /enterprise/admin/authentication/changing-authentication-methods
@@ -17,27 +17,26 @@ topics:
   - Identity
 shortTitle: Change authentication methods
 ---
+User accounts on {% data variables.location.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
 
-{% data variables.product.product_location %}のユーザアカウントは、認証方式を変更しても保存され、ユーザはユーザ名が変更されない限り、同じアカウントにログインし続けることができます。
+If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
 
-新しい認証方式でユーザ名が変更される場合、新しいアカウントが作成されます。 管理者は、サイトアドミン設定または[ユーザ管理 API](/rest/reference/enterprise-admin#update-the-username-for-a-user) を使用してユーザ名を変更できます。
+Other issues you should take into consideration include:
 
-他に考慮しなければならない問題には以下があります。
+* **Passwords:** If you switch to using built-in authentication for your instance, users must [set a password](/enterprise/user/articles/how-can-i-reset-my-password/) after the change is completed.
 
-* **パスワード：**インスタンスでビルトイン認証を使うように切り替えた場合、変更の完了後にユーザは[パスワードを設定](/enterprise/user/articles/how-can-i-reset-my-password/)しなければなりません。
+* **Site administrators:** Administrative privileges are [controlled by your identity provider when you use SAML](/enterprise/admin/guides/user-management/using-saml/#saml-attributes) and can be [controlled by group membership when you use LDAP](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance).
 
-* **サイト管理者:** 管理者権限は、[SAML を使う場合はアイデンティティプロバイダによって制御され](/enterprise/admin/guides/user-management/using-saml/#saml-attributes)、[LDAP を使う場合はグループのメンバーシップによって制御されます](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)。
+* **Team membership:** Only LDAP lets you [control team membership](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance) from your directory server.
 
-* **Team メンバーシップ: **LDAP のみが、ディレクトリサーバからの[Team メンバーシップの制御](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)が可能です。
+* **User suspension:** When you use LDAP to authenticate, access to {% data variables.product.prodname_ghe_server %} can be controlled via _restricted groups_. After switching to LDAP, if restricted groups are configured, existing users who are not in one of those groups will be suspended. Suspension will occur either when they log in or during the next LDAP Sync.
 
-* **ユーザの一時停止:** 認証に LDAP を使う場合、{% data variables.product.prodname_ghe_server %} へのアクセスは_制限グループ_経由で制御できます。 LDAPに切り替えた後、制限グループが設定されているなら、既存のユーザでこれらのグループのいずれかに属してないユーザは一時停止されます。 一時停止は、ユーザがログインするか、次のLDAP Syncの間に生じます。
+* **Group membership:** When you use LDAP to authenticate, users are automatically [suspended and unsuspended](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) based on restricted group membership and account status with Active Directory.
 
-* **グループのメンバーシップ：**認証にLDAPを使う場合、ユーザは自動的に制限グループのメンバーシップとActive Directoryのアカウントのステータスに基づいて[サスペンドあるいはサスペンド解除](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)されます。
+* **Git authentication:** SAML and CAS only supports Git authentication over HTTP or HTTPS using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Password authentication over HTTP or HTTPS is not supported. LDAP supports password-based Git authentication by default, but we recommend that you [disable that method](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations) and force authentication via a {% data variables.product.pat_generic %} or SSH key.
 
-* **Git認証：**SAML及びCASは、[個人アクセストークン](/articles/creating-an-access-token-for-command-line-use)を使ったHTTPあるいはHTTPS経由でのGIt認証のみをサポートしています。 HTTPあるいはHTTPS経由でのパスワード認証はサポートされていません。 LDAPは、パスワードベースのGit認証をデフォルトでサポートしていますが、[その方法は無効化して](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations)個人アクセストークンあるいはSSHキーでの認証を強制することをおすすめします。
+* **API authentication:** SAML and CAS only supports API authentication using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Basic authentication is not supported.
 
-* **API認証：**SAML及びCASは、[個人アクセストークン](/articles/creating-an-access-token-for-command-line-use)を使ったAPI認証のみをサポートしています。 Basic認証はサポートされていません。
+* **Two-factor authentication:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **2 要素認証:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
-
-* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.product.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.location.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."

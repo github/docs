@@ -13,9 +13,14 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: Elegir un clúster o HA
+shortTitle: Choosing cluster or HA
+ms.openlocfilehash: 3a15defe4327b1aeed4f0db22586c75b233b5908
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '146332492'
 ---
-
 ## Escenarios de fallas
 
 Tanto la alta disponibilidad (HA, por sus siglas en inglés) como el agrupamiento brindan redundancia al eliminar el nodo único como punto de falla. Pueden brindar disponibilidad en estos escenarios:
@@ -28,19 +33,19 @@ Tanto la alta disponibilidad (HA, por sus siglas en inglés) como el agrupamient
 
 ## Diferencias en el método de conmutación y configuración
 
-| Característica                       | Configuración de conmutación                                                            | Método de conmutación                                                                                                        |
-|:------------------------------------ |:--------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------------------------- |
-| Configuración de alta disponibilidad | Registro de DNS con un TTL bajo que apunta al aparato principal o balanceador de carga. | Debes impulsar manualmente el aparato de réplica en las configuraciones de conmutación DNS y balanceador de carga.           |
-| Agrupación                           | El registro DNS debe apuntar a un balanceador de carga.                                 | Si falla un nodo detrás de un balanceador de carga, el tráfico se envía automáticamente a los otros nodos de funcionamiento. |
+| Característica     | Configuración de conmutación     | Método de conmutación por error |
+| :------------- | :------------- | :--- |
+| Configuración de alta disponibilidad       | Registro de DNS con un TTL bajo que apunta al aparato principal o balanceador de carga. | Debes impulsar manualmente el aparato de réplica en las configuraciones de conmutación DNS y balanceador de carga. |
+| Agrupación en clústeres | El registro DNS debe apuntar a un balanceador de carga. | Si falla un nodo detrás de un balanceador de carga, el tráfico se envía automáticamente a los otros nodos de funcionamiento. |
 
-## Copias de seguridad y recuperación ante desastres
+## Copia de seguridad y recuperación ante desastres
 
-Ni el HA ni el Clústering debe considerarse como un reemplazo de los respaldos habituales. Para obtener más información, consulta "[Configurar copias de seguridad en tu aparato](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)"
+Ni el HA ni el Clústering debe considerarse como un reemplazo de los respaldos habituales. Para obtener más información, vea "[Configurar copias de seguridad en el dispositivo](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)".
 
-## Supervisar
+## Supervisión
 
-Las características de disponibilidad, especialmente las que tienen conmutación automática como Agrupación, pueden enmascarar una falla dado que el servicio generalmente no se ve interrumpido cuando algo falla. Ya sea que esté usando HA o Agrupación, supervisar el estado de cada instancia es importante para que puedas estar al tanto cuando se produce una falla. Para obtener más información sobre el monitoreo, consulta las secciones "[Umbrales de alerta recomendados](/enterprise/admin/guides/installation/recommended-alert-thresholds/)" y "[Monitorear los nodos de clúster](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)".
+Las características de disponibilidad, especialmente las que tienen conmutación automática como Agrupación, pueden enmascarar una falla dado que el servicio generalmente no se ve interrumpido cuando algo falla. Ya sea que esté usando HA o Agrupación, supervisar el estado de cada instancia es importante para que puedas estar al tanto cuando se produce una falla. Para obtener más información sobre la supervisión, vea "[Umbrales recomendados de alerta](/enterprise/admin/guides/installation/recommended-alert-thresholds/)" y "[Supervisar los nodos de clúster](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)".
 
-## Leer más
-- Para obtener más información acerca del {% data variables.product.prodname_ghe_server %} Agrupamiento, visite la sección de "[Acerca del agrupamiento](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)."
-- Para obtener más información sobre HA, consulta "[Configurar {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+## Información adicional
+- Para obtener más información sobre la agrupación en clústeres de {% data variables.product.prodname_ghe_server %}, vea "[Acerca de la agrupación en clústeres](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)".
+- Para obtener más información sobre la alta disponibilidad, vea "[Configurar {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".

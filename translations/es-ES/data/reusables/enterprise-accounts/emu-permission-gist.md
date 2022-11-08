@@ -1,1 +1,1 @@
-{% ifversion ghec %}Los miembros de una {% data variables.product.prodname_emu_enterprise %} no pueden crear gists y tener acceso de solo lectura a estos.{% endif %}
+{% ifversion ghec %}Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot create gists and have read-only access to gists.{% endif %}

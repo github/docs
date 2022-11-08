@@ -1,6 +1,6 @@
 ---
 title: 对标记签名
-intro: 您可以使用 GPG 或 S/MIME 在本地对标记进行签名。
+intro: '可以使用 GPG{% ifversion ssh-commit-verification %}、SSH、{% endif %} 或 S/MIME 在本地对标记进行签名。'
 redirect_from:
   - /articles/signing-tags-using-gpg
   - /articles/signing-tags
@@ -14,27 +14,29 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: 22bdc1c5095a8fa82d2ac406a19dc633f8f44fc6
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106675'
 ---
-
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
-1. 要对标记签名，请将 `-s` 添加到您的 `git tag` 命令。
+1. 若要对标记进行签名，请将 `-s` 添加到 `git tag` 命令。
   ```shell
-  $ git tag -s <em>mytag</em>
+  $ git tag -s MYTAG
   # Creates a signed tag
   ```
-2. 通过运行 `git tag -v [tag-name]` 验证您签名的标记。
+2. 通过运行 `git tag -v [tag-name]` 验证已签名的标记。
   ```shell
-  $ git tag -v <em>mytag</em>
+  $ git tag -v MYTAG
   # Verifies the signed tag
   ```
 
 ## 延伸阅读
 
-- "[查看仓库的标记](/articles/viewing-your-repositorys-tags)"
-- "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
-- "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
-- "[添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)"
-- "[向 Git 告知您的签名密钥](/articles/telling-git-about-your-signing-key)"
-- "[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)"
-- "[对提交签名](/articles/signing-commits)"
+- [查看存储库的标记](/articles/viewing-your-repositorys-tags)
+- “[将签名密钥告知 Git](/articles/telling-git-about-your-signing-key)”
+- [将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)
+- [对提交签名](/articles/signing-commits)

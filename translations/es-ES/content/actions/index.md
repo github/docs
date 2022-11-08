@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions Documentation
+title: Documentación de GitHub Actions
 shortTitle: GitHub Actions
-intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
+intro: 'Automatiza, personaliza y ejecuta tus flujos de trabajo de desarrollo de software directamente en tu repositorio con {% data variables.product.prodname_actions %}. Puedes descubrir, crear y compartir acciones para realizar cualquier trabajo que quieras, incluido CI/CD, y combinar acciones en un flujo de trabajo completamente personalizado.'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
@@ -26,14 +26,6 @@ featuredLinks:
     - /actions/learn-github-actions/expressions
     - /actions/learn-github-actions/environment-variables
     - /actions/security-guides/encrypted-secrets
-  videos:
-    - title: 'Inside GitHub: How we use GitHub Actions – Brian Douglas'
-      href: 'https://www.youtube-nocookie.com/embed/MW0V5Q9WJu4'
-    - title: Advanced GitHub Actions – Jennifer Schelkopf
-      href: 'https://www.youtube-nocookie.com/embed/wWOH44Lscoc'
-    - title: GitHub Actions in action – Karan MV
-      href: 'https://www.youtube-nocookie.com/embed/4SWO0Pc76CU'
-  videosHeading: GitHub Universe 2021 videos
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
@@ -68,5 +60,11 @@ children:
   - /security-guides
   - /creating-actions
   - /guides
+ms.openlocfilehash: 4001c855ac5f80d36f93746693a247cdd15a1f60
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880657'
 ---
 

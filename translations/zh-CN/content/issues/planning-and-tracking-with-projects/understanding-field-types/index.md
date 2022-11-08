@@ -1,7 +1,7 @@
 ---
-title: Understanding field types
+title: 了解字段类型
 shortTitle: Understanding field types
-intro: 'Learn about the different custom field types, how to add custom fields to your project, and how to manage custom fields.'
+intro: 了解不同的自定义字段类型，了解如何向项目添加自定义字段以及如何管理自定义字段。
 versions:
   feature: projects-v2
 topics:
@@ -15,5 +15,11 @@ children:
   - /renaming-fields
   - /deleting-fields
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: eaa9fe7d4dbd6b2c43d0ab2ad12faf173d6f571a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108093'
 ---
 

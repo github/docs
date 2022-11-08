@@ -4,14 +4,14 @@ shortTitle: 'Managing {% data variables.projects.project_v2 %} visibility'
 intro: 'Learn about setting your {% data variables.projects.project_v2 %} to private or public visibility.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects
 type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-permissions: 'Organization owners can manage the visibility of project boards in their organization. Organization owners can also allow collaborators with admin permissions to manage project visibility. Visibility of user projects can be managed by the owner of the project and collaborators with admin permissions.'
+permissions: Organization owners can manage the visibility of project boards in their organization. Organization owners can also allow collaborators with admin permissions to manage project visibility. Visibility of user projects can be managed by the owner of the project and collaborators with admin permissions.
 ---
 
 ## About project visibility
@@ -22,7 +22,7 @@ Only the project visibility is affected; to view an item on the project, someone
 
 ![Project with hidden item](/assets/images/help/projects/hidden-items.png)
 
-Project admins and organization owners can control project visibility. Organization owners can restrict the ability to change project visibility to just organization owners.
+Project admins and organization owners can control project visibility. Organization owners{% ifversion project-visibility-policy %} and enterprise owners{% endif %} can restrict the ability to change project visibility to just organization owners.
 
 In public and private projects, insights are only visible to users with write permissions for the project.
 

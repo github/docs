@@ -13,6 +13,12 @@ children:
   - /apply-to-github-global-campus-as-a-student
   - /why-wasnt-my-application-to-global-campus-for-students-approved
   - /about-github-community-exchange
-shortTitle: Sobre Global Campus para alunos
+shortTitle: About Global Campus for students
+ms.openlocfilehash: 3f61867f7d7365635a8b2d3bd53a19b0180d0604
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107964'
 ---
 

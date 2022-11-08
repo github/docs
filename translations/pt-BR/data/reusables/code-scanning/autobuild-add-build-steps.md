@@ -1,1 +1,2 @@
-Se o código de C/C++, C#, ou Java no seu repositório tiver um processo de criação não padrão, poderá ocorrer uma falha no `autobuild`. Você deverá remover a etapa `autobuild` do fluxo de trabalho e adicionar manualmente etapas de criação. Se você quiser especificar quais arquivos de Go no seu repositório devem ser extraídos, você deverá adicionar as etapas de criação.
+If `autobuild` fails, or you want to analyze a different set of source files from those built by the `autobuild` process, you'll need to remove the `autobuild` step from the workflow, and manually add build steps. For C/C++, C#, Go, and Java projects, {% data variables.product.prodname_codeql %} will analyze whatever source code is built by your specified build steps.
+

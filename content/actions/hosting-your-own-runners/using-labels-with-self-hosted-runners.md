@@ -13,13 +13,13 @@ shortTitle: Label runners
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-For information on how to use labels to route jobs to specific types of self-hosted runners, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
+For information on how to use labels to route jobs to specific types of self-hosted runners, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)." {% ifversion target-runner-groups %}You can also route jobs to runners in a specific group. For more information, see "[Targeting runners in a group](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group)."{% endif %}
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
 ## Creating a custom label
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.actions.settings-sidebar-actions-runner-selection %}
  1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
@@ -38,7 +38,7 @@ The custom label is created and assigned to the self-hosted runner. Custom label
 
 ## Assigning a label to a self-hosted runner
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.runner-label-settings %}
@@ -53,7 +53,7 @@ The custom label is created and assigned to the self-hosted runner. Custom label
 
 ## Removing a custom label from a self-hosted runner
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.runner-label-settings %}

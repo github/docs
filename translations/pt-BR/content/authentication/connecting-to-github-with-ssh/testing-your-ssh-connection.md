@@ -1,6 +1,6 @@
 ---
-title: Testar a conexão SSH
-intro: 'Depois de configurar sua chave SSH e adicioná-la à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá testar a sua conexão.'
+title: Testing your SSH connection
+intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can test your connection.'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -12,55 +12,54 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Teste sua conexão SSH
+shortTitle: Test your SSH connection
 ---
+Before testing your SSH connection, you should have:
+- [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
+- [Generated a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [Added a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account)
 
-Antes de testar a conexão SSH, é recomendável que você tenha:
-- [Verificado se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)
-- [Gerado uma nova chave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- [Adicionado uma nova chave SSH à sua conta do GitHub](/articles/adding-a-new-ssh-key-to-your-github-account)
-
-Quando você testar a conexão, precisará autenticar essa ação usando sua senha, que é a frase secreta da chave SSH que você criou anteriormente. Para obter mais informações sobre esse assunto, consulte ["Trabalhar com frases secretas da chave SSH"](/articles/working-with-ssh-key-passphrases).
+When you test your connection, you'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see ["Working with SSH key passphrases"](/articles/working-with-ssh-key-passphrases).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Insira o seguinte:
+2. Enter the following:
   ```shell
   $ ssh -T git@{% data variables.command_line.codeblock %}
   # Attempts to ssh to {% data variables.product.product_name %}
   ```
 
-  Você poderá receber um aviso como este:
+  You may see a warning like this:
 
   ```shell
-  > Não é possível estabelecer a autenticidade do host '{% data variables.command_line.codeblock %} (IP ADDRESS)'.
-  > A impressão digital da chave RSA é SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-  > Tem certeza de que deseja continuar com a conexão (sim/não)?
+  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
+  > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+  > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. Verifique se a impressão digital da mensagem que você vê corresponde à {% ifversion fpt or ghec %}[ impressão digital da chave pública de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} impressão digital da chave pública da sua empresa{% endif %}. Se isso acontecer, digite `sim`:
+3. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
   ```shell
-  > Olá, <em>username</em>! You've successfully authenticated, but GitHub does not
+  > Hi USERNAME! You've successfully authenticated, but GitHub does not
   > provide shell access.
   ```
 
   {% linux %}
 
-  Você poderá ver esta mensagem de erro:
+  You may see this error message:
   ```shell
   ...
-  Agente com falha ao entrar usando a chave.
-  debug1: Não há mais métodos de autenticação para tentar.
-  Permissão negada (publickey).
+  Agent admitted failure to sign using the key.
+  debug1: No more authentication methods to try.
+  Permission denied (publickey).
   ```
 
-  Esse é um problema conhecido com determinadas distribuições Linux. Para obter mais informações, consulte ["Erro: agente com falha ao entrar"](/articles/error-agent-admitted-failure-to-sign).
+  This is a known problem with certain Linux distributions. For more information, see ["Error: Agent admitted failure to sign"](/articles/error-agent-admitted-failure-to-sign).
 
   {% endlinux %}
 
    {% note %}
 
-   **Observação:** O comando remoto deve sair com o código 1.
+   **Note:** The remote command should exit with code 1.
 
    {% endnote %}
 
-4. Verifique se a mensagem resultante contém seu nome de usuário. Se você receber uma mensagem de "permissão negada", consulte ["Erro: permissão negada (publickey)"](/articles/error-permission-denied-publickey).
+4. Verify that the resulting message contains your username. If you receive a "permission denied" message, see ["Error: Permission denied (publickey)"](/articles/error-permission-denied-publickey).

@@ -1,6 +1,6 @@
 ---
-title: Convidar pessoas para usar sua instância
-intro: 'Ao usar a autenticação integrada para {% data variables.product.product_name %}, você pode convidar pessoas por e-mail para criar uma conta de usuário em sua instância.'
+title: Inviting people to use your instance
+intro: 'When you use built-in authentication for {% data variables.product.product_name %}, you can invite people by email address to create a user account on your instance.'
 versions:
   ghes: '*'
 permissions: 'Enterprise owners can invite people to create a user account on a {% data variables.product.product_name %} instance.'
@@ -10,21 +10,21 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Convidar pessoas
+shortTitle: Invite people
 ---
 
-## Sobre convites para novos usuários
+## About invitations for new users
 
 {% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} {% data reusables.enterprise_user_management.unauthenticated-sign-ups %}
 
-Você pode desabilitar as inscrições não autenticadas e exigir um convite para criar uma nova conta de usuário na sua instância. Para obter mais informações, consulte "[Desabilitando inscrições não autenticadas](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)".
+You can disable unauthenticated sign-ups and require an invitation to create a new user account on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
 
-{% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
+{% data reusables.enterprise_user_management.alternatively-enable-external-authentication %} 
 
-## Convidar pessoas para criar uma conta de usuário
+## Inviting people to create a user account
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
-Se você tiver configurado o e-mail para notificações em {% data variables.product.product_location %}, sua instância enviará o convite para o endereço de e-mail fornecido. Para obter mais informações, consulte "[Configurar e-mail para notificações](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications).
+If you've configured email for notifications on {% data variables.location.product_location %}, your instance will send the invitation to the provided email address. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."

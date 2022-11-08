@@ -1,11 +1,19 @@
-您可以指定多个变量来创建多维矩阵。 将为每个可能的变量组合运行一个作业。
+---
+ms.openlocfilehash: 9a29d1039a0929c7366eeb4624e1fb6fb8a2e4f9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147529334"
+---
+可以指定多个变量来创建多维矩阵。 将针对变量的每个可能组合运行作业。
 
-例如，以下工作流程指定了两个变量：
+例如，以下工作流指定两个变量：
 
 - `os` 变量中指定的两个操作系统
-- 在 `version` 变量中指定的三个 Node.js 版本
+- `version` 变量中指定的三个 Node.js 版本
 
-工作流程将运行六个作业，每个作业对应于 `os` 和 `version` 变量的组合。 每个作业都会将 `runs-on` 值设置为当前 `os` 值，并将当前 `version` 值传递给 `actions/setup-node` 操作。
+工作流将运行六个作业，其中针对每个 `os` 和 `version` 变量组合提供一个作业。 每个作业都会将 `runs-on` 值设置为当前的 `os` 值，并将当前的 `version` 值传递给 `actions/setup-node` 操作。
 
 ```yaml
 jobs:

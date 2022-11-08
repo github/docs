@@ -1,5 +1,5 @@
 ---
-title: Authorizing OAuth Apps
+title: OAuth アプリの承認
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
@@ -16,67 +16,73 @@ versions:
   ghec: '*'
 topics:
   - OAuth Apps
+ms.openlocfilehash: d35b65add4259df72d9ae8b179829a148abd7174
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106710'
 ---
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
+{% data variables.product.product_name %} の OAuth の実装では、標準の[認可コード許可タイプ](https://tools.ietf.org/html/rfc6749#section-4.1)および Web ブラウザーを利用できないアプリケーションのために、OAuth 2.0 の [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) をサポートしています。
 
-If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
+アプリケーションをテストする場合のように、標準的な方法でのアプリケーションの認可をスキップする場合は、[非 Web アプリケーション フロー](#non-web-application-flow)を利用できます。
 
-To authorize your OAuth app, consider which authorization flow best fits your app.
+OAuthアプリケーションを認可する場合は、そのアプリケーションにどの認可フローが最も適切かを考慮してください。
 
-- [web application flow](#web-application-flow): Used to authorize users for standard OAuth apps that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
-- [device flow](#device-flow):  Used for headless apps, such as CLI tools.
+- [Web アプリケーション フロー](#web-application-flow): ブラウザーで実行される標準的な OAuth App のユーザーを認可するために使われます。 ([暗黙的な許可の種類](https://tools.ietf.org/html/rfc6749#section-4.2)はサポートされていません。)
+- [デバイスフロー](#device-flow): CLI ツールなど、ヘッドレス アプリケーションに使われます。
 
-## Web application flow
+## Web アプリケーションフロー
 
 {% note %}
 
-**Note:** If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
+**注:** GitHub App を構築している場合は、OAuth Web アプリケーション フローを使うこともできますが、セットアップにはいくつか重要な違いがあります。 詳細については、「[GitHub App のユーザーの特定と認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。
 
 {% endnote %}
 
-The web application flow to authorize users for your app is:
+アプリケーションのユーザの認可のためのWebアプリケーションフローは以下のとおりです。
 
-1. Users are redirected to request their GitHub identity
-2. Users are redirected back to your site by GitHub
-3. Your app accesses the API with the user's access token
+1. ユーザはGitHubのアイデンティティをリクエストするためにリダイレクトされます
+2. GitHubによるサイトへのユーザのリダイレクト
+3. アプリケーションはユーザのアクセストークンと共にAPIにアクセスします
 
-### 1. Request a user's GitHub identity
+### 1. ユーザーの GitHub ID を要求する
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
-When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
+GitHub アプリで `login` パラメーターを指定すると、ユーザーは、使用できるアカウントでサインインしてアプリを認可するように求められます。
 
-#### Parameters
+#### パラメーター
 
-Name | Type | Description
+名前 | 型 | 説明
 -----|------|--------------
-`client_id`|`string` | **Required**. The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.
-`redirect_uri`|`string` | The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
-`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
-`scope`|`string` | A space-delimited list of [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope.
+`client_id`|`string` | **[必須]** 。 ユーザーが{% ifversion fpt or ghec %}[登録](https://github.com/settings/applications/new){% else %}登録{% endif %}されたときに GitHub から受け取るクライアント ID。
+`redirect_uri`|`string` | 認可の後にユーザが送られるアプリケーション中のURL。 [リダイレクト URL](#redirect-urls) に関する詳細については、下を参照してください。
+`login` | `string` | サインインとアプリケーションの認可に使われるアカウントを指示します。
+`scope`|`string` | [スコープ](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)のスペース区切りリスト。 渡されなかった場合、ユーザーの `scope` は既定で空のリストになり、アプリケーションにはどのスコープも認可されません。 アプリケーションに対して認可したスコープがあるユーザに対しては、スコープのリストを含むOAuthの認可ページは示されません。 その代わりに、フローのこのステップはユーザがアプリケーションに認可したスコープ群で自動的に完了します。 たとえば、ユーザーが既に Web フローを 2 回実行しており、1 つのトークンで `user` スコープを、もう 1 つのトークンで `repo` スコープを認可している場合、3 番目の Web フローで `scope` が渡されなければ、`user` および `repo` スコープを持つトークンが返されます。
 `state` | `string` | {% data reusables.apps.state_description %}
-`allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+`allow_signup`|`string` | OAuthフローの間に、認証されていないユーザに対してGitHubへのサインアップの選択肢が提示されるかどうか。 既定値は、`true` です。 ポリシーでサインアップが禁止されている場合は、`false` を使用します。
 
-### 2. Users are redirected back to your site by GitHub
+### 2. GitHub によってユーザーが元のサイトにリダイレクトされる
 
-If the user accepts your request, {% data variables.product.product_name %} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
+ユーザーがリクエストを受け付けると、{% data variables.product.product_name %} によって一時的な `code` が code パラメーターに、前のステップで渡された状態が `state` パラメーターに入れられて、元のサイトにリダイレクトされます。 一時コードは10分後に期限切れになります。 状態が一致しない場合は、リクエストを作成したサードパーティとユーザはこのプロセスを中止しなければなりません。
 
-Exchange this `code` for an access token:
+この `code` をアクセス トークンと交換します。
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-#### Parameters
+#### パラメーター
 
-Name | Type | Description
+名前 | 型 | 説明
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`code` | `string` | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
+`client_id` | `string` | **必須。** {% data variables.product.prodname_oauth_app %} に対して {% data variables.product.product_name %} から受け取ったクライアント ID。
+`client_secret` | `string` | **必須。** {% data variables.product.prodname_oauth_app %} に対して {% data variables.product.product_name %} から受け取ったクライアント シークレット。
+`code` | `string` | **必須。** 手順 1 に対する応答として受け取ったコード。
+`redirect_uri` | `string` | 認可の後にユーザが送られるアプリケーション中のURL。
 
-#### Response
+#### [応答]
 
-By default, the response takes the following form:
+デフォルトでは、レスポンスは以下の形式になります。
 
 ```
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
@@ -102,57 +108,57 @@ Accept: application/xml
 </OAuth>
 ```
 
-### 3. Use the access token to access the API
+### 3. アクセス トークンを使って API にアクセスする
 
-The access token allows you to make requests to the API on a behalf of a user.
+このアクセストークンを使えば、ユーザの代わりにAPIへのリクエストを発行できます。
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
-For example, in curl you can set the Authorization header like this:
+たとえば、curlでは以下のようにAuthorizationヘッダを設定できます。
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-## Device flow
+## デバイスフロー
 
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.
+**注:** デバイス フローはパブリック ベータ版であり、変更される可能性があります。
 
 {% endnote %}
 
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
+デバイスフローを使えば、CLIツールやGit認証情報マネージャーなどのヘッドレスアプリケーションのユーザを認可できます。
 
 {% ifversion device-flow-is-opt-in %}
 
-Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[Modifying an OAuth App](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)" for OAuth Apps and "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)" for GitHub Apps.
+デバイス フローを使用してユーザーを認可および特定するには、まずアプリケーションの設定でデバイス フローを有効にする必要があります。 アプリケーションでデバイス フローを有効にする方法の詳細については、OAuth App の場合は「[OAuth App の変更](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)」を、GitHub App の場合は「[GitHub App の変更](/developers/apps/managing-github-apps/modifying-a-github-app)」を参照してください。
 
 {% endif %}
 
-### Overview of the device flow
+### デバイスフローの概要
 
-1. Your app requests device and user verification codes and gets the authorization URL where the user will enter the user verification code.
-2. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
-3.  The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
+1. アプリケーションはデバイスとユーザの検証コードをリクエストし、ユーザがユーザ検証コードを入力する認可URLを取得します。
+2. アプリケーションは{% data variables.product.device_authorization_url %}でユーザ検証コードを入力するようユーザに求めます。
+3.  アプリケーションはユーザ認証のステータスをポーリングします。 ユーザがデバイスを認可すると、アプリケーションは新しいアクセストークンと共にAPIコールを発行できるようになります。
 
-### Step 1: App requests the device and user verification codes from GitHub
+### ステップ1: アプリケーションによるGitHubからのデバイス及びユーザ検証コードの要求
 
     POST {% data variables.product.oauth_host_code %}/login/device/code
 
-Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.
+アプリケーションは、次のステップでユーザに認可を求めるために使うユーザ検証コードと検証URLをリクエストしなければなりません。 このリクエストには、アプリケーションがアクセストークンの受け取りとユーザの認可のステータスチェックに使わなければならないデバイス検証コードも返されます。
 
-#### Input Parameters
+#### 入力パラメーター
 
-Name | Type | Description
+名前 | 型 | 説明
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
-`scope` | `string` | The scope that your app is requesting access to.
+`client_id` | `string` | **必須。** {% data variables.product.product_name %} から受け取るアプリケーションのクライアント ID。
+`scope` | `string` | アプリケーションがアクセスをリクエストしているスコープ。
 
-#### Response
+#### [応答]
 
-By default, the response takes the following form:
+デフォルトでは、レスポンスは以下の形式になります。
 
 ```
 device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
@@ -182,43 +188,43 @@ Accept: application/xml
 </OAuth>
 ```
 
-#### Response parameters
+#### 応答パラメーター
 
-Name | Type | Description
+名前 | 型 | 説明
 -----|------|--------------
-`device_code` | `string` | The device verification code is 40 characters and used to verify the device.
-`user_code` | `string` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.
-`verification_uri` | `string` | The verification URL where users need to enter the `user_code`: {% data variables.product.device_authorization_url %}.
-`expires_in` | `integer`| The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds or 15 minutes.
-`interval` | `integer` | The minimum number of seconds that must pass before you can make a new access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) to complete the device authorization. For example, if the interval is 5, then you cannot make a new request until 5 seconds pass. If you make more than one request over 5 seconds, then you will hit the rate limit and receive a `slow_down` error.
+`device_code` | `string` | デバイス検証コードは40文字で、デバイスの検証に使われます。
+`user_code` | `string` | ユーザ検証コードは、ユーザがブラウザに入力できるようにデバイスに表示されます。 このコードは8文字で、途中にハイフンがあります。
+`verification_uri` | `string` | ユーザーが `user_code` を入力しなければならない検証 URL: {% data variables.product.device_authorization_url %}。
+`expires_in` | `integer`| `device_code` と `user_code` の有効期限か切れるまでの秒数。 デフォルトは900秒、すなわち15分です。
+`interval` | `integer` | デバイスの認可を完了するために新しいアクセス トークンのリクエスト (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) を発行する前に経過する必要がある最小秒数。 たとえばintervalが5であれば、5秒が経過するまでは新しいリクエストを発行できません。 5 秒間に複数のリクエストを発行すると、レート制限に達して `slow_down` エラーが返されます。
 
-### Step 2: Prompt the user to enter the user code in a browser
+### ステップ2: ブラウザでユーザコードの入力をユーザに促す
 
-Your device will show the user verification code and prompt the user to enter the code at {% data variables.product.device_authorization_url %}.
+デバイスはユーザ検証コードを表示し、ユーザに対してこのコードを{% data variables.product.device_authorization_url %}で入力するように求めます。
 
-  ![Field to enter the user verification code displayed on your device](/assets/images/github-apps/device_authorization_page_for_user_code.png)
+  ![デバイスに表示されたユーザ検証コードの入力フィールド](/assets/images/github-apps/device_authorization_page_for_user_code.png)
 
-### Step 3: App polls GitHub to check if the user authorized the device
+### ステップ3: ユーザがデバイスを認証したか、アプリケーションがGitHubをポーリング
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-Your app will make device authorization requests that poll `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, until the device and user codes expire or the user has successfully authorized the app with a valid user code. The app must use the minimum polling `interval` retrieved in step 1 to avoid rate limit errors. For more information, see "[Rate limits for the device flow](#rate-limits-for-the-device-flow)."
+アプリケーションでは、デバイスおよびユーザー コードが期限切れになるか、有効なユーザー コードでアプリケーションが認可されるまで、`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` をポーリングするデバイス認可リクエストを発行します。 アプリケーションでは、レート制限エラーを避けるために、ステップ 1 で取得したポーリングの最小 `interval` を使います。 詳細については、「[デバイス フローのレート制限](#rate-limits-for-the-device-flow)」を参照してください。
 
-The user must enter a valid code within 15 minutes (or 900 seconds). After 15 minutes, you will need to request a new device authorization code with `POST {% data variables.product.oauth_host_code %}/login/device/code`.
+ユーザは、15分（あるいは900秒）以内に有効なコードを入力しなければなりません。 15 分が経過すると、新たなデバイス認可コードを `POST {% data variables.product.oauth_host_code %}/login/device/code` でリクエストしなければなりません。
 
-Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.
+ユーザが認可されると、アプリケーションはユーザの代わりにAPIにリクエストを発行するために利用できるアクセストークンを受け取ります。
 
-#### Input parameters
+#### 入力パラメーター
 
-Name | Type | Description
+名前 | 型 | 説明
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
-`grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
+`client_id` | `string` | **必須。** {% data variables.product.prodname_oauth_app %} に対して {% data variables.product.product_name %} から受け取ったクライアント ID。
+`device_code` | `string` | **必須。** `POST {% data variables.product.oauth_host_code %}/login/device/code` リクエストから受け取ったデバイス検証コード。
+`grant_type` | `string` | **必須。** 付与タイプは `urn:ietf:params:oauth:grant-type:device_code` でなければなりません。
 
-#### Response
+#### [応答]
 
-By default, the response takes the following form:
+デフォルトでは、レスポンスは以下の形式になります。
 
 ```
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
@@ -244,84 +250,80 @@ Accept: application/xml
 </OAuth>
 ```
 
-### Rate limits for the device flow
+### デバイスフローのレート制限
 
-When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
+ユーザがブラウザ上で検証コードをサブミットする場合、アプリケーションごとに1時間に50回のサブミットというレート制限があります。
 
-If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
+リクエスト間で要求される最小の時間間隔 (つまり `interval`) 内で複数のアクセス トークン リクエスト (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) を発行すると、レート制限に達し、`slow_down` エラー応答が返されます。 `slow_down` エラー応答によって、最後の `interval` に 5 秒が追加されます。 詳細については、「[デバイス フローのエラー](#errors-for-the-device-flow)」を参照してください。
 
-### Error codes for the device flow
+### デバイスフローのエラーコード
 
-| Error code | Description |
+| エラー コード | 説明 |
 |----|----|
-| `authorization_pending`| This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` request without exceeding the [`interval`](#response-parameters), which requires a minimum number of seconds between each request. |
-| `slow_down` | When you receive the `slow_down` error, 5 extra seconds are added to the minimum `interval` or timeframe required between your requests using `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`. For example, if the starting interval required at least 5 seconds between requests and you get a `slow_down` error response, you must now wait a minimum of 10 seconds before making a new request for an OAuth access token. The error response includes the new `interval` that you must use.
-| `expired_token` | If the device code expired, then you will see the `token_expired` error. You must make a new request for a device code.
-| `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
-| `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The `client_secret` is not needed for the device flow.
-| `incorrect_device_code` | The device_code provided is not valid.
-| `access_denied` | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
-| `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information, see "[Device flow](#device-flow)."{% endif %}
+| `authorization_pending`| このエラーコードは、認可リクエストが保留中で、ユーザがユーザコードをまだ入力していない場合に生じます。 アプリケーションには、[`interval`](#response-parameters) を超えない範囲で `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` リクエストをポーリングし続けることが期待されます。この際には、リクエスト間に最小の秒数を空けることが必要です。 |
+| `slow_down` | `slow_down` エラーが返された場合、最小の `interval`、あるいは `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` を使用するリクエスト間に必要な時間間隔に 5 秒が追加されます。 たとえば、開始時の間隔としてリクエスト間に最小で 5 秒が必要だった場合に、`slow_down` エラー応答が返されると、OAuth アクセス トークンを求める新しいリクエストの発行までに最短でも 10 秒待たなければならなくなります。 エラー応答には、使用する必要がある新しい `interval` 情報が含まれます。
+| `expired_token` | デバイス コードの有効期限が切れた場合は、`token_expired` エラーが表示されます。 デバイスコードを求める新しいリクエストを発行しなければなりません。
+| `unsupported_grant_type` | OAuth トークン リクエストの `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` でポーリングする際には、付与タイプを `urn:ietf:params:oauth:grant-type:device_code` として、入力パラメーターに含めなければなりません。
+| `incorrect_client_credentials` | デバイスフローでは、アプリケーションのクライアントIDを渡さなければなりません。これは、アプリケーションの設定ページにあります。 デバイス フローに `client_secret` は必要ありません。
+| `incorrect_device_code` | 渡されたdevice_codeが有効ではありません。
+| `access_denied` | 認可プロセス中にユーザーがキャンセルをクリックした場合、`access_denied` エラーが返され、ユーザーは検証コードを再び利用することができなくなります。{% ifversion device-flow-is-opt-in %}
+| `device_flow_disabled` | アプリケーションの設定で、デバイス フローが有効になっていません。 詳細については、「[デバイス フロー](#device-flow)」を参照してください。{% endif %}
 
-For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
+詳細については、「[OAuth 2.0 デバイス認証の付与](https://tools.ietf.org/html/rfc8628#section-3.5)」を参照してください。
 
-## Non-Web application flow
+## 非Webアプリケーションフロー
 
-Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) to create a personal access token using your [Personal access tokens settings page](/articles/creating-an-access-token-for-command-line-use). This technique enables the user to revoke access at any time.
+テストのような限定的な状況では、非Web認証が利用できます。 必要な場合は、[{% data variables.product.pat_generic %} の設定ページ](/articles/creating-an-access-token-for-command-line-use)を使い、[基本認証](/rest/overview/other-authentication-methods#basic-authentication)を使って {% data variables.product.pat_generic %} を作成できます。 この手法を使えば、ユーザはいつでもアクセスを取り消せます。
 
-{% ifversion fpt or ghes or ghec %}
-{% note %}
+{% ifversion fpt or ghes or ghec %} {% note %}
 
-**Note:** When using the non-web application flow to create an OAuth2 token, make sure to understand how to [work with
-two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication) if
-you or your users have two-factor authentication enabled.
+**注:** 非 Web アプリケーション フローを使って OAuth2 トークンを作成する場合で、ユーザーが 2 要素認証を有効化しているなら、[2 要素認証の利用](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)方法を必ず理解しておいてください。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-## Redirect URLs
+## リダイレクト URI
 
-The `redirect_uri` parameter is optional. If left out, GitHub will
-redirect users to the callback URL configured in the OAuth Application
-settings. If provided, the redirect URL's host and port must exactly
-match the callback URL. The redirect URL's path must reference a
-subdirectory of the callback URL.
+`redirect_uri` パラメーターは省略可能です。 指定しなかった場合、GitHub では OAuth アプリケーションで設定されているコールバック URL にユーザーをリダイレクトします。 指定する場合、リダイレクト URL のホスト (サブドメインを除く) とポートは、コールバック URL と完全に一致している必要があります。 リダイレクト URL のパスは、コールバック URL のサブディレクトリを参照していなければなりません。
 
     CALLBACK: http://example.com/path
 
     GOOD: http://example.com/path
     GOOD: http://example.com/path/subdir/other
+    GOOD: http://oauth.example.com/path
+    GOOD: http://oauth.example.com/path/subdir/other
     BAD:  http://example.com/bar
     BAD:  http://example.com/
     BAD:  http://example.com:8080/path
     BAD:  http://oauth.example.com:8080/path
     BAD:  http://example.org
 
-### Localhost redirect urls
+### ループバック リダイレクト URI
 
-The optional `redirect_uri` parameter can also be used for localhost URLs. If the application specifies a localhost URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback url for the app.
+オプションの `redirect_uri` パラメーターは、ループバック URL にも使用できます。 アプリケーションでループバック URL とポートを指定した場合、アプリケーションを認可した後、ユーザーは指定した URL とポートにリダイレクトされます。 `redirect_uri` は、アプリのコールバック URL で指定されたポートと一致している必要はありません。
 
-For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
+`http://127.0.0.1/path` コールバック URL には、次の `redirect_uri` を使用できます。
 
 ```
 http://127.0.0.1:1234/path
 ```
 
-## Creating multiple tokens for OAuth Apps
+OAuth の RFC では、[`localhost` の使用は推奨されておらず](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3)、代わりにループバック リテラル `127.0.0.1` または IPv6 `::1` を使うことが推奨されています。
 
-You can create multiple tokens for a user/application/scope combination to create tokens for specific use cases.
+## OAuthアプリケーションに複数のトークンを作成する
 
-This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.
+ユーザ／アプリケーション／スコープの組み合わせに対して複数のトークンを作成し、特定のユースケースに対応できます。
+
+OAuthアプリケーションが、サインインにGitHubを利用し、基本的なユーザ情報しか必要としないワークフローを1つサポートするだけであれば、これは有益です。 別のワークフローはユーザのプライベートリポジトリへのアクセスを必要としていてもかまいません。 複数のトークンを使えば、OAuthアプリケーションはそれぞれのユースケースに対してWebフローを実行でき、必要なスコープだけをリクエストします。 ユーザがサインインにアプリケーションだけを使うなら、ユーザは自分のプライベートリポジトリへのアクセスをOAuthアプリケーションに許可する必要はありません。
 
 {% data reusables.apps.oauth-token-limit %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 
-## Directing users to review their access
+## ユーザにアクセスをレビューしてもらう
 
-You can link to authorization information for an OAuth App so that users can review and revoke their application authorizations.
+OAuthアプリケーションへの認可情報へリンクし、ユーザがアプリケーションの認可をレビューし、取り消しできるようにすることができます。
 
-To build this link, you'll need your OAuth Apps `client_id` that you received from GitHub when you registered the application.
+このリンクを構築するには、アプリケーションを登録したときに GitHub から受け取った OAuth App の `client_id` が必要です。
 
 ```
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
@@ -329,17 +331,17 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 {% tip %}
 
-**Tip:** To learn more about the resources that your OAuth App can access for a user, see "[Discovering resources for a user](/rest/guides/discovering-resources-for-a-user)."
+**ヒント:** OAuth App でアクセスできるユーザーのリソースについてさらに学ぶには、「[ユーザーのリソースを調べる](/rest/guides/discovering-resources-for-a-user)」を参照してください。
 
 {% endtip %}
 
-## Troubleshooting
+## トラブルシューティング
 
-* "[Troubleshooting authorization request errors](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
-* "[Troubleshooting OAuth App access token request errors](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-* "[Device flow errors](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-* "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
+* 「[認可リクエスト エラーのトラブルシューティング](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)」
+* 「[OAuth App アクセス トークンのリクエスト エラーのトラブルシューティング](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)」
+* [デバイス フロー エラー](#error-codes-for-the-device-flow)
+* [トークンの有効期限と失効](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)
 
-## Further reading
+## 参考資料
 
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
+- [{% data variables.product.prodname_dotcom %} の認証について](/github/authenticating-to-github/about-authentication-to-github)

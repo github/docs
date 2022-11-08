@@ -12,7 +12,6 @@ topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 Copying a {% data variables.projects.projects_v1_board %} allows you to reuse a {% data variables.projects.projects_v1_board %}'s title, description, and automation configuration. You can copy {% data variables.projects.projects_v1_boards %} to eliminate the manual process of creating new {% data variables.projects.projects_v1_boards %} for similar workflows.
@@ -25,10 +24,16 @@ A {% data variables.projects.projects_v1_board %}'s automation is also enabled b
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} you want to copy.
 {% data reusables.project-management.click-menu %}
-3. 单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Copy（复制）**。 ![项目板侧边栏的下拉菜单中的复制选项](/assets/images/help/projects/project-board-copy-setting.png)
-4. 在“Owner（所有者）”下，使用下拉菜单并单击要复制项目板的仓库或组织。 ![从下拉菜单中选择所复制项目板的所有者](/assets/images/help/projects/copied-project-board-owner.png)
-5. Optionally, under "Project board name", type the name of the copied {% data variables.projects.projects_v1_board %}. ![用于键入所复制项目板名称的字段](/assets/images/help/projects/copied-project-board-name.png)
-6. （可选）在“Description（说明）”下，键入其他人将看到的有关所复制项目板的说明。 ![用于键入所复制项目板说明的字段](/assets/images/help/projects/copied-project-board-description.png)
-7. （可选）在“Automation settings（自动化设置）”下，选择是否要复制已配置的自动工作流程。 默认情况下会启用此选项。 更多信息请参阅“[关于项目板的自动化](/articles/about-automation-for-project-boards/)”。 ![为所复制的项目板选择自动化设置](/assets/images/help/projects/copied-project-board-automation-settings.png)
+3. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Copy**.
+![Copy option in drop-down menu from project board sidebar](/assets/images/help/projects/project-board-copy-setting.png)
+4. Under "Owner", use the drop-down menu and click the repository or organization where you want to copy the project board.
+![Select owner of copied project board from drop-down menu](/assets/images/help/projects/copied-project-board-owner.png)
+5. Optionally, under "Project board name", type the name of the copied {% data variables.projects.projects_v1_board %}.
+![Field to type a name for the copied project board](/assets/images/help/projects/copied-project-board-name.png)
+6. Optionally, under "Description", type a description of the copied project board that other people will see.
+![Field to type a description for the copied project board](/assets/images/help/projects/copied-project-board-description.png)
+7. Optionally, under "Automation settings", select whether you want to copy the configured automatic workflows. This option is enabled by default. For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards/)."
+![Select automation settings for copied project board](/assets/images/help/projects/copied-project-board-automation-settings.png)
 {% data reusables.project-management.choose-visibility %}
-9. 单击 **Copy project（复制项目）**。 ![确认复制按钮](/assets/images/help/projects/confirm-copy-project-board.png)
+9. Click **Copy project**.
+![Confirm Copy button](/assets/images/help/projects/confirm-copy-project-board.png)

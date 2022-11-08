@@ -223,8 +223,12 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - id: set-matrix
+      - id: set-matrix{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+{%- endif %}{% raw %}
   job2:
     needs: job1
     runs-on: ubuntu-latest
@@ -277,7 +281,7 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## Status check functions
 
 You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".

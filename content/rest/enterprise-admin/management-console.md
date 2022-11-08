@@ -25,11 +25,13 @@ You need to pass your [Management Console password](/enterprise/admin/articles/a
 Use the `api_key` parameter to send this token with each request. For example:
 
 ```shell
-$ curl -L 'https://<em>hostname</em>:<em>admin_port</em>/setup/api?api_key=<em>your-amazing-password</em>'
+$ curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_PASSWORD'
 ```
 
 You can also use standard HTTP authentication to send this token. For example:
 
 ```shell
-$ curl -L -u "api_key:<em>your-amazing-password</em>" 'https://<em>hostname</em>:<em>admin_port</em>/setup/api'
+$ curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
 ```
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

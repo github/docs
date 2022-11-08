@@ -1,7 +1,8 @@
 import { describe, expect } from '@jest/globals'
 
 import getRedirect from '../../lib/get-redirect.js'
-import { latest } from '../../lib/enterprise-server-releases.js'
+import { latest, supported } from '../../lib/enterprise-server-releases.js'
+const previousEnterpriserServerVersion = supported[1]
 
 describe('getRedirect basics', () => {
   it('should sometimes not correct the version prefix', () => {
@@ -79,34 +80,41 @@ describe('getRedirect basics', () => {
   it('should figure out redirect based on presence of pages in certain cases', () => {
     const ctx = {
       pages: {
-        '/en/enterprise-server@3.2/foo/bar': null,
-        '/en/enterprise-server@3.2/admin/github-management': null,
+        [`/en/enterprise-server@${previousEnterpriserServerVersion}/foo/bar`]: null,
+        [`/en/enterprise-server@${previousEnterpriserServerVersion}/admin/github-management`]: null,
       },
       redirects: {},
     }
     // Replacing `/user` with `` worked because there exits a page of such name.
-    expect(getRedirect('/enterprise-server@3.2/user/foo/bar', ctx)).toBe(
-      '/en/enterprise-server@3.2/foo/bar'
-    )
-    expect(getRedirect('/enterprise-server@3.2/admin/guides/user-management', ctx)).toBe(
-      '/en/enterprise-server@3.2/admin/github-management'
-    )
+    expect(
+      getRedirect(`/enterprise-server@${previousEnterpriserServerVersion}/user/foo/bar`, ctx)
+    ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/foo/bar`)
+    expect(
+      getRedirect(
+        `/enterprise-server@${previousEnterpriserServerVersion}/admin/guides/user-management`,
+        ctx
+      )
+    ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/admin/github-management`)
   })
 
   it('should always correct the old enterprise prefix', () => {
     const ctx = {
       pages: {},
       redirects: {
-        '/enterprise-server@3.3/foo': '/enterprise-server@3.3/bar',
+        [`/enterprise-server@${previousEnterpriserServerVersion}/foo`]: `/enterprise-server@${previousEnterpriserServerVersion}/bar`,
       },
     }
     expect(getRedirect('/enterprise', ctx)).toBe(`/en/enterprise-server@${latest}`)
-    expect(getRedirect('/enterprise/3.3', ctx)).toBe('/en/enterprise-server@3.3')
-    expect(getRedirect('/enterprise/3.3/something', ctx)).toBe(
-      '/en/enterprise-server@3.3/something'
+    expect(getRedirect(`/enterprise/${previousEnterpriserServerVersion}`, ctx)).toBe(
+      `/en/enterprise-server@${previousEnterpriserServerVersion}`
+    )
+    expect(getRedirect(`/enterprise/${previousEnterpriserServerVersion}/something`, ctx)).toBe(
+      `/en/enterprise-server@${previousEnterpriserServerVersion}/something`
     )
     // but also respect redirects if there are some
-    expect(getRedirect('/enterprise/3.3/foo', ctx)).toBe('/en/enterprise-server@3.3/bar')
+    expect(getRedirect(`/enterprise/${previousEnterpriserServerVersion}/foo`, ctx)).toBe(
+      `/en/enterprise-server@${previousEnterpriserServerVersion}/bar`
+    )
 
     // Unique snowflake pattern
     expect(getRedirect('/enterprise/github/admin/foo', ctx)).toBe(

@@ -25,7 +25,7 @@ if (!process.env.ELASTICSEARCH_URL) {
 }
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
-describeIfElasticsearchURL('search middleware', () => {
+describeIfElasticsearchURL('search v1 middleware', () => {
   jest.setTimeout(60 * 1000)
 
   test('basic search', async () => {
@@ -169,5 +169,82 @@ describeIfElasticsearchURL('search middleware', () => {
       expect(res.statusCode).toBe(400)
       expect(JSON.parse(res.text).error).toMatch('sort')
     }
+  })
+
+  test('breadcrumbless records should always return a string', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'breadcrumbs')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    // safe because we know exactly the fixtures
+    const hit = results.hits[0]
+    expect(hit.breadcrumbs).toBe('')
+  })
+})
+
+describeIfElasticsearchURL('search legacy middleware', () => {
+  jest.setTimeout(60 * 1000)
+
+  test('basic legacy search', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('language', 'en')
+    sp.set('version', 'dotcom')
+    const res = await get('/api/search/legacy?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(Array.isArray(results)).toBeTruthy()
+    const foundURLS = results.map((result) => result.url)
+    expect(foundURLS.includes('/en/foo')).toBeTruthy()
+  })
+
+  test('basic legacy search with single filter', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('language', 'en')
+    sp.set('version', 'dotcom')
+    sp.set('filters', 'Fixture')
+    const res = await get('/api/search/legacy?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(Array.isArray(results)).toBeTruthy()
+    const foundURLS = results.map((result) => result.url)
+    expect(foundURLS.includes('/en/foo')).toBeTruthy()
+    expect(foundURLS.includes('/en/bar')).toBeTruthy()
+    const foundTopics = results.map((result) => result.topics)
+    expect(foundTopics.every((topics) => topics.includes('Fixture'))).toBeTruthy()
+  })
+
+  test('basic legacy search with multiple filters', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('language', 'en')
+    sp.set('version', 'dotcom')
+    sp.set('filters', 'Fixture')
+    sp.append('filters', 'Get started')
+    const res = await get('/api/search/legacy?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(Array.isArray(results)).toBeTruthy()
+    const foundURLS = results.map((result) => result.url)
+    expect(foundURLS.includes('/en/bar')).toBeTruthy()
+    const foundTopics = results.map((result) => result.topics)
+    expect(
+      foundTopics.every((topics) => topics.includes('Fixture') && topics.includes('Get started'))
+    ).toBeTruthy()
+  })
+
+  test('basic legacy search with unknown filters', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('language', 'en')
+    sp.set('version', 'dotcom')
+    sp.set('filters', 'Never heard of')
+    const res = await get('/api/search/legacy?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(Array.isArray(results)).toBeTruthy()
+    expect(results.length).toBe(0)
   })
 })

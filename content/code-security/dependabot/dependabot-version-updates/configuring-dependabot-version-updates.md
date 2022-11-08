@@ -30,6 +30,8 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 
 {% data reusables.dependabot.initial-updates %} For more information, see "[Customizing dependency updates](/github/administering-a-repository/customizing-dependency-updates)."
 
+By default only direct dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot_version_updates %}. You can choose to receive updates for indirect dependencies defined in lock files. For more information, see "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#allow)."
+
 {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)" and "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)."
 
 ## Enabling {% data variables.product.prodname_dependabot_version_updates %}
@@ -90,11 +92,23 @@ If you want to enable version updates on forks, there's an extra step. Version u
 
 On a fork, you also need to explicitly enable {% data variables.product.prodname_dependabot %}.
 
+{% ifversion dependabot-version-updates-for-forks %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to allow {% data variables.product.prodname_dependabot %} to initiate version updates.
+![Screenshot of {% data variables.product.prodname_dependabot_version_updates %} setting for a forked repository](/assets/images/help/dependabot/dependabot-version-update-forks.png)
+
+{% else %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
 {% data reusables.dependabot.click-dependabot-tab %}
 5. Under "Enable Dependabot", click **Enable Dependabot**.
+
+{% endif %}
 
 ## Checking the status of version updates
 
@@ -135,7 +149,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     ignore:
       # Ignore updates to packages that start with 'aws'
       # Wildcards match zero or more arbitrary characters

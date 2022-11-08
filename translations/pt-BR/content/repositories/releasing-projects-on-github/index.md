@@ -1,5 +1,5 @@
 ---
-title: Lançando projetos no GitHub
+title: Releasing projects on GitHub
 intro: 'Você pode criar uma versão de modo a empacotar software, notas de versão e arquivos binários para outras pessoas baixarem.'
 redirect_from:
   - /categories/85/articles
@@ -21,6 +21,12 @@ children:
   - /comparing-releases
   - /automatically-generated-release-notes
   - /automation-for-release-forms-with-query-parameters
-shortTitle: Projetos de versão
+shortTitle: Release projects
+ms.openlocfilehash: c55fa32c2b865d79b397a9d66c84273793300dcb
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145127014'
 ---
 

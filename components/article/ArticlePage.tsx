@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
 
-import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
+import { ZapIcon, InfoIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { Link } from 'components/Link'
@@ -16,6 +17,11 @@ import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
+
+const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
+  ssr: false,
+})
+const isDev = process.env.NODE_ENV === 'development'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -57,6 +63,7 @@ export const ArticlePage = () => {
 
   return (
     <DefaultLayout>
+      {isDev && <ClientSideRefresh />}
       <ClientSideHighlight />
 
       <div className="container-xl px-3 px-md-6 my-4">
@@ -82,16 +89,14 @@ export const ArticlePage = () => {
               )}
 
               {permissions && (
-                <div className="permissions-statement d-table">
-                  <div className="d-table-cell pr-2">
-                    <ShieldLockIcon size={16} />
-                  </div>
-                  <div className="d-table-cell" dangerouslySetInnerHTML={{ __html: permissions }} />
+                <div className="permissions-statement pl-3 my-4">
+                  <div className="text-bold pr-2">{t('permissions_statement')}</div>
+                  <div dangerouslySetInnerHTML={{ __html: permissions }} />
                 </div>
               )}
 
-              {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
-              {includesToolSpecificContent && <ToolPicker variant="underlinenav" />}
+              {includesPlatformSpecificContent && <PlatformPicker />}
+              {includesToolSpecificContent && <ToolPicker />}
 
               {product && (
                 <Callout
@@ -112,9 +117,7 @@ export const ArticlePage = () => {
                   </Link>
                 </div>
               )}
-              {miniTocItems.length > 1 && (
-                <MiniTocs pageTitle={title} miniTocItems={miniTocItems} />
-              )}
+              {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
             </>
           }
         >

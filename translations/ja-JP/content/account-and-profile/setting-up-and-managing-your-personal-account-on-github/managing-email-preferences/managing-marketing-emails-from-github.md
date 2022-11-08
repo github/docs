@@ -12,23 +12,29 @@ versions:
 topics:
   - Accounts
   - Notifications
-shortTitle: マーケティングメール
+shortTitle: Marketing emails
+ms.openlocfilehash: 07d100e59d025072e098b016bde30a23b9a7449e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145165279'
 ---
-
 ## {% data variables.product.prodname_dotcom %} マーケティング メールのサブスクライブを解除する
 
 {% tip %}
 
-**ヒント:** すべてのマーケティング メールのサブスクライブを解除したうえで Explore ニュースレターをサブスクライブすると、Explore ニュースレターだけが届くようになり、他のマーケティング メールは届かなくなります。
+**ヒント:** すべてのマーケティング メールの購読を解除したうえで Explore ニュースレターを購読すると、Explore ニュースレターだけが届くようになり、他のマーケティング メールは届かなくなります。
 
 {% endtip %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-3. [*Email preferences*] で、[**Only receive account related emails, and those I subscribe to**] を選択します。 ![マーケティング メールをオプトアウトする画面](/assets/images/help/notifications/email_preferences.png)
-4. [**Save email preferences**] をクリックします。 ![[Save email preferences] ボタン](/assets/images/help/notifications/save_email_preferences.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+3. *[メール設定]* で、 **[アカウント関連のメールと購読しているメールのみを受信する]** を選択します。
+  ![マーケティング メールをオプトアウトする画面](/assets/images/help/notifications/email_preferences.png)
+4. **[メールの設定を保存]** をクリックします。
+  ![[メールの設定を保存] ボタン](/assets/images/help/notifications/save_email_preferences.png)
 
-## 参考リンク
+## 参考資料
 
-- [GitHub が送信するメールの種類](/articles/types-of-emails-github-sends)
-- [通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)
+- 「[GitHub が配信するメールの種類](/articles/types-of-emails-github-sends)」
+- 「[通知の構成](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)」

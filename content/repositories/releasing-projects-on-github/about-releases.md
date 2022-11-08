@@ -19,10 +19,8 @@ topics:
 ---
 ## About releases
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 ![An overview of releases](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghae-issue-4972 %}
-![An overview of releases](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
 ![An overview of releases](/assets/images/help/releases/releases-overview.png)
 {% endif %}
@@ -35,11 +33,11 @@ You can receive notifications when new releases are published in a repository wi
 
 Anyone with read access to a repository can view and compare releases, but only people with write permissions to a repository can manage releases. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)."
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7054 %}
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.6 %}
 When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
 {% endif %}
 

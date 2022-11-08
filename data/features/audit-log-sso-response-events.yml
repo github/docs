@@ -1,0 +1,6 @@
+# Documentation for adding business.sso_response and org.sso_repsonse
+
+versions:
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>= 3.8'

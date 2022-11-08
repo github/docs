@@ -1,1 +1,6 @@
-`number`|`integer` | El número de la solicitud de extracción. `changes`|`object` | Los cambios al comentario en caso de que la acción sea `edited`. `changes[title][from]`|`string` | La versión previa del título si la acción fue `edited`. `changes[body][from]` |`string` | La versión previa del cuerpo si la acción aparece como `edited`. `pull_request`|`object` | La [solicitud de extracción](/rest/reference/pulls) misma.
+`number`|`integer` | The pull request number.
+`changes`|`object`| The changes to the comment if the action was `edited`.
+`changes[title][from]`|`string` | The previous version of the title if the action was `edited`.
+`changes[body][from]`|`string` | The previous version of the body if the action was `edited`.
+`pull_request`|`object` | The [pull request](/rest/reference/pulls) itself.{% ifversion fpt or ghec %}
+`reason`|`string` | The reason the pull request was removed from a merge queue if the action was `dequeued`.{% endif %}

@@ -1,8 +1,14 @@
-使用 `jobs.<job_id>.container` 创建一个容器，以在尚未指定容器的作业中运行任何步骤。 如有步骤同时使用脚本和容器操作，则容器操作将运行为同一网络上使用相同卷挂载的同级容器。
+Use `jobs.<job_id>.container` to create a container to run any steps in a job that don't already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.
 
-若不设置 `container`，所有步骤将直接在 `runs-on` 指定的主机上运行，除非步骤引用已配置为在容器中运行的操作。
+If you do not set a `container`, all steps will run directly on the host specified by `runs-on` unless a step refers to an action configured to run in a container.
 
-### 示例：在容器中运行作业
+{% note %}
+
+**Note:** The default shell for `run` steps inside a container is `sh` instead of `bash`. This can be overridden with [`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun) or [`jobs.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
+
+{% endnote %}
+
+### Example: Running a job within a container
 
 ```yaml{:copy}
 name: CI
@@ -26,7 +32,7 @@ jobs:
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
 ```
 
-只指定容器映像时，可以忽略 `image` 关键词。
+When you only specify a container image, you can omit the `image` keyword.
 
 ```yaml
 jobs:

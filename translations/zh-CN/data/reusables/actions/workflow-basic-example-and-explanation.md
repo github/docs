@@ -1,14 +1,17 @@
-## 创建示例工作流程
+## Create an example workflow
 
-{% data variables.product.prodname_actions %} 使用 YAML 语法来定义工作流程。  每个工作流程都作为单独的 YAML 文件存储在代码存储库中的目录 `.github/workflows` 下。
+{% data variables.product.prodname_actions %} uses YAML syntax to define the workflow.  Each workflow is stored as a separate YAML file in your code repository, in a directory named `.github/workflows`.
 
-您可以在仓库中创建示例工作流程，只要推送代码，该工作流程就会自动触发一系列命令。 在此工作流程中，{% data variables.product.prodname_actions %} 检出推送的代码，安装 [bats](https://www.npmjs.com/package/bats) 测试框架，并运行基本命令以输出 bats 版本：`bats -v`。
+You can create an example workflow in your repository that automatically triggers a series of commands whenever code is pushed. In this workflow, {% data variables.product.prodname_actions %} checks out the pushed code, installs the [bats](https://www.npmjs.com/package/bats) testing framework, and runs a basic command to output the bats version: `bats -v`.
 
-1. 在您的仓库中，创建 `.github/workflows/` 目录来存储工作流程文件。
-1. 在 `.github/workflows/` 目录中，创建一个名为 `learn-github-actions.yml` 的新文件并添加以下代码。
+1. In your repository, create the `.github/workflows/` directory to store your workflow files.
+1. In the `.github/workflows/` directory, create a new file called `learn-github-actions.yml` and add the following code.
 
-   ```yaml
+   ```yaml{:copy}
    name: learn-github-actions
+   {%- ifversion actions-run-name %}
+   run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
+   {%- endif %}
    on: [push]
    jobs:
      check-bats-version:
@@ -21,13 +24,13 @@
          - run: npm install -g bats
          - run: bats -v
    ```
-1. 提交这些更改并将其推送到您的 {% data variables.product.prodname_dotcom %} 仓库。
+1. Commit these changes and push them to your {% data variables.product.prodname_dotcom %} repository.
 
-您的新 {% data variables.product.prodname_actions %} 工作流程文件现在安装在您的仓库中，每次有人推送更改到仓库时都会自动运行。 要查看有关工作流程执行历史记录的详细信息，请参阅[查看工作流程运行的活动](#viewing-the-activity-for-a-workflow-run)”。
+Your new {% data variables.product.prodname_actions %} workflow file is now installed in your repository and will run automatically each time someone pushes a change to the repository. To see the details about a workflow's execution history, see "[Viewing the activity for a workflow run](#viewing-the-activity-for-a-workflow-run)."
 
-## 了解工作流程文件
+## Understanding the workflow file
 
-为帮助您了解如何使用 YAML 语法来创建工作流程文件，本节解释介绍示例的每一行：
+To help you understand how YAML syntax is used to create a workflow file, this section explains each line of the introduction's example:
 
 <table>
 <tr>
@@ -38,9 +41,23 @@
   ```
 </td>
 <td>
-  <em>可选</em> - 将出现在 {% data variables.product.prodname_dotcom %} 仓库的 Actions（操作）选项卡中的工作流程名称。
+  <em>Optional</em> - The name of the workflow as it will appear in the "Actions" tab of the {% data variables.product.prodname_dotcom %} repository.
 </td>
 </tr>
+{%- ifversion actions-run-name %}
+<tr>
+<td>
+
+  ```yaml
+  run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
+  ```
+</td>
+<td>
+
+  <em>Optional</em> - The name for workflow runs generated from the workflow, which will appear in the list of workflow runs on your repository's "Actions" tab. This example uses an expression with the `github` context to display the username of the actor that triggered the workflow run. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions#run-name)."
+</td>
+</tr>
+{%- endif %}
 <tr>
 <td>
 
@@ -49,7 +66,7 @@
   ```
 </td>
 <td>
-指定此工作流程的触发器。 此示例使用<code>推送</code>事件，因此每次有人将更改推送到存储库或合并拉取请求时，都会触发工作流程运行。  这是由推送到每个分支触发的；有关仅在推送到特定分支、路径或标记时运行的语法示例，请参阅“<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">{% data variables.product.prodname_actions %} 的工作流程语法”</a>。
+Specifies the trigger for this workflow. This example uses the <code>push</code> event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
 </td>
 </tr>
 <tr>
@@ -60,7 +77,7 @@
   ```
 </td>
 <td>
- 将 <code>learn-github-actions</code> 工作流程中运行的所有作业组合在一起。
+ Groups together all the jobs that run in the <code>learn-github-actions</code> workflow.
 </td>
 </tr>
 <tr>
@@ -71,7 +88,7 @@
   ```
 </td>
 <td>
-定义名为 <code>check-bats-version</code> 的作业。 子键将定义作业的属性。
+Defines a job named <code>check-bats-version</code>. The child keys will define properties of the job.
 </td>
 </tr>
 <tr>
@@ -82,7 +99,7 @@
   ```
 </td>
 <td>
-  将作业配置为在最新版本的 Ubuntu Linux 运行器上运行。 这意味着该作业将在 GitHub 托管的新虚拟机上执行。 有关使用其他运行器的语法示例，请参阅<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">“{% data variables.product.prodname_actions %} 的工作流程语法</a>”。
+  Configures the job to run on the latest version of an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see "<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
 </td>
 </tr>
 <tr>
@@ -93,7 +110,7 @@
   ```
 </td>
 <td>
-  将 <code>check-bats-version</code> 作业中运行的所有步骤组合在一起。 此部分下嵌套的每项都是一个单独的操作或 shell 脚本。
+  Groups together all the steps that run in the <code>check-bats-version</code> job. Each item nested under this section is a separate action or shell script.
 </td>
 </tr>
 <tr>
@@ -104,7 +121,7 @@
   ```
 </td>
 <td>
-<code>uses</code> 关键字指定此步骤将运行 <code>actions/checkout</code> 操作的 <code>v3</code>。 这是一个将存储库签出到运行器上的操作，允许您对代码（如生成和测试工具）运行脚本或其他操作。 每当工作流程将针对存储库的代码运行时，都应使用签出操作。
+The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
 </td>
 </tr>
 <tr>
@@ -117,7 +134,7 @@
   ```
 </td>
 <td>
-  此步骤使用 <code>{% data reusables.actions.action-setup-node %}</code> 操作来安装指定版本的 Node.js（此示例使用 v14）。 这会将 <code>node</code> 和 <code>npm</code> 命令放在 <code>PATH</code>中。
+  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). This puts both the <code>node</code> and <code>npm</code> commands in your <code>PATH</code>.
 </td>
 </tr>
 <tr>
@@ -128,7 +145,7 @@
   ```
 </td>
 <td>
-  <code>run</code> 关键字指示作业在运行器上执行命令。 在这种情况下，使用 <code>npm</code> 来安装 <code>bats</code> 软件测试包。
+  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
 </td>
 </tr>
 <tr>
@@ -139,34 +156,34 @@
   ```
 </td>
 <td>
-  最后，您将运行 <code>bats</code> 命令，并且带有输出软件版本的参数。
+  Finally, you'll run the <code>bats</code> command with a parameter that outputs the software version.
 </td>
 </tr>
 </table>
 
-### 可视化工作流程文件
+### Visualizing the workflow file
 
-在此关系图中，您可以看到刚刚创建的工作流程文件，以及 {% data variables.product.prodname_actions %} 组件在层次结构中的组织方式。 每个步骤执行单个操作或 shell 脚本。 步骤 1 和 2 运行操作，步骤 3 和 4 运行 shell 脚本。 要查找更多为工作流预构建的操作，请参阅“[查找和自定义操作](/actions/learn-github-actions/finding-and-customizing-actions)”。
+In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell script. Steps 1 and 2 run actions, while steps 3 and 4 run shell scripts. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
 
-![工作流程概述](/assets/images/help/images/overview-actions-event.png)
+![Workflow overview](/assets/images/help/images/overview-actions-event.png)
 
-## 查看工作流程运行的活动
+## Viewing the activity for a workflow run
 
-触发工作流程时，将创建执行工作流程的_工作流程运行_。 工作流程运行启动后，您可以在 {% data variables.product.prodname_dotcom %} 上查看运行进度的可视化图形并查看每个步骤的活动。
+When your workflow is triggered, a _workflow run_ is created that executes the workflow. After a workflow run has started, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. 在仓库名称下，单击 **Actions（操作）**。
+1. Under your repository name, click **Actions**.
 
-   ![导航到仓库](/assets/images/help/images/learn-github-actions-repository.png)
-1. 在左侧边栏中，单击您想要查看的工作流程。
+   ![Navigate to repository](/assets/images/help/images/learn-github-actions-repository.png)
+1. In the left sidebar, click the workflow you want to see.
 
-   ![工作流程结果的屏幕截图](/assets/images/help/images/learn-github-actions-workflow.png)
-1. 在“Workflow runs（工作流程运行）”下，单击您想要查看的运行的名称。
+   ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
+1. Under "Workflow runs", click the name of the run you want to see.
 
-   ![工作流程运行的屏幕截图](/assets/images/help/images/learn-github-actions-run.png)
-1. 在 **Jobs（作业）**下或可视化图中，单击您要查看的作业。
+   ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
+1. Under **Jobs** or in the visualization graph, click the job you want to see.
 
-   ![选择作业](/assets/images/help/images/overview-actions-result-navigate.png)
-1. 查看每个步骤的结果。
+   ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
+1. View the results of each step.
 
-   ![工作流程运行详细信息的屏幕截图](/assets/images/help/images/overview-actions-result-updated-2.png)
+   ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)

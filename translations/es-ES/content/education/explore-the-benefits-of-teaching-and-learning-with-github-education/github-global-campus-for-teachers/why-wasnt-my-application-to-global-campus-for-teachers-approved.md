@@ -1,6 +1,6 @@
 ---
-title: Why wasn't my application to Global Campus for teachers approved?
-intro: 'Review common reasons that applications for {% data variables.product.prodname_global_campus %} are not approved and learn tips for reapplying successfully.'
+title: ¿Por qué no se ha aprobado mi solicitud a Global Campus para profesores?
+intro: 'Revisa las razones frecuentes por las que las solicitudes para el {% data variables.product.prodname_global_campus %} no se aprueban y lee las sugerencias para volver a solicitarlo con éxito.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -11,12 +11,17 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
   fpt: '*'
-shortTitle: Aplicación sin aprobar
+shortTitle: Application not approved
+ms.openlocfilehash: 68fe0a970c94a73293505849425bc78ec78b265e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109845'
 ---
-
 {% tip %}
 
-**Sugerencia:** {% data reusables.education.about-github-education-link %}
+**Consejo:** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
@@ -42,8 +47,8 @@ Si tienes otras preguntas o inquietudes acerca del dominio de la escuela, solici
 
 ## Personas que no son estudiantes solicitan un paquete de desarrollo para estudiantes
 
-Teachers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Cuando vuelves a presentar una solicitud, asegúrate de elegir **Profesor** para describir tu situación académica.
+Los profesores no son elegibles para las ofertas de asociados incluidas en el [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Cuando vuelva a presentar su solicitud, asegúrese de elegir **Faculty** (Profesor) para describir su situación académica.
 
-## Leer más
+## Información adicional
 
-- "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"
+- «[Solicitud de acceso al {% data variables.product.prodname_global_campus %} para profesor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)»

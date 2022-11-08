@@ -1,7 +1,7 @@
 ---
-title: Enterprise administrator documentation
+title: 企业管理员文档
 shortTitle: Enterprise administrators
-intro: 'Documentation and guides for enterprise administrators{% ifversion ghes %}, system administrators,{% endif %} and security specialists who {% ifversion ghes %}deploy, {% endif %}configure{% ifversion ghes %},{% endif %} and manage {% data variables.product.product_name %}.'
+intro: '适用于{% ifversion ghes %}部署、{% endif %}配置{% ifversion ghes %}、{% endif %}和管理 {% data variables.product.product_name %} 的企业管理员{% ifversion ghes %}、系统管理员{% endif %}和安全专家的文档和指南。'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise
@@ -105,14 +105,6 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks{% endif %}'
     - /billing/managing-your-license-for-github-enterprise/using-visual-studio-subscription-with-github-enterprise/setting-up-visual-studio-subscription-with-github-enterprise
     - /admin/enterprise-support/about-github-enterprise-support
-  videos:
-    - title: GitHub in the Enterprise – Maya Ross
-      href: 'https://www.youtube-nocookie.com/embed/1-i39RqaxRs'
-    - title: What's new for GitHub Enterprise – Jarryd McCree
-      href: 'https://www.youtube-nocookie.com/embed/ZZviWZgrqhM'
-    - title: Enforcing information security policy through GitHub Enterprise – Thomas Worley
-      href: 'https://www.youtube-nocookie.com/embed/DCu-ZTT7WTI'
-  videosHeading: GitHub Universe 2021 videos
 layout: product-landing
 versions:
   ghec: '*'
@@ -133,5 +125,11 @@ children:
   - /guides
   - /release-notes
   - /all-releases
+ms.openlocfilehash: 3980ad01e56bf1e38dd6473c5e5246c6d45350eb
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111306'
 ---
 

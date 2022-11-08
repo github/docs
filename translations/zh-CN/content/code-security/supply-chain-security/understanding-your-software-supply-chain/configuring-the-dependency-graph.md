@@ -1,6 +1,6 @@
 ---
-title: 配置依赖关系图
-intro: 您可以通过启用依赖项关系图来允许用户标识其项目的依赖项。
+title: Configuring the dependency graph
+intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph
 versions:
@@ -13,38 +13,40 @@ topics:
   - Dependency graph
   - Dependencies
   - Repositories
-shortTitle: 配置依赖关系图
+shortTitle: Configure dependency graph
 ---
+## About the dependency graph
 
-## 关于依赖项图
+{% data reusables.dependabot.about-the-dependency-graph %}  
 
-{% data reusables.dependabot.about-the-dependency-graph %}
-
-更多信息请参阅“[关于依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。
+For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
 {% ifversion fpt or ghec %}
-## 关于配置依赖关系图
-要生成依赖关系图，{% data variables.product.product_name %} 需要对仓库的依赖项清单和锁定文件的只读访问权限。 依赖关系图自动为所有公共仓库生成，您可以选择为私有仓库启用它。 有关查看依赖关系图的更多信息，请参阅“[探索存储库的依赖关系](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)”。
+## About configuring the dependency graph 
+To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For more information on viewing the dependency graph, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."
 
 {% data reusables.dependency-submission.dependency-submission-link %}
 {% endif %}
 
 {% ifversion ghes %} ## Enabling the dependency graph
+{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
 {% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
 
-### 为私有仓库启用或禁用依赖关系图
+### Enabling and disabling the dependency graph for a private repository
 
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
+
+{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
 {% endif %}
 
-首次启用依赖关系图时，将立即剖析受支持的生态系统的任何清单和锁定文件。 依赖关系图通常在几分钟之内填充，但对于依赖项很多的仓库，可能需要更长时间。 启用后，该图将在每次推送到仓库{% ifversion fpt or ghec %}以及每次推送到该图中的其他仓库{% endif %}时自动更新。
+When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% ifversion fpt or ghec %} and every push to other repositories in the graph{% endif %}.
 
 {% ifversion ghes %}
 {% ifversion dependency-submission-api %}{% data reusables.dependency-submission.dependency-submission-link %}{% endif %}
 {% endif %}
 
-## 延伸阅读
+## Further reading
 
-{% ifversion ghec %}"[查看用于组织的洞见](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
-- “[查看和更新 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)”
-- "[漏洞依赖项检测疑难解答](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"
+{% ifversion ghec %}- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
+- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
+- "[Troubleshooting the detection of vulnerable dependencies](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"

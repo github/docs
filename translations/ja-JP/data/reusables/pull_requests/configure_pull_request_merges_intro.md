@@ -1,1 +1,1 @@
-{% data variables.product.product_location %} 上でプルリクエストのマージオプションを設定して、ワークフローの要求と Git の履歴管理への要望を満たすことができます。 詳しい情報については[プルリクエストのマージの設定](/articles/configuring-pull-request-merges)を参照してください。
+You can configure pull request merge options on {% data variables.location.product_location %} to meet your workflow needs and preferences for managing Git history. For more information, see "[Configuring pull request merges](/articles/configuring-pull-request-merges)."

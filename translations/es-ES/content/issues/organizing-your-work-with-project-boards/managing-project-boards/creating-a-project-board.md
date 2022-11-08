@@ -1,6 +1,6 @@
 ---
-title: 'Crear una {% data variables.product.prodname_project_v1 %}'
-intro: 'Los {% data variables.projects.projects_v1_boards_caps %} pueden utilizarse para crear flujos de trabajo personalizados que se acoplen a tus necesidades, como rastrear y priorizar el trabajo de características específicas, itinerarios integrales o incluso listas de verificación.'
+title: 'Creating a {% data variables.product.prodname_project_v1 %}'
+intro: '{% data variables.projects.projects_v1_boards_caps %} can be used to create customized workflows to suit your needs, like tracking and prioritizing specific feature work, comprehensive roadmaps, or even release checklists.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
   - /articles/creating-a-project
@@ -16,28 +16,29 @@ topics:
 type: how_to
 allowTitleToDifferFromFilename: true
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-{% data reusables.project-management.link-repos-to-project-board %} Para obtener más información, consulta la sección "[Enlazar un repositorio a un {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)".
+{% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %}
+](/articles/linking-a-repository-to-a-project-board)."
 
-Una vez que hayas creado tu {% data variables.projects.projects_v1_board %}, puedes agregar propuestas, solicitudes de cambio y notas a este. Para obtener más información, consulta la sección "[Agregar propuestas y solicitudes de cambio a un {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)" y "[Agregar notas a un {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)".
+Once you've created your {% data variables.projects.projects_v1_board %}, you can add issues, pull requests, and notes to it. For more information, see "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)" and "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
 
-También puedes configurar automatizaciones de flujo de trabajo para mantener sincronizado a tu {% data variables.projects.projects_v1_board %} con el estado de las propuestas y solicitudes de cambios. Para obtener más información, consulta la sección "[Acerca de la automatización para los {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)".
+You can also configure workflow automations to keep your {% data variables.projects.projects_v1_board %} in sync with the status of issues and pull requests. For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Crear un {% data variables.projects.projects_v1_board %} perteneciente a un usuario
+## Creating a user-owned {% data variables.projects.projects_v1_board %}
 
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_profile %}
-2. En la parte superior de tu página de perfil, en la navegación principal, haz clic en {% octicon "project" aria-label="The project board icon" %} **Proyectos**. ![Project tab](/assets/images/help/projects/user-projects-tab.png){% ifversion projects-v2 %}
-1. Haz clic en **Proyectos (clásico)**{% endif %}
+2. On the top of your profile page, in the main navigation, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
+![Project tab](/assets/images/help/projects/user-projects-tab.png){% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -53,14 +54,14 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener si
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Crear un {% data variables.projects.projects_v1_board %} de toda la organización
+## Creating an organization-wide {% data variables.projects.projects_v1_board %}
 
 {% data reusables.projects.classic-project-creation %}
 
 {% ifversion classic-project-visibility-permissions %}
 {% note %}
 
-**Nota:** {% data reusables.projects.owners-can-limit-visibility-permissions %}
+**Note:** {% data reusables.projects.owners-can-limit-visibility-permissions %}
 
 {% endnote %}
 {% endif %}
@@ -68,7 +69,7 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener si
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Haz clic en **Proyectos (clásico)**{% endif %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -84,13 +85,14 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener si
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Crear un {% data variables.projects.projects_v1_board %} de un repositorio
+## Creating a repository {% data variables.projects.projects_v1_board %}
 
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. En el nombre de tu repositorio, haz clic en {% octicon "project" aria-label="The project board icon" %} **Proyectos**. ![Project tab](/assets/images/help/projects/repo-tabs-projects.png){% ifversion projects-v2 %}
-1. Haz clic en **Proyectos (clásico)**{% endif %}
+2. Under your repository name, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
+![Project tab](/assets/images/help/projects/repo-tabs-projects.png){% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -104,10 +106,10 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener si
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Leer más
+## Further reading
 
-- "[Acerca de los tableros de proyectos](/articles/about-project-boards)"
-- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
+- "[About projects boards](/articles/about-project-boards)"
+- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
-- "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)"
-- "[Acerca de la automatización de los tableros de proyecto](/articles/about-automation-for-project-boards)"
+- "[Closing a project board](/articles/closing-a-project-board)"
+- "[About automation for project boards](/articles/about-automation-for-project-boards)"

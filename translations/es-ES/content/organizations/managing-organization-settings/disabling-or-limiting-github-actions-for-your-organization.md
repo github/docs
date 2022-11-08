@@ -118,7 +118,15 @@ By default, when you create a new organization, `GITHUB_TOKEN` only has read acc
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
 
-   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+   {% ifversion allow-actions-to-approve-pr %}
+      {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
+      {% else %}
+   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
+      {% endif %}
+   {% else %}
+   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
+   {% endif %}
 1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr %}
@@ -134,7 +142,49 @@ By default, when you create a new organization, workflows are not allowed to {% 
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", use the **Allow GitHub Actions to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests** setting to configure whether `GITHUB_TOKEN` can {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests.
 
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+   {% ifversion allow-actions-to-approve-pr %}
+      {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
+      {% else %}
+   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
+      {% endif %}
+   {% else %}
+   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+   {% endif %}
 1. Click **Save** to apply the settings.
+
+{% endif %}
+
+{% ifversion actions-cache-org-ui %}
+
+## Managing {% data variables.product.prodname_actions %} cache storage for your organization
+
+Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization. 
+
+### Viewing {% data variables.product.prodname_actions %} cache storage by repository
+
+For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the left sidebar, click {% octicon "play" aria-label="The {% data variables.product.prodname_actions %} icon" %} **Actions**, then click **Caches**.
+1. Review the list of repositories for information about their {% data variables.product.prodname_actions %} caches. You can click on a repository name to see more detail about the repository's caches.
+
+{% ifversion actions-cache-admin-ui %}
+
+### Configuring {% data variables.product.prodname_actions %} cache storage for your organization
+
+{% data reusables.actions.cache-default-size %}
+
+You can configure the size limit for {% data variables.product.prodname_actions %} caches that will apply to each repository in your organization. The cache size limit for an organization cannot exceed the cache size limit set in the enterprise policy. Repository admins will be able to set a smaller limit in their repositories.
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
+{% data reusables.actions.change-cache-size-limit  %}
+
+{% endif %}
 
 {% endif %}

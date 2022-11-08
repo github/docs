@@ -1,0 +1,23 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 'Após desbloquear um repositório para acesso temporário, o administrador do site não conseguiu gerenciar as configurações dos produtos de segurança no repositório.'
+    - 'Chaves SSH administrativas duplicadas podem aparecer tanto no Console de Gerenciamento quanto no arquivo `/home/admin/.ssh/authorized_keys`.'
+    - 'Em alguns casos, executar `ghe-cluster-config-apply` pode replicar uma configuração vazia para nós existentes em um cluster.'
+    - 'Em alguns casos, as execuções de configuração iniciadas com `ghe-config-apply` não foram concluídas ou retornaram um erro `Incompatibilidade de contagem de contêiner`.'
+    - 'Depois de atualizar um certificado TLS autoassinado em uma instância de4 servidor do GitHub Enterprise, os elementos da interface do usuário em algumas páginas da interface da Web não apareceram.'
+    - 'Em alguns casos, as tarefas em segundo plano podem parar devido a uma biblioteca que foi usada simultaneamente, apesar de não ser thread-safe.'
+  changes:
+    - 'A geração de pacotes de suporte é mais rápida como resultado da sanitização de log paralelizada. Para ver mais informações sobre pacotes de suporte, confira "[Como fornecer dados ao suporte do GitHub](/support/contacting-github-support/providing-data-to-github-support)."'
+    - 'O log de auditoria empresarial agora inclui mais eventos gerados pelo usuário, como `project.create`. A API REST também retorna eventos adicionais gerados pelo usuário, como `repo.create`. Para ver mais informações, confira "[Como acessar o log de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" e "[Como usar a API de log de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."'
+  known_issues:
+    - 'Depois da atualização para {% data variables.product.prodname_ghe_server %} 3.3, o {% data variables.product.prodname_actions %} pode ter falhas na inicialização automática. Para resolver esse problema, conecte-se ao dispositivo via SSH e execute o comando `ghe-actions-start`.'
+    - 'Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.'
+    - 'As regras de firewall personalizadas são removidas durante o processo de atualização.'
+    - 'Arquivos LFS do Git [enviados através da interface da Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo de blobs é maior que 255 caracteres.'
+    - 'Quando "Usuários podem pesquisar GitHub.com" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas em repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}.'
+    - 'O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar esse valor no futuro quando tivermos resolvido os problemas de desempenho existentes.'
+    - 'Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.'
+    - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando "Forçar estilo de caminho" for selecionado e deverão ser definidas com a ferramenta de linha de comando `ghe-actions-precheck`.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

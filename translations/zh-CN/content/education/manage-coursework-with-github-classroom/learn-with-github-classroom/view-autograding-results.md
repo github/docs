@@ -9,7 +9,7 @@ redirect_from:
 ---
 ## About autograding
 
-Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.product.product_location %}.
+Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.location.product_location %}.
 
 If you're a student and your instructor has configured autograding for your assignment in {% data variables.product.prodname_classroom %}, you'll find autograding test results throughout your assignment repository. If all tests succeed for a commit, you'll see a green checkmark. If any tests fail for a commit, you'll see a red X. You can see detailed logs by clicking the green checkmark or red X.
 

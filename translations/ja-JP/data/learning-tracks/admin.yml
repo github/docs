@@ -100,7 +100,7 @@ improve_security_of_your_instance:
 
 configure_github_actions:
   title: 'Configure {% data variables.product.prodname_actions %}'
-  description: 'Allow your developers to create, automate, customize, and execute powerful software development workflows for {% data variables.product.product_location %} with {% data variables.product.prodname_actions %}.'
+  description: 'Allow your developers to create, automate, customize, and execute powerful software development workflows for {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}.'
   versions:
     ghes: '*'
   guides:
@@ -120,6 +120,7 @@ configure_github_advanced_security:
     - /admin/advanced-security/about-licensing-for-github-advanced-security
     - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
     - /admin/advanced-security/configuring-code-scanning-for-your-appliance
+    - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
     - /admin/advanced-security/configuring-secret-scanning-for-your-appliance
     - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
 

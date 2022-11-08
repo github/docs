@@ -1,6 +1,6 @@
 ---
-title: 管理组织的复刻政策
-intro: '您可以允许或阻止对组织拥有的任何私有{% ifversion ghes or ghae or ghec %} 和内部{% endif %} 仓库进行复刻。'
+title: Managing the forking policy for your organization
+intro: 'You can allow or prevent the forking of any private{% ifversion ghes or ghae or ghec %} and internal{% endif %} repositories owned by your organization.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -14,26 +14,31 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 管理复刻策略
+shortTitle: Manage forking policy
 ---
 
-默认情况下，新的组织被配置为禁止复刻私有{% ifversion ghes or ghec or ghae %}和内部{% endif %}仓库。
+By default, new organizations are configured to disallow the forking of private{% ifversion ghes or ghec or ghae %} and internal{% endif %} repositories.
 
-如果您在组织级别上允许复刻私有{% ifversion ghes or ghec or ghae %}和内部{% endif %}仓库，则还可以配置复刻特定{% ifversion ghes or ghec or ghae %}或内部{% endif %}仓库的能力。 更多信息请参阅“[管理仓库的复刻政策](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)”。
+If you allow forking of private{% ifversion ghes or ghec or ghae %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository. For more information, see "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
+
+{% ifversion org-owners-limit-forks-creation %}
+{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.profile.org_member_privileges %}
-1. 在“Repository forking（仓库复刻）”下，选择**允许私有{% ifversion ghec or ghes or ghae %}和内部{% endif %}仓库复刻**。
+1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
 
    {%- ifversion fpt %}
-   ![允许或禁止组织复刻的复选框](/assets/images/help/repository/allow-disable-forking-fpt.png)
+   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-fpt.png)
    {%- elsif ghes or ghec or ghae %}
-   ![允许或禁止组织复刻的复选框](/assets/images/help/repository/allow-disable-forking-organization.png)
-   {%- endif %}
-6. 单击 **Save（保存）**。
+   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png)
+   {%- endif %}{% ifversion org-owners-limit-forks-creation %}
+2. Optionally, if forking is enabled, you can specify where users are allowed to fork repositories. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and a more restrictive default has been selected in the enterprise settings, you won't be able to select the more permissive default in your organization settings. Review the information about changing the setting and choose a policy.
+   ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/org-repository-forking-policy-settings.png){%- endif %}
+3. Click **Save**.
 
-## 延伸阅读
+## Further reading
 
-- "[关于复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

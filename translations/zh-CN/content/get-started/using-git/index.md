@@ -26,5 +26,11 @@ children:
   - /using-git-rebase-on-the-command-line
   - /resolving-merge-conflicts-after-a-git-rebase
   - /dealing-with-special-characters-in-branch-and-tag-names
+ms.openlocfilehash: 806e5bb24731d651ed3fe416dc8f250aa2472710
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098886'
 ---
 

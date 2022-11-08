@@ -12,18 +12,23 @@ versions:
   ghec: '*'
 topics:
   - OAuth Apps
-shortTitle: トークンリクエストのトラブルシューティング
+shortTitle: Troubleshoot token request
+ms.openlocfilehash: 7764d0e1f23a3d2dac841412ea0120487c8f6560
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145089799'
 ---
-
 {% note %}
 
-**注釈:** この例ではJSONのレスポンスのみ示しています。
+**注:** これらの例では、JSON 応答のみが表示されます。
 
 {% endnote %}
 
 ## 不正なクライアント認識情報
 
-渡した client\_id や client\_secret が正しくない場合は、以下のエラーレスポンスを受け取ります。
+渡した client\_id や client\_secret が正しくない場合は、以下のエラー応答を受け取ります。
 
 ```json
 {
@@ -33,7 +38,7 @@ shortTitle: トークンリクエストのトラブルシューティング
 }
 ```
 
-このエラーを解決するには、{% data variables.product.prodname_oauth_app %} の正しい認証情報を持っているかを確認します。 `client_id` と `client_secret` が間違っていないか、また {% data variables.product.product_name %} に正しく渡されているかを再確認してください。
+このエラーを解決するには、{% data variables.product.prodname_oauth_app %} の正しい認証情報を持っているかを確認します。 `client_id` と `client_secret` を再確認して、これらが {% data variables.product.product_name %} に正しく渡されていることを確かめます。
 
 ## リダイレクトURIの不一致
 
@@ -47,7 +52,7 @@ shortTitle: トークンリクエストのトラブルシューティング
 }
 ```
 
-このエラーを修正するには、登録したものと一致する`redirect_uri`を指定するか、アプリケーションで登録されているデフォルトのURIを使用するためパラメータを省略します。
+このエラーを修正するには、登録したものと一致する `redirect_uri` を指定するか、アプリケーションで登録されている既定の URI を使用するためにこのパラメーターを省略します。
 
 ## 不正な検証コード
 
@@ -60,7 +65,7 @@ shortTitle: トークンリクエストのトラブルシューティング
 }
 ```
 
-渡した検証コードが間違っている、有効期限切れ、または最初の認可リクエストで受け取ったものと一致しない場合、このエラーを受信します。
+渡した検証コードが間違っている、有効期限切れ、または最初の認可要求で受け取ったものと一致しない場合、このエラーを受信します。
 
 ```json
 {
@@ -70,4 +75,4 @@ shortTitle: トークンリクエストのトラブルシューティング
 }
 ```
 
-この問題を解決するには、[OAuth Appの認可](/apps/building-oauth-apps/authorizing-oauth-apps/)のプロセスを再び開始し、新しいコードを取得します。
+このエラーを解決するには、[OAuth 認可プロセスを再び](/apps/building-oauth-apps/authorizing-oauth-apps/)開始し、新しいコードを取得します。

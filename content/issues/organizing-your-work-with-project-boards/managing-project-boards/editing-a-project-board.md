@@ -1,6 +1,6 @@
 ---
-title: Editing a {% data variables.product.prodname_project_v1 %}
-intro: You can edit the title and description of an existing {% data variables.projects.projects_v1_board %}.
+title: 'Editing a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can edit the title and description of an existing {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
   - /articles/editing-a-project
@@ -8,7 +8,7 @@ redirect_from:
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true

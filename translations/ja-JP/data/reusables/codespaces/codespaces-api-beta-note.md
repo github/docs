@@ -1,5 +1,5 @@
 {% note %}
 
-**ノート**: {% data variables.product.prodname_codespaces %} APIは現在パブリックベータであり、変更されることがあります。
+**Note**: The {% data variables.product.prodname_github_codespaces %} API is currently in public beta and subject to change.
 
 {% endnote %}

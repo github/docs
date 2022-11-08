@@ -1,6 +1,5 @@
----
-#Reference: #5727
-#Documentation for new runner 'arch' environment variables set by the `runner` app.
+# Reference: #5727
+# Documentation for new runner 'arch' environment variables set by the `runner` app.
 versions:
   fpt: '*'
   ghec: '*'

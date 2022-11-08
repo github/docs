@@ -32,7 +32,7 @@ shortTitle: GitHub Actions policies
 
 {% data variables.product.prodname_actions %} helps members of your enterprise automate software development workflows on {% data variables.product.product_name %}. For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
 
-{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.product.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.location.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
 
 ## Enforcing a policy to restrict the use of {% data variables.product.prodname_actions %} in your enterprise
 
@@ -48,7 +48,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
    {%- ifversion ghes or ghae %}
    {% note %}
 
-   **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.product.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
+   **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.location.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
 
    {% endnote %}
    {%- endif %}
@@ -86,7 +86,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 ## Enforcing a policy for fork pull requests in your enterprise
 
-You can enforce policies to control how {% data variables.product.prodname_actions %} behaves for {% data variables.product.product_location %} when members of your enterprise{% ifversion ghec %} or outside collaborators{% endif %} run workflows from forks.
+You can enforce policies to control how {% data variables.product.prodname_actions %} behaves for {% data variables.location.product_location %} when members of your enterprise{% ifversion ghec %} or outside collaborators{% endif %} run workflows from forks.
 
 {% ifversion ghec %}
 
@@ -137,7 +137,11 @@ By default, when you create a new enterprise, `GITHUB_TOKEN` only has read acces
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
 
-   ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise{% ifversion allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
+   {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+   ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise-with-pr-approval.png)
+   {% else %}
+   ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+   {% endif %}
 1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
@@ -164,9 +168,19 @@ By default, when you create a new enterprise, workflows are not allowed to creat
 
 {% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}
 
-However, you can set an enterprise policy to customize both the default total cache size for each repository, as well as the maximum total cache size allowed for a repository. For example, you might want the default total cache size for each repository to be 5 GB, but also allow repository administrators to configure a total cache size up to 15 GB if necessary.
+However, you can set an enterprise policy to customize both the default total cache size for each repository, as well as the maximum total cache size allowed for a repository. For example, you might want the default total cache size for each repository to be 5 GB, but also allow {% ifversion actions-cache-admin-ui %}organization owners and{% endif %} repository administrators to configure a total cache size up to 15 GB if necessary.
 
-People with admin access to a repository can set a total cache size for their repository up to the maximum cache size allowed by the enterprise policy setting.
+{% ifversion actions-cache-admin-ui %}Organization owners can set a lower total cache size that applies to each repository in their organization. {% endif %}People with admin access to a repository can set a total cache size for their repository up to the maximum cache size allowed by the enterprise {% ifversion actions-cache-admin-ui %}or organization{% endif %} policy setting.
+
+{% ifversion actions-cache-admin-ui %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. In the "Artifact, cache and log settings" section, under **Maximum cache size limit**, enter a value, then click **Save** to apply the setting.
+1. In the "Artifact, cache and log settings" section, under **Default cache size limit**, enter a value, then click **Save** to apply the setting.
+
+{% else %}
 
 The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 
@@ -174,5 +188,7 @@ The policy settings for {% data variables.product.prodname_actions %} cache stor
 * To change the enterprise policy settings, see "[Set GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
 
 {% data reusables.actions.cache-no-org-policy %}
+
+{% endif %}
 
 {% endif %}

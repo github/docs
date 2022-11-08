@@ -1,3 +1,3 @@
-- [Gerenciar segredos criptografados para {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
-- [Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
-- [Encaminhar portas no seu código](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
+- [Managing encrypted secrets for {% data variables.product.prodname_github_codespaces %}](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
+- [Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
+- [Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)

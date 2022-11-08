@@ -1,6 +1,6 @@
 ---
-title: 2 要素認証クレデンシャルをなくした際のアカウントの回復
-intro: 2 要素認証の認証情報にアクセスできなくなった場合、リカバリコードまたはその他のリカバリ方法を使用して、アカウントへのアクセスを回復できます。
+title: Recovering your account if you lose your 2FA credentials
+intro: 'If you lose access to your two-factor authentication credentials, you can use your recovery codes, or another recovery option, to regain access to your account.'
 redirect_from:
   - /articles/recovering-your-account-if-you-lost-your-2fa-credentials
   - /articles/authenticating-with-an-account-recovery-token
@@ -15,12 +15,11 @@ topics:
   - 2FA
 shortTitle: Recover an account with 2FA
 ---
-
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**警告**:
+**Warnings**: 
 
 - {% data reusables.two_fa.support-may-not-help %}
 
@@ -28,16 +27,16 @@ shortTitle: Recover an account with 2FA
 
 {% endif %}
 
-## 2 要素認証リカバリコードを使用する
+## Using a two-factor authentication recovery code
 
-リカバリコードのうち 1 つを使用して、アカウントへのエントリを自動で再取得します。 リカバリコード は、多くの場合、パスワードマネージャまたはご使用のコンピュータのダウンロードフォルダに保存されています。 リカバリコードのデフォルトのファイル名は `github-recovery-codes.txt` です。 リカバリコードの詳しい情報については「[2 要素認証リカバリ方法を設定する](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)」を参照してください。
+Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 
-1. 認証を求めるためにユーザ名とパスワードを入力してください。
+1. Type your username and password to prompt authentication.
 
     {% warning %}
 
     **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-
+    
     {% endwarning %}
 
 {% ifversion fpt or ghec %}
@@ -45,27 +44,27 @@ shortTitle: Recover an account with 2FA
 
    ![Screenshot of link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png)
 {%- else %}
-1. [2FA] ページで、[Don't have your phone?] の下にある [**Enter a two-factor recovery code**] をクリックします。
+1. On the 2FA page, under "Don't have your phone?", click **Enter a two-factor recovery code**.
 
    ![Screenshot of link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
-1. リカバリコードを 1 つ入力して、[**Verify**] をクリックします。
+1. Type one of your recovery codes, then click **Verify**.
 
-   ![リカバリコードを入力するフィールドおよび [Verify] ボタン](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
+   ![Field to type a recovery code and Verify button](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
 
 {% ifversion fpt or ghec %}
-## フォールバック番号による認証
+## Authenticating with a fallback number
 
-プライマリ TOTP アプリケーションや電話番号へのアクセスをなくした場合でも、 フォールバック番号に送信されている 2 要素認証コードを入力すれば、アカウントへのアクセスを自動で再取得できます。
+If you lose access to your primary TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
 {% endif %}
 
-## セキュリティキーによる認証
+## Authenticating with a security key
 
-セキュリティキーを使用して 2 要素認証を設定した場合は、セキュリティキーをセカンダリ認証方式として使用すると、アカウントへのアクセスを自動で再取得できます。 詳しい情報については、「[2 要素認証を設定する](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)」を参照してください。
+If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
 {% ifversion fpt or ghec %}
-## 検証済みのデバイス、SSHトークン、または個人アクセストークンを使用した認証
+## Authenticating with a verified device, SSH token, or {% data variables.product.pat_generic %}
 
-If you know your password for {% data variables.product.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+If you know your password for {% data variables.location.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
 
 {% note %}
 
@@ -73,14 +72,14 @@ If you know your password for {% data variables.product.product_location %} but 
 
 {% endnote %}
 
-2要素認証の認証情報または 2 要素認証のリカバリコードを使用して、3〜5 日間の待機期間中にいつでもアカウントへのアクセスを回復できます。
+You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
 
-1. 認証を求めるためにユーザ名とパスワードを入力してください。
+1. Type your username and password to prompt authentication.
 
     {% warning %}
 
     **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-
+    
     {% endwarning %}
 1. Under "Having problems?", click **Use a recovery code or request a reset**.
 
@@ -88,7 +87,7 @@ If you know your password for {% data variables.product.product_location %} but 
 1. To the right of "Locked out?", click **Try recovering your account**.
 
    ![Screenshot of link to try recovering your account](/assets/images/help/2fa/try-recovering-your-account-link.png)
-1. [**I understand, get started**] をクリックして、認証設定のリセットをリクエストします。
+1. Click **I understand, get started** to request a reset of your authentication settings.
 
     ![Screenshot of button to start reset of authentication settings](/assets/images/help/2fa/reset-auth-settings.png)
 1. Click **Send one-time password** to send a one-time password to all eligible addresses associated with your account. Only verified emails are eligible for account recovery. If you've restricted password resets to your primary and/or backup addresses, these addresses are the only addresses eligible for account recovery.
@@ -97,15 +96,15 @@ If you know your password for {% data variables.product.product_location %} but 
 1. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent.
 
    ![Screenshot of field to type one-time password](/assets/images/help/2fa/one-time-password-field.png)
-1. [**Verify email address**] をクリックします。
+1. Click **Verify email address**.
 
    ![Screenshot of button to verify email address](/assets/images/help/2fa/verify-email-address.png)
-1. 別の検証要素を選択します。
-    - 以前に現在のデバイスを使用してこのアカウントにログインしたことがあり、検証にそのデバイスを使用する場合は、[**Verify with this device**] をクリックします。
+1. Choose an alternative verification factor.
+    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
     - If you've previously set up an SSH key on this account and would like to use the SSH key for verification, click **SSH key**.
-    - If you've previously set up a personal access token and would like to use the personal access token for verification, click **Personal access token**.
+    - If you've previously set up a {% data variables.product.pat_generic %} and would like to use the {% data variables.product.pat_generic %} for verification, click **{% data variables.product.pat_generic_caps %}**.
 
    ![Screenshot of buttons for alternative verification](/assets/images/help/2fa/alt-verifications.png)
-1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. リクエストが承認されると、アカウントリカバリプロセスを完了するためのリンクが送信されます。 リクエストが拒否された場合、追加の質問がある場合のサポートへの問い合わせ方法がメールに記載されます。
+1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
 
 {% endif %}

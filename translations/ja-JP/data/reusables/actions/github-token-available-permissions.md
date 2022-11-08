@@ -1,4 +1,12 @@
-利用可能なスコープとアクセス値:
+---
+ms.openlocfilehash: 56ed7762c2325d0328bd52ca89fe7879b5ce4601
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145089583"
+---
+利用できるスコープとアクセスの値は以下のとおりです。
 
 ```yaml
 permissions:
@@ -17,15 +25,15 @@ permissions:
   statuses: read|write|none
 ```
 
-これらのスコープのいずれかのアクセスを指定した場合、指定されたなかったものはすべて`none`に設定されます。
+これらのスコープのいずれかにアクセス権を指定すると、指定されていないすべてのスコープが `none` に設定されます。
 
-以下の構文を使って、読み取りもしくは書き込みアクセスを利用可能なすべてのスコープに定義できます。
+利用可能なすべてのスコープに対する読み取りあるいは書き込みアクセス権を定義するためには、以下の構文が使えます。
 
 ```yaml
 permissions: read-all|write-all
 ```
 
-以下の構文を使って、利用可能なすべてのスコープの権限を無効化できます。
+次の構文を使用して、使用可能なすべてのスコープのアクセス許可を無効にすることができます。
 
 ```yaml
 permissions: {}

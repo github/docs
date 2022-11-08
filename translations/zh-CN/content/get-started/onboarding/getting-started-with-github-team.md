@@ -7,14 +7,14 @@ versions:
 
 This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_team %} account as an organization owner.
 
-## Part 1: Configuring your account on {% data variables.product.product_location %}
+## Part 1: Configuring your account on {% data variables.location.product_location %}
 As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a personal account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing.
 
 ### 1. About organizations
 Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information on the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)."
 
 ### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
-Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.product.product_location %}. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
+Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.location.product_location %}. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
 
 Once your personal account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 

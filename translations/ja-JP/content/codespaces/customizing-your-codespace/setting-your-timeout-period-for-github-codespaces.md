@@ -1,7 +1,7 @@
 ---
 title: Setting your timeout period for GitHub Codespaces
 shortTitle: Set the timeout
-intro: 'You can set your default timeout for {% data variables.product.prodname_codespaces %} in your personal settings page.'
+intro: 'You can set your default timeout for {% data variables.product.prodname_github_codespaces %} in your personal settings page.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -19,7 +19,7 @@ Some organizations may have a maximum idle timeout policy. If an organization po
 
 {% warning %}
 
-**Warning**: Codespaces are billed per minute. If you are not actively using a codespace but the codespace has not yet timed out, you are still billed for the time that the codespace is running. 詳しい情報については、「[{% data variables.product.prodname_github_codespaces %}の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)」を参照してください。
+**Warning**: Codespaces are billed per minute. If you are not actively using a codespace but the codespace has not yet timed out, you are still billed for the time that the codespace is running. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 {% endwarning %}
 
@@ -29,7 +29,8 @@ Some organizations may have a maximum idle timeout policy. If an organization po
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
-1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours). ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
+1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours).
+   ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 

@@ -1,6 +1,6 @@
 ---
-title: Organizaciones y equipos
-shortTitle: Organizaciones
+title: Las organizaciones y los equipos
+shortTitle: Organizations
 intro: 'Puedes utilizar las organizaciones para colaborar con una cantidad ilimitada de personas en muchos proyectos al mismo tiempo, mientras administras el acceso a tus datos y ajustes de personalización.'
 redirect_from:
   - /articles/about-improved-organization-permissions
@@ -39,15 +39,21 @@ children:
   - /managing-peoples-access-to-your-organization-with-roles
   - /organizing-members-into-teams
   - /collaborating-with-your-team
-  - /managing-access-to-your-organizations-repositories
+  - /managing-user-access-to-your-organizations-repositories
   - /managing-access-to-your-organizations-project-boards
-  - /managing-access-to-your-organizations-apps
+  - /managing-programmatic-access-to-your-organization
   - /managing-organization-settings
-  - /restricting-access-to-your-organizations-data
+  - /managing-oauth-access-to-your-organizations-data
   - /keeping-your-organization-secure
   - /managing-saml-single-sign-on-for-your-organization
   - /granting-access-to-your-organization-with-saml-single-sign-on
   - /managing-git-access-to-your-organizations-repositories
   - /migrating-to-improved-organization-permissions
+ms.openlocfilehash: 3c5ee471d073bc94773607938b70ba4826eb8efb
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879333'
 ---
 

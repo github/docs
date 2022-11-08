@@ -1,6 +1,6 @@
 ---
 title: Documentación para administradores empresariales
-shortTitle: Administradores empresariales
+shortTitle: Enterprise administrators
 intro: 'Documentación y guías para los administradores empresariales{% ifversion ghes %}, administradores de sistema,{% endif %} y especialistas de seguridad quieres {% ifversion ghes %}despliegan, {% endif %}configuran{% ifversion ghes %},{% endif %} y fusionan {% data variables.product.product_name %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
@@ -105,14 +105,6 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks{% endif %}'
     - /billing/managing-your-license-for-github-enterprise/using-visual-studio-subscription-with-github-enterprise/setting-up-visual-studio-subscription-with-github-enterprise
     - /admin/enterprise-support/about-github-enterprise-support
-  videos:
-    - title: GitHub in the Enterprise – Maya Ross
-      href: 'https://www.youtube-nocookie.com/embed/1-i39RqaxRs'
-    - title: What's new for GitHub Enterprise – Jarryd McCree
-      href: 'https://www.youtube-nocookie.com/embed/ZZviWZgrqhM'
-    - title: Enforcing information security policy through GitHub Enterprise – Thomas Worley
-      href: 'https://www.youtube-nocookie.com/embed/DCu-ZTT7WTI'
-  videosHeading: GitHub Universe 2021 videos
 layout: product-landing
 versions:
   ghec: '*'
@@ -133,5 +125,11 @@ children:
   - /guides
   - /release-notes
   - /all-releases
+ms.openlocfilehash: 3980ad01e56bf1e38dd6473c5e5246c6d45350eb
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111316'
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Configuring commit squashing for pull requests
-intro: 'You can enforce, allow, or disable commit squashing for all pull request merges on {% data variables.product.product_location %} in your repository.'
+intro: 'You can enforce, allow, or disable commit squashing for all pull request merges on {% data variables.location.product_location %} in your repository.'
 redirect_from:
   - /articles/configuring-commit-squashing-for-pull-requests
   - /github/administering-a-repository/configuring-commit-squashing-for-pull-requests
@@ -20,7 +20,7 @@ shortTitle: Configure commit squashing
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow squash merging**. This allows contributors to merge a pull request by squashing all commits into a single commit. The default commit message presented to contributors when merging is the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. {% ifversion ghes = 3.6 %} To always use the title of the pull request regardless of the number of commits in the pull request select **Default to PR title for squash merge commits**.{% endif %}{% ifversion default-merge-squash-commit-message %} 
+1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow squash merging**. This allows contributors to merge a pull request by squashing all commits into a single commit. The default commit message presented to contributors when merging is the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. {% ifversion ghes = 3.6 %} To always use the title of the pull request regardless of the number of commits in the pull request select **Default to PR title for squash merge commits**.{% endif %}{% ifversion default-merge-squash-commit-message %} 
  ![Pull request squashed commits](/assets/images/help/repository/allow-squash-merging.png){% endif %}{% ifversion ghes = 3.6 %}
  ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-squash-merging-no-dropdown.png){% endif %}
 {% ifversion ghes < 3.6  %}

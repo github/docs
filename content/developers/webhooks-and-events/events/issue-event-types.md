@@ -214,6 +214,20 @@ The issue was created by converting a note in a project board to an issue. {% da
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
 
+## converted_to_discussion
+
+The issue was closed and converted to a discussion.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|-----|-----|-----|
+| <ul><li>Issues</li></ul> | **X** | |
+
+### Event Object Properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
 ## cross-referenced
 
 The issue or pull request was referenced from another issue or pull request.
@@ -234,7 +248,7 @@ Name | Type | Description
 `created_at` | `string` | The timestamp indicating when the cross-reference was added.
 `updated_at` | `string` | The timestamp indicating when the cross-reference was updated or created, if the cross-reference is never updated.
 `source` | `object` | The issue or pull request that added a cross-reference.
-`source[type]` | `string` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the Timeline Events API. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request` object exists.
+`source[type]` | `string` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the Timeline Events API. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request]` object exists.
 `source[issue]` | `object` | The `issue` object that added the cross-reference.
 `event` | `string` | The event value is `"cross-referenced"`.
 
