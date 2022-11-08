@@ -109,10 +109,11 @@ When you set the `core.autocrlf` option or commit a *.gitattributes* file, you m
 
 To ensure that all the line endings in your repository match your new configuration, backup your files with Git, then remove/restore the files all at once with renormalized line endings.
 
-1. Save your current files in Git, so that none of your work is lost.  
-   ```shell
-   $ git add . -u
-   $ git commit -m "Saving files before refreshing line endings"
+1. To ensure that none of your work is lost, add and commit any changes by running the following commands.
+
+   ```shell{:copy}
+   git add . -u
+   git commit -m "Saving files before refreshing line endings"
    ```
 2. Add/re-add any new/changed files and normalize the line endings.  
    ```shell
@@ -128,13 +129,13 @@ To ensure that all the line endings in your repository match your new configurat
    $ git reset --hard HEAD
    ```  
    (In that case, if no further changes to the repo are required, steps 3 & 4 can be skipped.)
-3. Show the rewritten, normalized files.  
-   ```shell
-   $ git status
+3. To display the rewritten, normalized files, run the following command.
+   ```shell{:copy}
+   git status
    ```
-4. Commit the changes to your repository.  
-   ```shell
-   $ git commit -m "Normalize all the line endings"
+4. To commit the changes to your repository, run the following command.
+   ```shell{:copy}
+   git commit -m "Normalize all the line endings"
    ```
 
 ## Further reading
@@ -143,4 +144,3 @@ To ensure that all the line endings in your repository match your new configurat
 - [git-config](https://git-scm.com/docs/git-config) in the man pages for Git
 - [Getting Started - First-Time Git Setup](https://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup) in the Pro Git book
 - [Mind the End of Your Line](http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/) by [Tim Clem](https://github.com/tclem)
-- [Stackoverflow: "How do I force git to use LF instead of CR+LF under windows?"](https://stackoverflow.com/questions/2517190/how-do-i-force-git-to-use-lf-instead-of-crlf-under-windows)
