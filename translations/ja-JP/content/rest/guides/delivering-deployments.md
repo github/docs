@@ -1,6 +1,6 @@
 ---
-title: デプロイメントを配信する
-intro: Deployment REST APIを使用すると、サーバーおよびサードパーティアプリケーションとやり取りするカスタムツールを構築できます。
+title: Delivering deployments
+intro: 'Using the Deployments REST API, you can build custom tooling that interacts with your server and a third-party app.'
 redirect_from:
   - /guides/delivering-deployments
   - /guides/automating-deployments-to-integrators
@@ -12,32 +12,45 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 60ef610d4134eaddee3f40c5d50d72e463fedd27
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145131377'
 ---
-[Deployments API][deploy API] によって、所有しているサーバーでプロジェクトを起動するための機能が、{% data variables.product.product_name %} でホストされるプロジェクトに提供されます。 [Status API][status API] と組み合わせると、コードがデフォルト ブランチに到達した瞬間にデプロイを調整できます。
+ 
+  
 
-このAPIでは、ステータスAPIを使って、利用できる設定を示します。
-このシナリオでは、以下を行います。
+The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with
+the capability to launch them on a server that you own. Combined with
+[the Status API][status API], you'll be able to coordinate your deployments
+the moment your code lands on the default branch.
 
-* Pull Requestをマージします。
-* CIが終了したら、それに応じてプルリクエストのステータスを設定します。
-* プルリクエストがマージされたら、サーバーでデプロイメントを実行します。
+This guide will use that API to demonstrate a setup that you can use.
+In our scenario, we will:
 
-このCIシステムとホストサーバーは、想像上のものです。 Heroku でも、Amazon でも、何でも構いません。 このガイドのポイントは、通信を管理するサーバーを設定し、構成することにあります。
+* Merge a pull request.
+* When the CI is finished, we'll set the pull request's status accordingly.
+* When the pull request is merged, we'll run our deployment to our server.
 
-まだ行ってない場合は必ず [ngrok をダウンロード][ngrok]し、その[使い方][using ngrok]を確認してください。 これはローカル接続を公開するために非常に役立つツールです。
+Our CI system and host server will be figments of our imagination. They could be
+Heroku, Amazon, or something else entirely. The crux of this guide will be setting up
+and configuring the server managing the communication.
 
-注: このプロジェクトの完全なソース コードは、[platform-samples リポジトリから][platform samples]ダウンロードできます。
+If you haven't already, be sure to [download `ngrok`][ngrok], and learn how
+to [use it][using ngrok]. We find it to be a very useful tool for exposing local
+applications to the internet.
 
-## サーバーを書く
+{% ifversion cli-webhook-forwarding %}
+{% note %}
 
-ローカル接続が機能していることを証明するための、簡単なSinatraアプリケーションを書きます。
-まずは以下のソースから始めましょう。
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+
+{% endnote %}
+{% endif %}
+
+Note: you can download the complete source code for this project
+[from the platform-samples repo][platform samples].
+
+## Writing your server
+
+We'll write a quick Sinatra app to prove that our local connections are working.
+Let's start with this:
 
 ``` ruby
 require 'sinatra'
@@ -49,25 +62,31 @@ post '/event_handler' do
 end
 ```
 
-(Sinatra のしくみに詳しくない場合は、[Sinatra ガイド][Sinatra]を読むことをお勧めします。)
+(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
 
-このサーバーを起動してください。 既定では、Sinatra はポート `4567` で起動するため、これのリッスンも開始するよう ngrok を構成するとよいでしょう。
+Start this server up. By default, Sinatra starts on port `4567`, so you'll want
+to configure `ngrok` to start listening for that, too.
 
-このサーバーが機能するには、webhookでリポジトリを設定する必要があります。
-プルリクエストが作成やマージされるたびに、webhookが起動するよう設定すべきです。
-なんでも好きにして構わないようなリポジトリを作成しましょう。 [@octocat の Spoon/Knife リポジトリ](https://github.com/octocat/Spoon-Knife)などはどうでしょうか。
-その後、リポジトリ内に新しい Webhook を作成し、ngrok で提供された URL を指定し、コンテンツ タイプとして `application/x-www-form-urlencoded` を選びます。
+In order for this server to work, we'll need to set a repository up with a webhook.
+The webhook should be configured to fire whenever a pull request is created, or merged.
+Go ahead and create a repository you're comfortable playing around in. Might we
+suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
+After that, you'll create a new webhook in your repository, feeding it the URL
+that `ngrok` gave you, and choosing `application/x-www-form-urlencoded` as the
+content type:
 
-![新しいngrok URL](/assets/images/webhook_sample_url.png)
+![A new ngrok URL](/assets/images/webhook_sample_url.png)
 
-**[Webhook の更新]** をクリックします。 `Well, it worked!` という本文の応答が表示されます。
-すばらしい。 **[個々のイベントの選択]** をクリックして、次のイベントを選択します。
+Click **Update webhook**. You should see a body response of `Well, it worked!`.
+Great! Click on **Let me select individual events.**, and select the following:
 
-* デプロイ
-* [デプロイ ステータス]
+* Deployment
+* Deployment status
 * Pull Request
 
-これらは、関係するアクションが発生するたびに、{% data variables.product.product_name %} によってサーバーに送信されるイベントです。 ここではプルリクエストがマージされたときに *だけ* 処理するようにサーバーを設定します。
+These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
+occurs. We'll configure our server to *just* handle when pull requests are merged
+right now:
 
 ``` ruby
 post '/event_handler' do
@@ -82,15 +101,20 @@ post '/event_handler' do
 end
 ```
 
-何が起こっているのでしょうか。 {% data variables.product.product_name %} によって送信されるすべてのイベントには、`X-GitHub-Event` HTTP ヘッダーが添付されています。 ここではPRイベントのみに注目しましょう。 プルリクエストがマージされると (その状態は `closed` で、`merged` が `true`)、デプロイが開始されます。
+What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event`
+HTTP header. We'll only care about the PR events for now. When a pull request is
+merged (its state is `closed`, and `merged` is `true`), we'll kick off a deployment.
 
-この概念実証をテストするには、テスト リポジトリのブランチで何か変更を行い、プルリクエストを開いてマージします。 そうすると、サーバーはそれに応じてレスポンスを返すはずです。
+To test out this proof-of-concept, make some changes in a branch in your test
+repository, open a pull request, and merge it. Your server should respond accordingly!
 
-## デプロイメントを扱う
+## Working with deployments
 
-サーバーの準備が整い、コードがレビューされ、プルリクエストがマージされたので、プロジェクトをデプロイしたいと思います。
+With our server in place, the code being reviewed, and our pull request
+merged, we want our project to be deployed.
 
-まず、イベント リスナーを修正し、マージされたときにプルリクエストを処理して、デプロイメントの待機を開始することから始めましょう。
+We'll start by modifying our event listener to process pull requests when they're
+merged, and start paying attention to deployments:
 
 ``` ruby
 when "pull_request"
@@ -104,7 +128,8 @@ when "deployment_status"
 end
 ```
 
-プルリクエストからの情報に基づき、`start_deployment` メソッドを書き込むことから始めます。
+Based on the information from the pull request, we'll start by filling out the
+`start_deployment` method:
 
 ``` ruby
 def start_deployment(pull_request)
@@ -114,13 +139,19 @@ def start_deployment(pull_request)
 end
 ```
 
-デプロイには、一部のメタデータを `payload` および `description` の形式で添付できます。 これらの値はオプションですが、ログの記録や情報の表示に役立ちます。
+Deployments can have some metadata attached to them, in the form of a `payload`
+and a `description`. Although these values are optional, it's helpful to use
+for logging and representing information.
 
-新しいデプロイメントが作成されると、まったく別のイベントがトリガーされます。 そのため、`deployment` のイベント ハンドラーに新しい `switch` ケースがあります。 この情報を使用して、デプロイメントがトリガーされたときに通知を受け取ることができます。
+When a new deployment is created, a completely separate event is triggered. That's
+why we have a new `switch` case in the event handler for `deployment`. You can
+use this information to be notified when a deployment has been triggered.
 
-デプロイメントにはかなり時間がかかる場合があるため、さまざまなイベント (デプロイメントがいつ作成されたか、デプロイメントの状態など) をリッスンしたいと思います。
+Deployments can take a rather long time, so we'll want to listen for various events,
+such as when the deployment was created, and what state it's in.
 
-何らかの作業が行われるデプロイメントをシミュレートして、出力に対する影響を確認してみましょう。 まず、`process_deployment` メソッドを完成させます。
+Let's simulate a deployment that does some work, and notice the effect it has on
+the output. First, let's complete our `process_deployment` method:
 
 ``` ruby
 def process_deployment
@@ -134,7 +165,7 @@ def process_deployment
 end
 ```
 
-最後に、ステータス情報の保存をコンソールの出力としてシミュレートします。
+Finally, we'll simulate storing the status information as console output:
 
 ``` ruby
 def update_deployment_status
@@ -142,21 +173,27 @@ def update_deployment_status
 end
 ```
 
-ここの処理を細かく説明しましょう。 `deployment` イベントをトリガーする `start_deployment` によって、新しいデプロイが作成されます。 そこから、`process_deployment` を呼び出して、進行中の作業をシミュレートします。 この処理中に `create_deployment_status` も呼び出して、状態を `pending` に切り替えることで、受信者に状況を通知します。
+Let's break down what's going on. A new deployment is created by `start_deployment`,
+which triggers the `deployment` event. From there, we call `process_deployment`
+to simulate work that's going on. During that processing, we also make a call to
+`create_deployment_status`, which lets a receiver know what's going on, as we
+switch the status to `pending`.
 
-デプロイメントが完了したら、状態を `success` に設定します。
+After the deployment is finished, we set the status to `success`.
 
-## まとめ
+## Conclusion
 
-GitHub では長年、デプロイを管理するためにあるバージョンの [Heaven][heaven] を使用してきました。 一般的なフローは、上記で構築したサーバーと本質的に同じです。
+At GitHub, we've used a version of [Heaven][heaven] to manage
+our deployments for years. A common flow is essentially the same as the
+server we've built above:
 
-* CIチェックのステータスに対する応答（成功もしくは失敗）を待つ
-* 必要なチェックが成功していれば、Pull Requestをマージする
-* Heavenはマージされたコードを取り込み、ステージング及びプロダクションサーバーにデプロイする
-* その間に Heaven では、当社のチャット ルームにいる [Hubot][hubot] を通じて全員にビルドについて通知する
+* Wait for a response on the state of the CI checks (success or failure)
+* If the required checks succeed, merge the pull request
+* Heaven takes the merged code, and deploys it to staging and production servers
+* In the meantime, Heaven also notifies everyone about the build, via [Hubot][hubot] sitting in our chat rooms
 
-これで完了です。 この例を使用するために、独自のデプロイメントを構築する必要はありません。
-いつでも [GitHub 統合][integrations]を使用することができます。
+That's it! You don't need to build your own deployment setup to use this example.
+You can always rely on [GitHub integrations][integrations].
 
 [deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server

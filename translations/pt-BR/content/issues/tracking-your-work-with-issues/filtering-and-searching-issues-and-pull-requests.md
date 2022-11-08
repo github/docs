@@ -62,7 +62,7 @@ Problemas e pull requests possuem um conjunto de filtros padrão que podem ser a
 - Todos os problemas e pull requests abertos
 - Problemas e pull requests criados
 - Problemas e pull requests atribuídos a você
-- Problemas e solicitações de pull em que você é [ **@mentioned** ](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
+- Problemas e solicitações de pull em que você é [ **@mentioned**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
@@ -163,7 +163,7 @@ gh pr list --search "team:octo-org/octo-team"
 Com os termos da pesquisa de problemas e pull requests, é possível:
 
 - Filtrar problemas e solicitações de pull por autor: `state:open type:issue author:octocat`
-- Filtrar problemas e solicitações de pull que envolvem, mas não necessariamente [ **@mention** ](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), determinadas pessoas: `state:open type:issue involves:octocat`
+- Filtrar problemas e solicitações de pull que envolvem, mas não necessariamente [ **@mention**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), determinadas pessoas: `state:open type:issue involves:octocat`
 - Filtrar problemas e solicitações de pull por destinatário: `state:open type:issue assignee:octocat`
 - Filtrar problemas e solicitações de pull por rótulo: `state:open type:issue label:"bug"`
 - Filtrar os termos de pesquisa usando `-` antes do termo: `state:open type:issue -author:octocat`
