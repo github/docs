@@ -2,7 +2,6 @@
 title: Using GitHub Codespaces with GitHub CLI
 shortTitle: GitHub CLI
 intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.product_name %} command line interface.'
-product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -84,7 +83,7 @@ An asterisk at the end of the branch name for a codespace indicates that there a
 gh codespace create -r OWNER/REPO_NAME [-b BRANCH]
 ```
 
-For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 
 ### Stop a codespace
 
@@ -118,6 +117,14 @@ To run commands on the remote codespace machine, from your terminal, you can SSH
 gh codespace ssh -c CODESPACE-NAME
 ```
 
+{% note %}
+
+**Note**: {% data reusables.codespaces.ssh-server-installed %}
+
+<br>For more information about the `devcontainer.json` file and the default container image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+
+{% endnote %}
+
 {% data variables.product.prodname_github_codespaces %} copies your GitHub SSH keys into the codespace on creation for a seamless authentication experience. You may be asked to enter the passphrase for your SSH key, after which you will get a command prompt from the remote codespace machine.
 
 If you don't have any SSH keys, follow the instructions in "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
@@ -128,13 +135,15 @@ If you don't have any SSH keys, follow the instructions in "[Generating a new SS
 gh codespace code -c CODESPACE-NAME
 ```
 
-For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)."
+You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
 
 ### Open a codespace in JupyterLab
 
 ```shell
 gh codespace jupyter -c CODESPACE-NAME
 ```
+
+{% data reusables.codespaces.jupyterlab-installed-in-codespace %}
 
 ### Copy a file to/from a codespace
 
