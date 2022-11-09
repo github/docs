@@ -23,5 +23,11 @@ topics:
 
 {% endtip %}
 
+{% tip %}
+
+**Tip:** This menu option will only be displayed if you are a member of one or more organizations.
+
+{% endtip %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
