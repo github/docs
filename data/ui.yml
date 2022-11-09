@@ -4,7 +4,7 @@ header:
   github_docs: GitHub Docs
   contact: Contact
   notices:
-    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
+    ghae_silent_launch: GitHub AE is currently under limited release.
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
       ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
@@ -36,6 +36,9 @@ search:
   search_error: An error occurred trying to perform the search.
   description: Enter a search term to find it in the GitHub Documentation.
   label: Search GitHub Docs
+  results_found: Found {n} results in {s}ms
+  results_page: This is page {page} of {pages}.
+  nothing_found: Nothing found 😿
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
@@ -53,6 +56,7 @@ pages:
   contributor_callout: This article is contributed and maintained by
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
+  permissions_statement: Who can use this feature
 errors:
   oops: Ooops!
   something_went_wrong: It looks like something went wrong.
@@ -83,6 +87,19 @@ contribution_cta:
   button: Make a contribution
   or: Or,
   to_guidelines: learn how to contribute.
+parameter_table:
+  body: Body parameters
+  default: Default
+  description: Description
+  enum_description_title: Can be one of
+  headers: Headers
+  name: Name
+  path: Path parameters
+  query: Query parameters
+  required: Required
+  see_preview_notice: See preview notice
+  see_preview_notices: See preview notices
+  type: Type
 products:
   graphql:
     reference:
@@ -107,10 +124,7 @@ products:
       updates: Updates
   rest:
     reference:
-      default: Default
-      name: Name
       in: In
-      type: Type
       description: Description
       notes: Notes
       parameters: Parameters
@@ -122,18 +136,10 @@ products:
       code_samples: Code samples
       preview_notice: Preview notice
       preview_notices: Preview notices
-      see_preview_notice: See preview notice
-      see_preview_notices: See preview notices
       preview_header_is_required: This header is <strong>required</strong>
       preview_notice_to_change: This API is under preview and subject to change
       works_with: Works with
       api_reference: REST API reference
-      enum_description_title: Can be one of
-      required: Required
-      headers: Headers
-      query: Query parameters
-      path: Path parameters
-      body: Body parameters
 footer:
   all_rights_reserved: All rights reserved
   terms: Terms

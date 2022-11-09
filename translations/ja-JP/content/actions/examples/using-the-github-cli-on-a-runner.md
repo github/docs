@@ -1,7 +1,7 @@
 ---
-title: Using the GitHub CLI on a runner
-shortTitle: Using the GitHub CLI on a runner
-intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
+title: ランナーでの GitHub CLI の使用
+shortTitle: Use the GitHub CLI on a runner
+intro: '継続的インテグレーション (CI) のために高度な {% data variables.product.prodname_actions %} 機能を使用する方法。'
 versions:
   fpt: '*'
   ghes: '> 3.1'
@@ -10,36 +10,34 @@ versions:
 type: how_to
 topics:
   - Workflows
+ms.openlocfilehash: e0787d09cd194de0038d259c1aff777cc91a4a6a
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111586'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Example overview
+## サンプルの概要
 
-{% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it automatically runs a script that checks whether the {% data variables.product.prodname_dotcom %} Docs site has any broken links. If any broken links are found, the workflow uses the {% data variables.product.prodname_dotcom %} CLI to create a {% data variables.product.prodname_dotcom %} issue with the details.
+{% data reusables.actions.example-workflow-intro-ci %}このワークフローがトリガーされると、{% data variables.product.prodname_dotcom %} Docs サイトに壊れたリンクがあるかどうかを確認するスクリプトが自動的に実行されます。 壊れたリンクが見つかった場合、ワークフローで詳しい情報を含む {% data variables.product.prodname_dotcom %} のイシューが {% data variables.product.prodname_dotcom %} CLI を使用して作成されます。
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
+![ワークフローのステップの概要図](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
 
-## Features used in this example
+## この例で使用されている機能
 
 {% data reusables.actions.example-table-intro %}
 
-| **機能** | **Implementation** |
-| ------ | ------------------ |
-|        |                    |
-{% data reusables.actions.cron-table-entry %}
-{% data reusables.actions.permissions-table-entry %}
-{% data reusables.actions.if-conditions-table-entry %}
-{% data reusables.actions.secrets-table-entry %}
-{% data reusables.actions.checkout-action-table-entry %}
-{% data reusables.actions.setup-node-table-entry %}
-| Using a third-party action: | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)| | Running shell commands on the runner: | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) | | Running a script on the runner: | Using `script/check-english-links.js` | | Generating an output file: | Piping the output using the `>` operator | | Checking for existing issues using {% data variables.product.prodname_cli %}: | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) | | Commenting on an issue using {% data variables.product.prodname_cli %}: | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
+| **機能**  | **実装** |
+| --- | --- |
+{% data reusables.actions.cron-table-entry %} {% data reusables.actions.permissions-table-entry %} {% data reusables.actions.if-conditions-table-entry %} {% data reusables.actions.secrets-table-entry %} {% data reusables.actions.checkout-action-table-entry %} {% data reusables.actions.setup-node-table-entry %} | サード パーティのアクションの使用: | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)| | ランナーでのシェル コマンドの実行: | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) | | ランナーでのスクリプトの実行: | `script/check-english-links.js` の使用 | | 出力ファイルの生成: | `>` 演算子を使用した出力のパイプ処理 | | {% data variables.product.prodname_cli %} を使用した既存のイシューの確認: | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) | | {% data variables.product.prodname_cli %} を使用したイシューへのコメント: | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
 
 ## ワークフローの例
 
-{% data reusables.actions.example-docs-engineering-intro %} [`check-all-english-links.yml`](https://github.com/github/docs/blob/main/.github/workflows/check-all-english-links.yml).
+{% data reusables.actions.example-docs-engineering-intro %} [`check-all-english-links.yml`](https://github.com/github/docs/blob/6e01c0653836c10d7e092a17566a2c88b10504ce/.github/workflows/check-all-english-links.yml)。
 
 {% data reusables.actions.note-understanding-example %}
 
@@ -105,7 +103,11 @@ jobs:
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
@@ -170,15 +172,15 @@ jobs:
 </tbody>
 </table>
 
-## Understanding the example
+## 例の説明
 
 {% data reusables.actions.example-explanation-table-intro %}
 
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>コード</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th style="width:60%">"<b>コード</b>"</th>
+    <th style="width:40%"><b>説明</b></th>
   </tr>
 </thead>
 <tbody>
@@ -206,10 +208,10 @@ on:
 </td>
 <td>
 
-Defines the `workflow_dispatch` and `scheduled` as triggers for the workflow:
+ワークフローのトリガーとして `workflow_dispatch` と `scheduled` を定義します。
 
-* The `workflow_dispatch` lets you manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
-* The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. For more information, see [`schedule`](/actions/reference/events-that-trigger-workflows#schedule).
+* `workflow_dispatch` を使用すると、UI からこのワークフローを手動で実行できます。 詳細については、「[`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
+* `schedule` イベントにより、`cron` 構文を使用して、ワークフローを自動的にトリガーするための一定の間隔を定義できます。 詳細については、「[`schedule`](/actions/reference/events-that-trigger-workflows#schedule)」を参照してください。
 </td>
 </tr>
 <tr>
@@ -223,7 +225,7 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+`GITHUB_TOKEN` に付与される既定のアクセス許可を変更します。 これはワークフローのニーズによって異なります。 詳しい情報については、「[ジョブへのアクセス許可の割り当て](/actions/using-jobs/assigning-permissions-to-jobs)」を参照してください。
 </td>
 </tr>
 <tr>
@@ -235,7 +237,7 @@ jobs:
 </td>
 <td>
 
-Groups together all the jobs that run in the workflow file.
+ワークフロー ファイルで実行されるすべてのジョブをグループ化します。
 </td>
 </tr>
 <tr>
@@ -248,7 +250,7 @@ Groups together all the jobs that run in the workflow file.
 </td>
 <td>
 
-Defines a job with the ID `check_all_english_links`, and the name `Check all links`, that is stored within the `jobs` key.
+ID `check_all_english_links` と名前 `Check all links` を持つジョブを定義します。これは `jobs` キー内に格納されます。
 </td>
 </tr>
 <tr>
@@ -260,7 +262,7 @@ if: github.repository == 'github/docs-internal'
 </td>
 <td>
 
-Only run the `check_all_english_links` job if the repository is named `docs-internal` and is within the `github` organization. Otherwise, the job is marked as _skipped_.
+リポジトリが `docs-internal` という名前で、`github` という Organization 内にある場合のみ、`check_all_english_links` ジョブを実行します。 それ以外の場合、ジョブは _"スキップ済み"_ としてマークされます。
 </td>
 </tr>
 <tr>
@@ -272,7 +274,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-Ubuntu Linux ランナーで実行するようにジョブを設定します。 This means that the job will execute on a fresh virtual machine hosted by {% data variables.product.prodname_dotcom %}. For syntax examples using other runners, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Ubuntu Linux ランナーで実行するようにジョブを設定します。 これは、ジョブが {% data variables.product.prodname_dotcom %} によってホストされている新しい仮想マシンで実行されるということです。 他のランナーを使う構文例については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)」を参照してください。
 </td>
 </tr>
 <tr>
@@ -288,7 +290,7 @@ Ubuntu Linux ランナーで実行するようにジョブを設定します。 
 </td>
 <td>
 
-Creates custom environment variables, and redefines the built-in `GITHUB_TOKEN` variable to use a custom [secret](/actions/security-guides/encrypted-secrets). These variables will be referenced later in the workflow.
+カスタム環境変数を作成し、組み込み `GITHUB_TOKEN` 変数を再定義してカスタム [シークレット](/actions/security-guides/encrypted-secrets)を使用します。 これらの変数は、ワークフローで後から参照されます。
 </td>
 </tr>
 <tr>
@@ -300,7 +302,7 @@ Creates custom environment variables, and redefines the built-in `GITHUB_TOKEN` 
 </td>
 <td>
 
-Groups together all the steps that will run as part of the `check_all_english_links` job. Each job in the workflow has its own `steps` section.
+`check_all_english_links` ジョブの一部として実行されるすべてのステップをグループ化します。 ワークフロー内の各ジョブには、独自の `steps` セクションがあります。
 </td>
 </tr>
 <tr>
@@ -313,7 +315,7 @@ Groups together all the steps that will run as part of the `check_all_english_li
 </td>
 <td>
 
-The `uses` keyword tells the job to retrieve the action named `actions/checkout`. これは、リポジトリをチェックアウトしてランナーにダウンロードし、コードに対してアクション（テストツールなど）を実行できるようにします。 ワークフローがリポジトリのコードに対して実行されるとき、またはリポジトリで定義されたアクションを使用しているときはいつでも、チェックアウトアクションを使用する必要があります。
+`uses` キーワードは、`actions/checkout` という名前のアクションを取得するようにジョブに指示します。 これは、リポジトリをチェックアウトしてランナーにダウンロードし、コードに対してアクション（テストツールなど）を実行できるようにします。 ワークフローがリポジトリのコードに対して実行されるとき、またはリポジトリで定義されたアクションを使用しているときはいつでも、チェックアウトアクションを使用する必要があります。
 </td>
 </tr>
 <tr>
@@ -329,7 +331,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 </td>
 <td>
 
-This step uses the `actions/setup-node` action to install the specified version of the `node` software package on the runner, which gives you access to the `npm` command.
+このステップでは、`actions/setup-node` アクションを使用して、指定したバージョンの `node` ソフトウェア パッケージをランナーにインストールします。これにより、`npm` コマンドにアクセスできるようになります。
 </td>
 </tr>
 <tr>
@@ -344,7 +346,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 </td>
 <td>
 
-The `run` keyword tells the job to execute a command on the runner. In this case, the `npm ci` and `npm run build` commands are run as separate steps to install and build the Node.js application in the repository.
+`run` キーワードは、ランナーでコマンドを実行するようにジョブに指示します。 この場合、Node.js アプリケーションをリポジトリにインストールしてビルドするための個別のステップとして、`npm ci` コマンドと `npm run build` コマンドが実行されます。
 </td>
 </tr>
 <tr>
@@ -358,7 +360,7 @@ The `run` keyword tells the job to execute a command on the runner. In this case
 </td>
 <td>
 
-This `run` command executes a script that is stored in the repository at `script/check-english-links.js`, and pipes the output to a file called `broken_links.md`.
+この `run` コマンドは、リポジトリの `script/check-english-links.js` に保存されているスクリプトを実行し、出力を `broken_links.md` というファイルにパイプで渡します。
 </td>
 </tr>
 <tr>
@@ -368,12 +370,16 @@ This `run` command executes a script that is stored in the repository at `script
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
+{%- endif %}
 ```
 </td>
 <td>
 
-If the `check-english-links.js` script detects broken links and returns a non-zero (failure) exit status, then use a [workflow command](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter) to set an output that has the value of the first line of the `broken_links.md` file (this is used the next step).
+`check-english-links.js` スクリプトで壊れたリンクが検出され、0 以外 (失敗) の終了状態が返された場合は、[ワークフロー コマンド](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)を使用して、`broken_links.md` ファイルの先頭行の値を持つ出力を設定します (これは次のステップで使用されます)。
 </td>
 </tr>
 <tr>
@@ -395,7 +401,7 @@ If the `check-english-links.js` script detects broken links and returns a non-ze
 </td>
 <td>
 
-Uses the `peter-evans/create-issue-from-file` action to create a new {% data variables.product.prodname_dotcom %} issue. This example is pinned to a specific version of the action, using the `b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e` SHA.
+`peter-evans/create-issue-from-file` アクションを使用して、新しい {% data variables.product.prodname_dotcom %} のイシューを作成します。 この例は、`b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e` SHA を使用して、特定のバージョンのアクションに合わせて固定されています。
 </td>
 </tr>
 <tr>
@@ -423,9 +429,9 @@ Uses the `peter-evans/create-issue-from-file` action to create a new {% data var
 </td>
 <td>
 
-Uses [`gh issue list`](https://cli.github.com/manual/gh_issue_list) to locate the previously created issue from earlier runs. This is [aliased](https://cli.github.com/manual/gh_alias_set) to `gh list-reports` for simpler processing in later steps. To get the issue URL, the `jq` expression processes the resulting JSON output.
+[`gh issue list`](https://cli.github.com/manual/gh_issue_list) を使用して、以前の実行から以前に作成したイシューを見つけます。 これには、後のステップでの処理を簡単にするために、`gh list-reports` という[別名](https://cli.github.com/manual/gh_alias_set)が付けられます。 イシューの URL を取得するために、`jq` 式で結果の JSON 出力を処理します。
 
-[`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) is then used to add a comment to the new issue that links to the previous one.
+次に [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) を使用して、以前のイシューにリンクするコメントを新しいイシューに追加します。
 </td>
 </tr>
 <tr>
@@ -443,7 +449,7 @@ Uses [`gh issue list`](https://cli.github.com/manual/gh_issue_list) to locate th
 </td>
 <td>
 
-If an issue from a previous run is open and assigned to someone, then use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
+以前の実行でのイシューが未解決であり誰かに割り当てられている場合は、[`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) を使用して、新しいイシューへのリンクを含むコメントを追加します。
 </td>
 </tr>
 <tr>
@@ -464,16 +470,16 @@ If an issue from a previous run is open and assigned to someone, then use [`gh i
 </td>
 <td>
 
-If an issue from a previous run is open and is not assigned to anyone, then:
+以前の実行でのイシューが未解決であり誰にも割り当てられない場合は、次のようになります。
 
-* Use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
-* Use [`gh issue close`](https://cli.github.com/manual/gh_issue_close) to close the old issue.
-* Use [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit) to edit the old issue to remove it from a specific {% data variables.product.prodname_dotcom %} project board.
+* [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) を使用して、新しいイシューへのリンクを含むコメントを追加します。
+* [`gh issue close`](https://cli.github.com/manual/gh_issue_close) を使用して以前のイシューを閉じます。
+* [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit) を使用して以前のイシューを編集し、特定の {% data variables.product.prodname_dotcom %} プロジェクト ボードから削除します。
 </td>
 </tr>
 </tbody>
 </table>
 
-## 次のステップ
+## 次の手順
 
 {% data reusables.actions.learning-actions %}

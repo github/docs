@@ -35,7 +35,7 @@ After you configure SAML SSO, we recommend storing your recovery codes so you ca
 
 ## Configuring SAML single sign-on for {% data variables.product.prodname_emus %}
 
-To configure SAML SSO for your {% data variables.product.prodname_emu_enterprise %}, you must configure an application on your IdP and then configure your enterprise on GitHub.com. After you configure SAML SSO, you can configure user provisioning.
+To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP and then configure your enterprise on GitHub.com. After you configure SAML SSO, you can configure user provisioning. 
 
 To install and configure the {% data variables.product.prodname_emu_idp_application %} application on your IdP, you must have a tenant and administrative access on a supported IdP.
 
@@ -46,7 +46,7 @@ To install and configure the {% data variables.product.prodname_emu_idp_applicat
 {% endnote %}
 
 1. [Configuring your identity provider](#configuring-your-identity-provider)
-2. [Enterprise を設定する](#configuring-your-enterprise)
+2. [Configuring your enterprise](#configuring-your-enterprise)
 3. [Enabling provisioning](#enabling-provisioning)
 
 ### Configuring your identity provider
@@ -67,15 +67,15 @@ To configure your IdP, follow the instructions they provide for configuring the 
 
 1. To enable you to continue configuring your enterprise on {% data variables.product.prodname_dotcom %}, locate and note the following information from the application you installed on your IdP:
 
-    | 値                                   | 別名                 | 説明                                                               |
-    |:----------------------------------- |:------------------ |:---------------------------------------------------------------- |
-    | IdP Sign-On URL                     | Login URL, IdP URL | Application's URL on your IdP                                    |
-    | IdP Identifier URL                  | Issuer             | IdP's identifier to service providers for SAML authentication    |
+    | Value | Other names | Description |
+    | :- | :- | :- |
+    | IdP Sign-On URL | Login URL, IdP URL | Application's URL on your IdP |
+    | IdP Identifier URL | Issuer | IdP's identifier to service providers for SAML authentication |
     | Signing certificate, Base64-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
 
-### Enterprise を設定する
+### Configuring your enterprise
 
-After you install and configure the {% data variables.product.prodname_emu_idp_application %} application on your identity provider, you can configure your enterprise.
+After you install and configure the {% data variables.product.prodname_emu_idp_application %} application on your identity provider, you can configure your enterprise. 
 
 1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
 
@@ -83,23 +83,28 @@ After you install and configure the {% data variables.product.prodname_emu_idp_a
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 
-1. Under "SAML single sign-on", select **Require SAML authentication**. ![SAML SSO を有効化するためのチェックボックス](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
+1. Under "SAML single sign-on", select **Require SAML authentication**.
+  ![Checkbox for enabling SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
 
-1. Under **Sign on URL**, type the HTTPS endpoint of your IdP for single sign-on requests that you noted while configuring your IdP. ![メンバーがサインインする際にリダイレクトされる URL のフィールド](/assets/images/help/saml/saml_sign_on_url_business.png)
+1. Under **Sign on URL**, type the HTTPS endpoint of your IdP for single sign-on requests that you noted while configuring your IdP.
+![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url_business.png)
 
-1. Under **Issuer**, type your SAML issuer URL that you noted while configuring your IdP, to verify the authenticity of sent messages. ![SAMl 発行者の名前のフィールド](/assets/images/help/saml/saml_issuer.png)
+1. Under **Issuer**, type your SAML issuer URL that you noted while configuring your IdP, to verify the authenticity of sent messages.
+![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
 
-1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses. ![アイデンティティプロバイダからの公開の証明書のフィールド](/assets/images/help/saml/saml_public_certificate.png)
+1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
+![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
 
-1. SAML 発行者からのリクエストの完全性を確認するには、{% octicon "pencil" aria-label="The edit icon" %} をクリックします。 Then, in the "Signature Method" and "Digest Method" drop-downs, choose the hashing algorithm used by your SAML issuer. ![SAML 発行者が使用する署名方式とダイジェスト方式のハッシュアルゴリズム用のドロップダウン](/assets/images/help/saml/saml_hashing_method.png)
+1. To verify the integrity of the requests from your SAML issuer, click {% octicon "pencil" aria-label="The edit icon" %}. Then, in the "Signature Method" and "Digest Method" drop-downs, choose the hashing algorithm used by your SAML issuer.
+![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
 
-1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. ![強制化の前に SAML の構成をテストするためのボタン](/assets/images/help/saml/saml_test.png)
+1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
 
-1. [**Save**] をクリックします。
+1. Click **Save**.
 
     {% note %}
 
-    **Note:** When you require SAML SSO for your enterprise, the setup user will no longer have access to the enterprise but will remain signed in to GitHub. Only {% data variables.product.prodname_managed_users %} provisioned by your IdP will have access to the enterprise.
+    **Note:** When you require SAML SSO for your enterprise, the setup user will no longer have access to the enterprise but will remain signed in to GitHub. Only {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP will have access to the enterprise.
 
     {% endnote %}
 

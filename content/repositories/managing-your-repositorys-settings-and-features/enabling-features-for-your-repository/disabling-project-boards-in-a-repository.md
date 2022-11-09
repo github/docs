@@ -1,6 +1,6 @@
 ---
-title: Disabling {% data variables.projects.projects_v1_boards %} in a repository
-intro: Repository administrators can turn off {% data variables.projects.projects_v1_boards %} for a repository if you or your team manages work differently.
+title: 'Disabling {% data variables.projects.projects_v1_boards %} in a repository'
+intro: 'Repository administrators can turn off {% data variables.projects.projects_v1_boards %} for a repository if you or your team manages work differently.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-a-repository
   - /articles/disabling-project-boards-in-a-repository
@@ -13,7 +13,7 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Disable {% data variables.projects.projects_v1_boards %}
+shortTitle: 'Disable {% data variables.projects.projects_v1_boards %}'
 allowTitleToDifferFromFilename: true
 ---
 When you disable {% data variables.projects.projects_v1_boards %}, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or [audit logs](/articles/reviewing-your-security-log/).

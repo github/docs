@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o README do seu perfil
-intro: 'Você pode adicionar um README ao seu perfil de{% data variables.product.prodname_dotcom %} para contar a outras pessoas sobre você.'
+title: Managing your profile README
+intro: 'You can add a README to your {% data variables.product.prodname_dotcom %} profile to tell other people about yourself.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,64 +10,68 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-profile/managing-your-profile-readme
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
-shortTitle: Seu perfil LEIAME
+shortTitle: Your profile README
 ---
+## About your profile README
 
-## Sobre o README do seu perfil
+You can share information about yourself with the community on {% data variables.location.product_location %} by creating a profile README. {% data variables.product.prodname_dotcom %} shows your profile README at the top of your profile page.
 
-Você pode compartilhar informações sobre si mesmo com a comunidade em {% data variables.product.product_location %} criando um README sobre o seu perfil. {% data variables.product.prodname_dotcom %} mostra o README do seu perfil na parte superior da sua página de perfil.
+You decide what information to include in your profile README, so you have full control over how you present yourself on {% data variables.product.prodname_dotcom %}. Here are some examples of information that visitors may find interesting, fun, or useful in your profile README.
 
-Você decide quais informações incluir no README do seu perfil. Portanto, você tem total controle sobre a forma como se apresenta no {% data variables.product.prodname_dotcom %}. Aqui estão alguns exemplos de informações que os visitantes podem achar interessantes, divertidas ou úteis no README do seu perfil.
+- An "About me" section that describes your work and interests
+- Contributions you're proud of, and context about those contributions
+- Guidance for getting help in communities where you're involved
 
-- Uma seção "Sobre mim" que descreve seu trabalho e seus interesses
-- Contribuições das quais você está orgulhoso, bem como contexto dessas contribuições
-- Orientação para obter ajuda nas comunidades onde você está envolvido
+![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
 
-![Arquivo README do perfil exibido no perfil](/assets/images/help/repository/profile-with-readme.png)
+You can format text and include emoji, images, and GIFs in your profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[Getting started with writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)." For a hands-on guide to customizing your profile README, see "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."
 
-Você pode formatar texto e incluir emoji, imagens e GIFs no seu perfil README usando o markdown específico do {% data variables.product.company_short %}. Para obter mais informações, consulte "[Começando a escrever e formatar no {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)".
+## Prerequisites
 
-## Pré-requisitos
+GitHub will display your profile README on your profile page if all of the following are true.
 
-O GitHub irá exibir o README do seu perfil na sua página de perfil se todas as informações a seguir forem verdadeiras.
-
-- Você criou um repositório com um nome que corresponde ao nome de usuário do {% data variables.product.prodname_dotcom %}.
-- O repositório é público.
-- O repositório contém um arquivo denominado README.md na sua raiz.
-- O arquivo README.md contém qualquer conteúdo.
+- You've created a repository with a name that matches your {% data variables.product.prodname_dotcom %} username.
+- The repository is public.
+- The repository contains a file named README.md in its root.
+- The README.md file contains any content.
 
 {% note %}
 
-**Observação**: Se você criou um repositório público com o mesmo nome do seu nome de usuário antes de julho de 2020, {% data variables.product.prodname_dotcom %} não mostrará automaticamente o README do repositório no seu perfil. Você pode compartilhar manualmente o README do repositório no seu perfil, acessando o repositório no {% data variables.product.prodname_dotcom_the_website %} e clicando em **Compartilhar com o perfil**.
+**Note**: If you created a public repository with the same name as your username before July 2020, {% data variables.product.prodname_dotcom %} won't automatically show the repository's README on your profile. You can manually share the repository's README to your profile by going to the repository on {% data variables.product.prodname_dotcom_the_website %} and clicking **Share to profile**.
 
-![Botão para compartilhar o README no perfil](/assets/images/help/repository/share-to-profile.png)
+![Button to share README to profile](/assets/images/help/repository/share-to-profile.png)
 
 {% endnote %}
 
-## Adicionar um README do perfil
+## Adding a profile README
 
 {% data reusables.repositories.create_new %}
-2. Em "Nome do repositório", digite um nome de repositório que corresponde ao nome de usuário do {% data variables.product.prodname_dotcom %}. Por exemplo, se seu nome de usuário for "octocat", o nome do repositório deverá ser "octocat". ![Campo do nome do repositório que corresponde ao nome de usuário](/assets/images/help/repository/repo-username-match.png)
-3. Se desejar, adicione uma descrição do repositório. Por exemplo, "Meu repositório pessoal". ![Campo para inserir uma descrição do repositório](/assets/images/help/repository/create-personal-repository-desc.png)
-4. Selecione **Público**. ![Botão de opção para selecionar visibilidade com o público selecionado](/assets/images/help/repository/create-personal-repository-visibility.png)
+2. Under "Repository name", type a repository name that matches your {% data variables.product.prodname_dotcom %} username. For example, if your username is "octocat", the repository name must be "octocat".
+  ![Repository name field which matches username](/assets/images/help/repository/repo-username-match.png)
+3. Optionally, add a description of your repository. For example, "My personal repository."
+  ![Field for entering a repository description](/assets/images/help/repository/create-personal-repository-desc.png)
+4. Select **Public**.
+ ![Radio button to select visibility with public selected](/assets/images/help/repository/create-personal-repository-visibility.png)
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
-7. Acima da barra lateral direita, clique em **Editar README**. ![Botão para editar o arquivo README](/assets/images/help/repository/personal-repository-edit-readme.png)
+7. Above the right sidebar, click **Edit README**.
+  ![Button to edit README file](/assets/images/help/repository/personal-repository-edit-readme.png)
+  
+  The generated README file is pre-populated with a template to give you some inspiration for your profile README.
+  ![README file with pre-populated template](/assets/images/help/repository/personal-repository-readme-template.png)
 
-  O arquivo README gerado é pré-preenchido com um modelo para dar alguma inspiração para o README do seu perfil. ![Arquivo README com modelo pré-preenchido](/assets/images/help/repository/personal-repository-readme-template.png)
+For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)."
 
-Para obter um resumo todos os emojis disponíveis e seus códigos, consulte "[Folha de dicas de Emoji](https://www.webfx.com/tools/emoji-cheat-sheet/)".
+## Removing a profile README
 
-## Remover um README do perfil
+The profile README is removed from your {% data variables.product.prodname_dotcom %} profile if any of the following apply:
 
-O perfil README é removido do seu perfil de {% data variables.product.prodname_dotcom %} se algum dos pontos seguintes se aplicar:
+- The README file is empty or doesn't exist.
+- The repository is private.
+- The repository name no longer matches your username.
 
-- O arquivo README está vazio ou não existe.
-- O repositório é privado.
-- O nome do repositório não corresponde mais ao seu nome de usuário.
+The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see "[Changing a repository's visibility](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)."
 
-The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. Para obter informações sobre as etapas etapas de como tornar seu repositório privado, consulte ["Alterar a visibilidade de um repositório".](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
+## Further reading
 
-## Leia mais
-
-- [Sobre READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)
+- [About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)

@@ -1,7 +1,7 @@
 ---
-title: Configuring host keys for your instance
+title: インスタンスのホスト キーの構成
 shortTitle: Configure host keys
-intro: 'You can increase the security of {% data variables.product.product_location %} by configuring the algorithms that your instance uses to generate and advertise host keys for incoming SSH connections.'
+intro: 'インスタンスが受信 SSH 接続のホスト キーを生成およびアドバタイズするために使用するアルゴリズムを構成することで、{% data variables.location.product_location %}のセキュリティを強化できます。'
 permissions: 'Site administrators can configure the host keys for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '>= 3.6'
@@ -13,33 +13,38 @@ topics:
   - Networking
   - Security
   - SSH
+ms.openlocfilehash: 6454568e63b15fc947994ab39aef9baad9d5c146
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107110'
 ---
+## インスタンスのホスト キーについて
 
-## About host keys for your instance
-
-Servers that accept SSH connections advertise one or more cryptographic host keys to securely identify the server to SSH clients. To confirm the server's identity during the initialization of a connection, clients store and verify the host key. For more information, see [SSH Host Key - What, Why, How](https://ssh.com/academy/ssh/host-key) on the SSH Academy website.
+SSH 接続を受け入れるサーバーは、SSH クライアントに対してサーバーを安全に識別するために、1 つ以上の暗号化ホスト キーをアドバタイズします。 接続の初期化中にサーバーの ID を確認するために、クライアントはホスト キーを格納して確認します。 詳しくは、SSH Academy Web サイトの「[SSH ホスト キー - 概要、理由、方法](https://ssh.com/academy/ssh/host-key)」を参照してください。
 
 {% data reusables.enterprise.about-ssh-ports %}
 
-By default, {% data variables.product.product_location %} generates and advertises host keys with OpenSSH-style host key rotation. To increase the security of SSH in your environment, you can enable additional algorithms for the generation of host keys.
+既定では、{% data variables.location.product_location %}は、OpenSSH スタイルのホスト キー ローテーションを使用してホスト キーを生成およびアドバタイズします。 環境内の SSH のセキュリティを強化するために、ホスト キーの生成に関する追加のアルゴリズムを有効にすることができます。
 
 {% note %}
 
-**Note**: If you enable additional host key algorithms, clients that do not use OpenSSH for SSH connections may experience warnings during connection, or fail to connect entirely. Some SSH implementations can ignore unsupported algorithms and fall back to a different algorithm. If the client does not support fallback, the connection will fail. For example, the SSH library for Go does not support fallback to a different algorithm.
+**注**: 追加のホスト キー アルゴリズムを有効にした場合、SSH 接続に OpenSSH を使用しないクライアントでは、接続中に警告が発生したり、完全に接続できない場合があります。 一部の SSH 実装では、サポートされていないアルゴリズムを無視し、別のアルゴリズムにフォールバックできます。 クライアントがフォールバックをサポートしていない場合、接続は失敗します。 たとえば、Go 用 SSH ライブラリでは、別のアルゴリズムへのフォールバックはサポートされていません。
 
 {% endnote %}
 
-## Managing an Ed25519 host key
+## Ed25519 ホスト キーの管理
 
-To improve security for clients that connect to {% data variables.product.product_location %}, you can enable the generation and advertisement of an Ed25519 host key. Ed25519 is immune to some attacks that target older signature algorithms, without sacrificing speed. Older SSH clients may not support Ed25519. By default, {% data variables.product.product_name %} instances do not generate or advertise an Ed25519 host key. For more information, see [the Ed25519 website](https://ed25519.cr.yp.to).
+{% data variables.location.product_location %}に接続するクライアントのセキュリティを向上させるために、Ed25519 ホスト キーの生成とアドバタイズを有効にすることができます。 Ed25519 は、古い署名アルゴリズムを対象とする一部の攻撃の影響は受けません。スピードが犠牲になることもありません。 古い SSH クライアントでは、Ed25519 がサポートされていない可能性があります。 既定では、{% data variables.product.product_name %} インスタンスは Ed25519 ホスト キーを生成またはアドバタイズしません。 詳しくは、[Ed25519 の Web サイト](https://ed25519.cr.yp.to)を参照してください。
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. To enable generation and advertisement of the Ed25519 host key, enter the following command.
+1. Ed25519 ホスト キーの生成とアドバタイズを有効にするには、次のコマンドを入力します。
 
    ```shell
    ghe-config app.babeld.host-key-ed25519 true
    ```
-1. Optionally, enter the following command to disable generation and advertisement of the Ed25519 host key.
+1. 必要に応じて、次のコマンドを入力して、Ed25519 ホスト キーの生成とアドバタイズを無効にします。
 
    ```shell
    ghe-config app.babeld.host-key-ed25519 false

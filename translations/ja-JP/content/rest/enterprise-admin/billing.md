@@ -1,5 +1,5 @@
 ---
-title: 支払い
+title: Billing
 intro: ''
 versions:
   fpt: '*'
@@ -10,3 +10,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

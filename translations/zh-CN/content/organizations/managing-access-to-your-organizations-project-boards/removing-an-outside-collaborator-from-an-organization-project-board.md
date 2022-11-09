@@ -1,6 +1,6 @@
 ---
-title: '从组织 {% data variables.product.prodname_project_v1 %} 中删除外部协作者'
-intro: '作为组织所有者或 {% data variables.projects.projects_v1_board %} 管理员，您可以移除外部协作者对 {% data variables.projects.projects_v1_board %} 的访问权限。'
+title: 'Removing an outside collaborator from an organization {% data variables.product.prodname_project_v1 %}'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can remove an outside collaborator''s access to a {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-project-board
@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 删除外部协作者
+shortTitle: Remove outside collaborator
 allowTitleToDifferFromFilename: true
 ---
 

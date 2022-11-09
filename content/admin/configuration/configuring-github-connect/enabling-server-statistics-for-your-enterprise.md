@@ -12,7 +12,7 @@ shortTitle: Server Statistics
 
 ## About {% data variables.product.prodname_server_statistics %}
 
-{% data variables.product.prodname_server_statistics %} collects aggregate usage data from {% data variables.product.product_location %}, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. 
+{% data variables.product.prodname_server_statistics %} collects aggregate usage data from {% data variables.location.product_location %}, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. 
 
 {% data variables.product.prodname_server_statistics %} only collects certain aggregate metrics on repositories, issues, pull requests, and other features.{% data variables.product.prodname_dotcom %} content, such as code, issues, comments, or pull request content, is not collected. For more information, see "[About {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
 

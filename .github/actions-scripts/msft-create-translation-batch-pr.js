@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import fs from 'fs'
 import github from '@actions/github'
 
 const OPTIONS = Object.fromEntries(
@@ -32,6 +33,7 @@ const {
   BASE,
   HEAD,
   LANGUAGE,
+  BODY_FILE,
   GITHUB_TOKEN,
 } = OPTIONS
 const [OWNER, REPO] = GITHUB_REPOSITORY.split('/')
@@ -105,21 +107,21 @@ async function findOrCreatePullRequest(config) {
  * @param {object} config Configuration options for labeling the PR
  * @returns {Promise<undefined>}
  */
-// async function labelPullRequest(config) {
-//   await octokit.rest.issues.update({
-//     owner: config.owner,
-//     repo: config.repo,
-//     issue_number: config.issue_number,
-//     labels: config.labels,
-//   })
-// }
+async function labelPullRequest(config) {
+  await octokit.rest.issues.update({
+    owner: config.owner,
+    repo: config.repo,
+    issue_number: config.issue_number,
+    labels: config.labels,
+  })
+}
 
 async function main() {
   const options = {
     title: TITLE,
     base: BASE,
     head: HEAD,
-    body: `New translation batch for ${LANGUAGE}. You can see the log in [\`translations/log/${LANGUAGE}-resets.csv\`](https://github.com/${OWNER}/${REPO}/tree/${HEAD}/translations/log/msft-${LANGUAGE}-resets.csv).`,
+    body: fs.readFileSync(BODY_FILE, 'utf8'),
     labels: ['translation-batch', `translation-batch-${LANGUAGE}`],
     owner: OWNER,
     repo: REPO,
@@ -133,8 +135,8 @@ async function main() {
 
   // metadata parameters aren't currently available in `github.rest.pulls.create`,
   // but they are in `github.rest.issues.update`.
-  // await labelPullRequest(options)
-  // console.log(`Updated ${pr} with these labels: ${options.labels.join(', ')}`)
+  await labelPullRequest(options)
+  console.log(`Updated ${pr} with these labels: ${options.labels.join(', ')}`)
 }
 
 main()

@@ -1,5 +1,5 @@
-{% data variables.product.product_location %}上のプルリクエストでデフォルトの**Merge pull request（プルリクエストのマージ）**オプションをクリックすると、フィーチャブランチからのすべてのコミットがマージコミット内でベースブランチに追加されます。 プルリクエストは、[`--no-ff`オプション](https://git-scm.com/docs/git-merge#_fast_forward_merge)を使ってマージされます。
+When you click the default **Merge pull request** option on a pull request on {% data variables.location.product_location %}, all commits from the feature branch are added to the base branch in a merge commit. The pull request is merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge).
 
-プルリクエストをマージするためには、リポジトリの[書き込み権限](/articles/repository-permission-levels-for-an-organization/)を持っていなければなりません。
+To merge pull requests, you must have [write permissions](/articles/repository-permission-levels-for-an-organization/) in the repository.
 
 ![standard-merge-commit-diagram](/assets/images/help/pull_requests/standard-merge-commit-diagram.png)

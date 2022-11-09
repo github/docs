@@ -1,5 +1,5 @@
 ---
-title: Creating a {% data variables.product.prodname_project_v1 %}
+title: 'Creating a {% data variables.product.prodname_project_v1 %}'
 intro: '{% data variables.projects.projects_v1_boards_caps %} can be used to create customized workflows to suit your needs, like tracking and prioritizing specific feature work, comprehensive roadmaps, or even release checklists.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
@@ -7,7 +7,7 @@ redirect_from:
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
   - Issues
@@ -57,6 +57,14 @@ You can also configure workflow automations to keep your {% data variables.proje
 ## Creating an organization-wide {% data variables.projects.projects_v1_board %}
 
 {% data reusables.projects.classic-project-creation %}
+
+{% ifversion classic-project-visibility-permissions %}
+{% note %}
+
+**Note:** {% data reusables.projects.owners-can-limit-visibility-permissions %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

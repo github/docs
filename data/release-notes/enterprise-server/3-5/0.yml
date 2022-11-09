@@ -34,8 +34,6 @@ sections:
         - |
           Dependabot version and security updates are now generally available in GitHub Enterprise Server 3.5. All the popular ecosystems and features that work on GitHub.com repositories now can be set up on your GitHub Enterprise Server instance. Dependabot on GitHub Enterprise Server requires GitHub Actions and a pool of self-hosted Dependabot runners, GitHub Connect enabled, and Dependabot enabled by an admin. For more information, see "[Setting up Dependabot updates](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
 
-
-
     - heading: Server Statistics in public beta
       notes:
         # https://github.com/github/releases/issues/2183
@@ -137,6 +135,7 @@ sections:
         # https://github.com/github/releases/issues/1913
         - |
           The dependency graph now detects YAML files for GitHub Actions workflows. GitHub Enterprise Server will display the workflow files within the **Insights** tab's dependency graph section. Repositories that publish actions will also be able to see the number of repositories that depend on that action from the "Used By" control on the repository homepage. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
 
     - heading: Security overview for enterprises in public beta
       notes:
@@ -237,6 +236,7 @@ sections:
         # https://github.com/github/releases/issues/1923
         - |
           You can now reopen dismissed Dependabot alerts through the UI page for a closed alert. This does not affect Dependabot pull requests or the GraphQL API. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
 
     - heading: Pub support for Dependabot version updates is in public beta
       notes:
@@ -307,6 +307,7 @@ sections:
           - When your pull request's topic branch is out of date with the base branch, you now have the option to update it by rebasing on the latest version of the base branch. Rebasing applies the changes from your branch onto the latest version of the base branch, resulting in a branch with a linear history since no merge commit is created. To update by rebasing, click the drop down menu next to the **Update Branch** button, click **Update with rebase**, and then click **Rebase branch**. Previously, **Update branch** performed a traditional merge that always resulted in a merge commit in your pull request branch. This option is still available, but now you have the choice. For more information, see "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
 
           - A new repository setting allows the **Update branch** button to always be available when a pull request's topic branch is not up to date with the base branch. Previously, this button was only available when the **Require branches to be up to date before merging** branch protection setting was enabled. People with admin or maintainer access can manage the **Always suggest updating pull request branches** setting from the **Pull Requests** section in repository settings. For more information, see "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
+            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
 
     - heading: Configure custom HTTP headers for GitHub Pages sites
       notes: 
@@ -325,12 +326,19 @@ sections:
         # https://github.com/github/releases/issues/2011
         - |
           A light high contrast theme, with greater contrast between foreground and background elements, is now generally available. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+            - **Note**: This feature was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The feature is available in 3.5.4 and later. [Updated: 2022-08-16]
 
     - heading: Tag protection rules
       notes:
         # https://github.com/github/releases/issues/1793
         - |
           Repository owners can now configure tag protection rules to protect a repository's tags. Once protected by a tag protection rule, tags matching a specified name pattern can only be created and deleted by users with the Maintain or Admin role in the repository. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+
+    - heading: Edit files within pull requests in GitHub Mobile for iOS
+      notes:
+        # https://github.com/github/releases/issues/2514
+        - |
+          In GitHub Mobile for iOS 1.80.0 and later, users can now edit files within a pull request's topic branch. Support for editing files will come to GitHub Mobile for Android in a future release. [Updated: 2022-09-13]
 
   bugs:
     # https://github.com/github/releases/issues/1934
@@ -347,6 +355,11 @@ sections:
           - In version 3.0, the minimum requirement for memory increased from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
 
         For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
+      
+    # https://github.com/github/releases/issues/2479
+    - |
+      VMware vSphere ESXi hypervisor version 7.0 is now supported. [Updated: 2022-09-07]
+
     # https://github.com/github/releases/issues/2063
     - |
       To use the device authorization flow for OAuth and GitHub Apps, you must manually enable the feature. This change reduces the likelihood of apps being used in phishing attacks against GitHub Enterprise Server users by ensuring integrators are aware of the risks and make a conscious choice to support this form of authentication. If you own or manage an OAuth App or GitHub App and you want to use the device flow, you can enable it for your app via the app's settings page. The device flow API endpoints will respond with status code `400` to apps that have not enabled this feature. For more information, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
@@ -421,5 +434,13 @@ sections:
       - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
       - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
       - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
-      - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. [Updated: 2022-06-08]'
+      - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. This issue is resolved in the 3.5.1 patch release. [Updated: 2022-06-10]'
       - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'
+      - |
+        The following features were unavailable for users in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The features are available in 3.5.4 and later. [Updated: 2022-08-16]
+
+        - Detection of GitHub Actions workflow files for the dependency graph
+        - Reopening of dismissed Dependabot alerts
+        - Enabling the **Update branch** button for all pull requests in a repository
+        - Light high contrast theme
+      - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

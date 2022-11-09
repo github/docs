@@ -12,19 +12,24 @@ versions:
 type: overview
 topics:
   - Organizations
-shortTitle: Acerca de las organizaciones
+shortTitle: About organizations
+ms.openlocfilehash: 9a4b4012e4de7b2aee3cc10a4c03fe18d8dc6309
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879425'
 ---
+Para acceder a una organización, cada miembro debe iniciar sesión en su cuenta personal.
 
-Para acceder a una organización, cada miembro debe iniciar sesión en su propia cuenta personal.
+Los miembros de la organización pueden tener diferentes roles, como *propietario* o *administrador de facturación*:
 
-Los miembros de la organización pueden tener diferentes roles, como *propietario* o *gerente de facturación*:
-
-- Los **Propietarios** tienen acceso administrativo completo a una organización y sus contenidos.
-- Los **Gerentes de facturación** pueden administrar los parámetros de facturación y no pueden acceder a los contenidos de la organización. Los gerentes de facturación no se muestran en la lista de miembros de la organización.
+- Los **propietarios** tienen acceso administrativo completo a una organización y sus contenidos.
+- Los **administradores de facturación** pueden administrar los parámetros de facturación y no pueden acceder a los contenidos de la organización. Los gerentes de facturación no se muestran en la lista de miembros de la organización.
 
 ## Pagos y precios para las organizaciones
 
-No proporcionamos cotizaciones para los precios de las organizaciones. Puedes ver nuestros precios publicados para [organizaciones](https://github.com/pricing) y [Large File Storage de Git](/articles/about-storage-and-bandwidth-usage/). No ofrecemos descuentos para empresas de contratación ni para pedidos de renovación.
+No proporcionamos cotizaciones para los precios de las organizaciones. Puede ver nuestros precios publicados para [organizaciones](https://github.com/pricing) y [Git Large File Storage](/articles/about-storage-and-bandwidth-usage/). No ofrecemos descuentos para empresas de contratación ni para pedidos de renovación.
 
 Aceptamos pagos en dólares estadounidenses, aunque los usuarios finales pueden estar en cualquier parte del mundo.
 
@@ -32,8 +37,8 @@ Aceptamos pagos mediante tarjeta de crédito y PayPal. No aceptamos pagos median
 
 Para una compra más fácil y más eficaz, recomendamos que las empresas de contratación configuren una facturación anual para las organizaciones de sus clientes.
 
-## Leer más
+## Información adicional
 
-- "[Crear una organización y pagar por ella en nombre de un cliente](/articles/creating-and-paying-for-an-organization-on-behalf-of-a-client)"
-- "[Actualizar o bajar de categoría la organización paga de tu cliente](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
-- "[Renovar la organización paga de tu cliente](/articles/renewing-your-client-s-paid-organization)"
+- "[Creación y pago por una organización en nombre de un cliente](/articles/creating-and-paying-for-an-organization-on-behalf-of-a-client)"
+- "[Cambio de la organización de pago del cliente a una versión posterior o anterior](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
+- "[Renovación de la organización de pago del cliente](/articles/renewing-your-client-s-paid-organization)"

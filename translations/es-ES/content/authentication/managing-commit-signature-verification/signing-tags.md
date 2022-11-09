@@ -1,6 +1,6 @@
 ---
 title: Firmar etiquetas
-intro: Puedes firmar las etiquetas localmente utilizando GPG o S/MIME.
+intro: 'Puedes firmar etiquetas localmente mediante GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} o S/MIME.'
 redirect_from:
   - /articles/signing-tags-using-gpg
   - /articles/signing-tags
@@ -14,27 +14,29 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: 22bdc1c5095a8fa82d2ac406a19dc633f8f44fc6
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106681'
 ---
-
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
-1. Para firmar una etiqueta, agrega `-s` a tu comando `git tag`.
+1. Para firmar una etiqueta, agregue `-s` al comando `git tag`.
   ```shell
-  $ git tag -s <em>mytag</em>
+  $ git tag -s MYTAG
   # Creates a signed tag
   ```
-2. Verifica tu etiqueta firmada al ejecutar `git tag -v [tag-name]`.
+2. Compruebe la etiqueta firmada mediante la ejecución de `git tag -v [tag-name]`.
   ```shell
-  $ git tag -v <em>mytag</em>
+  $ git tag -v MYTAG
   # Verifies the signed tag
   ```
 
-## Leer más
+## Información adicional
 
-- [Ver las etiquetas de tu repositorio](/articles/viewing-your-repositorys-tags)"
-- "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
-- "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"
-- "[Agregar una llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
-- "[Informar a Git sobre tu llave de firma](/articles/telling-git-about-your-signing-key)"
-- "[Asociar un correo electrónico con tu llave GPG](/articles/associating-an-email-with-your-gpg-key)"
-- "[Firmar confirmaciones](/articles/signing-commits)"
+- "[Visualización de las etiquetas del repositorio](/articles/viewing-your-repositorys-tags)"
+- "[Notificación de la clave de firma a Git](/articles/telling-git-about-your-signing-key)"
+- "[Asociación de un correo electrónico con la clave GPG](/articles/associating-an-email-with-your-gpg-key)"
+- "[Firma de confirmaciones](/articles/signing-commits)"

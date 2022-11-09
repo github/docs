@@ -1,6 +1,6 @@
 ---
 title: Signing commits
-intro: You can sign commits locally using GPG or S/MIME.
+intro: 'You can sign commits locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.'
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg
   - /articles/signing-commits-using-gpg
@@ -36,7 +36,7 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
 
 1. When committing changes in your local branch, add the -S flag to the git commit command:
   ```shell
-  $ git commit -S -m <em>"your commit message"</em>
+  $ git commit -S -m "YOUR_COMMIT_MESSAGE"
   # Creates a signed commit
   ```
 2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/articles/generating-a-new-gpg-key).
@@ -52,9 +52,5 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
 
 ## Further reading
 
-* "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-* "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-* "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
 * "[Signing tags](/articles/signing-tags)"

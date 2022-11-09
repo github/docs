@@ -1,5 +1,13 @@
-When you enable organization discussions, you will choose a repository in the organization to be the source repository for your organization discussions. You can use an existing repository or create a repository specifically to hold your organization discussions. Discussions will appear both on the discussions page for the organization and on the discussion page for the source repository.
+---
+ms.openlocfilehash: bbc607de914bb87c81b24eaf777033bd1419edd1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147409588"
+---
+Organization のディスカッションを有効にするときに、Organization のディスカッションのソース リポジトリとして Organization 内のリポジトリを選択します。 既存のリポジトリを使用することも、Organization のディスカッションを保持するための専用のリポジトリを作成することもできます。 ディスカッションは、Organization のディスカッション ページとソース リポジトリのディスカッション ページの両方に表示されます。
 
-Permission to participate in or manage discussions in your organization is based on permission in the source repository. For example, a user needs write permission to the source repository in order to delete an organization discussion. This is identical to how a user needs write permission in a repository in order to delete a repository discussion.
+Organization 内のディスカッションに参加またはそれを管理するためのアクセス許可は、ソース リポジトリのアクセス許可に基づきます。 たとえば、ユーザーが Organization のディスカッションを削除するには、ソース リポジトリへの書き込みアクセス許可が必要になります。 これは、ユーザーがリポジトリ ディスカッションを削除するには、リポジトリでの書き込みアクセス許可が必要になる場合と同じです。
 
-You can change the source repository at any time. If you change the source repository, discussions are not transferred to the new source repository.
+ソース リポジトリはいつでも変更できます。 ソース リポジトリを変更しても、ディスカッションは新しいソース リポジトリに転送されません。

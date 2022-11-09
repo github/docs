@@ -47,7 +47,7 @@ You should download the {% data variables.product.prodname_codeql %} bundle from
 {% ifversion ghes or ghae %}
 
 {% note %}
-For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }},{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
+For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }}{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
 {% endnote %}
 
 {% endif %}
@@ -69,6 +69,14 @@ After you extract the {% data variables.product.prodname_codeql_cli %} bundle, y
 
 - By executing `/<extraction-root>/codeql/codeql`, where `<extraction-root>` is the folder where you extracted the {% data variables.product.prodname_codeql_cli %} bundle.
 - By adding `/<extraction-root>/codeql` to your `PATH`, so that you can run the executable as just `codeql`.
+
+{% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+{% note %}
+
+If you use the {% data variables.product.prodname_codeql_cli %} to analyze code written in Python, you must make sure that your CI system has Python 3 installed.
+
+{% endnote %}
+{% endif %}
 
 ## Testing the {% data variables.product.prodname_codeql_cli %} set up
 
@@ -104,7 +112,7 @@ You should check that the output contains the expected languages and also that t
 
 ## Generating a token for authentication with {% data variables.product.product_name %}
 
-Each CI server needs a {% data variables.product.prodname_github_app %} or personal access token for the {% data variables.product.prodname_codeql_cli %} to use to upload results to {% data variables.product.product_name %}. You must use an access token or a {% data variables.product.prodname_github_app %} with the `security_events` write permission. If CI servers already use a token with this scope to checkout repositories from {% data variables.product.product_name %}, you could potentially allow the {% data variables.product.prodname_codeql_cli %} to use the same token. Otherwise, you should create a new token with the `security_events` write permission and add this to the CI system's secret store. For information, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" and "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+Each CI server needs a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} for the {% data variables.product.prodname_codeql_cli %} to use to upload results to {% data variables.product.product_name %}. You must use an access token or a {% data variables.product.prodname_github_app %} with the `security_events` write permission. If CI servers already use a token with this scope to checkout repositories from {% data variables.product.product_name %}, you could potentially allow the {% data variables.product.prodname_codeql_cli %} to use the same token. Otherwise, you should create a new token with the `security_events` write permission and add this to the CI system's secret store. For information, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" and "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 ## Next steps
 

@@ -42,6 +42,10 @@ jobs:
   build-and-deploy-azure-preview:
     name: Build and deploy Azure preview environment
     runs-on: ubuntu-latest
+    # Ensure this is actually a pull request and not a merge group
+    # If its a merge group, report success without doing anything
+    # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
+    if: ((github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF) && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)) && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
@@ -73,7 +77,7 @@ jobs:
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
+        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
@@ -196,16 +200,6 @@ jobs:
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
-        # This 'if' will be truth, if this workflow is...
-        #  - run as a workflow_dispatch
-        #  - run because of a push to main (or when added to a merge queue)
-        #  - run as a regular pull request
-        # But if it's a pull request, *and* for whatever reason, the pull
-        # request has "Auto-merge" enabled, don't bother.
-        # The idea is that if auto-merge has been abled, by humans or by
-        # bots, they have no intention of viewing the deployed preview anyway.
-        # This saves time because the PR can merge sooner.
-        if: ${{ !github.event.pull_request.auto_merge }}
         uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
@@ -217,3 +211,15 @@ jobs:
             dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
+
+      - name: Check that it can reached
+        # This introduces a necessary delay. Because the preview evironment
+        # URL is announced to the pull request as soon as all the steps
+        # finish, what sometimes happens is that a viewer of the PR clicks
+        # that link too fast and are confronted with a broken page.
+        # It's because there's a delay between the `azure/arm-deploy`
+        # and when the server is actually started and can receive and
+        # process requests.
+        # By introducing a slight "delay" here we avoid announcing a
+        # preview environment URL that isn't actually working just yet.
+        run: curl --retry-connrefused --retry 5 -I ${{ env.APP_URL }}

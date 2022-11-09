@@ -1,8 +1,8 @@
-Cuando habilitas una o más características de seguridad y análisis para los repositorios existentes, verás cualquier resultado que se muestra en {% data variables.product.prodname_dotcom %} al cabo de unos pocos minutos:
+When you enable one or more security and analysis features for existing repositories, you will see any results displayed on {% data variables.product.prodname_dotcom %} within minutes:
 
-- Todos los repositorios existentes tendrán la configuración seleccionada.
-- Los repositorios nuevos seguirán la configuración seleccionada si habilitaste la casilla de verificación para estos.{% ifversion fpt or ghec %}
-- Utilizamos los permisos para escanear en busca de archivos de manifiesto para aplicar los servicios relevantes.
-- Si se habilita, verás la información de dependencias en la gráfica de dependencias.
-- De habilitarse, {% data variables.product.prodname_dotcom %} generará {% data variables.product.prodname_dependabot_alerts %} para las dependencias vulnerables o el malware.{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
-- Si se habilita, las actualizaciones de seguridad del {% data variables.product.prodname_dependabot %} crearán solicitudes de cambios para actualizar las dependencias vulnerables cuando se activen las {% data variables.product.prodname_dependabot_alerts %}.{% endif %}
+- All the existing repositories will have the selected configuration.
+- New repositories will follow the selected configuration if you've enabled the checkbox for new repositories.{% ifversion GH-advisory-db-supports-malware %}
+- We use the permissions to scan for manifest files to apply the relevant services.
+- If enabled, you'll see dependency information in the dependency graph.
+- If enabled, {% data variables.product.prodname_dotcom %} will generate {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies or malware.{% endif %}{% ifversion fpt or ghec or ghes %}
+- If enabled, {% data variables.product.prodname_dependabot %} security updates will create pull requests to upgrade vulnerable dependencies when {% data variables.product.prodname_dependabot_alerts %} are triggered.{% endif %}

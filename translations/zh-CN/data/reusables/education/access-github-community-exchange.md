@@ -1,7 +1,15 @@
-To access {% data variables.product.prodname_community_exchange %}, visit your {% data variables.product.prodname_global_campus %} dashboard at https://education.github.com.
+---
+ms.openlocfilehash: a1ea6001187a2b5fb30e1bc6f4767db44b98c36d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147573778"
+---
+若要访问 {% data variables.product.prodname_community_exchange %}，请访问 https://education.github.com 上的 {% data variables.product.prodname_global_campus %} 仪表板。
 
-If you're a student or faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_education %} benefits, which includes access to {% data variables.product.prodname_community_exchange %} within {% data variables.product.prodname_global_campus %}.
+如果你是认证教育机构的学生或教职员工，可以申请 {% data variables.product.prodname_education %} 权益，其中包括对 {% data variables.product.prodname_global_campus %} 中的 {% data variables.product.prodname_community_exchange %} 的访问权限。
 
-- If you’re a student and you haven't joined {% data variables.product.prodname_education %} yet, apply using the [student application form]( https://education.github.com/discount_requests/student_application). For more information, see "[About GitHub Education for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students)."
+- 如果你是学生并且尚未加入 {% data variables.product.prodname_education %}，请使用[学生申请表单]( https://education.github.com/discount_requests/student_application)来申请。 有关详细信息，请参阅“[关于学生版 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)”。
 
-- If you’re an educator and you haven't joined {% data variables.product.prodname_education %} yet, apply using the [teacher application form]( https://education.github.com/discount_requests/teacher_application). For more information, see "[About GitHub Education for educators](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount)."
+- 如果你是教师并且尚未加入 {% data variables.product.prodname_education %}，请使用[教师申请表单]( https://education.github.com/discount_requests/teacher_application)来申请。 有关详细信息，请参阅“[以教师身份申请加入 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)”。

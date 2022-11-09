@@ -28,53 +28,55 @@ export const ProductLanding = () => {
 
   return (
     <DefaultLayout>
-      <LandingSection className="pt-3">
-        <LandingHero />
-      </LandingSection>
-
-      <LandingSection>
-        <FeaturedArticles />
-      </LandingSection>
-
-      {productCodeExamples.length > 0 && (
-        <LandingSection
-          title={t('code_examples')}
-          sectionLink="code-examples"
-          className="my-6 pb-6"
-        >
-          <CodeExamples />
+      <div data-search="article-body">
+        <LandingSection className="pt-3">
+          <LandingHero />
         </LandingSection>
-      )}
 
-      {productCommunityExamples.length > 0 && (
-        <LandingSection title={t('communities_using_discussions')} className="my-6 pb-6">
-          <CommunityExamples />
+        <LandingSection>
+          <FeaturedArticles />
         </LandingSection>
-      )}
 
-      {productUserExamples.length > 0 && (
-        <LandingSection title={t('sponsor_community')} className="my-6 pb-6">
-          <SponsorsExamples />
-        </LandingSection>
-      )}
-
-      {router.query.productId === 'admin' && isEnterpriseServer && (
-        <LandingSection title={t('supported_releases')} className="my-6 pb-6">
-          <ProductReleases />
-        </LandingSection>
-      )}
-
-      {featuredLinks.guideCards?.length > 0 && (
-        <div className="color-bg-subtle py-6">
-          <LandingSection title={t('guides')} sectionLink="guides-2" className="my-6">
-            <GuideCards />
+        {productCodeExamples.length > 0 && (
+          <LandingSection
+            title={t('code_examples')}
+            sectionLink="code-examples"
+            className="my-6 pb-6"
+          >
+            <CodeExamples />
           </LandingSection>
-        </div>
-      )}
+        )}
 
-      <LandingSection title={`All ${shortTitle} docs`} sectionLink="all-docs" className="pt-9">
-        <ProductArticlesList />
-      </LandingSection>
+        {productCommunityExamples.length > 0 && (
+          <LandingSection title={t('communities_using_discussions')} className="my-6 pb-6">
+            <CommunityExamples />
+          </LandingSection>
+        )}
+
+        {productUserExamples.length > 0 && (
+          <LandingSection title={t('sponsor_community')} className="my-6 pb-6">
+            <SponsorsExamples />
+          </LandingSection>
+        )}
+
+        {router.query.productId === 'admin' && isEnterpriseServer && (
+          <LandingSection title={t('supported_releases')} className="my-6 pb-6">
+            <ProductReleases />
+          </LandingSection>
+        )}
+
+        {featuredLinks.guideCards?.length > 0 && (
+          <div className="color-bg-subtle py-6">
+            <LandingSection title={t('guides')} sectionLink="guides-2" className="my-6">
+              <GuideCards />
+            </LandingSection>
+          </div>
+        )}
+
+        <LandingSection title={`All ${shortTitle} docs`} sectionLink="all-docs" className="pt-9">
+          <ProductArticlesList />
+        </LandingSection>
+      </div>
     </DefaultLayout>
   )
 }

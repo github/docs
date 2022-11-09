@@ -1,6 +1,6 @@
 ---
-title: Asociar editores de texto con Git
-intro: Usar un editor de texto para abrir y editar tus archivos con Git.
+title: Associating text editors with Git
+intro: Use a text editor to open and edit your files with Git.
 redirect_from:
   - /textmate
   - /articles/using-textmate-as-your-default-editor
@@ -14,44 +14,34 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Editores de texto asociados
+shortTitle: Associate text editors
 ---
-
 {% mac %}
 
-## Usar Atom como editor
+## Using {% data variables.product.prodname_vscode %} as your editor
 
-1. Instala [Atom](https://atom.io/). Para obtener más información, consulta la sección "[Instalar Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" en la documentación de Atom.
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
-  ```shell
-  $ git config --global core.editor "atom --wait"
-  ```
-
-## Utilizar {% data variables.product.prodname_vscode %} como tu editor
-
-1. Omstañar [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
-{% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
+3. Type this command:
   ```shell
   $ git config --global core.editor "code --wait"
  ```
 
-## Usar Sublime Text como tu editor
+## Using Sublime Text as your editor
 
-1. Instala [Sublime Text](https://www.sublimetext.com/). Para obtener más información, consulta la sección "[Instalación](https://docs.sublimetext.io/guide/getting-started/installation.html)" en la documentación de Sublime Text.
+1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
+3. Type this command:
   ```shell
   $ git config --global core.editor "subl -n -w"
   ```
 
-## Usar TextMate como editor
+## Using TextMate as your editor
 
-1. Instala [TextMate](https://macromates.com/).
-2. Instala la utilidad de shell `mate` de TextMate. Para obtener más información, consulta "[`mate` y `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)" en la documentación de TextMate.
+1. Install [TextMate](https://macromates.com/).
+2. Install TextMate's `mate` shell utility. For more information, see "[`mate` and `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)" in the TextMate documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-4. Escribe este comando:
+4. Type this command:
   ```shell
   $ git config --global core.editor "mate -w"
   ```
@@ -59,38 +49,29 @@ shortTitle: Editores de texto asociados
 
 {% windows %}
 
-## Usar Atom como editor
+## Using {% data variables.product.prodname_vscode %} as your editor
 
-1. Instala [Atom](https://atom.io/). Para obtener más información, consulta la sección "[Instalar Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" en la documentación de Atom.
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
-  ```shell
-  $ git config --global core.editor "atom --wait"
-  ```
-
-## Utilizar {% data variables.product.prodname_vscode %} como tu editor
-
-1. Omstañar [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
-{% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
+3. Type this command:
   ```shell
   $ git config --global core.editor "code --wait"
  ```
 
-## Usar Sublime Text como tu editor
+## Using Sublime Text as your editor
 
-1. Instala [Sublime Text](https://www.sublimetext.com/). Para obtener más información, consulta la sección "[Instalación](https://docs.sublimetext.io/guide/getting-started/installation.html)" en la documentación de Sublime Text.
+1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
+3. Type this command:
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
   ```
 
-## Usar Notepad++ como editor
+## Using Notepad++ as your editor
 
-1. Instala Notepad++ desde https://notepad-plus-plus.org/. Para obtener más información, consulta la sección "[Comenzar](https://npp-user-manual.org/docs/getting-started/)" en la documentación de Notepad++.
+1. Install Notepad++ from https://notepad-plus-plus.org/. For more information, see "[Getting started](https://npp-user-manual.org/docs/getting-started/)" in the Notepad++ documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
+3. Type this command:
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
   ```
@@ -98,29 +79,20 @@ shortTitle: Editores de texto asociados
 
 {% linux %}
 
-## Usar Atom como editor
+## Using {% data variables.product.prodname_vscode %} as your editor
 
-1. Instala [Atom](https://atom.io/). Para obtener más información, consulta la sección "[Instalar Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" en la documentación de Atom.
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
-  ```shell
-  $ git config --global core.editor "atom --wait"
-  ```
-
-## Utilizar {% data variables.product.prodname_vscode %} como tu editor
-
-1. Omstañar [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
-{% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
+3. Type this command:
   ```shell
   $ git config --global core.editor "code --wait"
  ```
 
-## Usar Sublime Text como tu editor
+## Using Sublime Text as your editor
 
-1. Instala [Sublime Text](https://www.sublimetext.com/). Para obtener más información, consulta la sección "[Instalación](https://docs.sublimetext.io/guide/getting-started/installation.html)" en la documentación de Sublime Text.
+1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Escribe este comando:
+3. Type this command:
   ```shell
   $ git config --global core.editor "subl -n -w"
   ```

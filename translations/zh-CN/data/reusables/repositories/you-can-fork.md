@@ -1,11 +1,9 @@
 {% ifversion ghae %}
-如果您的企业策略允许复刻私有存储库和内部存储库，您可以将仓库复刻到您的个人帐户或您具有存储库创建权限的组织。 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
+If the policies for your enterprise permit forking private and internal repositories, you can fork a repository to your personal account or an organization where you have repository creation permissions. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 {% elsif ghes or ghec %}
-您可以将私有或内部存储库复刻到您在
-您具有存储库创建权限的 {% data variables.product.product_location %} 上的个人帐户或组织（如果存储库的设置和企业策略允许复刻）。
+You can fork a private or internal repository to your personal account or an organization on {% data variables.location.product_location %} where you have repository creation permissions, if settings for the repository and your enterprise policies allow forking.
 
 {% elsif fpt %}
-如果您有权访问私有存储库，并且所有者允许复刻，则可以将存储库复刻到您在
-您具有存储库创建权限的 {% data variables.product.prodname_team %} 上的个人帐户或组织。 您不能将私有存储库复刻到使用 {% data variables.product.prodname_free_team %} 的组织。 更多信息请参阅“[GitHub 的产品](/articles/githubs-products)”。
+If you have access to a private repository and the owner permits forking, you can fork the repository to your personal account, or an organization on {% data variables.product.prodname_team %} where you have repository creation permissions. You cannot fork a private repository to an organization using {% data variables.product.prodname_free_team %}. For more information, see "[GitHub's products](/articles/githubs-products)."
 {% endif %}

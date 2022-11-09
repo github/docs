@@ -1,5 +1,6 @@
 ---
 title: Publishing Java packages with Gradle
+shortTitle: Publish Java packages with Gradle
 intro: You can use Gradle to publish Java packages to a registry as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-gradle
@@ -15,7 +16,6 @@ topics:
   - Publishing
   - Java
   - Gradle
-shortTitle: Java packages with Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}

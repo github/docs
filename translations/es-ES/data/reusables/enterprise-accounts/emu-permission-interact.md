@@ -1,1 +1,1 @@
-{% ifversion ghec %}Los miembros de una {% data variables.product.prodname_emu_enterprise %} solo pueden interactuar con los repositorios dentro de su empresa. {% endif %}
+{% ifversion ghec %} Members of an {% data variables.enterprise.prodname_emu_enterprise %} can only interact with repositories within their enterprise. {% endif %}

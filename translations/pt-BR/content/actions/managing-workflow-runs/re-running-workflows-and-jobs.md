@@ -1,6 +1,7 @@
 ---
-title: Reexecutando fluxos de trabalho e trabalhos
-intro: 'Você pode executar novamente um fluxo de trabalho{% ifversion re-run-jobs %}, todos os trabalhos que falharam na execução de um fluxo de trabalho, ou trabalhos específicos em uma execução de fluxo de trabalho{% endif %} até 30 dias após sua execução inicial.'
+title: Re-running workflows and jobs
+shortTitle: Re-run workflows and jobs
+intro: 'You can re-run a workflow run{% ifversion re-run-jobs %}, all failed jobs in a workflow run, or specific jobs in a workflow run{% endif %} up to 30 days after its initial run.'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -15,11 +16,11 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Sobre a reexecução de fluxos de trabalho e trabalhos
+## About re-running workflows and jobs
 
-A reexecução de um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. {% ifversion actions-stable-actor-ids %}O fluxo de trabalho usará os privilégios do criador que inicialmente acionou o fluxo de trabalho, não os privilégios do criador que iniciou a reexecução. {% endif %}Você pode re-executar um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} por até 30 dias após a execução inicial.{% ifversion re-run-jobs %} Você não pode re-executar trabalhos em um fluxo de trabalho uma vez que seus registros superaram seus limites de retenção. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."{% endif %}{% ifversion debug-reruns %} Quando você re-executar um fluxo de trabalho ou trabalhos em um fluxo de trabalho, você pode habilitar o registro de depuração para a re-execução. Isso permitirá o registro de diagnóstico do executor e o registro de depuração de etapas para a nova execução. Para obter mais informações sobre o registro de depuração, consulte "[Habilitando o registro de depuração](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)"{% endif %}
+Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. {% ifversion actions-stable-actor-ids %}The workflow will use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. {% endif %}You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion re-run-jobs %} You cannot re-run jobs in a workflow once its logs have passed their retention limits. For more information, see "[Usage limits, billing, and administration](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."{% endif %}{% ifversion debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
 
-## Reexecutar todos os trabalhos em um fluxo de trabalho
+## Re-running all the jobs in a workflow
 
 {% webui %}
 
@@ -27,14 +28,18 @@ A reexecução de um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos e
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-{% ifversion fpt or ghes > 3.4 or ghae-issue-4721 or ghec %}
-1. No canto superior direito do fluxo de trabalho, use o menu suspenso **Reexecutar trabalhos** e selecione **Reexecutar todos os trabalhos**.
+{% ifversion fpt or ghes > 3.4 or ghae or ghec -%}
+1. In the upper-right corner of the workflow, use the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu, and select **Re-run all jobs**.
 
-   Se nenhum trabalho falhar, você não verá o menu suspenso **Reexecutar trabalhos**. Em vez disso, clique em **Reexecutar todos os trabalhos**. ![Menu suspenso reexecutar](/assets/images/help/repository/rerun-checks-drop-down.png)
-{% endif %}
-{% ifversion ghes < 3.5 or ghae %}
-1. No canto superior direito do fluxo de trabalho, use o menu suspenso **Reexecutar trabalhos** e selecione **Reexecutar todos os trabalhos**. ![Menu suspenso Re-run checks (Executar verificações novamente)](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
-{% endif %}
+   If no jobs failed, you will not see the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu. Instead, click **Re-run all jobs**.
+
+   ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+{%- endif %}
+{% ifversion ghes < 3.5 or ghae -%}
+1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.
+
+   ![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
+{%- endif %}
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
@@ -43,22 +48,22 @@ A reexecução de um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos e
 
 {% data reusables.cli.cli-learn-more %}
 
-Para executar novamente um fluxo de trabalho com falha, use o subcomando `executar novamente`. Substitua `run-id` pelo ID da execução com falha que você deseja executar novamente.  Se você não especificar um `run-id`, {% data variables.product.prodname_cli %} irá retornar um menu interativo para você escolher uma execução com falha recente.
+To re-run a failed workflow run, use the `run rerun` subcommand. Replace `run-id` with the ID of the failed run that you want to re-run.  If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
 
 ```shell
-gh run rerun <em>run-id</em>
+gh run rerun RUN_ID
 ```
 
 {% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
-gh run rerun <em>run-id</em> --debug
+gh run rerun RUN_ID --debug
 ```
 
 {% endif %}
 
-Para visualizar o progresso da execução do fluxo de trabalho, use o subcomando `executar inspeção` e selecione a execução na lista interativa.
+To view the progress of the workflow run, use the `run watch` subcommand and select the run from the interactive list.
 
 ```shell
 gh run watch
@@ -67,9 +72,9 @@ gh run watch
 {% endcli %}
 
 {% ifversion re-run-jobs %}
-## Reexecutar trabalhos que falharam em um fluxo de trabalho
+## Re-running failed jobs in a workflow
 
-Se qualquer trabalho na execução de um fluxo de trabalho falhar, você poderá executar novamente apenas os trabalhos que falharam. Ao reexecutar trabalhos que falharam em fluxo de trabalho, uma nova execução do fluxo de trabalho será iniciada para todos os trabalhos que falharam e seus dependentes. Todas as saídas para quaisquer trabalhos bem-sucedidos na execução anterior do fluxo de trabalho serão usadas para a nova execução. Todos os artefatos criados na execução inicial estarão disponíveis na reexecução. Todas as regras de proteção de ambiente que passaram na execução anterior serão automaticamente passadas na reexecução.
+If any jobs in a workflow run failed, you can re-run just the jobs that failed. When you re-run failed jobs in a workflow, a new workflow run will start for all failed jobs and their dependents. Any outputs for any successful jobs in the previous workflow run will be used for the re-run. Any artifacts that were created in the initial run will be available in the re-run. Any environment protection rules that passed in the previous run will automatically pass in the re-run.
 
 {% webui %}
 
@@ -77,32 +82,34 @@ Se qualquer trabalho na execução de um fluxo de trabalho falhar, você poderá
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. No canto superior direito do fluxo de trabalho, use o menu suspenso **Reexecutar trabalhos** e selecione **Reexecutar trabalhos com falhas**. ![Menu suspenso de executar novamente trabalhos com falha](/assets/images/help/repository/rerun-failed-jobs-drop-down.png)
+1. In the upper-right corner of the workflow, use the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu, and select **Re-run failed jobs**.
+
+   ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
 
 {% cli %}
 
-Para executar novamente trabalhos que falharam em um fluxo de trabalho executado, use o subcomando `executar novamente` com o sinalizador `--failed`. Substitua `run-id` pelo ID da execução para o qual você deseja reexecutar trabalhos que falharam. Se você não especificar um `run-id`, {% data variables.product.prodname_cli %} irá retornar um menu interativo para você escolher uma execução com falha recente.
+To re-run failed jobs in a workflow run, use the `run rerun` subcommand with the `--failed` flag. Replace `run-id` with the ID of the run for which you want to re-run failed jobs. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
 
 ```shell
-gh run rerun <em>run-id</em> --failed
+gh run rerun RUN_ID --failed
 ```
 
 {% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
-gh run rerun <em>run-id</em> --failed --debug
+gh run rerun RUN_ID --failed --debug
 ```
 
 {% endif %}
 {% endcli %}
 
-## Reexecutando um trabalho específico em um fluxo de trabalho
+## Re-running a specific job in a workflow
 
-Ao executar novamente um trabalho específico em um fluxo de trabalho, uma nova execução do fluxo de trabalho será iniciada para o trabalho e para quaisquer dependentes. Todas as saídas para outros trabalhos na execução anterior do fluxo de trabalho serão usadas para a nova execução. Todos os artefatos criados na execução inicial estarão disponíveis na reexecução. Todas as regras de proteção de ambiente que passaram na execução anterior serão automaticamente passadas na reexecução.
+When you re-run a specific job in a workflow, a new workflow run will start for the job and any dependents. Any outputs for any other jobs in the previous workflow run will be used for the re-run. Any artifacts that were created in the initial run will be available in the re-run. Any environment protection rules that passed in the previous run will automatically pass in the re-run.
 
 {% webui %}
 
@@ -110,26 +117,28 @@ Ao executar novamente um trabalho específico em um fluxo de trabalho, uma nova 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Ao lado do trabalho que você deseja executar novamente, clique em {% octicon "sync" aria-label="The re-run icon" %}. ![Reexecutar trabalho selecionado](/assets/images/help/repository/re-run-selected-job.png)
+1. Next to the job that you want to re-run, click {% octicon "sync" aria-label="The re-run icon" %}.
+   ![Re-run selected job](/assets/images/help/repository/re-run-selected-job.png)
 
-   Alternativamente, clique em um trabalho para visualizar o registro. No registro, clique em {% octicon "sync" aria-label="The re-run icon" %}. ![Reexecutar trabalho selecionado](/assets/images/help/repository/re-run-single-job-from-log.png)
+   Alternatively, click on a job to view the log. In the log, click {% octicon "sync" aria-label="The re-run icon" %}.
+   ![Re-run selected job](/assets/images/help/repository/re-run-single-job-from-log.png)
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
 
 {% cli %}
 
-Para executar novamente um trabalho específico em uma execução de fluxo de trabalho, use o subcomando `executar novamente` com o sinalizador `--job`. Substitua `job-id` pelo ID do trabalho que você deseja executar novamente.
+To re-run a specific job in a workflow run, use the `run rerun` subcommand with the `--job` flag. Replace `job-id` with the ID of the job that you want to re-run.
 
 ```shell
-gh run rerun --job <em>job-id</em>
+gh run rerun --job JOB_ID
 ```
 
 {% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
-gh run rerun --job <em>job-id</em> --debug
+gh run rerun --job JOB_ID --debug
 ```
 
 {% endif %}
@@ -139,26 +148,28 @@ gh run rerun --job <em>job-id</em> --debug
 
 {% ifversion partial-reruns-with-reusable %}
 
-## Re-executar fluxos de trabalho e trabalhos com fluxos de trabalho reutilizáveis
+## Re-running workflows and jobs with reusable workflows
 
 {% data reusables.actions.partial-reruns-with-reusable %}
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.4 or ghae-issue-4721 or ghec %}
-## Revisando execuções de workflows anteriores
+{% ifversion fpt or ghes > 3.4 or ghae or ghec %}
+## Reviewing previous workflow runs
 
-Você pode ver os resultados de suas tentativas anteriores de executar um fluxo de trabalho. Você também pode visualizar execuções de workflows anteriores do fluxo de trabalho usando a API. Para obter mais informações, consulte ["Obter uma execução de workflow"](/rest/reference/actions#get-a-workflow-run).
+You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see ["Get a workflow run"](/rest/reference/actions#get-a-workflow-run).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {%- ifversion re-run-jobs %}
-1. Quaisquer tentativas anteriores de execução são exibidas no menu suspenso **mais recentes**. ![Tentativas de execução anteriores](/assets/images/help/repository/previous-run-attempts.png)
+1. Any previous run attempts are shown in the **Latest** drop-down menu.
+   ![Previous run attempts](/assets/images/help/repository/previous-run-attempts.png)
 {%- else %}
-1. Todas as tentativas anteriores de execução são mostradas no painel esquerdo. ![Reexecutar fluxo de trabalho](/assets/images/help/settings/actions-review-workflow-rerun.png)
+1. Any previous run attempts are shown in the left pane.
+    ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
 {%- endif %}
-1. Clique em uma entrada para visualizar os resultados.
+1. Click an entry to view its results.
 
 {% endif %}

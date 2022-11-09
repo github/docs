@@ -1,6 +1,6 @@
 ---
-title: Events
-intro: 'The Events API is a read-only API to the {% data variables.product.prodname_dotcom %} events.'
+title: 事件
+intro: '事件 API 是 {% data variables.product.prodname_dotcom %} 事件的只读 API。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,13 +9,18 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 09ad462fe00e84344bd1f0a33f97380a3f03e656
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064304'
 ---
+这些事件推动站点上的各种活动流。
 
-These events power the various activity streams on the site.
+事件 API 可以返回 {% data variables.product.product_name %} 上的活动触发的不同类型事件。 有关可从事件 API 接收的特定事件的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 事件类型](/developers/webhooks-and-events/github-event-types)”。 存储库问题的事件 API 也可用。 有关详细信息，请参阅“[议题事件 API](/rest/reference/issues#events)”。
 
-The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{% data variables.product.prodname_dotcom %} Event types](/developers/webhooks-and-events/github-event-types)." An events API for repository issues is also available. For more information, see the "[Issue Events API](/rest/reference/issues#events)."
-
-Events are optimized for polling with the "ETag" header. If no new events have been triggered, you will see a "304 Not Modified" response, and your current rate limit will be untouched. There is also an "X-Poll-Interval" header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
+事件针对使用 "ETag" 标头的轮询进行了优化。 如果未触发任何新事件，您将会看到一个 "304 Not Modified" 响应，并且您的当前速率限制不受影响。 还有一个 "X-Poll-Interval" 标头，用于指定允许您轮询的间隔时间（以秒为单位）。 在服务器负载较高时，该时间可能会增加。 请遵循标头指示。
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
@@ -30,4 +35,4 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > X-Poll-Interval: 60
 ```
 
-Only events created within the past 90 days will be included in timelines. Events older than 90 days will not be included (even if the total number of events in the timeline is less than 300).
+时间表中只包含过去 90 天内创建的事件。 超过 90 天的活动将不包括在内（即使时间表中的活动总数不到 300 个）。

@@ -1,4 +1,12 @@
-1. Si planeas utilizar esta bifurcación para contribuir con el repositorio ascendente original, haz clic **Para contribuir con el proyecto**.
+---
+ms.openlocfilehash: 5d678119f473246fbfbc8e8beca5c3520b833ac3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145138378"
+---
+1. Si planea usar esta bifurcación para contribuir con el repositorio ascendente original, haga clic en **To contribute to the parent project** (Para contribuir con el proyecto).
 
   {% mac %}
 
@@ -12,7 +20,7 @@
 
   {% endwindows %}
 
-2. Si planeas utilizar esta bifurcación para un proyecto que no esta conectado ascendentemente, haz clic en **Para mis propios propósitos**.
+2. Si planea usar esta bifurcación para un proyecto que no esta conectado al elemento ascendente, haga clic en **For my own purposes** (Para mis propios propósitos).
 
   {% mac %}
 
@@ -26,7 +34,7 @@
 
   {% endwindows %}
 
-3. Haz clic en **Continuar**.
+3. Haga clic en **Continuar**.
 
   {% mac %}
 

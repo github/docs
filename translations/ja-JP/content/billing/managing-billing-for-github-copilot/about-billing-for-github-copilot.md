@@ -1,21 +1,21 @@
 ---
-title: GitHub Copilotの支払いについて
-intro: '{% data variables.product.prodname_copilot %}を使いたい場合、{% data variables.product.prodname_dotcom %}アカウントのプランが必要です。'
+title: About billing for GitHub Copilot
+intro: 'If you want to use {% data variables.product.prodname_copilot %}, you need a subscription for your {% data variables.product.prodname_dotcom %} account.'
+product: '{% data reusables.gated-features.copilot-billing %}'
 versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: GitHub Copilotの支払い
+shortTitle: Billing for GitHub Copilot
 ---
+## About billing for {% data variables.product.prodname_copilot %}
 
-## {% data variables.product.prodname_copilot %}の支払いについて
+If you want to use {% data variables.product.prodname_copilot %}, you will need a subscription for your {% data variables.product.prodname_dotcom %} personal account. For more information about {% data variables.product.prodname_copilot %}, see "[About {% data variables.product.prodname_copilot %}](/en/copilot/overview-of-github-copilot/about-github-copilot)."
 
-{% data variables.product.prodname_copilot %}を使いたい場合、{% data variables.product.prodname_dotcom %}の個人アカウントにプランが必要になります。 {% data variables.product.prodname_copilot %} の詳細については、「[{% data variables.product.prodname_copilot %} について](/en/copilot/overview-of-github-copilot/about-github-copilot)」を参照してください。
+Before starting a paid subscription, you can set up a one-time 60-day trial to evaluate {% data variables.product.prodname_copilot %}. To begin a trial, you will need to choose a monthly or yearly billing cycle, and provide a payment method. If you do not cancel the trial before the end of the 60 days, the trial will automatically convert to a paid subscription. You can cancel your {% data variables.product.prodname_copilot %} trial at any time during the 60 days and you won't be charged. If you cancel before the end of the trial, you will continue to have access to {% data variables.product.prodname_copilot %} until the 60-day trial period ends. For more information, see "[Managing your GitHub Copilot subscription](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription)."
 
-有料プランを始める前に、{% data variables.product.prodname_copilot %}を評価するために1回限定の60日の試用をセットアップできます。 試用を開始するには、月次もしくは年次の支払いサイクルを選択し、支払い方法を提供しなければなりません。 60日の終わりまでに試用をキャンセルしなかった場合、試用は自動的に有料プランに変換されます。 {% data variables.product.prodname_copilot %}の試用は、60日の間いつでもキャンセルでき、そうすれば課金されることはありません。 試用の終了前にキャンセルした場合、60日の試用期間が終了するまでは{% data variables.product.prodname_copilot %}にアクセスできます。 詳しい情報については「[GitHub Copilotのプランの管理](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription)」を参照してください。
+## {% data variables.product.prodname_copilot %} pricing
 
-## {% data variables.product.prodname_copilot %}の価格
+The {% data variables.product.prodname_copilot %} subscription is available on a monthly or yearly cycle. If you choose a monthly billing cycle, you will be billed $10 per calendar month. If you choose a yearly billing cycle, you will be billed $100 per year. You can modify your billing cycle at any time, and the modification will be reflected from the start of your next billing cycle.
 
-{% data variables.product.prodname_copilot %}プランは、月次もしくは年次のサイクルで利用できます。 月次の支払いサイクルを選択した場合、カレンダーの月ごとに$10が請求されます。 年次の支払いサイクルを選択した場合、年間で$100が請求されます。 支払いサイクルはいつでも変更でき、変更は次の支払いサイクルの開始時点から反映されます。
-
-{% data variables.product.prodname_copilot %}の無料プランは、確認済みの学生、及び{% data variables.product.company_short %}上の人気のあるオープンソースリポジトリのメンテナが利用できます。 オープンソースメンテナとしての基準を満たしているなら、{% data variables.product.prodname_copilot %}プランのページにアクセスすると自動的に通知されます。 学生として現在{% data variables.product.prodname_student_pack %}を受け取っている場合、{% data variables.product.prodname_copilot %}プランのページにアクセスすると無料のプランも提供されます。 {% data variables.product.prodname_student_pack %}に関する詳しい情報については「[学生向け開発者パックへの応募](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/apply-for-a-student-developer-pack)」を参照してください。
+A free subscription for {% data variables.product.prodname_copilot %} is available to verified students, teachers, and maintainers of popular open-source repositories on {% data variables.product.company_short %}. If you meet the criteria as an open source maintainer, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. As a student, if you currently receive the {% data variables.product.prodname_student_pack %}, you will also be offered a free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page. For more information about the {% data variables.product.prodname_student_pack %}, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."

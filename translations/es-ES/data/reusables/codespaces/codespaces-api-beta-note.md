@@ -1,5 +1,5 @@
 {% note %}
 
-**Nota**: La API de {% data variables.product.prodname_codespaces %} se encuentra actualmente en beta público y está sujeto a cambios.
+**Note**: The {% data variables.product.prodname_github_codespaces %} API is currently in public beta and subject to change.
 
 {% endnote %}

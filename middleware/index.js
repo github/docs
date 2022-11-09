@@ -11,8 +11,6 @@ import morgan from 'morgan'
 import datadog from './connect-datadog.js'
 import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
-import csrf from './csrf.js'
-import handleCsrfErrors from './handle-csrf-errors.js'
 import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
@@ -28,7 +26,6 @@ import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import api from './api/index.js'
-import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
 import remoteIP from './remote-ip.js'
@@ -38,7 +35,8 @@ import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
 import triggerError from './trigger-error.js'
-import releaseNotes from './contextualizers/release-notes.js'
+import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
+import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
 import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
@@ -47,6 +45,7 @@ import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
+import productGroups from './contextualizers/product-groups.js'
 import featuredLinks from './featured-links.js'
 import learningTrack from './learning-track.js'
 import next from './next.js'
@@ -114,8 +113,7 @@ export default function (app) {
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
 
-  // Must come before `csrf` otherwise you get a Set-Cookie on successful
-  // asset requests. And it can come before `rateLimit` because if it's a
+  // It can come before `rateLimit` because if it's a
   // 200 OK, the rate limiting won't matter anyway.
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
@@ -171,8 +169,7 @@ export default function (app) {
 
   // In development, let NextJS on-the-fly serve the static assets.
   // But in production, don't let NextJS handle any static assets
-  // because they are costly to generate (the 404 HTML page)
-  // and it also means that a CSRF cookie has to be generated.
+  // because they are costly to generate (the 404 HTML page).
   if (process.env.NODE_ENV !== 'development') {
     const assetDir = path.join('.next', 'static')
     if (!fs.existsSync(assetDir))
@@ -198,15 +195,12 @@ export default function (app) {
 
   // *** Security ***
   app.use(helmet)
-  app.use(cookieParser) // Must come before csrf
-  app.use(express.json()) // Must come before csrf
+  app.use(cookieParser)
+  app.use(express.json())
 
   if (ENABLE_FASTLY_TESTING) {
-    app.use(fastlyBehavior) // FOR TESTING. Must come before csrf
+    app.use(fastlyBehavior) // FOR TESTING.
   }
-
-  app.use(csrf)
-  app.use(handleCsrfErrors) // Must come before regular handle-errors
 
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
@@ -229,7 +223,7 @@ export default function (app) {
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 
   // *** Config and context for rendering ***
-  app.use(instrument(findPage, './find-page')) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
   app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding
@@ -237,7 +231,6 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/search', instrument(search, './search')) // The old search API
   app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
@@ -265,15 +258,17 @@ export default function (app) {
   app.head('/*', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
-  app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
+  app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
+  app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
-  app.use(instrument(currentProductTree, './contextualizers/current-product-tree'))
+  app.use(asyncMiddleware(instrument(currentProductTree, './contextualizers/current-product-tree')))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
-  app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
+  app.use(instrument(breadcrumbs, './contextualizers/breadcrumbs'))
   app.use(instrument(features, './contextualizers/features'))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
+  app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
 
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))

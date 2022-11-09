@@ -36,16 +36,16 @@ export const SidebarProduct = () => {
     routePath.includes(href)
   )
 
-  const productTitle = currentProductTree.renderedShortTitle || currentProductTree.renderedFullTitle
+  const productTitle = currentProductTree.shortTitle || currentProductTree.title
 
   const productSection = () => (
     <li className="my-3" data-testid="product-sidebar-items">
       <ul className="list-style-none">
         {currentProductTree &&
           currentProductTree.childPages.map((childPage, i) => {
-            const isStandaloneCategory = childPage.page.documentType === 'article'
+            const isStandaloneCategory = childPage.documentType === 'article'
 
-            const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+            const childTitle = childPage.shortTitle || childPage.title
             const isActive =
               routePath.includes(childPage.href + '/') || routePath === childPage.href
             const defaultOpen = hasExactCategory ? isActive : false
@@ -80,21 +80,28 @@ export const SidebarProduct = () => {
 
   const restSection = () => {
     const conceptualPages = currentProductTree.childPages.filter(
-      (page) => page.href.includes('guides') || page.href.includes('overview')
+      (page) =>
+        page.href.includes('guides') ||
+        page.href.includes('overview') ||
+        page.href.includes('quickstart')
     )
     const restPages = currentProductTree.childPages.filter(
-      (page) => !page.href.includes('guides') && !page.href.includes('overview')
+      (page) =>
+        !page.href.includes('guides') &&
+        !page.href.includes('overview') &&
+        !page.href.includes('quickstart')
     )
     return (
       <>
         <li className="my-3">
           <ul className="list-style-none">
             {conceptualPages.map((childPage, i) => {
-              const isStandaloneCategory = childPage.page.documentType === 'article'
-              const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+              const isStandaloneCategory = childPage.documentType === 'article'
+              const childTitle = childPage.shortTitle || childPage.title
               const isActive =
                 routePath.includes(childPage.href + '/') || routePath === childPage.href
               const defaultOpen = hasExactCategory ? isActive : false
+
               return (
                 <li
                   key={childPage.href + i}
@@ -102,12 +109,23 @@ export const SidebarProduct = () => {
                   data-is-current-page={isActive && isStandaloneCategory}
                   className={cx('py-1', isActive && 'color-bg-inset')}
                 >
-                  <ProductCollapsibleSection
-                    defaultOpen={defaultOpen}
-                    routePath={routePath}
-                    title={childTitle}
-                    page={childPage}
-                  />
+                  {childPage.href.includes('quickstart') ? (
+                    <Link
+                      href={childPage.href}
+                      className={cx(
+                        'd-block pl-4 pr-5 py-1 color-fg-default text-bold no-underline width-full'
+                      )}
+                    >
+                      {childTitle}
+                    </Link>
+                  ) : (
+                    <ProductCollapsibleSection
+                      defaultOpen={defaultOpen}
+                      routePath={routePath}
+                      title={childTitle}
+                      page={childPage}
+                    />
+                  )}
                 </li>
               )
             })}
@@ -127,9 +145,8 @@ export const SidebarProduct = () => {
         <li className="my-3">
           <ul className="list-style-none">
             {restPages.map((childPage, i) => {
-              const isStandaloneCategory = childPage.page.documentType === 'article'
-
-              const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+              const isStandaloneCategory = childPage.documentType === 'article'
+              const childTitle = childPage.shortTitle || childPage.title
               const isActive =
                 routePath.includes(childPage.href + '/') || routePath === childPage.href
               const defaultOpen = hasExactCategory ? isActive : false
@@ -160,19 +177,15 @@ export const SidebarProduct = () => {
     <ul data-testid="sidebar" className={styles.container}>
       <AllProductsLink />
 
-      {!currentProductTree.page.hidden && (
-        <>
-          <li data-testid="sidebar-product" title={productTitle} className="my-2">
-            <Link
-              href={currentProductTree.href}
-              className="pl-4 pr-5 pb-1 f4 color-fg-default no-underline"
-            >
-              {productTitle}
-            </Link>
-          </li>
-          {currentProduct && currentProduct.id === 'rest' ? restSection() : productSection()}
-        </>
-      )}
+      <li data-testid="sidebar-product" title={productTitle} className="my-2">
+        <Link
+          href={currentProductTree.href}
+          className="pl-4 pr-5 pb-1 f4 color-fg-default no-underline"
+        >
+          {productTitle}
+        </Link>
+      </li>
+      {currentProduct && currentProduct.id === 'rest' ? restSection() : productSection()}
     </ul>
   )
 }

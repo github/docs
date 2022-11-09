@@ -20,7 +20,7 @@ When you enable {% data variables.product.prodname_server_statistics %}, you're 
 
 ## About data security
 
-We respect your data. We will never transmit data from {% data variables.product.product_location %} unless you have first given us permission to do so.
+We respect your data. We will never transmit data from {% data variables.location.product_location %} unless you have first given us permission to do so.
 
 We collect no personal data. We also don't collect any {% data variables.product.company_short %} content, such as code, issues, comments, or pull request content.
 
@@ -48,7 +48,7 @@ You can disable the {% data variables.product.prodname_server_statistics %} feat
 
 ## {% data variables.product.prodname_server_statistics %} data collected
 
-After you enable {% data variables.product.prodname_server_statistics %}, metrics are collected through a daily job that runs on {% data variables.product.product_location %}. The aggregate metrics are stored on your organization or enterprise account on {% data variables.product.prodname_ghe_cloud %} and are not stored on {% data variables.product.product_location %}.
+After you enable {% data variables.product.prodname_server_statistics %}, metrics are collected through a daily job that runs on {% data variables.location.product_location %}. The aggregate metrics are stored on your organization or enterprise account on {% data variables.product.prodname_ghe_cloud %} and are not stored on {% data variables.location.product_location %}.
 
 The following aggregate metrics will be collected and transmitted on a daily basis and represent the total counts for the day:
   - `active_hooks`

@@ -12,12 +12,14 @@ topics:
   - API
 ---
 
-## Acerca de las interfaces
+## About interfaces
 
-Las [interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) sirven como objetos padre de los cuales obtendrán sus herencias los demás objetos.
+[Interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) serve as parent objects from which other objects can inherit.
 
-Por ejemplo, [`Lockable`](/graphql/reference/interfaces#lockable) es una interface, ya que tanto los objetos [`Issue`](/graphql/reference/objects#issue) como los objetos [`PullRequest`](/graphql/reference/objects#pullrequest) se pueden fijar. Una interface tiene su propia lista de campos nombrados que se comparte mediante objetos de implementación.
+For example, [`Lockable`](/graphql/reference/interfaces#lockable) is an interface because both [`Issue`](/graphql/reference/objects#issue) and [`PullRequest`](/graphql/reference/objects#pullrequest) objects can be locked. An interface has its own list of named fields that are shared by implementing objects.
 
-Para obtener más información, consulta la sección "[Implementación](/graphql/guides/introduction-to-graphql#implementation)".
+For more information, see "[Implementation](/graphql/guides/introduction-to-graphql#implementation)."
+
+{% data reusables.projects.graphql-ghes %}
 
 <!-- Content after this section is automatically generated -->

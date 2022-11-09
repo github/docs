@@ -12,6 +12,12 @@ children:
   - /customer-experience-best-practices-for-apps
   - /viewing-metrics-for-your-listing
   - /viewing-transactions-for-your-listing
-shortTitle: Crear apps de Marketplace
+shortTitle: Create Marketplace apps
+ms.openlocfilehash: 991f21944b6196ab7391b5d8af84abe32768c8d4
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147885680'
 ---
 

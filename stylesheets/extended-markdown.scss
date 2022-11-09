@@ -10,16 +10,13 @@
     }
   }
 
-  p {
-    margin: 0;
-  }
-
   p:not(:first-child) {
     margin-top: 1rem;
   }
 
   &.note pre code {
     color: var(--color-fg-default);
+    margin: 1rem;
   }
 
   &.note pre {
@@ -27,8 +24,21 @@
     padding: 0.5rem 0.5rem 0.5rem 0;
     margin-bottom: 0;
   }
+
+  &.note,
+  &.warning,
+  &.tip,
+  &.danger {
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .warning {
   font-weight: normal;
+}
+
+.permissions-statement {
+  border-left: 5px solid var(--color-border-muted);
 }

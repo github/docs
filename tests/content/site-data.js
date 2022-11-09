@@ -19,7 +19,6 @@ describe('siteData module (English)', () => {
 
   test('sets a top-level key for each language', async () => {
     expect('en' in data).toEqual(true)
-    expect('ja' in data).toEqual(true)
   })
 
   test('includes English variables', async () => {
@@ -35,16 +34,6 @@ describe('siteData module (English)', () => {
     expect(reusable).toBe('1. Change the current working directory to your local repository.')
   })
 
-  test('includes Japanese variables', async () => {
-    const prodName = get(data, 'ja.site.data.variables.product.prodname_dotcom')
-    expect(prodName).toBe('GitHub')
-  })
-
-  test('includes Japanese reusables', async () => {
-    const reusable = get(data, 'ja.site.data.reusables.audit_log.octicon_icon')
-    expect(reusable.includes('任意のページの左上で')).toBe(true)
-  })
-
   test('all Liquid tags are valid', async () => {
     const dataMap = flat(data)
     for (const key in dataMap) {
@@ -55,6 +44,7 @@ describe('siteData module (English)', () => {
       } catch (err) {
         if (err instanceof ParseError) {
           console.warn('value that failed to parse:', value)
+          console.warn('data file:', key)
           throw new Error(`Unable to parse with Liquid: ${err.message}`)
         }
         // Note, the parseAndRender() might throw other errors. For

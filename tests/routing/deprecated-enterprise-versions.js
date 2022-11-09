@@ -3,7 +3,6 @@ import { describe, jest, test } from '@jest/globals'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get, getDOM } from '../helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -99,16 +98,7 @@ describe('recently deprecated redirects', () => {
     // Deliberately no cache control because it is user-dependent
     expect(res.headers['cache-control']).toBe('private, no-store')
   })
-  test('basic enterprise 3.0 redirects by cookie', async () => {
-    const res = await get('/enterprise/3.0', {
-      headers: {
-        Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
-      },
-      followRedirects: false,
-    })
-    expect(res.statusCode).toBe(302)
-    expect(res.headers.location).toBe('/ja/enterprise-server@3.0')
-  })
+
   test('already languaged enterprise 3.0 redirects', async () => {
     const res = await get('/en/enterprise/3.0')
     expect(res.statusCode).toBe(301)
@@ -116,7 +106,7 @@ describe('recently deprecated redirects', () => {
     // 301 redirects are safe to cache aggressively
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
   })
   test('redirects enterprise-server 3.0 with actual redirect without language', async () => {
     const res = await get(
@@ -132,20 +122,7 @@ describe('recently deprecated redirects', () => {
       '/en/enterprise-server@3.0/get-started/learning-about-github/githubs-products'
     )
   })
-  test('redirects enterprise-server 3.0 with actual redirect with language', async () => {
-    const res = await get(
-      '/ja/enterprise-server@3.0/github/getting-started-with-github/githubs-products'
-    )
-    expect(res.statusCode).toBe(301)
-    expect(res.headers['set-cookie']).toBeUndefined()
-    expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    // This is based on
-    // https://github.com/github/help-docs-archived-enterprise-versions/blob/master/3.0/redirects.json
-    expect(res.headers.location).toBe(
-      '/ja/enterprise-server@3.0/get-started/learning-about-github/githubs-products'
-    )
-  })
+
   test('follow redirects enterprise-server 3.0 with actual redirect without language', async () => {
     const res = await get(
       '/enterprise-server@3.0/github/getting-started-with-github/githubs-products',
@@ -214,6 +191,9 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(200)
     expect(result.headers['x-is-archived']).toBe('true')
     expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
+    expect(result.headers['cache-control']).toContain('public')
+    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(result.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
   })
 
   it('returns the expected CSS file', async () => {

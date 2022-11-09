@@ -10,19 +10,25 @@ Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair
 Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
 Azure | Azure Active Directory Application Secret
-Azure | Azure DevOps Personal Access Token
+Azure | Azure Batch Key Identifiable
+Azure | Azure CosmosDB Key Identifiable
+Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
+Azure | Azure ML Studio (classic) Web Service Key
 Azure | Azure SAS Token
 Azure | Azure Service Management Certificate
 Azure | Azure SQL Connection String
 Azure | Azure Storage Account Key
 Checkout.com | Checkout.com Production Secret Key
 Checkout.com | Checkout.com Test Secret Key
+Chief | Chief Tools Token
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
 Contributed Systems | Contributed Systems Credentials
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
-DigitalOcean | DigitalOcean Personal Access Token
+DevCycle | DevCycle Client API Key
+DevCycle | DevCycle Server API Key
+DigitalOcean | DigitalOcean {% data variables.product.pat_generic_title_case %}
 DigitalOcean | DigitalOcean OAuth Token
 DigitalOcean | DigitalOcean Refresh Token
 DigitalOcean | DigitalOcean System Token
@@ -40,7 +46,7 @@ Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
 Frame.io| Frame.io Developer Token
 FullStory| FullStory API Key
-GitHub | GitHub Personal Access Token
+GitHub | GitHub {% data variables.product.pat_generic_title_case %}
 GitHub | GitHub OAuth Access Token
 GitHub | GitHub Refresh Token
 GitHub | GitHub App Installation Access Token
@@ -51,7 +57,7 @@ Google Cloud | Google API Key
 Google Cloud | Google Cloud Private Key ID
 Hashicorp Terraform | Terraform Cloud / Enterprise API Token
 Hubspot | Hubspot API Key
-Ionic | Ionic Personal Access Token
+Ionic | Ionic {% data variables.product.pat_generic_title_case %}
 Ionic | Ionic Refresh Token
 JD Cloud | JD Cloud Access Key
 Linear | Linear API Key
@@ -104,7 +110,13 @@ Supabase | Supabase Service Key
 Tencent Cloud | Tencent Cloud Secret ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
-Typeform | Typeform Personal Access Token
+Typeform | Typeform {% data variables.product.pat_generic_title_case %}
 Uniwise | WISEflow API Key 
 Valour | Valour Access Token
+Yandex | Yandex.Cloud API Key	
+Yandex | Yandex.Cloud IAM Cookie	
+Yandex | Yandex.Cloud IAM Token	
+Yandex | Yandex.Dictionary API Key	
+Yandex | Yandex.Cloud Access Secret	
+Yandex | Yandex.Passport OAuth Token	
 Zuplo | Zuplo Consumer API

@@ -9,12 +9,12 @@ export function ProductReleases() {
   const { t } = useTranslation('product_landing')
   const router = useRouter()
   const { enterpriseServerReleases, allVersions } = useMainContext()
-  const { releases, shortTitle } = useProductLandingContext()
+  const { ghesReleases, shortTitle } = useProductLandingContext()
   const currentPath = router.asPath.split('?')[0]
   return (
     <div>
       <div className="d-lg-flex gutter-lg flex-items-stretch">
-        {releases.map((release) => {
+        {ghesReleases.map((release) => {
           const releaseNumber = release.version
           if (!enterpriseServerReleases.supported.includes(releaseNumber)) {
             return null

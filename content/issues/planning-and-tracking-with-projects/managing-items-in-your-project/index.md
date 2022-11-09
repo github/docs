@@ -3,7 +3,7 @@ title: 'Managing items in your {% data variables.projects.project_v2 %}'
 shortTitle: 'Managing items in your {% data variables.projects.project_v2 %}'
 intro: 'Learn how to add and manage issues, pull requests, and draft issues.'
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 topics:
   - Issues
   - Projects

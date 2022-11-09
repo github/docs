@@ -1,6 +1,6 @@
 ---
-title: Configurar fusiones de solicitudes de extracción
-intro: 'Puedes configurar las fusiones de solicitudes de cambio en {% data variables.product.product_location %} para que coincidan con tu flujo de trabajo y con tus preferencias para administrar el historial de Git.'
+title: Configuring pull request merges
+intro: 'You can configure pull request merges on {% data variables.location.product_location %} to match your workflow and preferences for managing Git history.'
 redirect_from:
   - /articles/configuring-pull-request-merges
   - /github/administering-a-repository/configuring-pull-request-merges
@@ -13,12 +13,13 @@ topics:
   - Repositories
 children:
   - /about-merge-methods-on-github
+  - /configuring-commit-merging-for-pull-requests
   - /configuring-commit-squashing-for-pull-requests
   - /configuring-commit-rebasing-for-pull-requests
   - /managing-a-merge-queue
   - /managing-suggestions-to-update-pull-request-branches
   - /managing-auto-merge-for-pull-requests-in-your-repository
   - /managing-the-automatic-deletion-of-branches
-shortTitle: Configurar fusiones de solicitudes de cambio
+shortTitle: Configure PR merges
 ---
 

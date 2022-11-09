@@ -1,6 +1,6 @@
 ---
-title: 'Administrar el acceso de un individuo al {% data variables.product.prodname_project_v1 %} de una organización'
-intro: 'Como propietario de una organización o administrador de un {% data variables.projects.projects_v1_board %}, puedes administrar el acceso individual de un miembro a un {% data variables.projects.projects_v1_board %} que le pertenezca a tu organización.'
+title: 'Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can manage an individual member''s access to a {% data variables.projects.projects_v1_board %} owned by your organization.'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -13,7 +13,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Administrar el acceso individual
+shortTitle: Manage individual access
 allowTitleToDifferFromFilename: true
 ---
 
@@ -21,50 +21,51 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**Nota:** {% data reusables.project-management.cascading-permissions %} Para obtener más información, consulta la sección "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
+**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)." 
 
 {% endnote %}
 
-## Proporcionar a un miembro de la organización acceso a un {% data variables.projects.projects_v1_board %}
+## Giving an organization member access to a {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Haz clic en **Proyectos (clásico)**{% endif %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
-9. Debajo de "Search by username, full name or email address" (Buscar por nombre de usuario, nombre completo o dirección de correo electrónico), escribe el nombre, el nombre de usuario o el correo electrónico del colaborador {% data variables.product.prodname_dotcom %}. ![La sección Collaborators (Colaboradores) con el nombre de usuario de Octocat ingresado en el campo de búsqueda](/assets/images/help/projects/org-project-collaborators-find-name.png)
+9. Under "Search by username, full name or email address", type the collaborator's name, username, or {% data variables.product.prodname_dotcom %} email.
+   ![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/projects/org-project-collaborators-find-name.png)
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Cambiar el acceso de un miembro de una organización a un {% data variables.projects.projects_v1_board %}
+## Changing an organization member's access to a {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Haz clic en **Proyectos (clásico)**{% endif %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Eliminar el acceso de un miembro de una organización para un {% data variables.projects.projects_v1_board %}
+## Removing an organization member's access to a {% data variables.projects.projects_v1_board %}
 
-Cuando eliminas a un colaborador de un {% data variables.projects.projects_v1_board %}, aún podrían retener el acceso al tablero con base en los permisos que tengan para otros roles. Para eliminar el acceso a un {% data variables.projects.projects_v1_board %} completamente, debes eliminar el acceso para cada rol que tenga la persona. Por ejemplo, una persona podría tener acceso al {% data variables.projects.projects_v1_board %} como miembro de una organización o de un equipo. Para obtener más información, consulta la sección "[Permisos de los {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
+When you remove a collaborator from a {% data variables.projects.projects_v1_board %}, they may still retain access to the board based on the permissions they have for other roles. To completely remove access to a {% data variables.projects.projects_v1_board %}, you must remove access for each role the person has. For instance, a person may have access to the {% data variables.projects.projects_v1_board %} as an organization member or team member. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Haz clic en **Proyectos (clásico)**{% endif %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.remove-collaborator %}
 
-## Leer más
+## Further reading
 
-- "[Permisos de un {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)"
+- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"

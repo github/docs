@@ -1,5 +1,6 @@
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. En la sección de "Seguridad" de la barra lateral, haz clic en **{% octicon "codescan" aria-label="The codescan icon" %} Análisis y seguridad de código**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-label="The codescan icon" %} Code security and analysis**.
 {% else %}
-1. En la barra lateral izquierda, da clic en **Seguridad & análisis**. ![Pestaña de "Seguridad & análisis"](/assets/images/help/organizations/org-settings-security-and-analysis.png)
+1. In the left sidebar, click **Security & analysis**.
+  !["Security & analysis" tab in organization settings](/assets/images/help/organizations/org-settings-security-and-analysis.png)
 {% endif %}

@@ -1,6 +1,7 @@
 ---
-title: GitHub Actionsの支払いについて
-intro: 'アカウントに含まれるストレージや利用時間 (分) を超えて{% data variables.product.prodname_actions %}を使用したい場合は、追加の使用分が請求されます。'
+title: About billing for GitHub Actions
+intro: 'If you want to use {% data variables.product.prodname_actions %} beyond the storage or minutes included in your account, you will be billed for additional usage.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
@@ -11,96 +12,104 @@ type: overview
 topics:
   - Actions
   - Spending limits
-shortTitle: GitHub Actionsの支払い
+shortTitle: Billing for GitHub Actions
 ---
-
-## {% data variables.product.prodname_actions %}の支払いについて
+## About billing for {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.actions-billing %}
 
-{% data reusables.actions.actions-spending-limit-brief %} 詳しい情報については、「[利用上限について](#about-spending-limits)」を参照してください。
+{% data reusables.actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
 
 {% ifversion ghec %}
-Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合、Azure サブスクリプション ID を Enterprise アカウントに接続して、アカウントを含む金額を超える {% data variables.product.prodname_actions %} の使用を有効にして支払うことができます。 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
 {% endif %}
 
-利用時間 (分) は毎月リセットされますが、ストレージはリセットされません。
+Minutes reset every month, while storage usage does not.
 
-### 含まれるストレージと分
+### Included storage and minutes
 
-| 製品                                                               | ストレージ  | 分 (月あたり) |
-| ---------------------------------------------------------------- | ------ | -------- |
-| {% data variables.product.prodname_free_user %}                | 500 MB | 2,000    |
-| {% data variables.product.prodname_pro %}                        | 1 GB   | 3,000    |
-| Organization の {% data variables.product.prodname_free_team %} | 500 MB | 2,000    |
-| {% data variables.product.prodname_team %}                       | 2 GB   | 3,000    |
-| {% data variables.product.prodname_ghe_cloud %}                | 50 GB  | 50,000   |
+{% ifversion actions-hosted-runners %} 
+{% note %}
 
-{% data variables.product.prodname_dotcom %}がホストするWindows及びmacOSのランナー上で実行されるジョブは、Linuxのランナー上のジョブの消費に対して2倍及び10倍の分を消費します。 たとえば、Windowsでの1,000分はアカウントに含まれる分のうちの2,000分を消費します。 1,000 macOS分を使用すると、アカウントに含まれる10,000分を消費します。
+**Note**: Entitlement minutes cannot be used for Windows and Ubuntu runners over 2-cores. These runners will always be charged for, including in public repos. For more information, see "[Per-minute rates for runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
-### 分の倍率
+{% endnote %}
+{% endif %}
 
-| オペレーティングシステム | 分の倍率 |
-| ------------ | ---- |
-| Linux        | 1    |
-| macOS        | 10   |
-| Windows      | 2    |
+|Product | Storage | Minutes (per month)|
+|------- | ------- | ---------|
+| {% data variables.product.prodname_free_user %} | 500 MB | 2,000 |
+| {% data variables.product.prodname_pro %} | 1 GB | 3,000 |
+| {% data variables.product.prodname_free_team %} for organizations | 500 MB | 2,000 |
+| {% data variables.product.prodname_team %} | 2 GB | 3,000 |
+| {% data variables.product.prodname_ghe_cloud %} | 50 GB | 50,000 |
 
-リポジトリが使用するストレージは、{% data variables.product.prodname_actions %}の成果物と{% data variables.product.prodname_registry %}の消費の合計のストレージです。 ストレージのコストは、アカウントが所有するすべてのリポジトリの合計の使用量です。 {% data variables.product.prodname_registry %}の価格に関する詳細な情報については、「[{% data variables.product.prodname_registry %}の支払いについて](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。
+Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume. For example, using 1,000 Windows minutes would consume 2,000 of the minutes included in your account. Using 1,000 macOS minutes, would consume 10,000 minutes included in your account.
 
- アカウントによる利用がこれらの制限を超え、消費の限度を0米ドル以上に設定しているなら、1日あたりストレージのGBごとに0.008米ドル、そして{% data variables.product.prodname_dotcom %}ホストランナーが使用するオペレーティングシステムに応じた分の使用量ごとに支払うことになります。 {% data variables.product.prodname_dotcom %}は、各ジョブが使用する分をもっとも近い分に丸めます。
+### Minute multipliers
+
+| Operating system | Minute multiplier |
+|------- | ---------|
+| Linux | 1 |
+| macOS| 10 |
+| Windows | 2 |
+
+The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for  {% data variables.product.prodname_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+
+ If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
 
 {% note %}
 
-**注釈:** 分の倍率は、以下に示す分あたりの料金には適用されません。
+**Note:** Minute multipliers do not apply to the per-minute rates shown below.
 
 {% endnote %}
 
-### 分あたりの料金
+### Per-minute rates
 
-| オペレーティングシステム | 分あたりの料金（米ドル） |
-| ------------ | ------------ |
-| Linux        | $0.008       |
-| macOS        | $0.08        |
-| Windows      | $0.016       |
+{% data reusables.billing.billing-standard-runners %}
+{% ifversion actions-hosted-runners %}{% data reusables.billing.billing-hosted-runners %}{% endif %}
 
-アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
+- The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
+- {% data reusables.user-settings.context_switcher %}
+{% ifversion actions-hosted-runners %} 
+- For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
+- Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s.
+- The {% data variables.actions.hosted_runner %}s are not free for public repositories.
+{% endif %}
 
-{% data reusables.user-settings.context_switcher %}
-
-## 利用時間 (分) とストレージ消費量の計算
+## Calculating minute and storage spending
 
 {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_actions %}
 
-月末に、{% data variables.product.prodname_dotcom %}はアカウントに含まれている量に対して使用された分とストレージのコストを計算します。
+At the end of the month, {% data variables.product.prodname_dotcom %} calculates the cost of minutes and storage used over the amount included in your account.
 
-### 分のコスト計算例
+### Sample minutes cost calculation
 
-たとえば、Organizationが{% data variables.product.prodname_team %}を使用しており、使用量に制限をしていない場合、5,000分を使用すればジョブを実行しているオペレーティングシステムによって、合計でストレージと分は56米ドルの超過コストになるかもしれません。
+For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 5,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
 
-- 5,000 (3,000 Linux と 2,000 Windows) 分 = 56米ドル (24米ドル + 32米ドル)。
-  - 単価 0.008米ドル で 3,000 Linux 分 = 24米ドル。
-  - 単価 0.016米ドル で 2,000 Windows 分 = 32米ドル。
+- 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
+  - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
+  - 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
 
-{% data variables.product.prodname_dotcom %}は、毎月の利用状況をその月の時間の利用状況に基づいて計算します。
+{% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month.
 
-### ストレージのコスト計算例
+### Sample storage cost calculation
 
-たとえば、3月の10日間にストレージを3 GB使用し、3月の21日間に12GBを使用した場合、ストレージの利用状況は次のようになります。
+For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 
-- 3 GB x 10日 x (1日24 時間) = 720 GB時間
-- 12 GB x 21日 x (1日24 時間) = 6,048 GB時間
-- 720 GB時間 + 6,048 GB時間 = 6,768 GB時間
-- 6,768 GB時間 / (月あたり744時間) = 9.0967 GB月
+- 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
+- 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
+- 720 GB-Hours + 6,048 GB-Hours = 6,768 GB-Hours
+- 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
 
-月末に、{% data variables.product.prodname_dotcom %}はストレージ使用量を最も近いGBに丸めます。 したがって、この3月のストレージ使用量は9.097 GBになります。
+At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
 
-{% data variables.product.prodname_actions %} の利用については、アカウントの既存の請求日、支払い方法、領収書が共有されます。 {% data reusables.dotcom_billing.view-all-subscriptions %}
+Your {% data variables.product.prodname_actions %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-## 利用上限について
+## About spending limits
 
 {% data reusables.actions.actions-spending-limit-detailed %}
 
-アカウントの利用上限の管理と変更については、「[{% data variables.product.prodname_actions %} の利用上限の管理](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)」を参照してください。
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

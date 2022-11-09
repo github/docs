@@ -1,6 +1,6 @@
 ---
-title: Configurar a autenticação integrada
-intro: 'Quando você usa o método de autenticação padrão, todos os detalhes de autenticação ficam armazenados em {% data variables.product.product_location %}.'
+title: Configuring built-in authentication
+intro: 'When you use the default authentication method, all authentication details are stored on {% data variables.location.product_location %}.'
 permissions: 'Site administrators can configure authentication for a {% data variables.product.product_name %} instance.'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
@@ -16,40 +16,42 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Configurar autenticação integrada
+shortTitle: Configure built-in authentication
 ---
 
-## Sobre a autenticação integrada
+## About built-in authentication
 
-Por padrão, {% data variables.product.product_name %} usa autenticação integrada. Cada pessoa cria uma conta de usuário em {% data variables.product.product_location %} a partir de um convite ou efetuando a inscrição, e, em seguida, efetua a autenticação com as credenciais para que a conta acesse sua instância. Sua instância do {% data variables.product.product_name %} armazena as informações de autenticação para a conta.
+By default, {% data variables.product.product_name %} uses built-in authentication. Each person creates a user account on {% data variables.location.product_location %} from an invitation or by signing up, and then authenticates with the credentials for the account to access your instance. Your {% data variables.product.product_name %} instance stores the authentication information for the account.
 
-Você pode impedir que pessoas não autenticadas criem novas contas em sua instância. Para obter mais informações, consulte "[Desabilitando inscrições não autenticadas](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)".
+You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 
-## Configurar a autenticação integrada
+## Configuring built-in authentication
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-4. Selecione **Built in authentication** (Autenticação integrada). ![Opção Select built-in authentication (Selecionar autenticação integrada)](/assets/images/enterprise/management-console/built-in-auth-select.png)
+4. Select **Built in authentication**.
+![Select built-in authentication option](/assets/images/enterprise/management-console/built-in-auth-select.png)
 
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-## Criando a sua conta
+## Creating your account
 
-Uma vez que sua instância foi criada, você deverá criar a sua própria conta de administrador.
+Once your instance has been created, you'll need to create your own admin account.
 
-1. Na página "Create Admin Account" (Criar conta de administrador) em `http(s)://[hostname]/join`, defina seu nome de usuário, senha e endereço de e-mail. Em seguida, clique em **Create an account** (Criar conta). ![Criar conta de administrador](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
+1. On the "Create Admin Account" page at `http(s)://[hostname]/join`, choose your username, password, and email address, then click **Create an account**.
+![Create Admin Account](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 
-## Próximas etapas
+## Next steps
 
 <a name="inviting-users"></a>
 
-Após configurar a autenticação integrada e criar sua conta administrativa, você pode convidar pessoas para criar contas e usar sua instância. Para obter mais informações, consulte[Convidando pessoas para usar a sua instância](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)."
+After you configure built-in authentication and create your administrative account, you can invite people to create accounts and use your instance. For more information, see "[Inviting people to use your instance](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)."
 
-## Leia mais
+## Further reading
 
-- "[Configurar e-mail para notificações](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"
+- "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"

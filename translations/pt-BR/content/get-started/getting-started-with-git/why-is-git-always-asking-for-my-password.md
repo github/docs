@@ -1,6 +1,6 @@
 ---
-title: Por que o Git sempre solicita a minha senha?
-intro: 'Se o Git solicita um nome de usuário e uma senha toda vez que você tenta interagir com o GitHub, provavelmente isso quer dizer que você está usando a URL de clone de HTTPS do seu repositório.'
+title: Why is Git always asking for my password?
+intro: 'If Git prompts you for a username and password every time you try to interact with GitHub, you''re probably using the HTTPS clone URL for your repository.'
 redirect_from:
   - /articles/why-is-git-always-asking-for-my-password
   - /github/using-git/why-is-git-always-asking-for-my-password
@@ -11,17 +11,16 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Senhas do Git
+shortTitle: Git passwords
 ---
-
-Usar uma URL remota do tipo HTTPS tem algumas vantagens em comparação com o uso de SSH. É mais fácil configurar do que SSH e geralmente funciona por meio de firewalls e proxies rigorosos. No entanto, ele também pede que você insira suas credenciais de {% data variables.product.product_name %} sempre que você fizer pull ou push de um repositório.
+Using an HTTPS remote URL has some advantages compared with using SSH. It's easier to set up than SSH, and usually works through strict firewalls and proxies. However, it also prompts you to enter your {% data variables.product.product_name %} credentials every time you pull or push a repository. 
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 
-Você pode evitar que seja solicitada a sua senha ao configurar o Git para [armazenar suas credenciais](/github/getting-started-with-github/caching-your-github-credentials-in-git) para você. Uma vez que você configurado o armazenamento de credenciais, o Git usa automaticamente seu token de acesso pessoal armazenado quando você extrai ou faz push de um repositório usando HTTPS.
+You can avoid being prompted for your password by configuring Git to [cache your credentials](/github/getting-started-with-github/caching-your-github-credentials-in-git) for you. Once you've configured credential caching, Git automatically uses your cached {% data variables.product.pat_generic %} when you pull or push a repository using HTTPS.
 
-## Leia mais
+## Further reading
 
-- "[Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)."
-- "[Sobre a autenticação em {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
-- "[Adicionar a sua chave SSH ao ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)"
+- "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
+- "[Adding your SSH key to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)"

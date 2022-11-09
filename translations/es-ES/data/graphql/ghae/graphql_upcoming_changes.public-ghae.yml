@@ -1,198 +1,110 @@
----
+### YamlMime:Yaml
+ms.openlocfilehash: 6aac12f52762d20ae022d06f4e1482726d7d27c2
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141520799"
 upcoming_changes:
-  - 
-    location: LegacyMigration.uploadUrlTemplate
-    description: 'Se eliminará a `uploadUrlTemplate`. Utiliza `uploadUrl` en sustitución.'
-    reason: 'Se está eliminando a `uploadUrlTemplate` porque no es una URL estándar y agrega un paso extra al usuario.'
-    date: '2019-04-01T00:00:00+00:00'
-    criticality: breaking
-    owner: tambling
-  - 
-    location: AssignedEvent.user
-    description: 'Se eliminará a `user`. Utiliza el campo `assignee` en sustitución.'
-    reason: Los asignados ahora pueden ser maniquíes.
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: tambling
-  - 
-    location: UnassignedEvent.user
-    description: 'Se eliminará a `user`. Utiliza el campo `assignee` en sustitución.'
-    reason: Los asignados ahora pueden ser maniquíes.
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: tambling
-  - 
-    location: Issue.timeline
-    description: 'Se eliminará a `timeline`. Utiliza Issue.timelineItems en sustitución.'
-    reason: 'Se eliminará a `timeline`'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: mikesea
-  - 
-    location: PullRequest.timeline
-    description: 'Se eliminará a `timeline`. Utiliza PullRequest.timelineItems en sustitución.'
-    reason: 'Se eliminará a `timeline`'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: mikesea
-  - 
-    location: MergeStateStatus.DRAFT
-    description: 'El `DRAFT` se eliminará. Utiliza PullRequest.isDraft en su lugar.'
-    reason: El estado del DRAFT se eliminará de esta enumeración y se deberá utilizar `isDraft` en su lugar
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: nplasterer
-  - 
-    location: PackageType.DOCKER
-    description: 'Se eliminará a `DOCKER`.'
-    reason: Se eliminará a DOCKER de esta enumeración, ya que este tipo se migrará para que solo lo utilice la API de REST de paquetes.
-    date: '21-06-2021'
-    criticality: breaking
-    owner: reybard
-  - 
-    location: ReactionGroup.users
-    description: 'Se eliminará a `users`. Utiliza el campo de `reactors` en su lugar.'
-    reason: Los reactores ahora pueden ser maniquíes, bots y organizaciones.
-    date: '2021-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: synthead
-  - 
-    location: Repository.defaultMergeQueue
-    description: 'Se eliminará a `defaultMergeQueue`. Utiliza `Repository.mergeQueue` en su lugar.'
-    reason: 'Se eliminará `defaultMergeQueue`.'
-    date: '01-04-2022'
-    criticality: breaking
-    owner: colinshum
-  - 
-    location: AddPullRequestToMergeQueueInput.branch
-    description: 'Se eliminará la `branch`.'
-    reason: Las solicitudes de cambio se agregan a la cola de fusión para la rama base, el argumento `branch` ahora es un no-op
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
-  - 
-    location: LockMergeQueueInput.branch
-    description: 'Se eliminará la `branch`.'
-    reason: La cola de fusión está bloqueada para la rama predeterminada del repositorio, el argumento `branch` es ahora un no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
-  - 
-    location: MergeLockedMergeGroupInput.branch
-    description: 'Se eliminará la `branch`.'
-    reason: Los cambios se fusionan en la rama predeterminada del repositorio, el argumento `branch` ahora es un no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
-  - 
-    location: ProjectNextFieldType.ASSIGNEES
-    description: 'Se eliminará a `ASSIGNEES`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.DATE
-    description: 'Se eliminará a `DATE`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.ITERATION
-    description: 'Se eliminará a `ITERATION`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.LABELS
-    description: 'Se eliminará a `LABELS`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.LINKED_PULL_REQUESTS
-    description: 'Se eliminará a `LINKED_PULL_REQUESTS`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.MILESTONE
-    description: 'Se eliminará a `MILESTONE`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.NUMBER
-    description: 'Se eliminará a `NUMBER`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.REPOSITORY
-    description: 'Se eliminará a `REPOSITORY`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.REVIEWERS
-    description: 'Se eliminará a `REVIEWERS`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.SINGLE_SELECT
-    description: 'Se eliminará a `SINGLE_SELECT`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.TASKS
-    description: 'Se eliminará a `TASKS`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.TEXT
-    description: 'Se eliminará a `TEXT`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.TITLE
-    description: 'Se eliminará a `TITLE`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: RemovePullRequestFromMergeQueueInput.branch
-    description: 'Se eliminará la `branch`.'
-    reason: Las solicitudes de cambio se eliminan de la cola de fusión para la rama base, el argumento `branch` ahora es un no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
-  - 
-    location: RepositoryVulnerabilityAlert.fixReason
-    description: 'Se eliminará a `fixReason`.'
-    reason: El campo `fixReason` ya se eliminó. Aún puedes utilizar `fixedAt` y `dismissReason`.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jamestran201
-  - 
-    location: UnlockAndResetMergeGroupInput.branch
-    description: 'Se eliminará la `branch`.'
-    reason: El grupo de fusión actual para la rama predeterminada del repositorio, el argumento `branch` es ahora un no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
+- location: LegacyMigration.uploadUrlTemplate
+  description: '`uploadUrlTemplate` se eliminará. En su lugar, use `uploadUrl`.'
+  reason: '`uploadUrlTemplate` is being removed because it is not a standard URL and adds an extra user step.'
+  date: 2019-04-01T00:00:00+00:00
+  criticality: breaking
+  owner: tambling
+- location: AssignedEvent.user
+  description: '`user` se eliminará. En su lugar, use el campo `assignee`.'
+  reason: Assignees can now be mannequins.
+  date: 2020-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: tambling
+- location: EnterpriseBillingInfo.availableSeats
+  description: '`availableSeats` se eliminará. En su lugar, use EnterpriseBillingInfo.totalAvailableLicenses.'
+  reason: '`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned'
+  date: 2020-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: BlakeWilliams
+- location: EnterpriseBillingInfo.seats
+  description: '`seats` se eliminará. En su lugar, use EnterpriseBillingInfo.totalLicenses.'
+  reason: '`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned'
+  date: 2020-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: BlakeWilliams
+- location: UnassignedEvent.user
+  description: '`user` se eliminará. En su lugar, use el campo `assignee`.'
+  reason: Assignees can now be mannequins.
+  date: 2020-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: tambling
+- location: EnterprisePendingMemberInvitationEdge.isUnlicensed
+  description: '`isUnlicensed` se eliminará.'
+  reason: All pending members consume a license
+  date: 2020-07-01T00:00:00+00:00
+  criticality: breaking
+  owner: BrentWheeldon
+- location: Issue.timeline
+  description: '`timeline` se eliminará. En su lugar, use Issue.timelineItems.'
+  reason: '`timeline` will be removed'
+  date: 2020-10-01T00:00:00+00:00
+  criticality: breaking
+  owner: mikesea
+- location: PullRequest.timeline
+  description: '`timeline` se eliminará. En su lugar, use PullRequest.timelineItems.'
+  reason: '`timeline` will be removed'
+  date: 2020-10-01T00:00:00+00:00
+  criticality: breaking
+  owner: mikesea
+- location: EnterpriseMemberEdge.isUnlicensed
+  description: '`isUnlicensed` se eliminará.'
+  reason: All members consume a license
+  date: 2021-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: BrentWheeldon
+- location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
+  description: '`isUnlicensed` se eliminará.'
+  reason: All outside collaborators consume a license
+  date: 2021-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: BrentWheeldon
+- location: MergeStateStatus.DRAFT
+  description: '`DRAFT` se eliminará. En su lugar, use PullRequest.isDraft.'
+  reason: DRAFT state will be removed from this enum and `isDraft` should be used instead
+  date: 2021-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: nplasterer
+- location: PackageType.DOCKER
+  description: '`DOCKER` se eliminará.'
+  reason: DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API.
+  date: 2021-06-21
+  criticality: breaking
+  owner: reybard
+- location: ReactionGroup.users
+  description: '`users` se eliminará. En su lugar, use el campo `reactors`.'
+  reason: Reactors can now be mannequins, bots, and organizations.
+  date: 2021-10-01T00:00:00+00:00
+  criticality: breaking
+  owner: synthead
+- location: PullRequest.viewerCanOverrideMergeQueue
+  description: '`viewerCanOverrideMergeQueue` se eliminará. En su lugar, use PullRequest.viewerCanMergeAsAdmin.'
+  reason: '`viewer_can_override_merge_queue` will be removed'
+  date: 2022-04-01
+  criticality: breaking
+  owner: cbeaman
+- location: Repository.defaultMergeQueue
+  description: '`defaultMergeQueue` se eliminará. En su lugar, use `Repository.mergeQueue`.'
+  reason: '`defaultMergeQueue` will be removed.'
+  date: 2022-04-01
+  criticality: breaking
+  owner: colinshum
+- location: AddPullRequestToMergeQueueInput.branch
+  description: '`branch` se eliminará.'
+  reason: PRs are added to the merge queue for the base branch, the `branch` argument is now a no-op
+  date: 2022-07-01T00:00:00+00:00
+  criticality: breaking
+  owner: jhunschejones
+- location: Enterprise.userAccounts
+  description: '`userAccounts` se eliminará. En su lugar, use el campo `Enterprise.members`.'
+  reason: The `Enterprise.userAccounts` field is being removed.
+  date: 2022-07-01T00:00:00+00:00
+  criticality: breaking
+  owner: jdennes

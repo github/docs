@@ -8,12 +8,15 @@ import Cookies from 'js-cookie'
 // this applies to every user regardless of if they changed this setting.
 // To test this, try a private browser tab.
 // We are using the color_mode cookie because it is not HttpOnly.
+// For users that haven't changed their session cookies recently,
+// we also can check for the browser-set `preferred_color_mode` cookie.
 export function useHasAccount() {
   const [hasAccount, setHasAccount] = useState<boolean | null>(null)
 
   useEffect(() => {
     const cookieValue = Cookies.get('color_mode')
-    setHasAccount(Boolean(cookieValue))
+    const altCookieValue = Cookies.get('preferred_color_mode')
+    setHasAccount(Boolean(cookieValue || altCookieValue))
   }, [])
 
   return { hasAccount }

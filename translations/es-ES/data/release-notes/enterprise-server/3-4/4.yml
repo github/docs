@@ -1,37 +1,31 @@
----
 date: '2022-06-09'
 sections:
   security_fixes:
-    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+    - Packages have been updated to the latest security versions. 
   bugs:
-    - Un script interno para validar nombres de host en el archivo de configuración de {% data variables.product.prodname_ghe_server %} devolvió un error cuando la secuencia de nombre de host iniciaba con un "." (punto).
-    - En las configuraciones de disponibilidad alta en donde el nombre de host del nodo primario fue mayor a 60 caracteres, MySQL no se pudo configurar.
-    - Cuando se habilitó {% data variables.product.prodname_actions %} pero se inhabilitó TLS en {% data variables.product.prodname_ghe_server %} 3.4.1 y versiones posteriores, falló el aplicar una actualización de configuración.
-    - El argumento `--gateway` se agergó al comando `ghe-setup-network`, para permitir que pasara la dirección de puerta de enlace al configurar los ajustes de red utilizando la línea de comandos.
-    - 'Las terminales de la [API de facturación para {% data variables.product.prodname_GH_advanced_security %}](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) no se habilitaron y no se puede acceder a ellas.'
-    - Las imágenes adjuntas que se borraron devolvieron un `500 Internal Server Error` en vez de un `404 Not Found`.
-    - En los ambientes configurados con un servidor de caché de repositorio, el comando `ghe-repl-status` mostró gists incorrectamente como si estuvieran subreplicados.
-    - Las terminales de "Obtén una confirmación" y "Compara dos confirmaciones" en la [API de confirmaciones](/rest/commits/commits) devolvieron un error `500` si una ruta de archivo en el diff contenía un carácter de unicode cifrado y escapado.
-    - El cálculo de "Cantidad máxima de confirmantes en toda la instancia" que se reportó en el tablero de administrador de sitio fue incorrecto.
-    - Una entrada incorrecta en la base de datos para las réplicas de repositorio ocasionó que dicha base de datos se corrompiera al realizar una restauración utilizando {% data variables.product.prodname_enterprise_backup_utilities %}.
-    - No se mostró la línea de tiempo de actividad para las alertas del escaneo de secretos.
+    - An internal script to validate hostnames in the {% data variables.product.prodname_ghe_server %} configuration file would return an error if the hostname string started with a "." (period character).
+    - In HA configurations where the primary node's hostname was longer than 60 characters, MySQL would fail to be configured.
+    - When {% data variables.product.prodname_actions %} was enabled but TLS was disabled on {% data variables.product.prodname_ghe_server %} 3.4.1 and later, applying a configuration update would fail.
+    - The `--gateway` argument was added to the `ghe-setup-network` command, to allow passing the gateway address when configuring network settings using the command line.
+    - The [{% data variables.product.prodname_GH_advanced_security %} billing API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) endpoints were not enabled and accessible.
+    - Image attachments that were deleted would return a `500 Internal Server Error` instead of a `404 Not Found` error.
+    - In environments configured with a repository cache server, the `ghe-repl-status` command incorrectly showed gists as being under-replicated. 
+    - The "Get a commit" and "Compare two commits" endpoints in the [Commit API](/rest/commits/commits) would return a `500` error if a file path in the diff contained an encoded and escaped unicode character.
+    - The calculation of "maximum committers across entire instance" reported in the site admin dashboard was incorrect.
+    - An incorrect database entry for repository replicas caused database corruption when performing a restore using {% data variables.product.prodname_enterprise_backup_utilities %}.
+    - The activity timeline for secret scanning alerts wasn't displayed.
   changes:
-    - Se optimizó la inclusión de las métricas cuando se generó un paquete de soporte de clúster.
-    - En las configuraciones de disponibilidad alta en donde Elasticsearch reportó un estado amarillo válido, los cambios que se introdujeron en una corrección previa bloquearon el comando `ghe-repl-stop` y no permitieron que la replicación se detuviera. El utilizar `ghe-repo-stop --force` ahora forzará a Elasticsearch a detenerse cuando el servicio está en un estado amarillo válido o normal.
+    - Optimised the inclusion of metrics when generating a cluster support bundle. 
+    - In HA configurations where Elasticsearch reported a valid yellow status, changes introduced in a previous fix would block the `ghe-repl-stop` command and not allow replication to be stopped. Using `ghe-repo-stop --force` will now force Elasticsearch to stop when the service is in a normal or valid yellow status.
   known_issues:
-    - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.
-    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
-    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
-    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.
-    - Cuando se habilita la opción "Los usuarios pueden buscar en GitHub.com" con las propuestas de {% data variables.product.prodname_github_connect %}, las propuestas en los repositorios internos y privados no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}.
-    - El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.
-    - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - |
-      Después de registrar un ejecutor auto-hospedado con el parámetro `--ephemeral` en más de un nivel (por ejemplo, tanto en la empresa como en la organización), el ejecutor podría atorarse en un estado inactivo y requerir un nuevo registro. [Actualizado: 2022-06-17]
-    - |
-      Cuando utilizas las aserciones cifradas con {% data variables.product.prodname_ghe_server %} 3.4.0 y 3.4.1, un atributo nuevo de XML `WantAssertionsEncrypted` en el `SPSSODescriptor` contiene un atributo inválido para los metadatos de SAML. Los IdP que consumen esta terminal de metadatos de SAML podrían encontrar errores al validar el modelo XML de los metadatos de SAML. Habrá una corrección disponible en el siguiente lanzamiento de parche. [Actualizado: 2022-04-11]
-
-      Para darle una solución a este problema, puedes tomar una de las dos acciones siguientes.
-      - Reconfigurar el IdP cargando una copia estática de los metadatos de SAML sin el atributo `WantAssertionsEncrypted`.
-      - Copiar los metadatos de SAML, eliminar el atributo `WantAssertionsEncrypted`, hospedarlo en un servidor web y reconfigurar el IdP para que apunte a esa URL.
-    - Después de mejorar a {% data variables.product.prodname_ghe_server %} 3.4, podría parecer que los lanzamientos no están en los repositorios. Esto puede ocurrir cuando las migraciones de índice de Elasticsearch requeridas no se han completado exitosamente.
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

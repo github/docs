@@ -1,9 +1,9 @@
 ---
-title: Impersonating a user
-intro: 'You can impersonate users and perform actions on their behalf, for troubleshooting, unblocking, and other legitimate reasons.'
+title: ユーザーの偽装
+intro: トラブルシューティング、ブロック解除、その他の正当な理由のために、ユーザーを偽装し、ユーザーに代わってアクションを実行できます。
 permissions: Enterprise owners can impersonate users within their enterprise.
 versions:
-  ghes: '>3.2'
+  ghes: '*'
   ghae: '*'
 type: how_to
 topics:
@@ -11,30 +11,33 @@ topics:
   - Enterprise
   - User account
 shortTitle: Impersonate a user
+ms.openlocfilehash: df0513c3ca2931378e656f228939540dd5ea5816
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109291'
 ---
+## ユーザーの偽装について
 
-## About user impersonation
+ユーザーの問題をトラブルシューティングする場合や、ユーザーが利用できず緊急処置が必要な場合など、ユーザー アカウントを一時的に引き継ぐ必要がある場合は、偽装セッションを開始して、ユーザーの代わりに操作することができます。
 
-If you need to temporarily take over a user account, for example when troubleshooting a user problem, or when the user is unavailable and urgent action is required, you can start an impersonation session to act on their behalf.
+偽装セッションごとに、偽装の理由を指定する必要があります。 セッションは 1 時間に制限されており、偽装されるユーザーと同じアクセス権を持ちます。
 
-For each impersonation session, you need to provide a reason for the impersonation. A session is limited to one hour, and you will have the same access as the user being impersonated.
+偽装セッション中に実行するアクションは、Enterprise の監査ログおよび偽装されたユーザーのセキュリティ ログにイベントとして記録されます。 偽装されるユーザーには、偽装セッションの開始時に電子メール通知が送信されます。 詳しくは、「[Enterprise の監査ログ イベント](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)」および「[セキュリティ ログをレビューする](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)」をご覧ください。
 
-Actions you perform during an impersonation session are recorded as events in the enterprise audit log, as well as the impersonated user's security log. The person being impersonated is sent an email notification when the impersonation session starts. For more information, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" and "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+## ユーザーの偽装
 
-## Impersonating a user
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.search-user %} {% data reusables.enterprise_site_admin_settings.click-user %}
+4. ページの左上にある **[ユーザー情報]** をクリックします。
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.search-user %}
-{% data reusables.enterprise_site_admin_settings.click-user %}
-4. In the top left of the page, click **User info**.
+   ![ユーザー情報](/assets/images/enterprise/stafftools/user-info.png)
+5. [危険なゾーン] の下にある **[@username として GitHub にサインインする]** をクリックします。
 
-   ![User info](/assets/images/enterprise/stafftools/user-info.png)
-5. Under "Danger Zone", click **Sign in to GitHub as @username**
+   ![ユーザーの偽装](/assets/images/enterprise/stafftools/impersonate.png)
+6. ドロップダウン リストから理由を選びます。 **[その他]** を選んだ場合は、 **[メモ]** セクションで追加のコンテキストを指定する必要があります。 **[偽装の開始]** をクリックしてセッションを開始します。
 
-   ![Impersonate user](/assets/images/enterprise/stafftools/impersonate.png)
-6. Select a reason from the dropdown list. If you select **Other** you will need to provide additional context in the **Notes** section. Click **Begin impersonation** to begin the session.
+   ![偽装の理由](/assets/images/enterprise/stafftools/impersonation-reason.png)
+7. 偽装セッションを終了する準備ができたら、ページの上部にある **[ユーザー名として日常生活に戻る]** バナーをクリックします。
 
-   ![Impersonation reason](/assets/images/enterprise/stafftools/impersonation-reason.png)
-7. When you are ready to end the impersonation session, click the **Return to your mundane life as username** banner at the top of the page.
-
-   ![End impersonation](/assets/images/enterprise/stafftools/end-impersonation.png)
+   ![偽装の終了](/assets/images/enterprise/stafftools/end-impersonation.png)
