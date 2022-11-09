@@ -32,7 +32,7 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 
 {% ifversion ghes < 3.7 or ghae %}
 <!-- Ref: ghae > 3.6 remove GHAE versioning from this section when the `security-overview-displayed-alerts` flag is toggled for GHAE -->
-- **Security overview** - Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+- **Security overview** - Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About security overviews](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
