@@ -48,7 +48,7 @@ shortTitle: RubyGems registry
 
 You can authenticate to {% data variables.product.prodname_registry %} with RubyGems by: 
 * editing the  *~/.gem/credentials* file for publishing gems
-* editing the *~/.gemrc* file for installing gems using `gem install`
+* adding a source using `gem sources --add` for installing gems using `gem install`
 * using Bundler for installing gems from an application Gemfile
 
 #### Publishing Gems
