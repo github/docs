@@ -69,7 +69,7 @@ If your precise results appear inaccurate, you can file a support request.
 
 ## Cross-repository precise code navigation
 
-Cross-repo code navigation is available for languages supported by precise code navigation and the dependency graph. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
+Cross-repo code navigation is available for languages that are supported by precise code navigation and the dependency graph. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
 
 ![Screenshot of cross-repository code navigation](/assets/images/help/repository/cross-repository-code-navigation.png)
 
