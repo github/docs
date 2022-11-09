@@ -69,7 +69,7 @@ If your precise results appear inaccurate, you can file a support request.
 
 ## Cross-repository precise code navigation
 
-Languages that support precise code navigation support cross-repo requests. Thanks to cross-repo code navigation and the GitHub dependency graph, jump-to-definition requests for functions or variables defined in libraries used in your projects behave just like requests for entities defined in that project. By importing a function or variable from a third-party library hosted on Github, and then issuing a jump-to-definition request for that function or variable, you can click on the cross-repo result to its definition in the defining third-party library.
+Cross-repo code navigation is available for languages supported by precise code navigation and the dependency graph. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
 
 ![Cross-repository code navigation](/assets/images/help/repository/cross-repository-code-navigation.png)
 
