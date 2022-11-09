@@ -11,7 +11,8 @@ topics:
   - Infrastructure
   - Storage
 redirect_from:
-  - /admin/github-actions/enabling-github-actions-with-minio-storage
+  - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
+  - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage
 shortTitle: MinIO storage
 ---
 
