@@ -304,7 +304,7 @@ You will see this error if CodeQL is unable to find the named query, query suite
 - There is a typo in the workflow.
 - A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
 
-After verifying the location of the resource, you can update the workflow to specify the correct location. If you run additional queries in Go analysis, you may have been affected by the relocation of the source files. For more information, see [Relocation announcement: `github/codeql-go` moving into `github/codeql`](https://github.com/github/codeql-go/issues/741) in the github/codeql-go repository.
+After verifying the location of the resource, you can update the workflow to specify the correct location.
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 
