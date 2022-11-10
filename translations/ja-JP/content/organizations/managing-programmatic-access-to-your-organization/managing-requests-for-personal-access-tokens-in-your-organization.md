@@ -1,40 +1,43 @@
 ---
-title: Managing requests for personal access tokens in your organization
-intro: 'Organization owners can approve or deny {% data variables.product.pat_v2 %}s that request access to their organization.'
+title: Organization で個人用アクセス トークンの要求を管理する
+intro: 'Organization の所有者は、Organization へのアクセスを要求する {% data variables.product.pat_v2 %} を承認または拒否できます。'
 versions:
   feature: pat-v2
 shortTitle: Manage token requests
+ms.openlocfilehash: 3925b74ad29268ec80eca8dd5355c58987e52843
+ms.sourcegitcommit: d309541e8f0e28bc1ec333a85b00218627e54fe1
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/03/2022
+ms.locfileid: '148131386'
 ---
-
 {% data reusables.user-settings.pat-v2-org-opt-in %}
 
-## About {% data variables.product.pat_v2 %} requests
+## {% data variables.product.pat_v2 %} の要求について
 
-When organization members create a {% data variables.product.pat_v2 %} to access resources owned by the organization, if the organization requires approval for {% data variables.product.pat_v2 %}s, then an organization owner must approve the token before it can be used to access any resources that are not public. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+Organization が所有するリソースにアクセスするために Organization のメンバーが {% data variables.product.pat_v2 %} を作成するとき、Organization による {% data variables.product.pat_v2 %} の承認が必要な場合は、Organization の所有者がトークンを承認してからでないと、パブリックではないリソースへのアクセスにそのトークンを使うことはできません。 詳しくは、「[Organization の {% data variables.product.pat_generic %} ポリシーを設定する](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)」をご覧ください。
 
-{% data variables.product.company_short %} will notify organization owners with a daily email about all {% data variables.product.pat_v2 %}s that are awaiting approval. When a token is denied or approved, the user who created the token will receive an email notification.
+{% data variables.product.company_short %} は、承認を待っているすべての {% data variables.product.pat_v2 %} について、Organization の所有者に毎日メールで通知します。 トークンが拒否または承認されると、トークンを作成したユーザーはメール通知を受け取ります。
 
 {% note %}
 
-**Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+**注**: 承認の対象となるのは {% data variables.product.pat_v2 %} だけであり、{% data variables.product.pat_v1_plural %} はなりません。 Organization が {% data variables.product.pat_v1_plural %} によるアクセスを制限していない限り、{% data variables.product.pat_v1 %} は事前の承認なしに Organization のリソースにアクセスできます。 詳しくは、「[Organization の {% data variables.product.pat_generic %} ポリシーを設定する](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)」をご覧ください。
 
 {% endnote %}
 
-## Managing {% data variables.product.pat_v2 %} requests
+## {% data variables.product.pat_v2 %} の要求を管理する
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
-1. Click the name of the token that you want to approve or deny.
-1. Review the access and permissions that the token is requesting.
-1. To grant the token access to the organization, click **Approve**. To deny the token access to the organization, click **Deny**.
-1. If you denied the request, in the confirmation box, optionally enter the reason that you denied the token. This reason will be shared in the notification that is sent to the token owner. Then, click **Deny**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. 左側のサイドバーの **[{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}]** の下にある **[保留中の要求]** をクリックします。 Organization の承認を待っているトークンがある場合、それらが表示されます。
+1. 承認または拒否するトークンの名前をクリックします。
+1. トークンが要求しているアクセスとアクセス許可を確認します。
+1. トークンに Organization へのアクセスを許可するには、 **[承認]** をクリックします。 トークンに Organization へのアクセスを禁止するには、 **[拒否]** をクリックします。
+1. 要求を拒否した場合は、必要に応じて、確認ボックスにトークンを拒否した理由を入力します。 この理由は、トークンの所有者に送信される通知で共有されます。 その後、 **[拒否]** をクリックします。
 
-Alternatively, you can approve or deny multiple tokens at once:
+または、複数のトークンを一度に承認または拒否することもできます。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. 左側のサイドバーの **[{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}]** の下にある **[保留中の要求]** をクリックします。 Organization の承認を待っているトークンがある場合、それらが表示されます。
 {% data reusables.user-settings.patv2-filters %}
-1. Select each token that you want to approve or reject.
-1. Select the **request selected...** dropdown menu and click **Approve...** or **Deny...**.
+1. 承認または拒否する各トークンを選びます。
+1. **[選択した要求の処理]** ドロップダウン メニューを選んで、 **[承認]** または **[拒否]** をクリックします。
