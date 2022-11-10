@@ -1,6 +1,6 @@
 ---
-title: 使用制限、支払い、管理
-intro: '{% data variables.product.prodname_actions %} ワークフローには使用制限があります。 使用料は、リポジトリの無料の時間とストレージの量を超えるリポジトリに適用されます。'
+title: 'Usage limits, billing, and administration'
+intro: 'There are usage limits for {% data variables.product.prodname_actions %} workflows. Usage charges apply to repositories that go beyond the amount of free minutes and storage for a repository.'
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
   - /actions/reference/usage-limits-billing-and-administration
@@ -11,104 +11,115 @@ versions:
 topics:
   - Billing
 shortTitle: Workflow billing & limits
-ms.openlocfilehash: f457af5e458f54c699578a8a288dd1d64b674c36
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146681006'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## {% data variables.product.prodname_actions %} の課金について
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.repositories.about-github-actions %}詳細については、「[{% data variables.product.prodname_actions %} について](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}」「{% elsif ghes or ghec %}」と「[エンタープライズの {% data variables.product.prodname_actions %} について](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)」を参照してください。{% endif %}
+## About billing for {% data variables.product.prodname_actions %}
 
-{% ifversion fpt or ghec %} {% data reusables.actions.actions-billing %} 詳細については、「[{% data variables.product.prodname_actions %} の課金について](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
-{% else %} GitHub Actions の使用は、セルフホステッド ランナーを使用する {% data variables.product.prodname_ghe_server %} インスタンスでは無料です。 詳細については、[セルフホステッド ランナー](/actions/hosting-your-own-runners/about-self-hosted-runners)に関する記述をご覧ください。
+{% data reusables.repositories.about-github-actions %} For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
+
+{% ifversion fpt or ghec %}
+{% data reusables.actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+{% else %}
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
 
 
 {% ifversion fpt or ghec %}
 
-## 可用性
+## Availability
 
-{% data variables.product.prodname_actions %} はすべての {% data variables.product.prodname_dotcom %} 製品で使用できますが、{% data variables.product.prodname_actions %} は、従来のリポジトリごとのプランを使用するアカウントが所有するプライベート リポジトリでは使用できません。 {% data reusables.gated-features.more-info %}
+{% data variables.product.prodname_actions %} is available on all {% data variables.product.prodname_dotcom %} products, but {% data variables.product.prodname_actions %} is not available for private repositories owned by accounts using legacy per-repository plans. {% data reusables.gated-features.more-info %}
 
 {% endif %}
 
-## Usage limits (使用状況の制限)
+## Usage limits
 
-{% ifversion fpt or ghec %} {% data variables.product.prodname_dotcom %} ホステッド ランナーを使用する場合、{% data variables.product.prodname_actions %} の使用にはいくつかの制限があります。 これらの制限は変更されることがあります。
+{% ifversion fpt or ghec %}
+There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. These limits are subject to change.
 
 {% note %}
 
-**注:** セルフホステッド ランナーの場合は、さまざまな使用制限が適用されます。 詳細については、[セルフホステッド ランナー](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)に関する記述をご覧ください。
+**Note:** For self-hosted runners, different usage limits apply. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 
 {% endnote %}
 
-- **ジョブの実行時間** - ワークフロー内の各ジョブは、最大 6 時間の実行時間で実行できます。 ジョブがこの制限に達すると、ジョブは終了させられ、完了できずに失敗します。
-{% data reusables.actions.usage-workflow-run-time %} {% data reusables.actions.usage-api-requests %}
-- **並行ジョブ** - アカウント内で実行できる並行ジョブ数は、以下の表に示すように、GitHub プランによって異なります。 この制限を超えた場合、超過のジョブはキューイングされます。
+- **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
+{% data reusables.actions.usage-workflow-run-time %}
+{% data reusables.actions.usage-api-requests %}
+- **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your GitHub plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
 
-  | GitHubプラン | 最大同時ジョブ | 最大同時macOSジョブ |
+  **Standard {% data variables.product.prodname_dotcom %}-hosted runners**
+
+  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
   |---|---|---|
   | Free | 20 | 5 |
   | Pro | 40 | 5 |
-  | チーム | 60 | 5 |
+  | Team | 60 | 5 |
   | Enterprise | 180 | 50 |
+
+  **{% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s**
+
+  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
+  |---|---|---|
+  | All | 500 | n/a |
 
   {% note %}
 
-  **注:** Enterprise プランのお客様は、必要に応じて、同時実行ジョブの上限を上げることを要求できます。 詳細については、{% data variables.contact.contact_ent_support %} または営業担当者にお問い合わせください。
+  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
 
   {% endnote %}
-- **ジョブ マトリックス** - {% data reusables.actions.usage-matrix-limits %} {% data reusables.actions.usage-workflow-queue-limits %}
+  
+- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
+{% data reusables.actions.usage-workflow-queue-limits %}
 
-{% else %} 使用制限は、セルフホステッド ランナーに適用されます。 詳細については、[セルフホステッド ランナー](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)に関する記述をご覧ください。
+{% else %}
+Usage limits apply to self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## 利用ポリシー
+## Usage policy
 
-使用制限に加えて、[GitHub サービス使用条件](/free-pro-team@latest/github/site-policy/github-terms-of-service/)内で {% data variables.product.prodname_actions %} を使用する必要があります。 {% data variables.product.prodname_actions %} 固有の用語の詳細については、「[GitHub に関する追加条項](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage)」を参照してください。
+In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghec %}
-## 再利用可能なワークフローの課金
+## Billing for reusable workflows
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-ワークフローを再利用する場合、課金は常に呼び出し元ワークフローに関連付けられます。 {% data variables.product.prodname_dotcom %} ホステッド ランナーの割り当ては、常に呼び出し元のコンテキストのみを使用して評価されます。 呼び出し元は、呼び出されたリポジトリから {% data variables.product.prodname_dotcom %} ホステッド ランナーを使用できません。 
+If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 
 
-詳細については、「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
+For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
-## 成果物とログの保持ポリシー
+## Artifact and log retention policy
 
-リポジトリ、Organization、または Enterprise アカウントの成果物とログの保持期間を設定できます。
+You can configure the artifact and log retention period for your repository, organization, or enterprise account.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-詳細については、次を参照してください。
+For more information, see:
 
-- 「[リポジトリの {% data variables.product.prodname_actions %} 設定の管理](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)」
-- 「[組織内の成果物とログの {% data variables.product.prodname_actions %} の保持期間を設定する](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)」
-- 「[エンタープライズで {% data variables.product.prodname_actions %} のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)」を参照してください。
+- "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)"
+- "[Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
+- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
-## リポジトリあるいはOrganizationでの{% data variables.product.prodname_actions %}の無効化もしくは制限
+## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
 {% data reusables.actions.disabling-github-actions %}
 
-詳細については、次を参照してください。
-- 「[リポジトリの {% data variables.product.prodname_actions %} 設定の管理](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)」
-- 「[組織での {% data variables.product.prodname_actions %} の無効化または制限](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)」
-- 「[エンタープライズで {% data variables.product.prodname_actions %} のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)」を参照してください。
+For more information, see:
+- "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
+- "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
+- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
-## ワークフローの無効化と有効化
+## Disabling and enabling workflows
 
-{% data variables.product.prodname_dotcom %} のリポジトリで個々のワークフローを有効化または無効化できます。
+You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 
-詳細については、「[ワークフローの無効化と有効化](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)」を参照してください。
+For more information, see "[Disabling and enabling a workflow](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)."
