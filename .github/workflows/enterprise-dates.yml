@@ -9,7 +9,7 @@ name: Enterprise date updater
 on:
   workflow_dispatch:
   schedule:
-    - cron: '39 2 * * 2' # At 02:39 on Tuesday
+    - cron: '20 16 * * 2' # Run every Tuesday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: write
