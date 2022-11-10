@@ -8004,7 +8004,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -67851,7 +67851,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -72680,7 +72680,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
