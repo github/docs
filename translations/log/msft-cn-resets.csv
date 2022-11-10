@@ -447,7 +447,6 @@ translations/zh-CN/content/actions/deployment/deploying-to-your-cloud-provider/d
 translations/zh-CN/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app.md,rendering error
 translations/zh-CN/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine.md,rendering error
 translations/zh-CN/content/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect.md,broken liquid tags
-translations/zh-CN/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers.md,broken liquid tags
 translations/zh-CN/content/actions/examples/using-concurrency-expressions-and-a-test-matrix.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
@@ -849,7 +848,6 @@ translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learni
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
-translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/learn-with-github-classroom/view-autograding-results.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms.md,broken liquid tags
@@ -1167,6 +1165,7 @@ translations/zh-CN/data/reusables/dependabot/default-dependencies-allow-ignore.m
 translations/zh-CN/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/zh-CN/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
 translations/zh-CN/data/reusables/dependabot/supported-package-managers.md,rendering error
+translations/zh-CN/data/reusables/dependency-review/feature-overview.md,broken liquid tags
 translations/zh-CN/data/reusables/desktop/get-an-account.md,broken liquid tags
 translations/zh-CN/data/reusables/discussions/enabling-or-disabling-github-discussions-for-your-organization.md,broken liquid tags
 translations/zh-CN/data/reusables/discussions/navigate-to-repo-or-org.md,broken liquid tags
