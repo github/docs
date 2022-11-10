@@ -7,5 +7,6 @@ We add advisories to the {% data variables.product.prodname_advisory_database %}
 - The [Python Packaging Advisory database](https://github.com/pypa/advisory-database) 
 - The [Ruby Advisory database](https://rubysec.com/)
 - The [RustSec Advisory database](https://rustsec.org/)
-- Community contributions. For more information, see [https://github.com/github/advisory-database/pulls(https://github.com/github/advisory-database/pulls)
+- Community contributions. For more information, see [https://github.com/github/advisory-database/pulls](https://github.com/github/advisory-database/pulls).
+
 If you know of another database we should be importing advisories from, tell us about it by opening an issue in [https://github.com/github/advisory-database](https://github.com/github/advisory-database).
