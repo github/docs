@@ -52,6 +52,7 @@
     "liquidjs": "9.22.1",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
+    "lowdb": "5.0.5",
     "lunr": "^2.3.9",
     "lunr-languages": "^1.9.0",
     "mdast-util-from-markdown": "^1.2.0",

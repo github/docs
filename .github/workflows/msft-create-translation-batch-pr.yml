@@ -11,7 +11,7 @@ name: Create translation Batch Pull Request (Microsoft)
 on:
   workflow_dispatch:
   schedule:
-    - cron: '02 17 * * *' # Once a day at 17:02 UTC / 9:02 PST
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: write
