@@ -24,7 +24,7 @@ topics:
 
 ## About repository security advisories
 
-{% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About coordinated disclosure of security vulnerabilities](/code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)."
+{% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities)."
 
 {% data reusables.security-advisory.security-advisory-overview %}
 

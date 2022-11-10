@@ -17,12 +17,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Repository roles
-ms.openlocfilehash: 4f92ec8295bf4968e83cdeb01ad91cb3262163b4
-ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
+ms.openlocfilehash: 474c431aa6df0a942dcf377d256a0ce76ad2a0f8
+ms.sourcegitcommit: 00814c80b0f5fa76188c378a1196ef8fc5288113
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2022
-ms.locfileid: '148111277'
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120732'
 ---
 ## Funções de repositório para organizações
 
@@ -162,7 +162,7 @@ Nesta seção, você pode encontrar o acesso necessário para as funcionalidades
 | [Exibir as revisões de dependências](/code-security/supply-chain-security/about-dependency-review) | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |{% endif %}
 | [Exibir alertas de {% data variables.product.prodname_code_scanning %} em solicitações de pull](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
 | [Listar, ignorar e excluir alertas de {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **✔️** | **✔️** | **✔️** |
-| [Exibir os alertas de {% data variables.product.prodname_secret_scanning %} em um repositório](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️** |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
+| [Exibir e descartar os alertas de {% data variables.product.prodname_secret_scanning %} em um repositório](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️** |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
 | [Resolver, revogar ou reabrir alertas de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️** |{% endif %}{% ifversion ghes or ghae or ghec %}
 | [Designar outras pessoas ou equipes para receber alertas de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) em repositórios | | | | | **✔️** |{% endif %}
 

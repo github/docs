@@ -16,12 +16,12 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: 69853702258a6a0acaa3501e007c8c20a52874d5
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 3af7dce198afcb851c228fa3fc4ad5f01f77ed60
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106882'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111550'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -569,6 +569,8 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 ## Arquivos de ambiente
 
 Durante a execução de um fluxo de trabalho, o executor gera arquivos temporários que podem ser usados para executar certas ações. O caminho para esses arquivos são expostos através de variáveis de ambiente. Você precisará usar a codificação UTF-8 ao escrever para esses arquivos para garantir o processamento adequado dos comandos. Vários comandos podem ser escritos no mesmo arquivo, separados por novas linhas.
+
+A maioria dos comandos nos exemplos a seguir usa aspas duplas para ecoar cadeias de caracteres, que tentarão interpolar caracteres como `$` para nomes de variáveis de shell. Para sempre usar valores literais em cadeias de caracteres entre aspas, você poderá usar aspas simples.
 
 {% powershell %}
 

@@ -85,7 +85,7 @@ Você pode filtrar problemas com base no motivo informado quando o problema foi 
 | Qualificador        | Exemplo
 | ------------- | -------------
 | `reason:completed` | [**libraries is:closed reason:complete**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) corresponde a problemas com a palavra "libraries" que foram fechados como "completed".
-| `reason:"not planned"` | [**libraries is:closed reason:"not planned"** ](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) corresponde a problemas com a palavra "libraries" que foram fechados como "não planejados".
+| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) corresponde a problemas com a palavra "libraries" que foram fechados como "não planejados".
  
 {% endif %}
 
@@ -119,7 +119,7 @@ O qualificador `mentions` encontra os problemas que mencionam um usuário espec�
 
 | Qualificador     | Exemplo
 | ------------- | -------------
-| <code>mentions:<em>USERNAME</em></code> | [ **`resque mentions:defunkt`** ](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) corresponde aos problemas com a palavra "resque" que mencionam @defunkt.
+| <code>mentions:<em>USERNAME</em></code> | [ **`resque mentions:defunkt`**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) corresponde aos problemas com a palavra "resque" que mencionam @defunkt.
 
 ## Pesquisar por menção da equipe
 
@@ -174,8 +174,8 @@ O qualificador `milestone` encontra problemas ou solicitações de pull que faze
 
 | Qualificador        | Exemplo
 | ------------- | -------------
-| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"** ](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) corresponde aos problemas que estão em um marco chamado "overhaul".
-| | [**milestone:"bug fix"** ](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) corresponde aos problemas que estão em um marco chamado "bug fix".
+| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) corresponde aos problemas que estão em um marco chamado "overhaul".
+| | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) corresponde aos problemas que estão em um marco chamado "bug fix".
 
 ## Pesquisar por quadro de projeto
 
@@ -308,7 +308,7 @@ Esse qualificador usa a data como parâmetro. {% data reusables.time_date.date_f
 
 | Qualificador        | Exemplo
 | ------------- | -------------
-| <code>merged:<em>YYYY-MM-DD</em></code> | [ **`language:javascript merged:<2011-01-01`** ](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) corresponde às solicitações de pull em repositórios JavaScript que foram mescladas antes de 2011.
+| <code>merged:<em>YYYY-MM-DD</em></code> | [ **`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) corresponde às solicitações de pull em repositórios JavaScript que foram mescladas antes de 2011.
 | | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) corresponde às solicitações de pull no Ruby com a palavra "fast" no título que foram mescladas após maio de 2014.
 
 ## Pesquisar somente pull request com merge ou sem merge

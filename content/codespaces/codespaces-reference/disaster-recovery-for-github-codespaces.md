@@ -4,7 +4,6 @@ intro: 'This article describes guidance for a disaster recovery scenario, when a
 versions:
   fpt: '*'
   ghec: '*'
-product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
 shortTitle: Disaster recovery

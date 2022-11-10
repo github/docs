@@ -11,8 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.codespaces-api-beta-note %}
-
 ## About the Codespaces organizations API
 
 The {% data variables.product.prodname_codespaces %} organizations API enables
