@@ -125,6 +125,7 @@ Use the official Octokit library, or choose between any of the available third p
 |**octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)|
 |**github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
+|**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
 
 ### Ruby
 
