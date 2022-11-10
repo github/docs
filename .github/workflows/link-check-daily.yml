@@ -7,7 +7,7 @@ name: 'Link Checker: Daily'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '40 19 * * *' # once a day at 19:40 UTC / 11:40 PST
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -54,6 +54,12 @@ jobs:
         if: ${{ github.repository == 'github/docs-internal' }}
         run: .github/actions-scripts/merge-early-access.sh
 
+      - name: Restore disk-cache file for external link checking
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        with:
+          path: external-link-checker-db.json
+          key: external-link-checker-${{ hashFiles('.github/actions/rendered-content-link-checker.js') }}
+
       - name: Run link checker
         env:
           LEVEL: 'critical'
@@ -67,6 +73,10 @@ jobs:
           CREATE_REPORT: true
           CHECK_EXTERNAL_LINKS: true
           PATIENT: true
+          # This means that we'll *re-check* external URLs once a week.
+          # But mind you that the number has a 10% chance of "jitter"
+          # to avoid a stampeding herd when they all expire some day.
+          EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS: 7
         timeout-minutes: 30
         run: node .github/actions/rendered-content-link-checker.js
 
