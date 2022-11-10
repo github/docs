@@ -8,8 +8,6 @@
 // [end-readme]
 
 import assert from 'assert'
-import path from 'path'
-
 import { program, Option } from 'commander'
 
 import { languageKeys } from '../../lib/languages.js'
@@ -27,10 +25,8 @@ const shortNames = Object.fromEntries(
 
 const allVersionKeys = [...Object.keys(shortNames), ...Object.keys(allVersions)]
 
-const DEFAULT_OUT_DIRECTORY = path.join('lib', 'search', 'indexes')
-
 program
-  .description('Creates search records (and Lunr indexes) by scraping')
+  .description('Creates search records by scraping')
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(new Option('-V, --version <VERSION>', 'Specific versions').choices(allVersionKeys))
   .addOption(
@@ -39,23 +35,14 @@ program
   .addOption(
     new Option('--not-language <LANGUAGE>', 'Specific language to omit').choices(languageKeys)
   )
-  .option('-d, --dry-run', 'Does not write to disk')
-  .option(
-    '-o, --out-directory <DIRECTORY>',
-    `Where to dump the created files (default ${DEFAULT_OUT_DIRECTORY})`
-  )
-  .option('--no-compression', `Do not Brotli compress the created .json files (default false)`)
-  // Once we've fully removed all Lunr indexing code, we can remove this option
-  // and change where it's used to be that the default is to not generate
-  // any Lunr indexes.
-  .option('--no-lunr-index', `Do not generate a Lunr index, just the records file (default false)`)
   .option('--no-markers', 'Do not print a marker for each parsed document')
   .option('--filter <MATCH>', 'Filter to only do pages that match this string')
+  .argument('<out-directory>', 'where the indexable files should be written')
   .parse(process.argv)
 
-main(program.opts())
+main(program.opts(), program.args)
 
-async function main(opts) {
+async function main(opts, args) {
   let language
   if ('language' in opts) {
     language = opts.language
@@ -117,18 +104,7 @@ async function main(opts) {
     `version must be undefined or one of ${Object.keys(allVersions)}`
   )
 
-  let dryRun = false
-  if ('dryRun' in opts) {
-    dryRun = opts.dryRun
-  } else {
-    dryRun = Boolean(JSON.parse(process.env.DRY_RUN || 'false'))
-  }
-
-  const outDirectory = opts.outDirectory || DEFAULT_OUT_DIRECTORY
-
-  const compressFiles = !!opts.compression
-
-  const generateLunrIndex = !!opts.lunrIndex
+  const [outDirectory] = args
 
   const config = {
     noMarkers: !opts.markers,
@@ -136,13 +112,10 @@ async function main(opts) {
   }
 
   const options = {
-    dryRun,
     language,
     notLanguage,
     version: indexVersion,
     outDirectory,
-    compressFiles,
-    generateLunrIndex,
     config,
   }
   await searchSync(options)

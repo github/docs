@@ -8,8 +8,8 @@ name: Sync search - PR
 on:
   pull_request:
     paths:
-      - script/search/parse-page-sections-into-records.js
-      - script/search/popular-pages.js
+      - 'script/search/**'
+      - 'package*.json'
       - lib/search/popular-pages.json
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
@@ -98,8 +98,7 @@ jobs:
           npm run sync-search-indices -- \
             --language en \
             --version dotcom \
-            --out-directory /tmp/records \
-            --no-compression --no-lunr-index
+            /tmp/records
 
           ls -lh /tmp/records
 
@@ -111,7 +110,8 @@ jobs:
         run: |
           ./script/search/index-elasticsearch.js \
             --language en \
-            --version dotcom -- /tmp/records
+            --version dotcom \
+            /tmp/records
 
       - name: Check created indexes and aliases
         run: |
