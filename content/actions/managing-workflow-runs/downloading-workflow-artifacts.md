@@ -1,7 +1,7 @@
 ---
 title: Downloading workflow artifacts
 intro: You can download archived artifacts before they automatically expire.
-permissions: Authorized accounts with read access to a repository can download artifacts.
+permissions: People who are signed into {% data variables.product.product_name %} and have read access to a repository can download workflow artifacts.
 versions:
   fpt: '*'
   ghes: '*'
