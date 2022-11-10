@@ -42,9 +42,7 @@ export function ParameterRow({
               ) : null}
             </div>
 
-            <div
-              className={cx('pl-1 color-fg-muted f5', `${rowParams.description ? 'pt-2' : 'pt-0'}`)}
-            >
+            <div className={cx('pl-1 f5', `${rowParams.description ? 'pt-2' : 'pt-0'}`)}>
               <div dangerouslySetInnerHTML={{ __html: rowParams.description }} />
               {numPreviews > 0 && (
                 <a href={`#${slug}-preview-notices`} className="d-inline">
@@ -73,7 +71,7 @@ export function ParameterRow({
                         <span>{t('enum_description_title')}: </span>
                         {rowParams.enum.map((item, index, array) => (
                           <span key={item + index}>
-                            <code className="color-bg-muted">{item}</code>
+                            <code>{item}</code>
                             {index !== array.length - 1 && ','}{' '}
                           </span>
                         ))}
