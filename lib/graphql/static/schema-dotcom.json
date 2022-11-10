@@ -9847,7 +9847,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -37382,12 +37382,32 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -69827,12 +69847,32 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -74415,12 +74455,32 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -83535,7 +83595,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -89779,7 +89839,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
