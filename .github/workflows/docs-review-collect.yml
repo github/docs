@@ -7,7 +7,7 @@ name: Add docs-reviewers request to the docs-content review board
 on:
   workflow_dispatch:
   schedule:
-    - cron: '50 */6 * * *'
+    - cron: '20 */6 * * *' # Run every 6 hours at 20 minutes after
 
 permissions:
   contents: read
