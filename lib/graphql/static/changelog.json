@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument <code>since: DateTime</code> added to field <code>Organization.sponsorsActivities</code></p>",
+          "<p>Argument <code>until: DateTime</code> added to field <code>Organization.sponsorsActivities</code></p>",
+          "<p>Argument <code>since: DateTime</code> added to field <code>Sponsorable.sponsorsActivities</code></p>",
+          "<p>Argument <code>until: DateTime</code> added to field <code>Sponsorable.sponsorsActivities</code></p>",
+          "<p>Argument <code>since: DateTime</code> added to field <code>User.sponsorsActivities</code></p>",
+          "<p>Argument <code>until: DateTime</code> added to field <code>User.sponsorsActivities</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>hasDiscussionsEnabled</code> was added to interface <code>RepositoryInfo</code></p>"
         ]
       }
