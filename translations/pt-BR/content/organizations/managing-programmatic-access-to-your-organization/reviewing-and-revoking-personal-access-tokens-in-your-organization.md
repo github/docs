@@ -1,37 +1,40 @@
 ---
-title: Reviewing and revoking personal access tokens in your organization
-intro: 'Organization owners can review the {% data variables.product.pat_v2 %}s that can access their organization. They can also revoke access of specific {% data variables.product.pat_v2 %}s.'
+title: Revisar e revogar tokens de acesso pessoal na organização
+intro: 'Os proprietários da organização podem revisar os {% data variables.product.pat_v2 %}s que podem acessar a organização. Eles também podem revogar o acesso de {% data variables.product.pat_v2 %}s específicos.'
 versions:
   feature: pat-v2
 shortTitle: Review token access
+ms.openlocfilehash: b45401441473f892ba61cf199852588e2a3b3d67
+ms.sourcegitcommit: d309541e8f0e28bc1ec333a85b00218627e54fe1
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/03/2022
+ms.locfileid: '148131374'
 ---
-
 {% data reusables.user-settings.pat-v2-org-opt-in %}
 
-## About reviewing and revoking  {% data variables.product.pat_v2 %}s
+## Sobre a revisão e revogação de {% data variables.product.pat_v2 %}s
 
-Organization owners can view all {% data variables.product.pat_v2 %}s that can access resources owned by the organization. Organization owners can also revoke access by {% data variables.product.pat_v2 %}s. When a {% data variables.product.pat_v2 %} is revoked, SSH keys created by the token will continue to work and the token will still be able to read public resources within the organization.
+Os proprietários da organização podem ver todos os {% data variables.product.pat_v2 %}s que podem acessar os recursos pertencentes à organização. Os proprietários da organização também podem revogar o acesso de {% data variables.product.pat_v2 %}s. Quando um {% data variables.product.pat_v2 %} for revogado, as chaves SSH criadas pelo token continuarão funcionando e o token ainda poderá ler os recursos públicos da organização.
 
-When a token is revoked, the user who created the token will receive an email notification.
+Quando um token for revogado, o usuário que criou o token receberá uma notificação por email.
 
-Organization owners can only view and revoke {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}. Unless the organization {% ifversion ghec or ghes or ghae %}or enterprise {% endif %}has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources until the token expires. For more information about restricting access by {% data variables.product.pat_v1_plural %}, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)"{% ifversion ghec or ghes or ghae %} and "[Enforcing policies for {% data variables.product.pat_generic %}s in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)"{% endif %}.
+Os proprietários da organização só podem ver e revogar {% data variables.product.pat_v2 %}s, não {% data variables.product.pat_v1_plural %}. A menos que a organização {% ifversion ghec or ghes or ghae %}ou a empresa {% endif %}tenha acesso restrito de {% data variables.product.pat_v1_plural %}, qualquer {% data variables.product.pat_v1 %} pode acessar recursos da organização até que o token vença. Para obter mais informações de como restringir o acesso de {% data variables.product.pat_v1_plural %}, confira "[Como definir uma política de {% data variables.product.pat_generic %} na organização](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)"{% ifversion ghec or ghes or ghae %} e "[Como impor políticas para {% data variables.product.pat_generic %}s na empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)"{% endif %}.
 
-{% ifversion ghec %} Organization owners can also view and revoke {% data variables.product.pat_v1_plural %} if their organization requires SAML single-sign on. For more information, see "[Viewing and managing a user's SAML access to your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-authorized-credentials)". For more information about using the REST API to do this, see "[List SAML SSO authorizations for an organization](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization)" and "[Remove a SAML SSO authorization for an organization](/rest/orgs/orgs#remove-a-saml-sso-authorization-for-an-organization)."{% endif %}
+{% ifversion ghec %} Os proprietários da organização também podem ver e revogar {% data variables.product.pat_v1_plural %} quando a organização exige o logon único de SAML. Para obter mais informações, confira "[Como ver e gerenciar o acesso SAML de um usuário à empresa](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-authorized-credentials)". Para obter mais informações de como usar a API REST para fazer isso, confira "[Listar autorizações do SSO de SAML de uma organização](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization)" e "[Remover uma autorização do SSO de SAML de uma organização](/rest/orgs/orgs#remove-a-saml-sso-authorization-for-an-organization)".{% endif %}
 
-## Reviewing and revoking  {% data variables.product.pat_v2 %}s
+## Como revisar e revogar {% data variables.product.pat_v2 %}s
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
-1. Click the name of the token that you want review or revoke.
-1. Review the access and permissions that the token has.
-1. To revoke access by the token to the organization, click **Revoke**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Na barra lateral esquerda, em **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, clique em **Ativar tokens**. Todos os {% data variables.product.pat_v2 %}s que podem acessar a organização serão exibidos.
+1. Clique no nome do token que você deseja revisar ou revogar.
+1. Revise o acesso e as permissões que o token tem.
+1. Para revogar o acesso do token à organização, clique em **Revogar**.
 
-Alternatively, you can revoke multiple tokens at once:
+Como alternativa, você pode revogar vários tokens ao mesmo tempo:
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. Na barra lateral esquerda, em **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, clique em **Ativar tokens**. Todos os {% data variables.product.pat_v2 %}s que podem acessar a organização serão exibidos.
 {% data reusables.user-settings.patv2-filters %}
-1. Select each token that you want to revoke.
-1. Select the **tokens selected...** dropdown menu and click **Revoke...**.
+1. Selecione cada token que deseja revogar.
+1. Clique no menu suspenso **tokens selecionados...** e depois em **Revogar...** .
