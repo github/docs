@@ -1,0 +1,1 @@
+in {% data variables.product.prodname_codespaces %} using either the {% data variables.product.prodname_vscode %} desktop application, or the {% data variables.product.prodname_vscode_shortname %} web client. It will take you through an example of opening your project in a codespace, and adding and modifying a predefined dev container configuration.
