@@ -16,12 +16,12 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
-ms.openlocfilehash: 2a36a74f77e7dcf2366adfc581da25465a74b172
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 30c4830c125e9b20ada59e0e0e29fa0eb5c6c649
+ms.sourcegitcommit: a9af58ef52d8d109186053d184d9b1e52e5f0323
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107832'
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148128901'
 ---
 {% data reusables.dependabot.result-discrepancy %}
 
@@ -53,7 +53,7 @@ Sim, o gráfico de dependências tem duas categorias de limites:
 
     Manifestos com tamanho superior a 0.5 MB são processados apenas para contas corporativas. Para outras contas, manifestos acima de 0,5 MB são ignorados e não criarão {% data variables.product.prodname_dependabot_alerts %}.
 
-    Por padrão, o {% data variables.product.prodname_dotcom %} não processará mais de 20 manifestos por repositório. {% data variables.product.prodname_dependabot_alerts %} não foi criado para manifestos acima deste limite. Se você precisar aumentar o limite, entre em contato com {% data variables.contact.contact_support %}. 
+    Por padrão, o {% data variables.product.prodname_dotcom %} não processará mais de {% ifversion fpt %}150{% else %}600{% endif %} manifestos por repositório. {% data variables.product.prodname_dependabot_alerts %} não foi criado para manifestos acima deste limite. Se você precisar aumentar o limite, entre em contato com {% data variables.contact.contact_support %}. 
 
 2. **Limites de visualização**
 

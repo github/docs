@@ -135,7 +135,9 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 {% note %}
 
-**Note:** These are the only storage providers that {% data variables.product.company_short %} supports and can provide assistance with. Other S3 API-compatible storage providers are unlikely to work due to differences from the S3 API. [Contact us](https://support.github.com/contact) to request support for additional storage providers.
+**Note:** These are the only storage providers that {% data variables.product.company_short %} supports and can provide assistance with.
+
+{% data reusables.actions.enterprise-s3-tech-partners %}
 
 {% endnote %}
 

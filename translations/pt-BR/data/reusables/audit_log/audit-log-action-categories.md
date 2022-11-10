@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 42464c33b7846422a3a8bd4f1102b8111f7000a7
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: e0bf1f4b7bbd5fcb145a6e869dd442fd8e53108a
+ms.sourcegitcommit: b4996daba2e75b3368f39316e6929602f13b961b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148107466"
+ms.lasthandoff: 10/31/2022
+ms.locfileid: "148120531"
 ---
 | Nome da categoria | Descrição
 |------------------|-------------------
@@ -23,7 +23,7 @@ ms.locfileid: "148107466"
 {%- ifversion fpt or ghec %} | `codespaces` | Contém atividades relacionadas aos codespaces de uma organização.
 {%- endif %} | `commit_comment` | Contém atividades relacionadas à atualização ou à exclusão de comentários de commit.
 {%- ifversion ghes %} | `config_entry` |  Contém atividades relacionadas a definições de configuração. Esses eventos só ficam visíveis no log de auditoria do administrador do site.
-{%- endif %} | | `dependabot_alerts`  | Contém as atividades de configuração no nível da organização para {% data variables.product.prodname_dependabot_alerts %} em repositórios existentes. Para obter mais informações, confira "[Sobre os {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
+{%- endif %} | `dependabot_alerts`  | Contém as atividades de configuração no nível da organização para {% data variables.product.prodname_dependabot_alerts %} em repositórios existentes. Para obter mais informações, confira "[Sobre os {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
 | `dependabot_alerts_new_repos`   | Contém atividades de configuração no nível da organização para {% data variables.product.prodname_dependabot_alerts %} em novos repositórios criados na organização.
 | `dependabot_repository_access` | Contém atividades relacionadas aos repositórios privados de uma organização que o {% data variables.product.prodname_dependabot %} tem permissão para acessar.
 {%- ifversion fpt or ghec or ghes %} | `dependabot_security_updates`   | Contém as atividades de configuração no nível da organização para {% data variables.product.prodname_dependabot_security_updates %} nos repositórios existentes. Para obter mais informações, confira "[Como configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".

@@ -1,0 +1,6 @@
+# Reference: #8557.
+# Documentation for the organization-level split of the "Overview" page into "Risks" and "Coverage"
+versions:
+  ghes: '> 3.7'
+  ghae: '> 3.7'
+  ghec: '*'

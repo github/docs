@@ -15,16 +15,16 @@ topics:
   - Codespaces
   - Billing
   - Administrator
-ms.openlocfilehash: f706ac57370d024cbee24bf027c782a42c11daa9
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 97d8b3fce0499ea945c9a2dcfe469759a097d77e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147676649'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106486'
 ---
 ## Organization での {% data variables.product.prodname_github_codespaces %} の有効化について
 
-組織の所有者は、組織内のどのユーザーが組織の負担で codespace を作成および使用できるかを制御できます。
+組織の所有者は、組織内のどのユーザーが組織の負担で codespace を作成および使用できるかを制御できます。 価格については、「[GitHub Codespaces の請求について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
 
 リポジトリをクローンできるユーザーのみが、そのリポジトリの codespace を作成できます。 組織によって所有されるリポジトリの codespace をユーザーが作成できるようにするには、次の手順を実行する必要があります。
 

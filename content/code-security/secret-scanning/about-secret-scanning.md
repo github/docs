@@ -84,7 +84,7 @@ When you enable {% data variables.product.prodname_secret_scanning %} for a repo
 
 If {% data variables.product.prodname_secret_scanning %} detects a secret, {% data variables.product.prodname_dotcom %} generates an alert.
 
-- {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository, or if you have enabled notifications for security alerts, or for all the activity on the repository.
+- {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository, and if you have enabled notifications either for security alerts or for all the activity on the repository.
 {% ifversion ghes or ghae or ghec %}
 - If the contributor who committed the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send an email alert to the contributor. The emails contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
 {% endif %}
@@ -96,7 +96,7 @@ For more information about viewing and resolving {% data variables.product.prodn
 Repository administrators and organization owners can grant users and teams access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
 {% ifversion ghec or ghes or ghae > 3.4 %}
-You can use the security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview)."
+You can use the security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[Viewing security overviews](/code-security/security-overview/viewing-the-security-overview)."
 {% endif %}
 
 {%- ifversion ghec or ghes or ghae %}You can also use the REST API to 

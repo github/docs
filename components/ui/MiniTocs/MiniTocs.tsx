@@ -1,28 +1,19 @@
 import { Heading, NavList } from '@primer/react'
 import cx from 'classnames'
 
-import { MiniTocItem } from 'components/context/ArticleContext'
+import type { MiniTocItem } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 
 import styles from './Minitocs.module.scss'
 
 export type MiniTocsPropsT = {
-  pageTitle: string
   miniTocItems: MiniTocItem[]
 }
 
 function RenderTocItem(item: MiniTocItem) {
   return (
     <div className={cx(styles.nested, item.platform)}>
-      <NavList.Item
-        href={item.contents.href}
-        sx={{
-          padding: '4px 0 4px 0',
-          marginLeft: '7px',
-        }}
-      >
-        {item.contents.title}
-      </NavList.Item>
+      <NavList.Item href={item.contents.href}>{item.contents.title}</NavList.Item>
       {item.items && item.items.length > 0 && (
         <ul className={cx(styles.indentNested)}>
           {item.items.map((toc) => (
@@ -39,7 +30,7 @@ function RenderTocItem(item: MiniTocItem) {
   )
 }
 
-export function MiniTocs({ pageTitle, miniTocItems }: MiniTocsPropsT) {
+export function MiniTocs({ miniTocItems }: MiniTocsPropsT) {
   const { t } = useTranslation('pages')
 
   return (
@@ -48,7 +39,7 @@ export function MiniTocs({ pageTitle, miniTocItems }: MiniTocsPropsT) {
         {t('miniToc')}
       </Heading>
 
-      <NavList className="my-2" key={pageTitle}>
+      <NavList className={cx(styles.miniToc, 'my-2')}>
         {miniTocItems.map((items, i) => {
           return (
             <RenderTocItem
