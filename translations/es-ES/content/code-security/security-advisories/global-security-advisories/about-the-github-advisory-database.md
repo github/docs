@@ -19,6 +19,8 @@ topics:
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
+Security advisories are published as JSON files in the Open Source Vulnerability (OSV) format. For more information about the OSV format, see "[Open Source Vulnerability format](https://ossf.github.io/osv-schema/)."
+
 ## About types of security advisories
 
 {% data reusables.advisory-database.beta-malware-advisories %}
