@@ -2,18 +2,17 @@
 title: '开始使用 {% data variables.product.prodname_github_codespaces %}'
 shortTitle: Getting started
 intro: '了解如何开始使用 {% data variables.product.prodname_github_codespaces %}，包括特定语言的设置和配置。'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
 children:
   - /quickstart
   - /deep-dive
-ms.openlocfilehash: 072764dd2ec164cc97a0699fb7d8821e25b04aab
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: e0a845403562bbe046b81e52893a9ff59a1fbf1c
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147887445'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159766'
 ---
 

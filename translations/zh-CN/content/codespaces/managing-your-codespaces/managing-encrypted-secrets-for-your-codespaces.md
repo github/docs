@@ -1,7 +1,6 @@
 ---
 title: Managing encrypted secrets for your codespaces
 intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -24,12 +23,12 @@ shortTitle: Encrypted secrets
 
 You can add encrypted secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
 
-- {% data variables.product.pat_generic %}s to cloud services
+- Access tokens to cloud services
 - Service principals
 - Subscription identifiers
 - [Credentials for a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
 
-You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret.
+You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret. To share a secret with a codespace created from a template, you will need to publish the codespace to a repository on {% data variables.product.prodname_dotcom %}, then give that repository access to the secret.
 
 {% data reusables.codespaces.secrets-on-start %}
 
