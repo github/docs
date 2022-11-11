@@ -1,16 +1,10 @@
----
-ms.openlocfilehash: 02959a116ad5d087dc8a9d7fb3293e36b9b9cb24
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145118629"
----
-- 複数の値 (OR クエリ) の一致をフィルター処理するには、値をコンマで区切ります。 たとえば、`label:"good first issue",bug` は、`good first issue` または `bug` とラベル付けされたすべての Issue を一覧表示します。
-- 特定の値がない場合にフィルター処理するには、フィルターの前に `-` を配置します。 たとえば、`-label:"bug"` は、`bug` のラベルがない項目のみを表示します。
-- すべての値がない場合にフィルター処理するには、`no:` の後にフィールド名を入力します。 たとえば、`no:assignee` は、担当者がいない項目のみを表示します。
-- 状態でフィルター処理するには、「`is:`」と入力します。 たとえば、`is: issue` または `is:open` です。
-- 複数のフィルタは空白で区切ってください。 たとえば、`status:"In progress" -label:"bug" no:assignee` は、状態が `In progress` で、`bug` のラベルがなく、担当者がいない項目のみを表示します。
-- 繰り返しフィールドの前、現在、または次の繰り返しをフィルター処理するには、`@previous`、`@current`、`@next` のいずれかを使用します。 たとえば、`sprint:@current` のようにします。
-- ビューアーに割り当てられている項目をフィルター処理するには、`@me` を使用します。 たとえば、`assignee:@me` のようにします。 このビューを使用しているユーザーには、自分に割り当てられた項目が表示されます。
-- 日付と数値のフィールドをフィルター処理するには、`>`、`>=`、`<`、`<=`、`..` の範囲クエリを使用します。 (例: `target:2022-03-01..2022-03-15`)。 詳細については、「[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)」 (検索構文の理解) を参照してください。
+- To filter for any match of multiple values (an OR query), separate the values with a comma. For example `label:"good first issue",bug` will list all issues labelled `good first issue` or `bug`.
+- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
+- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
+- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
+- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
+- To filter for the previous, current, or next iteration of an iteration field, use `@previous`, `@current`, or `@next`. For example, `iteration:@current`.
+- To filter for items assigned to the viewer, use `@me`. For example, `assignee:@me`. Anyone using this view will see items assigned to themselves.
+- To filter by when an item was last updated, use `last-updated:` followed by the number of days. This filter only supports `{number}days` (or `1day` for a single day) as a unit. For example, `last-updated:7days` will only show items that were last updated 7 or more days ago.
+- To filter date and number fields, use `>`, `>=`, `<`, `<=`, and `..` range queries. For example: `target:2022-03-01..2022-03-15`. For more information, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)." {% ifversion projects-v2-tasklists %}
+- To filter for issues tracked by a specified issue, use `tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"` and replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. {% endif %}

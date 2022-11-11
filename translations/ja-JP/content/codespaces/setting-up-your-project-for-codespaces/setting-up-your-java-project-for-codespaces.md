@@ -3,7 +3,6 @@ title: Setting up your Java project for GitHub Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Setting up with your Java project
 intro: 'Get started with your Java project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
 versions:
@@ -17,7 +16,7 @@ hidden: true
 
 ## Introduction
 
-This guide shows you how to set up your Java project in {% data variables.product.prodname_github_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
+This guide shows you how to set up your Java project {% data reusables.codespaces.setting-up-project-intro %}
 
 ### Prerequisites
 
@@ -26,11 +25,9 @@ This guide shows you how to set up your Java project in {% data variables.produc
 
 ## Step 1: Open your project in a codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu, and in the **Codespaces** tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}).
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
-
-  If you don’t see this option, {% data variables.product.prodname_github_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-github-codespaces) for more information.
 
 When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Java, nvm, npm, and Yarn. It also includes a set of commonly used tools such as git, wget, rsync, openssh, and nano.
 
@@ -171,9 +168,9 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 
 1. Run your application by pressing `F5`.
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, containing a prompt to connect to the port your project uses.
 
-   ![Port forwarding toast](/assets/images/help/codespaces/codespaces-port-toast.png)
+   ![Port forwarding "toast" notification](/assets/images/help/codespaces/codespaces-port-toast.png)
 
 ## Step 5: Commit your changes
 
