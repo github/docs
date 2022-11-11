@@ -17,8 +17,8 @@ export const LanguagePicker = ({ variant }: Props) => {
   const locale = router.locale || 'en'
 
   const { t } = useTranslation('picker')
-
-  const langs = Object.values(languages)
+  // 92BD1212-61B8-4E7A: Remove `.filter(lang => !lang.wip)` for the public ship of ko, fr, de, ru
+  const langs = Object.values(languages).filter((lang) => !lang.wip)
   const selectedLang = languages[locale]
 
   // The `router.asPath` will always be without a hash in SSR
