@@ -63,60 +63,64 @@ You can only choose an additional permission if it's not already included in the
 {% ifversion discussions %}
 ### Discussions
 
-- **Create a discussion category**: Ability to create a new discussion category. For more information, see "[Creating a new discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)."
-- **Edit a discussion category**: Ability to edit a discussion category. For more information, see "[Editing a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)."
-- **Delete a discussion category**: Ability to delete a discussion category. For more information, see "[Deleting a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)."
-- **Mark or unmark discussion answers**: Ability to mark answers to a discussion, if the category for the discussion accepts answers. For more information, see "[Mark or unmark comments in a discussion as the answer](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)."
-- **Hide or unhide discussion comments**: Ability to hide and unhide comments in a discussion.  For more information, see "[Moderating discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)."
-- **Convert issues to discussions**: Ability to convert an issue into a discussion.  For more information, see "[Converting issues to discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+- Create a discussion category
+- Edit a discussion category
+- Delete a discussion category 
+- Mark or unmark discussion answers 
+- Hide or unhide discussion comments 
+- Convert issues to discussions 
+
+For more information, see "[{% data variables.product.prodname_discussions %}](/discussions)."
 {% endif %}
 
 ### Issue and Pull Requests
 
-- **Assign or remove a user**: Assign a user to an issue or pull request, or remove a user from an issue or pull request.
-- **Add or remove a label**: Add a label to an issue or a pull request, or remove a label from an issue or pull request.
+- Assign or remove a user 
+- Add or remove a label 
 
 ### Issue
 
-- **Close an issue**
-- **Reopen a closed issue**
-- **Delete an issue**
-- **Mark an issue as a duplicate**
+- Close an issue
+- Reopen a closed issue
+- Delete an issue
+- Mark an issue as a duplicate
 
 ### Pull Request
 
-- **Close a pull request**
-- **Reopen a closed pull request**
-- **Request a pull request review**: Request a review from a user or team.
+- Close a pull request
+- Reopen a closed pull request
+- Request a pull request review
 
 ### Repository
 
-- **Set milestones**: Add milestones to an issue or pull request.
-- **Manage wiki settings**: Turn on wikis for a repository.
-- **Manage project settings**: Turning on projects for a repository.
-- **Manage pull request merging settings**: Choose the type of merge commits that are allowed in your repository, such as merge, squash, or rebase.
-- **Manage {% data variables.product.prodname_pages %} settings**: Enable {% data variables.product.prodname_pages %} for the repository, and select the branch you want to publish. For more information, see "[Configuring a publishing source for your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
-- **Manage webhooks**: Add webhooks to the repository.
-- **Manage deploy keys**: Add deploy keys to the repository.
-- **Edit repository metadata**: Update the repository description as well as the repository topics.
+- Set milestones
+- Manage wiki settings 
+- Manage project settings
+- Manage pull request merging settings 
+- Manage {% data variables.product.prodname_pages %} settings (see "[Configuring a publishing source for your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
+- Manage webhooks 
+- Manage deploy keys 
+- Edit repository metadata
 {%- ifversion ghec %}
-- **Set interaction limits**: Temporarily restrict certain users from commenting, opening issues, or creating pull requests in your public repository to enforce a period of limited activity. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
+- Set interaction limits
 {%- endif %}
-- **Set the social preview**: Add an identifying image to your repository that appears on social media platforms when your repository is linked. For more information, see "[Customizing your repository's social media preview](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)."
-- **Push commits to protected branches**: Push to a branch that is marked as a protected branch. Branch protection rules will still apply and could result in a push being rejected.
-- **Create protected tags**: Create tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
-- **Delete protected tags**: Delete tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."{% ifversion bypass-branch-protections %}
-- **Bypass branch protections**: Push to a protected branch without needing to comply with branch protection rules.{% endif %}
+- Set the social preview 
+- Push commits to protected branches (branch protection rules will still apply)
+- Create protected tags
+- Delete protected tags
+{%- ifversion bypass-branch-protections %}
+- Bypass branch protections
+{%- endif %}
 
 ### Security
 
-- **View {% data variables.product.prodname_code_scanning %} results**: Ability to view {% data variables.product.prodname_code_scanning %} alerts.
-- **Dismiss or reopen {% data variables.product.prodname_code_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_code_scanning %} alerts.
-- **Delete {% data variables.product.prodname_code_scanning %} results**: Ability to delete {% data variables.product.prodname_code_scanning %} alerts.
-- **View {% data variables.product.prodname_dependabot_alerts %}**: Ability to view {% data variables.product.prodname_dependabot_alerts %}.
-- **Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}**: Ability to dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}.
-- **View {% data variables.product.prodname_secret_scanning %} results**: Ability to view {% data variables.product.prodname_secret_scanning %} alerts.
-- **Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_secret_scanning %} alerts.
+- View {% data variables.product.prodname_code_scanning %} results 
+- Dismiss or reopen {% data variables.product.prodname_code_scanning %} results
+- Delete {% data variables.product.prodname_code_scanning %} results 
+- View {% data variables.product.prodname_dependabot_alerts %} 
+- Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %} 
+- View {% data variables.product.prodname_secret_scanning %} results 
+- Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results 
 
 ## Precedence for different levels of access
 

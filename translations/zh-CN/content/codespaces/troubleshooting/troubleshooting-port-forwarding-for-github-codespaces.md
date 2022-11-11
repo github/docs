@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting port forwarding for GitHub Codespaces
-intro: Troubleshooting steps for common port forwarding issues.
+title: GitHub Codespaces 的端口转发疑难解答
+intro: 常见端口转发问题的疑难解答步骤。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,17 +11,22 @@ topics:
 shortTitle: Port forwarding
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-port-forwarding-for-codespaces
+ms.openlocfilehash: e6ce1be59f9154f8c192bab215e68dd3dfdc5b6c
+ms.sourcegitcommit: 43a959b8faf78d9c5b3deadffa079d24cd11650b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148134751'
 ---
+在 codespace 内运行的应用程序向控制台输出端口时，{% data variables.product.prodname_github_codespaces %} 将检测到 localhost URL 模式并自动转发端口。 有关详细信息，请参阅“[在 	codespace 中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
 
-When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_github_codespaces %}  detects the localhost URL pattern and automatically forwards the port. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+如果端口未自动转发，则可以手动转发该端口。 有关详细信息，请参阅“[转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)”。
 
-If a port is not automatically forwarded, you can forward it manually. For more information, see "[Forwarding a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)."
+如果设置了端口转发，请检查以下各项：
 
-If port forwarding is set up, check the following:
+- 使用通知提示或点击终端中的 URL 打开转发的端口。 如果通过浏览器连接到 codespace，则在本地计算机上键入 `localhost:8000`（作为示例）将不起作用。
+- 确保检查应用程序是否仍在代码空间中运行。 如果代码空间在一段时间不活动后停止，则需要确保在代码空间重新启动后重新启动应用程序。
 
-- Use the notification toast or click the URL in Terminal to open the forwarded port. Typing in `localhost:8000` (as an example) to your local machine will not work if you're connected to the codespace via the browser.
-- Make sure to check that your application is still running from within your codespace. If your codespace has stopped after a period of inactivity, you'll need to ensure to restart your application once the codespace has restarted.
-
-Typically, you can make a forwarded port accessible publicly, or within the organization that owns a repository. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)." If either, or both, of the options for public or organization visibility are not available, this indicates that an organization-level policy has been configured. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+通常，可使转发端口可公开访问，也可在拥有存储库的组织内访问。 有关详细信息，请参阅“[在 	codespace 中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。 如果公共或组织可见性选项中的任何一个或两者都不可用，则表示已配置了组织级别的策略。 有关详细信息，请参阅“[限制转发端口的可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”。
 
 {% data reusables.codespaces.forwarded-ports-environment-variable %}

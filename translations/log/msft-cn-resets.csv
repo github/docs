@@ -462,6 +462,7 @@ translations/zh-CN/content/actions/learn-github-actions/environment-variables.md
 translations/zh-CN/content/actions/learn-github-actions/expressions.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/zh-CN/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
+translations/zh-CN/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,broken liquid tags
 translations/zh-CN/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/manually-running-a-workflow.md,broken liquid tags
@@ -764,10 +765,8 @@ translations/zh-CN/content/codespaces/customizing-your-codespace/setting-your-ti
 translations/zh-CN/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/connecting-to-a-private-network.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/creating-a-codespace.md,broken liquid tags
-translations/zh-CN/content/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,broken liquid tags
-translations/zh-CN/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli.md,broken liquid tags
@@ -801,7 +800,6 @@ translations/zh-CN/content/codespaces/troubleshooting/github-codespaces-logs.md,
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-codespaces-clients.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-creation-and-deletion-of-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces.md,broken liquid tags
-translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-port-forwarding-for-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-your-connection-to-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/working-with-support-for-github-codespaces.md,broken liquid tags
@@ -935,7 +933,6 @@ translations/zh-CN/content/organizations/managing-organization-settings/managing
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
-translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,broken liquid tags
 translations/zh-CN/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
@@ -997,7 +994,6 @@ translations/zh-CN/content/repositories/configuring-branches-and-merges-in-your-
 translations/zh-CN/content/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch.md,broken liquid tags
 translations/zh-CN/content/repositories/creating-and-managing-repositories/about-repositories.md,broken liquid tags
 translations/zh-CN/content/repositories/creating-and-managing-repositories/cloning-a-repository.md,broken liquid tags
-translations/zh-CN/content/repositories/creating-and-managing-repositories/duplicating-a-repository.md,broken liquid tags
 translations/zh-CN/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,rendering error
 translations/zh-CN/content/repositories/creating-and-managing-repositories/transferring-a-repository.md,rendering error
 translations/zh-CN/content/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors.md,broken liquid tags
@@ -1041,7 +1037,6 @@ translations/zh-CN/content/rest/enterprise-admin/scim.md,broken liquid tags
 translations/zh-CN/content/rest/enterprise-admin/users.md,broken liquid tags
 translations/zh-CN/content/rest/gitignore.md,broken liquid tags
 translations/zh-CN/content/rest/guides/building-a-ci-server.md,broken liquid tags
-translations/zh-CN/content/rest/guides/delivering-deployments.md,broken liquid tags
 translations/zh-CN/content/rest/guides/getting-started-with-the-rest-api.md,rendering error
 translations/zh-CN/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/zh-CN/content/rest/guides/working-with-comments.md,broken liquid tags
@@ -1165,7 +1160,6 @@ translations/zh-CN/data/reusables/dependabot/default-dependencies-allow-ignore.m
 translations/zh-CN/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/zh-CN/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
 translations/zh-CN/data/reusables/dependabot/supported-package-managers.md,rendering error
-translations/zh-CN/data/reusables/dependency-review/feature-overview.md,broken liquid tags
 translations/zh-CN/data/reusables/desktop/get-an-account.md,broken liquid tags
 translations/zh-CN/data/reusables/discussions/enabling-or-disabling-github-discussions-for-your-organization.md,broken liquid tags
 translations/zh-CN/data/reusables/discussions/navigate-to-repo-or-org.md,broken liquid tags
@@ -1232,7 +1226,6 @@ translations/zh-CN/data/reusables/organizations/github-apps-settings-sidebar.md,
 translations/zh-CN/data/reusables/organizations/member-privileges.md,rendering error
 translations/zh-CN/data/reusables/organizations/navigate-to-org.md,broken liquid tags
 translations/zh-CN/data/reusables/organizations/new_team.md,rendering error
-translations/zh-CN/data/reusables/organizations/org_settings.md,rendering error
 translations/zh-CN/data/reusables/organizations/organization-wide-project.md,rendering error
 translations/zh-CN/data/reusables/organizations/owners-team.md,rendering error
 translations/zh-CN/data/reusables/organizations/people.md,rendering error
@@ -1286,7 +1279,6 @@ translations/zh-CN/data/reusables/scim/supported-idps.md,broken liquid tags
 translations/zh-CN/data/reusables/search/syntax_tips.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
-translations/zh-CN/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/zh-CN/data/reusables/security-overview/permissions.md,rendering error
 translations/zh-CN/data/reusables/security/displayed-information.md,rendering error
