@@ -1,7 +1,6 @@
 ---
-title: 在代码空间中使用源控制
-intro: 在对代码空间中的文件进行更改后，您可以快速提交更改并将更新推送到远程仓库。
-product: '{% data reusables.gated-features.codespaces %}'
+title: Using source control in your codespace
+intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,73 +10,113 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Source control
-ms.openlocfilehash: 39913ef49f6c404a95debc3f4ee7b30e9187ddf6
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147110592'
 ---
-## 关于 {% data variables.product.prodname_github_codespaces %} 中的源代码管理
 
-您可以直接在代码空间内执行所需的所有 Git 操作。 例如，您可以从远程仓库获取更改、切换分支、创建新分支、提交和推送更改，以及创建拉取请求。 您可以使用代码空间内的集成终端输入 Git 命令，也可以单击图标和菜单选项以完成所有最常见的 Git 任务。 本指南解释如何使用图形用户界面来控制源代码。
+{% jetbrains %}
 
-在 {% data variables.product.prodname_github_codespaces %} 中的源控制使用与 {% data variables.product.prodname_vscode %} 相同的工作流程。 有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档“[在 {% data variables.product.prodname_vscode_shortname %} 中使用版本控制](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)”。
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-使用 {% data variables.product.prodname_github_codespaces %} 更新文件的典型工作流程将是：
+{% endjetbrains %}
 
-* 从 {% data variables.product.prodname_dotcom %} 上仓库的默认分支，创建代码空间。 请参阅“[创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace)”。
-* 在代码空间中，创建一个新的分支来操作。
-* 进行更改并保存。
-* 提交更改。
-* 提出拉取请求。
+## About source control in {% data variables.product.prodname_github_codespaces %}
 
-## 创建或切换分支
+You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from a remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
 
-{% data reusables.codespaces.create-or-switch-branch %}
+{% vscode %}
 
-{% tip %}
+For more information about Git support in {% data variables.product.prodname_vscode %}, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
 
-提示：如果有人在远程存储库上更改了文件，则在你切换到的分支中，只有将更改拉取到 codespace 中之后，你才能看到这些更改。 
+{% endvscode %}
 
-{% endtip %}
+{% webui %}
 
-## 从远程仓库拉取更改
+Source control in the {% data variables.product.prodname_vscode %} web client uses the same workflow as the {% data variables.product.prodname_vscode %} desktop application. For more information, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
 
-您可以随时将远程仓库的更改拉取到您的代码空间。 
+{% endwebui %}
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. 在侧边栏顶部，单击省略号 (…)。![查看和更多操作的省略号按钮](/assets/images/help/codespaces/source-control-ellipsis-button.png)
-1. 在下拉菜单中，单击“拉取”。
+A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-如果自创建代码空间以来开发容器配置已更改，则可以通过为代码空间重建容器来应用更改。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)”。
+* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+* In your codespace, create a new branch to work on.
+* Make your changes and save them.
+* Commit the change.
+* Raise a pull request.
 
-## 设置代码空间以自动获取新更改 
+{% webui %}
 
-您可以设置代码空间，以自动获取对远程仓库所做的任何新提交的详细信息。 这允许您查看仓库的本地副本是否过时，如果是，您可以选择拉取新的更改。 
+{% data reusables.codespaces.source-control %} 
 
-如果获取操作检测到远程仓库上的新更改，您将在状态栏中看到新提交的数量。 然后，您可以将更改拉取到本地副本。
+{% endwebui %}
 
-1. 单击活动栏底部的“管理”按钮。
-![“管理”按钮](/assets/images/help/codespaces/manage-button.png)
-1. 在菜单中，单击“设置”。
-1. 在设置页上，搜索：`autofetch`。
-![搜索自动获取](/assets/images/help/codespaces/autofetch-search.png)
-1. 若要获取为当前存储库注册的所有远程更新的详细信息，请将 Git: Autofetch 设置为 `all`。
-![启用 Git 自动获取](/assets/images/help/codespaces/autofetch-all.png)
-1. 如果要更改自动获取的间隔秒数，请编辑 Git: Autofetch Period 的值。
+{% vscode %}
 
-## 提交更改 
+{% data reusables.codespaces.source-control %} 
 
-{% data reusables.codespaces.source-control-commit-changes %} 
+{% endvscode %}
 
-## 提出拉取请求
+{% jetbrains %}
 
-{% data reusables.codespaces.source-control-pull-request %} 
+## Creating or switching branches
 
-## 将更改推送到远程仓库
+1. Click the branch name at the right side of the status bar.
 
-您可以推送所做的更改。 这将应用这些更改到远程仓库上的上游分支。 如果您尚未准备好创建拉取请求，或者希望在 {% data variables.product.prodname_dotcom %} 上创建拉取请求，则可能需要这样做。
+   ![Screenshot of the branch name in the status bar](/assets/images/help/codespaces/jetbrains-branch-button.png)
 
-1. 在侧栏顶部，单击省略号 (…)。![和更多操作的省略号按钮](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-1. 在下拉菜单中，单击“推送”。
+1. In the pop-up menu, do one of the following:
+   * To create a new branch based on the current branch, click the name of the current branch, then choose **New Branch**. 
+
+     ![Screenshot of the new branch option](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
+
+     Enter a name for the new branch and click **Create**.
+
+     ![Screenshot of the create branch dialog box](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
+
+   * To check out an existing branch, start typing the name of the branch you want to check out. Click the branch from the list, then click **Checkout**.
+
+     ![Screenshot of the checkout option](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
+
+     {% tip %}
+
+     **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace. 
+
+     {% endtip %}
+
+
+## Committing your changes 
+
+1. At the right side of the navigation bar, click the check mark.
+
+   ![Screenshot of the commit check mark](/assets/images/help/codespaces/jetbrains-commit-button.png)
+
+1. In the Commit Changes dialog box, enter a commit message.
+1. Click **Commit**.
+
+   Alternatively, click the down arrow beside **Commit** and click **Commit and Push**.
+
+   ![Screenshot of the commit and push button](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
+
+## Pulling changes from the remote repository
+
+You can pull changes from the same branch on the remote repository and apply those changes to the copy of the repository you are working on in your codespace.
+
+1. At the right side of the navigation bar, click the downward pointing arrow.
+
+   ![Screenshot of the update project downward arrow button](/assets/images/help/codespaces/jetbrains-update-project-button.png)
+
+1. In the Update Project dialog box, choose whether you want to merge or rebase the incoming changes.
+
+   ![Screenshot of the Update Project dialog box](/assets/images/help/codespaces/jetbrains-update-options.png)
+
+1. Click **OK**.
+
+## Pushing changes to your remote repository
+
+You can push changes you've saved and committed. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
+
+1. At the right side of the navigation bar, click the upward pointing arrow.
+
+   ![Screenshot of the push commits upward arrow](/assets/images/help/codespaces/jetbrains-push-button.png)
+
+1. In the Push Commits dialog box, click **Push**.
+
+{% endjetbrains %}

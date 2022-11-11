@@ -1,8 +1,7 @@
 ---
-title: 管理组织代码空间的存储库访问
+title: Managing repository access for your organization's codespaces
 shortTitle: Repository access
-intro: '你可以管理 {% data variables.product.prodname_github_codespaces %} 可以访问的组织中的存储库。'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'You can manage the repositories in your organization that {% data variables.product.prodname_github_codespaces %} can access.'
 permissions: 'To manage access and security for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
@@ -16,29 +15,26 @@ redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces
   - /github/developing-online-with-codespaces/managing-access-and-security-for-codespaces
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
-ms.openlocfilehash: e7e363268d1c7ff95937457e5bf3973e2abd4f8f
-ms.sourcegitcommit: 034fc1834824c2b07adf5127de52429296fdbb52
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2022
-ms.locfileid: '147431454'
 ---
+
 {% warning %}
 
-**停用说明**：下方描述的访问和安全设置现已停用，此处记录仅为参考。 若要启用对其他存储库的扩展访问权限，请将请求的权限添加到开发容器定义。 有关详细信息，请参阅“[管理对 codespace 内其他存储库的访问权限](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)”。
+**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. To enable expanded access to other repositories, add the requested permissions to your `devcontainer.json` configuration file. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
 
 {% endwarning %}
 
-默认情况下，代码空间只能访问创建它的仓库。 当您为组织拥有的存储库启用访问和安全性时，为该存储库创建的任何代码空间也将对组织拥有的所有其他存储库具有读取权限，并且代码空间创建者具有访问权限。 如果要限制代码空间可以访问的存储库，可以将其限制为创建代码空间的存储库或特定存储库。 您应该只对您信任的仓库启用访问和安全。
+By default, a codespace can only access the repository where it was created. When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will also have read permissions to all other repositories the organization owns and the codespace creator has permissions to access. If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. You should only enable access and security for repositories you trust.
 
-要管理组织中的哪些用户可以使用 {% data variables.product.prodname_github_codespaces %}，请参阅“[为组织启用 GitHub Codespaces](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)”。
+To manage which users in your organization can use {% data variables.product.prodname_github_codespaces %}, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)."
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.click-codespaces %}
-1. 在“Access and security（访问和安全）”下，为组织选择所需的设置。
-  ![管理受信任存储库的单选按钮](/assets/images/help/settings/codespaces-org-access-and-security-radio-buttons.png)
-1. 如果您选择了“Selected repositories（所选仓库）”，请选择下拉菜单，然后单击一个仓库，以允许该仓库的代码空间访问组织拥有的其他仓库。 对于您要允许其代码空间访问其他仓库的所有仓库重复此操作。
-    ![“所选存储库”下拉菜单](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.click-codespaces %}
+1. Under "Access and security", select the setting you want for your organization.
+  ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-org-access-and-security-radio-buttons.png)
+1. If you chose "Selected repositories", select the dropdown menu, then click a repository to allow the repository's codespaces to access other repositories owned by your organization. Repeat for all repositories whose codespaces you want to access other repositories.
+    !["Selected repositories" dropdown menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
 
-## <a name="further-reading"></a>延伸阅读
+## Further reading
 
-- [管理 codespace 的存储库访问](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)
+- "[Managing repository access for your codespaces](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)"

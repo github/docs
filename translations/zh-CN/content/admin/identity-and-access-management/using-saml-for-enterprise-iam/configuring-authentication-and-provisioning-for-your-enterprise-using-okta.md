@@ -1,7 +1,7 @@
 ---
-title: Configuring authentication and provisioning for your enterprise using Okta
+title: 使用 Okta 为企业配置身份验证和预配
 shortTitle: Configure with Okta
-intro: 'You can use Okta as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.location.product_location %}.'
+intro: '可以使用 Okta 作为标识提供者 (IdP) 来集中管理 {% data variables.location.product_location %}的身份验证和用户预配。'
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
@@ -17,159 +17,151 @@ topics:
   - Identity
   - SSO
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 1655ca7f800b94c150455a077b867e7e08fa924b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107513'
 ---
-
 {% data reusables.saml.okta-ae-sso-beta %}
 
-## About authentication and user provisioning with Okta
+## 关于使用 Okta 进行身份验证和用户预配
 
-You can use Okta as an Identity Provider (IdP) for {% data variables.product.product_name %}, which allows your Okta users to sign in to {% data variables.product.product_name %} using their Okta credentials.
+你可以使用 Okta 作为 {% data variables.product.product_name %} 的标识提供者 (IdP)，这可允许你的 Okta 用户使用其 Okta 凭据登录到 {% data variables.product.product_name %}。
 
-To use Okta as your IdP for {% data variables.product.product_name %}, you can add the {% data variables.product.product_name %} app to Okta, configure Okta as your IdP in {% data variables.product.product_name %}, and provision access for your Okta users and groups.
+要使用 Okta 作为 {% data variables.product.product_name %} 的 IdP，可以将 {% data variables.product.product_name %} 应用添加到 Okta、将 Okta 配置为 {% data variables.product.product_name %} 中的 IdP，并为你的 Okta 用户和组预配访问权限。
 
 {% data reusables.scim.ghes-beta-note %}
 
-The following provisioning features are available for all Okta users that you assign to your {% data variables.product.product_name %} application.
+以下预配功能可用于你分配给 {% data variables.product.product_name %} 应用程序的所有 Okta 用户。
 
-| Feature | Description |
+| 功能 | 说明 |
 | --- | --- |
-| Push New Users | When you create a new user in Okta, the user is added to {% data variables.product.product_name %}. |
-| Push User Deactivation | When you deactivate a user in Okta, it will suspend the user from your enterprise on {% data variables.product.product_name %}. |
-| Push Profile Updates | When you update a user's profile in Okta, it will update the metadata for the user's membership in your enterprise on {% data variables.product.product_name %}. |
-| Reactivate Users | When you reactivate a user in Okta, it will unsuspend the user in your enterprise on {% data variables.product.product_name %}. |
+| 推送新用户 | 在 Okta 中创建新用户时，用户将添加到 {% data variables.product.product_name %}。 |
+| 推送用户停用 | 在 Okta 中停用用户时，它将在 {% data variables.product.product_name %} 上从你的企业中暂停该用户。 |
+| 推送个人资料更新 | 在 Okta 中更新用户的配置文件时，它将在 {% data variables.product.product_name %} 上从你的企业中更新该用户的成员身份元数据。 |
+| 重新激活用户 | 在 Okta 中重新激活用户时，它将在 {% data variables.product.product_name %} 上从你的企业中取消暂停该用户。 |
 
-## Prerequisites
+## 先决条件
 
-- To configure authentication and user provisioning for {% data variables.product.product_name %} using Okta, you must have an Okta account and tenant.
+- 若要使用 Okta 配置 {% data variables.product.product_name %} 的身份验证和用户预配，必须有 Okta 帐户和租户。
 
 {%- ifversion scim-for-ghes %}
-- {% data reusables.saml.ghes-you-must-configure-saml-sso %}
-{%- endif %}
+- {% data reusables.saml.ghes-you-must-configure-saml-sso %} {%- endif %}
 
 - {% data reusables.saml.create-a-machine-user %}
 
-## Adding the {% data variables.product.product_name %} application in Okta
+## 在 Okta 中添加 {% data variables.product.product_name %} 应用程序
 
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-browse-app-catalog %}
-{%- ifversion ghae %}
-1. In the search field, type "GitHub AE", then click **GitHub AE** in the results.
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-browse-app-catalog %} {%- ifversion ghae %}
+1. 在搜索字段中，键入“GitHub AE”，然后单击结果中的“GitHub AE”。
 
-  !["Search result"](/assets/images/help/saml/okta-ae-search.png)
-1. Click **Add**.
+  ![搜索结果](/assets/images/help/saml/okta-ae-search.png)
+1. 单击“添加”。
 
-  !["Add GitHub AE app"](/assets/images/help/saml/okta-ae-add-github-ae.png)
-1. For "Base URL", type the URL of your enterprise on {% data variables.product.product_name %}.
+  ![添加 GitHub AE 应用](/assets/images/help/saml/okta-ae-add-github-ae.png)
+1. 对于“基 URL”，请键入 {% data variables.product.product_name %}上企业的 URL。
 
-  !["Configure Base URL"](/assets/images/help/saml/okta-ae-configure-base-url.png)
-1. Click **Done**.
+  ![配置基 URL](/assets/images/help/saml/okta-ae-configure-base-url.png)
+1. 单击“Done”（完成） 。
 {%- elsif scim-for-ghes %}
-1. In the search field, type "GitHub Enterprise Server", then click **GitHub Enterprise Server** in the results.
-1. Click **Add**.
-1. For "Base URL", type the URL of {% data variables.location.product_location %}.
-1. Click **Done**.
+1. 在搜索字段中，键入“GitHub Enterprise Server”，然后单击结果中的“GitHub Enterprise Server”。
+1. 单击 **添加**。
+1. 对于“基 URL”，请键入 {% data variables.location.product_location %} 的 URL。
+1. 单击“完成”。
 {% endif %}
 
-## Enabling SAML SSO for {% data variables.product.product_name %}
+## 为 {% data variables.product.product_name %} 启用 SAML SSO
 
-To enable single sign-on (SSO) for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} to use the sign-on URL, issuer URL, and public certificate provided by Okta. You can find these details in the Okta app for {% data variables.product.product_name %}.
+要为 {% data variables.product.product_name %} 启用单一登录 (SSO)，必须将 {% data variables.product.product_name %} 配置为使用 Okta 提供的登录 URL、证书颁发者 URL 和公共证书。 可以在 {% data variables.product.product_name %} 的 Okta 应用中找到这些详细信息。
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-click-on-the-app %}
-{% ifversion ghae %}
-{% data reusables.saml.okta-sign-on-tab %}
-{% data reusables.saml.okta-view-setup-instructions %}
-1. Take note of the "Sign on URL", "Issuer", and "Public certificate" details. 
-1. Use the details to enable SAML SSO for your enterprise on {% data variables.product.product_name %}. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
-{% elsif scim-for-ghes %}
-{% data reusables.saml.okta-sign-on-tab %}
-1. Use the details to enable SAML SSO for {% data variables.location.product_location %}. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% ifversion ghae %} {% data reusables.saml.okta-sign-on-tab %} {% data reusables.saml.okta-view-setup-instructions %}
+1. 记下“登录 URL”、“证书颁发者”和“公共证书”详细信息。 
+1. 使用这些详细信息在 {% data variables.product.product_name %} 上为企业启用 SAML SSO。 有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
+{% elsif scim-for-ghes %} {% data reusables.saml.okta-sign-on-tab %}
+1. 使用这些详细信息为 {% data variables.location.product_location %} 启用 SAML SSO。 有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
 {%- endif %}
 
 {% note %}
 
-**Note:** To test your SAML configuration from {% data variables.product.product_name %}, your Okta user account must be assigned to the {% data variables.product.product_name %} app.
+注意：要从 {% data variables.product.product_name %} 测试 SAML 配置，必须将你的 Okta 用户帐户分配给 {% data variables.product.product_name %} 应用。
 
 {% endnote %}
 
-## Enabling API integration
+## 启用 API 集成
 
-The Okta app uses the REST API for {% data variables.product.product_name %} for SCIM provisioning. You can enable and test access to the API by configuring Okta with a {% data variables.product.pat_generic %} for {% data variables.product.product_name %}.
+Okta 应用使用 {% data variables.product.product_name %} 的 REST API 进行 SCIM 预配。 可以通过使用 {% data variables.product.product_name %} 的{% data variables.product.pat_generic %}配置 Okta 来启用和测试对 API 的访问。
 
-1. In {% data variables.product.product_name %}, generate a {% data variables.product.pat_v1 %} with the `admin:enterprise` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-click-on-the-app %}
-{% data reusables.saml.okta-ae-provisioning-tab %}
-1. Click **Configure API Integration**.
+1. 在 {% data variables.product.product_name %} 中，生成具有 `admin:enterprise` 范围的{% data variables.product.pat_v1 %}。 有关详细信息，请参阅“[创建{% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% data reusables.saml.okta-ae-provisioning-tab %}
+1. 单击“配置 API 集成”。
 
-1. Select **Enable API integration**.
+1. 选择“启用 API 集成”。
 
-  ![Enable API integration](/assets/images/help/saml/okta-ae-enable-api-integration.png)
+  ![启用 API 集成](/assets/images/help/saml/okta-ae-enable-api-integration.png)
 
-1. For "API Token", type the {% data variables.product.product_name %} {% data variables.product.pat_generic %} you generated previously.
+1. 对于“API 令牌”，请键入你前面生成的 {% data variables.product.product_name %} {% data variables.product.pat_generic %}。
 
-1. Click **Test API Credentials**. 
+1. 单击“测试 API 凭据”。 
 
 {% note %}
 
-**Note:** If you see `Error authenticating: No results for users returned`, confirm that you have enabled SSO for {% data variables.product.product_name %}. For more information see "[Enabling SAML SSO for {% data variables.product.product_name %}](#enabling-saml-sso-for-github-ae)."
+注意：如果看到 `Error authenticating: No results for users returned`，请确认已为 {% data variables.product.product_name %} 启用 SSO。 有关详细信息，请参阅“[为 {% data variables.product.product_name %} 启用 SAML SSO](#enabling-saml-sso-for-github-ae)”。
 
 {% endnote %}
 
-## Configuring SCIM provisioning settings
+## 配置 SCIM 预配设置
 
-This procedure demonstrates how to configure the SCIM settings for Okta provisioning. These settings define which features will be used when automatically provisioning Okta user accounts to {% data variables.product.product_name %}.
+此过程演示如何为 Okta 预配配置 SCIM 设置。 这些设置定义自动将 Okta 用户帐户预配到 {% data variables.product.product_name %} 时将使用哪些功能。
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-click-on-the-app %}
-{% data reusables.saml.okta-ae-provisioning-tab %}
-1. Under "Settings", click **To App**.
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% data reusables.saml.okta-ae-provisioning-tab %}
+1. 在“设置”下，单击“到应用”。
 
-  !["To App" settings](/assets/images/help/saml/okta-ae-to-app-settings.png)
+  ![“到应用”设置](/assets/images/help/saml/okta-ae-to-app-settings.png)
 
-1. To the right of "Provisioning to App", click **Edit**.
-1. To the right of "Create Users", select **Enable**.
-1. To the right of "Update User Attributes", select **Enable**.
-1. To the right of "Deactivate Users", select **Enable**.
-1. Click **Save**.
+1. 在“预配到应用”右侧，单击“编辑”。
+1. 在“创建用户”右侧，选择“启用”。
+1. 在“更新用户属性”右侧，选择“启用”。
+1. 在“停用用户”右侧，选择“启用”。
+1. 单击“ **保存**”。
 
-## Allowing Okta users and groups to access {% data variables.product.product_name %}
+## 允许 Okta 用户和组访问 {% data variables.product.product_name %}
 
-You can provision access to {% data variables.product.product_name %} for your individual Okta users, or for entire groups.
+你可以为单个 Okta 用户或整个组预配对 {% data variables.product.product_name %} 的访问权限。
 
-### Provisioning access for Okta users
+### 为 Okta 用户预配访问权限
 
-Before your Okta users can use their credentials to sign in to {% data variables.product.product_name %}, you must assign the users to the Okta app for {% data variables.product.product_name %}.
+在你的 Okta 用户可以使用其凭据登录到 {% data variables.product.product_name %} 之前，必须将这些用户分配到 {% data variables.product.product_name %} 的 Okta 应用。
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-click-on-the-app %}
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %}
 
-1. Click **Assignments**.
+1. 单击“分配”。 
 
-  ![Assignments tab](/assets/images/help/saml/okta-ae-assignments-tab.png)
+  ![Assignments（分配）选项卡](/assets/images/help/saml/okta-ae-assignments-tab.png)
 
-1. Select the Assign drop-down menu and click **Assign to People**.
+1. 选择“分配”下拉菜单，然后单击“分配给人员”。
 
-  !["Assign to People" button](/assets/images/help/saml/okta-ae-assign-to-people.png)
+  ![“分配给人员”按钮](/assets/images/help/saml/okta-ae-assign-to-people.png)
 
-1. To the right of the required user account, click **Assign**.
+1. 在所需用户帐户的右侧，单击“分配”。
 
-  ![List of users](/assets/images/help/saml/okta-ae-assign-user.png)
+  ![用户列表](/assets/images/help/saml/okta-ae-assign-user.png)
 
-1. To the right of "Role", click a role for the user, then click **Save and go back**.
+1. 在角色右侧，单击用户的角色，然后单击“保存并返回”。
 
-  ![Role selection](/assets/images/help/saml/okta-ae-assign-role.png)
+  ![角色选择](/assets/images/help/saml/okta-ae-assign-role.png)
 
-1. Click **Done**.
+1. 单击“完成”。
 
 {% ifversion ghae %}
-### Provisioning access for Okta groups
+### 为 Okta 组预配访问权限
 
-You can map your Okta group to a team in {% data variables.product.product_name %}. Members of the Okta group will then automatically become members of the mapped {% data variables.product.product_name %} team. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+可以将你的 Okta 组映射到 {% data variables.product.product_name %} 中的团队。 然后，Okta 组的成员将自动成为映射的 {% data variables.product.product_name %} 团队的成员。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) in the Okta documentation
-- [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) in the Okta documentation
+- 在 Okta 文档中[了解 SAML](https://developer.okta.com/docs/concepts/saml/)
+- 在 Okta 文档中[了解 SCIM](https://developer.okta.com/docs/concepts/scim/)
